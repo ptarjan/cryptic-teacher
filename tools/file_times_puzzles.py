@@ -169,11 +169,46 @@ def month_of(token, year_follows):
     return None
 
 
-def named_dates(slug, posted):
-    """The dates a post's slug names: "12-september-2026", "26th-april",
-    "march-19-2016". One naming no year is read in the year that puts it
-    before the post and within BLOGGED_WITHIN of it."""
-    tokens = slug.lower().split("-")
+#: Holidays a Jumbo title names instead of a date: the words, then the date
+#: in a given year.
+def easter(y):
+    """Easter Sunday of year `y` (the Gregorian computus)."""
+    a, b, c = y % 19, y // 100, y % 100
+    d, e = divmod(b, 4)
+    g = (8 * b + 13) // 25
+    h = (19 * a + b - d - g + 15) % 30
+    i, k = divmod(c, 4)
+    l = (32 + 2 * e + 2 * i - h - k) % 7
+    m = (a + 11 * h + 22 * l) // 451
+    month, day = divmod(h + l - 7 * m + 114, 31)
+    return datetime.date(y, month, day + 1)
+
+
+def last_monday(y, month):
+    d = datetime.date(y, month + 1, 1) - DAY
+    return d - DAY * d.weekday()
+
+
+HOLIDAYS = {
+    ("christmas", "day"): lambda y: datetime.date(y, 12, 25),
+    ("boxing", "day"): lambda y: datetime.date(y, 12, 26),
+    ("new", "year", "s", "day"): lambda y: datetime.date(y, 1, 1),
+    ("new", "years", "day"): lambda y: datetime.date(y, 1, 1),
+    ("easter", "monday"): lambda y: easter(y) + DAY,
+    ("summer", "bank", "holiday"): lambda y: last_monday(y, 8),
+}
+
+#: A slug or title as words: "April1, 2017" and "april1-2017" both read
+#: april, 1, 2017; "18/11/17" reads 18, 11, 17.
+WORD = re.compile(r"\d+(?:st|nd|rd|th)?|[a-z]+")
+
+
+def named_dates(text, posted):
+    """The dates a post's slug or title names: "12-september-2026",
+    "26th-april", "march-19-2016", "18/11/17", "Boxing Day, 2016". One naming
+    no year is read in the year that puts it before the post and within
+    BLOGGED_WITHIN of it."""
+    tokens = WORD.findall(text.lower())
     found = []
     for i, tok in enumerate(tokens):
         nxt = tokens[i + 1:i + 4]
@@ -187,6 +222,10 @@ def named_dates(slug, posted):
             month = month_of(nxt[k], year(k + 1) is not None)
             if month:
                 found.append((int(day.group(1)), month, year(k + 1)))
+        if tok.isdigit() and len(nxt) >= 2 and nxt[0].isdigit() and len(nxt[1]) in (2, 4) \
+                and nxt[1].isdigit() and 1 <= int(nxt[0]) <= 12:
+            y = int(nxt[1])
+            found.append((int(tok), int(nxt[0]), y if y > 999 else 2000 + y))  # d/m/yy
         month = month_of(tok, False)
         if month and nxt and DAY_TOKEN.fullmatch(nxt[0]):
             found.append((int(DAY_TOKEN.fullmatch(nxt[0]).group(1)), month, year(1)))
@@ -194,23 +233,33 @@ def named_dates(slug, posted):
     for day, month, year in found:
         for y in ([year] if year else [posted.year, posted.year - 1]):
             try:
-                date = datetime.date(y, month, day)
+                out.add((datetime.date(y, month, day), bool(year)))
             except ValueError:
                 continue
-            if datetime.timedelta(0) <= posted - date <= (
-                    datetime.timedelta(days=400) if year else BLOGGED_WITHIN):
-                out.add(date)
-    return out
+    for words, on in HOLIDAYS.items():
+        for i in range(len(tokens) - len(words) + 1):
+            if tuple(tokens[i:i + len(words)]) == words:
+                y = tokens[i + len(words):i + len(words) + 1]
+                if y and YEAR.fullmatch(y[0]):
+                    out.add((on(int(y[0])), True))
+                else:
+                    out.update((on(y), False) for y in (posted.year, posted.year - 1))
+    return {d for d, dated in out
+            if datetime.timedelta(0) <= posted - d <= (
+                datetime.timedelta(days=400) if dated else BLOGGED_WITHIN)}
 
 
 def blog_date(rec, series):
-    """The one print date the post's slug names, or None: a date on the
-    series' day, or for the Jumbo a bank holiday's, which is a Monday or in
-    the week from Christmas Eve to 2 January (bloggers mistype the day, and
+    """The one print date the post's slug and title name, or None: a date on
+    the series' day, or for the Jumbo a bank holiday's, which is a Monday or
+    in the week from Christmas Eve to 2 January (bloggers mistype the day, and
     a Wednesday "bank holiday" is one of those)."""
     posted = datetime.date.fromisoformat(rec["date"])
     day = PRIZE_DAY[series]
-    on_day = {d for d in named_dates(rec.get("slug") or "", posted)
+    named = set()
+    for text in (rec.get("slug"), rec.get("title")):
+        named |= named_dates(text or "", posted)
+    on_day = {d for d in named
               if d.weekday() == day or (series == "timesjumbo" and holiday(d))}
     return on_day.pop() if len(on_day) == 1 else None
 
@@ -245,12 +294,28 @@ def between(series, a, da, b, db):
     return days if b > a and len(days) == b - a - 1 else None
 
 
+def fits_between(series, a, da, b, db):
+    """Can numbers a and b be printed on da and db? Every prize day between
+    them has its number, so there are at least as many numbers between as
+    prize days, and the Jumbo's bank holidays allow at most one more for each
+    Monday and Christmas-week weekday between."""
+    if b <= a or db <= da:
+        return False
+    days = [da + DAY * k for k in range(1, (db - da).days)]
+    due = sum(d.weekday() == PRIZE_DAY[series] for d in days)
+    could = due + (series == "timesjumbo") * sum(
+        holiday(d) and d.weekday() != PRIZE_DAY[series] for d in days)
+    return due <= b - a - 1 <= could
+
+
 def date_weekly(series, numbers, listing, blog, notes):
     """{number: date} for one weekly prize series.
 
     Anchors are the listing's dates and the blog's (a blog date only once an
-    adjacent anchor agrees with it by the cadence, since a blogger can mistype
-    a day). Between two anchors the cadence proves, every number follows."""
+    adjacent anchor agrees with it by the cadence, or the numbers between it
+    and the anchors either side fit the days between them, since a blogger
+    can mistype a day). Between two anchors the
+    cadence proves, every number follows."""
     anchors = dict(blog)
     for n, d in listing.items():
         if blog.get(n, d) != d:
@@ -261,13 +326,19 @@ def date_weekly(series, numbers, listing, blog, notes):
     def agree(a, b):
         return between(series, a, anchors[a], b, anchors[b]) is not None
 
+    def fits(a, b):
+        return fits_between(series, a, anchors[a], b, anchors[b])
+
     confirmed = {}
     for i, n in enumerate(order):
-        if (n in listing or (i > 0 and agree(order[i - 1], n))
-                or (i + 1 < len(order) and agree(n, order[i + 1]))):
+        pairs = [p for p in ((order[i - 1], n) if i > 0 else None,
+                             (n, order[i + 1]) if i + 1 < len(order) else None) if p]
+        if n in listing or any(agree(*p) for p in pairs) or (
+                pairs and all(fits(*p) for p in pairs)):
             confirmed[n] = anchors[n]
         else:
-            notes.append(f"{series}-{n}: the blog's {anchors[n]} agrees with no anchor beside it; unused")
+            notes.append(f"{series}-{n}: the blog's {anchors[n]} leaves too many or too few "
+                         f"numbers for the days to an anchor beside it; unused")
     order = sorted(confirmed)
     out, breaks = {}, set()
     for n in numbers:
