@@ -1,356 +1,378 @@
 # Cryptic Teacher style guide
 
-This is the permanent home for product feedback. When Paul gives feedback on a
-puzzle, a hint, or the app, the fix goes in TWO places: the instance that prompted
-it, and a rule here (plus, where possible, a mechanical check in
-`tools/validate_annotations.py` or an assertion in `tools/smoke_test.js`).
-`tools/annotate_prompt.md` tells the daily annotation run to follow this file, so
-rules added here apply to every future puzzle automatically.
+These are the standing rules for annotating puzzles. `tools/annotate_prompt.md`
+tells the nightly annotation run to read this file whole, so a rule added here
+applies to every future puzzle. Where this file and `tools/annotate_prompt.md`
+disagree, this file wins.
+
+When Paul gives feedback on a puzzle, a hint or the app, fix it in two places:
+the instance he pointed at, and a rule here. Where you can, also add a
+mechanical check in `tools/validate_annotations.py` or an assertion in
+`tools/smoke_test.js`.
+
+Rules for how the app *presents* annotations (the hint ladder, the reference
+corpus, deploy and cache-busting) live in `APP.md`, not here. The annotator
+reads this file whole and cannot act on them. Put each rule in the file that
+its reader reads.
+
+"The validator" below means `tools/validate_annotations.py`. ERROR means the
+validator fails the puzzle; a warning is reported but does not fail it.
 
 ### A new rule binds the next puzzle, not just the one that prompted it
-A rule invented after 150 puzzles are annotated cannot fail the corpus on the day
-it lands, and the old answer to that was a `REQUIRE_X = False` flag to be flipped
-by hand once a backfill drained the backlog. That leaves the rule optional for
-precisely the puzzles it exists for — the ones not written yet — and it stays
-optional for as long as anyone forgets. So the allowance is per puzzle and
-written down: `tools/annotation_backlog.json` records how many clues of each
-existing puzzle predate each field, the validator ERRORs the moment a puzzle
-exceeds its own number, and a puzzle absent from the file — every puzzle fetched
-from now on — is allowed none. It only ever shrinks, so draining a puzzle
-tightens the rule on it permanently, and `tools/prereset_backfill.sh` reads its
-field list out of the same file rather than naming fields itself. Adding a
-grandfathered field means adding it to `BACKLOG_MARKERS` and running
-`python3 tools/validate_annotations.py --tighten` once (feedback 2026-08-17:
-"Don't just fix the things I point out, make sure future puzzles get the fixes
-too").
+A new rule applies at once to every puzzle fetched from now on. Puzzles
+annotated before it get a written, per-puzzle allowance, never an on/off flag:
+
+- `tools/annotation_backlog.json` records, for each existing puzzle, how many of
+  its clues predate each field.
+- The validator ERRORs as soon as a puzzle has more such clues than its own
+  number. A puzzle not listed in the file is allowed none.
+- The numbers only go down. Draining a puzzle's backlog tightens the rule on it
+  permanently.
+- `tools/prereset_backfill.sh` reads its field list from the same file. It does
+  not name fields itself.
+
+To grandfather a new field, add it to `BACKLOG_MARKERS` in the validator and run
+`python3 tools/validate_annotations.py --tighten` once. Do not add a
+`REQUIRE_X = False` flag to flip later: it leaves the rule optional for the
+puzzles it exists for, the ones not yet written, for as long as nobody flips it.
 
 ## Annotation rules
 
-### Honest types (feedback 2026-07-26)
-The `type` field must name EVERY mechanism the wordplay uses, joined with
-`" + "`, in the order they occur. Never label a clue with just its dominant
-mechanism: if a charade's second chunk comes from the alternate letters of a
-word, the type is `charade + alternate letters`, not `charade`.
+### Honest types
+`type` names EVERY mechanism the wordplay uses, joined with `" + "`, in the
+order they occur. Never give only the main mechanism. If a charade's second
+chunk comes from the alternate letters of a word, the type is
+`charade + alternate letters`, not `charade`.
 
-Controlled vocabulary (enforced by the validator — extend `TYPE_PARTS` there and
-the list below together):
+The vocabulary is fixed. `TYPE_PARTS` in the validator is the complete list, and
+the validator ERRORs on any other part. This list must match it. Where a part is
+written `X letter(s)` below, both `X letter` and `X letters` are valid.
 
 - Base types: `anagram`, `charade`, `container`, `hidden word`, `homophone`,
   `reversal`, `deletion`, `double definition`, `cryptic definition`, `&lit`,
-  `spoonerism`
+  `spoonerism`.
 - Letter selection: `first letter(s)`, `last letter(s)`, `middle letter(s)`,
-  `outer letters`, `alternate letters`, `regular letters` (letters taken at a
-  fixed step other than every second one — 30077 17D takes every THIRD letter
-  of "Hope to God" to spell POD), `second letter(s)` (a letter picked by its
-  position — 12420 14D takes the second letter of "master" for the A of AGO,
-  and 30065 6D takes the second letter of each of four words to spell EDAM),
-  and the same device counted further in: `third letter(s)`, `fourth
-  letter(s)`, `fifth letter(s)` (30103 25D takes the fifth of "citizens" for
-  the Z of UZBEK)
-- Letter movement: `cycling` (letters rotate from one end of the assembly to
-  the other, keeping their order), `substitution` (one indicated letter or
-  chunk stands in for another), `palindrome` (the answer reads the same in
-  both directions, which is the whole of the wordplay — 30052 23D PULL-UP,
-  "Stop going both ways?"). A palindrome is not a `reversal`: nothing is
-  turned round to become something else, so no fragment can hand over
-  letters. Annotate it the way a cryptic definition is annotated — blocks
-  that split the clue into the definition and the mirror instruction, with
-  `pieces` carrying the machine-checkable assembly.
+  `outer letters`, `alternate letters`.
+  - `regular letters`: letters taken at a fixed step other than every second.
+    30077 17D takes every THIRD letter of "Hope to God" to spell POD.
+  - `second letter(s)`: a letter picked by its position. 12420 14D takes the
+    second letter of "master" for the A of AGO; 30065 6D takes the second letter
+    of each of four words to spell EDAM.
+  - `third letter(s)` through `twelfth letter(s)` (`third`, `fourth`, `fifth`,
+    `sixth`, `seventh`, `eighth`, `ninth`, `tenth`, `eleventh`, `twelfth`): the
+    same, counted further in. 30103 25D takes the fifth letter of "citizens" for
+    the Z of UZBEK.
+  - `prime letters`: positions picked by a rule, not a fixed step.
+    indysunday-1871 12A keeps the 2nd, 3rd, 5th, 7th and 11th letters of a
+    phrase to spell OASES.
+- Letter movement:
+  - `cycling`: letters move from one end of the assembly to the other and keep
+    their order.
+  - `substitution`: one indicated letter or chunk replaces another.
+  - `palindrome`: the answer reads the same both ways, and that is the whole
+    wordplay (30052 23D PULL-UP, "Stop going both ways?"). It is not a
+    `reversal`: nothing is turned round to become something else, so no
+    fragment hands over letters. Annotate it like a cryptic definition: blocks
+    that split the clue into the definition and the mirror instruction, with
+    `pieces` carrying the machine-checkable assembly.
 
-Worked examples: 30067 1A GARBAGE = `charade + alternate letters` (GARB +
-alternate letters of bAgGiEr); 30066 5D ALLOCATE = `anagram + last letter`
-(anagram of A COL TALE... + storE "ultimately"); 30079 7D TSUNAMIS =
-`charade + cycling` (A + MIST + SUN, back half cycled to the front); 30079
-15D LAUGH LINE = `charade + substitution` (TAUGHT + IN + E with student Ls
-"covering" for the tense Ts).
+Worked examples:
+- 30067 1A GARBAGE = `charade + alternate letters` (GARB + alternate letters of
+  bAgGiEr).
+- 30066 5D ALLOCATE = `anagram + last letter` (anagram of A COL TALE... + storE,
+  "ultimately").
+- 30079 7D TSUNAMIS = `charade + cycling` (A + MIST + SUN, back half cycled to
+  the front).
+- 30079 15D LAUGH LINE = `charade + substitution` (TAUGHT + IN + E, with student
+  Ls "covering" for the tense Ts).
 
-When a new type part is needed, add it to `TYPE_PARTS` in the validator, this
-list, and a level-1 blurb in `TYPE_BLURBS` in `app.js` — all three, in one commit.
+**`pieces` and blocks tell the same assembly.** Charades, containers and
+deletions carry `pieces`: the final chunks of the answer, in answer order.
+Anagrams carry `anagram.fodder` instead. Double definitions, homophones and
+hidden words need neither. The blocks must take the answer apart the same way
+`pieces` does, not hand it over in one lump, and are listed in the order the
+answer reads. The full schema is in `tools/annotate_prompt.md`.
 
-**A sound type must name the sound.** `homophone` and `spoonerism` carry
-`soundsLike` on the block that does the sounding: the word you say ALOUD, which
-`gives` then spells differently. The validator errors when a sound clue has
-none, and errors when the two are the same letters — that is a spelling, not a
-homophone. This exists because 18 of the corpus's 48 sound clues had a block
-reading “fragment” → ANSWER and nothing else, with the entire mechanism
-unstated: 4096 24d rendered “Cockney mob” → OARED, never showing that a mob is
-a HORDE, that a Cockney drops the aitch to leave ’ORDE, or that ’ORDE said
-aloud is what you write ("doesn't explain that the original word is hoard but
-it is a homophone and you drop the h to it", Paul, 2026-08-17). A note
-mentioning the source in passing is not enough and was not enough — that clue
-had one. It has to be a field, because prose cannot be checked. Where another
-mechanism feeds the sound (a deletion, a charade), that mechanism gets its own
-earlier block; one arrow does one operation.
+To add a new type part, change all of these in one commit: `TYPE_PARTS` in the
+validator, this list, a level-1 blurb in `TYPE_BLURBS` in `app.js`, and a family
+in `FAMILIES` in `app.js`. Then run `python3 tools/build_annotate_prompt.py`.
 
-**A spoonerism swaps sounds, and the annotation has to show sounds.** The
-`soundsLike` on each half is the WORD that half sounds like before the swap, and
-`gives` is the letters it comes out as after: `“Money”` → DOUGH → NO,
-`“Nothing”` → NOUGHT → DOUBT. What is not available is exchanging the two words'
-first letters and calling the result a sound — quiptic 1398 9A declared
-DOUGH + NOUGHT sounded like “NOUGH DOUGHT”, which is not a word, not a
-pronunciation and not sayable, and the rung ended on it: "I have no idea how you
-get nought to oubt" (2026-09-07). Say the two words out loud, swap the noises at
-their fronts, and write down the ordinary spelling of what you hear — the
-respelling IS the lesson, and the vowels drifting a little on the way is worth a
-sentence in the walkthrough. `check_sound_is_not_a_letter_swap()` errors when a
-`soundsLike` is the earlier blocks' own letters rearranged; the corpus had three
-(1398 9A, 12412 5D, 1871 13A), all the same mistake, all now two-block
-exchanges. The two-block exchange is the shape to copy: it is what the other 325
-sound clues already do.
+**A sound type must name the sound.** A `homophone` or `spoonerism` puts
+`soundsLike` on the block that does the sounding. `soundsLike` is the word you
+say aloud; `gives` is the different spelling that goes into the answer. The
+validator ERRORs when a sound clue has no `soundsLike`, and when `soundsLike` and
+`gives` are the same letters (that is a spelling, not a homophone). A single
+block reading "fragment" → ANSWER, with the mechanism left unstated, is the
+failure this rule exists to stop. A note that mentions the source word does not
+count: it must be the field, because prose cannot be checked. Example: 4096 24D
+"Cockney mob" → OARED must show that a mob is a HORDE, that a Cockney drops the
+H to leave 'ORDE, and that 'ORDE said aloud is OARED. When another mechanism
+feeds the sound (a deletion, a charade), give it its own earlier block. One
+block does one operation.
 
-`cryptic definition` is capped at **two per puzzle**, a validator ERROR above
-that (`MAX_CRYPTIC_DEFINITIONS`). It is the only type with no checkable
-mechanism, so reaching for a third means either the clue's wordplay has not been
-found yet or — when we wrote the clue ourselves — a joke got written and a
-mechanism did not. See `tools/AUTHORING.md`, "The sentence AND the wordplay".
+**A spoonerism swaps sounds, so the annotation must show sounds.** On each half,
+`soundsLike` is the word that half sounds like before the swap, and `gives` is
+the letters it becomes after the swap: `"Money"` → DOUGH → NO, `"Nothing"` →
+NOUGHT → DOUBT. Say the two words aloud, swap the sounds at their fronts, and
+write the ordinary spelling of what you hear. That respelling is the lesson. If
+the vowels shift a little on the way, spend a sentence on it in the walkthrough.
+Never swap the two words' first letters and call the result a sound: "NOUGH
+DOUGHT" (quiptic 1398 9A) is not a word and cannot be said.
+`check_sound_is_not_a_letter_swap()` ERRORs when a `soundsLike` is just the
+earlier blocks' letters rearranged. Copy the two-block exchange shape that the
+other sound clues use.
 
-The ones that survive that test still have to be annotated into something worth
-paying a hint for. A cryptic definition's `blocks` may not carry `gives`, and
-there must be at least two of them — both validator ERRORS
-(`check_cryptic_definition_blocks`). There is exactly one block shape available
-to an annotator who does not think about it, the whole clue giving the whole
-answer, and it renders as hint 3 of 4 reading “Might this keep you to time?” →
-WATCHSTRAP: the rung before it has just said there is no separable wordplay, and
-this one sells the solve (Paul, 1392 22-across, 2026-08-10). A cryptic
-definition does not split into letters, but it does split into readings — the
-sense the surface pushes, and the sense the setter meant — and one block each is
-the smallest annotation that shows the seam. `app.js` suppresses `gives` on this
-type as well, so a stale annotation cannot leak while it waits to be rewritten.
+**At most two cryptic definitions per puzzle** (`MAX_CRYPTIC_DEFINITIONS`).
+`cryptic definition` is the only type with no checkable mechanism. Reaching for
+a third means the clue's wordplay has not been found yet, or, in a clue we
+wrote, that a joke was written without a mechanism. See `tools/AUTHORING.md`,
+"The sentence AND the wordplay". On a puzzle we set, a third is an ERROR. On a
+fetched puzzle, two or more is a warning that names each one, so a human can
+check none of them hides wordplay. Never leave a clue unannotated to get under
+the cap: `check_every_clue_is_annotated()` makes a blank annotation an error.
 
-### The definition must be substitutable (feedback 2026-07-29)
-A definition has to be able to REPLACE the answer in a sentence — which means
-matching its part of speech and its inflection. Paul's words: "the part of speech
-needs to be right." A plural answer needs a plural definition, an `-ing` answer an
-`-ing` definition, a verb a verb. Write the substitution out before you commit to a
-definition: *"NAUTICAL matters" → "matters of the crew"* works, so the adjective
-phrase `of the crew` is a fair definition; *"payment" → PEANUTS* would need the
-noun to agree in number.
+**A cryptic definition still needs useful blocks.** Its `blocks` may not carry
+`gives`, and it needs at least two blocks; both are validator ERRORs
+(`check_cryptic_definition_blocks`). Do not use one block that maps the whole
+clue to the whole answer: on the hint ladder that gives away the solve one rung
+early (for example "Might this keep you to time?" → WATCHSTRAP). A cryptic
+definition does not split into letters, but it does split into two readings:
+the sense the surface pushes, and the sense the setter meant. Give one block to
+each. `app.js` also hides `gives` on this type, so an old annotation cannot leak
+the answer while it waits to be rewritten.
 
-`check_part_of_speech()` in `tools/validate_annotations.py` catches the mechanical
-half of this (plural / `-ing` disagreement) as warnings. The judgement half is
-yours — the validator deliberately skips `-ly` and long descriptive phrases,
-because a warning nobody reads is worse than no warning.
+### The definition must be substitutable
+A definition must be able to REPLACE the answer in a sentence, so it must match
+the answer's part of speech and inflection. Paul: "the part of speech needs to
+be right." A plural answer needs a plural definition, an `-ing` answer an `-ing`
+definition, a verb a verb. Write the swap out before you settle on a definition:
+*"NAUTICAL matters" → "matters of the crew"* works, so the adjective phrase `of
+the crew` is a fair definition. *"payment" → PEANUTS* fails, because the noun
+must agree in number.
 
-Agreement is about grammar, not spelling: `aircraft` genuinely is a plural and so
-genuinely does define PLANES. Those nouns live in `INVARIANT_PLURALS` in the
-validator; extend that set rather than papering over the warning with a
-`definitionNote`, which would tell the learner a mismatch exists when it does not.
+`check_part_of_speech()` in the validator warns on the mechanical part (plural
+or `-ing` mismatch). The judgement part is yours. The validator deliberately
+skips `-ly` and long descriptive phrases, because a warning nobody reads is
+worse than no warning.
 
-### Account for every word (feedback 2026-07-29)
+Agreement is about grammar, not spelling. `aircraft` really is plural, so it
+really does define PLANES. Such nouns live in `INVARIANT_PLURALS` in the
+validator. Add to that set instead of silencing the warning with a
+`definitionNote`, which would tell the learner there is a mismatch when there
+is none.
+
+### Account for every word
 Every content word of the clue must be claimed by the parse: it belongs to the
 definition, to an indicator, or to a block's `clueFragment`. A word left over is
-wordplay you have not explained. 30067 13A ("Called out indecent state of the
-crew") was annotated as a homophone of NAUGHTY alone, and `state` = CAL
-(California) was silently dropped; the walkthrough then papered over the gap with
-"jokingly adjectived". `check_coverage()` flags leftover words as warnings, and
-hedging words in a walkthrough (`jokingly`, `somehow`, `if you squint`, …) are a
-hard ERROR — if a walkthrough needs a hedge, the parse is wrong, not the clue.
-Extend `HEDGES` in the validator when a new fudge shows up.
+wordplay you have not explained. For example, 30067 13A ("Called out indecent
+state of the crew") is not just a homophone of NAUGHTY: `state` = CAL
+(California) must also be claimed. `check_coverage()` warns on leftover words.
 
-The published text is the finished explanation, never the working-out. A
-walkthrough, a `definitionFit` or a block `note` that is still arguing with
-itself ("No wait—", "Still wrong.", "Actually:", "Correct parse:") is a hard
-ERROR, as is any walkthrough over `WALKTHROUGH_HARD_MAX` words. Found
-2026-08-05 benchmarking a cheaper annotation model: it passed every mechanical
-check on 30073 and handed the reader a 177-word 1A walkthrough that backtracked
-five times and never landed on a parse. Settle the parse first — think as long
-as you like — then write the sentence. If you cannot settle it, the annotation
-is not ready, and an unannotated clue is better than a published argument.
+Hedging words in a walkthrough (`jokingly`, `somehow`, `if you squint`, ...) are
+an ERROR. If a walkthrough needs a hedge, the parse is wrong, not the clue.
+Add new hedges to `HEDGES` in the validator when they appear.
 
-### What the leftover words turned out to be (feedback 2026-07-29)
-Working through every warning `check_coverage()` raised produced four distinct
-causes, and each one has a right answer. When a clue word is unaccounted for, it
-is one of these — never "ignore it":
+Publish the finished explanation, never the working-out. A walkthrough,
+`definitionFit` or block `note` that argues with itself ("No wait—", "Still
+wrong.", "Actually:", "Correct parse:") is an ERROR. So is a walkthrough longer
+than `WALKTHROUGH_HARD_MAX` words. Settle the parse first, taking as long as you
+need, then write the sentence. If you cannot settle it, the annotation is not
+ready: an unannotated clue is better than a published argument.
+
+### What the leftover words turned out to be
+A clue word the parse does not account for is always one of these four. Never
+ignore it.
 
 1. **A link word.** "Special symbol *indicating* ingredients of pudding batter",
-   "Tar was here at sea *to locate* marine bird". These join definition to
-   wordplay and contribute no letters. Declare them in `linkWords` (verbatim
-   substrings, validated). They are then greyed and struck through in the clue
-   and named on the definition rung — beginners hunt for a mechanism in these
-   words precisely because nothing ever tells them there isn't one.
-2. **An indicator you missed.** 30040 17D's "facing" is not padding: it is what
-   puts CY in front of P + RIOT. If a word tells you where a piece goes, it is an
+   "Tar was here at sea *to locate* marine bird". It joins definition to
+   wordplay and gives no letters. Declare it in `linkWords` (verbatim
+   substrings, validated). The app then greys it and strikes it through in the
+   clue, and names it on the definition rung. Beginners hunt for a mechanism in
+   such words unless told there is none.
+2. **An indicator you missed.** In 30040 17D, "facing" is not padding: it puts
+   CY in front of P + RIOT. A word that tells you where a piece goes is an
    indicator.
-3. **A letter you never named.** 30041 26A ("Pressure, therefore, to dispose of
-   hard cash") deleted an H without ever saying *hard* = H. A deletion must have
-   a block for the thing deleted, not just for the thing it is deleted from.
-4. **Genuine surface padding.** 30067 20D splits the phrase "from bad to worse"
-   and uses only half. That is a real solving insight, so it gets a block with an
-   empty `gives` and a note saying so — claimed and explained, not silently
-   dropped.
+3. **A letter you never named.** A deletion needs a block for the thing
+   deleted, not just for the word it is deleted from. 30041 26A ("Pressure,
+   therefore, to dispose of hard cash") deletes an H, so it needs a block saying
+   *hard* = H.
+4. **Real surface padding.** 30067 20D splits the phrase "from bad to worse" and
+   uses only half. Give the padding a block with an empty `gives` and a note
+   saying so. It is claimed and explained, not dropped. This case exists only in
+   published puzzles; see the next rule.
 
-### Exactly two pieces — in clues we WRITE (feedback 2026-07-29)
-Paul's words: "A good cryptic clue doesn't have anything superfluous which isn't
+### Exactly two pieces — in clues we WRITE
+Paul: "A good cryptic clue doesn't have anything superfluous which isn't
 directly part of the wordplay. It should be exactly two pieces. Definition,
-optional joinery and wordplay." So every word of an authored clue is part of the
-definition, part of the wordplay (fodder or indicator), or a link word joining
-the two — and case 4 above, surface padding, is **not available**. A block with
+optional joinery and wordplay." So in an authored clue every word is part of
+the definition, part of the wordplay (fodder or indicator), or a link word
+joining the two. Case 4 above, surface padding, is **not allowed**. A block with
 `"gives": ""` is a validator ERROR in an authored puzzle (`check_two_pieces`).
 
-This does not change annotation of PUBLISHED puzzles one bit. Real setters pad,
-the annotator must be able to record it faithfully, and the check is scoped by
-`is_authored()` (`series == "authored"`) for exactly that reason: unscoped it
-fires eighteen times on 30039 alone. If it ever lights up a Guardian grid, the
-scoping is broken — do not relax the rule.
+This does not change how PUBLISHED puzzles are annotated. Real setters pad, and
+the annotator must record that faithfully. So the check is scoped by
+`is_authored()` (`series == "authored"`); unscoped, it fires eighteen times on
+30039 alone. If it ever fires on a Guardian grid, the scoping is broken. Fix the
+scoping; do not relax the rule.
 
-When a word looks like padding, first ask whether it is really doing one of the
-other jobs, because two of the nine A001 cases were mis-annotation: SIDE's
-"There's a mole in" is the hidden-word *indicator* (a mole is a thing concealed
-inside an organisation), and ARGUE's "There's" is *joinery*, the finite verb that
-makes the clue an utterance — it belongs in `linkWords`. The deeper point, and
-why this recurs: a funny sentence is easy if you are allowed filler, so banning
-filler is what separates a clue from a joke that happens to contain the answer.
-See `tools/AUTHORING.md`, "Exactly two pieces".
+When a word looks like padding, first check whether it is really doing another
+job. In A001, two of the nine apparent cases were mis-annotations:
 
-### The joints: link words, adjacency, direction (feedback 2026-07-30)
-Three rules about how the pieces of a clue attach to each other, all three
-ERRORs in `tools/validate_annotations.py`, all three scoped by `is_authored()`,
-all three calibrated at **zero hits** across the eight annotated Guardian
-puzzles before shipping (`--unscoped` runs them on published grids; the counts
-and the reasoning are in `tools/AUTHORING.md`, "The joints").
+- SIDE's "There's a mole in" is the hidden-word *indicator* (a mole is something
+  hidden inside an organisation).
+- ARGUE's "There's" is *joinery*: the finite verb that makes the clue a sentence.
+  It belongs in `linkWords`.
 
-1. **A link word stands in for an equals sign.** Paul's words: "link words have
-   to stand in for an equals sign." It may assert equivalence (`is`, `'s`),
+Why this matters: a funny sentence is easy if filler is allowed. Banning filler
+is what separates a clue from a joke that happens to contain the answer. See
+`tools/AUTHORING.md`, "Exactly two pieces".
+
+### The joints: link words, adjacency, direction
+Three rules about how the pieces of a clue attach to each other. All three are
+ERRORs in the validator, all three are scoped by `is_authored()`, and all three
+had **zero hits** across the eight annotated Guardian puzzles before they
+shipped. `--unscoped` runs them on published grids. The counts and reasoning are
+in `tools/AUTHORING.md`, "The joints".
+
+1. **A link word stands in for an equals sign.** Paul: "link words have to stand
+   in for an equals sign." A link word may state equivalence (`is`, `'s`),
    derivation (`gives`, `makes`, `becomes`, `yields`, `means`, `leads to`,
    `indicating`, `to locate`) or plain prepositional joining (`for`, `from`,
-   `of`, `in`, `with`, `after`), and it may be grammatical glue holding those
+   `of`, `in`, `with`, `after`), plus the grammatical glue that holds those
    together. Anything else is a content word doing surface work: `lives on`,
-   `would be better spent`, `mistake it for`. Declaring padding in `linkWords`
-   is the loophole in the two-pieces rule — the annotation looks sound while the
-   clue is quietly in three pieces — so `EQUIVALENCE_LINKS` in the validator is
-   a whitelist, not a blacklist. Widen it when a real setter's link word fails;
-   never widen it for one of ours.
+   `would be better spent`, `mistake it for`. Putting padding in `linkWords` is
+   how a clue dodges the two-pieces rule: the annotation looks sound while the
+   clue is in three pieces. So `EQUIVALENCE_LINKS` in the validator is an allow
+   list, not a block list. Widen it when a real setter's link word fails; never
+   widen it for one of ours.
 2. **An indicator operates on what it touches.** An anagram indicator must be
-   adjacent to its fodder, with only grammatical glue between (`FODDER_GLUE`:
-   `was`, `is`, `a`, `the`, `of`, `in`, `with`). `Naples was flattened by
-   aircraft` is fine; `The oyster lives on the ground floor` is not, because
-   `ground` cannot reach back over three words to shuffle `The oyster`.
-   Measured from character offsets in the clue, so it is arithmetic, not taste.
-3. **A reversal runs along the entry.** An across answer reversed reads right to
-   left, so it wants `back` / `returning` / `retreating` / `west`; a down answer
-   reads bottom to top, so it wants `up` / `rising` / `climbing` / `lifted` /
-   `from below`. There is no backwards on a vertical axis. Neutral vocabulary
-   (`turning`, `about`, `overturned`, `revolutionary`, `reversal`) is always
-   safe and is the escape hatch when the surface wants a word the axis will not
-   license. The eight Guardian puzzles observe this 19 times out of 19.
+   next to its fodder, with only grammatical glue between them (`FODDER_GLUE`
+   in the validator: articles, forms of *be*, and short joining words such as
+   `of`, `in`, `with`). `Naples was flattened by aircraft` is fine. `The oyster
+   lives on the ground floor` is not: `ground` cannot reach back over three
+   words to shuffle `The oyster`. The check measures character offsets in the
+   clue, so it is arithmetic, not taste.
+3. **A reversal runs along the entry.** A reversed across answer reads right to
+   left, so it needs `back`, `returning`, `retreating` or `west`. A reversed
+   down answer reads bottom to top, so it needs `up`, `rising`, `climbing`,
+   `lifted` or `from below`. There is no "backwards" on a vertical axis. Neutral
+   words (`turning`, `about`, `overturned`, `revolutionary`, `reversal`) are
+   always safe; use them when the surface wants a word the direction does not
+   allow. The eight Guardian puzzles follow this in 19 of 19 reversals.
 
-The post-mortem worth remembering: STOREY *felt* like the best clue in the set
-because the padding is what made the surface smooth. Surface quality is not
-evidence of soundness.
+A smooth surface is not evidence that a clue is sound. STOREY felt like the best
+clue in its set because the padding made the surface smooth.
 
-### A link word that orders the pieces is an indicator (solver report 2026-09-16)
-"Post on half of wage" (30099 25A) filed `on` under `linkWords`, where the app
-tells the solver the word "contributes no letters of its own" — and `on` is the
-only thing in that clue saying why the post ends up at the BACK of the answer:
-across the grid, what is written on something has been reached after it; down, it
-sits above it. A solver reported it as an indicator and was right. The test is
-mechanical, and is the check: where the two blocks either side of the joiner come
-out in the opposite order to the clue, and no indicator between them could have
-done it, the joiner did. Move it to `indicators` and give it an `indicatorNotes`
-line saying which piece it sends second.
-`check_link_word_is_not_an_order()` warns, and is unscoped — the parse is ours
-even when the clue is the Guardian's. `on` and `after` stay in
-`EQUIVALENCE_LINKS`, because joining really is what they do most of the time: 65
-entries in the corpus declare a positional joiner as a link word and only three
-of them were ordering anything.
+### A link word that orders the pieces is an indicator
+If a joining word is what puts the pieces in the answer's order, it is an
+indicator, not a link word. The app tells the solver a link word "contributes no
+letters of its own", so a word that orders the pieces must not be filed there.
+Example: in "Post on half of wage" (30099 25A), `on` is the only thing that says
+the post goes at the BACK of the answer. In an across entry, "A on B" puts B
+first, then A; in a down entry, A sits above B.
 
-### The blocks already told them (feedback 2026-07-29)
-Paul's words: "When you basically give the whole answer in the building blocks
-you don't need to have the full walkthrough." The `blocks[]` rung already gives
-the learner fragment → letters with a note on each, so a walkthrough that
-re-narrates the same steps is padding in the teaching UI. Keep only what the
-blocks CANNOT show: why the surface misleads, the joke in one clause, a
-convention (`ER` = Queen, `worker` = ANT, `H` = husband), or why a definition is
-fair. A001's twenty walkthroughs went from 44-63 words (median 54) to 19-42
-(median 32), which is the published median.
+The test is mechanical, and it is the check: if the blocks either side of the
+joiner come out in the opposite order to the clue, and no indicator between them
+could have done it, the joiner did. Move the word to `indicators` and give it an
+`indicatorNotes` line saying which piece it sends second.
+`check_link_word_is_not_an_order()` warns, on every puzzle including published
+ones, because the parse is ours even when the clue is the Guardian's. `on` and
+`after` stay in `EQUIVALENCE_LINKS`, because usually they only join: of 65
+corpus entries that declared a positional joiner as a link word, only three were
+ordering anything.
+
+### The blocks already told them
+Paul: "When you basically give the whole answer in the building blocks you don't
+need to have the full walkthrough." The `blocks[]` rung already shows the
+learner fragment → letters, with a note on each. A walkthrough that repeats
+those steps is padding. Keep only what the blocks CANNOT show:
+
+- why the surface misleads,
+- the joke, in one clause,
+- a convention (`ER` = Queen, `worker` = ANT, `H` = husband),
+- why a definition is fair.
+
+Trimmed this way, A001's twenty walkthroughs went from 44-63 words (median 54)
+to 19-42 (median 32), which matches the median of published walkthroughs.
 
 `check_walkthrough_budget()` warns above `MAX_WALKTHROUGH_WORDS` (45; the
-published 90th percentile is 42) when a blocks rung exists, and — like the rule
-above — only on authored puzzles. It is a budget, not a redundancy detector: a
-semantic version scoring recycled vocabulary was built, measured and rejected
-because good walkthroughs scored worse than bad ones. The walkthrough may be
-short but never absent: `ladderSteps()` always emits the rung, so an empty one is
-a labelled hole in the ladder.
+published 90th percentile is 42) when a blocks rung exists, and only on authored
+puzzles. It is a word budget, not a redundancy detector. A semantic version that
+scored recycled vocabulary was built, measured and rejected, because good
+walkthroughs scored worse than bad ones. Keep the walkthrough short but never
+empty: `ladderSteps()` always shows the walkthrough rung, so an empty one is a
+labelled hole in the ladder.
 
-### A block's note must not name the answer (2026-08-25)
-The building blocks are the rung before the walkthrough, so anything written
-there is read by a learner who has deliberately not bought the solve yet. That
-makes `blocks[].note` a leak the moment it says the word: "a run-in is a quarrel
-or confrontation" for RUN-IN, "pulses are the crop family beans belong to" for
-PULSE, "the letters run straight across the gap: n(O SLO)venian" for OSLO. Write
-the note about the *fragment* instead — what "Beat" means, where the letters sit,
-which convention is in play — and let the walkthrough be the first place the
-answer is spelled. `app.js` refuses to render a `gives` that equals the answer,
-so the letters can never leak; the prose is the annotator's to keep clean.
+### A block's note must not name the answer
+The blocks rung comes before the walkthrough, so its reader has chosen not to
+see the solution yet. A `blocks[].note` that says the answer word leaks it. Bad:
+"a run-in is a quarrel or confrontation" for RUN-IN; "pulses are the crop family
+beans belong to" for PULSE; "the letters run straight across the gap:
+n(O SLO)venian" for OSLO. Write the note about the *fragment*: what "Beat"
+means, where the letters sit, which convention applies. The walkthrough is the
+first place the answer is spelled out. `check_block_notes_dont_name_the_answer()`
+ERRORs when a block note names the answer, and `app.js` refuses to show a
+`gives` that equals the answer.
 
-For a hidden word this is the whole lesson: pointing at the span and saying the
-letters are consecutive inside it leaves the extraction as the solver's move,
-which is the skill. Bracketing the answer out of the clue text does the move for
-them.
+For a hidden word this is the whole lesson. Point at the span and say the
+letters run consecutively inside it, and leave the extraction to the solver,
+because that is the skill. Bracketing the answer out of the clue text does it
+for them.
 
-### Anagram or insertion? Check the order before you label it (2026-08-25)
-Every insertion is also a valid anagram of the same letters, so `anagram` is the
-wrong call whenever the fodder can be assembled by putting one chunk inside
-another with both chunks' letters left in their original order. GREAT APES is not
-an anagram of GRAPES + EAT; it is GR + EAT + APES, and the setter's indicator
-(bore = drill into) says so. Test the order-preserving reading first and only
-reach for `anagram` when none exists — the mechanism the solver has to perform is
-the thing being taught, and shuffling is not the mechanism here.
+### Anagram or insertion? Check the order before you label it
+Every insertion is also a valid anagram of the same letters. So `anagram` is
+wrong whenever the answer can be built by putting one chunk inside another with
+each chunk's letters kept in order. GREAT APES is not an anagram of GRAPES + EAT;
+it is GR + EAT + APES, and the indicator (bore = drill into) says so. Test the
+order-keeping reading first, and use `anagram` only when there is none. The
+mechanism the solver must perform is what is being taught.
 
-### An indicator that does its job loosely: say so (2026-08-25)
-The mirror of the definition rule below. When an indicator is vague, stretched or
-only conventionally understood, name the imprecision in `indicatorNotes` in those
-words. Naming the looseness is not the same as handing the choice to the grid:
-the crossings settle only what the clue genuinely leaves open — which article,
-which colour, which of two spellings — never what the other pieces settle. "Half
-of wage" does not say which half, and only one half joins onto the rest to make a
-word, so "the clue leaves it to the crossing letters" was both wrong and a lesson
-in not parsing (solver report, 30099 25A, 2026-09-16). A learner who cannot find
-a precise instruction needs to be told the looseness is the setter's, not a
-failure of their solving. Silence reads as
-significance, which is also why a signal that carries no wordplay at all —
-capitalisation for surface effect, a quoted phrase, odd punctuation — is worth
-retiring out loud rather than leaving to be hunted.
+### An indicator that does its job loosely: say so
+This mirrors the definition rule below. When an indicator is vague, stretched or
+understood only by convention, say so plainly in `indicatorNotes`. Saying it is
+loose does not mean leaving the choice to the grid. The crossing letters settle
+only what the clue really leaves open (which article, which colour, which of two
+spellings), never what the other pieces settle. "Half of wage" does not say which
+half, but only one half joins the rest to make a word, so "the clue leaves it to
+the crossing letters" is wrong: parse it (30099 25A). A learner who cannot find
+a precise instruction needs to hear that the looseness is the setter's, not a
+failure of their solving.
 
-### When the definition really doesn't agree: say so (feedback 2026-07-29)
-Sometimes the setter's definition genuinely does not match the answer's number or
-part of speech — "Lousy payment" for PEANUTS, "hearing aid" for EARPHONES, "work"
-for OPUSES. Do not paper over it and do not stretch the definition to fit. Add a
-`definitionNote`: a sentence, shown to the learner under the definition rung,
-saying what disagrees and why the setter is allowed it (mass-noun idiom, objects
-that come in pairs, a plural naming one thing). It also silences
-`check_part_of_speech()`, so the validator requires it to be a real explanation
-(≥25 chars), never a rubber stamp. The unexplained mismatch is the bug; the
-explained one is a lesson.
+Silence reads as significance. So when a feature of the clue carries no wordplay
+at all (capitals used for surface effect, a quoted phrase, odd punctuation), say
+so explicitly instead of leaving the solver to hunt for a meaning.
 
-### Heuristics must know real words (feedback 2026-07-29)
-The first cut of `check_part_of_speech()` warned on VIKING because it ends in
-`-ING`, and on PICK UP THE PIECES because it ends in `-S`. Both were noise, and
-noise is what makes a check ignorable. It now consults `/usr/share/dict/words`:
-an answer is only treated as a gerund if the stem is a word (MARAUD yes, VIK no)
-and only as a plural if the singular is (EARPHONE yes, CHAOS no), and multi-word
-answers are skipped since their trailing `-S` belongs to an internal noun. If the
-wordlist is missing, the check stands down rather than guessing. General rule for
-any new validator check: prove the pattern is real before warning about it, and
-test the check against every annotated puzzle before committing it.
+### When the definition really doesn't agree: say so
+Sometimes the setter's definition really does not match the answer's number or
+part of speech: "Lousy payment" for PEANUTS, "hearing aid" for EARPHONES, "work"
+for OPUSES. Do not hide it and do not stretch the definition to fit. Add a
+`definitionNote`: a sentence, shown to the learner on the definition rung,
+saying what disagrees and why the setter is allowed it (a mass-noun idiom,
+objects that come in pairs, a plural naming one thing). A `definitionNote` also
+silences `check_part_of_speech()`, so the validator requires it to be a real
+explanation of at least 25 characters, not a rubber stamp. An unexplained
+mismatch is a bug; an explained one is a lesson.
 
-### Fakes must not diverge from the real thing (feedback 2026-07-29)
-`tools/smoke_test.js` uses a fake DOM. Setting `el.id` on a created element did
-not publish it to `getElementById`, so the app and the test held two different
-objects with the same id and assertions about dynamically-created elements were
-quietly vacuous. When a test harness fakes an API, the fake has to keep that
-API's contracts — a divergence does not fail loudly, it makes tests lie.
+## Rules for validator checks
 
-### Existing schema rules
-See `tools/annotate_prompt.md`: verbatim definition/indicator substrings,
-letter-perfect pieces/fodder, `linkedTo` stubs for grouped entries, validator
-must pass before commit.
+### Heuristics must know real words
+Prove a pattern is real before warning about it, and run a new check against
+every annotated puzzle before committing it. Noise makes a check ignorable. For
+example, `check_part_of_speech()` consults `/usr/share/dict/words`: it treats an
+answer as a gerund only if the stem is a word (MARAUD yes, VIK from VIKING no),
+and as a plural only if the singular is a word (EARPHONE yes, CHAOS no). It skips
+multi-word answers, whose final `-S` belongs to an inner noun (PICK UP THE
+PIECES). If the word list is missing, the check stands down instead of guessing.
 
----
+### Fakes must not diverge from the real thing
+When a test harness fakes an API, the fake must keep that API's contracts. A
+divergence does not fail loudly; it makes tests pass when they should not.
+Example: `tools/smoke_test.js` uses a fake DOM. When setting `el.id` on a created
+element did not register it with `getElementById`, the app and the test held two
+different objects with the same id, and assertions about dynamically created
+elements checked nothing.
 
-The rules for how the app *presents* those annotations — the hint ladder, the
-reference corpus, deploy and cache-busting — live in `APP.md`. They are a
-separate file because the nightly annotator is told to read this one whole, and
-it holds one puzzle file: it can act on none of that, and paying to cache it on
-every run bought nothing. Put a rule where the reader who must obey it will
-look.
+## Existing schema rules
+See `tools/annotate_prompt.md`: definition and indicator strings are verbatim
+substrings of the clue, pieces and fodder are letter-perfect, grouped entries
+get `linkedTo` stubs, and the validator must pass before commit.
