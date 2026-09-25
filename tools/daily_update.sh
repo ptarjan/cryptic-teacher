@@ -15,7 +15,7 @@
 #      however many there are. ANNOTATE_MAX (default 3) bounds only the rest:
 #      tonight's cold solves plus the older backlog, on top of the new arrivals.
 #      All of it runs only while the account's weekly usage window is under
-#      ANNOTATE_MAX_WEEKLY_PCT (default 50) and its five-hour window is under
+#      ANNOTATE_MAX_WEEKLY_PCT (default 90) and its five-hour window is under
 #      ANNOTATE_MAX_SESSION_PCT (default 70), re-read between puzzles. Stops
 #      early if a run fails rather than burning the rest of the quota on doomed
 #      attempts — except when the wall-clock cap kills it, which says this grid
@@ -468,7 +468,7 @@ python3 tools/failed_inputs.py summary
 # reading is a floor, and a floor above the limit is a decision. That is the
 # case this gate actually met on 08-08 — it was holding a 10-hour-old 75%
 # against a 50% limit and called itself blind.
-ANNOTATE_MAX_WEEKLY_PCT="${ANNOTATE_MAX_WEEKLY_PCT:-50}"
+ANNOTATE_MAX_WEEKLY_PCT="${ANNOTATE_MAX_WEEKLY_PCT:-90}"
 # The annotating model, and the commit trailer derived FROM it rather than typed
 # beside it. The trailer used to be a hardcoded "Claude Fable 5", which survived
 # the 07-30 accidental switch to Opus and credited the wrong model in every
