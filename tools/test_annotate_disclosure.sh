@@ -117,6 +117,32 @@ p["entries"][1]["solutionConfidence"] = "LIKELY"
 ns = AC.notes(p)
 say("cd_note", any("1-across typed `cryptic definition`" in n for n in ns))
 say("likely_note", any(n.startswith("2-across have LIKELY") for n in ns))
+
+# The run reads a copy without the blog URL; the apply still writes the real
+# file, whose solutionSource survives it.
+import json, tempfile
+from pathlib import Path
+import apply_annotations
+blog = "https://fifteensquared.net/2025/08/02/cyclops-99998-x/"
+real = puzzle(series="cyclops", nulls=30)
+real.update(id="cyclops-99998", name="Private Eye Cyclops crossword No 99998",
+            sourceUrl="https://www.private-eye.co.uk/crossword",
+            provenance={"retrievedUrl": blog},
+            solutionSource={"kind": "fifteensquared", "url": blog})
+path = Path(tempfile.mkdtemp()) / "cyclops-99998.json"
+path.write_text(json.dumps(real))
+view = AC.write_view(path)
+try:
+    text = view.read_text()
+    say("view_has_no_url", "http" not in text and "fifteensquared" not in text)
+    say("view_keeps_solutions",
+        [e["solution"] for e in json.loads(text)["entries"]] == ["ABCD"] * 30)
+finally:
+    view.unlink()
+apply_annotations.apply(path, {e["id"]: {"type": "charade"} for e in real["entries"]},
+                        by="human")
+say("apply_keeps_solutionSource",
+    json.loads(path.read_text()).get("solutionSource", {}).get("url") == blog)
 PY
 )
 echo "$out" | sed 's/^/  /'
@@ -128,11 +154,14 @@ for k in linked_good_quiet linked_lead_flagged linked_leg_flagged \
          blog_hidden_when_many_null blog_hidden_when_all_done \
          blog_shown_for_last_few blog_hidden_when_blind \
          blog_hidden_without_a_blog times_names_its_own_blog \
-         plain_puzzle_no_notes cd_note likely_note; do
+         plain_puzzle_no_notes cd_note likely_note view_has_no_url \
+         view_keeps_solutions apply_keeps_solutionSource; do
   same "$k" "$(grep -c "^$k=yes$" <<<"$out")" "1"
 done
 
-echo "the prompt no longer names the blog, so the only way to it is the check"
+echo "the prompt no longer names the blog, and the run's inputs no longer carry it"
+same "the run reads the copy" "$(grep -c 'tools/_puzzle_@\.json' tools/prereset_backfill.sh)" "1"
+same "the nightly reads the copy" "$(grep -c 'ann_file=\$(python3 tools/annotate_check.py --view' tools/daily_update.sh)" "1"
 same "no blog in the prompt" "$(grep -ci 'fifteensquared\|timesforthetimes' tools/annotate_prompt.md)" "0"
 
 if [ "$fails" -gt 0 ]; then echo "FAILED: $fails"; exit 1; fi
