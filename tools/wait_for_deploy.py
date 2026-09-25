@@ -27,6 +27,7 @@ import os
 import re
 import subprocess
 import sys
+import tempfile
 import time
 import urllib.request
 
@@ -60,6 +61,33 @@ def want_stamps():
     check and the thing it checks cannot disagree about how a hash is made.
     """
     return {rel: digest(rel) for rel in ASSETS}
+
+
+def shipped_index_stamp(head):
+    """The stamp CI gives puzzles/index.js when it builds `head`.
+
+    The index is gitignored and CI rebuilds it from the commit, so the copy in
+    this working tree is whatever the last local --reindex left, and it can
+    describe a different set of puzzles than the one pushed. Build it the way
+    the deploy workflow does, in a clean checkout of `head`, and hash that.
+    """
+    tmp = tempfile.mkdtemp(prefix="deploy-index-")
+    try:
+        subprocess.run(["git", "worktree", "add", "-q", "--detach", tmp, head],
+                       cwd=ROOT, check=True, capture_output=True)
+        # The same steps, in the same order, as .github/workflows/pages.yml:
+        # the reindex restamps index.html, which needs the glossary built.
+        for step in (["tools/build_abbreviations.py"],
+                     ["tools/fetch_puzzle.py", "--reindex"]):
+            run = subprocess.run([sys.executable, *step], cwd=tmp,
+                                 capture_output=True, text=True)
+            if run.returncode:
+                raise RuntimeError(f"{' '.join(step)} failed building the index to "
+                                   f"compare: {(run.stderr or run.stdout).strip()[-400:]}")
+        return digest(os.path.join(tmp, "puzzles/index.js"))
+    finally:
+        subprocess.run(["git", "worktree", "remove", "--force", tmp],
+                       cwd=ROOT, capture_output=True)
 
 
 def fetch():
@@ -145,6 +173,7 @@ def main():
 
     head = subprocess.run(["git", "rev-parse", "HEAD"], capture_output=True,
                           text=True, cwd=ROOT).stdout.strip()
+    want["puzzles/index.js"] = shipped_index_stamp(head)
     deadline = time.time() + (0 if args.check else args.timeout)
     ceiling = time.time() + (0 if args.check else args.max_wait)
     while True:
