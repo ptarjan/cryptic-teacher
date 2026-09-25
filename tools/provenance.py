@@ -460,11 +460,14 @@ def derive(puzzle, claimed, acquired_on, previously=None):
     # Carried across, not re-derived: which grids were once model-solved is
     # knowable only from git (see backfill_provenance.machine_solved_ever), so
     # an ordinary write must preserve what the backfill found rather than drop
-    # it. Only worth saying when it differs from where the answers stand now —
-    # recording "was model, is model" would be noise on every unresolved prize
-    # puzzle in the corpus.
-    previously = previously or (puzzle.get("provenance") or {}).get(
-        "previousSolutionOrigin")
+    # it. And recorded at the moment it happens: the write that replaces our
+    # model fill with a publisher's or a write-up's answers still carries the
+    # old block saying "model", and is the last thing that knows it. Only worth
+    # saying when it differs from where the answers stand now — recording "was
+    # model, is model" would be noise on every unresolved prize puzzle.
+    existing = puzzle.get("provenance") or {}
+    previously = (previously or existing.get("previousSolutionOrigin")
+                  or (existing.get("solutionOrigin") == "model" and "model"))
     if previously and previously != origin:
         prov["previousSolutionOrigin"] = previously
     # Carried across for the same reason: only the run that wrote the hints
