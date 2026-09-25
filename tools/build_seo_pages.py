@@ -40,6 +40,7 @@ Usage:
   python3 tools/build_seo_pages.py --check    # exit 1 if anything is stale
 """
 
+import functools
 import html
 import json
 import re
@@ -49,6 +50,7 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import app_tables  # noqa: E402 — the app's own sentence about each series
 import build_abbreviations  # noqa: E402 — one glossary, rendered into every page that shows it
 import series as series_meta  # noqa: E402 — what each series IS; see tools/series.py
 from fetch_puzzle import (  # noqa: E402 — one glob, one reader, one puzzles/ for every tool
@@ -150,8 +152,8 @@ def named(p):
 def display_number(p):
     """The number as a reader is shown it — "No 30,089", "Penguin book 5 No 18".
 
-    Used wherever a number is printed with no kind beside it: the archive rows,
-    the homepage list, prev/next. See display_number() in tools/series.py; a
+    Used where the row's series badge already names the paper: the archive
+    rows. See display_number() in tools/series.py; a
     book's stored number carries its volume, and "No 5,018" names a puzzle no
     book prints.
     """
@@ -268,13 +270,13 @@ def head(title, description, canonical, extra="", image=None, image_alt=None):
 
 
 FOOTER = f"""<footer>
-  <p class="muted">Puzzles &copy; their original publishers, quoted here with original
-  explanation for the purpose of study and review. Annotations and hints are original
-  to this project. <a href="{BASE}/">Solve with hints</a> &middot;
+  <p class="muted">Clues and grids &copy; their publishers, quoted for study and
+  review. The explanations and hints are this site's own.
+  <a href="{BASE}/">Solve a puzzle with hints</a> &middot;
   <a href="{BASE}/puzzles/">All puzzles</a> &middot;
   <a href="{BASE}/learn/">How cryptic clues work</a> &middot;
-  <a href="{BASE}/abbreviations/">Abbreviations</a> &middot;
-  <a href="https://github.com/ptarjan/cryptic-teacher">Source</a>.</p>
+  <a href="{BASE}/abbreviations/">Crossword abbreviations</a> &middot;
+  <a href="https://github.com/ptarjan/cryptic-teacher">Source code</a>.</p>
 </footer>
 </body>
 </html>
@@ -304,7 +306,7 @@ def masthead(crumbs):
     return f"""<header>
   <div class="brand">
     <a class="home-link" href="{BASE}/"><strong>Cryptic Teacher</strong></a>
-    <p class="tagline">Real puzzles. Hints that teach, not spoil.</p>
+    <p class="tagline">Real puzzles, real setters. Hints that teach, not spoil.</p>
   </div>
 </header>
 <nav class="crumbs" aria-label="Breadcrumb">{' &rsaquo; '.join(parts)}</nav>
@@ -345,15 +347,18 @@ def clue_html(e):
 
     if ann.get("definition"):
         kind = ann.get("type") or ""
+        # The type is a word from the lesson ("charade", "container"), so its
+        # label is the way to the lesson that defines it.
         bits.append(f'<p class="s-def">Definition: <strong>{esc(ann["definition"])}</strong>'
-                    + (f' &middot; <span class="s-type">{esc(kind)}</span>' if kind else "")
+                    + (f' &middot; <span class="s-type"><a href="{BASE}/learn/">Clue type</a>: '
+                       f'{esc(kind)}</span>' if kind else "")
                     + "</p>")
     # One sentence on why the ANSWER means the DEFINITION — app.js's "Why
     # that's the answer" rung, minus the answer/definition repeated back at
     # the reader (both are already on the page a line up). Written work sat
     # unindexed for ~500 puzzles until this rendered it here too.
     if ann.get("definitionFit"):
-        bits.append(f'<p class="s-fit">{esc(ann["definitionFit"])}</p>')
+        bits.append(f'<p class="s-fit"><em>Why it fits:</em> {esc(ann["definitionFit"])}</p>')
     blocks = ann.get("blocks") or []
     if blocks:
         rows = "".join(
@@ -361,7 +366,8 @@ def clue_html(e):
             f"&rarr; <strong>{esc(b.get('gives'))}</strong>"
             + (f" <span class=\"s-note\">{esc(b.get('note'))}</span>" if b.get("note") else "")
             + "</li>" for b in blocks)
-        bits.append(f'<ul class="s-blocks">{rows}</ul>')
+        bits.append(f'<p class="s-fit"><em>Wordplay, piece by piece:</em></p>'
+                    f'<ul class="s-blocks">{rows}</ul>')
     # Keyed by the indicator word, so — unlike blocks — order isn't guaranteed
     # to match the clue text; skip any indicator left without a written note
     # rather than print an empty one.
@@ -370,16 +376,17 @@ def clue_html(e):
         rows = "".join(
             f'<li><span class="s-ind">{esc(k)}</span> &mdash; {esc(v)}</li>'
             for k, v in ind_notes.items())
-        bits.append(f'<ul class="s-ind-notes">{rows}</ul>')
+        bits.append(f'<p class="s-fit"><em>Indicators:</em></p>'
+                    f'<ul class="s-ind-notes">{rows}</ul>')
     # The surface first, the same order and for the same reason as the app's
     # walkthrough rung: what the clue pretends to be about, then what it is doing.
     if ann.get("surface"):
-        bits.append(f'<p class="s-walk">{esc(ann["surface"])}</p>')
+        bits.append(f'<p class="s-walk"><em>What it seems to say:</em> {esc(ann["surface"])}</p>')
     if ann.get("walkthrough"):
-        bits.append(f'<p class="s-walk">{esc(ann["walkthrough"])}</p>')
+        bits.append(f'<p class="s-walk"><em>How it works:</em> {esc(ann["walkthrough"])}</p>')
     if not ann:
         # Two different silences, and telling them apart is the whole point —
-        # the same split app.js makes off clueMissing. "Not yet annotated"
+        # the same split app.js makes off clueMissing. "No explanation yet"
         # promises a ladder that is coming; a clue the paper printed blank has
         # no ladder ever, because there is no clue. Say which, or the reader
         # hunts the grid for wordplay that was never printed.
@@ -388,18 +395,16 @@ def clue_html(e):
         # hand-written clueMissingNote carries it; the annotation queue never
         # writes one, having no words to read.
         bits.append(
-            '<p class="s-todo muted">The paper printed this clue blank — '
-            'the space was empty in every copy. '
+            '<p class="s-todo muted">The paper printed no clue here. '
             + (esc(e["clueMissingNote"]) if e.get("clueMissingNote")
-               else "Nothing was left to solve with, so there is no wordplay to explain.")
+               else "With no clue, there is no wordplay to explain.")
             + '</p>'
             if e.get("clueMissing") else
-            '<p class="s-todo muted">The paper printed the wrong text against this clue — '
-            'the words above are not the ones this answer came from, so there is no '
-            'wordplay in them to explain. ' + esc(e["clueCorrupt"]) + '</p>'
+            '<p class="s-todo muted">The paper printed the wrong clue here: these words '
+            'belong to a different answer, so there is no wordplay to explain. '
+            + esc(e["clueCorrupt"]) + '</p>'
             if e.get("clueCorrupt") else
-            '<p class="s-todo muted">Not yet annotated — '
-            'the full hint ladder for this puzzle is still being written.</p>')
+            '<p class="s-todo muted">No explanation yet.</p>')
     bits.append("</article>")
     return "\n".join(bits)
 
@@ -422,10 +427,9 @@ def app_return(pid):
 
 
 def puzzle_page(puz, meta, prev_p, next_p):
-    num, setter = puz["number"], known_setter(puz.get("setter"))
+    setter = known_setter(puz.get("setter"))
     what = kind(puz)                  # "Cryptic", "Quiptic", "Everyman"
     paper = publisher(puz)            # "Guardian", "Observer"
-    lower = what.lower()
     pretty = f"{position(puz):,}"
     when = datestr(puz.get("date"))
     diff = (meta or {}).get("difficulty") or {}
@@ -451,37 +455,36 @@ def puzzle_page(puz, meta, prev_p, next_p):
     # promises a walkthrough the page has not got earns the click once and the
     # bounce every time after.
     lead = "answers explained" if annotated else "answers"
-    tail = "clue by clue" if annotated else "every clue solved"
-    title = (f"{what} {pretty} {lead} — {paper},{by}" if by
-             else f"{what} {pretty} {lead}, {tail} — {paper}")
+    tail = "clue by clue" if annotated else "full solution"
+    title = (f"{what} {pretty} {lead} — {paper} crossword{by}" if by
+             else f"{what} {pretty} {lead}, {tail} — {paper} crossword")
     # The snippet leads with the same promise for the same reason, and still says
     # which of the two pages this is: explained clue by clue, or answers only.
-    desc = (f"Answers to every clue in {what} {pretty}{by}, each with its definition "
-            f"and how the wordplay works. {paper} {lower} crossword"
-            + (f", {when}." if when else ".")
+    # The kind keeps its capitals ("Penguin Book 5 Cryptic"): it is a name.
+    full = f"{paper} {what} {pretty}{by}" + (f" ({when})" if when else "")
+    desc = (f"Every answer to {full}, with each clue's definition and wordplay explained."
             if annotated else
-            f"Answers to every clue in {what} {pretty}{by} — the full solution to the "
-            f"{paper} {lower} crossword"
-            + (f", {when}." if when else "."))
+            f"Every answer to {full}. Answers only for now: the clue-by-clue "
+            "explanations are not written yet.")
 
     if meta:
         ls, ly = listing_key(meta)     # the listing page this puzzle is on
     crumbs = [("Cryptic Teacher", "/"), ("Puzzles", "/puzzles/"),
               *([(f"{series_name(ls)}, {ly}", listing_path(ls, ly))]
                 if meta else []),
-              (f"{what} No {pretty}", "")]
+              (f"No {pretty}", "")]
 
     across = [e for e in puz["entries"] if e["direction"] == "across" and e.get("clue")]
     down = [e for e in puz["entries"] if e["direction"] == "down" and e.get("clue")]
     across.sort(key=lambda e: e["number"])
     down.sort(key=lambda e: e["number"])
 
-    facts = [f"Setter: <strong>{esc(setter)}</strong>"] if setter else []
+    facts = [f"Set by: <strong>{esc(setter)}</strong>"] if setter else []
     if when:
         facts.append(f"Published: <strong>{esc(when)}</strong>")
     if diff.get("band"):
         pct = diff.get("percentile")
-        extra = f" (harder than {pct}% of the puzzles here)" if pct is not None else ""
+        extra = f" (harder than {pct}% of the puzzles on this site)" if pct is not None else ""
         # A band is a word this site made up the meaning of, and a puzzle page is
         # where most people meet it first — arrived at from a search, having
         # never seen the archive index that explains it. So the label is the
@@ -491,15 +494,17 @@ def puzzle_page(puz, meta, prev_p, next_p):
                      f'<strong class="diff-{esc(diff["band"].lower())}">'
                      f'{esc(diff["band"])}</strong>{esc(extra)}')
     facts.append(f'Grid: <strong>{puz["dimensions"]["cols"]}&times;'
-                 f'{puz["dimensions"]["rows"]}</strong>')
+                 f'{puz["dimensions"]["rows"]}</strong> squares')
 
+    # The neighbours are by date across every series, so each link names its
+    # paper: "No 3,374" beside a Guardian number reads as the same series.
     nav = []
     if prev_p:
         nav.append(f'<a rel="prev" href="{BASE}/puzzles/{prev_p["id"]}/">'
-                   f'&larr; {display_number(prev_p)}</a>')
+                   f'&larr; Newer: {esc(named(prev_p))}</a>')
     if next_p:
         nav.append(f'<a rel="next" href="{BASE}/puzzles/{next_p["id"]}/">'
-                   f'{display_number(next_p)} &rarr;</a>')
+                   f'Older: {esc(named(next_p))} &rarr;</a>')
 
     article_ld = {
         "@context": "https://schema.org", "@type": "Article",
@@ -517,8 +522,8 @@ def puzzle_page(puz, meta, prev_p, next_p):
         "<main class=\"static-main\">",
         f"<h1>{paper} {what} Crossword No {pretty}</h1>",
         f'<p class="s-facts">{" &middot; ".join(facts)}</p>',
-        f'<p class="s-cta"><a class="cta" href="{BASE}/?p={num}">Solve this puzzle with '
-        f'progressive hints &rarr;</a></p>',
+        f'<p class="s-cta"><a class="cta" href="{BASE}/?p={puz["id"]}">Solve it yourself, '
+        f'with hints one step at a time &rarr;</a></p>',
     ]
     # A page that prints answers has to say where the answers came from. For a
     # prize puzzle solved here before the paper published its key, the answers
@@ -531,30 +536,40 @@ def puzzle_page(puz, meta, prev_p, next_p):
         # its solutions only as answer-grid images, and it names no puzzle
         # number or date to look a key up by. Say that instead.
         body.append(
-            f'<p class="unofficial-note">The answers below are our own solve, checked for '
-            "consistency at every crossing in the grid but never confirmed against a published "
-            f"key — the book this {paper} crossword was reprinted in gives its solutions only as "
-            "pictures of filled grids, and names neither a puzzle number nor a date to look one "
-            "up by. Until they are checked against those printed grids, treat these as a careful "
-            "reading rather than the last word.</p>")
+            '<p class="unofficial-note">These answers are our own solve. Every one fits the '
+            "letters it shares with the answers crossing it, but none has been checked against "
+            f"an official list of answers. The book that reprinted this {paper} crossword prints "
+            "its solutions only as pictures of filled-in grids, with no puzzle number or date to "
+            "match them by. Treat these answers as very likely right, not certain.</p>")
     elif source.get("kind") == "model":
         body.append(
-            f'<p class="unofficial-note">The {paper} has not published the answers to this prize '
-            "crossword yet. The solutions below are our own solve, checked for consistency "
-            "at every crossing in the grid but not confirmed by the paper. They are replaced "
-            "by the official answers as soon as those appear.</p>")
+            f'<p class="unofficial-note">This is a {paper} prize crossword: readers send in '
+            "their solutions to win a prize, so the paper publishes the answers later. Until it "
+            "does, these answers are our own solve. Every one fits the letters it shares with "
+            "the answers crossing it, but the paper has not confirmed them. When the official "
+            "answers come out, this page switches to them.</p>")
     if annotated:
         body.append(
-            "<p>Below is every clue in the puzzle with its answer, the part of the clue that "
-            "defines it, and the wordplay taken apart piece by piece. If you would rather work "
-            f'it out yourself, <a href="{BASE}/?p={num}">the interactive version</a> gives you '
-            "the same explanation one nudge at a time, so you can stop as soon as you have "
-            "seen enough.</p>")
+            "<p>Every clue is below with its answer and how it works. A cryptic clue has two "
+            "parts: a <strong>definition</strong>, an ordinary meaning of the answer at the "
+            "start or end of the clue, and <strong>wordplay</strong>, a second route to the "
+            "same letters. <em>Indicators</em> are the words that say what to do with the "
+            "letters, such as rearrange them or turn them backwards. Each clue also says "
+            "<em>what it seems to say</em>, the innocent sentence it pretends to be.</p>")
+        types = type_key(puz)
+        if types:
+            body.append("<p>The clue types in this puzzle:</p><ul class=\"s-types\">"
+                        + "".join(f"<li>{esc(t)}</li>" for t in types) + "</ul>")
+        body.append(
+            f'<p>Want to solve it first? <a href="{BASE}/?p={puz["id"]}">Open it in the '
+            "solver</a>: it gives the same explanation one hint at a time, so you see only "
+            "as much as you need.</p>")
     else:
         body.append(
-            "<p>Answers to every clue below. This puzzle has not been annotated yet, so there "
-            "are no wordplay explanations on it — the hand-written hint ladder is added a few "
-            f'puzzles a night. <a href="{BASE}/puzzles/">Browse the annotated ones</a>.</p>')
+            "<p>Here is the answer to every clue. The explanations for this puzzle are not "
+            f'written yet; we add them a few puzzles at a time. <a href="{BASE}/puzzles/">All '
+            "puzzles</a> are listed by paper and year, and the ones marked <strong>full "
+            "hints</strong> are explained clue by clue.</p>")
     if puz.get("sourceUrl"):
         # Link text is the host we actually fetched from, not a hardcoded
         # "theguardian.com" — the Independent's puzzles come from somewhere else
@@ -619,6 +634,33 @@ def hub_row(p):
 UNDATED = "undated"
 
 
+def type_key(puz):
+    """The clue types this puzzle uses, each with the app's one-line blurb.
+
+    Matched the way app.js matches TYPE_BLURBS (the key is a substring of the
+    type), in the order the types first appear. A clue's "Clue type: charade"
+    is a word from the lesson, and a reader from a search has not had it.
+    """
+    blurbs, seen = app_tables_type_blurbs(), {}
+    for e in puz["entries"]:
+        t = ((e.get("annotation") or {}).get("type") or "").lower()
+        for k, v in blurbs:
+            if k in t:
+                seen.setdefault(k, v)
+    return list(seen.values())
+
+
+@functools.cache
+def app_tables_type_blurbs():
+    return app_tables.type_blurbs()
+
+
+@functools.cache
+def series_blurbs():
+    """{series: the app's sentence about it}, read from app.js once per run."""
+    return app_tables.series_blurbs()
+
+
 def series_name(series):
     if series_meta.is_book(series):
         return "Crossword books"      # kind and publisher are each book's own
@@ -649,11 +691,24 @@ def listings(idx):
             for s in order}
 
 
+# The badges and the difficulty scale, said once in words. Every listing page
+# carries it: a reader arriving from a search lands there, not on the hub.
+BADGE_KEY = ("<strong>full hints</strong>: every clue explained. "
+             "<strong>answers only</strong>: answers now, explanations not written yet. "
+             "<strong>unverified answers</strong>: our own solve, not yet confirmed by the "
+             "paper. Difficulty runs <strong>gentle</strong>, <strong>moderate</strong>, "
+             f'<strong>tough</strong>, <strong>brutal</strong> (<a href="{BASE}/puzzles/'
+             '#difficulty">how it is judged</a>).')
+
+
 def hub_page(idx):
     who = papers(idx)                 # "Guardian, Independent and Observer"
-    title = f"Cryptic crossword answers and explanations — {who}"
-    desc = (f"Every cryptic crossword we have annotated from the {who}, with answers "
-            "and a full wordplay explanation for each clue, by series and year.")
+    n_all = sum(1 for p in idx["puzzles"] if p.get("hasSolutions"))
+    blurbs = series_blurbs()
+    title = "Cryptic crossword answers and explanations, by paper and year"
+    desc = (f"Answers to {n_all:,} cryptic crosswords from the {who}, sorted by paper "
+            "and year. Many are explained clue by clue: the definition, the wordplay and "
+            "how they fit together.")
     canonical = f"{BASE}/puzzles/"
     crumbs = [("Cryptic Teacher", "/"), ("Puzzles", "")]
 
@@ -667,7 +722,8 @@ def hub_page(idx):
             f'<section class="s-series" id="{esc(s)}">'
             f'<h2>{esc(series_name(s))} <span class="badge series">'
             f'{esc(series_meta.badge(s))}</span></h2>'
-            f'<p class="muted">{n:,} puzzle{"s" if n != 1 else ""}</p>'
+            + (f'<p>{esc(blurbs[s])}</p>' if s in blurbs else "")
+            + f'<p class="muted">{n:,} puzzle{"s" if n != 1 else ""}. Pick a year:</p>'
             f'<p class="s-years">{links}</p></section>')
 
     list_ld = {"@context": "https://schema.org", "@type": "CollectionPage",
@@ -676,15 +732,17 @@ def hub_page(idx):
     body = [
         masthead(crumbs),
         '<main class="static-main">',
-        "<h1>Cryptic crosswords, explained</h1>",
-        "<p>Every puzzle we hold, by series and year. A <strong>full hints</strong> puzzle has "
-        "every clue hand-annotated: the clue family, where the definition hides, and the "
-        "wordplay taken apart step by step. An <strong>answers only</strong> puzzle has the "
-        "solutions but is still waiting for its annotations.</p>",
-        "<p class=\"muted small-note\" id=\"difficulty\">Difficulty is judged against the other puzzles here, "
-        "not in the abstract — it combines how many letters the grid leaves unchecked, how "
-        "rare the answers are, and which wordplay devices the setter leaned on. "
-        f'<a href="{BASE}/learn/">Start with how cryptic clues work</a> if any of that is new.</p>',
+        "<h1>Cryptic crossword answers and explanations</h1>",
+        f"<p>All {n_all:,} puzzles on this site, sorted by paper and year. Pick a year to see "
+        "its puzzles. Each puzzle is labelled <strong>full hints</strong> if every clue is "
+        "explained (its definition, its wordplay and how they fit) or <strong>answers "
+        "only</strong> if we have the answers but have not written the explanations yet.</p>",
+        "<p class=\"muted small-note\" id=\"difficulty\">Difficulty runs Gentle, Moderate, "
+        "Tough, Brutal. It compares each puzzle with the others on this site, using three "
+        "things: how many squares in the grid belong to only one answer (so no crossing "
+        "answer gives you that letter), how unusual the answers are, and which kinds of "
+        "wordplay the setter uses. "
+        f'New to cryptic crosswords? <a href="{BASE}/learn/">Start with how the clues work</a>.</p>',
         *sections,
         "</main>",
     ]
@@ -696,10 +754,17 @@ def listing_page(series, year, ps, prev_year, next_year):
     """One series' puzzles for one year, newest first."""
     name = series_name(series)
     label = f"{name}, {year}" if year != UNDATED else f"{name}, undated"
-    title = f"{label} — cryptic crossword answers and explanations"
-    desc = (f"All {len(ps):,} {name} crosswords we hold"
+    title = (f"{name} {year} — crossword answers and explanations" if year != UNDATED
+             else f"{name}, undated — crossword answers and explanations")
+    explained = sum(1 for p in ps if p.get("annotated"))
+    # How many are explained is counted, not claimed: a year of answers-only
+    # puzzles must not promise wordplay in its search snippet.
+    desc = (f"All {len(ps):,} {name} crosswords"
             + (f" from {year}" if year != UNDATED else " with no publication date")
-            + ", with answers and wordplay explanations for each clue.")
+            + " on this site, with the answer to every clue. "
+            + ("Every one is explained clue by clue." if explained == len(ps) else
+               f"{explained:,} of them are explained clue by clue." if explained else
+               "Explanations are not written yet."))
     path = listing_path(series, year)
     canonical = site_url(path)
     crumbs = [("Cryptic Teacher", "/"), ("Puzzles", "/puzzles/"),
@@ -710,16 +775,17 @@ def listing_page(series, year, ps, prev_year, next_year):
                    f'&larr; {esc(prev_year)}</a>')
     if next_year:
         nav.append(f'<a rel="next" href="{site_url(listing_path(series, next_year))}">'
-                   f'{esc(next_year)} &rarr;</a>')
+                   f'{esc(next_year if next_year != UNDATED else "Undated")} &rarr;</a>')
     list_ld = {"@context": "https://schema.org", "@type": "CollectionPage",
                "name": title, "url": canonical, "description": desc}
     body = [
         masthead(crumbs),
         '<main class="static-main">',
         f"<h1>{esc(label)}</h1>",
+        *([f'<p>{esc(series_blurbs()[series])}</p>'] if series in series_blurbs() else []),
         (f'<p>{len(ps):,} puzzle{"s" if len(ps) != 1 else ""}, newest first. '
-         f'<a href="{BASE}/puzzles/#difficulty">How difficulty is judged</a> &middot; '
-         f'<a href="{BASE}/puzzles/">every series</a>.</p>'),
+         f'<a href="{BASE}/puzzles/">All papers and years</a>.</p>'),
+        f'<p class="muted small-note">{BADGE_KEY}</p>',
         f'<ul class="s-index">{"".join(hub_row(p) for p in ps)}</ul>',
         *([f'<nav class="s-pager">{" ".join(nav)}</nav>'] if nav else []),
         "</main>",
@@ -945,20 +1011,23 @@ def homepage_nav(idx):
     sitemap, and a sitemap-only URL is treated as a much weaker signal than one
     that is actually linked. Visible to readers too — it is a real index.
     """
-    recent = [p for p in idx["puzzles"] if p.get("hasSolutions")][:12]
+    solved = [p for p in idx["puzzles"] if p.get("hasSolutions")]
+    # Each link names its paper: the list mixes every series by date, and
+    # "No 3,374" beside "No 30,120" says nothing about which is which.
     items = "".join(
-        f'<li><a href="{BASE}/puzzles/{p["id"]}/">{display_number(p)}'
-        + (f' &middot; {esc(s)}' if (s := known_setter(p.get("setter"))) else "")
-        + "</a></li>" for p in recent)
+        f'<li><a href="{BASE}/puzzles/{p["id"]}/">{esc(named(p))}'
+        + (f' &middot; {esc(s)}' if (s := known_setter(p.get("setter")))
+           and s != kind(p) and s != publisher(p) else "")
+        + "</a></li>" for p in solved[:12])
     return f"""{NAV_START}
 <section class="seo-nav">
   <h2>Answers and explanations</h2>
-  <p>These are real published crosswords — {papers(idx)} — set by the named humans
-     above, not clues generated to order. Every one of their clues is written up in
-     full: answer, definition and wordplay.
-     Start with <a href="{BASE}/learn/">how cryptic clues work</a>, learn the
-     <a href="{BASE}/abbreviations/">standard abbreviations</a>, or browse
-     <a href="{BASE}/puzzles/">all {sum(1 for p in idx["puzzles"] if p.get("hasSolutions"))} puzzles</a>.</p>
+  <p>These are real crosswords from the {papers(idx)}, by the papers' own setters,
+     not made-up practice clues. Every puzzle has a page with all its answers, and
+     many explain every clue: its definition, its wordplay and how they fit.
+     New to cryptics? Start with <a href="{BASE}/learn/">how cryptic clues work</a>
+     and the <a href="{BASE}/abbreviations/">common abbreviations</a>, or browse
+     <a href="{BASE}/puzzles/">all {len(solved):,} puzzles</a>. The newest:</p>
   <ul>{items}</ul>
 </section>
 {NAV_END}"""
@@ -992,7 +1061,7 @@ def moved_page(slug, target, title, body, crumb):
     refresh for a reader. GitHub Pages cannot answer with a 301, so a URL that
     has moved is a page that says so in both of the ways that count."""
     return {PUZZLE_DIR / slug / "index.html": (
-        head(title, f"Where to find {crumb.lower()}.", target,
+        head(title, f"{crumb} has a new address.", target,
              extra=f'<meta http-equiv="refresh" content="0; url={esc(target)}">\n')
         + masthead([("Cryptic Teacher", "/"), ("Puzzles", "/puzzles/"),
                     (crumb, "")])
@@ -1026,7 +1095,8 @@ def legacy_ids(solved):
             label = named(p)
             out.update(moved_page(
                 was, target, f"{label} has moved",
-                f'<p>This puzzle is now at <a href="{target}">{esc(target)}</a>.</p>',
+                f'<p>This puzzle has a new address: <a href="{target}">{esc(label)}</a>. '
+                "You should be taken there automatically.</p>",
                 label))
     return out
 
@@ -1062,20 +1132,23 @@ def legacy_redirects(solved):
         pretty = f"{int(num):,}"
         if len(ps) == 1:
             target = f"{BASE}/puzzles/{ps[0]['id']}/"
-            title = f"No {pretty} — {publisher(ps[0])} {kind(ps[0])}"
-            body = (f'<p>{esc(named(ps[0]))} is at '
-                    f'<a href="{target}">{esc(target)}</a>.</p>')
+            title = named(ps[0])
+            desc = f"The page for {named(ps[0])}."
+            body = (f'<p>The page for this puzzle is at <a href="{target}">{esc(title)}</a>. '
+                    "You should be taken there automatically.</p>")
             refresh = f'<meta http-equiv="refresh" content="0; url={esc(target)}">\n'
         else:
             target = f"{BASE}/puzzles/"
-            title = f"No {pretty} — which paper?"
-            body = ("<p>More than one paper has a No " + pretty + ":</p><ul>" + "".join(
+            title = f"Crossword No {pretty}: which paper?"
+            desc = f"More than one paper has a crossword No {pretty}. Pick the one you want."
+            body = (f"<p>More than one paper has a crossword No {pretty}. "
+                    "Pick the one you want:</p><ul>" + "".join(
                 f'<li><a href="{BASE}/puzzles/{p["id"]}/">'
                 f'{esc(named(p))}</a></li>' for p in ps)
                 + "</ul>")
             refresh = ""
         out[PUZZLE_DIR / num / "index.html"] = (
-            head(title, f"Where to find cryptic crossword No {pretty}.", target,
+            head(title, desc, target,
                  extra=refresh)
             + masthead([("Cryptic Teacher", "/"), ("Puzzles", "/puzzles/"),
                         (f"No {pretty}", "")])

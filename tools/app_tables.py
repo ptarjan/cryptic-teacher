@@ -85,6 +85,17 @@ def ladder(src=None):
     return out
 
 
+def series_blurbs(src=None):
+    """{series key: the sentence app.js's picker shows about that series}."""
+    src = src if src is not None else APP.read_text(encoding="utf-8")
+    block = _block(src, "const SERIES_BADGE = {", "\n  };")
+    out = {k: re.sub(r"\s+", " ", v).strip() for k, v in
+           re.findall(r'^\s{4}(\w+): \["[^"]*",\s*`([^`]*)`\]', block, re.M)}
+    if not out:
+        raise SystemExit("app_tables: SERIES_BADGE parsed empty")
+    return out
+
+
 def family_of(type_, fams=None):
     """The family a (possibly compound) type belongs to. First match wins."""
     t = (type_ or "").lower()
