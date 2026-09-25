@@ -1129,6 +1129,8 @@ button.gw { border-style: dashed; border-color: var(--pick-fg); }
    half the panel. */
 .gm-chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 0; }
 .gm-chips .gc { white-space: nowrap; font-weight: 600; letter-spacing: .04em; }
+/* A placed chunk keeps its space so the strip never moves under the finger. */
+.gm-chips .gc.spent { visibility: hidden; }
 
 /* The matching question: one row per fragment of the clue, each with an empty
    slot, and the letter chunks on the strip below. A chunk is picked up, then
