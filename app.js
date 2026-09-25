@@ -3394,13 +3394,10 @@
       blocks: "The building blocks",
       walkthrough: "Full walkthrough"
     };
-    // Every family the type matches, not just the first. A compound type like
-    // "charade + container" is in two of them, and naming only the head tells
-    // the solver the clue is a pure charade — a claim the rest of the page then
-    // contradicts, and one the quiz on this very rung already refuses, since
-    // familyAsk has always marked the whole set correct.
-    const fams = familiesOf(ann.type);
-    const shown = fams.length ? fams : [familyOf(ann.type)];
+    // Only the dominant family: a headline names one mechanism. The others a
+    // compound type is made of still grade right on this rung's quiz
+    // (familyAsk), so a solver who names any of them is not marked wrong.
+    const shown = [familyOf(ann.type)];
     steps.push({
       key: "type",
       label: LABELS.type,
@@ -4286,8 +4283,8 @@
   // A compound clue has every family it is made of, and each of them is a right
   // answer. The one the rung goes on to name is the dominant one, so a solver who
   // named a different true one is told that theirs is in there too — otherwise
-  // the paragraph underneath reads as a correction of an answer that was correct.
-  // "one of them" against "the one" is the whole of that, in one line either way:
+  // the paragraph underneath, which names only the main family, reads as a
+  // correction of an answer that was correct. One line either way:
   // a family label can be three words long ("container, reversal or deletion"),
   // and a verdict that quotes it back and then explains itself ran to three lines
   // on a phone to say what the solver had just tapped.

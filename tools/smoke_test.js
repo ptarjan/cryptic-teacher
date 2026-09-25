@@ -5380,17 +5380,28 @@ global.realSetTimeout(() => {
   // What it wanted, learned the expensive way, so the two answers below can be
   // told apart without this test knowing the app's own table of families.
   registry["guess-tell"].onclick();
-  const told = registry["hint-body"].innerHTML.slice(
-    registry["hint-body"].innerHTML.indexOf("kind of clue is this?"));
-  // Every family it names, not just the first: a compound clue is graded right
-  // for any of them, so "the one it named" and "not wrong" are different sets.
-  const accepted = [...told.matchAll(/<p><strong>([^<]+)<\/strong>/g)].map((m) => m[1]);
-  assert(accepted.length, "the rung names the family it was after: " + told);
-  const right = accepted[0];
+  const rungOf = (h) => h.slice(h.indexOf("kind of clue is this?"));
+  const named = (h) => [...rungOf(h).matchAll(/<p><strong>([^<]+)<\/strong>/g)].map((m) => m[1]);
+  const told = named(registry["hint-body"].innerHTML);
+  assert(told.length === 1, "the rung names the one family it was after: " + told);
+  const right = told[0];
+  // What the grader accepts, asked of the grader: a compound clue is right for
+  // any family it is made of, and the rung names only the main one.
+  const graded = () => {
+    open();
+    const out = {};
+    for (const k of [...choices().keys()]) {
+      open();
+      registry["gc-" + choices().get(k)].onclick();
+      out[k] = registry["hint-body"].innerHTML.includes("guess-verdict right");
+    }
+    return out;
+  };
+  const verdicts = graded();
 
   // Wrong is never a dead end: the rung opens all the same, and is charged for.
   const paid = open();
-  const wrong = [...choices().keys()].find((k) => accepted.indexOf(k) < 0);
+  const wrong = Object.keys(verdicts).find((k) => !verdicts[k]);
   registry["gc-" + choices().get(wrong)].onclick();
   html = registry["hint-body"].innerHTML;
   assert(html.includes("guess-verdict miss"), "a wrong family is graded: " + html);
@@ -5416,6 +5427,35 @@ global.realSetTimeout(() => {
   assert(registry["hint-meter"].innerHTML.includes("worked out"),
     "which the meter says, because that is the number this is all for: "
       + registry["hint-meter"].innerHTML);
+
+  // A compound clue names one family and grades every one it is made of right.
+  // Which clue is compound is read off the corpus by keyword; what the rung
+  // names and what the grader accepts are read off the page.
+  {
+    const famBlock = appSrc.slice(appSrc.indexOf("const FAMILIES"), appSrc.indexOf("const FAMILY_CHIPS"));
+    const famKeys = famBlock.split(/\{ label: "/).slice(1)
+      .map((c) => [...c.matchAll(/t\.includes\("([^"]+)"\)/g)].map((m) => m[1]));
+    const hits = (t) => famKeys.filter((ks) => ks.some((k) => t.toLowerCase().includes(k))).length;
+    const plain = found;
+    found = null;
+    for (const id of Object.keys(puzzles).sort()) {
+      for (const e of puzzles[id].entries || []) {
+        if (e.annotation && hits(e.annotation.type || "") >= 2) { found = { id, e }; break; }
+      }
+      if (found) break;
+    }
+    assert(found, "some clue is annotated with a compound type");
+    open();
+    registry["guess-tell"].onclick();
+    const main = named(registry["hint-body"].innerHTML);
+    assert(main.length === 1, `the rung on ${found.id} ${found.e.id} (${found.e.annotation.type}) `
+      + "names exactly one family: " + main);
+    const v = graded();
+    const secondary = Object.keys(v).find((k) => v[k] && k !== main[0]);
+    assert(secondary, `a family other than ${main[0]} is graded right on `
+      + `${found.e.annotation.type}: ` + JSON.stringify(v));
+    found = plain;
+  }
 
   // How the ladder works is said once and then stops. It is a line about the
   // whole ladder, so once a rung has been worked out it has been demonstrated,
