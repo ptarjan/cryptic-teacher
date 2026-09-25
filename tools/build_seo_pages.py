@@ -825,16 +825,17 @@ def learn_page():
     inner = re.sub(
         re.escape(build_abbreviations.MARK_START) + ".*?" + re.escape(build_abbreviations.MARK_END),
         '<h2 id="abbreviations">Common abbreviations</h2>\n'
-        "<p>Setters lean on a shared stock of tiny substitutions — <code>ch</code> for "
-        "<em>check</em>, <code>ab</code> for <em>sailor</em>. These never change, so they are "
-        f'worth looking up once and owning forever: <a href="{BASE}/abbreviations/">all '
-        f'{len(build_abbreviations.by_word())} abbreviations these puzzles use &rarr;</a></p>',
+        "<p>Setters use short, fixed stand-ins for common words. <em>Sailor</em> gives "
+        "<code>AB</code>. <em>Check</em> gives <code>CH</code>. You cannot work these out from "
+        "the word. You just learn them, and they appear in charades all the time: "
+        f'<a href="{BASE}/abbreviations/">see all '
+        f'{len(build_abbreviations.by_word())} abbreviations used in these puzzles &rarr;</a></p>',
         inner, flags=re.S)
 
     title = "How cryptic crossword clues work — a beginner's guide"
-    desc = ("Every cryptic clue is a definition plus wordplay. Learn to find the seam "
-            "between them, and the main clue types — anagram, charade, container, hidden "
-            "word, homophone and the rest — with worked examples.")
+    desc = ("Every cryptic clue has two parts: a definition and wordplay. Learn to tell "
+            "them apart, and learn the main clue types (anagram, charade, container, hidden "
+            "word, homophone and more), each with a worked example.")
     canonical = f"{BASE}/learn/"
     crumbs = [("Cryptic Teacher", "/"), ("How cryptic clues work", "")]
     page_ld = {"@context": "https://schema.org", "@type": "Article",
@@ -847,7 +848,7 @@ def learn_page():
         '<main class="static-main tutorial-static">',
         "<h1>How cryptic crossword clues work</h1>",
         inner,
-        f'<p class="s-cta"><a class="cta" href="{BASE}/">Try it on a real puzzle, '
+        f'<p class="s-cta"><a class="cta" href="{BASE}/">Now try a real puzzle, '
         f'with hints &rarr;</a></p>',
         "</main>",
     ]
@@ -935,10 +936,10 @@ def abbreviations_page(solved, pages):
     n = len(senses)
     links = clue_links(senses, solved, pages)
     title = f"Cryptic crossword abbreviations — the full list of {n}"
-    desc = (f"The {n} standard abbreviations cryptic crossword setters use, word first: "
-            "ch for check, ab for sailor, r for right. Every one taken from real "
-            f"published puzzles, and {len(links)} of them link to an annotated clue that "
-            "uses it.")
+    desc = (f"All {n} abbreviations cryptic crossword setters use in these puzzles, listed "
+            "by word: check is CH, sailor is AB, right is R. Every one comes from a real "
+            f"published puzzle, and {len(links)} of them link to a clue that uses it, "
+            "explained.")
     canonical = f"{BASE}/abbreviations/"
     crumbs = [("Cryptic Teacher", "/"), ("How cryptic clues work", "/learn/"),
               ("Abbreviations", "")]
@@ -954,20 +955,24 @@ def abbreviations_page(solved, pages):
         masthead(crumbs),
         '<main class="static-main tutorial-static">',
         f"<h1>Cryptic crossword abbreviations</h1>",
-        "<p>A cryptic clue's wordplay is built out of pieces, and the smallest pieces are "
-        "conventions rather than deductions: no amount of staring turns <em>sailor</em> into "
-        "<code>AB</code> or <em>check</em> into <code>CH</code>. You either know them or you "
-        "look them up, which is why they are the fastest thing a new solver can learn.</p>",
-        f"<p>These are all {n} that appear in the puzzles annotated on this site, listed word "
-        "first — the direction you arrive from. New ones are added automatically as they turn "
-        "up in a clue.</p>",
-        f"<p>{len(links)} of them link to a clue that uses the convention, with the whole of "
-        "its wordplay taken apart underneath — a convention is easier to keep once you have "
-        "seen a setter use it. The rest are waiting for a clue we have annotated to need "
-        "them.</p>",
+        "<p>Setters often swap a word for a short, fixed set of letters. <em>Sailor</em> "
+        "becomes <code>AB</code>. <em>Check</em> becomes <code>CH</code>. Most have a "
+        "reason (AB is short for \"able-bodied seaman\"), but you cannot work them out "
+        "from the word alone. You have to know them, so they are the quickest thing a new "
+        "solver can learn.</p>",
+        "<p>You will meet them most in charades, where the answer is built from small "
+        "pieces: <em>check</em> + <em>weapon</em> gives CH + ARM, which is CHARM. Some words "
+        "stand for more than one set of letters. Try each one until the pieces build a word "
+        "that matches the definition.</p>",
+        f"<p>This list has all {n} abbreviations used in the puzzles explained on this site. "
+        "Words are in alphabetical order. Find the word from your clue, and the letters it "
+        "stands for are right next to it. The list grows as new puzzles are added.</p>",
+        f"<p>{len(links)} of the words are links. Each one takes you to a real clue that uses "
+        "that abbreviation, with the clue explained step by step. The rest have no example "
+        "clue yet.</p>",
         build_abbreviations.table_html(senses, links),
-        f'<p class="s-cta"><a class="cta" href="{BASE}/learn/">How cryptic clues work, '
-        f'from the start &rarr;</a></p>',
+        f'<p class="s-cta"><a class="cta" href="{BASE}/learn/">New to cryptics? '
+        f'Learn how the clues work &rarr;</a></p>',
         "</main>",
     ]
     return head(title, desc, canonical, ld(page_ld) + ld(breadcrumb_ld(crumbs))) \
