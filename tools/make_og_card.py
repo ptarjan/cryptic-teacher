@@ -169,17 +169,19 @@ def plan(entry):
     ann = entry.get("annotation") or {}
     if not ann.get("definition") or not ann.get("answer") or not entry.get("clue"):
         return None
-    clue, _ = bare_clue(entry)
+    clue, enumeration = bare_clue(entry)
     if len(clue) > 78:
         return None                                 # no type size makes this fit
     t = (ann.get("type") or "").lower()
-    p = {"clue": clue, "ann": ann, "hidden": None, "fodder": None,
-         "indicator": None, "family": family_of(ann.get("type"))}
+    p = {"clue": clue, "ann": ann, "hidden": None, "fodder": None, "partial": False,
+         "indicator": None, "indicators": [], "family": family_of(ann.get("type")),
+         "enumeration": enumeration}
     try:
         p["definition"] = span_of(clue, ann["definition"])
         for ind in ann.get("indicators") or []:
             p["indicator"] = p["indicator"] or ind
             span_of(clue, ind)                      # must be quotable from the clue
+            p["indicators"].append(ind)
         if "hidden" in t and "reversal" not in t:
             block = next((b for b in ann.get("blocks") or []
                           if b.get("clueFragment")), None)
@@ -193,17 +195,63 @@ def plan(entry):
         # And only when the reader can find every one of those letters on the
         # card. Plenty of "anagram" annotations quietly substitute first: 30,079's
         # fodder is CRUELLY AT MAN, but the clue says "crew", and a rung reading
-        # "Shuffle CRUELLY AT MAN" over a clue with no MAN in it asks the reader to
+        # "Rearrange CRUELLY AT MAN" over a clue with no MAN in it asks the reader to
         # take a step the picture never shows. Such a clue keeps its indicator rung.
         if fodder and t == "anagram" and all(
                 re.search(rf"(?<![A-Za-z]){w}(?![A-Za-z])", clue, re.I)
                 for w in re.findall(r"[A-Za-z]+", fodder)):
             p["fodder"] = fodder
+        elif "anagram" in t:
+            p["fodder"], p["partial"] = clue_fodder(clue, ann, fodder, t == "anagram")
+        if p["fodder"] and p["indicators"]:
+            # The indicator that shuffles is the one touching its letters; the
+            # others do the rest of a compound clue's work.
+            # Located by its first and last words, since a comma in the clue
+            # can sit between words the fodder writes side by side.
+            words = re.findall(r"[A-Za-z]+", p["fodder"])
+            fs = (span_of(clue, words[0])[0], span_of(clue, words[-1])[1])
+            p["indicator"] = min(p["indicators"], key=lambda i: min(
+                abs(span_of(clue, i)[0] - fs[1]), abs(fs[0] - span_of(clue, i)[1])))
     except SystemExit:
         return None                                 # annotation and clue disagree
     if not (p["hidden"] or p["fodder"] or p["indicator"]):
         return None
     return p
+
+
+def letters(s):
+    return re.sub(r"[^A-Z]", "", (s or "").upper())
+
+
+def clue_fodder(clue, ann, fodder, whole):
+    """The anagram's letters as the clue's own words, or (None, False).
+
+    An annotation often stores the fodder as one run ("LAKELAVA") or not at
+    all, and the card must quote words the reader can see. So the blocks are
+    read instead: in a pure anagram, blocks whose clue words spell the fodder
+    exactly; in a compound one, the single block whose clue words rearrange to
+    its letters. The second returns partial=True, because those letters are
+    only part of the answer.
+    """
+    blocks = [b for b in ann.get("blocks") or [] if b.get("clueFragment")]
+    if whole:
+        if fodder and blocks \
+                and "".join(letters(b["clueFragment"]) for b in blocks) == letters(fodder) \
+                and all(letters(b["clueFragment"]) == letters(b.get("gives")) for b in blocks):
+            # Each piece must be in the clue, in order; they need not touch.
+            at = 0
+            for b in blocks:
+                at = norm(clue).find(norm(b["clueFragment"]), at)
+                if at < 0:
+                    return None, False
+            return " ".join(b["clueFragment"] for b in blocks), False
+        return None, False
+    for b in blocks:
+        f, g = letters(b["clueFragment"]), letters(b.get("gives"))
+        if len(f) > 3 and f != g and sorted(f) == sorted(g) \
+                and norm(b["clueFragment"]) in norm(clue):
+            return b["clueFragment"], True
+    return None, False
 
 
 def score(entry, p):
@@ -331,42 +379,92 @@ def rungs_for(p):
     """
     ann = p["ann"]
     label, blurb, _ = p["family"]
+    def mark(i):
+        return f'<mark class="ind">{html.escape(i)}</mark>'
+    others = [i for i in p["indicators"] if i != p["indicator"]]
     out = [("type", html.escape(label), html.escape(first_sentence(blurb)))]
     out.append(("definition",
                 f'The definition is <mark class="def">'
                 f'{html.escape(ann["definition"])}</mark>',
-                "Everything else is wordplay."))
+                "It means the same as the answer. The rest of the clue is wordplay."))
+    # The annotation's gloss is one clause of a sentence written for the page,
+    # so it is borrowed only where one word is being explained and the card has
+    # no plainer line of its own. A hidden word always has one.
     gloss = (indicator_gloss(ann, p["indicator"], p["family"])
-             if p["indicator"] else None)
+             if p["indicator"] and not others and not p["hidden"] else None)
     if p["hidden"] and p["indicator"]:
-        out.append(("indicators", gloss or
-                    (f'<mark class="ind">{html.escape(p["indicator"])}</mark> '
-                     "says it is hidden here"),
-                    "The underline is the answer, in order, straddling the words."))
+        out.append(("indicators",
+                    f'{and_list(map(mark, p["indicators"]))} '
+                    f'{"say" if others else "says"} the answer is hidden in the clue',
+                    "The underlined letters spell the answer, running across the words."))
     elif p["fodder"]:
         # Name the indicator, don't just paint it. The card marks it pink in the
         # clue either way, and a pink word the rungs never mention reads as an
         # unexplained claim.
         n = len(re.sub(r"[^A-Za-z]", "", p["fodder"]))
         key = "blocks"
-        head = f'Shuffle <span class="fodder">{html.escape(p["fodder"])}</span>'
+        fod = f'<span class="fodder">{html.escape(p["fodder"])}</span>'
+        head = f"Rearrange {fod}"
+        # In a pure anagram every indicator says the same thing; in a compound
+        # one the rest do other work, and the sub-line names them, so no pink
+        # word on the card goes unexplained.
+        shufflers = [p["indicator"]] + ([] if p["partial"] else others)
         if p["indicator"]:
             key = "indicators"
-            head = (f'<mark class="ind">{html.escape(p["indicator"])}</mark> '
-                    f'says to shuffle <span class="fodder">'
-                    f'{html.escape(p["fodder"])}</span>')
-        out.append((key, head,
-                    f"{n} letters, and the enumeration says where they land."))
+            head = (f'{and_list(map(mark, shufflers))} '
+                    f'{"says" if len(shufflers) == 1 else "both say"} to rearrange {fod}')
+        tail = (partial_tail(p, others, mark) if p["partial"] else
+                f"All {n} letters, in a new order, spell the answer{lengths(p)}.")
+        out.append((key, head, tail))
     elif p["indicator"]:
         out.append(("indicators", gloss or
-                    (f'The instruction is <mark class="ind">'
-                     f'{html.escape(p["indicator"])}</mark>'),
-                    "It tells you what to do with the rest."))
+                    (f'{and_list(map(mark, p["indicators"]))} '
+                     f'{"are the instructions" if others else "is the instruction"}'),
+                    "They tell you what to do with the words around them." if others else
+                    "It tells you what to do with the words around it."))
     else:
-        out.append(("blocks", "The answer is hiding in the clue itself",
-                    "The underline is where its letters sit, in order."))
+        out.append(("blocks", "The answer is hidden in the clue itself",
+                    "The underlined letters spell it, in order."))
     out.sort(key=lambda r: LADDER.index(r[0]))
     return [(head, tail) for _, head, tail in out]
+
+
+def partial_tail(p, others, mark):
+    """What a compound anagram's card says about the letters that are NOT shuffled.
+
+    "The rest: “one” gives I, and <over> says what to do with it." The pieces come from
+    the annotation's other blocks, and the answer can't leak through them:
+    check_no_answer reads this line with the rest. A card that said only "over
+    does the rest" left a newcomer one letter short with no way to find it.
+    """
+    rest = [b for b in p["ann"].get("blocks") or []
+            if b.get("clueFragment") and letters(b.get("gives"))
+            and norm(b["clueFragment"]) != norm(p["fodder"])]
+    # Two pieces fit on the line; a list that stopped short would leave the
+    # reader letters short, which is the failure this exists to fix.
+    pieces = and_list([f"“{html.escape(b['clueFragment'])}” gives "
+                       f"{html.escape(letters(b['gives']))}" for b in rest]) \
+        if 0 < len(rest) <= 2 else ""
+    how = (f'{and_list(map(mark, others))} {"says" if len(others) == 1 else "say"} '
+           f'what to do with {"it" if len(rest) == 1 else "them"}') if others else ""
+    if not pieces:
+        return ("These letters make part of the answer." if not others else
+                f'{and_list(map(mark, others))} then '
+                f'{"says" if len(others) == 1 else "say"} what to do with the rest.')
+    return f"The rest: {pieces}" + (f", and {how}." if how else ".")
+
+
+def and_list(items):
+    items = list(items)
+    return items[0] if len(items) == 1 else ", ".join(items[:-1]) + " and " + items[-1]
+
+
+def lengths(p):
+    """": a 4-letter word then a 6-letter word" for a (4,6); "" for one word."""
+    nums = re.findall(r"\d+", p.get("enumeration") or "")
+    if len(nums) < 2:
+        return ""
+    return ": " + " then ".join(f"a {n}-letter word" for n in nums)
 
 
 def check_no_answer(clue_html, prose_html, answer):
@@ -534,12 +632,13 @@ def alt_text(number, entry_id=None):
         p = plan(next(e for e in load(number)["entries"] if e["id"] == entry_id))
     if not p:
         return None
-    shown = ("the answer underlined where it hides in the clue" if p["hidden"] else
-             "the letters to be rearranged spelled out" if p["fodder"] else
-             "the indicator marked")
+    shown = ("the answer's letters underlined where they hide in the clue" if p["hidden"] else
+             "the letters to rearrange spelled out" if p["fodder"] else
+             "the instruction words highlighted" if len(p["indicators"]) > 1 else
+             "the instruction word highlighted")
     entry = next(e for e in load(number)["entries"] if e["id"] == entry_id)
-    return (f'The cryptic clue "{entry["clue"]}" taken apart: the definition '
-            f'marked, {shown}, and the answer itself left blank.')
+    return (f'The cryptic clue "{entry["clue"]}" explained in three steps: the definition '
+            f'highlighted, {shown}, and the answer left as empty boxes.')
 
 
 MANIFEST = REPO / "og" / ".manifest.json"
