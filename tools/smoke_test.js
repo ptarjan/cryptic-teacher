@@ -3118,6 +3118,47 @@ registry["reset-puzzle"].onclick();
       + JSON.stringify(panel.getBoundingClientRect()) + " band 0.." + vv.height);
   drain();
 
+  // --- the strip's tap moves the page once: when the keys land, not before ---
+  // Tapping the letter strip is the tap that raises the keys, and the clue and
+  // strip are on screen when it is made. Placing the whole panel on the settle
+  // moved the page while the keys were still coming, and the keys then moved it
+  // again — twice, on an iPad in landscape, where the band left over is too
+  // short for the panel. What the keys must not cover is the clue and the strip,
+  // so that is what decides whether to move, and the keys are the only move.
+  {
+    const kbd = registry["kbd"], clue = registry["hint-clue"], strip = registry["hint-pattern"];
+    kbd.blur();
+    vv.height = 1000; vv.offsetTop = 0;
+    win.pageYOffset = 1000; win.scrolls.length = 0;
+    panel.layout(1200, 1100);           // off the foot of the screen...
+    clue.layout(1210, 60);              // ...but not its clue
+    strip.layout(1275, 50);             // or its strip
+    strip.listeners.mousedown[0]();
+    global.flushTimers(100);
+    assert(win.scrolls.length === 0,
+      "the strip's tap does not move a clue and strip already on screen: " + JSON.stringify(win.scrolls));
+    vv.raiseKeyboard(560);              // a landscape keyboard: 440px left
+    global.flushTimers(500);
+    const c = clue.getBoundingClientRect(), st = strip.getBoundingClientRect();
+    assert(win.scrolls.length === 1 && c.top >= 0 && st.bottom <= vv.height,
+      "the keys move it once, to the clue and strip above them: " + JSON.stringify(win.scrolls)
+        + ` clue ${c.top}, strip foot ${st.bottom}, band 0..${vv.height}`);
+    drain();
+    assert(win.scrolls.length === 1, "and nothing moves after it: " + JSON.stringify(win.scrolls));
+
+    // iOS scrolls the focused input clear of the keys as they come up, whatever
+    // preventScroll says — so the hidden input is focused at the top of the band,
+    // which no keyboard covers, and a pan moves that top.
+    kbd.blur();
+    vv.height = 1000; vv.offsetTop = 120;
+    strip.listeners.mousedown[0]();
+    assert(kbd.style.top === "120px",
+      "the hidden input is focused at the top of the visible band: " + kbd.style.top);
+    drain();
+    vv.offsetTop = 0;
+    clue.layout(0, 0); strip.layout(0, 0); panel.layout(1200, 400);
+  }
+
   // --- but a keyboard that is GONE is not a keyboard that is coming ---
   // "Owed" used to be read off the input: focused, with no keys showing. That is
   // also exactly what an iPad looks like the moment you dismiss the keyboard with
