@@ -5936,6 +5936,10 @@
     if (window.history && window.history.replaceState) {
       window.history.replaceState(null, "", shareUrl(id, null));
     }
+    // A reload fetches whatever the address bar now says, which is the static
+    // write-up. This flag tells that page's <head> this tab was solving here, so
+    // it sends the reload back to the app (app_return in tools/build_seo_pages.py).
+    try { sessionStorage.setItem(`ct:app:${id}`, "1"); } catch (e) { /* no storage: a reload shows the write-up */ }
     // ?p=30054 is one app URL among thousands, and it shipped declaring the
     // homepage as its canonical — so Google folded every share and every link to
     // a specific puzzle into the site root, and Search Console listed the puzzle

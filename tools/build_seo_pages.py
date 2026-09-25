@@ -404,6 +404,23 @@ def clue_html(e):
     return "\n".join(bits)
 
 
+def app_return(pid):
+    """Send a reload back into the app when this tab was solving the puzzle there.
+
+    The app keeps /puzzles/<id>/ in the address bar, because that is what gets
+    copied and what previews with this page's card, so a reload lands here. The
+    app sets sessionStorage "ct:app:<id>" when it opens the puzzle; crawlers and
+    fresh visitors carry no flag and get this page. `../../` is the site root
+    from every /puzzles/<id>/ page, on any host.
+    """
+    key = json.dumps(f"ct:app:{pid}")
+    app = json.dumps(f"../../?p={pid}")
+    return ("<script>try{if(sessionStorage.getItem(" + key + ")){"
+            "var c=new URLSearchParams(location.search).get(\"c\");"
+            "location.replace(" + app + "+(c?\"&c=\"+encodeURIComponent(c):\"\"))}"
+            "}catch(e){}</script>\n")
+
+
 def puzzle_page(puz, meta, prev_p, next_p):
     num, setter = puz["number"], known_setter(puz.get("setter"))
     what = kind(puz)                  # "Cryptic", "Quiptic", "Everyman"
@@ -564,7 +581,8 @@ def puzzle_page(puz, meta, prev_p, next_p):
         card, alt = f"og/{puz['id']}.png", card_alt(puz["id"])
 
     return (head(title, desc, canonical,
-                 ld(article_ld) + ld(breadcrumb_ld(crumbs)), card, alt)
+                 app_return(puz["id"]) + ld(article_ld) + ld(breadcrumb_ld(crumbs)),
+                 card, alt)
             + "\n".join(body) + "\n" + FOOTER)
 
 
