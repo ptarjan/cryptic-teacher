@@ -5701,6 +5701,11 @@
     // it again instead of taking it out.
     const wordsOf = (w) => w.toLowerCase().split(/\s+/).filter(Boolean);
     const isOn = (w) => wordsOf(w).every((x) => picked.indexOf(x) >= 0);
+    // In a choice row a chip whose words are all inside a longer sibling's is
+    // not on when that sibling is: "times jumbo" in the box is the Jumbo chip,
+    // not Times as well.
+    const chipOn = (w, siblings) => isOn(w) && !siblings.some((s) => s !== w
+      && isOn(s) && wordsOf(s).length > wordsOf(w).length);
     // Each row numbers its own buttons, so the standing rows keep the same ids
     // whether or not a completion row is above them.
     const seq = {};
@@ -5713,7 +5718,7 @@
         const id = prefix + ((seq[prefix] = (seq[prefix] || 0) + 1) - 1);
         chips.push([id, w, oneOf ? words : []]);
         return `<button type="button" id="${id}" class="badge ${cls(w)}" aria-pressed="${
-          isOn(w)}">${esc(w)}</button>`;
+          chipOn(w, oneOf ? words : [])}">${esc(w)}</button>`;
       }).join("") + (extra || "") + "</span>";
     // The completions the two standing rows cannot give: setters, weekdays and
     // the two status words. First, because it is about the letters going in
@@ -5746,7 +5751,7 @@
       el.onclick = () => {
         const mine = wordsOf(w);
         let next;
-        if (isOn(w)) {
+        if (chipOn(w, siblings)) {
           next = picked.filter((x) => mine.indexOf(x) < 0);
         } else {
           // Only the words of a sibling that is CURRENTLY on come out. Dropping
@@ -5754,7 +5759,7 @@
           // chip happens to share: "sunday" is a weekday you can search for as
           // well as half of "indy sunday".
           const drop = {};
-          siblings.filter((s) => s !== w && isOn(s)).forEach(
+          siblings.filter((s) => s !== w && chipOn(s, siblings)).forEach(
             (s) => wordsOf(s).forEach((x) => { if (mine.indexOf(x) < 0) drop[x] = 1; }));
           next = picked.filter((x) => !drop[x])
             .concat(mine.filter((x) => picked.indexOf(x) < 0));
