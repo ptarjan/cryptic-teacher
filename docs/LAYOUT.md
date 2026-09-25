@@ -538,5 +538,8 @@ tools/test_nightly_worktree.sh               which tree does a scheduled job end
                                              checked by running one
 tools/test_refresh_window.sh                 does refresh_unsolved ever stop asking for an
                                              answer that is never coming?
+tools/test_privateeye_dates.sh               does tools/fetch_privateeye.py read the issue off
+                                             every title shape the archive ships, and take the
+                                             Eye's Christmas cover date as it prints it?
 ```
 <!-- LAYOUT-END -->
