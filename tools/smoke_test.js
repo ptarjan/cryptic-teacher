@@ -3130,9 +3130,9 @@ registry["reset-puzzle"].onclick();
     kbd.blur();
     vv.height = 1000; vv.offsetTop = 0;
     win.pageYOffset = 1000; win.scrolls.length = 0;
-    panel.layout(1200, 1100);           // off the foot of the screen...
-    clue.layout(1210, 60);              // ...but not its clue
-    strip.layout(1275, 50);             // or its strip
+    panel.layout(1590, 1100);           // off the foot of the screen...
+    clue.layout(1600, 60);              // ...but not its clue, which the keys will cover
+    strip.layout(1665, 50);             // nor its strip
     strip.listeners.mousedown[0]();
     global.flushTimers(100);
     assert(win.scrolls.length === 0,
