@@ -33,6 +33,9 @@ import re
 # nothing asks for.
 # setter — used only when the source publishes no byline. Absent means the
 #   puzzle's setter is null: nobody is known to have set it.
+# group — the heading the puzzle picker files this series under. Absent means
+#   the publisher. A Sunday sister paper sets its weekday paper's, so the
+#   Sunday Times sits with the Times while its publisher stays "Sunday Times".
 SERIES = {
     "cryptic": {
         "kind": "Cryptic",
@@ -48,6 +51,8 @@ SERIES = {
     "everyman": {
         "kind": "Everyman",
         "publisher": "Observer",
+        # The Guardian's sister paper, and published on the Guardian's site.
+        "group": "Guardian",
         # "Everyman" IS the byline — the Observer has kept the setter anonymous
         # since 1945 — so the feed ships no creator. Without this every one of
         # them has a null setter, which hides a byline the paper really prints.
@@ -150,6 +155,7 @@ SERIES = {
     "sundaytimes": {
         "kind": "Cryptic",
         "publisher": "Sunday Times",
+        "group": "Times",
         "badge": "sunday times",
         "blog": "timesforthetimes.co.uk",
         "perLightEnumeration": True,
@@ -346,6 +352,15 @@ def publisher(series, number=None):
     if is_book(series):
         return book_row(series, number)["publisher"] if number is not None else ""
     return meta(series)["publisher"]
+
+
+def group(series):
+    """The picker heading this series is filed under: its `group`, else its
+    publisher. A book series answers "", as publisher() does without a number.
+    """
+    if is_book(series):
+        return ""
+    return meta(series).get("group", meta(series)["publisher"])
 
 
 def default_setter(series, number=None):
