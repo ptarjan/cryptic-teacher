@@ -636,5 +636,43 @@ check "an amended clue reads as the amendment" \
   "27|across|OOCYTE|6|Next to empty temple, shot animals for egg cell? (6)" \
   "$(echo "$got" | sed -n 2p)"
 
+# A linked head over its leader's own count: the leader counts the whole
+# answer and the continuation carries null, whether the blog prints the answer
+# whole or the continuation's letters on a line of their own.
+whole='<p>Across</p><p>11 and 7dn He and I are prominent members of this organisation (8)</p>
+<p>PERIODIC TABLE &#8211; a cryptic definition</p>'
+check "a linked head's leader-only count becomes the whole answer's" \
+  "11|across|PERIODIC|8,5|He and I are prominent members of this organisation (8,5)
+7|down|TABLE||See 11" "$(run "$whole")"
+split='<p>Down</p><p>2 &amp; 3 Boundless humour, one girl recollected, in famous old nightspot (6)</p>
+<p>MOULIN: An anagram</p><p>3 See 2 Down (5)</p><p>ROUGE:</p>'
+check "a head over the leader's letters alone loses its numbers and counts both lights" \
+  "2|down|MOULIN|6,5|Boundless humour, one girl recollected, in famous old nightspot (6,5)
+3|down|ROUGE||See 2 Down" "$(run "$split")"
+twin='<p>Across</p><p>1 New line backward poet pens for explorer (7)</p><p>STANLEY &#8211; x</p>
+<p>27 See 1d</p><p>Down</p><p>1/27a Comedic instrument absurd: what else is new? (6,7)</p>
+<p>SWANEE WHISTLE &#8211; x</p><p>6 See 12a (5)</p>'
+check "a pointer names its leader's direction when the other light of that number exists" \
+  "27|across|WHISTLE||See 1 down" "$(run "$twin" | grep '^27|')"
+glued='<p>Across</p><p>12 &amp; 6 Down Its wheels fit (7,5)</p><p>TWELFTH: For this and 6d take letters</p>
+<p>Down</p><p>6 See 12a (5)</p><p>NIGHT</p>'
+check "a pointer glued to its leader's direction, \"See 12a (5)\", is a pointer" \
+  "12|across|TWELFTH|7,5|Its wheels fit (7,5)
+6|down|NIGHT||See 12 across" "$(run "$glued")"
+merged='<p>Across</p><p>13 Coward&#8217;s work complaint? (35)</p><p>HAY FEVER &#8211; a cd</p>'
+check "a count whose comma the blog dropped is read off the answer's words" \
+  "13|across|HAYFEVER|3,5|Coward’s work complaint? (3,5)" "$(run "$merged")"
+prose='<p>Across</p><p>4/7 of 19 is a very small amount (4)</p><p>WHIT &#8211; a charade</p>'
+check "a head no pointer answers stays the clue's text" \
+  "4|across|WHIT|4|4/7 of 19 is a very small amount (4)" "$(run "$prose")"
+
+# A count closed with a brace, "(3,5}" or "(6)}", is the count: the clue keeps
+# it once, without the brace.
+brace='<p>Across</p><p>17 Nightcap&#8217;s a knockout with rum in (3,5}</p><p>RUM PUNCH &#8211; x</p>
+<p>22 Cat mostly nourished by crow&#8217;s foot? (6)}</p><p>FELINE &#8211; x</p>'
+check "a brace-closed count is read once, without the brace" \
+  "Nightcap’s a knockout with rum in (3,5)|Cat mostly nourished by crow’s foot? (6)" \
+  "$(run "$brace" | cut -d'|' -f5 | paste -sd'|')"
+
 if [ "$fails" -gt 0 ]; then echo "$fails FAILURE(S)"; exit 1; fi
 echo "all checks passed"

@@ -56,6 +56,14 @@ NUMBER = re.compile(r"^\D*?(\d[\d,]{1,6})\b")
 BYLINE = re.compile(
     r"^(?:DT\s+)?(?:daily\s*telegraph|sunday\s+telegraph|sunday\s+toughie|toughie)"
     r"\b[^\d]{0,30}\d[\d,]*\s+by\s+([A-Z][\w'’.-]*(?:\s+[A-Z][\w'’.-]*){0,2})", re.I)
+#: A Toughie heading that is the paper and its number alone, "Toughie No
+#: 2257", puts the byline on the puzzle's title on the line after it:
+#: "Double, double toil and trouble by Firefly". Only the Toughies print a
+#: setter, so under any other heading that line is the blogger's ("A full
+#: analysis by Big Dave"), and so is any line naming the blogging.
+BARE_HEADING = re.compile(r"^(?:sunday\s+)?toughie\b[^\d]{0,30}\d[\d,]*\s*$", re.IGNORECASE)
+TITLE_BYLINE = re.compile(r"\bby\s+([A-Z][\w'’.-]*(?:\s+[A-Z][\w'’.-]*){0,2})\s*$")
+BLOGGER = re.compile(r"\b(?:hints|tips|review\w*|analysis|blog\w*|comments?)\b", re.IGNORECASE)
 #: Setter categories sit under the Toughie's and the Sunday Toughie's.
 SETTER_PARENTS = {11, 7625}
 #: A setter category that names no setter.
@@ -86,6 +94,10 @@ WAY = {"a": "Across", "d": "Down"}
 #: "{ SAPLINGS } An anagram ...", and the shared reader drops braced text.
 HIDDEN = re.compile(r"\{\s*((?:<[^>]+>\s*)*[^<{}]*?(?:\s*</[^>]+>)*)\s*\}")
 
+#: "&npsp;" is the blog's typo for "&nbsp;", which no HTML decoder knows;
+#: the editor escaped its ampersand, so the post holds "&amp;npsp;".
+TYPOED_NBSP = re.compile(r"&(?:amp;)?npsp;")
+
 
 def categories():
     path = BLOG.cache / "categories.json"
@@ -111,10 +123,14 @@ def series_and_number(post, heading):
 
 def setter_of(post, rendered, cats):
     """The setter the post names, or None."""
-    for ln in rendered[:6]:
+    for i, ln in enumerate(rendered[:6]):
         m = BYLINE.match(ln)
         if m:
             return m.group(1).strip(" .")
+        if BARE_HEADING.match(ln) and i + 1 < len(rendered):
+            m = TITLE_BYLINE.search(rendered[i + 1])
+            if m and not BLOGGER.search(rendered[i + 1]):
+                return m.group(1).strip(" .")
     named = {re.sub(r"\s*\(Sunday\)$", "", cats[c]["name"]) for c in post.get("categories", ())
              if c in cats and cats[c]["parent"] in SETTER_PARENTS}
     named = {n for n in named if not NOT_A_SETTER.search(n)}
@@ -150,7 +166,8 @@ def headed(rendered):
 
 def read_post(post, cats):
     """One post's facts, or None for a post that is no puzzle of ours."""
-    rendered = [ln for ln in tftt.lines(HIDDEN.sub(r"\1 – ", post["content"]["rendered"])) if ln]
+    body = TYPOED_NBSP.sub(" ", post["content"]["rendered"])
+    rendered = [ln for ln in tftt.lines(HIDDEN.sub(r"\1 – ", body)) if ln]
     series, number = series_and_number(post, rendered[0] if rendered else "")
     if series is None:
         return None
