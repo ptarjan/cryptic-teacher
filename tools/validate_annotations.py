@@ -49,6 +49,7 @@ fails.
 import ast
 import json
 import re
+import subprocess
 import sys
 import unicodedata
 from pathlib import Path
@@ -56,7 +57,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from fetch_puzzle import (  # noqa: E402 — one glob, one id resolver, one reader, one exemption
-    leaders_named, puzzle_files, read_puzzle_file, resolve_puzzle)
+    ROOT, clue_words, leaders_named, puzzle_files, read_puzzle_file, resolve_puzzle)
 from find_answer_leaks import says  # noqa: E402 — one matcher, shared with the finder
 
 # The controlled vocabulary for `type`. Compound types join parts with " + " and
@@ -1394,7 +1395,7 @@ def is_blank_clue(clue):
     return not re.sub(r"\([\d,\-\s]+\)\s*$", "", clue).strip()
 
 
-def check_every_clue_is_annotated(entries, errors, warnings, misses=()):
+def check_every_clue_is_annotated(entries, errors, warnings, misses=(), corpus=False):
     """Once a puzzle is annotated at all, every clue in it must be annotated.
 
     A blank annotation is the one failure no other check can see: it claims
@@ -1404,6 +1405,11 @@ def check_every_clue_is_annotated(entries, errors, warnings, misses=()):
     of them rather than fail check_cryptic_definition_cap, which turned a loud
     failure into a silent one. Erroring here is what stops a rule elsewhere
     from being paid for in blanks.
+
+    That is a rule for the run that annotates. A corpus-wide run (`corpus`)
+    reads committed puzzles, where a hole is a clue whose annotation was dropped
+    because its text was corrected: the puzzle indexes as unannotated and the
+    queue annotates it again, as it does a puzzle with no annotations at all.
 
     The one legitimate blank is a clue the setter left blank on purpose (a
     grid entry with no clue text, as in cryptic-30098 12A). That is detectable
@@ -1438,6 +1444,9 @@ def check_every_clue_is_annotated(entries, errors, warnings, misses=()):
                 f"{tag}: no annotation. It is a later leg of the linked group "
                 f"{group}, so its annotation is {{\"linkedTo\": \"{group[0]}\"}} and the "
                 f"whole group is annotated once, on {group[0]}")
+            continue
+        if corpus:
+            warnings.append(f"{tag}: no annotation — queued to be annotated again")
             continue
         likely = (" Its letters are a model's LIKELY fill, not the paper's: annotate "
                   "it only if you can derive the whole answer from the clue yourself."
@@ -2043,7 +2052,33 @@ def check_no_markup(puzzle, errors):
     walk(puzzle, "")
 
 
-def validate_puzzle(puzzle):
+def check_clue_unchanged(puzzle, path, errors):
+    """An annotation explains the clue it was written against. An annotated
+    entry whose clue's words differ from the committed file's is either a run
+    that rewrote the clue to suit its parse, or a correction that kept notes on
+    the text it replaced. Either way the annotation goes: a corrected clue is
+    committed without one and the queue annotates it afresh. Typography
+    (quotes, dashes, accents, spacing) is not a different clue."""
+    try:
+        rel = path.resolve().relative_to(ROOT)
+    except ValueError:
+        return
+    shown = subprocess.run(["git", "show", f"HEAD:{rel.as_posix()}"], cwd=ROOT,
+                           capture_output=True, text=True)
+    if shown.returncode:
+        return                  # not committed yet: nothing to compare with
+    was = {e["id"]: e.get("clue") for e in json.loads(shown.stdout).get("entries", [])}
+    for e in puzzle["entries"]:
+        if (e.get("annotation") is not None and e["id"] in was
+                and clue_words(was[e["id"]]) != clue_words(e.get("clue"))):
+            errors.append(
+                f"{e['id']}: clue changed from {was[e['id']]!r} to {e.get('clue')!r} "
+                f"under an annotation. The clue text is the source's, not the "
+                f"annotator's: put it back, or, correcting it, drop this entry's "
+                f"annotation so it is annotated afresh")
+
+
+def validate_puzzle(puzzle, corpus=False):
     errors, warnings = [], []
     check_no_markup(puzzle, errors)
     check_groups_agree(puzzle, errors)
@@ -2109,7 +2144,8 @@ def validate_puzzle(puzzle):
         for b in ann.get("blocks", []):
             frag = b.get("clueFragment")
             if frag and frag not in clue:
-                warnings.append(f"{tag}: block fragment {frag!r} is not verbatim in clue")
+                errors.append(f"{tag}: block fragment {frag!r} not found in clue {clue!r}"
+                              + verbatim_hint(frag, clue))
 
         # Letter mechanics.
         if ann.get("anagram"):
@@ -2227,7 +2263,7 @@ def validate_puzzle(puzzle):
 
     if annotated:
         check_every_clue_is_annotated(puzzle["entries"], errors, warnings,
-                                      blind_misses(puzzle["id"]))
+                                      blind_misses(puzzle["id"]), corpus=corpus)
         check_cryptic_definition_cap(puzzle["entries"], errors, warnings,
                                      authored=authored)
         check_definition_not_fodder(puzzle["entries"], errors, warnings)
@@ -2387,7 +2423,9 @@ def main(argv):
             failed = True
             continue
         puzzle = read_puzzle_file(path)
-        annotated, errors, warnings = validate_puzzle(puzzle)
+        annotated, errors, warnings = validate_puzzle(puzzle, corpus=full_run)
+        if not full_run:        # a run's own puzzles; the corpus is HEAD already
+            check_clue_unchanged(puzzle, path, errors)
         total = len(puzzle["entries"])
         if annotated == 0 and not argv:
             # Nothing to check about annotations that do not exist yet — but
