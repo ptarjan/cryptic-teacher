@@ -372,6 +372,9 @@ button:disabled:hover { border-color: var(--line); }
 .badge.help[aria-expanded="true"] { color: inherit; border-color: currentColor; }
 #picker-note:empty { display: none; }
 #picker-note .badge.diff { min-width: 0; }
+/* One row of badge + count pairs; a pair never splits across a line. */
+#picker-note .band-counts { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 8px; }
+#picker-note .band-count { white-space: nowrap; }
 @media (pointer: coarse) { .picker-filters button.badge { padding: 5px 10px; } }
 
 /* ---------- layout ---------- */

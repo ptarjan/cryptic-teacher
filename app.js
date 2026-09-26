@@ -5587,14 +5587,14 @@
       if (b) n[b.toLowerCase()] = (n[b.toLowerCase()] || 0) + 1;
     });
     const counts = pickerBandList().filter((b) => n[b])
-      .map((b) => `<span class="badge diff diff-${esc(b)}">${esc(b)}</span> ${n[b]}`)
-      .join(" · ");
+      .map((b) => `<span class="band-count"><span class="badge diff diff-${esc(b)}">${esc(b)}</span> ${n[b]}</span>`)
+      .join("");
     return "Difficulty compares a puzzle with the others on this site, not with "
       + "crosswords in general: the papers don\u2019t publish ratings, and solving "
       + "times aren\u2019t used. A puzzle rates harder when fewer of its squares belong "
       + "to both an across and a down answer, when its answers are unusual words, and "
       + "when the wordplay gives less help checking that a guess is right. "
-      + (counts ? "Puzzles in each band now: " + counts + "." : "");
+      + (counts ? "Puzzles in each band now:<span class=\"band-counts\">" + counts + "</span>" : "");
   }
 
   let pickerBands = null;
