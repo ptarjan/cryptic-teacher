@@ -101,9 +101,11 @@ SETTERS_FROM_COMMENTS = {
 
 
 def setter(rec, series):
-    """The setter the post's title names, where the series prints one."""
-    named = series in BYLINED and (tftt.setter_from_title(rec.get("title"))
-                                   or SETTERS_FROM_COMMENTS.get(rec.get("post_id")))
+    """The setter the post's title names, where the series prints one: a
+    parser that read it already has it in the record."""
+    named = rec.get("setter") or series in BYLINED and (
+        tftt.setter_from_title(rec.get("title"))
+        or SETTERS_FROM_COMMENTS.get(rec.get("post_id")))
     return named or series_meta.default_setter(series)
 
 
@@ -679,7 +681,9 @@ def build(rec, row, series, date):
         "date": date and epoch_ms(date),
         "dimensions": {"cols": len(row["grid"][0]), "rows": len(row["grid"])},
         "sourceUrl": rec["link"],
-        "solutionSource": {"kind": "timesforthetimes", "url": rec["link"],
+        # The blog's own name: "timesforthetimes", "fifteensquared".
+        "solutionSource": {"kind": series_meta.meta(series)["blog"].split(".")[0],
+                           "url": rec["link"],
                            "date": rec["date"], "check": check},
         "entries": out,
     }, None

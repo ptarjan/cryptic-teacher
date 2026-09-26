@@ -197,6 +197,25 @@ done
 [ "$step" = file_times_puzzles ] && [ $step_rc -eq 0 ] && python3 tools/fetch_puzzle.py --reindex
 rm -f "$times_out"
 
+# --- 1c. The Financial Times, rebuilt from fifteensquared's write-ups ---
+# The same chain in one tool: tools/ft_puzzles.py parses the cached posts,
+# rebuilds the newest untried grids and files what passes. Bounded, because
+# the untried are newest first: tonight's posts and a few of the backlog.
+FT_PER_NIGHT="${FT_PER_NIGHT:-12}"
+ft_out="$(mktemp "${TMPDIR:-/tmp}/cryptic-ft.XXXXXX")"
+if ! python3 tools/fetch_fifteensquared.py --category FT --posts-only >"$ft_out" 2>&1; then
+  cat "$ft_out"
+  alert "the fifteensquared FT fetch failed, so tonight's FT puzzles are filed from the posts already cached:"$'\n'"\`\`\`"$'\n'"$(tail -8 "$ft_out" | cut -c1-200)"$'\n'"\`\`\`"
+fi
+if python3 tools/ft_puzzles.py --limit "$FT_PER_NIGHT" >"$ft_out" 2>&1; then
+  cat "$ft_out"
+  python3 tools/fetch_puzzle.py --reindex
+else
+  cat "$ft_out"
+  alert "tools/ft_puzzles.py failed, so no new FT puzzle is filed until it is fixed:"$'\n'"\`\`\`"$'\n'"$(tail -12 "$ft_out" | cut -c1-200)"$'\n'"\`\`\`"
+fi
+rm -f "$ft_out"
+
 # What we hold of every series, printed every night whether or not anything is
 # wrong, because the two ways a series dies are both silent: a fetcher that can
 # only ever get "today" leaves its series one puzzle deep forever, and a feed

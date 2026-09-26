@@ -253,6 +253,10 @@ ACQUIRED_BY = {
         "channel": "blog",
         "what": "a times-for-the-times write-up's clue list and answers, the "
                 "grid rebuilt from them by tools/times_grids.py"},
+    "tools/ft_puzzles.py": {
+        "channel": "blog",
+        "what": "a fifteensquared write-up's clue list and answers, the grid "
+                "rebuilt from them by tools/times_grids.py's search"},
     "tools/build_authored_puzzle.py": {
         "channel": "authored", "what": "set here, not fetched"},
     "unknown": {
@@ -290,6 +294,10 @@ ACQUISITION_BY_SOURCE = {
     ("metro", "metro.co.uk"): ("tools/fetch_metro.py",
                                "tools/fetch_metro.py --wayback"),
 }
+#: The tool that files a blog series' puzzles, by the blog it reads. A series
+#: naming a blog missing here fails at import.
+BLOG_FILER = {"timesforthetimes.co.uk": "tools/file_times_puzzles.py",
+              "fifteensquared.net": "tools/ft_puzzles.py"}
 # Every book is its own series (see series.py), and they all arrive the same
 # way, so they are generated rather than typed — a book added to series.py must
 # not also need adding here.
@@ -298,8 +306,8 @@ for _series in series_table.SERIES:
         ACQUISITION_BY_SOURCE[(_series, "archive.org")] = (
             "tools/file_penguin_puzzle.py", "tools/acquire_book.py")
     if "blog" in series_table.meta(_series):
-        ACQUISITION_BY_SOURCE[(_series, series_table.meta(_series)["blog"])] = (
-            "tools/file_times_puzzles.py",)
+        _blog = series_table.meta(_series)["blog"]
+        ACQUISITION_BY_SOURCE[(_series, _blog)] = (BLOG_FILER[_blog],)
 
 # Series whose grid geometry is NOT the publisher's. Everything absent here is
 # "published", and that is checked rather than assumed: the book filers and

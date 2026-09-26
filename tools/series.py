@@ -160,6 +160,15 @@ SERIES = {
         "blog": "timesforthetimes.co.uk",
         "perLightEnumeration": True,
     },
+    # The FT prints no grid a script can reach, so tools/ft_puzzles.py files
+    # these from fifteensquared's write-ups, the grid rebuilt from their clue
+    # numbers as the Times' is. Saturday's prize shares the weekday numbering.
+    "ftcryptic": {
+        "kind": "Cryptic",
+        "publisher": "Financial Times",
+        "badge": "ft",
+        "blog": "fifteensquared.net",
+    },
 }
 
 # --------------------------------------------------------------------- books
