@@ -49,6 +49,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import series as series_meta  # noqa: E402 — what each series IS; see tools/series.py
 import provenance  # noqa: E402 — where each puzzle came from; see tools/provenance.py
+import corroborate  # every other source we hold; see tools/corroborate.py
 
 ROOT = Path(__file__).resolve().parent.parent
 PUZZLE_DIR = ROOT / "puzzles"
@@ -528,6 +529,9 @@ def write_puzzle_file(path, puzzle, generator=None, retrieved_url=None):
         f"{path.name} is not where {puzzle['id']} goes — that is "
         f"{puzzle['id']}.json. Ask puzzle_path() for it.")
     generator = generator or generator_of(path)
+    # Every write is corroborated against the other sources we hold for the
+    # puzzle, here, so that a new fetcher cannot skip it. See tools/corroborate.py.
+    puzzle = corroborate.corroborate(puzzle)
     # Every write of a puzzle file records where the puzzle came from, here,
     # rather than in each of the nine tools that write one. See
     # provenance.stamp.
@@ -1268,7 +1272,8 @@ def bare_letters(solution):
 # somewhere: carry_recovered_clues carries clue text across a re-fetch and
 # nothing carries a solution, so one deliberate re-fetch of cryptic-23053
 # silently restores the Guardian's letter. This is the statement, and
-# correct_source_answers applies it every time an answer is read off a page.
+# correct_source_answers applies it every time an answer is read off a page,
+# and corroborate.known_wrong on every write, whichever fetcher made it.
 #
 # Keyed by puzzle AND entry, holding BOTH values, because an entry is only good
 # while the paper is still serving the wrong one. `served` is what the page
