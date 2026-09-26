@@ -359,12 +359,13 @@ def grid_only():
 
 
 def snitch():
-    """Join the SNITCH homepage's last 52 weeks (saved from one request to
-    scratch/snitch_home_2026-09-26.json) to our index, the grid-only mix, and
-    the blogger minutes."""
+    """Join the SNITCH ratings (tools/data/snitch.json, from
+    tools/fetch_snitch.py) to our index, the grid-only mix, and the blogger
+    minutes."""
     import contextlib
     import io
-    sn = {int(k): v for k, v in json.loads((ROOT / "scratch" / "snitch_home_2026-09-26.json").read_text()).items()}
+    sn = {int(k.rpartition("-")[2]): v["nitch"]
+          for k, v in json.loads((ROOT / "tools" / "data" / "snitch.json").read_text()).items()}
     idx = index_table()
     with contextlib.redirect_stdout(io.StringIO()):
         mins = run_times()
