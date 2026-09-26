@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# check_blocks_against_blog: a blog block our parse accounts for is silent, in
+# check_blocks_against_blog and check_cryptic_definition_against_blog.
+# A blog block our parse accounts for is silent, in
 # every way the two can legitimately differ; one we lack is reported.
 set -euo pipefail
 cd "$(dirname "$0")"
@@ -30,6 +31,18 @@ check("ours is the blog's less a deletion", False, run("x", [b("x", "IMPRE")], [
 check("the anagram's result against its fodder", False, run("x", [b("male", "MALE")], [["LAME", "zzz"]]))
 check("a lone link word is the blog's parse", False, run("x", [b("x", "HI")], [["ARCHERY", "of"]]))
 check("a piece nobody of ours spells or takes", True, run("x", [b("top", "CAP")], [["RED", "communist"]]))
+def typed(ours, theirs):
+    puzzle = {"entries": [{"id": "1-across", "number": 1, "direction": "across",
+                           "clue": "x", "annotation": {"type": ours}}]}
+    v.blog_facts_for = lambda p: {"name": "Blog", "url": "u",
+                                  "entries": {"1-across": {"type": theirs}}}
+    warnings = []
+    v.check_cryptic_definition_against_blog(puzzle, warnings)
+    return warnings
+
+check("a labelling choice between types is silent", False, typed("anagram", "container"))
+check("a cryptic definition the blog also calls one is silent", False, typed("cryptic definition", "double definition"))
+check("a cryptic definition the blog parses as an anagram is reported", True, typed("cryptic definition", "anagram"))
 raise SystemExit(fails)
 PY
 echo "all check_blocks_against_blog checks passed"
