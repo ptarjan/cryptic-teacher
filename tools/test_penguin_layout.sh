@@ -178,6 +178,23 @@ for p in puzzles:
     if p["setter"] is None:
         fail(f"#{p['book_number']}: setter lost")
 
+# ------------------------------------------------------------------ case 5
+print("case 5: a book grouped by setter names each group once, on a prose leaf")
+PROSE = "\n".join(["A line of the setter's profile, long enough to be prose."] * 5)
+codes = {}
+for head, prose, want in (
+        ("RFS: Roger F. Squires", PROSE, "Roger F. Squires"),   # initials -> name
+        ("CJM: Calum J]. Macdonald", PROSE, "Calum J. Macdonald"),  # OCR bracket
+        ("Myops: John McKie", PROSE, "Myops"),                  # a word IS the byline
+        ("General knowledge by CJM", PROSE, "Calum J. Macdonald"),  # code seen above
+        ("lan Rankin", PROSE, "Ian Rankin"),                    # OCR l for I
+        ("RFS: Roger F. Squires", "grid noise\n14", None),     # no prose, no section
+        # The contents page lists every byline; it must not open a section.
+        ("Cryptic classics: Roger F. Squires", PROSE, None),
+        ("Preface", PROSE, None),
+):
+    check(f"section byline of {head!r}", P.section_byline(f"{head}\n{prose}", codes), want)
+
 print()
 if failures:
     print(f"FAILED: {len(failures)} problem(s)")
