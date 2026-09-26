@@ -1825,7 +1825,7 @@ assert(registry["picker-search"].value === "", "the filter box starts empty on o
 }
 // filtering narrows, and matches setters as well as numbers
 {
-  const target = allPuzzles.find((p) => p.annotated);
+  const target = allPuzzles.find((p) => p.annotated && p.setter);
   typeInPicker(String(target.number));
   assert(drainPicker().length && pickerRows().every((li) =>
     rowHasNumber(li.children[0].innerHTML, target.number)),

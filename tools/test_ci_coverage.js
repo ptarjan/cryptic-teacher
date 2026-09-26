@@ -1,12 +1,15 @@
-/* Every test in tools/ runs somewhere a later push cannot cancel, exactly once.
+/* Every test in tools/ runs in tests.yml, exactly once, and the newest commit
+   on every branch is always tested.
 
-   A check a later push can cancel is a check that is optional, and a
-   `concurrency:` group is what makes one cancellable: GitHub keeps only the
-   newest PENDING run in a group and cancels the rest, whatever
-   cancel-in-progress says. pages.yml declares one — it must, so that two
-   deploys cannot race — so a test reachable only from there is not a test the
-   repo enforces. tests.yml declares none, and that is asserted here rather
-   than assumed.
+   GitHub keeps only the newest PENDING run in a concurrency group and cancels
+   the rest, whatever cancel-in-progress says. tests.yml is grouped per branch
+   with cancel-in-progress false: a pending suite may be replaced by a newer
+   commit, which contains it, but a RUNNING suite is never killed, so a steady
+   stream of pushes cannot starve it. Ungrouped, every push queued a whole
+   sharded suite and the backlog starved the deploy of runners.
+
+   pages.yml's group exists so two deploys cannot race, and a check living
+   there is still wrong: a broken test must never block a site deploy.
 
    A test can also fail to run by being named something no glob catches, so the
    convention is asserted too: a file in tools/ that looks like a test must be
@@ -46,9 +49,12 @@ assert(workflows.includes("tests.yml") && workflows.includes("pages.yml"),
 
 const grouped = (f) => /^\s*concurrency\s*:/m.test(undecorated(read(f)));
 
-/* --- the test workflow is the one nothing can cancel --- */
-assert(!grouped("tests.yml"),
-  "tests.yml declares no concurrency group, so a later push cannot cancel a check");
+/* --- the test workflow never kills a running suite, and branches do not share a queue --- */
+const testsBody = undecorated(read("tests.yml"));
+assert(/^concurrency:\s*\n\s+group:.*\$\{\{\s*github\.ref\s*\}\}/m.test(testsBody),
+  "tests.yml is grouped per branch (group: …${{ github.ref }}), so a PR cannot displace master's run");
+assert(/^\s+cancel-in-progress:\s*false\s*$/m.test(testsBody),
+  "tests.yml says cancel-in-progress: false, so a running suite is never killed and pushes cannot starve it");
 /* --- and the deploy is in a group, so a check living there can still be cancelled --- */
 assert(grouped("pages.yml"),
   "pages.yml still declares a concurrency group, which is what makes a check " +
