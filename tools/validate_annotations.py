@@ -391,6 +391,31 @@ POSITIONAL_JOINERS = {"on", "after", "behind", "below", "beneath", "under",
                       "following", "supporting"}
 
 
+def check_link_word_is_not_inside_an_indicator(tag, ann, clue, errors):
+    """A link word needs a copy of its own in the clue, outside every indicator.
+
+    app.js claims link words after indicators, so a connective the clue uses
+    twice ("in" inside the indicator and "in" linking) lands on the free copy.
+    With no free copy it lands inside the indicator and takes that word off a
+    hint the solver has paid for — times-29616 6D filed "of" as a link word and
+    "on top of" as the indicator. tools/smoke_test.js rejects the render; this
+    rejects the annotation before it is committed.
+    """
+    def count(phrase, text):
+        return len(re.findall(r"(?<![A-Za-z])%s(?![A-Za-z])" % re.escape(phrase),
+                              text or "", re.I))
+    for lw in ann.get("linkWords", []):
+        lw = (lw or "").strip()
+        if not lw or not count(lw, clue):
+            continue
+        inside = sum(count(lw, ind) for ind in ann.get("indicators", []))
+        if inside and count(lw, clue) <= inside:
+            errors.append(
+                f"{tag}: linkWord {lw!r} only appears inside an indicator, so marking "
+                f"it as a link takes it off the indicator. It is either part of the "
+                f"indicator or a link word; drop it from one list")
+
+
 def check_link_word_is_not_an_order(tag, ann, clue, warnings):
     """A link word that put the pieces in that order is an indicator.
 
@@ -1479,17 +1504,29 @@ def check_cryptic_definition_blocks(tag, ann, errors, warnings):
     # note may name the answer — the blocks rung is where a charade spells it out
     # — so this is the cryptic definition's own rule, and it exists because this
     # type has no walkthrough-free way to earn it.
+    #
+    # Read as the rungs render it — definition, then each fragment and its note
+    # in order — because tools/smoke_test.js climbs the real ladder and rejects
+    # the answer's letters anywhere in that text, across word and block joins.
+    # A definition that hides the answer is a hidden word filed as a cryptic
+    # definition (timesjumbo-1755 14A, "Unit of fighting Aussies?" = GAUSS).
     ans = re.sub(r"[^a-z]", "", str(ann.get("answer") or "").lower())
     if len(ans) >= 4:
-        for b in blocks:
-            note = b.get("note") or ""
-            if ans in re.sub(r"[^a-z]", "", note.lower()):
-                errors.append(
-                    f"{tag}: cryptic definition block note {note!r} spells the answer "
-                    f"out, and the blocks rung is shown before the walkthrough. For "
-                    f"every other type the blocks are where the answer is assembled; "
-                    f"here there is nothing to assemble, so a note that names it is "
-                    f"just the solve. Describe the reading, not the word")
+        bare = lambda s: re.sub(r"[^a-z]", "", (s or "").lower())
+        if ans in bare(ann.get("definition")):
+            errors.append(
+                f"{tag}: cryptic definition {ann.get('definition')!r} hides the answer "
+                f"in its own letters, and the definition rung shows it before the "
+                f"walkthrough. A clue that hides its answer is a hidden word: type it "
+                f"as one, with the definition, the indicator and the fodder")
+        run = "".join(bare(b.get("clueFragment")) + bare(b.get("note")) for b in blocks)
+        if ans in run:
+            errors.append(
+                f"{tag}: cryptic definition blocks spell the answer out, read in order "
+                f"as the blocks rung shows them, and that rung comes before the "
+                f"walkthrough. For every other type the blocks are where the answer "
+                f"is assembled; here there is nothing to assemble, so a note that "
+                f"names it is just the solve. Describe the reading, not the word")
 
 
 # Function words are shared by every English phrase; an overlap on "of" or "in"
@@ -2137,6 +2174,7 @@ def validate_puzzle(puzzle):
         # OUR parse of a published clue, and every hit it has ever had was on
         # somebody else's grid.
         check_link_word_is_not_an_order(tag, ann, clue, warnings)
+        check_link_word_is_not_inside_an_indicator(tag, ann, clue, errors)
         if authored:
             check_two_pieces(tag, ann, errors)
             check_walkthrough_budget(tag, ann, warnings)
