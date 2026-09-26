@@ -975,8 +975,17 @@ if [ -n "$(git status --porcelain -- puzzles/)" ]; then
   git checkout -- puzzles/
 fi
 
-python3 tools/validate_annotations.py --tighten ||
-  alert "the pre-reset backfill could not record what it drained (validate_annotations.py --tighten failed), so tonight's finished puzzles can still silently lose their notes. See .prereset.log."
+# Its per-puzzle report covers the whole corpus, a megabyte that would trim the
+# run's own story out of the log; only the summary and a failure are kept.
+tighten_summary() { grep -v -e " — OK$" -e " — skipped$" -e "^ *warn:" -e "^$" <<<"$tighten_out"; }
+if tighten_out=$(python3 tools/validate_annotations.py --tighten 2>&1); then
+  tighten_summary || true
+else
+  alert "the pre-reset backfill could not record what it drained (validate_annotations.py --tighten failed), so tonight's finished puzzles can still silently lose their notes:
+\`\`\`
+$(tighten_summary | tail -12)
+\`\`\`"
+fi
 
 # --- 3. republish -------------------------------------------------------------
 # Unconditionally, even if nothing was annotated: this is cheap, deterministic
