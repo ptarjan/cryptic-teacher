@@ -25,8 +25,8 @@ prose differently.
 
 The comments are where solvers say which clue was their last one in, which
 they failed, and what held them up: a per-clue record of where people are
-slow. They are walked oldest first, so a page number keeps its contents as new
-comments arrive and a killed walk resumes at the first page not on disk.
+slow. They are walked a month at a time, so a killed walk resumes at the newest
+month on disk.
 
 The API returns 403 to python-urllib's default User-Agent with nothing in the
 error naming the header — the same trap fifteensquared sets.
@@ -40,6 +40,7 @@ import urllib.error
 import urllib.parse
 import urllib.request
 from dataclasses import dataclass
+from datetime import UTC, date, datetime
 from pathlib import Path
 
 UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
@@ -106,34 +107,46 @@ def cached_ids(blog):
 
 
 COMMENT_FIELDS = "id,post,parent,date,content"
+COMMENTS_FROM = date(2006, 10, 1)  # the oldest comment is 2006-10-31
 
 
 def fetch_comments(blog):
-    """Every comment on the blog, 100 to a page file, oldest first.
+    """Every comment on the blog, one file per calendar month, oldest first.
 
-    The last page is refetched every run, since it fills up; every full page
-    before it is final."""
+    The API stops serving a walk by page number after about 11,600 rows, with
+    a short page and no error, so the walk goes a month at a time instead. A
+    month before the newest one on disk is final; that one and every month
+    after it are refetched."""
     blog.comments.mkdir(parents=True, exist_ok=True)
-    have = sorted(int(p.stem) for p in blog.comments.glob("*.json"))
-    full = [n for n in have if len(json.loads((blog.comments / f"{n}.json").read_text())) == 100]
-    page = (max(full) + 1) if full else 1
-    while True:
-        url = (f"{blog.api}comments?per_page=100&page={page}&order=asc"
-               f"&orderby=id&_fields={COMMENT_FIELDS}")
-        try:
-            rows, headers = get(url)
-        except urllib.error.HTTPError as e:
-            if e.code == 400:  # past the last page
-                return page - 1
-            raise FetchError(f"comments page {page}: HTTP {e.code}") from e
-        (blog.comments / f"{page}.json").write_text(json.dumps(rows), encoding="utf-8")
-        total = int(headers.get("X-WP-TotalPages") or page)
-        if page % 50 == 0:
-            print(f"  comments page {page}/{total}", flush=True)
-        if len(rows) < 100 or page >= total:
-            return page
-        page += 1
+    have = sorted(p.stem for p in blog.comments.glob("????-??.json"))
+    month = date.fromisoformat(have[-1] + "-01") if have else COMMENTS_FROM
+    today = datetime.now(UTC).date()
+    while month <= today:
+        after = month.replace(month=month.month % 12 + 1,
+                              year=month.year + (month.month == 12))
+        rows, page = [], 1
+        while True:
+            url = (f"{blog.api}comments?per_page=100&page={page}&order=asc"
+                   f"&orderby=date&after={month}T00:00:00&before={after}T00:00:00"
+                   f"&_fields={COMMENT_FIELDS}")
+            try:
+                got, headers = get(url)
+            except urllib.error.HTTPError as e:
+                raise FetchError(f"comments {month:%Y-%m} page {page}: HTTP {e.code}") from e
+            rows += got
+            total = int(headers.get("X-WP-Total") or 0)
+            if len(got) < 100 or len(rows) >= total:
+                break
+            page += 1
+            time.sleep(blog.crawl_delay)
+        if len(rows) != total:
+            raise FetchError(f"comments {month:%Y-%m}: {len(rows)} rows, the API says {total}")
+        (blog.comments / f"{month:%Y-%m}.json").write_text(json.dumps(rows), encoding="utf-8")
+        if month.month == 1:
+            print(f"  comments {month:%Y}", flush=True)
+        month = after
         time.sleep(blog.crawl_delay)
+    return len(list(blog.comments.glob("????-??.json")))
 
 
 class FetchError(Exception):
@@ -245,7 +258,7 @@ def main():
         except (FetchError, urllib.error.URLError, TimeoutError) as e:
             print(f"ERROR: fetch_wp_blog {blog.name} --comments: {e}", file=sys.stderr)
             return 1
-        print(f"comments: {last} page(s) on disk")
+        print(f"comments: {last} month(s) on disk")
         return 0
 
     wanted = blog.categories
