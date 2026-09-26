@@ -243,6 +243,37 @@ def last_monday(y, month):
     return d - DAY * d.weekday()
 
 
+def first_monday(y, month):
+    d = datetime.date(y, month, 1)
+    return d + DAY * (-d.weekday() % 7)
+
+
+def weekday_from(d):
+    """`d`, or the Monday after it when it falls on a weekend."""
+    return d + DAY * (-d.weekday() % 7 if d.weekday() >= SATURDAY else 0)
+
+
+#: England's bank holidays moved by proclamation, and those added.
+MOVED = {datetime.date(1995, 5, 1): datetime.date(1995, 5, 8),
+         datetime.date(2002, 5, 27): datetime.date(2002, 6, 4),
+         datetime.date(2012, 5, 28): datetime.date(2012, 6, 4),
+         datetime.date(2020, 5, 4): datetime.date(2020, 5, 8),
+         datetime.date(2022, 5, 30): datetime.date(2022, 6, 2)}
+ADDED = {datetime.date(1999, 12, 31), datetime.date(2002, 6, 3), datetime.date(2011, 4, 29),
+         datetime.date(2012, 6, 5), datetime.date(2022, 6, 3), datetime.date(2022, 9, 19),
+         datetime.date(2023, 5, 8)}
+
+
+def jumbo_holidays(y):
+    """The bank holidays of year `y` a Jumbo can be printed on: England's,
+    but for Good Friday and Christmas Day, and with one after Christmas, the
+    first weekday from 26 December. The dated Jumbos from 2016 on show just
+    these."""
+    days = {weekday_from(datetime.date(y, 1, 1)), easter(y) + DAY, first_monday(y, 5),
+            last_monday(y, 5), last_monday(y, 8), weekday_from(datetime.date(y, 12, 26))}
+    return {MOVED.get(d, d) for d in days} | {d for d in ADDED if d.year == y}
+
+
 HOLIDAYS = {
     ("christmas", "day"): lambda y: datetime.date(y, 12, 25),
     ("boxing", "day"): lambda y: datetime.date(y, 12, 26),
@@ -337,14 +368,18 @@ def between(series, a, da, b, db):
     No week goes without its puzzle, so the numbers between two anchors are
     the prize days between them, in order, exactly when there are as many of
     each. The Sunday Times has only its Sunday puzzle. The Jumbo adds one on
-    bank holidays, so a gap holding one no anchor names has a number too many
-    and proves nothing."""
+    bank holidays (jumbo_holidays), so a gap with a number too many for its
+    Saturdays is its Saturdays and bank holidays, when there are as many of
+    those. An older gap with a holiday but no number for it is its Saturdays."""
     day = PRIZE_DAY[series]
     d = da + DAY * ((day - da.weekday() - 1) % 7 + 1)
     days = []
     while d < db:
         days.append(d)
         d += WEEK
+    if series == "timesjumbo" and len(days) != b - a - 1:
+        days = sorted(set(days) | {h for y in range(da.year, db.year + 1)
+                                   for h in jumbo_holidays(y) if da < h < db})
     return days if b > a and len(days) == b - a - 1 else None
 
 
@@ -492,21 +527,26 @@ def printed(day):
     return day.weekday() != SUNDAY
 
 
-def print_dates(recs, listing=None):
+def print_dates(recs, listing=None, renumbered=None):
     """({(series, number): date}, [notes]) for every Times row the blog has.
 
     `recs` are parsed.jsonl records; only those whose number fits the
     sequence around their post (in_sequence) are read, so a misread number is
-    no anchor."""
+    no anchor. `renumbered` is {post_id: number} for the posts run() files
+    under a number their title mistypes (retyped); each is read as that
+    number, so what is filed under it is dated as its neighbours are."""
     listing = times_listing() if listing is None else listing
+    renumbered = renumbered or {}
     groups = collections.defaultdict(list)
     for rec in recs:
+        if rec.get("post_id") in renumbered:
+            rec = dict(rec, number=renumbered[rec["post_id"]])
         if rec.get("number") and rec.get("series") in (
                 "Quick Cryptic", "Daily Cryptic", "Jumbo Cryptic", "Weekend Cryptic"):
             groups[target(rec)].append(rec)
     posts = collections.defaultdict(dict)  # (series, dated) -> {number: rec}
     for key, group in groups.items():
-        keep = in_sequence(group)
+        keep = in_sequence(group) | renumbered.keys()
         for rec in sorted(group, key=lambda r: r["date"]):
             if rec["post_id"] in keep:
                 posts[key].setdefault(rec["number"], rec)
@@ -678,7 +718,9 @@ def run(grids=tg.OUT, parsed=tg.PARSED, write=True, listing=None):
         claims[(series, number)].append((dict(row, number=number, titled=row["number"]), dated))
         taken[series].add(number)
 
-    dates, notes = print_dates(recs.values(), listing)
+    renumbered = {row["post_id"]: row["number"]
+                  for claim in claims.values() for row, _ in claim if row.get("titled")}
+    dates, notes = print_dates(recs.values(), listing, renumbered)
     reprints = reprinted_from()
     filed, kept, drifted = collections.Counter(), 0, []
     redated, renamed = collections.Counter(), collections.Counter()
