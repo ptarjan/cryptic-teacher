@@ -204,28 +204,43 @@ tools/corroborate.py                         checks every puzzle written against
 tools/test_corroborate.sh                    decides one case by each of corroboration's rules,
                                              and proves a fill never overwrites, a disagreement
                                              never raises, and every write goes through it
-tools/fetch_timesforthetimes.py              caches the blog that covers the Times series, the
-                                             only archive that prints its clues — fetched once
-                                             each, at their 10-second crawl delay
+tools/fetch_wp_blog.py                       caches the two WordPress blogs that cover the
+                                             Times and the Telegraph, the only archives that
+                                             print their clues — each post fetched once, at the
+                                             blog's crawl delay
 tools/parse_timesforthetimes.py              reads that cache into clue, answer and
                                              light-length records — the input a withheld Times
                                              grid is rebuilt from
 tools/test_parse_timesforthetimes.sh         holds that parser to one fixture per era of the
                                              blog's markup, because a misread answer becomes a
                                              wrong light length
-tools/times_grids.py                         runs the numbering backwards on those records to
-                                             rebuild the grids The Times withholds, narrowing a
-                                             shortlist by where the answers cross
+tools/parse_bigdave44.py                     reads the bigdave44.com cache into one Telegraph
+                                             clue, answer and light-length record per puzzle,
+                                             with its series, setter and print date, through
+                                             the Times parser's clue-list reader
+tools/test_parse_bigdave44.sh                holds that parser to hand-built posts: each era's
+                                             answer markup, the setter never the blogger, and a
+                                             print date only from what the posts or the cadence
+                                             prove
+tools/times_grids.py                         runs the numbering backwards on either blog's
+                                             records to rebuild the grids the Times and the
+                                             Telegraph withhold, narrowing a shortlist by where
+                                             the answers cross
 tools/test_times_grids.sh                    holds that rebuilder to a hand-built grid, because
                                              a wrong grid looks exactly like a right one
 tools/fetch_times_listing.py                 caches the Wayback Machine's copies of the Times's
                                              own puzzle listing, the one first-party record of
                                              the day each number was printed; what dates the
                                              prize puzzles the blog writes up a week late
-tools/file_times_puzzles.py                  files those rebuilt grids as puzzles with the
+tools/file_blog_puzzles.py                   files a blog's rebuilt grids as puzzles with the
                                              blog's answers — only complete, correctly numbered
-                                             ones — dates them by print day, and never rewrites
-                                             a filed one but for its date; the nightly top-up
+                                             ones — and never rewrites a filed one but for its
+                                             date; what the blog filers share
+tools/file_times_puzzles.py                  files the Times grids through it, dated by print
+                                             day; the nightly top-up
+tools/file_telegraph_puzzles.py              files the Telegraph grids through it, with the
+                                             setter and print date the parser read; the nightly
+                                             top-up
 tools/test_file_times_puzzles.sh             holds that filer to a hand-built grid: what it
                                              refuses, what it dates, and that a second run
                                              touches nothing
