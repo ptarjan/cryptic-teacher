@@ -22,6 +22,7 @@ the proof.
     python3 tools/blog_facts.py            # write tools/data/blog_facts/
     python3 tools/blog_facts.py --measure  # and print coverage per blog and series
     python3 tools/blog_facts.py --sample 30 --seed 1   # and print rows to check by hand
+    python3 tools/blog_facts.py --if-changed  # the nightly: skip when no input moved
 
 Reads the caches the fetchers write under ~/cryptic-setter-data; never the
 network.
@@ -29,9 +30,11 @@ network.
 import argparse
 import ast
 import collections
+import hashlib
 import html
 import html.parser
 import json
+import os
 import random
 import re
 import sys
@@ -45,6 +48,8 @@ from fetch_puzzle import puzzle_files, read_puzzle_file
 
 DATA = Path.home() / "cryptic-setter-data"
 OUT = ROOT / "tools" / "data" / "blog_facts"
+#: The digest of every input the files in OUT were written from; see inputs_digest.
+STAMP = OUT / "inputs.sha256"
 
 #: Blog key -> (cache directory, the name a reader is shown). The key is what
 #: the sidecar stores; the name is what the site prints beside the link.
@@ -438,6 +443,25 @@ def extract(blogs, with_bigdave_records=False, jobs=None):
     return best, series
 
 
+def inputs_digest():
+    """A digest of everything the output is a function of: this file, each
+    blog's cached posts, bigdave44's parsed light lists, and the clues of every
+    puzzle. Posts are cached once and never rewritten, so a post is its name and
+    size; a puzzle is only what the join reads, so a new annotation moves nothing."""
+    h = hashlib.sha256(Path(__file__).read_bytes())
+    for blog in sorted(BLOGS):
+        posts = BLOGS[blog][0] / "posts"
+        names = sorted((e.name, e.stat().st_size) for e in os.scandir(posts)
+                       if e.name.endswith(".json")) if posts.is_dir() else []
+        h.update(json.dumps([blog, names]).encode())
+    parsed = BLOGS["bigdave44"][0] / "parsed.jsonl"
+    h.update(parsed.read_bytes() if parsed.exists() else b"")
+    for path in puzzle_files():
+        p = read_puzzle_file(path)
+        h.update(json.dumps([p["id"], p["number"], p.get("series"), puzzle_entries(p)]).encode())
+    return h.hexdigest()
+
+
 # ------------------------------------------------------------------ outputs
 
 def publishable(fact):
@@ -502,7 +526,13 @@ def main():
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--dump", help="also write every joined record, bookkeeping included, as JSON lines")
     ap.add_argument("--from-dump", help="read the joins from an earlier --dump instead of the caches")
+    ap.add_argument("--if-changed", action="store_true",
+                    help="exit without parsing when no input has changed since the last write")
     args = ap.parse_args()
+    digest = inputs_digest()
+    if args.if_changed and STAMP.exists() and STAMP.read_text().strip() == digest:
+        print(f"blog facts are current: no post, clue or parser change since {STAMP.relative_to(ROOT)} was written")
+        return
     if args.from_dump:
         lines = Path(args.from_dump).read_text(encoding="utf-8").splitlines()
         best = {r["id"]: r for r in map(json.loads, lines)}
@@ -522,6 +552,8 @@ def main():
         for r, eid, f in rng.sample(pool, min(args.sample, len(pool))):
             print(json.dumps({"id": r["id"], "entry": eid, "url": r["url"], **f}, ensure_ascii=False))
     print(f"wrote blog facts for {write(best, series)} puzzles to {OUT.relative_to(ROOT)}")
+    if not (args.blog or args.from_dump):
+        STAMP.write_text(digest + "\n")
 
 
 if __name__ == "__main__":
