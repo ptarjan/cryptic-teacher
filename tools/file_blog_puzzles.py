@@ -217,7 +217,11 @@ def build(rec, row, series, date, setter):
             group = [e["id"]]
         elif group[0] != e["id"] or count != sum(by_id[g]["length"] for g in group):
             return None, "an enumeration disagrees with its light"
-        for gid, seps in separators(group, by_id, enumeration).items():
+        try:
+            seps_by_light = separators(group, by_id, enumeration)
+        except SystemExit:
+            return None, "an enumeration's word break falls outside its light"
+        for gid, seps in seps_by_light.items():
             if seps:
                 by_id[gid]["separatorLocations"] = seps
     for e in out:
