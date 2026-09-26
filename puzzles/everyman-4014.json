@@ -18,7 +18,10 @@
   "retrievedFrom": "publisher",
   "retrievedUrl": null,
   "gridOrigin": "published",
-  "solutionOrigin": "unsolved"
+  "solutionOrigin": "model",
+  "annotatedBy": [
+   "claude-opus-5-5"
+  ]
  },
  "entries": [
   {
@@ -31,7 +34,46 @@
    },
    "length": 4,
    "clue": "Shows emotion as layabout's dropping piece of litter (4)",
-   "solution": null
+   "solution": "SOBS",
+   "annotation": {
+    "type": "deletion",
+    "answer": "SOBS",
+    "definition": "Shows emotion",
+    "linkWords": [
+     "as"
+    ],
+    "indicators": [
+     "dropping"
+    ],
+    "indicatorNotes": {
+     "dropping": "to drop something is to let it go, so the L leaves SLOBS"
+    },
+    "pieces": [
+     "S",
+     "OBS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "layabout",
+      "gives": "SLOBS",
+      "note": "a slob is a lazy layabout; the 's makes it SLOB'S, read as SLOBS"
+     },
+     {
+      "clueFragment": "piece of litter",
+      "gives": "L",
+      "note": "the first piece of 'litter' is its L, which is removed"
+     }
+    ],
+    "surface": "A slob sheds a tear as a scrap of rubbish falls from their pocket.",
+    "walkthrough": "The 's on 'layabout's' has to be taken as part of the word, giving SLOBS rather than SLOB.",
+    "definitionFit": "Someone who sobs is showing emotion.",
+    "features": {
+     "misdirectedWord": "litter",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "1-down",
@@ -43,7 +85,38 @@
    },
    "length": 10,
    "clue": "Party-pooper ruins wine (10)",
-   "solution": null
+   "solution": "SPOILSPORT",
+   "annotation": {
+    "type": "charade",
+    "answer": "SPOILSPORT",
+    "definition": "Party-pooper",
+    "indicators": [],
+    "pieces": [
+     "SPOILS",
+     "PORT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ruins",
+      "gives": "SPOILS",
+      "note": "to spoil something is to ruin it"
+     },
+     {
+      "clueFragment": "wine",
+      "gives": "PORT",
+      "note": "port is a fortified wine"
+     }
+    ],
+    "surface": "A killjoy wrecks the wine at the party.",
+    "walkthrough": "'Ruins' looks like a noun, as in old castles, but it is the verb SPOILS.",
+    "definitionFit": "A spoilsport is someone who stops others enjoying themselves, a party-pooper.",
+    "features": {
+     "misdirectedWord": "ruins",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "2-down",
@@ -60,7 +133,48 @@
      5
     ]
    },
-   "solution": null
+   "solution": "BLACKWIDOW",
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "BLACK WIDOW",
+    "definition": "Spider",
+    "indicators": [
+     "will depart"
+    ],
+    "indicatorNotes": {
+     "will depart": "the number leaves, so N is taken out of WINDOW"
+    },
+    "pieces": [
+     "BLACK",
+     "WIDOW"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "letting no light through",
+      "gives": "BLACK",
+      "note": "something black lets no light through"
+     },
+     {
+      "clueFragment": "glass",
+      "gives": "WINDOW",
+      "note": "a window is a pane of glass"
+     },
+     {
+      "clueFragment": "number",
+      "gives": "N",
+      "note": "N is the standard abbreviation for number; it is removed from WINDOW"
+     }
+    ],
+    "surface": "A spider sits on a blacked-out pane while a figure is taken away.",
+    "walkthrough": "'Glass' suggests the spider is seen through a pane, but it is only there to supply the word the number leaves.",
+    "definitionFit": "The black widow is a well-known venomous spider.",
+    "features": {
+     "misdirectedWord": "number",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "3-across",
@@ -72,7 +186,70 @@
    },
    "length": 10,
    "clue": "A road race, one through island heading west: it's within your reach (10)",
-   "solution": null
+   "solution": "ATTAINABLE",
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "ATTAINABLE",
+    "definition": "within your reach",
+    "linkWords": [
+     "it's"
+    ],
+    "indicators": [
+     "heading west"
+    ],
+    "indicatorNotes": {
+     "heading west": "in an across clue, going west means reading right to left"
+    },
+    "pieces": [
+     "A",
+     "TT",
+     "A",
+     "IN",
+     "ABLE"
+    ],
+    "subReversals": [
+     {
+      "from": "ELBA",
+      "to": "ABLE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "road race",
+      "gives": "TT",
+      "note": "the TT (Tourist Trophy) is the Isle of Man motorbike road race"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "one = a, as in 'a book'"
+     },
+     {
+      "clueFragment": "through",
+      "gives": "IN",
+      "note": "a loose equivalence, as in coming in by the door; this part of the parse is uncertain"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "ELBA",
+      "note": "Elba, Napoleon's island of exile, reversed"
+     }
+    ],
+    "surface": "A motorbike race passes over an island and heads off westward.",
+    "walkthrough": "A TT and reversed ELBA are secure, but 'one through' is less certain: read here as A + IN, it may be meant to work some other way.",
+    "definitionFit": "A plain synonym: what can be attained, reached or achieved, lies within your grasp.",
+    "features": {
+     "misdirectedWord": "race",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "4-down",
@@ -84,7 +261,50 @@
    },
    "length": 7,
    "clue": "Pub grub done perfectly – that is, including starter of scampi (7)",
-   "solution": null
+   "solution": "TOASTIE",
+   "annotation": {
+    "type": "container + charade",
+    "answer": "TOASTIE",
+    "definition": "Pub grub",
+    "indicators": [
+     "including"
+    ],
+    "indicatorNotes": {
+     "including": "the first part takes the S inside it"
+    },
+    "pieces": [
+     "TOA",
+     "S",
+     "T",
+     "IE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "done perfectly",
+      "gives": "TOAT",
+      "note": "done 'to a T' means done perfectly; S goes in after TOA"
+     },
+     {
+      "clueFragment": "starter of scampi",
+      "gives": "S",
+      "note": "the first letter of scampi"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is Latin 'id est', that is"
+     }
+    ],
+    "surface": "A pub meal cooked just right, with scampi to start.",
+    "walkthrough": "S goes inside TO A T, giving TOAST, and IE follows.",
+    "definitionFit": "A toastie is a toasted sandwich, a typical British pub snack.",
+    "features": {
+     "misdirectedWord": null,
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "5-down",
@@ -102,7 +322,32 @@
      10
     ]
    ],
-   "solution": null
+   "solution": "ANAGRAM",
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "ANAGRAM",
+    "definition": "Form of Tehran A-Z that shows Nazareth?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Form of Tehran A-Z",
+      "note": "the surface reads this as an edition of a street atlas of Tehran; the setter means a rearranged form of the letters TEHRANAZ"
+     },
+     {
+      "clueFragment": "that shows Nazareth?",
+      "note": "the surface suggests a map marking the town; the setter means the letters rearrange to spell NAZARETH"
+     }
+    ],
+    "surface": "An A-to-Z street map of Tehran somehow shows the town of Nazareth.",
+    "walkthrough": "The clue describes the very device crosswords use: TEHRAN A-Z is an anagram of NAZARETH.",
+    "definitionFit": "An anagram is a word formed by rearranging another's letters, as these two are.",
+    "features": {
+     "misdirectedWord": "A-Z",
+     "joke": "absurd",
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "6-down",
@@ -119,7 +364,41 @@
      6
     ]
    },
-   "solution": null
+   "solution": "NARROWESCAPE",
+   "annotation": {
+    "type": "charade",
+    "answer": "NARROW ESCAPE",
+    "definition": "nasty moment",
+    "linkWords": [
+     "offering"
+    ],
+    "indicators": [],
+    "pieces": [
+     "NARROW",
+     "ESCAPE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bigoted",
+      "gives": "NARROW",
+      "note": "narrow-minded, bigoted"
+     },
+     {
+      "clueFragment": "pastime",
+      "gives": "ESCAPE",
+      "note": "a pastime is an escape from everyday life"
+     }
+    ],
+    "surface": "An intolerant person's hobby turns out to be unpleasant.",
+    "walkthrough": "The question mark flags that 'nasty moment' is a loose definition: a narrow escape is a scary moment you survive.",
+    "definitionFit": "A narrow escape is a close shave, a nasty moment that ends well.",
+    "features": {
+     "misdirectedWord": "pastime",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "7-down",
@@ -131,7 +410,38 @@
    },
    "length": 4,
    "clue": "Panted audibly, being unhappy (4)",
-   "solution": null
+   "solution": "BLUE",
+   "annotation": {
+    "type": "homophone",
+    "answer": "BLUE",
+    "definition": "unhappy",
+    "linkWords": [
+     "being"
+    ],
+    "indicators": [
+     "audibly"
+    ],
+    "indicatorNotes": {
+     "audibly": "tells you to go by the sound of the word"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Panted",
+      "soundsLike": "BLEW",
+      "gives": "BLUE",
+      "note": "blew = panted, as in huffed and puffed"
+     }
+    ],
+    "surface": "Someone is breathing hard and feeling miserable.",
+    "walkthrough": "BLEW and BLUE sound the same.",
+    "definitionFit": "Feeling blue means feeling unhappy.",
+    "features": {
+     "misdirectedWord": null,
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "8-down",
@@ -143,7 +453,45 @@
    },
    "length": 4,
    "clue": "Everyman's beginning to get doddery regularly: one going round in circles (4)",
-   "solution": null
+   "solution": "EDDY",
+   "annotation": {
+    "type": "first letter + regular letters + charade",
+    "answer": "EDDY",
+    "definition": "one going round in circles",
+    "indicators": [
+     "beginning",
+     "regularly"
+    ],
+    "indicatorNotes": {
+     "beginning": "the beginning of Everyman is its first letter",
+     "regularly": "take letters at a fixed interval, here every third"
+    },
+    "pieces": [
+     "E",
+     "DDY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Everyman's beginning",
+      "gives": "E",
+      "note": "first letter of Everyman"
+     },
+     {
+      "clueFragment": "doddery",
+      "gives": "DDY",
+      "note": "the 1st, 4th and 7th letters: D-od-D-er-Y"
+     }
+    ],
+    "surface": "The setter admits to becoming a bit doddery and dizzy.",
+    "walkthrough": "'Regularly' usually means every other letter, but here the step is every third letter of 'doddery'. 'To get' just links the two parts.",
+    "definitionFit": "An eddy is a swirl of water or air that goes round in circles.",
+    "features": {
+     "misdirectedWord": "doddery",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "9-across",
@@ -155,7 +503,41 @@
    },
    "length": 4,
    "clue": "Gemstone from old friend (4)",
-   "solution": null
+   "solution": "OPAL",
+   "annotation": {
+    "type": "charade",
+    "answer": "OPAL",
+    "definition": "Gemstone",
+    "linkWords": [
+     "from"
+    ],
+    "indicators": [],
+    "pieces": [
+     "O",
+     "PAL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the standard abbreviation for old"
+     },
+     {
+      "clueFragment": "friend",
+      "gives": "PAL",
+      "note": "a pal is a friend"
+     }
+    ],
+    "surface": "A precious stone handed down by a long-time friend.",
+    "walkthrough": "O for old is a standard crossword abbreviation.",
+    "definitionFit": "A definition by example: opal is an iridescent stone prized in jewellery.",
+    "features": {
+     "misdirectedWord": "old",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "10-across",
@@ -172,7 +554,44 @@
      3
     ]
    },
-   "solution": null
+   "solution": "RANAGROUND",
+   "annotation": {
+    "type": "charade",
+    "answer": "RAN AGROUND",
+    "definition": "went to seed",
+    "indicators": [],
+    "pieces": [
+     "RAN",
+     "A",
+     "GROUND"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Administered",
+      "gives": "RAN",
+      "note": "to run something is to administer it"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sporting venue",
+      "gives": "GROUND",
+      "note": "a football or cricket ground"
+     }
+    ],
+    "surface": "Someone managed a stadium that fell into neglect.",
+    "walkthrough": "The wordplay is exact but the definition is loose: both phrases mean came to grief or failed.",
+    "definitionFit": "A venture that ran aground came to nothing, much as something that has gone to seed has declined.",
+    "features": {
+     "misdirectedWord": "Administered",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "11-down",
@@ -190,7 +609,38 @@
      6
     ]
    },
-   "solution": null
+   "solution": "BOWANDSCRAPE",
+   "annotation": {
+    "type": "double definition",
+    "answer": "BOW AND SCRAPE",
+    "definition": "curry favour",
+    "definition2": "Couple of things fiddler does",
+    "linkWords": [
+     "to"
+    ],
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Couple of things fiddler does",
+      "gives": "BOWANDSCRAPE",
+      "note": "a violinist bows, and a poor one scrapes"
+     },
+     {
+      "clueFragment": "curry favour",
+      "gives": "BOWANDSCRAPE",
+      "note": "to fawn, like a servant bending low before a master"
+     }
+    ],
+    "surface": "A fiddler's two moves are ways of sucking up.",
+    "walkthrough": "'Fiddler' suggests a cheat or swindler, but here it means a violin player.",
+    "definitionFit": "To bow and scrape is to fawn on someone to win favour.",
+    "features": {
+     "misdirectedWord": "fiddler",
+     "joke": "pun",
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "12-across",
@@ -207,7 +657,40 @@
      4
     ]
    },
-   "solution": null
+   "solution": "LAKEONTARIO",
+   "annotation": {
+    "type": "anagram",
+    "answer": "LAKE ONTARIO",
+    "definition": "body of water",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "represented"
+    ],
+    "indicatorNotes": {
+     "represented": "re-presented: the letters are presented again in a new order"
+    },
+    "anagram": {
+     "fodder": "ORIENTALOAK"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Oriental oak",
+      "gives": "ORIENTALOAK",
+      "note": "anagram fodder, 11 letters"
+     }
+    ],
+    "surface": "An eastern oak tree is painted into a picture of a lake.",
+    "walkthrough": "'Represented' reads as 'depicted', but it is the anagram signal.",
+    "definitionFit": "Lake Ontario, one of North America's Great Lakes, is a body of water.",
+    "features": {
+     "misdirectedWord": "represented",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "13-down",
@@ -219,7 +702,36 @@
    },
    "length": 10,
    "clue": "Leaders' laws announced (10)",
-   "solution": null
+   "solution": "PRINCIPALS",
+   "annotation": {
+    "type": "homophone",
+    "answer": "PRINCIPALS",
+    "definition": "Leaders",
+    "indicators": [
+     "announced"
+    ],
+    "indicatorNotes": {
+     "announced": "something announced is spoken, so go by sound"
+    },
+    "blocks": [
+     {
+      "clueFragment": "laws",
+      "soundsLike": "PRINCIPLES",
+      "gives": "PRINCIPALS",
+      "note": "principles = laws"
+     }
+    ],
+    "surface": "The rulers' decrees are proclaimed.",
+    "walkthrough": "Either spelling could be the answer on sound alone, so the crossing letters decide: MAGI gives A in 8th place, so PRINCIPALS.",
+    "definitionFit": "Principals are leaders, such as the heads of schools.",
+    "definitionNote": "the clue's 'Leaders'' is possessive, standing for the plural noun",
+    "features": {
+     "misdirectedWord": null,
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "14-down",
@@ -236,7 +748,60 @@
      4
     ]
    },
-   "solution": null
+   "solution": "WESTINDIES",
+   "annotation": {
+    "type": "reversal + charade",
+    "answer": "WEST INDIES",
+    "definition": "Caribbean location",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "up",
+     "after"
+    ],
+    "indicatorNotes": {
+     "up": "in a down clue, up means read from the bottom",
+     "after": "'after' means following in order, so the creatives are placed following the letter for time"
+    },
+    "pieces": [
+     "WES",
+     "T",
+     "INDIES"
+    ],
+    "subReversals": [
+     {
+      "from": "SEW",
+      "to": "WES"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stitch",
+      "gives": "SEW",
+      "note": "to stitch is to sew; it is reversed"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the standard abbreviation for time"
+     },
+     {
+      "clueFragment": "peripheral creatives",
+      "gives": "INDIES",
+      "note": "indies are independent artists and labels, working outside the mainstream"
+     }
+    ],
+    "surface": "Someone frames a group of fringe artists while on a Caribbean holiday.",
+    "walkthrough": "'Stitch up' looks like the slang for framing someone, but it splits into stitch (SEW) and up (reverse it).",
+    "definitionFit": "A geographical name: the island chain that encloses the Caribbean Sea, so a place there is a Caribbean location.",
+    "features": {
+     "misdirectedWord": "Stitch",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "15-across",
@@ -248,7 +813,38 @@
    },
    "length": 7,
    "clue": "Soldier's own (7)",
-   "solution": null
+   "solution": "PRIVATE",
+   "annotation": {
+    "type": "double definition",
+    "answer": "PRIVATE",
+    "definition": "Soldier",
+    "definition2": "own",
+    "linkWords": [
+     "'s"
+    ],
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Soldier",
+      "gives": "PRIVATE",
+      "note": "the lowest rank in the army"
+     },
+     {
+      "clueFragment": "own",
+      "gives": "PRIVATE",
+      "note": "adjective: belonging to one person, not shared"
+     }
+    ],
+    "surface": "Something belongs to a soldier.",
+    "walkthrough": "The 's is not possessive: it stands for 'is', joining the two definitions.",
+    "definitionFit": "One word, two senses: the rank of an ordinary soldier, and the adjective for what is yours alone rather than public.",
+    "features": {
+     "misdirectedWord": null,
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "16-across",
@@ -260,7 +856,42 @@
    },
    "length": 7,
    "clue": "Tennis ace in ceremony, abrupt, acting up (7)",
-   "solution": null
+   "solution": "MCENROE",
+   "annotation": {
+    "type": "deletion + anagram",
+    "answer": "MCENROE",
+    "definition": "Tennis ace",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "abrupt",
+     "acting up"
+    ],
+    "indicatorNotes": {
+     "abrupt": "cut off short, so the last letter goes",
+     "acting up": "behaving wildly, so the letters are jumbled"
+    },
+    "anagram": {
+     "fodder": "CEREMON"
+    },
+    "blocks": [
+     {
+      "clueFragment": "ceremony",
+      "gives": "CEREMON",
+      "note": "CEREMONY loses its last letter, Y"
+     }
+    ],
+    "surface": "A tennis star at a formal event is short-tempered and misbehaving.",
+    "walkthrough": "Fitting, since John McEnroe was notorious for tantrums on court.",
+    "definitionFit": "John McEnroe was a top tennis player of the 1980s.",
+    "features": {
+     "misdirectedWord": "abrupt",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "17-across",
@@ -272,7 +903,46 @@
    },
    "length": 7,
    "clue": "Make second purchase of wind instrument that's not about (7)",
-   "solution": null
+   "solution": "REORDER",
+   "annotation": {
+    "type": "deletion",
+    "answer": "REORDER",
+    "definition": "Make second purchase",
+    "linkWords": [
+     "of"
+    ],
+    "indicators": [
+     "that's not"
+    ],
+    "indicatorNotes": {
+     "that's not": "the instrument that is not 'about' is the one missing the letter for about, C"
+    },
+    "pieces": [
+     "RE",
+     "ORDER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wind instrument",
+      "gives": "RECORDER",
+      "note": "the recorder is a simple woodwind instrument"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "c. (circa) = about; it is removed"
+     }
+    ],
+    "surface": "Someone buys another wind instrument.",
+    "walkthrough": "C for 'about' is circa, as in dates like c.1500.",
+    "definitionFit": "To reorder is to order again, making a second purchase.",
+    "features": {
+     "misdirectedWord": "about",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "18-down",
@@ -289,7 +959,38 @@
      3
     ]
    },
-   "solution": null
+   "solution": "RUNFREE",
+   "annotation": {
+    "type": "charade",
+    "answer": "RUN FREE",
+    "definition": "move unimpeded",
+    "indicators": [],
+    "pieces": [
+     "RUN",
+     "FREE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stretch",
+      "gives": "RUN",
+      "note": "a run is a stretch, as of good luck"
+     },
+     {
+      "clueFragment": "on the house",
+      "gives": "FREE",
+      "note": "on the house means free of charge"
+     }
+    ],
+    "surface": "A spell of free drinks lets everyone roam.",
+    "walkthrough": "'On the house' sounds like a place, but it is the phrase for something given free.",
+    "definitionFit": "An idiom: animals let off the lead or out of a pen roam wherever they like, with nothing holding them back.",
+    "features": {
+     "misdirectedWord": "house",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "19-across",
@@ -301,7 +1002,52 @@
    },
    "length": 7,
    "clue": "On two occasions, firm crazy for tropical food (7)",
-   "solution": null
+   "solution": "COCONUT",
+   "annotation": {
+    "type": "charade",
+    "answer": "COCONUT",
+    "definition": "tropical food",
+    "linkWords": [
+     "for"
+    ],
+    "indicators": [
+     "On two occasions"
+    ],
+    "indicatorNotes": {
+     "On two occasions": "the next item is used twice"
+    },
+    "pieces": [
+     "CO",
+     "CO",
+     "NUT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "firm",
+      "gives": "CO",
+      "note": "Co. = company, a firm"
+     },
+     {
+      "clueFragment": "firm",
+      "gives": "CO",
+      "note": "used a second time"
+     },
+     {
+      "clueFragment": "crazy",
+      "gives": "NUT",
+      "note": "a nut is a crazy person"
+     }
+    ],
+    "surface": "A company repeatedly goes wild for exotic food.",
+    "walkthrough": "'On two occasions' tells you to take CO twice.",
+    "definitionFit": "A definition by example: the nut of the palm that grows on tropical beaches.",
+    "features": {
+     "misdirectedWord": "firm",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "19-down",
@@ -313,7 +1059,37 @@
    },
    "length": 7,
    "clue": "In décor, one tends to show flashy item (7)",
-   "solution": null
+   "solution": "CORONET",
+   "annotation": {
+    "type": "hidden word",
+    "answer": "CORONET",
+    "definition": "flashy item",
+    "linkWords": [
+     "to show"
+    ],
+    "indicators": [
+     "In"
+    ],
+    "indicatorNotes": {
+     "In": "the answer sits inside the following words"
+    },
+    "blocks": [
+     {
+      "clueFragment": "décor, one tends",
+      "gives": "CORONET",
+      "note": "déCOR ONE Tends"
+     }
+    ],
+    "surface": "An interior designer's choices reveal a showy ornament.",
+    "walkthrough": "Ignore the accent and the comma: the letters run straight across.",
+    "definitionFit": "A coronet is a small crown, a showy piece of jewellery.",
+    "features": {
+     "misdirectedWord": "tends",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "20-across",
@@ -325,7 +1101,49 @@
    },
    "length": 11,
    "clue": "Device shrinking, about to become quiet (11)",
-   "solution": null
+   "solution": "CONTRAPTION",
+   "annotation": {
+    "type": "substitution",
+    "answer": "CONTRAPTION",
+    "definition": "Device",
+    "indicators": [
+     "to become"
+    ],
+    "indicatorNotes": {
+     "to become": "one letter turns into another"
+    },
+    "pieces": [
+     "CONTRA",
+     "P",
+     "TION"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shrinking",
+      "gives": "CONTRACTION",
+      "note": "a contraction is a shrinking"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "c. (circa) = about; this C is swapped out"
+     },
+     {
+      "clueFragment": "quiet",
+      "gives": "P",
+      "note": "p (piano) = quiet in music; it replaces the C"
+     }
+    ],
+    "surface": "A gadget shrinks until it is almost silent.",
+    "walkthrough": "The second C of CONTRACTION turns into P.",
+    "definitionFit": "A plain synonym, though the answer usually carries a hint of something odd or improvised.",
+    "features": {
+     "misdirectedWord": "shrinking",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "21-down",
@@ -337,7 +1155,43 @@
    },
    "length": 4,
    "clue": "Symbol of love seen in bedrooms, on-and-off (4)",
-   "solution": null
+   "solution": "EROS",
+   "annotation": {
+    "type": "alternate letters",
+    "answer": "EROS",
+    "definition": "Symbol of love",
+    "linkWords": [
+     "seen in"
+    ],
+    "indicators": [
+     "on-and-off"
+    ],
+    "indicatorNotes": {
+     "on-and-off": "take a letter, skip a letter"
+    },
+    "pieces": [
+     "E",
+     "R",
+     "O",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bedrooms",
+      "gives": "EROS",
+      "note": "b-E-d-R-o-O-m-S, the even letters"
+     }
+    ],
+    "surface": "A token of love appears in bedrooms now and then.",
+    "walkthrough": "The surface fits the answer, since bedrooms are where Eros is most at home.",
+    "definitionFit": "Eros is the Greek god of love, and his statue in London's Piccadilly Circus is a famous symbol of it.",
+    "features": {
+     "misdirectedWord": "on-and-off",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "22-down",
@@ -349,7 +1203,50 @@
    },
    "length": 4,
    "clue": "A small island with a vast stretch of land (4)",
-   "solution": null
+   "solution": "ASIA",
+   "annotation": {
+    "type": "charade",
+    "answer": "ASIA",
+    "definition": "vast stretch of land",
+    "indicators": [],
+    "pieces": [
+     "A",
+     "S",
+     "I",
+     "A"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the clothing-size abbreviation for small"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "I",
+      "note": "I is the standard abbreviation for island"
+     },
+     {
+      "clueFragment": "with a",
+      "gives": "A",
+      "note": "'with' adds the second A"
+     }
+    ],
+    "surface": "A little island comes with a huge expanse of land.",
+    "walkthrough": "The contrast between a small island and a vast continent is the joke of the surface.",
+    "definitionFit": "A definition by description: the largest continent is literally a vast stretch of land.",
+    "features": {
+     "misdirectedWord": "island",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "23-across",
@@ -361,7 +1258,40 @@
    },
    "length": 10,
    "clue": "Arrest aunt misbehaving in eatery (10)",
-   "solution": null
+   "solution": "RESTAURANT",
+   "annotation": {
+    "type": "anagram",
+    "answer": "RESTAURANT",
+    "definition": "eatery",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "misbehaving"
+    ],
+    "indicatorNotes": {
+     "misbehaving": "the letters are out of order"
+    },
+    "anagram": {
+     "fodder": "ARRESTAUNT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Arrest aunt",
+      "gives": "ARRESTAUNT",
+      "note": "anagram fodder, 10 letters"
+     }
+    ],
+    "surface": "Police detain an unruly aunt at a restaurant.",
+    "walkthrough": "The unruly aunt paints a scene, but 'misbehaving' just shuffles the ten letters before it.",
+    "definitionFit": "A plain synonym: an eatery is informal for any place that serves meals.",
+    "features": {
+     "misdirectedWord": "Arrest",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "24-across",
@@ -373,7 +1303,40 @@
    },
    "length": 4,
    "clue": "Primarily, men attending godliest infant? (4)",
-   "solution": null
+   "solution": "MAGI",
+   "annotation": {
+    "type": "first letters + &lit",
+    "answer": "MAGI",
+    "definition": "Primarily, men attending godliest infant?",
+    "indicators": [
+     "Primarily"
+    ],
+    "indicatorNotes": {
+     "Primarily": "take the first letter of each following word"
+    },
+    "pieces": [
+     "M",
+     "A",
+     "G",
+     "I"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "men attending godliest infant",
+      "gives": "MAGI",
+      "note": "Men Attending Godliest Infant"
+     }
+    ],
+    "surface": "Wise men visit the holiest of babies.",
+    "walkthrough": "The whole clue is also the definition: the Magi were the men who came to the infant Jesus.",
+    "definitionFit": "The Magi are the three wise men who visited the newborn Jesus.",
+    "features": {
+     "misdirectedWord": null,
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "25-across",
@@ -385,7 +1348,47 @@
    },
    "length": 10,
    "clue": "In biblical books, Lawrence is moved to find assertions of facts (10)",
-   "solution": null
+   "solution": "STATEMENTS",
+   "annotation": {
+    "type": "deletion + container",
+    "answer": "STATEMENTS",
+    "definition": "assertions of facts",
+    "linkWords": [
+     "to find"
+    ],
+    "indicators": [
+     "is moved"
+    ],
+    "indicatorNotes": {
+     "is moved": "TE shifts to a new place inside the word"
+    },
+    "pieces": [
+     "STA",
+     "TE",
+     "MENTS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "biblical books",
+      "gives": "TESTAMENTS",
+      "note": "the Old and New Testaments"
+     },
+     {
+      "clueFragment": "Lawrence",
+      "gives": "TE",
+      "note": "T.E. Lawrence, 'Lawrence of Arabia'; TE moves from the front to after STA"
+     }
+    ],
+    "surface": "Lawrence is shifted about inside the Bible.",
+    "walkthrough": "T.E. Lawrence is 'Lawrence of Arabia', the British officer and author, and his initials happen to open the word for the Bible's two halves.",
+    "definitionFit": "A plain synonym: a statement is a formal declaration of what is so.",
+    "features": {
+     "misdirectedWord": "moved",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "26-across",
@@ -397,7 +1400,46 @@
    },
    "length": 4,
    "clue": "Pass out, seeing venomous menaces (4)",
-   "solution": null
+   "solution": "ASPS",
+   "annotation": {
+    "type": "anagram",
+    "answer": "ASPS",
+    "definition": "venomous menaces",
+    "linkWords": [
+     "seeing"
+    ],
+    "indicators": [
+     "out"
+    ],
+    "indicatorNotes": {
+     "out": "the letters are put out of order"
+    },
+    "anagram": {
+     "fodder": "PASS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Pass",
+      "gives": "PASS",
+      "note": "anagram fodder, 4 letters"
+     }
+    ],
+    "surface": "Someone faints at the sight of snakes.",
+    "walkthrough": "'Pass out' reads as one phrase meaning faint, but it splits into the fodder and its signal.",
+    "definitionFit": "A definition by description: the asp is an Egyptian cobra, famous as Cleopatra's means of suicide.",
+    "features": {
+     "misdirectedWord": "out",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   }
- ]
+ ],
+ "solutionSource": {
+  "kind": "model",
+  "model": "opus",
+  "date": "2026-09-26",
+  "check": "28 entries, 56 crossings, 0 conflicts"
+ }
 }
