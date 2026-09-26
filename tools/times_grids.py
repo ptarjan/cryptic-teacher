@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Rebuild the grids The Times does not publish, from the blog's clue lists.
+"""Rebuild the grids a paper does not publish, from a blog's clue lists.
 
-tools/parse_timesforthetimes.py turns the blog into clue numbers, directions
-and answers; numbering is a function of the black squares, so running it
+tools/parse_timesforthetimes.py turns the Times blog into clue numbers,
+directions and answers, and tools/parse_bigdave44.py the Telegraph's; numbering is a function of the black squares, so running it
 backwards recovers the grid. tools/reconstruct_grid.py does that and returns
 every grid that would have printed the same light list, which for a few
 puzzles is more than one. The answers settle those: a candidate grid is only
@@ -18,7 +18,8 @@ A grid taken although one of the blog's answers disagrees with it carries the
 corrected answer in its row, and read through answers() that is what gets
 published. A typo nothing determines refuses the puzzle instead.
 
-Reads the records parse_timesforthetimes.py writes; no network, no solving.
+Reads the records the blog's parser writes beside its cache (`--blog`,
+timesforthetimes by default); no network, no solving.
 """
 import argparse
 import collections
@@ -30,6 +31,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import fetch_wp_blog
 import parse_timesforthetimes as parser
 import reconstruct_grid as rg
 
@@ -52,6 +54,11 @@ SIZE = {
     "Jumbo Cryptic": 23,
     # fifteensquared's category, for tools/ft_puzzles.py.
     "FT": 15,
+    # tools/parse_bigdave44.py's series keys.
+    "telegraph": 15,
+    "toughie": 15,
+    "sundaytel": 15,
+    "sundaytough": 15,
 }
 
 
@@ -599,6 +606,7 @@ def run(limit_puzzles=None, series=None, write=True, seed=None,
         # A bucket is a category, not a sentence: the two outcomes that carry
         # a count in their text would otherwise each be their own bucket.
         key = why if why.startswith(("unique", "no grid", "truncated")) else "shortlist"
+        key = "unique, second try" if key.startswith("unique,") else key
         for prefix in ("rejected", "answers fit none", "refused"):
             key = prefix if why.startswith(prefix) else key
         how[key] += 1
@@ -626,20 +634,21 @@ def report(r):
     n = r["n"]
     pct = lambda k: f"{100.0 * r['how'][k] / n:.1f}%" if n else "-"
     print(f"{n} puzzle(s) tried")
-    for k in ("unique", "shortlist", "no grid", "truncated", "rejected",
-              "answers fit none", "refused"):
+    for k in ("unique", "unique, second try", "shortlist", "no grid", "truncated",
+              "rejected", "answers fit none", "refused"):
         if r["how"][k]:
             print(f"  {r['how'][k]:>6}  {pct(k):>6}  {k}")
     print("\nBY SERIES")
     for s, c in sorted(r["by_series"].items(), key=lambda kv: -sum(kv[1].values())):
         tot = sum(c.values())
-        got = c["unique"]
-        print(f"  {s:<18} {got:>5} of {tot:>5} pinned down "
+        got = c["unique"] + c["unique, second try"]
+        print(f"  {s:<18} {got:>5} of {tot:>5} pinned to one grid "
               f"({100.0 * got / tot:.0f}%)")
 
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    ap.add_argument("--blog", choices=sorted(fetch_wp_blog.BLOGS), default="timesforthetimes")
     ap.add_argument("--limit", type=int, help="try only N puzzles")
     ap.add_argument("--series", choices=sorted(SIZE), help="one series only")
     ap.add_argument("--seed", type=int, help="sample at random with this seed")
@@ -656,6 +665,9 @@ def main():
                     help="correct or refuse the grids already written, "
                          "against the parsed records as they are now")
     a = ap.parse_args()
+    where = None if a.blog == "timesforthetimes" else fetch_wp_blog.BLOGS[a.blog].cache
+    if a.resettle and where:
+        ap.error("--resettle reads the Times blog's records only")
     if a.resettle:
         r = resettle()
         for pid, why in sorted(r["refused"].items()):
@@ -664,7 +676,7 @@ def main():
               f"{len(r['refused'])} refused; wrote {OUT}")
         return 0
     r = run(a.limit, a.series, write=not a.status, seed=a.seed,
-            max_nodes=a.max_nodes, fresh=a.fresh)
+            max_nodes=a.max_nodes, fresh=a.fresh, where=where)
     if r is None:
         return 1
     report(r)
@@ -673,7 +685,7 @@ def main():
         for s, slug, n in r["holes"][:60]:
             print(f"  {n:>3} entries  {s:<18} {slug}")
     if not a.status:
-        print(f"\nwrote {OUT}")
+        print(f"\nwrote {(where / 'grids.jsonl') if where else OUT}")
     return 0
 
 
