@@ -870,9 +870,25 @@
   const stateKey = () => "ct:" + P.id;
   const entryKey = (e) => (e.annotation && e.annotation.linkedTo) ? e.annotation.linkedTo : e.id;
   const annOf = (e) => {
-    if (!e.annotation) return null;
+    if (!e.annotation) return blogAnn(e);
     return e.annotation.linkedTo ? (byId[e.annotation.linkedTo] || {}).annotation || null : e.annotation;
   };
+  // A clue we have not annotated may still carry what a blog's write-up marks
+  // about it (tools/blog_facts.py, merged into the shim by fetch_puzzle): the
+  // underlined definition, a clue type the blogger named outright, marked
+  // indicators. Shaped as a partial annotation, so the ladder, the highlights
+  // and the questions all read it the way they read ours. Two spans are a
+  // definition pair only when the type says so; the extractor ships no other
+  // multi-span definition.
+  function blogAnn(e) {
+    const b = e.blog;
+    if (!b) return null;
+    const defs = b.definition || [];
+    const ann = { fromBlog: true, type: b.type || "", indicators: b.indicators || [] };
+    if (defs.length) ann.definition = defs[0];
+    if (defs.length === 2 && ann.type.includes("double definition")) ann.definition2 = defs[1];
+    return ann;
+  }
   const tag = (e) => e.number + (e.direction === "across" ? "A" : "D");
   const hasSolutions = () => entries.every((e) => e.solution);
 
@@ -3414,7 +3430,7 @@
     // compound type is made of still grade right on this rung's quiz
     // (familyAsk), so a solver who names any of them is not marked wrong.
     const shown = [familyOf(ann.type)];
-    steps.push({
+    if (ann.type) steps.push({
       key: "type",
       label: LABELS.type,
       html: shown.map((f) => `<p><strong>${esc(f.label)}</strong>. ${esc(f.blurb)}</p>`).join("")
@@ -3442,7 +3458,9 @@
     // Where the definition lives. For a double definition the news is not "there
     // are two" — the family rung says that, and says it later — it is WHERE the
     // clue splits, and which sense each half is read in.
-    if (isDD && ann.definition2) {
+    if (!ann.definition) {
+      // A blog fact with a type and no clean underline: no definition rung.
+    } else if (isDD && ann.definition2) {
       const senses = senseBlocks(ann).map((b) =>
         `<li>“${esc(b.clueFragment)}” <span class="muted">— ${esc(b.note)}</span></li>`).join("");
       steps.push({
@@ -3453,14 +3471,14 @@
           answer. The clue reads like one sentence so that you don't notice it is two definitions side by side.</p>` +
           (senses ? `<ul>${senses}</ul>` : "")
       });
-    } else if (isLit) {
+    } else if (isLit && !ann.fromBlog) {
       steps.push({
         key: "definition",
         label: LABELS.definition,
         html: `<p>Read <mark class="def">${esc(ann.definition)}</mark> straight through as a
           description of the answer, then read the very same words again as wordplay.</p>`
       });
-    } else if (isCD) {
+    } else if (isCD && !ann.fromBlog) {
       steps.push({
         key: "definition",
         label: LABELS.definition,
@@ -3494,7 +3512,7 @@
     // now renders beside definitionFit on the walkthrough rung, where the answer
     // is already on the table, and the validator gates the early fields at zero.
     const defStep = steps[steps.length - 1];
-    if ((ann.linkWords || []).length) {
+    if ((ann.linkWords || []).length && defStep) {
       const lw = ann.linkWords.map((w) => `<mark class="link">${esc(w)}</mark>`).join(", ");
       defStep.html += `<p class="muted">${lw} ${ann.linkWords.length > 1 ? "are" : "is"}
         just a link — words that join the definition to the wordplay and add
@@ -3503,7 +3521,9 @@
 
     // Indicators only exist for some clue types — no rung that says "none".
     if (inds.length) {
-      const ops = INDICATOR_OPS.filter(([k]) => t.includes(k));
+      // A blog marks its indicators without saying which does what, and its
+      // type names only the dominant mechanism, so pairing them would guess.
+      const ops = ann.fromBlog ? [] : INDICATOR_OPS.filter(([k]) => t.includes(k));
       const marks = inds.map((i) => `<mark class="ind">${esc(i)}</mark>`).join(", ");
       // The sentences below are the same on every clue of a type: an anagram
       // indicator always "tells you to shuffle", and a compound one always does
@@ -3669,7 +3689,9 @@
     // alone, exactly as they do today.
     const joke = ann.surface
       ? `<p><b class="wt-part">What it seems to say</b>${esc(ann.surface)}</p>` : "";
-    steps.push({
+    // A blog-derived ladder stops at what the blogger marked; the rest of the
+    // explanation is theirs, and the panel links to it (blogCreditHTML).
+    if (!ann.fromBlog) steps.push({
       key: "walkthrough",
       label: LABELS.walkthrough,
       html: (steps.some((s) => s.key === "blocks") ? "" : mechanics) +
@@ -4734,6 +4756,17 @@
   // The marks the clue line was last drawn with — see the entrance animation in
   // renderHintPanel.
   let lastMarkSig = null;
+  // Where a clue's hints are read off a blog, or it has none of ours at all,
+  // the blogger's own write-up is one tap away, beside the other ways out of a
+  // clue. The badge says whose marks the rungs were built from, the way
+  // "unverified answers" says whose answers the checker uses.
+  function blogLinkHTML(e, ann) {
+    if (!P.blog || (ann && !ann.fromBlog) || e.clueMissing || e.clueCorrupt) return "";
+    return `<a class="blog-link small" href="${esc(P.blog.url)}" target="_blank" rel="noopener">Full explanation on ${esc(P.blog.name)} →</a>`;
+  }
+  const blogHintsBadge = () =>
+    ` <span class="badge auto" title="We haven't explained this clue ourselves yet. These hints are the definition and clue type that ${esc(P.blog.name)} marked in its write-up, put into our own words.">hints via ${esc(P.blog.name)}</span>`;
+
   function renderHintPanel() {
     const e = currentEntry();
     const panel = $("hint-panel");
@@ -5003,7 +5036,8 @@
     // same chip markup, so it stopped telling picking apart from reading.
     $("hint-clue").classList.toggle("picking", tapping);
 
-    setHTML($("hint-meter"), meterHTML + (freeRest ? " · the remaining hints are free now" : ""));
+    setHTML($("hint-meter"), meterHTML + (freeRest ? " · the remaining hints are free now" : "")
+      + (ann && ann.fromBlog ? blogHintsBadge() : ""));
 
     const bodyWrote = setHTML(body, bodyHTML);
     setButtons(next, nextSpec);
@@ -5026,7 +5060,7 @@
     const canReveal = canCheck() && !solved;
     const escapeHTML = (canReveal
       ? `<button id="hx-letter" class="ghost small">Stuck? Reveal one letter</button> ` : "")
-      + reportHTML();
+      + reportHTML() + blogLinkHTML(e, ann);
     if (setHTML(escape, escapeHTML)) {
       if (canReveal) $("hx-letter").onclick = revealLetter;
       bindReport();
@@ -5276,6 +5310,12 @@
   // every puzzle, so there the two states are a real distinction.
   function hintsBadge(annotated) {
     return annotated ? "" : `<span class="badge auto" title="No hints for this puzzle yet: you can check your letters and reveal answers, but nothing is explained">answers only</span>`;
+  }
+
+  // Still the coverage axis: a puzzle whose hints are read off a blog's
+  // write-up is the exception in the other direction from "answers only".
+  function blogBadge(blog) {
+    return `<span class="badge auto" title="We haven't written our own hints for this puzzle yet. Its hints are built from the definitions and clue types ${esc(blog.name)} marked, and each clue links to their full explanation.">hints via ${esc(blog.name)}</span>`;
   }
 
   // Shares the coverage axis (neutral) with the hints badge on purpose: both
@@ -5987,7 +6027,7 @@
       esc(P.name) +
       (setter ? ` — set by <em>${esc(setter)}</em>` : "") +
       (when.iso ? ` <span class="muted">· ${when.day ? when.day + " " : ""}${when.iso}</span>` : "") +
-      (meta.annotated ? "" : " " + hintsBadge(false)) +
+      (meta.annotated ? "" : " " + (P.blog ? blogBadge(P.blog) : hintsBadge(false))) +
       // Prize puzzles publish their answers about a week late, and this site
       // solves them in the meantime rather than leaving its newest puzzle
       // hintless (tools/apply_solution.py). Every letter the checker marks wrong
