@@ -1369,6 +1369,69 @@ def correct_source_answers(pid, entries):
               file=sys.stderr)
 
 
+# The publication dates the SOURCE got wrong, and the day its own sequence
+# prints them on. A series publishes one puzzle per issue, in number order, so
+# a date that is not after the number before it is wrong on one side or the
+# other. Keyed by puzzle id
+# and holding both days, as SOURCE_ANSWER_WRONG does: `served` is the page's
+# `date`, `corrected` goes in the file, and a page no longer serving `served`
+# is warned about and left as published. The evidence is the neighbours'
+# dates, the setter's regular day, and fifteensquared's post for the puzzle.
+SOURCE_DATE_WRONG = {
+    "cryptic-22236": ("2001-06-25", "2001-06-15",
+                      "22,235 is Thu 14 June and 22,237 the Sat 16 June prize"),
+    "cryptic-24003": ("2007-02-21", "2007-02-17",
+                      ("24,002 is Fri 16 Feb and 24,004 Mon 19 Feb; fifteensquared "
+                       "blogged it as a prize on Sat 24 Feb")),
+    "cryptic-24662": ("2009-04-03", "2009-04-01",
+                      ("24,661 is Tue 31 Mar and 24,663 Thu 2 Apr; its own "
+                       "webPublicationDate is the evening of 31 Mar, and "
+                       "fifteensquared blogged it on 1 Apr")),
+    "cryptic-24744": ("2009-07-14", "2009-07-06",
+                      ("a Rufus between the Sat 4 July prize and 24,745 on Tue "
+                       "7 July; fifteensquared blogged it on Mon 6 July")),
+    "cryptic-24755": ("2009-07-20", "2009-07-18",
+                      ("24,754 is Fri 17 July and 24,756 Rufus's Mon 20 July; "
+                       "fifteensquared blogged it a week later, as a prize")),
+    "cryptic-24849": ("2009-11-06", "2009-11-05",
+                      ("24,848 is Wed 4 Nov and 24,850 Fri 6 Nov; fifteensquared "
+                       "blogged it on Thu 5 Nov")),
+    "cryptic-24874": ("2009-12-09", "2009-12-04",
+                      ("24,873 is Thu 3 Dec and 24,875 the Sat 5 Dec prize; "
+                       "fifteensquared blogged it on Fri 4 Dec")),
+    "cryptic-24936": ("2010-02-18", "2010-02-17",
+                      ("24,935 is Tue 16 Feb and 24,937 Thu 18 Feb; fifteensquared "
+                       "blogged it on Wed 17 Feb")),
+    "cryptic-24939": ("2010-02-22", "2010-02-20",
+                      ("24,938 is Fri 19 Feb and 24,940 Rufus's Mon 22 Feb; "
+                       "fifteensquared blogged it as a prize on Fri 26 Feb")),
+    "quiptic-722": ("2013-09-09", "2013-09-16",
+                    ("721 is Mon 9 Sept and 723 Mon 23 Sept; its own "
+                     "webPublicationDate is the evening of 15 Sept")),
+    "quiptic-780": ("2014-10-20", "2014-10-27",
+                    ("779 is Mon 20 Oct and 782 Mon 10 Nov, one a week; "
+                     "fifteensquared blogged 780 on 27 Oct and 781 on 3 Nov")),
+    "quiptic-781": ("2014-10-27", "2014-11-03",
+                    ("779 is Mon 20 Oct and 782 Mon 10 Nov, one a week; "
+                     "fifteensquared blogged 780 on 27 Oct and 781 on 3 Nov")),
+}
+
+
+def correct_source_date(pid, when):
+    """The date to file for `pid`, given the `when` its page serves."""
+    if pid not in SOURCE_DATE_WRONG or when is None:
+        return when
+    served, corrected, _why = SOURCE_DATE_WRONG[pid]
+    if str(_day(when)) != served:
+        print(f"WARNING: SOURCE_DATE_WRONG {pid} is STALE: the page serves "
+              f"{_day(when)}, not the {served} this table replaces with "
+              f"{corrected} — leaving it as published, delete the key",
+              file=sys.stderr)
+        return when
+    shift = (datetime.fromisoformat(corrected) - datetime.fromisoformat(served)).days
+    return when + shift * 86_400_000
+
+
 def fits_sequence(series, number, when):
     """Does `when` sit where the puzzles held either side of `number` put it?
 
@@ -1498,9 +1561,9 @@ def convert(data):
         "number": data["number"],
         "series": series,
         "name": data["name"],
-        "setter": ((data.get("creator") or {}).get("name")
+        "setter": (((data.get("creator") or {}).get("name") or "").strip()
                    or series_meta.default_setter(series)),
-        "date": data.get("date"),
+        "date": correct_source_date(pid, data.get("date")),
         "dimensions": data["dimensions"],
         "sourceUrl": "https://www.theguardian.com/" + data["id"],
         "entries": entries,

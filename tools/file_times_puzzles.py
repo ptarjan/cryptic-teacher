@@ -516,6 +516,16 @@ def date_times(prize, daily, listing, blog, notes):
         week = [sat[a] + DAY * k for k in range(2, 7) if printed(sat[a] + DAY * k)]
         if sat[b] - sat[a] == WEEK and len(week) == b - a - 1:
             fixed.update(zip(range(a + 1, b), week))
+    return date_dailies(daily, fixed)
+
+
+def date_dailies(daily, fixed):
+    """{number: date} for a daily series from its post dates.
+
+    `fixed` are dates already proven. Any other number is the one of its post
+    date and the day after (a daily is often blogged the evening before, or
+    two in one catch-up post) that is a printing day between its neighbours;
+    failing that it keeps its post date."""
     known = {n: (p, p + DAY) for n, p in daily.items()}
     known.update({n: (d, d) for n, d in fixed.items()})
     order = sorted(known)
@@ -577,6 +587,11 @@ def print_dates(recs, listing=None, renumbered=None):
         else:
             got = date_weekly(series, sorted(prize), mine, blog, notes)
         dates.update({(series, n): d for n, d in got.items()})
+    quick = {n: datetime.date.fromisoformat(r["date"])
+             for n, r in posts[("timesquick", True)].items()}
+    anchors = {n: d for (s, n), d in (listing | PRINT_DATES).items() if s == "timesquick"}
+    dates.update({("timesquick", n): d
+                  for n, d in date_dailies(quick, anchors).items()})
     return dates, notes
 
 
