@@ -97,6 +97,8 @@ LAYOUT = [
     ("fetching", "tools/fetch_minutecryptic.js", "Minute Cryptic’s daily hints, as a corpus to be measured against"),
     ("fetching", "tools/recover_minutecryptic.py", "refills days that capture missed from Minute Cryptic’s own video titles, dated by clue number because the upload date lags"),
     ("fetching", "tools/fetch_fifteensquared.py", "caches the blog that covers six of our series, and its comments — fetched once each, at their 20-second crawl delay"),
+    ("fetching", "tools/blog_facts.py", "joins each cached blog write-up to the puzzle it explains and keeps what its markup states about the clues — the underlined definition, a named clue type, marked indicators — never the blog's prose; the nightly reruns it only when an input moved"),
+    ("fetching", "tools/test_blog_facts.sh", "holds that reader to hand-built posts, so a definition is only ever words of our clue and a type only one the write-up names unambiguously"),
     ("fetching", "tools/corroborate.py", "checks every puzzle written against the other sources we cache for it — georgeho's scrape, fifteensquared's posts, the Times listing — filling an empty setter, date or clue, settling an answer they disagree on by the grid, the print sequence, independent votes and a measured rank, and ledgering every call; never refuses a write"),
     ("fetching", "tools/test_corroborate.sh", "decides one case by each of corroboration's rules, and proves a fill never overwrites, a disagreement never raises, and every write goes through it"),
     ("fetching", "tools/fetch_wp_blog.py", "caches the two WordPress blogs that cover the Times and the Telegraph, the only archives that print their clues — each post fetched once, at the blog's crawl delay"),
@@ -244,6 +246,7 @@ LAYOUT = [
     ("tables everything else reads", "tools/data/penguin5_control.json", "the ten-puzzle Penguin volume 5 control tools/test_acquire_book.sh gates on: light specs, black-square patterns and a digest of the parser's output, and none of the book's words"),
     ("tables everything else reads", "tools/data/sample_fill_11.json", "the worked 11x11 fill tools/AUTHORING.md walks through"),
     ("tables everything else reads", "tools/data/authored_A001_clues.json", "the hand-written clues for that fill"),
+    ("tables everything else reads", "tools/data/blog_facts/", "per series, the blog facts tools/blog_facts.py read off the write-ups, with the site's hints and the validator's definition check reading them; inputs.sha256 is the digest of what they were written from"),
     ("tables everything else reads", "tools/data/penguin_partial_fills/", "answers from a Penguin-book solve that stopped short; the puzzle itself is filed unsolved for the nightly cold solve to finish"),
     ("tables everything else reads", "tools/data/blind_misses.json", "which entries the last blind annotate run got wrong, the one blank check_every_clue_is_annotated will not fail on"),
     ("tables everything else reads", "tools/data/favourite_grading/key.json", "which packet label is which pair, and which side of it was voted for: the only thing that un-blinds a packet"),
@@ -276,6 +279,7 @@ LAYOUT_EXEMPT = re.compile(r"""
     | ^puzzles/                     # covered by the <series>-<n>.json line
     | ^tools/data/favourite_grading/(packets|scores)/  # covered by the two directory lines
     | ^tools/data/penguin_partial_fills/            # covered by the directory line
+    | ^tools/data/blog_facts/                       # covered by the directory line
     | ^og/                          # covered by the og/ line
     | ^vendor/                      # covered by the vendor/ line
     | ^learn/ | ^abbreviations/

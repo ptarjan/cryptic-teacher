@@ -185,6 +185,15 @@ tools/recover_minutecryptic.py               refills days that capture missed fr
 tools/fetch_fifteensquared.py                caches the blog that covers six of our series, and
                                              its comments — fetched once each, at their
                                              20-second crawl delay
+tools/blog_facts.py                          joins each cached blog write-up to the puzzle it
+                                             explains and keeps what its markup states about
+                                             the clues — the underlined definition, a named
+                                             clue type, marked indicators — never the blog's
+                                             prose; the nightly reruns it only when an input
+                                             moved
+tools/test_blog_facts.sh                     holds that reader to hand-built posts, so a
+                                             definition is only ever words of our clue and a
+                                             type only one the write-up names unambiguously
 tools/corroborate.py                         checks every puzzle written against the other
                                              sources we cache for it — georgeho's scrape,
                                              fifteensquared's posts, the Times listing —
@@ -526,6 +535,11 @@ tools/data/penguin5_control.json             the ten-puzzle Penguin volume 5 con
 tools/data/sample_fill_11.json               the worked 11x11 fill tools/AUTHORING.md walks
                                              through
 tools/data/authored_A001_clues.json          the hand-written clues for that fill
+tools/data/blog_facts/                       per series, the blog facts tools/blog_facts.py
+                                             read off the write-ups, with the site's hints and
+                                             the validator's definition check reading them;
+                                             inputs.sha256 is the digest of what they were
+                                             written from
 tools/data/penguin_partial_fills/            answers from a Penguin-book solve that stopped
                                              short; the puzzle itself is filed unsolved for the
                                              nightly cold solve to finish
