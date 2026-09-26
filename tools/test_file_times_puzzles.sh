@@ -147,6 +147,25 @@ for e in pointed["entries"]:
 built, why = B.build(pointed, row(pointed), "times", None, None)
 groups = {e["id"]: e.get("group") for e in built["entries"]}
 print("COMPOSITE", groups["7-across"], groups["3-down"])
+
+# The grid proves the answers, so a count the blog mistyped is recounted from
+# them -- 5-across typed (4), 2-down typed (0,5) -- and named in the check;
+# a two-word count typed over one-word answers has lost a word and is refused.
+typo = rec(11, 106, "2026-01-14")
+for e in typo["entries"]:
+    k = (e["number"], e["direction"])
+    if k == (5, "across"):
+        e["clue"], e["enumeration"] = "Mistyped (4)", "4"
+    if k == (2, "down"):
+        e["clue"], e["enumeration"] = "Zero first (0,5)", "0,5"
+built, why = B.build(typo, row(typo), "times", None, None)
+by_id = {e["id"]: e for e in built["entries"]}
+print("RECOUNTED", by_id["5-across"]["clue"], "|", by_id["2-down"]["clue"], "|",
+      built["solutionSource"]["check"].split("; ")[-1])
+for e in typo["entries"]:
+    if (e["number"], e["direction"]) == (5, "across"):
+        e["clue"], e["enumeration"] = "Lost a word (2,4)", "2,4"
+print("UNRECOUNTABLE", B.build(typo, row(typo), "times", None, None)[1])
 PY
 )
 echo "$out" | grep -v "^[A-Z_]* " | sed 's/^/  | /'
@@ -178,6 +197,12 @@ check "a null setter already filed is named" "Dean Mayer" "$(got RENAMED_PLACEHO
 check "a setter already named is never overwritten" "Someone" "$(got RENAMED_NAMED)"
 check "a pointer into the leader's clue is no group; an unnamed pointer is one" \
   "None ['2-down', '3-down']" "$(got COMPOSITE)"
+check "a count the grid-proved answers contradict is recounted from them, and said" \
+  "Mistyped (5) | Zero first (5) | the grid proves the blog's enumeration wrong at 2 down, 5 across, recounted from the answer here" \
+  "$(got RECOUNTED)"
+check "a count with more words than the answers hold is refused" \
+  "an enumeration disagrees with its light, and the answer holds too few words to take the count from" \
+  "$(got UNRECOUNTABLE)"
 
 # Print dates. The prize puzzles are blogged a week or more after they are
 # printed, so their post date is not their date; filing one by it put
