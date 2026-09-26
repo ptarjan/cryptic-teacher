@@ -59,7 +59,13 @@ import parse_timesforthetimes as tftt
 import reconstruct_grid as rg
 import series as series_meta
 import times_grids as tg
-from fetch_puzzle import clue_words, has_words, puzzle_path, read_puzzle_file, write_puzzle_file
+from fetch_puzzle import (
+    clue_words,
+    has_words,
+    puzzle_path,
+    read_puzzle_file,
+    write_puzzle_file,
+)
 from file_penguin_puzzle import separators
 from normalise_linked_enumerations import enumeration_parts, resolve_groups
 
