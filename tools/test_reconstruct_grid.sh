@@ -413,14 +413,16 @@ report("NUMBERLESS", smaller, attempt, False, int(os.environ["NUMBERLESS_MAX_NOD
 # pool, not four reports back to back -- forking workers four separate times
 # for two puzzles each was most of what this section used to cost.
 #
-# Drawn from past the first n_groups of `sample`, deliberately: those first
-# picks are one per (series, size) and include the 21x21-and-up outliers that
-# are already the slowest thing NUMBERED runs above, at NUMBERED's much
-# larger node budget. That is the right sample for proving every size is
-# covered; it is the wrong sample for a curve that is supposed to show
-# partial numbering *helping*, since a grid too big to finish at any
-# numbering level tells this sweep nothing a smaller one would not.
-smallest = sample[n_groups:n_groups + int(os.environ["PARTIAL_SAMPLE"])]
+# Named puzzles, not a draw: about 65% of ordinary grids resolve at 10%
+# blanked inside this budget, so a two-puzzle draw that reshuffles whenever
+# the corpus grows fails the 10% check below on roughly one night in eight.
+# Two ordinary grids that resolve keep it a regression check. PARTIAL_SAMPLE
+# above 2 adds draws from past the first n_groups of `sample`, which skips the
+# 21x21-and-up outliers no numbering level finishes.
+PINNED = ("cryptic-26530.json", "timesquick-2166.json")
+smallest = [p for p in files if p.name in PINNED]
+smallest += [p for p in sample[n_groups:] if p.name not in PINNED][
+    :max(0, int(os.environ["PARTIAL_SAMPLE"]) - len(smallest))]
 partial_budget = int(os.environ["PARTIAL_MAX_NODES"])
 levels = (10, 25, 50, 75)
 jobs = [(p, pct / 100, partial_budget) for pct in levels for p in smallest]

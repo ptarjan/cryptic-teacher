@@ -543,5 +543,7 @@ tools/test_refresh_window.sh                 does refresh_unsolved ever stop ask
 tools/test_privateeye_dates.sh               does tools/fetch_privateeye.py read the issue off
                                              every title shape the archive ships, and take the
                                              Eye's Christmas cover date as it prints it?
+tools/test_fetch_puzzle_misfiled.sh          does fetch_puzzle.convert() refuse a mis-filed
+                                             Guardian page and accept a re-published one?
 ```
 <!-- LAYOUT-END -->
