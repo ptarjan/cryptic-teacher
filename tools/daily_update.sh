@@ -325,6 +325,8 @@ python3 tools/fetch_puzzle.py --reindex
 annotate_blocked=$(python3 tools/failed_inputs.py skipped annotate)
 { read -r fresh; read -r pending; } < <(python3 - "$ANNOTATE_MAX" "$annotate_blocked" <<'EOF'
 import json, subprocess, sys, time
+sys.path.insert(0, "tools")
+from series import date_ms
 idx = json.load(open("puzzles/index.json"))
 blocked = set(sys.argv[2].split())
 FRESH_MS = 2 * 86400 * 1000
@@ -351,7 +353,7 @@ for path in show("diff", "--name-only", "HEAD", "--", "puzzles/").split():
 
 # IDs, not numbers: puzzles/<id>.json is what every step below names, so no
 # consumer has to resolve a number two papers could share.
-todo = sorted(((p.get("date") or 0, p["id"]) for p in idx["puzzles"]
+todo = sorted(((date_ms(p.get("date")) or 0, p["id"]) for p in idx["puzzles"]
                if not p["annotated"] and p.get("hasSolutions")
                and p["id"] not in blocked), reverse=True)
 fresh = [i for d, i in todo if d >= cutoff or i in keyed_tonight]
@@ -407,6 +409,8 @@ SOLVE_MAX="${SOLVE_MAX:-5}"
 solve_blocked=$(python3 tools/failed_inputs.py skipped solve)
 unsolved=$(python3 - "$SOLVE_MAX" "$solve_blocked" <<'EOF'
 import json, sys
+sys.path.insert(0, "tools")
+from series import date_ms
 limit, tried = int(sys.argv[1]), set(sys.argv[2].split())
 idx = json.load(open("puzzles/index.json"))
 unsolved_ids = {p["id"] for p in idx["puzzles"] if not p.get("hasSolutions")}
@@ -435,7 +439,7 @@ if unreadable:
     print("not queued for a cold solve, too little clue text to read: "
           + ", ".join(f"{i} ({readable[i][0]}/{readable[i][1]} clues)"
                       for i in sorted(unreadable)), file=sys.stderr)
-todo = sorted(((p.get("date") or 0, p["id"]) for p in idx["puzzles"]
+todo = sorted(((date_ms(p.get("date")) or 0, p["id"]) for p in idx["puzzles"]
                if p["id"] in unsolved_ids and p["id"] not in unreadable
                and p["id"] not in tried), reverse=True)
 print(" ".join(i for _, i in todo[:limit]))
@@ -586,25 +590,27 @@ spend_session_before=$(python3 tools/weekly_usage.py --group session 2>/dev/null
 # the same trailer, since it is the same model spending the same quota.
 #
 # "By definition the newest" stopped being true when the book reprints arrived.
-# A Penguin reprint has no date at all — no volume prints one — so both queues
-# above sort it behind every dated puzzle, deliberately: the backfill does
+# A book reprint is dated only by its book's year ("1995": no volume prints
+# the day a puzzle ran), so both queues above sort it behind every day-dated
+# puzzle, deliberately: the backfill does
 # today's crosswords first and gets to a 1970s reprint eventually. Prepending
 # one here would undo that at the last moment and spend a place in tonight's
 # ANNOTATE_MAX on a reprint, dropping a puzzle somebody is solving today off the
-# end of the queue. So a dated solve goes to the front and a dateless one to the
-# back, which is where the ordering had it all along.
-has_date() {   # id -> true when the puzzle file carries a publication date
+# end of the queue. So a day-dated solve goes to the front and a year-only or
+# dateless one to the back, which is where the ordering had it all along.
+has_date() {   # id -> true when the puzzle file carries a publication DAY
   python3 - "$1" <<'EOF'
 import sys
 from pathlib import Path
 sys.path.insert(0, "tools")
 from fetch_puzzle import PUZZLE_DIR, read_puzzle_file
+from series import is_year
 try:
     puzzle = read_puzzle_file(PUZZLE_DIR / f"{sys.argv[1]}.json")
 except Exception as err:  # noqa: BLE001 — an unreadable file is not a date
     print(f"cannot read {sys.argv[1]} to place it in the queue: {err}", file=sys.stderr)
     sys.exit(1)
-sys.exit(0 if puzzle.get("date") else 1)
+sys.exit(0 if puzzle.get("date") and not is_year(puzzle["date"]) else 1)
 EOF
 }
 solved_ok=0

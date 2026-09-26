@@ -1761,7 +1761,8 @@ def reindex():
     # and sorting on the number would bury every quiptic below every cryptic
     # forever. Ties (a Monday publishes both) put the cryptic first, so the daily
     # cryptic stays the puzzle the site opens on.
-    puzzles.sort(key=lambda p: (p.get("date") or 0, p["series"] == "cryptic", p["number"]),
+    puzzles.sort(key=lambda p: (series_meta.date_ms(p.get("date")) or 0,
+                                p["series"] == "cryptic", p["number"]),
                  reverse=True)
     # Which paper each series belongs to, carried here rather than looked up.
     # sync/worker.js has to name the paper in a push notification — "Cryptic
@@ -1985,7 +1986,7 @@ def still_worth_refreshing(puzzle, now=None):
     failure REFRESH_WINDOW_DAYS exists to end.
     """
     when = None
-    ms = puzzle.get("date")
+    ms = series_meta.date_ms(puzzle.get("date"))
     if ms:
         when = datetime.fromtimestamp(ms / 1000, timezone.utc)
     else:

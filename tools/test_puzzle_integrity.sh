@@ -242,5 +242,33 @@ same "and it names the light, the run and the board" "$(field OFFBOARD_SAYS "$ou
 same "two acrosses over four cells is four findings" "$(field OVERLAP "$out5")" "4"
 same "each names the cell and both lights" "$(field OVERLAP_SAYS "$out5")" "True"
 
+echo "a book puzzle is dated with its book's year, and only a book's date is a year"
+# Synthetic puzzles, so the check is exercised whatever the corpus holds.
+out6=$(PYTHONPATH="$REPO/tools" python3 - <<'PY'
+from datetime import date
+import puzzle_integrity as pi
+import series
+
+book = series.book_number("newpenguinbkguar0000perk", 1)
+def shape(series_key, number, when):
+    flags = []
+    pi.check_shape({"id": f"{series_key}-{number}", "series": series_key,
+                    "number": number, "date": when,
+                    "entries": [{"id": "1-across", "clue": "x (1)"}]},
+                   date(2026, 9, 25), flags)
+    return sum(1 for kind, _pid, msg in flags if kind == "SHAPE" and "date" in msg)
+print("BOOK_RIGHT", shape("book", book, series.published("book", book)))
+print("BOOK_UNDATED", shape("book", book, None))
+print("BOOK_WRONG_YEAR", shape("book", book, "1996"))
+print("PAPER_YEAR", shape("cryptic", 30000, "1995"))
+print("PAPER_JUNK", shape("cryptic", 30000, "May 1995"))
+PY
+)
+same "the registry's year passes" "$(field BOOK_RIGHT "$out6")" "0"
+same "a book puzzle filed undated is flagged" "$(field BOOK_UNDATED "$out6")" "1"
+same "a book puzzle under another year is flagged" "$(field BOOK_WRONG_YEAR "$out6")" "1"
+same "a paper's puzzle dated by a bare year is flagged" "$(field PAPER_YEAR "$out6")" "1"
+same "a date that is neither shape is flagged" "$(field PAPER_JUNK "$out6")" "1"
+
 [ "$fails" = 0 ] && echo "puzzle_integrity: all checks passed" || echo "puzzle_integrity: $fails FAILED"
 exit $((fails > 0))

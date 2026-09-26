@@ -308,7 +308,10 @@ def main(argv):
         if args.series and series != args.series:
             continue
         puzzle = fetcher.read_puzzle_file(path)
-        by_series.setdefault(series, []).append((number, puzzle.get("date")))
+        # A book's numbers are this repo's registry order, not a publication
+        # sequence, so there is no run of dates for them to climb with.
+        if not series_meta.is_book(series):
+            by_series.setdefault(series, []).append((number, puzzle.get("date")))
         if not in_range(number, args):
             continue
         examined += 1

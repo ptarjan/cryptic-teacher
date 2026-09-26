@@ -446,8 +446,9 @@ const FULL = !!process.env.CI || !!process.env.CT_FULL;
 const corpus = (() => {
   const all = global.CRYPTIC_INDEX.puzzles;
   if (FULL) return all;
-  const newest = (f) => all.filter(f)
-    .sort((a, b) => String(b.date || "").localeCompare(String(a.date || "")));
+  // A book's date is a "YYYY" string, its 1 January for ordering.
+  const ms = (d) => (typeof d === "string" ? Date.UTC(+d, 0, 1) : d || 0);
+  const newest = (f) => all.filter(f).sort((a, b) => ms(b.date) - ms(a.date));
   const bySeries = new Map();
   for (const p of newest((p) => p.annotated)) if (!bySeries.has(p.series)) bySeries.set(p.series, p);
   // The shapes individual sections go looking for, each one the newest of its
@@ -1871,11 +1872,12 @@ assert(registry["picker-search"].value === "", "the filter box starts empty on o
   // carries "answers only" and an annotated row carries nothing, so the list is
   // right exactly when no badged row precedes an unbadged one.
   //
-  // Driven through a series with no dates, because a dated one passes this
-  // without the ordering being there at all: annotating follows fetching, so
-  // newest-first is annotated-first by accident. The book puzzles are reprints
-  // and carry no date, which is what made their taught ones unreachable.
-  const undated = allPuzzles.find((p) => !p.date && p.annotated);
+  // Driven through a series with no day dates, because a day-dated one passes
+  // this without the ordering being there at all: annotating follows fetching,
+  // so newest-first is annotated-first by accident. The book puzzles are
+  // reprints dated only by their book's year, which is what made their taught
+  // ones unreachable.
+  const undated = allPuzzles.find((p) => typeof p.date !== "number" && p.annotated);
   if (undated) {
     typeInPicker(String(undated.series));
     const badged = drainPicker().map((li) => /answers only/.test(li.children[0].innerHTML));

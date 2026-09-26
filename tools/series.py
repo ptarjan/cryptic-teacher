@@ -22,6 +22,7 @@ thirty of them and the difference between two is data, not code.
 tools/data/books.json is one row per physical book and this module reads it —
 see the books section below.
 """
+import datetime
 import json
 import pathlib
 import re
@@ -240,9 +241,33 @@ def _load_books():
             raise ValueError(f"{where}: name {row['name']!r} has to end in "
                              f"volume {volume} — puzzle_name() appends "
                              f"\" No <position>\" to it")
+        if not is_year(row.get("published")):
+            raise ValueError(f"{where}: published {row.get('published')!r} has "
+                             f"to be the imprint page's year as a \"YYYY\" "
+                             f"string — it becomes every puzzle's date")
         by_index[index] = row
         by_identifier[identifier] = row
     return by_index
+
+
+# A puzzle's `date` is epoch milliseconds (a day the paper printed it), a
+# "YYYY" string (a book's year, the most its imprint page says), or null.
+# Every reader goes through these rather than treating it as a number.
+_YEAR = re.compile(r"\d{4}")
+
+
+def is_year(value):
+    """Whether a stored date is a bare year: "1995"."""
+    return isinstance(value, str) and bool(_YEAR.fullmatch(value))
+
+
+def date_ms(value):
+    """A stored date as epoch milliseconds, for sorting and comparing: a bare
+    year is its 1 January, UTC. None stays None."""
+    if is_year(value):
+        return int(datetime.datetime(int(value), 1, 1,
+                                     tzinfo=datetime.timezone.utc).timestamp() * 1000)
+    return value
 
 
 BOOKS = _load_books()
@@ -522,6 +547,14 @@ def scan_identifier(series, number):
     if not is_book(series):
         return None
     return book_row(series, number)["identifier"]
+
+
+def published(series, number):
+    """The year this puzzle's book was published, "YYYY" — its `date`. None
+    for a feed, whose date is the day its paper printed it."""
+    if not is_book(series):
+        return None
+    return book_row(series, number)["published"]
 
 
 def scan_url(series, number):

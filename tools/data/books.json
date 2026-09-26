@@ -1,5 +1,5 @@
 {
- "README": "One row per PHYSICAL BOOK on the shelf, and the only place a book is described. tools/series.py reads it; tools/fetch_puzzle.py --reindex copies the browser's half of it into puzzles/index.json, which is where app.js reads it. Nothing may hand-copy a row into either of those files: a shelf label spelled in two places is how the eighteen-key BOOK_SHELF object in app.js and the `shelf` column in tools/series.py came to be two copies of one fact.\n\nbook_index IS THE PUZZLE NUMBER'S HIGH HALF and is NEVER REUSED. A puzzle's stored number is book_index * 1000 + its position in the book, so book 17's twenty-third puzzle is book-17023. Retiring a book leaves its index retired with it: reusing one would silently point a saved grid, a vote and an indexed URL at another book's crossword.\n\nvolume IS THE NUMBER THE BOOK PRINTS ON ITSELF, not its place in this file. Twenty-eight of the thirty were read off a cover scan; morse and brainsharp print no number anywhere and their volumes are invented, which tools/data/book_acquisition_plan.json says in those words. Two publishers' volume 2 are different books, which is why the volume is never the key.\n\nshelf, kind and name all have the volume written into them by the accessors in tools/series.py, never here twice over: shelf + volume is what a reader sees beside a position (\"Penguin book 5 No 18\"), kind + volume + \" Cryptic\" is the noun on the crawlable page, and name + \" No <position>\" is the puzzle's title.\n\nEVERY SHELF NAMES ITS OWN BOOK. The homepage list prints shelf with no badge beside it — one pill covers the whole shelf now — so a bare \"book 2\" would be the Herald's, the Scotsman's, the Sunday Telegraph's and the Daily Mail's at once.\n\n`was` is the per-book series key these puzzles were filed under until 2026-09-19, and it is load-bearing rather than historical: /puzzles/penguin-5018/ and /puzzles/penguin5-18/ are indexed, shared and hold saved progress, and tools/series.py builds both of those old ids out of this field so they keep resolving.\n\nA book is registered here BEFORE its scan is read — tools/acquire_book.py refuses an identifier this file does not carry, so a run cites the book it actually read or does not run.",
+ "README": "One row per PHYSICAL BOOK on the shelf, and the only place a book is described. tools/series.py reads it; tools/fetch_puzzle.py --reindex copies the browser's half of it into puzzles/index.json, which is where app.js reads it. Nothing may hand-copy a row into either of those files: a shelf label spelled in two places is how the eighteen-key BOOK_SHELF object in app.js and the `shelf` column in tools/series.py came to be two copies of one fact.\n\nbook_index IS THE PUZZLE NUMBER'S HIGH HALF and is NEVER REUSED. A puzzle's stored number is book_index * 1000 + its position in the book, so book 17's twenty-third puzzle is book-17023. Retiring a book leaves its index retired with it: reusing one would silently point a saved grid, a vote and an indexed URL at another book's crossword.\n\nvolume IS THE NUMBER THE BOOK PRINTS ON ITSELF, not its place in this file. Twenty-eight of the thirty were read off a cover scan; morse and brainsharp print no number anywhere and their volumes are invented, which tools/data/book_acquisition_plan.json says in those words. Two publishers' volume 2 are different books, which is why the volume is never the key.\n\nshelf, kind and name all have the volume written into them by the accessors in tools/series.py, never here twice over: shelf + volume is what a reader sees beside a position (\"Penguin book 5 No 18\"), kind + volume + \" Cryptic\" is the noun on the crawlable page, and name + \" No <position>\" is the puzzle's title.\n\nEVERY SHELF NAMES ITS OWN BOOK. The homepage list prints shelf with no badge beside it — one pill covers the whole shelf now — so a bare \"book 2\" would be the Herald's, the Scotsman's, the Sunday Telegraph's and the Daily Mail's at once.\n\n`was` is the per-book series key these puzzles were filed under until 2026-09-19, and it is load-bearing rather than historical: /puzzles/penguin-5018/ and /puzzles/penguin5-18/ are indexed, shared and hold saved progress, and tools/series.py builds both of those old ids out of this field so they keep resolving.\n\nA book is registered here BEFORE its scan is read — tools/acquire_book.py refuses an identifier this file does not carry, so a run cites the book it actually read or does not run.\n\npublished IS THE YEAR THE BOOK'S IMPRINT PAGE PRINTS (\"First published ... 1995\", or the copyright year where it prints no \"first published\" line), as a four-digit string. It is every one of the book's puzzles' `date`: the filer writes it, and tools/puzzle_integrity.py flags a book puzzle whose date differs. A year and not a day, because no imprint prints a day; archive.org's own metadata is no substitute, since it gives \"June 1999\" for all five Penguin Guardian volumes.",
  "books": [
   {
    "book_index": 1,
@@ -10,7 +10,8 @@
    "publisher": "Guardian",
    "title": "The New Penguin Book of The Guardian Crosswords, volume 2",
    "name": "Guardian cryptic crossword, Penguin book 2",
-   "was": "penguin"
+   "was": "penguin",
+   "published": "1993"
   },
   {
    "book_index": 2,
@@ -21,7 +22,8 @@
    "publisher": "Guardian",
    "title": "The New Penguin Book of The Guardian Crosswords, volume 3",
    "name": "Guardian cryptic crossword, Penguin book 3",
-   "was": "penguin"
+   "was": "penguin",
+   "published": "1994"
   },
   {
    "book_index": 3,
@@ -32,7 +34,8 @@
    "publisher": "Guardian",
    "title": "The New Penguin Book of The Guardian Crosswords, volume 5",
    "name": "Guardian cryptic crossword, Penguin book 5",
-   "was": "penguin"
+   "was": "penguin",
+   "published": "1995"
   },
   {
    "book_index": 4,
@@ -43,7 +46,8 @@
    "publisher": "Guardian",
    "title": "The New Penguin Book of The Guardian Crosswords, volume 7",
    "name": "Guardian cryptic crossword, Penguin book 7",
-   "was": "penguin"
+   "was": "penguin",
+   "published": "1996"
   },
   {
    "book_index": 5,
@@ -54,7 +58,8 @@
    "publisher": "Guardian",
    "title": "The New Penguin Book of The Guardian Crosswords, volume 11",
    "name": "Guardian cryptic crossword, Penguin book 11",
-   "was": "penguin"
+   "was": "penguin",
+   "published": "1998"
   },
   {
    "book_index": 6,
@@ -65,7 +70,8 @@
    "publisher": "Herald",
    "title": "The Herald Crossword Book, volume 1",
    "name": "Herald cryptic crossword, book 1",
-   "was": "herald"
+   "was": "herald",
+   "published": "2004"
   },
   {
    "book_index": 7,
@@ -76,7 +82,8 @@
    "publisher": "Herald",
    "title": "The Herald Crossword Book, volume 2",
    "name": "Herald cryptic crossword, book 2",
-   "was": "herald"
+   "was": "herald",
+   "published": "2005"
   },
   {
    "book_index": 8,
@@ -87,7 +94,8 @@
    "publisher": "Scotsman",
    "title": "The Scotsman Crossword Book, volume 2",
    "name": "Scotsman cryptic crossword, book 2",
-   "was": "scotsman"
+   "was": "scotsman",
+   "published": "2001"
   },
   {
    "book_index": 9,
@@ -99,7 +107,8 @@
    "title": "Chambers Book of Araucaria Crosswords, volume 2",
    "name": "Araucaria cryptic crossword, book 2",
    "was": "araucaria",
-   "setter": "Araucaria"
+   "setter": "Araucaria",
+   "published": "2005"
   },
   {
    "book_index": 10,
@@ -111,7 +120,8 @@
    "title": "Chambers Book of Morse Crosswords, volume 1",
    "name": "Morse cryptic crossword, book 1",
    "was": "morse",
-   "setter": "Colin Dexter"
+   "setter": "Colin Dexter",
+   "published": "2006"
   },
   {
    "book_index": 11,
@@ -122,7 +132,8 @@
    "publisher": "Times",
    "title": "The Times Cryptic Crossword Book 13",
    "name": "Times cryptic crossword, book 13",
-   "was": "times"
+   "was": "times",
+   "published": "2009"
   },
   {
    "book_index": 12,
@@ -133,7 +144,8 @@
    "publisher": "Times",
    "title": "The Times Cryptic Crossword Book 21",
    "name": "Times cryptic crossword, book 21",
-   "was": "times"
+   "was": "times",
+   "published": "2017"
   },
   {
    "book_index": 13,
@@ -144,7 +156,8 @@
    "publisher": "Times",
    "title": "The Times Crosswords, book 21 (Times Books)",
    "name": "Times cryptic crossword, Times Crosswords book 21",
-   "was": "timesbooks"
+   "was": "timesbooks",
+   "published": "1998"
   },
   {
    "book_index": 14,
@@ -155,7 +168,8 @@
    "publisher": "Times",
    "title": "The Penguin Book of The Times Crosswords, volume 9",
    "name": "Times cryptic crossword, Penguin book 9",
-   "was": "penguintimes"
+   "was": "penguintimes",
+   "published": "1988"
   },
   {
    "book_index": 15,
@@ -166,7 +180,8 @@
    "publisher": "Times",
    "title": "The Penguin Book of The Times Crosswords, volume 10",
    "name": "Times cryptic crossword, Penguin book 10",
-   "was": "penguintimes"
+   "was": "penguintimes",
+   "published": "1989"
   },
   {
    "book_index": 16,
@@ -177,7 +192,8 @@
    "publisher": "Independent",
    "title": "The Penguin Book of Independent Crosswords, volume 1",
    "name": "Independent cryptic crossword, Penguin book 1",
-   "was": "penguinindy"
+   "was": "penguinindy",
+   "published": "1990"
   },
   {
    "book_index": 17,
@@ -188,7 +204,8 @@
    "publisher": "Financial Times",
    "title": "The Penguin Book of Financial Times Crosswords, volume 1",
    "name": "Financial Times cryptic crossword, Penguin book 1",
-   "was": "penguinft"
+   "was": "penguinft",
+   "published": "1973"
   },
   {
    "book_index": 18,
@@ -199,7 +216,8 @@
    "publisher": "Telegraph",
    "title": "The Daily Telegraph Cryptic Crossword Book 25",
    "name": "Telegraph cryptic crossword, book 25",
-   "was": "telegraph"
+   "was": "telegraph",
+   "published": "1992"
   },
   {
    "book_index": 19,
@@ -210,7 +228,8 @@
    "publisher": "Telegraph",
    "title": "The Daily Telegraph Cryptic Crossword Book 28",
    "name": "Telegraph cryptic crossword, book 28",
-   "was": "telegraph"
+   "was": "telegraph",
+   "published": "1994"
   },
   {
    "book_index": 20,
@@ -221,7 +240,8 @@
    "publisher": "Telegraph",
    "title": "The Daily Telegraph Cryptic Crossword Book 31",
    "name": "Telegraph cryptic crossword, book 31",
-   "was": "telegraph"
+   "was": "telegraph",
+   "published": "1995"
   },
   {
    "book_index": 21,
@@ -232,7 +252,8 @@
    "publisher": "Telegraph",
    "title": "The Daily Telegraph Cryptic Crossword Book 32",
    "name": "Telegraph cryptic crossword, book 32",
-   "was": "telegraph"
+   "was": "telegraph",
+   "published": "1996"
   },
   {
    "book_index": 22,
@@ -243,7 +264,8 @@
    "publisher": "Telegraph",
    "title": "The Daily Telegraph Big Book of Cryptic Crosswords 6",
    "name": "Telegraph cryptic crossword, big book 6",
-   "was": "telbig"
+   "was": "telbig",
+   "published": "2001"
   },
   {
    "book_index": 23,
@@ -254,7 +276,8 @@
    "publisher": "Telegraph",
    "title": "The Daily Telegraph Big Book of Brain Sharpener Cryptic Crosswords, volume 1",
    "name": "Telegraph cryptic crossword, Brain Sharpener book 1",
-   "was": "brainsharp"
+   "was": "brainsharp",
+   "published": "2007"
   },
   {
    "book_index": 24,
@@ -265,7 +288,8 @@
    "publisher": "Telegraph",
    "title": "The Telegraph All New Cryptic Crosswords 4",
    "name": "Telegraph cryptic crossword, All New book 4",
-   "was": "telallnew"
+   "was": "telallnew",
+   "published": "2012"
   },
   {
    "book_index": 25,
@@ -276,7 +300,8 @@
    "publisher": "Telegraph",
    "title": "Telegraph Cryptic Crosswords 2",
    "name": "Telegraph cryptic crossword, Crosswords book 2",
-   "was": "telcryptic"
+   "was": "telcryptic",
+   "published": "2017"
   },
   {
    "book_index": 26,
@@ -287,7 +312,8 @@
    "publisher": "Telegraph",
    "title": "The Telegraph All New Toughie Crossword, book 1",
    "name": "Telegraph Toughie crossword, book 1",
-   "was": "toughie"
+   "was": "toughie",
+   "published": "2012"
   },
   {
    "book_index": 27,
@@ -298,7 +324,8 @@
    "publisher": "Sunday Telegraph",
    "title": "The Sunday Telegraph Book of Cryptic Crosswords 1",
    "name": "Sunday Telegraph cryptic crossword, book 1",
-   "was": "sundaytel"
+   "was": "sundaytel",
+   "published": "1994"
   },
   {
    "book_index": 28,
@@ -309,7 +336,8 @@
    "publisher": "Sunday Telegraph",
    "title": "The Sunday Telegraph Book of Cryptic Crosswords 2",
    "name": "Sunday Telegraph cryptic crossword, book 2",
-   "was": "sundaytel"
+   "was": "sundaytel",
+   "published": "1995"
   },
   {
    "book_index": 29,
@@ -320,7 +348,8 @@
    "publisher": "Sunday Telegraph",
    "title": "The Sunday Telegraph Book of Cryptic Crosswords 4",
    "name": "Sunday Telegraph cryptic crossword, book 4",
-   "was": "sundaytel"
+   "was": "sundaytel",
+   "published": "1997"
   },
   {
    "book_index": 30,
@@ -331,7 +360,8 @@
    "publisher": "Daily Mail",
    "title": "Daily Mail New Cryptic Crosswords, volume 2",
    "name": "Daily Mail cryptic crossword, book 2",
-   "was": "dailymail"
+   "was": "dailymail",
+   "published": "2007"
   }
  ]
 }
