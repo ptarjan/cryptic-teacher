@@ -5345,8 +5345,9 @@
     book: ["book", `Crosswords out of scanned printed books: out-of-print
       collections, so the puzzles are years older than today's. Each
       puzzle is named by its book and its place in it — Penguin book 5 No 18 —
-      and the answers are our own solve rather than the paper's, because what a
-      book prints is a picture of a filled grid.`],
+      and dated by the year the book came out, and the answers are our own
+      solve rather than the paper's, because what a book prints is a picture
+      of a filled grid.`],
   };
 
 
@@ -5431,9 +5432,13 @@
   // stored: a saved weekday is a second copy of the date, and second copies
   // disagree. getUTCDay to match the UTC the ISO string is sliced out of, or a
   // solver west of Greenwich gets a day that contradicts the date beside it.
+  //
+  // A book puzzle's date is its book's year, the string "1995": the imprint
+  // prints no day, so there is no weekday to show and iso is the year alone.
   const WEEKDAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   function puzzleDate(p) {
     if (!p.date) return { iso: "", day: "", short: "" };
+    if (typeof p.date === "string") return { iso: p.date, day: "", short: "" };
     const dt = new Date(p.date);
     const day = WEEKDAYS[dt.getUTCDay()] || "";
     return { iso: dt.toISOString().slice(0, 10), day, short: day.slice(0, 3) };
@@ -5666,7 +5671,7 @@
     // Abbreviated, and the weekday leads. The row is tight — see the note
     // below about the nowrap element shoving the line — and "Sat" in front is
     // read at a glance where a trailing full "Saturday" would just be length.
-    const d = dd.iso ? `${dd.short} ${dd.iso}` : "";
+    const d = dd.short ? `${dd.short} ${dd.iso}` : dd.iso;
     const btn = document.createElement("button");
     // Order here is the grid's, not the eye's: the badges are markup-last but
     // render on their own second line (see .p-tags in style.css). Progress
@@ -6040,7 +6045,7 @@
     $("puzzle-title").innerHTML =
       esc(P.name) +
       (setter ? ` — set by <em>${esc(setter)}</em>` : "") +
-      (when.day ? ` <span class="muted">· ${when.day} ${when.iso}</span>` : "") +
+      (when.iso ? ` <span class="muted">· ${when.day ? when.day + " " : ""}${when.iso}</span>` : "") +
       (meta.annotated ? "" : " " + hintsBadge(false)) +
       // Prize puzzles publish their answers about a week late, and this site
       // solves them in the meantime rather than leaving its newest puzzle

@@ -74,7 +74,9 @@ The flags, in the order they matter:
             clues are ALL blank — a grid with no puzzle in it, which no amount of
             per-clue forgiveness can be — a solution
             carrying something other than letters, the same entry id twice in one
-            puzzle, or a date in the future or before EARLIEST_YEAR.
+            puzzle, a date in the future or before EARLIEST_YEAR, a date that
+            is neither epoch milliseconds nor a "YYYY" year, or a book puzzle
+            not dated with its book's `published` year.
 
 An entry whose solution carries non-letters is reported once, as SHAPE, and then
 left out of LENGTH and CROSS — its letter count is not a second defect, it is the
@@ -119,6 +121,7 @@ from fetch_puzzle import (ENUMERATION, PER_LIGHT_ENUMERATION,  # noqa: E402
                           read_puzzle_file, reindex)
 from reconstruct_grid import grid_of, lights_from_grid, lights_of  # noqa: E402
 import provenance  # noqa: E402
+import series as series_meta  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -811,12 +814,27 @@ def check_shape(puzzle, today, flags):
         flags.append(("SHAPE", pid, "no entries at all"))
         return []
 
-    ms = puzzle.get("date")
-    if ms is None:
+    stored = puzzle.get("date")
+    series = puzzle.get("series", "cryptic")
+    # A book puzzle's date is its book's imprint year, read off the registry
+    # by the filer; any other value is a book cited under the wrong year.
+    if series_meta.is_book(series):
+        want = series_meta.published(series, puzzle.get("number"))
+        if stored != want:
+            flags.append(("SHAPE", pid, f"dated {stored!r}, but its book "
+                          f"(tools/data/books.json) was published in {want!r}"))
+    if stored is None:
         # coverage_report.py owns DATELESS; it can see which series it thins out.
         pass
+    elif not (series_meta.is_year(stored) or isinstance(stored, int)):
+        flags.append(("SHAPE", pid, f"date {stored!r} is neither epoch "
+                      f"milliseconds nor a \"YYYY\" year"))
+    elif series_meta.is_year(stored) and not series_meta.is_book(series):
+        flags.append(("SHAPE", pid, f"dated {stored!r}, a bare year, but only "
+                      f"a book's date is its year; a paper prints the day"))
     else:
-        d = datetime.fromtimestamp(ms / 1000, timezone.utc).date()
+        d = datetime.fromtimestamp(series_meta.date_ms(stored) / 1000,
+                                   timezone.utc).date()
         if d > today:
             flags.append(("SHAPE", pid, f"dated {d}, which is in the future"))
         elif d.year < EARLIEST_YEAR:
