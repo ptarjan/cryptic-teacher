@@ -96,6 +96,8 @@ tools/test_puzzle_integrity.sh               proves the two LENGTH exception tab
                                              nothing looser than the exact sentence they’re
                                              keyed on, and that baselining one finding never
                                              silences the rest of its puzzle
+tools/test_puzzle_invariants.sh              proves every puzzle write refuses what the corpus
+                                             sweep would report
 tools/fetch_ia_book.py                       borrows a lending-restricted archive.org book,
                                              saves its OCR text outside the repo, returns the
                                              loan, and hands back on startup any loan a killed
@@ -180,7 +182,7 @@ tools/fetch_minutecryptic.js                 Minute Cryptic’s daily hints, as 
 tools/recover_minutecryptic.py               refills days that capture missed from Minute
                                              Cryptic’s own video titles, dated by clue number
                                              because the upload date lags
-tools/fetch_fifteensquared.py                caches the blog that covers all five series, and
+tools/fetch_fifteensquared.py                caches the blog that covers six of our series, and
                                              its comments — fetched once each, at their
                                              20-second crawl delay
 tools/corroborate.py                         checks every puzzle written against the other
@@ -221,6 +223,16 @@ tools/test_file_times_puzzles.sh             holds that filer to a hand-built gr
 tools/test_times_dates.sh                    holds every filed Times, Jumbo and Sunday Times
                                              date to its paper's weekday and number order, so a
                                              prize puzzle dated by its blog post fails
+tools/ft_puzzles.py                          files the Financial Times cryptic from
+                                             fifteensquared's cached write-ups: reads each era
+                                             of their markup, rebuilds the grid ft.com will not
+                                             serve a script with the Times' search, and files
+                                             what passes the Times filer's checks; the nightly
+                                             top-up
+tools/test_ft_puzzles.sh                     holds that parser to each layout fifteensquared
+                                             prints an FT post in, and the filer to a
+                                             hand-built grid, because a misread answer becomes
+                                             a wrong light length
 tools/fetch_lexicon.sh                       downloads the Lufz/Exet lexicon the grid filler
                                              needs
 
@@ -482,6 +494,10 @@ tools/data/abbreviations.json                the hand-built starter table of sta
                                              abbreviations
 tools/data/unclueable.json                   words rejected as answers, with reasons;
                                              grid_fill.py vetoes them
+tools/data/corroboration_ledger.json         every disagreement tools/corroborate.py settled or
+                                             could not, and every field it filled: the puzzle,
+                                             the field, each candidate with its sources, the
+                                             winner and the rule that picked it
 tools/data/times_answers.json                Times-blog answers settled from the clue's
                                              wordplay; times_grids.py applies them before
                                              rebuilding

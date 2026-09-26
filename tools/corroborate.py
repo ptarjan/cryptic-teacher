@@ -783,8 +783,11 @@ def record(pid, disputes, ledger=None):
         }
     if held != before:
         ledger.parent.mkdir(parents=True, exist_ok=True)
-        ledger.write_text(json.dumps(held, indent=1, sort_keys=True, ensure_ascii=False)
-                          + "\n", encoding="utf-8")
+        # One line per entry, so two writers touching different puzzles merge.
+        lines = [f" {json.dumps(k, ensure_ascii=False)}: "
+                 f"{json.dumps(held[k], sort_keys=True, ensure_ascii=False)}"
+                 for k in sorted(held)]
+        ledger.write_text("{\n" + ",\n".join(lines) + "\n}\n", encoding="utf-8")
 
 
 def known_wrong(puzzle):
