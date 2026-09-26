@@ -198,6 +198,14 @@ WEEK = datetime.timedelta(days=7)
 
 #: The day each prize series is printed on. The Jumbo also runs on bank
 #: holidays, which only the Times's own listing dates.
+#: Print dates the blog and the listing cannot prove, each from a page that
+#: names the day. Read as the listing is: an anchor, never overruled.
+PRINT_DATES = {
+    # lucianpoll.com/2022/06/02/times-jumbo-cryptic-crossword-1559/: "A medium
+    # strength puzzle for Bank Holiday Thursday", posted that day.
+    ("timesjumbo", 1559): datetime.date(2022, 6, 2),
+}
+
 PRIZE_DAY = {"times": SATURDAY, "timesjumbo": SATURDAY, "sundaytimes": SUNDAY}
 
 MONTHS = {m: i for i, m in enumerate(
@@ -559,7 +567,7 @@ def print_dates(recs, listing=None, renumbered=None):
             prize.update({n: r for n, r in posts[(series, True)].items()
                           if blog_date(r, series)})
         blog = {n: d for n, rec in prize.items() if (d := blog_date(rec, series))}
-        mine = {n: d for (s, n), d in listing.items() if s == series}
+        mine = {n: d for (s, n), d in (listing | PRINT_DATES).items() if s == series}
         if series == "times":
             daily = {n: datetime.date.fromisoformat(r["date"])
                      for n, r in posts[(series, True)].items() if n not in prize}
