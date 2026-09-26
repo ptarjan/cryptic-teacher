@@ -57,9 +57,7 @@ The flags, in the order they matter:
             wrong answer normally breaks three or four of these, so a clean sheet
             is real evidence the fill is the paper's and not a mangling of it.
   DATE      a series whose dates do not rise with its numbers: a later number
-            dated on or before an earlier one. And, in a series dated off its
-            neighbours (series.py `datedFromNeighbours`), an undated puzzle
-            whose dated neighbours leave exactly one day for it.
+            dated on or before an earlier one.
   SETTER    a byline that is a placeholder ("Unknown"), carries whitespace or a
             copyright notice, or is null in a series whose source prints one
             on every puzzle (series.py `bylined`).
@@ -119,14 +117,13 @@ never writes: a defect here is a fetcher bug or a bad source page, and the fix
 belongs in the fetcher or in a re-fetch, not in a repair pass over the files.
 """
 
-import bisect
 import hashlib
 import json
 import re
 import sys
 import time
 from collections import defaultdict
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timezone
 from itertools import pairwise, zip_longest
 from pathlib import Path
 
@@ -842,13 +839,12 @@ def check_shape(puzzle, today, flags):
             flags.append(("SHAPE", pid, f"dated {stored!r}, but its book "
                           f"(tools/data/books.json) was published in {want!r}"))
     if stored is None:
-        # A feed dates every puzzle it serves, so a null there is a date the
-        # fetcher dropped. Only a series dated off its neighbours' cadence may
-        # hold one it cannot prove yet; check_dates says when it can.
-        if not (series_meta.is_book(series)
-                or series_meta.meta(series).get("datedFromNeighbours")):
-            flags.append(("SHAPE", pid, f"no date, but every {series} puzzle's "
-                          f"source prints its day"))
+        # Every paper puzzle has a day: a series dated off its neighbours
+        # gets a best fit (file_blog_puzzles.fit_undated), and a null is a
+        # hole in every listing.
+        if not series_meta.is_book(series):
+            flags.append(("SHAPE", pid, f"no date; a {series} puzzle always "
+                          f"has one (file_blog_puzzles.fit_undated)"))
     elif not (series_meta.is_year(stored) or isinstance(stored, int)):
         flags.append(("SHAPE", pid, f"date {stored!r} is neither epoch "
                       f"milliseconds nor a \"YYYY\" year"))
@@ -1185,12 +1181,7 @@ def _utc_day(ms):
 def check_dates(held, flags):
     """A series' dates rise with its numbers: one puzzle per issue, numbered in
     the order they are printed. A later number dated on or before an earlier
-    one is a date read off the wrong day.
-
-    In a series dated off its neighbours, a puzzle left undated is flagged when
-    its nearest dated neighbours leave exactly as many days for the numbers
-    between as there are numbers, counting every weekday the series has ever
-    been dated on. `held` is (series, number, date, id) per puzzle."""
+    one is a date read off the wrong day. `held` is (series, number, date, id) per puzzle."""
     by_series = defaultdict(list)
     for series, number, date, pid in held:
         if not series_meta.is_book(series):
@@ -1204,22 +1195,6 @@ def check_dates(held, flags):
                 finding = f"dated {db}, not after {series}-{a}'s {da}"
                 if (pid, finding) not in PUBLISHED_WRONG:
                     flags.append(("DATE", pid, finding))
-        if not series_meta.meta(series).get("datedFromNeighbours"):
-            continue
-        weekdays = {d.weekday() for _, d, _ in dated}
-        numbers = [n for n, _, _ in dated]
-        for n, d, pid in rows:
-            if d is not None:
-                continue
-            i = bisect.bisect(numbers, n)
-            if not 0 < i < len(dated):
-                continue
-            (a, da, _), (b, db, _) = dated[i - 1], dated[i]
-            days = [da + timedelta(days=k) for k in range(1, (db - da).days)]
-            slots = [x for x in days if x.weekday() in weekdays]
-            if len(slots) == b - a - 1:
-                flags.append(("DATE", pid, f"undated, but {series}-{a} ({da}) and "
-                              f"{series}-{b} ({db}) leave {slots[n - a - 1]} for it"))
 
 
 def audit(rows, today):
