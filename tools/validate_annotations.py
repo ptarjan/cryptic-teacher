@@ -57,7 +57,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from fetch_puzzle import (  # noqa: E402 — one glob, one id resolver, one reader, one exemption
-    clue_words, leaders_named, puzzle_files, read_puzzle_file, resolve_puzzle)
+    blog_facts_for, clue_words, leaders_named, puzzle_files, read_puzzle_file, resolve_puzzle)
 from find_answer_leaks import says  # noqa: E402 — one matcher, shared with the finder
 
 # The controlled vocabulary for `type`. Compound types join parts with " + " and
@@ -1556,6 +1556,41 @@ MAX_DEFINITION_REUSE = 3
 DEFINITION_REUSE_EXEMPT = ("&lit", "double definition", "cryptic definition")
 
 
+#: Words too common to say two definitions are the same stretch of the clue.
+LINKING_WORDS = {"a", "an", "the", "of", "to", "in", "for", "and", "or", "is", "s", "it", "on", "as"}
+
+
+def check_definition_against_blog(puzzle, warnings):
+    """Our definition should share a word with the one the blog underlined.
+
+    tools/blog_facts.py keeps the definition span each clue's write-up marks.
+    Where ours and theirs have not one content word in common, one of the two
+    has taken the wrong end of the clue. A second opinion for the run that
+    annotates, not a corpus sweep: where the two disagree the blogger's
+    underline is usually the slip (it lands on the wordplay: CHAGALL underlined
+    "Drink"), so a standing list of these would be mostly noise. Boundary
+    differences ("prime minister" against "old prime minister") are not
+    reported."""
+    row = blog_facts_for(puzzle)
+    if not row:
+        return
+    def words(s):
+        every = set(re.findall(r"[a-z0-9]+", s.lower().replace("’", "'")))
+        return (every - LINKING_WORDS) or every
+    for e in puzzle["entries"]:
+        ann = e.get("annotation") or {}
+        theirs = (row["entries"].get(e["id"]) or {}).get("definition")
+        if not ann.get("definition") or not theirs:
+            continue
+        ours = words(ann["definition"]) | words(ann.get("definition2") or "")
+        if not any(words(t) & ours for t in theirs):
+            tag = f"{e['number']}{'A' if e['direction'] == 'across' else 'D'}"
+            warnings.append(
+                f"{tag}: definition {ann['definition']!r} shares no word with the "
+                f"definition {row['name']} underlined ({' / '.join(map(repr, theirs))}, "
+                f"{row['url']}). Bloggers slip too: keep ours if theirs is wordplay")
+
+
 def check_definition_not_fodder(entries, errors, warnings):
     """The definition's words may not also be the wordplay's letters.
 
@@ -2267,6 +2302,8 @@ def validate_puzzle(puzzle, corpus=False):
         check_cryptic_definition_cap(puzzle["entries"], errors, warnings,
                                      authored=authored)
         check_definition_not_fodder(puzzle["entries"], errors, warnings)
+        if not corpus:
+            check_definition_against_blog(puzzle, warnings)
         check_blocks_account_for_answer(puzzle["entries"], errors, warnings)
         check_blocks_decompose(puzzle["entries"], errors, warnings)
         check_blocks_in_answer_order(puzzle["entries"], errors, warnings)

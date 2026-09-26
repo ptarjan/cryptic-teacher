@@ -460,7 +460,9 @@ const corpus = (() => {
   // does, which is only knowable once the file is loaded.
   return [].concat(
     [...bySeries.values()],
-    newest((p) => !p.annotated && p.hasSolutions).slice(0, 5),
+    // Twenty rather than five: most new puzzles carry a blog's facts, and both
+    // the degraded panel and the blog-hint ladder below each need one.
+    newest((p) => !p.annotated && p.hasSolutions).slice(0, 20),
     newest((p) => p.solutionsUnofficial).slice(0, 1),
     newest((p) => p.annotated && p.hasSolutions && !p.solutionsUnofficial).slice(0, 1),
     newest((p) => !p.date && p.annotated).slice(0, 1),
@@ -520,7 +522,10 @@ assert(openTitle.includes(escName),
 // must agree with the index rather than always saying something.
 {
   const idx = (global.CRYPTIC_INDEX.puzzles || []).find((p) => p.id === openId);
-  const badged = registry["puzzle-title"].innerHTML.includes("answers only");
+  // "hints via <blog>" is the same exception said the other way round: we
+  // have not annotated it, and a blog's write-up is what the hints come from.
+  const title = registry["puzzle-title"].innerHTML;
+  const badged = title.includes("answers only") || title.includes("hints via ");
   assert(idx && badged === !idx.annotated,
     "title badge disagrees with the index for " + openId + ": badged=" + badged);
 }
@@ -1961,7 +1966,7 @@ assert(registry["picker-search"].value === "", "the filter box starts empty on o
 // asserting the degraded panel on it tests the picker's luck, not the app.
 const noneAnnotated = (p) => {
   const puz = global.window.CRYPTIC_PUZZLES[p.id];
-  return puz && puz.entries.every((e) => !e.annotation);
+  return puz && !puz.blog && puz.entries.every((e) => !e.annotation);
 };
 const autoPuzzle = allPuzzles.find((p) => !p.annotated && p.hasSolutions && noneAnnotated(p));
 const autoRow = pickerRowFor(autoPuzzle.id);
@@ -2043,6 +2048,41 @@ if (assert(autoRow, `picker finds ${autoPuzzle.id} when searched for`)) {
     assert(back === `../../?p=${autoPuzzle.id}&c=3A`,
       `a flagged reload of puzzles/${autoPuzzle.id}/?c=3A should go to ../../?p=${autoPuzzle.id}&c=3A, got ${back}`);
     assert(land(false) === null, "an unflagged visit must stay on the static write-up");
+  }
+}
+
+// --- a clue we have not explained still gets the hints a blog marked ---
+// tools/blog_facts.py reads the definition a blogger underlined and the clue type
+// they named; the shim carries them and the ladder is built from them in our
+// own words. It says whose marks those are, and links to the full write-up.
+{
+  const puzzles = global.window.CRYPTIC_PUZZLES;
+  const target = allPuzzles.find((p) => !p.annotated && puzzles[p.id] && puzzles[p.id].blog
+    && puzzles[p.id].entries.some((e) => !e.annotation && e.blog && (e.blog.definition || []).length === 1));
+  if (assert(target, "the sample holds an un-annotated puzzle with blog facts")) {
+    const puz = puzzles[target.id];
+    const e = puz.entries.find((x) => !x.annotation && x.blog && (x.blog.definition || []).length === 1);
+    if (openFromPicker(target.id)) {
+      assert(registry["puzzle-title"].innerHTML.includes("hints via " + puz.blog.name),
+        `${target.id}'s title names the blog its hints come from: ${registry["puzzle-title"].innerHTML}`);
+      registry["clue-" + e.id].listeners.click[0]();
+      assert(registry["hint-meter"].innerHTML.includes("hints via " + puz.blog.name),
+        `${target.id} ${e.id}: the meter badges blog-derived hints`);
+      assert(registry["hint-escape"].innerHTML.includes(`href="${puz.blog.url}"`)
+        && registry["hint-escape"].innerHTML.includes("Full explanation on " + puz.blog.name),
+        `${target.id} ${e.id}: links to the full write-up: ${registry["hint-escape"].innerHTML}`);
+      const def = registry["hint-next"].children.find((b) => /Where is the definition/.test(b.textContent));
+      if (assert(def, `${target.id} ${e.id}: has a definition rung: ${btnNames()}`)) {
+        takeRung(def);
+        assert(registry["hint-body"].innerHTML.includes(`<mark class="def">${e.blog.definition[0]}</mark>`)
+          || registry["hint-body"].innerHTML.includes(e.blog.definition[0].replace(/&/g, "&amp;")),
+          `${target.id} ${e.id}: the definition rung names the blog's definition`);
+        assert(registry["hint-clue"].innerHTML.includes('class="def'),
+          `${target.id} ${e.id}: the definition is marked in the clue`);
+      }
+      assert(!registry["hint-next"].children.some((b) => /Full walkthrough|building blocks/.test(b.textContent)),
+        `${target.id} ${e.id}: a blog ladder stops at what the blog marked: ${btnNames()}`);
+    }
   }
 }
 

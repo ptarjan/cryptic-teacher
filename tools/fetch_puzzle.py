@@ -32,6 +32,7 @@ Exit status for --latest: 0 and prints the puzzle number if a NEW puzzle was
 downloaded, prints "up-to-date <n>" and exits 3 if nothing new was found.
 """
 
+import functools
 import hashlib
 import html
 import itertools
@@ -445,6 +446,42 @@ def shim_path(path):
     return path.with_suffix(".js")
 
 
+BLOG_FACTS = ROOT / "tools" / "data" / "blog_facts"
+
+
+@functools.lru_cache(maxsize=None)
+def _blog_facts(series):
+    path = BLOG_FACTS / f"{series}.json"
+    return json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
+
+
+def blog_facts_for(puzzle):
+    """This puzzle's row of tools/data/blog_facts/, or None: the blog, its
+    name, the post's url, and per entry id what the write-up marks."""
+    return _blog_facts(puzzle.get("series", "cryptic")).get(puzzle["id"])
+
+
+def with_blog_facts(puzzle):
+    """The puzzle as the browser gets it: with what a blog's write-up marks
+    about each clue we have not annotated ourselves (tools/blog_facts.py).
+
+    The facts live in a sidecar, not in the puzzle file, because a re-fetch
+    rewrites the file and the facts come from somewhere else entirely. A fact
+    is dropped here if the clue it was read against has since changed: every
+    definition and indicator must still be words of the clue."""
+    row = blog_facts_for(puzzle)
+    if not row:
+        return puzzle
+    out = {**puzzle, "blog": {"name": row["name"], "url": row["url"]}, "entries": []}
+    for e in puzzle["entries"]:
+        fact = row["entries"].get(e["id"])
+        if fact and not e.get("annotation") and all(
+                w in e["clue"] for w in fact.get("definition", []) + fact.get("indicators", [])):
+            e = {**e, "blog": fact}
+        out["entries"].append(e)
+    return out
+
+
 def write_shim(path, puzzle):
     """Regenerate puzzles/<id>.js from the puzzle in puzzles/<id>.json.
 
@@ -460,7 +497,7 @@ def write_shim(path, puzzle):
     invalidate every cached OG card and every browser's copy of every puzzle at
     once, to say nothing new.
     """
-    payload = json.dumps(puzzle, indent=1, ensure_ascii=False)
+    payload = json.dumps(with_blog_facts(puzzle), indent=1, ensure_ascii=False)
     acquirer = (puzzle.get("provenance") or {}).get(
         "acquiredBy") or "tools/fetch_puzzle.py"
     shim_path(path).write_text(
