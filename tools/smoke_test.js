@@ -2248,7 +2248,10 @@ if (assert(autoRow, `picker finds ${autoPuzzle.id} when searched for`)) {
         if (!CLIMBABLE(btn)) break;
         if (/walkthrough/i.test(btn.textContent)) break;
         takeRung(btn);
-        const bare = registry["hint-body"].innerHTML.replace(/[^A-Za-z]/g, "").toUpperCase();
+        // The rung's text, not its markup: tag names are letters too, and
+        // "a spade a spade" + "</span>" reads as SPADES.
+        const bare = registry["hint-body"].innerHTML.replace(/<[^>]*>|&[#\w]+;/g, " ")
+          .replace(/[^A-Za-z]/g, "").toUpperCase();
         assert(!bare.includes(ans),
           `${where}: a rung before the walkthrough spells the answer out — ` +
           registry["hint-body"].innerHTML);
