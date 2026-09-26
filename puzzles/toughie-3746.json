@@ -18,7 +18,10 @@
   "retrievedFrom": "blog",
   "retrievedUrl": null,
   "gridOrigin": "reconstructed",
-  "solutionOrigin": "writeup"
+  "solutionOrigin": "writeup",
+  "annotatedBy": [
+   "claude-opus-5-5"
+  ]
  },
  "solutionSource": {
   "kind": "bigdave44",
@@ -37,7 +40,38 @@
    },
    "length": 6,
    "clue": "This is one party game (6)",
-   "solution": "CLUEDO"
+   "solution": "CLUEDO",
+   "annotation": {
+    "type": "charade",
+    "answer": "CLUEDO",
+    "definition": "game",
+    "indicators": [],
+    "pieces": [
+     "CLUE",
+     "DO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "This is one",
+      "gives": "CLUE",
+      "note": "the sentence you are reading is itself one of these"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "DO",
+      "note": "a do = a party"
+     }
+    ],
+    "surface": "Someone at a gathering points out the game about to be played.",
+    "walkthrough": "The clue talks about itself: 'This is one' asks what the sentence you are reading is. 'party game' reads as one phrase, but 'party' belongs to the wordplay.",
+    "definitionFit": "A definition by example: Cluedo is the board game of solving a country-house murder.",
+    "features": {
+     "misdirectedWord": "This",
+     "joke": "pun",
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "1-down",
@@ -49,7 +83,47 @@
    },
    "length": 8,
    "clue": "Theatrical appearance announced in holiday venue (8)",
-   "solution": "CAMPSITE"
+   "solution": "CAMPSITE",
+   "annotation": {
+    "type": "charade + homophone",
+    "answer": "CAMPSITE",
+    "definition": "holiday venue",
+    "indicators": [
+     "announced"
+    ],
+    "indicatorNotes": {
+     "announced": "what is announced is spoken, so we take a word by its sound"
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "CAMP",
+     "SITE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Theatrical",
+      "gives": "CAMP",
+      "note": "camp = theatrical, exaggerated"
+     },
+     {
+      "clueFragment": "appearance",
+      "soundsLike": "SIGHT",
+      "gives": "SITE",
+      "note": "a sight = an appearance; said out loud it is SITE"
+     }
+    ],
+    "surface": "A showy performer makes an entrance at a holiday resort.",
+    "walkthrough": "'announced' applies only to 'appearance': CAMP is taken as written.",
+    "definitionFit": "A plain description: a campsite is where people pitch tents or park caravans on holiday.",
+    "features": {
+     "misdirectedWord": "announced",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "2-down",
@@ -61,7 +135,42 @@
    },
    "length": 8,
    "clue": "Thugs rip out fixtures in football stadium (8)",
-   "solution": "UPRIGHTS"
+   "solution": "UPRIGHTS",
+   "annotation": {
+    "type": "anagram",
+    "answer": "UPRIGHTS",
+    "definition": "fixtures in football stadium",
+    "indicators": [
+     "out"
+    ],
+    "indicatorNotes": {
+     "out": "out = wrong, unsettled, so the letters are rearranged"
+    },
+    "anagram": {
+     "fodder": "THUGS RIP"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Thugs rip",
+      "gives": "THUGSRIP",
+      "note": "anagram fodder, 8 letters"
+     },
+     {
+      "clueFragment": "out",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "Hooligans tear the fittings out of a football ground.",
+    "walkthrough": "The surface reads 'rip out' as a phrasal verb, but 'rip' is fodder and 'out' alone signals the rearrangement.",
+    "definitionFit": "Uprights are the goalposts, fixed in place at each end of the pitch.",
+    "features": {
+     "misdirectedWord": "out",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "3-down",
@@ -73,7 +182,48 @@
    },
    "length": 4,
    "clue": "Oddly pretend retiring is difficult (4)",
-   "solution": "DEEP"
+   "solution": "DEEP",
+   "annotation": {
+    "type": "alternate letters + reversal",
+    "answer": "DEEP",
+    "definition": "difficult",
+    "indicators": [
+     "Oddly",
+     "retiring"
+    ],
+    "indicatorNotes": {
+     "Oddly": "take the odd-numbered letters",
+     "retiring": "retiring = withdrawing, going backwards, so the letters are reversed"
+    },
+    "linkWords": [
+     "is"
+    ],
+    "pieces": [
+     "DEEP"
+    ],
+    "subReversals": [
+     {
+      "from": "PEED",
+      "to": "DEEP"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Oddly pretend",
+      "gives": "PEED",
+      "note": "P-r-E-t-E-n-D: letters 1, 3, 5 and 7"
+     }
+    ],
+    "surface": "Someone claims that pretending to be shy is hard.",
+    "walkthrough": "'retiring' looks like 'shy' in the surface, but it tells you to turn PEED round.",
+    "definitionFit": "A figurative sense: a deep book or thought is profound and so hard to grasp.",
+    "features": {
+     "misdirectedWord": "retiring",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "4-across",
@@ -90,7 +240,54 @@
      5
     ]
    },
-   "solution": "APRESSKI"
+   "solution": "APRESSKI",
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "APRES-SKI",
+    "definition": "evening entertainment",
+    "indicators": [
+     "briefly",
+     "entertains"
+    ],
+    "indicatorNotes": {
+     "briefly": "cut short: KIN loses its last letter",
+     "entertains": "to entertain guests is to take them in, so A…KI holds the next piece"
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "A",
+     "PRESS",
+     "KI"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "as written"
+     },
+     {
+      "clueFragment": "family briefly",
+      "gives": "KI",
+      "note": "KIN = family, missing its last letter"
+     },
+     {
+      "clueFragment": "throng",
+      "gives": "PRESS",
+      "note": "a press = a crowd, a throng"
+     }
+    ],
+    "surface": "A family hosts a crowd at an evening party.",
+    "walkthrough": "'entertains' is at home in a party surface, which hides its job as a container signal.",
+    "definitionFit": "Après-ski is the socialising that follows a day on the slopes, usually in the evening.",
+    "features": {
+     "misdirectedWord": "entertains",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "5-down",
@@ -107,7 +304,34 @@
      7
     ]
    },
-   "solution": "PERFECTPITCH"
+   "solution": "PERFECTPITCH",
+   "annotation": {
+    "type": "double definition",
+    "answer": "PERFECT PITCH",
+    "definition": "Musical gift",
+    "definition2": "something a groundskeeper wants",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Musical gift",
+      "gives": "PERFECTPITCH",
+      "note": "the ability to name a note by ear"
+     },
+     {
+      "clueFragment": "something a groundskeeper wants",
+      "gives": "PERFECTPITCH",
+      "note": "a flawless playing surface"
+     }
+    ],
+    "walkthrough": "In the second sense, a pitch is a sports field, which a groundskeeper tends and wants in perfect shape.",
+    "definitionFit": "Perfect pitch is the rare gift of identifying or singing any note without a reference.",
+    "features": {
+     "misdirectedWord": "gift",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "6-down",
@@ -119,7 +343,42 @@
    },
    "length": 4,
    "clue": "Bring back less fine cut (4)",
-   "solution": "ETCH"
+   "solution": "ETCH",
+   "annotation": {
+    "type": "deletion",
+    "answer": "ETCH",
+    "definition": "cut",
+    "indicators": [
+     "less"
+    ],
+    "indicatorNotes": {
+     "less": "less = without, so F is taken away"
+    },
+    "pieces": [
+     "ETCH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bring back",
+      "gives": "FETCH",
+      "note": "to fetch = to go and bring back"
+     },
+     {
+      "clueFragment": "fine",
+      "gives": "F",
+      "note": "f = fine, as on pencil leads"
+     }
+    ],
+    "surface": "An order to restore a smaller fine that was reduced.",
+    "walkthrough": "'back' looks like it wants letters reversed, but 'Bring back' is one phrase meaning FETCH.",
+    "definitionFit": "A plain synonym: etching cuts lines into metal or glass.",
+    "features": {
+     "misdirectedWord": "back",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "7-down",
@@ -131,7 +390,49 @@
    },
    "length": 6,
    "clue": "Abruptly stole a black sacred symbol (6)",
-   "solution": "SCARAB"
+   "solution": "SCARAB",
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "SCARAB",
+    "definition": "sacred symbol",
+    "indicators": [
+     "Abruptly"
+    ],
+    "indicatorNotes": {
+     "Abruptly": "cut off suddenly, so SCARF loses its last letter"
+    },
+    "pieces": [
+     "SCAR",
+     "A",
+     "B"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Abruptly stole",
+      "gives": "SCAR",
+      "note": "a stole is a scarf; SCARF without its last letter"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "as written"
+     },
+     {
+      "clueFragment": "black",
+      "gives": "B",
+      "note": "b = black, as on pencils"
+     }
+    ],
+    "surface": "A thief suddenly snatched a dark religious emblem.",
+    "walkthrough": "'stole' reads as a verb, but it is the noun: a shawl or scarf.",
+    "definitionFit": "The scarab beetle was a sacred symbol of rebirth in ancient Egypt.",
+    "features": {
+     "misdirectedWord": "stole",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "8-down",
@@ -143,7 +444,46 @@
    },
    "length": 6,
    "clue": "Confidential note removed for prisoner (6)",
-   "solution": "INMATE"
+   "solution": "INMATE",
+   "annotation": {
+    "type": "deletion",
+    "answer": "INMATE",
+    "definition": "prisoner",
+    "indicators": [
+     "removed"
+    ],
+    "indicatorNotes": {
+     "removed": "something removed is taken away, so the note's letters come out of the longer word"
+    },
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "IN",
+     "MATE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Confidential",
+      "gives": "INTIMATE",
+      "note": "intimate = private, confidential"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "TI",
+      "note": "ti (te) is a note of the sol-fa scale"
+     }
+    ],
+    "surface": "A secret memo has been taken away from someone in jail.",
+    "walkthrough": "'note' suggests a written message, but it is the musical note TI, cut from the middle of INTIMATE.",
+    "definitionFit": "A plain synonym: an inmate is someone held in a prison.",
+    "features": {
+     "misdirectedWord": "note",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "9-across",
@@ -155,7 +495,49 @@
    },
    "length": 6,
    "clue": "After revolution, leftist with spirit crows (6)",
-   "solution": "MURDER"
+   "solution": "MURDER",
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "MURDER",
+    "definition": "crows",
+    "definitionNote": "a murder is the collective noun for a group of crows",
+    "indicators": [
+     "After revolution"
+    ],
+    "indicatorNotes": {
+     "After revolution": "turned round, so the joined pieces are reversed"
+    },
+    "pieces": [
+     "MURDER"
+    ],
+    "subReversals": [
+     {
+      "from": "REDRUM",
+      "to": "MURDER"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "leftist",
+      "gives": "RED",
+      "note": "a red = a communist, a leftist"
+     },
+     {
+      "clueFragment": "spirit",
+      "gives": "RUM",
+      "note": "rum is a spirit"
+     }
+    ],
+    "surface": "Following an uprising, a radical drinker boasts.",
+    "walkthrough": "'crows' looks like a verb (boasts), but it is the birds: a flock of crows is a murder.",
+    "definitionFit": "'A murder of crows' is the traditional collective term.",
+    "features": {
+     "misdirectedWord": "crows",
+     "joke": "pun",
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "10-across",
@@ -167,7 +549,42 @@
    },
    "length": 8,
    "clue": "Scottish musicians abandoning the Queen’s state (8)",
-   "solution": "PROCLAIM"
+   "solution": "PROCLAIM",
+   "annotation": {
+    "type": "deletion",
+    "answer": "PROCLAIM",
+    "definition": "state",
+    "indicators": [
+     "abandoning"
+    ],
+    "indicatorNotes": {
+     "abandoning": "leaving behind, so ER'S is dropped"
+    },
+    "pieces": [
+     "PROCLAIM"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scottish musicians",
+      "gives": "PROCLAIMERS",
+      "note": "a Scottish pop duo of twin brothers, known for 'I'm Gonna Be (500 Miles)'"
+     },
+     {
+      "clueFragment": "the Queen’s",
+      "gives": "ERS",
+      "note": "ER = the Queen, plus the S of the possessive"
+     }
+    ],
+    "surface": "A band from Scotland leaves the Queen's realm.",
+    "walkthrough": "The band is The Proclaimers. 'state' looks like a country but is a verb.",
+    "definitionFit": "A plain synonym: to state something formally or publicly.",
+    "features": {
+     "misdirectedWord": "state",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "11-down",
@@ -179,7 +596,42 @@
    },
    "length": 12,
    "clue": "On the other hand, aircrew is not scrambled (12)",
-   "solution": "CONTRARIWISE"
+   "solution": "CONTRARIWISE",
+   "annotation": {
+    "type": "anagram",
+    "answer": "CONTRARIWISE",
+    "definition": "On the other hand",
+    "indicators": [
+     "scrambled"
+    ],
+    "indicatorNotes": {
+     "scrambled": "mixed up, so the letters are rearranged"
+    },
+    "anagram": {
+     "fodder": "AIRCREW IS NOT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "aircrew is not",
+      "gives": "AIRCREWISNOT",
+      "note": "anagram fodder, 12 letters"
+     },
+     {
+      "clueFragment": "scrambled",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "Despite expectations, the aircrew has not been sent up in a hurry.",
+    "walkthrough": "'scrambled' is the word for fighter pilots launching in a hurry, so it sits naturally beside 'aircrew'.",
+    "definitionFit": "A plain synonym, the adverb for introducing the opposite view; Tweedledee's favourite word.",
+    "features": {
+     "misdirectedWord": "scrambled",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "12-across",
@@ -191,7 +643,48 @@
    },
    "length": 4,
    "clue": "Advanced talk about Beowulf? (4)",
-   "solution": "SAGA"
+   "solution": "SAGA",
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "SAGA",
+    "definition": "Beowulf?",
+    "indicators": [
+     "about"
+    ],
+    "indicatorNotes": {
+     "about": "round about, so the joined pieces are turned back to front"
+    },
+    "pieces": [
+     "SAGA"
+    ],
+    "subReversals": [
+     {
+      "from": "AGAS",
+      "to": "SAGA"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Advanced",
+      "gives": "A",
+      "note": "a = advanced, as in A-level"
+     },
+     {
+      "clueFragment": "talk",
+      "gives": "GAS",
+      "note": "gas = idle talk"
+     }
+    ],
+    "surface": "A scholar gives an advanced lecture on the Old English poem.",
+    "walkthrough": "The question mark marks Beowulf as one example of a saga, a long heroic tale.",
+    "definitionFit": "Beowulf is a long heroic narrative poem, a saga.",
+    "features": {
+     "misdirectedWord": "about",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "13-across",
@@ -203,7 +696,43 @@
    },
    "length": 5,
    "clue": "Sky viewer might see this policeman, not entirely satisfied (5)",
-   "solution": "COMET"
+   "solution": "COMET",
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "COMET",
+    "definition": "Sky viewer might see this",
+    "indicators": [
+     "not entirely"
+    ],
+    "indicatorNotes": {
+     "not entirely": "incomplete, so COP loses its last letter"
+    },
+    "pieces": [
+     "CO",
+     "MET"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "policeman, not entirely",
+      "gives": "CO",
+      "note": "COP without its last letter"
+     },
+     {
+      "clueFragment": "satisfied",
+      "gives": "MET",
+      "note": "met = satisfied, as in 'met the demand'"
+     }
+    ],
+    "surface": "A stargazer spots a police officer who is not quite content.",
+    "walkthrough": "'not entirely' seems to qualify 'satisfied', but it cuts short the policeman.",
+    "definitionFit": "A comet is something a person looking at the night sky may see.",
+    "features": {
+     "misdirectedWord": "satisfied",
+     "joke": "absurd",
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "14-across",
@@ -215,7 +744,35 @@
    },
    "length": 4,
    "clue": "Scientist has question for the audience (4)",
-   "solution": "WATT"
+   "solution": "WATT",
+   "annotation": {
+    "type": "homophone",
+    "answer": "WATT",
+    "definition": "Scientist",
+    "indicators": [
+     "for the audience"
+    ],
+    "indicatorNotes": {
+     "for the audience": "an audience hears it, so the word is taken by sound"
+    },
+    "blocks": [
+     {
+      "clueFragment": "question",
+      "soundsLike": "WHAT",
+      "gives": "WATT",
+      "note": "'what?' is a question word"
+     }
+    ],
+    "surface": "A researcher takes questions from the people listening.",
+    "walkthrough": "James Watt was the Scottish engineer whose steam engine improvements drove the Industrial Revolution.",
+    "definitionFit": "James Watt was an eighteenth-century scientist and inventor.",
+    "features": {
+     "misdirectedWord": "audience",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "15-down",
@@ -227,7 +784,43 @@
    },
    "length": 5,
    "clue": "Sylvester Stallone regularly plays in an artful way (5)",
-   "solution": "SLYLY"
+   "solution": "SLYLY",
+   "annotation": {
+    "type": "charade + alternate letters",
+    "answer": "SLYLY",
+    "definition": "in an artful way",
+    "indicators": [
+     "regularly"
+    ],
+    "indicatorNotes": {
+     "regularly": "at regular intervals, so every other letter"
+    },
+    "pieces": [
+     "SLY",
+     "LY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sylvester Stallone",
+      "gives": "SLY",
+      "note": "Sly is Stallone's nickname"
+     },
+     {
+      "clueFragment": "regularly plays",
+      "gives": "LY",
+      "note": "p-L-a-Y-s: letters 2 and 4"
+     }
+    ],
+    "surface": "The action star always acts with cunning.",
+    "walkthrough": "The whole name 'Sylvester Stallone' gives SLY; it is not a source of letters.",
+    "definitionFit": "A plain synonym: artful here means crafty, cunning.",
+    "features": {
+     "misdirectedWord": "regularly",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "16-down",
@@ -239,7 +832,44 @@
    },
    "length": 5,
    "clue": "Minions stealing left shoes (5)",
-   "solution": "CLOGS"
+   "solution": "CLOGS",
+   "annotation": {
+    "type": "container",
+    "answer": "CLOGS",
+    "definition": "shoes",
+    "indicators": [
+     "stealing"
+    ],
+    "indicatorNotes": {
+     "stealing": "taking something into their possession, so COGS holds L"
+    },
+    "pieces": [
+     "C",
+     "L",
+     "OGS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Minions",
+      "gives": "COGS",
+      "note": "a cog in the machine is an unimportant underling"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "l = left"
+     }
+    ],
+    "surface": "Little servants make off with someone's footwear.",
+    "walkthrough": "'left' reads as 'abandoned', but it is simply L.",
+    "definitionFit": "A definition by class: clogs are one kind of shoe, with wooden soles.",
+    "features": {
+     "misdirectedWord": "left",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "17-across",
@@ -256,7 +886,52 @@
      6
     ]
    },
-   "solution": "TITTLETATTLE"
+   "solution": "TITTLETATTLE",
+   "annotation": {
+    "type": "container + charade",
+    "answer": "TITTLE-TATTLE",
+    "definition": "Rumour",
+    "indicators": [
+     "included by"
+    ],
+    "indicatorNotes": {
+     "included by": "the Ts are put inside the other words"
+    },
+    "pieces": [
+     "TI",
+     "T",
+     "TLE",
+     "TA",
+     "TT",
+     "LE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "headline",
+      "gives": "TITLE",
+      "note": "a title is a headline; one T goes in: TI(T)TLE"
+     },
+     {
+      "clueFragment": "story",
+      "gives": "TALE",
+      "note": "a tale is a story; two Ts go in: TA(TT)LE"
+     },
+     {
+      "clueFragment": "three times",
+      "gives": "TTT",
+      "note": "t = time, three of them"
+     }
+    ],
+    "surface": "Gossip is repeated three times in a lead news story.",
+    "walkthrough": "The three Ts are shared out: one into TITLE, two into TALE.",
+    "definitionFit": "A plain synonym: both mean idle gossip passed from person to person.",
+    "features": {
+     "misdirectedWord": "times",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "18-down",
@@ -273,7 +948,44 @@
      2
     ]
    },
-   "solution": "NOMATTER"
+   "solution": "NOMATTER",
+   "annotation": {
+    "type": "container",
+    "answer": "NO MATTER",
+    "definition": "It’s unimportant",
+    "indicators": [
+     "about"
+    ],
+    "indicatorNotes": {
+     "about": "going round, so NATTER surrounds OM"
+    },
+    "pieces": [
+     "N",
+     "OM",
+     "ATTER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "talk",
+      "gives": "NATTER",
+      "note": "to natter = to chat"
+     },
+     {
+      "clueFragment": "order",
+      "gives": "OM",
+      "note": "OM = Order of Merit, a British honour"
+     }
+    ],
+    "surface": "Someone dismisses chatter about rank as trivial.",
+    "walkthrough": "The Order of Merit is an honour given personally by the British monarch.",
+    "definitionFit": "An idiom: 'no matter' is the brush-off said when something is not worth worrying about.",
+    "features": {
+     "misdirectedWord": "order",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "19-down",
@@ -285,7 +997,50 @@
    },
    "length": 8,
    "clue": "See Lulu playing, holding Kelvin’s instruments (8)",
-   "solution": "UKULELES"
+   "solution": "UKULELES",
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "UKULELES",
+    "definition": "instruments",
+    "indicators": [
+     "playing",
+     "holding"
+    ],
+    "indicatorNotes": {
+     "playing": "in play, moving about, so the letters are rearranged",
+     "holding": "the rearranged letters grip K"
+    },
+    "anagram": {
+     "fodder": "SEE LULU K"
+    },
+    "subAnagrams": [
+     {
+      "fodder": "SEELULU",
+      "gives": "UULELES"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "See Lulu",
+      "gives": "SEELULU",
+      "note": "anagram fodder, 7 letters"
+     },
+     {
+      "clueFragment": "Kelvin",
+      "gives": "K",
+      "note": "K = kelvin, the unit of temperature"
+     }
+    ],
+    "surface": "Go and watch the singer Lulu perform, with Kelvin's guitars.",
+    "walkthrough": "Lulu is a Scottish pop singer; 'playing' suits her, but it is an anagram signal. The rearranged letters U(K)ULELES take K after the first U.",
+    "definitionFit": "Ukuleles are small four-stringed guitars.",
+    "features": {
+     "misdirectedWord": "playing",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "20-across",
@@ -302,7 +1057,41 @@
      8
     ]
    },
-   "solution": "FLOATINGDOCK"
+   "solution": "FLOATINGDOCK",
+   "annotation": {
+    "type": "charade",
+    "answer": "FLOATING DOCK",
+    "definition": "equipment for a marina",
+    "indicators": [],
+    "linkWords": [
+     "and"
+    ],
+    "pieces": [
+     "FLOATING",
+     "DOCK"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Suggesting",
+      "gives": "FLOATING",
+      "note": "to float an idea is to suggest it"
+     },
+     {
+      "clueFragment": "plant",
+      "gives": "DOCK",
+      "note": "dock is a broad-leaved weed"
+     }
+    ],
+    "surface": "Someone recommends the machinery and gear a harbour needs.",
+    "walkthrough": "'plant' reads as industrial machinery beside 'equipment', but it is the weed.",
+    "definitionFit": "A floating dock is a buoyant platform used in marinas to berth and lift boats.",
+    "features": {
+     "misdirectedWord": "plant",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "21-down",
@@ -314,7 +1103,53 @@
    },
    "length": 6,
    "clue": "Fearful catching wife standing up for fool (6)",
-   "solution": "DIMWIT"
+   "solution": "DIMWIT",
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "DIMWIT",
+    "definition": "fool",
+    "indicators": [
+     "catching",
+     "standing up"
+    ],
+    "indicatorNotes": {
+     "catching": "to catch something is to trap it, so the fearful word closes round the wife",
+     "standing up": "in a down entry, standing up means reading from the bottom, so it is reversed"
+    },
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "DIMWIT"
+    ],
+    "subReversals": [
+     {
+      "from": "TIWMID",
+      "to": "DIMWIT"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fearful",
+      "gives": "TIMID",
+      "note": "timid = fearful"
+     },
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "w = wife"
+     }
+    ],
+    "surface": "A nervous husband, grabbing his wife, defends an idiot.",
+    "walkthrough": "W goes after TI: TI(W)MID, then the whole reads upwards.",
+    "definitionFit": "A plain synonym: both name a slow-witted person.",
+    "features": {
+     "misdirectedWord": "standing",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "22-down",
@@ -326,7 +1161,47 @@
    },
    "length": 6,
    "clue": "Feature about gold showing one way to obtain money (6)",
-   "solution": "BORROW"
+   "solution": "BORROW",
+   "annotation": {
+    "type": "container",
+    "answer": "BORROW",
+    "definition": "one way to obtain money",
+    "indicators": [
+     "about"
+    ],
+    "indicatorNotes": {
+     "about": "around, so BROW surrounds OR"
+    },
+    "linkWords": [
+     "showing"
+    ],
+    "pieces": [
+     "B",
+     "OR",
+     "ROW"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Feature",
+      "gives": "BROW",
+      "note": "the brow is a facial feature"
+     },
+     {
+      "clueFragment": "gold",
+      "gives": "OR",
+      "note": "or = gold in heraldry"
+     }
+    ],
+    "surface": "A newspaper article on gold explains a way to raise cash.",
+    "walkthrough": "'Feature' suggests a magazine article, but it is part of the face.",
+    "definitionFit": "A loose description: taking a loan is one of several routes to cash, alongside earning or stealing.",
+    "features": {
+     "misdirectedWord": "Feature",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "23-across",
@@ -338,7 +1213,38 @@
    },
    "length": 4,
    "clue": "I study picture (4)",
-   "solution": "ICON"
+   "solution": "ICON",
+   "annotation": {
+    "type": "charade",
+    "answer": "ICON",
+    "definition": "picture",
+    "indicators": [],
+    "pieces": [
+     "I",
+     "CON"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "as written"
+     },
+     {
+      "clueFragment": "study",
+      "gives": "CON",
+      "note": "to con = to study, learn by heart"
+     }
+    ],
+    "surface": "Someone examines a painting.",
+    "walkthrough": "CON meaning to study is an old usage kept alive by crosswords.",
+    "definitionFit": "An icon is a picture, especially a religious image.",
+    "features": {
+     "misdirectedWord": "study",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "24-across",
@@ -350,7 +1256,35 @@
    },
    "length": 5,
    "clue": "Nick some salt (5)",
-   "solution": "PINCH"
+   "solution": "PINCH",
+   "annotation": {
+    "type": "double definition",
+    "answer": "PINCH",
+    "definition": "Nick",
+    "definition2": "some salt",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Nick",
+      "gives": "PINCH",
+      "note": "to nick = to steal, British slang"
+     },
+     {
+      "clueFragment": "some salt",
+      "gives": "PINCH",
+      "note": "as much salt as fits between finger and thumb"
+     }
+    ],
+    "surface": "Steal a little salt from the table.",
+    "walkthrough": "'Nick' is a verb, not a name: a pinch of salt is the small amount, and to pinch is to steal.",
+    "definitionFit": "Two senses: to steal, and a tiny amount held between the fingers.",
+    "features": {
+     "misdirectedWord": "Nick",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "25-across",
@@ -362,7 +1296,49 @@
    },
    "length": 4,
    "clue": "Consumed flipping large Indian dish (4)",
-   "solution": "DAHL"
+   "solution": "DAHL",
+   "annotation": {
+    "type": "reversal + charade",
+    "answer": "DAHL",
+    "definition": "Indian dish",
+    "indicators": [
+     "flipping"
+    ],
+    "indicatorNotes": {
+     "flipping": "flipped over, so HAD is turned round"
+    },
+    "pieces": [
+     "DAH",
+     "L"
+    ],
+    "subReversals": [
+     {
+      "from": "HAD",
+      "to": "DAH"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Consumed",
+      "gives": "HAD",
+      "note": "had = ate, consumed"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "l = large, as on clothes labels"
+     }
+    ],
+    "surface": "Someone wolfed down an enormous curry, flipping it over.",
+    "walkthrough": "'flipping' could be a mild British swear word here, but it reverses HAD.",
+    "definitionFit": "Dahl (dal) is an Indian dish of spiced lentils.",
+    "features": {
+     "misdirectedWord": "flipping",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "26-down",
@@ -374,7 +1350,40 @@
    },
    "length": 4,
    "clue": "Tips of some asparagus going on starchy food (4)",
-   "solution": "SAGO"
+   "solution": "SAGO",
+   "annotation": {
+    "type": "first letters",
+    "answer": "SAGO",
+    "definition": "starchy food",
+    "indicators": [
+     "Tips of"
+    ],
+    "indicatorNotes": {
+     "Tips of": "the tips are the ends, here the first letters"
+    },
+    "pieces": [
+     "S",
+     "A",
+     "G",
+     "O"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "some asparagus going on",
+      "gives": "SAGO",
+      "note": "S-ome A-sparagus G-oing O-n"
+     }
+    ],
+    "surface": "Asparagus spears are served on a bed of starch.",
+    "walkthrough": "'on' looks like a link word joining the parts, but it supplies the final O.",
+    "definitionFit": "Sago is a starch from palm pith, used in puddings.",
+    "features": {
+     "misdirectedWord": "Tips",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "27-down",
@@ -386,7 +1395,39 @@
    },
    "length": 4,
    "clue": "Letter to the Corinthians kept back by conservatoire (4)",
-   "solution": "IOTA"
+   "solution": "IOTA",
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "IOTA",
+    "definition": "Letter to the Corinthians",
+    "indicators": [
+     "kept",
+     "back"
+    ],
+    "indicatorNotes": {
+     "kept": "something kept by a word is held within it, so the answer lies inside 'conservatoire'",
+     "back": "going back means travelling the wrong way, so the letters run right to left"
+    },
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "conservatoire",
+      "gives": "IOTA",
+      "note": "conserv-ATOI-re, read backwards"
+     }
+    ],
+    "surface": "A letter to the church in Corinth is held back by a music school.",
+    "walkthrough": "The Corinthians spoke Greek, so their letters were Greek letters; the surface pretends it is Paul's epistle.",
+    "definitionFit": "Iota is the ninth letter of the Greek alphabet.",
+    "features": {
+     "misdirectedWord": "Letter",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "28-across",
@@ -398,7 +1439,40 @@
    },
    "length": 8,
    "clue": "Poison of interminable fighting (8)",
-   "solution": "WARFARIN"
+   "solution": "WARFARIN",
+   "annotation": {
+    "type": "deletion",
+    "answer": "WARFARIN",
+    "definition": "Poison",
+    "indicators": [
+     "interminable"
+    ],
+    "indicatorNotes": {
+     "interminable": "without its end, so the last letter goes"
+    },
+    "linkWords": [
+     "of"
+    ],
+    "pieces": [
+     "WARFARIN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fighting",
+      "gives": "WARFARING",
+      "note": "warfaring = waging war, fighting; the final G is cut"
+     }
+    ],
+    "surface": "Endless conflict is described as toxic.",
+    "walkthrough": "'interminable' means endless in the surface and literally no end: WARFARING loses its G.",
+    "definitionFit": "Warfarin is a rat poison, also used in small doses as a blood thinner.",
+    "features": {
+     "misdirectedWord": "interminable",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "29-across",
@@ -410,7 +1484,46 @@
    },
    "length": 6,
    "clue": "Place to stay with the Spanish army at the front (6)",
-   "solution": "HOSTEL"
+   "solution": "HOSTEL",
+   "annotation": {
+    "type": "charade",
+    "answer": "HOSTEL",
+    "definition": "Place to stay",
+    "indicators": [
+     "at the front"
+    ],
+    "indicatorNotes": {
+     "at the front": "the army goes before the Spanish word"
+    },
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "HOST",
+     "EL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "army",
+      "gives": "HOST",
+      "note": "a host = a large army"
+     },
+     {
+      "clueFragment": "the Spanish",
+      "gives": "EL",
+      "note": "el = 'the' in Spanish"
+     }
+    ],
+    "surface": "A billet with the Spanish forces on the front line.",
+    "walkthrough": "'at the front' sounds like the battlefront, but it puts HOST first.",
+    "definitionFit": "A definition by class: youth hostels offer cheap dormitory beds to travellers.",
+    "features": {
+     "misdirectedWord": "front",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "30-across",
@@ -427,7 +1540,49 @@
      3
     ]
    },
-   "solution": "TOWROPES"
+   "solution": "TOWROPES",
+   "annotation": {
+    "type": "container + first letters",
+    "answer": "TOW ROPES",
+    "definition": "Lines",
+    "indicators": [
+     "originally",
+     "found in"
+    ],
+    "indicatorNotes": {
+     "originally": "at the origin, the start, so each word gives its first letter",
+     "found in": "something found in a place sits inside it, so OW goes inside TROPES"
+    },
+    "linkWords": [
+     "of"
+    ],
+    "pieces": [
+     "T",
+     "OW",
+     "ROPES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "figures of speech",
+      "gives": "TROPES",
+      "note": "tropes = figures of speech"
+     },
+     {
+      "clueFragment": "Oscar Wilde originally",
+      "gives": "OW",
+      "note": "first letters of Oscar and Wilde"
+     }
+    ],
+    "surface": "Quotations from Oscar Wilde turn up in lists of rhetorical devices.",
+    "walkthrough": "'Lines' looks like lines of verse, but it means ropes. T(OW)ROPES.",
+    "definitionFit": "Tow ropes are lines used to pull vehicles or boats.",
+    "features": {
+     "misdirectedWord": "Lines",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "31-across",
@@ -439,7 +1594,38 @@
    },
    "length": 6,
    "clue": "Grave markers in Australian city (6)",
-   "solution": "CAIRNS"
+   "solution": "CAIRNS",
+   "annotation": {
+    "type": "double definition",
+    "answer": "CAIRNS",
+    "definition": "Grave markers",
+    "definition2": "Australian city",
+    "indicators": [],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Grave markers",
+      "gives": "CAIRNS",
+      "note": "piles of stones over a burial"
+     },
+     {
+      "clueFragment": "Australian city",
+      "gives": "CAIRNS",
+      "note": "a city in Queensland"
+     }
+    ],
+    "surface": "Tombstones in an Australian town.",
+    "walkthrough": "Cairns is a city in far north Queensland, gateway to the Great Barrier Reef.",
+    "definitionFit": "Cairns are mounds of stones, often raised as grave markers.",
+    "features": {
+     "misdirectedWord": "Grave",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
