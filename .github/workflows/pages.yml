@@ -35,9 +35,10 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    # A build takes 6-16 minutes. Without a cap a hung step holds the pages
-    # concurrency group, and so every deploy behind it, for GitHub's 6 hours.
-    timeout-minutes: 30
+    # A build takes 6-16 minutes, longer when every social card is redrawn.
+    # Without a cap a hung step holds the pages concurrency group, and so every
+    # deploy behind it, for GitHub's 6 hours.
+    timeout-minutes: 90
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
