@@ -1325,6 +1325,23 @@ def correct_source_answers(pid, entries):
               file=sys.stderr)
 
 
+def fits_sequence(series, number, when):
+    """Does `when` sit where the puzzles held either side of `number` put it?
+
+    Both neighbours must be on disk within ARCHIVE_GAP numbers, so a page far
+    from the continuous run (cryptic 1,183) never qualifies.
+    """
+    def nearest(step):
+        for k in range(1, ARCHIVE_GAP + 1):
+            path = puzzle_path(series, number + step * k)
+            if path.exists():
+                return read_puzzle_file(path).get("date")
+        return None
+    below, above = nearest(-1), nearest(1)
+    return (below is not None and above is not None
+            and below - MISFILED_MS <= when <= above + MISFILED_MS)
+
+
 def convert(data):
     """Guardian data -> our puzzle object (no annotation on any entry yet)."""
     # Named before the entries are built: correct_source_answers is keyed by the
@@ -1418,8 +1435,16 @@ def convert(data):
     # its own webPublicationDate says 2022-07-14. Refusing is what makes that a
     # recorded gap instead of a fabricated puzzle — walk() catches Exception,
     # prints "skip 1183: …" and carries on.
+    #
+    # The article date alone is not proof, though: the Guardian re-published
+    # whole runs of old pages at once (cryptic 26,651-26,764 all carry
+    # webPublicationDate 2016-01-25), and those pages are the right puzzle.
+    # So the page is refused only when its own `date` ALSO falls outside where
+    # the sequence puts it — the same neighbour window, and the same month of
+    # slack, that tools/repair_fetched.py measures stored files against.
     when, published = data.get("date"), data.get("webPublicationDate")
-    if when and published and abs(when - published) > MISFILED_MS:
+    if (when and published and abs(when - published) > MISFILED_MS
+            and not fits_sequence(series, data["number"], when)):
         raise ValueError(
             f"{data['id']}: date {_day(when)} contradicts webPublicationDate "
             f"{_day(published)} — mis-filed page, refusing to write it")
