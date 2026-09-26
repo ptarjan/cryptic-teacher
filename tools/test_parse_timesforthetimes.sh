@@ -63,6 +63,38 @@ check "modern table: the Down heading switches direction" \
   "2|down|CASHINONESCHIPS|4,2,4,5|Die, as one might in a casino? (4,2,4,5)" \
   "$(echo "$got" | sed -n 2p)"
 
+# A table blogger who copies the clue without its enumeration: the count comes
+# off the printed answer's word breaks. A malformed typed count is replaced.
+bare='<table><tr><td colspan="2"><strong>Across</strong></td></tr>
+<tr><td>12</td><td><span><u>Ride</u> posh car to Ascot with royalty</span></td></tr>
+<tr><td></td><td><b>ROLLER COASTER</b> &#8211; ROLLER, (ASCOT)*, ER.</td></tr>
+<tr><td>14</td><td><span>Red team&#8217;s in reversing vehicle (7),</span></td></tr>
+<tr><td></td><td><b>MARXIST</b> &#8211; reversal</td></tr>
+<tr><td>9</td><td><span>What a thermometer reads at <u>minus one</u> (-1C)</span></td></tr>
+<tr><td></td><td><b>FROST</b> &#8211; cd</td></tr>
+<tr><td>6</td><td>Accordingly a religious big-wig and artist get together for<br /><u>programme</u> (4,5)</td></tr>
+<tr><td></td><td><strong>SOAP OPERA</strong> &#8211; SO + A POPE + RA</td></tr></table>'
+got="$(run "$bare")"
+check "a bracketed aside with a digit is not the count" \
+  "9|across|FROST|5|What a thermometer reads at minus one (-1C) (5)" \
+  "$(echo "$got" | sed -n 3p)"
+check "a clue cell broken by a line break is one clue" \
+  "6|across|SOAPOPERA|4,5|Accordingly a religious big-wig and artist get together for programme (4,5)" \
+  "$(echo "$got" | sed -n 4p)"
+check "table without enumerations: the count comes off the answer" \
+  "12|across|ROLLERCOASTER|6,7|Ride posh car to Ascot with royalty (6,7)" \
+  "$(echo "$got" | sed -n 1p)"
+check "a malformed typed count is replaced, not doubled" \
+  "14|across|MARXIST|7|Red team’s in reversing vehicle (7)" \
+  "$(echo "$got" | sed -n 2p)"
+
+# A double-encoded 2014 post: the answer's indent survives as a literal "&nbsp".
+doubled='<p>Across</p><p>1 Top entertainer from Ramsgate, originally (8)<br />
+&amp;nbsp &amp;nbspMEGASTAR &#8211; Anagram (originally) of RAMSGATE.</p>'
+check "a double-encoded indent does not hide the answer" \
+  "1|across|MEGASTAR|8|Top entertainer from Ramsgate, originally (8)" \
+  "$(run "$doubled" | sed -n 1p)"
+
 # The 2017-2024 prose: number and clue on one line, answer on the next, the
 # whole entry separated by <br /> rather than by table cells.
 prose='<p><b>ACROSS</b></p><p>1 <u>Starter </u>that&#8217;s Spain to a T, somehow (9)<br />
