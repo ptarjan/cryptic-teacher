@@ -107,7 +107,13 @@ CLUE_TYPE = re.compile(
 DELETED = re.compile(r"<(s|strike|del)\b[^>]*>.*?</\1>", re.I | re.S)
 #: A braced deletion never crosses a line: "{bu}RI{ed{" mistypes its closing
 #: brace, and a brace that may run on to the next "}" deletes every clue between.
+#: In a clue line -- one ending in its enumeration -- braces mark the hidden
+#: word instead, "dishe{s a la Mi}lanese (6)", and only the braces go.
 BRACED = re.compile(r"\{[^{}\n]*\}")
+#: A struck clue's correction: "<del>old clue</del>. Clue was later amended to
+#: read: new clue". The strike is gone by now; this lead-in goes with it.
+AMENDED = re.compile(r"^[.\s]*(?:(?:this|the clue|clue)\s+(?:was\s+)?(?:later\s+)?"
+                     r"amended\b[^:]{0,40}?\bto(?:\s+read)?:?\s*)", re.I)
 #: An enumeration still open at the end of a line: "(7-", "(4,".
 OPEN_ENUM = re.compile(r"\(\d{1,2}(?:[,\-\u2013\s]+\d{1,2})*[,\-\u2013]$")
 #: A clue's enumeration: word lengths, none of them longer than a grid is
@@ -156,6 +162,12 @@ MIN_LIGHT = 3
 NUMBER_IN = re.compile(r"(\d{3,5})")
 
 
+def unbrace(ln):
+    """A clue line keeps its braced letters; any other line loses them."""
+    kept = BRACED.sub(lambda m: m.group(0)[1:-1], ln)
+    return kept if ENUM.search(kept) else BRACED.sub("", ln)
+
+
 def lines(rendered):
     """Flatten post HTML to the lines the era-independent reader walks."""
     text = DELETED.sub("", rendered)
@@ -165,12 +177,12 @@ def lines(rendered):
     # Some 2014 posts are double-encoded: "&amp;nbsp" survives one unescape as
     # "&nbsp", glued to the answer it indents.
     text = re.sub(r"&nbsp;?", " ", text)
-    text = BRACED.sub("", text)
     text = text.replace("\t", "\n").replace("\xa0", " ")
     # An enumeration broken over a tag, "(7-" then "2)", is one line: its tail
     # read alone is a bare clue number 2.
     out, open_at = [], None
     for ln in (re.sub(r"\s+", " ", ln).strip() for ln in text.split("\n")):
+        ln = AMENDED.sub("", unbrace(ln))
         if open_at is not None and re.match(r"\d", ln):
             out[open_at] += ln
             open_at = None

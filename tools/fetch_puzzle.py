@@ -223,6 +223,15 @@ def visible(s):
     return "".join(c for c in s if unicodedata.category(c) != "Cf")
 
 
+def clue_words(clue):
+    """A clue's words, which an annotation is written against: letters and
+    digits only, accents folded, case dropped. Punctuation, quotes, dashes and
+    spacing are typography; any other difference is a different clue, and an
+    annotation written for one does not describe the other."""
+    folded = unicodedata.normalize("NFKD", plain_text(clue) or "")
+    return re.sub(r"[^a-z0-9]", "", folded.lower())
+
+
 def has_words(clue):
     """A clue is content plus an enumeration. Strip the enumeration and there
     has to be something left, or the paper published nothing to solve.
@@ -1490,11 +1499,6 @@ def merge_annotations(new_puzzle, old_puzzle):
     provenance said before."""
     if old_puzzle.get("provenance"):
         new_puzzle["provenance"] = old_puzzle["provenance"]
-    old = {e["id"]: e.get("annotation") for e in old_puzzle.get("entries", [])}
-    for e in new_puzzle["entries"]:
-        if old.get(e["id"]) is not None:
-            e["annotation"] = old[e["id"]]
-
     # The two hand-written fields on entries the annotation queue never touches.
     # A blank clue has no words for a model to read and a corrupt one has the
     # wrong words, so in both cases the explanation can only come from a person.
@@ -1507,6 +1511,16 @@ def merge_annotations(new_puzzle, old_puzzle):
                 e[field] = notes[e["id"]]
 
     carry_recovered_clues(new_puzzle, old_puzzle)
+
+    # With the recovered clues back, an annotation crosses only to the same
+    # words: a clue the paper corrected is re-annotated, not explained by notes
+    # quoting the text it replaced.
+    old = {e["id"]: e for e in old_puzzle.get("entries", [])}
+    for e in new_puzzle["entries"]:
+        held = old.get(e["id"])
+        if (held and held.get("annotation") is not None
+                and clue_words(held.get("clue")) == clue_words(e.get("clue"))):
+            e["annotation"] = held["annotation"]
 
     was_model = (old_puzzle.get("solutionSource") or {}).get("kind") == "model"
     if not was_model:

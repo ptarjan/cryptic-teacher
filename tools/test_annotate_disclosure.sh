@@ -72,6 +72,39 @@ say("hint_names_clue_spelling",
 say("hint_without_lookalike_says_copy",
     "character for character" in V.verbatim_hint("Nowhere", clue))
 
+# A block quotes the clue it explains: a fragment the clue lacks fails.
+frag = copy.deepcopy(good)
+frag["entries"][0]["annotation"] = dict(lead_ann, blocks=[{"clueFragment": "sis trumpeted"}])
+say("fragment_not_in_clue_fails",
+    any("block fragment 'sis trumpeted' not found" in e for e in V.validate_puzzle(frag)[1]))
+
+# A hole is the annotating run's failure; in the committed corpus it is a
+# clue queued to be annotated again, not a broken build.
+hole = [entry("1-across", annotation={"type": "charade"}), entry("2-across")]
+errs, warns = [], []
+V.check_every_clue_is_annotated(hole, errs, warns)
+say("hole_fails_the_run", bool(errs))
+errs, warns = [], []
+V.check_every_clue_is_annotated(hole, errs, warns, corpus=True)
+say("hole_queued_in_corpus", not errs and any("queued" in w for w in warns))
+
+# The clue is the source's: an annotated clue whose words differ from the
+# committed file's fails; one retyped with other punctuation does not.
+from pathlib import Path
+import fetch_puzzle
+committed = Path("puzzles/sundaytimes-5067.json")
+held = fetch_puzzle.read_puzzle_file(committed)
+lead = next(e for e in held["entries"] if e.get("annotation"))
+reworded, retyped = copy.deepcopy(held), copy.deepcopy(held)
+next(e for e in reworded["entries"] if e["id"] == lead["id"])["clue"] = "Invented " + lead["clue"]
+next(e for e in retyped["entries"] if e["id"] == lead["id"])["clue"] = lead["clue"].replace(" ", "  ") + "!"
+errs = []
+V.check_clue_unchanged(reworded, committed, errs)
+say("reworded_clue_fails", len(errs) == 1 and "drop this entry's annotation" in errs[0])
+errs = []
+V.check_clue_unchanged(retyped, committed, errs)
+say("retyped_clue_passes", not errs)
+
 # features: absent warns (and counts against the ratchet), present is quiet.
 w = []
 V.check_features("1A", {}, "Some words", [], w)
@@ -155,7 +188,9 @@ for k in linked_good_quiet linked_lead_flagged linked_leg_flagged \
          blog_shown_for_last_few blog_hidden_when_blind \
          blog_hidden_without_a_blog times_names_its_own_blog \
          plain_puzzle_no_notes cd_note likely_note view_has_no_url \
-         view_keeps_solutions apply_keeps_solutionSource; do
+         view_keeps_solutions apply_keeps_solutionSource \
+         fragment_not_in_clue_fails hole_fails_the_run hole_queued_in_corpus \
+         reworded_clue_fails retyped_clue_passes; do
   same "$k" "$(grep -c "^$k=yes$" <<<"$out")" "1"
 done
 

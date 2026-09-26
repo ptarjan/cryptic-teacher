@@ -70,6 +70,23 @@ by = {e["id"]: e for e in fetched["entries"]}
 print("PAPER", by["1-across"]["clue"])
 print("BLANK", by["2-down"]["clue"].strip(), by["2-down"].get("clueMissing"))
 
+# An annotation crosses a re-fetch only to the same words. Typography may
+# differ; a corrected clue is re-annotated rather than keeping notes on the
+# text it replaced.
+note = {"type": "hidden word", "blocks": [{"clueFragment": "sis trumpeted"}]}
+fetched = {"id": "cryptic-2", "entries": [
+    entry("1-across", "Music producer Oasis trumpeted for a while (7)"),
+    entry("2-down", "Café — au lait? (5)"),
+]}
+stored = {"id": "cryptic-2", "entries": [
+    entry("1-across", "Music producer sis trumpeted for a while (7)", annotation=note),
+    entry("2-down", "Cafe au lait (5)", annotation=note),
+]}
+fetcher.merge_annotations(fetched, stored)
+by = {e["id"]: e for e in fetched["entries"]}
+print("REWORDED", by["1-across"]["annotation"])
+print("RETYPED", by["2-down"]["annotation"] is note)
+
 # A puzzle seen for the first time has nothing to carry, and says so loudly
 # rather than in a list of every light it owns.
 print("WARNS", "all 3 clues blank" in fetcher.__doc__ or True)
@@ -83,6 +100,8 @@ same "the group travels with the clue that needs it" \
   "$(grep '^GROUP ' <<<"$out")" 'GROUP ["2-down", "3-down"]'
 same "a clue the paper prints replaces the stored one" \
   "$(grep '^PAPER ' <<<"$out")" "PAPER The clue as published (5)"
+same "a reworded clue loses its annotation" "$(grep '^REWORDED ' <<<"$out")" "REWORDED None"
+same "a retyped clue keeps it" "$(grep '^RETYPED ' <<<"$out")" "RETYPED True"
 same "blank over blank stays blank" "$(grep '^BLANK ' <<<"$out")" "BLANK (5) True"
 
 # The other half of the guarantee, on the real files. Named one by one rather

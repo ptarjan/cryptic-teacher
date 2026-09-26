@@ -615,5 +615,21 @@ PY
 )"
 check "every title names its setter, or none" "" "$(echo "$setters" | grep -v '^ok$')"
 
+# Braces in a clue mark the hidden word, not a deletion: the letters stay.
+# Under it, in the wordplay, a braced run is still deleted. A struck clue with
+# its correction after it reads as the correction alone.
+braced='<table><tr><td colspan="2"><strong>Across</strong></td></tr>
+<tr><td>26</td><td><span><u>Spicy meat</u> used in dishe<span style="color: #ff0000"><strong>{s a la Mi}</strong></span>lanese (6)</span></td></tr>
+<tr><td></td><td><b>SALAMI</b> &#8211; Hidden in dishe{s a la mi}lanese</td></tr>
+<tr><td>27</td><td><del><span>Next to temple, shot animals for their egg cells? (6)</span></del>. Clue was later amended to read: <span>Next to empty temple, shot animals for egg cell? (6)</span></td></tr>
+<tr><td></td><td><b>OOCYTE</b> &#8211; wordplay</td></tr></table>'
+got="$(run "$braced")"
+check "a braced hidden word stays in its clue" \
+  "26|across|SALAMI|6|Spicy meat used in dishes a la Milanese (6)" \
+  "$(echo "$got" | sed -n 1p)"
+check "an amended clue reads as the amendment" \
+  "27|across|OOCYTE|6|Next to empty temple, shot animals for egg cell? (6)" \
+  "$(echo "$got" | sed -n 2p)"
+
 if [ "$fails" -gt 0 ]; then echo "$fails FAILURE(S)"; exit 1; fi
 echo "all checks passed"
