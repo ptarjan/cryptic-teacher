@@ -18,7 +18,10 @@
   "retrievedFrom": "blog",
   "retrievedUrl": null,
   "gridOrigin": "reconstructed",
-  "solutionOrigin": "writeup"
+  "solutionOrigin": "writeup",
+  "annotatedBy": [
+   "claude-opus-5-5"
+  ]
  },
  "solutionSource": {
   "kind": "fifteensquared",
@@ -37,7 +40,34 @@
    },
    "length": 8,
    "clue": "Report murder? (8)",
-   "solution": "DISPATCH"
+   "solution": "DISPATCH",
+   "annotation": {
+    "type": "double definition",
+    "answer": "DISPATCH",
+    "definition": "Report",
+    "definition2": "murder",
+    "blocks": [
+     {
+      "clueFragment": "Report",
+      "gives": "DISPATCH",
+      "note": "a noun here: the kind of report a war correspondent sends home"
+     },
+     {
+      "clueFragment": "murder",
+      "gives": "DISPATCH",
+      "note": "a verb here: a polite, old-fashioned word for killing off"
+     }
+    ],
+    "surface": "A newspaper promises a report on a murder.",
+    "walkthrough": "The question mark flags that the two words are not a headline pair but two separate meanings of one word.",
+    "definitionFit": "A war correspondent files a dispatch, and a hitman dispatches his target.",
+    "features": {
+     "misdirectedWord": "Report",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "1-down",
@@ -49,7 +79,43 @@
    },
    "length": 6,
    "clue": "Prove false, young lady excoriated attractive men (6)",
-   "solution": "DEBUNK"
+   "solution": "DEBUNK",
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "DEBUNK",
+    "definition": "Prove false",
+    "indicators": [
+     "excoriated"
+    ],
+    "indicatorNotes": {
+     "excoriated": "to excoriate is to strip the skin, so the word loses its outer letters"
+    },
+    "pieces": [
+     "DEB",
+     "UNK"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "young lady",
+      "gives": "DEB",
+      "note": "a deb is a debutante, a young society lady"
+     },
+     {
+      "clueFragment": "excoriated attractive men",
+      "gives": "UNK",
+      "note": "HUNKS with its first and last letters stripped"
+     }
+    ],
+    "surface": "A young woman tears into some good-looking men, proving their claims false.",
+    "walkthrough": "'Excoriated' reads as harsh criticism, but here it means literally skinned.",
+    "definitionFit": "A plain synonym: exposing a myth or a quack remedy as hollow is debunking it.",
+    "features": {
+     "misdirectedWord": "excoriated",
+     "joke": "pun",
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "2-down",
@@ -61,7 +127,44 @@
    },
    "length": 6,
    "clue": "Passionate tale entertains medium (6)",
-   "solution": "STORMY"
+   "solution": "STORMY",
+   "annotation": {
+    "type": "container",
+    "answer": "STORMY",
+    "definition": "Passionate",
+    "indicators": [
+     "entertains"
+    ],
+    "indicatorNotes": {
+     "entertains": "to entertain a guest is to have them inside, so STORY holds M"
+    },
+    "pieces": [
+     "STOR",
+     "M",
+     "Y"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tale",
+      "gives": "STORY",
+      "note": "a tale is a story"
+     },
+     {
+      "clueFragment": "medium",
+      "gives": "M",
+      "note": "M is the clothing-size abbreviation for medium"
+     }
+    ],
+    "surface": "A romantic story holds a spiritualist medium's attention.",
+    "walkthrough": "'Medium' suggests a psychic at a seance; it is just the size label M.",
+    "definitionFit": "Figurative weather: a love affair full of fierce rows and reconciliations is called stormy.",
+    "features": {
+     "misdirectedWord": "medium",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "3-down",
@@ -73,7 +176,57 @@
    },
    "length": 6,
    "clue": "Gold polish turned base of crown reddish-brown (6)",
-   "solution": "AUBURN"
+   "solution": "AUBURN",
+   "annotation": {
+    "type": "charade + reversal + last letter",
+    "answer": "AUBURN",
+    "definition": "reddish-brown",
+    "indicators": [
+     "turned",
+     "base of"
+    ],
+    "indicatorNotes": {
+     "turned": "turned round, so RUB is written backwards",
+     "base of": "in a down clue the base of a word is its bottom, that is, last letter"
+    },
+    "pieces": [
+     "AU",
+     "BUR",
+     "N"
+    ],
+    "subReversals": [
+     {
+      "from": "RUB",
+      "to": "BUR"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gold",
+      "gives": "AU",
+      "note": "Au is the chemical symbol for gold"
+     },
+     {
+      "clueFragment": "polish",
+      "gives": "RUB",
+      "note": "to polish something is to rub it"
+     },
+     {
+      "clueFragment": "base of crown",
+      "gives": "N",
+      "note": "last letter of CROWN"
+     }
+    ],
+    "surface": "A gold crown, polished and turned over, shows a reddish-brown base.",
+    "walkthrough": "'Crown' tempts you toward royalty or hair; only its final letter is wanted.",
+    "definitionFit": "Auburn is a reddish-brown shade, usually of hair.",
+    "features": {
+     "misdirectedWord": "crown",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "4-down",
@@ -90,7 +243,46 @@
      7
     ]
    },
-   "solution": "CHAPTERONE"
+   "solution": "CHAPTERONE",
+   "annotation": {
+    "type": "container",
+    "answer": "CHAPTER ONE",
+    "definition": "opening of novel",
+    "indicators": [
+     "taking",
+     "say"
+    ],
+    "indicatorNotes": {
+     "taking": "the companion takes the T inside",
+     "say": "T is how 'tea' is said, so 'tea, say' gives the letter T"
+    },
+    "pieces": [
+     "CHAP",
+     "T",
+     "ERONE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Companion",
+      "gives": "CHAPERONE",
+      "note": "a chaperone accompanies a young person"
+     },
+     {
+      "clueFragment": "tea, say",
+      "gives": "T",
+      "note": "the letter T is pronounced like 'tea'"
+     }
+    ],
+    "surface": "A companion takes tea at the start of a novel, like a scene from Austen.",
+    "walkthrough": "'Companion' looks like the definition, but it is only the outer word; the answer is the opening of the novel.",
+    "definitionFit": "A descriptive definition: books are divided into numbered sections, and the first of them is where the story begins.",
+    "features": {
+     "misdirectedWord": "Companion",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "5-across",
@@ -102,7 +294,50 @@
    },
    "length": 6,
    "clue": "Bad knight caught in incursion (6)",
-   "solution": "RANCID"
+   "solution": "RANCID",
+   "annotation": {
+    "type": "container",
+    "answer": "RANCID",
+    "definition": "Bad",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "in its plain sense of placement: the knight and the catch end up inside the raid"
+    },
+    "pieces": [
+     "RA",
+     "N",
+     "C",
+     "ID"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "incursion",
+      "gives": "RAID",
+      "note": "a raid is an incursion into enemy ground"
+     },
+     {
+      "clueFragment": "knight",
+      "gives": "N",
+      "note": "N is the chess notation for knight"
+     },
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "C is the cricket scorecard abbreviation for caught"
+     }
+    ],
+    "surface": "A villainous knight is captured during a raid.",
+    "walkthrough": "'Bad knight' reads as a villain, but 'Bad' stands alone as the definition, as in butter gone off.",
+    "definitionFit": "Bad in the sense of spoiled: butter or oil that has gone off smells rancid.",
+    "features": {
+     "misdirectedWord": "Bad",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "6-down",
@@ -114,7 +349,50 @@
    },
    "length": 8,
    "clue": "Sailor finally falls in the drink (8)",
-   "solution": "ABSINTHE"
+   "solution": "ABSINTHE",
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "ABSINTHE",
+    "definition": "drink",
+    "indicators": [
+     "finally"
+    ],
+    "indicatorNotes": {
+     "finally": "take the final letter of FALLS"
+    },
+    "pieces": [
+     "AB",
+     "S",
+     "IN",
+     "THE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sailor",
+      "gives": "AB",
+      "note": "AB, able seaman, is a sailor"
+     },
+     {
+      "clueFragment": "finally falls",
+      "gives": "S",
+      "note": "last letter of FALLS"
+     },
+     {
+      "clueFragment": "in the",
+      "gives": "INTHE",
+      "note": "taken as written"
+     }
+    ],
+    "surface": "A sailor at last falls overboard into the sea.",
+    "walkthrough": "'The drink' is slang for the sea, which is where the surface puts the sailor; the definition is just 'drink'.",
+    "definitionFit": "Absinthe is a strong aniseed-flavoured spirit.",
+    "features": {
+     "misdirectedWord": "drink",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "7-down",
@@ -126,7 +404,60 @@
    },
    "length": 8,
    "clue": "Material boys discovered chasing dog across ring road (8)",
-   "solution": "CORDUROY"
+   "solution": "CORDUROY",
+   "annotation": {
+    "type": "container + charade + outer letters",
+    "answer": "CORDUROY",
+    "definition": "Material",
+    "indicators": [
+     "discovered",
+     "chasing",
+     "across"
+    ],
+    "indicatorNotes": {
+     "discovered": "uncovered, so BOYS loses its outer letters",
+     "chasing": "a chaser runs behind its quarry, so the boys' letters come after the dog-and-road part",
+     "across": "CUR spreads across O and RD"
+    },
+    "pieces": [
+     "C",
+     "O",
+     "RD",
+     "UR",
+     "OY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dog",
+      "gives": "CUR",
+      "note": "a cur is a mongrel dog"
+     },
+     {
+      "clueFragment": "ring",
+      "gives": "O",
+      "note": "a ring is shaped like O"
+     },
+     {
+      "clueFragment": "road",
+      "gives": "RD",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "boys discovered",
+      "gives": "OY",
+      "note": "BOYS with its outer letters removed"
+     }
+    ],
+    "surface": "Boys chase a dog across a ring road.",
+    "walkthrough": "'Ring road' reads as one thing, a road round a town; it splits into O and RD.",
+    "definitionFit": "Corduroy is a ribbed cotton fabric.",
+    "features": {
+     "misdirectedWord": "ring",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "8-down",
@@ -138,7 +469,44 @@
    },
    "length": 8,
    "clue": "Flatten misshapen shield employing standard method (8)",
-   "solution": "DEMOLISH"
+   "solution": "DEMOLISH",
+   "annotation": {
+    "type": "anagram",
+    "answer": "DEMOLISH",
+    "definition": "Flatten",
+    "indicators": [
+     "misshapen",
+     "employing"
+    ],
+    "indicatorNotes": {
+     "misshapen": "bent out of shape, so the letters are rearranged",
+     "employing": "SHIELD uses MO alongside it in the mix"
+    },
+    "anagram": {
+     "fodder": "SHIELDMO"
+    },
+    "blocks": [
+     {
+      "clueFragment": "shield",
+      "gives": "SHIELD",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "standard method",
+      "gives": "MO",
+      "note": "MO, modus operandi, is a standard way of working"
+     }
+    ],
+    "surface": "Someone batters a warped shield flat using the usual technique.",
+    "walkthrough": "MO stands for modus operandi, Latin for method of operating.",
+    "definitionFit": "A plain synonym from the building site: knocking a structure to the ground.",
+    "features": {
+     "misdirectedWord": "standard",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "9-across",
@@ -150,7 +518,53 @@
    },
    "length": 8,
    "clue": "Spoilt child clutches medal broken by Welsh bully (8)",
-   "solution": "BROWBEAT"
+   "solution": "BROWBEAT",
+   "annotation": {
+    "type": "container",
+    "answer": "BROWBEAT",
+    "definition": "bully",
+    "indicators": [
+     "clutches",
+     "broken by"
+    ],
+    "indicatorNotes": {
+     "clutches": "BRAT holds the medal inside",
+     "broken by": "W splits OBE into O and BE"
+    },
+    "pieces": [
+     "BR",
+     "O",
+     "W",
+     "BE",
+     "AT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spoilt child",
+      "gives": "BRAT",
+      "note": "a brat is a spoilt child"
+     },
+     {
+      "clueFragment": "medal",
+      "gives": "OBE",
+      "note": "the OBE is a British honour, Order of the British Empire"
+     },
+     {
+      "clueFragment": "Welsh",
+      "gives": "W",
+      "note": "standard abbreviation"
+     }
+    ],
+    "surface": "A spoilt child grabs a medal off a Welsh bully.",
+    "walkthrough": "'Welsh bully' looks like a person, but 'Welsh' is only W and 'bully' is the verb definition.",
+    "definitionFit": "A plain synonym as a verb: intimidating someone with stern looks and harsh words.",
+    "features": {
+     "misdirectedWord": "Welsh",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "10-across",
@@ -162,7 +576,46 @@
    },
    "length": 6,
    "clue": "Retreat from wood pursued by horned beast (6)",
-   "solution": "ASHRAM"
+   "solution": "ASHRAM",
+   "annotation": {
+    "type": "charade",
+    "answer": "ASHRAM",
+    "definition": "Retreat",
+    "indicators": [
+     "pursued by"
+    ],
+    "indicatorNotes": {
+     "pursued by": "ASH comes first with RAM behind it"
+    },
+    "linkWords": [
+     "from"
+    ],
+    "pieces": [
+     "ASH",
+     "RAM"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wood",
+      "gives": "ASH",
+      "note": "ash is a type of wood"
+     },
+     {
+      "clueFragment": "horned beast",
+      "gives": "RAM",
+      "note": "a ram is a horned male sheep"
+     }
+    ],
+    "surface": "Someone flees a forest with a horned animal on their heels.",
+    "walkthrough": "'Retreat' reads as a verb, running away; it is the noun, a place of spiritual withdrawal.",
+    "definitionFit": "A definition by category: a Hindu hermitage where people withdraw for meditation is one kind of retreat.",
+    "features": {
+     "misdirectedWord": "Retreat",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "11-across",
@@ -174,7 +627,55 @@
    },
    "length": 8,
    "clue": "Maureen struggling to admit model’s skilled in arithmetic (8)",
-   "solution": "NUMERATE"
+   "solution": "NUMERATE",
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "NUMERATE",
+    "definition": "skilled in arithmetic",
+    "indicators": [
+     "struggling",
+     "to admit"
+    ],
+    "indicatorNotes": {
+     "struggling": "MAUREEN's letters are in disarray",
+     "to admit": "the rearranged letters let T inside"
+    },
+    "linkWords": [
+     "’s"
+    ],
+    "pieces": [
+     "NUMERA",
+     "T",
+     "E"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "MAUREEN",
+      "gives": "NUMERAE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Maureen",
+      "gives": "MAUREEN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "model",
+      "gives": "T",
+      "note": "the Model T was Ford's famous car"
+     }
+    ],
+    "surface": "Maureen reluctantly admits that a model is good at sums.",
+    "walkthrough": "The apostrophe-s is 'is', linking the wordplay to the definition.",
+    "definitionFit": "A numerate person is competent with numbers.",
+    "features": {
+     "misdirectedWord": "model",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "12-across",
@@ -186,7 +687,40 @@
    },
    "length": 6,
    "clue": "Publication damning US ally is oddly ignored (6)",
-   "solution": "ANNUAL"
+   "solution": "ANNUAL",
+   "annotation": {
+    "type": "alternate letters",
+    "answer": "ANNUAL",
+    "definition": "Publication",
+    "indicators": [
+     "oddly ignored"
+    ],
+    "indicatorNotes": {
+     "oddly ignored": "the odd-numbered letters are dropped, keeping the even ones"
+    },
+    "linkWords": [
+     "is"
+    ],
+    "pieces": [
+     "ANNUAL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "damning US ally",
+      "gives": "ANNUAL",
+      "note": "letters 2, 4, 6... of DAMNINGUSALLY"
+     }
+    ],
+    "surface": "A newspaper condemning America's ally is disregarded.",
+    "walkthrough": "The political surface hides a simple letter pick.",
+    "definitionFit": "An annual is a book published once a year, such as a children's comic annual.",
+    "features": {
+     "misdirectedWord": "damning",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "13-down",
@@ -198,7 +732,53 @@
    },
    "length": 10,
    "clue": "Blend ultimately potent drink after three months without whiskey (10)",
-   "solution": "INTERTWINE"
+   "solution": "INTERTWINE",
+   "annotation": {
+    "type": "deletion + charade + last letter",
+    "answer": "INTERTWINE",
+    "definition": "Blend",
+    "indicators": [
+     "ultimately",
+     "after",
+     "without"
+    ],
+    "indicatorNotes": {
+     "ultimately": "take the last letter of POTENT",
+     "after": "the T and WINE come after INTER",
+     "without": "WINTER goes without its W"
+    },
+    "pieces": [
+     "INTER",
+     "T",
+     "WINE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "three months without whiskey",
+      "gives": "INTER",
+      "note": "WINTER lasts three months; remove W, which is whiskey in the NATO alphabet"
+     },
+     {
+      "clueFragment": "ultimately potent",
+      "gives": "T",
+      "note": "last letter of POTENT"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "WINE",
+      "note": "wine is a drink"
+     }
+    ],
+    "surface": "Mixing a strong drink after three dry months off the whisky.",
+    "walkthrough": "'Three months' asks you to think of a season rather than month names.",
+    "definitionFit": "To intertwine things is to twist them together, blending them.",
+    "features": {
+     "misdirectedWord": "whiskey",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "14-across",
@@ -210,7 +790,48 @@
    },
    "length": 10,
    "clue": "Formal meals initially cancelled by heads of top-flight rugby clubs (10)",
-   "solution": "TRUNCHEONS"
+   "solution": "TRUNCHEONS",
+   "annotation": {
+    "type": "deletion + first letters + charade",
+    "answer": "TRUNCHEONS",
+    "definition": "clubs",
+    "indicators": [
+     "initially cancelled",
+     "heads of"
+    ],
+    "indicatorNotes": {
+     "initially cancelled": "the first letter is struck out",
+     "heads of": "the head is the top or front of something, so each word gives its first letter"
+    },
+    "linkWords": [
+     "by"
+    ],
+    "pieces": [
+     "TR",
+     "UNCHEONS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "heads of top-flight rugby",
+      "gives": "TR",
+      "note": "first letters of TOP and RUGBY"
+     },
+     {
+      "clueFragment": "Formal meals initially cancelled",
+      "gives": "UNCHEONS",
+      "note": "LUNCHEONS without its first letter"
+     }
+    ],
+    "surface": "Rugby club dinners are called off by the top-flight bosses.",
+    "walkthrough": "'Rugby clubs' reads as a unit; 'clubs' is the definition, meaning the heavy sticks.",
+    "definitionFit": "A truncheon is a short club carried by police.",
+    "features": {
+     "misdirectedWord": "clubs",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "15-down",
@@ -222,7 +843,47 @@
    },
    "length": 8,
    "clue": "Bid to control outcome for criminal (8)",
-   "solution": "OFFENDER"
+   "solution": "OFFENDER",
+   "annotation": {
+    "type": "container",
+    "answer": "OFFENDER",
+    "definition": "criminal",
+    "indicators": [
+     "to control"
+    ],
+    "indicatorNotes": {
+     "to control": "OFFER holds END inside it"
+    },
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "OFF",
+     "END",
+     "ER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bid",
+      "gives": "OFFER",
+      "note": "a bid is an offer"
+     },
+     {
+      "clueFragment": "outcome",
+      "gives": "END",
+      "note": "the end is the outcome"
+     }
+    ],
+    "surface": "An attempt to fix the result of a trial for a crook.",
+    "walkthrough": "'Bid to control outcome' reads as match-fixing; 'to control' means to hold within.",
+    "definitionFit": "An offender is someone who has committed a crime.",
+    "features": {
+     "misdirectedWord": "Bid",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "16-down",
@@ -240,7 +901,44 @@
      4
     ]
    },
-   "solution": "ASITWERE"
+   "solution": "ASITWERE",
+   "annotation": {
+    "type": "anagram",
+    "answer": "AS IT WERE",
+    "definition": "One might say",
+    "indicators": [
+     "high",
+     "on"
+    ],
+    "indicatorNotes": {
+     "high": "intoxicated, so WAITERS's letters are scrambled",
+     "on": "in a down clue WAITERS sits on top of E"
+    },
+    "anagram": {
+     "fodder": "WAITERSE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "waiter’s",
+      "gives": "WAITERS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Ecstasy",
+      "gives": "E",
+      "note": "E is slang for the drug ecstasy"
+     }
+    ],
+    "surface": "Someone remarks that the waiter seems to be on drugs.",
+    "walkthrough": "'High' is the drug-trip sense as the anagram signal, and the apostrophe is just part of the fodder.",
+    "definitionFit": "As it were is a hedge meaning 'so to speak' or 'one might say'.",
+    "features": {
+     "misdirectedWord": "high",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "17-down",
@@ -252,7 +950,58 @@
    },
    "length": 8,
    "clue": "Steerpike’s peevishness about church upset halfwit (8)",
-   "solution": "IMBECILE"
+   "solution": "IMBECILE",
+   "annotation": {
+    "type": "charade + container + reversal",
+    "answer": "IMBECILE",
+    "definition": "halfwit",
+    "indicators": [
+     "about",
+     "upset"
+    ],
+    "indicatorNotes": {
+     "about": "BILE goes round the church",
+     "upset": "in a down clue, upset turns CE upside down to EC"
+    },
+    "pieces": [
+     "IM",
+     "B",
+     "EC",
+     "ILE"
+    ],
+    "subReversals": [
+     {
+      "from": "CE",
+      "to": "EC"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Steerpike’s",
+      "gives": "IM",
+      "note": "Steerpike is the setter, so the setter's = I'm"
+     },
+     {
+      "clueFragment": "peevishness",
+      "gives": "BILE",
+      "note": "bile is bad temper"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     }
+    ],
+    "surface": "The setter's irritation at the church has upset a fool.",
+    "walkthrough": "Setters often use their pen-name for 'I' or 'me'; here 'Steerpike's' is I'M.",
+    "definitionFit": "A plain synonym: both are dated insults for someone foolish.",
+    "features": {
+     "misdirectedWord": "Steerpike",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "18-across",
@@ -264,7 +1013,58 @@
    },
    "length": 10,
    "clue": "Trained frogmen guarding island silence shopkeeper (10)",
-   "solution": "FISHMONGER"
+   "solution": "FISHMONGER",
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "FISHMONGER",
+    "definition": "shopkeeper",
+    "indicators": [
+     "Trained",
+     "guarding"
+    ],
+    "indicatorNotes": {
+     "Trained": "the frogmen's letters are drilled into a new order",
+     "guarding": "they hold I and SH between them"
+    },
+    "pieces": [
+     "F",
+     "I",
+     "SH",
+     "MONGER"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "FROGMEN",
+      "gives": "FMONGER"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "frogmen",
+      "gives": "FROGMEN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "I",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "silence",
+      "gives": "SH",
+      "note": "sh! is a call for silence"
+     }
+    ],
+    "surface": "Trained divers protect an island and keep a shopkeeper quiet.",
+    "walkthrough": "The frogmen belong to the world of the answer, fish, which helps hide the anagram.",
+    "definitionFit": "A fishmonger keeps a shop selling fish.",
+    "features": {
+     "misdirectedWord": "Trained",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "19-down",
@@ -276,7 +1076,48 @@
    },
    "length": 6,
    "clue": "Animal droppings mostly dumped in middle of Adriatic (6)",
-   "solution": "IGUANA"
+   "solution": "IGUANA",
+   "annotation": {
+    "type": "container + deletion + middle letters",
+    "answer": "IGUANA",
+    "definition": "Animal",
+    "indicators": [
+     "mostly",
+     "dumped in",
+     "middle of"
+    ],
+    "indicatorNotes": {
+     "mostly": "GUANO without its last letter",
+     "dumped in": "put inside the middle letters",
+     "middle of": "take the central letters of ADRIATIC"
+    },
+    "pieces": [
+     "I",
+     "GUAN",
+     "A"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "middle of Adriatic",
+      "gives": "IA",
+      "note": "the two central letters of ADRIATIC"
+     },
+     {
+      "clueFragment": "droppings mostly",
+      "gives": "GUAN",
+      "note": "GUANO, seabird droppings, without the final O"
+     }
+    ],
+    "surface": "Animal waste has been dumped in the middle of the Adriatic Sea.",
+    "walkthrough": "Guano is the droppings of seabirds or bats, collected as fertiliser.",
+    "definitionFit": "A definition by category: a large tropical lizard is one example of an animal.",
+    "features": {
+     "misdirectedWord": "Animal",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "20-down",
@@ -288,7 +1129,34 @@
    },
    "length": 6,
    "clue": "Partaking in fracas in opulent entertainment venue (6)",
-   "solution": "CASINO"
+   "solution": "CASINO",
+   "annotation": {
+    "type": "hidden word",
+    "answer": "CASINO",
+    "definition": "entertainment venue",
+    "indicators": [
+     "Partaking in"
+    ],
+    "indicatorNotes": {
+     "Partaking in": "the answer takes part of the following words"
+    },
+    "blocks": [
+     {
+      "clueFragment": "fracas in opulent",
+      "gives": "CASINO",
+      "note": "fraCAS IN Opulent"
+     }
+    ],
+    "surface": "Someone joins in a brawl at a lavish nightspot.",
+    "walkthrough": "'Opulent' reads as describing the venue, but it only lends its O to the hidden letters; a fracas is a noisy brawl.",
+    "definitionFit": "A casino is a plush venue for gambling and shows.",
+    "features": {
+     "misdirectedWord": "fracas",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "21-down",
@@ -300,7 +1168,50 @@
    },
    "length": 6,
    "clue": "Promotional footage regularly claimed Greens made it up (6)",
-   "solution": "TEASER"
+   "solution": "TEASER",
+   "annotation": {
+    "type": "alternate letters + reversal",
+    "answer": "TEASER",
+    "definition": "Promotional footage",
+    "indicators": [
+     "regularly claimed",
+     "up"
+    ],
+    "indicatorNotes": {
+     "regularly claimed": "every other letter is taken",
+     "up": "in a down clue, up means written bottom to top"
+    },
+    "pieces": [
+     "T",
+     "E",
+     "A",
+     "S",
+     "E",
+     "R"
+    ],
+    "subReversals": [
+     {
+      "from": "RESAET",
+      "to": "TEASER"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Greens made it",
+      "gives": "RESAET",
+      "note": "even letters of GREENSMADEIT"
+     }
+    ],
+    "surface": "Campaign video says the Green Party invented something.",
+    "walkthrough": "'Made it up' reads as fabricating, but 'up' is the reversal in a down clue.",
+    "definitionFit": "A teaser is a short trailer released to build interest.",
+    "features": {
+     "misdirectedWord": "up",
+     "joke": "pun",
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "22-across",
@@ -312,7 +1223,49 @@
    },
    "length": 6,
    "clue": "Revolutionary bumps into European count (6)",
-   "solution": "ESTEEM"
+   "solution": "ESTEEM",
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "ESTEEM",
+    "definition": "count",
+    "indicators": [
+     "Revolutionary"
+    ],
+    "indicatorNotes": {
+     "Revolutionary": "turning round, so MEETSE is read backwards"
+    },
+    "pieces": [
+     "E",
+     "STEEM"
+    ],
+    "subReversals": [
+     {
+      "from": "MEETSE",
+      "to": "ESTEEM"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bumps into",
+      "gives": "MEETS",
+      "note": "to bump into someone is to meet them"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "standard abbreviation"
+     }
+    ],
+    "surface": "A revolutionary runs into a European aristocrat.",
+    "walkthrough": "'Count' looks like a nobleman; it is the verb, as in 'I count it an honour'.",
+    "definitionFit": "A formal synonym: to regard as, as in 'I would count it an honour'.",
+    "features": {
+     "misdirectedWord": "count",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "23-across",
@@ -324,7 +1277,48 @@
    },
    "length": 8,
    "clue": "Remain at a standstill in Spooner’s horse country (8)",
-   "solution": "STAGNATE"
+   "solution": "STAGNATE",
+   "annotation": {
+    "type": "spoonerism",
+    "answer": "STAGNATE",
+    "definition": "Remain at a standstill",
+    "indicators": [
+     "Spooner’s"
+    ],
+    "indicatorNotes": {
+     "Spooner’s": "Dr Spooner swapped the starts of words, so the opening sounds are exchanged"
+    },
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "horse",
+      "soundsLike": "NAG",
+      "gives": "STAG",
+      "note": "a nag is an old horse; it gives up its N and takes ST"
+     },
+     {
+      "clueFragment": "country",
+      "soundsLike": "STATE",
+      "gives": "NATE",
+      "note": "a state is a country; it hands over ST and takes the N"
+     }
+    ],
+    "pieces": [
+     "STAG",
+     "NATE"
+    ],
+    "surface": "Standing still in horse country.",
+    "walkthrough": "Say 'nag state' and swap the opening sounds of the two words.",
+    "definitionFit": "To stagnate is to stop moving or developing.",
+    "features": {
+     "misdirectedWord": "horse",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "24-across",
@@ -341,7 +1335,60 @@
      4
     ]
    },
-   "solution": "DREWIN"
+   "solution": "DREWIN",
+   "annotation": {
+    "type": "charade + middle letter + outer letters",
+    "answer": "DREW IN",
+    "definition": "Retracted",
+    "indicators": [
+     "essentially",
+     "on vacation"
+    ],
+    "indicatorNotes": {
+     "essentially": "take the essence, the central letter",
+     "on vacation": "vacated, so emptied of its inside letters"
+    },
+    "linkWords": [
+     "meeting"
+    ],
+    "pieces": [
+     "D",
+     "RE",
+     "W",
+     "IN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "affidavit, essentially",
+      "gives": "D",
+      "note": "the middle letter of AFFIDAVIT"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about, concerning"
+     },
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "Italian on vacation",
+      "gives": "IN",
+      "note": "ITALIAN emptied to its outer letters"
+     }
+    ],
+    "surface": "A sworn statement about a wife's holiday with an Italian was withdrawn.",
+    "walkthrough": "'Retracted affidavit' reads as one legal phrase; the first word alone is the definition.",
+    "definitionFit": "To draw in claws is to retract them, so retracted means drew in.",
+    "features": {
+     "misdirectedWord": "Retracted",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "25-across",
@@ -353,7 +1400,52 @@
    },
    "length": 8,
    "clue": "Salient changes involving international lists (8)",
-   "solution": "LITANIES"
+   "solution": "LITANIES",
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "LITANIES",
+    "definition": "lists",
+    "indicators": [
+     "changes",
+     "involving"
+    ],
+    "indicatorNotes": {
+     "changes": "SALIENT's letters change places",
+     "involving": "the rearranged letters take I in"
+    },
+    "pieces": [
+     "LITAN",
+     "I",
+     "ES"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "SALIENT",
+      "gives": "LITANES"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Salient",
+      "gives": "SALIENT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "international",
+      "gives": "I",
+      "note": "standard abbreviation"
+     }
+    ],
+    "surface": "Key amendments to an international list.",
+    "walkthrough": "'Salient' looks like an adjective describing the changes; it is only the letters.",
+    "definitionFit": "A litany is a long tedious list, as in a litany of complaints.",
+    "features": {
+     "misdirectedWord": "Salient",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "26-across",
@@ -365,7 +1457,45 @@
    },
    "length": 6,
    "clue": "Taking portion of meagre fee, realtor flipped joint (6)",
-   "solution": "REEFER"
+   "solution": "REEFER",
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "REEFER",
+    "definition": "joint",
+    "indicators": [
+     "Taking portion of",
+     "flipped"
+    ],
+    "indicatorNotes": {
+     "Taking portion of": "the answer is a portion of the words that follow",
+     "flipped": "that portion reads backwards"
+    },
+    "pieces": [
+     "REEFER"
+    ],
+    "subReversals": [
+     {
+      "from": "REFEER",
+      "to": "REEFER"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "meagre fee, realtor",
+      "gives": "REFEER",
+      "note": "meagRE FEE Realtor"
+     }
+    ],
+    "surface": "An estate agent, grabbing a cut of a small fee, loses their temper over a property.",
+    "walkthrough": "'Flipped' suggests losing one's temper, and 'joint' a property; realtor is the US word for an estate agent.",
+    "definitionFit": "Drug slang: both words name a hand-rolled cannabis cigarette.",
+    "features": {
+     "misdirectedWord": "joint",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "27-across",
@@ -377,7 +1507,43 @@
    },
    "length": 8,
    "clue": "Keep going on about extremely baroque party (8)",
-   "solution": "BELABOUR"
+   "solution": "BELABOUR",
+   "annotation": {
+    "type": "charade + outer letters",
+    "answer": "BELABOUR",
+    "definition": "Keep going on about",
+    "indicators": [
+     "extremely"
+    ],
+    "indicatorNotes": {
+     "extremely": "take the extremes, the first and last letters"
+    },
+    "pieces": [
+     "BE",
+     "LABOUR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "extremely baroque",
+      "gives": "BE",
+      "note": "first and last letters of BAROQUE"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "LABOUR",
+      "note": "Labour is a British political party"
+     }
+    ],
+    "surface": "Someone drones on about an extremely ornate party.",
+    "walkthrough": "'Party' suggests a celebration, which 'baroque' supports; it is the British Labour Party.",
+    "definitionFit": "An idiom: labouring a point in an argument means dwelling on it tediously.",
+    "features": {
+     "misdirectedWord": "party",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
