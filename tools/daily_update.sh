@@ -6,7 +6,8 @@
 #      cryptic, the Monday Quiptic (their beginner tier), the Sunday Everyman
 #      from the Observer, and the Independent's daily — if we don't have it yet.
 #      The Times comes from the times-for-the-times blog, its grids rebuilt
-#      from the posts' light lists (step 1b).
+#      from the posts' light lists (step 1b). The blog caches are then re-read
+#      into the site's blog hints, tools/data/blog_facts/ (step 1d).
 #   2. Re-fetches puzzles whose solutions weren't published yet (Saturday prize
 #      crosswords publish theirs about a week late).
 #   3. Asks Claude Code (headless) to annotate un-annotated puzzles, newest
@@ -230,6 +231,23 @@ else
   alert "tools/ft_puzzles.py failed, so no new FT puzzle is filed until it is fixed:"$'\n'"\`\`\`"$'\n'"$(tail -12 "$ft_out" | cut -c1-200)"$'\n'"\`\`\`"
 fi
 rm -f "$ft_out"
+
+# --- 1d. Blog hints, re-read off the caches the fetches above just topped up ---
+# tools/blog_facts.py joins every cached write-up to the puzzle it explains and
+# writes tools/data/blog_facts/, which the site's hints and the validator's
+# definition check read. A full parse is ~5 minutes, so --if-changed skips it
+# when no cached post, clue or the parser itself has moved since the files were
+# written. Before the annotation queue, so tonight's new puzzles are validated
+# against their blog. The commit's `git add -A` below picks the files up.
+facts_out="$(mktemp "${TMPDIR:-/tmp}/cryptic-facts.XXXXXX")"
+step_start=$SECONDS
+python3 tools/blog_facts.py --if-changed >"$facts_out" 2>&1
+step_rc=$?
+cat "$facts_out"
+echo "blog_facts: rc=$step_rc in $((SECONDS - step_start))s"
+[ $step_rc -eq 0 ] ||
+  alert "tools/blog_facts.py failed (rc=$step_rc), so tonight's new puzzles get no blog hints:"$'\n'"\`\`\`"$'\n'"$(tail -12 "$facts_out" | cut -c1-200)"$'\n'"\`\`\`"
+rm -f "$facts_out"
 
 # What we hold of every series, printed every night whether or not anything is
 # wrong, because the two ways a series dies are both silent: a fetcher that can
