@@ -21,47 +21,8 @@
   --badge-cov-fg: #0f4d6f;
   --badge-none-bg: #e7e3db;  /* we haven't; answers only */
   --badge-none-fg: #5b564d;
-  --badge-series-bg: #e9def5; /* which crossword this is — the default, cryptic */
+  --badge-series-bg: #e9def5; /* which crossword this is */
   --badge-series-fg: #543a75;
-  /* Every other paper, so the picker's paper legend reads as eight papers
-     rather than one colour repeated. Muted like the rest of the badge palette,
-     not the mastheads' actual colours. A paper with no entry here falls back to
-     --badge-series-* and is indistinguishable from the Guardian, which is what
-     happened to Cyclops, Metro and the Globe as each was added; smoke_test.js
-     now fails if a series has no rule of its own. */
-  --paper-quiptic-bg: #dfe6f0;
-  --paper-quiptic-fg: #2c4f70;
-  --paper-independent-bg: #dfe6d2;
-  --paper-independent-fg: #445c28;
-  --paper-indysunday-bg: #d7e8e6;
-  --paper-indysunday-fg: #1f5c56;
-  --paper-everyman-bg: #f0e0cf;
-  --paper-everyman-fg: #7a4a24;
-  --paper-cyclops-bg: #f6dcdc;
-  --paper-cyclops-fg: #8a2f2f;
-  --paper-globeandmail-bg: #f2e8c9;
-  --paper-globeandmail-fg: #6a5817;
-  --paper-metro-bg: #e0e2e6;
-  --paper-metro-fg: #444a55;
-  --paper-times-bg: #dde1f3;
-  --paper-times-fg: #2a3470;
-  --paper-timesquick-bg: #f3dcea;
-  --paper-timesquick-fg: #7a2d5e;
-  --paper-timesjumbo-bg: #e8ecc8;
-  --paper-timesjumbo-fg: #55601c;
-  --paper-sundaytimes-bg: #f8e1d6;
-  --paper-sundaytimes-fg: #8a4128;
-  /* ONE COLOUR FOR THE WHOLE SHELF, because the shelf is one series. Thirty
-     books from a dozen papers were thirty chips a reader cannot tell apart,
-     which is a legend of publishers' imprints and not a way to choose a
-     crossword. Which book a row is, is in the number printed beside it
-     ("Penguin book 5 No 18"), and that says everything a tint was trying to.
-     Bookish brown against the feeds' colours, because that is the distinction
-     left worth drawing: these are out-of-print reprints and they read as one
-     kind of thing. A series with no rule here falls back to the Guardian's
-     purple, so every series still needs one. */
-  --paper-book-bg: #e3ded4;
-  --paper-book-fg: #5c4a33;
   /* One motion language for the hint panel. Everything in there is an entrance —
      a mark arriving on the clue, a verdict arriving under it, the graded clue
      travelling up to the rung it judged — and an entrance is one duration and
@@ -132,30 +93,6 @@
     --badge-none-fg: #a6a49c;
     --badge-series-bg: #3a2b4d;
     --badge-series-fg: #dcc4f2;
-    --paper-quiptic-bg: #263542;
-    --paper-quiptic-fg: #a9c4dd;
-    --paper-independent-bg: #333d24;
-    --paper-independent-fg: #c2d2a0;
-    --paper-indysunday-bg: #1e3a37;
-    --paper-indysunday-fg: #93cdc5;
-    --paper-everyman-bg: #4a3624;
-    --paper-everyman-fg: #e0b98a;
-    --paper-cyclops-bg: #4b2727;
-    --paper-cyclops-fg: #edaaaa;
-    --paper-globeandmail-bg: #423819;
-    --paper-globeandmail-fg: #dac479;
-    --paper-metro-bg: #2e3238;
-    --paper-metro-fg: #b8c0cc;
-    --paper-times-bg: #262b4a;
-    --paper-times-fg: #b3bbef;
-    --paper-timesquick-bg: #45253a;
-    --paper-timesquick-fg: #eaaad3;
-    --paper-timesjumbo-bg: #373b1c;
-    --paper-timesjumbo-fg: #d2da96;
-    --paper-sundaytimes-bg: #4a2c22;
-    --paper-sundaytimes-fg: #f0b69c;
-    --paper-book-bg: #3a3229;
-    --paper-book-fg: #cbb79a;
     /* Brighter than their light-mode twins, not darker: a spark is a light
        source, and on the dark card (#21252b) these land around 7:1. Dark mode
        is the case that has to work — it is what the reports come from. */
@@ -236,7 +173,7 @@ button:disabled:hover { border-color: var(--line); }
   width: min(430px, calc(100vw - 32px)); max-height: 70vh; overflow: auto;
   /* The gutter is kept whether or not the content scrolls. Without it the
      content box is a scrollbar wider once the content fits, and every
-     wrapping row inside (the picker's paper chips) breaks somewhere else. */
+     wrapping row inside (the picker's completion chips) breaks somewhere else. */
   scrollbar-gutter: stable;
   background: var(--card); border: 1px solid var(--line); border-radius: 10px;
   box-shadow: 0 10px 30px rgba(0,0,0,.25); padding: 12px 14px;
@@ -335,23 +272,6 @@ button:disabled:hover { border-color: var(--line); }
    giving up the thing the label is for. */
 .badge.series { background: var(--badge-series-bg); color: var(--badge-series-fg);
                 min-width: 7.2em; text-align: center; }
-/* Cryptic is the default and keeps the plain series colour above; every other
-   paper gets its own so the picker's paper legend — the one place they all sit
-   in a row together — reads at a glance instead of by label alone. One rule per
-   series in SERIES_BADGE, or the legend goes back to being one colour repeated:
-   that is asserted, not remembered. */
-.badge.series-quiptic      { background: var(--paper-quiptic-bg);      color: var(--paper-quiptic-fg); }
-.badge.series-independent  { background: var(--paper-independent-bg);  color: var(--paper-independent-fg); }
-.badge.series-indysunday   { background: var(--paper-indysunday-bg);   color: var(--paper-indysunday-fg); }
-.badge.series-everyman     { background: var(--paper-everyman-bg);     color: var(--paper-everyman-fg); }
-.badge.series-cyclops      { background: var(--paper-cyclops-bg);      color: var(--paper-cyclops-fg); }
-.badge.series-globeandmail { background: var(--paper-globeandmail-bg); color: var(--paper-globeandmail-fg); }
-.badge.series-metro        { background: var(--paper-metro-bg);        color: var(--paper-metro-fg); }
-.badge.series-times        { background: var(--paper-times-bg);        color: var(--paper-times-fg); }
-.badge.series-timesquick   { background: var(--paper-timesquick-bg);   color: var(--paper-timesquick-fg); }
-.badge.series-timesjumbo   { background: var(--paper-timesjumbo-bg);   color: var(--paper-timesjumbo-fg); }
-.badge.series-sundaytimes  { background: var(--paper-sundaytimes-bg);  color: var(--paper-sundaytimes-fg); }
-.badge.series-book         { background: var(--paper-book-bg);         color: var(--paper-book-fg); }
 
 /* The anagram ring: fodder laid out with no first letter and no last one, so
    there is no reading order for the eye to fall back into. Absolute placement
@@ -421,41 +341,35 @@ button:disabled:hover { border-color: var(--line); }
   .badge.diff-brutal   { color: #e8756a; }
 }
 
-/* The paper and band legend under the puzzle search.
-   Deliberately the same badges the rows wear, because the point is to connect
-   the word you can type to the mark you have been seeing — a separate style
-   would read as a different thing. Touch gets its own. */
-/* One row per question — papers, then difficulty. Column of rows rather than one
-   strip that wraps, so where the line breaks is not left to the viewport. */
-.picker-filters { display: flex; flex-direction: column; gap: 6px; margin: 8px 0 0; }
-.picker-group { display: flex; flex-wrap: wrap; gap: 6px; align-items: baseline; }
-/* The min-width floor on .badge.series and .badge.diff exists to line a COLUMN
-   of picker rows up with itself. Anywhere a chip is NOT in that column — the
-   legend here, the notify panel's one-paper-per-row checklist — there is
-   nothing to line up with, and the floor only pads the short names ("book",
-   "metro") out to a width the long ones ("independent", "globe & mail")
-   overrun anyway: same-looking pills at four different widths. Off the column,
-   a chip is the width of its word. */
-.picker-filters .badge.diff, .picker-filters .badge.series,
+/* Paper and difficulty menus on one line under the search box. Native selects,
+   because the phone's own picker is the one that fits twenty papers, and the
+   bar is one line tall however many papers there are. */
+.picker-bar { display: flex; gap: 6px; align-items: center; margin: 8px 0 0; }
+.picker-bar select {
+  flex: 1 1 0; min-width: 0; padding: 6px 8px;
+  font: inherit; font-size: .88rem; color: inherit;
+  background: var(--bg); border: 1px solid var(--line); border-radius: 8px;
+}
+.picker-bar select:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.picker-bar select.picker-paper { flex-grow: 1.6; }
+/* A menu set to anything but "all" is a filter in force, so it says so. */
+.picker-bar select.on { border-color: var(--fg); font-weight: 600; }
+/* Completions for what is being typed: setters, weekdays, solved/unfinished. */
+.picker-filters { display: flex; flex-wrap: wrap; gap: 6px; align-items: baseline; margin: 8px 0 0; }
+.picker-filters:empty { display: none; }
+/* The series floor lines up a column of picker rows; the notify panel's
+   one-paper-per-row checklist has no column, so a chip there is its word's width. */
 #notify-list .badge.series { min-width: 0; }
-/* A chip whose word is in the box. app.js already writes aria-pressed on every
-   chip it makes, so the mark is one rule for a paper, a band and a completion
-   rather than three that drift apart — and a ring reads as chosen on a filled
-   paper badge and an outlined band badge alike, which filling it would not:
-   the bands ARE their colour, so a filled band chip just looks like a band. */
+/* A completion whose word is already in the box. */
 .picker-filters .badge[aria-pressed="true"] {
   opacity: 1; outline: 2px solid var(--fg); outline-offset: 1px;
 }
-/* The completions, which used to be the browser's own dropdown. Neutral, because
-   a setter's name carries no colour the rows could teach it by — the paper and
-   band chips are coloured to match the badge you have been seeing, and dressing
-   a setter up the same way would claim a connection that isn't there. */
+/* Neutral: a setter's name has no colour the rows could teach it by. */
 .badge.term { background: none; border: 1px solid var(--line); color: inherit; }
-/* The ? that opens #picker-note. Round and unfilled so it does not read as
-   a fifth band you could filter by — it is the only chip in the row that is not
-   a word you can put in the box. */
+/* The ? that opens #picker-note. */
 .badge.help { background: none; border: 1px solid var(--line); color: var(--muted);
               border-radius: 999px; padding: 1px 7px; }
+.picker-bar .badge.help { padding: 5px 10px; font-size: .8rem; }
 .badge.help[aria-expanded="true"] { color: inherit; border-color: currentColor; }
 #picker-note:empty { display: none; }
 #picker-note .badge.diff { min-width: 0; }

@@ -117,6 +117,8 @@ function boot(opts) {
       return el;
     }
     addEventListener(type, fn) { (this.listeners[type] = this.listeners[type] || []).push(fn); }
+    setAttribute(k, v) { (this.attrs = this.attrs || {})[k] = String(v); }
+    getAttribute(k) { return this.attrs && k in this.attrs ? this.attrs[k] : null; }
     querySelector(sel) {
       const cls = sel.replace(/^\./, "");
       const find = (el) => {

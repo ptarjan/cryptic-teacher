@@ -197,14 +197,20 @@
        2026-09-14). The words it offered are chips in #picker-filters instead:
        in the panel, under the box, tappable, and the same on every device. -->
   <input id="picker-search" type="search" autocomplete="off" spellcheck="false"
-         placeholder="Search by number, setter, paper or difficulty…" aria-label="Search puzzles">
-  <!-- The papers and the bands: the part of the search's vocabulary a solver
-       cannot arrive at on their own. app.js fills it. -->
+         placeholder="Search by number, setter or day…" aria-label="Search puzzles">
+  <!-- The paper menu is grouped by publisher; app.js fills both menus from the index. -->
+  <div class="picker-bar">
+    <select id="picker-paper" class="picker-paper" aria-label="Paper"></select>
+    <select id="picker-band" aria-label="Difficulty"></select>
+    <button type="button" id="picker-diff-help" class="badge help" aria-expanded="false"
+            aria-label="What the difficulty levels mean">?</button>
+  </div>
+  <!-- Completions for the word being typed: setters, weekdays, solved. -->
   <p id="picker-filters" class="picker-filters"></p>
   <!-- What the bands mean, and empty until asked. The archive hub explains
        difficulty in standing prose; the app cannot, because a blurb here wraps
        to two lines and pushes the puzzles down (see below). So the explanation
-       is behind the ? beside the band chips: no height until it is wanted, and
+       is behind the ? beside the difficulty menu: no height until it is wanted, and
        no hover, which is the whole reason the title= on the badges never
        reached anyone on an iPad (Paul, 2026-09-14). -->
   <p id="picker-note" class="muted small-note"></p>
