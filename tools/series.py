@@ -166,7 +166,7 @@ SERIES = {
     "ftcryptic": {
         "kind": "Cryptic",
         "publisher": "Financial Times",
-        "badge": "ft",
+        "badge": "FT",
         "blog": "fifteensquared.net",
     },
 }
