@@ -253,6 +253,10 @@ ACQUIRED_BY = {
         "channel": "blog",
         "what": "a times-for-the-times write-up's clue list and answers, the "
                 "grid rebuilt from them by tools/times_grids.py"},
+    "tools/file_telegraph_puzzles.py": {
+        "channel": "blog",
+        "what": "a bigdave44.com write-up's clue list and answers, the grid "
+                "rebuilt from them by tools/times_grids.py"},
     "tools/ft_puzzles.py": {
         "channel": "blog",
         "what": "a fifteensquared write-up's clue list and answers, the grid "
@@ -297,7 +301,8 @@ ACQUISITION_BY_SOURCE = {
 #: The tool that files a blog series' puzzles, by the blog it reads. A series
 #: naming a blog missing here fails at import.
 BLOG_FILER = {"timesforthetimes.co.uk": "tools/file_times_puzzles.py",
-              "fifteensquared.net": "tools/ft_puzzles.py"}
+              "fifteensquared.net": "tools/ft_puzzles.py",
+              "bigdave44.com": "tools/file_telegraph_puzzles.py"}
 # Every book is its own series (see series.py), and they all arrive the same
 # way, so they are generated rather than typed — a book added to series.py must
 # not also need adding here.
@@ -311,7 +316,7 @@ for _series in series_table.SERIES:
 
 # Series whose grid geometry is NOT the publisher's. Everything absent here is
 # "published", and that is checked rather than assumed: the book filers and
-# file_times_puzzles.py are the only tools that BUILD a puzzle out of
+# the blog filers are the only tools that BUILD a puzzle out of
 # reconstruct_grid.py's output (grid_origin below) — every other fetcher parses
 # a grid the source shipped, and puzzle_integrity.py's use of reconstruct_grid
 # is a check on geometry that already exists, not a source of it.
@@ -397,7 +402,7 @@ def acquired_by(series, url, claimed):
 
 
 #: solutionSource.kind for answers taken from a solver's blog write-up.
-WRITEUP_KINDS = ("fifteensquared", "timesforthetimes")
+WRITEUP_KINDS = ("fifteensquared", "timesforthetimes", "bigdave44")
 
 
 def solution_origin_from_file(puzzle):

@@ -13,7 +13,7 @@ a stream, because every era puts the number, the clue and the answer on lines
 of their own once the tags are gone — a 2025 table cell, a 2020 <br>-separated
 paragraph and a 2010 table row differ in tags and not in shape.
 
-Reads the cache tools/fetch_timesforthetimes.py writes; never the network.
+Reads the cache `tools/fetch_wp_blog.py timesforthetimes` writes; never the network.
 """
 import argparse
 import html
@@ -687,6 +687,26 @@ def parse_post(post):
     if series is None:
         return None
 
+    entries, unsplit = read_entries(lines(post["content"]["rendered"]))
+    if not entries and not unsplit:
+        return None
+    number = puzzle_number(post)
+    rec = {
+        "post_id": post["id"], "date": post["date"][:10], "slug": post["slug"],
+        "link": post.get("link"), "series": filed_series(post, series, number),
+        "number": number,
+        "title": html.unescape(post.get("title", {}).get("rendered", "")),
+        "entries": entries,
+    }
+    if unsplit:
+        rec["unsplit"] = unsplit
+    return rec
+
+
+def read_entries(rendered):
+    """(entries, unsplit) off a post's flattened lines: every light the clue
+    list names, with its clue, answer and enumeration, and the linked clues
+    whose split the post does not settle."""
     entries, unsplit = [], []
     direction, lights, clue, enum, head_clue = None, None, None, None, None
     # A bare number cell owns the line after it: in the table eras the clue
@@ -703,7 +723,6 @@ def parse_post(post):
     # is left alone: that is a typo ("28" for 18), and refusing it would take
     # every light after the typo with it. A post with no Down heading at all
     # starts its Down list where the numbers restart at 1 or 2.
-    rendered = lines(post["content"]["rendered"])
     headed_down = any(HEADING.match(ln) and HEADING.match(ln).group(1).lower()
                       == "down" for ln in rendered)
     last, answered = 0, set()
@@ -862,19 +881,7 @@ def parse_post(post):
     number_orphans(entries)
     one_entry_per_light(entries)
     trim_continuations(entries)
-    if not entries and not unsplit:
-        return None
-    number = puzzle_number(post)
-    rec = {
-        "post_id": post["id"], "date": post["date"][:10], "slug": post["slug"],
-        "link": post.get("link"), "series": filed_series(post, series, number),
-        "number": number,
-        "title": html.unescape(post.get("title", {}).get("rendered", "")),
-        "entries": entries,
-    }
-    if unsplit:
-        rec["unsplit"] = unsplit
-    return rec
+    return entries, unsplit
 
 
 def leader_numbers(entries):
@@ -908,7 +915,7 @@ def run(write=True, limit=None):
     if limit:
         files = files[:limit]
     if not files:
-        print(f"no cached posts in {POSTS} — run tools/fetch_timesforthetimes.py")
+        print(f"no cached posts in {POSTS} — run tools/fetch_wp_blog.py timesforthetimes")
         return None
     by_year, by_series, odd, unsplit = {}, {}, [], []
     kept = withtext = checked = agreed = 0

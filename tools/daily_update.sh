@@ -165,37 +165,48 @@ if [ "$(printf %s "$fetch_broken" | wc -w)" -ge "$(printf %s "$FETCHERS" | wc -w
   alert "every fetcher failed tonight ($fetch_broken) — no new puzzle can arrive from any paper until this is fixed. The rc lines are in .update.log."
 fi
 
-# --- 1b. The Times, rebuilt from the times-for-the-times blog ---
-# The Times publishes no grids, so a Times puzzle is a chain rather than a
+# --- 1b. The Times and the Telegraph, rebuilt from the blogs that solve them ---
+# Neither paper publishes its grids, so each puzzle is a chain rather than a
 # fetch: cache the new blog posts, parse them, rebuild each grid from its
 # light list, file what passes into puzzles/. Each step reads the one before
-# it off ~/cryptic-setter-data/timesforthetimes/, so a step that fails ends
-# the chain — anything after it would read a half-written file — except the
-# fetches, whose failure only means the cache is as it was last night. The
-# second fetch is the Times's own puzzle listing, as the Wayback Machine keeps
-# it, which is what dates the prize puzzles the blog writes up a week late.
-# Before the queue below reads puzzles/index.json, and the filer does not
-# reindex, so it is done here: otherwise the day's Times would sit out
+# it off ~/cryptic-setter-data/<blog>/, so a step that fails ends its chain --
+# anything after it would read a half-written file -- except the fetches,
+# whose failure only means the cache is as it was last night. The Times's
+# second fetch is its own puzzle listing, as the Wayback Machine keeps it,
+# which is what dates the prize puzzles the blog writes up a week late.
+# Before the queue below reads puzzles/index.json, and the filers do not
+# reindex, so it is done here: otherwise the day's puzzles would sit out
 # tonight's annotation.
-times_out="$(mktemp "${TMPDIR:-/tmp}/cryptic-times.XXXXXX")"
-for step in fetch_timesforthetimes fetch_times_listing parse_timesforthetimes times_grids file_times_puzzles; do
-  step_start=$SECONDS
-  python3 "tools/$step.py" >"$times_out" 2>&1
-  step_rc=$?
-  cat "$times_out"
-  echo "$step: rc=$step_rc in $((SECONDS - step_start))s"
-  [ $step_rc -eq 0 ] && continue
-  if [ "$step" = fetch_timesforthetimes ]; then
-    alert "the Times blog fetch failed (rc=$step_rc), so tonight's Times puzzles are filed from the posts already cached:"$'\n'"\`\`\`"$'\n'"$(tail -8 "$times_out" | cut -c1-200)"$'\n'"\`\`\`"
-  elif [ "$step" = fetch_times_listing ]; then
-    alert "the Times listing fetch failed (rc=$step_rc), so tonight's prize puzzles are dated only from the captures already cached:"$'\n'"\`\`\`"$'\n'"$(tail -8 "$times_out" | cut -c1-200)"$'\n'"\`\`\`"
-  else
-    alert "the Times chain stopped at $step (rc=$step_rc); the steps after it were skipped, so no new Times puzzle is filed until it is fixed:"$'\n'"\`\`\`"$'\n'"$(tail -12 "$times_out" | cut -c1-200)"$'\n'"\`\`\`"
-    break
-  fi
-done
-[ "$step" = file_times_puzzles ] && [ $step_rc -eq 0 ] && python3 tools/fetch_puzzle.py --reindex
-rm -f "$times_out"
+# blog_chain <paper> <step>...: each step is a tools/ script and its arguments.
+blog_chain() {
+  local paper=$1 step out step_rc=0
+  shift
+  out="$(mktemp "${TMPDIR:-/tmp}/cryptic-blog.XXXXXX")"
+  for step in "$@"; do
+    step_start=$SECONDS
+    # shellcheck disable=SC2086  # a step is a script and its arguments
+    python3 tools/$step >"$out" 2>&1
+    step_rc=$?
+    cat "$out"
+    echo "$step: rc=$step_rc in $((SECONDS - step_start))s"
+    [ $step_rc -eq 0 ] && continue
+    case "$step" in
+      fetch_*)
+        alert "the $paper fetch \`$step\` failed (rc=$step_rc), so tonight's $paper puzzles are filed and dated from what is already cached:"$'\n'"\`\`\`"$'\n'"$(tail -8 "$out" | cut -c1-200)"$'\n'"\`\`\`" ;;
+      *)
+        alert "the $paper chain stopped at \`$step\` (rc=$step_rc); the steps after it were skipped, so no new $paper puzzle is filed until it is fixed:"$'\n'"\`\`\`"$'\n'"$(tail -12 "$out" | cut -c1-200)"$'\n'"\`\`\`"
+        break ;;
+    esac
+  done
+  rm -f "$out"
+  return $step_rc
+}
+blog_filed=0
+blog_chain Times "fetch_wp_blog.py timesforthetimes" fetch_times_listing.py \
+  parse_timesforthetimes.py times_grids.py file_times_puzzles.py && blog_filed=1
+blog_chain Telegraph "fetch_wp_blog.py bigdave44" parse_bigdave44.py \
+  "times_grids.py --blog bigdave44" file_telegraph_puzzles.py && blog_filed=1
+[ $blog_filed -eq 1 ] && python3 tools/fetch_puzzle.py --reindex
 
 # --- 1c. The Financial Times, rebuilt from fifteensquared's write-ups ---
 # The same chain in one tool: tools/ft_puzzles.py parses the cached posts,
