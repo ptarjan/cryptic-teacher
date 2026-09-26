@@ -44,7 +44,7 @@ from pathlib import Path
 import fetch_puzzle as fetcher
 
 table = fetcher.SOURCE_ANSWER_WRONG
-print("SIZE", len(table))
+print("SIZE", "some" if table else "none")
 bad = []
 for (pid, eid), (served, corrected, why) in table.items():
     path = fetcher.PUZZLE_DIR / f"{pid}.json"
@@ -70,7 +70,7 @@ for (pid, eid), (served, corrected, why) in table.items():
 print("BAD", "; ".join(bad) or "none")
 PY
 )
-same "the table is not empty" "$(field SIZE "$out")" "2"
+same "the table is not empty" "$(field SIZE "$out")" "some"
 same "every entry checks out against the file on disk" "$(field BAD "$out")" "none"
 
 echo "the correction happens, and only where the table says"

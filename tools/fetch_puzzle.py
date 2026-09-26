@@ -1303,6 +1303,36 @@ SOURCE_ANSWER_WRONG = {
         '"hence home and dry" of the clue, its wordplay the unknowns X and Y '
         "keeping queen ER round O with duke PHIL — and its R is the same cell "
         "(4,8), where the Guardian's key holds T in both lights that cross"),
+    ("cryptic-27235", "8-across"): (
+        "IGNORED", "IGNORES",
+        '"Part of pig (no residue) gives cold shoulder" hides p(IGNORES)idue, and '
+        "gives is present tense; the last cell is unchecked, and fifteensquared "
+        "has IGNORES"),
+    ("everyman-3811", "21-down"): (
+        "RIDDEN", "REDDEN",
+        '"Well-mannered denizen muffling flush" hides manne(RED DEN)izen, and '
+        "flush is REDDEN; the second cell is unchecked, and fifteensquared has "
+        "REDDEN"),
+    ("everyman-3814", "9-down"): (
+        "MADEDO", "MAKEDO",
+        "\u201cCope\u2019s poem, King, Before Noon, Rising\u201d is ODE+K+AM reversed, "
+        "MAKE DO, and cope is MAKE DO; MADE DO has no K; the third cell is "
+        "unchecked, and fifteensquared has MAKEDO"),
+    ("everyman-3866", "26-across"): (
+        "ROWINGCLUB", "BOXINGCLUB",
+        '"Sportspeople fight in front of nightspot" is BOXING (fight) + CLUB '
+        "(nightspot); rowing is no fight; both differing cells are unchecked, "
+        "and fifteensquared has BOXINGCLUB"),
+    ("everyman-3868", "22-down"): (
+        "PEIR", "PEER",
+        '"Announced seaside structure for aristocrat" is PEER, sounding like '
+        "pier; PEIR is not a word; the third cell is unchecked, and "
+        "fifteensquared has PEER"),
+    ("independent-11963", "24-down"): (
+        "LOAD", "LOUD",
+        '"Flashy playing won Murray admirers in seconds" is the second letters '
+        "of pLaying wOn mUrray aDmirers, LOUD, which is flashy; the third cell "
+        "is unchecked, and fifteensquared has LOUD"),
 }
 
 
