@@ -54,7 +54,6 @@ import app_tables  # noqa: E402 — app.js's tables, read from app.js
 from fetch_puzzle import (  # noqa: E402 — one glob, one reader, one puzzles/ for every tool
     PUZZLE_DIR, puzzle_files, read_puzzle_file, shim_path)
 CARD = REPO / "tools" / "og_card.html"
-APP = REPO / "app.js"
 # Quiptic 1,393 3D: "Woman found in Oregon or Maine (5)" — five short words, a
 # definition anyone can check, and NORMA sitting across the state line. This is
 # the card for the homepage and for any puzzle that has no card of its own.
@@ -647,13 +646,15 @@ CARD_REGION = re.compile(r"<!--CARD-START.*?<!--CARD-END-->", re.S)
 
 def _salt():
     """A hash of everything outside a puzzle file that decides what a card looks
-    like: this script, app.js's tables it renders from, and og_card.html with the
-    card region cut out. That region is whatever card was drawn last, so hashing
-    it whole would call all 361 cards stale every time the site card moved.
+    like: this script, the app.js tables it renders from (as parsed, not the
+    whole file, or every edit to the app would redraw every card), and
+    og_card.html with the card region cut out. That region is whatever card was
+    drawn last, so hashing it whole would call every card stale every time the
+    site card moved.
     """
     h = hashlib.sha256()
     h.update(Path(__file__).resolve().read_bytes())
-    h.update(APP.read_bytes())
+    h.update(repr((FAMILIES, FALLBACK_FAMILY, LADDER)).encode("utf-8"))
     h.update(CARD_REGION.sub("", CARD.read_text(encoding="utf-8")).encode("utf-8"))
     return h
 
