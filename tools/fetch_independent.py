@@ -129,6 +129,20 @@ NUMBER_FIXES = {
     # (Hoskins) — this day is a different puzzle (Peter), one week after 1,557
     # and one before 1,559, so 1,558 is the only number that fits.
     "200105": 1558,
+    # Titled only "Independent crossword", with the setter alone in <creator>
+    # and no number anywhere. 1,358 Sun 6 Mar, 1,360 Sun 20 Mar.
+    "160313": 1359,
+    "160610": 9253,    # prints "9,254", Saturday's; 9,252 Thu 9 Jun, 9,254 Sat 11 Jun
+    "200911": 10582,   # prints "10,583", Saturday's; 10,581 Thu 10 Sep, 10,583 Sat 12 Sep
+}
+
+
+# Date keys that serve another day's puzzle again. Refused outright: the feed
+# is keyed by date, so parsing one files a real puzzle a second time under a
+# number or series it does not own.
+REPEATS = {
+    "150822": "a resend of daily 8,997 (Sun 2015-08-16)",
+    "241117": "a repeat of daily 11,812 (Mon 2024-08-19), not a Sunday puzzle",
 }
 
 
@@ -142,12 +156,8 @@ NUMBER_FIXES = {
 # end; the Saturdays outside it need no correction. A week short a publishing
 # day breaks the arithmetic, not the rule, and goes in NUMBER_FIXES above.
 #
-# The range opens a week before the first Saturday held on disk. 2015-08-22 was
-# a resend of 8,997 and was deleted, but the fix still has to cover it: without
-# one, re-fetching that date writes its 8,997 title over the real 8,997 and
-# moves that puzzle to the wrong day. With it the resend lands on 9,003, the
-# empty slot that is genuinely its own, where puzzle_integrity.py reports it as
-# a DUPLICATE to be deleted again.
+# The range opens on 2015-08-22, whose key serves a resend of 8,997 and is
+# refused by REPEATS above.
 SATURDAY_LAG = ("150822", "160326")
 
 
@@ -316,9 +326,9 @@ def metadata_title(title):
     pipe in front of it ("|No. 10,242 by Serpent"), and a space inside the
     digits ("No. 1, 661 by Hoskins"). All are source-side typos, not format
     changes, so the pipe, the prefix and its punctuation and whitespace inside
-    the digits are all optional.
+    the digits are all optional. "1388 - Hypnos" puts a dash where "by" goes.
     """
-    m = re.match(r"\|?\s*(?:No[.,]?\s*)?(\d[\d,\s]*\d|\d)\s*(?:by\s*(.+))?$", title)
+    m = re.match(r"\|?\s*(?:No[.,]?\s*)?(\d[\d,\s]*\d|\d)\s*(?:(?:by|-)\s*(.+))?$", title)
     if m:
         return (m.group(2) or "").strip() or None, m.group(1)
     # A fifth, older shape drops "No." AND "by" both and just reverses the
@@ -358,8 +368,15 @@ def clue_list_heading(puz):
 def parse(xml_bytes, ymd):
     root = ET.fromstring(clean_xml_bytes(xml_bytes))
     puz = root.find(f".//{NS}rectangular-puzzle")
+    if ymd in REPEATS:
+        raise ValueError(f"{ymd} serves {REPEATS[ymd]}")
     title = (puz.findtext(f"{NS}metadata/{NS}title") or "").strip()
-    named = clue_list_heading(puz) or metadata_title(title)
+    # Some days leave <title> empty and put "9226 by S.park" in <creator>, or
+    # put only the setter there.
+    creator = (puz.findtext(f"{NS}metadata/{NS}creator") or "").strip()
+    named = clue_list_heading(puz) or metadata_title(title) or metadata_title(creator)
+    if not named and ymd in NUMBER_FIXES:
+        named = (creator or None, str(NUMBER_FIXES[ymd]))
     if not named:
         raise ValueError(f"unrecognised title {title!r}")
     setter, number_text = named
