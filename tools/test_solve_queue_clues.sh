@@ -103,19 +103,23 @@ mkdir -p "$sand/puzzles"
 python3 - "$sand/puzzles/index.json" <<'EOF'
 import json, sys
 # id, date, hasSolutions, clues — newest first, so a queue that ignored the clue
-# counts would hand back the blank one at the head of the list.
-rows = [("ct-blank", 900, False, {"present": 0, "total": 28}),
-        ("ct-half", 800, False, {"present": 14, "total": 28}),
-        ("ct-most", 700, False, {"present": 15, "total": 28}),
-        ("ct-gap", 600, False, {"present": 27, "total": 28}),
-        ("ct-whole", 500, False, None),
-        ("ct-tried", 400, False, None),
-        ("ct-answered", 300, True, None),
-        # A book reprint: no date, because no volume prints one. Newest first
-        # is the rule, and a puzzle with no date is not new — it is a 1970s
-        # Guardian we will get to eventually. Listed FIRST here so that a queue
-        # which merely kept the index's own order would put it at the head.
-        ("ct-reprint", None, False, None)]
+# counts would hand back the blank one at the head of the list. Real epoch
+# milliseconds, because a book's year is compared against them.
+NOW = 1_790_000_000_000
+rows = [("ct-blank", NOW + 900, False, {"present": 0, "total": 28}),
+        ("ct-half", NOW + 800, False, {"present": 14, "total": 28}),
+        ("ct-most", NOW + 700, False, {"present": 15, "total": 28}),
+        ("ct-gap", NOW + 600, False, {"present": 27, "total": 28}),
+        ("ct-whole", NOW + 500, False, None),
+        ("ct-tried", NOW + 400, False, None),
+        ("ct-answered", NOW + 300, True, None),
+        # A book reprint, dated only by its book's year. Newest first is the
+        # rule, and a 1973 reprint is not new — it is an old FT puzzle we will
+        # get to eventually. A string, which the sort key has to turn into a
+        # number rather than crash on.
+        ("ct-reprint", "1973", False, None),
+        # And a puzzle with no date at all (four cyclops carry none).
+        ("ct-nodate", None, False, None)]
 json.dump({"puzzles": [
     {"id": i, "date": d, "hasSolutions": s, **({"clues": c} if c else {})}
     for i, d, s, c in rows]}, open(sys.argv[1], "w"))
@@ -125,7 +129,7 @@ run() (  # the block itself against the sandbox; the skip note goes to $sand/not
     eval "$pick" 2>"$sand/note" && printf '%s\n' "$unsolved"
 )
 check "the blank grid and the half-blank one are not handed to a model" \
-  "$(run 9)" "ct-most ct-gap ct-whole ct-reprint"
+  "$(run 9)" "ct-most ct-gap ct-whole ct-reprint ct-nodate"
 check "and the log says why, by name and by count" \
   "$(grep -c 'ct-blank (0/28 clues), ct-half (14/28 clues)' "$sand/note")" "1"
 check "a puzzle missing one clue of 28 is still a solvable grid" \
@@ -134,14 +138,14 @@ check "a puzzle that failed on its current inputs stays out" "$(run 9 | grep -c 
 check "a puzzle with answers is still out of the queue" "$(run 9 | grep -c ct-answered)" "0"
 check "SOLVE_MAX still bounds the night" "$(run 2)" "ct-most ct-gap"
 
-echo "a dateless reprint is queued, but behind every puzzle that has a date"
+echo "a year-dated reprint is queued, but behind every puzzle dated by the day"
 # Both halves matter and they pull opposite ways. Dropped from the queue, a book
 # nobody can date never gets solved at all; put at the front, it spends the
 # night's SOLVE_MAX on a 1970s reprint while today's crossword — the one someone
 # is actually looking at — waits another day. Last in the list is both.
 check "it is in the queue at all" "$(run 9 | grep -c ct-reprint)" "1"
-check "and it is last, behind every dated puzzle" \
-  "$(run 9 | tr ' ' '\n' | tail -1)" "ct-reprint"
+check "and it is behind every dated puzzle, ahead only of the undated" \
+  "$(run 9 | tr ' ' '\n' | tail -2 | head -1)" "ct-reprint"
 check "so a night short of budget spends it on the dated ones" \
   "$(run 3)" "ct-most ct-gap ct-whole"
 

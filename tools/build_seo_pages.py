@@ -112,7 +112,8 @@ def puzzles():
     # the same thing while every puzzle was a cryptic; now that quiptics (~1,400)
     # sit alongside cryptics (~30,000) it would file every quiptic at the end of
     # time and make prev/next hop between series.
-    out.sort(key=lambda p: (p.get("date") or 0, p.get("series", "cryptic") == "cryptic",
+    out.sort(key=lambda p: (series_meta.date_ms(p.get("date")) or 0,
+                            p.get("series", "cryptic") == "cryptic",
                             p["number"]), reverse=True)
     return out
 
@@ -204,8 +205,13 @@ def datestr(ms, fmt="%A %-d %B %Y"):
     # gentle, Friday and the Saturday prize hard — so it is a difficulty cue, not
     # trim (Paul, 2026-08-16). Callers that want a machine date (datePublished,
     # sitemap lastmod) pass an explicit fmt and are unaffected.
+    #
+    # A book's date is a bare year, and a bare year is all any format prints:
+    # "1995" is valid ISO 8601 for datePublished and W3C for sitemap lastmod.
     if not ms:
         return ""
+    if series_meta.is_year(ms):
+        return ms
     return datetime.fromtimestamp(ms / 1000, timezone.utc).strftime(fmt)
 
 
@@ -920,7 +926,7 @@ def clue_links(senses, solved, pages):
                 if key and frag:
                     blocks.setdefault(key, []).append(
                         (frag, depth + len(b.get("note") or ""),
-                         puz.get("date") or 0, puz["id"], e["id"]))
+                         series_meta.date_ms(puz.get("date")) or 0, puz["id"], e["id"]))
 
     used, out = {}, {}
     for word in sorted(senses):
@@ -968,7 +974,7 @@ def abbreviations_page(solved, pages):
     body = [
         masthead(crumbs),
         '<main class="static-main tutorial-static">',
-        f"<h1>Cryptic crossword abbreviations</h1>",
+        "<h1>Cryptic crossword abbreviations</h1>",
         "<p>Setters often swap a word for a short, fixed set of letters. <em>Sailor</em> "
         "becomes <code>AB</code>. <em>Check</em> becomes <code>CH</code>. Most have a "
         "reason (AB is short for \"able-bodied seaman\"), but you cannot work them out "

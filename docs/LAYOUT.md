@@ -105,8 +105,8 @@ tools/parse_penguin_book.py                  segments that book's OCR text into 
                                              and enumerations, and reports per-puzzle what OCR
                                              destroyed
 tools/file_penguin_puzzle.py                 turns one solved Penguin-book puzzle into a puzzle
-                                             file: the book's own number, no date because no
-                                             volume prints one, and answers marked as a model's
+                                             file: the book's own number, its book's imprint
+                                             year as the date, and answers marked as a model's
                                              with no official key ever coming
 tools/normalise_linked_enumerations.py       puts a solve record’s linked answers into the
                                              shape the corpus stores them in — the whole

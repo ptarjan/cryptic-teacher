@@ -21,8 +21,8 @@ solve record into a puzzle file, and everything the route has to get right is
 spelled once, here.
 
 THE NUMBER IS THE BOOK'S, NOT THE GUARDIAN'S. No volume prints a Guardian
-puzzle number or a publication date — checked across all six books. So the key
-is book-local: the series is `book` for the whole shelf and the number carries
+puzzle number or the day a puzzle ran — checked across all six books. So the
+key is book-local: the series is `book` for the whole shelf and the number carries
 the book and the puzzle's place in it, book_index * 1000 + position, giving
 "book-3003" for the book registered as index 3, No 3. The book is in the
 number and not in the key because every book restarts at 1 — one flat sequence
@@ -30,11 +30,11 @@ would put thirty different puzzles at No 3 and walk prev/next from the Herald
 into the Daily Mail — while thirty keys meant thirty badges, thirty colours and
 thirty tooltips for one shelf.
 
-THERE IS NO DATE, so `date` is null. That is an established state in this
-corpus rather than a new one: nine Cyclops puzzles carry it, puzzle_integrity's
-check_shape passes a null date through untouched, and reindex sorts it to the
-back of the archive instead of the front. An invented date would be a fact
-nobody could ever correct.
+THE DATE IS THE BOOK'S YEAR. No volume prints the day a puzzle ran, but every
+imprint page prints the year the book came out, so `date` is that year as a
+"YYYY" string, read off the book's row in tools/data/books.json
+(series.published) — never an invented 1 January, which would put a weekday
+beside a puzzle that never had one.
 
 NO JOB CAN FETCH THE ANSWER KEY. The book does print one — solved answer grids
 at the back — but as page IMAGES: their OCR text is noise, and archive.org
@@ -116,7 +116,8 @@ from fetch_puzzle import puzzle_path, write_puzzle_file  # noqa: E402
 from normalise_linked_enumerations import (enumeration_parts,  # noqa: E402
                                            normalise_record, resolve_groups)
 from series import (BOOK_SERIES, book_number, default_setter,  # noqa: E402
-                    official_key, puzzle_id, puzzle_name, scan_url)
+                    official_key, published, puzzle_id, puzzle_name,
+                    scan_url)
 import provenance  # noqa: E402
 
 def source_url(series, number):
@@ -289,9 +290,7 @@ def build(record, identifier, model, unsolved=False):
         # Some books print no byline over a puzzle: the series table's answer,
         # which is null unless the whole book is one setter's.
         "setter": record.get("setter") or default_setter(series, number),
-        # No volume prints a date. null is the corpus's existing spelling for
-        # "nobody knows", not a gap to be filled in later.
-        "date": None,
+        "date": published(series, number),
         "dimensions": src["dimensions"],
         "sourceUrl": source_url(series, number),
         "entries": out,
@@ -345,7 +344,8 @@ def main(argv=None):
         raise SystemExit(f"{path} already exists — refusing to overwrite a filed puzzle")
     write_puzzle_file(path, puzzle, generator="tools/file_penguin_puzzle.py")
     if args.unsolved:
-        print(f"wrote {path} — {len(puzzle['entries'])} entries, no date, NO ANSWERS: "
+        print(f"wrote {path} — {len(puzzle['entries'])} entries, dated "
+              f"{puzzle['date']}, NO ANSWERS: "
               f"it is now the cold-solve queue's problem (daily_update.sh, step 3a)")
         coarse = coarse_continuations(record)
         if coarse:
@@ -353,7 +353,7 @@ def main(argv=None):
                   f"as one word of their own length: {', '.join(coarse)}")
         return 0
     likely = [e["id"] for e in puzzle["entries"] if e.get("solutionConfidence")]
-    print(f"wrote {path} — {len(puzzle['entries'])} entries, no date, model fill, "
+    print(f"wrote {path} — {len(puzzle['entries'])} entries, dated {puzzle['date']}, model fill, "
           f"no official key will ever exist")
     print(f"  {len(likely)} entr{'y' if len(likely) == 1 else 'ies'} below CONFIDENT: "
           + (", ".join(likely) or "none"))

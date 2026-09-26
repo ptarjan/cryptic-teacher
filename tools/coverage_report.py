@@ -122,7 +122,7 @@ CADENCE_DAYS = {
 
 
 def as_date(ms):
-    return datetime.fromtimestamp(ms / 1000, timezone.utc).date()
+    return datetime.fromtimestamp(series_meta.date_ms(ms) / 1000, timezone.utc).date()
 
 
 def is_date_keyed(held):
@@ -229,7 +229,8 @@ def audit(puzzles, today):
         # schedules, so a paper that moves its crossword day needs no edit here.
         odd = defaultdict(list)
         for p in held:
-            if p.get("date"):
+            # A bare year has no weekday; its 1 January is not a publishing day.
+            if p.get("date") and not series_meta.is_year(p["date"]):
                 odd[as_date(p["date"]).strftime("%a")].append(p["number"])
         for day, nums in sorted(odd.items()):
             if len(nums) * 100 / len(dates) >= ODD_WEEKDAY_PCT:
@@ -250,8 +251,11 @@ def audit(puzzles, today):
             "held": len(held),
             "below": below,
             "numbers": (numbers[0], numbers[-1]),
-            "oldest": oldest,
-            "newest": newest,
+            # A shelf dated by years says so in years, not as 1 January.
+            **({"oldest": oldest.year, "newest": newest.year}
+               if dates and all(series_meta.is_year(p["date"]) for p in held
+                                if p.get("date"))
+               else {"oldest": oldest, "newest": newest}),
             "flags": flags,
         })
     return rows

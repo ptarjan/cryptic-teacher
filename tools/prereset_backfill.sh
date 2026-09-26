@@ -804,6 +804,8 @@ annotate_blocked=$(python3 tools/failed_inputs.py skipped annotate)
 todo=$(python3 - "$annotate_blocked" <<'EOF'
 import json, os, sys
 from datetime import datetime, timezone
+sys.path.insert(0, "tools")
+from series import date_ms, is_year
 idx = json.load(open("puzzles/index.json"))
 # Selection here is by date and nothing else, so a puzzle that fails is the
 # newest un-annotated puzzle again on the next wave and on tomorrow's run, and
@@ -843,14 +845,14 @@ if only:
 lanes = {}
 for p in todo:
     lanes.setdefault(p["series"], []).append(p)
-# A book reprint carries no publication date and neither do four cyclops
-# puzzles, so `date` is None for 12 of the queue. Undated sorts last inside its
-# lane — "newest first" has nothing to say about a puzzle with no when — and
+# A book puzzle's date is its book's year, a "YYYY" string, and four cyclops
+# puzzles carry none, so date_ms() makes the key a number. Undated sorts last
+# inside its lane — "newest first" has nothing to say about a puzzle with no when — and
 # never raises: this key crashed the whole listing, which is read with $(...),
 # so one None emptied the queue and the wave spent itself on definitionFit
 # instead of on the backlog it exists to clear.
 for lane in lanes.values():
-    lane.sort(key=lambda p: -(p["date"] or 0))
+    lane.sort(key=lambda p: -(date_ms(p["date"]) or 0))
 # Series order within a wave, so a window cut short by a lockout has spent
 # itself on the papers people search for most. This ranks SERIES, never
 # puzzles: every entry in a wave is already its own lane's newest gap. A series
@@ -865,7 +867,8 @@ todo = [lanes[s][i]
 # log. It ran in the wrong order for weeks behind a single line listing 166 ids.
 # stderr, because stdout is the queue itself.
 for p in todo[:5]:
-    when = (f"{datetime.fromtimestamp(p['date'] / 1000, timezone.utc):%Y-%m-%d}"
+    when = (f"{p['date']:<10}" if is_year(p["date"])
+            else f"{datetime.fromtimestamp(p['date'] / 1000, timezone.utc):%Y-%m-%d}"
             if p["date"] else "  undated  ")
     print(f"  {when}  {p['id']}", file=sys.stderr)
 if len(todo) > 5:
