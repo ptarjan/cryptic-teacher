@@ -113,6 +113,17 @@ print("RERUN_UNTOUCHED", before == {q.name: q.read_bytes() for q in fetch_puzzle
 print("DRIFTED", ",".join(drifted))
 print("SETTERS", sunday["setter"], json.loads((fetch_puzzle.PUZZLE_DIR / "times-29000.json").read_text())["setter"])
 
+# A number inside the Globe's run that it never printed is still filed here.
+(fetch_puzzle.PUZZLE_DIR / "globeandmail-3152.json").write_text("{}")
+held = F.reprinted_from()
+print("REPRINT_GAP", ",".join(str(F.reprinted_by(held, "timesquick", n)) for n in (3150, 3151, 3200)))
+
+# A title one typing slip from the only unclaimed number that fits is renumbered.
+fits = lambda date, n: 5040 <= n <= 5050
+print("RETYPED", F.retyped({"number": 5445, "date": "2023-02-12"}, fits, {5044, 5046}),
+      F.retyped({"number": 5445, "date": "2023-02-12"}, fits, {5045}),
+      F.retyped({"number": 2019, "date": "2019-02-23"}, fits, set()))
+
 # A null setter on disk is replaced by the title's; a name never is.
 sp = fetch_puzzle.PUZZLE_DIR / "sundaytimes-4321.json"
 for key, held in (("PLACEHOLDER", None), ("NAMED", "Someone")):
@@ -128,6 +139,10 @@ check "files the complete, in-sequence rows" "sundaytimes:1,times:4" "$(got FILE
 check "a light with no clue, or only its count, refuses the puzzle" "2" "$(got NO_CLUE)"
 check "a misread number is refused" "1" "$(got OUT_OF_SEQUENCE)"
 check "a number the Globe and Mail reprints is left to it" "1" "$(got REPRINTED)"
+check "a number the Globe skipped inside its run is filed as the Quick" \
+  "globeandmail,None,globeandmail" "$(got REPRINT_GAP)"
+check "a mistyped title is renumbered only onto one free slot that fits" \
+  "5045 None None" "$(got RETYPED)"
 check "the clue keeps its enumeration" "Two words (2,3)" "$(got CLUE_KEEPS_COUNT)"
 check "markup and lost bytes are stripped from a clue" "Say “it” quietly (2)" "$(got CLEAN)"
 check "word breaks come from the enumeration" '{",": [2]}' "$(got SEPARATORS)"
