@@ -118,7 +118,6 @@ from normalise_linked_enumerations import (enumeration_parts,  # noqa: E402
 from series import (BOOK_SERIES, book_number, default_setter,  # noqa: E402
                     official_key, published, puzzle_id, puzzle_name,
                     scan_url)
-import provenance  # noqa: E402
 
 def source_url(series, number):
     """The archive.org item these clues were read out of.
