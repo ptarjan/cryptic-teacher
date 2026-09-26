@@ -363,6 +363,11 @@ def parse(xml_bytes, ymd):
     if not named:
         raise ValueError(f"unrecognised title {title!r}")
     setter, number_text = named
+    # "No. 10,093" alone names no setter; that day's <creator> does, either
+    # bare ("Tees") or in the title's own shape ("9226 by S.park").
+    if not setter:
+        creator_text = (puz.findtext(f"{NS}metadata/{NS}creator") or "").strip()
+        setter = (metadata_title(creator_text) or (creator_text or None,))[0]
     number = true_number(ymd, int(re.sub(r"[,\s]", "", number_text)))
 
     grid = puz.find(f"{NS}crossword/{NS}grid")
