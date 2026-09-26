@@ -2374,7 +2374,8 @@ def main(argv):
                     f"{field} is required on everything annotated since it was added. "
                     f"The warnings above name them and say what to write.")
         status = "OK" if not errors else "FAIL"
-        print(f"{puzzle['id']} ({puzzle['setter']}): {annotated}/{total} annotated — {status}")
+        by = f" ({puzzle['setter']})" if puzzle.get("setter") else ""
+        print(f"{puzzle['id']}{by}: {annotated}/{total} annotated — {status}")
         for w in warnings:
             if annotated:
                 print(f"{WARN_PREFIX}{w}")
