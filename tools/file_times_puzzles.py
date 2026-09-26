@@ -31,7 +31,8 @@ entries close, so theirs comes from the Times's own listing
 between them, and stays null where those prove nothing.
 
 The setter of a Quick or Sunday Times puzzle is the one the post's title
-names; the Times Cryptic and the Jumbo stay anonymous.
+names, or failing that SETTERS_FROM_COMMENTS; the Times Cryptic and the Jumbo
+stay anonymous.
 
 A file already on disk is never rewritten but for its date, which facts
 arriving later (the next week's posts, the listing) can prove, and a
@@ -78,9 +79,23 @@ SUNDAY_TIMES_BELOW = 10_000
 BYLINED = {"timesquick", "sundaytimes"}
 
 
+#: Setters of bylined puzzles whose post title names nobody, keyed by post_id.
+#: Each is the name the post's comments agree on, read off
+#: timesforthetimes.co.uk/wp-json/wp/v2/comments?post=<post_id>, or its own
+#: body backed by a comment; a lone commenter's guess is not enough.
+SETTERS_FROM_COMMENTS = {
+    25945: "Dean Mayer",    # ST 5079: "setter Dean", "Mr Mayer", "Typical economy from Dean"
+    29816: "Robert Price",  # ST 5107: "Thanks Robert", "Robert Price's elegant clues"
+    7589: "Flamande",       # QC 570: the post body ("Flamande's puzzles") and a commenter
+    21545: "Orpheus",       # QC 2326: "thank you Orpheus ... thank you Merlin" (the blogger)
+    22309: "Orpheus",       # QC 2356: "Thanks Merlin and Orpheus", from six commenters
+}
+
+
 def setter(rec, series):
     """The setter the post's title names, where the series prints one."""
-    named = series in BYLINED and tftt.setter_from_title(rec.get("title"))
+    named = series in BYLINED and (tftt.setter_from_title(rec.get("title"))
+                                   or SETTERS_FROM_COMMENTS.get(rec.get("post_id")))
     return named or series_meta.default_setter(series)
 
 
