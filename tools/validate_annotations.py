@@ -57,7 +57,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from fetch_puzzle import (  # noqa: E402 — one glob, one id resolver, one reader, one exemption
-    ROOT, clue_words, leaders_named, puzzle_files, read_puzzle_file, resolve_puzzle)
+    clue_words, leaders_named, puzzle_files, read_puzzle_file, resolve_puzzle)
 from find_answer_leaks import says  # noqa: E402 — one matcher, shared with the finder
 
 # The controlled vocabulary for `type`. Compound types join parts with " + " and
@@ -2064,7 +2064,7 @@ def check_clue_unchanged(puzzle, path, errors):
     except ValueError:
         return
     shown = subprocess.run(["git", "show", f"HEAD:{rel.as_posix()}"], cwd=ROOT,
-                           capture_output=True, text=True)
+                           capture_output=True, text=True, check=False)
     if shown.returncode:
         return                  # not committed yet: nothing to compare with
     was = {e["id"]: e.get("clue") for e in json.loads(shown.stdout).get("entries", [])}
