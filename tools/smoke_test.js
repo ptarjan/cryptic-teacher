@@ -2627,7 +2627,27 @@ if (assert(autoRow, `picker finds ${autoPuzzle.id} when searched for`)) {
         assert(!gap.length || spans.some((s) => s.cls.split(/\s+/).includes("def")),
           `${id} ${e.id}: the definition is not marked at all: ` + registry["hint-clue"].innerHTML);
       }
+      // A definition whose words occur twice in the clue ("Sam, Tim, Rich and
+      // Ali each cutting last cutting", definition "cutting", indicator "each
+      // cutting last") is marked at the end of the clue, where definitions
+      // sit, and not on the first match, which is inside the indicator.
+      const hasLetter = (t) => /[A-Za-z]/.test(t);
+      const defHits = [];
+      for (let i = def ? e.clue.indexOf(def) : -1; i >= 0; i = e.clue.indexOf(def, i + 1)) defHits.push(i);
+      const ends = defHits.filter((i) => whole(i, def.length) &&
+        (!hasLetter(e.clue.slice(0, i)) || !hasLetter(e.clue.slice(i + def.length))));
+      if (defHits.length > 1 && ends.length) {
+        repeatedDefs.push(`${id} ${e.id}`);
+        // An indicator inside the definition takes its own words (see
+        // clueMarks), so the rule is: all of it marked, some of it as def.
+        const keys = [...Array(def.length).keys()];
+        assert(ends.some((i) => keys.every((k) => anyMarked.has(i + k)) &&
+                                keys.some((k) => (covered.def || new Set()).has(i + k))),
+          `${id} ${e.id}: the definition ${JSON.stringify(def)} occurs ${defHits.length} times and ` +
+          `is not marked on the occurrence at the end of the clue: ` + registry["hint-clue"].innerHTML);
+      }
     };
+    const repeatedDefs = [];
     const openPuzzle = (id) => reopenForSweep(id);
     for (const id of Object.keys(puzzles).sort()) {
       const withAnn = (puzzles[id].entries || []).filter((e) => e.annotation);
@@ -2680,6 +2700,7 @@ if (assert(autoRow, `picker finds ${autoPuzzle.id} when searched for`)) {
       }
     }
     assert(seenTypes.size > 20, "the sweep saw the corpus's variety of types: " + seenTypes.size);
+    assert(repeatedDefs.length, "the sweep saw a clue whose definition's words occur twice in it");
     // Five rungs exist, so five names exist. A sixth means a branch phrased a
     // label for its clue type, whatever the wording turned out to be.
     const LABEL_SET = LADDER.map((r) => r.label);
