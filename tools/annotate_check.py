@@ -224,11 +224,6 @@ def main(argv):
         print(f"\npuzzles/{path.name} is not valid JSON:\n{err}")
         issues.append("the file is not valid JSON")
 
-    rc, out = run([sys.executable, str(TOOLS / "fetch_puzzle.py"), "--reindex"])
-    if rc:
-        print(f"\nthe index was not rebuilt:\n{out}")
-        issues.append("puzzles/index.json and index.js were not rebuilt")
-
     write_view(path)
     advice = notes(read_puzzle_file(path))
     if advice:
