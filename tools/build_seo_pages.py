@@ -653,6 +653,28 @@ def series_blurbs():
     return app_tables.series_blurbs()
 
 
+def series_blurb(series, ps):
+    """The app's sentence about a series, for a page listing the puzzles ps.
+
+    The books line adds which books those puzzles came out of, counted off ps
+    itself: the registry also holds books not acquired yet, and a count read
+    off it describes the shelf plan rather than the page.
+    """
+    text = series_blurbs().get(series)
+    if not series_meta.is_book(series):
+        return text
+    rows = {}
+    for p in ps:
+        row = series_meta.book_row(series, p["number"])
+        rows[row["book_index"]] = row["title"]
+    titles = [rows[i] for i in sorted(rows)]
+    # Titles carry their own commas ("..., volume 2"), so the list uses semicolons.
+    which = titles[0] if len(titles) < 2 else "; ".join(titles[:-1]) + " and " + titles[-1]
+    own = (f"They come from {len(titles)} books: {which}." if len(titles) > 1
+           else f"They come from one book: {which}.")
+    return f"{text} {own}" if text else own
+
+
 def series_name(series):
     if series_meta.is_book(series):
         return "Crossword books"      # kind and publisher are each book's own
@@ -696,7 +718,6 @@ BADGE_KEY = ("<strong>full hints</strong>: every clue explained. "
 def hub_page(idx):
     who = papers(idx)                 # "Guardian, Independent and Observer"
     n_all = sum(1 for p in idx["puzzles"] if p.get("hasSolutions"))
-    blurbs = series_blurbs()
     title = "Cryptic crossword answers and explanations, by paper and year"
     desc = (f"Answers to {n_all:,} cryptic crosswords from the {who}, sorted by paper "
             "and year. Many are explained clue by clue: the definition, the wordplay and "
@@ -706,7 +727,8 @@ def hub_page(idx):
 
     sections = []
     for s, years in listings(idx).items():
-        n = sum(map(len, years.values()))
+        every = [p for ps in years.values() for p in ps]
+        n = len(every)
         links = " &middot; ".join(
             f'<a href="{site_url(listing_path(s, y))}">{esc(y)}</a> ({len(ps):,})'
             for y, ps in years.items())
@@ -714,7 +736,7 @@ def hub_page(idx):
             f'<section class="s-series" id="{esc(s)}">'
             f'<h2>{esc(series_name(s))} <span class="badge series">'
             f'{esc(series_meta.badge(s))}</span></h2>'
-            + (f'<p>{esc(blurbs[s])}</p>' if s in blurbs else "")
+            + (f'<p>{esc(b)}</p>' if (b := series_blurb(s, every)) else "")
             + f'<p class="muted">{n:,} puzzle{"s" if n != 1 else ""}. Pick a year:</p>'
             f'<p class="s-years">{links}</p></section>')
 
@@ -774,7 +796,7 @@ def listing_page(series, year, ps, prev_year, next_year):
         masthead(crumbs),
         '<main class="static-main">',
         f"<h1>{esc(label)}</h1>",
-        *([f'<p>{esc(series_blurbs()[series])}</p>'] if series in series_blurbs() else []),
+        *([f'<p>{esc(b)}</p>'] if (b := series_blurb(series, ps)) else []),
         (f'<p>{len(ps):,} puzzle{"s" if len(ps) != 1 else ""}, newest first. '
          f'<a href="{BASE}/puzzles/">All papers and years</a>.</p>'),
         f'<p class="muted small-note">{BADGE_KEY}</p>',

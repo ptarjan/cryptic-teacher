@@ -5333,17 +5333,11 @@
     indysunday: ["indy sunday", `The Independent on Sunday's cryptic, with its own
       weekly puzzle numbers: now near 1,900, while the daily's are past 12,400. The same
       setters as the daily, and about as hard.`],
-    book: ["book", `Crosswords out of scanned printed books — thirty of them so
-      far, from The New Penguin Book of The Guardian Crosswords to the Daily
-      Mail's, by way of the Herald, the Scotsman, the Times, four Telegraph
-      lines and two collections by a single setter, Araucaria and Colin Dexter.
-      Out-of-print reprints, so the puzzles are older and harder than today's papers,
-      and the odd one is a great deal harder: the Toughie book is the
-      Telegraph's second daily cryptic. None of these books prints a date or a
-      paper's puzzle number, so each puzzle is named by its book and its place
-      in it — Penguin book 5 No 18 — and the answers are our own solve rather
-      than the paper's, because what a book prints is a picture of a filled
-      grid.`],
+    book: ["book", `Crosswords out of scanned printed books: out-of-print
+      collections, so the puzzles are years older than today's. Each
+      puzzle is named by its book and its place in it — Penguin book 5 No 18 —
+      and the answers are our own solve rather than the paper's, because what a
+      book prints is a picture of a filled grid.`],
   };
 
 
