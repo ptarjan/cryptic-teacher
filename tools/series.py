@@ -188,6 +188,47 @@ SERIES = {
         "badge": "FT",
         "blog": "fifteensquared.net",
     },
+    # The Telegraph's archive is paywalled, so these four are filed by
+    # tools/file_telegraph_puzzles.py from bigdave44.com the way the Times's
+    # are from its blog. The back-page cryptic prints no setter's name, so its
+    # setter is null; the Toughies are always bylined, and the blog names them.
+    # Saturday's prize cryptic shares the daily's number sequence. A prize
+    # puzzle whose hints post is missing is dated off its neighbours.
+    "telegraph": {
+        "kind": "Cryptic",
+        "publisher": "Telegraph",
+        "badge": "telegraph",
+        "datedFromNeighbours": True,
+        "blog": "bigdave44.com",
+    },
+    "toughie": {
+        "kind": "Toughie",
+        "publisher": "Telegraph",
+        "badge": "toughie",
+        "bylined": True,
+        "datedFromNeighbours": True,
+        "blog": "bigdave44.com",
+    },
+    # The Sunday Telegraph's two have their own weekly sequences, ~3,400 and
+    # ~240 against the daily's ~31,300. A separate paper, picked beside the
+    # daily's.
+    "sundaytel": {
+        "kind": "Cryptic",
+        "publisher": "Sunday Telegraph",
+        "group": "Telegraph",
+        "badge": "sunday telegraph",
+        "datedFromNeighbours": True,
+        "blog": "bigdave44.com",
+    },
+    "sundaytough": {
+        "kind": "Toughie",
+        "publisher": "Sunday Telegraph",
+        "group": "Telegraph",
+        "badge": "sunday toughie",
+        "bylined": True,
+        "datedFromNeighbours": True,
+        "blog": "bigdave44.com",
+    },
 }
 
 # --------------------------------------------------------------------- books

@@ -5384,6 +5384,19 @@
       where the Guardian is. The FT doesn't put its grid online, so the grid
       here is rebuilt from the fifteensquared blog's write-up, and the answers
       are that blog's.`],
+    telegraph: ["telegraph", `The Daily Telegraph's back-page cryptic, Monday to
+      Saturday: smooth, approachable clues, and setters are not named. The
+      Telegraph keeps its archive behind a paywall, so the grid here is rebuilt
+      from the write-up on the Big Dave blog, and the answers are that blog's.`],
+    toughie: ["toughie", `The Telegraph Toughie, weekdays: the paper's harder
+      puzzle, from named setters such as Elgar and Dada, with more obscure words
+      and bolder wordplay. Grid rebuilt and answers taken from the Big Dave blog.`],
+    sundaytel: ["sunday telegraph", `The Sunday Telegraph cryptic — a separate paper
+      with its own weekly puzzle numbers, about as hard as the daily. Grid rebuilt
+      and answers taken from the Big Dave blog.`],
+    sundaytough: ["sunday toughie", `The Sunday Telegraph's Toughie, weekly: a
+      harder Sunday puzzle from a small team of named setters. Grid rebuilt
+      and answers taken from the Big Dave blog.`],
     indysunday: ["indy sunday", `The Independent on Sunday's cryptic, with its own
       weekly puzzle numbers: now near 1,900, while the daily's are past 12,400. The same
       setters as the daily, and about as hard.`],
