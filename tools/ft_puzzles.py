@@ -38,7 +38,7 @@ import fetch_fifteensquared as fsq
 import file_times_puzzles as ftp
 import parse_timesforthetimes as tftt
 import times_grids as tg
-from fetch_puzzle import puzzle_path, write_puzzle_file
+from fetch_puzzle import puzzle_path, read_puzzle_file, write_puzzle_file
 
 SERIES = "ftcryptic"
 #: The blog's category, and the label its records carry into times_grids.
@@ -312,9 +312,12 @@ def print_dates(recs):
 
     The numbering is not one number per printing day for good (a week can
     carry an extra one), so nothing is counted across more than one step.
-    A date that does not rise strictly between its neighbours' is dropped,
-    and a gap whose neighbours leave exactly one printing day per number is
-    dated by that cadence."""
+    A date that does not rise strictly between its neighbours' is dropped
+    and refitted: each run of dropped numbers takes the printing days between
+    its dated neighbours nearest its own posts, rising with the numbers, and
+    a run with fewer days than numbers takes in a neighbour each side until
+    it fits, none after its own post. So every number is dated, some a few
+    days out."""
     posted = {}
     for r in recs:
         if r.get("number"):
@@ -333,19 +336,61 @@ def print_dates(recs):
         ok = (last is None or day > last) and (nxt is None or day < nxt)
         dates[n] = day if ok else None
         last = day if ok else last
-    dated = [n for n in order if dates[n]]
-    for a, b in zip(dated, dated[1:]):
-        gap = [n for n in order if a < n < b]
-        if not gap or any(dates[n] for n in gap):
+    i = 0
+    while i < len(order):
+        if dates[order[i]]:
+            i += 1
             continue
-        slots, day = [], dates[a] + ftp.DAY
-        while day < dates[b]:
-            if printing_day(day):
-                slots.append(day)
-            day += ftp.DAY
-        if len(slots) == b - a - 1:
-            dates.update({n: slots[n - a - 1] for n in gap})
+        lo = hi = i
+        while hi + 1 < len(order) and not dates[order[hi + 1]]:
+            hi += 1
+        while True:
+            run = order[lo:hi + 1]
+            fit = nearest(between(dates[order[lo - 1]] if lo else None,
+                                  dates[order[hi + 1]] if hi + 1 < len(order) else None,
+                                  [guess[n] for n in run]),
+                          [guess[n] for n in run], [posted[n] for n in run])
+            if fit:
+                break
+            lo, hi = max(lo - 1, 0), min(hi + 1, len(order) - 1)
+        dates.update(zip(run, fit))
+        i = hi + 1
     return dates
+
+
+def between(after, before, guesses):
+    """The printing days strictly between two dates; an open end reaches a
+    month past the farthest guess."""
+    day = (after or min(guesses) - 31 * ftp.DAY) + ftp.DAY
+    end = before or max(guesses) + 31 * ftp.DAY
+    out = []
+    while day < end:
+        if printing_day(day):
+            out.append(day)
+        day += ftp.DAY
+    return out
+
+
+def nearest(slots, guesses, latest):
+    """One slot per guess, rising with the guesses, none after its latest, the
+    total days off the guesses least; None when no such choice exists."""
+    inf = float("inf")
+    # cost[i][j]: the first i guesses placed in the first j slots.
+    cost = [[0] * (len(slots) + 1)] + [[inf] * (len(slots) + 1) for _ in guesses]
+    for i, g in enumerate(guesses, 1):
+        for j in range(i, len(slots) + 1):
+            cost[i][j] = min(cost[i][j - 1],
+                             cost[i - 1][j - 1] + abs((slots[j - 1] - g).days)
+                             if slots[j - 1] <= latest[i - 1] else inf)
+    if cost[-1][-1] == inf:
+        return None
+    out, j = [], len(slots)
+    for i in range(len(guesses), 0, -1):
+        while cost[i][j] == cost[i][j - 1]:
+            j -= 1
+        out.append(slots[j - 1])
+        j -= 1
+    return out[::-1]
 
 
 def split_by(rec, grid):
@@ -381,6 +426,15 @@ def file(write=True, limit=None):
             skipped["number claimed twice"] += 1
         elif puzzle_path(SERIES, number).exists():
             skipped["already filed"] += 1
+            # Only the date is rewritten: it is fitted to every post, and a
+            # post arriving later can move it.
+            held = read_puzzle_file(puzzle_path(SERIES, number))
+            day = dates.get(number)
+            ms = day and ftp.file_blog_puzzles.epoch_ms(day)
+            if ms and held.get("date") != ms:
+                skipped["already filed, redated"] += 1
+                if write:
+                    write_puzzle_file(puzzle_path(SERIES, number), {**held, "date": ms})
         else:
             rec = split_by(recs[row["post_id"]], row["grid"])
             puzzle, why = ftp.build(rec, row, SERIES, dates.get(number))
