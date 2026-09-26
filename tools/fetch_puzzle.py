@@ -1346,6 +1346,61 @@ SOURCE_ANSWER_WRONG = {
         '"Flashy playing won Murray admirers in seconds" is the second letters '
         "of pLaying wOn mUrray aDmirers, LOUD, which is flashy; the third cell "
         "is unchecked, and fifteensquared has LOUD"),
+    ("cryptic-24213", "18-down"): (
+        "CARPOOT", "CARPORT",
+        "\"Cavil - there's nothing right with cover for wheels\" is "
+        "CARP+O+R+T, a CARPORT; CARPOOT is not a word; the sixth cell is "
+        "unchecked, and fifteensquared has CARPORT"),
+    ("cryptic-24290", "22-down"): (
+        "MIMA", "MIMI",
+        "\"Two notes sung in La Boheme\" is MI+MI, Mimi, the opera's heroine; "
+        "MIMA is no note; the last cell is unchecked, and fifteensquared "
+        "has MIMI"),
+    ("cryptic-24483", "16-down"): (
+        "INEEFABLE", "INEFFABLE",
+        "\"What can't be described or sworn at?\" is INEFFABLE; INEEFABLE is "
+        "not a word; the fourth cell is unchecked, and fifteensquared has "
+        "INEFFABLE"),
+    ("cryptic-24503", "7-down"): (
+        "MANIAC", "MANIOC",
+        '"Island games organizers assemble for meal" is MAN (island) + IOC '
+        "(games organisers), MANIOC, cassava meal; the fifth cell is "
+        "unchecked, and fifteensquared has MANIOC"),
+    ("cryptic-24590", "1-down"): (
+        "ACUTEALGLE", "ACUTEANGLE",
+        '"Report of a row, dispute? Mathematicians know all about this" '
+        "(5,5) is ACUTE ANGLE; ALGLE is not a word; the seventh cell is "
+        "unchecked, and fifteensquared has ACUTEANGLE"),
+    ("cryptic-29386", "4-down"): (
+        "BLANDER", "BLUNDER",
+        '"Line in book below is solecism" is B(ook) + L in UNDER (below), '
+        "BLUNDER; a solecism is no BLANDER; the third cell is unchecked, "
+        "and fifteensquared has BLUNDER"),
+    ("everyman-3278", "2-down"): (
+        "CASTIROR", "CASTIRON",
+        '"Found golf club inflexible" (4-4) is CAST (found) + IRON (golf '
+        "club), CAST-IRON; CASTIROR is not a word; the last cell is "
+        "unchecked, and fifteensquared has CASTIRON"),
+    ("independent-10038", "1-down"): (
+        "CAMEUPTOSCRATCH", "COMEUPTOSCRATCH",
+        "\"Do what's needed, as irritated divers have to?\" is in the "
+        "present, COME UP TO SCRATCH, divers surfacing to scratch; the "
+        "second cell is unchecked, and fifteensquared has COMEUPTOSCRATCH"),
+    ("independent-11116", "16-across"): (
+        "GCOCCHI", "GNOCCHI",
+        '"Dumplings in green organic wrappers with traditional Chinese '
+        'energy" is GNOCCHI, the dumplings; GCOCCHI is not a word; the '
+        "second cell is unchecked, and fifteensquared has GNOCCHI"),
+    ("independent-9631", "26-across"): (
+        "CUMULUS", "TUMULUS",
+        '"Endless commotion in front of American burial area" is TUMUL(t) + '
+        "US, TUMULUS, a burial mound; a cumulus is a cloud; the first cell "
+        "is unchecked, and fifteensquared has TUMULUS"),
+    ("independent-9996", "7-down"): (
+        "URI", "UNI",
+        '"Early closure of one study centre" is UNI(t), one closed early, '
+        "and a study centre is a UNI; URI is neither; the second cell is "
+        "unchecked, and fifteensquared has UNI"),
 }
 
 
