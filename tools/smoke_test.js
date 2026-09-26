@@ -2080,9 +2080,41 @@ if (assert(autoRow, `picker finds ${autoPuzzle.id} when searched for`)) {
         assert(registry["hint-clue"].innerHTML.includes('class="def'),
           `${target.id} ${e.id}: the definition is marked in the clue`);
       }
-      assert(!registry["hint-next"].children.some((b) => /Full walkthrough|building blocks/.test(b.textContent)),
+      // What the blog marked includes its WORD (clue words) blocks, so the
+      // blocks rung is there exactly when this clue has one; the walkthrough
+      // is the blogger's and never ours to write.
+      const bare = (t) => String(t || "").replace(/[^A-Za-z]/g, "").toUpperCase();
+      const shown = (e.blog.blocks || []).filter(([gives, frag]) => bare(gives) !== bare(frag));
+      assert(!registry["hint-next"].children.some((b) => /Full walkthrough/.test(b.textContent)),
         `${target.id} ${e.id}: a blog ladder stops at what the blog marked: ${btnNames()}`);
+      assert(registry["hint-next"].children.some((b) => /building blocks/.test(b.textContent)) === shown.length > 0,
+        `${target.id} ${e.id}: a building-blocks rung exactly when the blog wrote blocks: ${btnNames()}`);
     }
+  }
+}
+
+// --- a blog's building blocks read like ours ---
+// "TAKE (arrange) + COVER (insurance)" ships as [letters, clue words] pairs,
+// and the blocks rung shows them the way it shows an annotation's: the clue
+// words, an arrow, the letters.
+{
+  const puzzles = global.window.CRYPTIC_PUZZLES;
+  const bare = (t) => String(t || "").replace(/[^A-Za-z]/g, "").toUpperCase();
+  const hit = (p) => (puzzles[p.id].entries || []).find((x) => !x.annotation && x.blog
+    && (x.blog.blocks || []).some(([gives, frag]) => bare(gives) !== bare(frag)));
+  const target = allPuzzles.find((p) => !p.annotated && puzzles[p.id] && puzzles[p.id].blog && hit(p));
+  if (assert(target, "the sample holds an un-annotated clue with blog blocks") && openFromPicker(target.id)) {
+    const e = hit(target);
+    registry["clue-" + e.id].listeners.click[0]();
+    for (let guard = 0; guard < 20; guard++) {
+      const btn = registry["hint-next"].children.find(CLIMBABLE);
+      if (!btn) break;
+      takeRung(btn);
+    }
+    const [gives, frag] = e.blog.blocks.find(([g, f]) => bare(g) !== bare(f));
+    const body = registry["hint-body"].innerHTML;
+    assert(body.includes(`“${frag}”`) && body.includes(`<span class="gives">${gives}</span>`),
+      `${target.id} ${e.id}: the blocks rung shows “${frag}” → ${gives}: ${body.slice(0, 400)}`);
   }
 }
 
