@@ -77,7 +77,7 @@ MONTHS = {m: i for i, m in enumerate(
 REVIEW = re.compile(r"\breview\b", re.I)
 
 #: The days each series is printed on; a date on another day is no print date.
-PRINT_DAYS = {"telegraph": set(range(6)), "toughie": set(range(6)),
+PRINT_DAYS = {"telegraph": set(range(6)), "toughie": {1, 2, 3, 4},
               "sundaytel": {6}, "sundaytough": {6}}
 
 #: How many lights a Telegraph 15x15 has, give or take a linked answer. A
