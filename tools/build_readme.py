@@ -254,6 +254,7 @@ LAYOUT = [
     ("tables everything else reads", "tools/test_nightly_worktree.sh", "which tree does a scheduled job end up running in? checked by running one"),
     ("tables everything else reads", "tools/test_refresh_window.sh", "does refresh_unsolved ever stop asking for an answer that is never coming?"),
     ("tables everything else reads", "tools/test_privateeye_dates.sh", "does tools/fetch_privateeye.py read the issue off every title shape the archive ships, and take the Eye's Christmas cover date as it prints it?"),
+    ("tables everything else reads", "tools/test_fetch_puzzle_misfiled.sh", "does fetch_puzzle.convert() refuse a mis-filed Guardian page and accept a re-published one?"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the
