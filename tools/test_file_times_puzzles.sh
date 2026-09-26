@@ -18,7 +18,7 @@ check() {  # check <what> <expected> <got>
 }
 
 out=$(PYTHONPATH="$REPO/tools" python3 - <<'PY'
-import json, pathlib, tempfile
+import datetime, json, pathlib, tempfile
 import fetch_puzzle, provenance
 import reconstruct_grid as rg
 import file_times_puzzles as F
@@ -46,6 +46,9 @@ def rec(post_id, number, date, label="Daily Cryptic", clue=lambda k: f"Words for
 def row(r, **extra):
     return {"post_id": r["post_id"], "series": r["series"], "number": r["number"],
             "date": r["date"], "grid": list(TINY), "how": "unique", **extra}
+
+# The lone Sunday Times has no neighbour to date it by; the paper's listing does.
+LISTING = {("sundaytimes", 4321): datetime.date(2026, 1, 11)}
 
 tmp = pathlib.Path(tempfile.mkdtemp())
 fetch_puzzle.PUZZLE_DIR = tmp / "puzzles"
@@ -81,7 +84,7 @@ grids, parsed = tmp / "grids.jsonl", tmp / "parsed.jsonl"
 grids.write_text("".join(json.dumps(r) + "\n" for r in rows))
 parsed.write_text("".join(json.dumps(r) + "\n" for r in recs))
 
-filed, skipped, drifted = F.run(grids, parsed, listing={})
+filed, skipped, drifted = F.run(grids, parsed, listing=LISTING)
 print("FILED", ",".join(f"{s}:{n}" for s, n in sorted(filed.items())))
 print("NO_CLUE", skipped["a light has no clue"])
 print("OUT_OF_SEQUENCE", skipped["number out of sequence"])
@@ -107,7 +110,7 @@ edited = json.loads(path.read_text())
 edited["entries"][0]["clue"] = "Annotated since (2)"
 path.write_text(json.dumps(edited))
 before = {q.name: q.read_bytes() for q in fetch_puzzle.PUZZLE_DIR.iterdir()}
-filed, _, drifted = F.run(grids, parsed, listing={})
+filed, _, drifted = F.run(grids, parsed, listing=LISTING)
 print("RERUN_FILED", sum(filed.values()))
 print("RERUN_UNTOUCHED", before == {q.name: q.read_bytes() for q in fetch_puzzle.PUZZLE_DIR.iterdir()})
 print("DRIFTED", ",".join(drifted))
@@ -128,7 +131,7 @@ print("RETYPED", F.retyped({"number": 5445, "date": "2023-02-12"}, fits, {5044, 
 sp = fetch_puzzle.PUZZLE_DIR / "sundaytimes-4321.json"
 for key, held in (("PLACEHOLDER", None), ("NAMED", "Someone")):
     sp.write_text(json.dumps({**sunday, "setter": held}))
-    F.run(grids, parsed, listing={})
+    F.run(grids, parsed, listing=LISTING)
     print(f"RENAMED_{key}", json.loads(sp.read_text())["setter"])
 
 # "See 5 Across (3)" under a light 5-across's clue names, each light counting
@@ -187,7 +190,7 @@ check "a daily is dated by its post" "1767571200000" "$(got DATED)"
 check "rebuilt grid, write-up answers" "reconstructed writeup" "$(got ORIGINS)"
 check "provenance passes the validator" "True" "$(got PROV_CLEAN)"
 check "the grid's correction beats the blog's typo" "True" "$(got CORRECTED)"
-check "a prize puzzle nothing dates carries no date" "None None" "$(got PRIZE_UNDATED)"
+check "a prize puzzle takes its listed day, and one nothing dates a best fit" "1768089600000 1768176000000" "$(got PRIZE_UNDATED)"
 check "a second run files nothing" "0" "$(got RERUN_FILED)"
 check "a second run rewrites nothing" "True" "$(got RERUN_UNTOUCHED)"
 check "a drifted file is named" "times-102" "$(got DRIFTED)"
