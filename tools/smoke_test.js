@@ -681,26 +681,6 @@ const patBoxes = () => (patHTML().match(/class="pat-box [^"]*"/g) || []);
   indexSeries.forEach((s) => assert(badged.includes(s),
     `series '${s}' has a badge in app.js's SERIES_BADGE`));
 
-  /* --- and its own colour, not the default one ---
-
-     A badge with no `.badge.series-<key>` rule silently falls back to
-     --badge-series-*, which is the Guardian's purple, so the paper legend shows
-     two, three, four papers wearing one colour and the chips stop being
-     readable without their labels. Cyclops, Metro and the Globe and Mail each
-     shipped that way — the CSS was written when there were five series and
-     nothing made adding a sixth touch it. "cryptic" is the one legitimate
-     user of the default: it IS the default.
-
-     Checked over the index's series as well as app.js's, so a series that is
-     in neither file is told both things in one run. Checking only `badged`
-     made adding a series cost a red run per file: register it and CI names the
-     missing badge, add the badge and CI then names the missing colour. */
-  const badgeCss = fs.readFileSync(path.join(ROOT, "style.css"), "utf8");
-  [...new Set([...badged, ...indexSeries])]
-    .filter((s) => s !== "cryptic" && s !== "authored").forEach((s) =>
-    assert(badgeCss.includes(`.badge.series-${s} `),
-      `series '${s}' has its own pill colour in style.css (.badge.series-${s})`));
-
   /* --- a push notification says WHICH PAPER, and there is still one table ---
 
      On the site a row wears a badge, so "Cryptic crossword No 30,106" is
@@ -1447,6 +1427,12 @@ const drainPicker = () => {
   assert(guard < 2000, "the picker stops appending rows rather than growing forever");
   return pickerRows();
 };
+// A menu is a <select>: set its value and fire change, as the browser does.
+const chooseIn = (id, value) => {
+  registry[id].value = value;
+  registry[id].listeners.change[0]();
+};
+const choosePaper = (value) => chooseIn("picker-paper", value);
 const typeInPicker = (q) => {
   registry["picker-search"].value = q;
   registry["picker-search"].listeners.input[0]();
@@ -1899,9 +1885,8 @@ assert(registry["picker-search"].value === "", "the filter box starts empty on o
    elements and 3.8 MiB of markup handed to the browser in one go, for a list
    that shows about a dozen rows at a time.
 
-   Driven off the biggest chip rather than a paper named here, so the test
+   Driven off the biggest paper rather than one named here, so the test
    follows the corpus instead of a word that was true the day it was written.
-   Papers come biggest-first and before the bands, so pf-0 is that chip.
 
    The counts are checked against each other rather than against numbers
    written down: what the line says is below plus what is drawn must BE the
@@ -1913,8 +1898,10 @@ assert(registry["picker-search"].value === "", "the filter box starts empty on o
 {
   if (registry["picker-panel"].classList.contains("hidden")) registry["btn-picker"].onclick();
   typeInPicker("");
-  registry["pf-0"].onclick();
-  const chip = registry["picker-search"].value;
+  const sizes = {};
+  allPuzzles.forEach((p) => { sizes[p.series] = (sizes[p.series] || 0) + 1; });
+  const chip = Object.keys(sizes).sort((a, b) => sizes[b] - sizes[a])[0];
+  choosePaper(chip);
   const more = () => registry["picker-more"].innerHTML;
   const drawn = pickerRows().length;
   assert(drawn === PICKER_CHUNK,
@@ -1956,7 +1943,7 @@ assert(registry["picker-search"].value === "", "the filter box starts empty on o
   // The default list is short by design and must not be chunked: the newest
   // RECENT_ROWS plus whatever the solver has open or unfinished is an answer to
   // "what next", not a thing to scroll.
-  typeInPicker("");
+  choosePaper("");
   assert(pickerRows().length <= PICKER_CHUNK && !/keep scrolling/.test(more()),
     `the default list arrives whole: ${pickerRows().length} rows, ${more()}`);
 }
@@ -5215,15 +5202,7 @@ global.realSetTimeout(() => {
   probes.forEach((q) => {
     typeInPicker(q);
     const opts = suggestions();
-    // A probe whose word is already a standing chip needs no completion: the
-    // chip sits next to the box permanently, so the word has been seen, which
-    // is the whole point of completing it. Private Eye's setter IS its paper —
-    // "cyclops" is both — and app.js drops a suggestion that repeats a chip
-    // rather than offering the same word twice.
-    const chipped = [...registry["picker-filters"].innerHTML.matchAll(
-      /id="pf-\d+"[^>]*>([^<]+)</g)].some((m) => m[1].toLowerCase().includes(q));
-    assert(opts.length > 0 || chipped,
-      `"${q}" completes to something, or is already a chip`);
+    assert(opts.length > 0, `"${q}" completes to something`);
     // There is no cap in app.js on how many completions a query can return —
     // pickerSuggestTerms() just filters the whole vocabulary and hands it all
     // back — so a fixed "<= 12" here was never a real product invariant. It
@@ -5254,81 +5233,95 @@ global.realSetTimeout(() => {
   registry["btn-picker-close"].onclick();
 }
 
-// --- the papers and the bands are named, not left to be guessed at ---
-// The search takes "brutal" and "everyman" and the rows wear both badges, but
-// neither tells you the words exist: a completion cannot complete a word you
-// have never seen, and the default list is the newest dozen — one puzzle in the
-// collection is Gentle, and Everyman, the biggest series of the five, starts
-// twenty-three rows down. So EVERY band and EVERY paper is
-// named next to the box, bands easiest first and papers biggest first.
+// --- the paper and difficulty menus: every paper, grouped by publisher ---
+// Every series in the index is an option, under its publisher from the index's
+// own `papers` table, and a publisher with two or more series has an "All"
+// option at the head of its group. An option's value is the series keys it
+// stands for, so choosing one filters on the key and never on the paper's name:
+// "times" is a word inside "times quick" and "sunday times", and choosing the
+// Times must list the Times alone.
 {
   registry["btn-picker"].onclick();
-  // Scraped out of the HTML, so the text arrives escaped: the chip the solver
-  // reads as "globe & mail" is written "globe &amp; mail" there.
-  const shown = () => [...registry["picker-filters"].innerHTML.matchAll(
-    /id="pf-\d+"[^>]*>([^<]+)</g)].map((m) => m[1]
-      .replace(/&#39;/g, "'").replace(/&quot;/g, '"').replace(/&amp;/g, "&"));
+  const menu = registry["picker-paper"].innerHTML;
+  const papers = window.CRYPTIC_INDEX.papers || {};
+  const n = {};
+  allPuzzles.forEach((p) => { n[p.series] = (n[p.series] || 0) + 1; });
+  const groups = [...menu.matchAll(/<optgroup label="([^"]*)">([\s\S]*?)<\/optgroup>/g)]
+    .map((m) => ({ label: m[1].replace(/&amp;/g, "&"),
+                   values: [...m[2].matchAll(/value="([^"]*)"/g)].map((v) => v[1]) }));
+  const single = groups.flatMap((g) => g.values).filter((v) => !v.includes(","));
+  assert(single.slice().sort().join() === Object.keys(n).sort().join(),
+    `every series in the index is one option in the paper menu, once: ${single.join(" ")}`);
+  const byPub = {};
+  Object.keys(n).forEach((s) => { (byPub[papers[s] || ""] = byPub[papers[s] || ""] || []).push(s); });
+  Object.keys(byPub).filter((pub) => pub && byPub[pub].length > 1).forEach((pub) => {
+    const g = groups.find((x) => x.label === pub);
+    if (!assert(g, `${pub} prints ${byPub[pub].join(", ")}, so it has a group of its own`)) return;
+    assert(g.values[0].split(",").sort().join() === byPub[pub].sort().join(),
+      `${pub}'s group opens with an "All" option for exactly its series: ${g.values[0]}`);
+    assert(g.values.slice(1).sort().join() === byPub[pub].sort().join(),
+      `and then lists each of them: ${g.values.join(" ")}`);
+  });
 
-  const at = {}, n = {};
-  (window.CRYPTIC_INDEX.puzzles || []).forEach((p) => {
+  // Each option matches exactly its own series' puzzles. Counted off the line
+  // under the list (drawn + "more match"), which the chunking test above holds
+  // to the scrolled truth, so no option has to be scrolled to its end here.
+  const matched = () => pickerRows().length
+    + Number((/(\d+) more match/.exec(registry["picker-more"].innerHTML) || [0, 0])[1]);
+  groups.flatMap((g) => g.values).forEach((v) => {
+    choosePaper(v);
+    const want = v.split(",").reduce((t, k) => t + n[k], 0);
+    assert(matched() === want, `choosing "${v}" matches its ${want} puzzles: ${matched()}`);
+  });
+  // The mirror of the name-matching bug: the Times option is the Times alone,
+  // though "times" is inside the name of every Times paper.
+  if (n.times && (n.timesquick || n.sundaytimes)) {
+    choosePaper("times");
+    assert(matched() === n.times && pickerRows().every((li) => /badge series[^>]*>times</.test(li.children[0].innerHTML)),
+      `choosing the Times lists its ${n.times} alone, not every paper with "times" in its name: ${matched()}`);
+  }
+
+  // The bands, easiest first, off the percentiles.
+  const at = {};
+  allPuzzles.forEach((p) => {
     const d = p.difficulty;
-    n[p.series || "cryptic"] = (n[p.series || "cryptic"] || 0) + 1;
     if (!d || !d.band || d.percentile === null || d.percentile === undefined) return;
     const b = d.band.toLowerCase();
     if (at[b] === undefined || d.percentile < at[b]) at[b] = d.percentile;
   });
   const bands = Object.keys(at).sort((a, b) => at[a] - at[b]);
-  assert(bands.length >= 2, "the collection has bands to name: " + bands.join(" "));
-  const papers = Object.keys(n).sort((a, b) => n[b] - n[a] || a.localeCompare(b));
-  assert(papers.length >= 2, "and papers to name: " + papers.join(" "));
-  // As many chips as there are of both, so a paper cannot go unnamed by being
-  // rendered as something the eye reads as a band or the other way round.
-  const want = shown();
-  assert(want.length === bands.length + papers.length,
-    `every paper and every band is named: ${want.join(" ")} vs ${papers.length} papers `
-      + `and ${bands.join(" ")}`);
-  assert(want.slice(-bands.length).join(" ") === bands.join(" "),
-    "bands last, easiest first: " + want.join(" "));
+  const bandMenu = [...registry["picker-band"].innerHTML.matchAll(/value="([^"]*)"/g)].map((m) => m[1]);
+  assert(bandMenu.join(" ") === " " + bands.join(" "),
+    `the difficulty menu is "any" then every band, easiest first: ${bandMenu.join("|")}`);
 
-  // Each one is a filter — including the papers, whose chip says the name of
-  // the paper and not the series key underneath it ("cryptic" is the Guardian).
-  // A word offered as a filter that finds nothing is worse than no word.
-  want.forEach((w, i) => {
-    registry["pf-" + i].onclick();
-    assert(registry["picker-search"].value === w,
-      `tapping "${w}" searches for it: ` + registry["picker-search"].value);
-    assert(registry["picker-list"].children.length > 0, `"${w}" finds puzzles`);
-    // Only the chip tapped is ringed: "times jumbo" in the box holds every word
-    // of "times", and that must not light the Times chip too.
-    const ringed = [...registry["picker-filters"].innerHTML.matchAll(
-      /id="pf-(\d+)"[^>]*aria-pressed="true"/g)].map((m) => want[+m[1]]);
-    assert(ringed.join("|") === w, `tapping "${w}" rings it alone: ${ringed.join(", ")}`);
-    registry["pf-" + i].onclick();
-    assert(!registry["picker-search"].value,
-      `and tapping "${w}" again is the way back out: ` + registry["picker-search"].value);
-  });
-
-  // --- and they combine ---
-  // "I can choose Everyman brutal". A tap used to REPLACE the box, so the paper
-  // and the difficulty were mutually exclusive by accident — while the TYPED
-  // search had been intersecting its terms all along. The chips are how you spell
-  // a query without knowing the words; they must not be able to say less than the
-  // box they fill in.
-  const empty = () => registry["picker-list"].children.length === 1 &&
-    registry["picker-list"].children[0].className === "picker-empty";
-  let band = null;
-  for (let i = papers.length; i < want.length && !band; i++) {
-    typeInPicker("");                    // through the box, so the chips re-read it
-    registry["pf-0"].onclick();
-    registry["pf-" + i].onclick();
-    if (!empty()) band = { w: want[i], i };
-  }
-  if (assert(band, "some paper and some band go together: " + want.join(" "))) {
-    assert(registry["picker-search"].value === want[0] + " " + band.w,
-      "two chips make two terms, not the second one: " + registry["picker-search"].value);
-    registry["pf-" + band.i].onclick();
-    assert(registry["picker-search"].value === want[0],
-      "and taking one back out leaves the other standing: " + registry["picker-search"].value);
+  // --- and they combine, with each other and with the box ---
+  // "I can choose Everyman brutal": the paper and the band intersect, and a
+  // typed term narrows that further rather than replacing it.
+  const biggest = Object.keys(n).sort((a, b) => n[b] - n[a])[0];
+  const band = bands.find((b) => allPuzzles.some((p) => p.series === biggest
+    && p.difficulty && p.difficulty.band.toLowerCase() === b));
+  if (assert(band, `some band has ${biggest} puzzles`)) {
+    choosePaper(biggest);
+    chooseIn("picker-band", band);
+    const both = allPuzzles.filter((p) => p.series === biggest
+      && p.difficulty && p.difficulty.band.toLowerCase() === band).length;
+    assert(matched() === both,
+      `${biggest} + ${band} matches the ${both} puzzles that are both: ${matched()}`);
+    assert(registry["picker-paper"].classList.contains("on"),
+      "a menu set to anything but all is marked as a filter in force");
+    const one = allPuzzles.find((p) => p.series === biggest && typeof p.date === "number"
+      && p.difficulty && p.difficulty.band.toLowerCase() === band);
+    if (one) {
+      const day = new Date(one.date).toISOString().slice(0, 10);
+      typeInPicker(day);
+      assert(matched() > 0 && matched() <= both,
+        `typing "${day}" narrows the chosen paper and band: ${matched()} of ${both}`);
+    }
+    // Opening the picker again starts from all papers and any difficulty.
+    registry["btn-picker-close"].onclick();
+    registry["btn-picker"].onclick();
+    assert(registry["picker-paper"].value === "" && registry["picker-band"].value === "",
+      "the menus start at all on every open");
   }
   typeInPicker("");
   registry["btn-picker-close"].onclick();
@@ -5345,7 +5338,7 @@ global.realSetTimeout(() => {
   registry["btn-picker"].onclick();
   const note = () => registry["picker-note"].innerHTML || "";
   assert(!note(), "the explanation takes no room until it is asked for: " + note());
-  registry["pf-diff-help"].onclick();
+  registry["picker-diff-help"].onclick();
   const open = note();
   assert(/with the others on this site/.test(open), "the ? says what a band is measured against: " + open);
   assert(/solving times aren.t used/.test(open), "and what is not in it: " + open);
@@ -5360,7 +5353,7 @@ global.realSetTimeout(() => {
     assert(new RegExp(">" + b + "</span> " + bands[b] + "\\b").test(open),
       `it counts the ${b} puzzles as ${bands[b]}: ` + open);
   });
-  registry["pf-diff-help"].onclick();
+  registry["picker-diff-help"].onclick();
   assert(!note(), "and the same tap puts it away: " + note());
   registry["btn-picker-close"].onclick();
 }

@@ -5486,8 +5486,8 @@
     return pickerStaticHay(p) + (st.done ? " solved done" : " started unfinished");
   }
   // What the panel offers as you type. Only the terms a solver could not be
-  // expected to have spelled right from memory — the setters above all, then
-  // series, band and day — plus the two status filters. Numbers are deliberately
+  // expected to have spelled right from memory — setters and weekdays — plus the
+  // two status filters. Papers and bands have menus of their own. Numbers are deliberately
   // absent: 226 of them would bury every word in the list, and a number you can
   // remember you can already type.
   //
@@ -5510,35 +5510,17 @@
     if (pickerTerms === null) {
       const seen = { solved: 1, unfinished: 1 };
       INDEX.puzzles.forEach((p) => {
-        [p.setter, (SERIES_BADGE[p.series || "cryptic"] || [""])[0],
-         p.difficulty ? p.difficulty.band : "",
-         puzzleDate(p).day].forEach((t) => { if (t) seen[t] = 1; });
+        [p.setter, puzzleDate(p).day].forEach((t) => { if (t) seen[t] = 1; });
       });
       pickerTerms = Object.keys(seen).sort((a, b) => a.localeCompare(b));
     }
     return pickerTerms.filter((t) => t.toLowerCase().includes(q));
   }
 
-  // The two vocabularies the search accepts and nothing else teaches: the bands
-  // and the papers. A completion cannot offer a word you have never seen, and
-  // the rows only wear what the visible dozen happen to be — one puzzle in the
-  // whole collection is Gentle, and Everyman, the biggest series of the five,
-  // starts twenty-three rows down. Scrolling would not turn either up. So both are named outright, in full, next to the box.
-  //
-  // Bands run easiest first off the percentiles rather than being listed here,
-  // so a band that gets added or renamed in tools/difficulty.py cannot land in
-  // the wrong place or go missing.
-  // The badges carry a title= with all of this in it, which needs a pointer to
-  // hover and so has never once been read on the iPad this gets solved on.
-  // Said in words instead, behind the ? beside the chips.
-  //
-  // The counts are read off the collection every time rather than written down:
-  // a share stated in prose is true on the day it is pasted, and this one moves
-  // with every puzzle that arrives. Bands come from pickerBandList(), so one
-  // added or renamed in tools/difficulty.py appears here on its own.
-  // Which row's ? is open, or null. One paragraph below the rows, because the
-  // note is a thing that costs height — which is the reason the prose went
-  // behind a ? at all.
+  // What the bands mean, behind the ? beside the difficulty menu: the badges'
+  // title= needs a pointer to hover and so is never read on an iPad. The counts
+  // are read off the collection every time, never written down.
+  // Which note is open, or null.
   let pickerNote = null;
   function difficultyNoteHTML() {
     const n = {};
@@ -5570,42 +5552,68 @@
     return pickerBands;
   }
 
-  // Papers, biggest first: how much there is to solve is the useful order when
-  // the question is which one to try. Read off SERIES_BADGE so the word offered
-  // is the word the row's chip says — the series KEY is storage ("cryptic" is
-  // the Guardian, "indysunday" is two words), and offering that would be
-  // teaching the database's name for the paper instead of the paper's.
-  let pickerPapers = null;
-  function pickerPaperList() {
-    if (pickerPapers) return pickerPapers;
+  // The two menus under the search box, built from the index alone.
+  //
+  // Papers are grouped by publisher, which is index.json's `papers` table and
+  // so tools/series.py's: a series added there lands in its publisher's group
+  // with nothing to edit here. A publisher with two or more series gets a group
+  // with an "All" option at its head; the single-series ones share one group,
+  // because a heading over one option is only a longer way to say its name.
+  // Biggest first at every level, because how much there is to solve is the
+  // useful order when the question is which one to try.
+  //
+  // An option's value is the comma-joined series keys it stands for, so the
+  // filter reads a key set straight off the menu and never matches a paper by
+  // its name: "times" as a search term is inside "times quick" and "sunday
+  // times", and a filter must not be.
+  const titleCase = (s) => s.replace(/(^|\s)\S/g, (c) => c.toUpperCase());
+  let paperMenu = null;
+  function paperMenuHTML() {
+    if (paperMenu !== null) return paperMenu;
+    const papers = INDEX.papers || {};
     const n = {};
-    INDEX.puzzles.forEach((p) => {
-      const badge = SERIES_BADGE[p.series || "cryptic"];
-      if (badge) n[badge[0]] = (n[badge[0]] || 0) + 1;
-    });
-    pickerPapers = Object.keys(n).sort((a, b) => n[b] - n[a] || a.localeCompare(b));
-    return pickerPapers;
+    INDEX.puzzles.forEach((p) => { const s = p.series || "cryptic"; n[s] = (n[s] || 0) + 1; });
+    const size = (keys) => keys.reduce((t, s) => t + n[s], 0);
+    const biggest = (a, b) => size(b) - size(a);
+    const byPub = {};
+    Object.keys(n).forEach((s) => { (byPub[papers[s] || ""] = byPub[papers[s] || ""] || []).push(s); });
+    const opt = (keys, label) => `<option value="${keys.join(",")}">${esc(label)} (${
+      size(keys).toLocaleString("en-GB")})</option>`;
+    const seriesOpt = (s) => opt([s], titleCase((SERIES_BADGE[s] || [s])[0]));
+    const multi = Object.keys(byPub).filter((pub) => pub && byPub[pub].length > 1)
+      .map((pub) => byPub[pub].sort((a, b) => n[b] - n[a]))
+      .sort(biggest);
+    const single = Object.keys(n).filter((s) => !multi.some((g) => g.includes(s)))
+      .sort((a, b) => n[b] - n[a]);
+    paperMenu = `<option value="">All papers</option>`
+      + multi.map((g) => `<optgroup label="${esc(papers[g[0]])}">`
+        + opt(g, "All " + papers[g[0]]) + g.map(seriesOpt).join("") + "</optgroup>").join("")
+      + (single.length ? `<optgroup label="${multi.length ? "Other papers" : "Papers"}">`
+        + single.map(seriesOpt).join("") + "</optgroup>" : "");
+    return paperMenu;
   }
-
-  // A paper chip's colour needs the series KEY ("indysunday"), but the chip
-  // itself is labelled and searched by the word SERIES_BADGE hands out ("indy
-  // sunday") — so look the key back up in the one table that already maps
-  // them, rather than keeping a second table of which paper is which.
-  let seriesKeyByLabel = null;
-  function seriesKeyForLabel(label) {
-    if (!seriesKeyByLabel) {
-      seriesKeyByLabel = {};
-      Object.keys(SERIES_BADGE).forEach((k) => { seriesKeyByLabel[SERIES_BADGE[k][0]] = k; });
-    }
-    return seriesKeyByLabel[label] || "";
+  function bandMenuHTML() {
+    return `<option value="">Any difficulty</option>`
+      + pickerBandList().map((b) => `<option value="${esc(b)}">${esc(titleCase(b))}</option>`).join("");
+  }
+  // The rows the two menus allow, or null when both say "all".
+  function pickerFilter() {
+    const paper = ($("picker-paper") || {}).value || "";
+    const band = ($("picker-band") || {}).value || "";
+    if (!paper && !band) return null;
+    const keys = new Set(paper.split(","));
+    return (p) => (!paper || keys.has(p.series || "cryptic"))
+      && (!band || (!!p.difficulty && String(p.difficulty.band).toLowerCase() === band));
   }
 
   function pickerRows(q) {
     // Every term has to match somewhere, so "imogen 2026" narrows rather than
     // widens — the useful behaviour when the list is long enough to need a
     // filter at all.
+    // A menu set to anything but "all" is a query too, answered the same way.
     const terms = q.split(/\s+/).filter(Boolean);
-    if (terms.length) {
+    const keep = pickerFilter();
+    if (terms.length || keep) {
       // A run of digits is a NUMBER, and a number is not the digits sitting
       // inside a longer one. With 12,462 puzzles indexed that stopped being
       // theoretical: Globe and Mail 3,368 is inside Guardian cryptic 23,368, so
@@ -5617,6 +5625,7 @@
       const matchers = terms.map((t) => (/^\d+$/.test(t)
         ? new RegExp("(^|[^\\d])" + t) : null));
       const hits = INDEX.puzzles.filter((p) => {
+        if (keep && !keep(p)) return false;
         const hay = pickerHaystack(p);
         return terms.every((t, i) => (matchers[i] ? matchers[i].test(hay)
                                                   : hay.includes(t)));
@@ -5630,7 +5639,7 @@
       // no dates gets none of that. The book puzzles are reprints with no
       // publication date, which sorts them below every dated puzzle and orders
       // them among themselves by number — so the eight of them that are
-      // annotated sat at rows 46, 48 and 51-55 of the chip's own list.
+      // annotated sat at rows 46, 48 and 51-55 of their own paper's list.
       return hits.filter((p) => p.annotated).concat(hits.filter((p) => !p.annotated));
     }
     // INDEX.puzzles is latest-first, so the cap counts down from today. The two
@@ -5710,110 +5719,32 @@
     const ul = $("picker-list");
     ul.innerHTML = "";
     const q = (($("picker-search") || {}).value || "").trim().toLowerCase();
-    // Tapping one ADDS its word to the search; tapping it again takes it out, so
-    // the legend is a way back out as well as in. The words landing in the search
-    // box is the lesson — typing them yourself does exactly the same thing — but
-    // it is not the only mark: a chip whose word is in the box carries
-    // aria-pressed, and style.css rings it, so what is on is legible on the chip
-    // you tapped and not only in the box above it.
-    //
-    // The ROWS combine, because the question is nearly always two things at once:
-    // "I can choose Everyman brutal". A tap used to REPLACE
-    // whatever was in the box, so the paper and the difficulty were mutually
-    // exclusive by accident — while the typed search had combined terms all
-    // along. The chips are a way to spell the query without knowing the words;
-    // they must not be able to express less than the box they fill in.
-    //
-    // Within a row they REPLACE, because a puzzle has exactly one paper and
-    // exactly one band: two of them in the box is an AND that matches nothing,
-    // so a second tap on the Papers row left an empty list and two chips ringed.
-    // A row is a choice, not a set. The Matching row is not one of these — a
-    // setter and a weekday are different questions that happen to share a row.
-    //
-    // A row each, papers then difficulty ("the difficulty
-    // could be on its own line"). They shared one wrapping strip to save a line,
-    // and the saving was imaginary — nine chips wrap to two rows on a phone
-    // anyway, and where the wrap falls is up to the width, so "Difficulty" and
-    // half its bands would trail off the end of the papers. Two named rows read
-    // as two questions, which is what they are.
-    const chips = [];
-    // A chip's label can be more than one word ("indy sunday"), and the box is a
-    // list of terms that all have to match, so a chip is ON when every word of it
-    // is in the box and toggling it puts in or takes out exactly those words.
+    // Completions for the word being typed. Tapping one ADDS its words to the
+    // box and tapping it again takes them out, so it is a way back out as well
+    // as in; aria-pressed rings the ones already there. Matched lower-cased,
+    // because a setter is offered as "Arachne" and the box is a lower-case query.
     const picked = q.split(/\s+/).filter(Boolean);
-    // Lower-cased on the way in, because a chip's label need not be: a setter is
-    // offered as "Arachne" and the box is a lower-case query. Compare the two as
-    // written and the chip never reads as on, so tapping it a second time adds
-    // it again instead of taking it out.
     const wordsOf = (w) => w.toLowerCase().split(/\s+/).filter(Boolean);
     const isOn = (w) => wordsOf(w).every((x) => picked.indexOf(x) >= 0);
-    // In a choice row a chip whose words are all inside a longer sibling's is
-    // not on when that sibling is: "times jumbo" in the box is the Jumbo chip,
-    // not Times as well.
-    const chipOn = (w, siblings) => isOn(w) && !siblings.some((s) => s !== w
-      && isOn(s) && wordsOf(s).length > wordsOf(w).length);
-    // Each row numbers its own buttons, so the standing rows keep the same ids
-    // whether or not a completion row is above them.
-    const seq = {};
-    // `oneOf` says this row is a choice: its chips turn each other off. Passed
-    // as the row's own word list rather than read back off the DOM, so the rule
-    // lives where the row is declared.
-    const group = (label, words, cls, prefix, min, extra, oneOf) => words.length < (min || 2) ? "" :
-      `<span class="picker-group"><span class="muted small-note">${label}</span>`
-      + words.map((w) => {
-        const id = prefix + ((seq[prefix] = (seq[prefix] || 0) + 1) - 1);
-        chips.push([id, w, oneOf ? words : []]);
-        return `<button type="button" id="${id}" class="badge ${cls(w)}" aria-pressed="${
-          chipOn(w, oneOf ? words : [])}">${esc(w)}</button>`;
-      }).join("") + (extra || "") + "</span>";
-    // The completions the two standing rows cannot give: setters, weekdays and
-    // the two status words. First, because it is about the letters going in
-    // right now.
-    //
-    // A term already in the box stays, marked on like any other chip — a setter
-    // can be short enough to BE what you have typed ("Ix"), and dropping it at
-    // that moment takes away the one tap that undoes it.
-    const standing = {};
-    pickerPaperList().concat(pickerBandList())
-      .forEach((w) => { standing[w.toLowerCase()] = 1; });
-    const suggest = pickerSuggestTerms(q).filter((t) => !standing[t.toLowerCase()]);
-    setHTML($("picker-filters"),
-      group("Matching", suggest, () => "term", "ps-", 1)
-        + group("Papers", pickerPaperList(),
-                (w) => "series series-" + esc(seriesKeyForLabel(w)), "pf-", 2, "", true)
-        + group("Difficulty", pickerBandList(), (b) => "diff diff-" + esc(b), "pf-", 2,
-                `<button type="button" id="pf-diff-help" class="badge help" aria-expanded="${
-                  pickerNote === "diff"}" aria-label="What the difficulty levels mean">?</button>`,
-                true));
-    setHTML($("picker-note"), pickerNote === "diff" ? difficultyNoteHTML() : "");
-    const help = $("pf-diff-help");
-    if (help) help.onclick = () => {
-      pickerNote = pickerNote === "diff" ? null : "diff";
-      renderPicker();
-    };
-    chips.forEach(([id, w, siblings]) => {
-      const el = $(id);
+    const suggest = pickerSuggestTerms(q);
+    setHTML($("picker-filters"), suggest.length
+      ? `<span class="muted small-note">Matching</span>` + suggest.map((w, i) =>
+        `<button type="button" id="ps-${i}" class="badge term" aria-pressed="${isOn(w)}">${esc(w)}</button>`).join("")
+      : "");
+    suggest.forEach((w, i) => {
+      const el = $("ps-" + i);
       if (!el) return;
       el.onclick = () => {
         const mine = wordsOf(w);
-        let next;
-        if (chipOn(w, siblings)) {
-          next = picked.filter((x) => mine.indexOf(x) < 0);
-        } else {
-          // Only the words of a sibling that is CURRENTLY on come out. Dropping
-          // every sibling's words unconditionally would eat typed terms that a
-          // chip happens to share: "sunday" is a weekday you can search for as
-          // well as half of "indy sunday".
-          const drop = {};
-          siblings.filter((s) => s !== w && chipOn(s, siblings)).forEach(
-            (s) => wordsOf(s).forEach((x) => { if (mine.indexOf(x) < 0) drop[x] = 1; }));
-          next = picked.filter((x) => !drop[x])
-            .concat(mine.filter((x) => picked.indexOf(x) < 0));
-        }
-        $("picker-search").value = next.join(" ");
+        $("picker-search").value = (isOn(w) ? picked.filter((x) => mine.indexOf(x) < 0)
+          : picked.concat(mine.filter((x) => picked.indexOf(x) < 0))).join(" ");
         renderPicker();
       };
     });
+    ["picker-paper", "picker-band"].forEach((id) => $(id).classList.toggle("on", !!$(id).value));
+    $("picker-diff-help").setAttribute("aria-expanded", String(pickerNote === "diff"));
+    setHTML($("picker-note"), pickerNote === "diff" ? difficultyNoteHTML() : "");
+    const filtered = !!(q || pickerFilter());
     const rows = pickerRows(q);
     // This render is throwing away the list the last observer was watching.
     if (pickerWatch) { pickerWatch.disconnect(); pickerWatch = null; }
@@ -5829,7 +5760,7 @@
       const below = rows.length - drawn;
       const bits = [];
       if (below) bits.push(`${below} more match${below > 1 ? "es" : ""} — keep scrolling.`);
-      if (unmatched) bits.push(q
+      if (unmatched) bits.push(filtered
         ? `${unmatched} other puzzle${unmatched > 1 ? "s" : ""} don’t match.`
         : `${unmatched} more — search by puzzle number, setter (the puzzle’s author) or day, type “solved” in the search box to see the ones you finished, or `
           + `<a href="${at("puzzles/")}">browse the whole archive</a>.`);
@@ -5838,7 +5769,7 @@
     if (!rows.length) {
       const li = document.createElement("li");
       li.className = "picker-empty";
-      li.innerHTML = `<span class="muted">Nothing matches “${esc(q)}”.</span>`;
+      li.innerHTML = `<span class="muted">Nothing matches${q ? ` “${esc(q)}”` : ""}.</span>`;
       ul.appendChild(li);
       sayRest();
       return;
@@ -5905,10 +5836,14 @@
     const el = $("picker-panel");
     const want = showPanel("picker-panel", show);
     // Opening always starts from a clean list. A filter left over from last time
-    // would look like puzzles had gone missing.
+    // would look like puzzles had gone missing; "" is each menu's "all".
     const box = $("picker-search");
     if (want) {
       if (box) { box.value = ""; }
+      setHTML($("picker-paper"), paperMenuHTML());
+      setHTML($("picker-band"), bandMenuHTML());
+      $("picker-paper").value = "";
+      $("picker-band").value = "";
       renderPicker();
       // The progress numbers need the answers, and a sync pull may have handed
       // this browser progress on a puzzle whose file it has never fetched.
@@ -6445,6 +6380,12 @@
     // open, no mouse. Escape gets you back out; the global key handler ignores
     // inputs, so it has to be handled here.
     $("picker-search").addEventListener("input", () => renderPicker());
+    $("picker-paper").addEventListener("change", () => renderPicker());
+    $("picker-band").addEventListener("change", () => renderPicker());
+    $("picker-diff-help").onclick = () => {
+      pickerNote = pickerNote === "diff" ? null : "diff";
+      renderPicker();
+    };
     $("picker-search").addEventListener("keydown", (ev) => {
       if (ev.key === "Escape") { togglePicker(false); focusKbd(); return; }
       if (ev.key !== "Enter") return;
