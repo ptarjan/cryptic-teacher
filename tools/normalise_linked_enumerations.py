@@ -69,6 +69,16 @@ ENUM_PART = re.compile(r"(\d+)\s*([,\-–/ ]?)")
 HYPHENS = "-–—"
 
 
+# "See 17 Across", "see 5 down": the direction a continuation names, when it names one.
+NAMED_WAY = re.compile(r"^\s*See\s+\d+\s*(across|ac|a|down|dn|d)\b", re.IGNORECASE)
+
+
+def continuation_direction(clue):
+    """"across" or "down" when a "See N" clue names its leader's direction, else None."""
+    m = NAMED_WAY.match(clue or "")
+    return m and ("across" if m.group(1).lower().startswith("a") else "down")
+
+
 def continuation_target(clue):
     """The number a "See N" clue points at, or None if this clue is a real one."""
     m = CONTINUATION.match(clue or "")
@@ -124,6 +134,7 @@ def resolve_groups(entries):
     The reference is by NUMBER — the book prints "See 15", not "See 15 down" —
     so a number naming two lights is resolved in this order:
 
+      0. a direction the pointer names ("See 17 Across") is the leader's;
       1. a pointer cannot lead a group, so a candidate whose own clue is "See M"
          is not a leader (book 45: "See 19" from 20-down, where 19-across is
          itself "See 17", leaves 19-down TURNED leading TURNED TO STONE);
@@ -141,6 +152,8 @@ def resolve_groups(entries):
     def leader_for(entry, seen):
         target = continuation_target(entry.get("clue"))
         candidates = [c for c in by_number.get(target, []) if c["id"] != entry["id"]]
+        named = continuation_direction(entry.get("clue"))
+        candidates = [c for c in candidates if c["direction"] == named] or candidates
         if not candidates:
             raise SystemExit(
                 f"{entry['id']}: clue {entry['clue']!r} points at No {target}, "

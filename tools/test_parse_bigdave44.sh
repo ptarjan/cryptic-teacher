@@ -57,6 +57,13 @@ tough = post(3, "Toughie 2717", """<p>Toughie No 2717 by Robyn</p><p>Hints and t
 print("BYLINE", B.read_post(tough, CATS)["setter"])
 print("CATEGORY", B.read_post(post(4, "Toughie 3762", "<p>Across</p>", cats=(6, 43, 11, 1373)), CATS)["setter"],
       B.read_post(post(5, "Sunday Toughie 241 (full review)", "<p>x</p>", cats=(6, 7625, 7654)), CATS)["setter"])
+titled = post(7, "Toughie 2257", """<p>Toughie No 2257</p><p>Double, double toil and trouble by Firefly</p>
+<p>Hints and tips by 2Kiwis</p><p>Across</p>""")
+review = post(8, "ST 2500", """<p>Sunday Telegraph Cryptic No 2500</p><p>A full analysis by Peter Biddlecombe</p>""")
+print("TITLED", B.read_post(titled, CATS)["setter"], B.read_post(review, CATS)["setter"])
+typo = post(9, "DT 28148", """<p><strong>Down</strong></p><p>21d   <u>Equipment</u> &amp;npsp;<u>belt</u>? (7)<br />
+<span class="hc">CLOBBER</span>: two definitions</p>""")
+print("NPSP", B.read_post(typo, CATS)["entries"][0]["clue"])
 print("BLOGGER", B.read_post(post(6, "DT 31000", "<p>Hints and tips by Deep Threat</p>"), CATS)["setter"])
 print("SERIES", *(B.series_and_number(post(0, t, ""), "")[0] for t in (
     "DT 31349 (Full Review)", "Toughie 3762", "ST 3385", "Sunday Toughie 242 (Hints)", "EV 700 (Solution)")))
@@ -94,6 +101,9 @@ check "a braced white-on-white answer is read; the suffix gives the direction" \
 check "the Toughie heading's byline is the setter" "Robyn" "$(got BYLINE)"
 check "a setter category names the setter" "Dada Zandio" "$(got CATEGORY)"
 check "the blogger is never the setter" "None" "$(got BLOGGER)"
+check "a bare Toughie heading's next line bylines it; an analysis line never does" \
+  "Firefly None" "$(got TITLED)"
+check "the blog's &npsp; typo is a space, not text" "Equipment belt? (7)" "$(got NPSP)"
 check "the title names the series; EV is none of ours" \
   "telegraph toughie sundaytel sundaytough None" "$(got SERIES)"
 check "hints and review are one puzzle, the review's list, the stated date" \
