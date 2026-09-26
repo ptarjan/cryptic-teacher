@@ -1591,6 +1591,51 @@ def check_definition_against_blog(puzzle, warnings):
                 f"{row['url']}). Bloggers slip too: keep ours if theirs is wordplay")
 
 
+def check_blocks_against_blog(puzzle, warnings):
+    """Every building block the blog names should turn up in ours.
+
+    A blog block is LETTERS from a stretch of the clue. It is accounted for
+    when our blocks spell those letters (forwards or reversed), when one of ours
+    is them less a deletion, or when one of ours is taken from the same words
+    (the blog gives the word heard, or the one before it is reversed, and we
+    give what reaches the grid), or when ours hold its letters in another order
+    (one of us wrote the anagram's fodder, the other its result). Anything left is a piece of wordplay one of us
+    has and the other lacks. Measured at 99.9% agreement over the corpus, and
+    the residue is mostly the blog's parse: a block taken from a lone link word
+    ("in", "of") is skipped for that reason. Like the definition check, a
+    second opinion for the run that annotates, not a corpus sweep."""
+    row = blog_facts_for(puzzle)
+    if not row:
+        return
+    def words(s):
+        return set(re.findall(r"[a-z]{3,}", s.lower().replace("’", "'"))) - LINKING_WORDS
+    def within(g, whole):
+        rest = iter(whole)
+        return all(c in rest for c in g)
+    for e in puzzle["entries"]:
+        ann = e.get("annotation") or {}
+        theirs = (row["entries"].get(e["id"]) or {}).get("blocks")
+        if not ann.get("blocks") or not theirs:
+            continue
+        gives = [letters(b.get("gives") or "") for b in ann["blocks"]]
+        joined = "".join(gives)
+        frags = [words(b.get("clueFragment") or "") for b in ann["blocks"]]
+        for spelt, source in theirs:
+            spelt = letters(spelt)
+            if len(spelt) < 2 or not words(source):
+                continue
+            if (spelt in joined or spelt[::-1] in joined
+                    or any(len(g) >= 2 and within(g, spelt) for g in gives)
+                    or not multiset_diff(spelt, joined)[0]
+                    or any(words(source) & f for f in frags)):
+                continue
+            tag = f"{e['number']}{'A' if e['direction'] == 'across' else 'D'}"
+            warnings.append(
+                f"{tag}: {row['name']} reads {source!r} as {spelt}, and no block of ours "
+                f"spells it or takes those words ({row['url']}). Check whether our "
+                f"parse misses a piece; keep ours if theirs is wrong")
+
+
 def check_definition_not_fodder(entries, errors, warnings):
     """The definition's words may not also be the wordplay's letters.
 
@@ -2304,6 +2349,7 @@ def validate_puzzle(puzzle, corpus=False):
         check_definition_not_fodder(puzzle["entries"], errors, warnings)
         if not corpus:
             check_definition_against_blog(puzzle, warnings)
+            check_blocks_against_blog(puzzle, warnings)
         check_blocks_account_for_answer(puzzle["entries"], errors, warnings)
         check_blocks_decompose(puzzle["entries"], errors, warnings)
         check_blocks_in_answer_order(puzzle["entries"], errors, warnings)

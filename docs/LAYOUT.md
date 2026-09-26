@@ -291,6 +291,9 @@ tools/test_annotate_disclosure.sh            proves each rule cut from the annot
 tools/validate_annotations.py                proves every annotation actually spells its
                                              answer, plus the other rules about what a rung may
                                              and may not say
+tools/test_blocks_against_blog.sh            holds the blog block check to its fixtures: a
+                                             piece we spell, reverse, hear, delete from or
+                                             anagram is silent, and one we lack is reported
 tools/apply_annotations.py                   writes a run’s annotation JSON into the puzzle
                                              file, and validates the result
 tools/annotation_backlog.json                how many clues of each OLD puzzle predate a
@@ -560,9 +563,15 @@ tools/data/sample_fill_11.json               the worked 11x11 fill tools/AUTHORI
 tools/data/authored_A001_clues.json          the hand-written clues for that fill
 tools/data/blog_facts/                       per series, the blog facts tools/blog_facts.py
                                              read off the write-ups, with the site's hints and
-                                             the validator's definition check reading them;
-                                             inputs.sha256 is the digest of what they were
-                                             written from
+                                             the validator's definition and block checks
+                                             reading them; inputs.sha256 is the digest of what
+                                             they were written from
+tools/data/snitch.json                       the SNITCH's rating of every Times and Sunday
+                                             Times puzzle it has rated, written nightly by
+                                             tools/fetch_snitch.py; tools/difficulty.py scores
+                                             against it and shows each band's range
+tools/fixtures/snitch_archive.html           a saved copy of the SNITCH's archive page, the
+                                             fixture tools/test_fetch_snitch.sh reads
 tools/data/penguin_partial_fills/            answers from a Penguin-book solve that stopped
                                              short; the puzzle itself is filed unsolved for the
                                              nightly cold solve to finish
@@ -608,5 +617,20 @@ tools/test_privateeye_dates.sh               does tools/fetch_privateeye.py read
                                              Eye's Christmas cover date as it prints it?
 tools/test_fetch_puzzle_misfiled.sh          does fetch_puzzle.convert() refuse a mis-filed
                                              Guardian page and accept a re-published one?
+scratch/difficulty_calibration.py            measure external difficulty signals against
+                                             tools/difficulty.py's index
+scratch/parse_probe.py                       parse-rate harness: python3 scratch/parse_probe.py
+                                             times|bd44 [misses N] [hits N] [seed]
+scratch/snitch_device.py                     held-out refit of the device costs in
+                                             difficulty.py against the SNITCH
+scratch/snitch_tune.py                       collect (date, series, nitch, raw components,
+                                             per-clue device detail) for
+scratch/snitch_weights.py                    held-out refit of difficulty.WEIGHTS against the
+                                             SNITCH, split by date
+tools/fetch_snitch.py                        fetch the SNITCH's ratings of The Times and Sunday
+                                             Times cryptics into
+tools/test_fetch_snitch.sh                   does tools/fetch_snitch.py read the SNITCH's week
+                                             table into the right puzzle ids, and drop the
+                                             cells that are not a rating of that puzzle?
 ```
 <!-- LAYOUT-END -->

@@ -127,6 +127,7 @@ LAYOUT = [
     ("annotating", "tools/annotate_check.py", "the one command an annotation run needs after every edit: applies, validates, audits, reindexes, and says everything wrong at once"),
     ("annotating", "tools/test_annotate_disclosure.sh", "proves each rule cut from the annotation prompt still arrives through its check, and that the blog lookup is disclosed only once the last few clues are null — never earlier, never blind"),
     ("annotating", "tools/validate_annotations.py", "proves every annotation actually spells its answer, plus the other rules about what a rung may and may not say"),
+    ("annotating", "tools/test_blocks_against_blog.sh", "holds the blog block check to its fixtures: a piece we spell, reverse, hear, delete from or anagram is silent, and one we lack is reported"),
     ("annotating", "tools/apply_annotations.py", "writes a run’s annotation JSON into the puzzle file, and validates the result"),
     ("annotating", "tools/annotation_backlog.json", "how many clues of each OLD puzzle predate a required field; a puzzle not listed is allowed none, so new rules bind new puzzles"),
     ("annotating", "tools/check_annotation_loss.py", "shouts when an annotation run leaves clues it could not solve, so a weak night can't pass for a good one"),
@@ -247,7 +248,9 @@ LAYOUT = [
     ("tables everything else reads", "tools/data/penguin5_control.json", "the ten-puzzle Penguin volume 5 control tools/test_acquire_book.sh gates on: light specs, black-square patterns and a digest of the parser's output, and none of the book's words"),
     ("tables everything else reads", "tools/data/sample_fill_11.json", "the worked 11x11 fill tools/AUTHORING.md walks through"),
     ("tables everything else reads", "tools/data/authored_A001_clues.json", "the hand-written clues for that fill"),
-    ("tables everything else reads", "tools/data/blog_facts/", "per series, the blog facts tools/blog_facts.py read off the write-ups, with the site's hints and the validator's definition check reading them; inputs.sha256 is the digest of what they were written from"),
+    ("tables everything else reads", "tools/data/blog_facts/", "per series, the blog facts tools/blog_facts.py read off the write-ups, with the site's hints and the validator's definition and block checks reading them; inputs.sha256 is the digest of what they were written from"),
+    ("tables everything else reads", "tools/data/snitch.json", "the SNITCH's rating of every Times and Sunday Times puzzle it has rated, written nightly by tools/fetch_snitch.py; tools/difficulty.py scores against it and shows each band's range"),
+    ("tables everything else reads", "tools/fixtures/snitch_archive.html", "a saved copy of the SNITCH's archive page, the fixture tools/test_fetch_snitch.sh reads"),
     ("tables everything else reads", "tools/data/penguin_partial_fills/", "answers from a Penguin-book solve that stopped short; the puzzle itself is filed unsolved for the nightly cold solve to finish"),
     ("tables everything else reads", "tools/data/blind_misses.json", "which entries the last blind annotate run got wrong, the one blank check_every_clue_is_annotated will not fail on"),
     ("tables everything else reads", "tools/data/favourite_grading/key.json", "which packet label is which pair, and which side of it was voted for: the only thing that un-blinds a packet"),
@@ -269,6 +272,13 @@ LAYOUT = [
     ("tables everything else reads", "tools/test_refresh_window.sh", "does refresh_unsolved ever stop asking for an answer that is never coming?"),
     ("tables everything else reads", "tools/test_privateeye_dates.sh", "does tools/fetch_privateeye.py read the issue off every title shape the archive ships, and take the Eye's Christmas cover date as it prints it?"),
     ("tables everything else reads", "tools/test_fetch_puzzle_misfiled.sh", "does fetch_puzzle.convert() refuse a mis-filed Guardian page and accept a re-published one?"),
+    ("tables everything else reads", "scratch/difficulty_calibration.py", "measure external difficulty signals against tools/difficulty.py's index"),
+    ("tables everything else reads", "scratch/parse_probe.py", "parse-rate harness: python3 scratch/parse_probe.py times|bd44 [misses N] [hits N] [seed]"),
+    ("tables everything else reads", "scratch/snitch_device.py", "held-out refit of the device costs in difficulty.py against the SNITCH"),
+    ("tables everything else reads", "scratch/snitch_tune.py", "collect (date, series, nitch, raw components, per-clue device detail) for"),
+    ("tables everything else reads", "scratch/snitch_weights.py", "held-out refit of difficulty.WEIGHTS against the SNITCH, split by date"),
+    ("tables everything else reads", "tools/fetch_snitch.py", "fetch the SNITCH's ratings of The Times and Sunday Times cryptics into"),
+    ("tables everything else reads", "tools/test_fetch_snitch.sh", "does tools/fetch_snitch.py read the SNITCH's week table into the right puzzle ids, and drop the cells that are not a rating of that puzzle?"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the
