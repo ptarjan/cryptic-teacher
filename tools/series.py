@@ -36,6 +36,11 @@ import re
 # group — the heading the puzzle picker files this series under. Absent means
 #   the publisher. A Sunday sister paper sets its weekday paper's, so the
 #   Sunday Times sits with the Times while its publisher stays "Sunday Times".
+# bylined — the source names the setter on every puzzle, so a null setter is
+#   one the fetcher failed to read (tools/puzzle_integrity.py SETTER).
+# datedFromNeighbours — the source prints no date, so the filer derives each
+#   from the numbers either side and may be unable to yet. Every other series
+#   must carry a date (tools/puzzle_integrity.py SHAPE and DATE).
 SERIES = {
     "cryptic": {
         "kind": "Cryptic",
@@ -53,6 +58,7 @@ SERIES = {
         "publisher": "Observer",
         # The Guardian's sister paper, and published on the Guardian's site.
         "group": "Guardian",
+        "bylined": True,
         # "Everyman" IS the byline — the Observer has kept the setter anonymous
         # since 1945 — so the feed ships no creator. Without this every one of
         # them has a null setter, which hides a byline the paper really prints.
@@ -69,6 +75,7 @@ SERIES = {
     "independent": {
         "kind": "Cryptic",
         "publisher": "Independent",
+        "bylined": True,
     },
     "metro": {
         # Supplied to Metro by Puzzler Digital and printed with no byline at
@@ -85,6 +92,9 @@ SERIES = {
         # setter is named in the file, hence no default here.
         "kind": "Cryptic",
         "publisher": "Private Eye",
+        "bylined": True,
+        # Dated off the Eye's covers and its fortnightly cadence.
+        "datedFromNeighbours": True,
         "badge": "cyclops",
         # A linked clue's count covers its own light, not the whole answer
         # (fetch_puzzle.PER_LIGHT_ENUMERATION).
@@ -97,6 +107,7 @@ SERIES = {
         # masthead a solver sees; the setter name that comes with it is real.
         "kind": "Cryptic",
         "publisher": "Globe and Mail",
+        "bylined": True,
         "badge": "globe & mail",
         # It is the Times Quick Cryptic under the same number, about seven
         # weeks later and with the published grid and answers, so from its
@@ -116,6 +127,7 @@ SERIES = {
         # thinks of as three papers. The kind carries the difference instead.
         "kind": "Sunday Cryptic",
         "publisher": "Independent",
+        "bylined": True,
         "badge": "indy sunday",
     },
     # The Times publishes no grid and no answer key online, so these four are
@@ -135,6 +147,7 @@ SERIES = {
         "blog": "timesforthetimes.co.uk",
         # The blog counts a linked clue over its own light, as Private Eye does.
         "perLightEnumeration": True,
+        "datedFromNeighbours": True,
     },
     "timesquick": {
         "kind": "Quick Cryptic",
@@ -142,6 +155,7 @@ SERIES = {
         "badge": "times quick",
         "blog": "timesforthetimes.co.uk",
         "perLightEnumeration": True,
+        "datedFromNeighbours": True,
     },
     "timesjumbo": {
         "kind": "Jumbo Cryptic",
@@ -149,6 +163,7 @@ SERIES = {
         "badge": "times jumbo",
         "blog": "timesforthetimes.co.uk",
         "perLightEnumeration": True,
+        "datedFromNeighbours": True,
     },
     # A separate paper with its own weekly sequence, ~5,200 against the
     # daily's ~29,600.
@@ -159,6 +174,7 @@ SERIES = {
         "badge": "sunday times",
         "blog": "timesforthetimes.co.uk",
         "perLightEnumeration": True,
+        "datedFromNeighbours": True,
     },
     # The FT prints no grid a script can reach, so tools/ft_puzzles.py files
     # these from fifteensquared's write-ups, the grid rebuilt from their clue
@@ -166,6 +182,7 @@ SERIES = {
     "ftcryptic": {
         "kind": "Cryptic",
         "publisher": "Financial Times",
+        "bylined": True,
         "badge": "FT",
         "blog": "fifteensquared.net",
     },
