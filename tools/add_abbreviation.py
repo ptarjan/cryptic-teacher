@@ -16,7 +16,10 @@ Usage: python3 tools/add_abbreviation.py LETTERS SENSE [SENSE ...]
 Idempotent: a SENSE the row already lists is a no-op, and the file is not
 touched at all if every SENSE given is already there. LETTERS is folded to
 uppercase and each SENSE to lowercase to match the table's own documented
-convention (see abbreviations.json's "_comment").
+convention (see abbreviations.json's "_comment"). A SENSE that differs from one
+already in the table only in spacing or punctuation takes the existing
+spelling: the glossary anchors both to the same id, and build_abbreviations
+refuses a table where two senses share one.
 """
 import fcntl
 import json
@@ -25,6 +28,8 @@ import re
 import sys
 import tempfile
 from pathlib import Path
+
+from build_abbreviations import anchor
 
 DATA = Path(__file__).resolve().parent / "data" / "abbreviations.json"
 # Never renamed out from under a waiter: PATH itself gets replaced by every
@@ -47,7 +52,9 @@ def add_row(letters, senses):
             data = json.loads(DATA.read_text(encoding="utf-8"))
             table = data["abbreviations"]
             row = table.get(letters, [])
-            missing = [s for s in senses if s not in row]
+            spelled = {anchor(w): w for words in table.values() for w in words}
+            senses = [spelled.setdefault(anchor(s), s) for s in senses]
+            missing = [s for s in dict.fromkeys(senses) if s not in row]
             if not missing:
                 return False
             table[letters] = sorted(row + missing)
