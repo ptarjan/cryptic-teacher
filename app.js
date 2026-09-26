@@ -5339,7 +5339,7 @@
       its own weekly puzzle numbers, now near 5,200. Setters are named, and the clues are a
       little more playful than the daily's. Grid rebuilt and answers taken from
       the “Times for the Times” blog.`],
-    ftcryptic: ["ft", `The Financial Times cryptic, Monday to Saturday, from a
+    ftcryptic: ["FT", `The Financial Times cryptic, Monday to Saturday, from a
       stable of named setters — Io, Mudd, Julius, Jason — and pitched about
       where the Guardian is. The FT doesn't put its grid online, so the grid
       here is rebuilt from the fifteensquared blog's write-up, and the answers
