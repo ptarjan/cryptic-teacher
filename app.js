@@ -5294,8 +5294,12 @@
     const pct = d.percentile === null || d.percentile === undefined ? "" :
       ` — harder than ${d.percentile}% of the puzzles here`;
     const basis = (d.basis || []).join(", ");
+    // The SNITCH rates the Times: the index carries the interquartile NITCH of
+    // each band's rated puzzles per series, and only bands with enough of them.
+    const nitch = ((INDEX.snitchRanges || {})[p.series] || {})[d.band];
+    const snitch = nitch ? ` ${d.band} puzzles in this series typically score SNITCH ${nitch[0]}–${nitch[1]}.` : "";
     return `<span class="badge diff diff-${d.band.toLowerCase()}" title="${esc(
-      d.band + pct + ". Based on " + basis + ", compared with the other puzzles on this site."
+      d.band + pct + ". Based on " + basis + ", compared with the other puzzles on this site." + snitch
     )}">${esc(d.band.toLowerCase())}</span>`;
   }
 

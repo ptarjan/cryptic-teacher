@@ -1906,11 +1906,14 @@ def reindex():
     # index, with the ratings left off rather than the whole file unwritten.
     try:
         sys.path.insert(0, str(Path(__file__).resolve().parent))
-        from difficulty import all_scores
+        from difficulty import all_scores, snitch_ranges
         ratings = all_scores()
+        # The NITCH each band's SNITCH-rated Times puzzles typically got,
+        # which a Times badge quotes; recomputed from the ratings every time.
+        snitch = snitch_ranges(ratings)
     except Exception as err:  # noqa: BLE001 — never let this break the index
         print(f"difficulty scoring skipped: {err}")
-        ratings = {}
+        ratings, snitch = {}, {}
 
     build_shims()
     puzzles = []
@@ -1992,7 +1995,8 @@ def reindex():
     books = {str(i): {"shelf": r["shelf"], "volume": r["volume"], "was": r["was"]}
              for i, r in sorted(series_meta.BOOKS.items())}
     index = {"latest": puzzles[0]["id"] if puzzles else None,
-             "papers": papers, "groups": groups, "books": books, "puzzles": puzzles}
+             "papers": papers, "groups": groups, "books": books,
+             "snitchRanges": snitch, "puzzles": puzzles}
     (PUZZLE_DIR / "index.json").write_text(
         json.dumps(index, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
     (PUZZLE_DIR / "index.js").write_text(

@@ -1,41 +1,53 @@
 #!/usr/bin/env python3
 """Score how hard each puzzle is, from what the puzzle file actually says.
 
-There is no ground truth for cryptic difficulty *here*. The Guardian publishes
-no rating. The one community that does grade by real solve times — the SNITCH
-(times.xwdsnitch.link), whose NITCH divides ~100 solvers' times by their own
-six-month averages, 100 = a normal day — does publish, openly and without a
-login, but it rates The Times, whose puzzles are subscription-only and cannot
-be fetched. Real ratings for puzzles we can't have; puzzles we have with no
-ratings. There is no join, so this deliberately does NOT pretend to be a
-calibrated absolute.
+There is no ground truth for cryptic difficulty in most of the collection.
+The Guardian publishes no rating, and nor does anyone else for our Guardian,
+Independent, Observer or Telegraph puzzles: the community rating by real solve
+times needs a fixed cohort of timed solves, which only the Times Club site
+records. Checked 2026-08-15 — Fifteensquared blogs all four of ours in prose
+with no scale, bigdave44's 1-5 stars are the blogger's own, and the comment
+threads are long and entirely qualitative ("a fraction easier than the average
+Paul"). Checked again 2026-09-05, post body and comments. Don't go looking again.
 
-Nor is there a SNITCH for our four series, and the gap is structural rather
-than an oversight: the index needs a fixed cohort of timed solves, which only
-the Times Club site records. Checked 2026-08-15 — Fifteensquared blogs all four
-of ours (Guardian daily and prize, Independent, Everyman, Quick Cryptic) in
-prose with no scale, and the one blog that does rate 1-5 for difficulty,
-bigdave44, is Telegraph-only. The comment threads are not a back door either:
-they are long (87 on Guardian 30,103) and entirely qualitative — "a fraction
-easier than the average Paul", "battled through" — where a Times for the Times
-thread is full of stated minutes. Checked again 2026-09-05, post body and
-comments. Don't go looking again.
+The Times is the exception. The SNITCH (times.xwdsnitch.link) rates every Times
+daily since 2015 and every Sunday Times since 2024 by its NITCH — about a
+hundred reference solvers' times divided by their own six-month averages, 100 =
+a normal day — and tools/fetch_snitch.py keeps those ratings in
+tools/data/snitch.json, keyed by our puzzle id, every night. That is a real
+external rating joined to puzzles we hold, and --validate prints the agreement.
+
+It is weak, and it did not move the weights. Tuned 2026-09-26 against 197
+rated, annotated Times puzzles, split by date and scored only on the later part
+(scratch/snitch_weights.py, scratch/snitch_device.py): every refit of WEIGHTS,
+and of the device costs below, beat today's values on the puzzles it was
+fitted to and lost to them on the held-out ones (Times daily held-out rho
++0.24/+0.32/+0.22 at three cuts, against +0.09/+0.23/+0.23 for the refits).
+What agreement there is comes mostly from the device term; obscurity changes
+sign between the halves. So the index is still NOT a calibrated absolute, and
+the SNITCH is used for two things only: the --validate check, and the
+"typically SNITCH X-Y" range a Times badge quotes for its band
+(snitch_ranges()).
 
 So this measures three things that are genuinely in the file, reports each one
 separately so a reader can disagree with the weighting, and bands a puzzle by
 where it sits *against the rest of the collection*: "tougher than 80% of the
 puzzles here" is a claim the data can support, "Difficulty 7/10" is not.
 
-No join does not mean no evidence. `--validate` tests the index against the two
-difficulty facts we did not invent, and it is a command rather than a paragraph
-because a number pasted into prose is true on the day it is pasted:
+`--validate` tests the index against the difficulty facts we did not invent,
+and it is a command rather than a paragraph because a number pasted into prose
+is true on the day it is pasted:
+
+  SNITCH        The Times puzzles the SNITCH rates: the rank correlation of
+                the index with the NITCH per series, and each band's NITCH
+                quartiles.
 
   SERIES ORDER  The Quiptic is the Guardian's beginner crossword and the
                 Everyman the Observer's gentlest, both by their own papers'
                 editorial fiat. If the index puts them below the dailies it is
                 separating puzzles somebody ELSE graded easy, which is the
                 strongest external agreement available here. Run it for the
-                margin and the p; it has passed at every corpus size so far.
+                margin and the p.
 
   WEEKDAY       The Guardian has no graded weekday, so no day-of-week term is
                 in this model — decided 2026-09-09 at 139 scored cryptics,
@@ -44,8 +56,8 @@ because a number pasted into prose is true on the day it is pasted:
                 Mon/Tue step: those two days sit 0.345 sd below the rest
                 (p = 0.0004) and Wed to Sat are flat behind it (rho = -0.06,
                 p = 0.59). That is not the SNITCH's shape at all — theirs
-                climbs Mon 72 to Fri 128 without a break (SNITCH_BY_DAY), and
-                our Friday, their hardest day, is dead average. Hold each
+                climbs from Monday to Friday without a break (snitch_by_day(),
+                printed beside ours), and our Friday, their hardest day, is dead average. Hold each
                 setter's own mean constant and the step falls to 0.124 sd,
                 p = 0.14: Monday is gentle because Monday is Vulcan, and the
                 rotation is already in the score through the clues those
@@ -65,8 +77,8 @@ of this file scored the raw numbers absolutely and rated all 35 puzzles
 off a similar grid library (checking sits in a 0.42-0.53 band across the whole
 corpus) and every cryptic answer is rare next to "the" (raw obscurity saturates
 around 0.9). The signal is entirely in the spread, so each component is
-z-scored before it is combined. NITCH turns out to have been right about the
-shape of the problem even though its data doesn't reach us.
+z-scored before it is combined. NITCH is built on the same idea: a time only means something against
+the solver's own average.
 
 The reference mean and spread live in tools/data/difficulty_baseline.json, a
 frozen snapshot, NOT a running recomputation over whatever is in puzzles/
@@ -129,11 +141,14 @@ MISSING_RANK = 60000
 # the one component that is a fact rather than a judgement.
 WEIGHTS = {"checking": 0.45, "obscurity": 0.30, "device": 0.25}
 
-# The SNITCH's mean NITCH by publication day, 136 weeks scraped 2026-08-15, and
-# the series their own papers declare gentle. Both are inputs to --validate, and
-# both live here rather than in the prose above so the test and the story it
-# tells cannot drift apart.
-SNITCH_BY_DAY = {0: 72, 1: 83, 2: 92, 3: 101, 4: 128, 5: 97}   # Mon..Sat
+# The series their own papers declare gentle, an input to --validate that lives
+# here rather than in the prose above so the test and the story it tells cannot
+# drift apart.
+SNITCH = ROOT / "tools" / "data" / "snitch.json"
+#: Our series the SNITCH rates, whose badges quote their band's NITCH range.
+SNITCH_SERIES = ("times", "sundaytimes")
+#: Rated puzzles a band needs before its quartiles are quoted as a range.
+SNITCH_RANGE_MIN = 10
 DAY_NAMES = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 GENTLE_SERIES = {"quiptic", "everyman"}
 
@@ -233,6 +248,54 @@ def banding(index, base):
     """The index in units of its own spread, which is what BANDS is written in."""
     ref = base.get("index")
     return (index - ref["mean"]) / ref["sd"] if ref and ref.get("sd") else index
+
+
+def load_snitch():
+    """puzzle id -> {"nitch", "date", "snitch"}, from tools/fetch_snitch.py."""
+    return json.loads(SNITCH.read_text(encoding="utf-8")) if SNITCH.exists() else {}
+
+
+def snitch_by_day(snitch):
+    """The Times daily's mean NITCH by weekday, Mon..Sat, over every rating held."""
+    by = {}
+    for pid, v in snitch.items():
+        if pid.rpartition("-")[0] == "times":
+            day = datetime.fromisoformat(v["date"]).weekday()
+            by.setdefault(day, []).append(v["nitch"])
+    return {d: round(sum(x) / len(x)) for d, x in sorted(by.items())}
+
+
+def _quartiles(xs):
+    xs = sorted(xs)
+    def at(q):
+        i = q * (len(xs) - 1)
+        lo = math.floor(i)
+        return xs[lo] + (xs[min(lo + 1, len(xs) - 1)] - xs[lo]) * (i - lo)
+    return at(0.25), at(0.5), at(0.75)
+
+
+def snitch_bands(scores, snitch):
+    """{series: {band: [NITCH of every rated puzzle in it]}} for SNITCH_SERIES."""
+    out = {}
+    for pid, s in scores.items():
+        series = pid.rpartition("-")[0]
+        if series in SNITCH_SERIES and pid in snitch:
+            out.setdefault(series, {}).setdefault(s["band"], []).append(snitch[pid]["nitch"])
+    return out
+
+
+def snitch_ranges(scores, snitch=None):
+    """{series: {band: [q1, q3, n]}}: the NITCH a band's rated puzzles typically
+    got, as the interquartile range. A band with fewer than SNITCH_RANGE_MIN
+    rated puzzles is left out, and the badge says nothing for it."""
+    snitch = load_snitch() if snitch is None else snitch
+    out = {}
+    for series, bands in snitch_bands(scores, snitch).items():
+        for band, xs in bands.items():
+            if len(xs) >= SNITCH_RANGE_MIN:
+                q1, _, q3 = _quartiles(xs)
+                out.setdefault(series, {})[band] = [round(q1), round(q3), len(xs)]
+    return out
 
 
 def ranks():
@@ -537,14 +600,16 @@ def hold_setter(rows, floor=3):
 
 
 def validate():
-    """Test the index against the only difficulty facts we did not invent.
+    """Test the index against the difficulty facts we did not invent.
 
-    There is no join to the SNITCH (see the module docstring), so the question
-    "is this measuring difficulty" cannot be answered by correlation against a
-    rating of the same puzzle. It can still be answered, twice, and both tests
-    live here rather than in a comment so they re-run as the corpus grows —
-    numbers written into prose are true on the day they are pasted and quietly
-    stop being true afterwards.
+    Each test lives here rather than in a comment so it re-runs as the corpus
+    grows — numbers written into prose are true on the day they are pasted and
+    quietly stop being true afterwards.
+
+      SNITCH        The one rating of the same puzzles by someone else: the
+                    SNITCH's NITCH for the Times and Sunday Times, per series,
+                    as a rank correlation with its permutation p, and the NITCH
+                    quartiles of each band (the range the badges quote).
 
       SERIES ORDER  Two of our four series are declared easy by the papers that
                     print them: the Quiptic is the Guardian's beginner crossword
@@ -564,6 +629,25 @@ def validate():
     if len(scores) < 20:
         print("too few to test anything; annotate more first")
         return 1
+    snitch = load_snitch()
+
+    print(f"\nSNITCH        {len(snitch)} Times puzzles rated in {SNITCH.name}")
+    rated = snitch_bands(scores, snitch)
+    for series in [s for s in SNITCH_SERIES if s in rated]:
+        bands = rated[series]
+        pairs = [(snitch[p]["nitch"], s["index"]) for p, s in scores.items()
+                 if p in snitch and p.rpartition("-")[0] == series]
+        a, b = [x for x, _ in pairs], [y for _, y in pairs]
+        if len(pairs) >= 8:
+            print(f"              {series:<12} n={len(pairs):>3}  rho = {_spearman(a, b):+.3f}, "
+                  f"p = {_perm_p(_spearman, a, b):.4f}")
+        for band in [n for _, n in BANDS]:
+            xs = bands.get(band, [])
+            if xs:
+                q1, med, q3 = _quartiles(xs)
+                quoted = "" if len(xs) >= SNITCH_RANGE_MIN else "  (too few to quote)"
+                print(f"                {band:<9} n={len(xs):>3}  NITCH {q1:.0f}-{q3:.0f}, "
+                      f"median {med:.0f}{quoted}")
 
     def idx(pred):
         return [s["index"] for p, s in scores.items() if pred(meta[p].get("series", "cryptic"))]
@@ -592,6 +676,7 @@ def validate():
     else:
         print(f"\nSERIES ORDER  skipped: {len(gentle)} gentle / {len(hard)} daily scored")
 
+    by_day = snitch_by_day(snitch)
     rows = cryptic_weekdays(scores, meta)
     days = sorted({d for d, _, _ in rows})
     if len(rows) >= 20 and len(days) > 1:
@@ -603,10 +688,10 @@ def validate():
             vals = [i for w, i, _ in rows if w == d]
             means[d] = sum(vals) / len(vals)
             print(f"              {DAY_NAMES[d]}  {len(vals):>3}   {means[d]:+.3f}"
-                  f"       {SNITCH_BY_DAY.get(d, '-')}")
-        paired = [d for d in days if d in SNITCH_BY_DAY]
+                  f"       {by_day.get(d, '-')}")
+        paired = [d for d in days if d in by_day]
         if len(paired) >= 4:
-            r = _spearman([means[d] for d in paired], [SNITCH_BY_DAY[d] for d in paired])
+            r = _spearman([means[d] for d in paired], [by_day[d] for d in paired])
             print(f"              our weekday means vs the SNITCH's, over "
                   f"{len(paired)} days: rho = {r:+.3f}")
         # These two numbers are the whole of the weekday decision, so they are
