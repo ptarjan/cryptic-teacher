@@ -163,6 +163,36 @@ Terms used below:
   - The smoke test buys every rung on every annotated clue and reads the marks
     back from the rendered HTML.
 
+### Hints read off a blog
+
+- **A clue we have not annotated gets the rungs a blog's write-up can state,
+  in our words, and never the blog's prose.** `tools/blog_facts.py` reads the
+  timesforthetimes, fifteensquared and bigdave44 caches and keeps three facts
+  per clue: the definition the blogger underlined (only as an exact run of
+  whole words of our clue), the clue type where the write-up names it
+  unambiguously, and indicators where the blog's own key marks them. Anything
+  hedged ("almost a DD", "cd/dd"), anything that cuts into a word, and any
+  multi-span underline that is not a double definition is dropped.
+- **Where it lives.** `tools/data/blog_facts/<series>.json`, a sidecar, because a
+  re-fetch rewrites the puzzle file and these facts come from somewhere else.
+  `fetch_puzzle.write_shim` merges them into the puzzle's shim for entries with
+  no annotation, and drops any fact whose words are no longer in the clue. The
+  index carries nothing, so `index.js` does not grow.
+- **Our annotation always wins.** `annOf` falls back to `blogAnn`, which shapes
+  the facts as a partial annotation, so highlighting, questions and scoring
+  read it like ours. A blog ladder has only the rungs it has facts for: no
+  blocks, no walkthrough. Its indicator rung does not pair words with jobs,
+  because the blog does not say which does what.
+- **It says whose marks they are.** The title reads "hints via <blog>" in place
+  of "answers only", the meter badges the clue, and the escape row links to the
+  post ("Full explanation on <blog> →") on every clue we have not annotated.
+- **Refresh it after a cache top-up**: `python3 tools/blog_facts.py --measure`
+  rewrites the sidecar and prints coverage per blog and series.
+- **The validator compares our definition with the blog's** when a run
+  annotates (`check_definition_against_blog`), not in the corpus sweep: where
+  the two share no word, the blogger's underline is the slip about three times
+  in four, so it is a second opinion, not a verdict.
+
 ## Solving screen
 
 - **Every check says what it found.** A check always writes a sentence into
