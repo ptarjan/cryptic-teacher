@@ -67,6 +67,9 @@ CATEGORIES = {
     "Everyman": None,
     "Guardian Quiptic": None,
     "Private Eye/Cyclops": None,
+    # The FT prints no grid we can read, so tools/ft_puzzles.py rebuilds each
+    # one from the clue numbers these posts carry.
+    "FT": None,
 }
 
 _last_request = [0.0]
@@ -104,7 +107,15 @@ def resolve_categories():
     if missing:
         raise SystemExit(f"category not found on the site: {', '.join(missing)} "
                          f"— they renamed it; fix CATEGORIES")
+    # Kept beside the posts, so a parser can pick its series out of the cache
+    # without asking the site.
+    store(CACHE, "categories", CATEGORIES)
     return CATEGORIES
+
+
+def cached_categories():
+    """Category name -> id as the last fetch resolved it."""
+    return json.loads((CACHE / "categories.json").read_text(encoding="utf-8"))
 
 
 def cached_post_ids():

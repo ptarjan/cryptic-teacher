@@ -95,7 +95,7 @@ LAYOUT = [
     ("fetching", "tools/extend_archive.py", "walks the archives backwards to keep the annotation queue deeper than the job's best week"),
     ("fetching", "tools/fetch_minutecryptic.js", "Minute Cryptic’s daily hints, as a corpus to be measured against"),
     ("fetching", "tools/recover_minutecryptic.py", "refills days that capture missed from Minute Cryptic’s own video titles, dated by clue number because the upload date lags"),
-    ("fetching", "tools/fetch_fifteensquared.py", "caches the blog that covers all five series, and its comments — fetched once each, at their 20-second crawl delay"),
+    ("fetching", "tools/fetch_fifteensquared.py", "caches the blog that covers six of our series, and its comments — fetched once each, at their 20-second crawl delay"),
     ("fetching", "tools/corroborate.py", "checks every puzzle written against the other sources we cache for it — georgeho's scrape, fifteensquared's posts, the Times listing — filling an empty setter, date or clue, settling an answer they disagree on by the grid, the print sequence, independent votes and a measured rank, and ledgering every call; never refuses a write"),
     ("fetching", "tools/test_corroborate.sh", "decides one case by each of corroboration's rules, and proves a fill never overwrites, a disagreement never raises, and every write goes through it"),
     ("fetching", "tools/fetch_timesforthetimes.py", "caches the blog that covers the Times series, the only archive that prints its clues — fetched once each, at their 10-second crawl delay"),
@@ -107,6 +107,8 @@ LAYOUT = [
     ("fetching", "tools/file_times_puzzles.py", "files those rebuilt grids as puzzles with the blog's answers — only complete, correctly numbered ones — dates them by print day, and never rewrites a filed one but for its date; the nightly top-up"),
     ("fetching", "tools/test_file_times_puzzles.sh", "holds that filer to a hand-built grid: what it refuses, what it dates, and that a second run touches nothing"),
     ("fetching", "tools/test_times_dates.sh", "holds every filed Times, Jumbo and Sunday Times date to its paper's weekday and number order, so a prize puzzle dated by its blog post fails"),
+    ("fetching", "tools/ft_puzzles.py", "files the Financial Times cryptic from fifteensquared's cached write-ups: reads each era of their markup, rebuilds the grid ft.com will not serve a script with the Times' search, and files what passes the Times filer's checks; the nightly top-up"),
+    ("fetching", "tools/test_ft_puzzles.sh", "holds that parser to each layout fifteensquared prints an FT post in, and the filer to a hand-built grid, because a misread answer becomes a wrong light length"),
     ("fetching", "tools/fetch_lexicon.sh", "downloads the Lufz/Exet lexicon the grid filler needs"),
 
     ("annotating", "tools/annotate_prompt.md", "the prompt the daily Claude Code job follows to annotate"),
@@ -328,6 +330,7 @@ SERIES_NAMES = {
     "timesquick": "Times Quick Cryptic",
     "timesjumbo": "Times Jumbo",
     "sundaytimes": "Sunday Times cryptic",
+    "ftcryptic": "Financial Times cryptic",
     # ONE ENTRY FOR THE WHOLE SHELF: every scanned printed book is the `book`
     # series, and which book a puzzle came out of is in its number
     # (tools/series.py, book_index * 1000 + position). The count beside it is
