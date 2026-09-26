@@ -529,6 +529,21 @@ def printed_enumeration(printed):
     return out or None
 
 
+def spaced_answer(printed):
+    """ "RICE,PAPER" -> "RICE PAPER", "SHOW-JUMPERS" kept; None for one word.
+
+    The letters-only answer loses the word breaks, and a count the blog typed
+    wrong can only be rebuilt from them."""
+    out, sep = "", ""
+    for i, part in enumerate(re.split(r"([ ,\-\u2013\u2014]+)", printed)):
+        letters = re.sub(r"[^A-Z]", "", part)
+        if i % 2:
+            sep = "-" if re.search(r"[\-\u2013\u2014]", part) else " "
+        elif letters:
+            out += (sep if out else "") + letters
+    return out if re.search(r"[ -]", out) else None
+
+
 def answer_words(printed):
     """The words of a printed answer: "YORKSHIRE DALES" -> ["YORKSHIRE", "DALES"]."""
     return [w for w in (re.sub(r"[^A-Z]", "", part)
@@ -773,6 +788,7 @@ def read_entries(rendered):
         # it saying those numbers were never a linked head, so the numbers are
         # part of the clue and go back into its text.
         text = head_clue if len(pieces) < len(lights) else clue
+        spaced = spaced_answer(printed)
         leader = pieces[0][0][0]
         for i, ((n, d), piece) in enumerate(pieces):
             entries.append({
@@ -783,6 +799,10 @@ def read_entries(rendered):
                 "clue": text if i == 0 else (f"See {leader}" if text else None),
                 "enumeration": enum if i == 0 else None,
             })
+            if i == 0 and spaced:
+                # Like the enumeration, the whole answer's word breaks sit
+                # on the light that leads it.
+                entries[-1]["answer_spaced"] = spaced
         if len(lights) > 1:
             entries[-len(pieces)].update(_head=lights[1:], _plain=clue)
 

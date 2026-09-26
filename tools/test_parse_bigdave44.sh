@@ -63,6 +63,26 @@ review = post(8, "ST 2500", """<p>Sunday Telegraph Cryptic No 2500</p><p>A full 
 print("TITLED", B.read_post(titled, CATS)["setter"], B.read_post(review, CATS)["setter"])
 typo = post(9, "DT 28148", """<p><strong>Down</strong></p><p>21d   <u>Equipment</u> &amp;npsp;<u>belt</u>? (7)<br />
 <span class="hc">CLOBBER</span>: two definitions</p>""")
+# The count typed wrong, (7,6) over CONSOLE TABLE: the letters-only answer
+# has lost the break, so the printed form rides along for the filer's recount.
+miscounted = post(10, "DT 30927", """<p><strong>Across</strong></p>
+<p><strong>1a</strong> Furniture piece at home, in charge (7,6)<br />
+<span class="hc">CONSOLE TABLE</span>: a charade</p>
+<p><strong>9a</strong> Meal cut short (3)<br /><span class="hc">TEA</span>: no</p>""")
+es = B.read_post(miscounted, CATS)["entries"]
+print("SPACED", *(f"{e['answer']}/{e.get('answer_spaced')}" for e in es))
+import file_blog_puzzles as F
+lights = {"a": {"solution": "CONSOLE"}, "b": {"solution": "TABLE"}, "c": {"solution": "CONSOLETABLE"}}
+print("RECOUNT", F.from_answer(["c"], lights, "7,6", "CONSOLE TABLE"),
+      F.from_answer(["c"], lights, "7,6"), F.from_answer(["c"], lights, "7,6", "CONSOLE TABLES"),
+      F.from_answer(["a", "b"], lights, "12", "CON-SOLE TABLE"))
+# ONETRACK MIND printed, (9,4) typed: the blog lost the hyphen, and its right
+# count over the same answer in other puzzles is the paper's.
+typed = F.typed_counts([{"entries": [{"answer": "ONETRACKMIND", "enumeration": e}
+                                     for e in ("3-5,4", "3-5, 4", "9,4", "8,4")]}])
+one = {"x": {"solution": "ONETRACKMIND"}}
+print("TYPED", F.from_answer(["x"], one, "9,4", "ONETRACK MIND", typed),
+      F.from_answer(["x"], one, "9,4", "ONETRACK MIND"))
 print("NPSP", B.read_post(typo, CATS)["entries"][0]["clue"])
 print("BLOGGER", B.read_post(post(6, "DT 31000", "<p>Hints and tips by Deep Threat</p>"), CATS)["setter"])
 print("SERIES", *(B.series_and_number(post(0, t, ""), "")[0] for t in (
@@ -104,6 +124,12 @@ check "the blogger is never the setter" "None" "$(got BLOGGER)"
 check "a bare Toughie heading's next line bylines it; an analysis line never does" \
   "Firefly None" "$(got TITLED)"
 check "the blog's &npsp; typo is a space, not text" "Equipment belt? (7)" "$(got NPSP)"
+check "the printed answer's word breaks ride along; the letters-only answer is unchanged" \
+  "CONSOLETABLE/CONSOLE TABLE TEA/None" "$(got SPACED)"
+check "the recount takes the printed breaks, and falls back when they are absent or wrong" \
+  "7,5 None None 3-4,5" "$(got RECOUNT)"
+check "a count typed right elsewhere over the same answer beats the printed breaks" \
+  "3-5,4 8,4" "$(got TYPED)"
 check "the title names the series; EV is none of ours" \
   "telegraph toughie sundaytel sundaytough None" "$(got SERIES)"
 check "hints and review are one puzzle, the review's list, the stated date" \

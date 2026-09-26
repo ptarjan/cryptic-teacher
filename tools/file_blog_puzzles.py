@@ -180,15 +180,41 @@ def reprinted_by(reprints, series, number):
     return key if number in numbers or number > max(numbers) else None
 
 
-def from_answer(group, by_id, enumeration):
+def typed_counts(recs):
+    """{letters: Counter of the counts the blog typed over that answer}, each
+    count kept only where its total is the answer's length."""
+    counts = collections.defaultdict(collections.Counter)
+    for rec in recs:
+        for e in rec["entries"]:
+            try:
+                parts = enumeration_parts(e.get("enumeration"))
+            except SystemExit:
+                continue
+            if sum(n for n, _ in parts) == len(e["answer"]):
+                counts[e["answer"]][format_parts(parts)] += 1
+    return counts
+
+
+def from_answer(group, by_id, enumeration, spaced=None, typed=None):
     """The enumeration the group's answers spell, or None.
 
     The grid has proved the answers, so where the blog's count disagrees with
     the lights the answers are the count: TEAS typed (5), LONGITUDE (0). The
-    blog's answers are letters only, so each light is one word and a light
-    boundary is a word break; that is taken only when the blog wrote no more
-    words than that, since BLUE PETER typed (4,4) over 4+5 cells has its words
-    but CONSOLE TABLE typed (7,6) over 12 has lost one."""
+    count the blog typed right over the same answer in another puzzle,
+    `typed`, is the paper's own, so the likeliest of those is taken first.
+    Next is the answer as the blog printed it, `spaced`, whose word breaks
+    are the count when its letters are the grid's; it can have lost a hyphen
+    (ONETRACK MIND), which is why it comes second. Without either each light
+    is one word and a light boundary is a word break; that is taken only
+    when the blog wrote no more words than that, since BLUE PETER typed
+    (4,4) over 4+5 cells has its words but CONSOLE TABLE typed (7,6) over 12
+    has lost one."""
+    letters = "".join(by_id[gid]["solution"] for gid in group)
+    ranked = (typed or {}).get(letters, collections.Counter()).most_common(2)
+    if ranked and (len(ranked) == 1 or ranked[0][1] > ranked[1][1]):
+        return ranked[0][0]
+    if spaced and re.sub(r"[^A-Z]", "", spaced) == letters:
+        return format_parts(answer_parts(spaced))
     parts = []
     for gid in group:
         parts += answer_parts(by_id[gid]["solution"])
@@ -204,9 +230,9 @@ def with_enumeration(clue, enumeration):
     return f"{body} ({enumeration})"
 
 
-def build(rec, row, series, date, setter):
+def build(rec, row, series, date, setter, typed=None):
     """(puzzle, None) or (None, reason it is not filed). `date` is the print
-    date, or None where nothing proves one."""
+    date, or None where nothing proves one; `typed` is typed_counts()."""
     entries = [dict(e, clue=clean(e.get("clue"))) for e in tg.answers(rec, row)]
     if not tg.answers_fit(row["grid"], {"entries": entries}):
         return None, "answers disagree with the grid"
@@ -265,13 +291,17 @@ def build(rec, row, series, date, setter):
         try:
             seps_by_light = separators(group, by_id, enumeration)
         except SystemExit:
-            enumeration = from_answer(group, by_id, enumeration)
+            spaced = by_key[(e["number"], e["direction"])].get("answer_spaced")
+            enumeration = from_answer(group, by_id, enumeration, spaced, typed)
             if not enumeration:
                 return None, ("an enumeration disagrees with its light, and the "
                               "answer holds too few words to take the count from")
             e["clue"] = with_enumeration(e["clue"], enumeration)
             recounted.append(f"{e['number']} {e['direction']}")
-            seps_by_light = separators(group, by_id, enumeration)
+            try:
+                seps_by_light = separators(group, by_id, enumeration)
+            except SystemExit:
+                return None, "the printed answer's word breaks do not fit its lights"
         for gid, seps in seps_by_light.items():
             if seps:
                 by_id[gid]["separatorLocations"] = seps
@@ -356,6 +386,7 @@ def run(source, grids, parsed, write=True, newest=None):
                   for claim in claims.values() for row, _ in claim if row.get("titled")}
     dates, notes = source.print_dates(recs.values(), renumbered)
     reprints = reprinted_from()
+    typed = typed_counts(recs.values())
     filed, kept, drifted = collections.Counter(), 0, []
     redated, renamed = collections.Counter(), collections.Counter()
     refused = []
@@ -374,7 +405,7 @@ def run(source, grids, parsed, write=True, newest=None):
         rec = recs[row["post_id"]]
         date = dates.get((series, number)) or (
             datetime.date.fromisoformat(rec["date"]) if dated else None)
-        puzzle, why = build(rec, row, series, date, source.setter(rec, series))
+        puzzle, why = build(rec, row, series, date, source.setter(rec, series), typed)
         if why:
             skipped[why] += 1
             continue
