@@ -349,6 +349,41 @@ def extract_setter(leaves: list[str], trailing_idxs: list[int]) -> str | None:
     return None
 
 
+# A book that groups its puzzles by setter (The Herald Crossword Book) opens
+# each group with a leaf of prose under a byline: "RFS: Roger F. Squires" or
+# "Myops: John McKie" over a profile, a bare "Ian Rankin", or "The Wee Stinker
+# by Myops". Initials stand for the name after them; a word is the byline
+# itself, as it is in the puzzle's own header ("RFS 2", "Myops 2").
+SECTION_CODE = r"[A-Z]{2,4}|[A-Z][a-z]{3,}"
+SECTION_PROFILE_RE = re.compile(
+    rf"^({SECTION_CODE}): ((?:[A-Z][\w\].]*\s+){{1,3}}[A-Z][A-Za-z]+)$")
+SECTION_BY_RE = re.compile(rf"^[A-Z][\w ]* by ({SECTION_CODE})$")
+SECTION_NAME_RE = re.compile(r"^[A-Zl][a-z]+ [A-Z][a-z]+$")
+SECTION_PROSE_LINES = 5
+
+
+def section_byline(leaf: str, codes: dict[str, str]) -> str | None:
+    """The byline a group-opening leaf puts over the puzzles after it, or None.
+
+    Records each profile's code in `codes`, so that a later "... by CJM" names
+    the setter the CJM profile did.
+    """
+    lines = [ln.strip() for ln in leaf.split("\n") if ln.strip()]
+    if not lines or sum(len(ln) >= 20 for ln in lines[1:]) < SECTION_PROSE_LINES:
+        return None
+    head = lines[0]
+    if m := SECTION_PROFILE_RE.match(head):
+        code, name = m.group(1), re.sub(r"[^\w.' -]", "", m.group(2))
+        codes[code] = name if code.isupper() else code
+        return codes[code]
+    if m := SECTION_BY_RE.match(head):
+        return codes.get(m.group(1), m.group(1))
+    if SECTION_NAME_RE.match(head):
+        # OCR reads a capital I as l: "lan Rankin".
+        return re.sub(r"^l(?=[a-z])", "I", head)
+    return None
+
+
 def find_content_start(lines: list[str]) -> tuple[int, str]:
     """Skip leading noise (page-number/grid bleed) on a clue leaf to find
     where real clue content begins. Returns (index, mode).
@@ -439,13 +474,13 @@ def split_across_down(lines: list[str]) -> tuple[list[str], list[str]]:
 
 
 def build_puzzle(seq_number: int, clue_leaf_idx: int, trailing_idxs: list[int],
-                  leaves: list[str]) -> dict:
+                  leaves: list[str], section: str | None = None) -> dict:
     raw_lines = leaves[clue_leaf_idx].split("\n")
     content_start, mode = find_content_start(raw_lines)
     raw_number_ocr = raw_lines[0].strip() if raw_lines and raw_lines[0].strip() else None
     content_lines = raw_lines[content_start:]
 
-    setter = extract_setter(leaves, trailing_idxs)
+    setter = extract_setter(leaves, trailing_idxs) or section
 
     record: dict = {
         "book_number": seq_number,
@@ -475,8 +510,14 @@ def parse_book(text_path: Path) -> list[dict]:
     start, end = find_puzzle_range(leaves)
     clue_idxs = classify_clue_leaves(leaves, start, end)
     groups = group_into_puzzles(clue_idxs, end)
+    clue_set, codes, sections = set(clue_idxs), {}, []
+    for i in range(end):
+        byline = None if i in clue_set else section_byline(leaves[i], codes)
+        if byline:
+            sections.append((i, byline))
     return [
-        build_puzzle(seq, clue_idx, trailing, leaves)
+        build_puzzle(seq, clue_idx, trailing, leaves,
+                     next((b for i, b in reversed(sections) if i < clue_idx), None))
         for seq, (clue_idx, trailing) in enumerate(groups, start=1)
     ]
 
