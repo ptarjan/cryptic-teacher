@@ -528,14 +528,23 @@ def write_puzzle_file(path, puzzle, generator=None, retrieved_url=None):
     assert path.name == f"{puzzle['id']}.json", (
         f"{path.name} is not where {puzzle['id']} goes — that is "
         f"{puzzle['id']}.json. Ask puzzle_path() for it.")
+    old = read_puzzle_file(path) if path.exists() else None
     generator = generator or generator_of(path)
     # Every write is corroborated against the other sources we hold for the
     # puzzle, here, so that a new fetcher cannot skip it. See tools/corroborate.py.
     puzzle = corroborate.corroborate(puzzle)
+    # A puzzle built fresh from a page has no provenance yet; the file's own
+    # says when it was acquired, and re-fetching it does not change that.
+    if old is not None and "provenance" not in puzzle and old.get("provenance"):
+        puzzle = {**puzzle, "provenance": old["provenance"]}
     # Every write of a puzzle file records where the puzzle came from, here,
     # rather than in each of the nine tools that write one. See
     # provenance.stamp.
     puzzle = provenance.stamp(puzzle, generator, retrieved_url)
+    # Every write goes through the corpus sweep's per-puzzle checks, so no
+    # fetcher can write what tools/puzzle_integrity.py would report.
+    import puzzle_integrity  # noqa: PLC0415 — it imports this module
+    puzzle_integrity.refuse_bad_write(puzzle, old)
     path.write_text(json.dumps(puzzle, indent=1, ensure_ascii=False) + "\n",
                     encoding="utf-8")
     # The browser cannot fetch() off file:// (README: the site runs from disk),

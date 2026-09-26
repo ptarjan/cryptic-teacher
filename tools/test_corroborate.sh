@@ -18,7 +18,7 @@ field() { awk -v k="$1" '$1==k {$1=""; sub(/^ /, ""); print}' <<<"$2"; }
 TMP=$(mktemp -d)
 trap 'rm -rf "$TMP"' EXIT
 
-out=$(TMP="$TMP" PYTHONPATH="$REPO/tools" python3 - 2>"$TMP/stderr" <<'PY'
+out=$(TMP="$TMP" REPO="$REPO" PYTHONPATH="$REPO/tools" python3 - 2>"$TMP/stderr" <<'PY'
 import json
 import os
 from pathlib import Path
@@ -177,11 +177,13 @@ print("LEDGER", ledger["cryptic-500 answer 1-across"]["rule"],
       ledger["timesquick-700 answer 18-across"]["rule"],
       ledger["cryptic-501 setter"]["rule"])
 
-# and every write goes through it
-c.SOURCES = (source("fifteensquared", "fifteensquared", answers=AGREED_ANSWERS, setter="Tramp"),)
-path = fetch_puzzle.puzzle_path("cryptic", 501)
-fetch_puzzle.write_puzzle_file(path, puzzle("cryptic-501", AGREED, setter="", sourceUrl="x"),
-                               generator="tools/fetch_puzzle.py")
+# and every write goes through it. The write refuses what the corpus sweep
+# would report, so this one is a real puzzle with its setter left empty.
+real = fetch_puzzle.read_puzzle_file(Path(os.environ["REPO"]) / "puzzles" / "cryptic-24104.json")
+c.SOURCES = (source("fifteensquared", "fifteensquared", setter="Tramp",
+                    answers={e["id"]: e["solution"] for e in real["entries"]}),)
+path = fetch_puzzle.puzzle_path("cryptic", 24104)
+fetch_puzzle.write_puzzle_file(path, {**real, "setter": ""}, generator="tools/fetch_puzzle.py")
 print("WRITE_PATH", fetch_puzzle.read_puzzle_file(path)["setter"])
 PY
 )

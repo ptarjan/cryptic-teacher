@@ -56,6 +56,13 @@ The flags, in the order they matter:
   CROSS     two entries that share a grid cell and disagree about its letter. One
             wrong answer normally breaks three or four of these, so a clean sheet
             is real evidence the fill is the paper's and not a mangling of it.
+  DATE      a series whose dates do not rise with its numbers: a later number
+            dated on or before an earlier one. And, in a series dated off its
+            neighbours (series.py `datedFromNeighbours`), an undated puzzle
+            whose dated neighbours leave exactly one day for it.
+  SETTER    a byline that is a placeholder ("Unknown"), carries whitespace or a
+            copyright notice, or is null in a series whose source prints one
+            on every puzzle (series.py `bylined`).
   PROV      a puzzle that does not say where it came from, or says something
             tools/provenance.py does not allow. The one that matters is
             solutionOrigin: a grid the setter published is ground truth, a grid
@@ -75,8 +82,18 @@ The flags, in the order they matter:
             per-clue forgiveness can be — a solution
             carrying something other than letters, the same entry id twice in one
             puzzle, a date in the future or before EARLIEST_YEAR, a date that
-            is neither epoch milliseconds nor a "YYYY" year, or a book puzzle
-            not dated with its book's `published` year.
+            is neither epoch milliseconds nor a "YYYY" year, a book puzzle
+            not dated with its book's `published` year, no date at all where
+            the source prints one, a blog's brace markup left in a clue, a
+            clue transcribed from a blog with no enumeration, and — from
+            validate_annotations — markup or an undecodable character in the
+            puzzle's text, or the legs of a linked answer naming different
+            groups.
+
+Every check that one file answers on its own is in check_puzzle, and
+fetch_puzzle.write_puzzle_file runs it on every write: a fetcher cannot write
+what this sweep reports. The write also refuses to blank a clue the file on
+disk has words for.
 
 An entry whose solution carries non-letters is reported once, as SHAPE, and then
 left out of LENGTH and CROSS — its letter count is not a second defect, it is the
@@ -102,14 +119,15 @@ never writes: a defect here is a fetcher bug or a bad source page, and the fix
 belongs in the fetcher or in a re-fetch, not in a repair pass over the files.
 """
 
+import bisect
 import hashlib
 import json
 import re
 import sys
 import time
 from collections import defaultdict
-from datetime import datetime, timezone
-from itertools import zip_longest
+from datetime import datetime, timedelta, timezone
+from itertools import pairwise, zip_longest
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -128,7 +146,7 @@ ROOT = Path(__file__).resolve().parent.parent
 # The flags, in the order they are reported. One tuple, read by both the
 # per-finding listing and the tally, so a check cannot be added to one and
 # missed from the other.
-FLAGS = ("LENGTH", "CROSS", "GRID", "NUMBER", "SHAPE", "PROV")
+FLAGS = ("LENGTH", "CROSS", "GRID", "NUMBER", "DATE", "SETTER", "SHAPE", "PROV")
 
 # No cryptic crossword in this corpus predates the Guardian's, which began in 1929.
 # A date below this is a page the publisher mis-filed or a fetcher that lost one,
@@ -824,8 +842,13 @@ def check_shape(puzzle, today, flags):
             flags.append(("SHAPE", pid, f"dated {stored!r}, but its book "
                           f"(tools/data/books.json) was published in {want!r}"))
     if stored is None:
-        # coverage_report.py owns DATELESS; it can see which series it thins out.
-        pass
+        # A feed dates every puzzle it serves, so a null there is a date the
+        # fetcher dropped. Only a series dated off its neighbours' cadence may
+        # hold one it cannot prove yet; check_dates says when it can.
+        if not (series_meta.is_book(series)
+                or series_meta.meta(series).get("datedFromNeighbours")):
+            flags.append(("SHAPE", pid, f"no date, but every {series} puzzle's "
+                          f"source prints its day"))
     elif not (series_meta.is_year(stored) or isinstance(stored, int)):
         flags.append(("SHAPE", pid, f"date {stored!r} is neither epoch "
                       f"milliseconds nor a \"YYYY\" year"))
@@ -854,6 +877,7 @@ def check_shape(puzzle, today, flags):
     if not any(has_words(e.get("clue")) for e in entries):
         flags.append(("SHAPE", pid, f"all {len(entries)} clues are blank"))
 
+    from_blog = (puzzle.get("provenance") or {}).get("retrievedFrom") == "blog"
     seen, checkable = set(), []
     for e in entries:
         eid = e.get("id")
@@ -884,6 +908,19 @@ def check_shape(puzzle, today, flags):
         clue = e.get("clue") or ""
         if not e.get("clueMissing") and not has_words(clue):
             flags.append(("SHAPE", pid, f"{eid}: clue is blank"))
+        # Braces are a blogger's markup for a deletion or a hidden word, and no
+        # paper prints one in a clue.
+        if "{" in clue or "}" in clue:
+            flags.append(("SHAPE", pid, f"{eid}: clue {clue!r} keeps a blog's "
+                          f"brace markup; a clue line keeps the letters and "
+                          f"loses only the braces"))
+        # A blogger copying a clue can leave its count off, and the count is
+        # then the answer's word lengths. A paper's own feed prints what it
+        # printed, so only a transcribed clue is held to this.
+        if (from_blog and has_words(clue) and not e.get("clueMissing")
+                and not is_continuation(clue) and not ENUMERATION.search(clue)):
+            flags.append(("SHAPE", pid, f"{eid}: clue {clue!r}, transcribed from "
+                          f"a blog, has no enumeration"))
 
         solution = e.get("solution")
         if not solution:
@@ -1060,21 +1097,144 @@ def check_provenance(puzzle, flags):
         flags.append(("PROV", puzzle["id"], finding))
 
 
+# Strings that stand in for a setter nobody knows. Every reader prints the
+# byline verbatim, so one of these reaches a page as "Set by Unknown".
+PLACEHOLDER_SETTERS = {"", "unknown", "none", "null", "undefined", "n/a"}
+
+
+def check_setter(puzzle, flags):
+    """The byline is a name as printed, or null when nobody is known.
+
+    A series whose source prints a byline on every puzzle (series.py
+    `bylined`) never has a null one: null there is a parser that missed it."""
+    pid, setter = puzzle["id"], puzzle.get("setter")
+    series = puzzle.get("series", "cryptic")
+    if setter is None:
+        if series_meta.meta(series).get("bylined") and not series_meta.is_book(series):
+            flags.append(("SETTER", pid, f"no setter, but {series} prints a byline "
+                          f"on every puzzle"))
+        return
+    if not isinstance(setter, str) or setter.strip().casefold() in PLACEHOLDER_SETTERS:
+        flags.append(("SETTER", pid, f"setter {setter!r} is a placeholder; a puzzle "
+                      f"with no known setter has null"))
+    elif setter != setter.strip() or "\u00a9" in setter:
+        flags.append(("SETTER", pid, f"setter {setter!r} carries more than the "
+                      f"name: whitespace or a copyright notice"))
+
+
+def check_puzzle_text(puzzle, flags):
+    """validate_annotations' checks on the puzzle's own text and groups: no
+    markup or undecodable character, and every leg of a linked answer naming
+    the same group. Annotations are left to that validator, which grades them."""
+    import validate_annotations  # noqa: PLC0415 — it imports this module's fetcher
+    bare = {**puzzle, "entries": [{k: v for k, v in e.items() if k != "annotation"}
+                                  for e in puzzle.get("entries") or []]}
+    errors = []
+    validate_annotations.check_no_markup(bare, errors)
+    validate_annotations.check_groups_agree(bare, errors)
+    flags.extend(("SHAPE", puzzle["id"], err) for err in errors)
+
+
+def check_puzzle(puzzle, today, flags):
+    """Every check that one puzzle file answers on its own. audit() runs it on
+    the corpus and fetch_puzzle.write_puzzle_file on every write, so a fetcher
+    cannot put on disk what this sweep would report."""
+    dims = puzzle.get("dimensions") or {}
+    if not (isinstance(dims.get("cols"), int) and isinstance(dims.get("rows"), int)):
+        flags.append(("SHAPE", puzzle.get("id"), "no dimensions: the grid's "
+                      "cols and rows are what every light is placed in"))
+        return
+    checkable = check_shape(puzzle, today, flags)
+    check_setter(puzzle, flags)
+    check_provenance(puzzle, flags)
+    check_grid(puzzle, flags)
+    check_numbering(puzzle, flags)
+    check_length(puzzle, checkable, flags)
+    check_cross(puzzle, checkable, flags)
+    check_puzzle_text(puzzle, flags)
+
+
+def check_rewrite(old, new, flags):
+    """What writing `new` over the file's `old` may not lose: a clue's words.
+    A re-fetch of a page that serves the grid without the text (the Guardian's
+    2005-08 prizes) would otherwise undo a recovery; see
+    fetch_puzzle.carry_recovered_clues."""
+    was = {e["id"]: e.get("clue") for e in old.get("entries") or []}
+    for e in new.get("entries") or []:
+        if has_words(was.get(e["id"])) and not has_words(e.get("clue")):
+            flags.append(("SHAPE", new["id"], f"{e['id']}: would replace the clue "
+                          f"{was[e['id']]!r} with a blank one; carry it across "
+                          f"(fetch_puzzle.merge_annotations)"))
+
+
+def refuse_bad_write(puzzle, old=None):
+    """Raise ValueError naming every finding `puzzle` would bring to disk."""
+    flags = []
+    check_puzzle(puzzle, datetime.now(timezone.utc).date(), flags)
+    if old is not None:
+        check_rewrite(old, puzzle, flags)
+    if flags:
+        raise ValueError(f"refusing to write {puzzle['id']}: "
+                         + "; ".join(f"{flag} {what}" for flag, _, what in flags))
+
+
+def _utc_day(ms):
+    return datetime.fromtimestamp(ms / 1000, timezone.utc).date()
+
+
+def check_dates(held, flags):
+    """A series' dates rise with its numbers: one puzzle per issue, numbered in
+    the order they are printed. A later number dated on or before an earlier
+    one is a date read off the wrong day.
+
+    In a series dated off its neighbours, a puzzle left undated is flagged when
+    its nearest dated neighbours leave exactly as many days for the numbers
+    between as there are numbers, counting every weekday the series has ever
+    been dated on. `held` is (series, number, date, id) per puzzle."""
+    by_series = defaultdict(list)
+    for series, number, date, pid in held:
+        if not series_meta.is_book(series):
+            by_series[series].append((number, date, pid))
+    for series, rows in by_series.items():
+        rows.sort()
+        dated = [(n, _utc_day(series_meta.date_ms(d)), pid)
+                 for n, d, pid in rows if d is not None]
+        for (a, da, _), (_b, db, pid) in pairwise(dated):
+            if db <= da:
+                finding = f"dated {db}, not after {series}-{a}'s {da}"
+                if (pid, finding) not in PUBLISHED_WRONG:
+                    flags.append(("DATE", pid, finding))
+        if not series_meta.meta(series).get("datedFromNeighbours"):
+            continue
+        weekdays = {d.weekday() for _, d, _ in dated}
+        numbers = [n for n, _, _ in dated]
+        for n, d, pid in rows:
+            if d is not None:
+                continue
+            i = bisect.bisect(numbers, n)
+            if not 0 < i < len(dated):
+                continue
+            (a, da, _), (b, db, _) = dated[i - 1], dated[i]
+            days = [da + timedelta(days=k) for k in range(1, (db - da).days)]
+            slots = [x for x in days if x.weekday() in weekdays]
+            if len(slots) == b - a - 1:
+                flags.append(("DATE", pid, f"undated, but {series}-{a} ({da}) and "
+                              f"{series}-{b} ({db}) leave {slots[n - a - 1]} for it"))
+
+
 def audit(rows, today):
     """One flat list of (flag, puzzle id, what) plus the duplicate groups."""
-    flags = []
+    flags, held = [], []
     by_content = defaultdict(list)
     for row in rows:
         # From the id, not from row["file"]: that field names the generated
         # .js shim the browser loads, and the puzzle itself is the .json.
         puzzle = read_puzzle_file(puzzle_path(row["series"], row["number"]))
         by_content[content_hash(puzzle)].append(puzzle["id"])
-        checkable = check_shape(puzzle, today, flags)
-        check_provenance(puzzle, flags)
-        check_grid(puzzle, flags)
-        check_numbering(puzzle, flags)
-        check_length(puzzle, checkable, flags)
-        check_cross(puzzle, checkable, flags)
+        held.append((puzzle.get("series", "cryptic"), puzzle["number"],
+                     puzzle.get("date"), puzzle["id"]))
+        check_puzzle(puzzle, today, flags)
+    check_dates(held, flags)
     copies = sorted(sorted(ids) for ids in by_content.values() if len(ids) > 1)
     return flags, copies
 
