@@ -2240,6 +2240,10 @@ if (assert(autoRow, `picker finds ${autoPuzzle.id} when searched for`)) {
     for (const cd of cds) {
       const ans = (cd.e.annotation.answer || "").replace(/[^A-Za-z]/g, "").toUpperCase();
       const where = `${cd.id} ${cd.e.id} (${ans})`;
+      // Under four letters the answer turns up in the ladder's own fixed prose —
+      // "Either two plain definitions" for TWO — so, as in the validator's
+      // check_cryptic_definition_blocks, it is too short to call a leak.
+      const tooShort = ans.length < 4;
       openClue(cd);
       // Climb to the rung BEFORE the walkthrough: every rung a learner can buy
       // without committing to the last one must leave the answer unspoken.
@@ -2252,7 +2256,7 @@ if (assert(autoRow, `picker finds ${autoPuzzle.id} when searched for`)) {
         // "a spade a spade" + "</span>" reads as SPADES.
         const bare = registry["hint-body"].innerHTML.replace(/<[^>]*>|&[#\w]+;/g, " ")
           .replace(/[^A-Za-z]/g, "").toUpperCase();
-        assert(!bare.includes(ans),
+        assert(tooShort || !bare.includes(ans),
           `${where}: a rung before the walkthrough spells the answer out — ` +
           registry["hint-body"].innerHTML);
       }
