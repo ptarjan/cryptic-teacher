@@ -84,6 +84,11 @@ recs = [{"number": n, "date": d} for n, d in ((100, "2026-09-14"), (101, "2026-0
         (108, "2026-09-24"), (109, "2026-09-24"))]
 dates = F.print_dates(recs)
 print("DATES", " ".join(f"{n}:{dates[n]:%a}" for n in sorted(dates)))
+# Christmas Day's post pulls 248 back onto 247's day; neither is left undated.
+dates = F.print_dates([{"number": n, "date": d} for n, d in (
+    (246, "2025-12-22"), (247, "2025-12-23"), (248, "2025-12-24"),
+    (249, "2025-12-25"), (250, "2025-12-26"))])
+print("CLASH", " ".join(f"{n}:{dates[n]:%d}" for n in sorted(dates)))
 PY
 )
 field() { printf '%s\n' "$out" | sed -n "s/^$1 //p"; }
@@ -103,5 +108,7 @@ check "a linked answer shared out at the grid's light break" \
   "[(5, 'FGHIJ', 'Linked (2,3,5)'), (8, 'PQRST', 'See 5')] [(5, 'FGHIJ'), (8, 'PQRST')]" "$(field SPLIT)"
 check "a puzzle blogged late dated to its own day: the prize to its Saturday" \
   "100:Mon 101:Tue 102:Wed 103:Thu 104:Fri 105:Sat 106:Mon 107:Tue 108:Wed 109:Thu" "$(field DATES)"
+check "a run of numbers with no day of its own fitted between its neighbours" \
+  "246:20 247:22 248:23 249:24 250:26" "$(field CLASH)"
 
 [ "$fails" -eq 0 ] && echo "all ok" || { echo "$fails failure(s)"; exit 1; }
