@@ -249,6 +249,14 @@ Terms used below:
     row, so typing a number and opening it needs no mouse.
   - Do not "simplify" this by filtering only the rendered rows. That would make
     un-annotated puzzles unreachable. The smoke test asserts the search path.
+- **Papers and bands are menus, not words in the box.** Two native selects sit
+  under the search. The paper menu groups series by publisher, read from
+  `papers` in `puzzles/index.json` (so from `tools/series.py`). A publisher
+  with two or more series gets an "All" option, and the single-series papers
+  share one "Other papers" group. An option's value is the series keys it
+  covers, so the filter matches keys and never a paper's name: "times" is
+  inside "times quick" and "sunday times". Adding a series needs nothing in
+  the picker. Only `SERIES_BADGE` needs its label.
 - **Badge the exception, never the norm.** There is no "full hints" badge
   anywhere in the app, neither on picker rows nor on the puzzle title. Every
   listed puzzle is annotated, so that badge would say nothing. The
