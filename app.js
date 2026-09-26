@@ -4765,7 +4765,7 @@
     return `<a class="blog-link small" href="${esc(P.blog.url)}" target="_blank" rel="noopener">Full explanation on ${esc(P.blog.name)} →</a>`;
   }
   const blogHintsBadge = () =>
-    ` <span class="badge auto" title="We haven't explained this clue ourselves yet. These hints are the definition and clue type that ${esc(P.blog.name)} marked in its write-up, put into our own words.">hints via ${esc(P.blog.name)}</span>`;
+    ` <span class="badge auto blog" title="We haven't explained this clue ourselves yet. These hints are the definition and clue type that ${esc(P.blog.name)} marked in its write-up, put into our own words.">hints via ${esc(P.blog.name)}</span>`;
 
   function renderHintPanel() {
     const e = currentEntry();
@@ -5315,7 +5315,7 @@
   // Still the coverage axis: a puzzle whose hints are read off a blog's
   // write-up is the exception in the other direction from "answers only".
   function blogBadge(blog) {
-    return `<span class="badge auto" title="We haven't written our own hints for this puzzle yet. Its hints are built from the definitions and clue types ${esc(blog.name)} marked, and each clue links to their full explanation.">hints via ${esc(blog.name)}</span>`;
+    return `<span class="badge auto blog" title="We haven't written our own hints for this puzzle yet. Its hints are built from the definitions and clue types ${esc(blog.name)} marked, and each clue links to their full explanation.">hints via ${esc(blog.name)}</span>`;
   }
 
   // Shares the coverage axis (neutral) with the hints badge on purpose: both
