@@ -183,6 +183,8 @@ SERIES = {
         "kind": "Cryptic",
         "publisher": "Financial Times",
         "bylined": True,
+        # Dated off the blog's post days (tools/ft_puzzles.py print_dates).
+        "datedFromNeighbours": True,
         "badge": "FT",
         "blog": "fifteensquared.net",
     },

@@ -290,20 +290,62 @@ def grids(limit=None, max_nodes=tg.DEFAULT_MAX_NODES):
 
 # ------------------------------------------------------------------ file
 
+def printing_day(day):
+    """Does the FT print a crossword on `day`? Monday to Saturday, not
+    Christmas Day."""
+    return day.weekday() != ftp.SUNDAY and (day.month, day.day) != (12, 25)
+
+
+def last_printing_day(day):
+    while not printing_day(day):
+        day -= ftp.DAY
+    return day
+
+
 def print_dates(recs):
-    """{number: date} by file_times_puzzles.date_times, which reads the
-    Times' Saturday prize inside its weekday numbering; the FT's runs the same
-    way. A weekday puzzle is blogged the day it is printed; the Saturday prize
-    after entries close, so it is the one blogged no earlier than the number
-    after it, and it takes the one Saturday between its neighbours."""
+    """{number: date or None}.
+
+    A puzzle is blogged on the day it is printed or later, never earlier, so
+    one blogged no earlier than the number after it was blogged late -- the
+    Saturday prize, after entries close -- and was printed the printing day
+    before that number's post. Every other puzzle's date is its post's.
+
+    The numbering is not one number per printing day for good (a week can
+    carry an extra one), so nothing is counted across more than one step.
+    A date that does not rise strictly between its neighbours' is dropped,
+    and a gap whose neighbours leave exactly one printing day per number is
+    dated by that cadence."""
     posted = {}
     for r in recs:
         if r.get("number"):
-            posted.setdefault(r["number"], datetime.date.fromisoformat(r["date"]))
-    prize = {n for n, d in posted.items() if n + 1 in posted and d >= posted[n + 1]}
-    daily = {n: d for n, d in posted.items() if n not in prize}
-    notes = []
-    return ftp.date_times(prize, daily, {}, {}, notes), notes
+            day = last_printing_day(datetime.date.fromisoformat(r["date"]))
+            posted[r["number"]] = min(day, posted.get(r["number"], day))
+    guess = {}
+    for n, day in posted.items():
+        after = posted.get(n + 1)
+        guess[n] = (last_printing_day(after - ftp.DAY)
+                    if after is not None and day >= after else day)
+    order = sorted(guess)
+    dates, last = {}, None
+    for i, n in enumerate(order):
+        nxt = guess[order[i + 1]] if i + 1 < len(order) else None
+        day = guess[n]
+        ok = (last is None or day > last) and (nxt is None or day < nxt)
+        dates[n] = day if ok else None
+        last = day if ok else last
+    dated = [n for n in order if dates[n]]
+    for a, b in zip(dated, dated[1:]):
+        gap = [n for n in order if a < n < b]
+        if not gap or any(dates[n] for n in gap):
+            continue
+        slots, day = [], dates[a] + ftp.DAY
+        while day < dates[b]:
+            if printing_day(day):
+                slots.append(day)
+            day += ftp.DAY
+        if len(slots) == b - a - 1:
+            dates.update({n: slots[n - a - 1] for n in gap})
+    return dates
 
 
 def split_by(rec, grid):
@@ -322,8 +364,9 @@ def file(write=True, limit=None):
     recs = {r["post_id"]: r for r in map(json.loads, (CACHE / "parsed.jsonl").open(encoding="utf-8"))}
     rows = [json.loads(line) for line in (CACHE / "grids.jsonl").open(encoding="utf-8")]
     rows.sort(key=lambda r: (r["date"], r["post_id"]), reverse=True)
-    dates, notes = print_dates(recs.values())
     fits = ftp.sequence_window([r for r in recs.values() if r.get("number")])
+    dates = print_dates([r for r in recs.values()
+                         if r.get("number") and fits(r["date"], r["number"])])
     claims = collections.Counter(r["number"] for r in recs.values() if r.get("number"))
     skipped, filed = collections.Counter(), []
     for row in rows:
@@ -345,9 +388,13 @@ def file(write=True, limit=None):
                 skipped[why] += 1
                 continue
             if write:
-                write_puzzle_file(puzzle_path(SERIES, number), puzzle, generator=GENERATOR)
+                try:
+                    write_puzzle_file(puzzle_path(SERIES, number), puzzle, generator=GENERATOR)
+                except ValueError as e:     # puzzle_integrity's write check
+                    skipped[f"refused on write: {str(e).split(': ', 1)[-1][:120]}"] += 1
+                    continue
             filed.append(puzzle["id"])
-    return filed, skipped, notes
+    return filed, skipped
 
 
 def main(argv=None):
@@ -361,13 +408,11 @@ def main(argv=None):
     r = grids(a.limit, a.max_nodes)
     if r:
         tg.report(r)
-    filed, skipped, notes = file(write=not a.dry_run, limit=a.limit)
+    filed, skipped = file(write=not a.dry_run, limit=a.limit)
     print(f"{'would file' if a.dry_run else 'filed'} {len(filed)}: {' '.join(filed[:20])}"
           + (" ..." if len(filed) > 20 else ""))
     for why, n in skipped.most_common():
         print(f"  skipped {n}: {why}")
-    for note in notes:
-        print(f"  date: {note}")
     return 0
 
 
