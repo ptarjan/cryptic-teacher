@@ -187,7 +187,7 @@ lock_is_dead() {
 }
 if ! mkdir "$LOCK" 2>/dev/null; then
   if lock_is_dead; then
-    alert "a pre-reset backfill lock from $(date -r "$LOCK" '+%H:%M') has no live process behind it — the run holding it was killed rather than stopped. Taking the lock over; every hourly fire between then and now did nothing."
+    alert "a pre-reset backfill lock from $(date -r "$LOCK" '+%H:%M') has no live process behind it — the run that took it was killed rather than stopped, most likely by a container restart. Taking the lock over."
     rm -f "$LOCK/pid"
     rmdir "$LOCK" 2>/dev/null
   fi
