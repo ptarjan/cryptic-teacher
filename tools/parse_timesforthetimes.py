@@ -122,7 +122,7 @@ OPEN_ENUM = re.compile(r"\(\d{1,2}(?:[,\-\u2013\s]+\d{1,2})*[,\-\u2013]$")
 ENUM = re.compile(r"\(\s*(\d{1,2}(?:[,\-–\s]+\d{1,2})*)[,\-–\s]*\)\s*$")
 #: An enumeration typed at a clue's end but not in ENUM's shape: unclosed,
 #: dotted, or followed by punctuation.
-LOOSE_ENUM = re.compile(r"\s*\(\s*(\d{1,2}(?:[,\-\u2013.\s]+\d{1,2})*)\s*\)?[\s.,;:]*$")
+LOOSE_ENUM = re.compile(r"\s*[({]\s*(\d{1,2}(?:[,\-\u2013.\s]+\d{1,2})*)\s*\)?[\s.,;:]*$")
 #: A count in words, Mephisto's "(9, three words)": the clue already has one.
 WORDED_ENUM = re.compile(r"\(\s*\d{1,2}\b[^()]*\bwords?\b[^()]*\)[\s.,;:]*$")
 #: A clue that covers two or more lights heads its list of them: "10/11",
@@ -714,7 +714,7 @@ def parse_post(post):
             return
         # Some bloggers copy the clue without its enumeration. The answer
         # they print under it has the word breaks, so the count is theirs.
-        # A count typed malformed -- "(10", "(7),", "(3.4)" -- is replaced by
+        # A count typed malformed -- "(10", "{10)", "(7),", "(3.4)" -- is replaced by
         # the well-formed one when its total is the answer's.
         if enum is None and clue and not CONTINUATION.match(clue):
             enum = printed_enumeration(printed)
