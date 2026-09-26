@@ -186,7 +186,10 @@ Terms used below:
 - **It says whose marks they are.** The title reads "hints via <blog>" in place
   of "answers only", the meter badges the clue, and the escape row links to the
   post ("Full explanation on <blog> →") on every clue we have not annotated.
-- **Refresh it after a cache top-up**: `python3 tools/blog_facts.py --measure`
+- **The nightly refreshes it** (`tools/daily_update.sh`, step 1d) with
+  `--if-changed`, which skips the ~5-minute parse when the digest in
+  `tools/data/blog_facts/inputs.sha256` still matches the cached posts, the
+  clues and the parser. By hand, `python3 tools/blog_facts.py --measure`
   rewrites the sidecar and prints coverage per blog and series.
 - **The validator compares our definition with the blog's** when a run
   annotates (`check_definition_against_blog`), not in the corpus sweep: where
