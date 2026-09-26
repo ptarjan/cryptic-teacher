@@ -29,8 +29,9 @@ import re
 import sys
 import time
 import urllib.error
-import urllib.request
 from pathlib import Path
+
+from fetch_puzzle import http_bytes
 
 CACHE = Path.home() / "cryptic-setter-data" / "times-listing"
 HOSTS = ("thetimes.co.uk", "thetimes.com")
@@ -59,9 +60,7 @@ MONTHS = {datetime.date(2000, i, 1).strftime("%B"): i for i in range(1, 13)}
 
 
 def get(url):
-    req = urllib.request.Request(url, headers={"User-Agent": UA})
-    with urllib.request.urlopen(req, timeout=90) as r:
-        return gunzip(r.read())
+    return gunzip(http_bytes(url, timeout=90))
 
 
 def gunzip(raw):
