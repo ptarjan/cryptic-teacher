@@ -250,8 +250,9 @@ Terms used below:
   - Do not "simplify" this by filtering only the rendered rows. That would make
     un-annotated puzzles unreachable. The smoke test asserts the search path.
 - **Papers and bands are menus, not words in the box.** Two native selects sit
-  under the search. The paper menu groups series by publisher, read from
-  `papers` in `puzzles/index.json` (so from `tools/series.py`). A publisher
+  under the search. The paper menu groups series by their `group` in
+  `tools/series.py` (the publisher unless set; the Sunday Times says "Times",
+  Everyman "Guardian"), read from `groups` in `puzzles/index.json`. A group
   with two or more series gets an "All" option, and the single-series papers
   share one "Other papers" group. An option's value is the series keys it
   covers, so the filter matches keys and never a paper's name: "times" is

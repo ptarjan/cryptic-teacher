@@ -5233,19 +5233,25 @@ global.realSetTimeout(() => {
   registry["btn-picker-close"].onclick();
 }
 
-// --- the paper and difficulty menus: every paper, grouped by publisher ---
-// Every series in the index is an option, under its publisher from the index's
-// own `papers` table, and a publisher with two or more series has an "All"
-// option at the head of its group. An option's value is the series keys it
+// --- the paper and difficulty menus: every paper, grouped by group ---
+// Every series in the index is an option, under its group from the index's
+// own `groups` table, and a group with two or more series has an "All"
+// option at its head. An option's value is the series keys it
 // stands for, so choosing one filters on the key and never on the paper's name:
 // "times" is a word inside "times quick" and "sunday times", and choosing the
 // Times must list the Times alone.
 {
   registry["btn-picker"].onclick();
   const menu = registry["picker-paper"].innerHTML;
-  const papers = window.CRYPTIC_INDEX.papers || {};
+  const papers = window.CRYPTIC_INDEX.groups || {};
   const n = {};
   allPuzzles.forEach((p) => { n[p.series] = (n[p.series] || 0) + 1; });
+  assert(Object.keys(n).every((s) => s in papers),
+    "index.json's `groups` names every series in the index");
+  // A Sunday sister paper files under its weekday paper, not "Other papers".
+  [["sundaytimes", "Times"], ["everyman", "Guardian"]].forEach(([s, g]) => {
+    if (n[s]) assert(papers[s] === g, `${s} is in the ${g} group: ${papers[s]}`);
+  });
   const groups = [...menu.matchAll(/<optgroup label="([^"]*)">([\s\S]*?)<\/optgroup>/g)]
     .map((m) => ({ label: m[1].replace(/&amp;/g, "&"),
                    values: [...m[2].matchAll(/value="([^"]*)"/g)].map((v) => v[1]) }));
