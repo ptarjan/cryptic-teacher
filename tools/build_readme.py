@@ -96,6 +96,8 @@ LAYOUT = [
     ("fetching", "tools/fetch_minutecryptic.js", "Minute Cryptic’s daily hints, as a corpus to be measured against"),
     ("fetching", "tools/recover_minutecryptic.py", "refills days that capture missed from Minute Cryptic’s own video titles, dated by clue number because the upload date lags"),
     ("fetching", "tools/fetch_fifteensquared.py", "caches the blog that covers all five series, and its comments — fetched once each, at their 20-second crawl delay"),
+    ("fetching", "tools/corroborate.py", "checks every puzzle written against the other sources we cache for it — georgeho's scrape, fifteensquared's posts, the Times listing — filling an empty setter, date or clue, settling an answer they disagree on by the grid, the print sequence, independent votes and a measured rank, and ledgering every call; never refuses a write"),
+    ("fetching", "tools/test_corroborate.sh", "decides one case by each of corroboration's rules, and proves a fill never overwrites, a disagreement never raises, and every write goes through it"),
     ("fetching", "tools/fetch_timesforthetimes.py", "caches the blog that covers the Times series, the only archive that prints its clues — fetched once each, at their 10-second crawl delay"),
     ("fetching", "tools/parse_timesforthetimes.py", "reads that cache into clue, answer and light-length records — the input a withheld Times grid is rebuilt from"),
     ("fetching", "tools/test_parse_timesforthetimes.sh", "holds that parser to one fixture per era of the blog's markup, because a misread answer becomes a wrong light length"),
