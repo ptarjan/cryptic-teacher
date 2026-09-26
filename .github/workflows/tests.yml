@@ -1,12 +1,14 @@
-# Every test entry point in tools/ runs HERE, and this workflow has no
-# `concurrency:` block, so nothing it runs can be cancelled by a later push.
-# That is the point of it.
+# Every test entry point in tools/ runs HERE.
 #
-# pages.yml does have one — `group: pages, cancel-in-progress: false` — and even
-# false does not make a check living there safe: GitHub keeps only the newest
-# PENDING run in a concurrency group and cancels the rest, so a queued build
-# dies the moment the next push arrives. A check a later push can cancel is a
-# check that is optional.
+# One run at a time per branch: `cancel-in-progress: false` never kills a
+# running suite, and GitHub keeps only the newest PENDING run in the group, so
+# a burst of pushes costs two runs, not one per push. Each commit contains the
+# ones before it, so testing the newest covers every commit it replaced; what
+# the group must never do is cancel the RUNNING suite, or a steady stream of
+# pushes would starve it and nothing would ever finish.
+#
+# pages.yml has its own group, and even there a queued build dies the moment
+# the next push arrives, so a check must never live in pages.yml.
 #
 # So the loop globs both of the repo's test-file spellings, tools/test_*.{sh,js}
 # and tools/*_test.{sh,js}, rather than naming files: a test is wired in by
@@ -44,6 +46,10 @@ name: Run the test scripts
 on:
   push:
   pull_request:
+
+concurrency:
+  group: tests-${{ github.ref }}
+  cancel-in-progress: false
 
 jobs:
   # The layout check is not a test script and needs neither the index nor the
