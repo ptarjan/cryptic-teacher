@@ -18,7 +18,10 @@
   "retrievedFrom": "publisher",
   "retrievedUrl": null,
   "gridOrigin": "published",
-  "solutionOrigin": "published"
+  "solutionOrigin": "published",
+  "annotatedBy": [
+   "claude-opus-5-5"
+  ]
  },
  "entries": [
   {
@@ -36,7 +39,52 @@
      4
     ]
    },
-   "solution": "HOWSTHAT"
+   "solution": "HOWSTHAT",
+   "annotation": {
+    "type": "charade + container",
+    "answer": "HOW'S THAT",
+    "definition": "appeal",
+    "indicators": [
+     "after",
+     "in"
+    ],
+    "indicatorNotes": {
+     "after": "'after' means coming later in the line, so HAT follows the HO(W)ST chunk",
+     "in": "'in' means being inside something, so W sits within the letters of HOST"
+    },
+    "pieces": [
+     "HO",
+     "W",
+     "ST",
+     "HAT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "present",
+      "gives": "HOST",
+      "note": "to present a show is to host it"
+     },
+     {
+      "clueFragment": "wicket",
+      "gives": "W",
+      "note": "W = wicket in cricket scoring, set inside HOST"
+     },
+     {
+      "clueFragment": "Bowler, say",
+      "gives": "HAT",
+      "note": "a bowler is a kind of hat, 'say' marking it as an example"
+     }
+    ],
+    "surface": "A cricket bowler takes a wicket and goes up with an appeal to the umpire.",
+    "walkthrough": "'Bowler' wants to be the cricketer; it is the hat. The answer, often written howzat, is the cry fielders make asking the umpire to give a batter out.",
+    "definitionFit": "In cricket the fielders' shout to the umpire is formally called an appeal, so the cry itself stands for the appeal.",
+    "features": {
+     "misdirectedWord": "Bowler",
+     "joke": "pun",
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "2-down",
@@ -48,7 +96,37 @@
    },
    "length": 3,
    "clue": "Light-skinned monster (3)",
-   "solution": "ORC"
+   "solution": "ORC",
+   "annotation": {
+    "type": "outer letters + deletion",
+    "answer": "ORC",
+    "definition": "monster",
+    "indicators": [
+     "skinned"
+    ],
+    "indicatorNotes": {
+     "skinned": "skinning something strips off its outside, so the word loses its first and last letters"
+    },
+    "pieces": [
+     "ORC"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Light-skinned",
+      "gives": "ORC",
+      "note": "TORCH (a light) with its outer letters T and H removed"
+     }
+    ],
+    "surface": "A pale-complexioned monster from a fantasy story.",
+    "walkthrough": "'Light-skinned' reads as one adjective about complexion; split it into 'light' (a torch) and 'skinned' (remove the outside letters).",
+    "definitionFit": "Plain synonym by example: orcs are the brutish monsters of Tolkien and fantasy games.",
+    "features": {
+     "misdirectedWord": "Light-skinned",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "3-down",
@@ -60,7 +138,40 @@
    },
    "length": 5,
    "clue": "Steel, silver, silicon or scandium, say? (5)",
-   "solution": "SWORD"
+   "solution": "SWORD",
+   "annotation": {
+    "type": "double definition",
+    "answer": "SWORD",
+    "definition": "Steel",
+    "definition2": "silver, silicon or scandium, say",
+    "indicators": [
+     "say"
+    ],
+    "indicatorNotes": {
+     "say": "'say' means 'for example', marking the three words as instances of a category"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Steel",
+      "gives": "SWORD",
+      "note": "poetic sense: 'cold steel' means a bladed weapon"
+     },
+     {
+      "clueFragment": "silver, silicon or scandium, say",
+      "gives": "SWORD",
+      "note": "what the three share is only their first letter; each is a word starting with S"
+     }
+    ],
+    "surface": "A list of metals and elements, as if from a chemistry lesson.",
+    "walkthrough": "The list looks like a set of elements, but it is a set of words that begin with S: S-WORD. Steel is the blade.",
+    "definitionFit": "Steel stands for a blade by metonymy, the material for the weapon, as in 'cold steel'; and silver, silicon and scandium are each an S word.",
+    "features": {
+     "misdirectedWord": "Steel",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "4-down",
@@ -78,7 +189,32 @@
      5
     ]
    },
-   "solution": "HALFADOZEN"
+   "solution": "HALFADOZEN",
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "HALF A DOZEN",
+    "definition": "Six",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Six",
+      "note": "the plain definition, a number"
+     },
+     {
+      "clueFragment": "eggs I eye, loosely speaking, would be twice that?",
+      "note": "said aloud loosely, 'eggs I eye' is the Roman numeral XII, which is twelve, double the number defined"
+     }
+    ],
+    "surface": "Someone counting eggs in a box and talking about them vaguely.",
+    "walkthrough": "Six eggs suggests an egg box, but the eggs are there for their sound: 'eggs I eye' spoken is X-I-I, twelve, and six is half a dozen.",
+    "definitionFit": "A dozen is twelve, so the phrase is the everyday idiom for six, especially of eggs.",
+    "features": {
+     "misdirectedWord": "eggs",
+     "joke": "pun",
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "5-down",
@@ -90,7 +226,46 @@
    },
    "length": 6,
    "clue": "Trains including first from Hillingdon that runs through London (6)",
-   "solution": "THAMES"
+   "solution": "THAMES",
+   "annotation": {
+    "type": "container + first letter",
+    "answer": "THAMES",
+    "definition": "that runs through London",
+    "indicators": [
+     "including",
+     "first from"
+    ],
+    "indicatorNotes": {
+     "including": "to include something is to take it in, so TAMES takes the H inside it",
+     "first from": "'first from' a word means its opening letter, here the H of Hillingdon"
+    },
+    "pieces": [
+     "T",
+     "H",
+     "AMES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trains",
+      "gives": "TAMES",
+      "note": "to train an animal is to tame it"
+     },
+     {
+      "clueFragment": "first from Hillingdon",
+      "gives": "H",
+      "note": "first letter of Hillingdon, set inside TAMES"
+     }
+    ],
+    "surface": "London Underground trains serving the borough of Hillingdon on their way through the capital.",
+    "walkthrough": "Hillingdon is a London borough, so the surface is all commuter trains; 'Trains' is the verb, tames.",
+    "definitionFit": "A definition by description: the phrase describes the river rather than naming it, and London's river is the one meant.",
+    "features": {
+     "misdirectedWord": "Trains",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "6-across",
@@ -102,7 +277,52 @@
    },
    "length": 6,
    "clue": "Time has passed say detaining new recruit (6)",
-   "solution": "ENGAGE"
+   "solution": "ENGAGE",
+   "annotation": {
+    "type": "charade + container",
+    "answer": "ENGAGE",
+    "definition": "recruit",
+    "indicators": [
+     "has passed",
+     "detaining"
+    ],
+    "indicatorNotes": {
+     "has passed": "something that has passed has gone by and is now behind, so AGE ends up after E(N)G",
+     "detaining": "to detain is to hold someone in, so EG holds N inside it"
+    },
+    "pieces": [
+     "E",
+     "N",
+     "G",
+     "AGE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "say",
+      "gives": "EG",
+      "note": "e.g. = say, for example"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N = new, held inside EG"
+     },
+     {
+      "clueFragment": "Time",
+      "gives": "AGE",
+      "note": "an age is a period of time"
+     }
+    ],
+    "surface": "A remark that time has moved on while a new recruit is kept waiting.",
+    "walkthrough": "The clue lists Time first, but 'has passed' sends AGE to the end, after E(N)G.",
+    "definitionFit": "Plain synonym: to engage staff is to take them on, which is what recruiting does.",
+    "features": {
+     "misdirectedWord": "passed",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "6-down",
@@ -114,7 +334,37 @@
    },
    "length": 4,
    "clue": "Fair seductress disrobed (4)",
-   "solution": "EXPO"
+   "solution": "EXPO",
+   "annotation": {
+    "type": "outer letters + deletion",
+    "answer": "EXPO",
+    "definition": "Fair",
+    "indicators": [
+     "disrobed"
+    ],
+    "indicatorNotes": {
+     "disrobed": "undressing removes the outer layer, so the word loses its first and last letters"
+    },
+    "pieces": [
+     "EXPO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seductress disrobed",
+      "gives": "EXPO",
+      "note": "SEXPOT (a seductress) with its outer letters S and T removed"
+     }
+    ],
+    "surface": "A beautiful temptress who has taken her clothes off.",
+    "walkthrough": "'Fair' looks like an adjective describing her; it is the noun, a trade fair.",
+    "definitionFit": "Plain synonym: an expo, short for exposition, is a large trade fair or exhibition.",
+    "features": {
+     "misdirectedWord": "Fair",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "7-down",
@@ -126,7 +376,49 @@
    },
    "length": 9,
    "clue": "Huge trapper or trappee detailed? (9)",
-   "solution": "GINORMOUS"
+   "solution": "GINORMOUS",
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "GINORMOUS",
+    "definition": "Huge",
+    "indicators": [
+     "detailed"
+    ],
+    "indicatorNotes": {
+     "detailed": "read as de-tailed, with its tail cut off, so MOUSE loses its last letter"
+    },
+    "pieces": [
+     "GIN",
+     "OR",
+     "MOUS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trapper",
+      "gives": "GIN",
+      "note": "a gin is a snare or trap"
+     },
+     {
+      "clueFragment": "or",
+      "gives": "OR",
+      "note": "taken as it stands"
+     },
+     {
+      "clueFragment": "trappee detailed",
+      "gives": "MOUS",
+      "note": "MOUSE, the thing caught in a trap, without its tail letter E"
+     }
+    ],
+    "surface": "A question about whether something enormous is the hunter or the hunted, described in detail.",
+    "walkthrough": "'Detailed' reads as 'described closely'; split it as de-tailed, losing the last letter. A gin is an old word for a trap.",
+    "definitionFit": "Plain synonym in slang: the word is a jokey blend of gigantic and enormous.",
+    "features": {
+     "misdirectedWord": "detailed",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "8-down",
@@ -143,7 +435,56 @@
      7
     ]
    },
-   "solution": "GRIMSBYTOWN"
+   "solution": "GRIMSBYTOWN",
+   "annotation": {
+    "type": "charade + container",
+    "answer": "GRIMSBY TOWN",
+    "definition": "football club",
+    "indicators": [
+     "crossing"
+    ],
+    "indicatorNotes": {
+     "crossing": "a street crossing something spans it from side to side, so ST goes around BY"
+    },
+    "pieces": [
+     "GRIM",
+     "S",
+     "BY",
+     "T",
+     "OWN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gloomy",
+      "gives": "GRIM",
+      "note": "grim = gloomy"
+     },
+     {
+      "clueFragment": "street",
+      "gives": "ST",
+      "note": "St = street"
+     },
+     {
+      "clueFragment": "near",
+      "gives": "BY",
+      "note": "by = near, as in 'close by', inside ST"
+     },
+     {
+      "clueFragment": "particular",
+      "gives": "OWN",
+      "note": "your own things are particular to you"
+     }
+    ],
+    "surface": "A bleak street running past a football ground.",
+    "walkthrough": "Grimsby is a fishing port on England's east coast, and its football club is a lower-league side.",
+    "definitionFit": "Definition by example: the Mariners of Grimsby are one professional English football club.",
+    "features": {
+     "misdirectedWord": "crossing",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "9-across",
@@ -155,7 +496,51 @@
    },
    "length": 6,
    "clue": "Train left, second half of train first (6)",
-   "solution": "SCHOOL"
+   "solution": "SCHOOL",
+   "annotation": {
+    "type": "charade",
+    "answer": "SCHOOL",
+    "definition": "Train",
+    "indicators": [
+     "half of",
+     "first"
+    ],
+    "indicatorNotes": {
+     "half of": "'half of' asks for one of two equal parts, one CHOO of CHOO-CHOO",
+     "first": "'first' means ahead of the rest, so S and CHOO go before L"
+    },
+    "pieces": [
+     "S",
+     "CHOO",
+     "L"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "s = second"
+     },
+     {
+      "clueFragment": "half of train",
+      "gives": "CHOO",
+      "note": "half of CHOO-CHOO, a child's word for a train"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L = left, placed last because the rest goes 'first'"
+     }
+    ],
+    "surface": "Instructions for rearranging the carriages of a train.",
+    "walkthrough": "'Second half of train' reads as the back half of a train; it is 'second' (S) plus half of choo-choo. The opening 'Train' is the definition, a verb, and the setter reuses the word on purpose.",
+    "definitionFit": "Plain synonym: to school a horse or a pupil is to train it.",
+    "features": {
+     "misdirectedWord": "second",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "10-across",
@@ -174,7 +559,10 @@
    "separatorLocations": {
     ",": []
    },
-   "solution": "APPENDIX"
+   "solution": "APPENDIX",
+   "annotation": {
+    "linkedTo": "22-across"
+   }
   },
   {
    "id": "11-across",
@@ -191,7 +579,35 @@
      4
     ]
    },
-   "solution": "HOLDWATER"
+   "solution": "HOLDWATER",
+   "annotation": {
+    "type": "double definition",
+    "answer": "HOLD WATER",
+    "definition": "Wash",
+    "definition2": "as will washing machine, for example",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Wash",
+      "gives": "HOLDWATER",
+      "note": "idiom sense: an excuse that won't wash is one nobody believes"
+     },
+     {
+      "clueFragment": "as will washing machine, for example",
+      "gives": "HOLDWATER",
+      "note": "literal sense: a washing machine's drum keeps its liquid in"
+     }
+    ],
+    "surface": "A laundry note that a washing machine does the washing.",
+    "walkthrough": "'Wash' here is the idiom 'that won't wash', meaning to be believable.",
+    "definitionFit": "Two idioms for the same thing: an argument that washes stands up, as does one that holds water; and a machine literally holds water.",
+    "features": {
+     "misdirectedWord": "Wash",
+     "joke": "pun",
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "12-down",
@@ -203,7 +619,35 @@
    },
    "length": 11,
    "clue": "Sovereign to be paid (11)",
-   "solution": "OUTSTANDING"
+   "solution": "OUTSTANDING",
+   "annotation": {
+    "type": "double definition",
+    "answer": "OUTSTANDING",
+    "definition": "Sovereign",
+    "definition2": "to be paid",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Sovereign",
+      "gives": "OUTSTANDING",
+      "note": "adjective sense: supreme, excellent, as in 'a sovereign remedy'"
+     },
+     {
+      "clueFragment": "to be paid",
+      "gives": "OUTSTANDING",
+      "note": "of a bill or debt still owing"
+     }
+    ],
+    "surface": "A gold sovereign coin that still has to be paid over.",
+    "walkthrough": "A sovereign is an old British gold coin, which tempts you toward money; here it is the adjective meaning supreme.",
+    "definitionFit": "Both senses are plain synonyms: supremely good, and not yet settled, as with an unpaid debt.",
+    "features": {
+     "misdirectedWord": "Sovereign",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "13-across",
@@ -222,7 +666,10 @@
    "separatorLocations": {
     ",": []
    },
-   "solution": "BRUSH"
+   "solution": "BRUSH",
+   "annotation": {
+    "linkedTo": "18-across"
+   }
   },
   {
    "id": "14-down",
@@ -239,7 +686,47 @@
      5
     ]
    },
-   "solution": "HOVERMOWER"
+   "solution": "HOVERMOWER",
+   "annotation": {
+    "type": "anagram",
+    "answer": "HOVER MOWER",
+    "definition": "blade-on-blade machine",
+    "indicators": [
+     "torpedoes",
+     "built"
+    ],
+    "indicatorNotes": {
+     "torpedoes": "to torpedo something is to wreck it, so the letters are broken up",
+     "built": "something built is put together from parts, so the letters are assembled anew"
+    },
+    "linkWords": [
+     "for"
+    ],
+    "anagram": {
+     "fodder": "V WHERE ROOM"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Five",
+      "gives": "V",
+      "note": "V = five in Roman numerals"
+     },
+     {
+      "clueFragment": "where room",
+      "gives": "WHEREROOM",
+      "note": "anagram fodder"
+     }
+    ],
+    "surface": "Five torpedoes wrecking a space in which some weapon was constructed.",
+    "walkthrough": "'Blade-on-blade' is the witty part: a mower's blade cutting blades of grass.",
+    "definitionFit": "Cryptic description: the machine's spinning metal blade cuts blades of grass as it floats on a cushion of air.",
+    "features": {
+     "misdirectedWord": "torpedoes",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "15-across",
@@ -251,7 +738,52 @@
    },
    "length": 6,
    "clue": "Exaggerated echoing in flow of universe – superficial design (6)",
-   "solution": "TATTOO"
+   "solution": "TATTOO",
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "TATTOO",
+    "definition": "superficial design",
+    "indicators": [
+     "echoing",
+     "in"
+    ],
+    "indicatorNotes": {
+     "echoing": "an echo comes back the way it came, so OTT is turned round",
+     "in": "'in' means being inside something, so TTO sits within TAO"
+    },
+    "pieces": [
+     "TA",
+     "TTO",
+     "O"
+    ],
+    "subReversals": [
+     {
+      "from": "OTT",
+      "to": "TTO"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flow of universe",
+      "gives": "TAO",
+      "note": "the Tao, the Way, the flow of the universe in Taoism"
+     },
+     {
+      "clueFragment": "Exaggerated",
+      "gives": "OTT",
+      "note": "OTT = over the top, turned round and placed inside TAO"
+     }
+    ],
+    "surface": "An overblown piece of mystical design talk.",
+    "walkthrough": "'Superficial' here means on the surface of the skin, not shallow.",
+    "definitionFit": "Cryptic description: the design is superficial in the literal sense, inked on the skin's surface.",
+    "features": {
+     "misdirectedWord": "superficial",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "16-down",
@@ -268,7 +800,40 @@
      6
     ]
    },
-   "solution": "THIRTYTWO"
+   "solution": "THIRTYTWO",
+   "annotation": {
+    "type": "anagram",
+    "answer": "THIRTY-TWO",
+    "definition": "Every man on board",
+    "indicators": [
+     "all at sea"
+    ],
+    "indicatorNotes": {
+     "all at sea": "someone all at sea is confused, so the letters are jumbled"
+    },
+    "linkWords": [
+     "has"
+    ],
+    "anagram": {
+     "fodder": "TO TRY WITH"
+    },
+    "blocks": [
+     {
+      "clueFragment": "to try with",
+      "gives": "TOTRYWITH",
+      "note": "anagram fodder"
+     }
+    ],
+    "surface": "A ship's crew all having a go while out on the ocean.",
+    "walkthrough": "'On board' and 'at sea' paint a ship, but the board is a chessboard: each side has 16 men.",
+    "definitionFit": "Definition by count: chess pieces are called men, and a full chessboard at the start holds this many.",
+    "features": {
+     "misdirectedWord": "board",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "17-across",
@@ -280,7 +845,35 @@
    },
    "length": 6,
    "clue": "Settlement describing two dots? (6)",
-   "solution": "COLONY"
+   "solution": "COLONY",
+   "annotation": {
+    "type": "double definition",
+    "answer": "COLONY",
+    "definition": "Settlement",
+    "definition2": "describing two dots",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Settlement",
+      "gives": "COLONY",
+      "note": "a community founded in a new territory"
+     },
+     {
+      "clueFragment": "describing two dots?",
+      "gives": "COLONY",
+      "note": "whimsical adjective: the two-dot punctuation mark with -y added, meaning like that mark"
+     }
+    ],
+    "surface": "A settlement that is marked on a map with two dots.",
+    "walkthrough": "The question mark flags the invented adjective: colon plus -y, as in 'colon-like'.",
+    "definitionFit": "A plain synonym for a founded settlement, plus a made-up adjective for something resembling a colon.",
+    "features": {
+     "misdirectedWord": "dots",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "18-across",
@@ -301,7 +894,47 @@
      6
     ]
    },
-   "solution": "TOILET"
+   "solution": "TOILET",
+   "annotation": {
+    "coversGroup": true,
+    "type": "anagram",
+    "answer": "TOILET BRUSH",
+    "definition": "Bowl cleaner",
+    "indicators": [
+     "after a review"
+    ],
+    "indicatorNotes": {
+     "after a review": "a review is a revision, a going-over that reorders things, so the letters are rearranged"
+    },
+    "linkWords": [
+     "into",
+     "and"
+    ],
+    "anagram": {
+     "fodder": "L BRIT HES OUT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L = line"
+     },
+     {
+      "clueFragment": "Brit and he’s out",
+      "gives": "BRITHESOUT",
+      "note": "anagram fodder"
+     }
+    ],
+    "surface": "A cricket bowler gets a British batter out on review of the line.",
+    "walkthrough": "Bowl, line, out and review all point to cricket; the bowl is the toilet bowl. The answer runs on into 13 across.",
+    "definitionFit": "Cryptic description: the bowl is the lavatory pan, and this is the long-handled brush that cleans it.",
+    "features": {
+     "misdirectedWord": "Bowl",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "19-across",
@@ -318,7 +951,46 @@
      4
     ]
    },
-   "solution": "LETSGO"
+   "solution": "LETSGO",
+   "annotation": {
+    "type": "container + outer letters",
+    "answer": "LET'S GO",
+    "definition": "Come on!",
+    "indicators": [
+     "Extremes of",
+     "in"
+    ],
+    "indicatorNotes": {
+     "Extremes of": "the extremes of a word are its two ends, its first and last letters",
+     "in": "'in' means being inside something, so TS sits within LEGO"
+    },
+    "pieces": [
+     "LE",
+     "TS",
+     "GO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "builder?",
+      "gives": "LEGO",
+      "note": "Lego is a children's building-brick toy"
+     },
+     {
+      "clueFragment": "Extremes of thoughtlessness",
+      "gives": "TS",
+      "note": "first and last letters of thoughtlessness, set inside LEGO"
+     }
+    ],
+    "surface": "An exasperated shout at a thoughtless builder.",
+    "walkthrough": "The builder is not a tradesman but the Lego brick set; the question mark admits the stretch.",
+    "definitionFit": "Both are interjections of urging, used to hurry someone along.",
+    "features": {
+     "misdirectedWord": "builder",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "20-down",
@@ -330,7 +1002,56 @@
    },
    "length": 6,
    "clue": "Trial where runner climbs towards peak in Peru (6)",
-   "solution": "PRELIM"
+   "solution": "PRELIM",
+   "annotation": {
+    "type": "charade + reversal + first letter",
+    "answer": "PRELIM",
+    "definition": "Trial",
+    "indicators": [
+     "climbs",
+     "towards",
+     "peak in"
+    ],
+    "indicatorNotes": {
+     "climbs": "in a down clue, climbing means reading from bottom to top, so MILER is turned round",
+     "towards": "moving towards something means heading after it, so RELIM follows P",
+     "peak in": "a peak is the top, and the top of a down word is its first letter"
+    },
+    "linkWords": [
+     "where"
+    ],
+    "pieces": [
+     "P",
+     "RELIM"
+    ],
+    "subReversals": [
+     {
+      "from": "MILER",
+      "to": "RELIM"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "peak in Peru",
+      "gives": "P",
+      "note": "first letter of Peru"
+     },
+     {
+      "clueFragment": "runner",
+      "gives": "MILER",
+      "note": "a miler runs the mile, turned round"
+     }
+    ],
+    "surface": "A test run in which an athlete climbs toward a summit in the Andes.",
+    "walkthrough": "'Climbs' paints a mountaineer, but in a down clue it tells you to read upwards.",
+    "definitionFit": "Plain synonym by abbreviation: short for preliminary, a qualifying trial or heat before the main event.",
+    "features": {
+     "misdirectedWord": "climbs",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "21-across",
@@ -342,7 +1063,48 @@
    },
    "length": 5,
    "clue": "Ally with entourage stripped back (5)",
-   "solution": "UNITE"
+   "solution": "UNITE",
+   "annotation": {
+    "type": "outer letters + deletion + reversal",
+    "answer": "UNITE",
+    "definition": "Ally",
+    "indicators": [
+     "stripped",
+     "back"
+    ],
+    "indicatorNotes": {
+     "stripped": "something stripped has its outer covering taken off, so the word loses its first and last letters",
+     "back": "going back means reversing direction, so the letters are read right to left"
+    },
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "UNITE"
+    ],
+    "subReversals": [
+     {
+      "from": "ETINU",
+      "to": "UNITE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "entourage stripped",
+      "gives": "ETINU",
+      "note": "RETINUE (an entourage) minus its outer letters R and E"
+     }
+    ],
+    "surface": "A friend whose hangers-on have been pared back.",
+    "walkthrough": "'Ally' is the verb here, to join forces.",
+    "definitionFit": "Plain synonym: to ally oneself with someone is to join forces with them.",
+    "features": {
+     "misdirectedWord": "Ally",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "22-across",
@@ -363,7 +1125,36 @@
      9
     ]
    },
-   "solution": "GRUMBLING"
+   "solution": "GRUMBLING",
+   "annotation": {
+    "coversGroup": true,
+    "type": "double definition",
+    "answer": "GRUMBLING APPENDIX",
+    "definition": "Internal problem",
+    "definition2": "reference having that complaint",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Internal problem",
+      "gives": "GRUMBLINGAPPENDIX",
+      "note": "a mild, recurring ailment of an organ in the lower abdomen"
+     },
+     {
+      "clueFragment": "reference having that complaint?",
+      "gives": "GRUMBLINGAPPENDIX",
+      "note": "the reference section at the back of a book, which is moaning"
+     }
+    ],
+    "surface": "A book's reference section that has something to moan about.",
+    "walkthrough": "'Complaint' works both ways: an illness, and a moan. The answer runs on into 10 across.",
+    "definitionFit": "A medical term for a mildly inflamed appendix, the internal problem; and, literally, a book's back matter that complains.",
+    "features": {
+     "misdirectedWord": "complaint",
+     "joke": "pun",
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "23-down",
@@ -382,7 +1173,10 @@
    "separatorLocations": {
     ",": []
    },
-   "solution": "LUNCH"
+   "solution": "LUNCH",
+   "annotation": {
+    "linkedTo": "24-down"
+   }
   },
   {
    "id": "24-down",
@@ -403,7 +1197,51 @@
      4
     ]
    },
-   "solution": "FREE"
+   "solution": "FREE",
+   "annotation": {
+    "coversGroup": true,
+    "type": "container",
+    "answer": "FREE LUNCH",
+    "definition": "that supposedly doesn’t exist!",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "'in' means being inside something, so EL and U sit within FRENCH"
+    },
+    "pieces": [
+     "FRE",
+     "EL",
+     "U",
+     "NCH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "another language",
+      "gives": "FRENCH",
+      "note": "French is a language other than Spanish"
+     },
+     {
+      "clueFragment": "Article in Spanish",
+      "gives": "EL",
+      "note": "el = the in Spanish"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "U = university; EL and U go inside FRENCH"
+     }
+    ],
+    "surface": "A grammar point about a Spanish word that has no equivalent in another language.",
+    "walkthrough": "The saying is 'there's no such thing as a free lunch'. The answer runs on into 23 down.",
+    "definitionFit": "Definition by proverb: the economists' saying holds that nothing comes without a hidden cost.",
+    "features": {
+     "misdirectedWord": "exist",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "25-across",
@@ -415,7 +1253,37 @@
    },
    "length": 8,
    "clue": "Tortilla cooked beside the water (8)",
-   "solution": "LITTORAL"
+   "solution": "LITTORAL",
+   "annotation": {
+    "type": "anagram",
+    "answer": "LITTORAL",
+    "definition": "beside the water",
+    "indicators": [
+     "cooked"
+    ],
+    "indicatorNotes": {
+     "cooked": "cooking changes the ingredients into something else, so the letters are rearranged"
+    },
+    "anagram": {
+     "fodder": "TORTILLA"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Tortilla",
+      "gives": "TORTILLA",
+      "note": "anagram fodder"
+     }
+    ],
+    "surface": "A tortilla cooked on a beach.",
+    "walkthrough": "The whole fodder is one word with exactly the answer's letters, a neat find.",
+    "definitionFit": "Plain synonym: a formal adjective for things on or near the shore of sea or lake.",
+    "features": {
+     "misdirectedWord": "Tortilla",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "26-across",
@@ -439,7 +1307,36 @@
      4
     ]
    },
-   "solution": "WINDUP"
+   "solution": "WINDUP",
+   "annotation": {
+    "coversGroup": true,
+    "type": "double definition",
+    "answer": "WIND-UP MERCHANT",
+    "definition": "Infuriating type",
+    "definition2": "retailer of clockwork mechanisms",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Infuriating type",
+      "gives": "WINDUPMERCHANT",
+      "note": "British slang for someone who habitually teases people to annoy them"
+     },
+     {
+      "clueFragment": "retailer of clockwork mechanisms?",
+      "gives": "WINDUPMERCHANT",
+      "note": "literally, a dealer in toys and clocks you turn with a key"
+     }
+    ],
+    "surface": "A shopkeeper selling clockwork toys who drives customers mad.",
+    "walkthrough": "In British slang to wind someone up is to tease them into annoyance. The answer runs on into 29 across.",
+    "definitionFit": "A British slang idiom for a habitual teaser, and literally a trader in clockwork goods.",
+    "features": {
+     "misdirectedWord": "clockwork",
+     "joke": "pun",
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "27-down",
@@ -451,7 +1348,35 @@
    },
    "length": 3,
    "clue": "In audition, make pot (3)",
-   "solution": "URN"
+   "solution": "URN",
+   "annotation": {
+    "type": "homophone",
+    "answer": "URN",
+    "definition": "pot",
+    "indicators": [
+     "In audition"
+    ],
+    "indicatorNotes": {
+     "In audition": "audition literally means hearing, so take the sound, not the spelling"
+    },
+    "blocks": [
+     {
+      "clueFragment": "make",
+      "soundsLike": "EARN",
+      "gives": "URN",
+      "note": "to make money is to earn it"
+     }
+    ],
+    "surface": "An actor at an audition making pottery.",
+    "walkthrough": "'Audition' paints an actor's tryout; it just means hearing.",
+    "definitionFit": "Definition by loose synonym: a tall vase-shaped vessel, which counts as a pot.",
+    "features": {
+     "misdirectedWord": "audition",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "28-across",
@@ -463,7 +1388,52 @@
    },
    "length": 6,
    "clue": "Blank page released from grip, one that’s tight (6)",
-   "solution": "IGNORE"
+   "solution": "IGNORE",
+   "annotation": {
+    "type": "deletion + anagram",
+    "answer": "IGNORE",
+    "definition": "Blank",
+    "indicators": [
+     "released from",
+     "tight"
+    ],
+    "indicatorNotes": {
+     "released from": "something released from a grip is let go, so P leaves GRIP",
+     "tight": "tight is slang for drunk, so the letters stagger into a new order"
+    },
+    "linkWords": [
+     "that’s"
+    ],
+    "anagram": {
+     "fodder": "GRI ONE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "page",
+      "gives": "P",
+      "note": "p = page, the letter removed"
+     },
+     {
+      "clueFragment": "grip",
+      "gives": "GRI",
+      "note": "GRIP without its P"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "ONE",
+      "note": "anagram fodder with GRI"
+     }
+    ],
+    "surface": "A blank page slipping out of someone's tight grip.",
+    "walkthrough": "'Tight' reads as a firm grip; it is slang for drunk. 'Blank' is the verb, to cut someone dead.",
+    "definitionFit": "Informal verb sense: to blank someone is to snub them, pretending not to see them.",
+    "features": {
+     "misdirectedWord": "tight",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "29-across",
@@ -483,7 +1453,10 @@
     ",": [],
     "-": []
    },
-   "solution": "MERCHANT"
+   "solution": "MERCHANT",
+   "annotation": {
+    "linkedTo": "26-across"
+   }
   }
  ]
 }
