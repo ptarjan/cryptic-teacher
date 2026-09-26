@@ -252,6 +252,20 @@ fit = [rec(40, "Jumbo Cryptic", 1810, "2026-03-14", "jumbo-1810-7-march-2026"),
        rec(43, "Jumbo Cryptic", 1813, "2026-03-28", "jumbo-1813-21-march-2026")]
 dates, _ = F.print_dates(fit, listing={})
 print("JUMBO_FITS", day("timesjumbo", 1810), day("timesjumbo", 1813), day("timesjumbo", 1811))
+# A gap with one number more than its Saturdays and one bank holiday in it:
+# Easter Monday 2021 between Saturdays 1490 and 1492.
+easter = [rec(50, "Jumbo Cryptic", 1490, "2021-04-17", "jumbo-1490-3-april-2021"),
+          rec(51, "Jumbo Cryptic", 1491, "2021-04-17", "jumbo-1491"),
+          rec(52, "Jumbo Cryptic", 1492, "2021-04-24", "jumbo-1492-10-april-2021")]
+dates, _ = F.print_dates(easter, listing={})
+print("JUMBO_EASTER", day("timesjumbo", 1491))
+# A post whose slug mistypes its number (5121 for 5021), filed under the
+# number run() settles on, is dated from its neighbours.
+slip = [rec(60, "Weekend Cryptic", 5020, "2022-08-21", "sunday-times-5020-14-august-2022"),
+        rec(61, "Weekend Cryptic", 5121, "2022-08-28", "sunday-times-cryptic-5121"),
+        rec(62, "Weekend Cryptic", 5022, "2022-09-04", "sunday-times-5022-28-august-2022")]
+dates, _ = F.print_dates(slip, listing={}, renumbered={61: 5021})
+print("RENUMBERED", dates.get(("sundaytimes", 5021)))
 PY
 )
 echo "$out" | grep -v "^[A-Z_]* " | sed 's/^/  | /'
@@ -270,6 +284,8 @@ check "a Jumbo title naming a holiday dates it" "2017-12-26 2017-04-17 2018-08-2
 check "a bare 'Bank Holiday' names no day" "None" "$(got TITLE_BARE_HOLIDAY)"
 check "stated Jumbo dates stand where the numbers fit the days; the gap stays undated" \
   "Sat 07 Sat 21 None" "$(got JUMBO_FITS)"
+check "a Jumbo gap one number over its Saturdays takes its one bank holiday" "Mon 05" "$(got JUMBO_EASTER)"
+check "a post filed under a retyped number is dated from its neighbours" "2022-08-21" "$(got RENUMBERED)"
 check "listing cards: year off the capture, weekday checked" \
   "[('sundaytimes', 5078, '2023-09-24'), ('times', 29000, '2023-12-26'), ('sundaytimes', 5142, '2023-12-31')]" "$(got CARDS)"
 
