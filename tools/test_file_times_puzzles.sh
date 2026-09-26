@@ -130,6 +130,23 @@ for key, held in (("PLACEHOLDER", None), ("NAMED", "Someone")):
     sp.write_text(json.dumps({**sunday, "setter": held}))
     F.run(grids, parsed, listing={})
     print(f"RENAMED_{key}", json.loads(sp.read_text())["setter"])
+
+# "See 5 Across (3)" under a light 5-across's clue names, each light counting
+# only itself, is a pointer to where its clue is, not a linked answer; a
+# pointer the leader's clue never names stays a group.
+import file_blog_puzzles as B
+pointed = rec(10, 105, "2026-01-13")
+for e in pointed["entries"]:
+    k = (e["number"], e["direction"])
+    if k == (5, "across"):
+        e["clue"] = "Path to 7 coloured red (5)"
+    if k == (7, "across"):
+        e["clue"] = "See 5 Across (3)"
+    if k == (3, "down"):
+        e["clue"] = "See 2 (5)"
+built, why = B.build(pointed, row(pointed), "times", None, None)
+groups = {e["id"]: e.get("group") for e in built["entries"]}
+print("COMPOSITE", groups["7-across"], groups["3-down"])
 PY
 )
 echo "$out" | grep -v "^[A-Z_]* " | sed 's/^/  | /'
@@ -159,6 +176,8 @@ check "the Sunday Times takes its setter from the title; the Times stays anonymo
   "Dean Mayer None" "$(got SETTERS)"
 check "a null setter already filed is named" "Dean Mayer" "$(got RENAMED_PLACEHOLDER)"
 check "a setter already named is never overwritten" "Someone" "$(got RENAMED_NAMED)"
+check "a pointer into the leader's clue is no group; an unnamed pointer is one" \
+  "None ['2-down', '3-down']" "$(got COMPOSITE)"
 
 # Print dates. The prize puzzles are blogged a week or more after they are
 # printed, so their post date is not their date; filing one by it put

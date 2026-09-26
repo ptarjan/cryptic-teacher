@@ -121,8 +121,8 @@ OPEN_ENUM = re.compile(r"\(\d{1,2}(?:[,\-\u2013\s]+\d{1,2})*[,\-\u2013]$")
 #: is a space typed inside the bracket.
 ENUM = re.compile(r"\(\s*(\d{1,2}(?:[,\-–\s]+\d{1,2})*)[,\-–\s]*\)\s*$")
 #: An enumeration typed at a clue's end but not in ENUM's shape: unclosed,
-#: dotted, or followed by punctuation.
-LOOSE_ENUM = re.compile(r"\s*[({]\s*(\d{1,2}(?:[,\-\u2013.\s]+\d{1,2})*)\s*\)?[\s.,;:]*$")
+#: closed by a brace ("(3,5}", "(6)}"), dotted, or followed by punctuation.
+LOOSE_ENUM = re.compile(r"\s*[({]\s*(\d{1,2}(?:[,\-\u2013.\s]+\d{1,2})*)\s*\)?\}?[\s.,;:]*$")
 #: A count in words, Mephisto's "(9, three words)": the clue already has one.
 WORDED_ENUM = re.compile(r"\(\s*\d{1,2}\b[^()]*\bwords?\b[^()]*\)[\s.,;:]*$")
 #: A clue that covers two or more lights heads its list of them: "10/11",
@@ -145,10 +145,13 @@ STRAY_NUMBER = re.compile(r"^(?:\(\s*(\d{1,2})|\.\s*(\d{1,2})\.?)$")
 #: A number cell can name its direction too -- "12d", "20a", "5ac" -- and is
 #: still a bare number cell, not clue number 12 with clue text "d".
 BARE_SUFFIX = re.compile(r"^(across|ac|a|down|dn|d)\.?$", re.I)
-#: "See 15", "See 3 (9)", "See 12 across" — a light whose clue lives on another
+#: "See 15", "See 3 (9)", "See 12 across", "See 12a" — a light whose clue lives on another
 #: light. tools/normalise_linked_enumerations.py reads the same shape; this is
 #: how the whole corpus spells a continuation.
-CONTINUATION = re.compile(r"^\s*See\s+(\d+)\b", re.IGNORECASE)
+CONTINUATION = re.compile(r"^\s*See\s+(\d+)(?:[ad]\b|\b)", re.IGNORECASE)
+#: "See 12a": a pointer with its direction glued on. "See 12 Down": one named.
+GLUED_POINTER = re.compile(r"^\s*See\s+(\d+)([ad])\s*$", re.IGNORECASE)
+NAMED_WAY = re.compile(r"^\s*See\s+\d+\s*(?:across|down|ac|dn|a|d)\b", re.IGNORECASE)
 #: Where one word of an answer ends and the next begins, as printed. An
 #: apostrophe is inside a word (CAT O' NINE TAILS is four words); a comma is a
 #: word break in the eras that print RICE,PAPER.
@@ -745,6 +748,14 @@ def read_entries(rendered):
                 clue = f"{clue[:loose.start()]} ({enum})" if enum else clue
             elif enum and not WORDED_ENUM.search(clue):
                 clue = f"{clue} ({enum})"
+        # "(35)" over HAY FEVER: the blog dropped the comma from (3,5). Read
+        # as the printed answer's words when their counts are its digits.
+        words = printed_enumeration(printed)
+        if (enum and words and re.fullmatch(r"\d+", enum) and not enum_fits(printed, enum)
+                and re.sub(r"\D", "", words) == enum):
+            enum = words
+            m = ENUM.search(clue or "")
+            clue = f"{clue[:m.start()]}({enum})" if m else clue
         if lights[0][1] == direction:  # a linked group sits at its leader
             last = max(last, lights[0][0])
         if len(lights) == 1:
@@ -772,6 +783,8 @@ def read_entries(rendered):
                 "clue": text if i == 0 else (f"See {leader}" if text else None),
                 "enumeration": enum if i == 0 else None,
             })
+        if len(lights) > 1:
+            entries[-len(pieces)].update(_head=lights[1:], _plain=clue)
 
     for ln in rendered:
         if not ln:
@@ -881,7 +894,63 @@ def read_entries(rendered):
     number_orphans(entries)
     one_entry_per_light(entries)
     trim_continuations(entries)
+    leader_form(entries)
     return entries, unsplit
+
+
+def leader_form(entries):
+    """Put the whole linked answer's count on the light its head leads.
+
+    A blogger may print only the leading light's own count under a linked
+    head -- "11a and 7d He and I are prominent members... (8)" over PERIODIC
+    TABLE -- and may print the leader's letters alone, the continuation's on a
+    line of its own: "2d & 3 Down ... (6)" MOULIN, then "3d See 2 Down (5)"
+    ROUGE. Once every light the head names is a "See" pointing back at it, the
+    head was a real link, so its numbers leave the clue, the leader counts the
+    whole answer, one part per light in the head's order (each continuation's
+    own count, else its answer's length, which the blog's split printed), and
+    every continuation carries null. A head that names a light no pointer
+    answers stays as the clue's text: "4/7 of 19 is..." is prose.
+    """
+    for lead in entries:
+        head, plain = lead.pop("_head", None), lead.pop("_plain", None)
+        if not head:
+            continue
+        rest = []
+        for n, d in head:
+            points = [e for e in entries if e["number"] == n and e is not lead
+                      and continuation_target(e.get("clue")) == lead["number"]]
+            points.sort(key=lambda e: e["direction"] != d)
+            rest.append(points[0] if points else None)
+        if None in rest:
+            continue
+        if plain is not None:
+            lead["clue"] = plain
+        own = lead.get("enumeration")
+        if not own:
+            continue
+        if enum_fits(lead["answer"], own):
+            whole = ",".join([own] + [e.get("enumeration") or str(len(e["answer"]))
+                                      for e in rest])
+            lead["enumeration"] = whole
+            m = ENUM.search(lead["clue"] or "")
+            if m:
+                lead["clue"] = f"{lead['clue'][:m.start()]}({whole})"
+        # A pointer loses its own count and its glued suffix ("See 12a (5)" is
+        # "See 12 across"), and names the leader's direction where the other
+        # light numbered N, the one in its own direction, would be read instead.
+        twin = any(e["number"] == lead["number"] and e["direction"] != lead["direction"]
+                   for e in entries)
+        for e in rest:
+            e["enumeration"] = None
+            m = ENUM.search(e["clue"])
+            text = e["clue"][:m.start()].rstrip() if m else e["clue"]
+            glued = GLUED_POINTER.match(text)
+            if glued:
+                text = f"See {glued.group(1)} {DIRECTION_OF[glued.group(2).lower()]}"
+            if twin and e["direction"] != lead["direction"] and not NAMED_WAY.match(text):
+                text = f"{text} {lead['direction']}"
+            e["clue"] = text
 
 
 def leader_numbers(entries):

@@ -165,6 +165,12 @@ same("19-across stays a continuation", enum_of(ids["19-across"]), None)
 same("groups are leader-first", resolve_groups(rec["puzzle"]["entries"])["20-down"],
      ["19-down", "20-down"])
 
+print('"See 17 Across" names its leader\'s direction, over the same-direction default')
+named = [{"id": "17-across", "number": 17, "direction": "across", "clue": "Path to 6 (6,5,4)"},
+         {"id": "17-down", "number": 17, "direction": "down", "clue": "Annual review (8)"},
+         {"id": "6-down", "number": 6, "direction": "down", "clue": "See 17 Across (6)"}]
+same("6-down hangs off 17-across", resolve_groups(named)["6-down"], ["17-across", "6-down"])
+
 print("it refuses rather than guesses")
 refuses("a pointer at a number no other light holds",
         record([light("7-down", 7, "down", 4, "Fellow player makes anagrams", "4"),

@@ -205,6 +205,20 @@ def build(rec, row, series, date, setter):
         groups = resolve_groups(out)
     except SystemExit:
         return None, "a linked clue names no single light"
+    # "See 17 Across (6)" under a light whose clue is written into 17-across's
+    # -- RICHES and FAME in "Path to 6 and 23..." (6,5,4) -- is a pointer to
+    # where the clue is, not a linked answer: every light counts only its own
+    # cells and the leader's clue names each pointer's number. Such a group
+    # is no group.
+    def own_count(e):
+        return bool(e["enumeration"]) and sum(
+            n for n, _ in enumeration_parts(e["enumeration"])) == e["length"]
+
+    def composite(g):
+        named = set(re.findall(r"\d+", re.sub(r"\([^()]*\)\s*$", "", by_id[g[0]]["clue"])))
+        return (all(own_count(by_id[m]) for m in g)
+                and all(str(by_id[m]["number"]) in named for m in g[1:]))
+    groups = {gid: g for gid, g in groups.items() if not composite(g)}
     for e in out:
         enumeration = e.pop("enumeration")
         group = groups.get(e["id"], [e["id"]])
