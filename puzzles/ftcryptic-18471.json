@@ -18,7 +18,10 @@
   "retrievedFrom": "blog",
   "retrievedUrl": null,
   "gridOrigin": "reconstructed",
-  "solutionOrigin": "writeup"
+  "solutionOrigin": "writeup",
+  "annotatedBy": [
+   "claude-opus-5-5"
+  ]
  },
  "solutionSource": {
   "kind": "fifteensquared",
@@ -37,7 +40,34 @@
    },
    "length": 4,
    "clue": "A portion of blancmange, a syllabub, and a piece of cake (4)",
-   "solution": "EASY"
+   "solution": "EASY",
+   "annotation": {
+    "type": "hidden word",
+    "answer": "EASY",
+    "definition": "a piece of cake",
+    "indicators": [
+     "A portion of"
+    ],
+    "indicatorNotes": {
+     "A portion of": "the answer is only a portion of the words that follow"
+    },
+    "blocks": [
+     {
+      "clueFragment": "blancmange, a syllabub",
+      "gives": "EASY",
+      "note": "blancmangE A SYllabub"
+     }
+    ],
+    "surface": "A plate of pudding: some blancmange, some syllabub and a slice of cake.",
+    "walkthrough": "The list of desserts makes 'a piece of cake' look like one more item on the plate, but it is the idiom for something simple. A syllabub is a whipped cream-and-wine pudding.",
+    "definitionFit": "An idiom: a piece of cake is any task that takes no effort.",
+    "features": {
+     "misdirectedWord": "cake",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "1-down",
@@ -49,7 +79,45 @@
    },
    "length": 4,
    "clue": "Posh bloke’s papa leaving something inside oyster? (4)",
-   "solution": "EARL"
+   "solution": "EARL",
+   "annotation": {
+    "type": "deletion",
+    "answer": "EARL",
+    "definition": "Posh bloke",
+    "indicators": [
+     "leaving"
+    ],
+    "indicatorNotes": {
+     "leaving": "papa's letter leaves the word, so it is removed"
+    },
+    "linkWords": [
+     "’s"
+    ],
+    "pieces": [
+     "EARL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "something inside oyster?",
+      "gives": "PEARL",
+      "note": "a pearl grows inside an oyster; the question mark flags the definition by example"
+     },
+     {
+      "clueFragment": "papa",
+      "gives": "P",
+      "note": "Papa is the radio code word for P; drop it from PEARL"
+     }
+    ],
+    "surface": "A gentleman's father has left, as if leaving the inside of an oyster.",
+    "walkthrough": "'Posh bloke’s' reads as a possessive, but the ’s is 'is', joining definition to wordplay.",
+    "definitionFit": "Definition by example: a peer of the realm is the archetypal posh bloke.",
+    "features": {
+     "misdirectedWord": "papa",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "2-down",
@@ -61,7 +129,68 @@
    },
    "length": 9,
    "clue": "Advocate spreading soil about with this object before worm’s discovered (9)",
-   "solution": "SOLICITOR"
+   "solution": "SOLICITOR",
+   "annotation": {
+    "type": "anagram + charade + outer letters",
+    "answer": "SOLICITOR",
+    "definition": "Advocate",
+    "indicators": [
+     "spreading",
+     "before",
+     "discovered"
+    ],
+    "indicatorNotes": {
+     "spreading": "the letters of soil are spread out into a new order",
+     "before": "the IT group comes before the last piece",
+     "discovered": "dis-covered: the worm loses its covering, its outside letters"
+    },
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "SOLI",
+     "C",
+     "IT",
+     "OR"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "SOIL",
+      "gives": "SOLI"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soil",
+      "gives": "SOLI",
+      "note": "SOIL rearranged"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "c = circa, Latin for about"
+     },
+     {
+      "clueFragment": "this object",
+      "gives": "IT",
+      "note": "it = this object"
+     },
+     {
+      "clueFragment": "worm’s",
+      "gives": "OR",
+      "note": "wORm without its first and last letters"
+     }
+    ],
+    "surface": "A gardener's instruction: spread soil around this thing before the worm turns up.",
+    "walkthrough": "'Discovered' means found in the surface but uncovered in the wordplay: WORM loses its outer letters. Solicitor is the British name for a lawyer who handles clients' affairs.",
+    "definitionFit": "A plain synonym: both are lawyers who plead a client's cause.",
+    "features": {
+     "misdirectedWord": "discovered",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "3-across",
@@ -73,7 +202,49 @@
    },
    "length": 10,
    "clue": "In favour of strike the steward finally put forward (10)",
-   "solution": "PROPOUNDED"
+   "solution": "PROPOUNDED",
+   "annotation": {
+    "type": "charade + last letters",
+    "answer": "PROPOUNDED",
+    "definition": "put forward",
+    "indicators": [
+     "finally"
+    ],
+    "indicatorNotes": {
+     "finally": "take the final letter of each of the two words"
+    },
+    "pieces": [
+     "PRO",
+     "POUND",
+     "ED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In favour of",
+      "gives": "PRO",
+      "note": "pro = in favour of"
+     },
+     {
+      "clueFragment": "strike",
+      "gives": "POUND",
+      "note": "to pound = to strike"
+     },
+     {
+      "clueFragment": "the steward finally",
+      "gives": "ED",
+      "note": "last letters of thE stewarD"
+     }
+    ],
+    "surface": "A union meeting: a steward finally speaks up in favour of a strike.",
+    "walkthrough": "'Finally' covers both words before it, not just 'steward'.",
+    "definitionFit": "A plain synonym: offering a theory up for debate, in a formal register.",
+    "features": {
+     "misdirectedWord": "strike",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "4-down",
@@ -85,7 +256,53 @@
    },
    "length": 5,
    "clue": "Parts of a building fell over on top of someone (5)",
-   "solution": "ROOMS"
+   "solution": "ROOMS",
+   "annotation": {
+    "type": "reversal + first letter + charade",
+    "answer": "ROOMS",
+    "definition": "Parts of a building",
+    "indicators": [
+     "over",
+     "on",
+     "top of"
+    ],
+    "indicatorNotes": {
+     "over": "the word is turned over, read backwards",
+     "on": "in a down entry, one piece sits on top of the next",
+     "top of": "the top of a word is its first letter"
+    },
+    "pieces": [
+     "ROOM",
+     "S"
+    ],
+    "subReversals": [
+     {
+      "from": "MOOR",
+      "to": "ROOM"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fell",
+      "gives": "ROOM",
+      "note": "a fell is a moor, upland in northern England; MOOR backwards"
+     },
+     {
+      "clueFragment": "someone",
+      "gives": "S",
+      "note": "first letter of Someone"
+     }
+    ],
+    "surface": "A building collapses and something falls on a person underneath.",
+    "walkthrough": "'Fell' looks like the past of fall, but it is the noun: a fell is a hill or moor in the north of England.",
+    "definitionFit": "A plain synonym: the spaces that a building's walls divide it into.",
+    "features": {
+     "misdirectedWord": "fell",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "5-down",
@@ -97,7 +314,51 @@
    },
    "length": 9,
    "clue": "Put back letters called, but leave out H (9)",
-   "solution": "POSTPONED"
+   "solution": "POSTPONED",
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "POSTPONED",
+    "definition": "Put back",
+    "indicators": [
+     "leave out"
+    ],
+    "indicatorNotes": {
+     "leave out": "the H is left out of the word before it"
+    },
+    "linkWords": [
+     "but"
+    ],
+    "pieces": [
+     "POST",
+     "PONED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "letters",
+      "gives": "POST",
+      "note": "letters = the post, mail"
+     },
+     {
+      "clueFragment": "called",
+      "gives": "PHONED",
+      "note": "phoned = called"
+     },
+     {
+      "clueFragment": "H",
+      "gives": "H",
+      "note": "removed from PHONED, leaving PONED"
+     }
+    ],
+    "surface": "Someone telephones, puts the letters back and is told to skip the H.",
+    "walkthrough": "'Put back' reads as returning something to its place, but here it means moving to a later date.",
+    "definitionFit": "A plain synonym: putting a meeting back moves it to a later date.",
+    "features": {
+     "misdirectedWord": "back",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "6-down",
@@ -109,7 +370,50 @@
    },
    "length": 7,
    "clue": "Loosen the middle of spinnaker taken in by us sailors (7)",
-   "solution": "UNSCREW"
+   "solution": "UNSCREW",
+   "annotation": {
+    "type": "middle letter + container + charade",
+    "answer": "UNSCREW",
+    "definition": "Loosen",
+    "indicators": [
+     "the middle of",
+     "taken in by"
+    ],
+    "indicatorNotes": {
+     "the middle of": "the central letter of the nine-letter word",
+     "taken in by": "to be taken in by something is to be received inside it, so the N ends up within US"
+    },
+    "pieces": [
+     "UNS",
+     "CREW"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "us",
+      "gives": "US",
+      "note": "us taken at face value"
+     },
+     {
+      "clueFragment": "the middle of spinnaker",
+      "gives": "N",
+      "note": "spinNaker: N is the fifth of nine letters"
+     },
+     {
+      "clueFragment": "sailors",
+      "gives": "CREW",
+      "note": "a crew = the sailors of a ship"
+     }
+    ],
+    "surface": "Sailors letting the middle of their spinnaker sail go slack.",
+    "walkthrough": "The sailing picture makes 'loosen' sound like easing a sail, but it is turning a screw the other way.",
+    "definitionFit": "A specific case: turning a threaded cap or bolt anticlockwise is one way of loosening it.",
+    "features": {
+     "misdirectedWord": "Loosen",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "7-down",
@@ -121,7 +425,49 @@
    },
    "length": 5,
    "clue": "Question: do you bet on vacation? (5)",
-   "solution": "DOUBT"
+   "solution": "DOUBT",
+   "annotation": {
+    "type": "charade + outer letters",
+    "answer": "DOUBT",
+    "definition": "Question",
+    "indicators": [
+     "on vacation"
+    ],
+    "indicatorNotes": {
+     "on vacation": "the word is vacated, emptied of its middle"
+    },
+    "pieces": [
+     "DO",
+     "U",
+     "BT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "do",
+      "gives": "DO",
+      "note": "do as written"
+     },
+     {
+      "clueFragment": "you",
+      "gives": "U",
+      "note": "U is text-speak for you"
+     },
+     {
+      "clueFragment": "bet",
+      "gives": "BT",
+      "note": "BeT emptied"
+     }
+    ],
+    "surface": "A question for a traveller: do you gamble while on holiday?",
+    "walkthrough": "The question mark makes the whole clue look like a question, while 'Question' is the definition, a verb.",
+    "definitionFit": "A plain synonym, both verbs: to be unsure whether a claim is true.",
+    "features": {
+     "misdirectedWord": "vacation",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "8-down",
@@ -133,7 +479,44 @@
    },
    "length": 10,
    "clue": "Unkempt detective inspector’s given instructions (10)",
-   "solution": "DISORDERED"
+   "solution": "DISORDERED",
+   "annotation": {
+    "type": "charade",
+    "answer": "DISORDERED",
+    "definition": "Unkempt",
+    "indicators": [],
+    "pieces": [
+     "DI",
+     "S",
+     "ORDERED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "detective inspector",
+      "gives": "DI",
+      "note": "DI = detective inspector, a British police rank"
+     },
+     {
+      "clueFragment": "’s",
+      "gives": "S",
+      "note": "the 's kept as S"
+     },
+     {
+      "clueFragment": "given instructions",
+      "gives": "ORDERED",
+      "note": "ordered = given instructions"
+     }
+    ],
+    "surface": "A scruffy police detective has been given his orders.",
+    "walkthrough": "The surface puts 'Unkempt' on the detective, but it stands apart as the definition.",
+    "definitionFit": "A plain synonym: untidy, in a mess, as hair or a room can be.",
+    "features": {
+     "misdirectedWord": "Unkempt",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "9-down",
@@ -145,7 +528,39 @@
    },
    "length": 6,
    "clue": "Refuse to look at topless foreign dances (6)",
-   "solution": "IGNORE"
+   "solution": "IGNORE",
+   "annotation": {
+    "type": "deletion + anagram",
+    "answer": "IGNORE",
+    "definition": "Refuse to look at",
+    "indicators": [
+     "topless",
+     "dances"
+    ],
+    "indicatorNotes": {
+     "topless": "the word loses its top, its first letter",
+     "dances": "the remaining letters dance into a new order"
+    },
+    "anagram": {
+     "fodder": "OREIGN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "foreign",
+      "gives": "OREIGN",
+      "note": "FOREIGN without its first letter"
+     }
+    ],
+    "surface": "A prude averts their eyes from topless dancers abroad.",
+    "walkthrough": "'Foreign dances' looks like the thing refused, but 'foreign' is the fodder and 'dances' the instruction to rearrange it.",
+    "definitionFit": "A plain synonym: deliberately paying something no attention.",
+    "features": {
+     "misdirectedWord": "dances",
+     "joke": "pun",
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "10-across",
@@ -157,7 +572,58 @@
    },
    "length": 9,
    "clue": "Conscientious US soldier drills crude US oil with army engineers (9)",
-   "solution": "RELIGIOUS"
+   "solution": "RELIGIOUS",
+   "annotation": {
+    "type": "charade + anagram + container",
+    "answer": "RELIGIOUS",
+    "definition": "Conscientious",
+    "indicators": [
+     "drills",
+     "crude",
+     "with"
+    ],
+    "indicatorNotes": {
+     "drills": "the soldier drills into the letters, ending up inside them",
+     "crude": "crude oil is unrefined, so its letters are in raw order",
+     "with": "the engineers are added alongside"
+    },
+    "pieces": [
+     "RE",
+     "LIGIOUS"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "USOIL",
+      "gives": "LIOUS"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "army engineers",
+      "gives": "RE",
+      "note": "RE = Royal Engineers, the British army's engineer corps"
+     },
+     {
+      "clueFragment": "US oil",
+      "gives": "LIOUS",
+      "note": "US OIL rearranged"
+     },
+     {
+      "clueFragment": "US soldier",
+      "gives": "GI",
+      "note": "GI = American soldier; goes between LI and OUS"
+     }
+    ],
+    "surface": "An American soldier and army engineers drill for crude oil.",
+    "walkthrough": "The oilfield picture makes 'drills' look literal; it is the containment, with GI boring into the rearranged US OIL.",
+    "definitionFit": "A secondary sense: doing something with religious care means doing it scrupulously.",
+    "features": {
+     "misdirectedWord": "drills",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "11-across",
@@ -169,7 +635,44 @@
    },
    "length": 5,
    "clue": "Foam-smothered soft potatoes (5)",
-   "solution": "SPUDS"
+   "solution": "SPUDS",
+   "annotation": {
+    "type": "container",
+    "answer": "SPUDS",
+    "definition": "potatoes",
+    "indicators": [
+     "smothered"
+    ],
+    "indicatorNotes": {
+     "smothered": "the foam smothers, covers all around, the soft letter"
+    },
+    "pieces": [
+     "S",
+     "P",
+     "UDS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Foam",
+      "gives": "SUDS",
+      "note": "suds = soapy foam"
+     },
+     {
+      "clueFragment": "soft",
+      "gives": "P",
+      "note": "p = piano, soft in music; goes inside SUDS"
+     }
+    ],
+    "surface": "Soft potatoes smothered in a frothy topping.",
+    "walkthrough": "In the surface 'soft' describes the potatoes; in the wordplay it is the P that the suds wrap.",
+    "definitionFit": "Informal British and Irish slang for the vegetable.",
+    "features": {
+     "misdirectedWord": "soft",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "12-across",
@@ -181,7 +684,34 @@
    },
    "length": 4,
    "clue": "Evocation of bygone days in Czechoslovakia (4)",
-   "solution": "ECHO"
+   "solution": "ECHO",
+   "annotation": {
+    "type": "hidden word",
+    "answer": "ECHO",
+    "definition": "Evocation of bygone days",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "the answer sits in the word that follows"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Czechoslovakia",
+      "gives": "ECHO",
+      "note": "czECHOslovakia"
+     }
+    ],
+    "surface": "Nostalgia for the old days of Czechoslovakia, a country that no longer exists.",
+    "walkthrough": "The surface is apt: Czechoslovakia itself belongs to bygone days, split into Czechia and Slovakia in 1993.",
+    "definitionFit": "A figurative sense: a reminder of the past is a reverberation of it.",
+    "features": {
+     "misdirectedWord": "Czechoslovakia",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "13-across",
@@ -193,7 +723,54 @@
    },
    "length": 9,
    "clue": "One really famous South American going around a pitch (9)",
-   "solution": "SUPERSTAR"
+   "solution": "SUPERSTAR",
+   "annotation": {
+    "type": "charade + container",
+    "answer": "SUPERSTAR",
+    "definition": "One really famous",
+    "indicators": [
+     "going around"
+    ],
+    "indicatorNotes": {
+     "going around": "US goes around PER, holding it inside"
+    },
+    "pieces": [
+     "S",
+     "UPERS",
+     "TAR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "South",
+      "gives": "S",
+      "note": "S = south"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US = American"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "PER",
+      "note": "a = per, as in ten pounds a head"
+     },
+     {
+      "clueFragment": "pitch",
+      "gives": "TAR",
+      "note": "pitch = tar, the black sticky stuff"
+     }
+    ],
+    "surface": "A famous South American footballer runs around the pitch.",
+    "walkthrough": "'South American' reads as one word, a Brazilian star perhaps, but it splits into S and US. 'Pitch' looks like the football field; it is tar.",
+    "definitionFit": "A plain synonym: a celebrity of the very first rank.",
+    "features": {
+     "misdirectedWord": "pitch",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "14-down",
@@ -205,7 +782,55 @@
    },
    "length": 10,
    "clue": "A pale rope surrounding helipad that indicates ownership (10)",
-   "solution": "APOSTROPHE"
+   "solution": "APOSTROPHE",
+   "annotation": {
+    "type": "charade + container",
+    "answer": "APOSTROPHE",
+    "definition": "that indicates ownership",
+    "definitionNote": "a relative clause standing for 'something that indicates ownership'",
+    "indicators": [
+     "surrounding"
+    ],
+    "indicatorNotes": {
+     "surrounding": "a rope surrounding something encircles it, so the rope's letters close around the H"
+    },
+    "pieces": [
+     "A",
+     "POST",
+     "ROPHE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "A as written"
+     },
+     {
+      "clueFragment": "pale",
+      "gives": "POST",
+      "note": "a pale is a fence stake, a post"
+     },
+     {
+      "clueFragment": "rope",
+      "gives": "ROPE",
+      "note": "rope as written"
+     },
+     {
+      "clueFragment": "helipad",
+      "gives": "H",
+      "note": "H marks a helipad; it goes inside ROPE"
+     }
+    ],
+    "surface": "A pale-coloured rope ringing a helipad, as a boundary marking private property.",
+    "walkthrough": "'Pale' looks like a colour, but it is the noun: a stake in a fence. The H painted on a helipad gives H.",
+    "definitionFit": "Definition by function: the punctuation mark in John's shows possession.",
+    "features": {
+     "misdirectedWord": "pale",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "15-across",
@@ -217,7 +842,44 @@
    },
    "length": 7,
    "clue": "One boring open-and-shut case (7)",
-   "solution": "PATIENT"
+   "solution": "PATIENT",
+   "annotation": {
+    "type": "container",
+    "answer": "PATIENT",
+    "definition": "case",
+    "indicators": [
+     "boring"
+    ],
+    "indicatorNotes": {
+     "boring": "the I bores into the word, ending up inside it"
+    },
+    "pieces": [
+     "PAT",
+     "I",
+     "ENT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "open-and-shut",
+      "gives": "PATENT",
+      "note": "patent = obvious, plain, open-and-shut"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "I = one, the Roman numeral; goes inside PATENT"
+     }
+    ],
+    "surface": "A dull person, and a legal case that is easy to settle.",
+    "walkthrough": "'Open-and-shut case' reads as one phrase, but 'case' is split off as the definition: a doctor's case is a patient. A dentist's patient is also bored in a different sense.",
+    "definitionFit": "A medical sense: doctors call a person under their care a case.",
+    "features": {
+     "misdirectedWord": "boring",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "16-down",
@@ -229,7 +891,58 @@
    },
    "length": 9,
    "clue": "Leaders of the regiment upset soldiers before tense operation? (9)",
-   "solution": "TREATMENT"
+   "solution": "TREATMENT",
+   "annotation": {
+    "type": "first letters + charade",
+    "answer": "TREATMENT",
+    "definition": "operation?",
+    "definitionNote": "the question mark flags an operation as one example of treatment",
+    "indicators": [
+     "Leaders of",
+     "before"
+    ],
+    "indicatorNotes": {
+     "Leaders of": "the leading letters of the words that follow",
+     "before": "the soldiers come before the T"
+    },
+    "pieces": [
+     "TR",
+     "EAT",
+     "MEN",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the regiment",
+      "gives": "TR",
+      "note": "first letters of The Regiment"
+     },
+     {
+      "clueFragment": "upset",
+      "gives": "EAT",
+      "note": "to eat someone is to upset them: what's eating you?"
+     },
+     {
+      "clueFragment": "soldiers",
+      "gives": "MEN",
+      "note": "men = soldiers, the ranks"
+     },
+     {
+      "clueFragment": "tense",
+      "gives": "T",
+      "note": "T = tense, a grammar abbreviation"
+     }
+    ],
+    "surface": "The regiment's commanders are upset that their troops face a nervous military operation.",
+    "walkthrough": "The surface makes 'operation' military and 'tense' nervous; they are a surgical operation and the grammar abbreviation T.",
+    "definitionFit": "Definition by example: surgery is one kind of medical care.",
+    "features": {
+     "misdirectedWord": "operation",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "17-across",
@@ -241,7 +954,41 @@
    },
    "length": 7,
    "clue": "In this time and in this place or not in any place (7)",
-   "solution": "NOWHERE"
+   "solution": "NOWHERE",
+   "annotation": {
+    "type": "charade",
+    "answer": "NOWHERE",
+    "definition": "not in any place",
+    "indicators": [],
+    "linkWords": [
+     "or"
+    ],
+    "pieces": [
+     "NOW",
+     "HERE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In this time",
+      "gives": "NOW",
+      "note": "now = at this time"
+     },
+     {
+      "clueFragment": "in this place",
+      "gives": "HERE",
+      "note": "here = in this place"
+     }
+    ],
+    "surface": "A riddle about being here and now, or nowhere at all.",
+    "walkthrough": "The joke is that 'now' and 'here' together make their opposite. 'Or' here only links wordplay and definition.",
+    "definitionFit": "A plain synonym: not anywhere at all.",
+    "features": {
+     "misdirectedWord": null,
+     "joke": "absurd",
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "18-down",
@@ -253,7 +1000,71 @@
    },
    "length": 9,
    "clue": "Shoplifter damaged case left at the back of Costco close to Chester (9)",
-   "solution": "ESCALATOR"
+   "solution": "ESCALATOR",
+   "annotation": {
+    "type": "anagram + charade + last letters",
+    "answer": "ESCALATOR",
+    "definition": "Shoplifter",
+    "indicators": [
+     "damaged",
+     "the back of",
+     "close to"
+    ],
+    "indicatorNotes": {
+     "damaged": "the letters of case are damaged into a new order",
+     "the back of": "the last letter of the word",
+     "close to": "the close of a word is its last letter"
+    },
+    "pieces": [
+     "ESCA",
+     "L",
+     "AT",
+     "O",
+     "R"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "CASE",
+      "gives": "ESCA"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "case",
+      "gives": "ESCA",
+      "note": "CASE rearranged"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L = left"
+     },
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "at as written"
+     },
+     {
+      "clueFragment": "the back of Costco",
+      "gives": "O",
+      "note": "last letter of CostcO"
+     },
+     {
+      "clueFragment": "close to Chester",
+      "gives": "R",
+      "note": "last letter of ChesteR"
+     }
+    ],
+    "surface": "A shoplifter's broken case left behind a Costco near Chester.",
+    "walkthrough": "'Shoplifter' is not a thief: it is something in a shop that lifts people between floors.",
+    "definitionFit": "A pun: a moving staircase lifts shoppers between floors, so it is literally a shop lifter.",
+    "features": {
+     "misdirectedWord": "Shoplifter",
+     "joke": "pun",
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "19-across",
@@ -265,7 +1076,39 @@
    },
    "length": 3,
    "clue": "Cook unshelled heron eggs (3)",
-   "solution": "ROE"
+   "solution": "ROE",
+   "annotation": {
+    "type": "deletion + anagram",
+    "answer": "ROE",
+    "definition": "eggs",
+    "indicators": [
+     "unshelled",
+     "Cook"
+    ],
+    "indicatorNotes": {
+     "unshelled": "the word loses its shell, its first and last letters",
+     "Cook": "the remaining letters are cooked into a new order"
+    },
+    "anagram": {
+     "fodder": "ERO"
+    },
+    "blocks": [
+     {
+      "clueFragment": "heron",
+      "gives": "ERO",
+      "note": "HERON without its outer letters"
+     }
+    ],
+    "surface": "A recipe: cook the eggs of a heron after peeling them.",
+    "walkthrough": "'Heron eggs' reads as one thing to cook; the heron is the fodder and 'eggs' alone is the definition.",
+    "definitionFit": "A plain synonym: fish eggs eaten as food.",
+    "features": {
+     "misdirectedWord": "unshelled",
+     "joke": "pun",
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "20-across",
@@ -277,7 +1120,35 @@
    },
    "length": 7,
    "clue": "Higgs, for example, articulated the Large Hadron Collider objective (7)",
-   "solution": "SURNAME"
+   "solution": "SURNAME",
+   "annotation": {
+    "type": "homophone",
+    "answer": "SURNAME",
+    "definition": "Higgs, for example",
+    "indicators": [
+     "articulated"
+    ],
+    "indicatorNotes": {
+     "articulated": "the words are spoken, so we go by their sound"
+    },
+    "blocks": [
+     {
+      "clueFragment": "the Large Hadron Collider objective",
+      "soundsLike": "CERN AIM",
+      "gives": "SURNAME",
+      "note": "the collider belongs to CERN, and its aim is its objective"
+     }
+    ],
+    "surface": "Peter Higgs spells out what the Large Hadron Collider was built to find.",
+    "walkthrough": "The collider was built to find the Higgs boson, so 'Higgs' looks like part of the physics; it is simply an example of a family name. CERN is the European physics lab near Geneva that runs the collider.",
+    "definitionFit": "Definition by example: Higgs is a family name, Peter Higgs's.",
+    "features": {
+     "misdirectedWord": "Higgs",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "21-down",
@@ -289,7 +1160,44 @@
    },
    "length": 7,
    "clue": "Suspect evacuated Leningrad a year before the time in question (7)",
-   "solution": "ALREADY"
+   "solution": "ALREADY",
+   "annotation": {
+    "type": "outer letters + anagram",
+    "answer": "ALREADY",
+    "definition": "before the time in question",
+    "indicators": [
+     "evacuated",
+     "Suspect"
+    ],
+    "indicatorNotes": {
+     "evacuated": "the word is emptied, keeping only its outer letters",
+     "Suspect": "the letters are suspect, not in their proper order"
+    },
+    "anagram": {
+     "fodder": "LD A YEAR"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Leningrad",
+      "gives": "LD",
+      "note": "LeningraD emptied"
+     },
+     {
+      "clueFragment": "a year",
+      "gives": "AYEAR",
+      "note": "a year as written"
+     }
+    ],
+    "surface": "A suspect evacuated from wartime Leningrad a year before the period being investigated.",
+    "walkthrough": "'Evacuated' fits the siege of Leningrad, but it means emptied out.",
+    "definitionFit": "A plain synonym: by then, earlier than the moment under discussion.",
+    "features": {
+     "misdirectedWord": "evacuated",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "22-across",
@@ -301,7 +1209,60 @@
    },
    "length": 7,
    "clue": "Editor put about explosive cable, causing fiasco (7)",
-   "solution": "DEBACLE"
+   "solution": "DEBACLE",
+   "annotation": {
+    "type": "reversal + anagram + charade",
+    "answer": "DEBACLE",
+    "definition": "fiasco",
+    "indicators": [
+     "put about",
+     "explosive"
+    ],
+    "indicatorNotes": {
+     "put about": "turned about, so read backwards",
+     "explosive": "the letters are blown apart into a new order"
+    },
+    "linkWords": [
+     "causing"
+    ],
+    "pieces": [
+     "DE",
+     "BACLE"
+    ],
+    "subReversals": [
+     {
+      "from": "ED",
+      "to": "DE"
+     }
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "CABLE",
+      "gives": "BACLE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Editor",
+      "gives": "DE",
+      "note": "ED = editor, turned about"
+     },
+     {
+      "clueFragment": "cable",
+      "gives": "BACLE",
+      "note": "CABLE rearranged"
+     }
+    ],
+    "surface": "An editor sends out an inflammatory telegram and a disaster follows.",
+    "walkthrough": "A cable is a telegram, so the surface is an editor's explosive message.",
+    "definitionFit": "A plain synonym: both mean a humiliating collapse.",
+    "features": {
+     "misdirectedWord": "explosive",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "23-down",
@@ -313,7 +1274,57 @@
    },
    "length": 6,
    "clue": "BA Baracus’s head is cut by 12 bits of litter? (6)",
-   "solution": "BABIES"
+   "solution": "BABIES",
+   "annotation": {
+    "type": "charade + first letter + container",
+    "answer": "BABIES",
+    "definition": "bits of litter?",
+    "definitionNote": "the question mark flags the pun: a litter is a brood of young animals",
+    "indicators": [
+     "head",
+     "cut by"
+    ],
+    "indicatorNotes": {
+     "head": "the head of a word is its first letter",
+     "cut by": "IS is cut open by the E, which sits inside it"
+    },
+    "pieces": [
+     "BA",
+     "B",
+     "IES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "BA",
+      "gives": "BA",
+      "note": "BA as written"
+     },
+     {
+      "clueFragment": "Baracus’s",
+      "gives": "B",
+      "note": "first letter of Baracus"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "is as written"
+     },
+     {
+      "clueFragment": "12",
+      "gives": "E",
+      "note": "12 across is ECHO, the radio code word for E; it cuts IS"
+     }
+    ],
+    "surface": "B. A. Baracus of The A-Team takes a head wound from flying rubbish.",
+    "walkthrough": "B. A. Baracus is Mr T's character in The A-Team. The cross-reference to 12 is ECHO, and Echo is the radio code word for E.",
+    "definitionFit": "A pun: a litter is a brood of newborn animals, and each member is a young one.",
+    "features": {
+     "misdirectedWord": "litter",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "24-across",
@@ -325,7 +1336,57 @@
    },
    "length": 9,
    "clue": "Strong coffee, stirred endlessly, boiled two times over (9)",
-   "solution": "RISTRETTO"
+   "solution": "RISTRETTO",
+   "annotation": {
+    "type": "deletion + anagram + charade",
+    "answer": "RISTRETTO",
+    "definition": "Strong coffee",
+    "indicators": [
+     "endlessly",
+     "boiled"
+    ],
+    "indicatorNotes": {
+     "endlessly": "the word loses its end, its last letter",
+     "boiled": "the remaining letters boil into a new order"
+    },
+    "pieces": [
+     "RISTRE",
+     "TT",
+     "O"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "STIRRE",
+      "gives": "RISTRE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stirred",
+      "gives": "RISTRE",
+      "note": "STIRRED minus its final D, rearranged"
+     },
+     {
+      "clueFragment": "two times",
+      "gives": "TT",
+      "note": "T = time, twice"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O = over, in cricket scoring"
+     }
+    ],
+    "surface": "Making strong coffee: stir it constantly and boil it twice.",
+    "walkthrough": "'Stirred' belongs with coffee in the surface, but it is the fodder, and 'boiled' is the instruction to mix it.",
+    "definitionFit": "A plain synonym: a short, extra-concentrated espresso shot.",
+    "features": {
+     "misdirectedWord": "boiled",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "25-down",
@@ -337,7 +1398,52 @@
    },
    "length": 5,
    "clue": "Lively hedgehog back at home among green leaves (5)",
-   "solution": "SONIC"
+   "solution": "SONIC",
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "SONIC",
+    "definition": "Lively hedgehog",
+    "indicators": [
+     "back",
+     "among"
+    ],
+    "indicatorNotes": {
+     "back": "the finished group is read back to front",
+     "among": "IN goes among the letters of COS"
+    },
+    "pieces": [
+     "SO",
+     "NI",
+     "C"
+    ],
+    "subReversals": [
+     {
+      "from": "CINOS",
+      "to": "SONIC"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "green leaves",
+      "gives": "COS",
+      "note": "cos is a crisp green lettuce, romaine in America"
+     },
+     {
+      "clueFragment": "at home",
+      "gives": "IN",
+      "note": "in = at home; goes inside COS to make CINOS"
+     }
+    ],
+    "surface": "A hedgehog perks up back home among the leaves.",
+    "walkthrough": "Sonic the Hedgehog is the fast blue video-game character, so 'Lively hedgehog' is the definition as a whole.",
+    "definitionFit": "Definition by description: Sega's video-game hedgehog is famous for his speed.",
+    "features": {
+     "misdirectedWord": "leaves",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "26-down",
@@ -349,7 +1455,46 @@
    },
    "length": 5,
    "clue": "Multilayered tearjerker being performed twice, overwhelming yours truly (5)",
-   "solution": "ONION"
+   "solution": "ONION",
+   "annotation": {
+    "type": "container",
+    "answer": "ONION",
+    "definition": "Multilayered tearjerker",
+    "indicators": [
+     "twice",
+     "overwhelming"
+    ],
+    "indicatorNotes": {
+     "twice": "the word is used two times",
+     "overwhelming": "the two ONs overwhelm the I, closing around it"
+    },
+    "pieces": [
+     "ON",
+     "I",
+     "ON"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "being performed twice",
+      "gives": "ONON",
+      "note": "on = being performed, as a show is on; twice"
+     },
+     {
+      "clueFragment": "yours truly",
+      "gives": "I",
+      "note": "yours truly = I, the setter; goes between the two ONs"
+     }
+    ],
+    "surface": "A layered weepie of a play so good it runs twice and overwhelms me.",
+    "walkthrough": "'Tearjerker' sounds like a sad film; an onion makes you cry when you cut it, and it is made of layers.",
+    "definitionFit": "Definition by description: the vegetable grows in layers and makes you cry when you cut it.",
+    "features": {
+     "misdirectedWord": "tearjerker",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "27-across",
@@ -361,7 +1506,40 @@
    },
    "length": 4,
    "clue": "Cow’s tail removed for tripe (4)",
-   "solution": "BULL"
+   "solution": "BULL",
+   "annotation": {
+    "type": "deletion",
+    "answer": "BULL",
+    "definition": "tripe",
+    "indicators": [
+     "tail removed"
+    ],
+    "indicatorNotes": {
+     "tail removed": "the word's tail, its last letter, is taken off"
+    },
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "BULL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cow’s",
+      "gives": "BULLY",
+      "note": "to cow = to bully; the ’s is 'is'; drop the Y"
+     }
+    ],
+    "surface": "Cutting the tail off a cow to make tripe.",
+    "walkthrough": "The butcher's scene makes 'cow' an animal and 'tripe' offal; they are the verb 'to cow' and tripe meaning nonsense.",
+    "definitionFit": "Slang synonyms: both mean nonsense.",
+    "features": {
+     "misdirectedWord": "Cow",
+     "joke": "pun",
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "28-down",
@@ -373,7 +1551,34 @@
    },
    "length": 4,
    "clue": "Disown golden yellow trousers (4)",
-   "solution": "DENY"
+   "solution": "DENY",
+   "annotation": {
+    "type": "hidden word",
+    "answer": "DENY",
+    "definition": "Disown",
+    "indicators": [
+     "trousers"
+    ],
+    "indicatorNotes": {
+     "trousers": "to trouser is to pocket, so the phrase pockets the answer"
+    },
+    "blocks": [
+     {
+      "clueFragment": "golden yellow",
+      "gives": "DENY",
+      "note": "golDEN Yellow"
+     }
+    ],
+    "surface": "Refusing to own up to a pair of golden yellow trousers.",
+    "walkthrough": "'Trousers' is a verb, not the garment: to trouser is British slang for to pocket.",
+    "definitionFit": "A plain synonym: refusing to acknowledge someone as your own.",
+    "features": {
+     "misdirectedWord": "trousers",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "29-across",
@@ -385,7 +1590,32 @@
    },
    "length": 5,
    "clue": "Animal from the remotest parts of Patagonia (5)",
-   "solution": "PANDA"
+   "solution": "PANDA",
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "PANDA",
+    "definition": "Animal from the remotest parts of Patagonia",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Animal from",
+      "note": "the surface reading: a creature native to somewhere"
+     },
+     {
+      "clueFragment": "the remotest parts of Patagonia",
+      "note": "the surface wants the far south of Argentina; read literally, the word's remotest parts are its first and last letters, joined by 'and'"
+     }
+    ],
+    "surface": "A wild creature from the far corners of South America.",
+    "walkthrough": "Pandas live in China, not Patagonia, which is the joke: the outermost letters of Patagonia are P and A, spelt out as 'P and A'.",
+    "definitionFit": "A whole-clue reading: 'animal' is the plain category, and the rest spells the name out from the two outermost letters of the place.",
+    "features": {
+     "misdirectedWord": "remotest",
+     "joke": "absurd",
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "30-across",
@@ -397,7 +1627,46 @@
    },
    "length": 9,
    "clue": "Most important part of long film course cut short (9)",
-   "solution": "EPICENTRE"
+   "solution": "EPICENTRE",
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "EPICENTRE",
+    "definition": "Most important part",
+    "indicators": [
+     "cut short"
+    ],
+    "indicatorNotes": {
+     "cut short": "the word is cut short, losing its last letter"
+    },
+    "linkWords": [
+     "of"
+    ],
+    "pieces": [
+     "EPIC",
+     "ENTRE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "long film",
+      "gives": "EPIC",
+      "note": "an epic is a long, big-scale film"
+     },
+     {
+      "clueFragment": "course",
+      "gives": "ENTREE",
+      "note": "an entrée is a course of a meal; drop the last E"
+     }
+    ],
+    "surface": "The key scene of a long film is trimmed down.",
+    "walkthrough": "'Course' sounds like a route or class, but it is a course of a meal.",
+    "definitionFit": "A figurative sense: the point above an earthquake's focus, extended to the heart of anything.",
+    "features": {
+     "misdirectedWord": "course",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "31-across",
@@ -409,7 +1678,49 @@
    },
    "length": 10,
    "clue": "Trying child’s first pen out? Is this what I’m doing? (10)",
-   "solution": "ENCRYPTING"
+   "solution": "ENCRYPTING",
+   "annotation": {
+    "type": "anagram + first letter",
+    "answer": "ENCRYPTING",
+    "definition": "Is this what I’m doing?",
+    "indicators": [
+     "first",
+     "out"
+    ],
+    "indicatorNotes": {
+     "first": "the first letter of the word",
+     "out": "the letters are out of order"
+    },
+    "anagram": {
+     "fodder": "TRYING C PEN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Trying",
+      "gives": "TRYING",
+      "note": "trying as written"
+     },
+     {
+      "clueFragment": "child’s first",
+      "gives": "C",
+      "note": "first letter of Child"
+     },
+     {
+      "clueFragment": "pen",
+      "gives": "PEN",
+      "note": "pen as written"
+     }
+    ],
+    "surface": "A parent frets over a tiresome child whose pen has run out, then the setter muses on the job.",
+    "walkthrough": "'Trying' looks like an adjective for the child; it is fodder. The definition is the setter asking whether they are encrypting, which is what setting a cryptic crossword is.",
+    "definitionFit": "A self-reference: the setter is hiding words in code by writing cryptic clues.",
+    "features": {
+     "misdirectedWord": "Trying",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "32-across",
@@ -421,7 +1732,49 @@
    },
    "length": 4,
    "clue": "King George ‘the Old’ turns pale (4)",
-   "solution": "GREY"
+   "solution": "GREY",
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "GREY",
+    "definition": "pale",
+    "indicators": [
+     "turns"
+    ],
+    "indicatorNotes": {
+     "turns": "the phrase turns round, read backwards"
+    },
+    "pieces": [
+     "GR",
+     "EY"
+    ],
+    "subReversals": [
+     {
+      "from": "YE",
+      "to": "EY"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "King George",
+      "gives": "GR",
+      "note": "GR = Georgius Rex, King George"
+     },
+     {
+      "clueFragment": "the Old",
+      "gives": "YE",
+      "note": "ye = the, in olde-style spelling such as Ye Olde Shoppe"
+     }
+    ],
+    "surface": "An ageing King George, called 'the Old', goes pale.",
+    "walkthrough": "'The Old' looks like a royal nickname; it asks for the old form of 'the', which is YE.",
+    "definitionFit": "A plain synonym: ashen and colourless, as a sick face is.",
+    "features": {
+     "misdirectedWord": "Old",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
