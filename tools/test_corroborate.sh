@@ -18,7 +18,8 @@ field() { awk -v k="$1" '$1==k {$1=""; sub(/^ /, ""); print}' <<<"$2"; }
 TMP=$(mktemp -d)
 trap 'rm -rf "$TMP"' EXIT
 
-out=$(TMP="$TMP" REPO="$REPO" PYTHONPATH="$REPO/tools" python3 - 2>"$TMP/stderr" <<'PY'
+export TMP REPO
+out=$(PYTHONPATH="$REPO/tools" python3 - 2>"$TMP/stderr" <<'PY'
 import json
 import os
 from pathlib import Path
@@ -28,6 +29,7 @@ import fetch_puzzle
 
 tmp = Path(os.environ["TMP"])
 c.LEDGER = tmp / "ledger.json"
+fetch_puzzle.ROOT = tmp
 fetch_puzzle.PUZZLE_DIR = tmp / "puzzles"
 fetch_puzzle.PUZZLE_DIR.mkdir()
 
@@ -134,6 +136,13 @@ same_origin = source("georgeho:times_xwd_times", "timesforthetimes",
 kept = c.corroborate(times, [same_origin])
 print("UNRESOLVED", {e["id"]: e["solution"] for e in kept["entries"]}["18-across"])
 
+# but not from the primary's own origin, which it has already read: the Times
+# filer leaves the daily's setter null because the blog names none.
+anonymous = c.corroborate({**times, "setter": None},
+                          [source("georgeho:times_xwd_times", "timesforthetimes",
+                                  answers=AGREED_ANSWERS, setter="Someone")])
+print("SAME_ORIGIN", anonymous["setter"])
+
 # no second source: the puzzle comes back as it went in, and nothing is written.
 alone = puzzle("independent-800", AGREED)
 print("ALONE", c.corroborate(alone, [lambda _p: []]) is alone,
@@ -183,11 +192,24 @@ real = fetch_puzzle.read_puzzle_file(Path(os.environ["REPO"]) / "puzzles" / "cry
 c.SOURCES = (source("fifteensquared", "fifteensquared", setter="Tramp",
                     answers={e["id"]: e["solution"] for e in real["entries"]}),)
 path = fetch_puzzle.puzzle_path("cryptic", 24104)
-fetch_puzzle.write_puzzle_file(path, {**real, "setter": ""}, generator="tools/fetch_puzzle.py")
+fetch_puzzle.write_puzzle_file(path, {**real, "setter": None}, generator="tools/fetch_puzzle.py")
 print("WRITE_PATH", fetch_puzzle.read_puzzle_file(path)["setter"])
+
+# but only into the corpus: a fixture written elsewhere is left as it came
+elsewhere = tmp / "fixtures"
+elsewhere.mkdir()
+fetch_puzzle.PUZZLE_DIR = elsewhere
+fetch_puzzle.write_puzzle_file(elsewhere / "cryptic-24104.json", {**real, "setter": None},
+                               generator="tools/fetch_puzzle.py")
+print("FIXTURE", repr(fetch_puzzle.read_puzzle_file(elsewhere / "cryptic-24104.json")["setter"]))
+
+# and a puzzle with no grid is not read against anything
+gridless = {"id": "cryptic-502", "series": "cryptic", "number": 502, "setter": "",
+            "entries": [{"id": "1-across", "number": 1, "direction": "across", "solution": "CAR"}]}
+print("GRIDLESS", c.corroborate(gridless, [source("f", "fifteensquared", setter="Tramp")]) is gridless)
 PY
 )
-echo "$out" | grep -q WRITE_PATH || { echo "the script died:"; cat "$TMP/stderr"; exit 1; }
+echo "$out" | grep -q GRIDLESS || { echo "the script died:"; cat "$TMP/stderr"; exit 1; }
 
 echo "the rules, each deciding a case"
 same "grid: the source's answer that agrees with its crossers wins" "$(field GRID "$out")" "grid CAR"
@@ -206,6 +228,7 @@ same "and it is said loudly, naming both candidates" \
 echo "fill, and nothing else"
 same "an empty setter is filled" "$(field FILL_SETTER "$out")" "Tramp"
 same "a blank clue is filled" "$(field FILL_CLUE "$out")" "Motor (3)"
+same "but never from the origin the primary already read" "$(field SAME_ORIGIN "$out")" "None"
 same "no second source: unchanged, no ledger entry" "$(field ALONE "$out")" "True True"
 same "a record about another grid is ignored" "$(field MISFILED "$out")" "0"
 
@@ -220,7 +243,9 @@ same "blog titles name setters, and a month is not one" "$(field SETTERS "$out")
 
 echo "the ledger and the write path"
 same "the ledger names the rule for each" "$(field LEDGER "$out")" "grid unresolved filled"
-same "write_puzzle_file corroborates every write" "$(field WRITE_PATH "$out")" "Tramp"
+same "write_puzzle_file corroborates every write to the corpus" "$(field WRITE_PATH "$out")" "Tramp"
+same "and no write anywhere else" "$(field FIXTURE "$out")" "None"
+same "a puzzle with no grid is left alone" "$(field GRIDLESS "$out")" "True"
 
 [ "$fails" = 0 ] && echo "corroborate: all checks passed" || echo "corroborate: $fails FAILED"
 exit $((fails > 0))

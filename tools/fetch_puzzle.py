@@ -530,9 +530,13 @@ def write_puzzle_file(path, puzzle, generator=None, retrieved_url=None):
         f"{puzzle['id']}.json. Ask puzzle_path() for it.")
     old = read_puzzle_file(path) if path.exists() else None
     generator = generator or generator_of(path)
-    # Every write is corroborated against the other sources we hold for the
-    # puzzle, here, so that a new fetcher cannot skip it. See tools/corroborate.py.
-    puzzle = corroborate.corroborate(puzzle)
+    # Every write to the corpus is corroborated against the other sources we
+    # hold for the puzzle, here, so that a new fetcher cannot skip it. Only the
+    # corpus: the caches describe the real puzzles and the ledger records them,
+    # so a fixture written anywhere else is neither looked up nor ledgered.
+    # See tools/corroborate.py.
+    if path.parent.resolve() == (ROOT / "puzzles").resolve():
+        puzzle = corroborate.corroborate(puzzle)
     # A puzzle built fresh from a page has no provenance yet; the file's own
     # says when it was acquired, and re-fetching it does not change that.
     if old is not None and "provenance" not in puzzle and old.get("provenance"):
