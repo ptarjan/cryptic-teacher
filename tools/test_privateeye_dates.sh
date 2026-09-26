@@ -27,6 +27,18 @@ pe.fetch_cover_date = covers.get
 day = lambda issue: (ms := pe.cover_date(99, f"Eye 99/{issue}")) and str(
     datetime.datetime.fromtimestamp(ms / 1000, datetime.timezone.utc).date())
 print("COVERS", day(1), day(2), day(3))
+
+# The cadence: the one issue between neighbours four weeks apart is dated;
+# one between neighbours six weeks apart (a skipped week) is not.
+import json, pathlib, tempfile
+ms = lambda d: int(datetime.datetime.combine(
+    datetime.date.fromisoformat(d), datetime.time(), datetime.timezone.utc).timestamp() * 1000)
+tmp = pathlib.Path(tempfile.mkdtemp())
+for num, d in ((330, "2007-01-05"), (331, None), (332, "2007-02-02"), (333, None), (334, "2007-03-16")):
+    (tmp / f"cyclops-{num}.json").write_text(
+        json.dumps({"id": f"cyclops-{num}", "date": d and ms(d), "entries": []}, indent=1) + "\n")
+pe.date_by_cadence(tmp)
+print("CADENCE", *(json.loads((tmp / f"cyclops-{n}.json").read_text())["date"] for n in (331, 333)))
 PY
 )
 got() { echo "$out" | sed -n "s/^$1 //p"; }
@@ -34,5 +46,7 @@ check "an issue/number pair is read in either order" "1245 1666 1383" "$(got PAI
 check "a title naming one number names the issue" "1279 1280 None" "$(got ALONE)"
 check "a Friday and a Christmas cover date are kept, another weekday is not" \
   "2011-01-07 2016-12-20 None" "$(got COVERS)"
+check "an undated Cyclops between neighbours four weeks apart takes the Friday between" \
+  "1169164800000 None" "$(got CADENCE)"
 
 [ "$fails" -eq 0 ] && echo "all passed" || { echo "$fails failed"; exit 1; }

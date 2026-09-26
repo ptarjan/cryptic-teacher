@@ -1154,8 +1154,38 @@ def backfill_dates(out_dir, dry_run=False):
             print(f"{'[dry-run] ' if dry_run else ''}dated {SERIES}-{num}: {shown}")
             written += 1
         time.sleep(1)  # one request per second, max
+    cadence = date_by_cadence(out_dir, dry_run)
+    written, skipped = written + cadence, skipped - cadence
     print(f"done: {written} dated, {skipped} still undated")
     return written
+
+
+def date_by_cadence(out_dir, dry_run=False):
+    """Date each undated Cyclops whose neighbours are dated four weeks apart.
+
+    The Eye is fortnightly, so the one issue between two Fridays four weeks
+    apart is the Friday between them. A longer gap holds a skipped week
+    (summer, Christmas) and proves nothing. This is for the cover page that
+    misprints its date (issue 1176's says Saturday 20 January 2007).
+    """
+    dates = {num: read_puzzle_file(out_path(out_dir, num)).get("date")
+             for num in on_disk_numbers(out_dir)}
+    written = 0
+    for num, date in dates.items():
+        before, after = dates.get(num - 1), dates.get(num + 1)
+        if date or not before or not after or after - before != 28 * DAY_MS:
+            continue
+        epoch_ms = before + 14 * DAY_MS
+        if not dry_run:
+            stamp_date(out_path(out_dir, num), epoch_ms)
+        shown = datetime.datetime.fromtimestamp(epoch_ms / 1000, datetime.timezone.utc).date()
+        print(f"{'[dry-run] ' if dry_run else ''}dated {SERIES}-{num}: {shown}, "
+              f"between {SERIES}-{num - 1} and {SERIES}-{num + 1}")
+        written += 1
+    return written
+
+
+DAY_MS = 86_400_000
 
 
 def on_disk_numbers(out_dir):
