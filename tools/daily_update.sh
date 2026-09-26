@@ -231,6 +231,8 @@ integrity=$(python3 tools/puzzle_integrity.py --quiet 2>&1) ||
 #     .update.log. That grade is the whole measurement behind ANNOTATE_BLIND —
 #     it happens once per puzzle, on a night nobody knows in advance, so it has
 #     to come and find us.
+# A Cyclops its cover page misdates gets the fortnightly cadence's date.
+python3 tools/fetch_privateeye.py --backfill-dates
 refreshed=$( { python3 tools/fetch_puzzle.py --refresh-unsolved
                python3 tools/fetch_observer.py --refresh-unsolved
                python3 tools/fetch_privateeye.py --refresh-unsolved; } 2>&1 | tee /dev/stderr)
