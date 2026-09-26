@@ -183,6 +183,16 @@ tools/recover_minutecryptic.py               refills days that capture missed fr
 tools/fetch_fifteensquared.py                caches the blog that covers all five series, and
                                              its comments — fetched once each, at their
                                              20-second crawl delay
+tools/corroborate.py                         checks every puzzle written against the other
+                                             sources we cache for it — georgeho's scrape,
+                                             fifteensquared's posts, the Times listing —
+                                             filling an empty setter, date or clue, settling an
+                                             answer they disagree on by the grid, the print
+                                             sequence, independent votes and a measured rank,
+                                             and ledgering every call; never refuses a write
+tools/test_corroborate.sh                    decides one case by each of corroboration's rules,
+                                             and proves a fill never overwrites, a disagreement
+                                             never raises, and every write goes through it
 tools/fetch_timesforthetimes.py              caches the blog that covers the Times series, the
                                              only archive that prints its clues — fetched once
                                              each, at their 10-second crawl delay

@@ -126,18 +126,22 @@ def store(directory, key, payload):
 
 def fetch_posts(cat_id, name, pages_max=None):
     """Newest first, to the last page the API reports. Stops early at the first
-    fully-cached page — the archive only grows at the head, so an older page
-    cannot have changed under us. pages_max is an explicit spot-check bound and
-    is None for a real run: a default that caps pages truncates the archive
-    without ever saying so."""
+    fully-cached page, but only once the cache holds every full page's worth of
+    this category — the archive only grows at the head, so a cache that is
+    complete below the head cannot have changed under us, while one with holes
+    in it (a run that was killed, or bounded by --pages) must keep walking.
+    pages_max is an explicit spot-check bound and is None for a real run: a
+    default that caps pages truncates the archive without ever saying so."""
     have = cached_post_ids()
+    held = sum(cat_id in json.loads(p.read_text(encoding="utf-8")).get("categories", ())
+               for p in POSTS.glob("*.json"))
     new = 0
     page, pages = 1, 1
     while page <= pages and (pages_max is None or page <= pages_max):
         rows, pages = get("posts", categories=cat_id, per_page=PER_PAGE, page=page,
                           _fields="id,date,link,title,content,categories")
         fresh = [r for r in rows if r["id"] not in have]
-        if not fresh and page > 1:
+        if not fresh and page > 1 and held + new >= PER_PAGE * (pages - 1):
             break
         for row in fresh:
             store(POSTS, row["id"], row)
