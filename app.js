@@ -1792,7 +1792,7 @@
   // "in" and grading a different one would tell someone they were wrong about a
   // word the clue had just underlined for them.
   const isLetter = (c) => !!c && /[A-Za-z]/.test(c);
-  function bestOccurrence(clue, text, taken) {
+  function bestOccurrence(clue, text, taken, atEnds) {
     const len = text.length;
     // Only an edge that is itself a letter can be mid-word. Fragments routinely
     // start or end on punctuation that is welded to the neighbouring word —
@@ -1802,19 +1802,55 @@
       !(isLetter(clue[i]) && isLetter(clue[i - 1])) &&
       !(isLetter(clue[i + len - 1]) && isLetter(clue[i + len]));
     const free = (i) => !taken.some((m) => i < m.i + m.len && m.i < i + len);
-    let boundaryFree = -1, boundaryAny = -1, anyFree = -1;
-    for (let i = clue.indexOf(text); i >= 0; i = clue.indexOf(text, i + 1)) {
-      const b = onBoundary(i), f = free(i);
-      if (b && f) { boundaryFree = i; break; }
-      if (b && boundaryAny < 0) boundaryAny = i;
-      if (f && anyFree < 0) anyFree = i;
-    }
+    // A definition sits at one end of the clue, so with `atEnds` an occurrence
+    // at either end beats an earlier one in the middle.
+    const atEnd = (i) => !/[A-Za-z]/.test(clue.slice(0, i)) || !/[A-Za-z]/.test(clue.slice(i + len));
     // A whole word somewhere else beats a syllable of the right word: the
     // fragment is a word of the clue, so a match that is not one is a
-    // coincidence of spelling.
-    const i = [boundaryFree, boundaryAny, anyFree, clue.indexOf(text)]
-      .filter((x) => x >= 0)[0];
-    return i === undefined ? -1 : i;
+    // coincidence of spelling. Ties go to the earliest.
+    const rank = (i) => {
+      const b = onBoundary(i), f = free(i);
+      return b && f ? (atEnds && !atEnd(i) ? 1 : 0) : b ? 2 : f ? 3 : 4;
+    };
+    let best = -1;
+    for (let i = clue.indexOf(text); i >= 0; i = clue.indexOf(text, i + 1))
+      if (best < 0 || rank(i) < rank(best)) best = i;
+    return best;
+  }
+
+  // Every fragment the annotation names, with the position it claims, in
+  // annotation order. Every fragment claims its position whether or not it has
+  // been bought, and the highlighter and the grader both read from here. A
+  // position that depended on what had been paid for would move the link word
+  // to a different "in" as soon as the indicators were bought.
+  //
+  // Longest first: a long fragment usually has one possible position and a
+  // short one has several. "Sam, Tim, Rich and Ali each cutting last cutting"
+  // has to give the indicator "each cutting last" its only position before the
+  // definition "cutting" picks one.
+  //
+  // Link words claim after everything else, because a connective is a word or
+  // two the clue is free to use twice: "Wears underwear twisted in the middle
+  // in drinking spots" has one "in" inside the indicator and one doing the
+  // linking. If they claimed first, a word could be taken away from a hint
+  // the solver has bought, and the highlighter must never do that.
+  function placedFragments(e) {
+    const ann = annOf(e);
+    if (!ann) return [];
+    const frags = [];
+    const add = (text, kind) => { if (text) frags.push({ text, kind, n: frags.length }); };
+    add(ann.definition, "def");
+    add(ann.definition2, "def2");
+    (ann.indicators || []).forEach((t) => add(t, "ind"));
+    (ann.linkWords || []).forEach((t) => add(t, "link"));
+    const order = frags.slice().sort((a, b) =>
+      (a.kind === "link") - (b.kind === "link") || b.text.length - a.text.length || a.n - b.n);
+    const taken = [];
+    for (const f of order) {
+      f.i = bestOccurrence(e.clue, f.text, taken, f.kind === "def" || f.kind === "def2");
+      if (f.i >= 0) taken.push({ i: f.i, len: f.text.length });
+    }
+    return frags.filter((f) => f.i >= 0);
   }
 
   // Which stretches of the clue are lit, and why. Kept apart from clueHTML
@@ -1822,34 +1858,13 @@
   // string, and once word by word when the words themselves are the targets of a
   // question — see pickableClueHTML.
   function clueMarks(e) {
-    const ann = annOf(e);
-    if (!ann) return [];
-    const marks = [];
-    // Every fragment the annotation names claims its position, bought or not,
-    // and the rungs on screen are filtered out of that. A position that
-    // depended on what had been paid for would slide the link word onto a
-    // different "in" the moment the indicators were bought.
-    const claimed = [];
-    const push = (text, cls, rung) => {
-      if (!text) return;
-      const i = bestOccurrence(e.clue, text, claimed);
-      if (i < 0) return;
-      claimed.push({ i, len: text.length });
-      if (isShown(e, rung)) marks.push({ i, len: text.length, cls });
-    };
-    push(ann.definition, "def", "definition");
-    push(ann.definition2, "def2", "definition");
-    (ann.indicators || []).forEach((ind) => push(ind, "ind", "indicators"));
-    // Link words claim after the indicators, because a connective is a word or
-    // two the clue is free to use twice: "Wears underwear twisted in the middle
-    // in drinking spots" has one "in" inside the indicator and one doing the
-    // linking. Claiming first takes a word off a hint that has been bought,
-    // which is the one thing the highlighter must never do.
-    //
-    // They ride with the definition rung: their whole job is to show where the
-    // definition stops and the wordplay starts, which gives away the
-    // definition's edge. They are not a rung of their own.
-    (ann.linkWords || []).forEach((w) => push(w, "link", "definition"));
+    // Link words ride with the definition rung: all they do is show where the
+    // definition stops and the wordplay starts, which gives away where the
+    // definition ends. They do not have a rung of their own.
+    const rungOf = { def: "definition", def2: "definition", link: "definition", ind: "indicators" };
+    const marks = placedFragments(e)
+      .filter((f) => isShown(e, rungOf[f.kind]))
+      .map((f) => ({ i: f.i, len: f.text.length, cls: f.kind }));
     // Where two marks still overlap — an indicator genuinely sitting inside the
     // definition — markUp gives each cut piece to the FIRST mark that covers it,
     // so shortest-first hands the overlap to the more specific of the two and
@@ -3793,27 +3808,21 @@
     const ann = annOf(e);
     if (!ann) return [];
     const tokens = clueTokens(e.clue);
-    const taken = [];
     const spans = [];
-    const add = (t) => {
-      if (!t) return;
-      const i = bestOccurrence(e.clue, t, taken);
-      if (i < 0) return;
-      taken.push({ i, len: t.length });
+    const add = (t, i) => {
       const span = [];
       tokens.forEach((tok, n) => {
         if (tok.i < i + t.length && i < tok.i + tok.text.length) span.push(n);
       });
       if (span.length) spans.push({ text: t, tokens: span });
     };
-    if (rung === "definition") {
-      add(ann.definition);
-      add(ann.definition2);
-    } else if (rung === "indicators") {
-      (ann.indicators || []).forEach(add);
+    const kinds = { definition: ["def", "def2"], indicators: ["ind"] }[rung];
+    if (kinds) {
+      placedFragments(e).filter((f) => kinds.includes(f.kind)).forEach((f) => add(f.text, f.i));
     } else if (rung === "blocks") {
       const b = blockAskAt(e, step);
-      if (b) add(b.clueFragment);
+      const i = b && b.clueFragment ? bestOccurrence(e.clue, b.clueFragment, []) : -1;
+      if (i >= 0) add(b.clueFragment, i);
     }
     return spans;
   }
