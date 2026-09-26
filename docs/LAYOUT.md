@@ -632,5 +632,7 @@ tools/fetch_snitch.py                        fetch the SNITCH's ratings of The T
 tools/test_fetch_snitch.sh                   does tools/fetch_snitch.py read the SNITCH's week
                                              table into the right puzzle ids, and drop the
                                              cells that are not a rating of that puzzle?
+scratch/snitch_features.py                   annotation-free features against the SNITCH NITCH,
+                                             held out by date
 ```
 <!-- LAYOUT-END -->
