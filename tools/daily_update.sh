@@ -204,8 +204,12 @@ blog_chain() {
 blog_filed=0
 blog_chain Times "fetch_wp_blog.py timesforthetimes" fetch_times_listing.py \
   parse_timesforthetimes.py times_grids.py file_times_puzzles.py && blog_filed=1
+# The Telegraph's rebuild is bounded, newest untried first: tonight's posts
+# and a slice of the ~10,000-puzzle archive behind them.
+TELEGRAPH_PER_NIGHT="${TELEGRAPH_PER_NIGHT:-40}"
 blog_chain Telegraph "fetch_wp_blog.py bigdave44" parse_bigdave44.py \
-  "times_grids.py --blog bigdave44" file_telegraph_puzzles.py && blog_filed=1
+  "times_grids.py --blog bigdave44 --limit $TELEGRAPH_PER_NIGHT" \
+  file_telegraph_puzzles.py && blog_filed=1
 [ $blog_filed -eq 1 ] && python3 tools/fetch_puzzle.py --reindex
 
 # --- 1c. The Financial Times, rebuilt from fifteensquared's write-ups ---
