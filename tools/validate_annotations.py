@@ -1636,6 +1636,36 @@ def check_blocks_against_blog(puzzle, warnings):
                 f"parse misses a piece; keep ours if theirs is wrong")
 
 
+#: Wordplay a blog names in words, which a cryptic definition would leave out.
+BLOG_WORDPLAY = ("anagram", "homophone", "spoonerism", "reversal", "container", "hidden")
+
+
+def check_cryptic_definition_against_blog(puzzle, warnings):
+    """A clue we call a cryptic definition should not be one the blog parses.
+
+    The one type disagreement worth a warning: a cryptic definition claims no
+    letters, so it is where an annotating run gives up quietly, and a blog that
+    names an anagram or a homophone in it has found wordplay. Over the corpus it
+    fires on 13 of 21,316 typed clues, and in most of them our walkthrough
+    already spells the device out under a whole-clue label. Every other type
+    difference (container against anagram in a compound, double against
+    cryptic definition) is a labelling choice, so is not reported."""
+    row = blog_facts_for(puzzle)
+    if not row:
+        return
+    for e in puzzle["entries"]:
+        ann = e.get("annotation") or {}
+        theirs = ((row["entries"].get(e["id"]) or {}).get("type") or "").lower()
+        if "cryptic definition" not in (ann.get("type") or ""):
+            continue
+        named = [w for w in BLOG_WORDPLAY if w in theirs]
+        if named:
+            tag = f"{e['number']}{'A' if e['direction'] == 'across' else 'D'}"
+            warnings.append(
+                f"{tag}: typed cryptic definition, but {row['name']} parses it as "
+                f"{theirs!r} ({row['url']}). If the {named[0]} is there, annotate it")
+
+
 def check_definition_not_fodder(entries, errors, warnings):
     """The definition's words may not also be the wordplay's letters.
 
@@ -2350,6 +2380,7 @@ def validate_puzzle(puzzle, corpus=False):
         if not corpus:
             check_definition_against_blog(puzzle, warnings)
             check_blocks_against_blog(puzzle, warnings)
+            check_cryptic_definition_against_blog(puzzle, warnings)
         check_blocks_account_for_answer(puzzle["entries"], errors, warnings)
         check_blocks_decompose(puzzle["entries"], errors, warnings)
         check_blocks_in_answer_order(puzzle["entries"], errors, warnings)
