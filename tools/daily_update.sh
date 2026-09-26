@@ -1144,7 +1144,10 @@ fi
 # the bytes the stamp is of.
 python3 tools/build_abbreviations.py
 
-python3 tools/build_seo_pages.py
+if ! seo_err=$(python3 tools/build_seo_pages.py 2>&1); then
+  printf '%s\n' "$seo_err"
+  alert "the nightly could not build the site pages: $(printf '%s' "$seo_err" | tail -3)"
+fi
 
 # The README's generated regions, so the corpus counts in it are never more than
 # one run behind. This can also fail, on purpose: a tool added without a line

@@ -995,10 +995,21 @@ python3 tools/build_abbreviations.py
 # same line the counts stall at whatever the last nightly saw. They are worth
 # saying and not worth stopping for, so a refusal here names itself and the run
 # carries on -- the puzzles are the point.
-python3 tools/build_readme.py || alert "the pre-reset backfill could not regenerate the README, so its corpus counts stay at their last good value"
-python3 tools/build_seo_pages.py
+if ! readme_err=$(python3 tools/build_readme.py 2>&1); then
+  printf '%s\n' "$readme_err"
+  alert "the pre-reset backfill could not regenerate the README, so its corpus counts stay at their last good value:"$'\n'"\`\`\`"$'\n'"$(printf '%s' "$readme_err" | head -12)"$'\n'"\`\`\`"
+fi
+# A failed build leaves last week's pages on disk, and the smoke test below
+# would grade those instead, so the refusal is the alert and the smoke test is
+# skipped rather than run against output this tree did not make.
+seo_ok=1
+if ! seo_err=$(python3 tools/build_seo_pages.py 2>&1); then
+  seo_ok=0
+  printf '%s\n' "$seo_err"
+  alert "the pre-reset backfill could not build the site pages, so its smoke test was skipped: $(printf '%s' "$seo_err" | tail -3)"
+fi
 python3 tools/stamp_assets.py
-if command -v node >/dev/null 2>&1; then
+if [ "$seo_ok" = 1 ] && command -v node >/dev/null 2>&1; then
   smoke_log="$(mktemp "${TMPDIR:-/tmp}/cryptic-prereset-smoke.XXXXXX")"
   node tools/smoke_test.js 2>&1 | tee "$smoke_log"
   smoke_rc=${PIPESTATUS[0]}

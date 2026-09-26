@@ -279,6 +279,7 @@ LAYOUT = [
     ("tables everything else reads", "scratch/snitch_weights.py", "held-out refit of difficulty.WEIGHTS against the SNITCH, split by date"),
     ("tables everything else reads", "tools/fetch_snitch.py", "fetch the SNITCH's ratings of The Times and Sunday Times cryptics into"),
     ("tables everything else reads", "tools/test_fetch_snitch.sh", "does tools/fetch_snitch.py read the SNITCH's week table into the right puzzle ids, and drop the cells that are not a rating of that puzzle?"),
+    ("tables everything else reads", "scratch/snitch_features.py", "annotation-free features against the SNITCH NITCH, held out by date"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

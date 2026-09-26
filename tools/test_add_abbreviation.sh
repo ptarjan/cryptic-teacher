@@ -26,7 +26,7 @@ check() { if [ "$2" = "$3" ]; then echo "  ok: $1"; else
 sand=$(mktemp -d)
 trap 'rm -rf "$sand"' EXIT
 mkdir -p "$sand/tools/data"
-cp tools/add_abbreviation.py "$sand/tools/add_abbreviation.py"
+cp tools/add_abbreviation.py tools/build_abbreviations.py "$sand/tools/"
 cp tools/data/abbreviations.json "$sand/tools/data/abbreviations.json"
 add() { python3 "$sand/tools/add_abbreviation.py" "$@"; }
 row() { python3 -c "
@@ -59,6 +59,12 @@ echo "a second sense is appended, sorted, existing rows untouched elsewhere:"
 add AB stopgap >/dev/null
 check "AB gained the new sense alongside the old ones" "$(row AB)" \
   "['sailor', 'seaman', 'stopgap']"
+
+echo "a sense that differs only in punctuation takes the existing spelling:"
+add ZY "High-Speed" >/dev/null
+check "the table's own spelling lands, not a second anchor" "$(row ZY)" "['high speed']"
+add ZY "test sense" "test-sense" >/dev/null
+check "two spellings in one call land once" "$(row ZY)" "['high speed', 'test sense']"
 
 echo "several concurrent adds to the same row all survive:"
 pids=()
