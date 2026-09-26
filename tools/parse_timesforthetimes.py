@@ -113,7 +113,7 @@ BRACED = re.compile(r"\{[^{}\n]*\}")
 #: A struck clue's correction: "<del>old clue</del>. Clue was later amended to
 #: read: new clue". The strike is gone by now; this lead-in goes with it.
 AMENDED = re.compile(r"^[.\s]*(?:(?:this|the clue|clue)\s+(?:was\s+)?(?:later\s+)?"
-                     r"amended\b[^:]{0,40}?\bto(?:\s+read)?:?\s*)", re.I)
+                     r"amended\b[^:]{0,40}?\bto(?:\s+read)?:?\s*)", re.IGNORECASE)
 #: An enumeration still open at the end of a line: "(7-", "(4,".
 OPEN_ENUM = re.compile(r"\(\d{1,2}(?:[,\-\u2013\s]+\d{1,2})*[,\-\u2013]$")
 #: A clue's enumeration: word lengths, none of them longer than a grid is
