@@ -336,10 +336,19 @@ def settle(grid, rec, vocab):
     return None, f"refused: more than {MAX_WRONG} answers disagree with the grid"
 
 
+#: Answers the blog misspells in a letter no crossing checks, so the grid
+#: cannot prove them wrong; the clue's own wordplay does. Keyed by post id.
+MISSPELT = {
+    (49822, 33, "down"): "IDEOLOGICAL",   # Jumbo 1756: (Iago cold lie)*, blogged IDEALOGICAL
+    (56106, 5, "down"): "ANTEMERIDIEM",   # Jumbo 1798: (entered Miami)*, blogged MERIDIEN
+}
+
+
 def answers(rec, row):
     """This puzzle's entries with the grid row's corrections applied: the
     answers to publish, which are not always the blog's."""
-    fix = {(c["number"], c["direction"]): c["answer"] for c in row.get("corrections", ())}
+    fix = {(n, d): a for (post, n, d), a in MISSPELT.items() if post == rec["post_id"]}
+    fix.update({(c["number"], c["direction"]): c["answer"] for c in row.get("corrections", ())})
     return [dict(e, answer=fix.get((e["number"], e["direction"]), e["answer"]))
             for e in rec["entries"]]
 

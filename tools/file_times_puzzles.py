@@ -59,7 +59,7 @@ import parse_timesforthetimes as tftt
 import reconstruct_grid as rg
 import series as series_meta
 import times_grids as tg
-from fetch_puzzle import has_words, puzzle_path, read_puzzle_file, write_puzzle_file
+from fetch_puzzle import clue_words, has_words, puzzle_path, read_puzzle_file, write_puzzle_file
 from file_penguin_puzzle import separators
 from normalise_linked_enumerations import enumeration_parts, resolve_groups
 
@@ -68,8 +68,8 @@ C1 = re.compile(r"[\x80-\x9f]")
 
 
 def clean(clue):
-    """The clue as text: the blog's markup and lost bytes removed."""
-    return C1.sub("", fetch_puzzle.plain_text(clue)) if clue else clue
+    """The clue as text: the blog's markup, lost bytes and doubled spaces removed."""
+    return " ".join(C1.sub("", fetch_puzzle.plain_text(clue)).split()) if clue else clue
 
 
 #: Below this a Weekend Cryptic number is the Sunday Times' (~5,200 in 2026,
@@ -632,8 +632,9 @@ def build(rec, row, series, date):
 
 
 def content(puzzle):
-    """What a later run compares: the grid, the clues and the answers."""
-    return [(e["id"], e["position"], e["length"], e["clue"], e["solution"])
+    """What a later run compares: the grid, the clues' words and the answers.
+    A clue retyped with other quotes or dashes is the same clue."""
+    return [(e["id"], e["position"], e["length"], clue_words(e["clue"]), e["solution"])
             for e in puzzle["entries"]]
 
 
