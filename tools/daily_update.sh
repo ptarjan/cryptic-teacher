@@ -249,6 +249,12 @@ echo "blog_facts: rc=$step_rc in $((SECONDS - step_start))s"
   alert "tools/blog_facts.py failed (rc=$step_rc), so tonight's new puzzles get no blog hints:"$'\n'"\`\`\`"$'\n'"$(tail -12 "$facts_out" | cut -c1-200)"$'\n'"\`\`\`"
 rm -f "$facts_out"
 
+# --- 1e. The SNITCH's ratings of the Times, which the difficulty index is
+# checked against and the Times badges quote a range from. One page, so a
+# failure only means last night's ratings stand; the commit's `git add -A`
+# below picks up tools/data/snitch.json.
+python3 tools/fetch_snitch.py || echo "fetch_snitch failed (rc=$?); continuing with the ratings already held"
+
 # What we hold of every series, printed every night whether or not anything is
 # wrong, because the two ways a series dies are both silent: a fetcher that can
 # only ever get "today" leaves its series one puzzle deep forever, and a feed
