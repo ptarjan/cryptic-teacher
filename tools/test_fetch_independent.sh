@@ -28,18 +28,18 @@ CELLS = "".join(
     for i, letter in enumerate("SOLVE"))
 
 
-def doc(meta, heading, tail=""):
+def doc(meta, heading, tail="", creator=""):
     """One day's feed file: a five-cell grid under the two titles under test."""
     return ('<?xml version="1.0" encoding="UTF-8"?>'
             '<crossword-compiler xmlns="http://crossword.info/xml/crossword-compiler">'
             '<rectangular-puzzle xmlns="http://crossword.info/xml/rectangular-puzzle">'
-            '<metadata><title>%s</title></metadata>'
+            '<metadata><title>%s</title><creator>%s</creator></metadata>'
             '<crossword><grid width="5" height="1">%s</grid>'
             '<word id="1" x="1-5" y="1"></word>'
             '<clues ordering="normal"><title>%s</title>'
             '<clue word="1" number="1" format="5">Work out this one</clue>'
             '</clues></crossword></rectangular-puzzle></crossword-compiler>%s'
-            % (meta, CELLS, heading, tail)).encode("utf-8")
+            % (meta, creator, CELLS, heading, tail)).encode("utf-8")
 
 
 # (what it pins, date key, <metadata> title, Across-list heading, id, setter)
@@ -112,6 +112,18 @@ check("the weekly is named as the Independent on Sunday",
 # real puzzle over another day's and nothing downstream would notice.
 check("a day with no number anywhere is refused",
       named(doc("", "<b>Across</b>"), "150701").split(":")[0], "ValueError")
+
+# Real 2016 days whose number is not in <title>.
+check("a dash where 'by' goes still reads",
+      named(doc("1388 - Hypnos", "<b>Across</b>"), "160925"), "indysunday-1388/Hypnos")
+check("an empty title falls back to <creator>",
+      named(doc("", "<b>Across</b>", creator="9226 by S.park"), "160510"),
+      "independent-9226/S.park")
+check("a number-less day listed in NUMBER_FIXES takes its number from there",
+      named(doc("Independent crossword", "<b>Across</b>", creator="Hypnos"), "160313"),
+      "indysunday-1359/Hypnos")
+check("a date key that serves another day's puzzle is refused",
+      named(doc("11,812 by Tees", "<b>Across</b>"), "241117").split(":")[0], "ValueError")
 
 print("FAILED: %d" % fails if fails else "all ok")
 sys.exit(1 if fails else 0)
