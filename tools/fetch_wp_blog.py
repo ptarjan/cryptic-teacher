@@ -21,6 +21,12 @@ prose differently.
   python3 tools/fetch_wp_blog.py bigdave44 --full            # walk every page again
   python3 tools/fetch_wp_blog.py bigdave44 --status          # what is cached
   python3 tools/fetch_wp_blog.py timesforthetimes --since 2020-01-01
+  python3 tools/fetch_wp_blog.py timesforthetimes --comments # the readers' comments
+
+The comments are where solvers say which clue was their last one in, which
+they failed, and what held them up: a per-clue record of where people are
+slow. They are walked oldest first, so a page number keeps its contents as new
+comments arrive and a killed walk resumes at the first page not on disk.
 
 The API returns 403 to python-urllib's default User-Agent with nothing in the
 error naming the header — the same trap fifteensquared sets.
@@ -59,6 +65,10 @@ class Blog:
     def posts(self):
         return self.cache / "posts"
 
+    @property
+    def comments(self):
+        return self.cache / "comments"
+
 
 #: No date floor by default. Before about 2017 timesforthetimes prints the
 #: answer and the wordplay but not the clue, and those years still carry the
@@ -93,6 +103,37 @@ def get(url):
 
 def cached_ids(blog):
     return {int(p.stem) for p in blog.posts.glob("*.json")}
+
+
+COMMENT_FIELDS = "id,post,parent,date,content"
+
+
+def fetch_comments(blog):
+    """Every comment on the blog, 100 to a page file, oldest first.
+
+    The last page is refetched every run, since it fills up; every full page
+    before it is final."""
+    blog.comments.mkdir(parents=True, exist_ok=True)
+    have = sorted(int(p.stem) for p in blog.comments.glob("*.json"))
+    full = [n for n in have if len(json.loads((blog.comments / f"{n}.json").read_text())) == 100]
+    page = (max(full) + 1) if full else 1
+    while True:
+        url = (f"{blog.api}comments?per_page=100&page={page}&order=asc"
+               f"&orderby=id&_fields={COMMENT_FIELDS}")
+        try:
+            rows, headers = get(url)
+        except urllib.error.HTTPError as e:
+            if e.code == 400:  # past the last page
+                return page - 1
+            raise FetchError(f"comments page {page}: HTTP {e.code}") from e
+        (blog.comments / f"{page}.json").write_text(json.dumps(rows), encoding="utf-8")
+        total = int(headers.get("X-WP-TotalPages") or page)
+        if page % 50 == 0:
+            print(f"  comments page {page}/{total}", flush=True)
+        if len(rows) < 100 or page >= total:
+            return page
+        page += 1
+        time.sleep(blog.crawl_delay)
 
 
 class FetchError(Exception):
@@ -188,12 +229,23 @@ def main():
     ap.add_argument("--full", action="store_true",
                     help="walk every page, not just down to the first cached one")
     ap.add_argument("--status", action="store_true", help="what is cached, then exit")
+    ap.add_argument("--comments", action="store_true",
+                    help="top up the readers' comments instead of the posts")
     a = ap.parse_args()
     blog = BLOGS[a.blog]
 
     blog.posts.mkdir(parents=True, exist_ok=True)
     if a.status:
         status(blog)
+        return 0
+
+    if a.comments:
+        try:
+            last = fetch_comments(blog)
+        except (FetchError, urllib.error.URLError, TimeoutError) as e:
+            print(f"ERROR: fetch_wp_blog {blog.name} --comments: {e}", file=sys.stderr)
+            return 1
+        print(f"comments: {last} page(s) on disk")
         return 0
 
     wanted = blog.categories
