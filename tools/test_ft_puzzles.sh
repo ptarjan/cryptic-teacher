@@ -76,11 +76,13 @@ print("SPLIT", [(e["number"], e["answer"], e["clue"]) for e in split["entries"]
                 if (e["number"], e["direction"]) in linked],
       [(k[0], fill[k]) for k in linked])
 
-# The Saturday prize is blogged on the Monday with Monday's puzzle.
+# The Saturday prize is blogged on the Monday with Monday's puzzle, and a
+# Wednesday blogged a day late on the Thursday with Thursday's.
 recs = [{"number": n, "date": d} for n, d in ((100, "2026-09-14"), (101, "2026-09-15"),
         (102, "2026-09-16"), (103, "2026-09-17"), (104, "2026-09-18"),
-        (105, "2026-09-21"), (106, "2026-09-21"), (107, "2026-09-22"))]
-dates, _ = F.print_dates(recs)
+        (105, "2026-09-21"), (106, "2026-09-21"), (107, "2026-09-22"),
+        (108, "2026-09-24"), (109, "2026-09-24"))]
+dates = F.print_dates(recs)
 print("DATES", " ".join(f"{n}:{dates[n]:%a}" for n in sorted(dates)))
 PY
 )
@@ -99,7 +101,7 @@ check "number and setter off each title shape" \
   "[(18489, 'Xela'), (18480, 'Mudd'), (18484, 'Julius'), (16342, 'Rosa Klebb')]" "$(field TITLE)"
 check "a linked answer shared out at the grid's light break" \
   "[(5, 'FGHIJ', 'Linked (2,3,5)'), (8, 'PQRST', 'See 5')] [(5, 'FGHIJ'), (8, 'PQRST')]" "$(field SPLIT)"
-check "the prize blogged on Monday dated to its Saturday" \
-  "100:Mon 101:Tue 102:Wed 103:Thu 104:Fri 105:Sat 106:Mon 107:Tue" "$(field DATES)"
+check "a puzzle blogged late dated to its own day: the prize to its Saturday" \
+  "100:Mon 101:Tue 102:Wed 103:Thu 104:Fri 105:Sat 106:Mon 107:Tue 108:Wed 109:Thu" "$(field DATES)"
 
 [ "$fails" -eq 0 ] && echo "all ok" || { echo "$fails failure(s)"; exit 1; }
