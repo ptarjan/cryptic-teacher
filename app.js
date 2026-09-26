@@ -5554,11 +5554,12 @@
 
   // The two menus under the search box, built from the index alone.
   //
-  // Papers are grouped by publisher, which is index.json's `papers` table and
-  // so tools/series.py's: a series added there lands in its publisher's group
-  // with nothing to edit here. A publisher with two or more series gets a group
-  // with an "All" option at its head; the single-series ones share one group,
-  // because a heading over one option is only a longer way to say its name.
+  // Papers are grouped by index.json's `groups` table, which is tools/series.py's
+  // `group` (the publisher unless a series says otherwise, as the Sunday Times
+  // says Times): a series added there lands in its group with nothing to edit
+  // here. A group with two or more series gets an "All" option at its head;
+  // the single-series ones share one group, because a heading over one option
+  // is only a longer way to say its name.
   // Biggest first at every level, because how much there is to solve is the
   // useful order when the question is which one to try.
   //
@@ -5570,7 +5571,7 @@
   let paperMenu = null;
   function paperMenuHTML() {
     if (paperMenu !== null) return paperMenu;
-    const papers = INDEX.papers || {};
+    const papers = INDEX.groups || {};
     const n = {};
     INDEX.puzzles.forEach((p) => { const s = p.series || "cryptic"; n[s] = (n[s] || 0) + 1; });
     const size = (keys) => keys.reduce((t, s) => t + n[s], 0);

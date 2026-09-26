@@ -1812,6 +1812,10 @@ def reindex():
     # nothing.
     papers = {s: series_meta.publisher(s)
               for s in sorted({p["series"] for p in puzzles})}
+    # The picker's heading for each series, beside `papers` rather than in it:
+    # `papers` names the paper in a notification title, and "Times" is not the
+    # Sunday Times' name.
+    groups = {s: series_meta.group(s) for s in papers}
     # The browser's half of tools/data/books.json, for the same reason and by
     # the same route: app.js has to print "Penguin book 5 No 18" beside a
     # stored number and cannot read a file under tools/. Written from the
@@ -1820,7 +1824,7 @@ def reindex():
     books = {str(i): {"shelf": r["shelf"], "volume": r["volume"], "was": r["was"]}
              for i, r in sorted(series_meta.BOOKS.items())}
     index = {"latest": puzzles[0]["id"] if puzzles else None,
-             "papers": papers, "books": books, "puzzles": puzzles}
+             "papers": papers, "groups": groups, "books": books, "puzzles": puzzles}
     (PUZZLE_DIR / "index.json").write_text(
         json.dumps(index, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
     (PUZZLE_DIR / "index.js").write_text(
