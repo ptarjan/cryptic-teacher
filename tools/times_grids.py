@@ -88,11 +88,17 @@ def answers_fit(grid, rec):
 #: is a batch job nobody waits on, so it buys the grids.
 DEFAULT_MAX_NODES = 6_000_000
 
-#: The most blocks The Times puts in a line, across or down: 5, over all 4,760
-#: grids this module had rebuilt without the cap (Daily, Weekend, Quick and
-#: Jumbo; the Jumbos never pass 3). Other papers go higher -- the Independent
-#: prints 11 -- so this is the Times' number, not the solver's.
-MAX_BLACK_RUN = 5
+#: The most blocks a paper puts in a line, across or down, by record label.
+#: The Times: 5, over all 4,760 grids this module had rebuilt without the cap
+#: (Daily, Weekend, Quick and Jumbo; the Jumbos never pass 3). The FT: 7, over
+#: 110 rebuilt without it. Other papers go higher -- the Independent prints 11
+#: -- so each is its paper's number, not the solver's.
+MAX_BLACK_RUN = {"FT": 7}
+TIMES_BLACK_RUN = 5
+
+
+def black_run(rec):
+    return MAX_BLACK_RUN.get(rec["series"], TIMES_BLACK_RUN)
 
 #: Which search wrote an attempt. A failure logged by an older search is not
 #: a failure of this one -- 414 Jumbos this search solves in seconds sat in
@@ -145,7 +151,7 @@ def mirrored(grid):
 LOOSE_NODES = 200_000
 
 
-def one_light_wrong(lights, words, n):
+def one_light_wrong(lights, words, n, cap=TIMES_BLACK_RUN):
     """(grid, why) when freeing exactly one light's length and letters fits
     one grid, whichever light it is freed from; else (None, None).
 
@@ -160,7 +166,7 @@ def one_light_wrong(lights, words, n):
         spec[i], ws[i] = (num, d, None), None
         sols, info = rg.reconstruct(spec, cols=n, rows=n, limit=2,
                                     max_nodes=LOOSE_NODES, words=ws,
-                                    max_black_run=MAX_BLACK_RUN)
+                                    max_black_run=cap)
         if sols:
             found.update(sols)
             freed.append(f"{num} {d}")
@@ -377,7 +383,7 @@ def solve(rec, limit=50, max_nodes=DEFAULT_MAX_NODES):
     try:
         sols, info = rg.reconstruct(lights, cols=n, rows=n, limit=limit,
                                     max_nodes=max_nodes, words=words,
-                                    max_black_run=MAX_BLACK_RUN)
+                                    max_black_run=black_run(rec))
     except Exception as e:                       # a light longer than the grid
         return [], f"rejected: {e}"
     if info.get("gaps"):
@@ -402,11 +408,11 @@ def solve(rec, limit=50, max_nodes=DEFAULT_MAX_NODES):
         sols, info = rg.reconstruct(spec, cols=n, rows=n, limit=limit,
                                     max_nodes=max_nodes, words=ws,
                                     symmetry=symmetric,
-                                    max_black_run=MAX_BLACK_RUN)
+                                    max_black_run=black_run(rec))
         if (len(sols) == 1 and not info["truncated"]
                 and (symmetric or mirrored(sols[0]))):
             return list(sols), "unique, " + why
-    grid, why = one_light_wrong(lights, words, n)
+    grid, why = one_light_wrong(lights, words, n, black_run(rec))
     if grid:
         return [grid], "unique, " + why
     sols, info = rg.reconstruct(lights, cols=n, rows=n, limit=limit,
