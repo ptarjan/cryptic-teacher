@@ -468,7 +468,7 @@ def with_blog_facts(puzzle):
     The facts live in a sidecar, not in the puzzle file, because a re-fetch
     rewrites the file and the facts come from somewhere else entirely. A fact
     is dropped here if the clue it was read against has since changed: every
-    definition and indicator must still be words of the clue."""
+    definition, indicator and block source must still be words of the clue."""
     row = blog_facts_for(puzzle)
     if not row:
         return puzzle
@@ -476,7 +476,8 @@ def with_blog_facts(puzzle):
     for e in puzzle["entries"]:
         fact = row["entries"].get(e["id"])
         if fact and not e.get("annotation") and all(
-                w in e["clue"] for w in fact.get("definition", []) + fact.get("indicators", [])):
+                w in e["clue"] for w in fact.get("definition", []) + fact.get("indicators", [])
+                + [src for _, src in fact.get("blocks", [])]):
             e = {**e, "blog": fact}
         out["entries"].append(e)
     return out

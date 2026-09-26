@@ -875,16 +875,18 @@
   };
   // A clue we have not annotated may still carry what a blog's write-up marks
   // about it (tools/blog_facts.py, merged into the shim by fetch_puzzle): the
-  // underlined definition, a clue type the blogger named outright, marked
-  // indicators. Shaped as a partial annotation, so the ladder, the highlights
-  // and the questions all read it the way they read ours. Two spans are a
-  // definition pair only when the type says so; the extractor ships no other
-  // multi-span definition.
+  // underlined definition, a clue type the blogger named outright or spelled
+  // out in letters that check, marked indicators, and the building blocks it
+  // writes as WORD (clue words), each [letters, clue words]. Shaped as a
+  // partial annotation, so the ladder, the highlights and the questions all
+  // read it the way they read ours. Two spans are a definition pair only when
+  // the type says so; the extractor ships no other multi-span definition.
   function blogAnn(e) {
     const b = e.blog;
     if (!b) return null;
     const defs = b.definition || [];
-    const ann = { fromBlog: true, type: b.type || "", indicators: b.indicators || [] };
+    const ann = { fromBlog: true, type: b.type || "", indicators: b.indicators || [],
+                  blocks: (b.blocks || []).map(([gives, clueFragment]) => ({ clueFragment, gives })) };
     if (defs.length) ann.definition = defs[0];
     if (defs.length === 2 && ann.type.includes("double definition")) ann.definition2 = defs[1];
     return ann;
@@ -3452,7 +3454,9 @@
     // word; they do not get the generic blurb, which on these two types would
     // only re-say the definition rung ("no separable wordplay" twice over) and no
     // rung may restate an earlier one.
-    const mechanics = `<p class="mechanism">Mechanism: <strong>${esc(ann.type)}</strong>.
+    // A blog's blocks can come without a type it named or spelled out, and a
+    // mechanism line with no mechanism in it says nothing.
+    const mechanics = !ann.type ? "" : `<p class="mechanism">Mechanism: <strong>${esc(ann.type)}</strong>.
       ${isDD || isCD ? "" : esc(typeBlurb(ann.type))}</p>`;
 
     // Where the definition lives. For a double definition the news is not "there
