@@ -126,6 +126,7 @@ w.built_commit = lambda: "f" * 40
 w.shipped_index_stamp = lambda sha: w.want_stamps()["puzzles/index.js"]
 w.subprocess.run = lambda *a, **k: type("R", (), {"stdout": head, "returncode": 0})()
 w.time.sleep = lambda _s: None
+w.contains = lambda built, sha: built == sha
 
 asked = []
 
@@ -150,6 +151,12 @@ code, note = run(["in_progress"], 0)
 print(f"ceiling {code} asked {len(asked)} says {'in_progress' in note}")
 code, note = run([""], 60)
 print(f"norun {code} asked {len(asked)}")
+code, note = run(["pending", "success"], 60)
+print(f"pending {code} asked {len(asked)}")
+# A later push's build carries this commit: that is this commit published.
+w.contains = lambda built, sha: True
+code, note = run(["cancelled"], 60)
+print(f"superseded {code} asked {len(asked)}")
 EOF
 ) || out="raised: $out"
 check "it waits out a queued build and then reports what the build actually did" \
@@ -158,6 +165,10 @@ check "it gives up at --max-wait and names the state it gave up on" \
   "$(printf '%s' "$out" | grep -c '^ceiling 1 asked 1 says True$')" 1
 check "and with no build for the commit at all it fails on the first look" \
   "$(printf '%s' "$out" | grep -c '^norun 1 asked 1$')" 1
+check "a pending build is waited on like a queued one" \
+  "$(printf '%s' "$out" | grep -c '^pending 1 asked 2$')" 1
+check "a later build that contains the commit is the commit live" \
+  "$(printf '%s' "$out" | grep -c '^superseded 0 asked 0$')" 1
 
 [ "$fails" = 0 ] && echo "wait for deploy: all checks passed" || echo "wait for deploy: $fails FAILED"
 exit $((fails > 0))

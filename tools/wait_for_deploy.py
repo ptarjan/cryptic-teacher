@@ -137,6 +137,26 @@ def built_commit():
         return None
 
 
+def contains(built, head):
+    """Whether the commit Pages built already includes `head`.
+
+    Every push to master cancels the deploy still waiting behind it
+    (pages.yml's concurrency group), so while anything else is pushing, the
+    build that carries a commit is often a later one. That later build is
+    this commit being published, not this commit going missing.
+    """
+    if not built or built == head:
+        return built == head
+    for _ in range(2):
+        r = subprocess.run(["git", "merge-base", "--is-ancestor", head, built],
+                           cwd=ROOT, capture_output=True)
+        if r.returncode in (0, 1):
+            return r.returncode == 0
+        subprocess.run(["git", "fetch", "-q", "origin", "master"], cwd=ROOT,
+                       capture_output=True)
+    return False
+
+
 def deploy_status(sha):
     """How far the Pages workflow has got with `sha`.
 
@@ -151,12 +171,25 @@ def deploy_status(sha):
     runs = _gh(f"repos/{REPO}/actions/runs?head_sha={sha}&per_page=20")
     if runs is None:
         return None
+    state = ""
     for run in runs.get("workflow_runs", []):
         if run.get("path") == WORKFLOW:
+            state = (run.get("status") if run.get("status") != "completed"
+                     else run.get("conclusion")) or ""
+            break
+    if state != "cancelled":
+        return state
+    # Cancelled because a later push superseded it: that push's build is the
+    # one that publishes this commit, so its state is this commit's state.
+    later = _gh(f"repos/{REPO}/actions/runs?branch=master&per_page=30")
+    for run in (later or {}).get("workflow_runs", []):
+        if (run.get("path") == WORKFLOW and run.get("head_sha") != sha
+                and contains(run.get("head_sha"), sha)):
             if run.get("status") != "completed":
                 return run.get("status") or ""
-            return run.get("conclusion") or ""
-    return ""
+            if run.get("conclusion") != "cancelled":
+                return run.get("conclusion") or ""
+    return state
 
 
 def main():
@@ -181,6 +214,10 @@ def main():
             built = built_commit()
             live = stamps(fetch())
             diff = {k: (v, live.get(k)) for k, v in want.items() if live.get(k) != v}
+            if built and built != head and contains(built, head):
+                # A later build carries this commit; its assets are its own.
+                print(f"live: commit {head[:8]} is in the deployed {built[:8]}")
+                return 0
             if not diff and built in (None, head):
                 print("live: " + ", ".join(f"{k}?v={v}" for k, v in sorted(want.items()))
                       + (f", commit {head[:8]}" if built else ", commit unverified"))
@@ -198,7 +235,7 @@ def main():
             # never came back, which is a different and alarming claim. Not
             # under --check, which promises one look and no waiting.
             state = "" if args.check else deploy_status(head)
-            if state in ("queued", "in_progress") and time.time() < ceiling:
+            if state in ("queued", "pending", "waiting", "in_progress") and time.time() < ceiling:
                 deadline = min(ceiling, time.time() + args.timeout)
                 print(f"still {state} for {head[:8]}, waiting on ({note})", flush=True)
                 time.sleep(10)
