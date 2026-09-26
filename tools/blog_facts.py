@@ -8,11 +8,19 @@ blogger's markup states about the clue itself:
   * the definition: the words the blogger underlined, which are words of the
     clue, so a span is kept only where it is an exact run of whole words of
     OUR copy of the clue;
-  * the clue type, only where the write-up names it in a form that means one
-    thing (see TYPES);
-  * the indicators, only where the blog's own convention marks them: a
-    bracketed [word] on timesforthetimes, an italic (<em>word</em>) on
-    bigdave44, and again only words that are in the clue.
+  * the building blocks, where the write-up gives its wordplay as capitals
+    and the clue words they come from: TAKE (arrange), NIC[k] (cut), PAPA =
+    pop, scheme (PLOT). Kept as [letters, clue words], and only where the
+    words are an exact run of whole words of our clue (see blocks);
+  * the clue type, where the write-up names it in a form that means one thing
+    (see TYPES) and, for an anagram, holds fodder with the answer's letters;
+    or where its wordplay spells the type out, which is kept only when the
+    pieces put together by its own operators give exactly the answer (see
+    wordplay_type);
+  * the indicators, only where a convention marks them: a bracketed [word]
+    under a timesforthetimes key that says so, an italic (<em>word</em>), the
+    gloss on a named operation ("<em>reversed</em> (backing)", "anagram
+    (strangely) of"), and again only words that are in the clue.
 
 The join never trusts a title. A post is a candidate for every puzzle whose
 number its title carries, and it is that puzzle's post only if our clue texts
@@ -23,6 +31,8 @@ the proof.
     python3 tools/blog_facts.py --measure  # and print coverage per blog and series
     python3 tools/blog_facts.py --sample 30 --seed 1   # and print rows to check by hand
     python3 tools/blog_facts.py --if-changed  # the nightly: skip when no input moved
+    python3 tools/blog_facts.py --jobs 1      # one process; the default pool takes ~2 GB
+    python3 tools/blog_facts.py --score       # precision and recall against blog_facts_gold.jsonl
 
 Reads the caches the fetchers write under ~/cryptic-setter-data; never the
 network.
