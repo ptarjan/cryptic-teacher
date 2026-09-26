@@ -78,6 +78,78 @@ class Source:
     setter: Callable
 
 
+DAY = datetime.timedelta(days=1)
+
+
+def fit_undated(dates, guess, latest, printing_day):
+    """Every number in `dates` ({number: day or None}) dated, rising with the
+    numbers. Each run of undated numbers takes the printing days between its
+    dated neighbours nearest its `guess`, none after its `latest` (a puzzle is
+    never blogged before it is printed), and a run with fewer days than
+    numbers takes in a neighbour each side until it fits. A best guess can be
+    a few days out; a blank date is a hole in every listing. Only numbers no
+    day can fit at all stay None."""
+    dates, order = dict(dates), sorted(dates)
+    i = 0
+    while i < len(order):
+        if dates[order[i]]:
+            i += 1
+            continue
+        lo = hi = i
+        while hi + 1 < len(order) and not dates[order[hi + 1]]:
+            hi += 1
+        while True:
+            run = order[lo:hi + 1]
+            # A neighbour taken in without a post of its own keeps its day
+            # as both.
+            near = [guess.get(n) or dates[n] for n in run]
+            fit = _nearest(_between(dates[order[lo - 1]] if lo else None,
+                                    dates[order[hi + 1]] if hi + 1 < len(order) else None,
+                                    near, printing_day),
+                           near, [latest.get(n) or dates[n] for n in run])
+            if fit or (lo == 0 and hi == len(order) - 1):
+                break
+            lo, hi = max(lo - 1, 0), min(hi + 1, len(order) - 1)
+        dates.update(zip(run, fit or [None] * len(run)))
+        i = hi + 1
+    return dates
+
+
+def _between(after, before, guesses, printing_day):
+    """The printing days strictly between two dates; an open end reaches a
+    month past the farthest guess."""
+    day = (after or min(guesses) - 31 * DAY) + DAY
+    end = before or max(guesses) + 31 * DAY
+    out = []
+    while day < end:
+        if printing_day(day):
+            out.append(day)
+        day += DAY
+    return out
+
+
+def _nearest(slots, guesses, latest):
+    """One slot per guess, rising with the guesses, none after its latest, the
+    total days off the guesses least; None when no such choice exists."""
+    inf = float("inf")
+    # cost[i][j]: the first i guesses placed in the first j slots.
+    cost = [[0] * (len(slots) + 1)] + [[inf] * (len(slots) + 1) for _ in guesses]
+    for i, g in enumerate(guesses, 1):
+        for j in range(i, len(slots) + 1):
+            cost[i][j] = min(cost[i][j - 1],
+                             cost[i - 1][j - 1] + abs((slots[j - 1] - g).days)
+                             if slots[j - 1] <= latest[i - 1] else inf)
+    if cost[-1][-1] == inf:
+        return None
+    out, j = [], len(slots)
+    for i in range(len(guesses), 0, -1):
+        while cost[i][j] == cost[i][j - 1]:
+            j -= 1
+        out.append(slots[j - 1])
+        j -= 1
+    return out[::-1]
+
+
 def epoch_ms(day):
     return int(datetime.datetime(day.year, day.month, day.day,
                                  tzinfo=datetime.timezone.utc).timestamp() * 1000)
@@ -348,6 +420,42 @@ def content(puzzle):
             for e in puzzle["entries"]]
 
 
+def every_day(claims, recs, dates):
+    """`dates` with every claimed number dated: a dated series' number the
+    source proved nothing for takes its post's day, and any still blank takes
+    its best fit (fit_undated) among the days its series prints on."""
+    posted = collections.defaultdict(dict)
+    known = collections.defaultdict(dict)
+    for (series, number), claim in claims.items():
+        if len(claim) > 1:
+            continue
+        row, dated = claim[0]
+        post = datetime.date.fromisoformat(recs[row["post_id"]]["date"])
+        posted[series][number] = post
+        known[series][number] = dates.get((series, number)) or (post if dated else None)
+    out = dict(dates)
+    for series, days in known.items():
+        days |= {n: d for (s, n), d in dates.items() if s == series}
+        weekdays = {d.weekday() for d in days.values() if d}
+
+        def prints(day, weekdays=weekdays):
+            return day.weekday() in weekdays and (day.month, day.day) != (12, 25)
+
+        latest = {n: last_print_day(d, prints) for n, d in posted[series].items()}
+        out.update({(series, n): d for n, d in
+                    fit_undated(days, latest, latest, prints).items() if d})
+    return out
+
+
+def last_print_day(day, prints):
+    """The latest day on or before `day` that `prints` holds for."""
+    for _ in range(14):
+        if prints(day):
+            return day
+        day -= DAY
+    return day
+
+
 def run(source, grids, parsed, write=True, newest=None):
     recs = {}
     for line in parsed.read_text(encoding="utf-8").splitlines():
@@ -385,6 +493,7 @@ def run(source, grids, parsed, write=True, newest=None):
     renumbered = {row["post_id"]: row["number"]
                   for claim in claims.values() for row, _ in claim if row.get("titled")}
     dates, notes = source.print_dates(recs.values(), renumbered)
+    dates = every_day(claims, recs, dates)
     reprints = reprinted_from()
     typed = typed_counts(recs.values())
     filed, kept, drifted = collections.Counter(), 0, []
@@ -403,8 +512,7 @@ def run(source, grids, parsed, write=True, newest=None):
             continue
         row, dated = claim[0]
         rec = recs[row["post_id"]]
-        date = dates.get((series, number)) or (
-            datetime.date.fromisoformat(rec["date"]) if dated else None)
+        date = dates.get((series, number))
         puzzle, why = build(rec, row, series, date, source.setter(rec, series), typed)
         if why:
             skipped[why] += 1

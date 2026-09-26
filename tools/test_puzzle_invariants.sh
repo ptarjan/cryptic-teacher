@@ -142,15 +142,6 @@ dates("same-day", [("timesquick", 181, day(2014, 11, 17), "timesquick-181"),
                    ("timesquick", 182, day(2014, 11, 17), "timesquick-182")])
 dates("backwards", [("cryptic", 24744, day(2009, 7, 14), "cryptic-24744"),
                     ("cryptic", 24745, day(2009, 7, 7), "cryptic-24745")])
-dates("pinned-gap", [("sundaytimes", 5020, day(2022, 9, 4), "sundaytimes-5020"),
-                     ("sundaytimes", 5021, None, "sundaytimes-5021"),
-                     ("sundaytimes", 5022, day(2022, 9, 18), "sundaytimes-5022")])
-# The Jubilee week: two bank holidays for one Jumbo, so nothing proves 1559.
-dates("jumbo-1559", [("timesjumbo", 1316, day(2018, 4, 2), "timesjumbo-1316"),
-                     ("timesjumbo", 1540, day(2021, 12, 30), "timesjumbo-1540"),
-                     ("timesjumbo", 1558, day(2022, 5, 28), "timesjumbo-1558"),
-                     ("timesjumbo", 1559, None, "timesjumbo-1559"),
-                     ("timesjumbo", 1560, day(2022, 6, 4), "timesjumbo-1560")])
 dates("book-years", [("book", 1001, "1995", "book-1001"),
                      ("book", 1002, "1990", "book-1002")])
 
@@ -177,14 +168,12 @@ same "a crossing conflict is refused" "$(grep ' crossing-conflict' <<<"$out")" "
 same "a re-fetch may not blank a clue the file has" "$(grep ' refetch-blanks-a-clue' <<<"$out")" "REFUSED refetch-blanks-a-clue SHAPE"
 same "a re-fetch keeps the file's acquiredOn" "$(grep '^ACQUIRED ' <<<"$out")" "ACQUIRED 2020-01-01"
 same "a blog clue without its count is refused" "$(grep ' blog-clue-no-enumeration' <<<"$out")" "REFUSED blog-clue-no-enumeration SHAPE"
-same "a prize the filer cannot date yet still writes" "$(grep ' prize-not-yet-dated' <<<"$out")" "WROTE prize-not-yet-dated"
+same "a prize with no date is refused: the filer always fits one" "$(grep ' prize-not-yet-dated' <<<"$out")" "REFUSED prize-not-yet-dated SHAPE"
 same "30098's deliberately blank 12-across writes" "$(grep ' 30098-blank-12a' <<<"$out")" "WROTE 30098-blank-12a"
 same "23053's corrected answer writes" "$(grep ' 23053-corrected' <<<"$out")" "WROTE 23053-corrected"
 same "rising dates pass" "$(grep '^DATES rising ' <<<"$out")" "DATES rising 0"
 same "two numbers on one day are flagged" "$(grep '^DATES same-day ' <<<"$out")" "DATES same-day 1"
 same "a later number dated earlier is flagged" "$(grep '^DATES backwards ' <<<"$out")" "DATES backwards 1"
-same "an undated puzzle its neighbours pin is flagged" "$(grep '^DATES pinned-gap ' <<<"$out")" "DATES pinned-gap 1"
-same "an undated Jumbo two holidays could hold is not" "$(grep '^DATES jumbo-1559 ' <<<"$out")" "DATES jumbo-1559 0"
 same "book years are not a sequence" "$(grep '^DATES book-years ' <<<"$out")" "DATES book-years 0"
 same "the corpus's setters and dates are clean" "$(grep '^CORPUS ' <<<"$out")" "CORPUS clean"
 
