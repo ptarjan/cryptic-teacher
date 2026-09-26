@@ -261,9 +261,19 @@ if [ -f "$LANDING_FILE" ]; then
   fi
 fi
 
+# CT_SPEND_BY means "spend the rest before then, as fast as it will go": no
+# waiting for the last five hours, and every wave at full width.
+spend_by_at=$(date -d "${CT_SPEND_BY:-}" +%s 2>/dev/null || echo 0)
+if [ -n "${CT_SPEND_BY:-}" ] && [ "$spend_by_at" -gt "$(date +%s)" ]; then
+  export PRERESET_FULL_WIDTH=1
+fi
+
 if [ "${FORCE:-0}" = 1 ]; then
   echo "FORCE=1 — ignoring the ${resets_in}h until reset, capped at ${FORCE_HOURS}h"
   budget_hours="$FORCE_HOURS"
+elif [ "${PRERESET_FULL_WIDTH:-0}" = 1 ]; then
+  echo "CT_SPEND_BY: spending the remainder now, ${resets_in}h before its deadline"
+  budget_hours="$resets_in"
 elif awk "BEGIN{exit !($resets_in > $WINDOW_HOURS)}"; then
   echo "weekly window resets in ${resets_in}h (more than ${WINDOW_HOURS}h away)"
   echo "not the pre-reset hour — nothing spent. Set FORCE=1 to override."
