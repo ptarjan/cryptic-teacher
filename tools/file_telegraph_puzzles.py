@@ -13,6 +13,7 @@ its setter (or null: the back-page cryptic prints none) and its print date
 (or null where no post proves one), so this only hands them on.
 """
 import argparse
+import collections
 import datetime
 import sys
 from pathlib import Path
@@ -20,17 +21,26 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import fetch_wp_blog
 import file_blog_puzzles
+import parse_bigdave44
 import series as series_meta
 
 CACHE = fetch_wp_blog.BLOGS["bigdave44"].cache
 
 
 def print_dates(recs, renumbered):
-    dates = {}
+    """The parser's print dates, keyed by the number each post is filed under.
+    A post the filer renumbered was undated under its typed number, so the
+    paper's cadence is run again once it holds its real one."""
+    by_series = collections.defaultdict(dict)
     for rec in recs:
-        if rec.get("printed"):
-            number = renumbered.get(rec["post_id"], rec["number"])
-            dates[(rec["series"], number)] = datetime.date.fromisoformat(rec["printed"])
+        number = renumbered.get(rec["post_id"], rec["number"])
+        day = rec.get("printed") and datetime.date.fromisoformat(rec["printed"])
+        by_series[rec["series"]].setdefault(number, None)
+        by_series[rec["series"]][number] = by_series[rec["series"]][number] or day
+    dates = {}
+    for series, known in by_series.items():
+        known.update(parse_bigdave44.by_cadence(series, known))
+        dates.update({(series, n): d for n, d in known.items() if d})
     return dates, []
 
 
