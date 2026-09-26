@@ -14,8 +14,9 @@ fetch_times_listing.py, and `--download` here for georgeho's database.
 
 What happens to each field:
 
-  setter, date   filled when the file has none; when sources disagree with
-                 the file or each other, resolved by the rules below.
+  setter, date   filled when the file has none, from an origin other than the
+                 primary's own; when sources disagree with the file or each
+                 other, resolved by the rules below.
   clue text      filled only when the file's clue is blank. Blog transcriptions
                  differ from the paper in punctuation constantly, so a clue the
                  file already has is never compared.
@@ -327,19 +328,29 @@ def _text(fragment):
 def _answers_in(fragment):
     """Every string a blog cell could be printing as its answer, likeliest
     first: its opening bold run (a two-word answer is often bolded a word at a
-    time), each bold run in capitals and each run of up to four of them
-    together (an answer coloured in its parts), and the whole cell when it is
-    nothing but capitals. The caller keeps the first that fills the light."""
+    time), each bold run in capitals, up to four adjacent ones together (an
+    answer coloured in its parts), and the whole cell when it is nothing but
+    capitals. The caller keeps the first that fills the light."""
     import fetch_privateeye as pe
     fragment = STRUCK.sub("", fragment)
     out = []
     lead = pe._leading_answers(fragment)
     if lead:
+        if not answer_letters(_text(lead)):
+            return []           # "SIMON COWELL / ROBIN THICKE": no one answer
         out.append(_text(lead))
-    runs = [_text(m.group(2) or m.group(3) or "") for m in BOLD.finditer(fragment)]
-    runs = [r for r in runs if letters(r) and CAPS_RUN.match(r)]
-    for size in range(1, 5):
-        out += [" ".join(runs[i:i + size]) for i in range(len(runs) - size + 1)]
+    runs = [(m.start(), m.end(), _text(m.group(2) or m.group(3) or ""))
+            for m in BOLD.finditer(fragment)]
+    runs = [r for r in runs if letters(r[2]) and CAPS_RUN.match(r[2])]
+    out += [text for _s, _e, text in runs]
+    # Runs joined only where nothing but space or markup separates them.
+    for i in range(len(runs)):
+        joined = runs[i][2]
+        for j in range(i + 1, min(i + 4, len(runs))):
+            if letters(_text(fragment[runs[j - 1][1]:runs[j][0]])):
+                break
+            joined += " " + runs[j][2]
+            out.append(joined)
     text = _text(fragment)
     if CAPS_RUN.match(text):
         out.append(text)
@@ -675,7 +686,10 @@ def field_disputes(puzzle, records):
             shown[key(own)] = own
         for rec in records:
             value = getattr(rec, name)
-            if value:
+            # A field the primary left empty after reading this very origin is
+            # empty on purpose: the Times filer reads the blog's bylines and
+            # leaves the daily's setter null because the paper prints none.
+            if value and (own or rec.origin != origin):
                 _add(cands, key(value), rec.source, rec.origin)
                 shown.setdefault(key(value), value)
         if len(cands) > 1 or (cands and not own):
@@ -795,6 +809,8 @@ def corroborate(puzzle, sources=None, ledger=None):
     if not puzzle.get("series") or not puzzle.get("entries"):
         return puzzle
     puzzle = known_wrong(puzzle)
+    if not all("position" in e and e.get("length") for e in puzzle["entries"]):
+        return puzzle           # no grid to read a source's answers against
     disputes = resolve(puzzle, sources)
     if not disputes:
         return puzzle
@@ -813,15 +829,15 @@ def sweep(write=False):
     shown, misfiled = [], []
     for path in fetch_puzzle.puzzle_files():
         puzzle = fetch_puzzle.read_puzzle_file(path)
-        if not puzzle.get("series") or not puzzle.get("entries"):
+        if not puzzle.get("series") or not all(
+                "position" in e and e.get("length") for e in puzzle.get("entries") or [None]):
             continue
         records = [r for s in SOURCES for r in s(puzzle)]
         dropped = [r for r in records if not same_puzzle(puzzle, r)]
         for r in dropped:
             misfiled.append(f"{puzzle['id']}: {r.source} {r.url}")
         records = [r for r in records if r not in dropped]
-        for origin in {r.source.split(":")[0] if r.source != "times-listing" else r.source
-                       for r in records}:
+        for origin in {r.source.split(":")[0] for r in records}:
             per_source[(origin, puzzle["series"])] += 1
         if not records:
             continue
