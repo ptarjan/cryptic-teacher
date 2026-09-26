@@ -10,7 +10,8 @@ its reason:
   - every light in the grid has an entry with a clue;
   - every clue carries an enumeration agreeing with its light, or with its
     whole group when it leads a linked answer; a "See N" continuation may
-    carry none;
+    carry none. One the grid-proved answers contradict is recounted from
+    them, when the blog wrote no more words than the answers hold;
   - the answers, read through times_grids.answers() so the corrections apply,
     write into the grid with every crossing agreeing;
   - the number sits in its sequence: inside the range the longest run of
@@ -55,7 +56,12 @@ from fetch_puzzle import (
     write_puzzle_file,
 )
 from file_penguin_puzzle import separators
-from normalise_linked_enumerations import enumeration_parts, resolve_groups
+from normalise_linked_enumerations import (
+    answer_parts,
+    enumeration_parts,
+    format_parts,
+    resolve_groups,
+)
 
 
 @dataclass(frozen=True)
@@ -174,6 +180,30 @@ def reprinted_by(reprints, series, number):
     return key if number in numbers or number > max(numbers) else None
 
 
+def from_answer(group, by_id, enumeration):
+    """The enumeration the group's answers spell, or None.
+
+    The grid has proved the answers, so where the blog's count disagrees with
+    the lights the answers are the count: TEAS typed (5), LONGITUDE (0). The
+    blog's answers are letters only, so each light is one word and a light
+    boundary is a word break; that is taken only when the blog wrote no more
+    words than that, since BLUE PETER typed (4,4) over 4+5 cells has its words
+    but CONSOLE TABLE typed (7,6) over 12 has lost one."""
+    parts = []
+    for gid in group:
+        parts += answer_parts(by_id[gid]["solution"])
+        parts[-1] = (parts[-1][0], ",")
+    parts[-1] = (parts[-1][0], "")
+    words = sum(1 for n, _ in enumeration_parts(enumeration) if n)
+    return format_parts(parts) if words <= len(parts) else None
+
+
+def with_enumeration(clue, enumeration):
+    """The clue with its trailing count replaced by `enumeration`."""
+    body = re.sub(r"\s*\([^()]*\)\s*$", "", clue)
+    return f"{body} ({enumeration})"
+
+
 def build(rec, row, series, date, setter):
     """(puzzle, None) or (None, reason it is not filed). `date` is the print
     date, or None where nothing proves one."""
@@ -219,6 +249,7 @@ def build(rec, row, series, date, setter):
         return (all(own_count(by_id[m]) for m in g)
                 and all(str(by_id[m]["number"]) in named for m in g[1:]))
     groups = {gid: g for gid, g in groups.items() if not composite(g)}
+    recounted = []
     for e in out:
         enumeration = e.pop("enumeration")
         group = groups.get(e["id"], [e["id"]])
@@ -229,12 +260,18 @@ def build(rec, row, series, date, setter):
         count = sum(n for n, _ in enumeration_parts(enumeration))
         if count == e["length"]:
             group = [e["id"]]
-        elif group[0] != e["id"] or count != sum(by_id[g]["length"] for g in group):
+        elif group[0] != e["id"]:
             return None, "an enumeration disagrees with its light"
         try:
             seps_by_light = separators(group, by_id, enumeration)
         except SystemExit:
-            return None, "an enumeration's word break falls outside its light"
+            enumeration = from_answer(group, by_id, enumeration)
+            if not enumeration:
+                return None, ("an enumeration disagrees with its light, and the "
+                              "answer holds too few words to take the count from")
+            e["clue"] = with_enumeration(e["clue"], enumeration)
+            recounted.append(f"{e['number']} {e['direction']}")
+            seps_by_light = separators(group, by_id, enumeration)
         for gid, seps in seps_by_light.items():
             if seps:
                 by_id[gid]["separatorLocations"] = seps
@@ -253,6 +290,9 @@ def build(rec, row, series, date, setter):
     if fixed:
         check += (f"; the grid proves the blog's answer wrong at "
                   f"{', '.join(fixed)}, corrected here")
+    if recounted:
+        check += (f"; the grid proves the blog's enumeration wrong at "
+                  f"{', '.join(recounted)}, recounted from the answer here")
     kind = series_meta.kind(series)
     return {
         "id": series_meta.puzzle_id(series, number),
