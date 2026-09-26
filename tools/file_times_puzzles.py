@@ -18,9 +18,11 @@ by its reason:
     rows whose numbers rise with the post date spans within four weeks of
     this post. A row outside it carries a number the parser misread (a year,
     a stray digit, another series' number); one merely posted out of order
-    is inside. A number two posts claim files neither;
-  - no other series reprints it: from the first number a reprinting series
-    (`reprints` in tools/series.py) holds on, that series files it.
+    is inside. One whose title is a single typing slip from exactly one
+    unclaimed number that fits is filed under that number. A number two
+    posts claim files neither;
+  - no other series reprints it: a number a reprinting series (`reprints`
+    in tools/series.py) holds, or has not reached yet, is left to it.
 
 The blog's answers are a solver's write-up, not the paper's key, so
 solutionSource is `timesforthetimes` and provenance says so. The date is the
@@ -119,6 +121,16 @@ NEAR = datetime.timedelta(days=28)
 
 def in_sequence(rows):
     """The post_ids whose numbers fit the sequence around their post date."""
+    fits = sequence_window(rows)
+    return {r["post_id"] for r in rows if fits(r["date"], r["number"])}
+
+
+def sequence_window(rows):
+    """fits(date, number): does a number sit in the sequence near that date?
+
+    Inside the range the longest run of rows whose numbers rise with the post
+    date spans within NEAR of it.
+    """
     rows = sorted(rows, key=lambda r: (r["date"], r["post_id"]))
     tails, tail_at, back = [], [], [None] * len(rows)
     for i, r in enumerate(rows):
@@ -135,14 +147,35 @@ def in_sequence(rows):
         i = back[i]
     spine.reverse()
     days = [datetime.date.fromisoformat(r["date"]) for r in spine]
-    keep = set()
-    for r in rows:
-        day = datetime.date.fromisoformat(r["date"])
+
+    def fits(date, number):
+        day = datetime.date.fromisoformat(date)
         lo, hi = bisect.bisect_left(days, day - NEAR), bisect.bisect_right(days, day + NEAR)
         # The spine rises, so its first and last numbers in the window bound it.
-        if lo < hi and spine[lo]["number"] <= r["number"] <= spine[hi - 1]["number"]:
-            keep.add(r["post_id"])
-    return keep
+        return lo < hi and spine[lo]["number"] <= number <= spine[hi - 1]["number"]
+    return fits
+
+
+def slips(number):
+    """Every number one typing slip from this one: a digit changed, or two
+    adjacent digits swapped."""
+    s, out = str(number), set()
+    for i in range(len(s)):
+        out |= {s[:i] + d + s[i + 1:] for d in "0123456789"}
+    out |= {s[:i] + s[i + 1] + s[i] + s[i + 2:] for i in range(len(s) - 1)}
+    return {int(t) for t in out if t[0] != "0"} - {number}
+
+
+def retyped(row, fits, taken):
+    """The number an out-of-sequence row was meant to carry, or None.
+
+    Bloggers mistype titles -- "Sunday Times 5445" for 5,045, "Jumbo 1754"
+    for 1,764 -- and the sequence is where the number is checked. A row is
+    renumbered only when exactly one slip of its number fits the sequence at
+    its date and no other row claims it.
+    """
+    fit = [n for n in slips(row["number"]) if n not in taken and fits(row["date"], n)]
+    return fit[0] if len(fit) == 1 else None
 
 
 # ------------------------------------------------------------- print dates
@@ -497,15 +530,28 @@ def epoch_ms(day):
 
 
 def reprinted_from():
-    """{series: the first number a series reprinting it holds}."""
-    first = {}
+    """{series: (the series reprinting it, the numbers that series holds)}."""
+    held = {}
     for key, meta in series_meta.SERIES.items():
         if meta.get("reprints"):
-            numbers = [series_meta.parse_id(p.stem)[1]
-                       for p in fetch_puzzle.PUZZLE_DIR.glob(f"{key}-[0-9]*.json")]
+            numbers = {series_meta.parse_id(p.stem)[1]
+                       for p in fetch_puzzle.PUZZLE_DIR.glob(f"{key}-[0-9]*.json")}
             if numbers:
-                first[meta["reprints"]] = (key, min(numbers))
-    return first
+                held[meta["reprints"]] = (key, numbers)
+    return held
+
+
+def reprinted_by(reprints, series, number):
+    """The series that files `number` instead of `series`, or None.
+
+    It holds the number, or has not reached it yet (the Globe prints the Quick
+    ~7 weeks late). A number inside its run that it never printed — Globe
+    3,263 fell on Victoria Day — is still ours to file.
+    """
+    if series not in reprints:
+        return None
+    key, numbers = reprints[series]
+    return key if number in numbers or number > max(numbers) else None
 
 
 def build(rec, row, series, date):
@@ -563,6 +609,9 @@ def build(rec, row, series, date):
     fixed = [f"{c['number']} {c['direction']}" for c in row.get("corrections", ())]
     check = (f"grid rebuilt from the blog's light list ({row['how']}); every "
              f"answer written into it with each crossing agreeing")
+    if row.get("titled"):
+        check += (f"; the blog titled it No {row['titled']}, which the sequence "
+                  f"puts at {number}")
     if fixed:
         check += (f"; the grid proves the blog's answer wrong at "
                   f"{', '.join(fixed)}, corrected here")
@@ -603,13 +652,24 @@ def run(grids=tg.OUT, parsed=tg.PARSED, write=True, listing=None):
             continue
         sources[(row["series"], *target(row))].append(row)
     claims = collections.defaultdict(list)
+    strays = []
     for (_, series, dated), group in sources.items():
-        keep = in_sequence(group)
+        fits = sequence_window(group)
         for row in group:
-            if row["post_id"] in keep:
+            if fits(row["date"], row["number"]):
                 claims[(series, row["number"])].append((row, dated))
             else:
-                skipped["number out of sequence"] += 1
+                strays.append((series, dated, fits, row))
+    taken = collections.defaultdict(set)
+    for (_, series, _), group in sources.items():
+        taken[series] |= {r["number"] for r in group}
+    for series, dated, fits, row in strays:
+        number = retyped(row, fits, taken[series])
+        if number is None:
+            skipped["number out of sequence"] += 1
+            continue
+        claims[(series, number)].append((dict(row, number=number, titled=row["number"]), dated))
+        taken[series].add(number)
 
     dates, notes = print_dates(recs.values(), listing)
     reprints = reprinted_from()
@@ -619,8 +679,9 @@ def run(grids=tg.OUT, parsed=tg.PARSED, write=True, listing=None):
         if len(claim) > 1:
             skipped["number claimed twice"] += len(claim)
             continue
-        if series in reprints and number >= reprints[series][1]:
-            skipped[f"{reprints[series][0]} reprints it"] += 1
+        by = reprinted_by(reprints, series, number)
+        if by:
+            skipped[f"{by} reprints it"] += 1
             continue
         row, dated = claim[0]
         rec = recs[row["post_id"]]

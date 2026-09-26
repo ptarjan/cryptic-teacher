@@ -114,6 +114,11 @@ OPEN_ENUM = re.compile(r"\(\d{1,2}(?:[,\-\u2013\s]+\d{1,2})*[,\-\u2013]$")
 #: wide. "Special Providence (1930)" ends in a year, not in a count; "( 3,4)"
 #: is a space typed inside the bracket.
 ENUM = re.compile(r"\(\s*(\d{1,2}(?:[,\-–\s]+\d{1,2})*)[,\-–\s]*\)\s*$")
+#: An enumeration typed at a clue's end but not in ENUM's shape: unclosed,
+#: dotted, or followed by punctuation.
+LOOSE_ENUM = re.compile(r"\s*\(\s*(\d{1,2}(?:[,\-\u2013.\s]+\d{1,2})*)\s*\)?[\s.,;:]*$")
+#: A count in words, Mephisto's "(9, three words)": the clue already has one.
+WORDED_ENUM = re.compile(r"\(\s*\d{1,2}\b[^()]*\bwords?\b[^()]*\)[\s.,;:]*$")
 #: A clue that covers two or more lights heads its list of them: "10/11",
 #: "1,5", "4, 9", "9 & 27", "16 and 8", "20/17a", "59/53ac", "1/29/19dn",
 #: "6/6dn", "3 & 18A.". A suffix names the light's direction; without one the
@@ -157,6 +162,9 @@ def lines(rendered):
     text = BREAKS.sub("\n", text)
     text = TAG.sub("", text)
     text = html.unescape(text)
+    # Some 2014 posts are double-encoded: "&amp;nbsp" survives one unescape as
+    # "&nbsp", glued to the answer it indents.
+    text = re.sub(r"&nbsp;?", " ", text)
     text = BRACED.sub("", text)
     text = text.replace("\t", "\n").replace("\xa0", " ")
     # An enumeration broken over a tag, "(7-" then "2)", is one line: its tail
@@ -491,6 +499,21 @@ def is_answer(rest):
     return None if word is None else re.sub(r"[^A-Z]", "", word)
 
 
+def printed_enumeration(printed):
+    """ "ROLLER COASTER" -> "6,7", "SHOW-JUMPERS" -> "4-7"; None if no letters."""
+    parts = re.split(r"([ ,\-\u2013\u2014]+)", printed)
+    out = ""
+    for i, part in enumerate(parts):
+        if i % 2:
+            out += "-" if re.search(r"[\-\u2013\u2014]", part) else ","
+        else:
+            n = len(re.sub(r"[^A-Z]", "", part))
+            if not n:
+                return None
+            out += str(n)
+    return out or None
+
+
 def answer_words(printed):
     """The words of a printed answer: "YORKSHIRE DALES" -> ["YORKSHIRE", "DALES"]."""
     return [w for w in (re.sub(r"[^A-Z]", "", part)
@@ -674,9 +697,23 @@ def parse_post(post):
     last, answered = 0, set()
 
     def flush(printed):
-        nonlocal last
+        nonlocal last, clue, enum
         if not lights or not printed:
             return
+        # Some bloggers copy the clue without its enumeration. The answer
+        # they print under it has the word breaks, so the count is theirs.
+        # A count typed malformed -- "(10", "(7),", "(3.4)" -- is replaced by
+        # the well-formed one when its total is the answer's.
+        if enum is None and clue and not CONTINUATION.match(clue):
+            enum = printed_enumeration(printed)
+            loose = LOOSE_ENUM.search(clue)
+            if loose:
+                typed = re.sub(r"[.\s]+", ",", loose.group(1).strip())
+                if enum_fits(printed, typed):
+                    enum = typed
+                clue = f"{clue[:loose.start()]} ({enum})" if enum else clue
+            elif enum and not WORDED_ENUM.search(clue):
+                clue = f"{clue} ({enum})"
         if lights[0][1] == direction:  # a linked group sits at its leader
             last = max(last, lights[0][0])
         if len(lights) == 1:
@@ -786,8 +823,18 @@ def parse_post(post):
             flush(printed)
             lights, clue, enum = None, None, None
             continue
-        if lights is not None and clue is None and (ENUM.search(ln)
-                                                    or CONTINUATION.match(ln)):
+        # A clue cell broken by <br /> -- "…get together for" then
+        # "programme (4,5)" -- is one clue, up to the fragment with its count.
+        if lights is not None and clue and enum is None and clued and not CONTINUATION.match(clue):
+            clue = f"{clue} {ln}"
+            e = ENUM.search(clue)
+            enum = e.group(1).strip() if e else None
+            continue
+        # The cell after a bare number is its clue even without an
+        # enumeration, once it is not the answer.
+        if lights is not None and clue is None and (
+                ENUM.search(ln) or CONTINUATION.match(ln)
+                or (owned and re.search(r"[a-z]", ln))):
             clue = ln                 # the clue arrived in its own cell
             e = ENUM.search(ln)
             enum = e.group(1).strip() if e else None
