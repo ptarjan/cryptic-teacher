@@ -187,13 +187,21 @@ tools/fetch_fifteensquared.py                caches the blog that covers six of 
                                              20-second crawl delay
 tools/blog_facts.py                          joins each cached blog write-up to the puzzle it
                                              explains and keeps what its markup states about
-                                             the clues — the underlined definition, a named
-                                             clue type, marked indicators — never the blog's
-                                             prose; the nightly reruns it only when an input
-                                             moved
+                                             the clues — the underlined definition, marked
+                                             indicators, WORD (clue words) building blocks, and
+                                             a clue type the write-up names or spells out in
+                                             letters that check against the answer — never the
+                                             blog's prose; the nightly reruns it only when an
+                                             input moved
 tools/test_blog_facts.sh                     holds that reader to hand-built posts, so a
-                                             definition is only ever words of our clue and a
-                                             type only one the write-up names unambiguously
+                                             definition or a block's source is only ever words
+                                             of our clue and a type only one the write-up names
+                                             unambiguously or its letters bear out
+tools/blog_facts_gold.jsonl                  hand-read truth for 159 clues across the three
+                                             blogs, their series and markup eras: what each
+                                             post says the definition, blocks, indicators and
+                                             type are; blog_facts.py --score measures precision
+                                             and recall per field against it
 tools/corroborate.py                         checks every puzzle written against the other
                                              sources we cache for it — georgeho's scrape,
                                              fifteensquared's posts, the Times listing —
