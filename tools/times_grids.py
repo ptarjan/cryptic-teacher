@@ -50,6 +50,8 @@ SIZE = {
     "Quick Cryptic": 13,
     "Weekend Cryptic": 15,
     "Jumbo Cryptic": 23,
+    # fifteensquared's category, for tools/ft_puzzles.py.
+    "FT": 15,
 }
 
 
@@ -419,16 +421,17 @@ def solve(rec, limit=50, max_nodes=DEFAULT_MAX_NODES):
     return list(sols), f"answers fit none of {len(sols)}"
 
 
-def solved_already():
+def solved_already(out=None):
     """post_id of every grid already written.
 
     A pass over the whole corpus is tens of hours and will be killed before it
     ends. Opening the output with "w" threw away everything the last one found,
     so a relaunch starts where the kill landed instead.
     """
+    out = out or OUT
     ids = set()
-    if OUT.exists():
-        for line in OUT.open(encoding="utf-8"):
+    if out.exists():
+        for line in out.open(encoding="utf-8"):
             try:
                 ids.add(json.loads(line)["post_id"])
             except ValueError:
@@ -444,7 +447,7 @@ def settled_digest(fix):
     return hashlib.sha256(json.dumps(lights).encode()).hexdigest()[:12]
 
 
-def attempted(max_nodes, settled=None):
+def attempted(max_nodes, settled=None, attempts=None):
     """post_id of every puzzle this search already tried, at this budget or more,
     with the settled answers it has now.
 
@@ -453,9 +456,10 @@ def attempted(max_nodes, settled=None):
     an older SEARCH tried, or one tried before its settled answers last changed.
     """
     settled = settled or {}
+    attempts = attempts or ATTEMPTS
     ids = set()
-    if ATTEMPTS.exists():
-        for line in ATTEMPTS.open(encoding="utf-8"):
+    if attempts.exists():
+        for line in attempts.open(encoding="utf-8"):
             try:
                 a = json.loads(line)
             except ValueError:
@@ -466,9 +470,9 @@ def attempted(max_nodes, settled=None):
     return ids
 
 
-def open_out(fresh):
+def open_out(fresh, out=None):
     """The output handle. Appends, unless asked to start the file over."""
-    return OUT.open("w" if fresh else "a", encoding="utf-8")
+    return (out or OUT).open("w" if fresh else "a", encoding="utf-8")
 
 
 def has_clues(rec):
@@ -538,15 +542,24 @@ def resettle():
 
 
 def run(limit_puzzles=None, series=None, write=True, seed=None,
-        max_nodes=DEFAULT_MAX_NODES, fresh=False):
-    if not PARSED.exists():
-        print(f"no records at {PARSED} — run tools/parse_timesforthetimes.py")
+        max_nodes=DEFAULT_MAX_NODES, fresh=False, where=None, solver=None):
+    """Rebuild every parsed puzzle not yet tried, newest first.
+
+    `where` is another blog's cache directory, holding its own parsed.jsonl,
+    grids.jsonl and attempts.jsonl; the answers settled for this blog's posts
+    are not applied there. `solver` stands in for solve()."""
+    parsed, out_path, attempts = ((where / "parsed.jsonl", where / "grids.jsonl",
+                                   where / "attempts.jsonl") if where
+                                  else (PARSED, OUT, ATTEMPTS))
+    solver = solver or solve
+    if not parsed.exists():
+        print(f"no records at {parsed} — run its parser first")
         return None
-    every = [json.loads(line) for line in PARSED.open(encoding="utf-8")]
+    every = [json.loads(line) for line in parsed.open(encoding="utf-8")]
     recs = [r for r in every if r["series"] in SIZE
             and (series is None or r["series"] == series) and has_clues(r)]
     vocab = vocabulary(every)
-    settled = settled_answers()
+    settled = {} if where else settled_answers()
     del every
     # Newest first: recent posts write out their clues, and recent puzzles are
     # the ones people look for.
@@ -557,21 +570,21 @@ def run(limit_puzzles=None, series=None, write=True, seed=None,
     # A changed settled answer is a reason to try its puzzle again; an
     # unchanged one is not.
     done = set() if (fresh or not write) else (
-        solved_already() | attempted(max_nodes, settled))
+        solved_already(out_path) | attempted(max_nodes, settled, attempts))
     if done:
         recs = [r for r in recs if r["post_id"] not in done]
-        print(f"resuming: {len(done)} grid(s) already in {OUT.name}")
+        print(f"resuming: {len(done)} puzzle(s) already tried, per {attempts.name}")
     if limit_puzzles:
         recs = recs[:limit_puzzles]
 
     how = collections.Counter()
     by_series = collections.defaultdict(collections.Counter)
     holes = []
-    out = open_out(fresh) if write else None
-    log = ATTEMPTS.open("w" if fresh else "a", encoding="utf-8") if write else None
+    out = open_out(fresh, out_path) if write else None
+    log = attempts.open("w" if fresh else "a", encoding="utf-8") if write else None
     for rec in recs:
         rec, made = amend(rec, settled)
-        grids, why = solve(rec, max_nodes=max_nodes)
+        grids, why = solver(rec, max_nodes=max_nodes)
         fixes = []
         if len(grids) == 1:
             fixes, refused = settle(grids[0], rec, vocab)
