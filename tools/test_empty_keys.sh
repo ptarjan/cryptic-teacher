@@ -25,6 +25,9 @@ out=$(PYTHONPATH=tools python3 - <<'PY'
 import json, tempfile
 from pathlib import Path
 import fetch_puzzle as fetcher
+import puzzle_integrity
+# Two lights in an empty grid are not a whole puzzle; the write gate has its own test, tools/test_puzzle_invariants.sh.
+puzzle_integrity.refuse_bad_write = lambda puzzle, old=None: None
 
 
 def guardian_entry(eid, num, seps=None):

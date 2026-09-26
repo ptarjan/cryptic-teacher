@@ -31,6 +31,10 @@ same() { if [ "$2" = "$3" ]; then echo "  ok: $1"; else
 work=$(mktemp -d); trap 'rm -rf "$work"' EXIT
 mkdir -p "$work/tools/data" "$work/puzzles"
 cp "$REPO"/tools/*.py "$work/tools/"
+# The fixtures are defects in two- and three-light grids, which the writer's
+# corpus checks refuse by design; that gate has its own test,
+# tools/test_puzzle_invariants.sh. Here it stands aside.
+printf '\n\ndef refuse_bad_write(puzzle, old=None):\n    return None\n' >> "$work/tools/puzzle_integrity.py"
 # The tables those modules read at import. tools/series.py loads the book
 # registry the moment it is imported -- a book's shelf, scan and index are data
 # and the module is only the reader -- so a scratch tree with the code and not

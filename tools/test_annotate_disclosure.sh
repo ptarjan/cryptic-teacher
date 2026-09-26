@@ -156,6 +156,9 @@ say("likely_note", any(n.startswith("2-across have LIKELY") for n in ns))
 import json, tempfile
 from pathlib import Path
 import apply_annotations
+import puzzle_integrity
+# Thirty unplaced lights are not a whole puzzle; the write gate has its own test, tools/test_puzzle_invariants.sh.
+puzzle_integrity.refuse_bad_write = lambda puzzle, old=None: None
 blog = "https://fifteensquared.net/2025/08/02/cyclops-99998-x/"
 real = puzzle(series="cyclops", nulls=30)
 real.update(id="cyclops-99998", name="Private Eye Cyclops crossword No 99998",
