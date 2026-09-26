@@ -366,6 +366,8 @@ def width(pct_left, hours_left, r=None, y=None):
     the session cap nothing else can be bought at any width, and the runs that
     would have bought it fail instead.
     """
+    if os.environ.get("PRERESET_FULL_WIDTH") == "1":
+        return CAP
     r = rate() if r is None else r
     # Threaded, not read from the file: a self-test whose answer depends on what
     # last night's waves happened to measure is not a test of anything.
