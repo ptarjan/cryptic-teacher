@@ -367,6 +367,10 @@ tools/build_readme.py                        this: rewrites the generated region
 tools/make_og_card.py                        picks a puzzle’s best clue and lays out its social
                                              card
 tools/make_og.sh                             screenshots those cards with headless Chrome
+tools/og_palette.py                          rewrites each card as a 256-colour palette PNG, a
+                                             third of the size
+tools/stage_site.py                          links the published files into _site/ for Pages
+                                             and fails on any link to a file left out
 tools/make_icons.py                          renders every favicon and PWA icon from one source
                                              of truth
 tools/stamp_assets.py                        cache-busting ?v= stamps; the smoke test fails on

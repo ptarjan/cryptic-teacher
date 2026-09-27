@@ -160,6 +160,8 @@ LAYOUT = [
     ("building and checking the site", "tools/build_readme.py", "this: rewrites the generated regions of README.md and docs/LAYOUT.md, --check fails on drift"),
     ("building and checking the site", "tools/make_og_card.py", "picks a puzzle’s best clue and lays out its social card"),
     ("building and checking the site", "tools/make_og.sh", "screenshots those cards with headless Chrome"),
+    ("building and checking the site", "tools/og_palette.py", "rewrites each card as a 256-colour palette PNG, a third of the size"),
+    ("building and checking the site", "tools/stage_site.py", "links the published files into _site/ for Pages and fails on any link to a file left out"),
     ("building and checking the site", "tools/make_icons.py", "renders every favicon and PWA icon from one source of truth"),
     ("building and checking the site", "tools/stamp_assets.py", "cache-busting ?v= stamps; the smoke test fails on a stale one"),
     ("building and checking the site", "tools/smoke_test.js", "the whole app driven headless against the real corpus"),
