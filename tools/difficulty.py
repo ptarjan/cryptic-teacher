@@ -165,6 +165,20 @@ The eight components, higher = harder:
              tools/build_wordnet.py, so no rating depends on nltk being
              installed; a word the file lacks counts as one WordNet lacks.
 
+The badges add one thing the clues cannot: where a Times for the Times post
+has comments stating at least COMMENT_MIN_TIMES solve times, all_scores()
+blends the clue index with them (blend()): the mean of the index's z and the
+comment signal's z, the comment signal being the equal mean of the z of the
+log median stated minutes and the z of the share of comments reporting a DNF,
+every z against the puzzle's own series, restandardised onto that series' clue
+index so its mean and spread stay put. The weights are fixed, not fitted, and
+the per-series moments are frozen in the baseline beside the components'. A
+puzzle re-rates as its post gains comments, which the nightly run fetches.
+score() stays clue-only: the comments are solver times, as the NITCH is, so
+everything that chooses components measures score(), never the blend. Fifteensquared's
+comments state no times, so every other series is clue-only. Measured by
+scratch/comment_blend.py.
+
 Weights are fixed (above): checking leads at 0.45, rarity 0.30, and every
 other component 0.25. The components are printed alongside the index so a
 reader can argue with them.
@@ -220,6 +234,12 @@ SNITCH = ROOT / "tools" / "data" / "snitch.json"
 SNITCH_SERIES = ("times", "sundaytimes")
 #: Rated puzzles a band needs before its quartiles are quoted as a range.
 SNITCH_RANGE_MIN = 10
+#: Times for the Times comment signals, per puzzle (tools/blog_comment_difficulty.py).
+COMMENTS = ROOT / "tools" / "data" / "blog_comment_difficulty.json"
+#: Stated solve times a puzzle's comments need before they move its rating.
+COMMENT_MIN_TIMES = 3
+#: Puzzles with a comment signal a series needs before any of them is blended.
+COMMENT_SERIES_MIN = 30
 DAY_NAMES = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 GENTLE_SERIES = {"quiptic", "everyman"}
 
@@ -352,6 +372,10 @@ def banding(index, base):
     """The index in units of its own spread, which is what BANDS is written in."""
     ref = base.get("index")
     return (index - ref["mean"]) / ref["sd"] if ref and ref.get("sd") else index
+
+
+def band_of(index, base):
+    return next(n for hi, n in BANDS if banding(index, base) < hi)
 
 
 def load_snitch():
@@ -830,19 +854,31 @@ def score(puz, ctx):
     total = sum(WEIGHTS[k] for k in zs)
     index = sum(WEIGHTS[k] * z for k, z in zs.items()) / total
     return {"index": round(index, 3),
-            "band": next(n for hi, n in BANDS if banding(index, base) < hi),
+            "band": band_of(index, base),
             "raw": {k: round(v, 4) for k, v in parts.items()},
             "z": {k: round(v, 2) for k, v in zs.items()},
             "basis": sorted(zs)}
 
 
 def all_scores(base=None):
+    """Every puzzle's rating as the badges show it: score()'s clue index, and
+    where a Times for the Times post has enough comments stating solve times,
+    that index blended with them (blend()). score() itself stays clue-only,
+    because the harnesses that choose components measure it against the
+    SNITCH, and the comments are solver times too."""
     ctx = context(base)
+    comments, cm = load_comments(), ctx.base.get("comment_blend") or {}
     out = {}
     for path in puzzle_files():
         puz = read_puzzle_file(path)
         s = score(puz, ctx)
         if s:
+            b = blend(puz["id"], s["index"], comments, cm)
+            if b is not None:
+                s["clue_index"] = s["index"]
+                s["index"] = round(b, 3)
+                s["band"] = band_of(b, ctx.base)
+                s["basis"] = s["basis"] + ["blog comments"]
             # Keyed by ID, not number: two papers can reach the same number
             # and the caller would then get whichever was scored last.
             out[puz["id"]] = s
@@ -854,6 +890,66 @@ def all_scores(base=None):
         below = sum(1 for i in idx if i < s["index"])
         s["percentile"] = round(100 * below / max(len(idx) - 1, 1)) if len(idx) > 1 else None
     return out
+
+
+def load_comments():
+    """puzzle id -> its Times for the Times comment row, from
+    tools/blog_comment_difficulty.py. Empty when the table is absent."""
+    return json.loads(COMMENTS.read_text(encoding="utf-8")) if COMMENTS.exists() else {}
+
+
+def comment_raw(row):
+    """(log of the commenters' median stated minutes, the share of comments
+    saying they did not finish), or None below COMMENT_MIN_TIMES stated times."""
+    if not row or row.get("stated_times", 0) < COMMENT_MIN_TIMES or not row.get("median_minutes"):
+        return None
+    return math.log(row["median_minutes"]), row["dnf"] / row["comments"]
+
+
+def _blend_z(index, c, m):
+    """The mean of the clue index's z and the comment signal's z, the comment
+    signal being the mean of the minutes' z and the DNF share's z, each
+    against its own series."""
+    def z(x, k):
+        return (x - m[k]["mean"]) / m[k]["sd"]
+    return (z(index, "index") + (z(c[0], "log_minutes") + z(c[1], "dnf")) / 2) / 2
+
+
+def comment_moments(values, comments):
+    """{series: moments of the clue index, log minutes, DNF share and the raw
+    blend}, over the puzzles of each series that have both an index (`values`,
+    puzzle id -> index) and a comment signal. A series needs
+    COMMENT_SERIES_MIN such puzzles, or it has no blend."""
+    by = {}
+    for pid, x in values.items():
+        c = comment_raw(comments.get(pid))
+        if c is not None and x is not None:
+            by.setdefault(pid.rpartition("-")[0], []).append((x, c))
+    out = {}
+    for series, rows in sorted(by.items()):
+        if len(rows) < COMMENT_SERIES_MIN:
+            continue
+        m = {"index": moments([x for x, _ in rows]),
+             "log_minutes": moments([c[0] for _, c in rows]),
+             "dnf": moments([c[1] for _, c in rows])}
+        if not all(v["sd"] for v in m.values()):
+            continue
+        m["blend"] = moments([_blend_z(x, c, m) for x, c in rows])
+        out[series] = m
+    return out
+
+
+def blend(pid, index, comments, cm):
+    """The index moved halfway toward what the commenters reported, in the
+    series' own units: the blend restandardised and put back on the scale of
+    the clue index of the same puzzles, so a series' mean and spread do not
+    move. None when the puzzle or its series has no comment signal."""
+    m = cm.get(pid.rpartition("-")[0])
+    c = comment_raw(comments.get(pid))
+    if m is None or c is None:
+        return None
+    b = (_blend_z(index, c, m) - m["blend"]["mean"]) / m["blend"]["sd"]
+    return m["index"]["mean"] + m["index"]["sd"] * b
 
 
 def load_baseline():
@@ -883,7 +979,11 @@ def rebaseline():
     # Not a component: the composite's own mean and spread, frozen alongside
     # them so BANDS can be written in real standard deviations. It has to be a
     # second pass, because the index it describes is built out of the first.
-    comps["index"] = moments([s["index"] for s in all_scores(comps).values()])
+    clue = {p: s["index"] for p, s in all_scores(comps).items()}
+    comps["index"] = moments(list(clue.values()))
+    # The comment blend's per-series moments, over the clue index alone: comps
+    # has no comment_blend yet, so all_scores() above did not blend.
+    comps["comment_blend"] = comment_moments(clue, load_comments())
     BASELINE.write_text(json.dumps(
         {"_comment": "Frozen reference distribution for tools/difficulty.py. "
                      "Regenerate deliberately with --rebaseline; every stored "
@@ -893,6 +993,10 @@ def rebaseline():
     moved = [(n, before[n]["band"], after[n]["band"]) for n in sorted(after)
              if n in before and before[n]["band"] != after[n]["band"]]
     for k, c in comps.items():
+        if k == "comment_blend":
+            for series, m in c.items():
+                print(f"baseline comment_blend {series}: n={m['index']['n']}")
+            continue
         print(f"baseline {k}: mean {c['mean']:.4f} sd {c['sd']:.4f} (n={c['n']})")
     print(f"{len(moved)} puzzle(s) changed band" + (":" if moved else ""))
     for n, was, now in moved:
@@ -1023,6 +1127,14 @@ def validate():
         if len(pairs) >= 8:
             print(f"              {series:<12} n={len(pairs):>3}  rho = {_spearman(a, b):+.3f}, "
                   f"p = {_perm_p(_spearman, a, b):.4f}")
+            # The badges blend in blog comments, which are solver times like
+            # the NITCH; the clue index alone is what the components answer for.
+            c = [s.get("clue_index", s["index"]) for p, s in scores.items()
+                 if p in snitch and p.rpartition("-")[0] == series]
+            n_bl = sum("clue_index" in s for p, s in scores.items()
+                       if p in snitch and p.rpartition("-")[0] == series)
+            print(f"              {'':<12} clue index alone rho = {_spearman(a, c):+.3f} "
+                  f"({n_bl} blended with blog comments)")
         for band in [n for _, n in BANDS]:
             xs = bands.get(band, [])
             if xs:
