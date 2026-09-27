@@ -59,6 +59,10 @@ from fetch_puzzle import puzzle_files, read_puzzle_file
 
 DATA = Path.home() / "cryptic-setter-data"
 OUT = ROOT / "tools" / "data" / "blog_facts"
+#: What each write-up says of its clues short of their blocks (see leads), for
+#: letter_facts.py: the clue's words and the answer's letters, but kept out of
+#: the repo, being a clue's worth of lines per clue.
+LEADS = DATA / "blog_leads.json"
 #: The digest of every input the files in OUT were written from; see inputs_digest.
 STAMP = OUT / "inputs.sha256"
 
@@ -1442,6 +1446,84 @@ def post_numbers(title):
     return {int(n.replace(",", "")) for n in NUMBER.findall(html.unescape(title))}
 
 
+#: A clue phrase the write-up prints within this many characters of a
+#: capital block is a word it may say the block comes from ("GAFFE or error").
+NEAR = 30
+#: What a write-up says a capital block stands for, right after it: "(a
+#: girl's name)", "[fellow]", "= error", "or error", "for idiot", "meaning trendy".
+GLOSS_AFTER = re.compile(r"\s*(?:\(([^()]{1,80})\)|\[([^\[\]]{1,80})\]|[=:–-]\s*([^,;.()+]{1,60})"
+                         r"|\s(?:or|for|is|meaning|being|as|i\.e\.)\s+([^,;.()+]{1,60}))")
+#: Letters in brackets that are capitals: PR(E)Y is PRY around E.
+INSIDE = re.compile(r"\(([A-Z]{1,15})\)|\[([A-Z]{1,15})\]|\{([A-Z]{1,15})\}")
+#: The most clue words one lead names, as letter_facts.MAX_RUN.
+LEAD_RUN = 4
+#: A write-up that says a letter is taken from a word: "the first letter of
+#: cauldron", "last of cider", "moral, ultimately".
+TAKES_LETTER = re.compile(
+    r"(?i)\b(?:first|last|final|initial|opening|starting|end|leading|head|tail|outer|outside)\b"
+    r"[\w\s]{0,20}?\bletters?\b|\b(?:first|last|start|end|head|tail|top|bottom|back|front) of\b"
+    r"|\binitial(?:ly|s)?\b|\bfinally\b|\bultimately\b|\bprimarily\b|\bat first\b|\bat last\b")
+
+
+def leads(expl, body, answer):
+    """What a write-up says of a clue short of stating its blocks, for
+    letter_facts to put blocks together from: {"caps": the capital blocks
+    it prints whose letters are in the answer, "near": [[caps, clue words
+    it glosses them with, after them or else just before]], "printed": the longest runs of clue words it
+    prints, "anagram": whether it names an anagram, "letter": whether it
+    says a letter is taken from a word}. Letters
+    and the clue's own words only, as blocks are; empty where it says none."""
+    answer = answer.upper()
+    need = collections.Counter(answer)
+    caps = []
+    for m in ATOM.finditer(expl):
+        for piece in {m.group(), *m.group().split(" ")}:
+            inner = ["".join(g) for g in INSIDE.findall(piece)]
+            for c in [atom_letters(INSIDE.sub("", piece))] + inner:
+                c = c.upper()
+                if c and c != answer and not collections.Counter(c) - need:
+                    caps.append((m.start(), m.end(), c))
+    ws = [(w.start(), w.end()) for w in re.finditer(r"[\w'’\-]+", body)]
+    phrase = lambda i, j: body[ws[i][0]:ws[j - 1][1]]
+
+    def runs_in(text):
+        """The longest runs of clue words `text` prints, as (i, j, where)."""
+        out = []
+        for i in range(len(ws)):
+            for j in range(i + 1, min(len(ws), i + LEAD_RUN) + 1):
+                pat = r"\W+".join(re.escape(w) for w in re.findall(r"[\w'’\-]+", phrase(i, j)))
+                hit = re.search(r"(?<![\w'’])" + pat + r"(?![\w])", text, re.IGNORECASE)
+                if not hit:
+                    break
+                if out and out[-1][0] == i:
+                    out.pop()
+                if not out or out[-1][1] < j:
+                    out.append((i, j, hit.start()))
+        return out
+
+    near = set()
+    for a, b, c in caps:
+        g = GLOSS_AFTER.match(expl, b)
+        got = runs_in(next(x for x in g.groups() if x)) if g else []
+        if not got:  # "a synonym of faithful SURE"
+            before = re.split(r"[(),;:.+–—*]", expl[max(0, a - NEAR):a])[-1]
+            got = sorted(runs_in(before), key=lambda r: r[2])[-1:]
+        near |= {(c, phrase(i, j)) for i, j, _ in got}
+    printed = runs_in(expl)
+    out = {}
+    if caps:
+        out["caps"] = sorted({c for *_, c in caps})
+    if near:
+        out["near"] = sorted(map(list, near))
+    if printed:
+        out["printed"] = [phrase(i, j) for i, j, _ in printed]
+    if ANAGRAM_NAMED.search(expl) and not NOT_ANAGRAM.search(expl):
+        out["anagram"] = True
+    if TAKES_LETTER.search(expl):
+        out["letter"] = True
+    return out
+
+
 def load_post(path):
     d = json.loads(path.read_text(encoding="utf-8"))
     return {"id": d["id"], "link": d.get("link"), "title": html.unescape(rendered(d.get("title"))),
@@ -1528,6 +1610,10 @@ def facts_for_post(blog, entries, post):
                          avoid=([] if whole_clue else defs or []) + [b[1] for b in blk])
         if ind:
             fact["indicators"] = ind
+        if answer:
+            said = leads(expl, body, answer)
+            if said:
+                fact["leads"] = said
         out[eid] = fact
     return out
 
@@ -1679,6 +1765,12 @@ def write(best, series):
     for old in OUT.glob("*.json"):
         if old.stem not in by_series:
             old.unlink()
+    said = {pid: {eid: f["leads"] for eid, f in sorted(r["facts"].items()) if f.get("leads")}
+            for pid, r in sorted(best.items()) if not pid.startswith("bd:")}
+    tmp = LEADS.with_suffix(".tmp")
+    tmp.write_text(json.dumps({k: v for k, v in said.items() if v}, ensure_ascii=False, separators=(",", ":")),
+                   encoding="utf-8")
+    tmp.replace(LEADS)
     for s, rows in sorted(by_series.items()):
         (OUT / f"{s}.json").write_text(
             "{\n" + ",\n".join(json.dumps(k) + ": " + json.dumps(v, ensure_ascii=False, sort_keys=True)
@@ -1809,7 +1901,7 @@ def main():
             print(json.dumps({"id": r["id"], "entry": eid, "url": r["url"], **f}, ensure_ascii=False))
     print(f"wrote blog facts for {write(best, series)} puzzles to {OUT.relative_to(ROOT)}")
     import letter_facts
-    corpus = list(letter_facts.rows())
+    corpus = list(letter_facts.rows(letter_facts.read_leads(required=True)))
     n = letter_facts.write(corpus, letter_facts.indicator_votes(corpus))
     print(f"and read off the letters (tools/letter_facts.py): a type for {n['type']} clues the blogs "
           f"left untyped, blocks for {n['blocks']} whose blocks they left out, a definition for "
