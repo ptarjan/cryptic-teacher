@@ -54,7 +54,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import app_tables  # noqa: E402 — app.js's tables, read from app.js
 from fetch_puzzle import (  # noqa: E402 — one glob, one reader, one puzzles/ for every tool
     PUZZLE_DIR, blog_annotation, blog_facts_for, puzzle_files, read_puzzle_file,
-    shim_path, with_blog_facts)
+    with_blog_facts)
 CARD = REPO / "tools" / "og_card.html"
 # Quiptic 1,393 3D: "Woman found in Oregon or Maine (5)" — five short words, a
 # definition anyone can check, and NORMA sitting across the state line. This is
@@ -684,16 +684,18 @@ def _salt():
 
 
 def card_key(pid, salt):
-    """What a card was drawn from, hashed: the salt plus the puzzle.
+    """What a card was drawn from, hashed: the salt plus the puzzle's entries
+    exactly as load() hands them to the drawing code, in canonical JSON.
 
-    The puzzle is taken from its generated script shim, not from the .json
-    source. A card is drawn from the puzzle's content, which both forms state
-    identically, so keying on the shim keeps every already-drawn card valid
-    through a change to how the source file is spelled — and a real edit to a
-    puzzle reaches the shim too, so nothing stale survives.
+    The entries are the whole of what a card is drawn from — every function
+    here reads load(pid)["entries"] and nothing else of the puzzle — so this
+    changes when the picture could, and not when a file around it is
+    re-spelled. It used to hash the generated shim, which made every change to
+    the shim's format (for the site's size, say) redraw every card.
     """
     h = salt.copy()
-    h.update(shim_path(puzzle_file(pid)).read_bytes())
+    h.update(json.dumps(load(pid)["entries"], ensure_ascii=False, sort_keys=True,
+                        separators=(",", ":")).encode("utf-8"))
     return h.hexdigest()
 
 
