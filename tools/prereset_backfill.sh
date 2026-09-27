@@ -861,14 +861,21 @@ for p in todo:
 # never raises: this key crashed the whole listing, which is read with $(...),
 # so one None emptied the queue and the wave spent itself on definitionFit
 # instead of on the backlog it exists to clear.
+#
+# Except that a puzzle the SNITCH has rated goes ahead of its lane's unrated
+# ones: the difficulty index is calibrated against the SNITCH, and only an
+# annotated puzzle scores, so each one annotated is a data point the calibration
+# lacks. For the same reason the rated papers lead each cycle.
+rated = set(json.load(open("tools/data/snitch.json")))
 for lane in lanes.values():
-    lane.sort(key=lambda p: -(date_ms(p["date"]) or 0))
+    lane.sort(key=lambda p: (p["id"] not in rated, -(date_ms(p["date"]) or 0)))
 # Series order within a wave, so a window cut short by a lockout has spent
 # itself on the papers people search for most. This ranks SERIES, never
 # puzzles: every entry in a wave is already its own lane's newest gap. A series
 # missing from this list still runs; it just goes at the back of each cycle.
 BY_DEMAND = ["everyman", "indysunday", "quiptic", "cryptic", "independent"]
-cycle = sorted(lanes, key=lambda s: (BY_DEMAND.index(s) if s in BY_DEMAND
+cycle = sorted(lanes, key=lambda s: (lanes[s][0]["id"] not in rated,
+                                     BY_DEMAND.index(s) if s in BY_DEMAND
                                      else len(BY_DEMAND), s))
 todo = [lanes[s][i]
         for i in range(max((len(l) for l in lanes.values()), default=0))
