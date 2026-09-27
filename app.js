@@ -885,17 +885,42 @@
   // but tools/letter_facts.py's, read off the letters; `typeCore` makes its type a lower bound, the clue
   // that and perhaps a cut or a letter selection besides. A block whose third
   // element is "inferred" is one of the pieces letter_facts.py split the answer into.
+  // The answer is the solution, so blockLetters holds back a block that is the
+  // whole of it exactly as it does for ours; a hidden word's carrier then shows
+  // the note ours write, the run capitalised in its words (carrierNote).
   function blogAnn(e) {
     const b = e.blog;
     if (!b) return null;
     const defs = b.definition || [];
-    const ann = { fromBlog: true, type: b.type || "", indicators: b.indicators || [],
-                  blocks: (b.blocks || []).map(([gives, clueFragment, how]) =>
-                    (how === "inferred" ? { clueFragment, gives, inferred: true } : { clueFragment, gives })),
+    const answer = e.solution || "";
+    const ann = { fromBlog: true, answer, type: b.type || "", indicators: b.indicators || [],
+                  blocks: (b.blocks || []).map(([gives, clueFragment, how]) => {
+                    const block = how === "inferred" ? { clueFragment, gives, inferred: true } : { clueFragment, gives };
+                    const note = wholeWord(gives) === wholeWord(answer) ? carrierNote(answer, clueFragment) : "";
+                    return note ? { ...block, note } : block;
+                  }),
                   inferred: b.inferred || [], typeCore: !!b.typeCore };
     if (defs.length) ann.definition = defs[0];
     if (defs.length === 2 && ann.type.includes("double definition")) ann.definition2 = defs[1];
     return ann;
+  }
+  // "hidden in saW HIZbollah": the words that carry `answer`, its run in
+  // capitals; "hidden backwards in" where the run spells it reversed; "" where
+  // the words do not carry it or are nothing else. tools/fetch_puzzle.py's
+  // carrier_note is the same rule for the static pages.
+  function carrierNote(answer, frag) {
+    const want = wholeWord(answer);
+    const at = [];
+    for (let i = 0; i < (frag || "").length; i++) if (/[A-Za-z]/.test(frag[i])) at.push(i);
+    const got = at.map((i) => frag[i].toUpperCase()).join("");
+    if (want.length < 3 || got === want) return "";
+    let from = got.indexOf(want);
+    const back = from < 0;
+    if (back) from = got.indexOf([...want].reverse().join(""));
+    if (from < 0) return "";
+    const lo = at[from], hi = at[from + want.length - 1] + 1;
+    return (back ? "hidden backwards in " : "hidden in ")
+      + frag.slice(0, lo) + frag.slice(lo, hi).toUpperCase() + frag.slice(hi);
   }
   const tag = (e) => e.number + (e.direction === "across" ? "A" : "D");
   const hasSolutions = () => entries.every((e) => e.solution);
@@ -2832,7 +2857,7 @@
   // One function, because the rung renders these and the pacing counts them. A
   // second copy of the rule would let the two disagree about what a piece is,
   // and then piece 2 of the body sits under question 3.
-  const wholeWord = (s) => (s || "").toUpperCase().replace(/[^A-Z]/g, "");
+  function wholeWord(s) { return String(s || "").toUpperCase().replace(/[^A-Z]/g, ""); }
   function blockLetters(ann, b) {
     if (!b.gives) return "";
     if ((ann.type || "").toLowerCase().includes("cryptic definition")) return "";
