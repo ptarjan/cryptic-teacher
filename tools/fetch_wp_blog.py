@@ -148,13 +148,22 @@ def fetch_comments(blog):
                 break
             page += 1
             time.sleep(blog.crawl_delay)
-        # X-WP-Total counts comments the listing filters out after paging, so
-        # pages come back short and the served count falls below it (2021-05
-        # serves 3,024 of 6,010). Every page walked is the complete answer.
         if len({r["id"] for r in rows}) != len(rows):
             raise FetchError(f"comments {month:%Y-%m}: duplicate ids across pages")
         if len(rows) != total:
-            print(f"  comments {month:%Y-%m}: {len(rows)} rows, the API says {total}", flush=True)
+            # X-WP-Total also counts comments on posts an anonymous reader
+            # cannot read, which the API drops from each page after paging.
+            # The same count restricted to the posts the walk saw has no
+            # hidden rows in it, so it must equal what was served.
+            posts = ",".join(map(str, sorted({r["post"] for r in rows})))
+            _, h = get(f"{blog.api}comments?per_page=1&post={posts}"
+                       f"&after={month}T00:00:00&before={after}T00:00:00&_fields=id")
+            visible = int(h.get("X-WP-Total") or 0)
+            if len(rows) != visible:
+                raise FetchError(f"comments {month:%Y-%m}: served {len(rows)} rows, "
+                                 f"the API counts {visible} on the same posts")
+            print(f"  comments {month:%Y-%m}: {len(rows)} rows; "
+                  f"{total - len(rows)} more are on posts the API hides", flush=True)
         (blog.comments / f"{month:%Y-%m}.json").write_text(json.dumps(rows), encoding="utf-8")
         if month.month == 1:
             print(f"  comments {month:%Y}", flush=True)
