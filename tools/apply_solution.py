@@ -18,6 +18,10 @@ CAN be verified is self-consistency, mechanically and completely:
   * every answer the length the grid wants
   * letters only, so "?" and "TBC" can't sneak in as an answer
   * every crossing cell agreeing between its across and its down
+  * every answer a blog we hold for the puzzle names (tools/corroborate.py's
+    sources), where it names one: a cell no down word crosses is checked by
+    nothing else, and a blog that wrote the puzzle up is the answer key we
+    were solving without
 
 A 15x15 has around 60 crossings. A fill that satisfies all of them is not
 proven right, but it cannot be casually wrong either: one bad answer normally
@@ -47,6 +51,7 @@ from fetch_puzzle import (PUZZLE_DIR, read_puzzle_file, reindex,  # noqa: E402
                           resolve_puzzle, write_puzzle_file)
 from grid_fill import MIN_CHECKED_RATIO  # noqa: E402 — the authoring rulebook's floor
 from series import official_key  # noqa: E402
+import corroborate  # noqa: E402
 
 
 def normalise(answer):
@@ -187,6 +192,27 @@ def check_fill(puzzle, fill):
     return cells, crossings, problems
 
 
+def check_sources(puzzle, fill, sources=None):
+    """Every answer another source prints for this puzzle that the fill does
+    not have, as problems. A fill that agrees with its own crossings can still
+    differ from the blog in an unchecked cell, and a written fill outranks a
+    blog when corroborate settles the two, so a disagreement is refused here,
+    before it is written, or it ships. A blog answer the fill's own crossings
+    rule out (corroborate's grid rule) is the blog's misparse and is let go."""
+    filled = {**puzzle, "entries": [{**e, "solution": normalise(fill.get(e["id"], ""))}
+                                    for e in puzzle["entries"]]}
+    problems = []
+    for d in corroborate.resolve(filled, sources):
+        if d.field != "answer" or d.rule == "grid":
+            continue
+        for value, src in d.candidates.items():
+            if value != d.primary:
+                problems.append(f"{d.entry}: the fill has {d.primary}, but "
+                                f"{' and '.join(sorted(src))} gives {value}. A blog that wrote the "
+                                "puzzle up is right far more often than a cold solve: re-parse this clue")
+    return problems
+
+
 def render_grid(puzzle, cells):
     w, h = puzzle["dimensions"]["cols"], puzzle["dimensions"]["rows"]
     rows = []
@@ -226,6 +252,8 @@ def main():
     # The grid before the fill: a fill that agrees with an incoherent grid has
     # agreed with nothing, so nothing may be written into one.
     problems = check_geometry(puzzle) + problems
+    if not problems:
+        problems = check_sources(puzzle, fill)
     print(f"{args.number}: {len(puzzle['entries'])} entries, {len(fill)} answers given, "
           f"{crossings} crossing cells")
     if problems:
