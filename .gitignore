@@ -145,11 +145,15 @@ tools/_*
 # answer the pages and the shims already got.
 /abbreviations.js
 
-# The per-puzzle social cards, screenshotted by tools/make_og.sh. 24MB of PNGs
+# The per-puzzle social cards, screenshotted by tools/make_og.sh. ~110MB of PNGs
 # that no page reads from the repo: .github/workflows/pages.yml draws them on the
 # clean checkout it publishes, keeping them in an actions/cache between runs and
 # redrawing only the ones make_og_card.py's manifest says have changed.
 #
 # og.png at the root is deliberately NOT here. It is the site card, it is
-# deterministic, and its content hash is stamped into the committed index.html.
+# deterministic, and a clone opening index.html needs it.
 /og/
+
+# What .github/workflows/pages.yml uploads: the published subset of the tree,
+# hard-linked there by tools/stage_site.py.
+/_site/

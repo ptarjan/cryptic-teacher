@@ -16,6 +16,11 @@
 # decides by hashing them into og/.manifest.json — content, not mtimes, because
 # this runs in CI now and a fresh checkout stamps every file with the same time.
 # Delete the png, or the manifest entry, to force one.
+#
+# Chrome writes 24-bit PNGs; tools/og_palette.py rewrites each as a 256-colour
+# palette PNG, a third of the size and no visible change. That runs after the
+# manifest is written and the manifest never hashes the png, so it does not
+# make a card stale.
 set -euo pipefail
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 # Any headless Chrome will do, and which one is installed is a property of the
@@ -90,3 +95,8 @@ case "${1:-}" in
     for n in $list; do one "$n"; done ;;
   *) mkdir -p "$REPO/og"; one "$1" ;;
 esac
+
+# Every card on disk, not only the ones drawn this run, so a card the cache
+# carried in from before this step existed is converted too.
+shopt -s nullglob
+python3 "$REPO/tools/og_palette.py" "$REPO/og.png" "$REPO"/og/*.png
