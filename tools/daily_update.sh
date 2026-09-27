@@ -255,12 +255,15 @@ rm -f "$facts_out"
 # below picks up tools/data/snitch.json.
 python3 tools/fetch_snitch.py || echo "fetch_snitch failed (rc=$?); continuing with the ratings already held"
 
-# How well the index tracks that rating, component by component, and per clue
-# against what Times for the Times commenters found hard. The comment table is
-# rebuilt from the cached comments first (it leaves the committed one alone when
-# the cache is absent); the report is written to tools/data/snitch_report.txt,
-# whose history is the record of how the numbers move. Both are local reads.
-python3 tools/blog_comment_difficulty.py || echo "blog_comment_difficulty: rc=$?; the per-clue check uses the table already committed"
+# Times for the Times comments: the newest month on disk and any after it are
+# refetched, and the comment table rebuilt from the whole cache.
+# The table feeds the Times badges, which blend in the solve times commenters
+# state (tools/difficulty.py blend()), so a puzzle re-rates as its post gains
+# comments at the --reindex below. It leaves the committed table alone when the
+# cache is absent. The report is written to tools/data/snitch_report.txt, whose
+# history is the record of how the numbers move.
+python3 tools/fetch_wp_blog.py timesforthetimes --comments || echo "fetch_wp_blog --comments failed (rc=$?); the badges blend the comments already cached"
+python3 tools/blog_comment_difficulty.py || echo "blog_comment_difficulty: rc=$?; the badges and the per-clue check use the table already committed"
 python3 tools/snitch_report.py --write >/dev/null || echo "snitch_report failed (rc=$?); tools/data/snitch_report.txt is last night's"
 
 # What we hold of every series, printed every night whether or not anything is

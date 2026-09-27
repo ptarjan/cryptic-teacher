@@ -287,6 +287,7 @@ LAYOUT = [
     ("tables everything else reads", "scratch/snitch_weights.py", "held-out refit of difficulty.WEIGHTS against the SNITCH, split by date"),
     ("tables everything else reads", "tools/fetch_snitch.py", "fetch the SNITCH's ratings of The Times and Sunday Times cryptics into"),
     ("tables everything else reads", "tools/test_fetch_snitch.sh", "does tools/fetch_snitch.py read the SNITCH's week table into the right puzzle ids, and drop the cells that are not a rating of that puzzle?"),
+    ("tables everything else reads", "tools/test_comment_blend.sh", "does tools/difficulty.py blend() move only puzzles with enough stated solve times, re-rate one as its comments arrive, and keep each series' mean and spread?"),
     ("tables everything else reads", "scratch/snitch_features.py", "annotation-free features against the SNITCH NITCH, held out by date"),
     ("tables everything else reads", "scratch/snitch_stage3.py", "the index's worst misses against the SNITCH, and candidate components added to it, held out by date third"),
     ("tables everything else reads", "scratch/stage3_clue.py", "which kinds of clue Times for the Times commenters flag hard or name last one in"),
@@ -294,6 +295,7 @@ LAYOUT = [
     ("tables everything else reads", "tools/data/blog_comment_difficulty.json", "per Times puzzle, the comment count, the median solve time its commenters state, and per clue how many comments name the answer, flag it hard, and call it their last one in"),
     ("tables everything else reads", "tools/test_prereset_landing.sh", "is the landing report keyed to the week's real reset, not to CT_SPEND_BY?"),
     ("tables everything else reads", "scratch/snitch_stage4.py", "the SNITCH adoption harness: each candidate component held out by date on the annotated and fresh sets"),
+    ("tables everything else reads", "scratch/comment_blend.py", "the blog-comment blend measured held out: clue index, blend and comments alone, by date third"),
     ("tables everything else reads", "tools/build_wordnet.py", "writes tools/data/wordnet.json.gz, the slice of WordNet difficulty.py's definition_unrelated reads"),
     ("tables everything else reads", "tools/data/wordnet.json.gz", "WordNet synsets and hypernyms for lexicon words and corpus definitions; committed so scoring needs no nltk"),
 ]
