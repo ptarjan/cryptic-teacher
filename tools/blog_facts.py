@@ -31,7 +31,7 @@ the proof.
     python3 tools/blog_facts.py --measure  # and print coverage per blog and series
     python3 tools/blog_facts.py --sample 30 --seed 1   # and print rows to check by hand
     python3 tools/blog_facts.py --if-changed  # the nightly: skip when no input moved
-    python3 tools/blog_facts.py --jobs 1      # one process; the default pool takes ~2 GB
+    python3 tools/blog_facts.py --jobs 1      # one process instead of the default two
     python3 tools/blog_facts.py --score       # precision and recall against blog_facts_gold.jsonl
 
 Reads the caches the fetchers write under ~/cryptic-setter-data; never the
@@ -40,6 +40,7 @@ network.
 import argparse
 import ast
 import collections
+import fcntl
 import hashlib
 import html
 import html.parser
@@ -1511,7 +1512,8 @@ def main():
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--dump", help="also write every joined record, bookkeeping included, as JSON lines")
     ap.add_argument("--from-dump", help="read the joins from an earlier --dump instead of the caches")
-    ap.add_argument("--jobs", type=int, help="worker processes (default: one per CPU); 1 parses in this process")
+    ap.add_argument("--jobs", type=int, default=2,
+                    help="worker processes (default %(default)s); 1 parses in this process")
     ap.add_argument("--if-changed", action="store_true",
                     help="exit without parsing when no input has changed since the last write")
     ap.add_argument("--score", nargs="?", const=str(GOLD), metavar="GOLD",
@@ -1520,6 +1522,17 @@ def main():
     if args.score:
         print("\n".join(score(args.score)))
         return
+    # A full parse at nice 0 in every copy of this repo at once starved the bridge
+    # sharing this machine until its container restarted. So it runs niced, and one
+    # at a time machine-wide: the lock lives in $HOME, not in the checkout, so a
+    # second clone kept for an old-vs-new comparison waits its turn too.
+    os.nice(19)
+    lock = open(Path.home() / ".cache" / "cryptic-blog-facts.lock", "a")
+    try:
+        fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+    except BlockingIOError:
+        print("another blog_facts.py is running; waiting for it to finish", file=sys.stderr)
+        fcntl.flock(lock, fcntl.LOCK_EX)
     digest = inputs_digest()
     if args.if_changed and STAMP.exists() and STAMP.read_text().strip() == digest:
         print(f"blog facts are current: no post, clue or parser change since {STAMP.relative_to(ROOT)} was written")
