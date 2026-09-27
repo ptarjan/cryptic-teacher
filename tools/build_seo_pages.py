@@ -383,8 +383,12 @@ def clue_html(e):
                     + ", ".join(f'<span class="s-ind">{esc(w)}</span>' for w in ann["indicators"])
                     + "</p>")
     if ann.get("fromBlog"):
-        bits.append('<p class="s-todo muted">Marked up from the blogger\'s write-up; '
-                    'our own explanation is not written yet.</p>')
+        # A type tools/letter_facts.py read off the letters is not the blogger's.
+        read = "type" in (e.get("blog") or {}).get("inferred", ())
+        bits.append('<p class="s-todo muted">'
+                    + ("Clue type worked out from the letters, the rest marked up from the blogger\'s write-up; "
+                       if read else "Marked up from the blogger\'s write-up; ")
+                    + 'our own explanation is not written yet.</p>')
     # The surface first, the same order and for the same reason as the app's
     # walkthrough rung: what the clue pretends to be about, then what it is doing.
     if ann.get("surface"):

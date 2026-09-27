@@ -881,12 +881,16 @@
   // partial annotation, so the ladder, the highlights and the questions all
   // read it the way they read ours. Two spans are a definition pair only when
   // the type says so; the extractor ships no other multi-span definition.
+  // A field named in `inferred` is not the blog's but tools/letter_facts.py's,
+  // read off the letters; `typeCore` makes its type a lower bound, the clue
+  // that and perhaps a cut or a letter selection besides.
   function blogAnn(e) {
     const b = e.blog;
     if (!b) return null;
     const defs = b.definition || [];
     const ann = { fromBlog: true, type: b.type || "", indicators: b.indicators || [],
-                  blocks: (b.blocks || []).map(([gives, clueFragment]) => ({ clueFragment, gives })) };
+                  blocks: (b.blocks || []).map(([gives, clueFragment]) => ({ clueFragment, gives })),
+                  inferred: b.inferred || [], typeCore: !!b.typeCore };
     if (defs.length) ann.definition = defs[0];
     if (defs.length === 2 && ann.type.includes("double definition")) ann.definition2 = defs[1];
     return ann;
@@ -3908,7 +3912,9 @@
   function familyAsk(ann) {
     // Empty for a type no rule claims: there would be no right answer to pick, so
     // there is no question, and the rung behaves exactly as it always did.
-    const right = familiesOf(ann.type).map((f) => f.label);
+    // A core type (ann.typeCore) is a lower bound: the clue may also cut a word
+    // or select letters from one, so those families are right answers too.
+    const right = familiesOf(ann.type + (ann.typeCore ? " + deletion + first letter" : "")).map((f) => f.label);
     if (!right.length) return null;
     // The families are named for the devices themselves, which means a chip can
     // be a word that is somewhere an answer — 30103 28A is a cryptic definition
@@ -4768,8 +4774,18 @@
     if (!P.blog || (ann && !ann.fromBlog) || e.clueMissing || e.clueCorrupt) return "";
     return `<a class="blog-link small" href="${esc(P.blog.url)}" target="_blank" rel="noopener">Full explanation on ${esc(P.blog.name)} →</a>`;
   }
-  const blogHintsBadge = () =>
-    ` <span class="badge auto blog" title="We haven't explained this clue ourselves yet. These hints are the definition and clue type that ${esc(P.blog.name)} marked in its write-up, put into our own words.">hints via ${esc(P.blog.name)}</span>`;
+  // Credits the blog with what it marked and nothing else: a type read off the
+  // letters (ann.inferred) is said to be ours, and a clue whose hints are all
+  // ours is not badged with the blog's name.
+  function blogHintsBadge(ann) {
+    const name = esc(P.blog.name);
+    const ours = (ann.inferred || []).includes("type");
+    const theirs = !!(ann.definition || ann.indicators.length || ann.blocks.length || (ann.type && !ours));
+    if (!theirs) return ` <span class="badge auto letters" title="We haven't explained this clue ourselves yet, and ${name} marked nothing in it. Its clue type is worked out from the letters of the clue and the answer.">hints from the letters</span>`;
+    const what = ours ? `the definition and pieces that ${name} marked in its write-up, put into our own words. The clue type is not ${name}'s: it is worked out from the letters of the clue and the answer`
+      : `the definition and clue type that ${name} marked in its write-up, put into our own words`;
+    return ` <span class="badge auto blog" title="We haven't explained this clue ourselves yet. These hints are ${what}.">hints via ${name}</span>`;
+  }
 
   function renderHintPanel() {
     const e = currentEntry();
@@ -5041,7 +5057,7 @@
     $("hint-clue").classList.toggle("picking", tapping);
 
     setHTML($("hint-meter"), meterHTML + (freeRest ? " · the remaining hints are free now" : "")
-      + (ann && ann.fromBlog ? blogHintsBadge() : ""));
+      + (ann && ann.fromBlog ? blogHintsBadge(ann) : ""));
 
     const bodyWrote = setHTML(body, bodyHTML);
     setButtons(next, nextSpec);
@@ -5322,8 +5338,9 @@
 
   // Still the coverage axis: a puzzle whose hints are read off a blog's
   // write-up is the exception in the other direction from "answers only".
-  function blogBadge(blog) {
-    return `<span class="badge auto blog" title="We haven't written our own hints for this puzzle yet. Its hints are built from the definitions and clue types ${esc(blog.name)} marked, and each clue links to their full explanation.">hints via ${esc(blog.name)}</span>`;
+  function blogBadge(blog, inferred) {
+    const also = inferred ? ", some clue types are worked out from the letters instead," : "";
+    return `<span class="badge auto blog" title="We haven't written our own hints for this puzzle yet. Its hints are built from the definitions and clue types ${esc(blog.name)} marked${also} and each clue links to their full explanation.">hints via ${esc(blog.name)}</span>`;
   }
 
   // Shares the coverage axis (neutral) with the hints badge on purpose: both
@@ -6048,7 +6065,7 @@
       esc(P.name) +
       (setter ? ` — set by <em>${esc(setter)}</em>` : "") +
       (when.iso ? ` <span class="muted">· ${when.day ? when.day + " " : ""}${when.iso}</span>` : "") +
-      (meta.annotated ? "" : " " + (P.blog ? blogBadge(P.blog) : hintsBadge(false))) +
+      (meta.annotated ? "" : " " + (P.blog ? blogBadge(P.blog, entries.some((e) => e.blog && e.blog.inferred)) : hintsBadge(false))) +
       // Prize puzzles publish their answers about a week late, and this site
       // solves them in the meantime rather than leaving its newest puzzle
       // hintless (tools/apply_solution.py). Every letter the checker marks wrong
