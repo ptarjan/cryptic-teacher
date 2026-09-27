@@ -45,6 +45,9 @@ HARD = re.compile(
     r"\bgave up\b|\bresort(?:ed)? to\b|\breveal|\bcheat|\baids?\b|"
     r"\btook (?:me )?(?:ages|a while|forever)\b|\bstruggl", re.I)
 LOI = re.compile(r"\bLOI\b|\blast (?:one )?in\b", re.I)
+#: A comment with one of these in it says its writer did not finish.
+DNF = re.compile(r"\bDNF\b|\bfailed\b|\bgave up\b|\bdefeated\b|\bbeat me\b|"
+                 r"\breveal|\bcheat", re.I)
 #: What may sit between LOI and the answer it names: "LOI: X", "LOI was X".
 LEAD = re.compile(r"[\s:,\-–]*(?:(?:was|is|being|had to be)\s+)?", re.I)
 #: "12 minutes", "25 mins", "40m". Hours and h:mm are left alone: "1:05" is as
@@ -81,12 +84,13 @@ def post_ids():
 def score(puz, comments):
     answers = [(e["id"], answer_regex(e["solution"])) for e in puz["entries"]
                if sum(c.isalpha() for c in e.get("solution") or "") >= 3]
-    clues, times = {}, []
+    clues, times, dnf = {}, [], 0
     lower = {eid: re.compile(rx.pattern, re.I) for eid, rx in answers}
     for c in comments:
         m = MINUTES.search(c)
         if m and 2 <= float(m.group(1)) <= 240:
             times.append(float(m.group(1)))
+        dnf += bool(DNF.search(c))
         sentences = SENTENCE.split(c)
         for eid, rx in answers:
             hits = [s for s in sentences if rx.search(s)]
@@ -97,7 +101,7 @@ def score(puz, comments):
             row[1] += any(HARD.search(s) for s in hits)
         for eid in loi(c, answers, lower):
             clues.setdefault(eid, [1, 1, 0])[2] += 1
-    return clues, times
+    return clues, times, dnf
 
 
 def loi(comment, answers, lower):
@@ -134,8 +138,8 @@ def build():
             path = ROOT / "puzzles" / f"{pid}.json"
             if not comments or not path.exists():
                 continue
-            clues, times = score(read_puzzle_file(path), comments)
-            table[pid] = {"comments": len(comments),
+            clues, times, dnf = score(read_puzzle_file(path), comments)
+            table[pid] = {"comments": len(comments), "dnf": dnf,
                           "median_minutes": statistics.median(times) if times else None,
                           "stated_times": len(times),
                           "clues": clues}
@@ -164,6 +168,36 @@ def measure(table):
         print(f"median stated minutes vs SNITCH: rho {r:+.3f} (n={n}, p={p:.3g})")
     else:
         print(f"median stated minutes vs SNITCH: only {len(both)} puzzles overlap so far")
+
+
+def per_puzzle(table):
+    """Per Times daily: the share of comments that say DNF, and the share of
+    answer mentions a hard cue sits beside, against our index and the SNITCH
+    (raw, and minus its weekday mean, which the editorial ramp sets)."""
+    from datetime import date
+
+    import difficulty as D
+    rank, base, sn = D.ranks(), D.load_baseline(), D.load_snitch()
+    by_day = D.snitch_by_day(sn)
+    rows = []
+    for pid, v in table.items():
+        if pid.rpartition("-")[0] != "times" or v["comments"] < 10:
+            continue
+        named = list(v["clues"].values())
+        s = D.score(read_puzzle_file(ROOT / "puzzles" / f"{pid}.json"), rank, base)
+        nitch = sn.get(pid, {}).get("nitch")
+        resid = nitch - by_day[date.fromisoformat(sn[pid]["date"]).weekday()] if nitch is not None else None
+        rows.append({"dnf": v["dnf"] / v["comments"],
+                     "hard": sum(n[1] for n in named) / max(1, sum(n[0] for n in named)),
+                     "minutes": v["median_minutes"] if v["stated_times"] >= 3 else None,
+                     "index": s["index"] if s else None, "nitch": nitch, "resid": resid})
+    print(f"per puzzle, Times daily with 10+ comments ({len(rows)}):")
+    for x in ("dnf", "hard", "minutes"):
+        for y in ("index", "nitch", "resid"):
+            pairs = [(r[x], r[y]) for r in rows if r[x] is not None and r[y] is not None]
+            if len(pairs) >= 20:
+                r, n, p = rho(*zip(*pairs))
+                print(f"  {x:7s} vs {y:5s} rho {r:+.3f} (n={n}, p={p:.3g})")
 
 
 def per_clue(table):
@@ -231,6 +265,7 @@ def main():
     print(f"wrote {len(table)} puzzles to {OUT.relative_to(ROOT)}")
     if a.measure:
         measure(table)
+        per_puzzle(table)
         per_clue(table)
 
 
