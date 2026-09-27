@@ -86,8 +86,6 @@ case "${1:-}" in
   "") ;;
   --all)
     mkdir -p "$REPO/og"
-    # One-off, until a deploy has run it: see tools/og_carry_over.py.
-    python3 "$REPO/tools/og_carry_over.py"
     # Listed into a variable of its own, because `for n in $(...)` throws the
     # command's exit status away: a lister that dies partway through is then
     # indistinguishable from nothing being stale, and every puzzle after the one
