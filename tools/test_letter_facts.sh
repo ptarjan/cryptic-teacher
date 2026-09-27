@@ -39,6 +39,10 @@ check "a listed abbreviation is no selection" charade \
   'Soprano gets each singer fish (3,4)' SEABASS --block S=Soprano --block EA=each --block BASS=singer
 check "a lone word cut short is a deletion" "deletion + reversal" \
   'March curtailed, flipping study intensely (4)' CRAM --block MARC=March
+check "a lone word cut to two letters is a deletion" "charade + deletion" \
+  'Sea curtailed at chair (4)' SEAT --block SE=sea --block AT=at --definition chair
+check "two letters of a short word that are also its outer letters are undecided" UNDECIDED \
+  "Extremely sick unclean kitchens: they're smelly (6)" SKUNKS --block SK=sick --block UN=unclean --block KS=kitchens
 check "a short answer is not hidden by chance" NONE 'Tea and scones (3)' AND
 
 written=$(cd "$REPO/tools" && python3 -c '
