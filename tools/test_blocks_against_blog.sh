@@ -30,6 +30,8 @@ check("the blog's word heard", False, run("x", [b("Heard husky", "HORSE")], [["H
 check("ours is the blog's less a deletion", False, run("x", [b("x", "IMPRE")], [["IMPURE", "zzz"]]))
 check("the anagram's result against its fodder", False, run("x", [b("male", "MALE")], [["LAME", "zzz"]]))
 check("a lone link word is the blog's parse", False, run("x", [b("x", "HI")], [["ARCHERY", "of"]]))
+check("the blog's anagram fodder against ours", False, run("x", [b("in hat", "INHAT")], [["IN HAT", "in hat", "anagrammed"]]))
+check("the blog's anagram fodder against our result", False, run("x", [b("in hat", "THAIN")], [["IN HAT", "in hat", "anagrammed"]]))
 check("a piece nobody of ours spells or takes", True, run("x", [b("top", "CAP")], [["RED", "communist"]]))
 def typed(ours, theirs, **fact):
     puzzle = {"entries": [{"id": "1-across", "number": 1, "direction": "across",

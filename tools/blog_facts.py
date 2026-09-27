@@ -240,6 +240,7 @@ HEDGED = re.compile(
     r"|\bI think\b|\bI suppose\b|\bdefinition\s*\?|\b[cd]d\s*\?"
     r"|\b[cd]d\s*/\s*[cd]d\b|\bsemi|\bor (?:an?|the) (?:anagram|homophone|double|cryptic|&\s*lit)",
     re.I)
+ANAGRAM_NAMED = dict(TYPES)["anagram"]
 REVERSED = re.compile(r"\brevers|\bbackwards?\b|\bup\b(?=.*\bhidden)", re.I)
 
 
@@ -421,7 +422,8 @@ def detach_sources(text, body):
 def blocks(expl, body, answer, bracket_key=False):
     """[(letters, clue words)] for every capital block the write-up sources
     to an exact run of whole words of the clue. A block that is the whole
-    answer is the definition restated, not a piece of wordplay."""
+    answer is the definition restated, not a piece of wordplay. Anagram
+    fodder is (letters, clue words, "anagrammed"): see fodder_blocks."""
     found = []
     for m in ATOM.finditer(expl):
         src = None
@@ -462,8 +464,8 @@ def blocks(expl, body, answer, bracket_key=False):
         src = glossed and in_clue(glossed[1], body)
         if src:
             found.append((m.start(), 0, glossed[0], src))
-    out = []
-    for _, _, piece, src in sorted(found):
+    out, at = [], []
+    for pos, _, piece, src in sorted(found):
         letters = atom_letters(piece)
         b = re.sub(ATT, "", piece).strip(" .").replace(".", "").upper()
         b = (b.replace(" ", "") if re.fullmatch(r"(?:\w )+\w", b) else b, src)  # U[nited] N[ations] is UN
@@ -475,7 +477,18 @@ def blocks(expl, body, answer, bracket_key=False):
         if (letters and letters != answer and letters != atom_letters(src.upper()) and b not in out
                 and not (" " in src and OPERATES.search(src))):
             out.append(b)
-    return out
+            at.append(pos)
+    # Anagram fodder is a block of the clue's own words, marked with the
+    # operation that shuffles it; a plain block the same is that one.
+    for pos, letters, src in fodder_blocks(expl, body, answer, bool(ANAGRAM_NAMED.search(expl))):
+        same = [k for k, b in enumerate(out) if len(b) == 2 and atom_letters(b[0]) == atom_letters(letters)
+                and b[1] == src]
+        if same:
+            out[same[0]] = (letters, src, "anagrammed")
+        elif not any(b[1] == src and len(b) == 3 for b in out):
+            out.append((letters, src, "anagrammed"))
+            at.append(pos)
+    return [b for _, b in sorted(zip(at, out), key=lambda x: x[0])]
 
 
 # The operators a write-up spells its wordplay with, longest first within a
@@ -1213,12 +1226,131 @@ def has_fodder(expl, answer):
     """Whether the write-up holds the answer's letters in one run of caps or
     one bracketed group: the fodder of a whole-clue anagram. The answer
     itself, which the write-up prints, is not its own fodder."""
-    runs = [m.group() for m in ATOM.finditer(expl)] + [
-        m.group(1) for m in re.finditer(r"[(\[{]([^()\[\]{}]{2,60})[)\]}]", expl)
-        if not re.match(r"[\[{(]?[A-Za-z]", expl[m.end():m.end() + 2])]  # [OLI]{ves} is cut fodder
+    runs = [t for _, t in _fodder_runs(expl)]
     letters = [atom_letters(r) if r.upper() == r else
                "".join(f for f in map(fold, r) if f.isalnum() and f.isascii()) for r in runs]
     return any(x != answer and sorted(x) == sorted(answer) for x in letters)
+
+
+#: Where a write-up marks letters as anagram fodder: (X)*, *(X), X*, "anagram
+#: (gloss) of X", "X (anag)". Each gives the fodder's text as group "f".
+FWORD = r"[A-Za-zÀ-ÿ\[\]{}'’\-]+"
+FCAPS = rf"(?<![\w\[\]{{}}'’\-])(?P<f>(?:{FWORD}\s+)*?{FWORD})"  # trimmed to its capitals by capsy
+FGROUP = r"(?:\(\s*(?P<f>[^()*]{2,60}?)\s*\)|\[\s*(?P<f2>[^()\[\]*]{2,60}?)\s*\])"
+MARKED_FODDER = [
+    re.compile(FGROUP + r"\s*\*"),
+    re.compile(r"(?<![\w)\]}'’*])\s*\*\s*" + FGROUP),  # a star after letters is theirs, and a gloss follows
+    re.compile(FCAPS + r"\s*\*"),
+    re.compile(FCAPS + r"\s*[(\[]\s*(?i:anag)\b"),
+    re.compile(r"(?i:\banag(?:ram)?\b\.?)\s*(?:\([^()]{0,40}\)|\[[^\[\]]{0,40}\]|,?\s*['‘\"“][^'‘’\"“”]{1,30}['’\"”])?"
+               r"\s*(?i:of)\s+(?:" + QUOTED.replace("q>", "f>") + "|" + FGROUP.replace("f>", "g>").replace("f2>", "g2>")
+               + rf"|(?P<h>{FWORD}(?:[\s+&]+{FWORD}){{0,7}}))"),
+]
+#: A denial: "not an anagram of", which names fodder only to rule it out.
+NOT_ANAGRAM = re.compile(r"(?i)\bnot\s+(?:an?\s+|the\s+|quite\s+)?anag")
+
+
+def capsy(tok):
+    """Whether a word is written in the blog's capitals: at least as many
+    capitals as lower-case letters outside brackets (PATChES, A, not The)."""
+    t = re.sub(r"\[[^\]]*\]|\{[^}]*\}", "", tok)
+    up = len(re.findall(rf"[{CAP}]", t))
+    return up > 0 and up >= len(re.findall(r"[a-zß-ÿ]", t))
+
+
+def _fodder_token(tok):
+    """(kept letters, whole word's letters) of one fodder word as a blog writes
+    it: PATChES keeps its capitals, Lan[dy] and HA[t] what is outside the
+    brackets, Tiber all of it; the whole word is the clue's."""
+    whole = "".join(f for f in map(fold, re.sub(r"[\[\]{}]", "", tok)) if f.isalnum() and f.isascii())
+    outside = re.sub(r"\[[^\]]*\]|\{[^}]*\}", "", tok)
+    if re.search(r"[\[{]", tok):
+        kept = outside
+    elif capsy(tok):
+        kept = re.sub(r"[a-zß-ÿ]", "", tok)  # RaCE: the a is not used
+    else:
+        kept = tok
+    return "".join(f for f in map(fold, kept) if f.isalnum() and f.isascii()), whole
+
+
+def _clue_runs(body):
+    """{letters: [(start, end)]} of every run of whole words of `body`."""
+    words = [(m.start(), m.end(), "".join(f for f in map(fold, m.group()) if f.isalnum() and f.isascii()))
+             for m in re.finditer(r"[\wÀ-ÿ'’]+", body)]
+    runs = collections.defaultdict(list)
+    for i in range(len(words)):
+        acc = ""
+        for j in range(i, len(words)):
+            acc += words[j][2]
+            if acc:
+                runs[acc].append((words[i][0], words[j][1]))
+    return runs
+
+
+def fodder_blocks(expl, body, answer, named):
+    """[(position, letters, clue words)] for the anagram fodder a write-up names.
+
+    Fodder counts only where its letters check against the answer: all of
+    them, in another order, or, where the write-up marks the fodder as an
+    anagram's, a part of them. Each piece is kept only as a run of whole
+    words of the clue found there once, so its letters are the clue's own;
+    fodder spread over the clue (A COURT ... GRASS) is one block a run.
+    `named` says the write-up names an anagram, which lets any run holding
+    all the answer's letters be fodder, as has_fodder reads it."""
+    if not answer or NOT_ANAGRAM.search(expl):
+        return []
+    cands = []
+    for k, rx in enumerate(MARKED_FODDER):
+        for m in rx.finditer(expl):
+            g = next(g for g in ("f", "f2", "g", "g2", "h") if m.groupdict().get(g))
+            # Bare words are fodder only as far as they are capitals: the run
+            # before a star or "(anag)" ends at it, the one after "of" starts there.
+            cands.append((m.start(g), m.group(g), True, "suffix" if k in (2, 3) else "prefix" if g == "h" else None))
+    if named:
+        cands += [(p, t, False, None) for p, t in _fodder_runs(expl)]
+    runs = _clue_runs(body)
+    need = collections.Counter(answer)
+    out = []
+    for at, text, marked, trim in sorted(cands, key=lambda c: (c[0], not c[2])):
+        toks = [t for t in re.split(r"[\s+&,]+", text.strip(" '‘’\"“”")) if re.search(r"[A-Za-z]", t)]
+        if trim:
+            order = toks[::-1] if trim == "suffix" else toks
+            n = next((i for i, t in enumerate(order) if not capsy(t)), len(order))
+            toks = toks[len(toks) - n:] if trim == "suffix" else toks[:n]
+        elif any(capsy(t) for t in toks):
+            toks = [t for t in toks if capsy(t)]  # "ACT and ONE": the and is prose
+        # "anagram of LATIN + E": where the operand ends is not written, so
+        # the longest run of it whose letters check.
+        for n in range(len(toks), 0 if trim == "prefix" else len(toks) - 1, -1):
+            pieces = [_fodder_token(t) for t in toks[:n]]
+            kept = "".join(k for k, _ in pieces)
+            if kept != answer and len(kept) >= 3 and (
+                    sorted(kept) == sorted(answer) or marked and not collections.Counter(kept) - need):
+                break
+        else:
+            continue
+        i = 0
+        while i < len(pieces):
+            for j in range(len(pieces), i, -1):
+                spans = runs.get("".join(w for _, w in pieces[i:j]), [])
+                if len(spans) == 1:
+                    letters = " ".join(k for k, _ in pieces[i:j]).upper()
+                    src = body[spans[0][0]:spans[0][1]]
+                    if letters.replace(" ", "") and all((letters, src) != o[1:] for o in out):
+                        out.append((at + i, letters, src))
+                    i = j
+                    break
+            else:
+                i += 1
+    return out
+
+
+def _fodder_runs(expl):
+    """(position, text) of every run of capitals and every bracketed group of
+    a write-up: where has_fodder looks for a whole-clue anagram's fodder."""
+    return [(m.start(), m.group()) for m in ATOM.finditer(expl)] + [
+        (m.start(1), m.group(1)) for m in re.finditer(r"[(\[{]([^()\[\]{}]{2,60})[)\]}]", expl)
+        if not re.match(r"[\[{(]?[A-Za-z]", expl[m.end():m.end() + 2])]  # [OLI]{ves} is cut fodder
 
 
 def combined_type(named, spelled):
@@ -1385,14 +1517,14 @@ def facts_for_post(blog, entries, post):
             fact["badSpan"] = True
         answer = projection(solution)[0]
         blk = blocks(expl, body, answer, brackets) if answer else []
-        t = checked_type(expl, expl_marked, answer, blk, body)
+        t = checked_type(expl, expl_marked, answer, [b for b in blk if len(b) == 2], body)
         if t:
             fact["type"] = t
         if blk and "hidden" not in (t or ""):
             fact["blocks"] = blk
         whole_clue = defs and projection(" ".join(defs))[0] == projection(body)[0]  # &lit
         ind = indicators(blog, expl_marked, body, brackets,
-                         avoid=([] if whole_clue else defs or []) + [src for _, src in blk])
+                         avoid=([] if whole_clue else defs or []) + [b[1] for b in blk])
         if ind:
             fact["indicators"] = ind
         out[eid] = fact
@@ -1570,7 +1702,7 @@ def _items(field, value):
     if field == "definition":
         return {norm(d) for d in value or ()}
     if field == "blocks":
-        return {(atom_letters(l.upper()), norm(src)) for l, src in value or ()}
+        return {(atom_letters(l.upper()), norm(src)) for l, src, *_ in value or ()}
     if field == "indicators":
         return {w for i in value or () for w in re.findall(r"[\w'’]+", norm(i))}
     return {frozenset(value.split(" + "))} if value else set()
