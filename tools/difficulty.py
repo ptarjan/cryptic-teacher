@@ -125,10 +125,13 @@ The seven components, higher = harder:
              any series. A solver who has met an answer before reaches it
              sooner, whatever the clue does.
 
-  pairing_novelty  How seldom each answer was clued by this same definition
-             in earlier puzzles: the definition the blog underlines where a
-             blog writes the puzzle up, else our annotation's. A stock pairing
-             is recognised on sight.
+  pairing_novelty  How seldom each answer was clued by a definition with this
+             same head word in earlier puzzles: the definition the blog
+             underlines where a blog writes the puzzle up, else our
+             annotation's, reduced to its head (definition_head()). A stock
+             pairing is recognised on sight. Counted on the whole string, a
+             long definition almost never recurs and so reads as novel, which
+             charges a series for writing long definitions.
 
              Both count ONLY puzzles dated before this one, so a rating never
              moves because a later puzzle arrived, and both are shares or
@@ -459,6 +462,32 @@ def definition_key(d):
     return " ".join(re.findall(r"[a-z]+", (d or "").lower()))
 
 
+#: Words a definition's head is never: articles, example markers, the tails of
+#: contractions ("that'll", "who's").
+HEAD_SKIP = {"a", "an", "the", "and", "or", "is", "be", "it", "its", "his", "her",
+             "their", "this", "not", "no", "some", "being", "perhaps", "say", "eg",
+             "etc", "maybe", "possibly", "s", "ll", "m", "re", "ve", "d"}
+#: A word that opens a definition's modifier: its head is the word before it.
+HEAD_BREAK = {"of", "to", "for", "with", "in", "on", "from", "at", "by", "about",
+              "who", "that", "which", "where"}
+
+
+def definition_head(d):
+    """The head word of a definition key: the last word before its first
+    preposition or relative ("part of london" -> part, "one who is wise" ->
+    one), else its last word ("hot african location" -> location), articles
+    and example markers skipped. A pairing is counted on it, so a definition
+    reads as familiar whatever length it is written at."""
+    ws = d.split()
+    for i, w in enumerate(ws):
+        if w in HEAD_BREAK and i:
+            before = [x for x in ws[:i] if x not in HEAD_SKIP]
+            if before:
+                return before[-1]
+    kept = [x for x in ws if x not in HEAD_SKIP and x not in HEAD_BREAK]
+    return kept[-1] if kept else d
+
+
 @functools.lru_cache(maxsize=1)
 def blog_definitions():
     """{puzzle id: {entry id: definition}}: the blogger's underlined definition,
@@ -493,9 +522,10 @@ def history():
                      the collection grows.
     pairing_novelty  Mean over the defined answers of -ln(1 + n *
                      PAIRING_SCALE / N), where n of the N earlier puzzles that
-                     carry any definition paired this answer with this
-                     definition. A definition is the blog's underlined one,
-                     else our annotation's. The pairs are sparse, so the count
+                     carry any definition paired this answer with a
+                     definition of this head word (definition_head()). A
+                     definition is the blog's underlined one, else our
+                     annotation's. The pairs are sparse, so the count
                      is scaled to a fixed history rather than smoothed into a
                      share, which would drift with N through its zeros.
 
@@ -522,7 +552,7 @@ def history():
             sols.add(sol)
             d = bd.get(e.get("id")) or definition_key((e.get("annotation") or {}).get("definition"))
             if d:
-                pairs.add((sol, d))
+                pairs.add((sol, definition_head(d)))
         rows.append((day, puz["id"], sols, pairs))
     rows.sort(key=lambda r: r[0])
     seen, paired = {}, {}
