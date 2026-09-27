@@ -443,6 +443,10 @@ const openId = bootLoaded[0];
 // count below is gated on, because those counts are statements about the whole
 // corpus and a sample cannot make them.
 const FULL = !!process.env.CI || !!process.env.CT_FULL;
+function load(p) {
+  if (global.window.CRYPTIC_PUZZLES[p.id]) return;
+  new Function("window", fs.readFileSync(path.join(ROOT, "puzzles", p.file), "utf8"))(global.window);
+}
 const corpus = (() => {
   const all = global.CRYPTIC_INDEX.puzzles;
   if (FULL) return all;
@@ -463,6 +467,13 @@ const corpus = (() => {
     // Twenty rather than five: most new puzzles carry a blog's facts, and both
     // the degraded panel and the blog-hint ladder below each need one.
     newest((p) => !p.annotated && p.hasSolutions).slice(0, 20),
+    // The degraded panel wants one with no blog and no annotation at all, which
+    // the newest twenty stop holding once the blogs cover them.
+    newest((p) => !p.annotated && p.hasSolutions).filter((p) => {
+      load(p);
+      const puz = global.window.CRYPTIC_PUZZLES[p.id];
+      return puz && !puz.blog && puz.entries.every((e) => !e.annotation);
+    }).slice(0, 1),
     newest((p) => p.solutionsUnofficial).slice(0, 1),
     newest((p) => p.annotated && p.hasSolutions && !p.solutionsUnofficial).slice(0, 1),
     newest((p) => !p.date && p.annotated).slice(0, 1),
@@ -470,10 +481,7 @@ const corpus = (() => {
     // whatever booted and the sample must not be read as dropping it.
     all.filter((p) => p.id === openId));
 })();
-corpus.forEach((p) => {
-  if (global.window.CRYPTIC_PUZZLES[p.id]) return;
-  new Function("window", fs.readFileSync(path.join(ROOT, "puzzles", p.file), "utf8"))(global.window);
-});
+corpus.forEach(load);
 assert(Object.keys(global.window.CRYPTIC_PUZZLES).length >= (FULL ? 25 : 5),
   "the corpus is loaded for the checks below");
 if (!FULL) console.log(`(sampled ${corpus.length} puzzles of ${global.CRYPTIC_INDEX.puzzles.length}; `
@@ -1969,10 +1977,11 @@ const noneAnnotated = (p) => {
   return puz && !puz.blog && puz.entries.every((e) => !e.annotation);
 };
 const autoPuzzle = allPuzzles.find((p) => !p.annotated && p.hasSolutions && noneAnnotated(p));
-const autoRow = pickerRowFor(autoPuzzle.id);
+const autoRow = assert(autoPuzzle, "the corpus holds a puzzle with no annotation and no blog")
+  && pickerRowFor(autoPuzzle.id);
 // Guarded: everything below is about the row, so without it the reads throw
 // and the stack trace hides every later test rather than reporting one FAIL.
-if (assert(autoRow, `picker finds ${autoPuzzle.id} when searched for`)) {
+if (autoPuzzle && assert(autoRow, `picker finds ${autoPuzzle.id} when searched for`)) {
   assert(autoRow.children[0].innerHTML.includes("answers only"),
     `searching for ${autoPuzzle.id} surfaces the un-annotated puzzle`);
   autoRow.children[0].onclick();
@@ -2062,14 +2071,16 @@ if (assert(autoRow, `picker finds ${autoPuzzle.id} when searched for`)) {
   if (assert(target, "the sample holds an un-annotated puzzle with blog facts")) {
     const puz = puzzles[target.id];
     const e = puz.entries.find((x) => !x.annotation && x.blog && (x.blog.definition || []).length === 1);
+    // As the page prints it: "Big Dave's" arrives as "Big Dave&#39;s".
+    const blogName = puz.blog.name.replace(/&/g, "&amp;").replace(/'/g, "&#39;");
     if (openFromPicker(target.id)) {
-      assert(registry["puzzle-title"].innerHTML.includes("hints via " + puz.blog.name),
+      assert(registry["puzzle-title"].innerHTML.includes("hints via " + blogName),
         `${target.id}'s title names the blog its hints come from: ${registry["puzzle-title"].innerHTML}`);
       registry["clue-" + e.id].listeners.click[0]();
-      assert(registry["hint-meter"].innerHTML.includes("hints via " + puz.blog.name),
+      assert(registry["hint-meter"].innerHTML.includes("hints via " + blogName),
         `${target.id} ${e.id}: the meter badges blog-derived hints`);
       assert(registry["hint-escape"].innerHTML.includes(`href="${puz.blog.url}"`)
-        && registry["hint-escape"].innerHTML.includes("Full explanation on " + puz.blog.name),
+        && registry["hint-escape"].innerHTML.includes("Full explanation on " + blogName),
         `${target.id} ${e.id}: links to the full write-up: ${registry["hint-escape"].innerHTML}`);
       const def = registry["hint-next"].children.find((b) => /Where is the definition/.test(b.textContent));
       if (assert(def, `${target.id} ${e.id}: has a definition rung: ${btnNames()}`)) {
