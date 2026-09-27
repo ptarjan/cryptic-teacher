@@ -79,11 +79,11 @@ U_ON, U_OFF, E_ON, E_OFF = "", "", "", ""
 MARKS = U_ON + U_OFF + E_ON + E_OFF
 BLOCK_TAGS = {"p", "br", "div", "tr", "td", "th", "li", "h1", "h2", "h3", "h4",
               "h5", "h6", "table", "tbody", "ul", "ol"}
-UNDERLINE_STYLE = re.compile(r"text-decoration(?:-line)?\s*:\s*underline", re.I)
+UNDERLINE_STYLE = re.compile(r"text-decoration(?:-line)?\s*:\s*underline", re.IGNORECASE)
 #: fifteensquared's table plugin marks the definition by class, not by style.
 DEFINITION_CLASS = re.compile(r"(?:^|\s)fts-definition(?:\s|$)")
 #: A post with none of these marks its definitions, if at all, in bold italic.
-ANY_UNDERLINE = re.compile(r"<u>|<ins>|text-decoration(?:-line)?\s*:\s*underline|fts-definition", re.I)
+ANY_UNDERLINE = re.compile(r"<u>|<ins>|text-decoration(?:-line)?\s*:\s*underline|fts-definition", re.IGNORECASE)
 SKIP_TAGS = {"s", "strike", "del", "script", "style"}
 BOLD, ITALIC = {"b", "strong"}, {"i", "em"}
 
@@ -223,14 +223,14 @@ OPENS = r"(?:^|(?<=[\n:–—;.(])|(?<=[\n:–—;.(] ))\s*(?:it's\s+|this\s+is\
 TYPES = (
     ("double definition", re.compile(
         r"\b(?:double|two|triple|three)[\s-]+def(?:inition|n)?s?\b|\bDD\b|\b2\s?defs?\b"
-        r"|\b(?:two|three) meanings\b", re.I)),
-    ("cryptic definition", re.compile(OPENS + r"(?:cryptic(?:ally)?\s+def(?:inition)?|CD)\b", re.I)),
-    ("anagram", re.compile(r"\banagram\b|\banag\b|[A-Z)]\*|\*\s*\(|\banagrind", re.I)),
-    ("spoonerism", re.compile(r"\bspooner(?:ism|'s)?\b", re.I)),
-    ("homophone", re.compile(r"\bhomophone\b|\bsounds like\b", re.I)),
+        r"|\b(?:two|three) meanings\b", re.IGNORECASE)),
+    ("cryptic definition", re.compile(OPENS + r"(?:cryptic(?:ally)?\s+def(?:inition)?|CD)\b", re.IGNORECASE)),
+    ("anagram", re.compile(r"\banagram\b|\banag\b|[A-Z)]\*|\*\s*\(|\banagrind", re.IGNORECASE)),
+    ("spoonerism", re.compile(r"\bspooner(?:ism|'s)?\b", re.IGNORECASE)),
+    ("homophone", re.compile(r"\bhomophone\b|\bsounds like\b", re.IGNORECASE)),
     ("hidden word", re.compile(
         OPENS + r"(?:reversed?\s+|reverse\s+)?hidden\b"
-        r"|\bhidden\s+(?:reversed?\s+|backwards\s+)?(?:word\s+)?(?:in|within|inside)\b|\[hidden", re.I)),
+        r"|\bhidden\s+(?:reversed?\s+|backwards\s+)?(?:word\s+)?(?:in|within|inside)\b|\[hidden", re.IGNORECASE)),
 )
 #: A write-up that hedges ("almost a DD", "a dd cum cd", "sort of") or denies
 #: ("not an anagram") has not named the type, so nothing is read off it.
@@ -239,9 +239,9 @@ HEDGED = re.compile(
     r"|\bnot quite\b|\balmost\b|\bsort of\b|\bkind of\b|\bnearly\b|\bish\b|\bcum\b"
     r"|\bI think\b|\bI suppose\b|\bdefinition\s*\?|\b[cd]d\s*\?"
     r"|\b[cd]d\s*/\s*[cd]d\b|\bsemi|\bor (?:an?|the) (?:anagram|homophone|double|cryptic|&\s*lit)",
-    re.I)
+    re.IGNORECASE)
 ANAGRAM_NAMED = dict(TYPES)["anagram"]
-REVERSED = re.compile(r"\brevers|\bbackwards?\b|\bup\b(?=.*\bhidden)", re.I)
+REVERSED = re.compile(r"\brevers|\bbackwards?\b|\bup\b(?=.*\bhidden)", re.IGNORECASE)
 
 
 def clue_type(expl):
@@ -260,7 +260,7 @@ def clue_type(expl):
 
 #: A timesforthetimes post puts indicators in [square brackets] only where its
 #: blogger's key says so; other bloggers' brackets hold glosses or deletions.
-BRACKETS_ARE_INDICATORS = re.compile(r"(?:indicators|directions) in square (?:ones|brackets)", re.I)
+BRACKETS_ARE_INDICATORS = re.compile(r"(?:indicators|directions) in square (?:ones|brackets)", re.IGNORECASE)
 BRACKETED = re.compile(r"(?<![A-Za-z])\[([^\[\]]{2,60})\](?![A-Za-z])")
 ITALIC_IN_PARENS = re.compile(r"\(" + E_ON + r"([^" + MARKS + r"()]{2,60})" + E_OFF + r"\)")
 ELLIPSIS = re.compile(r"\s*(?:…|\.\.\.)\s*")
@@ -299,7 +299,7 @@ def in_clue(phrase, body):
     if len(phrase) < 2:
         return None
     norm = lambda t: t.replace("’", "'").replace("‘", "'")
-    m = re.search(r"(?<![\w'])" + re.escape(norm(phrase)) + r"(?![\w])", norm(body), re.I)
+    m = re.search(r"(?<![\w'])" + re.escape(norm(phrase)) + r"(?![\w])", norm(body), re.IGNORECASE)
     return body[m.start():m.end()] if m else None
 
 
@@ -1484,7 +1484,7 @@ def align(entries, stream):
 #: was not found.
 NEXT_CLUE = re.compile(
     r"\n[ \t\ue000-\ue003]*(?:\d{1,2}(?:[ \t]*(?:a|d|ac|dn|across|down)\b)?[ \t.]*"
-    r"(?=\n|[ \t]*[\"'‘“A-Z(\ue000-\ue003])|(?:across|down)\b)", re.I)
+    r"(?=\n|[ \t]*[\"'‘“A-Z(\ue000-\ue003])|(?:across|down)\b)", re.IGNORECASE)
 
 
 def facts_for_post(blog, entries, post):
@@ -1517,7 +1517,8 @@ def facts_for_post(blog, entries, post):
             fact["badSpan"] = True
         answer = projection(solution)[0]
         blk = blocks(expl, body, answer, brackets) if answer else []
-        t = checked_type(expl, expl_marked, answer, [b for b in blk if len(b) == 2], body)
+        t = checked_type(expl, expl_marked, answer, [b for b in blk if len(b) == 2], body) \
+            or ("double definition" if two_ends(defs, body) and not blk and "+" not in expl else None)
         if t:
             fact["type"] = t
         if blk and "hidden" not in (t or ""):
@@ -1631,6 +1632,24 @@ def inputs_digest():
 
 # ------------------------------------------------------------------ outputs
 
+#: The most words between the two halves of a double definition: 98.5% of
+#: the ones blogs named have at most this many ("for", "to be").
+MAX_DD_GAP = 2
+
+
+def two_ends(defs, body):
+    """Whether two underlined spans are the clue's first and last words with
+    at most MAX_DD_GAP words between: the two halves of a double definition,
+    where a split definition or a blogger's emphasis sits elsewhere."""
+    if not defs or len(defs) != 2:
+        return False
+    head, tail = defs
+    a, b = body.find(head), body.rfind(tail)
+    n = lambda s: len(re.findall(r"\w+", s))
+    return 0 <= a and a + len(head) <= b and not n(body[:a]) and not n(body[b + len(tail):]) \
+        and n(body[a + len(head):b]) <= MAX_DD_GAP
+
+
 def publishable(fact):
     """The facts of one clue that ship: what was found, minus the bookkeeping.
 
@@ -1684,7 +1703,7 @@ def measure(best, series):
     print(f"{'blog':17} {'series':16} {'puzzles':>7} {'clues':>7} {'found%':>6} {'def%':>6} {'type%':>6} {'ind%':>6} {'blk%':>6} {'bad%':>5}")
     for (blog, s), c in sorted(rows.items(), key=lambda kv: (kv[0][0], str(kv[0][1]))):
         n = max(1, c["clues"])
-        print(f"{blog:17} {str(s):16} {c['puzzles']:7} {c['clues']:7} {100 * c['found'] / n:6.1f} {100 * c['definition'] / n:6.1f} "
+        print(f"{blog:17} {s!s:16} {c['puzzles']:7} {c['clues']:7} {100 * c['found'] / n:6.1f} {100 * c['definition'] / n:6.1f} "
               f"{100 * c['type'] / n:6.1f} {100 * c['indicators'] / n:6.1f} {100 * c['blocks'] / n:6.1f} {100 * c['badSpan'] / n:5.1f}")
 
 
@@ -1761,7 +1780,7 @@ def main():
     # at a time machine-wide: the lock lives in $HOME, not in the checkout, so a
     # second clone kept for an old-vs-new comparison waits its turn too.
     os.nice(19)
-    lock = open(Path.home() / ".cache" / "cryptic-blog-facts.lock", "a")
+    lock = open(Path.home() / ".cache" / "cryptic-blog-facts.lock", "a")  # noqa: SIM115 -- held until exit
     try:
         fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
     except BlockingIOError:
@@ -1779,8 +1798,7 @@ def main():
         best, series = extract(args.blog or sorted(BLOGS), with_bigdave_records=True, jobs=args.jobs)
     if args.dump:
         with open(args.dump, "w", encoding="utf-8") as f:
-            for r in best.values():
-                f.write(json.dumps(r, ensure_ascii=False) + "\n")
+            f.writelines(json.dumps(r, ensure_ascii=False) + "\n" for r in best.values())
     if args.measure:
         measure(best, series)
     if args.sample:
@@ -1794,8 +1812,8 @@ def main():
     corpus = list(letter_facts.rows())
     n = letter_facts.write(corpus, letter_facts.indicator_votes(corpus))
     print(f"and read off the letters (tools/letter_facts.py): a type for {n['type']} clues the blogs "
-          f"left untyped, blocks for {n['blocks']} whose blocks they left out, indicators for "
-          f"{n['indicators']} whose indicators they left out")
+          f"left untyped, blocks for {n['blocks']} whose blocks they left out, a definition for "
+          f"{n['definition']} with none underlined, indicators for {n['indicators']} whose indicators they left out")
     if not (args.blog or args.from_dump):
         STAMP.write_text(digest + "\n")
 

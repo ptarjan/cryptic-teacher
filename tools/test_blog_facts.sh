@@ -45,6 +45,17 @@ check "double definition keeps both halves" \
 SPLIT='<p>3 <u>Consequence</u> of <u>lob</u>? (6)<br/>UP + SHOT</p>'
 check "two spans that are not a double definition ship no definition" \
   '{}' "$(facts fifteensquared 'Consequence of lob? (6)' "$SPLIT" UPSHOT)"
+# A blogger who underlines both ends and names no type has marked a double
+# definition; one whose explanation spells the answer has marked a split one.
+check "two spans at the two ends, the explanation no wordplay, are a double definition" \
+  '{"definition": ["Criminal", "tendency"], "type": "double definition"}' \
+  "$(facts bigdave44 'Criminal tendency (4)' '<p>1a <u>Criminal</u> <u>tendency</u> (4)<br/>BENT – Slang for criminal or a tendency or inclination</p>' BENT)"
+check "two spans at the two ends round wordplay are not" \
+  '{"blocks": [["RASH VOTE", "Rash vote", "anagrammed"]]}' "$(facts timesforthetimes 'Rash vote cast before end of day could be this? (9)' \
+    '<p>1 <u>Rash vote cast before end of day could be</u> <u>this</u>? (9)<br/>OVERHASTY – (rash vote)* + last letter of daY</p>' OVERHASTY)"
+check "two spans with a clue word before the first are not" \
+  '{}' "$(facts fifteensquared 'Heartless type shot big game (4)' \
+    '<p>1 Heartless type shot <u>big</u> <u>game</u> (4)<br/>definition as in a Test Match</p>' TEST)"
 
 check "an underline cutting into a word is refused" \
   'NONE' "$(facts fifteensquared 'Cloth sample (4)' '<p>C<u>loth</u> sample (4)<br/>x</p>' SARI | sed 's/{}/NONE/')"
@@ -259,5 +270,21 @@ html = sp.clue_html({"id": "1-across", "number": 1, "direction": "across", "solu
                      "clue": "Teacher expresses disapproval holding minerals (8)", "blog": f})
 print("holding</mark> <span class=\"s-note\">worked out from the letters</span>" in html,
       "Indicators worked out from the letters" in html)')"
+check "the site and the validator take an inferred definition as ours, not the blogger's" \
+  'True True 0' \
+  "$(REPO="$REPO" python3 -c '
+import os, sys
+sys.path.insert(0, os.path.join(os.environ["REPO"], "tools"))
+import build_seo_pages as sp, letter_facts as lf, validate_annotations as va
+f = lf.with_definition({"blocks": [["TUTS", "expresses disapproval"], ["ORES", "minerals"]]}, ["Teacher"])
+html = sp.clue_html({"id": "1-across", "number": 1, "direction": "across", "solution": "TUTORESS",
+                     "clue": "Teacher expresses disapproval over minerals (8)", "blog": f})
+e = {"id": "1-across", "number": 1, "direction": "across", "clue": "Teacher expresses disapproval over minerals (8)",
+     "annotation": {"definition": "minerals"}}
+va.blog_facts_for = lambda p: {"name": "b", "url": "u", "entries": {"1-across": f}}
+w = []
+va.check_definition_against_blog({"entries": [e]}, w)
+print("Teacher</dfn> <span class=\"s-note\">worked out from the letters</span>" in html,
+      "Definition worked out from the letters" in html, len(w))')"
 
 [ "$fails" -eq 0 ] && echo "all blog_facts checks passed" || { echo "$fails failed"; exit 1; }

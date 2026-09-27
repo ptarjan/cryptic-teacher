@@ -1579,7 +1579,9 @@ def check_definition_against_blog(puzzle, warnings):
         return (every - LINKING_WORDS) or every
     for e in puzzle["entries"]:
         ann = e.get("annotation") or {}
-        theirs = (row["entries"].get(e["id"]) or {}).get("definition")
+        fact = row["entries"].get(e["id"]) or {}
+        # one tools/letter_facts.py read off other write-ups is not this blogger's underline
+        theirs = None if "definition" in fact.get("inferred", ()) else fact.get("definition")
         if not ann.get("definition") or not theirs:
             continue
         ours = words(ann["definition"]) | words(ann.get("definition2") or "")
