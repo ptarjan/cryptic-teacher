@@ -145,8 +145,12 @@ The eight components, higher = harder:
              the definition is not a plain synonym, which is the part of a
              clue the wordplay components do not see. Commenters flag such
              clues hard, and name them as their last one in, more often than
-             the rest. It needs only the clue text, so it is there for every
-             series, annotated or not.
+             the rest. A clue whose answer is the first letters of its own
+             consecutive words is not counted (acrostic()): there the mark
+             flags an all-in-one acrostic, which gives itself up, and the
+             Everyman closes most of its puzzles with one, so counting it
+             charges the Everyman for a house style. It needs only the clue
+             text, so it is there for every series, annotated or not.
 
   definition_unrelated  The share of clues whose definition WordNet does not
              tie to the answer: no content word of it is the answer's synset,
@@ -752,8 +756,17 @@ def device(puz):
 ENUMERATION = re.compile(r"\s*\([\d,.\s\-–']+\)\s*$")
 
 
+def acrostic(answer, clue):
+    """Whether the answer is the first letters of consecutive clue words."""
+    initials = "".join(w[0] for w in (letters(x) for x in clue.split()) if w)
+    return bool(answer) and answer in initials
+
+
 def question_marks(puz):
-    """Share of the clues ending in a question mark, ignoring closing quotes.
+    """Share of the clues ending in a question mark, ignoring closing quotes,
+    whose answer is not an acrostic of them (acrostic()): the mark on
+    "Primarily, men attending godliest infant?" flags the all-in-one, not an
+    indirect definition.
 
     None for a puzzle with no clue text. A cross-reference ("See 5") is not a
     clue and is left out."""
@@ -761,7 +774,7 @@ def question_marks(puz):
     for e in puz["entries"]:
         clue = ENUMERATION.sub("", e.get("clue") or "").strip().rstrip("\"'”’)")
         if clue and not re.match(r"(?i)see\b", clue):
-            ends.append(clue.endswith("?"))
+            ends.append(clue.endswith("?") and not acrostic(letters(e.get("solution")), clue))
     return sum(ends) / len(ends) if ends else None
 
 
