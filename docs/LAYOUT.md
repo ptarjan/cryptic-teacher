@@ -221,13 +221,21 @@ tools/letter_facts.py                        adds a clue type the blog left out 
                                              with or prints, and the answer's letters agree on
                                              one split (read off the leads blog_facts.py keeps
                                              beside its cache; 98.6% exact against blog blocks
-                                             hidden from it, held out by puzzle); blog_facts.py
-                                             runs it after each write
+                                             hidden from it, held out by puzzle); a hidden
+                                             word's carrier, the one run of clue words that
+                                             spells it (98.4% our annotations' own);
+                                             blog_facts.py runs it after each write; --coverage
+                                             says what the written facts cover and why the rest
+                                             fall short
 tools/test_letter_facts.sh                   holds letter_facts.py to one reading per clue: a
                                              literal word is not an anagram, a lone word's
                                              initial not an abbreviation unless listed, fodder
                                              less blocks is left undecided, a write-up's prose
-                                             read into blocks only where it gives one split
+                                             read into blocks only where it gives one split, a
+                                             word beside a block left out only where blogs
+                                             seldom take it in, fodder apart in the clue
+                                             anagrammed as one, a hidden word's carrier only
+                                             where one run spells it
 tools/test_blog_facts.sh                     holds that reader to hand-built posts, so a
                                              definition or a block's source is only ever words
                                              of our clue and a type only one the write-up names
