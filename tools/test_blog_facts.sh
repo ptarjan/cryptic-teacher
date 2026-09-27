@@ -236,6 +236,18 @@ check "a possessive reads as the word, written as blogs write it" \
   '[["I", "one"], ["CE", "church"], ["CAP", "hat"]]' \
   "$(lex 'Polar covering: one church’s hat (6)' ICECAP '{"definition": ["Polar covering"]}')"
 
+# What a write-up says short of its blocks, for letter_facts to read blocks
+# off: the capitals in the answer, the clue words it glosses them with (not
+# the words its prose runs on into), the clue words it prints, what it names.
+check "leads: capitals, their glosses, the clue words printed, an anagram and a letter taken" \
+  '{"anagram": true, "caps": ["DULCIE", "IMER", "M"], "letter": true, "near": [["DULCIE", "Girl"], ["IMER", "right instrument"], ["M", "entertaining"]], "printed": ["Girl entertaining", "right instrument"]}' \
+  "$(REPO="$REPO" python3 -c '
+import json, os, sys
+sys.path.insert(0, os.path.join(os.environ["REPO"], "tools"))
+import blog_facts as bf
+print(json.dumps(bf.leads("DULCIE (girl) entertaining M, then IMER = right instrument, an anagram; the first letter",
+                          "Girl entertaining millions with right instrument", "DULCIMER"), sort_keys=True))')"
+
 # An inferred block is marked, and every reader tells it from the blog's.
 check "an inferred block is marked, and the facts as stated drop it" \
   '{"blocks": [["CAP", "hat"], ["I", "one", "inferred"]], "inferred": ["blocks", "type"], "type": "charade"} {"blocks": [["CAP", "hat"]]}' \
