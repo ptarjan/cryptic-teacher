@@ -17,7 +17,7 @@
 #      tonight's cold solves plus the older backlog, on top of the new arrivals.
 #      All of it runs only while the account's weekly usage window is under
 #      ANNOTATE_MAX_WEEKLY_PCT (default 90) and its five-hour window is under
-#      ANNOTATE_MAX_SESSION_PCT (default 70), re-read between puzzles. Stops
+#      ANNOTATE_MAX_SESSION_PCT (default 90), re-read between puzzles. Stops
 #      early if a run fails rather than burning the rest of the quota on doomed
 #      attempts — except when the wall-clock cap kills it, which says this grid
 #      is lost and nothing about the next one, so the queue carries on.
@@ -600,7 +600,7 @@ fi
 # zero at 06:15 by construction — and that is why runs kept annotating two
 # puzzles and then dying on the third with "you've hit your limit", which is a
 # quota being discovered by crashing into it rather than being budgeted.
-ANNOTATE_MAX_SESSION_PCT="${ANNOTATE_MAX_SESSION_PCT:-70}"
+ANNOTATE_MAX_SESSION_PCT="${ANNOTATE_MAX_SESSION_PCT:-90}"
 # Turns are the wrong unit to bound a run by, because one turn is not one price.
 # A turn cut off for overrunning the output ceiling emits no tool call, so the
 # CLI keeps its --max-turns budget intact and simply tries again; the ceiling is
