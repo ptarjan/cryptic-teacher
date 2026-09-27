@@ -248,5 +248,16 @@ w = []
 va.check_blocks_against_blog({"entries": [e]}, w)
 ann = fp.blog_annotation({**e, "blog": {"blocks": [["CAP", "hat"], ["I", "one", "inferred"]]}})
 print(json.dumps(ann["blocks"]), json.dumps(w), len(bf._items("blocks", blocks)))')"
+check "the site takes inferred indicators as ours, not the blogger's" \
+  'True True' \
+  "$(REPO="$REPO" python3 -c '
+import os, sys
+sys.path.insert(0, os.path.join(os.environ["REPO"], "tools"))
+import build_seo_pages as sp, letter_facts as lf
+f = lf.with_indicators({"definition": ["Teacher"], "blocks": [["TUTS", "expresses disapproval"], ["ORES", "minerals"]]}, ["holding"])
+html = sp.clue_html({"id": "1-across", "number": 1, "direction": "across", "solution": "TUTORESS",
+                     "clue": "Teacher expresses disapproval holding minerals (8)", "blog": f})
+print("holding</mark> <span class=\"s-note\">worked out from the letters</span>" in html,
+      "Indicators worked out from the letters" in html)')"
 
 [ "$fails" -eq 0 ] && echo "all blog_facts checks passed" || { echo "$fails failed"; exit 1; }

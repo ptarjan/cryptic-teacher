@@ -393,22 +393,25 @@ def clue_html(e, blog_note=True):
             f'<li><mark>{esc(k)}</mark> — {esc(v)}</li>'
             for k, v in ind_notes.items())
         bits.append(f'<p><em>Indicators:</em></p><ul>{rows}</ul>')
+    # A type or indicators tools/letter_facts.py read off the letters are not the blogger's.
+    inferred = (e.get("blog") or {}).get("inferred", ()) if ann.get("fromBlog") else ()
     # A blog's marked indicators carry no note of their own; the app lists them
     # bare too.
     if ann.get("fromBlog") and ann.get("indicators"):
         bits.append('<p><em>Indicators:</em> '
                     + ", ".join(f'<mark>{esc(w)}</mark>' for w in ann["indicators"])
+                    + (' <span class="s-note">worked out from the letters</span>' if "indicators" in inferred else "")
                     + "</p>")
     if ann.get("fromBlog"):
-        # A type tools/letter_facts.py read off the letters is not the blogger's.
-        read = "type" in (e.get("blog") or {}).get("inferred", ())
+        read = " and ".join(name for key, name in (("type", "clue type"), ("indicators", "indicators"))
+                            if key in inferred).capitalize()
         if blog_note:
             bits.append('<p class="muted">'
-                        + ("Clue type worked out from the letters, the rest marked up from the blogger\'s write-up; "
+                        + (f"{read} worked out from the letters, the rest marked up from the blogger\'s write-up; "
                            if read else "Marked up from the blogger\'s write-up; ")
                         + 'our own explanation is not written yet.</p>')
         elif read:
-            bits.append('<p class="muted">Clue type worked out from the letters, '
+            bits.append(f'<p class="muted">{read} worked out from the letters, '
                         'not the blogger\'s.</p>')
     # The surface first, the same order and for the same reason as the app's
     # walkthrough rung: what the clue pretends to be about, then what it is doing.
@@ -618,12 +621,15 @@ def puzzle_page(puz, meta, prev_p, next_p):
     blog_only = (not any(e.get("annotation") for e in across + down)
                  and any(e.get("blog") for e in across + down))
     if blog_only:
-        read = any("inferred" in b[2:] for e in across + down for b in (e.get("blog") or {}).get("blocks", ()))
+        facts = [e.get("blog") or {} for e in across + down]
+        read = " and ".join(name for name, hit in (
+            ("pieces", any("inferred" in b[2:] for f in facts for b in f.get("blocks", ()))),
+            ("indicators", any("indicators" in f.get("inferred", ()) for f in facts))) if hit)
         body.append('<p class="muted small-note">The definitions, pieces and indicators '
                     "below are marked up from the "
                     + (f"{esc(blog['name'])} write-up" if blog and blog.get("name")
                        else "blogger\'s write-up")
-                    + (", but for the pieces worked out from the letters" if read else "")
+                    + (f", but for the {read} worked out from the letters" if read else "")
                     + "; our own explanations are not written yet.</p>")
     for label, entries in (("Across", across), ("Down", down)):
         body.append(f'<section class="s-list"><h2>{label}</h2>')
