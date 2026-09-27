@@ -68,6 +68,9 @@ tools/test_fetch_independent.sh              drives that parser over the days wh
                                              proves each one lands on the right number AND the
                                              right series — the two sequences both ran under
                                              10,000, so the number never gets a vote
+tools/test_enumeration_separators.sh         holds the word breaks Metro and the Private Eye
+                                             get from each clue’s printed enumeration, single
+                                             lights and linked groups
 tools/fetch_observer.py                      the Observer’s Everyman
 tools/fetch_wayback.py                       recovers Guardian puzzles older than the live site
                                              keeps, out of the Wayback Machine’s captures
@@ -672,6 +675,11 @@ tools/test_fetch_snitch.sh                   does tools/fetch_snitch.py read the
                                              cells that are not a rating of that puzzle?
 scratch/snitch_features.py                   annotation-free features against the SNITCH NITCH,
                                              held out by date
+scratch/snitch_stage3.py                     the index's worst misses against the SNITCH, and
+                                             candidate components added to it, held out by date
+                                             third
+scratch/stage3_clue.py                       which kinds of clue Times for the Times commenters
+                                             flag hard or name last one in
 tools/blog_comment_difficulty.py             which clues human solvers found hard, read off
                                              Times for the Times comments
 tools/data/blog_comment_difficulty.json      per Times puzzle, the comment count, the median

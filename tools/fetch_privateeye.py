@@ -96,7 +96,7 @@ import urllib.request
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from fetch_puzzle import (PUZZLE_DIR, grade_model_fill, http_bytes,  # noqa: E402
+from fetch_puzzle import (PUZZLE_DIR, enumeration_separators, grade_model_fill, http_bytes,  # noqa: E402
                           merge_annotations, print_grade, puzzle_files,
                           puzzle_path, read_puzzle_file, still_worth_refreshing,
                           write_puzzle_file)
@@ -316,6 +316,8 @@ def convert(num, puz):
             **({"group": groups[eid]} if eid in groups else {}),
             "solution": None,  # see module docstring — never recoverable from this feed today
         })
+    # The .puz carries no word breaks; the Eye prints them in each clue's enumeration.
+    enumeration_separators(entries)
 
     return {
         "id": f"{SERIES}-{num}",
