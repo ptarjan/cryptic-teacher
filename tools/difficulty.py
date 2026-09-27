@@ -25,11 +25,14 @@ fitted to and lost to them on the held-out ones (Times daily held-out rho
 +0.24/+0.32/+0.22 at three cuts, against +0.09/+0.23/+0.23 for the refits).
 What agreement there is comes mostly from the device term; obscurity changes
 sign between the halves. So the index is still NOT a calibrated absolute, and
-the SNITCH is used for two things only: the --validate check, and the
+the SNITCH is used for three things only: the --validate check, the
 "typically SNITCH X-Y" range a Times badge quotes for its band
-(snitch_ranges()).
+(snitch_ranges()), and choosing which counts to add as components — never
+their weights. tools/snitch_report.py measures the index and each component
+against the NITCH minus its weekday mean, by date third, and is rerun
+nightly into tools/data/snitch_report.txt.
 
-So this measures three things that are genuinely in the file, reports each one
+So this measures four things that are genuinely in the file, reports each one
 separately so a reader can disagree with the weighting, and bands a puzzle by
 where it sits *against the rest of the collection*: "tougher than 80% of the
 puzzles here" is a claim the data can support, "Difficulty 7/10" is not.
@@ -87,7 +90,7 @@ puzzles a solver had already seen — a puzzle remembered as Tough quietly
 becoming Moderate because six easier ones arrived that week. Refreshing the
 baseline is a deliberate act (--rebaseline) that shows the diff.
 
-The three components, each 0-1, hardest = 1:
+The four components, higher = harder:
 
   checking   The share of an answer's letters that no other entry crosses.
              The oldest and least arguable measure there is: an unchecked
@@ -109,6 +112,12 @@ The three components, each 0-1, hardest = 1:
              how many of those pieces are one- or two-letter conventions rather
              than words you could think of. Assembly is the heavier of the two,
              because recognition is the part that gets cheap with practice.
+
+  machinery  How many operations the clues ask for, annotated puzzles only:
+             indicators per clue, plus one for a clue stacking three or more
+             devices. `device` asks which tools a clue uses; this asks how
+             many times you have to use one. It is the feature that tracks
+             the part of the SNITCH its weekly ramp does not explain.
 
 Weights are stated below as an editorial judgement, not a fit. Change them if
 you disagree; the components are printed alongside so the change is arguable.
@@ -139,7 +148,7 @@ MISSING_RANK = 60000
 
 # How much each component moves the overall index. Checking leads because it is
 # the one component that is a fact rather than a judgement.
-WEIGHTS = {"checking": 0.45, "obscurity": 0.30, "device": 0.25}
+WEIGHTS = {"checking": 0.45, "obscurity": 0.30, "device": 0.25, "machinery": 0.25}
 
 # The series their own papers declare gentle, an input to --validate that lives
 # here rather than in the prose above so the test and the story it tells cannot
@@ -228,6 +237,39 @@ UNINDICATED_COST = 0.06
 # has no indicator because there is nothing to indicate, and its 0.55 already
 # prices that; bumping it too would just re-level the whole class.
 ALWAYS_UNINDICATED = {"double definition", "cryptic definition"}
+
+# --- how much machinery a clue carries: operations, counted -----------------
+#
+# `device` prices the families a clue uses; this counts the operations in it.
+# Every indicator the annotation records is one instruction the solver has to
+# spot and carry out, and a clue stacking three or more devices is one more
+# thing again: the order they apply in, which no single indicator states.
+# Against the SNITCH's NITCH minus its weekday mean, on the Times daily, this
+# holds in each date third where `device` does not, and adding it at the same
+# weight as `device` lifts the index in every third without costing it the raw
+# NITCH (tools/snitch_report.py prints both).
+STACKED_DEVICES = 3
+STACKED_OPERATIONS = 1
+
+
+def clue_machinery(e):
+    """One clue's operation count, or None when it carries no type."""
+    ann = e.get("annotation") or {}
+    parts = [p for p in (ann.get("type") or "").split("+") if p.strip()]
+    if not parts:
+        return None
+    return (len(ann.get("indicators") or [])
+            + STACKED_OPERATIONS * (len(parts) >= STACKED_DEVICES))
+
+
+def machinery(puz):
+    """Mean operations per clue. None when the puzzle is not fully annotated,
+    by the same rule as device()."""
+    ops = [m for m in (clue_machinery(e) for e in puz["entries"]) if m is not None]
+    if not ops or not puzzle_is_annotated(puz):
+        return None
+    return sum(ops) / len(ops)
+
 
 # Cut points in standard deviations of the index, so the band names mean
 # "…for a Guardian daily cryptic" — not "…for a crossword". A median Guardian
@@ -406,9 +448,9 @@ def device(puz):
 
 
 def raw(puz, rank):
-    """The three measurements, in their natural units, before any scaling."""
+    """The four measurements, in their natural units, before any scaling."""
     return {"checking": checking(puz), "obscurity": obscurity(puz, rank),
-            "device": device(puz)}
+            "device": device(puz), "machinery": machinery(puz)}
 
 
 def score(puz, rank, base):

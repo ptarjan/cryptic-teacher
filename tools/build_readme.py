@@ -217,6 +217,8 @@ LAYOUT = [
     ("finding out whether any of it is working", "tools/ga_report.py", "the same milestones as Google Analytics counts them, to see what a blocker hides"),
     ("finding out whether any of it is working", "tools/ga_wire_check.py", "watches the wire to confirm GA hits actually leave the browser"),
     ("finding out whether any of it is working", "tools/difficulty.py", "rates a puzzle from what its own file contains, banded against the corpus"),
+    ("finding out whether any of it is working", "tools/snitch_report.py", "the difficulty index and each component against the SNITCH, raw and minus its weekday mean, by date third, and per clue against the clues commenters found hard; run nightly"),
+    ("finding out whether any of it is working", "tools/data/snitch_report.txt", "tools/snitch_report.py's output, rewritten nightly, so its git history shows each number moving as ratings and annotations arrive"),
     ("finding out whether any of it is working", "tools/craft_report.py", "reports the four things about how a puzzle is set that the fifteensquared threads argue about and our fields can actually measure — separately, because the composite it replaced turned out to be thread size"),
     ("finding out whether any of it is working", "tools/favourites_survey.py", "joins the favourite clues commenters name back to our own clues, so craft_report.py has something outside this project to be tested against"),
     ("finding out whether any of it is working", "tools/suggest_demand.py", "asks Google autocomplete which puzzle numbers people search for, for the puzzles no page of ours ranks for yet"),
@@ -280,7 +282,6 @@ LAYOUT = [
     ("tables everything else reads", "tools/fetch_snitch.py", "fetch the SNITCH's ratings of The Times and Sunday Times cryptics into"),
     ("tables everything else reads", "tools/test_fetch_snitch.sh", "does tools/fetch_snitch.py read the SNITCH's week table into the right puzzle ids, and drop the cells that are not a rating of that puzzle?"),
     ("tables everything else reads", "scratch/snitch_features.py", "annotation-free features against the SNITCH NITCH, held out by date"),
-    ("tables everything else reads", "scratch/snitch_residual.py", "what predicts SNITCH difficulty beyond the weekday, on annotated Times puzzles"),
     ("tables everything else reads", "tools/blog_comment_difficulty.py", "which clues human solvers found hard, read off Times for the Times comments"),
     ("tables everything else reads", "tools/data/blog_comment_difficulty.json", "per Times puzzle, the comment count, the median solve time its commenters state, and per clue how many comments name the answer, flag it hard, and call it their last one in"),
 ]

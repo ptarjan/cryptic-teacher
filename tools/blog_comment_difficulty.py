@@ -181,25 +181,25 @@ def per_clue(table):
             continue
         rows = []
         for e in puz["entries"]:
-            cost = D.clue_cost(e)
+            cost, ops = D.clue_cost(e), D.clue_machinery(e)
             words = (e.get("solution") or "").upper().split() or [""]
             rare = math.log10(max(max(rank.get(w, D.MISSING_RANK) for w in words), 10))
             n = v["clues"].get(e["id"], [0, 0, 0])
             if cost is not None:
-                rows.append((cost, rare, e["length"], n[1], n[2]))
+                rows.append((cost, ops, rare, e["length"], n[1], n[2]))
         if len(rows) < 10:
             continue
         puzzles += 1
-        for i, name in enumerate(("cost", "rarity", "length", "hard", "loi")):
+        for i, name in enumerate(("cost", "machinery", "rarity", "length", "hard", "loi")):
             cols[name] += [x - 0.5 for x in _pct([r[i] for r in rows])]
     if puzzles < 20:
         print(f"per clue: only {puzzles} annotated puzzles have comments on disk so far")
         return
     print(f"per clue, within {puzzles} annotated puzzles ({len(cols['hard'])} clues):")
-    for x in ("cost", "rarity", "length"):
+    for x in ("cost", "machinery", "rarity", "length"):
         for y in ("hard", "loi"):
             r, n, p = rho(cols[x], cols[y])
-            print(f"  {x:7s} vs {y:4s} rho {r:+.3f} (p={p:.3g})")
+            print(f"  {x:9s} vs {y:4s} rho {r:+.3f} (p={p:.3g})")
 
 
 def _pct(xs):
@@ -221,6 +221,12 @@ def main():
     ap.add_argument("--measure", action="store_true")
     a = ap.parse_args()
     table = build()
+    # With no comment cache on disk (a fresh checkout, a moved volume) build()
+    # finds nothing, and writing that would replace the committed table with {}.
+    if not table:
+        print(f"no Times for the Times comments under {BLOG}; {OUT.relative_to(ROOT)} left as it was",
+              file=sys.stderr)
+        return 1
     OUT.write_text(json.dumps(table, sort_keys=True, separators=(",", ":")) + "\n")
     print(f"wrote {len(table)} puzzles to {OUT.relative_to(ROOT)}")
     if a.measure:
@@ -229,4 +235,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

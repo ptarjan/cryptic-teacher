@@ -101,6 +101,7 @@ for e in puz["entries"]:
     e.pop("separatorLocations", None)
     e.pop("annotation", None)
 print("DEVICE", difficulty.device(puz))
+print("MACHINERY", difficulty.machinery(puz))
 print("OBSCURE", difficulty.obscurity(puz, difficulty.ranks()) is not None)
 print("CLUEHTML", bool(build_seo_pages.clue_html(puz["entries"][0])))
 print("CARD", make_og_card.plan(puz["entries"][0]))
@@ -110,6 +111,7 @@ print("ANNOTATED", fetcher.puzzle_is_annotated(puz))
 PY
 )
 same "difficulty finds no device rather than crashing" "$(grep '^DEVICE ' <<<"$out")" "DEVICE None"
+same "nor any machinery" "$(grep '^MACHINERY ' <<<"$out")" "MACHINERY None"
 same "difficulty still scores obscurity" "$(grep '^OBSCURE ' <<<"$out")" "OBSCURE True"
 same "the crawlable page still renders the clue" "$(grep '^CLUEHTML ' <<<"$out")" "CLUEHTML True"
 same "the social card declines the clue rather than throwing" \
