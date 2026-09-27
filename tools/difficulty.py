@@ -19,11 +19,15 @@ external rating joined to puzzles we hold, and --validate prints the agreement.
 
 The SNITCH chooses components and never sets weights. A component joins the
 index, or replaces one, only when the index with it beats the index without
-it held out: the annotated Times dailies split into their own date thirds,
-each third scored against the NITCH minus the weekday mean of the rated
-puzzles outside it, winning in at least two of the three and on the mean,
-with the Sunday Times reported beside it and --validate's SERIES ORDER still
-passing. The weights are fixed, not fitted: held-out refits of them
+it held out, on two sets: the annotated Times dailies under the full index,
+and the rated Times dailies with no annotation under the components that
+need none (rarity, the two novelty counts, question_marks). Each set splits into its own date thirds, each third
+scored against the NITCH minus the weekday mean of the rated puzzles outside
+it, and the candidate must win in at least two of the three and on the mean
+in both, with the Sunday Times not falling and --validate's SERIES ORDER
+passing at a margin of at least 0.08 (scratch/snitch_stage4.py runs all of
+it). A candidate's sign is fixed before it is measured. The weights are fixed,
+not fitted: held-out refits of them
 (scratch/snitch_weights.py) came out unstable and never beat fixed ones. The
 index is NOT a calibrated absolute, and the SNITCH is used for three things:
 the --validate check, the "typically SNITCH X-Y" range a Times badge quotes
