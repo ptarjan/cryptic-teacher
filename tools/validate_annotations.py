@@ -1660,12 +1660,14 @@ def check_cryptic_definition_against_blog(puzzle, warnings):
         if "cryptic definition" not in (ann.get("type") or ""):
             continue
         named = [w for w in BLOG_WORDPLAY if w in theirs]
-        # A type in "inferred" is tools/letter_facts.py's reading of the letters, not the blogger's.
+        # A type in "inferred" is tools/letter_facts.py's reading of the letters, not the
+        # blogger's; with "typeCore" it is a lower bound, the clue that type and maybe a selection.
         who = "its letters read" if "type" in fact.get("inferred", ()) else f"{row['name']} parses it"
+        least = "at least " if fact.get("typeCore") else ""
         if named:
             tag = f"{e['number']}{'A' if e['direction'] == 'across' else 'D'}"
             warnings.append(
-                f"{tag}: typed cryptic definition, but {who} as "
+                f"{tag}: typed cryptic definition, but {who} as {least}"
                 f"{theirs!r} ({row['url']}). If the {named[0]} is there, annotate it")
 
 

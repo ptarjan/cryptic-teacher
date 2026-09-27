@@ -52,6 +52,15 @@ MAX_CUT = 2
 #: The types written into the corpus: each at least 97% the blog's own type on
 #: the held-out blog-typed clues (--measure). Any other reading is left out.
 TRUSTED = frozenset({"anagram", "hidden word", "deletion"})
+#: The readings whose core type (see core()) is written where the full type
+#: is not trusted: each read at least 100 times in the held-out clues and its
+#: core at least 97% the core of the blog's type there. How a block was taken
+#: from its words is where the letters and the blogs disagree, so the type is
+#: written without it and marked "typeCore": the clue is at least this, and
+#: may be this plus a selection or cut ("container" may be "container + first letter").
+CORE_TRUSTED = frozenset({"container", "charade + container", "reversal", "anagram + deletion",
+                          "container + first letter", "charade + deletion"})
+MIN_CORE_CLAIMS = 100
 PRECISION_BAR = 0.97
 #: The most blocks put together; more is a blog listing alternatives.
 MAX_BLOCKS = 5
@@ -347,17 +356,26 @@ def rows():
 
 def stated(facts):
     """A clue's facts as the blog stated them, without what this file inferred."""
-    return {k: v for k, v in facts.items() if k != "inferred" and k not in facts.get("inferred", ())}
+    ours = {"inferred", "typeCore", *facts.get("inferred", ())}
+    return {k: v for k, v in facts.items() if k not in ours}
+
+
+def written(t):
+    """(type, is it only the core) that a reading of type `t` is written as, or None."""
+    if t in TRUSTED:
+        return t, False
+    return (type_name(core(t)), True) if t in CORE_TRUSTED else None
 
 
 def inferred(clue, answer, facts, votes):
-    """`facts` with what the letters add in a TRUSTED class, marked as inferred."""
+    """`facts` with what the letters add in a TRUSTED or CORE_TRUSTED class, marked as inferred."""
     if facts.get("type"):
         return facts
     got = infer(clue, answer, {k: facts[k] for k in ("definition", "blocks") if k in facts}, votes)
-    if not got or got.get("type") not in TRUSTED:
+    w = written(got.get("type")) if got else None
+    if not w:
         return facts
-    return {**facts, "type": got["type"], "inferred": ["type"]}
+    return {**facts, "type": w[0], "inferred": ["type"], **({"typeCore": True} if w[1] else {})}
 
 
 def write(corpus, votes):
@@ -450,6 +468,7 @@ def measure(corpus, votes, show=8, split="held-out"):
             tally[t]["right"] += 1
         if core(t) == core(gold):
             tally[t]["core"] += 1
+        tally[t]["wrote"] += (written(t) or (None,))[0] == gold
         if t != gold:
             fps[t].append((gold, clue, answer, got))
         if facts.get("indicators") and got.get("indicators"):
@@ -460,15 +479,18 @@ def measure(corpus, votes, show=8, split="held-out"):
                 ind[key, "fp"] += len(p - g)
                 ind[key, "fn"] += len(g - p)
     print(f"\n== {split}")
-    print(f"{'type':34} {'claimed':>8} {'right':>7} {'prec':>6} {'core':>6} {'blog':>7} {'cover':>6}")
+    print(f"{'type':34} {'claimed':>8} {'right':>7} {'prec':>6} {'core':>6} {'blog':>7} {'cover':>6} {'wrote':>6}")
     for t, c in sorted(tally.items(), key=lambda kv: -kv[1]["claimed"]):
         if not c["claimed"]:
             continue
-        mark = "*" if t in TRUSTED else " "
+        mark = "*" if t in TRUSTED else "c" if t in CORE_TRUSTED else " "
         print(f"{t:33}{mark} {c['claimed']:8} {c['right']:7} {c['right'] / c['claimed']:6.3f} {c['core'] / c['claimed']:6.3f} "
-              f"{blog_types[t]:7} {c['right'] / max(1, blog_types[t]):6.3f}")
+              f"{blog_types[t]:7} {c['right'] / max(1, blog_types[t]):6.3f} {c['wrote'] / c['claimed']:6.3f}")
         if split == "held-out" and t in TRUSTED and c["right"] / c["claimed"] < PRECISION_BAR:
             print(f"   ^ TRUSTED but under {PRECISION_BAR}: take it out of TRUSTED")
+        if split == "held-out" and t in CORE_TRUSTED and (
+                c["core"] / c["claimed"] < PRECISION_BAR or c["claimed"] < MIN_CORE_CLAIMS):
+            print(f"   ^ CORE_TRUSTED but core under {PRECISION_BAR} or read under {MIN_CORE_CLAIMS} times: take it out")
     print(f"undecided: {sum(c['undecided'] for c in tally.values())}")
     for key in ["all", *sorted(TRUSTED)]:
         tp, fp, fn = (ind[key, x] for x in ("tp", "fp", "fn"))
