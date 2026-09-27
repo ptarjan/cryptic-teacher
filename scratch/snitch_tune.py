@@ -8,14 +8,14 @@ sys.path.insert(0, str(ROOT / "tools"))
 import difficulty as D
 from fetch_puzzle import read_puzzle_file, puzzle_is_annotated
 sn = json.loads((ROOT / "tools/data/snitch.json").read_text())
-rank = D.ranks()
+ctx = D.context()
 rows = []
 for pid, v in sn.items():
     path = ROOT / "puzzles" / f"{pid}.json"
     if not path.exists():
         continue
     puz = read_puzzle_file(path)
-    r = D.raw(puz, rank)
+    r = D.raw(puz, ctx)
     rows.append({"id": pid, "date": v["date"], "nitch": v["nitch"], "annotated": puzzle_is_annotated(puz), **r})
 (ROOT / "scratch/snitch_rows.json").write_text(json.dumps(rows))
 print(len(rows), sum(1 for r in rows if r["device"] is not None))

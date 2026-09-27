@@ -14,9 +14,10 @@ Two targets for every annotated, SNITCH-rated Times puzzle, per series:
             carry to series without one.
 
 Each row is a Spearman rho, in each date third (oldest first) and over all of
-it with its p. Nothing is fitted: a count earns a place in the index by holding
-its sign in all three thirds, and the newest third is the held-out one for any
-change made after the older two were looked at. Then, once Times for the Times
+it with its p, for the index and every component in difficulty.WEIGHTS.
+Nothing is fitted: a component earns its place by the held-out test that
+tools/difficulty.py's docstring states, and these rows show whether it keeps
+holding as ratings and annotations arrive. Then, once Times for the Times
 comments reach puzzles we have annotated, the same components per clue against
 the clues commenters flagged hard or named as their last one in, ranked within
 each puzzle (tools/blog_comment_difficulty.py, from its committed table).
@@ -65,7 +66,7 @@ def feats(puz, s):
 
 def rated_rows():
     """{series: [row, ...]} oldest first, each with its NITCH, residual and features."""
-    sn, rank, base = D.load_snitch(), D.ranks(), D.load_baseline()
+    sn, ctx = D.load_snitch(), D.context()
     out = {}
     for pid, v in sn.items():
         series = pid.rpartition("-")[0]
@@ -73,7 +74,7 @@ def rated_rows():
         if series not in D.SNITCH_SERIES or not path.exists():
             continue
         puz = D.read_puzzle_file(path)
-        s = D.score(puz, rank, base)
+        s = D.score(puz, ctx)
         if s:
             out.setdefault(series, []).append({
                 "date": v["date"], "nitch": v["nitch"],

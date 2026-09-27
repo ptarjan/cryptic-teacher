@@ -53,7 +53,7 @@ def snitch_rows():
 
 def comment_rows():
     tab = json.loads((ROOT / "tools/data/blog_comment_difficulty.json").read_text())
-    rank, base = D.ranks(), D.load_baseline()
+    ctx = D.context()
     out = []
     for pid, v in tab.items():
         if pid.rpartition("-")[0] != "times" or not v.get("comments"):
@@ -62,7 +62,7 @@ def comment_rows():
         if not path.exists():
             continue
         puz = D.read_puzzle_file(path)
-        s = D.score(puz, rank, base)
+        s = D.score(puz, ctx)
         d = puz.get("date")
         if not s or not d:
             continue
