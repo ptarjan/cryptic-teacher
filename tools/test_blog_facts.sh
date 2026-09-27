@@ -118,4 +118,24 @@ check "clue words that only say what to cut are no block's source" \
   '{"blocks": [["E", "European"]], "definition": ["Learned"]}' \
   "$(facts bigdave44 'Learned European wants hors d’oeuvres topped and tailed (7)' '<p>22d <u>Learned</u> European wants hors d’oeuvres topped and tailed (7)<br/>E(uropean) then CRUDITES without the initial C and final S (topped and tailed)</p>' ERUDITE)"
 
+# Times 29042, one key-bracketed post: a cut word that leaves the answer, a
+# doubled letter, and brackets that also gloss or hold fodder.
+T29='<p>definitions underlined, [anagrinds, containment, reversal and other indicators in square ones]</p>'
+check "the answer as a word less a cut is that word's block; a bracket's gloss is a block and the rest its indicator" \
+  '{"blocks": [["RESIGN", "Give up work"], ["S", "son"]], "definition": ["hold sway"], "indicators": ["releasing"], "type": "deletion"}' \
+  "$(facts timesforthetimes 'Give up work, releasing son to hold sway (5)' "$T29<p>10 Give up work, releasing son to <u>hold sway</u> (5)<br/>REIGN<br/>RE{s}IGN {give up work} [releasing son – s]</p>" REIGN)"
+check "B+B (bishops) is the block BB, and the container is spelled" \
+  '{"blocks": [["BB", "bishops"], ["NILE", "river"]], "definition": ["Quick bite"], "indicators": ["demanded in middle of"], "type": "container"}' \
+  "$(facts timesforthetimes 'Quick bite bishops demanded in middle of river (6)' "$T29<p>18 <u>Quick bite</u> bishops demanded in middle of river (6)<br/>NIBBLE<br/>B+B (bishops) contained by [demanded in middle of] NILE (river).</p>" NIBBLE)"
+check "fodder at the end of a bracket is not the indicator" \
+  '{"blocks": [["CANTERBURY", "See"], ["BELLS", "beautiful girls"]], "definition": ["flowers"], "indicators": ["cutting last of"], "type": "charade + deletion"}' \
+  "$(facts timesforthetimes 'See beautiful girls cutting last of ornate flowers (10,5)' "$T29<p>6 See beautiful girls cutting last of ornate <u>flowers</u> (10,5)<br/>CANTERBURY BELLS<br/>CANTERBURY (see), BELL{e}S (beautiful girls) [cutting last of {ornat}e]</p>" CANTERBURYBELLS)"
+
+check "a cut word glossed with its cut is no block: STOA{t} (tailless) is not STOAT" \
+  '{"definition": ["colonnade"], "indicators": ["Tailless"], "type": "deletion"}' \
+  "$(facts timesforthetimes 'Tailless furry creature by colonnade (4)' '<p>1 Tailless furry creature by <u>colonnade</u> (4)<br/>STOA – STOA{t} (furry creature without last letter – tailless)</p>' STOA)"
+check "a letter and a cut word starting with it are not a doubled letter" \
+  '{"blocks": [["EG", "Eulogising"], ["G", "good"], ["SHE", "woman"], ["LL", "lines"]], "definition": ["of great delicacy"], "type": "charade + outer letters"}' \
+  "$(facts fifteensquared 'Eulogising emptily good woman lines of great delicacy (8)' '<p>1 Eulogising emptily good woman lines <u>of great delicacy</u> (8)<br/>E(ulogisin)G + G(ood) + SHE (“woman”) + LL (“lines”)</p>' EGGSHELL)"
+
 [ "$fails" -eq 0 ] && echo "all blog_facts checks passed" || { echo "$fails failed"; exit 1; }

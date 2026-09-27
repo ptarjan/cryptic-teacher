@@ -252,6 +252,32 @@ BRACKETS_ARE_INDICATORS = re.compile(r"(?:indicators|directions) in square (?:on
 BRACKETED = re.compile(r"(?<![A-Za-z])\[([^\[\]]{2,60})\](?![A-Za-z])")
 ITALIC_IN_PARENS = re.compile(r"\(" + E_ON + r"([^" + MARKS + r"()]{2,60})" + E_OFF + r"\)")
 ELLIPSIS = re.compile(r"\s*(?:…|\.\.\.)\s*")
+#: A bracket's clue words glossed with the letters their last words give.
+BRACKET_GLOSS = re.compile(r"^(?P<w>.+?)\s+[–—-]\s+(?P<l>[A-Za-z]{1,3})$")
+#: A word in the write-up's own letters rather than the clue's: "{ornat}e", "ORNATE".
+MARKED_WORD = re.compile(r"^\S*[{}\[\]]\S*$|^[A-ZÀ-ÖØ-Þ]+$")
+
+
+def bracket_reading(inner):
+    """(indicator words, (letters, clue words) or None) of a bracket on a post
+    whose key puts indicators in them. "[releasing son – s]" is the indicator
+    "releasing" and S from "son", split where the last words are what the
+    letters abbreviate; "[cutting last of {ornat}e]" ends in the fodder, which
+    is not the indicator."""
+    block = None
+    m = BRACKET_GLOSS.match(inner.strip())
+    if m:
+        words, letters = m.group("w").split(), m.group("l")
+        inner = m.group("w")
+        for k in range(1, len(words)):
+            src = " ".join(words[k:])
+            if src.lower() in ABBR.get(letters.lower(), ()):
+                inner, block = " ".join(words[:k]), (letters.upper(), src)
+                break
+    words = inner.split()
+    while len(words) > 1 and MARKED_WORD.match(words[-1]):
+        words.pop()
+    return " ".join(words), block
 
 
 def in_clue(phrase, body):
@@ -276,13 +302,15 @@ CAPWORD = rf"(?:{ATT})*[{CAP}](?:[{CAP}'’.\-]|{ATT})*(?<![’'.\-])(?:['’]s(
 ATOM = re.compile(rf"(?<![\w'’])(?:{CAPWORD})(?: (?:{CAPWORD}))*(?![\w\[{{])")
 #: What a block's letters come from, right after them: `WORD (clue words)`,
 #: `WORD(‘clue words’)`, `WORD (=clue words)`, `WORD [clue words]`,
-#: `WORD=“clue words”`, `WORD = clue words` or `WORD for ‘clue words’`.
+#: `WORD=“clue words”`, `WORD = clue words`, `WORD for ‘clue words’` or
+#: `WORD {clue words}`, braces holding words and not letters cut off the next.
 QUOTED = r"['‘\"“](?P<q>[^'‘’\"“”()]{1,60})['’\"”]"
 SOURCE = re.compile(
     r"\s*\(\s*=?\s*(?:" + QUOTED.replace("q>", "p>") + r"|(?P<s>[^()]{1,150}))\s*\)"
     r"|\s*\[\s*(?P<b>[^\[\]]{1,60})\s*\]"
     r"|\s*=\s*(?:" + QUOTED + r"|(?P<e>[A-Za-z][a-z'’ \-]{0,40}))"
-    r"|\s+for\s+" + QUOTED.replace("q>", "f>"))
+    r"|\s+for\s+" + QUOTED.replace("q>", "f>") +
+    r"|\s*\{(?P<c>[a-z][a-z'’ \-]{2,59})\}(?![A-Za-z])")
 #: A gloss that names its clue words among other things: "(staff, long piece
 #: of wood)", "(publicity – Public Relations)".
 GLOSS_PARTS = re.compile(r"\s*[,;]\s*|\s+[–—-]\s+")
@@ -302,7 +330,7 @@ def source_words(m, body, no_brackets=False, multiword=False):
     "A PP (pianissimo, quiet)" does not say which letters are quiet."""
     if m.group("b") is not None and no_brackets:
         return None
-    raw = next((m.group(g) for g in "psbqf" if m.group(g)), None)
+    raw = next((m.group(g) for g in "psbqfc" if m.group(g)), None)
     if raw:
         raw = raw.strip()
         if not re.search(r"[a-z]", raw):
@@ -351,6 +379,10 @@ OPERATES = re.compile(r"(?i)\b(?:going|goes|round|around|containing|holding|swal
 ATTACHED = re.compile(rf"(?<![\w])([{CAP}][{CAP}'’]*)\(([{E_ON}]?)([a-z][a-z'’ \-]*)([{E_OFF}]?)\)")
 
 
+#: One letter twice for a plural source: "B+B (bishops)" is the block BB.
+DOUBLED = re.compile(rf"(?<![\w'’\]}})])([{CAP}])\s*\+\s*\1(?=\s+[(\[{{])")
+
+
 def detach_sources(text, body):
     """HON(sweetheart) as HON (sweetheart): a source written against its
     letters, told from R(un), a word cut short, by which of the two is a word
@@ -361,7 +393,7 @@ def detach_sources(text, body):
         if whole in ABBR.get(atom_letters(caps), ()) or in_clue(caps + word, body) or not in_clue(word, body):
             return m.group()
         return f"{caps} ({m.group(2)}{word}{m.group(4)})"
-    return ATTACHED.sub(one, text)
+    return DOUBLED.sub(r"\1\1", ATTACHED.sub(one, text))
 
 
 def blocks(expl, body, answer, bracket_key=False):
@@ -397,11 +429,21 @@ def blocks(expl, body, answer, bracket_key=False):
         src = in_clue(m.group("w"), body)
         if src:
             found.append((m.start(), 0, m.group("l"), src))
+    for m in BRACKETED.finditer(expl) if bracket_key else ():
+        glossed = bracket_reading(m.group(1))[1]
+        src = glossed and in_clue(glossed[1], body)
+        if src:
+            found.append((m.start(), 0, glossed[0], src))
     out = []
     for _, _, piece, src in sorted(found):
         letters = atom_letters(piece)
         b = (re.sub(ATT, "", piece).strip(" .").upper(), src)
-        if (letters and letters != answer and src.lower() != piece.lower() and b not in out
+        if letters == answer and whole_word_of(piece) and not SELECTING.search(src):
+            # RE{s}IGN (give up work): the answer is the word less a cut, and
+            # the word is the piece; STOA{t} (tailless) glosses the cut instead.
+            whole = whole_word_of(piece)
+            letters, b = atom_letters(whole.upper()), (whole.upper().strip(" ."), src)
+        if (letters and letters != answer and letters != atom_letters(src.upper()) and b not in out
                 and not (" " in src and OPERATES.search(src))):
             out.append(b)
     return out
@@ -669,7 +711,7 @@ def tokens(s, depth=0):
             sourced = False
             while True:
                 src = SOURCE.match(s, i)
-                if src and (src.group("p") or src.group("q") or src.group("f") or src.group("e")
+                if src and (src.group("p") or src.group("q") or src.group("f") or src.group("e") or src.group("c")
                             or re.search(r"[a-z]", (src.group("s") or "") + (src.group("b") or ""))):
                     i = src.end()
                     sourced = True
@@ -1130,7 +1172,7 @@ def indicators(blog, expl_marked, body, brackets, avoid=()):
     marked = expl_marked.replace(U_ON, "").replace(U_OFF, "")
     raw = []
     if blog == "timesforthetimes" and brackets:
-        raw += BRACKETED.findall(marked.replace(E_ON, "").replace(E_OFF, ""))
+        raw += [bracket_reading(r)[0] for r in BRACKETED.findall(marked.replace(E_ON, "").replace(E_OFF, ""))]
     raw += operation_indicators(marked)
     out = []
     for r in raw:
