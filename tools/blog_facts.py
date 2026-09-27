@@ -1656,11 +1656,10 @@ def main():
         for r, eid, f in rng.sample(pool, min(args.sample, len(pool))):
             print(json.dumps({"id": r["id"], "entry": eid, "url": r["url"], **f}, ensure_ascii=False))
     print(f"wrote blog facts for {write(best, series)} puzzles to {OUT.relative_to(ROOT)}")
-    if not args.blog:
-        import letter_facts
-        corpus = list(letter_facts.rows())
-        n = letter_facts.write(corpus, letter_facts.indicator_votes(corpus))
-        print(f"and a type read off the letters for {n} clues the blogs left untyped (tools/letter_facts.py)")
+    import letter_facts
+    corpus = list(letter_facts.rows())
+    n = letter_facts.write(corpus, letter_facts.indicator_votes(corpus))
+    print(f"and a type read off the letters for {n} clues the blogs left untyped (tools/letter_facts.py)")
     if not (args.blog or args.from_dump):
         STAMP.write_text(digest + "\n")
 
