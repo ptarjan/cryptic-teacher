@@ -881,7 +881,7 @@
   // partial annotation, so the ladder, the highlights and the questions all
   // read it the way they read ours. Two spans are a definition pair only when
   // the type says so; the extractor ships no other multi-span definition.
-  // A field named in `inferred` (the type, the indicators) is not the blog's
+  // A field named in `inferred` (the definition, the type, the indicators) is not the blog's
   // but tools/letter_facts.py's, read off the letters; `typeCore` makes its type a lower bound, the clue
   // that and perhaps a cut or a letter selection besides. A block whose third
   // element is "inferred" is one of the pieces letter_facts.py split the answer into.
@@ -4776,20 +4776,21 @@
     if (!P.blog || (ann && !ann.fromBlog) || e.clueMissing || e.clueCorrupt) return "";
     return `<a class="blog-link small" href="${esc(P.blog.url)}" target="_blank" rel="noopener">Full explanation on ${esc(P.blog.name)} →</a>`;
   }
-  // Credits the blog with what it marked and nothing else: a type, indicators
-  // or a block read off the letters (ann.inferred, block.inferred) are said to
-  // be ours, and a clue whose hints are all ours is not badged with the blog's name.
+  // Credits the blog with what it marked and nothing else: a definition, a type,
+  // indicators or a block read off the letters (ann.inferred, block.inferred) are
+  // said to be ours, and a clue whose hints are all ours is not badged with the blog's name.
   function blogHintsBadge(ann) {
     const name = esc(P.blog.name);
     const ours = (ann.inferred || []).includes("type");
+    const ourDef = (ann.inferred || []).includes("definition");
     const ourInds = (ann.inferred || []).includes("indicators");
     const ourBlocks = ann.blocks.some((b) => b.inferred);
-    const theirs = !!(ann.definition || (ann.indicators.length && !ourInds) || ann.blocks.some((b) => !b.inferred) || (ann.type && !ours));
-    const items = [ours && "clue type", ourInds && "indicators", ourBlocks && (ann.blocks.every((b) => b.inferred) ? "pieces" : "some pieces")].filter(Boolean);
+    const theirs = !!((ann.definition && !ourDef) || (ann.indicators.length && !ourInds) || ann.blocks.some((b) => !b.inferred) || (ann.type && !ours));
+    const items = [ourDef && "definition", ours && "clue type", ourInds && "indicators", ourBlocks && (ann.blocks.every((b) => b.inferred) ? "pieces" : "some pieces")].filter(Boolean);
     const which = (items.length > 1 ? items.slice(0, -1).join(", ") + " and " + items[items.length - 1] : items[0]) || "clue type";
     const are = ourBlocks || ourInds || items.length > 1 ? "are" : "is";
     if (!theirs) return ` <span class="badge auto letters" title="We haven't explained this clue ourselves yet, and ${name} marked nothing in it. Its ${which} ${are} worked out from the letters of the clue and the answer.">hints from the letters</span>`;
-    const what = ours || ourInds || ourBlocks ? `what ${name} marked in its write-up, put into our own words. The ${which} ${are} not ${name}'s: worked out from the letters of the clue and the answer`
+    const what = ourDef || ours || ourInds || ourBlocks ? `what ${name} marked in its write-up, put into our own words. The ${which} ${are} not ${name}'s: worked out from the letters of the clue and the answer`
       : `the definition and clue type that ${name} marked in its write-up, put into our own words`;
     return ` <span class="badge auto blog" title="We haven't explained this clue ourselves yet. These hints are ${what}.">hints via ${name}</span>`;
   }
@@ -5346,7 +5347,7 @@
   // Still the coverage axis: a puzzle whose hints are read off a blog's
   // write-up is the exception in the other direction from "answers only".
   function blogBadge(blog, inferred) {
-    const also = inferred ? ", some clue types, indicators and pieces are worked out from the letters instead," : "";
+    const also = inferred ? ", some definitions, clue types, indicators and pieces are worked out from the letters instead," : "";
     return `<span class="badge auto blog" title="We haven't written our own hints for this puzzle yet. Its hints are built from the definitions and clue types ${esc(blog.name)} marked${also} and each clue links to their full explanation.">hints via ${esc(blog.name)}</span>`;
   }
 

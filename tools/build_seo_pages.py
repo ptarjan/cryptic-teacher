@@ -339,6 +339,11 @@ def ld(obj):
 
 # ---------------------------------------------------------------- puzzle page
 
+def listed(names):
+    """Names as prose: "a", "a and b", "a, b and c"."""
+    return ", ".join(names[:-1]) + " and " + names[-1] if len(names) > 1 else "".join(names)
+
+
 def clue_html(e, blog_note=True):
     """One clue: text, answer, and whatever explanation exists for it.
 
@@ -360,11 +365,14 @@ def clue_html(e, blog_note=True):
             f'<h3><span>{esc(num)}</span> <b>{esc(answer)}</b></h3>',
             f'<p>{esc_clue(e.get("clue"))}</p>']
 
+    # A definition, type or indicators tools/letter_facts.py read off the letters are not the blogger's.
+    inferred = (e.get("blog") or {}).get("inferred", ()) if ann.get("fromBlog") else ()
     if ann.get("definition"):
         kind = ann.get("type") or ""
         # The type is a word from the lesson ("charade", "container"), so its
         # label is the way to the lesson that defines it.
         bits.append(f'<p>Definition: <dfn>{esc(ann["definition"])}</dfn>'
+                    + (' <span class="s-note">worked out from the letters</span>' if "definition" in inferred else "")
                     + (f' · <span class="s-type"><a href="{BASE}/learn/">Clue type</a>: '
                        f'{esc(kind)}</span>' if kind else "")
                     + "</p>")
@@ -393,8 +401,6 @@ def clue_html(e, blog_note=True):
             f'<li><mark>{esc(k)}</mark> — {esc(v)}</li>'
             for k, v in ind_notes.items())
         bits.append(f'<p><em>Indicators:</em></p><ul>{rows}</ul>')
-    # A type or indicators tools/letter_facts.py read off the letters are not the blogger's.
-    inferred = (e.get("blog") or {}).get("inferred", ()) if ann.get("fromBlog") else ()
     # A blog's marked indicators carry no note of their own; the app lists them
     # bare too.
     if ann.get("fromBlog") and ann.get("indicators"):
@@ -403,8 +409,8 @@ def clue_html(e, blog_note=True):
                     + (' <span class="s-note">worked out from the letters</span>' if "indicators" in inferred else "")
                     + "</p>")
     if ann.get("fromBlog"):
-        read = " and ".join(name for key, name in (("type", "clue type"), ("indicators", "indicators"))
-                            if key in inferred).capitalize()
+        read = listed([name for key, name in (("definition", "definition"), ("type", "clue type"),
+                                              ("indicators", "indicators")) if key in inferred]).capitalize()
         if blog_note:
             bits.append('<p class="muted">'
                         + (f"{read} worked out from the letters, the rest marked up from the blogger\'s write-up; "
@@ -622,9 +628,10 @@ def puzzle_page(puz, meta, prev_p, next_p):
                  and any(e.get("blog") for e in across + down))
     if blog_only:
         facts = [e.get("blog") or {} for e in across + down]
-        read = " and ".join(name for name, hit in (
+        read = listed([name for name, hit in (
+            ("definitions", any("definition" in f.get("inferred", ()) for f in facts)),
             ("pieces", any("inferred" in b[2:] for f in facts for b in f.get("blocks", ()))),
-            ("indicators", any("indicators" in f.get("inferred", ()) for f in facts))) if hit)
+            ("indicators", any("indicators" in f.get("inferred", ()) for f in facts))) if hit])
         body.append('<p class="muted small-note">The definitions, pieces and indicators '
                     "below are marked up from the "
                     + (f"{esc(blog['name'])} write-up" if blog and blog.get("name")
