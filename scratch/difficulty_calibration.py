@@ -308,12 +308,13 @@ def run_bd44(show=0):
 
 def grid_only():
     """Large-n check: the two components every puzzle has (checking,
-    obscurity), and their weighted z mix, against both external sources over
+    rarity), and their weighted z mix, against both external sources over
     ALL our Times/Telegraph puzzles, not just the annotated few. This is the
     'grid-only' score difficulty.py deliberately refuses to band."""
     import difficulty as D
     from fetch_puzzle import puzzle_files, read_puzzle_file
-    rank, base = D.ranks(), D.load_baseline()
+    ctx = D.context()
+    base = ctx.base
     comp = {}
     for path in puzzle_files():
         sid = path.stem.rsplit("-", 1)[0]
@@ -321,9 +322,9 @@ def grid_only():
                        "telegraph", "toughie", "sundaytel", "sundaytough"):
             continue
         puz = read_puzzle_file(path)
-        r = D.raw(puz, rank)
+        r = D.raw(puz, ctx)
         z = {k: (v - base[k]["mean"]) / base[k]["sd"] for k, v in r.items()
-             if v is not None and k in base and base[k].get("sd") and k != "device"}
+             if v is not None and k in base and base[k].get("sd") and k in ("checking", "rarity")}
         if len(z) == 2:
             z["mix"] = sum(D.WEIGHTS[k] * v for k, v in z.items()) / sum(D.WEIGHTS[k] for k in z)
             comp[puz["id"]] = z
@@ -348,10 +349,10 @@ def grid_only():
     by = {}
     for pid, v in ext.items():
         by.setdefault(pid.rsplit("-", 1)[0], []).append((v, comp[pid]))
-    print(f"{'series':<12} {'n':>5}  checking  obscurity  mix(0.45/0.30)")
+    print(f"{'series':<12} {'n':>5}  checking  rarity  mix(0.45/0.30)")
     for s, rs in sorted(by.items()):
         a = [v for v, _ in rs]
-        out = [f"{spearman(a, [c[k] for _, c in rs]):+.3f}" for k in ("checking", "obscurity", "mix")]
+        out = [f"{spearman(a, [c[k] for _, c in rs]):+.3f}" for k in ("checking", "rarity", "mix")]
         print(f"{s:<12} {len(rs):>5}  {out[0]:>8}  {out[1]:>9}  {out[2]:>8}")
     return by
 
@@ -380,22 +381,23 @@ def snitch():
             print(f"{s:<12} SNITCH vs blog mins  n={len(pairs):>3} rho={spearman(a, b):+.3f} p={perm_p(a, b):.4f}")
     import difficulty as D
     from fetch_puzzle import read_puzzle_file
-    rank, base = D.ranks(), D.load_baseline()
+    ctx = D.context()
+    base = ctx.base
     for s in ("times", "sundaytimes"):
         rows = []
         for n, v in sn.items():
             path = ROOT / "puzzles" / f"{s}-{n}.json"
             if not path.exists():
                 continue
-            r = D.raw(read_puzzle_file(path), rank)
-            z = {k: (x - base[k]["mean"]) / base[k]["sd"] for k, x in r.items() if x is not None and k != "device"}
+            r = D.raw(read_puzzle_file(path), ctx)
+            z = {k: (x - base[k]["mean"]) / base[k]["sd"] for k, x in r.items() if x is not None and k in ("checking", "rarity")}
             if len(z) == 2:
-                rows.append((v, z["checking"], z["obscurity"],
-                             (D.WEIGHTS["checking"] * z["checking"] + D.WEIGHTS["obscurity"] * z["obscurity"]) / .75))
+                rows.append((v, z["checking"], z["rarity"],
+                             (D.WEIGHTS["checking"] * z["checking"] + D.WEIGHTS["rarity"] * z["rarity"]) / .75))
         if len(rows) >= 4:
             a = [r[0] for r in rows]
             print(f"{s:<12} SNITCH vs grid-only  n={len(rows):>3} checking {spearman(a, [r[1] for r in rows]):+.3f}"
-                  f" obscurity {spearman(a, [r[2] for r in rows]):+.3f} mix {spearman(a, [r[3] for r in rows]):+.3f}")
+                  f" rarity {spearman(a, [r[2] for r in rows]):+.3f} mix {spearman(a, [r[3] for r in rows]):+.3f}")
 
 
 if __name__ == "__main__":

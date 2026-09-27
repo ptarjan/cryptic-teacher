@@ -312,7 +312,8 @@ def rho(a, b, floor=20):
 
 def build():
     sn = D.load_snitch()
-    rank, base = D.ranks(), D.load_baseline()
+    ctx = D.context()
+    rank = ctx.rank
     lufz, fam = load_lufz(), load_family()
     abbr = {letters(k) for k in json.loads(ABBR.read_text(encoding="utf-8"))["abbreviations"]}
     blog = load_blog()
@@ -340,7 +341,7 @@ def build():
             continue
         f = {**grid_feats(puz), **answer_feats(puz, rank, lufz, fam, count, freq),
              **clue_feats(puz), **blog_feats(puz, blog.get(pid), abbr, lufz, pair_count)}
-        s = D.score(puz, rank, base) if D.puzzle_is_annotated(puz) else None
+        s = D.score(puz, ctx) if D.puzzle_is_annotated(puz) else None
         c = cmt.get(pid) or {}
         rows[series].append({
             "pid": pid, "date": v["date"], "nitch": v["nitch"], "f": f,

@@ -247,7 +247,7 @@ LAYOUT = [
     ("tables everything else reads", "tools/data/corroboration_ledger.json", "every disagreement tools/corroborate.py settled or could not, and every field it filled: the puzzle, the field, each candidate with its sources, the winner and the rule that picked it"),
     ("tables everything else reads", "tools/data/times_answers.json", "Times-blog answers settled from the clue's wordplay; times_grids.py applies them before rebuilding"),
     ("tables everything else reads", "tools/data/difficulty_baseline.json", "the frozen distribution difficulty.py normalises against"),
-    ("tables everything else reads", "tools/data/lexicon.tsv", "192,738 British-cryptic words by frequency rank; difficulty.py scores obscurity off it"),
+    ("tables everything else reads", "tools/data/lexicon.tsv", "192,738 British-cryptic words by frequency rank; difficulty.py scores rarity off it"),
     ("tables everything else reads", "tools/data/grading_rubric.md", "the five axes a blind judge scores a clue on"),
     ("tables everything else reads", "tools/data/books.json", "the shelf: one row per physical book, with the archive.org scan it was read from, the volume its cover prints, the label a reader sees and a book_index that is never reused \u2014 tools/series.py and app.js both read it and neither holds a copy"),
     ("tables everything else reads", "tools/data/book_candidates.json", "which archive.org crossword books are worth acquiring in full, measured one short loan at a time; a measurement, not a permanent fact"),

@@ -7,7 +7,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 import difficulty as D
 from fetch_puzzle import read_puzzle_file
 rows = json.loads((ROOT / "scratch/snitch_rows.json").read_text())
-ann = sorted([r for r in rows if r["device"] is not None and r["obscurity"] is not None], key=lambda r: r["date"])
+ann = sorted([r for r in rows if r["device"] is not None and r["rarity"] is not None], key=lambda r: r["date"])
 puz = {r["id"]: read_puzzle_file(ROOT / "puzzles" / f"{r['id']}.json") for r in ann}
 base = D.load_baseline()
 orig = {k: getattr(D, k) for k in ("SEAM_COST", "OPAQUE_PIECE_COST", "UNINDICATED_COST", "STACKING_COST")}

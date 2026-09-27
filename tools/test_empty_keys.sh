@@ -102,7 +102,7 @@ for e in puz["entries"]:
     e.pop("annotation", None)
 print("DEVICE", difficulty.device(puz))
 print("MACHINERY", difficulty.machinery(puz))
-print("OBSCURE", difficulty.obscurity(puz, difficulty.ranks()) is not None)
+print("RARITY", difficulty.rarity(puz, difficulty.ranks()) is not None)
 print("CLUEHTML", bool(build_seo_pages.clue_html(puz["entries"][0])))
 print("CARD", make_og_card.plan(puz["entries"][0]))
 print("CRAFT", craft_report.annotated(puz))
@@ -112,7 +112,7 @@ PY
 )
 same "difficulty finds no device rather than crashing" "$(grep '^DEVICE ' <<<"$out")" "DEVICE None"
 same "nor any machinery" "$(grep '^MACHINERY ' <<<"$out")" "MACHINERY None"
-same "difficulty still scores obscurity" "$(grep '^OBSCURE ' <<<"$out")" "OBSCURE True"
+same "difficulty still scores rarity" "$(grep '^RARITY ' <<<"$out")" "RARITY True"
 same "the crawlable page still renders the clue" "$(grep '^CLUEHTML ' <<<"$out")" "CLUEHTML True"
 same "the social card declines the clue rather than throwing" \
   "$(grep '^CARD ' <<<"$out")" "CARD None"
