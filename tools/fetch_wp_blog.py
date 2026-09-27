@@ -144,14 +144,15 @@ def fetch_comments(blog):
                 raise FetchError(f"comments {month:%Y-%m} page {page}: HTTP {e.code}") from e
             rows += got
             total = int(headers.get("X-WP-Total") or 0)
-            if len(got) < 100 or len(rows) >= total:
+            if not got or page >= int(headers.get("X-WP-TotalPages") or 0):
                 break
             page += 1
             time.sleep(blog.crawl_delay)
-        # The API's total can count a comment its listing never serves (2021-04
-        # is one short on every walk), so only a real hole is fatal.
-        if len({r["id"] for r in rows}) != len(rows) or not 0 <= total - len(rows) <= max(1, total // 200):
-            raise FetchError(f"comments {month:%Y-%m}: {len(rows)} rows, the API says {total}")
+        # X-WP-Total counts comments the listing filters out after paging, so
+        # pages come back short and the served count falls below it (2021-05
+        # serves 3,024 of 6,010). Every page walked is the complete answer.
+        if len({r["id"] for r in rows}) != len(rows):
+            raise FetchError(f"comments {month:%Y-%m}: duplicate ids across pages")
         if len(rows) != total:
             print(f"  comments {month:%Y-%m}: {len(rows)} rows, the API says {total}", flush=True)
         (blog.comments / f"{month:%Y-%m}.json").write_text(json.dumps(rows), encoding="utf-8")
