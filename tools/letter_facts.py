@@ -20,9 +20,16 @@ is given the one run of the other clue words blogs name that part's
 indicator in other puzzles, all the rest link words (see infer_indicators);
 "indicators" is then named in the clue's "inferred".
 
+Where the blog named no definition, it is the one span at an end of the
+clue, clear of the wordplay, that blogs underlined for the same answer
+elsewhere, where the word inside it is wordplay or a word blogs leave out
+of definitions (see infer_definition); "definition" is then named in the
+clue's "inferred". It is read before the indicators, which want one.
+
     python3 tools/letter_facts.py --measure   # precision per type where the blog named it
     python3 tools/letter_facts.py --measure-blocks  # the inferred blocks on 1 puzzle in 20, held out
     python3 tools/letter_facts.py --measure-indicators  # the inferred indicators the same way
+    python3 tools/letter_facts.py --measure-definitions  # the inferred definitions the same way
     python3 tools/letter_facts.py --fill      # what it would add to untyped clues
     python3 tools/letter_facts.py --clue 'Men on phone exchange will be a rarity' PHENOMENON
 """
@@ -40,7 +47,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
-from blog_facts import ABBR, GOLD, OUT, PART_ORDER, clue_body, fold
+from blog_facts import ABBR, ENUM_TAIL, GOLD, OUT, PART_ORDER, clue_body, fold
 
 PUZZLES = ROOT / "puzzles"
 WORD = re.compile(r"[\w'’\-]+")
@@ -902,6 +909,201 @@ def report_indicators(n, rows_, ilex, show=30, seed=1):
               f"blocks {facts.get('blocks')} | + {got}")
 
 
+# ------------------------------------------------------------ lexicon definitions
+
+#: Types whose definition the blocks and indicators do not bound: a cryptic
+#: definition is the whole clue in 80% of write-ups and part of it in the
+#: rest, and a double definition is two spans, either of which reads as one.
+UNBOUNDED_DEF = ("cryptic definition", "double definition")
+
+
+class Definitions:
+    """What blogs underline, from the definitions they gave.
+
+    `of`: answer letters -> Counter of the clue words (their letters, word by
+    word) blogs underlined for it. `edge`: (side, word) -> [definitions at the
+    far end of a clue that hold it anywhere but their outer end ("L" for one
+    that ends the clue), definitions it stood next to on that side]: "for"
+    and "is" stand beside definitions and are never in one, where "and" is in
+    "sad and lonely"."""
+
+    def __init__(self, corpus, skip=frozenset()):
+        of = collections.defaultdict(collections.Counter)
+        edge = collections.defaultdict(lambda: [0, 0])
+        for pid, eid, clue, answer, facts in corpus:
+            if pid in skip or not facts.get("definition"):
+                continue
+            ws = words(clue_body(clue))
+            n = len(ws)
+            for d in facts["definition"]:
+                of[sys.intern(letters(answer))][_key(d)] += 1
+                sp = sorted(locate(d, ws) or ())
+                if not sp or len(sp) == n:
+                    continue
+                if sp[-1] == n - 1:
+                    side, inside, out = "L", sp[:-1], sp[0] - 1
+                elif sp[0] == 0:
+                    side, inside, out = "R", sp[1:], sp[-1] + 1
+                else:
+                    continue
+                for k in inside:
+                    edge[side, ws[k][1]][0] += 1
+                edge[side, ws[out][1]][1] += 1
+        self.of, self.edge = dict(of), dict(edge)
+
+    def apart(self, side, word):
+        """Whether blogs leave `word` out of a definition it stands beside on
+        `side` and seldom have it inside one there (see MAX_ATTACH)."""
+        inside, beside = self.edge.get((side, word), (0, 0))
+        return beside >= MIN_APART and inside <= MAX_ATTACH * (inside + beside)
+
+
+def infer_definition(clue, answer, facts, dlex):
+    """The definition a blog left out: the one span at an end of the clue,
+    clear of the wordplay (see wordplay_words), that blogs underlined for
+    this answer in other clues, where the word inside it is wordplay or one
+    blogs leave out of definitions. A list of one clue phrase, [] when
+    none is wanted or found, None when another span at either end is one
+    too or the edge is unclear.
+
+    Where the word inside it is none of those, blogs underline a longer span
+    ("county town" for "town") one time in eight, and no count of how often
+    the longer phrase is a definition elsewhere brought that under 7%; one
+    time in eight too where it is a phrase blogs name an indicator ("sort of
+    pasta")."""
+    t = facts.get("type") or ""
+    if facts.get("definition") or any(x in t for x in UNBOUNDED_DEF):
+        return []
+    known = dlex.of.get(letters(answer or ""))
+    if not known or not enumerated(clue, answer):
+        return []
+    body, ws, at = spans(clue)
+    taken = wordplay_words(clue, answer, facts, ws)
+    n = len(ws)
+    found = []
+    for k in range(1, n):
+        for inward, a, z, nxt in (("R", 0, k, k), ("L", n - k, n, n - k - 1)):
+            if not taken & set(range(a, z)) and known.get(tuple(l for _, l in ws[a:z])):
+                found.append((inward, a, z, nxt))
+    if len(found) != 1:
+        return None if found else []
+    inward, a, z, nxt = found[0]
+    if POSSESSIVE.search(ws[a if inward == "L" else z - 1][0]):
+        return None  # blogs underline "Country" in "Country's flag"
+    if nxt in taken or dlex.apart(inward, ws[nxt][1]):
+        return [body[at[a][0]:at[z - 1][1]]]
+    return None
+
+
+def enumerated(clue, answer):
+    """Whether the clue's enumeration, where it has one, adds up to the answer:
+    SPRING for "(6,7)" is the half of SPRING CHICKEN its wordplay starts with,
+    and the definitions blogs gave SPRING are that half's ("Season")."""
+    m = ENUM_TAIL.search(clue or "")
+    lens = [int(x) for x in re.findall(r"\d+", m.group())] if m else []
+    return not lens or sum(lens) == len(letters(answer or ""))
+
+
+def named_words(facts, ws):
+    """The indices of the clue words in `facts`' blocks and indicators."""
+    taken = set()
+    for phrase in [b[1] for b in facts.get("blocks", ())] + facts.get("indicators", []):
+        taken |= locate(phrase, ws) or set()
+    return taken
+
+
+def wordplay_words(clue, answer, facts, ws):
+    """The indices of the clue words `facts` put in the wordplay: its blocks,
+    its indicators, and anagram fodder or a hidden answer the letters read."""
+    taken = named_words(facts, ws)
+    got = infer(clue, answer, {"blocks": facts.get("blocks", [])})
+    if got and got.get("fodder") and got.get("type") in TRUSTED:
+        taken |= locate(got["fodder"], ws) or set()
+    return taken
+
+
+def with_definition(facts, new):
+    """`facts` with the inferred definition `new`, marked so: the blog stated none."""
+    return {**facts, "definition": new, "inferred": sorted({*facts.get("inferred", ()), "definition"})}
+
+
+def measure_definitions(corpus, n=1, show=30, seed=1):
+    """Precision of infer_definition on slice `n` of the puzzles, every lexicon
+    built without them: the blog's own definitions hidden, the blocks
+    inferred with them hidden as the write would, and the coverage it adds."""
+    test = {pid for pid, *_ in corpus if in_slice(pid, n)}
+    lex, ilex, dlex = Lexicon(corpus, skip=test), Indicators(corpus, skip=test), Definitions(corpus, skip=test)
+    trained = {letters(clue_body(clue)) for pid, _, clue, *_ in corpus if pid not in test}
+    rng = random.Random(seed)
+    c = collections.Counter()
+    by = collections.defaultdict(collections.Counter)
+    wrong, sample = [], []
+    for pid, eid, clue, answer, facts in corpus:
+        if pid not in test:
+            continue
+        stated_def = facts.get("definition")
+        if stated_def:
+            hid = {k: v for k, v in facts.items() if k != "definition"}
+            new = infer_blocks(clue, answer, hid, lex)
+            hid = with_blocks(hid, new) if new else hid
+            got = infer_definition(clue, answer, hid, dlex)
+            c["hidden"] += 1
+            c["undecided"] += got is None
+            if got:
+                ok = {_key(d) for d in got} == {_key(d) for d in stated_def}
+                seen = "clue seen in training" if letters(clue_body(clue)) in trained else "clue unseen"
+                for key in ("all", boundary(clue, answer, hid, got), seen):
+                    by[key]["claimed"] += 1
+                    by[key]["exact"] += ok
+                if not ok:
+                    ws = words(clue_body(clue))
+                    kind = "boundary" if any((locate(g, ws) or set()) & (locate(d, ws) or set())
+                                             for g in got for d in stated_def) else "other end"
+                    c["miss", kind] += 1
+                    wrong.append((kind, clue, answer, got, stated_def, hid.get("blocks"), hid.get("indicators")))
+        new = infer_blocks(clue, answer, facts, lex)
+        before = with_blocks(facts, new) if new else facts
+        add = infer_definition(clue, answer, before, dlex)
+        after = with_definition(before, add) if add else before
+        c["all"] += 1
+        for name, f in (("before", before), ("after", after)):
+            ind = infer_indicators(clue, answer, f, ilex)
+            f = with_indicators(f, ind) if ind else f
+            c["def", name] += bool(f.get("definition"))
+            c["three", name] += all_three(answer, f)
+        if add:
+            sample.append((pid, eid, clue, answer, after))
+    t = max(1, c["all"])
+    print(f"slice {n}: {len(test)} puzzles held out, definitions of {len(dlex.of)} answers")
+    print(f"blog definitions hidden: {c['hidden']} clues, claimed {by['all']['claimed']}, undecided {c['undecided']}")
+    for key, x in sorted(by.items()):
+        print(f"  {key:22} {x['claimed']:6} exact {x['exact'] / max(1, x['claimed']):.4f}")
+    print("  misses:", {k[1]: v for k, v in c.items() if k[0] == "miss"})
+    print(f"of {c['all']} clues: has definition {c['def', 'before'] / t:.3f} -> {c['def', 'after'] / t:.3f}; "
+          f"definition + full blocks + indicators {c['three', 'before'] / t:.3f} -> {c['three', 'after'] / t:.3f} "
+          f"({c['three', 'before']} -> {c['three', 'after']}); filled {len(sample)}")
+    for kind, clue, answer, got, truth, blocks, inds in sorted(wrong)[:show]:
+        print(f"   miss [{kind}] {clue} = {answer}: {got}; blog {truth}; blocks {blocks} ind {inds}")
+    for pid, eid, clue, answer, f in rng.sample(sample, min(show, len(sample))):
+        print(f"   read {pid} {eid} | {clue} = {answer} | + def {f['definition']} | blocks {f.get('blocks')} "
+              f"ind {f.get('indicators')}")
+
+
+def boundary(clue, answer, facts, got):
+    """What bounds the inside edge of the definition `got` infer_definition
+    read: "block or indicator" (the blog's or inferred), "fodder" the letters read, or "link word"."""
+    ws = words(clue_body(clue))
+    sp = sorted(locate(got[0], ws) or ())
+    nxt = sp[0] - 1 if sp[-1] == len(ws) - 1 else sp[-1] + 1
+    return "block or indicator" if nxt in named_words(facts, ws) else \
+        "fodder" if nxt in wordplay_words(clue, answer, facts, ws) else "link word"
+
+
+def all_three(answer, facts):
+    """Whether a clue has a definition, blocks spelling the whole answer, and indicators."""
+    return bool(facts.get("definition")) and coverage(answer, facts) == "full" and bool(facts.get("indicators"))
+
+
 # ------------------------------------------------------------ corpus
 
 def rows():
@@ -920,7 +1122,8 @@ def rows():
 
 def stated(facts):
     """A clue's facts as the blog stated them, without what this file inferred:
-    a field named in "inferred" (the type, the indicators), or a block marked INFERRED."""
+    a field named in "inferred" (the type, the definition, the indicators), or
+    a block marked INFERRED."""
     ours = {"inferred", "typeCore", *facts.get("inferred", ())} - {"blocks"}
     out = {k: v for k, v in facts.items() if k not in ours and k != "blocks"}
     blocks = [b for b in facts.get("blocks", ()) if INFERRED not in b[2:]]
@@ -934,10 +1137,11 @@ def written(t):
     return (type_name(core(t)), True) if t in CORE_TRUSTED else None
 
 
-def inferred(clue, answer, facts, votes, lex, ilex):
+def inferred(clue, answer, facts, votes, lex, ilex, dlex):
     """`facts` with what the letters add, marked as inferred: a type in a
-    TRUSTED or CORE_TRUSTED class, the blocks the blog left out, and then the
-    indicator those blocks want where the blog named none."""
+    TRUSTED or CORE_TRUSTED class, the blocks the blog left out, the
+    definition where it named none, and then the indicator those blocks want
+    where it named none."""
     if not facts.get("type"):
         got = infer(clue, answer, {k: facts[k] for k in ("definition", "blocks") if k in facts}, votes)
         w = written(got.get("type")) if got else None
@@ -945,6 +1149,8 @@ def inferred(clue, answer, facts, votes, lex, ilex):
             facts = {**facts, "type": w[0], "inferred": ["type"], **({"typeCore": True} if w[1] else {})}
     new = infer_blocks(clue, answer, facts, lex)
     facts = with_blocks(facts, new) if new else facts
+    new = infer_definition(clue, answer, facts, dlex)
+    facts = with_definition(facts, new) if new else facts
     new = infer_indicators(clue, answer, facts, ilex)
     return with_indicators(facts, new) if new else facts
 
@@ -952,10 +1158,10 @@ def inferred(clue, answer, facts, votes, lex, ilex):
 def write(corpus, votes):
     """Rewrite tools/data/blog_facts/ with the inferred fields in, as
     blog_facts.write lays it out. {field: clues it was inferred in}."""
-    lex, ilex = Lexicon(corpus), Indicators(corpus)
+    lex, ilex, dlex = Lexicon(corpus), Indicators(corpus), Definitions(corpus)
     by_pid = collections.defaultdict(dict)
     for pid, eid, clue, answer, facts in corpus:
-        new = inferred(clue, answer, facts, votes, lex, ilex)
+        new = inferred(clue, answer, facts, votes, lex, ilex, dlex)
         if new:
             by_pid[pid][eid] = new
     n = collections.Counter()
@@ -1247,6 +1453,8 @@ def main():
                     help="precision of the inferred blocks on one puzzle in twenty (default slice %(const)s)")
     ap.add_argument("--measure-indicators", type=int, nargs="?", const=1, metavar="SLICE",
                     help="precision of the inferred indicators on one puzzle in twenty (default slice %(const)s)")
+    ap.add_argument("--measure-definitions", type=int, nargs="?", const=1, metavar="SLICE",
+                    help="precision of the inferred definitions on one puzzle in twenty (default slice %(const)s)")
     ap.add_argument("--clue", nargs=2, metavar=("CLUE", "ANSWER"))
     ap.add_argument("--definition", action="append", default=[])
     ap.add_argument("--block", action="append", default=[], help="LETTERS=clue words")
@@ -1269,10 +1477,12 @@ def main():
         measure_blocks(corpus, args.measure_blocks)
     if args.measure_indicators is not None:
         measure_indicators(corpus, args.measure_indicators)
+    if args.measure_definitions is not None:
+        measure_definitions(corpus, args.measure_definitions)
     if args.write:
         n = write(corpus, votes)
-        print(f"inferred a type for {n['type']} clues, blocks for {n['blocks']} and indicators for "
-              f"{n['indicators']} in {OUT.relative_to(ROOT)}")
+        print(f"inferred a type for {n['type']} clues, blocks for {n['blocks']}, a definition for "
+              f"{n['definition']} and indicators for {n['indicators']} in {OUT.relative_to(ROOT)}")
 
 
 if __name__ == "__main__":

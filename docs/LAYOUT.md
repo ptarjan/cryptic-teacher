@@ -206,8 +206,14 @@ tools/letter_facts.py                        adds a clue type the blog left out 
                                              only into the blocks it gave and clue words read
                                              as the blogs read them in other puzzles (97% exact
                                              against blog blocks hidden from it, held out by
-                                             puzzle), each marked "inferred"; blog_facts.py
-                                             runs it after each write
+                                             puzzle), each marked "inferred"; the definition
+                                             where the blog underlined none, the one span at an
+                                             end of the clue clear of the wordplay that blogs
+                                             underlined for the same answer elsewhere (97%
+                                             exact against blog definitions hidden from it);
+                                             and the indicator those blocks want where the blog
+                                             named none, both named in the clue's "inferred";
+                                             blog_facts.py runs it after each write
 tools/test_letter_facts.sh                   holds letter_facts.py to one reading per clue: a
                                              literal word is not an anagram, a lone word's
                                              initial not an abbreviation unless listed, fodder

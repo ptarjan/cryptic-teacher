@@ -72,4 +72,28 @@ want="['holding'] None None [] {'definition': ['d']}"
 if [ "$inds" = "$want" ]; then echo "ok   the one indicator the blocks want is read, not two rivals or an unknown word, and is not the blog's"; else
   echo "FAIL indicators: expected [$want], got [$inds]"; fails=$((fails + 1)); fi
 
+# A definition read off the ones blogs underlined for the same answer: "Teacher"
+# for TUTORESS in other clues. The word inside it must be wordplay or one blogs
+# leave out of definitions ("for", never inside one), not a free word blogs may
+# take in ("strict teacher"). An answer its enumeration says is half the light
+# is not read at all.
+defs=$(cd "$REPO/tools" && python3 -c '
+import letter_facts as l
+rows = [(f"p{i}", "e", f"Teacher for {w} (8)", "TUTORESS", {"definition": ["Teacher"]})
+        for i, w in enumerate(["minerals", "tests", "ores", "a b", "x", "y"])]
+dlex = l.Definitions(rows)
+blocks = [["TUTS", "expresses disapproval"], ["ORES", "minerals"]]
+def read(clue, **kw):
+    return l.infer_definition(clue, "TUTORESS", {"blocks": blocks, **kw}, dlex)
+print(read("Teacher expresses disapproval over minerals (8)"),
+      read("Teacher for expresses disapproval over minerals (8)", blocks=[]),
+      read("Expresses disapproval over minerals, strict teacher (8)", blocks=[]),
+      read("Teacher expresses disapproval over minerals (8)", type="double definition"),
+      l.infer_definition("Teacher expresses disapproval (8)", "TUTEE", {"blocks": blocks}, dlex),
+      read("Teacher expresses disapproval over minerals (8,4)"),
+      l.stated({"definition": ["Teacher"], "inferred": ["definition"], "type": "charade"}))')
+want="['Teacher'] ['Teacher'] None [] [] [] {'type': 'charade'}"
+if [ "$defs" = "$want" ]; then echo "ok   a definition blogs underlined for the answer is read where wordplay or a link word bounds it, and is not the blog's"; else
+  echo "FAIL definitions: expected [$want], got [$defs]"; fails=$((fails + 1)); fi
+
 [ "$fails" -eq 0 ] && echo "all letter_facts checks passed" || { echo "$fails failed"; exit 1; }
