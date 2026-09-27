@@ -15,6 +15,7 @@ the letters allow is kept.
 import argparse
 import collections
 import functools
+import hashlib
 import itertools
 import json
 import os
@@ -38,7 +39,14 @@ MIN_INDICATOR = 3
 SPOONER = re.compile(r'\bspooner', re.I)
 #: What a reading costs: of two that spell the answer, the one with fewer of
 #: these is the setter's, as S+CORE+R is a charade and not CORES anagrammed round R.
-OPERATIONS = {"anagram", "container", "reversal", "hidden word", "hidden word + reversal"}
+OPERATIONS = {"anagram", "container", "reversal"}
+#: Anagramming a block costs one more: a blog writes a block's letters as they
+#: stand in the answer, so TOAST around IE is its reading and not TOA + STIE.
+BLOCK_ANAGRAM = "block anagram"
+
+
+def cost(parts):
+    return len(parts & OPERATIONS) + (BLOCK_ANAGRAM in parts)
 #: A cut takes at most this many letters from a word: "endlessly", "heartless".
 MAX_CUT = 2
 #: The most blocks put together; more is a blog listing alternatives.
@@ -78,18 +86,20 @@ def cut(w, bl):
 
 def derivation(bl, src):
     """The parts a block's letters say it was taken from its clue words by:
-    set() for a synonym, literal or abbreviation, {'first letter'} and the
-    like for a selection or cut, None when the letters allow two.
+    set() for a synonym, literal or listed abbreviation, {'first letter'} and
+    the like for a selection or cut, None when the letters allow two.
 
-    A selection or cut needs a word to say so, so it is read only off a
-    source of two or more words: Y from "Yokohama" is an abbreviation, D
-    from "Delius' overture" a first letter. A lone word cut short (MARC
-    from "March") is the exception: no abbreviation drops a letter or two."""
+    D from "Delius' overture" is a first letter, and so is Y from a lone
+    "Yokohama" unless ABBREVIATIONS lists it: blogs split on those, and a
+    clue typed with a selection is one this does not claim (see TRUSTED)."""
     sw = [letters(w) for w in WORD.findall(src or "") if letters(w)]
-    if len(sw) == 1 and len(bl) >= 3 and cut(sw[0], bl):
-        return {"deletion"}
-    if len(sw) < 2 or bl == "".join(sw) or bl.lower() in ABBR and src.lower().strip() in ABBR[bl.lower()]:
+    listed = bl.lower() in ABBR and src.lower().strip() in ABBR[bl.lower()]
+    if not sw or bl == "".join(sw) or listed:
         return set()
+    if len(sw) == 1 and len(bl) == 1:
+        return {"first letter"} if sw[0][0] == bl and len(sw[0]) > 1 else set()
+    if len(sw) == 1:
+        return {"deletion"} if len(bl) >= 3 and cut(sw[0], bl) else set()
     cands = set()
     for w in sw:
         if w == bl:
@@ -124,11 +134,12 @@ def match(seg, piece):
     return None
 
 
-def parses(answer, pieces):
+def parses(answer, pieces, fodder=None):
     """Every set of parts by which all of `pieces` spell `answer`: each piece
     in one stretch, or around the pieces inside it (a container), each
     literal, reversed or anagrammed; two or more side by side are a charade."""
     everything = frozenset(range(len(pieces)))
+    mark = lambda m, i: m | {BLOCK_ANAGRAM} if m and "anagram" in m and i != fodder else m
 
     @functools.lru_cache(maxsize=None)
     def fill(lo, hi, avail):
@@ -137,11 +148,11 @@ def parses(answer, pieces):
         out = set()
         for i in avail:
             s, n, rest = pieces[i], len(pieces[i]), avail - {i}
-            if lo + n <= hi and (m := match(answer[lo:lo + n], s)) is not None:
+            if lo + n <= hi and (m := mark(match(answer[lo:lo + n], s), i)) is not None:
                 out |= {(u | {i}, p | m, k + 1) for u, p, k in fill(lo + n, hi, rest)}
             for a in range(1, n):
                 for mid in range(lo + a + 1, hi - (n - a) + 1):
-                    m = match(answer[lo:lo + a] + answer[mid:mid + n - a], s)
+                    m = mark(match(answer[lo:lo + a] + answer[mid:mid + n - a], s), i)
                     if m is None:
                         continue
                     for u1, p1, k1 in fill(lo + a, mid, rest):
@@ -220,15 +231,15 @@ def readings(answer, ws, free, blocks):
     if not blocks and len(answer) >= MIN_HIDDEN:
         for run, rev in hidden(answer, ws, free):
             out.append(("hidden word + reversal" if rev else "hidden word", run,
-                        f"{'reversed ' if rev else ''}{answer} is spelt in {' '.join(ws[k][0] for k in run)!r}"))
+                        f"{'reversed ' if rev else ''}{answer} is spelt in {' '.join(ws[k][0] for k in run)!r}", 1))
     derived = set()
     for bl, src in blocks:
         d = derivation(bl, src)
         if d is None:
-            return [("undecided block", (), f"{bl} from {src!r} is more than one selection")]
+            return [("undecided block", (), f"{bl} from {src!r} is more than one selection", 0)]
         derived |= d
     need = collections.Counter(answer)
-    for pieces, parts in deleted([b for b, _ in blocks]) if len(blocks) <= MAX_BLOCKS else ():
+    for pieces, parts in deleted([b for b, *_ in blocks]) if len(blocks) <= MAX_BLOCKS else ():
         gap = len(answer) - sum(map(len, pieces))
         runs = [((), "")] if gap == 0 else [
             (r, s) for r, s in free_runs(ws, free) if len(s) == gap
@@ -236,20 +247,20 @@ def readings(answer, ws, free, blocks):
         for run, fod in runs:
             if fod and len(fod) < 3 and fod != answer[::-1] and fod not in answer:
                 continue
-            got = parses(answer, list(pieces) + ([fod] if fod else []))
+            got = parses(answer, list(pieces) + ([fod] if fod else []), len(pieces) if fod else None)
             src = f"{' '.join(ws[k][0] for k in run)!r}" if run else ""
-            what = " + ".join(filter(None, [src, "+".join(b for b, _ in blocks)]))
+            what = " + ".join(filter(None, [src, "+".join(b for b, *_ in blocks)]))
             if not got and len(pieces) + bool(fod) > 1 and collections.Counter(fod + "".join(pieces)) == need:
                 got = {frozenset({"anagram"})}
             for p in got:
                 if p | parts | derived:
-                    out.append((type_name(p | parts | derived), run, f"{what} make {answer}"))
+                    out.append((type_name(p | parts | derived), run, f"{what} make {answer}", cost(p)))
     if blocks and not out and len(answer) >= MIN_ANAGRAM:
-        extra = collections.Counter("".join(b for b, _ in blocks))
+        extra = collections.Counter("".join(b for b, *_ in blocks))
         for run, s in free_runs(ws, free):
             c = collections.Counter(s)
             if len(s) > len(answer) and c - extra == need and extra - c == collections.Counter():
-                out.append(("subtractive anagram", run, f"{' '.join(ws[k][0] for k in run)!r} less the blocks has the letters of {answer}"))
+                out.append(("subtractive anagram", run, f"{' '.join(ws[k][0] for k in run)!r} less the blocks has the letters of {answer}", 1))
     return [r for r in out if not (r[0] == "anagram" and len(answer) < MIN_ANAGRAM)]
 
 
@@ -271,16 +282,15 @@ def infer(clue, answer, known, lexicon=None):
     rs = readings(answer, ws, free, [b for b in blocks if b[0]])
     if not rs:
         return None
-    cost = lambda t: len(set(t.split(" + ")) & OPERATIONS)
-    least = min(cost(t) for t, _, _ in rs)
-    rs = [r for r in rs if cost(r[0]) == least]
-    types = {t for t, _, _ in rs}
+    least = min(r[3] for r in rs)
+    rs = [r for r in rs if r[3] == least]
+    types = {r[0] for r in rs}
     if len(types) > 1 or types & {"undecided block", "subtractive anagram"}:
-        return {"undecided": sorted({(t, " ".join(ws[k][0] for k in run)) for t, run, _ in rs}),
+        return {"undecided": sorted({(t, " ".join(ws[k][0] for k in run)) for t, run, *_ in rs}),
                 "why": rs[0][2]}
     t = rs[0][0]
     out = {"type": t, "why": rs[0][2]}
-    runs = {run for _, run, _ in rs}
+    runs = {r[1] for r in rs}
     if len(runs) == 1 and rs[0][1]:
         run = rs[0][1]
         out["fodder"] = " ".join(ws[k][0] for k in run)
@@ -372,7 +382,12 @@ def core(t):
     return frozenset(t.split(" + ")) - TAKEN
 
 
-def measure(corpus, votes, show=8):
+def held_out(pid):
+    """A quarter of the puzzles, fixed by id, kept back from tuning."""
+    return hashlib.sha1(pid.encode()).digest()[0] % 4 == 0
+
+
+def measure(corpus, votes, show=8, split="held-out"):
     tally = collections.defaultdict(collections.Counter)
     fps = collections.defaultdict(list)
     undecided = collections.defaultdict(list)
@@ -380,7 +395,7 @@ def measure(corpus, votes, show=8):
     ind = collections.Counter()
     for pid, eid, clue, answer, facts in corpus:
         gold = facts.get("type")
-        if not gold:
+        if not gold or held_out(pid) != (split == "held-out"):
             continue
         blog_types[gold] += 1
         known = {k: facts[k] for k in ("definition", "blocks") if k in facts}
@@ -405,6 +420,7 @@ def measure(corpus, votes, show=8):
             ind["tp"] += len(g & p)
             ind["fp"] += len(p - g)
             ind["fn"] += len(g - p)
+    print(f"\n== {split}")
     print(f"{'type':34} {'claimed':>8} {'right':>7} {'prec':>6} {'core':>6} {'blog':>7} {'cover':>6}")
     for t, c in sorted(tally.items(), key=lambda kv: -kv[1]["claimed"]):
         if not c["claimed"]:
@@ -483,7 +499,8 @@ def main():
     if args.gold:
         score_gold(votes)
     if args.measure:
-        measure(corpus, votes)
+        measure(corpus, votes, split="dev")
+        measure(corpus, votes, show=0, split="held-out")
     if args.fill:
         fill(corpus, votes)
 

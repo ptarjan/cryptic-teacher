@@ -29,12 +29,16 @@ check "a literal clue word inside a block is a container, not an anagram" contai
   'Try to catch the girl (7)' HEATHER --block HEAR=Try --definition girl
 check "a letter taken from a word the source names is a first letter" "charade + reversal + first letter" \
   "Famous college backed Delius' overture (5)" NOTED --block ETON=college --block "D=Delius' overture"
-check "a lone word's initial is an abbreviation, not a selection" charade \
+check "a lone word's initial is a first letter unless it is a listed abbreviation" "charade + first letter" \
   'One from Yokohama being paid in yen (8)' YEARNING --block Y=Yokohama --block 'EARNING=being paid'
 check "fodder less the blocks is left to a person" UNDECIDED \
   'Being dry, replacement unfortunately left out (10)' TEMPERANCE --block L=left --definition 'Being dry'
 check "a Spooner clue is not an anagram" NONE \
   "Posy says no, according to Spooner (7)" NOSEGAY --block GOES=says --block NAY=no
+check "a listed abbreviation is no selection" charade \
+  'Soprano gets each singer fish (3,4)' SEABASS --block S=Soprano --block EA=each --block BASS=singer
+check "a lone word cut short is a deletion" "deletion + reversal" \
+  'March curtailed, flipping study intensely (4)' CRAM --block MARC=March
 check "a short answer is not hidden by chance" NONE 'Tea and scones (3)' AND
 
 [ "$fails" -eq 0 ] && echo "all letter_facts checks passed" || { echo "$fails failed"; exit 1; }
