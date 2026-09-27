@@ -339,8 +339,11 @@ def ld(obj):
 
 # ---------------------------------------------------------------- puzzle page
 
-def clue_html(e):
+def clue_html(e, blog_note=True):
     """One clue: text, answer, and whatever explanation exists for it.
+
+    blog_note=False when the page says once, above the clues, that every
+    explanation on it is marked up from the blog, so each clue need not.
 
     Un-annotated puzzles fall through to clue-and-answer only. That is thinner
     than an annotated page but it is not filler — it is the specific thing
@@ -397,10 +400,14 @@ def clue_html(e):
     if ann.get("fromBlog"):
         # A type tools/letter_facts.py read off the letters is not the blogger's.
         read = "type" in (e.get("blog") or {}).get("inferred", ())
-        bits.append('<p class="s-todo muted">'
-                    + ("Clue type worked out from the letters, the rest marked up from the blogger\'s write-up; "
-                       if read else "Marked up from the blogger\'s write-up; ")
-                    + 'our own explanation is not written yet.</p>')
+        if blog_note:
+            bits.append('<p class="s-todo muted">'
+                        + ("Clue type worked out from the letters, the rest marked up from the blogger\'s write-up; "
+                           if read else "Marked up from the blogger\'s write-up; ")
+                        + 'our own explanation is not written yet.</p>')
+        elif read:
+            bits.append('<p class="s-todo muted">Clue type worked out from the letters, '
+                        'not the blogger\'s.</p>')
     # The surface first, the same order and for the same reason as the app's
     # walkthrough rung: what the clue pretends to be about, then what it is doing.
     if ann.get("surface"):
@@ -604,9 +611,19 @@ def puzzle_page(puz, meta, prev_p, next_p):
         body.append(f'<p class="muted small-note">Original puzzle: '
                     f'<a href="{esc(puz["sourceUrl"])}" rel="nofollow">{esc(host)}</a></p>')
 
+    # A page with none of our own explanations says once that what it shows
+    # is the blog's, rather than on each of its thirty clues.
+    blog_only = (not any(e.get("annotation") for e in across + down)
+                 and any(e.get("blog") for e in across + down))
+    if blog_only:
+        body.append('<p class="muted small-note">The definitions, pieces and indicators '
+                    "below are marked up from the "
+                    + (f"{esc(blog['name'])} write-up" if blog and blog.get("name")
+                       else "blogger\'s write-up")
+                    + "; our own explanations are not written yet.</p>")
     for label, entries in (("Across", across), ("Down", down)):
         body.append(f'<section class="s-list"><h2>{label}</h2>')
-        body.extend(clue_html(e) for e in entries)
+        body.extend(clue_html(e, blog_note=not blog_only) for e in entries)
         body.append("</section>")
 
     if nav:
