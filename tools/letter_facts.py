@@ -286,7 +286,9 @@ def infer(clue, answer, known, lexicon=None):
     for d in known.get("definition", []):
         taken |= locate(d, ws) or set()
     blocks = []
-    for bl, src in known.get("blocks", []):
+    for bl, src, *op in known.get("blocks", []):
+        if op:
+            continue  # anagram fodder: its words stay free, where readings finds fodder itself
         taken |= locate(src, ws) or set()
         blocks.append((letters(bl), src))
     free = set(range(len(ws))) - taken

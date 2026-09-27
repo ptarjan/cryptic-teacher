@@ -34,7 +34,7 @@ check "fifteensquared definition and hidden type" \
   '{"definition": ["Cloth"], "type": "hidden word"}' \
   "$(facts fifteensquared 'Cloth sample in Mombasa rickshaw (4)' "$FS" SARI)"
 check "a star and a plus spell the answer: anagram + charade, the block sourced" \
-  '{"blocks": [["HAM", "actor"]], "definition": ["Digital discomfort"], "type": "charade + anagram"}' \
+  '{"blocks": [["HAM", "actor"], ["REMOTE", "remote", "anagrammed"]], "definition": ["Digital discomfort"], "type": "charade + anagram"}' \
   "$(facts fifteensquared 'Digital discomfort caused as actor pressed remote (9)' "$FS" HAMMERTOE)"
 
 # Two underlines with only a space between them are two spans.
@@ -57,18 +57,18 @@ KEY='<p>definitions underlined, [anagrinds, containment, reversal and other indi
 TT='<tr><td>6</td><td><span><i><b><u>Pick</u></b></i> brief lecture arranged during afternoon (8)</span></td></tr>
 <tr><td></td><td><b>PLECTRUM</b></td></tr><tr><td></td><td>Anagram [arranged] of LECTUR{e} [brief] contained by [during] PM (afternoon)</td></tr>'
 check "timesforthetimes bracketed indicators under the key, a spelled compound type" \
-  '{"blocks": [["LECTUR", "lecture"], ["PM", "afternoon"]], "definition": ["Pick"], "indicators": ["arranged", "brief", "during"], "type": "anagram + container + deletion"}' \
+  '{"blocks": [["LECTUR", "lecture", "anagrammed"], ["PM", "afternoon"]], "definition": ["Pick"], "indicators": ["arranged", "brief", "during"], "type": "anagram + container + deletion"}' \
   "$(facts timesforthetimes 'Pick brief lecture arranged during afternoon (8)' "$KEY$TT" PLECTRUM)"
 check "no key: a bracket after an operation or a cut names its indicator, never a source" \
-  '{"blocks": [["LECTUR", "lecture"], ["PM", "afternoon"]], "definition": ["Pick"], "indicators": ["arranged", "during", "brief"], "type": "anagram + container + deletion"}' \
+  '{"blocks": [["LECTUR", "lecture", "anagrammed"], ["PM", "afternoon"]], "definition": ["Pick"], "indicators": ["arranged", "during", "brief"], "type": "anagram + container + deletion"}' \
   "$(facts timesforthetimes 'Pick brief lecture arranged during afternoon (8)' "$TT" PLECTRUM)"
 
 # bigdave44: indicators in italics inside parentheses, answer in a spoiler.
 BD='<p>1a <u>Oscar</u> and Maya wed recklessly after entering a club? (7,5)<br />
 <span class="spoiler">ACADEMY AWARD</span>: An anagram (<em>recklessly</em>) of MAYA WED</p>
 <p>10a Match over, <span style="text-decoration: underline;">get visibly elated</span> (5,2)<br/>LIGHT UP</p>'
-check "a named anagram whose fodder does not hold the answer is not typed" \
-  '{"definition": ["Oscar"], "indicators": ["recklessly"]}' \
+check "a named anagram whose fodder does not hold the answer is not typed, but its fodder is a block" \
+  '{"blocks": [["MAYA WED", "Maya wed", "anagrammed"]], "definition": ["Oscar"], "indicators": ["recklessly"]}' \
   "$(facts bigdave44 'Oscar and Maya wed recklessly after entering a club? (7,5)' "$BD" ACADEMYAWARD)"
 check "bigdave44 underline by style" \
   '{"definition": ["get visibly elated"]}' \
@@ -98,7 +98,7 @@ check "clue words that hold the letters and a selecting word: the type would lea
   '{"blocks": [["TH", "most of the"], ["IN", "batting"]], "definition": ["Balding"]}' \
   "$(facts fifteensquared 'Balding most of the batting (4)' '<p>1 <u>Balding</u> most of the batting (4)<br/>TH (most of the) + IN (batting)</p>' THIN)"
 check "an operator binds to the piece beside it: MO + (HERON)*, not an anagram of both" \
-  '{"blocks": [["MO", "second"]], "definition": ["Bird"], "indicators": ["flapping"], "type": "charade + anagram"}' \
+  '{"blocks": [["HERON", "heron", "anagrammed"], ["MO", "second"]], "definition": ["Bird"], "indicators": ["flapping"], "type": "charade + anagram"}' \
   "$(facts timesforthetimes 'Bird flapping heron after second (7)' '<p>1 <u>Bird</u> flapping heron after second (7)<br/>MOORHEN – anagram (flapping) of HERON, after MO (second)</p>' MOORHEN)"
 check "a hidden word keeps its type and shows no blocks" \
   '{"definition": ["Record-holder"], "indicators": ["somewhat"], "type": "hidden word"}' \
@@ -157,5 +157,30 @@ check "minus the first letter trims; a curly quote opening a source; ', for' sta
 check "a source quoted with a closing quote, an apostrophe inside it" \
   '[["IS ON", "hasn’t been cancelled"], ["UN", "international organisation"]]' \
   "$(facts fifteensquared 'Concert hasn’t been cancelled in support of international organisation (6)' '<p>3 <u>Concert</u> hasn’t been cancelled in support of international organisation (6)<br/>IS ON=”hasn’t been cancelled”, supporting U[nited] N[ations]=”international organisation”</p>' UNISON | python3 -c 'import json,sys; print(json.dumps(json.load(sys.stdin).get("blocks"), ensure_ascii=False))')"
+
+# Anagram fodder is a block of the clue's own words, marked "anagrammed", kept
+# only where its letters check against the answer, all of them or a part.
+blk() { python3 -c 'import json,sys; print(json.dumps(json.load(sys.stdin).get("blocks"), ensure_ascii=False))'; }
+check "(X)* with its indicator after: the whole answer's fodder" \
+  '[["IN HAT", "in hat", "anagrammed"]]' \
+  "$(facts fifteensquared 'Thane disguised in hat (5)' '<p>1 <u>Thane</u> disguised in hat (5)<br/>THAIN (IN HAT)* (disguised)</p>' THAIN | blk)"
+check "an anagram (gloss) of a quoted phrase" \
+  '[["SAME SAD", "same sad", "anagrammed"]]' \
+  "$(facts bigdave44 'Crowded same sad converts (6)' '<p>1 <u>Crowded</u> same sad converts (7)<br/>An anagram (‘converts’) of ‘same sad’</p>' AMASSED | blk)"
+check "WORD* then an AInd: fodder that is part of the answer" \
+  '[["TURN", "turn", "anagrammed"], ["IP", "Ipswich"]]' \
+  "$(facts fifteensquared 'Vegetable to turn off at Ipswich (6)' '<p>1 <u>Vegetable</u> to turn off at Ipswich (6)<br/>TURN* AInd: off + IP (Ipswich)</p>' TURNIP | blk)"
+check "fodder spread over the clue is a block a run" \
+  '[["A COURT", "a court", "anagrammed"], ["GRASS", "grass", "anagrammed"]]' \
+  "$(facts timesforthetimes 'Sweetener a court arranged with grass (6,5)' '<p>1 <u>Sweetener</u> a court arranged with grass (6,5)<br/>CASTOR SUGAR – (A COURT GRASS)*.</p>' CASTORSUGAR | blk)"
+check "fodder's lower-case letters are the ones not used: SLALOM RaCE" \
+  '[["SLALOM RCE", "slalom race", "anagrammed"]]' \
+  "$(facts fifteensquared 'Less advanced slalom race arranged for anyone who wants to enter (3,6)' '<p>1 Less advanced slalom race arranged for <u>anyone who wants to enter</u> (3,6)<br/>SLALOM RaCE* (without A – advanced)</p>' ALLCOMERS | blk)"
+check "fodder whose letters do not check, or that is not the clue's words, is no block" \
+  'null null' \
+  "$(facts fifteensquared 'Fruit peel cut (5)' '<p>1 <u>Fruit</u> peel cut (5)<br/>(PEEL CUT)*</p>' LEMON | blk) $(facts fifteensquared 'Fruit ruined, lemon (5)' '<p>1 <u>Fruit</u> ruined, lemon (5)<br/>(MELON)*</p>' MELON | blk)"
+check "a denied anagram names no fodder" \
+  'null' \
+  "$(facts fifteensquared 'Planet heart (5)' '<p>1 <u>Planet</u> heart (5)<br/>Not an anagram of HEART, sadly</p>' EARTH | blk)"
 
 [ "$fails" -eq 0 ] && echo "all blog_facts checks passed" || { echo "$fails failed"; exit 1; }
