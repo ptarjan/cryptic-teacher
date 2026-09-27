@@ -25,6 +25,7 @@ const COST = {
   "tools/test_puzzle_integrity.sh": 165,
   "tools/test_acquire_book.sh": 56,
   "tools/test_provenance.sh": 46,
+  "tools/test_shim_format.sh": 68,
   "tools/test_solve_queue_clues.sh": 23,
   "tools/test_alert_claimed.sh": 6,
   "tools/test_repair_fetched.sh": 5,

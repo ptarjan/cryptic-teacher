@@ -372,6 +372,11 @@ tools/build_readme.py                        this: rewrites the generated region
 tools/make_og_card.py                        picks a puzzle’s best clue and lays out its social
                                              card
 tools/make_og.sh                             screenshots those cards with headless Chrome
+tools/og_carry_over.py                       one-off: moves og/.manifest.json to card_key's
+                                             content hash without redrawing a card whose puzzle
+                                             has not changed
+tools/test_shim_format.sh                    holds the packed puzzle shims to unpacking into
+                                             exactly the puzzle the browser should hold
 tools/og_palette.py                          rewrites each card as a 256-colour palette PNG, a
                                              third of the size
 tools/stage_site.py                          links the published files into _site/ for Pages
