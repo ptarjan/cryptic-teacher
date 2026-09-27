@@ -79,16 +79,23 @@ U_ON, U_OFF, E_ON, E_OFF = "", "", "", ""
 MARKS = U_ON + U_OFF + E_ON + E_OFF
 BLOCK_TAGS = {"p", "br", "div", "tr", "td", "th", "li", "h1", "h2", "h3", "h4",
               "h5", "h6", "table", "tbody", "ul", "ol"}
-UNDERLINE_STYLE = re.compile(r"text-decoration\s*:\s*underline", re.I)
+UNDERLINE_STYLE = re.compile(r"text-decoration(?:-line)?\s*:\s*underline", re.I)
+#: fifteensquared's table plugin marks the definition by class, not by style.
+DEFINITION_CLASS = re.compile(r"(?:^|\s)fts-definition(?:\s|$)")
+#: A post with none of these marks its definitions, if at all, in bold italic.
+ANY_UNDERLINE = re.compile(r"<u>|<ins>|text-decoration(?:-line)?\s*:\s*underline|fts-definition", re.I)
 SKIP_TAGS = {"s", "strike", "del", "script", "style"}
+BOLD, ITALIC = {"b", "strong"}, {"i", "em"}
 
 
 class _Flatten(html.parser.HTMLParser):
-    """HTML to text, with underline and emphasis kept as sentinel characters."""
+    """HTML to text, with underline and emphasis kept as sentinel characters.
+    `bold_italic` reads bold italic as the underline, for posts that use it so."""
 
-    def __init__(self):
+    def __init__(self, bold_italic=False):
         super().__init__(convert_charrefs=True)
         self.out, self.stack, self.skip = [], [], 0
+        self.bold_italic = bold_italic
 
     def handle_starttag(self, tag, attrs):
         if tag in BLOCK_TAGS:
@@ -99,7 +106,10 @@ class _Flatten(html.parser.HTMLParser):
         if tag in SKIP_TAGS:
             self.skip += 1
             mark = "skip"
-        elif tag in ("u", "ins") or UNDERLINE_STYLE.search(dict(attrs).get("style") or ""):
+        elif (tag in ("u", "ins") or UNDERLINE_STYLE.search(dict(attrs).get("style") or "")
+              or DEFINITION_CLASS.search(dict(attrs).get("class") or "")
+              or (self.bold_italic and self.stack and {tag, self.stack[-1][0]} in (
+                  {b, i} for b in BOLD for i in ITALIC))):
             mark = U_ON
         elif tag in ("em", "i"):
             mark = E_ON
@@ -126,7 +136,7 @@ class _Flatten(html.parser.HTMLParser):
 
 
 def flatten(rendered):
-    p = _Flatten()
+    p = _Flatten(bold_italic=not ANY_UNDERLINE.search(rendered))
     p.feed(rendered)
     p.close()
     return "".join(p.out).replace("\xa0", " ")
@@ -299,19 +309,20 @@ def in_clue(phrase, body):
 #: parentheses (UA[E], PLUT{o}, R(un), (fac)E). Only the capitals are letters.
 CAP = "A-ZÀ-ÖØ-Þ"
 ATT = r"(?:\[[A-Za-z]{1,15}\]|\{[A-Za-z]{1,15}\}|\([A-Za-z]{1,15}\))"
-CAPWORD = rf"(?:{ATT})*[{CAP}](?:[{CAP}'’.\-]|{ATT})*(?<![’'.\-])(?:['’]s(?![a-z]))?"
+CAPWORD = rf"(?:{ATT})*[{CAP}](?:[{CAP}'’.\-]|{ATT})*(?<![’'.\-])(?:['’]s(?![a-z])|(?<=S)['’](?=\s))?"
 ATOM = re.compile(rf"(?<![\w'’])(?:{CAPWORD})(?: (?:{CAPWORD}))*(?![\w\[{{])")
 #: What a block's letters come from, right after them: `WORD (clue words)`,
 #: `WORD(‘clue words’)`, `WORD (=clue words)`, `WORD [clue words]`,
 #: `WORD=“clue words”`, `WORD = clue words`, `WORD for ‘clue words’` or
 #: `WORD {clue words}`, braces holding words and not letters cut off the next.
-QUOTED = r"['‘\"“](?P<q>[^'‘’\"“”()]{1,60})['’\"”]"
+QUOTED = r"['‘\"“”](?P<q>(?:[^'‘’\"“”()]|(?<=[a-z])['’](?=[a-z])){1,60})['’\"”](?![A-Za-z])"
 SOURCE = re.compile(
-    r"\s*\(\s*=?\s*(?:" + QUOTED.replace("q>", "p>") + r"|(?P<s>[^()]{1,150}))\s*\)"
+    r"(?:(?<=[A-Z]\.[A-Z])\.)?"  # E.G. ("say"): the dotted abbreviation's last dot
+    r"(?:\s*\(\s*=?\s*(?:" + QUOTED.replace("q>", "p>") + r"|(?P<s>[^()]{1,150}))\s*\)"
     r"|\s*\[\s*(?P<b>[^\[\]]{1,60})\s*\]"
     r"|\s*=\s*(?:" + QUOTED + r"|(?P<e>[A-Za-z][a-z'’ \-]{0,40}))"
     r"|\s+for\s+" + QUOTED.replace("q>", "f>") +
-    r"|\s*\{(?P<c>[a-z][a-z'’ \-]{2,59})\}(?![A-Za-z])")
+    r"|\s*\{(?P<c>[a-z][a-z'’ \-]{2,59})\}(?![A-Za-z]))")
 #: A gloss that names its clue words among other things: "(staff, long piece
 #: of wood)", "(publicity – Public Relations)".
 GLOSS_PARTS = re.compile(r"\s*[,;]\s*|\s+[–—-]\s+")
@@ -339,7 +350,9 @@ def source_words(m, body, no_brackets=False, multiword=False):
         hit = in_clue(raw, body)
         if hit:
             return hit
-        parts = [h for h in (in_clue(p, body) for p in GLOSS_PARTS.split(raw)) if h]
+        # PART ("region", reversed): a later part may be the operator's indicator.
+        parts = GLOSS_PARTS.split(raw)
+        parts = [h for h in (in_clue(p, body) for p in parts[:1] + [p for p in parts[1:] if not unary_operator(p)]) if h]
         return parts[0] if len(parts) == 1 and not multiword else None
     words = (m.group("e") or "").split()
     for k in range(min(4, len(words)), 0, -1):
@@ -347,6 +360,14 @@ def source_words(m, body, no_brackets=False, multiword=False):
         if hit:
             return hit
     return None
+
+
+def literal_gloss(caps, src, body):
+    """Whether "ARTICLE (edited)" writes a clue word in capitals as fodder,
+    glossed with the clue word that works on it: then the gloss is that
+    word's indicator, not the source of its letters."""
+    return (len(atom_letters(caps)) >= 3 and not re.search(ATT, caps)
+            and bool(in_clue(caps, body)) and atom_letters(src.upper()) != atom_letters(caps))
 
 
 def atom_letters(s):
@@ -405,6 +426,8 @@ def blocks(expl, body, answer, bracket_key=False):
     for m in ATOM.finditer(expl):
         src = None
         s = SOURCE.match(expl, m.end())
+        if s and bracketed_operator(m.group()) == "minus" == bracketed_operator(s.group().strip(" ()[]{}=")):
+            continue  # TER (exeTER) MINUS (without): the operator in capitals, glossed with its indicator
         if s:
             # A bracket after a cut block glosses the cut; on a post whose key
             # puts indicators in brackets, no bracket is ever a source.
@@ -412,8 +435,12 @@ def blocks(expl, body, answer, bracket_key=False):
             whole = whole_word_of(m.group())
             if src and whole and SELECTING.search(src) and in_clue(whole, body):
                 src = None  # LAM(b) (‘tailless’): the gloss names the cut, and lamb is the word
-            if src and not whole and only_selecting(src) and not selected(m.group(), src):
-                src = None  # "final S (topped and tailed)": S is what goes, not a piece
+            if (src and not whole and only_selecting(src) and not selected(m.group(), src)
+                    and (re.search(ATT, m.group()) or len(atom_letters(m.group())) <= 2
+                         or SELECTING.search(" ".join(expl[:m.start()].split()[-1:])))):
+                src = None  # "final S (topped and tailed)": S is what goes, not a piece; A TAD (a little) is one
+            if src and literal_gloss(m.group(), src, body):
+                continue
         pieces = [m.group()]
         if not src and " " in m.group():
             # A(ny) E(nthusiasm): each word its own abbreviation; but
@@ -438,12 +465,13 @@ def blocks(expl, body, answer, bracket_key=False):
     out = []
     for _, _, piece, src in sorted(found):
         letters = atom_letters(piece)
-        b = (re.sub(ATT, "", piece).strip(" .").upper(), src)
+        b = re.sub(ATT, "", piece).strip(" .").replace(".", "").upper()
+        b = (b.replace(" ", "") if re.fullmatch(r"(?:\w )+\w", b) else b, src)  # U[nited] N[ations] is UN
         if letters == answer and whole_word_of(piece) and not SELECTING.search(src):
             # RE{s}IGN (give up work): the answer is the word less a cut, and
             # the word is the piece; STOA{t} (tailless) glosses the cut instead.
             whole = whole_word_of(piece)
-            letters, b = atom_letters(whole.upper()), (whole.upper().strip(" ."), src)
+            letters, b = atom_letters(whole.upper()), (whole.upper().replace("-", "").strip(" ."), src)
         if (letters and letters != answer and letters != atom_letters(src.upper()) and b not in out
                 and not (" " in src and OPERATES.search(src))):
             out.append(b)
@@ -488,7 +516,7 @@ OPS = {
     "reversed_all": ["all reversed", "all backwards", "the whole reversed", "all back", "all written backwards"],
     "reversed": ["reversed", "reversal", "backwards", "back", "in reverse", "<"],
     "anagrammed": ["anagrammed", "anagram", "*"],
-    "reverse_of": ["a reversal of", "the reversal of", "reversal of", "reverse of", "a reverse of"],
+    "reverse_of": ["a reversal of", "the reversal of", "reversal of", "reverse of", "a reverse of", "<="],
     "anagram_of": ["an anagram of", "anagram of", "*"],
     "first letters": ["first letters of", "initial letters of", "the first letters of"],
     "first letter": ["first letter of", "initial letter of", "the first letter of",
@@ -603,8 +631,29 @@ def _op_regex():
 
 
 OP_RX, OP_KINDS = _op_regex()
+#: Operator words too common in glosses to be read as the clue's indicator.
+LINK_OPS = {"and", "with", "then", "plus", "has", "having", "not", "by", "-", "+", "&", "*", "<"}
+
+
+def bracketed_operator(inner):
+    """The operator kind a bracket's whole content names, as in "LASS (girl)
+    [wrapping] G", where the blogger writes the clue's indicator in place of
+    their own operator; else None. Right after unsourced letters the same
+    bracket is their source: ON (about)."""
+    m = OP_RX.fullmatch(inner.strip(" '‘’\"“”"))
+    if not m or m.group().lower() in LINK_OPS:
+        return None
+    kind = OP_KINDS[int(m.lastgroup[1:])][0]
+    return None if kind == "announce" else kind
+
+
+def unary_operator(part):
+    """A gloss part that names a reversal or an anagram, never a piece's
+    meaning: CA (circa, about) is two meanings, PART ("region", reversed) not."""
+    return bracketed_operator(part) in POSTFIX | PREFIX
 #: Where the wordplay stops and the blogger's prose starts.
-PROSE_BREAK = re.compile(r"[.;](?=\s|$)|[!?](?=\s+[a-z]|\s*$)|\s[–—]\s|\s\|\s|:\s")
+PROSE_BREAK = re.compile(r"[.;](?=\s|$)|[!?](?=\s+[a-z]|\s*$)|\s[–—]\s|\s\|\s|:\s"
+                         r"|,(?=\s+for\s+(?!['‘\"“]))")  # ", for Patrick Pearse": what the answer is
 
 
 def strip_answer(line, answer):
@@ -625,6 +674,12 @@ def strip_answer(line, answer):
 def wordplay_head(expl, answer):
     """The wordplay line of an explanation, answer and trailing prose cut off:
     the first line that is neither the answer, a number nor an enumeration."""
+    return next(wordplay_heads(expl, answer), "")
+
+
+def wordplay_heads(expl, answer):
+    """Every line of an explanation that could be its wordplay, as
+    wordplay_head cuts it, in order: a blogger may gloss the definition first."""
     for line in expl.split("\n"):
         line = line.replace("", "").replace("", "").replace(E_ON, "").replace(E_OFF, "").strip()
         letters = "".join(f for f in map(fold, line) if f.isalnum() and f.isascii())
@@ -642,7 +697,8 @@ def wordplay_head(expl, answer):
         for i, ch in enumerate(line):
             depth += ch in "([{"
             depth -= ch in ")]}"
-            if depth == 0 and PROSE_BREAK.match(line, i) and not re.match(r"\.[A-Z]", line[i:i + 2]):
+            if (depth == 0 and PROSE_BREAK.match(line, i) and not re.match(r"\.[A-Z]", line[i:i + 2])
+                    and not re.search(r"(?<![A-Za-z])[A-Z]\.[A-Z]$", line[:i])):  # E.G. is no full stop
                 cut = i
                 break
         line = line[:cut].strip(" ,")
@@ -651,8 +707,7 @@ def wordplay_head(expl, answer):
                       r"around \1", line)
         line = re.sub(r"\bwith\s+(.{1,40}?)\s+(?:removed|deleted|dropped|omitted|taken out|missing)\b",
                       r"minus \1", line)
-        return line
-    return ""
+        yield line
 
 
 #: Words a blogger puts in front of an operator ("is placed around", "going
@@ -712,6 +767,8 @@ def tokens(s, depth=0):
             sourced = False
             while True:
                 src = SOURCE.match(s, i)
+                if src and sourced and bracketed_operator(src.group().strip(" ()[]{}=")):
+                    break  # LASS (girl) [wrapping] G: the clue's operator, standing for the blog's
                 if src and (src.group("p") or src.group("q") or src.group("f") or src.group("e") or src.group("c")
                             or re.search(r"[a-z]", (src.group("s") or "") + (src.group("b") or ""))):
                     i = src.end()
@@ -740,6 +797,12 @@ def tokens(s, depth=0):
             if j < 0 or depth >= 3:
                 raise _Fail(i)
             inner = s[i + 1:j]
+            op_word = bracketed_operator(inner)
+            if op_word and out and out[-1][0] in ("val", "group", "post"):
+                kind = op_word
+                out.append(("post" if kind in POSTFIX else "pre" if kind in PREFIX else "bin", kind))
+                i = j + 1
+                continue
             star_after = s[j + 1:j + 2] == "*"
             star_before = s[i - 1:i] == "*" and out and out[-1] == ("pre", "anagram_of")
             if out and out[-1][0] == "group" and s[i - 1:i] not in (" ", "\t") and re.fullmatch(r"[a-z]+", inner):
@@ -866,7 +929,11 @@ def _select(kind, s):
     return {"first letter": [s[0]], "last letter": [s[-1]], "outer letters": [s[0] + s[-1]],
             "middle letter": [s[mid]] if len(s) % 2 else [],
             "middle letters": [s[mid - 1:mid + 1]] if len(s) % 2 == 0 else [s[mid - 1:mid + 2]],
-            "alternate letters": [s[::2], s[1::2]]}.get(kind, [])
+            "alternate letters": [s[::2], s[1::2]],
+            # "minus the first letter", "curtailed": which end the phrase names
+            # is not kept, so every such trim, and the answer picks.
+            "trimmed": [s[1:], s[:-1], s[1:-1], s[2:], s[:-2], s[:mid] + s[mid + 1:],
+                        s[:mid - 1] + s[mid + 1:]]}.get(kind, [])
 
 
 def _removals(s, t, cap=20):
@@ -997,14 +1064,26 @@ NAMES_AN_OPERATION = re.compile(
 
 
 def wordplay_type(expl, answer, body=""):
+    """The clue type the first line of the write-up that spells one out gives,
+    as head_type reads it. A line naming a hidden word, a homophone or a
+    spoonerism says the letters come some way the operators cannot show."""
+    for head in wordplay_heads(expl, answer):
+        if re.search(r"(?i)hidden|homophone|sounds|spoon|lurk", head):
+            return None
+        t = head_type(head, answer, body)
+        if t:
+            return t
+    return None
+
+
+def head_type(head, answer, body=""):
     """The clue type the write-up's wordplay spells out, when its pieces put
     together by its own operators give exactly the answer; else None. Every
     reading that gives the answer must use the same operators. A single
     letter the write-up does not source may have been picked out of a clue
     word ("ROO + K" for top of Kilkenny), so where the clue has a selecting
     word, such a reading names no type."""
-    head = wordplay_head(expl, answer)
-    if not head or re.search(r"(?i)hidden|homophone|sounds|spoon|lurk", head):
+    if not head:
         return None
     try:
         toks = tokens(head)
@@ -1020,6 +1099,8 @@ def wordplay_type(expl, answer, body=""):
             return None
     except RecursionError:
         return None
+    while toks and toks[-1][0] == "bin":
+        toks.pop()  # "PR-[of]-ESS=”claim”, with “of being ignored”": prose, not an operand
     if len(toks) > 16:
         return None
     if len(toks) == 1 and toks[0][0] == "val" and toks[0][1] == answer and toks[0][2] == {"cut"} \
@@ -1035,6 +1116,11 @@ def wordplay_type(expl, answer, body=""):
     if any("wide" not in ops for ops in hits):
         hits = {ops for ops in hits if "wide" not in ops}
     parts = {frozenset(PART[o] for o in ops if o in PART) for ops in hits}
+    # "an anagram of INTO A CH": the fodder all shuffled, or all but a CH left
+    # in place; pieces run together under the operator are its fodder.
+    least = min(parts, key=len, default=None)
+    if least and "anagram" in least and all(least <= p and p - least <= {"charade"} for p in parts):
+        parts = {least}
     if len(parts) != 1 or any("cutp" in ops or ("bare" in ops and SELECTING.search(body)) for ops in hits):
         return None
     (p,) = parts
@@ -1053,7 +1139,7 @@ def wordplay_type(expl, answer, body=""):
 #: "An envelope (‘amid’) of", "inside (“into”)".
 IND_OP = re.compile(
     r"(?i)(?<![a-z])(?:anagram(?:med)?|reversal|reversed|reverse|backwards|envelope|insertion|"
-    r"inside|within|into|around|round|containing|contained(?: in| by)?|holding|taking in|"
+    r"inside|within|into|(?-i:in)|around|round|containing|contained(?: in| by)?|holding|taking in|"
     r"inserted(?: in| into)?|minus|without|losing|removed|deleted|deletion|excluding|dropping|"
     r"hidden(?: answer| word)?(?: in)?|hiding in|lurker|lurking|homophone(?: of)?|sounds? like|sound-alike|"
     r"another(?=\s*\([^()]*\)\s+of)|"
@@ -1151,6 +1237,12 @@ def operation_indicators(expl_marked):
     plain = expl_marked.replace(E_ON, "").replace(E_OFF, "")
     out = [m.group("q") or m.group("w") or m.group("s") or m.group("b") for m in IND_OP.finditer(plain)]
     out += [m.group("w") for m in STAR_GLOSS.finditer(plain)]
+    for m in re.finditer(r"[(\[]\s*([^()\[\]]{2,60}?)\s*[)\]]", plain):
+        # After letters the bracket's first part is their source: PART ("region", reversed).
+        after_caps = re.search(rf"[{CAP}.]\s?$", plain[:m.start()])
+        parts = GLOSS_PARTS.split(m.group(1))
+        out += [p.strip(" '‘’\"“”") for p in (parts[1:] if after_caps else parts)
+                if (unary_operator if after_caps else bracketed_operator)(p)]
     out += [next(g for g in m.groups() if g) for m in NAMED_IND.finditer(plain)]
     for m in CUT_GLOSS.finditer(plain):
         for part in GLOSS_PARTS.split((m.group("p") or m.group("b")).strip(" '‘’\"“”")):
@@ -1175,6 +1267,12 @@ def indicators(blog, expl_marked, body, brackets, avoid=()):
     if blog == "timesforthetimes" and brackets:
         raw += [bracket_reading(r)[0] for r in BRACKETED.findall(marked.replace(E_ON, "").replace(E_OFF, ""))]
     raw += operation_indicators(marked)
+    plain = re.sub("[" + MARKS + "]", "", marked)
+    for m in ATOM.finditer(plain):
+        s = SOURCE.match(plain, m.end())
+        src = s and (s.group("p") or s.group("s") or s.group("b")) and source_words(s, body)
+        if src and literal_gloss(m.group(), src, body):  # a bracket; "= contentious" is the definition
+            raw.append(src)
     out = []
     for r in raw:
         parts = [p for p in ELLIPSIS.split(r) if p.strip()]
@@ -1292,8 +1390,9 @@ def facts_for_post(blog, entries, post):
             fact["type"] = t
         if blk and "hidden" not in (t or ""):
             fact["blocks"] = blk
+        whole_clue = defs and projection(" ".join(defs))[0] == projection(body)[0]  # &lit
         ind = indicators(blog, expl_marked, body, brackets,
-                         avoid=(defs or []) + [src for _, src in blk])
+                         avoid=([] if whole_clue else defs or []) + [src for _, src in blk])
         if ind:
             fact["indicators"] = ind
         out[eid] = fact
