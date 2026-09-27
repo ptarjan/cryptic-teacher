@@ -17,22 +17,21 @@ a normal day — and tools/fetch_snitch.py keeps those ratings in
 tools/data/snitch.json, keyed by our puzzle id, every night. That is a real
 external rating joined to puzzles we hold, and --validate prints the agreement.
 
-It is weak, and it does not set the weights. scratch/snitch_weights.py refits
-WEIGHTS on annotated Times dailies, split into date thirds: a non-negative
-weight grid and a ridge regression, each fitted on two thirds and scored on
-the third held out, rotating through all three, against two targets — the
-NITCH minus its weekday mean, and the Times for the Times comment DNF share
-minus its weekday mean. A refit replaces WEIGHTS only if its held-out rho
-beats theirs in every third, or in all but one with a clear overall win; none
-has, on either target, so the weights below remain an editorial judgement.
-The index is NOT a calibrated absolute, and the SNITCH is used for three
-things: the --validate check, the "typically SNITCH X-Y" range a Times badge
-quotes for its band (snitch_ranges()), and choosing which counts to add as
-components. tools/snitch_report.py measures the index and each component
+The SNITCH chooses components and never sets weights. A component joins the
+index, or replaces one, only when the index with it beats the index without
+it held out: the annotated Times dailies split into their own date thirds,
+each third scored against the NITCH minus the weekday mean of the rated
+puzzles outside it, winning in at least two of the three and on the mean,
+with the Sunday Times reported beside it and --validate's SERIES ORDER still
+passing. The weights are fixed, not fitted: held-out refits of them
+(scratch/snitch_weights.py) came out unstable and never beat fixed ones. The
+index is NOT a calibrated absolute, and the SNITCH is used for three things:
+the --validate check, the "typically SNITCH X-Y" range a Times badge quotes
+for its band (snitch_ranges()), and choosing components. tools/snitch_report.py measures the index and each component
 against the NITCH minus its weekday mean, by date third, and is rerun
 nightly into tools/data/snitch_report.txt.
 
-So this measures four things that are genuinely in the file, reports each one
+So this measures six things that are genuinely in the file, reports each one
 separately so a reader can disagree with the weighting, and bands a puzzle by
 where it sits *against the rest of the collection*: "tougher than 80% of the
 puzzles here" is a claim the data can support, "Difficulty 7/10" is not.
@@ -90,7 +89,7 @@ puzzles a solver had already seen — a puzzle remembered as Tough quietly
 becoming Moderate because six easier ones arrived that week. Refreshing the
 baseline is a deliberate act (--rebaseline) that shows the diff.
 
-The four components, higher = harder:
+The six components, higher = harder:
 
   checking   The share of an answer's letters that no other entry crosses.
              The oldest and least arguable measure there is: an unchecked
@@ -98,11 +97,10 @@ The four components, higher = harder:
              with heavy bars can run over 50% unchecked and it is felt
              immediately.
 
-  obscurity  How far down a frequency-ordered British cryptic word list the
-             answers sit, worst word in each entry (a phrase is as hard as its
-             rarest half). Needs tools/data/lexicon.tsv, which is committed —
-             see the missing-lexicon note in score() for what happens in a
-             checkout that somehow lacks it.
+  rarity     How far down a frequency-ordered British cryptic word list the
+             puzzle's three rarest answers sit, each looked up whole (a phrase
+             the list lacks is as rare as its rarest word). Needs
+             tools/data/lexicon.tsv, which is committed.
 
   device     Which wordplay machinery the clues use, for annotated puzzles
              only, on two axes. RECOGNITION: hidden words give themselves up; a
@@ -119,9 +117,24 @@ The four components, higher = harder:
              many times you have to use one. It is the feature that tracks
              the part of the SNITCH its weekly ramp does not explain.
 
-Weights are stated below as an editorial judgement that no held-out refit has
-beaten (above). Change them only through scratch/snitch_weights.py's test; the
-components are printed alongside so the change is arguable.
+  answer_novelty   How seldom the answers appeared in earlier puzzles, of
+             any series. A solver who has met an answer before reaches it
+             sooner, whatever the clue does.
+
+  pairing_novelty  How seldom each answer was clued by this same definition
+             in earlier puzzles: the definition the blog underlines where a
+             blog writes the puzzle up, else our annotation's. A stock pairing
+             is recognised on sight.
+
+             Both count ONLY puzzles dated before this one, so a rating never
+             moves because a later puzzle arrived, and both are shares or
+             scaled counts rather than raw counts, so an old puzzle with a
+             short history behind it is not read as unfamiliar. history()
+             states the arithmetic.
+
+Weights are fixed (above): checking leads at 0.45, rarity 0.30, and every
+other component 0.25. The components are printed alongside the index so a
+reader can argue with them.
 
 Usage:
   python3 tools/difficulty.py            # table of every puzzle, hardest first
@@ -129,12 +142,15 @@ Usage:
   python3 tools/difficulty.py --validate # does it agree with anything external?
 """
 
+import functools
 import json
 import math
 import random
+import re
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
+from types import SimpleNamespace
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -142,14 +158,23 @@ from fetch_puzzle import (  # noqa: E402 — one glob, one reader for every tool
     puzzle_files, puzzle_is_annotated, read_puzzle_file)
 LEXICON = ROOT / "tools" / "data" / "lexicon.tsv"
 BASELINE = ROOT / "tools" / "data" / "difficulty_baseline.json"
+BLOG_FACTS = ROOT / "tools" / "data" / "blog_facts"
 # What an answer scores when the lexicon has never heard of it. Deliberately the
 # tail of the list rather than beyond it: unknown here almost always means a
-# proper noun or a phrase build_lexicon.js dropped by design, not a hard word.
+# proper noun build_lexicon.js dropped by design, not a hard word.
 MISSING_RANK = 60000
+#: rarity() averages this many of a puzzle's rarest answers.
+RAREST_ANSWERS = 3
+#: Earlier puzzles a familiarity count needs behind it before it is scored.
+HISTORY_FLOOR = 5000
+#: pairing_novelty counts per this many earlier puzzles that carry a definition.
+PAIRING_SCALE = 10000
 
 # How much each component moves the overall index. Checking leads because it is
-# the one component that is a fact rather than a judgement.
-WEIGHTS = {"checking": 0.45, "obscurity": 0.30, "device": 0.25, "machinery": 0.25}
+# the one component that is a fact rather than a judgement; rarity follows it,
+# and the rest are equal. Fixed, never fitted: see the module docstring.
+WEIGHTS = {"checking": 0.45, "rarity": 0.30, "device": 0.25, "machinery": 0.25,
+           "answer_novelty": 0.25, "pairing_novelty": 0.25}
 
 # The series their own papers declare gentle, an input to --validate that lives
 # here rather than in the prose above so the test and the story it tells cannot
@@ -373,31 +398,154 @@ def checking(puz):
     return sum(fracs) / len(fracs) if fracs else 0.0
 
 
-def obscurity(puz, rank):
-    """Mean rarity of the answers, judged by the rarest word in each.
+def letters(s):
+    return re.sub(r"[^A-Z]", "", (s or "").upper())
 
-    Returned as a raw mean log10 rank, not squashed into 0-1: z-scoring in
-    score() supplies the scale, and squashing first only threw away the spread
-    that the whole rating depends on.
 
+def answer_words(e):
+    """The entry's answer split where its enumeration splits it."""
+    sol = letters(e.get("solution"))
+    cuts = sorted(i for v in (e.get("separatorLocations") or {}).values() for i in v)
+    words, prev = [], 0
+    for c in cuts + [len(sol)]:
+        words.append(sol[prev:c])
+        prev = c
+    return sol, [w for w in words if w]
+
+
+def rarity(puz, rank):
+    """Mean log10 frequency rank of the puzzle's RAREST_ANSWERS rarest answers.
+
+    Each answer is looked up whole, and a phrase the lexicon lacks as a whole
+    counts as its rarest word. The rarest few rather than the mean of all,
+    because a puzzle is held up by the answers nobody knows, and thirty
+    familiar ones do not dilute that.
+
+    Raw log10, not squashed into 0-1: z-scoring in score() supplies the scale.
     log10 because the gap between the 100th and 1000th commonest word is felt
     about as much as the gap between the 1000th and 10000th. A word the list
-    has never heard of scores as rare as the tail of the list rather than off
-    the scale — usually it is a proper noun or a phrase the lexicon dropped,
-    not something genuinely exotic, and letting those run away would make any
-    puzzle with a place name in it look brutal.
+    has never heard of scores MISSING_RANK, the tail of the list rather than
+    off the scale, so a puzzle with a place name in it does not look brutal.
     """
     if not rank:
         return None
     scores = []
     for e in puz["entries"]:
-        ann = e.get("annotation") or {}
-        words = (ann.get("answer") or e.get("solution") or "").upper().split()
-        if not words:
+        sol, words = answer_words(e)
+        if not sol:
             continue
-        worst = max(rank.get(w.strip("'-"), MISSING_RANK) for w in words)
-        scores.append(math.log10(max(worst, 10)))
-    return sum(scores) / len(scores) if scores else None
+        r = rank[sol] if sol in rank else max(rank.get(w, MISSING_RANK) for w in words)
+        scores.append(math.log10(max(r, 10)))
+    worst = sorted(scores)[-RAREST_ANSWERS:]
+    return sum(worst) / len(worst) if worst else None
+
+
+def definition_key(d):
+    """A definition as the lowercase words in it, the form pairings are counted in."""
+    if isinstance(d, list):
+        d = next((x for x in d if x), None)
+    return " ".join(re.findall(r"[a-z]+", (d or "").lower()))
+
+
+@functools.lru_cache(maxsize=1)
+def blog_definitions():
+    """{puzzle id: {entry id: definition}}: the blogger's underlined definition,
+    from tools/data/blog_facts/."""
+    out = {}
+    for f in sorted(BLOG_FACTS.glob("*.json")):
+        for pid, v in json.loads(f.read_text(encoding="utf-8")).items():
+            defs = {eid: definition_key(b.get("definition"))
+                    for eid, b in (v.get("entries") or {}).items()}
+            defs = {k: d for k, d in defs.items() if d}
+            if defs:
+                out[pid] = defs
+    return out
+
+
+def puzzle_day(puz):
+    """The puzzle's date as YYYY-MM-DD, or None."""
+    d = puz.get("date")
+    if isinstance(d, str):
+        return d[:10] or None
+    return datetime.fromtimestamp(d / 1000, timezone.utc).date().isoformat() if d else None
+
+
+@functools.lru_cache(maxsize=1)
+def history():
+    """{puzzle id: {"answer_novelty", "pairing_novelty"}}, each counted over
+    every puzzle of every series dated strictly before that one.
+
+    answer_novelty   Mean over the answers of -ln((n + 1) / (N + 1)), where n
+                     of the N earlier puzzles hold that answer: the log share
+                     of the history it appeared in, so it does not drift as
+                     the collection grows.
+    pairing_novelty  Mean over the defined answers of -ln(1 + n *
+                     PAIRING_SCALE / N), where n of the N earlier puzzles that
+                     carry any definition paired this answer with this
+                     definition. A definition is the blog's underlined one,
+                     else our annotation's. The pairs are sparse, so the count
+                     is scaled to a fixed history rather than smoothed into a
+                     share, which would drift with N through its zeros.
+
+    Single-word answers only, in the counts and the means. Phrases are many
+    and each recurs rarely however well a solver knows it, so a phrase's count
+    measures how phrase-heavy a series is (the Everyman's most of all) rather
+    than how familiar the answer is. rarity() judges phrases instead.
+
+    Higher is less familiar. Each is None until HISTORY_FLOOR earlier puzzles
+    (earlier defined puzzles, for the pairing) are behind it."""
+    blog = blog_definitions()
+    rows = []
+    for path in puzzle_files():
+        puz = read_puzzle_file(path)
+        day = puzzle_day(puz)
+        if not day:
+            continue
+        bd = blog.get(puz["id"], {})
+        sols, pairs = set(), set()
+        for e in puz["entries"]:
+            sol = letters(e.get("solution"))
+            if not sol or e.get("separatorLocations"):
+                continue
+            sols.add(sol)
+            d = bd.get(e.get("id")) or definition_key((e.get("annotation") or {}).get("definition"))
+            if d:
+                pairs.add((sol, d))
+        rows.append((day, puz["id"], sols, pairs))
+    rows.sort(key=lambda r: r[0])
+    seen, paired = {}, {}
+    n_all = n_defined = 0
+    out, i = {}, 0
+    while i < len(rows):
+        j = i
+        while j < len(rows) and rows[j][0] == rows[i][0]:
+            j += 1
+        day_rows = rows[i:j]
+        for _, pid, sols, pairs in day_rows:
+            a = [-math.log((seen.get(s, 0) + 1) / (n_all + 1)) for s in sols]
+            p = [-math.log1p(paired.get(k, 0) * PAIRING_SCALE / n_defined) for k in pairs] \
+                if n_defined else []
+            out[pid] = {
+                "answer_novelty": sum(a) / len(a) if a and n_all >= HISTORY_FLOOR else None,
+                "pairing_novelty": sum(p) / len(p) if p and n_defined >= HISTORY_FLOOR else None}
+        # A day's puzzles are added only after all of them are scored, so no
+        # puzzle counts one printed the same day.
+        for _, _, sols, pairs in day_rows:
+            for s in sols:
+                seen[s] = seen.get(s, 0) + 1
+            for k in pairs:
+                paired[k] = paired.get(k, 0) + 1
+            n_all += 1
+            n_defined += bool(pairs)
+        i = j
+    return out
+
+
+def context(base=None):
+    """Everything score() reads besides the puzzle: the lexicon, the frozen
+    baseline, and the familiarity history."""
+    return SimpleNamespace(rank=ranks(), base=load_baseline() if base is None else base,
+                           history=history())
 
 
 def clue_cost(e):
@@ -448,24 +596,29 @@ def device(puz):
     return sum(costs) / len(costs)
 
 
-def raw(puz, rank):
-    """The four measurements, in their natural units, before any scaling."""
-    return {"checking": checking(puz), "obscurity": obscurity(puz, rank),
-            "device": device(puz), "machinery": machinery(puz)}
+def raw(puz, ctx):
+    """The measurements, in their natural units, before any scaling."""
+    fam = ctx.history.get(puz["id"]) or {}
+    return {"checking": checking(puz), "rarity": rarity(puz, ctx.rank),
+            "device": device(puz), "machinery": machinery(puz),
+            "answer_novelty": fam.get("answer_novelty"),
+            "pairing_novelty": fam.get("pairing_novelty")}
 
 
-def score(puz, rank, base):
+def score(puz, ctx):
     """Raw components, their z-scores, and a combined index in standard deviations.
 
     Missing components are dropped and their weight redistributed, rather than
-    filled with an average. The two droppable ones — obscurity when the lexicon
-    isn't fetched, device when the puzzle isn't annotated yet — are both absent
+    filled with an average. The droppable ones — rarity when the lexicon isn't
+    fetched, device and machinery when the puzzle isn't annotated yet, the
+    novelty counts before HISTORY_FLOOR earlier puzzles exist — are all absent
     for procedural reasons, not because the puzzle is unremarkable, and a
     substituted mean would quietly claim otherwise. Dropping is also cheap here
-    because a z-score is already centred: an unannotated puzzle is scored on
-    the two components it has, on the same scale as everything else.
+    because a z-score is already centred: a puzzle is scored on the components
+    it has, on the same scale as everything else.
     """
-    parts = {k: v for k, v in raw(puz, rank).items() if v is not None}
+    base = ctx.base
+    parts = {k: v for k, v in raw(puz, ctx).items() if v is not None}
     zs = {}
     for k, v in parts.items():
         ref = base.get(k)
@@ -480,7 +633,7 @@ def score(puz, rank, base):
     # component that measures the CLUES. That used to be a hunch; adding the
     # Guardian Quiptic gave it a control group, because the Quiptic is the
     # Guardian's own beginner crossword and so is known-easier by editorial
-    # fiat. Scored on checking + obscurity alone, our eight quiptics came out at
+    # fiat. Scored on the grid and word rarity alone, our eight quiptics came out at
     # −0.07 against the cryptics' +0.09: a sixth of a standard deviation, i.e.
     # indistinguishable. Quiptic 1,393 was rated BRUTAL, harder than 86% of the
     # collection, on the strength of an open grid. A rating that can't separate
@@ -500,12 +653,11 @@ def score(puz, rank, base):
 
 
 def all_scores(base=None):
-    rank = ranks()
-    base = base if base is not None else load_baseline()
+    ctx = context(base)
     out = {}
     for path in puzzle_files():
         puz = read_puzzle_file(path)
-        s = score(puz, rank, base)
+        s = score(puz, ctx)
         if s:
             # Keyed by ID, not number: two papers can reach the same number
             # and the caller would then get whichever was scored last.
@@ -534,11 +686,11 @@ def moments(vals):
 
 def rebaseline():
     """Freeze the current corpus as the reference distribution, showing the diff."""
-    rank = ranks()
+    ctx = context()
     before = all_scores()
     cols = {}
     for path in puzzle_files():
-        for k, v in raw(read_puzzle_file(path), rank).items():
+        for k, v in raw(read_puzzle_file(path), ctx).items():
             if v is not None:
                 cols.setdefault(k, []).append(v)
     comps = {}
@@ -765,7 +917,7 @@ def main():
         return validate()
     if not LEXICON.exists():
         print("note: tools/data/lexicon.tsv not fetched — scoring without the "
-              "obscurity component (bash tools/fetch_lexicon.sh)", file=sys.stderr)
+              "rarity component (bash tools/fetch_lexicon.sh)", file=sys.stderr)
     if "--rebaseline" in sys.argv:
         return rebaseline()
     if not BASELINE.exists():

@@ -577,7 +577,7 @@ tools/data/times_answers.json                Times-blog answers settled from the
 tools/data/difficulty_baseline.json          the frozen distribution difficulty.py normalises
                                              against
 tools/data/lexicon.tsv                       192,738 British-cryptic words by frequency rank;
-                                             difficulty.py scores obscurity off it
+                                             difficulty.py scores rarity off it
 tools/data/grading_rubric.md                 the five axes a blind judge scores a clue on
 tools/data/books.json                        the shelf: one row per physical book, with the
                                              archive.org scan it was read from, the volume its

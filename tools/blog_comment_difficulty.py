@@ -177,14 +177,14 @@ def per_puzzle(table):
     from datetime import date
 
     import difficulty as D
-    rank, base, sn = D.ranks(), D.load_baseline(), D.load_snitch()
+    ctx, sn = D.context(), D.load_snitch()
     by_day = D.snitch_by_day(sn)
     rows = []
     for pid, v in table.items():
         if pid.rpartition("-")[0] != "times" or v["comments"] < 10:
             continue
         named = list(v["clues"].values())
-        s = D.score(read_puzzle_file(ROOT / "puzzles" / f"{pid}.json"), rank, base)
+        s = D.score(read_puzzle_file(ROOT / "puzzles" / f"{pid}.json"), ctx)
         nitch = sn.get(pid, {}).get("nitch")
         resid = nitch - by_day[date.fromisoformat(sn[pid]["date"]).weekday()] if nitch is not None else None
         rows.append({"dnf": v["dnf"] / v["comments"],
