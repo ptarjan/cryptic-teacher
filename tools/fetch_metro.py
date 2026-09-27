@@ -53,7 +53,7 @@ import urllib.error
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from fetch_puzzle import (flatten_clue, http_bytes, has_words,  # noqa: E402
+from fetch_puzzle import (enumeration_separators, flatten_clue, http_bytes, has_words,  # noqa: E402
                           puzzle_path, reindex, write_puzzle_file)
 from fetch_wayback import maybe_gunzip, SLEEP_SECONDS  # noqa: E402 — shared Wayback plumbing
 import series as series_meta  # noqa: E402 — for puzzle_id()/default_setter() only
@@ -221,7 +221,6 @@ def convert(data):
             "clue": clue,
             **({"clueItalics": italics} if italics else {}),
             **({} if has_words(clue) else {"clueMissing": True}),
-            # Metro ships no separators; the enumeration stays in the clue text.
             "solution": answer,
         })
 
@@ -242,6 +241,8 @@ def convert(data):
     if wordless:
         print("WARNING: published with no clue text: " + ", ".join(wordless), file=sys.stderr)
 
+    # Metro ships no word breaks; they are read off each clue's enumeration.
+    enumeration_separators(entries)
     entries.sort(key=lambda e: (e["position"]["y"], e["position"]["x"], e["direction"]))
 
     date = publication_date(data)
