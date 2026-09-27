@@ -96,10 +96,19 @@ BLOGS = {b.name: b for b in (
 FIELDS = "id,date,slug,link,title,content,categories"
 
 
-def get(url):
+def get(url, tries=4):
+    """A dropped connection is retried with backoff; an HTTP error answer is not."""
     req = urllib.request.Request(url, headers={"User-Agent": UA})
-    with urllib.request.urlopen(req, timeout=60) as r:
-        return json.load(r), r.headers
+    for attempt in range(tries):
+        try:
+            with urllib.request.urlopen(req, timeout=60) as r:
+                return json.load(r), r.headers
+        except urllib.error.HTTPError:
+            raise
+        except (urllib.error.URLError, TimeoutError, ConnectionError):
+            if attempt == tries - 1:
+                raise
+            time.sleep(30 * 2 ** attempt)
 
 
 def cached_ids(blog):
