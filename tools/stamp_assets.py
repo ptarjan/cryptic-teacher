@@ -63,8 +63,9 @@ def asset_url(rel, base=""):
 
 
 def ref(rel):
-    """Matches a quoted reference to `rel`, absolute or relative, stamp or not."""
-    return re.compile(r'(["\'])((?:' + re.escape(SITE) + r')?)'
+    """Matches a quoted reference to `rel`, absolute or relative (from the root
+    or from a page further down, "../../"), stamp or not."""
+    return re.compile(r'(["\'])((?:' + re.escape(SITE) + r'|(?:\.\./)+)?)'
                       + re.escape(rel) + r'(\?v=[0-9a-f]+)?\1')
 
 

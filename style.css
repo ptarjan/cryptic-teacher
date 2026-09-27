@@ -1436,25 +1436,28 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
   .cta { background: var(--accent-soft); color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
 }
 
-.s-clue { border-bottom: 1px solid var(--line); padding: 14px 0; }
-.s-clue:last-child { border-bottom: 0; }
-.s-clue h3 { font-size: 1rem; margin: 0 0 4px; display: flex; gap: 10px; flex-wrap: wrap; }
-.s-num { color: var(--muted); font-weight: 400; min-width: 5.5em; }
-.s-answer { letter-spacing: 1px; }
-.s-cluetext { margin: 0 0 8px; font-style: italic; }
-.s-def { margin: 0 0 8px; font-size: .92rem; }
-.s-def strong { background: var(--def-bg); color: var(--def-fg); padding: 0 4px; border-radius: 3px; }
+/* A clue, as tools/build_seo_pages.py clue_html() writes it, a million times
+   over: <article> holding an <h3> of number <span> and answer <b>, the clue as
+   the <p> after it, the definition as <dfn>, fragments and indicators as
+   <mark>. Elements rather than classes, because a class repeated on every clue
+   of every page is most of what the site weighs. None of these elements is on
+   the clue-text whitelist (esc_clue), so a publisher's markup cannot pick one
+   of these styles up; <span> is, which is why .s-type and .s-note stay classes. */
+.s-list article { border-bottom: 1px solid var(--line); padding: 14px 0; }
+.s-list article:last-child { border-bottom: 0; }
+.s-list h3 { font-size: 1rem; margin: 0 0 4px; display: flex; gap: 10px; flex-wrap: wrap; }
+.s-list h3 > span { color: var(--muted); font-weight: 400; min-width: 5.5em; }
+.s-list h3 > b { letter-spacing: 1px; }
+.s-list article > p { margin: 0 0 8px; font-size: .92rem; }
+.s-list h3 + p { font-size: 1rem; font-style: italic; }
+.s-list dfn { font-style: normal; font-weight: 700; background: var(--def-bg); color: var(--def-fg); padding: 0 4px; border-radius: 3px; }
 .s-type { color: var(--muted); }
-.s-fit { margin: 0 0 8px; font-size: .92rem; }
-.s-blocks { margin: 0 0 8px; padding-left: 20px; font-size: .92rem; }
-.s-blocks li { margin-bottom: 3px; }
-.s-frag { background: var(--ind-bg); color: var(--ind-fg); padding: 0 4px; border-radius: 3px; }
+.s-list ul { margin: 0 0 8px; padding-left: 20px; font-size: .92rem; }
+.s-list li { margin-bottom: 3px; }
+.s-list mark { background: var(--ind-bg); color: var(--ind-fg); padding: 0 4px; border-radius: 3px; }
 .s-note { color: var(--muted); }
-.s-ind-notes { margin: 0 0 8px; padding-left: 20px; font-size: .92rem; }
-.s-ind-notes li { margin-bottom: 3px; }
-.s-ind { background: var(--ind-bg); color: var(--ind-fg); padding: 0 4px; border-radius: 3px; }
-.s-walk { margin: 0; font-size: .95rem; }
-.s-todo { font-size: .9rem; }
+.s-list article > p.s-walk { margin: 0; font-size: .95rem; }
+.s-list article > p.muted { font-size: .9rem; margin: 1em 0; }
 
 /* ONE grid for the whole list, not one grid per row. Every <a> used to be its
    own grid container, so each row sized its own columns from its own contents
