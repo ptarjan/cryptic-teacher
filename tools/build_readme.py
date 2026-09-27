@@ -281,6 +281,8 @@ LAYOUT = [
     ("tables everything else reads", "tools/test_fetch_snitch.sh", "does tools/fetch_snitch.py read the SNITCH's week table into the right puzzle ids, and drop the cells that are not a rating of that puzzle?"),
     ("tables everything else reads", "scratch/snitch_features.py", "annotation-free features against the SNITCH NITCH, held out by date"),
     ("tables everything else reads", "scratch/snitch_residual.py", "what predicts SNITCH difficulty beyond the weekday, on annotated Times puzzles"),
+    ("tables everything else reads", "tools/blog_comment_difficulty.py", "which clues human solvers found hard, read off Times for the Times comments"),
+    ("tables everything else reads", "tools/data/blog_comment_difficulty.json", "per Times puzzle, the comment count, the median solve time its commenters state, and per clue how many comments name the answer, flag it hard, and call it their last one in"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the
