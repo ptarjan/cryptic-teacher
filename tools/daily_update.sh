@@ -1152,9 +1152,11 @@ fi
 # the bytes the stamp is of.
 python3 tools/build_abbreviations.py
 
-if ! seo_err=$(python3 tools/build_seo_pages.py 2>&1); then
+seo_rc=0
+seo_err=$(python3 tools/build_seo_pages.py 2>&1) || seo_rc=$?
+if [ "$seo_rc" -ne 0 ]; then
   printf '%s\n' "$seo_err"
-  alert "the nightly could not build the site pages: $(printf '%s' "$seo_err" | tail -3)"
+  alert "the nightly could not build the site pages (exit $seo_rc$([ "$seo_rc" -gt 128 ] && echo ", killed by signal $((seo_rc - 128))")): $(printf '%s' "${seo_err:-no output}" | tail -3)"
 fi
 
 # The README's generated regions, so the corpus counts in it are never more than
