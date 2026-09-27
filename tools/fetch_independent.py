@@ -60,7 +60,7 @@ from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from fetch_puzzle import (UA, http_bytes, flatten_clue,  # noqa: E402
+from fetch_puzzle import (UA, http_bytes, flatten_clue, separators,  # noqa: E402
                           merge_annotations, puzzle_files, puzzle_path,
                           read_puzzle_file, reindex, write_puzzle_file)
 import series as series_meta  # noqa: E402
@@ -251,34 +251,6 @@ def span(attr):
     """"1-5" -> (1, 5); "7" -> (7, 7). Cell coordinates are 1-based here."""
     lo, _, hi = attr.partition("-")
     return int(lo), int(hi or lo)
-
-
-def separators(fmt, lengths):
-    """Guardian-style separatorLocations from a Crossword Compiler `format`.
-
-    "4,2,3" over one 9-letter entry -> [{",": [4, 6]}]; the final boundary is
-    the end of the answer and is not a separator. For a linked clue the offsets
-    are split across the entries and re-based on each one, which is what the
-    Guardian's own data does: "4,3,5,5" over TURNTHE + OTHERCHEEK becomes
-    {",": [4, 7]} and {",": [5]}.
-    """
-    out = [{} for _ in lengths]
-    pos, at = 0, 0
-    for piece in re.split(r"([,\-])", fmt or ""):
-        if piece in (",", "-"):
-            # Which entry does this boundary fall in? The last one that ends at
-            # or after it, so a separator sitting exactly on an entry boundary
-            # is recorded on the entry that ends there.
-            end = 0
-            for i, n in enumerate(lengths):
-                end += n
-                if pos <= end:
-                    out[i].setdefault(piece, []).append(pos - (end - n))
-                    break
-        elif piece:
-            pos += int(piece)
-            at += 1
-    return out
 
 
 def _cp1252_byte(exc):

@@ -319,6 +319,77 @@ def leaders_named(clue):
     return len(re.findall(r"\d+", m.group(1))) if m else 0
 
 
+def separators(fmt, lengths):
+    """Guardian-style separatorLocations from an enumeration like "4,2,3".
+
+    "4,2,3" over one 9-letter entry -> [{",": [4, 6]}]; the final boundary is
+    the end of the answer and is not a separator. For a linked clue the offsets
+    are split across the entries and re-based on each one, which is what the
+    Guardian's own data does: "4,3,5,5" over TURNTHE + OTHERCHEEK becomes
+    {",": [4, 7]} and {",": [5]}.
+    """
+    out = [{} for _ in lengths]
+    pos = 0
+    for piece in re.split(r"([,\-])", fmt or ""):
+        if piece in (",", "-"):
+            # Which entry does this boundary fall in? The last one that ends at
+            # or after it, so a separator sitting exactly on an entry boundary
+            # is recorded on the entry that ends there.
+            end = 0
+            for i, n in enumerate(lengths):
+                end += n
+                if pos <= end:
+                    out[i].setdefault(piece, []).append(pos - (end - n))
+                    break
+        elif piece:
+            pos += int(piece)
+    return out
+
+
+#: A clue's printed enumeration at its end: "(5,4)", "(2-3,4)", "(4'1)".
+CLUE_ENUMERATION = re.compile(r"\(\s*(\d+(?:\s*[,\-'\u2019]\s*\d+)*)\s*\)\s*$")
+
+
+def enumeration_separators(entries):
+    """Set separatorLocations on entries from the enumeration printed at the
+    end of each clue, for sources that ship the clue text but no word breaks.
+
+    The enumeration must add up to the entry's own length, or to its linked
+    group's in group order, and is then split across the group as
+    separators() does. Anything else (no enumeration, a total that fits
+    neither) leaves the entry as it was. An apostrophe starts no new word, so
+    only commas and hyphens are breaks."""
+    by_id = {e["id"]: e for e in entries}
+    for e in entries:
+        m = CLUE_ENUMERATION.search(e.get("clue") or "")
+        if not m:
+            continue
+        fmt = re.sub(r"\s+", "", m.group(1))
+        total = sum(int(n) for n in re.findall(r"\d+", fmt))
+        fmt = re.sub(r"(\d+)['\u2019](\d+)", lambda g: str(int(g[1]) + int(g[2])), fmt)
+        group = [by_id[g] for g in e.get("group") or [] if g in by_id]
+        if total == e["length"]:
+            targets = [e]
+        elif group and group[0] is e and total == sum(g["length"] for g in group):
+            targets = group
+        else:
+            continue
+        for t, seps in zip(targets, separators(fmt, [t["length"] for t in targets])):
+            if seps:
+                _put_before(t, "solution", "separatorLocations", seps)
+    return entries
+
+
+def _put_before(d, before, key, value):
+    """Set d[key] in place, sitting just ahead of d[before] (or last), so the
+    file keeps the key order every other fetcher writes."""
+    items = [(k, v) for k, v in d.items() if k != key]
+    at = next((i for i, (k, _) in enumerate(items) if k == before), len(items))
+    items.insert(at, (key, value))
+    d.clear()
+    d.update(items)
+
+
 def flatten_clue(s):
     """HTML clue text -> (plain text, italic ranges into that text).
 
