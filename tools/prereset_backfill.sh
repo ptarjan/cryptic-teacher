@@ -242,7 +242,17 @@ if [ "$resets_rc" = 3 ] && awk "BEGIN{exit !($resets_in <= $WINDOW_HOURS)}"; the
   exit 1
 fi
 
-RESET_AT=$(awk -v n="$(date +%s)" -v h="$resets_in" 'BEGIN{printf "%d", n + h * 3600}')
+# When the week really turns over, which is what the landing report below is
+# keyed to. Not resets_in: CT_SPEND_BY pulls that in to its own deadline, and a
+# landing keyed to a spend-by deadline reports "the week turned over" the first
+# fire after that deadline passes, days before the meter actually resets.
+real_reset_at() {
+  local h
+  h=$(CT_SPEND_BY= python3 tools/weekly_usage.py --resets-in 2>/dev/null)
+  case "$h" in ''|*[!0-9.]*) return 1 ;; esac
+  awk -v n="$(date +%s)" -v h="$h" 'BEGIN{printf "%d", n + h * 3600}'
+}
+RESET_AT=$(real_reset_at)
 
 # What the week actually landed at, said once, after it is too late to change —
 # because otherwise nobody ever finds out. A run that dies, stands down early or
@@ -562,7 +572,7 @@ after_wave() {
   # look identical the morning after and the leftovers evaporate unremarked —
   # which is how 46% of the week of 2026-09-02 went. report_landing reads this
   # back on the first fire after the reset and says the number out loud.
-  echo "$now $RESET_AT" > "$LANDING_FILE"
+  [ -n "$RESET_AT" ] && echo "$now $RESET_AT" > "$LANDING_FILE"
   # THE FIVE-HOUR METER IS SHARED WITH A PERSON. The weekly remainder is this
   # job's to spend and all of it is meant to go, but the windows it spends
   # through are the same ones Paul talks to the bridge on, and a window run to
