@@ -17,18 +17,18 @@ a normal day — and tools/fetch_snitch.py keeps those ratings in
 tools/data/snitch.json, keyed by our puzzle id, every night. That is a real
 external rating joined to puzzles we hold, and --validate prints the agreement.
 
-It is weak, and it did not move the weights. Tuned 2026-09-26 against 197
-rated, annotated Times puzzles, split by date and scored only on the later part
-(scratch/snitch_weights.py, scratch/snitch_device.py): every refit of WEIGHTS,
-and of the device costs below, beat today's values on the puzzles it was
-fitted to and lost to them on the held-out ones (Times daily held-out rho
-+0.24/+0.32/+0.22 at three cuts, against +0.09/+0.23/+0.23 for the refits).
-What agreement there is comes mostly from the device term; obscurity changes
-sign between the halves. So the index is still NOT a calibrated absolute, and
-the SNITCH is used for three things only: the --validate check, the
-"typically SNITCH X-Y" range a Times badge quotes for its band
-(snitch_ranges()), and choosing which counts to add as components — never
-their weights. tools/snitch_report.py measures the index and each component
+It is weak, and it does not set the weights. scratch/snitch_weights.py refits
+WEIGHTS on annotated Times dailies, split into date thirds: a non-negative
+weight grid and a ridge regression, each fitted on two thirds and scored on
+the third held out, rotating through all three, against two targets — the
+NITCH minus its weekday mean, and the Times for the Times comment DNF share
+minus its weekday mean. A refit replaces WEIGHTS only if its held-out rho
+beats theirs in every third, or in all but one with a clear overall win; none
+has, on either target, so the weights below remain an editorial judgement.
+The index is NOT a calibrated absolute, and the SNITCH is used for three
+things: the --validate check, the "typically SNITCH X-Y" range a Times badge
+quotes for its band (snitch_ranges()), and choosing which counts to add as
+components. tools/snitch_report.py measures the index and each component
 against the NITCH minus its weekday mean, by date third, and is rerun
 nightly into tools/data/snitch_report.txt.
 
@@ -119,8 +119,9 @@ The four components, higher = harder:
              many times you have to use one. It is the feature that tracks
              the part of the SNITCH its weekly ramp does not explain.
 
-Weights are stated below as an editorial judgement, not a fit. Change them if
-you disagree; the components are printed alongside so the change is arguable.
+Weights are stated below as an editorial judgement that no held-out refit has
+beaten (above). Change them only through scratch/snitch_weights.py's test; the
+components are printed alongside so the change is arguable.
 
 Usage:
   python3 tools/difficulty.py            # table of every puzzle, hardest first
