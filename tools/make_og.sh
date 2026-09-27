@@ -3,8 +3,9 @@
 # pixels by hand, because the cards need real type.
 #
 #   tools/make_og.sh            og.png — the site card, from tools/og_card.html
-#   tools/make_og.sh --all      og.png plus og/<number>.png for every puzzle
-#                               whose card is missing or out of date
+#   tools/make_og.sh --all      og.png plus og/<number>.png for up to
+#                               $OG_LIMIT (600) puzzles whose card is missing
+#                               or out of date, and drops cards no puzzle gets
 #   tools/make_og.sh 30066      just that puzzle's card
 #
 # Every puzzle page unfurls as a clue from THAT puzzle (2026-08-08). One shared
@@ -84,7 +85,8 @@ case "${1:-}" in
     # command's exit status away: a lister that dies partway through is then
     # indistinguishable from nothing being stale, and every puzzle after the one
     # it died on silently keeps a stale card while the run reports success.
-    list="$(python3 "$REPO/tools/make_og_card.py" --stale)"
+    python3 "$REPO/tools/make_og_card.py" --prune
+    list="$(python3 "$REPO/tools/make_og_card.py" --stale --limit "${OG_LIMIT:-600}")"
     for n in $list; do one "$n"; done ;;
   *) mkdir -p "$REPO/og"; one "$1" ;;
 esac

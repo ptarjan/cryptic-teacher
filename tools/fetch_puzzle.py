@@ -483,6 +483,25 @@ def with_blog_facts(puzzle):
     return out
 
 
+def blog_annotation(e):
+    """A clue's blog facts shaped as the partial annotation app.js's blogAnn()
+    makes of them, or None: what the static page and the social card read in
+    place of an annotation we have not written. The answer is the solution,
+    which the blog facts never carry."""
+    b = e.get("blog")
+    if not b:
+        return None
+    defs = b.get("definition") or []
+    ann = {"fromBlog": True, "answer": e.get("solution") or "", "type": b.get("type") or "",
+           "indicators": list(b.get("indicators") or []),
+           "blocks": [{"clueFragment": src, "gives": gives} for gives, src in b.get("blocks") or []]}
+    if defs:
+        ann["definition"] = defs[0]
+    if len(defs) == 2 and "double definition" in ann["type"]:
+        ann["definition2"] = defs[1]
+    return ann
+
+
 def write_shim(path, puzzle):
     """Regenerate puzzles/<id>.js from the puzzle in puzzles/<id>.json.
 
