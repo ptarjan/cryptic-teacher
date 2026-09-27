@@ -271,6 +271,16 @@ w = []
 va.check_blocks_against_blog({"entries": [e]}, w)
 ann = fp.blog_annotation({**e, "blog": {"blocks": [["CAP", "hat"], ["I", "one", "inferred"]]}})
 print(json.dumps(ann["blocks"]), json.dumps(w), len(bf._items("blocks", blocks)))')"
+check "a hidden word's carrier gets the note ours write, the run in capitals" \
+  '["hidden in saW HIZbollah", "hidden backwards in whoM SIN A GROtesque", null]' \
+  "$(REPO="$REPO" python3 -c '
+import json, os, sys
+sys.path.insert(0, os.path.join(os.environ["REPO"], "tools"))
+import fetch_puzzle as fp
+note = lambda sol, blocks: fp.blog_annotation({"solution": sol, "blog": {"blocks": blocks}})["blocks"][0].get("note")
+print(json.dumps([note("WHIZ", [["WHIZ", "saw Hizbollah", "inferred"]]),
+                  note("ORGANISM", [["ORGANISM", "whom sin a grotesque", "inferred"]]),
+                  note("NOGGINS", [["GINS", "drinks"]])]))')"
 check "the site takes inferred indicators as ours, not the blogger's" \
   'True True' \
   "$(REPO="$REPO" python3 -c '

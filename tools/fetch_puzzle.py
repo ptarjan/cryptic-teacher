@@ -565,13 +565,32 @@ def blog_annotation(e):
     defs = b.get("definition") or []
     ann = {"fromBlog": True, "answer": e.get("solution") or "", "type": b.get("type") or "",
            "indicators": list(b.get("indicators") or []),
-           "blocks": [{"clueFragment": src, "gives": gives, **({"inferred": True} if "inferred" in how else {})}
+           "blocks": [{"clueFragment": src, "gives": gives, **({"inferred": True} if "inferred" in how else {}),
+                       **({"note": note} if (note := carrier_note(e.get("solution"), gives, src)) else {})}
                       for gives, src, *how in b.get("blocks") or []]}
     if defs:
         ann["definition"] = defs[0]
     if len(defs) == 2 and "double definition" in ann["type"]:
         ann["definition2"] = defs[1]
     return ann
+
+
+def carrier_note(answer, gives, frag):
+    """app.js's carrierNote: "hidden in saW HIZbollah", the clue words `frag`
+    with the run that spells `answer` in capitals, "hidden backwards in" where
+    it is spelt reversed; "" unless `gives` is the answer and `frag` carries it
+    and is more than it."""
+    bare = lambda t: re.sub(r"[^A-Z]", "", (t or "").upper())
+    want, at = bare(answer), [i for i, ch in enumerate(frag or "") if "A" <= ch.upper() <= "Z" and ch.isascii()]
+    got = "".join(frag[i].upper() for i in at)
+    if len(want) < 3 or bare(gives) != want or got == want:
+        return ""
+    back = want not in got
+    start = got.find(want[::-1] if back else want)
+    if start < 0:
+        return ""
+    lo, hi = at[start], at[start + len(want) - 1] + 1
+    return ("hidden backwards in " if back else "hidden in ") + frag[:lo] + frag[lo:hi].upper() + frag[hi:]
 
 
 # What the browser never reads, so the shims do not carry it: provenance and

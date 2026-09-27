@@ -2094,12 +2094,62 @@ if (autoPuzzle && assert(autoRow, `picker finds ${autoPuzzle.id} when searched f
       // What the blog marked includes its WORD (clue words) blocks, so the
       // blocks rung is there exactly when this clue has one; the walkthrough
       // is the blogger's and never ours to write.
+      // A block that is the whole answer is held back as ours are, unless it
+      // is a hidden word's carrier, which shows its note instead.
       const bare = (t) => String(t || "").replace(/[^A-Za-z]/g, "").toUpperCase();
-      const shown = (e.blog.blocks || []).filter(([gives, frag]) => bare(gives) !== bare(frag));
+      const sol = bare(e.solution);
+      const shown = (e.blog.blocks || []).filter(([gives, frag]) => bare(gives) !== bare(frag)
+        && (bare(gives) !== sol || sol.length >= 3
+          && (bare(frag).includes(sol) || bare(frag).includes([...sol].reverse().join("")))));
       assert(!registry["hint-next"].children.some((b) => /Full walkthrough/.test(b.textContent)),
         `${target.id} ${e.id}: a blog ladder stops at what the blog marked: ${btnNames()}`);
       assert(registry["hint-next"].children.some((b) => /building blocks/.test(b.textContent)) === shown.length > 0,
         `${target.id} ${e.id}: a building-blocks rung exactly when the blog wrote blocks: ${btnNames()}`);
+    }
+  }
+}
+
+// --- a hidden word's carrier, from the blog facts, reads as ours do ---
+// letter_facts.py writes a hidden word's one block, [answer, the clue words
+// that carry it]. The rung holds its letters back, the whole answer, and shows
+// the carrier with the run in capitals, the note our own hidden words carry;
+// and the question in front of it never names the letters either.
+{
+  const bare = (t) => String(t || "").replace(/[^A-Za-z]/g, "").toUpperCase();
+  const factsDir = path.join(ROOT, "tools/data/blog_facts");
+  let target = null;
+  for (const f of fs.readdirSync(factsDir).filter((n) => n.endsWith(".json")).sort()) {
+    const rows = JSON.parse(fs.readFileSync(path.join(factsDir, f), "utf8"));
+    for (const [pid, rec] of Object.entries(rows)) {
+      const file = path.join(ROOT, "puzzles", pid + ".json");
+      if (!fs.existsSync(file)) continue;
+      const ents = JSON.parse(fs.readFileSync(file, "utf8")).entries;
+      const hit = Object.entries(rec.entries).find(([eid, fa]) => fa.type === "hidden word"
+        && (fa.blocks || []).length === 1 && !(fa.indicators || []).length
+        && ents.some((x) => x.id === eid && !x.annotation && x.solution && bare(x.solution) === bare(fa.blocks[0][0])
+          && x.clue.includes(fa.blocks[0][1])));
+      if (hit) { target = { pid, eid: hit[0], answer: bare(hit[1].blocks[0][0]) }; break; }
+    }
+    if (target) break;
+  }
+  if (assert(target, "the blog facts hold an un-annotated hidden word with its carrier") && openFromPicker(target.pid)) {
+    const { pid, eid, answer } = target;
+    registry["clue-" + eid].listeners.click[0]();
+    for (let guard = 0; guard < 6; guard++) {
+      const next = registry["hint-next"].children.find(CLIMBABLE);
+      if (!next || /building blocks/.test(next.textContent)) break;
+      takeRung(next);
+    }
+    const rung = registry["hint-next"].children.find((b) => CLIMBABLE(b) && /building blocks/.test(b.textContent));
+    if (assert(rung, `${pid} ${eid}: the carrier makes a building-blocks rung: ${btnNames()}`)) {
+      rung.onclick();
+      const ask = registry["hint-body"].innerHTML;
+      assert(!ask.includes(`<span class="gives">${answer}</span>`),
+        `${pid} ${eid}: the question does not name ${answer}: ${ask}`);
+      if (isAsking(registry["hint-body"])) registry["guess-tell"].onclick();
+      const body = registry["hint-body"].innerHTML;
+      assert(/hidden (?:backwards )?in /.test(body) && !body.includes(`<span class="gives">${answer}</span>`),
+        `${pid} ${eid}: the carrier shows its note and holds back ${answer}: ${body}`);
     }
   }
 }
