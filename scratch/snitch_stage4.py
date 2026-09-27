@@ -40,7 +40,8 @@ PORTABLE = ("rarity", "answer_novelty", "pairing_novelty", "question_marks", "de
 #: name -> expected sign (higher raw value = harder when +1), fixed in advance.
 CANDIDATES = {"wn_unrelated": +1, "defonly_share": +1, "example_markers": +1,
               "long_anagram_cells": -1, "def_indirect": +1,
-              "wn_unrelated_head": +1, "wn_unrelated_content": +1}
+              "wn_unrelated_head": +1, "wn_unrelated_content": +1,
+              "plain_anagrams": -1, "phrase_answers": +1, "clue_words": -1}
 MARKER = re.compile(r"(?i)\b(perhaps|say|for example|for instance|e\.?g\.?|maybe|possibly|for one)\b")
 DEFONLY = {"double definition", "cryptic definition"}
 STOP = {"a", "an", "the", "of", "to", "in", "on", "for", "and", "or", "is", "be", "with",
@@ -156,6 +157,21 @@ def clue_rows(puz, facts):
     return out
 
 
+def plain_anagram(e, clue):
+    """Whether a run of whole clue words is the answer's letters rearranged."""
+    a = sorted(D.letters(e["solution"]))
+    ws = [w for w in (D.letters(x) for x in clue.split()) if w]
+    for i in range(len(ws)):
+        s = ""
+        for w in ws[i:]:
+            s += w
+            if len(s) >= len(a):
+                break
+        if sorted(s) == a and s != D.letters(e["solution"]):
+            return True
+    return False
+
+
 def cand(puz, facts):
     rows = clue_rows(puz, facts)
     if not rows:
@@ -185,6 +201,9 @@ def cand(puz, facts):
         "wn_unrelated_head": sum(rel_head) / len(rel_head) if len(rel_head) >= 5 else None,
         "wn_unrelated_content": sum(rel_content) / len(rel_content) if len(rel_content) >= 5 else None,
         "def_indirect": sum(ind) / len(ind) if len(ind) >= 10 else None,
+        "plain_anagrams": sum(plain_anagram(e, c) for e, c, *_ in rows) / len(rows),
+        "phrase_answers": sum(len(D.answer_words(e)[1]) > 1 for e, *_ in rows) / len(rows),
+        "clue_words": sum(len(c.split()) for _, c, *_ in rows) / len(rows),
         "_wn_cover": len(rel) / len(rows), "_typed": len(typed) / len(rows),
     }
 
