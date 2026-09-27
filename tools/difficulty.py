@@ -357,6 +357,34 @@ def obscurity(puz, rank):
     return sum(scores) / len(scores) if scores else None
 
 
+def clue_cost(e):
+    """One clue's wordplay cost, 0-1, or None when it carries no type."""
+    ann = e.get("annotation") or {}
+    kind = (ann.get("type") or "").strip()
+    if not kind:
+        return None
+    parts = [p.strip().lower() for p in kind.split("+") if p.strip()]
+    if not parts:
+        return None
+    cost = max(DEVICE_COST.get(p, DEVICE_DEFAULT) for p in parts)
+    cost += STACKING_COST * (len(parts) - 1)
+    if not (ann.get("indicators") or []) and not (set(parts) & ALWAYS_UNINDICATED):
+        cost += UNINDICATED_COST
+    # `pieces` is the answer broken into the chunks the wordplay builds it
+    # from; annotate_prompt.md asks for it on charades, containers and
+    # deletions. Two is the floor — every one of those families has at
+    # least two parts by definition, so only the extra seams cost.
+    pieces = [str(p) for p in (ann.get("pieces") or [])]
+    cost += SEAM_COST * max(0, len(pieces) - 2)
+    # Strip anything that isn't a letter first: pieces are written as the
+    # letters they contribute, but a few carry a hyphen or an apostrophe
+    # from the answer, and "A-" is a one-letter lookup, not a two.
+    cost += OPAQUE_PIECE_COST * sum(
+        1 for p in pieces
+        if 0 < len([c for c in p if c.isalpha()]) <= OPAQUE_LEN)
+    return min(1.0, cost)
+
+
 def device(puz):
     """Mean wordplay cost. None when the puzzle has no annotations yet.
 
@@ -366,32 +394,7 @@ def device(puz):
     piece, OPAQUE_PIECE_COST per piece too short to be a synonym. Assembly
     carries the larger share, deliberately; see the note above SEAM_COST.
     """
-    costs = []
-    for e in puz["entries"]:
-        ann = e.get("annotation") or {}
-        kind = (ann.get("type") or "").strip()
-        if not kind:
-            continue
-        parts = [p.strip().lower() for p in kind.split("+") if p.strip()]
-        if not parts:
-            continue
-        cost = max(DEVICE_COST.get(p, DEVICE_DEFAULT) for p in parts)
-        cost += STACKING_COST * (len(parts) - 1)
-        if not (ann.get("indicators") or []) and not (set(parts) & ALWAYS_UNINDICATED):
-            cost += UNINDICATED_COST
-        # `pieces` is the answer broken into the chunks the wordplay builds it
-        # from; annotate_prompt.md asks for it on charades, containers and
-        # deletions. Two is the floor — every one of those families has at
-        # least two parts by definition, so only the extra seams cost.
-        pieces = [str(p) for p in (ann.get("pieces") or [])]
-        cost += SEAM_COST * max(0, len(pieces) - 2)
-        # Strip anything that isn't a letter first: pieces are written as the
-        # letters they contribute, but a few carry a hyphen or an apostrophe
-        # from the answer, and "A-" is a one-letter lookup, not a two.
-        cost += OPAQUE_PIECE_COST * sum(
-            1 for p in pieces
-            if 0 < len([c for c in p if c.isalpha()]) <= OPAQUE_LEN)
-        costs.append(min(1.0, cost))
+    costs = [c for c in (clue_cost(e) for e in puz["entries"]) if c is not None]
     # A part-annotated puzzle would report whichever clues happened to be done
     # first, which is not a fact about the puzzle. Require all of it, using the
     # same test the index uses for its `annotated` flag: two definitions of
