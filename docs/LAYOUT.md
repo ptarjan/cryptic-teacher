@@ -197,9 +197,12 @@ tools/letter_facts.py                        adds a clue type the blog left out 
                                              letters leave one reading and that reading's class
                                              matched the blogs' own types at least 97% of the
                                              time on held-out clues (anagram fodder, a hidden
-                                             answer, one block cut from another), marked
-                                             "inferred" so nothing mistakes it for the
-                                             blogger's; blog_facts.py runs it after each write
+                                             answer, one block cut from another), and the type
+                                             less how a block was taken from its words where
+                                             that core matched 97% (marked "typeCore", a lower
+                                             bound), all marked "inferred" so nothing mistakes
+                                             it for the blogger's; blog_facts.py runs it after
+                                             each write
 tools/test_letter_facts.sh                   holds letter_facts.py to one reading per clue: a
                                              literal word is not an anagram, a lone word's
                                              initial not an abbreviation unless listed, fodder

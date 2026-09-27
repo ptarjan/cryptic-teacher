@@ -41,4 +41,12 @@ check "a lone word cut short is a deletion" "deletion + reversal" \
   'March curtailed, flipping study intensely (4)' CRAM --block MARC=March
 check "a short answer is not hidden by chance" NONE 'Tea and scones (3)' AND
 
+written=$(cd "$REPO/tools" && python3 -c '
+import letter_facts as l
+print(l.written("anagram"), l.written("container + first letter"), l.written("charade"),
+      l.stated({"type": "container", "typeCore": True, "inferred": ["type"], "definition": ["d"]}))')
+want="('anagram', False) ('container', True) None {'definition': ['d']}"
+if [ "$written" = "$want" ]; then echo "ok   a trusted reading is written whole, a core-trusted one as its core, marked"; else
+  echo "FAIL written/stated: expected [$want], got [$written]"; fails=$((fails + 1)); fi
+
 [ "$fails" -eq 0 ] && echo "all letter_facts checks passed" || { echo "$fails failed"; exit 1; }
