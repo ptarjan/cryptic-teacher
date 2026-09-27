@@ -2104,6 +2104,25 @@ if (autoPuzzle && assert(autoRow, `picker finds ${autoPuzzle.id} when searched f
   }
 }
 
+// --- a clue type read off the letters is not credited to the blog ---
+// tools/letter_facts.py fills in a type the blog left out, marked "inferred".
+// A clue with nothing else from the blog is badged as ours, not the blog's.
+{
+  const puzzles = global.window.CRYPTIC_PUZZLES;
+  const hit = (p) => (puzzles[p.id].entries || []).find((x) => !x.annotation && x.blog
+    && (x.blog.inferred || []).includes("type") && x.blog.typeCore
+    && !(x.blog.definition || []).length && !(x.blog.blocks || []).length && !(x.blog.indicators || []).length);
+  const target = allPuzzles.find((p) => !p.annotated && puzzles[p.id] && puzzles[p.id].blog && hit(p));
+  if (assert(target, "the sample holds an un-annotated clue whose only blog fact is an inferred core type")
+      && openFromPicker(target.id)) {
+    const e = hit(target);
+    registry["clue-" + e.id].listeners.click[0]();
+    const meter = registry["hint-meter"].innerHTML;
+    assert(meter.includes("hints from the letters") && !meter.includes("hints via "),
+      `${target.id} ${e.id}: an inferred type is not badged as the blog's: ${meter}`);
+  }
+}
+
 // --- a blog's building blocks read like ours ---
 // "TAKE (arrange) + COVER (insurance)" ships as [letters, clue words] pairs,
 // and the blocks rung shows them the way it shows an annotation's: the clue
