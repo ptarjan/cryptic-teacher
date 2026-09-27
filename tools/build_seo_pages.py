@@ -54,7 +54,7 @@ import app_tables  # noqa: E402 — the app's own sentence about each series
 import build_abbreviations  # noqa: E402 — one glossary, rendered into every page that shows it
 import series as series_meta  # noqa: E402 — what each series IS; see tools/series.py
 from fetch_puzzle import (  # noqa: E402 — one glob, one reader, one puzzles/ for every tool
-    PUZZLE_DIR, puzzle_files, read_puzzle_file)
+    PUZZLE_DIR, blog_annotation, puzzle_files, read_puzzle_file, with_blog_facts)
 from stamp_assets import asset_url  # noqa: E402 — content-hashed asset URLs
 # Which clue a puzzle's card shows, and how to describe it. Imported rather than
 # reimplemented: the alt text has to describe the picture that was actually
@@ -107,7 +107,7 @@ def esc_clue(s):
 def puzzles():
     out = []
     for path in puzzle_files():
-        out.append(read_puzzle_file(path))
+        out.append(with_blog_facts(read_puzzle_file(path)))
     # Chronological, matching fetch_puzzle.reindex(). Sorting on the number was
     # the same thing while every puzzle was a cryptic; now that quiptics (~1,400)
     # sit alongside cryptics (~30,000) it would file every quiptic at the end of
@@ -335,7 +335,7 @@ def clue_html(e):
     somebody searching "guardian cryptic 30073 answers" wants, and it is
     honestly labelled rather than padded out.
     """
-    ann = e.get("annotation") or {}
+    ann = e.get("annotation") or blog_annotation(e) or {}
     answer = ann.get("answer") or e.get("solution") or ""
     num = f"{e['number']} {e['direction']}"
     bits = [f'<article class="s-clue" id="{esc(e["id"])}">',
@@ -376,6 +376,15 @@ def clue_html(e):
             for k, v in ind_notes.items())
         bits.append(f'<p class="s-fit"><em>Indicators:</em></p>'
                     f'<ul class="s-ind-notes">{rows}</ul>')
+    # A blog's marked indicators carry no note of their own; the app lists them
+    # bare too.
+    if ann.get("fromBlog") and ann.get("indicators"):
+        bits.append('<p class="s-fit"><em>Indicators:</em> '
+                    + ", ".join(f'<span class="s-ind">{esc(w)}</span>' for w in ann["indicators"])
+                    + "</p>")
+    if ann.get("fromBlog"):
+        bits.append('<p class="s-todo muted">Marked up from the blogger\'s write-up; '
+                    'our own explanation is not written yet.</p>')
     # The surface first, the same order and for the same reason as the app's
     # walkthrough rung: what the clue pretends to be about, then what it is doing.
     if ann.get("surface"):
@@ -460,8 +469,11 @@ def puzzle_page(puz, meta, prev_p, next_p):
     # which of the two pages this is: explained clue by clue, or answers only.
     # The kind keeps its capitals ("Penguin Book 5 Cryptic"): it is a name.
     full = f"{paper} {what} {pretty}{by}" + (f" ({when})" if when else "")
+    blog = puz.get("blog")
     desc = (f"Every answer to {full}, with each clue's definition and wordplay explained."
             if annotated else
+            f"Every answer to {full}, with the definitions and wordplay marked up "
+            f"from the {blog['name']} write-up." if blog else
             f"Every answer to {full}. Answers only for now: the clue-by-clue "
             "explanations are not written yet.")
 

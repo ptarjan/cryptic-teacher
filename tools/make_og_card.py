@@ -40,6 +40,7 @@ Usage:
   python3 tools/make_og_card.py --out /tmp/c.html 30066
   python3 tools/make_og_card.py --stale            # puzzles whose card needs drawing
   python3 tools/make_og_card.py --record 30066     # note that card as drawn
+  python3 tools/make_og_card.py --prune            # delete cards no puzzle gets any more
 """
 import hashlib
 import html
@@ -52,7 +53,8 @@ REPO = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import app_tables  # noqa: E402 — app.js's tables, read from app.js
 from fetch_puzzle import (  # noqa: E402 — one glob, one reader, one puzzles/ for every tool
-    PUZZLE_DIR, puzzle_files, read_puzzle_file, shim_path)
+    PUZZLE_DIR, blog_annotation, blog_facts_for, puzzle_files, read_puzzle_file,
+    shim_path, with_blog_facts)
 CARD = REPO / "tools" / "og_card.html"
 # Quiptic 1,393 3D: "Woman found in Oregon or Maine (5)" — five short words, a
 # definition anyone can check, and NORMA sitting across the state line. This is
@@ -97,7 +99,29 @@ def puzzle_file(pid):
 
 
 def load(pid):
-    return read_puzzle_file(puzzle_file(pid))
+    """The puzzle, with a blog's marked-up facts standing in for any clue we
+    have not annotated, so a puzzle the blogs explain gets a card of its own."""
+    puz = with_blog_facts(read_puzzle_file(puzzle_file(pid)))
+    for e in puz["entries"]:
+        if not e.get("annotation") and e.get("blog"):
+            e["annotation"] = blog_annotation(e)
+    return puz
+
+
+#: How many of the newest blog-only puzzles get a card of their own. The cards
+#: ship inside the Pages artifact, which GitHub caps at 1 GB; it is ~385 MB
+#: without them and a card is ~70 KB, so all ~30,000 would not fit. The rest
+#: unfurl as the site card.
+BLOG_CARDS = 2500
+
+
+def blog_card_ids():
+    """The newest BLOG_CARDS puzzles that only a blog explains, newest first."""
+    import series
+    rows = [p for p in json.loads((PUZZLE_DIR / "index.json").read_text(encoding="utf-8"))["puzzles"]
+            if not p.get("annotated") and blog_facts_for(p)]
+    rows.sort(key=lambda p: -(series.date_ms(p.get("date")) or 0))
+    return [p["id"] for p in rows[:BLOG_CARDS]]
 
 
 def norm(s):
@@ -688,12 +712,33 @@ def stale():
     have published whatever cards its cache happened to hold, forever.
     """
     salt, have = _salt(), _manifest()
-    for f in puzzle_files():
-        pid = f.stem
-        if not pick(pid)[0]:
-            continue
+    for pid in eligible():
         if not (REPO / f"og/{pid}.png").exists() or have.get(pid) != card_key(pid, salt):
             yield pid
+
+
+def eligible():
+    """Every puzzle that should have a card, in the order to draw them: ours
+    with a drawable clue, then the newest blog-only ones with one."""
+    blog = blog_card_ids()
+    ours = [f.stem for f in puzzle_files()
+            if any(e.get("annotation") for e in read_puzzle_file(f)["entries"])]
+    return [pid for pid in sorted(ours) + [b for b in blog if b not in set(ours)]
+            if pick(pid)[0]]
+
+
+def prune():
+    """Delete the cards of puzzles that no longer get one, so a blog-only puzzle
+    that has aged out of BLOG_CARDS stops taking up artifact space."""
+    keep = set(eligible())
+    have = _manifest()
+    for png in (REPO / "og").glob("*.png"):
+        if png.stem not in keep:
+            png.unlink()
+            have.pop(png.stem, None)
+            print(f"removed og/{png.name}")
+    if MANIFEST.exists():
+        MANIFEST.write_text(json.dumps(have, indent=1, sort_keys=True), encoding="utf-8")
 
 
 def record(pid):
@@ -723,8 +768,17 @@ def main():
         # Which puzzles need a card drawn, for make_og.sh to loop over. Printed
         # rather than worked out by the shell so that "has a usable annotation"
         # and "is out of date" are each decided in exactly one place.
-        for pid in stale():
+        # --limit bounds one run's drawing: the Pages job has 90 minutes, and a
+        # salt change marks every card stale at once. The rest are drawn by the
+        # runs after it.
+        limit = int(args[args.index("--limit") + 1]) if "--limit" in args else None
+        for i, pid in enumerate(stale()):
+            if limit is not None and i >= limit:
+                break
             print(pid)
+        return 0
+    if "--prune" in args:
+        prune()
         return 0
     if "--record" in args:
         record(args[args.index("--record") + 1])
