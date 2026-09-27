@@ -1478,11 +1478,12 @@ def extract(blogs, with_bigdave_records=False, jobs=None):
 
 
 def inputs_digest():
-    """A digest of everything the output is a function of: this file, each
-    blog's cached posts, bigdave44's parsed light lists, and the clues of every
-    puzzle. Posts are cached once and never rewritten, so a post is its name and
-    size; a puzzle is only what the join reads, so a new annotation moves nothing."""
-    h = hashlib.sha256(Path(__file__).read_bytes())
+    """A digest of everything the output is a function of: this file and
+    tools/letter_facts.py, each blog's cached posts, bigdave44's parsed light
+    lists, and the clues of every puzzle. Posts are cached once and never
+    rewritten, so a post is its name and size; a puzzle is only what the join
+    reads, so a new annotation moves nothing."""
+    h = hashlib.sha256(Path(__file__).read_bytes() + (ROOT / "tools" / "letter_facts.py").read_bytes())
     for blog in sorted(BLOGS):
         posts = BLOGS[blog][0] / "posts"
         names = sorted((e.name, e.stat().st_size) for e in os.scandir(posts)
@@ -1655,6 +1656,11 @@ def main():
         for r, eid, f in rng.sample(pool, min(args.sample, len(pool))):
             print(json.dumps({"id": r["id"], "entry": eid, "url": r["url"], **f}, ensure_ascii=False))
     print(f"wrote blog facts for {write(best, series)} puzzles to {OUT.relative_to(ROOT)}")
+    if not args.blog:
+        import letter_facts
+        corpus = list(letter_facts.rows())
+        n = letter_facts.write(corpus, letter_facts.indicator_votes(corpus))
+        print(f"and a type read off the letters for {n} clues the blogs left untyped (tools/letter_facts.py)")
     if not (args.blog or args.from_dump):
         STAMP.write_text(digest + "\n")
 

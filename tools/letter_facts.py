@@ -49,6 +49,10 @@ def cost(parts):
     return len(parts & OPERATIONS) + (BLOCK_ANAGRAM in parts)
 #: A cut takes at most this many letters from a word: "endlessly", "heartless".
 MAX_CUT = 2
+#: The types written into the corpus: each at least 97% the blog's own type on
+#: the held-out blog-typed clues (--measure). Any other reading is left out.
+TRUSTED = frozenset({"anagram", "hidden word", "deletion"})
+PRECISION_BAR = 0.97
 #: The most blocks put together; more is a blog listing alternatives.
 MAX_BLOCKS = 5
 
@@ -328,17 +332,51 @@ def indicators(ws, free, fodder, t, lexicon):
 # ------------------------------------------------------------ corpus
 
 def rows():
-    """(puzzle id, entry id, clue, answer, blog facts) for every clue blog_facts holds."""
+    """(puzzle id, entry id, clue, answer, blog facts) for every clue of every
+    puzzle blog_facts has a post for, facts or none."""
     for f in sorted(OUT.glob("*.json")):
         for pid, rec in json.loads(f.read_text(encoding="utf-8")).items():
             path = PUZZLES / f"{pid}.json"
             if not path.exists():
                 continue
             ents = {e["id"]: e for e in json.loads(path.read_text(encoding="utf-8"))["entries"]}
-            for eid, facts in rec["entries"].items():
-                e = ents.get(eid)
-                if e and e.get("solution") and e.get("clue"):
-                    yield pid, eid, e["clue"], e["solution"], facts
+            for eid, e in ents.items():
+                if e.get("solution") and e.get("clue"):
+                    yield pid, eid, e["clue"], e["solution"], stated(rec["entries"].get(eid, {}))
+
+
+def stated(facts):
+    """A clue's facts as the blog stated them, without what this file inferred."""
+    return {k: v for k, v in facts.items() if k != "inferred" and k not in facts.get("inferred", ())}
+
+
+def inferred(clue, answer, facts, votes):
+    """`facts` with what the letters add in a TRUSTED class, marked as inferred."""
+    if facts.get("type"):
+        return facts
+    got = infer(clue, answer, {k: facts[k] for k in ("definition", "blocks") if k in facts}, votes)
+    if not got or got.get("type") not in TRUSTED:
+        return facts
+    return {**facts, "type": got["type"], "inferred": ["type"]}
+
+
+def write(corpus, votes):
+    """Rewrite tools/data/blog_facts/ with the inferred fields in, as blog_facts.write lays it out."""
+    by_pid = collections.defaultdict(dict)
+    for pid, eid, clue, answer, facts in corpus:
+        new = inferred(clue, answer, facts, votes)
+        if new:
+            by_pid[pid][eid] = new
+    n = 0
+    for f in sorted(OUT.glob("*.json")):
+        rows_ = json.loads(f.read_text(encoding="utf-8"))
+        for pid, rec in rows_.items():
+            if pid in by_pid:
+                n += sum("inferred" in v for v in by_pid[pid].values())
+                rec["entries"] = dict(sorted(by_pid[pid].items()))
+        f.write_text("{\n" + ",\n".join(json.dumps(k) + ": " + json.dumps(v, ensure_ascii=False, sort_keys=True)
+                                         for k, v in sorted(rows_.items())) + "\n}\n", encoding="utf-8")
+    return n
 
 
 def indicator_votes(corpus):
@@ -417,20 +455,26 @@ def measure(corpus, votes, show=8, split="held-out"):
         if facts.get("indicators") and got.get("indicators"):
             g = {w for i in facts["indicators"] for w in re.findall(r"[\w'’]+", i.lower())}
             p = {w for i in got["indicators"] for w in re.findall(r"[\w'’]+", i.lower())}
-            ind["tp"] += len(g & p)
-            ind["fp"] += len(p - g)
-            ind["fn"] += len(g - p)
+            for key in ("all", t) if t in TRUSTED else ("all",):
+                ind[key, "tp"] += len(g & p)
+                ind[key, "fp"] += len(p - g)
+                ind[key, "fn"] += len(g - p)
     print(f"\n== {split}")
     print(f"{'type':34} {'claimed':>8} {'right':>7} {'prec':>6} {'core':>6} {'blog':>7} {'cover':>6}")
     for t, c in sorted(tally.items(), key=lambda kv: -kv[1]["claimed"]):
         if not c["claimed"]:
             continue
-        print(f"{t:34} {c['claimed']:8} {c['right']:7} {c['right'] / c['claimed']:6.3f} {c['core'] / c['claimed']:6.3f} "
+        mark = "*" if t in TRUSTED else " "
+        print(f"{t:33}{mark} {c['claimed']:8} {c['right']:7} {c['right'] / c['claimed']:6.3f} {c['core'] / c['claimed']:6.3f} "
               f"{blog_types[t]:7} {c['right'] / max(1, blog_types[t]):6.3f}")
+        if split == "held-out" and t in TRUSTED and c["right"] / c["claimed"] < PRECISION_BAR:
+            print(f"   ^ TRUSTED but under {PRECISION_BAR}: take it out of TRUSTED")
     print(f"undecided: {sum(c['undecided'] for c in tally.values())}")
-    if ind["tp"] + ind["fp"]:
-        print(f"indicator words where the blog named some: P {ind['tp'] / (ind['tp'] + ind['fp']):.3f} "
-              f"R {ind['tp'] / (ind['tp'] + ind['fn']):.3f} ({ind['tp']} tp, {ind['fp']} fp)")
+    for key in ["all", *sorted(TRUSTED)]:
+        tp, fp, fn = (ind[key, x] for x in ("tp", "fp", "fn"))
+        if tp + fp:
+            print(f"indicator words, {key} types, where the blog named some: "
+                  f"P {tp / (tp + fp):.3f} R {tp / (tp + fn):.3f} ({tp} tp, {fp} fp)")
     for k, lst in sorted(undecided.items(), key=lambda kv: -len(kv[1]))[:15]:
         print(f"\n-- undecided between {k} ({len(lst)}); blog said", collections.Counter(g for g, *_ in lst).most_common(5))
         for g, clue, answer, got in lst[:4]:
@@ -485,6 +529,8 @@ def main():
     ap.add_argument("--measure", action="store_true")
     ap.add_argument("--fill", action="store_true")
     ap.add_argument("--gold", action="store_true")
+    ap.add_argument("--write", action="store_true",
+                    help="add the TRUSTED types to tools/data/blog_facts/, marked inferred")
     ap.add_argument("--clue", nargs=2, metavar=("CLUE", "ANSWER"))
     ap.add_argument("--definition", action="append", default=[])
     ap.add_argument("--block", action="append", default=[], help="LETTERS=clue words")
@@ -503,6 +549,8 @@ def main():
         measure(corpus, votes, show=0, split="held-out")
     if args.fill:
         fill(corpus, votes)
+    if args.write:
+        print(f"inferred a type for {write(corpus, votes)} clues in {OUT.relative_to(ROOT)}")
 
 
 if __name__ == "__main__":

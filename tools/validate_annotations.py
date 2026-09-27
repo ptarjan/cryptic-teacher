@@ -1655,14 +1655,17 @@ def check_cryptic_definition_against_blog(puzzle, warnings):
         return
     for e in puzzle["entries"]:
         ann = e.get("annotation") or {}
-        theirs = ((row["entries"].get(e["id"]) or {}).get("type") or "").lower()
+        fact = row["entries"].get(e["id"]) or {}
+        theirs = (fact.get("type") or "").lower()
         if "cryptic definition" not in (ann.get("type") or ""):
             continue
         named = [w for w in BLOG_WORDPLAY if w in theirs]
+        # A type in "inferred" is tools/letter_facts.py's reading of the letters, not the blogger's.
+        who = "its letters read" if "type" in fact.get("inferred", ()) else f"{row['name']} parses it"
         if named:
             tag = f"{e['number']}{'A' if e['direction'] == 'across' else 'D'}"
             warnings.append(
-                f"{tag}: typed cryptic definition, but {row['name']} parses it as "
+                f"{tag}: typed cryptic definition, but {who} as "
                 f"{theirs!r} ({row['url']}). If the {named[0]} is there, annotate it")
 
 
