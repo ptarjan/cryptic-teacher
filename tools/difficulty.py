@@ -31,7 +31,7 @@ for its band (snitch_ranges()), and choosing components. tools/snitch_report.py 
 against the NITCH minus its weekday mean, by date third, and is rerun
 nightly into tools/data/snitch_report.txt.
 
-So this measures six things that are genuinely in the file, reports each one
+So this measures seven things that are genuinely in the file, reports each one
 separately so a reader can disagree with the weighting, and bands a puzzle by
 where it sits *against the rest of the collection*: "tougher than 80% of the
 puzzles here" is a claim the data can support, "Difficulty 7/10" is not.
@@ -89,7 +89,7 @@ puzzles a solver had already seen — a puzzle remembered as Tough quietly
 becoming Moderate because six easier ones arrived that week. Refreshing the
 baseline is a deliberate act (--rebaseline) that shows the diff.
 
-The six components, higher = harder:
+The seven components, higher = harder:
 
   checking   The share of an answer's letters that no other entry crosses.
              The oldest and least arguable measure there is: an unchecked
@@ -131,6 +131,14 @@ The six components, higher = harder:
              scaled counts rather than raw counts, so an old puzzle with a
              short history behind it is not read as unfamiliar. history()
              states the arithmetic.
+
+  question_marks  The share of clues ending in a question mark. The mark
+             flags a definition by example, a pun or a cryptic definition:
+             the definition is not a plain synonym, which is the part of a
+             clue the wordplay components do not see. Commenters flag such
+             clues hard, and name them as their last one in, more often than
+             the rest. It needs only the clue text, so it is there for every
+             series, annotated or not.
 
 Weights are fixed (above): checking leads at 0.45, rarity 0.30, and every
 other component 0.25. The components are printed alongside the index so a
@@ -174,7 +182,7 @@ PAIRING_SCALE = 10000
 # the one component that is a fact rather than a judgement; rarity follows it,
 # and the rest are equal. Fixed, never fitted: see the module docstring.
 WEIGHTS = {"checking": 0.45, "rarity": 0.30, "device": 0.25, "machinery": 0.25,
-           "answer_novelty": 0.25, "pairing_novelty": 0.25}
+           "answer_novelty": 0.25, "pairing_novelty": 0.25, "question_marks": 0.25}
 
 # The series their own papers declare gentle, an input to --validate that lives
 # here rather than in the prose above so the test and the story it tells cannot
@@ -596,13 +604,32 @@ def device(puz):
     return sum(costs) / len(costs)
 
 
+#: A clue's trailing enumeration, "(5)" or "(2,3-4)", stripped before its last
+#: character is read.
+ENUMERATION = re.compile(r"\s*\([\d,.\s\-–']+\)\s*$")
+
+
+def question_marks(puz):
+    """Share of the clues ending in a question mark, ignoring closing quotes.
+
+    None for a puzzle with no clue text. A cross-reference ("See 5") is not a
+    clue and is left out."""
+    ends = []
+    for e in puz["entries"]:
+        clue = ENUMERATION.sub("", e.get("clue") or "").strip().rstrip("\"'”’)")
+        if clue and not re.match(r"(?i)see\b", clue):
+            ends.append(clue.endswith("?"))
+    return sum(ends) / len(ends) if ends else None
+
+
 def raw(puz, ctx):
     """The measurements, in their natural units, before any scaling."""
     fam = ctx.history.get(puz["id"]) or {}
     return {"checking": checking(puz), "rarity": rarity(puz, ctx.rank),
             "device": device(puz), "machinery": machinery(puz),
             "answer_novelty": fam.get("answer_novelty"),
-            "pairing_novelty": fam.get("pairing_novelty")}
+            "pairing_novelty": fam.get("pairing_novelty"),
+            "question_marks": question_marks(puz)}
 
 
 def score(puz, ctx):
