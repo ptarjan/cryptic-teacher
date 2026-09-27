@@ -203,6 +203,21 @@ fetch_puzzle.write_puzzle_file(elsewhere / "cryptic-24104.json", {**real, "sette
                                generator="tools/fetch_puzzle.py")
 print("FIXTURE", repr(fetch_puzzle.read_puzzle_file(elsewhere / "cryptic-24104.json")["setter"]))
 
+# a cold fill against the blog, before it is written: PEIR v PEER is in an
+# unchecked cell, so only the blog can refuse it; BAT is ruled out by the
+# fill's own 2-down, so the blog misparsed and the fill stands.
+import apply_solution
+blank = lambda p: {**p, "entries": [{**e, "solution": None} for e in p["entries"]]}
+peer = source("fifteensquared", "fifteensquared", answers={**AGREED_ANSWERS, "7-across": "PEER"})
+print("COLD_DISAGREES", *apply_solution.check_sources(
+    blank(unchecked), {**AGREED_ANSWERS, "7-across": "PEIR"}, [peer]))
+print("COLD_AGREES", len(apply_solution.check_sources(
+    blank(unchecked), {**AGREED_ANSWERS, "7-across": "PEER"}, [peer])))
+print("COLD_MISPARSE", len(apply_solution.check_sources(
+    blank(grid), {**AGREED_ANSWERS, "1-across": "CAR", "1-down": "COX", "2-down": "RUN"},
+    [source("fifteensquared", "fifteensquared",
+            answers={**AGREED_ANSWERS, "1-across": "BAT", "1-down": "COX", "2-down": "RUN"})])))
+
 # and a puzzle with no grid is not read against anything
 gridless = {"id": "cryptic-502", "series": "cryptic", "number": 502, "setter": "",
             "entries": [{"id": "1-across", "number": 1, "direction": "across", "solution": "CAR"}]}
@@ -240,6 +255,12 @@ same "a linked answer on its first light agrees with the lights it spans" "$(fie
 same "blog titles name our puzzles, and only ours" "$(field TITLES "$out")" \
   "quiptic-1357 indysunday-1127 None timesquick-1575 sundaytimes-4589 None"
 same "blog titles name setters, and a month is not one" "$(field SETTERS "$out")" "Brendan Tack None"
+
+echo "a cold solve against the blog"
+same "a fill the blog disagrees with is refused, naming both answers" \
+  "$(field COLD_DISAGREES "$out" | cut -c1-59)" "7-across: the fill has PEIR, but fifteensquared gives PEER."
+same "a fill the blog agrees with passes" "$(field COLD_AGREES "$out")" "0"
+same "a blog answer the fill's crossings rule out does not refuse it" "$(field COLD_MISPARSE "$out")" "0"
 
 echo "the ledger and the write path"
 same "the ledger names the rule for each" "$(field LEDGER "$out")" "grid unresolved filled"
