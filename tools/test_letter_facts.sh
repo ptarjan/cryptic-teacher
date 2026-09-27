@@ -96,4 +96,28 @@ want="['Teacher'] ['Teacher'] None [] [] [] {'type': 'charade'}"
 if [ "$defs" = "$want" ]; then echo "ok   a definition blogs underlined for the answer is read where wordplay or a link word bounds it, and is not the blog's"; else
   echo "FAIL definitions: expected [$want], got [$defs]"; fails=$((fails + 1)); fi
 
+# Blocks a write-up gives in prose (blog_facts.leads): its capitals, from clue
+# words blogs read so or that it glosses them with, and fodder where it names
+# an anagram. A lead the letters do not bear out, or two splits, is no claim.
+fuzzy=$(cd "$REPO/tools" && python3 -c '
+import json, letter_facts as l
+rows = [(f"p{i}", "e", "Sailor after female gets right changed (3)", "ABFR",
+         {"blocks": [["AB", "sailor"], ["F", "female"], ["R", "right"]]}) for i in range(5)]
+rows += [("d", "e", "Misrepresent (5)", "BELIE", {"definition": ["Misrepresent"]})]
+lex, dlex = l.Lexicon(rows), l.Definitions(rows)
+def read(clue, answer, said, **kw):
+    got = l.infer_fuzzy_blocks(clue, answer, {"definition": kw.get("d", [])}, lex, dlex, said)
+    return None if got is None else sorted(got)
+print(read("Misrepresent female intuition (6)", "BELIEF", {"caps": ["BELIE"], "printed": ["Misrepresent female"]}, d=["intuition"]),
+      read("Boss blunder right (6)", "GAFFER", {"caps": ["GAFFE", "R"], "near": [["GAFFE", "blunder"]]}, d=["Boss"]),
+      read("Boss blunder right (6)", "GAFFER", {"caps": ["GAFFE", "R"]}, d=["Boss"]),
+      read("Scene changed after sailor gets leave (7)", "ABSENCE", {"anagram": True, "printed": ["Scene", "sailor"]}, d=["leave"]),
+      read("Scene changed after sailor gets leave (7)", "ABSENCE", {"printed": ["Scene", "sailor"]}, d=["leave"]),
+      read("Sailor right, right (3)", "ABR", {"caps": ["AB", "R"]}))
+print(json.dumps(l.with_blocks({}, [("SCENE", "Scene", "anagrammed")])["blocks"]))')
+want="[('BELIE', 'Misrepresent'), ('F', 'female')] [('GAFFE', 'blunder'), ('R', 'right')] [] [('AB', 'sailor'), ('SCENE', 'Scene', 'anagrammed')] [] None
+[[\"SCENE\", \"Scene\", \"inferred\", \"anagrammed\"]]"
+if [ "$fuzzy" = "$want" ]; then echo "ok   blocks a write-up gives in prose are read where its leads and the letters agree on one split"; else
+  echo "FAIL fuzzy blocks: expected [$want], got [$fuzzy]"; fails=$((fails + 1)); fi
+
 [ "$fails" -eq 0 ] && echo "all letter_facts checks passed" || { echo "$fails failed"; exit 1; }

@@ -216,11 +216,18 @@ tools/letter_facts.py                        adds a clue type the blog left out 
                                              exact against blog definitions hidden from it);
                                              and the indicator those blocks want where the blog
                                              named none, both named in the clue's "inferred";
-                                             blog_facts.py runs it after each write
+                                             the blocks a write-up gives in prose, where the
+                                             capitals it prints, the clue words it glosses them
+                                             with or prints, and the answer's letters agree on
+                                             one split (read off the leads blog_facts.py keeps
+                                             beside its cache; 98.6% exact against blog blocks
+                                             hidden from it, held out by puzzle); blog_facts.py
+                                             runs it after each write
 tools/test_letter_facts.sh                   holds letter_facts.py to one reading per clue: a
                                              literal word is not an anagram, a lone word's
                                              initial not an abbreviation unless listed, fodder
-                                             less blocks is left undecided
+                                             less blocks is left undecided, a write-up's prose
+                                             read into blocks only where it gives one split
 tools/test_blog_facts.sh                     holds that reader to hand-built posts, so a
                                              definition or a block's source is only ever words
                                              of our clue and a type only one the write-up names

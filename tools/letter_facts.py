@@ -13,6 +13,10 @@ four; bigdave44 writes prose) are read the same way: the answer split into
 the blocks the blog gave and runs of the other clue words, each run read as
 blogs read those words in other puzzles, kept where the split is the only
 one (see infer_blocks). Each is written [letters, clue words, "inferred"].
+Where a write-up gives its blocks in prose ("GAFFE or error", "a synonym of
+'misrepresent' followed by Female"), what it prints (blog_facts.leads) says
+which pieces to try, and the split is kept on the same terms (see
+infer_fuzzy_blocks); anagram fodder is written with "anagrammed" after.
 
 Where the blog then has the definition and every block but named no
 indicator, the part the blocks want one for (a container, a reversal, ...)
@@ -30,6 +34,7 @@ clue's "inferred". It is read before the indicators, which want one.
     python3 tools/letter_facts.py --measure-blocks  # the inferred blocks on 1 puzzle in 20, held out
     python3 tools/letter_facts.py --measure-indicators  # the inferred indicators the same way
     python3 tools/letter_facts.py --measure-definitions  # the inferred definitions the same way
+    python3 tools/letter_facts.py --measure-fuzzy-blocks  # the blocks read off write-ups' prose the same way
     python3 tools/letter_facts.py --fill      # what it would add to untyped clues
     python3 tools/letter_facts.py --clue 'Men on phone exchange will be a rarity' PHENOMENON
 """
@@ -47,7 +52,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
-from blog_facts import ABBR, ENUM_TAIL, GOLD, OUT, PART_ORDER, clue_body, fold
+from blog_facts import ABBR, ENUM_TAIL, GOLD, LEADS, OUT, PART_ORDER, clue_body, fold
 
 PUZZLES = ROOT / "puzzles"
 WORD = re.compile(r"[\w'’\-]+")
@@ -451,6 +456,11 @@ class Lexicon:
         joined, apart = self.edge.get((side, word), (0, 0))
         return apart >= MIN_APART and joined <= MAX_ATTACH * (joined + apart)
 
+    def attached(self, side, word):
+        """Whether blogs take `word` into a block it ends on `side` of: "first" in "first shower"."""
+        joined, apart = self.edge.get((side, word), (0, 0))
+        return joined >= MIN_APART and apart <= MAX_ATTACH * (joined + apart)
+
 
 class _TooMany(Exception):
     pass
@@ -566,6 +576,190 @@ def infer_blocks(clue, answer, facts, lex):
             return None
         out.append((pieces[have + x][0], " ".join([w for w, _ in ws[i:j - 1]] + [(bare if cut else ws)[j - 1][0]])))
     return out
+
+
+# ------------------------------------------------------------ blocks from the write-up's prose
+
+def verified(c, src, key, lex, dlex, printed=frozenset()):
+    """Whether the clue words `src` (letters `key`) give the letters `c` by
+    what the letters or the blogs say: literally, as a listed abbreviation,
+    a selection or cut of the one word, a reading blogs gave them as a block, or an
+    answer blogs underlined them for; or as one of those two with its first
+    or last letter cut (FATHE(r) from "old man"), unless the write-up
+    prints that word whole (`printed`): T(OG)ETHER is TETHER around OG, and
+    not T and a cut TETHER. One or two letters are what blogs read them as
+    often enough (Lexicon.spellings): "close to" is R in three write-ups."""
+    if c == "".join(key) or listed(c, src) or len(key) == 1 and derivation(c, src):
+        return True
+    if len(c) < 3:  # one or two letters blogs give in passing: as often as infer_blocks reads them
+        return c in lex.spellings(key)
+    whole = set(lex.seen.get(key, ())) | dlex.by_words.get(key, set())
+    return c in whole or any(c in (w[1:], w[:-1]) and w not in printed for w in whole)
+
+
+def infer_fuzzy_blocks(clue, answer, facts, lex, dlex, said, sources=None):
+    """The blocks of a clue whose write-up says them in prose ("GAFFE or
+    error", "a synonym for 'misrepresent' followed by Female"): the one split
+    of the answer into the blocks the blog gave and pieces of the other clue
+    words, as infer_blocks, where each new piece is one the write-up leads to
+    (`said`, see blog_facts.leads): a capital block it prints, from clue words
+    that give those letters (see verified) or, where none do, that it prints
+    next to them; anagram fodder, where it names an anagram; or a reading
+    blogs give those words as a block, of words it prints. [(letters, clue
+    words, *how)] to add, [] when nothing is missing or none is found, None
+    when the split is not the only one. `sources`, a list, is given what led
+    to each: "caps verified", "caps near", "lexicon caps", "lexicon printed"
+    or "anagram"."""
+    answer = letters(answer or "")
+    t = facts.get("type") or ""
+    given = facts.get("blocks") or []
+    if len(answer) < 2 or not said or any(x in t for x in NO_SPLIT if x != "anagram"):
+        return []
+    ws = words(clue_body(clue))
+    bare = [(w[:-2], l[:-1]) if POSSESSIVE.search(w) else (w, l) for w, l in ws]
+    taken = set()
+    for phrase in facts.get("definition", []) + facts.get("indicators", []):
+        taken |= locate(phrase, ws) or set()
+    pieces, runs, seen = [], [], set()
+    for bl, src, *op in given:
+        span = locate(src, ws) or set()
+        taken |= span
+        pieces.append((letters(bl), sum(1 << k for k in span), bool(op)))
+        seen.add(pieces[-1])
+    if sorted("".join(p[0] for p in pieces)) == sorted(answer):
+        return []
+    have = len(pieces)
+    free = set(range(len(ws))) - taken
+    need = collections.Counter(answer)
+    capset = set(said.get("caps", ()))
+    caps = sorted(c for c in capset if not collections.Counter(c) - need)
+    near = collections.defaultdict(set)
+    for c, phrase in said.get("near", ()):
+        near[c].add(_key(phrase))
+    printed, phrases = set(), {_key(p) for p in said.get("printed", ())}
+    for k in phrases:
+        printed |= {k[a:z] for a in range(len(k)) for z in range(a + 1, len(k) + 1)}
+
+    tags = []
+
+    def add(s, i, size, cut, how, anagram=False, tag=""):
+        mask = sum(1 << k for k in range(i, i + size))
+        if (s, mask, anagram) not in seen:
+            seen.add((s, mask, anagram))
+            pieces.append((s, mask, anagram))
+            runs.append((i, size, cut, how))
+            tags.append(tag)
+
+    found, selections = collections.defaultdict(list), set()
+    for i in range(len(ws)):
+        for size in range(1, MAX_RUN + 1):
+            if i + size > len(ws) or i + size - 1 not in free:
+                break
+            key = tuple(l for _, l in ws[i:i + size])
+            src = " ".join(w for w, _ in ws[i:i + size])
+            short = key[:-1] + (bare[i + size - 1][1],)
+            whole, part = lex.spellings(key), lex.spellings(short) if short != key else set()
+            for s in whole | part:
+                cut_ = s in part and lex.seen.get(short, {}).get(s, 0) > lex.seen.get(key, {}).get(s, 0)
+                if len(s) < len(answer) and not collections.Counter(s) - need:
+                    add(s, i, size, cut_, "lead" if s in caps or key in printed else "lexicon",
+                        tag="lexicon caps" if s in caps else "lexicon printed")
+            if size == 1 and said.get("letter") and key in printed and len(key[0]) > 1:
+                for c in {key[0][0], key[0][-1]} - lex.spellings(key):
+                    if not listed(c, src) and c in need:
+                        selections.add((c, 1 << i))
+                        found[c].append((i, 1, False))
+            for c in caps:
+                if size == 1 and c != key[0] and not listed(c, src) and derivation(c, src) \
+                        and c not in lex.spellings(key):
+                    selections.add((c, sum(1 << k for k in range(i, i + size))))
+                if verified(c, src, key, lex, dlex, capset):
+                    b = bare[i + size - 1]
+                    own = b[1] != key[-1] and verified(c, " ".join([w for w, _ in ws[i:i + size - 1]] + [b[0]]), short, lex, dlex, capset)
+                    found[c].append((i, size, own))
+            fod = "".join(key)
+            if said.get("anagram") and len(fod) >= MIN_ANAGRAM and fod != answer \
+                    and not collections.Counter(fod) - need:
+                add(fod, i, size, False, "lead", anagram=True, tag="anagram")
+    caps += sorted(set(found) - set(caps))  # a letter the write-up says is taken from a word it prints
+    for c in caps:  # a letter taken from one word, and the words beside it blogs take in with it
+        for i, size, own in list(found[c]):
+            if (c, 1 << i) in selections:
+                for a, z, side, k in ((i - 1, i + 1, "L", i - 1), (i - 2, i + 1, "L", i - 2),
+                                      (i, i + 2, "R", i + 1), (i, i + 3, "R", i + 2)):
+                    if 0 <= a and z <= len(ws) and set(range(a, z)) <= free and lex.attached(side, ws[k][1]):
+                        found[c].append((a, z - a, False))
+    for c in caps:
+        tag = "caps verified" if found[c] else "caps near"
+        at = found[c] or [(i, size) for i in range(len(ws)) for size in range(1, MAX_RUN + 1)
+                          if len(c) >= 3 and tuple(l for _, l in ws[i:i + size]) in near[c]
+                          and len("".join(l for _, l in ws[i:i + size])) >= 3
+                          and set(range(i, i + size)) <= free]
+        for i, size, *own in at:
+            add(c, i, size, bool(own and own[0]), "lead", tag=tag)
+    drop = narrowest(pieces[have:], ws, lex, phrases)
+    use = [k for k in range(len(pieces)) if k < have or k - have not in drop]
+    try:
+        got = {frozenset(use[x] for x in p) for p in splits(answer, [pieces[k] for k in use])}
+    except _TooMany:
+        return None
+    everything = frozenset(range(have))
+    new = {p - everything for p in got if p >= everything and p - everything
+           and (len(p) >= 2 or pieces[min(p)][2])}  # one piece is the whole answer anagrammed
+    new = {p for p in new if all(runs[x - have][3] == "lead" for x in p)}
+    if len(new) != 1:
+        return None if new else []
+    new = sorted(x - have for x in new.pop())
+    used = taken | {k for x in new for k in range(runs[x][0], runs[x][0] + runs[x][1])}
+    out = []
+    for x in new:
+        i, size, cut_, _ = runs[x]
+        j = i + size
+        # a letter taken from a word: blogs write "first of ewes" as often as "ewes"
+        reach = 2 if pieces[have + x][:2] in selections else 1
+        for side, ks in (("L", range(i - 1, i - 1 - reach, -1)), ("R", range(j, j + reach))):
+            for k in ks:
+                if not 0 <= k < len(ws) or k in used:
+                    break
+                if not lex.apart(side, ws[k][1]):
+                    return None
+        src = " ".join([w for w, _ in ws[i:j - 1]] + [(bare if cut_ else ws)[j - 1][0]])
+        out.append((pieces[have + x][0], src, "anagrammed") if pieces[have + x][2] else (pieces[have + x][0], src))
+        if sources is not None:
+            sources.append(tags[x])
+    return out
+
+
+def narrowest(pieces, ws, lex, phrases=frozenset()):
+    """The indices of `pieces`, [(letters, word mask, anagrammed?)], another
+    beats on where it ends: the same letters from a run of words and from
+    that run and the words beside it, "beer" and "tucked into beer", are
+    the one the write-up prints as a phrase of its own (`phrases`, clue
+    words' letters), else the shorter where blogs leave out the word next to
+    it, else the longer where they take the outer word into a block on that
+    side, else both stand."""
+    drop = set()
+    for x, y in itertools.permutations(range(len(pieces)), 2):
+        (sx, mx, fx), (sy, my, fy) = pieces[x], pieces[y]
+        if sx != sy or fx != fy or mx & my != mx or mx == my:
+            continue
+        span = [k for k in range(len(ws)) if mx >> k & 1]
+        extra = [k for k in range(len(ws)) if (my & ~mx) >> k & 1]
+        if extra[-1] < span[0]:
+            side, outer, inner = "L", extra[0], extra[-1]
+        elif extra[0] > span[-1]:
+            side, outer, inner = "R", extra[-1], extra[0]
+        else:
+            continue
+        kx = tuple(ws[k][1] for k in span)
+        ky = tuple(ws[k][1] for k in sorted(span + extra))
+        if ky in phrases:
+            drop.add(x)
+        elif kx in phrases or lex.apart(side, ws[inner][1]):
+            drop.add(y)
+        elif lex.attached(side, ws[outer][1]):
+            drop.add(x)
+    return drop
 
 
 # ------------------------------------------------------------ lexicon indicators
@@ -950,6 +1144,10 @@ class Definitions:
                     edge[side, ws[k][1]][0] += 1
                 edge[side, ws[out][1]][1] += 1
         self.of, self.edge = dict(of), dict(edge)
+        self.by_words = collections.defaultdict(set)
+        for a, ks in self.of.items():
+            for k in ks:
+                self.by_words[k].add(a)
 
     def apart(self, side, word):
         """Whether blogs leave `word` out of a definition it stands beside on
@@ -1106,18 +1304,32 @@ def all_three(answer, facts):
 
 # ------------------------------------------------------------ corpus
 
-def rows():
+def rows(said=None):
     """(puzzle id, entry id, clue, answer, blog facts) for every clue of every
-    puzzle blog_facts has a post for, facts or none."""
+    puzzle blog_facts has a post for, facts or none; with, under "leads",
+    what the write-up says short of its blocks, where `said` (read_leads) has it."""
     for f in sorted(OUT.glob("*.json")):
         for pid, rec in json.loads(f.read_text(encoding="utf-8")).items():
             path = PUZZLES / f"{pid}.json"
             if not path.exists():
                 continue
             ents = {e["id"]: e for e in json.loads(path.read_text(encoding="utf-8"))["entries"]}
+            got = (said or {}).get(pid, {})
             for eid, e in ents.items():
                 if e.get("solution") and e.get("clue"):
-                    yield pid, eid, e["clue"], e["solution"], stated(rec["entries"].get(eid, {}))
+                    facts = stated(rec["entries"].get(eid, {}))
+                    yield pid, eid, e["clue"], e["solution"], {**facts, "leads": got[eid]} if eid in got else facts
+
+
+def read_leads(required=False):
+    """blog_facts.py's leads, {puzzle id: {entry id: leads}}; {} where it has
+    written none, or, `required`, an exit saying how to get them."""
+    if LEADS.exists():
+        return json.loads(LEADS.read_text(encoding="utf-8"))
+    if required:
+        sys.exit(f"{LEADS} is missing: tools/blog_facts.py writes it from the blog caches, and this"
+                 " reads the blocks write-ups give in prose off it; run that, which runs this after")
+    return {}
 
 
 def stated(facts):
@@ -1137,22 +1349,32 @@ def written(t):
     return (type_name(core(t)), True) if t in CORE_TRUSTED else None
 
 
-def inferred(clue, answer, facts, votes, lex, ilex, dlex):
+def inferred(clue, answer, facts, votes, lex, ilex, dlex, fuzzy=True):
     """`facts` with what the letters add, marked as inferred: a type in a
-    TRUSTED or CORE_TRUSTED class, the blocks the blog left out, the
-    definition where it named none, and then the indicator those blocks want
-    where it named none."""
+    TRUSTED or CORE_TRUSTED class, the blocks the blog left out or gave in
+    prose, the definition where it named none, and then the indicator those
+    blocks want where it named none."""
     if not facts.get("type"):
         got = infer(clue, answer, {k: facts[k] for k in ("definition", "blocks") if k in facts}, votes)
         w = written(got.get("type")) if got else None
         if w:
             facts = {**facts, "type": w[0], "inferred": ["type"], **({"typeCore": True} if w[1] else {})}
-    new = infer_blocks(clue, answer, facts, lex)
-    facts = with_blocks(facts, new) if new else facts
+    facts = with_all_blocks(clue, answer, facts, lex, dlex, fuzzy)
     new = infer_definition(clue, answer, facts, dlex)
     facts = with_definition(facts, new) if new else facts
     new = infer_indicators(clue, answer, facts, ilex)
     return with_indicators(facts, new) if new else facts
+
+
+def with_all_blocks(clue, answer, facts, lex, dlex, fuzzy=True):
+    """`facts` with the blocks infer_blocks reads off the lexicon and then,
+    `fuzzy`, those infer_fuzzy_blocks reads off the write-up's prose."""
+    new = infer_blocks(clue, answer, facts, lex)
+    facts = with_blocks(facts, new) if new else facts
+    if not fuzzy or coverage(answer, facts) in ("full", "n/a") or not facts.get("leads"):
+        return facts
+    new = infer_fuzzy_blocks(clue, answer, facts, lex, dlex, facts["leads"])
+    return with_blocks(facts, new) if new else facts
 
 
 def write(corpus, votes):
@@ -1162,6 +1384,7 @@ def write(corpus, votes):
     by_pid = collections.defaultdict(dict)
     for pid, eid, clue, answer, facts in corpus:
         new = inferred(clue, answer, facts, votes, lex, ilex, dlex)
+        new.pop("leads", None)
         if new:
             by_pid[pid][eid] = new
     n = collections.Counter()
@@ -1320,8 +1543,9 @@ def leftover_runs(clue, facts):
 
 
 def with_blocks(facts, new):
-    """`facts` with the inferred blocks `new` added, marked so."""
-    return {**facts, "blocks": [*facts.get("blocks", []), *([b, src, INFERRED] for b, src in new)],
+    """`facts` with the inferred blocks `new` added, marked so: [letters,
+    clue words, "inferred"], anagram fodder with "anagrammed" after it."""
+    return {**facts, "blocks": [*facts.get("blocks", []), *([b, src, INFERRED, *how] for b, src, *how in new)],
             "inferred": sorted({*facts.get("inferred", ()), "blocks"})}
 
 
@@ -1405,6 +1629,99 @@ def measure_blocks(corpus, n=0, show=30, seed=1):
               f"blog {facts.get('blocks')} | + {new}")
 
 
+def measure_fuzzy_blocks(corpus, votes, n=2, show=30, seed=1):
+    """Precision of infer_fuzzy_blocks on slice `n` of the puzzles, every
+    lexicon built without them or any puzzle we annotated: the blog's own
+    full blocks recovered with them and the type hidden (all of them; all,
+    with the write-up's capitals hidden too, as prose that names only clue
+    words; one), against our annotations where the blog gave none, and the
+    coverage it adds on the slice."""
+    annotated = {}
+    for path in PUZZLES.glob("*.json"):
+        p = json.loads(path.read_text(encoding="utf-8"))
+        ann = {e["id"]: e["annotation"] for e in p.get("entries", []) if (e.get("annotation") or {}).get("blocks")}
+        if ann:
+            annotated[p["id"]] = ann
+    test = {pid for pid, *_ in corpus if in_slice(pid, n)}
+    lex, dlex = Lexicon(corpus, skip=test | set(annotated)), Definitions(corpus, skip=test | set(annotated))
+    ilex = Indicators(corpus, skip=test)
+    rng = random.Random(seed)
+    c = collections.Counter()
+    by = collections.defaultdict(collections.Counter)
+    wrong, sample = collections.defaultdict(list), []
+    modes = ("all hidden", "capitals hidden too", "one hidden")
+    for pid, eid, clue, answer, facts in corpus:
+        said = facts.get("leads") or {}
+        if pid in test and coverage(answer, facts) == "full" and said:
+            blocks = facts["blocks"]
+            bare = {k: v for k, v in facts.items() if k not in ("blocks", "type", "leads")}
+            for mode in modes:
+                hide = {rng.randrange(len(blocks))} if mode == "one hidden" else set(range(len(blocks)))
+                if mode == "one hidden" and len(blocks) < 2:
+                    continue
+                keep = {**bare, "blocks": [b for k, b in enumerate(blocks) if k not in hide]}
+                lead = {k: v for k, v in said.items() if k not in ("caps", "near")} if mode == modes[1] else said
+                truth = {block_key(blocks[k]) for k in hide}
+                srcs = []
+                got = infer_fuzzy_blocks(clue, answer, keep, lex, dlex, lead, srcs) or []
+                c[mode, "clues"] += 1
+                c[mode, "claimed"] += bool(got)
+                for b, how in zip(got, srcs):
+                    ok = block_key(b) in truth
+                    for key in ("all", how):
+                        by[mode, key]["blocks"] += 1
+                        by[mode, key]["exact"] += ok
+                    if not ok:
+                        wrong[mode].append((how, clue, answer, b, [blocks[k] for k in hide]))
+        if pid in annotated and eid in annotated[pid] and coverage(answer, facts) != "full":
+            srcs = []
+            f = with_blocks(facts, infer_blocks(clue, answer, facts, lex) or [])
+            got = infer_fuzzy_blocks(clue, answer, f, lex, dlex, said, srcs) or [] if coverage(answer, f) != "full" else []
+            ours = {(letters(b.get("gives") or ""), _key(b.get("clueFragment") or "")) for b in annotated[pid][eid]["blocks"]}
+            for b in got:
+                by["ours", "all"]["blocks"] += 1
+                by["ours", "all"]["exact"] += block_key(b) in ours
+                by["ours", "all"]["letters"] += letters(b[0]) in {g for g, _ in ours}
+                if block_key(b) not in ours:
+                    wrong["ours"].append(("ours", clue, answer, b, sorted(ours)))
+        if pid in test:
+            before = inferred(clue, answer, facts, votes, lex, ilex, dlex, fuzzy=False)
+            after = inferred(clue, answer, facts, votes, lex, ilex, dlex)
+            c["all"] += 1
+            for name, f in (("before", before), ("after", after)):
+                cov = coverage(answer, f)
+                c["cover", name, cov] += 1
+                c["three", name] += all_three(answer, f)
+                c["def + full", name] += bool(f.get("definition")) and cov == "full"
+            new = [b for b in after.get("blocks", ()) if b not in before.get("blocks", ())]
+            if new:
+                c["filled", coverage(answer, before)] += 1
+                sample.append((pid, eid, clue, answer, before.get("definition"), before.get("blocks"), new))
+    print(f"slice {n}: {len(test)} puzzles held out, {len(annotated)} we annotated kept out of the lexicons")
+    for mode in modes:
+        x = by[mode, "all"]
+        print(f"blog blocks {mode}: {c[mode, 'clues']} clues, claimed {c[mode, 'claimed']}, "
+              f"{x['blocks']} blocks, exact {x['exact'] / max(1, x['blocks']):.4f}")
+        for (m, how), y in sorted(by.items()):
+            if m == mode and how != "all":
+                print(f"   {how:16} {y['blocks']:6} exact {y['exact'] / max(1, y['blocks']):.4f}")
+    x = by["ours", "all"]
+    print(f"against our annotations, the blog's blocks short: {x['blocks']} blocks, exact "
+          f"{x['exact'] / max(1, x['blocks']):.4f}, letters {x['letters'] / max(1, x['blocks']):.4f}")
+    t = max(1, c["all"])
+    print(f"of {c['all']} clues:", ", ".join(f"{k} {c['cover', 'before', k] / t:.3f} -> {c['cover', 'after', k] / t:.3f}"
+                                            for k in ("full", "partial", "none", "excess", "n/a")))
+    print(f"  full blocks {c['cover', 'before', 'full']} -> {c['cover', 'after', 'full']}; definition + full blocks "
+          f"{c['def + full', 'before']} -> {c['def + full', 'after']}; definition + full blocks + indicators "
+          f"{c['three', 'before']} -> {c['three', 'after']} ({c['three', 'before'] / t:.3f} -> {c['three', 'after'] / t:.3f})")
+    print("  filled, by the coverage before:", {k[1]: v for k, v in c.items() if k[0] == "filled"})
+    for mode, lst in wrong.items():
+        for how, clue, answer, b, truth in rng.sample(lst, min(show // 3, len(lst))):
+            print(f"   miss [{mode}, {how}] {clue} = {answer}: {b[0]} from {b[1]!r}; truth {truth}")
+    for pid, eid, clue, answer, d, blocks, new in rng.sample(sample, min(show, len(sample))):
+        print(f"   read {pid} {eid} | {clue} = {answer} | def {d} blog {blocks} | + {new}")
+
+
 def score_gold(votes):
     tally = collections.Counter()
     for line in GOLD.read_text(encoding="utf-8").splitlines():
@@ -1455,6 +1772,9 @@ def main():
                     help="precision of the inferred indicators on one puzzle in twenty (default slice %(const)s)")
     ap.add_argument("--measure-definitions", type=int, nargs="?", const=1, metavar="SLICE",
                     help="precision of the inferred definitions on one puzzle in twenty (default slice %(const)s)")
+    ap.add_argument("--measure-fuzzy-blocks", type=int, nargs="?", const=2, metavar="SLICE",
+                    help="precision of the blocks read off the write-ups' prose on one puzzle in twenty "
+                         "(default slice %(const)s)")
     ap.add_argument("--clue", nargs=2, metavar=("CLUE", "ANSWER"))
     ap.add_argument("--definition", action="append", default=[])
     ap.add_argument("--block", action="append", default=[], help="LETTERS=clue words")
@@ -1464,7 +1784,7 @@ def main():
         print(json.dumps(infer(*args.clue, known), ensure_ascii=False))
         return
     os.nice(19)
-    corpus = list(rows())
+    corpus = list(rows(read_leads(required=args.write or args.measure_fuzzy_blocks is not None)))
     votes = indicator_votes(corpus)
     if args.gold:
         score_gold(votes)
@@ -1479,6 +1799,8 @@ def main():
         measure_indicators(corpus, args.measure_indicators)
     if args.measure_definitions is not None:
         measure_definitions(corpus, args.measure_definitions)
+    if args.measure_fuzzy_blocks is not None:
+        measure_fuzzy_blocks(corpus, votes, args.measure_fuzzy_blocks)
     if args.write:
         n = write(corpus, votes)
         print(f"inferred a type for {n['type']} clues, blocks for {n['blocks']}, a definition for "
