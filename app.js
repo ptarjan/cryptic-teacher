@@ -883,13 +883,15 @@
   // the type says so; the extractor ships no other multi-span definition.
   // A field named in `inferred` is not the blog's but tools/letter_facts.py's,
   // read off the letters; `typeCore` makes its type a lower bound, the clue
-  // that and perhaps a cut or a letter selection besides.
+  // that and perhaps a cut or a letter selection besides. A block whose third
+  // element is "inferred" is one of the pieces letter_facts.py split the answer into.
   function blogAnn(e) {
     const b = e.blog;
     if (!b) return null;
     const defs = b.definition || [];
     const ann = { fromBlog: true, type: b.type || "", indicators: b.indicators || [],
-                  blocks: (b.blocks || []).map(([gives, clueFragment]) => ({ clueFragment, gives })),
+                  blocks: (b.blocks || []).map(([gives, clueFragment, how]) =>
+                    (how === "inferred" ? { clueFragment, gives, inferred: true } : { clueFragment, gives })),
                   inferred: b.inferred || [], typeCore: !!b.typeCore };
     if (defs.length) ann.definition = defs[0];
     if (defs.length === 2 && ann.type.includes("double definition")) ann.definition2 = defs[1];
@@ -4774,15 +4776,18 @@
     if (!P.blog || (ann && !ann.fromBlog) || e.clueMissing || e.clueCorrupt) return "";
     return `<a class="blog-link small" href="${esc(P.blog.url)}" target="_blank" rel="noopener">Full explanation on ${esc(P.blog.name)} →</a>`;
   }
-  // Credits the blog with what it marked and nothing else: a type read off the
-  // letters (ann.inferred) is said to be ours, and a clue whose hints are all
-  // ours is not badged with the blog's name.
+  // Credits the blog with what it marked and nothing else: a type or a block
+  // read off the letters (ann.inferred, block.inferred) is said to be ours, and
+  // a clue whose hints are all ours is not badged with the blog's name.
   function blogHintsBadge(ann) {
     const name = esc(P.blog.name);
     const ours = (ann.inferred || []).includes("type");
-    const theirs = !!(ann.definition || ann.indicators.length || ann.blocks.length || (ann.type && !ours));
-    if (!theirs) return ` <span class="badge auto letters" title="We haven't explained this clue ourselves yet, and ${name} marked nothing in it. Its clue type is worked out from the letters of the clue and the answer.">hints from the letters</span>`;
-    const what = ours ? `the definition and pieces that ${name} marked in its write-up, put into our own words. The clue type is not ${name}'s: it is worked out from the letters of the clue and the answer`
+    const ourBlocks = ann.blocks.some((b) => b.inferred);
+    const theirs = !!(ann.definition || ann.indicators.length || ann.blocks.some((b) => !b.inferred) || (ann.type && !ours));
+    const which = [ours && "clue type", ourBlocks && (ann.blocks.every((b) => b.inferred) ? "pieces" : "some pieces")].filter(Boolean).join(" and ") || "clue type";
+    const are = ourBlocks ? "are" : "is";
+    if (!theirs) return ` <span class="badge auto letters" title="We haven't explained this clue ourselves yet, and ${name} marked nothing in it. Its ${which} ${are} worked out from the letters of the clue and the answer.">hints from the letters</span>`;
+    const what = ours || ourBlocks ? `what ${name} marked in its write-up, put into our own words. The ${which} ${are} not ${name}'s: worked out from the letters of the clue and the answer`
       : `the definition and clue type that ${name} marked in its write-up, put into our own words`;
     return ` <span class="badge auto blog" title="We haven't explained this clue ourselves yet. These hints are ${what}.">hints via ${name}</span>`;
   }
@@ -5339,7 +5344,7 @@
   // Still the coverage axis: a puzzle whose hints are read off a blog's
   // write-up is the exception in the other direction from "answers only".
   function blogBadge(blog, inferred) {
-    const also = inferred ? ", some clue types are worked out from the letters instead," : "";
+    const also = inferred ? ", some clue types and pieces are worked out from the letters instead," : "";
     return `<span class="badge auto blog" title="We haven't written our own hints for this puzzle yet. Its hints are built from the definitions and clue types ${esc(blog.name)} marked${also} and each clue links to their full explanation.">hints via ${esc(blog.name)}</span>`;
   }
 

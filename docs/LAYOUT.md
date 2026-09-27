@@ -201,8 +201,13 @@ tools/letter_facts.py                        adds a clue type the blog left out 
                                              less how a block was taken from its words where
                                              that core matched 97% (marked "typeCore", a lower
                                              bound), all marked "inferred" so nothing mistakes
-                                             it for the blogger's; blog_facts.py runs it after
-                                             each write
+                                             it for the blogger's; and the building blocks the
+                                             blog left out, where the answer splits one way
+                                             only into the blocks it gave and clue words read
+                                             as the blogs read them in other puzzles (97% exact
+                                             against blog blocks hidden from it, held out by
+                                             puzzle), each marked "inferred"; blog_facts.py
+                                             runs it after each write
 tools/test_letter_facts.sh                   holds letter_facts.py to one reading per clue: a
                                              literal word is not an anagram, a lone word's
                                              initial not an abbreviation unless listed, fodder

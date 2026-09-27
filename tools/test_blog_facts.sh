@@ -183,4 +183,70 @@ check "a denied anagram names no fodder" \
   'null' \
   "$(facts fifteensquared 'Planet heart (5)' '<p>1 <u>Planet</u> heart (5)<br/>Not an anagram of HEART, sadly</p>' EARTH | blk)"
 
+# Blocks the blog left out, read off the letters (tools/letter_facts.py): the
+# answer split one way only into runs of clue words, each read as blogs read
+# those words in other puzzles. A corpus made up here stands in for theirs.
+lex() {  # lex <clue> <answer> <facts JSON> -> the blocks infer_blocks adds, as JSON
+  REPO="$REPO" python3 - "$1" "$2" "$3" <<'PY'
+import json, os, sys
+sys.path.insert(0, os.path.join(os.environ["REPO"], "tools"))
+import letter_facts as lf
+row = lambda n, clue, blocks: (f"p{n}", "1-across", clue, "", {"blocks": blocks})
+corpus = [row(n, "Hat with church one (8)", [["CAP", "hat"], ["CE", "church"], ["I", "one"]]) for n in range(5)]
+corpus += [row(10 + n, "Old saint and dog (5)", [["D", "and"]]) for n in range(3)]
+corpus += [row(20 + n, "Tom and Jerry (3)", []) for n in range(700)]
+if os.environ.get("ICE"):  # a second reading of the same words
+    corpus += [row(30 + n, "Frozen one church (3)", [["ICE", "one church"]]) for n in range(3)]
+got = lf.infer_blocks(sys.argv[1], sys.argv[2], json.loads(sys.argv[3]), lf.Lexicon(corpus))
+print(json.dumps(got, ensure_ascii=False))
+PY
+}
+check "missing blocks: the answer split into words blogs read so elsewhere" \
+  '[["I", "one"], ["CE", "church"], ["CAP", "hat"]]' \
+  "$(lex 'Polar covering: one church hat (6)' ICECAP '{"definition": ["Polar covering"]}')"
+check "the blog's own blocks stay, and only the missing ones are added" \
+  '[["I", "one"], ["CE", "church"]]' \
+  "$(lex 'Polar covering: one church hat (6)' ICECAP '{"definition": ["Polar covering"], "blocks": [["CAP", "hat"]]}')"
+check "a block around the others is a container" \
+  '[["CE", "Church"], ["CAP", "hat"]]' \
+  "$(lex 'Church wearing hat (5)' CCEAP '{"indicators": ["wearing"]}')"
+check "a word blogs leave out of blocks beside them may stay out" \
+  '[["I", "one"], ["CE", "church"], ["CAP", "hat"]]' \
+  "$(lex 'Polar covering: one church with hat (6)' ICECAP '{"definition": ["Polar covering"]}')"
+check "a word beside a block that blogs have never left out makes its span a guess" \
+  'null' "$(lex 'Polar covering: one church hat, perhaps (6)' ICECAP '{"definition": ["Polar covering"]}')"
+check "two splits of the answer are undecided" \
+  'null' "$(ICE=1 lex 'Polar covering: one church hat (6)' ICECAP '{"definition": ["Polar covering"]}')"
+check "a reading blogs gave in too few of the clues its words stand in is not read" \
+  '[]' "$(lex 'Frozen: one church and (4)' ICED '{"definition": ["Frozen"]}')"
+check "an anagram's letters are not split into blocks" \
+  '[]' "$(lex 'Polar covering: one church hat (6)' ICECAP '{"definition": ["Polar covering"], "type": "anagram"}')"
+check "a possessive reads as the word, written as blogs write it" \
+  '[["I", "one"], ["CE", "church"], ["CAP", "hat"]]' \
+  "$(lex 'Polar covering: one church’s hat (6)' ICECAP '{"definition": ["Polar covering"]}')"
+
+# An inferred block is marked, and every reader tells it from the blog's.
+check "an inferred block is marked, and the facts as stated drop it" \
+  '{"blocks": [["CAP", "hat"], ["I", "one", "inferred"]], "inferred": ["blocks", "type"], "type": "charade"} {"blocks": [["CAP", "hat"]]}' \
+  "$(REPO="$REPO" python3 -c '
+import json, os, sys
+sys.path.insert(0, os.path.join(os.environ["REPO"], "tools"))
+import letter_facts as lf
+f = lf.with_blocks({"blocks": [["CAP", "hat"]], "type": "charade", "inferred": ["type"]}, [("I", "one")])
+print(json.dumps(f, sort_keys=True), json.dumps(lf.stated(f), sort_keys=True))')"
+check "the site, the validator and --score take an inferred block as ours, not the blogger's" \
+  '[{"clueFragment": "hat", "gives": "CAP"}, {"clueFragment": "one", "gives": "I", "inferred": true}] [] 1' \
+  "$(REPO="$REPO" python3 -c '
+import json, os, sys
+sys.path.insert(0, os.path.join(os.environ["REPO"], "tools"))
+import blog_facts as bf, fetch_puzzle as fp, validate_annotations as va
+blocks = [["CAP", "hat"], ["OUCH", "one", "inferred"]]
+e = {"id": "1-across", "number": 1, "direction": "across", "clue": "Polar covering: one hat (6)", "solution": "ICECAP",
+     "annotation": {"blocks": [{"clueFragment": "hat", "gives": "CAP"}]}}
+va.blog_facts_for = lambda p: {"name": "Blog", "url": "u", "entries": {"1-across": {"blocks": blocks}}}
+w = []
+va.check_blocks_against_blog({"entries": [e]}, w)
+ann = fp.blog_annotation({**e, "blog": {"blocks": [["CAP", "hat"], ["I", "one", "inferred"]]}})
+print(json.dumps(ann["blocks"]), json.dumps(w), len(bf._items("blocks", blocks)))')"
+
 [ "$fails" -eq 0 ] && echo "all blog_facts checks passed" || { echo "$fails failed"; exit 1; }
