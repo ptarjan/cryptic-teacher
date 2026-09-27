@@ -353,17 +353,19 @@ def clue_html(e, blog_note=True):
     ann = e.get("annotation") or blog_annotation(e) or {}
     answer = ann.get("answer") or e.get("solution") or ""
     num = f"{e['number']} {e['direction']}"
-    bits = [f'<article class="s-clue" id="{esc(e["id"])}">',
-            f'<h3><span class="s-num">{esc(num)}</span> '
-            f'<span class="s-answer">{esc(answer)}</span></h3>',
-            f'<p class="s-cluetext">{esc_clue(e.get("clue"))}</p>']
+    # Bare elements, one line per clue: style.css styles them by position
+    # under .s-list, because this runs once per clue on the site and a class on
+    # each piece was the bulk of what the pages weighed.
+    bits = [f'<article id="{esc(e["id"])}">',
+            f'<h3><span>{esc(num)}</span> <b>{esc(answer)}</b></h3>',
+            f'<p>{esc_clue(e.get("clue"))}</p>']
 
     if ann.get("definition"):
         kind = ann.get("type") or ""
         # The type is a word from the lesson ("charade", "container"), so its
         # label is the way to the lesson that defines it.
-        bits.append(f'<p class="s-def">Definition: <strong>{esc(ann["definition"])}</strong>'
-                    + (f' &middot; <span class="s-type"><a href="{BASE}/learn/">Clue type</a>: '
+        bits.append(f'<p>Definition: <dfn>{esc(ann["definition"])}</dfn>'
+                    + (f' · <span class="s-type"><a href="{BASE}/learn/">Clue type</a>: '
                        f'{esc(kind)}</span>' if kind else "")
                     + "</p>")
     # One sentence on why the ANSWER means the DEFINITION — app.js's "Why
@@ -371,44 +373,42 @@ def clue_html(e, blog_note=True):
     # the reader (both are already on the page a line up). Written work sat
     # unindexed for ~500 puzzles until this rendered it here too.
     if ann.get("definitionFit"):
-        bits.append(f'<p class="s-fit"><em>Why it fits:</em> {esc(ann["definitionFit"])}</p>')
+        bits.append(f'<p><em>Why it fits:</em> {esc(ann["definitionFit"])}</p>')
     blocks = ann.get("blocks") or []
     if blocks:
         rows = "".join(
-            f"<li><span class=\"s-frag\">{esc(b.get('clueFragment'))}</span> "
-            f"&rarr; <strong>{esc(b.get('gives'))}</strong>"
+            f"<li><mark>{esc(b.get('clueFragment'))}</mark> "
+            f"→ <strong>{esc(b.get('gives'))}</strong>"
             + (f" <span class=\"s-note\">{esc(b.get('note'))}</span>" if b.get("note") else "")
             # a piece tools/letter_facts.py split the answer into is not the blogger's
             + (' <span class="s-note">worked out from the letters</span>' if b.get("inferred") else "")
             + "</li>" for b in blocks)
-        bits.append(f'<p class="s-fit"><em>Wordplay, piece by piece:</em></p>'
-                    f'<ul class="s-blocks">{rows}</ul>')
+        bits.append(f'<p><em>Wordplay, piece by piece:</em></p><ul>{rows}</ul>')
     # Keyed by the indicator word, so — unlike blocks — order isn't guaranteed
     # to match the clue text; skip any indicator left without a written note
     # rather than print an empty one.
     ind_notes = {k: v for k, v in (ann.get("indicatorNotes") or {}).items() if v}
     if ind_notes:
         rows = "".join(
-            f'<li><span class="s-ind">{esc(k)}</span> &mdash; {esc(v)}</li>'
+            f'<li><mark>{esc(k)}</mark> — {esc(v)}</li>'
             for k, v in ind_notes.items())
-        bits.append(f'<p class="s-fit"><em>Indicators:</em></p>'
-                    f'<ul class="s-ind-notes">{rows}</ul>')
+        bits.append(f'<p><em>Indicators:</em></p><ul>{rows}</ul>')
     # A blog's marked indicators carry no note of their own; the app lists them
     # bare too.
     if ann.get("fromBlog") and ann.get("indicators"):
-        bits.append('<p class="s-fit"><em>Indicators:</em> '
-                    + ", ".join(f'<span class="s-ind">{esc(w)}</span>' for w in ann["indicators"])
+        bits.append('<p><em>Indicators:</em> '
+                    + ", ".join(f'<mark>{esc(w)}</mark>' for w in ann["indicators"])
                     + "</p>")
     if ann.get("fromBlog"):
         # A type tools/letter_facts.py read off the letters is not the blogger's.
         read = "type" in (e.get("blog") or {}).get("inferred", ())
         if blog_note:
-            bits.append('<p class="s-todo muted">'
+            bits.append('<p class="muted">'
                         + ("Clue type worked out from the letters, the rest marked up from the blogger\'s write-up; "
                            if read else "Marked up from the blogger\'s write-up; ")
                         + 'our own explanation is not written yet.</p>')
         elif read:
-            bits.append('<p class="s-todo muted">Clue type worked out from the letters, '
+            bits.append('<p class="muted">Clue type worked out from the letters, '
                         'not the blogger\'s.</p>')
     # The surface first, the same order and for the same reason as the app's
     # walkthrough rung: what the clue pretends to be about, then what it is doing.
@@ -427,18 +427,18 @@ def clue_html(e, blog_note=True):
         # hand-written clueMissingNote carries it; the annotation queue never
         # writes one, having no words to read.
         bits.append(
-            '<p class="s-todo muted">The paper printed no clue here. '
+            '<p class="muted">The paper printed no clue here. '
             + (esc(e["clueMissingNote"]) if e.get("clueMissingNote")
                else "With no clue, there is no wordplay to explain.")
             + '</p>'
             if e.get("clueMissing") else
-            '<p class="s-todo muted">The paper printed the wrong clue here: these words '
+            '<p class="muted">The paper printed the wrong clue here: these words '
             'belong to a different answer, so there is no wordplay to explain. '
             + esc(e["clueCorrupt"]) + '</p>'
             if e.get("clueCorrupt") else
-            '<p class="s-todo muted">No explanation yet.</p>')
+            '<p class="muted">No explanation yet.</p>')
     bits.append("</article>")
-    return "\n".join(bits)
+    return "".join(bits)
 
 
 def app_return(pid):
@@ -543,8 +543,8 @@ def puzzle_page(puz, meta, prev_p, next_p):
 
     article_ld = {
         "@context": "https://schema.org", "@type": "Article",
+        # No "description": it would be the meta description a second time.
         "headline": title, "url": canonical,
-        "description": desc,
         "author": {"@type": "Person", "name": "Paul Tarjan", "url": "https://paultarjan.com/"},
         "isAccessibleForFree": True,
         "about": {"@type": "Game", "name": f"{paper} {what} Crossword No {pretty}"},
@@ -1131,17 +1131,31 @@ def patch_homepage(idx):
     return path, new
 
 
-def moved_page(slug, target, title, body, crumb):
+def moved_page(slug, target, title, body):
     """One "this puzzle is at <url>" page: canonical for a crawler, meta
     refresh for a reader. GitHub Pages cannot answer with a 301, so a URL that
-    has moved is a page that says so in both of the ways that count."""
-    return PUZZLE_DIR / slug / "index.html", (
-        head(title, f"{crumb} has a new address.", target,
-             extra=f'<meta http-equiv="refresh" content="0; url={esc(target)}">\n')
-        + masthead([("Cryptic Teacher", "/"), ("Puzzles", "/puzzles/"),
-                    (crumb, "")])
-        + f'<main class="static-main"><h1>{esc(title)}</h1>{body}</main>\n'
-        + FOOTER)
+    has moved is a page that says so in both of the ways that count.
+
+    Nothing else: a reader is on it for the instant the refresh takes, and
+    there are tens of thousands of them, so the site's full template on each
+    was a large share of the whole site's weight.
+    """
+    return PUZZLE_DIR / slug / "index.html", relative_links(
+        bare_head(title, target,
+                  f'<meta http-equiv="refresh" content="0; url={esc(target)}">\n')
+        + f"<body>\n<p>{body}</p>\n</body>\n</html>\n", PUZZLE_ROOT)
+
+
+def bare_head(title, canonical, extra=""):
+    """The <head> of a page that only points somewhere else: a title, where
+    the content really is, and analytics.js, because tools/ga_report.py is how
+    anyone learns that an old address still gets visits. No social tags: the
+    card a share of it should show is the target's."""
+    return ('<!DOCTYPE html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n'
+            f"<title>{esc(title)}</title>\n"
+            f'<link rel="canonical" href="{esc(canonical)}">\n'
+            + extra
+            + f'<script src="{asset("analytics.js")}"></script>\n</head>\n')
 
 
 def legacy_ids(solved):
@@ -1169,9 +1183,7 @@ def legacy_ids(solved):
             label = named(p)
             yield moved_page(
                 was, target, f"{label} has moved",
-                f'<p>This puzzle has a new address: <a href="{target}">{esc(label)}</a>. '
-                "You should be taken there automatically.</p>",
-                label)
+                f'This puzzle has a new address: <a href="{target}">{esc(label)}</a>.')
 
 
 def legacy_redirects(solved):
@@ -1204,28 +1216,26 @@ def legacy_redirects(solved):
         pretty = f"{int(num):,}"
         if len(ps) == 1:
             target = f"{BASE}/puzzles/{ps[0]['id']}/"
-            title = named(ps[0])
-            desc = f"The page for {named(ps[0])}."
-            body = (f'<p>The page for this puzzle is at <a href="{target}">{esc(title)}</a>. '
-                    "You should be taken there automatically.</p>")
-            refresh = f'<meta http-equiv="refresh" content="0; url={esc(target)}">\n'
-        else:
-            target = f"{BASE}/puzzles/"
-            title = f"Crossword No {pretty}: which paper?"
-            desc = f"More than one paper has a crossword No {pretty}. Pick the one you want."
-            body = (f"<p>More than one paper has a crossword No {pretty}. "
-                    "Pick the one you want:</p><ul>" + "".join(
-                f'<li><a href="{BASE}/puzzles/{p["id"]}/">'
-                f'{esc(named(p))}</a></li>' for p in ps)
-                + "</ul>")
-            refresh = ""
-        yield PUZZLE_DIR / num / "index.html", (
-            head(title, desc, target,
-                 extra=refresh)
+            yield moved_page(num, target, named(ps[0]),
+                             f'The page for this puzzle is at <a href="{target}">'
+                             f'{esc(named(ps[0]))}</a>.')
+            continue
+        # A choice is a page somebody reads, so it keeps the site's template.
+        title = f"Crossword No {pretty}: which paper?"
+        body = (f"<p>More than one paper has a crossword No {pretty}. "
+                "Pick the one you want:</p><ul>" + "".join(
+            f'<li><a href="{BASE}/puzzles/{p["id"]}/">'
+            f'{esc(named(p))}</a></li>' for p in ps)
+            + "</ul>")
+        yield PUZZLE_DIR / num / "index.html", relative_links(
+            bare_head(title, f"{BASE}/puzzles/",
+                      f'<meta name="viewport" content="width=device-width, initial-scale=1">\n'
+                      f'<link rel="stylesheet" href="{asset("style.css")}">\n')
+            + '<body class="static-page">\n'
             + masthead([("Cryptic Teacher", "/"), ("Puzzles", "/puzzles/"),
                         (f"No {pretty}", "")])
             + f'<main class="static-main"><h1>{esc(title)}</h1>{body}</main>\n'
-            + FOOTER)   # FOOTER already closes body and html
+            + FOOTER, PUZZLE_ROOT)   # FOOTER already closes body and html
 
 
 # ------------------------------------------------------------------------ run
@@ -1257,7 +1267,7 @@ def outputs():
         next_p = stubs[i + 1] if i + 1 < len(stubs) else None
         page = puzzle_page(puz, meta.get(puz["id"]), prev_p, next_p)
         clue_blocks(blocks, puz, page)
-        yield PUZZLE_DIR / puz["id"] / "index.html", page
+        yield PUZZLE_DIR / puz["id"] / "index.html", relative_links(page, PUZZLE_ROOT)
     yield from legacy_redirects(stubs)
     yield from legacy_ids(stubs)
     yield PUZZLE_DIR / "index.html", hub_page(idx)
@@ -1266,6 +1276,25 @@ def outputs():
     yield ROOT / "abbreviations" / "index.html", abbreviations_page(blocks)
     yield ROOT / "sitemap.xml", sitemap(idx)
     yield home
+
+
+# The site root as seen from /puzzles/<id>/, the directory every puzzle page and
+# redirect lives in.
+PUZZLE_ROOT = "../../"
+
+
+def relative_links(page, root):
+    """page with every href and src to this site made relative to root, bar
+    rel=canonical.
+
+    BASE is thirty bytes, and a puzzle page links home a dozen times; across the
+    puzzle pages that was tens of megabytes of one repeated string. The
+    canonical keeps it, as do og:url, og:image and the JSON-LD, which are
+    content= and JSON rather than href/src: all of them are read by machines
+    that want an absolute URL.
+    """
+    return re.sub(r'(?<!rel="canonical" )\b(href|src)="' + re.escape(BASE) + "/",
+                  lambda m: f'{m.group(1)}="{root}', page)
 
 
 def assert_no_root_relative(path, text):
