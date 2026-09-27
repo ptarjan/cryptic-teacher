@@ -21,6 +21,7 @@ nltk.download("wordnet")); wn_unrelated_content is the shipped
 definition_unrelated, which reads the committed subset instead.
 """
 import json
+import os
 import re
 import sys
 from datetime import date
@@ -35,7 +36,7 @@ from fetch_puzzle import (
     read_puzzle_file,
 )
 
-CACHE = Path.home() / ".cache" / "cryptic-stage4-rows.json"
+CACHE = Path(os.environ.get("STAGE4_ROWS") or Path.home() / ".cache" / "cryptic-stage4-rows.json")
 PORTABLE = ("rarity", "answer_novelty", "pairing_novelty", "question_marks", "definition_unrelated")
 #: name -> expected sign (higher raw value = harder when +1), fixed in advance.
 CANDIDATES = {"wn_unrelated": +1, "defonly_share": +1, "example_markers": +1,
