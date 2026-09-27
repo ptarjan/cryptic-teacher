@@ -47,6 +47,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
+      # tools/og_palette.py, which make_og.sh runs on every card.
+      - run: pip install pillow
       # app.js reads the glossary from a <script> tag, so the file has to exist
       # before anything hashes it. That is this early because --reindex restamps
       # index.html on its way past, not only the stamping step further down.
@@ -69,7 +71,7 @@ jobs:
       # correct.
       - name: Build the puzzle shims and reindex
         run: python3 tools/fetch_puzzle.py --reindex
-      # The cards are 24MB of PNGs that change one file a night, so they are
+      # The cards are ~110MB of PNGs that change a few files a night, so they are
       # neither committed nor redrawn from scratch: the cache carries them and
       # their manifest between runs, and make_og.sh draws only the ones whose
       # inputs have moved. A cold cache costs a full redraw and is correct, just
@@ -92,11 +94,13 @@ jobs:
         run: python3 tools/stamp_assets.py
       - name: Check the annotations
         run: python3 tools/validate_annotations.py
-      # Excludes .git and .github itself; everything else goes up as the site,
-      # which is what Pages served from the branch before this.
+      # Only the site goes up, not the checkout: tools/stage_site.py links what
+      # it names into _site/ and fails if any page links a file left out.
+      - name: Stage the site
+        run: python3 tools/stage_site.py
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: _site
 
   deploy:
     needs: build
