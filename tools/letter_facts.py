@@ -14,8 +14,15 @@ the blocks the blog gave and runs of the other clue words, each run read as
 blogs read those words in other puzzles, kept where the split is the only
 one (see infer_blocks). Each is written [letters, clue words, "inferred"].
 
+Where the blog then has the definition and every block but named no
+indicator, the part the blocks want one for (a container, a reversal, ...)
+is given the one run of the other clue words blogs name that part's
+indicator in other puzzles, all the rest link words (see infer_indicators);
+"indicators" is then named in the clue's "inferred".
+
     python3 tools/letter_facts.py --measure   # precision per type where the blog named it
     python3 tools/letter_facts.py --measure-blocks  # the inferred blocks on 1 puzzle in 20, held out
+    python3 tools/letter_facts.py --measure-indicators  # the inferred indicators the same way
     python3 tools/letter_facts.py --fill      # what it would add to untyped clues
     python3 tools/letter_facts.py --clue 'Men on phone exchange will be a rarity' PHENOMENON
 """
@@ -44,7 +51,7 @@ MIN_ANAGRAM = 4
 #: An indicator is a phrase blogs have named for that part in this many clues.
 MIN_INDICATOR = 3
 #: A spoonerism swaps sounds, so its letters look like an anagram's.
-SPOONER = re.compile(r'\bspooner', re.I)
+SPOONER = re.compile(r'\bspooner', re.IGNORECASE)
 #: What a reading costs: of two that spell the answer, the one with fewer of
 #: these is the setter's, as S+CORE+R is a charade and not CORES anagrammed round R.
 OPERATIONS = {"anagram", "container", "reversal"}
@@ -105,6 +112,11 @@ def cut(w, bl):
         w[:i] + w[i + len(w) - len(bl):] == bl for i in range(len(bl) + 1))
 
 
+def listed(bl, src):
+    """Whether ABBREVIATIONS gives the letters `bl` for the clue words `src`."""
+    return bl.lower() in ABBR and src.lower().strip() in ABBR[bl.lower()]
+
+
 def derivation(bl, src):
     """The parts a block's letters say it was taken from its clue words by:
     set() for a synonym, literal or listed abbreviation, {'first letter'} and
@@ -114,8 +126,7 @@ def derivation(bl, src):
     "Yokohama" unless ABBREVIATIONS lists it: blogs split on those, and a
     clue typed with a selection is one this does not claim (see TRUSTED)."""
     sw = [letters(w) for w in WORD.findall(src or "") if letters(w)]
-    listed = bl.lower() in ABBR and src.lower().strip() in ABBR[bl.lower()]
-    if not sw or bl == "".join(sw) or listed:
+    if not sw or bl == "".join(sw) or listed(bl, src):
         return set()
     if len(sw) == 1 and len(bl) == 1:
         return {"first letter"} if sw[0][0] == bl and len(sw[0]) > 1 else set()
@@ -160,7 +171,7 @@ def parses(answer, pieces, fodder=None):
     everything = frozenset(range(len(pieces)))
     mark = lambda m, i: m | {BLOCK_ANAGRAM} if m and "anagram" in m and i != fodder else m
 
-    @functools.lru_cache(maxsize=None)
+    @functools.cache
     def fill(lo, hi, avail):
         if lo == hi:
             return {(frozenset(), frozenset(), 0)}
@@ -550,6 +561,347 @@ def infer_blocks(clue, answer, facts, lex):
     return out
 
 
+# ------------------------------------------------------------ lexicon indicators
+
+#: The parts a clue's own words must signal. A charade's pieces sit side by
+#: side, and a letter selection is read with its block's words ("Delius' overture").
+SIGNALLED = frozenset({"anagram", "container", "reversal", "deletion", "selection"})
+#: What blog types name an indicator for, as the parts SIGNALLED is drawn from.
+IND_PARTS = SIGNALLED | {"hidden", "homophone"}
+#: The most clue words one indicator is.
+MAX_IND = 4
+#: A phrase is read as an indicator of a part where blogs named it one at
+#: least MIN_INDICATOR times, this share of them for that part, and this share
+#: of the times it was left over.
+MIN_SHARE = 0.5
+MIN_LEFT = 0.3
+#: With no phrase named MIN_LEFT of the times, one named this share is read
+#: where it is the only one: "in" (19%), and not "is" (0.2%).
+MIN_LEFT_ALONE = 0.1
+#: A word left over in at least this many write-ups, and named less than
+#: MIN_LEFT of them, is a link word; any other word left over beside the
+#: indicators read is one this does not account for.
+MIN_LINK_SEEN = 20
+#: Where blogs name a run or a shorter run of it, the one named this share of the times.
+BOUNDARY = 0.9
+
+
+def wordplay(answer, blocks):
+    """The parts by which `blocks`, [letters, clue words, *how], put together
+    make `answer`, where the least costly reading is the only one; else None."""
+    answer = letters(answer or "")
+    if not blocks or len(blocks) > MAX_BLOCKS:
+        return None
+    fod = [k for k, b in enumerate(blocks) if "anagrammed" in b[2:]]
+    derived = set()
+    for k, (bl, src, *_) in enumerate(blocks):
+        if k not in fod:
+            d = derivation(letters(bl), src)
+            if d is None:
+                return None
+            derived |= d
+    pieces = [letters(b[0]) for k, b in enumerate(blocks) if k not in fod]
+    if fod:  # fodder in several pieces is anagrammed as one
+        pieces.append("".join(letters(blocks[k][0]) for k in fod))
+    got = parses(answer, pieces, len(pieces) - 1 if fod else None)
+    if not got:
+        return None
+    least = min(map(cost, got))
+    reads = {p - {BLOCK_ANAGRAM} for p in got if cost(p) == least}
+    if len(reads) != 1:
+        return None
+    return reads.pop() | derived | ({"anagram"} if fod else set())
+
+
+def needed(answer, blocks):
+    """The parts (SIGNALLED) that `blocks` spelling `answer` want an indicator
+    for in the clue words outside them, or None where the wordplay is not
+    the only one: a letter taken from one word ("F" from "Found") wants its
+    own, where "Delius' overture" holds it."""
+    ops = wordplay(answer, blocks)
+    if ops is None:
+        return None
+    need = set(ops & SIGNALLED) - {"deletion"}
+    for bl, src, *how in blocks:
+        bl, sw = letters(bl), [l for _, l in words(src)]
+        if "anagrammed" in how or len(sw) != 1 or bl == sw[0] or listed(bl, src):
+            continue
+        rest = iter(sw[0])
+        if all(c in rest for c in bl):  # its letters, in order, out of the one word
+            need.add("deletion" if cut(sw[0], bl) else "selection")
+    return need
+
+
+def spans(clue):
+    """The clue's words as (text, letters) and each one's (start, end) in the clue body."""
+    body = clue_body(clue)
+    ms = [m for m in WORD.finditer(body) if letters(m.group())]
+    return body, [(m.group(), letters(m.group())) for m in ms], [m.span() for m in ms]
+
+
+def voted(answer, facts):
+    """The one part a clue's indicators signal, from its type or, untyped, the
+    parts its blocks imply: a selection (TAKEN) is one part, and a charade
+    with nothing else is one too, where blogs name "after" and "supporting"."""
+    t = facts.get("type")
+    parts = set(t.replace("hidden word", "hidden").split(" + ")) if t else \
+        (wordplay(answer, facts.get("blocks")) or set()) if coverage(answer, facts) == "full" else set()
+    parts = {"selection" if p in TAKEN - {"deletion"} else p for p in parts}
+    parts &= IND_PARTS | {"charade"}
+    if len(parts) > 1:
+        parts.discard("charade")
+    return parts.pop() if len(parts) == 1 else None
+
+
+class Indicators:
+    """The indicators blogs stated, keyed to the part they signal.
+
+    `votes`: clue words (their letters, word by word) -> Counter of the parts
+    of the clues blogs named them an indicator in, counted only where the
+    clue has one part an indicator signals (see voted). `left`: clue
+    words -> [write-ups naming indicators that left them outside the
+    definition and blocks, those that named them an indicator]: "to" is left
+    over in thousands and an indicator in a few. `inner`: clue words ->
+    Counter of the shorter runs of them named where they were left over, so
+    "consumed by" left over is named whole or as "consumed". `edge`: (side,
+    word) -> [indicators it is the end word of on that side, indicators it
+    stood beside on that side, in no other role, and was left out of]."""
+
+    def __init__(self, corpus, skip=frozenset()):
+        votes = collections.defaultdict(collections.Counter)
+        left = collections.defaultdict(lambda: [0, 0])
+        inner = collections.defaultdict(collections.Counter)
+        edge = collections.defaultdict(lambda: [0, 0])
+        for pid, eid, clue, answer, facts in corpus:
+            if pid in skip or not facts.get("indicators"):
+                continue
+            named = {_key(i) for i in facts["indicators"]}
+            part = voted(answer, facts)
+            if part:
+                for k in named:
+                    votes[k][part] += 1
+            if not facts.get("definition"):
+                continue
+            ws = words(clue_body(clue))
+            roles = set()
+            for phrase in facts["definition"] + [b[1] for b in facts.get("blocks", ())]:
+                roles |= locate(phrase, ws) or set()
+            for i in range(len(ws)):
+                for n in range(1, MAX_IND + 1):
+                    if i + n > len(ws) or i + n - 1 in roles:
+                        break
+                    key = tuple(sys.intern(l) for _, l in ws[i:i + n])
+                    left[key][0] += 1
+                    left[key][1] += key in named
+                    for a in range(n):
+                        for z in range(a + 1, n + 1):
+                            if z - a < n and key[a:z] in named:
+                                inner[key][a, z] += 1
+            inds = [sorted(locate(i, ws) or ()) for i in facts["indicators"]]
+            covered = roles | {k for sp in inds for k in sp}
+            for sp in filter(None, inds):
+                for side, end, out in (("L", sp[0], sp[0] - 1), ("R", sp[-1], sp[-1] + 1)):
+                    if len(sp) > 1:
+                        edge[side, ws[end][1]][0] += 1
+                    if 0 <= out < len(ws) and out not in covered:
+                        edge[side, ws[out][1]][1] += 1
+        self.votes, self.edge = dict(votes), dict(edge)
+        self.left = {k: v for k, v in left.items() if v[1] or v[0] >= MIN_LINK_SEEN and len(k) == 1}
+        self.inner = dict(inner)
+
+    def rate(self, key):
+        """The share of the write-ups these words were left over in that named them an indicator."""
+        seen, named = self.left.get(key, (0, 0))
+        return named / seen if seen else 0.0
+
+    def indicates(self, key, part, rate=MIN_LEFT):
+        """Whether blogs name these words the indicator of `part`: often
+        enough, mostly for it, and at least `rate` of the times they are left over."""
+        v = self.votes.get(key)
+        return bool(v) and v[part] >= MIN_INDICATOR and v[part] >= MIN_SHARE * sum(v.values()) \
+            and self.rate(key) >= rate
+
+    def link(self, word):
+        """Whether blogs, with this word left over, seldom name it an indicator: a link word."""
+        seen, named = self.left.get((word,), (0, 0))
+        return seen >= MIN_LINK_SEEN and named < MIN_LEFT * seen
+
+    def side(self, side, word):
+        """Whether blogs leave `word` out of an indicator it stands on `side` of
+        (False), take it in (True), or do both (None)."""
+        joined, apart = self.edge.get((side, word), (0, 0))
+        if apart >= MIN_APART and joined <= MAX_ATTACH * (joined + apart):
+            return False
+        if joined >= MIN_APART and apart <= MAX_ATTACH * (joined + apart):
+            return True
+        return None
+
+    def trim(self, key):
+        """The run (a, z) of `key` blogs name where all of `key` is left over:
+        itself, or a shorter run named at least BOUNDARY of the times one is;
+        None if neither, False if blogs have seldom named any."""
+        _, whole = self.left.get(key, (0, 0))
+        opts = collections.Counter(self.inner.get(key, {}))
+        opts[0, len(key)] += whole
+        if sum(opts.values()) < MIN_INDICATOR:
+            return False
+        (a, z), n = opts.most_common(1)[0]
+        return (a, z) if n >= BOUNDARY * sum(opts.values()) else None
+
+
+def infer_indicators(clue, answer, facts, ilex):
+    """The indicator a blog left out of a clue whose definition and blocks it
+    gave, where the blocks want one (see needed): the one run of the other
+    clue words blogs name that part's indicator elsewhere (`ilex`), every
+    other word left over a link word. A list of clue phrases, [] when none is
+    wanted, None when the reading is not the only one.
+
+    Where the blocks want two, blogs name one of them as often as both (74%
+    of the phrases read were the blog's, against 98% for one), so those are
+    left undecided."""
+    if facts.get("indicators") or not facts.get("definition") or coverage(answer, facts) != "full":
+        return []
+    need = needed(answer, facts["blocks"])
+    if need is None:
+        return None
+    if not need:
+        return []
+    if len(need) > 1:
+        return None
+    part, = need
+    body, ws, at = spans(clue)
+    taken = set()
+    for phrase in facts["definition"] + [b[1] for b in facts["blocks"]]:
+        span = locate(phrase, ws)
+        if span is None:
+            return None
+        taken |= span
+    runs = [(i, i + n) for i in range(len(ws)) for n in range(1, MAX_IND + 1)
+            if i + n <= len(ws) and not taken & set(range(i, i + n))]
+    for rate in (MIN_LEFT, MIN_LEFT_ALONE):  # none read so, one blogs name less often where it is left over
+        found = [(i, j) for i, j in runs if ilex.indicates(tuple(l for _, l in ws[i:j]), part, rate)]
+        if found:
+            break
+    # the longest phrase found, the only one not inside another
+    best = [s for s in found if not any(o[0] <= s[0] and s[1] <= o[1] and o != s for o in found)]
+    if len(best) != 1:
+        return None
+    span = trimmed(ws, *best[0], taken, ilex)
+    if span is None:
+        return None
+    odd = [ws[k][0] for k in range(len(ws)) if k not in taken and not span[0] <= k < span[1] and not ilex.link(ws[k][1])]
+    if odd:
+        return None
+    return [body[at[span[0]][0]:at[span[1] - 1][1]]]
+
+
+def trimmed(ws, i, j, taken, ilex):
+    """The run of free words blogs name as the indicator read at ws[i:j]:
+    as named where the words around it were left over too, and a free word
+    beside it no such run takes in left out only where blogs leave it out
+    (Indicators.side). None where blogs differ."""
+    picks, seen = set(), set()
+    for a in range(max(0, j - MAX_IND), i + 1):
+        for z in range(j, min(len(ws), a + MAX_IND) + 1):
+            if any(k in taken for k in range(a, z)):
+                continue
+            got = ilex.trim(tuple(l for _, l in ws[a:z]))
+            if got is None:
+                return None
+            if got:
+                picks.add((a + got[0], a + got[1]))
+                seen |= set(range(a, z))
+    for side, k in (("L", i - 1), ("R", j)):
+        if 0 <= k < len(ws) and k not in taken | seen and ilex.side(side, ws[k][1]) is not False:
+            return None
+    if len(picks) > 1:
+        return None
+    return picks.pop() if picks else (i, j)
+
+
+def with_indicators(facts, new):
+    """`facts` with the inferred indicators `new`, marked so: the blog stated none."""
+    return {**facts, "indicators": new, "inferred": sorted({*facts.get("inferred", ()), "indicators"})}
+
+
+def measure_indicators(corpus, n=1, show=30, seed=1):
+    """Precision of infer_indicators on slice `n` of the puzzles, both
+    lexicons built without them: the blog's own indicators hidden on the clues
+    whose definition and full blocks it gave, and the coverage it adds."""
+    test = {pid for pid, *_ in corpus if in_slice(pid, n)}
+    lex = Lexicon(corpus, skip=test)
+    rows_ = []
+    for pid, eid, clue, answer, facts in corpus:
+        if pid in test:
+            new = infer_blocks(clue, answer, facts, lex)
+            rows_.append((pid, eid, clue, answer, with_blocks(facts, new) if new else facts))
+    report_indicators(n, rows_, Indicators(corpus, skip=test), show, seed)
+
+
+def report_indicators(n, rows_, ilex, show=30, seed=1):
+    """measure_indicators on the held-out `rows_`, their blocks inferred."""
+    rng = random.Random(seed)
+    c = collections.Counter()
+    by_part = collections.defaultdict(collections.Counter)
+    wrong, sample = [], []
+    for pid, eid, clue, answer, facts in rows_:
+        stated_ind = facts.get("indicators")
+        if stated_ind:
+            hid = {k: v for k, v in facts.items() if k != "indicators"}
+            got = infer_indicators(clue, answer, hid, ilex)
+            if facts.get("definition") and coverage(answer, facts) == "full":
+                c["eligible"] += 1
+                c["undecided"] += got is None
+            truth = {_key(i) for i in stated_ind}
+            if got:
+                c["clues"] += 1
+                c["clue exact"] += {_key(i) for i in got} == truth
+                parts = needed(answer, hid["blocks"])
+                for i in got:
+                    ok = _key(i) in truth
+                    c["claimed"] += 1
+                    c["exact"] += ok
+                    c["overlap"] += ok or any(set(_key(i)) & set(t) for t in truth)
+                    for p in parts:
+                        by_part[p]["claimed"] += 1
+                        by_part[p]["exact"] += ok
+                    if not ok:
+                        kind = "boundary" if any(set(_key(i)) & set(t) for t in truth) else \
+                            "blog omitted" if truth <= {_key(g) for g in got} else "other"
+                        c["miss", kind] += 1
+                        wrong.append((kind, clue, answer, got, stated_ind, hid.get("blocks")))
+        full = bool(facts.get("definition")) and coverage(answer, facts) == "full"
+        c["all"] += 1
+        c["ind before"] += bool(stated_ind)
+        c["three before"] += full and bool(stated_ind)
+        after = stated_ind or infer_indicators(clue, answer, facts, ilex)
+        c["ind after"] += bool(after)
+        c["three after"] += full and bool(after)
+        if full and not stated_ind:
+            c["no indicator wanted"] += needed(answer, facts["blocks"]) == set()
+        if after and not stated_ind:
+            c["filled"] += 1
+            sample.append((pid, eid, clue, answer, facts, after))
+    print(f"slice {n}: {len({r[0] for r in rows_})} puzzles held out, {len(ilex.votes)} indicator phrases")
+    print(f"blog indicators hidden: {c['eligible']} clues with a definition and full blocks, "
+          f"filled {c['clues']}, undecided {c['undecided']}")
+    print(f"  phrases {c['claimed']}, exact {c['exact'] / max(1, c['claimed']):.4f}, "
+          f"sharing a word {c['overlap'] / max(1, c['claimed']):.4f}; clues whose set is the blog's {c['clue exact'] / max(1, c['clues']):.4f}")
+    for p, x in sorted(by_part.items()):
+        print(f"  {p:10} {x['claimed']:6} exact {x['exact'] / max(1, x['claimed']):.4f}")
+    t = max(1, c["all"])
+    print(f"of {c['all']} clues: has indicators {c['ind before'] / t:.3f} -> {c['ind after'] / t:.3f}; "
+          f"definition + full blocks + indicators {c['three before'] / t:.3f} -> {c['three after'] / t:.3f} "
+          f"({c['three before']} -> {c['three after']}); filled {c['filled']}; "
+          f"definition + full blocks wanting no indicator {c['no indicator wanted']}")
+    print("  misses:", {k[1]: v for k, v in c.items() if k[0] == "miss"})
+    for kind, clue, answer, got, truth, blocks in sorted(wrong)[:show]:
+        print(f"   miss [{kind}] {clue} = {answer}: {got}; blog {truth}; blocks {blocks}")
+    for pid, eid, clue, answer, facts, got in rng.sample(sample, min(show, len(sample))):
+        print(f"   read {pid} {eid} | {clue} = {answer} | def {facts.get('definition')} "
+              f"blocks {facts.get('blocks')} | + {got}")
+
+
 # ------------------------------------------------------------ corpus
 
 def rows():
@@ -568,7 +920,7 @@ def rows():
 
 def stated(facts):
     """A clue's facts as the blog stated them, without what this file inferred:
-    a field named in "inferred", or a block marked INFERRED."""
+    a field named in "inferred" (the type, the indicators), or a block marked INFERRED."""
     ours = {"inferred", "typeCore", *facts.get("inferred", ())} - {"blocks"}
     out = {k: v for k, v in facts.items() if k not in ours and k != "blocks"}
     blocks = [b for b in facts.get("blocks", ()) if INFERRED not in b[2:]]
@@ -582,25 +934,28 @@ def written(t):
     return (type_name(core(t)), True) if t in CORE_TRUSTED else None
 
 
-def inferred(clue, answer, facts, votes, lex):
+def inferred(clue, answer, facts, votes, lex, ilex):
     """`facts` with what the letters add, marked as inferred: a type in a
-    TRUSTED or CORE_TRUSTED class, and the blocks the blog left out."""
+    TRUSTED or CORE_TRUSTED class, the blocks the blog left out, and then the
+    indicator those blocks want where the blog named none."""
     if not facts.get("type"):
         got = infer(clue, answer, {k: facts[k] for k in ("definition", "blocks") if k in facts}, votes)
         w = written(got.get("type")) if got else None
         if w:
             facts = {**facts, "type": w[0], "inferred": ["type"], **({"typeCore": True} if w[1] else {})}
     new = infer_blocks(clue, answer, facts, lex)
-    return with_blocks(facts, new) if new else facts
+    facts = with_blocks(facts, new) if new else facts
+    new = infer_indicators(clue, answer, facts, ilex)
+    return with_indicators(facts, new) if new else facts
 
 
 def write(corpus, votes):
     """Rewrite tools/data/blog_facts/ with the inferred fields in, as
     blog_facts.write lays it out. {field: clues it was inferred in}."""
-    lex = Lexicon(corpus)
+    lex, ilex = Lexicon(corpus), Indicators(corpus)
     by_pid = collections.defaultdict(dict)
     for pid, eid, clue, answer, facts in corpus:
-        new = inferred(clue, answer, facts, votes, lex)
+        new = inferred(clue, answer, facts, votes, lex, ilex)
         if new:
             by_pid[pid][eid] = new
     n = collections.Counter()
@@ -890,6 +1245,8 @@ def main():
                     help="add the TRUSTED types and the inferred blocks to tools/data/blog_facts/, marked inferred")
     ap.add_argument("--measure-blocks", type=int, nargs="?", const=0, metavar="SLICE",
                     help="precision of the inferred blocks on one puzzle in twenty (default slice %(const)s)")
+    ap.add_argument("--measure-indicators", type=int, nargs="?", const=1, metavar="SLICE",
+                    help="precision of the inferred indicators on one puzzle in twenty (default slice %(const)s)")
     ap.add_argument("--clue", nargs=2, metavar=("CLUE", "ANSWER"))
     ap.add_argument("--definition", action="append", default=[])
     ap.add_argument("--block", action="append", default=[], help="LETTERS=clue words")
@@ -910,9 +1267,12 @@ def main():
         fill(corpus, votes)
     if args.measure_blocks is not None:
         measure_blocks(corpus, args.measure_blocks)
+    if args.measure_indicators is not None:
+        measure_indicators(corpus, args.measure_indicators)
     if args.write:
         n = write(corpus, votes)
-        print(f"inferred a type for {n['type']} clues and blocks for {n['blocks']} in {OUT.relative_to(ROOT)}")
+        print(f"inferred a type for {n['type']} clues, blocks for {n['blocks']} and indicators for "
+              f"{n['indicators']} in {OUT.relative_to(ROOT)}")
 
 
 if __name__ == "__main__":

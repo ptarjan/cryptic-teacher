@@ -1710,6 +1710,7 @@ def _items(field, value):
 
 def score(path=GOLD):
     """Precision and recall per blog and field against the hand-read truth."""
+    from letter_facts import stated
     rows = [json.loads(l) for l in Path(path).read_text(encoding="utf-8").splitlines() if l.strip()]
     by_number, _ = load_puzzles(bigdave_records())
     entries = {pid: ents for lst in by_number.values() for pid, ents in lst}
@@ -1718,6 +1719,7 @@ def score(path=GOLD):
     for r in rows:
         post = load_post(BLOGS[r["blog"]][0] / "posts" / r["post"])
         got = publishable(facts_for_post(r["blog"], entries[r["puzzle"]], post).get(r["entry"], {}))
+        got = stated(got)  # what letter_facts.py read off the letters is not the post's
         for field in ("definition", "blocks", "indicators", "type"):
             g, p = _items(field, r["gold"].get(field)), _items(field, got.get(field))
             c = tally[(r.get("split", "dev"), r["blog"], field)]
@@ -1792,7 +1794,8 @@ def main():
     corpus = list(letter_facts.rows())
     n = letter_facts.write(corpus, letter_facts.indicator_votes(corpus))
     print(f"and read off the letters (tools/letter_facts.py): a type for {n['type']} clues the blogs "
-          f"left untyped, blocks for {n['blocks']} whose blocks they left out")
+          f"left untyped, blocks for {n['blocks']} whose blocks they left out, indicators for "
+          f"{n['indicators']} whose indicators they left out")
     if not (args.blog or args.from_dump):
         STAMP.write_text(digest + "\n")
 
