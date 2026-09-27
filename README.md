@@ -98,9 +98,10 @@ and `tools/build_readme.py` all do.
 
 `puzzles/<series>-<n>.json` holds one puzzle as plain JSON. It is the committed
 source that every tool reads and writes. Next to it, generated and not
-committed, `puzzles/<series>-<n>.js` assigns the same JSON to
-`window.CRYPTIC_PUZZLES["<series>-<n>"]`, between `/*JSON-START*/` and
-`/*JSON-END*/` markers. That script is how the page loads a puzzle from
+committed, `puzzles/<series>-<n>.js` puts the puzzle in
+`window.CRYPTIC_PUZZLES["<series>-<n>"]`: the browser's fields only, with each
+entry packed into an array that the script itself unpacks
+(`fetch_puzzle.write_shim`). That script is how the page loads a puzzle from
 `file://`.
 
 Shape:
