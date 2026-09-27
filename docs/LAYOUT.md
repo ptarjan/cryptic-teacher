@@ -197,11 +197,11 @@ tools/test_blog_facts.sh                     holds that reader to hand-built pos
                                              definition or a block's source is only ever words
                                              of our clue and a type only one the write-up names
                                              unambiguously or its letters bear out
-tools/blog_facts_gold.jsonl                  hand-read truth for 159 clues across the three
-                                             blogs, their series and markup eras: what each
-                                             post says the definition, blocks, indicators and
-                                             type are; blog_facts.py --score measures precision
-                                             and recall per field against it
+tools/blog_facts_gold.jsonl                  hand-read truth for clues across the three blogs,
+                                             their series and markup eras: what each post says
+                                             the definition, blocks, indicators and type are;
+                                             blog_facts.py --score measures precision and
+                                             recall per field against it
 tools/corroborate.py                         checks every puzzle written against the other
                                              sources we cache for it — georgeho's scrape,
                                              fifteensquared's posts, the Times listing —
