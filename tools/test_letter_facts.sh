@@ -53,4 +53,23 @@ want="('anagram', False) ('container', True) None {'definition': ['d']}"
 if [ "$written" = "$want" ]; then echo "ok   a trusted reading is written whole, a core-trusted one as its core, marked"; else
   echo "FAIL written/stated: expected [$want], got [$written]"; fails=$((fails + 1)); fi
 
+# Indicators read off a lexicon of what blogs named in other clues: "holding"
+# and "within" are container indicators, "the" a word blogs leave over and never name.
+inds=$(cd "$REPO/tools" && python3 -c '
+import letter_facts as l
+rows = [(f"p{i}", "e", f"Box {w} the key", "BKOEYX", {"type": "container", "definition": ["Box"], "indicators": [w]})
+        for i in range(25) for w in ("holding", "within")]
+ilex = l.Indicators(rows)
+blocks = [["TUTS", "expresses disapproval"], ["ORES", "minerals"]]
+def read(clue, **kw):
+    return l.infer_indicators(clue, "TUTORESS", {"definition": ["Teacher"], "blocks": blocks, **kw}, ilex)
+print(read("Teacher expresses disapproval holding the minerals (8)"),
+      read("Teacher expresses disapproval holding the minerals within (8)"),
+      read("Teacher expresses disapproval holding strange minerals (8)"),
+      read("Teacher expresses disapproval holding the minerals (8)", indicators=["holding"]),
+      l.stated({"indicators": ["holding"], "inferred": ["indicators"], "definition": ["d"]}))')
+want="['holding'] None None [] {'definition': ['d']}"
+if [ "$inds" = "$want" ]; then echo "ok   the one indicator the blocks want is read, not two rivals or an unknown word, and is not the blog's"; else
+  echo "FAIL indicators: expected [$want], got [$inds]"; fails=$((fails + 1)); fi
+
 [ "$fails" -eq 0 ] && echo "all letter_facts checks passed" || { echo "$fails failed"; exit 1; }
