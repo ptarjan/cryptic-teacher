@@ -104,17 +104,29 @@ def esc_clue(s):
     return _CLUE_TAG_RE.sub(r"<\1\2>", esc(s))
 
 
+# The fields a puzzle is named, dated and addressed by: all a neighbour's pager
+# link or a redirect page reads of it.
+STUB_KEYS = ("id", "series", "number", "date")
+
+
 def puzzles():
+    """[(path, stub)] for every puzzle with a solution, newest first.
+
+    Stubs, not puzzles: the corpus does not fit in memory at once. Each puzzle
+    is read in full again when its own page is rendered, one at a time.
+    """
     out = []
     for path in puzzle_files():
-        out.append(with_blog_facts(read_puzzle_file(path)))
+        p = read_puzzle_file(path)
+        if any(e.get("solution") for e in p["entries"]):
+            out.append((path, {k: p[k] for k in STUB_KEYS if k in p}))
     # Chronological, matching fetch_puzzle.reindex(). Sorting on the number was
     # the same thing while every puzzle was a cryptic; now that quiptics (~1,400)
     # sit alongside cryptics (~30,000) it would file every quiptic at the end of
     # time and make prev/next hop between series.
-    out.sort(key=lambda p: (series_meta.date_ms(p.get("date")) or 0,
-                            p.get("series", "cryptic") == "cryptic",
-                            p["number"]), reverse=True)
+    out.sort(key=lambda t: (series_meta.date_ms(t[1].get("date")) or 0,
+                            t[1].get("series", "cryptic") == "cryptic",
+                            t[1]["number"]), reverse=True)
     return out
 
 
@@ -831,15 +843,13 @@ def listing_page(series, year, ps, prev_year, next_year):
 
 
 def listing_pages(idx):
-    out = {}
     for s, years in listings(idx).items():
         ys = list(years)          # newest first
         for i, y in enumerate(ys):
             # prev = the newer year, matching the puzzle pager's newest-first order
-            out[ROOT / listing_path(s, y).strip("/") / "index.html"] = listing_page(
+            yield ROOT / listing_path(s, y).strip("/") / "index.html", listing_page(
                 s, y, years[y], ys[i - 1] if i > 0 else None,
                 ys[i + 1] if i + 1 < len(ys) else None)
-    return out
 
 
 # ----------------------------------------------------------------- learn page
@@ -910,7 +920,29 @@ def fragment_re(word):
     return re.compile(r"\b" + re.escape(word) + tail + r"\b")
 
 
-def clue_links(senses, solved, pages):
+def clue_blocks(blocks, puz, page):
+    """Add one puzzle's annotated wordplay to blocks, {letters: [candidate]},
+    for clue_links() to choose from.
+
+    Every candidate is verified against the puzzle page this same run writes,
+    anchor included, so the glossary can never outlive the clue it cites. It is
+    called with each page as it is rendered, because the pages are not kept.
+    """
+    for e in puz["entries"]:
+        ann = e.get("annotation") or {}
+        if f'id="{esc(e["id"])}"' not in page:
+            continue
+        depth = len((ann.get("walkthrough") or "") + (ann.get("definitionFit") or ""))
+        for b in ann.get("blocks") or []:
+            frag = (b.get("clueFragment") or "").lower()
+            key = letters_of(b.get("gives"))
+            if key and frag:
+                blocks.setdefault(key, []).append(
+                    (frag, depth + len(b.get("note") or ""),
+                     series_meta.date_ms(puz.get("date")) or 0, puz["id"], e["id"]))
+
+
+def clue_links(senses, blocks):
     """word -> the URL of one annotated clue whose wordplay uses that convention.
 
     A word matches a block when the block's letters are one of that word's
@@ -919,31 +951,12 @@ def clue_links(senses, solved, pages):
     archive has yet demonstrated, and a link nobody can check is the thing this
     page was already claiming falsely.
 
-    Every link is verified against the puzzle page this same run writes, anchor
-    included, so the glossary can never outlive the clue it cites.
-
     Where several clues qualify: the one in the puzzle carrying the fewest
     glossary links so far, so four hundred rows lead into the whole archive
     rather than all into one puzzle; then the fullest annotation; then the
     newest puzzle. Nothing is broken by chance — an unstable choice would make
     the nightly rebuild commit churn.
     """
-    blocks = {}
-    for puz in solved:
-        page = pages.get(puz["id"]) or ""
-        for e in puz["entries"]:
-            ann = e.get("annotation") or {}
-            if f'id="{esc(e["id"])}"' not in page:
-                continue
-            depth = len((ann.get("walkthrough") or "") + (ann.get("definitionFit") or ""))
-            for b in ann.get("blocks") or []:
-                frag = (b.get("clueFragment") or "").lower()
-                key = letters_of(b.get("gives"))
-                if key and frag:
-                    blocks.setdefault(key, []).append(
-                        (frag, depth + len(b.get("note") or ""),
-                         series_meta.date_ms(puz.get("date")) or 0, puz["id"], e["id"]))
-
     used, out = {}, {}
     for word in sorted(senses):
         pat = fragment_re(word)
@@ -958,7 +971,7 @@ def clue_links(senses, solved, pages):
     return out
 
 
-def abbreviations_page(solved, pages):
+def abbreviations_page(blocks):
     """The glossary as a document of its own.
 
     A lookup table is a destination, not a chapter: somebody who wants to know
@@ -970,7 +983,7 @@ def abbreviations_page(solved, pages):
     """
     senses = build_abbreviations.by_word()
     n = len(senses)
-    links = clue_links(senses, solved, pages)
+    links = clue_links(senses, blocks)
     title = f"Cryptic crossword abbreviations — the full list of {n}"
     desc = (f"All {n} abbreviations cryptic crossword setters use in these puzzles, listed "
             "by word: check is CH, sailor is AB, right is R. Every one comes from a real "
@@ -1101,13 +1114,13 @@ def moved_page(slug, target, title, body, crumb):
     """One "this puzzle is at <url>" page: canonical for a crawler, meta
     refresh for a reader. GitHub Pages cannot answer with a 301, so a URL that
     has moved is a page that says so in both of the ways that count."""
-    return {PUZZLE_DIR / slug / "index.html": (
+    return PUZZLE_DIR / slug / "index.html", (
         head(title, f"{crumb} has a new address.", target,
              extra=f'<meta http-equiv="refresh" content="0; url={esc(target)}">\n')
         + masthead([("Cryptic Teacher", "/"), ("Puzzles", "/puzzles/"),
                     (crumb, "")])
         + f'<main class="static-main"><h1>{esc(title)}</h1>{body}</main>\n'
-        + FOOTER)}
+        + FOOTER)
 
 
 def legacy_ids(solved):
@@ -1127,19 +1140,17 @@ def legacy_ids(solved):
     rather than "has moved": the page's job is to say which puzzle a name
     refers to.
     """
-    out = {}
     for p in solved:
         for was in series_meta.legacy_ids(p.get("series") or "cryptic", p["number"]):
             if was == p["id"]:
                 continue
             target = f"{BASE}/puzzles/{p['id']}/"
             label = named(p)
-            out.update(moved_page(
+            yield moved_page(
                 was, target, f"{label} has moved",
                 f'<p>This puzzle has a new address: <a href="{target}">{esc(label)}</a>. '
                 "You should be taken there automatically.</p>",
-                label))
-    return out
+                label)
 
 
 def legacy_redirects(solved):
@@ -1168,7 +1179,6 @@ def legacy_redirects(solved):
     by_number = {}
     for p in solved:
         by_number.setdefault(str(p["number"]), []).append(p)
-    out = {}
     for num, ps in sorted(by_number.items()):
         pretty = f"{int(num):,}"
         if len(ps) == 1:
@@ -1188,56 +1198,56 @@ def legacy_redirects(solved):
                 f'{esc(named(p))}</a></li>' for p in ps)
                 + "</ul>")
             refresh = ""
-        out[PUZZLE_DIR / num / "index.html"] = (
+        yield PUZZLE_DIR / num / "index.html", (
             head(title, desc, target,
                  extra=refresh)
             + masthead([("Cryptic Teacher", "/"), ("Puzzles", "/puzzles/"),
                         (f"No {pretty}", "")])
             + f'<main class="static-main"><h1>{esc(title)}</h1>{body}</main>\n'
             + FOOTER)   # FOOTER already closes body and html
-    return out
 
 
 # ------------------------------------------------------------------------ run
 
 def outputs():
+    """Every generated file as (path, text), one at a time.
+
+    A generator because the site does not fit in memory: tens of thousands of
+    puzzle pages, each written and dropped before the next is rendered.
+    """
     idx = index_json()
     meta = {p["id"]: p for p in idx["puzzles"]}
-    solved = [p for p in puzzles() if any(e.get("solution") for e in p["entries"])]
-
-    files = {}
-    # Kept by id as well as by path: the glossary links into these pages and
-    # checks each anchor against the very text this run is about to write, not
-    # against whatever is on disk from a previous one.
-    pages = {}
-    for i, puz in enumerate(solved):
-        # The list is newest-first, so "next" is the older neighbour.
-        prev_p = solved[i - 1] if i > 0 else None
-        next_p = solved[i + 1] if i + 1 < len(solved) else None
-        pages[puz["id"]] = puzzle_page(puz, meta.get(puz["id"]), prev_p, next_p)
-        files[PUZZLE_DIR / puz["id"] / "index.html"] = pages[puz["id"]]
-    for path, page in legacy_redirects(solved).items():
-        files[path] = page
-    for path, page in legacy_ids(solved).items():
-        files[path] = page
-    files[PUZZLE_DIR / "index.html"] = hub_page(idx)
-    files.update(listing_pages(idx))
-    files[ROOT / "learn" / "index.html"] = learn_page()
-    files[ROOT / "abbreviations" / "index.html"] = abbreviations_page(solved, pages)
-    files[ROOT / "sitemap.xml"] = sitemap(idx)
-    path, text = patch_homepage(idx)
-    files[path] = text
+    # The whole-site copy checks go first, so a refusal writes nothing.
+    home = patch_homepage(idx)
     # The manifest is hand-written and generates nothing, so it sat outside the
     # naming rule and went on describing a one-paper collection. It is copy
     # about the whole site — an installed icon's description — so it is held to
     # the same rule as the pages that are generated.
     assert_names_all_papers("site.webmanifest",
                             (ROOT / "site.webmanifest").read_text(encoding="utf-8"), idx)
-    assert_no_root_relative(files)
-    return files
+    solved = puzzles()
+    stubs = [stub for _, stub in solved]
+
+    blocks = {}
+    for i, (path, stub) in enumerate(solved):
+        puz = with_blog_facts(read_puzzle_file(path))
+        # The list is newest-first, so "next" is the older neighbour.
+        prev_p = stubs[i - 1] if i > 0 else None
+        next_p = stubs[i + 1] if i + 1 < len(stubs) else None
+        page = puzzle_page(puz, meta.get(puz["id"]), prev_p, next_p)
+        clue_blocks(blocks, puz, page)
+        yield PUZZLE_DIR / puz["id"] / "index.html", page
+    yield from legacy_redirects(stubs)
+    yield from legacy_ids(stubs)
+    yield PUZZLE_DIR / "index.html", hub_page(idx)
+    yield from listing_pages(idx)
+    yield ROOT / "learn" / "index.html", learn_page()
+    yield ROOT / "abbreviations" / "index.html", abbreviations_page(blocks)
+    yield ROOT / "sitemap.xml", sitemap(idx)
+    yield home
 
 
-def assert_no_root_relative(files):
+def assert_no_root_relative(path, text):
     """No generated link may start at /.
 
     This was load-bearing when the site was served out of paultarjan.com/cryptic-teacher/,
@@ -1251,14 +1261,11 @@ def assert_no_root_relative(files):
     crawler notices — so it is checked here, where every generated href passes
     through. Links are absolute (BASE + path) or relative to the page.
     """
-    bad = []
-    for path, text in files.items():
-        if path.suffix != ".html":
-            continue
-        for m in re.finditer(r'(?:href|src)="(/[^/][^"]*)"', text):
-            bad.append(f"{path.relative_to(ROOT)}: {m.group(1)}")
+    if path.suffix != ".html":
+        return
+    bad = [m.group(1) for m in re.finditer(r'(?:href|src)="(/[^/][^"]*)"', text)]
     if bad:
-        raise SystemExit("root-relative links in generated pages (the site lives "
+        raise SystemExit(f"root-relative links in {path.relative_to(ROOT)} (the site lives "
                          f"at {BASE}/, so these 404):\n  " + "\n  ".join(bad[:20]))
 
 
@@ -1303,10 +1310,22 @@ def orphans(files):
 
 
 def main():
-    files = outputs()
     check = "--check" in sys.argv
-    stale = [p for p, text in files.items()
-             if not p.exists() or p.read_text(encoding="utf-8") != text]
+    # Each file is compared, written and dropped as it is made; only the paths
+    # are kept, for orphans().
+    files, stale = set(), []
+    for p, text in outputs():
+        if p in files:
+            raise SystemExit(f"{p.relative_to(ROOT)} is generated twice: two outputs "
+                             "claim one URL, and only one of them could be served")
+        files.add(p)
+        assert_no_root_relative(p, text)
+        if p.exists() and p.read_text(encoding="utf-8") == text:
+            continue
+        stale.append(p)
+        if not check:
+            p.parent.mkdir(parents=True, exist_ok=True)
+            p.write_text(text, encoding="utf-8")
     dead, unexpected = orphans(files)
     for d in unexpected:
         print(f"LEFTOVER: {d.relative_to(ROOT)} is not a generated page directory "
@@ -1321,15 +1340,12 @@ def main():
             return 1
         print(f"{len(files)} generated page(s) up to date")
         return 0
-    for p, text in files.items():
-        p.parent.mkdir(parents=True, exist_ok=True)
-        p.write_text(text, encoding="utf-8")
     for d in dead:
         (d / "index.html").unlink()
         d.rmdir()
         if d.parent.parent == PUZZLE_DIR / "series" and not any(d.parent.iterdir()):
             d.parent.rmdir()          # a series with no listing pages left
-    print(f"wrote {len(files)} page(s); {len(stale)} changed; "
+    print(f"{len(files)} page(s); wrote {len(stale)} changed; "
           f"{len(dead)} orphan(s) removed")
     return 0
 
