@@ -8,16 +8,17 @@ Two evaluation sets:
   annotated  the annotated Times dailies (and Sunday Times), scored by the full
              index, as scratch/snitch_stage3.py did.
   fresh      the rated Times dailies with no annotation, which no earlier screen
-             scored, by the portable index: rarity, answer_novelty,
-             pairing_novelty and question_marks, the components that need no
-             annotation.
+             scored, by the portable index: the components that need no
+             annotation (PORTABLE).
 Each set splits into its own date thirds, each third against the NITCH minus
 the weekday mean of every rated Times daily outside it. A candidate's sign is
 fixed in CANDIDATES before it is measured, not read off the residual.
 
 Definitions and types are the blog's (blog_facts), else our annotation's, the
-same order pairing_novelty reads them in. Relatedness uses WordNet through
-nltk (python3 -m pip install --user nltk; nltk.download("wordnet")).
+same order pairing_novelty reads them in. The candidates' relatedness uses
+WordNet through nltk (python3 -m pip install --user nltk;
+nltk.download("wordnet")); wn_unrelated_content is the shipped
+definition_unrelated, which reads the committed subset instead.
 """
 import json
 import re
@@ -35,10 +36,11 @@ from fetch_puzzle import (
 )
 
 CACHE = Path.home() / ".cache" / "cryptic-stage4-rows.json"
-PORTABLE = ("rarity", "answer_novelty", "pairing_novelty", "question_marks")
+PORTABLE = ("rarity", "answer_novelty", "pairing_novelty", "question_marks", "definition_unrelated")
 #: name -> expected sign (higher raw value = harder when +1), fixed in advance.
 CANDIDATES = {"wn_unrelated": +1, "defonly_share": +1, "example_markers": +1,
-              "long_anagram_cells": -1, "def_indirect": +1}
+              "long_anagram_cells": -1, "def_indirect": +1,
+              "wn_unrelated_head": +1, "wn_unrelated_content": +1}
 MARKER = re.compile(r"(?i)\b(perhaps|say|for example|for instance|e\.?g\.?|maybe|possibly|for one)\b")
 DEFONLY = {"double definition", "cryptic definition"}
 STOP = {"a", "an", "the", "of", "to", "in", "on", "for", "and", "or", "is", "be", "with",
@@ -105,10 +107,13 @@ def near(answer):
     return _REL[answer]
 
 
-def wn_related(answer_phrase, definition):
-    """Whether WordNet ties the definition, or its first or last content word,
-    to the answer: a synset near the answer's (near()), a gloss word, or the
-    answer in the definition's gloss. None when WordNet lacks the answer."""
+def wn_related(answer_phrase, definition, judge="ends"):
+    """Whether WordNet ties the definition to the answer: a synset near the
+    answer's (near()), a gloss word, or the answer in the definition's gloss.
+    None when WordNet lacks the answer. `judge` picks what of the definition
+    is tried: "ends" the whole of it and its first and last content words,
+    "head" its head word alone (D.definition_head), "content" each of its
+    content words."""
     ws = re.findall(r"[a-z]+", definition.lower())
     if not ws:
         return None
@@ -117,7 +122,10 @@ def wn_related(answer_phrase, definition):
         return None
     content = [x for x in ws if x not in STOP] or ws
     ans_words = set(answer_phrase.split("_"))
-    for c in {"_".join(ws), content[0], content[-1]}:
+    tries = {"ends": {"_".join(ws), content[0], content[-1]},
+             "head": {D.definition_head(" ".join(ws))},
+             "content": set(content)}[judge]
+    for c in tries:
         ds = synsets(c)
         if ds & ss or c in names or c in gloss:
             return True
@@ -155,12 +163,16 @@ def cand(puz, facts):
     typed = [r for r in rows if r[3]]
     rel = []
     ind = []
+    rel_head, rel_content = [], []
     for e, clue, d, parts in rows:
         dd = bool(parts) and set(parts) <= DEFONLY
         _, words = D.answer_words(e)
         r = wn_related("_".join(w.lower() for w in words), d) if d else None
         if r is not None:
             rel.append(not r)
+            aw = "_".join(w.lower() for w in words)
+            rel_head.append(not wn_related(aw, d, "head"))
+            rel_content.append(not wn_related(aw, d, "content"))
         if dd or r is not None:
             ind.append(dd or (r is False))
     cells = sum(e["length"] for e, *_ in rows) or 1
@@ -170,6 +182,8 @@ def cand(puz, facts):
         "example_markers": sum(1 for r in rows if MARKER.search(r[1])) / len(rows),
         "long_anagram_cells": (sum(e["length"] for e, _, _, p in rows if e["length"] >= 10 and "anagram" in p)
                                / cells) if len(typed) >= 10 else None,
+        "wn_unrelated_head": sum(rel_head) / len(rel_head) if len(rel_head) >= 5 else None,
+        "wn_unrelated_content": sum(rel_content) / len(rel_content) if len(rel_content) >= 5 else None,
         "def_indirect": sum(ind) / len(ind) if len(ind) >= 10 else None,
         "_wn_cover": len(rel) / len(rows), "_typed": len(typed) / len(rows),
     }
@@ -315,7 +329,7 @@ def order():
         vals = [(r, r["z"][k]) for r in rows if k in r["z"]]
         m = margin(vals)[0]
         print(f"  {k:16s} {m:+.3f}               {margin([(r, idx(r, drop=(k,))) for r in rows])[0]:+.3f}")
-    for drop in ((), ("question_marks",), ("question_marks", "answer_novelty", "pairing_novelty", "rarity")):
+    for drop in ((), ("question_marks",), PORTABLE):
         print("without", drop or "-", f"{margin([(r, idx(r, drop=drop)) for r in rows])[0]:+.3f}")
     for k, sign in CANDIDATES.items():
         xs = [r["cand"][k] for r in rows if r["cand"] and r["cand"].get(k) is not None]
