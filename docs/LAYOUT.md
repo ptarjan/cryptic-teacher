@@ -695,5 +695,13 @@ tools/data/blog_comment_difficulty.json      per Times puzzle, the comment count
                                              call it their last one in
 tools/test_prereset_landing.sh               is the landing report keyed to the week's real
                                              reset, not to CT_SPEND_BY?
+scratch/snitch_stage4.py                     the SNITCH adoption harness: each candidate
+                                             component held out by date on the annotated and
+                                             fresh sets
+tools/build_wordnet.py                       writes tools/data/wordnet.json.gz, the slice of
+                                             WordNet difficulty.py's definition_unrelated reads
+tools/data/wordnet.json.gz                   WordNet synsets and hypernyms for lexicon words
+                                             and corpus definitions; committed so scoring needs
+                                             no nltk
 ```
 <!-- LAYOUT-END -->
