@@ -38,8 +38,9 @@ import fetch_fifteensquared as fsq
 import file_blog_puzzles
 import file_times_puzzles as ftp
 import parse_timesforthetimes as tftt
+import puzzle_integrity
 import times_grids as tg
-from fetch_puzzle import puzzle_path, read_puzzle_file, write_puzzle_file
+from fetch_puzzle import puzzle_files, puzzle_path, read_puzzle_file, write_puzzle_file
 
 SERIES = "ftcryptic"
 #: The blog's category, and the label its records carry into times_grids.
@@ -351,6 +352,19 @@ def split_by(rec, grid):
     return rec
 
 
+def held_by_content(series=SERIES):
+    """content_hash -> id of every puzzle of `series` on disk. The FT reprints
+    an old puzzle under a new number, and the blog writes the reprint up as if
+    it were new; puzzle_integrity calls the second copy a DUPLICATE."""
+    prefix = puzzle_path(series, 0).name.rsplit("-", 1)[0] + "-"
+    held = {}
+    for path in puzzle_files():
+        if path.name.startswith(prefix):
+            p = read_puzzle_file(path)
+            held.setdefault(puzzle_integrity.content_hash(p), p["id"])
+    return held
+
+
 def file(write=True, limit=None):
     """File every grid row not yet in puzzles/, newest first; (filed, skipped)."""
     recs = {r["post_id"]: r for r in map(json.loads, (CACHE / "parsed.jsonl").open(encoding="utf-8"))}
@@ -361,6 +375,7 @@ def file(write=True, limit=None):
                          if r.get("number") and fits(r["date"], r["number"])])
     claims = collections.Counter(r["number"] for r in recs.values() if r.get("number"))
     skipped, filed = collections.Counter(), []
+    on_disk = None  # read only once a puzzle is built, which most nights none is
     for row in rows:
         number = row.get("number")
         if not number:
@@ -388,12 +403,19 @@ def file(write=True, limit=None):
             if why:
                 skipped[why] += 1
                 continue
+            if on_disk is None:
+                on_disk = held_by_content()
+            key = puzzle_integrity.content_hash(puzzle)
+            if key in on_disk:
+                skipped[f"reprint of {on_disk[key]}"] += 1
+                continue
             if write:
                 try:
                     write_puzzle_file(puzzle_path(SERIES, number), puzzle, generator=GENERATOR)
                 except ValueError as e:     # puzzle_integrity's write check
                     skipped[f"refused on write: {str(e).split(': ', 1)[-1][:120]}"] += 1
                     continue
+            on_disk[key] = puzzle["id"]
             filed.append(puzzle["id"])
     return filed, skipped
 

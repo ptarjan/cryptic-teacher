@@ -89,6 +89,28 @@ dates = F.print_dates([{"number": n, "date": d} for n, d in (
     (246, "2025-12-22"), (247, "2025-12-23"), (248, "2025-12-24"),
     (249, "2025-12-25"), (250, "2025-12-26"))])
 print("CLASH", " ".join(f"{n}:{dates[n]:%d}" for n in sorted(dates)))
+
+# The FT reprints an old puzzle under a new number: the copy is skipped, named
+# by the file already holding it, and a puzzle of its own still files.
+import json, tempfile
+from pathlib import Path
+tmp = Path(tempfile.mkdtemp())
+def built(number, clue):
+    return {"id": f"ftcryptic-{number}", "number": number, "dimensions": {"cols": 5, "rows": 5},
+            "entries": [{"id": "1-across", "number": 1, "direction": "across",
+                         "position": {"x": 0, "y": 0}, "length": 5, "clue": clue, "solution": "ABCDE"}]}
+(tmp / "parsed.jsonl").write_text("".join(json.dumps({"post_id": n, "number": n, "date": "2026-09-01"}) + "\n"
+                                          for n in (300, 301)))
+(tmp / "grids.jsonl").write_text("".join(json.dumps({"post_id": n, "number": n, "date": "2026-09-01", "grid": []}) + "\n"
+                                         for n in (300, 301)))
+F.CACHE = tmp
+F.ftp.sequence_window = lambda recs: (lambda date, number: True)
+F.print_dates = lambda recs: {}
+F.puzzle_path = lambda series, number: tmp / f"{series}-{number}.json"
+F.ftp.build = lambda rec, row, series, day: (built(row["number"], "Old clue (5)" if row["number"] == 300 else "New clue (5)"), None)
+F.held_by_content = lambda: {F.puzzle_integrity.content_hash(built(100, "Old clue (5)")): "ftcryptic-100"}
+filed, skipped = F.file(write=False)
+print("REPRINT", filed, sorted(k for k in skipped if k.startswith("reprint")))
 PY
 )
 field() { printf '%s\n' "$out" | sed -n "s/^$1 //p"; }
@@ -110,5 +132,7 @@ check "a puzzle blogged late dated to its own day: the prize to its Saturday" \
   "100:Mon 101:Tue 102:Wed 103:Thu 104:Fri 105:Sat 106:Mon 107:Tue 108:Wed 109:Thu" "$(field DATES)"
 check "a run of numbers with no day of its own fitted between its neighbours" \
   "246:20 247:22 248:23 249:24 250:26" "$(field CLASH)"
+check "an FT reprint under a new number skipped as the puzzle it repeats" \
+  "['ftcryptic-301'] ['reprint of ftcryptic-100']" "$(field REPRINT)"
 
 [ "$fails" -eq 0 ] && echo "all ok" || { echo "$fails failure(s)"; exit 1; }
