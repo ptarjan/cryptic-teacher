@@ -138,4 +138,24 @@ check "a letter and a cut word starting with it are not a doubled letter" \
   '{"blocks": [["EG", "Eulogising"], ["G", "good"], ["SHE", "woman"], ["LL", "lines"]], "definition": ["of great delicacy"], "type": "charade + outer letters"}' \
   "$(facts fifteensquared 'Eulogising emptily good woman lines of great delicacy (8)' '<p>1 Eulogising emptily good woman lines <u>of great delicacy</u> (8)<br/>E(ulogisin)G + G(ood) + SHE (“woman”) + LL (“lines”)</p>' EGGSHELL)"
 
+# Definition marks other than <u>, and the refusal that keeps bold italic narrow.
+check "text-decoration-line underlines too" \
+  '["Finish"]' \
+  "$(facts timesforthetimes 'Finish burlesque topless (3,2)' '<p>1 <span style="text-decoration-line: underline;">Finish</span> burlesque topless (3,2)<br/>x</p>' ENDUP | python3 -c 'import json,sys; print(json.dumps(json.load(sys.stdin).get("definition")))')"
+check "fifteensquared's fts-definition class is the underline" \
+  '["Greek lyric poet"]' \
+  "$(facts fifteensquared 'Unusually arcane about Greek lyric poet (8)' '<p>14 <span class="fts-clue">Unusually arcane about </span><span class="fts-definition">Greek lyric poet</span> (8)<br/>x</p>' ANACREON | python3 -c 'import json,sys; print(json.dumps(json.load(sys.stdin).get("definition")))')"
+check "bold italic is the definition only on a post with no underline" \
+  '["city"] null' \
+  "$(for u in '' '<u>x</u>'; do facts fifteensquared 'The fisherman’s bringing up food for the city (5,10)' "$u<p>5 The fisherman’s bringing up food for the <strong><em>city</em></strong> (5,10)<br/>x</p>" SAINTPETERSBURG | python3 -c 'import json,sys; print(json.dumps(json.load(sys.stdin).get("definition")))'; done | paste -sd' ')"
+check "the clue's operator in brackets between blocks: LASS (girl) [wrapping] G" \
+  '{"blocks": [["MINUTE", "Tiny"], ["LASS", "girl"], ["G", "grand"]], "definition": ["timing device"], "indicators": ["wrapping"], "type": "charade + container"}' \
+  "$(facts timesforthetimes 'Tiny girl wrapping grand timing device (6-5)' '<p>12 Tiny girl wrapping grand <u>timing device</u> (6-5)<br/>MINUTE-GLASS – MINUTE (tiny) LASS (girl) [wrapping] G (grand).</p>' MINUTEGLASS)"
+check "minus the first letter trims; a curly quote opening a source; ', for' starts prose" \
+  '{"blocks": [["SEND UP", "burlesque"]], "definition": ["Finish"], "indicators": ["topless"], "type": "deletion"}' \
+  "$(facts timesforthetimes 'Finish burlesque topless (3,2)' '<p>1 <u>Finish</u> burlesque topless (3,2)<br/>END UP – SEND UP (burlesque), minus the first letter (topless), for leader of the gang.</p>' ENDUP)"
+check "a source quoted with a closing quote, an apostrophe inside it" \
+  '[["IS ON", "hasn’t been cancelled"], ["UN", "international organisation"]]' \
+  "$(facts fifteensquared 'Concert hasn’t been cancelled in support of international organisation (6)' '<p>3 <u>Concert</u> hasn’t been cancelled in support of international organisation (6)<br/>IS ON=”hasn’t been cancelled”, supporting U[nited] N[ations]=”international organisation”</p>' UNISON | python3 -c 'import json,sys; print(json.dumps(json.load(sys.stdin).get("blocks"), ensure_ascii=False))')"
+
 [ "$fails" -eq 0 ] && echo "all blog_facts checks passed" || { echo "$fails failed"; exit 1; }
