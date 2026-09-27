@@ -193,6 +193,17 @@ tools/blog_facts.py                          joins each cached blog write-up to 
                                              letters that check against the answer — never the
                                              blog's prose; the nightly reruns it only when an
                                              input moved
+tools/letter_facts.py                        adds a clue type the blog left out where the
+                                             letters leave one reading and that reading's class
+                                             matched the blogs' own types at least 97% of the
+                                             time on held-out clues (anagram fodder, a hidden
+                                             answer, one block cut from another), marked
+                                             "inferred" so nothing mistakes it for the
+                                             blogger's; blog_facts.py runs it after each write
+tools/test_letter_facts.sh                   holds letter_facts.py to one reading per clue: a
+                                             literal word is not an anagram, a lone word's
+                                             initial not an abbreviation unless listed, fodder
+                                             less blocks is left undecided
 tools/test_blog_facts.sh                     holds that reader to hand-built posts, so a
                                              definition or a block's source is only ever words
                                              of our clue and a type only one the write-up names
@@ -647,5 +658,7 @@ tools/data/blog_comment_difficulty.json      per Times puzzle, the comment count
                                              solve time its commenters state, and per clue how
                                              many comments name the answer, flag it hard, and
                                              call it their last one in
+tools/test_prereset_landing.sh               is the landing report keyed to the week's real
+                                             reset, not to CT_SPEND_BY?
 ```
 <!-- LAYOUT-END -->

@@ -286,6 +286,7 @@ LAYOUT = [
     ("tables everything else reads", "scratch/snitch_features.py", "annotation-free features against the SNITCH NITCH, held out by date"),
     ("tables everything else reads", "tools/blog_comment_difficulty.py", "which clues human solvers found hard, read off Times for the Times comments"),
     ("tables everything else reads", "tools/data/blog_comment_difficulty.json", "per Times puzzle, the comment count, the median solve time its commenters state, and per clue how many comments name the answer, flag it hard, and call it their last one in"),
+    ("tables everything else reads", "tools/test_prereset_landing.sh", "is the landing report keyed to the week's real reset, not to CT_SPEND_BY?"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the
