@@ -480,6 +480,13 @@ tools/ga_wire_check.py                       watches the wire to confirm GA hits
                                              the browser
 tools/difficulty.py                          rates a puzzle from what its own file contains,
                                              banded against the corpus
+tools/snitch_report.py                       the difficulty index and each component against
+                                             the SNITCH, raw and minus its weekday mean, by
+                                             date third, and per clue against the clues
+                                             commenters found hard; run nightly
+tools/data/snitch_report.txt                 tools/snitch_report.py's output, rewritten
+                                             nightly, so its git history shows each number
+                                             moving as ratings and annotations arrive
 tools/craft_report.py                        reports the four things about how a puzzle is set
                                              that the fifteensquared threads argue about and
                                              our fields can actually measure — separately,
@@ -634,5 +641,11 @@ tools/test_fetch_snitch.sh                   does tools/fetch_snitch.py read the
                                              cells that are not a rating of that puzzle?
 scratch/snitch_features.py                   annotation-free features against the SNITCH NITCH,
                                              held out by date
+tools/blog_comment_difficulty.py             which clues human solvers found hard, read off
+                                             Times for the Times comments
+tools/data/blog_comment_difficulty.json      per Times puzzle, the comment count, the median
+                                             solve time its commenters state, and per clue how
+                                             many comments name the answer, flag it hard, and
+                                             call it their last one in
 ```
 <!-- LAYOUT-END -->
