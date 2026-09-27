@@ -120,4 +120,48 @@ want="[('BELIE', 'Misrepresent'), ('F', 'female')] [('GAFFE', 'blunder'), ('R', 
 if [ "$fuzzy" = "$want" ]; then echo "ok   blocks a write-up gives in prose are read where its leads and the letters agree on one split"; else
   echo "FAIL fuzzy blocks: expected [$want], got [$fuzzy]"; fails=$((fails + 1)); fi
 
+# A word beside a new block that blogs take into blocks now and then ("in",
+# 10% of the time) is left out of it where it ends one seldom and the words
+# with it read as nothing; one they take in 30% of the time stops the claim.
+# Fodder in two pieces with a word between is anagrammed as one, side by side
+# it is one piece, so the two are no reading.
+edges=$(cd "$REPO/tools" && python3 -c '
+import letter_facts as l
+rows = [(f"p{i}", "e", "Mistake blunder (5)", "GAFFE", {"blocks": [["GAFFE", "blunder"]]}) for i in range(5)]
+lex, dlex = l.Lexicon(rows), l.Definitions(rows)
+said = {"caps": ["GAFFE", "R"]}
+def read(edge):
+    lex.edge = {("L", "IN"): edge}
+    return l.infer_fuzzy_blocks("Boss in blunder right (6)", "GAFFER", {"definition": ["Boss"]}, lex, dlex, said)
+anagram = {"anagram": True, "printed": ["arena", "band"]}
+def fodder(clue):
+    lex.edge = {("L", "WITH"): [0, 50], ("R", "PLAYING"): [0, 50]}
+    return l.infer_fuzzy_blocks(clue, "NAANBREAD", {"definition": ["Indian side"], "blocks": [["ARENA", "arena", "anagrammed"]]},
+                                lex, dlex, anagram)
+print(read([10, 90]), read([30, 70]), fodder("Indian side in arena with band playing (4,5)"),
+      fodder("Indian side in arena band playing (4,5)"))')
+want="[('GAFFE', 'blunder'), ('R', 'right')] None [('BAND', 'band', 'anagrammed')] []"
+if [ "$edges" = "$want" ]; then echo "ok   a word blogs seldom take into a block is left out of it, and fodder apart in the clue is anagrammed as one"; else
+  echo "FAIL edges and fodder: expected [$want], got [$edges]"; fails=$((fails + 1)); fi
+
+# A hidden word's block is its carrier, the one run of words outside the
+# definition that spells it (backwards for a reversal), and it wants an
+# indicator for the hiding. A clue is complete with a definition, full blocks
+# and the indicators they want, none for a charade, and a double definition
+# with its two halves.
+blockless=$(cd "$REPO/tools" && python3 -c '
+import letter_facts as l
+h = {"type": "hidden word", "definition": ["Bird"]}
+carrier = l.infer_carrier("Bird spotted in Leatherhead (4)", "RHEA", h)
+print(carrier, l.infer_carrier("Bird spotted in Leatherhead (4)", "RHEA", {**h, "type": "hidden word + reversal"}),
+      l.infer_carrier("Bird in Leatherhead or Leatherhead (4)", "RHEA", h), l.needed("RHEA", carrier))
+blocks = {"blocks": [[*carrier[0], "inferred"]]}
+print(l.complete("RHEA", {**h, **blocks}), l.complete("RHEA", {**h, **blocks, "indicators": ["spotted in"]}),
+      l.complete("TIRE", {"type": "double definition", "definition": ["Tire", "wheel cover"]}),
+      l.complete("CUBA", {"definition": ["island"], "blocks": [["CUB", "Baby animal"], ["A", "a"]]}))')
+want="[('RHEA', 'Leatherhead')] [] [] {'hidden'}
+False True True True"
+if [ "$blockless" = "$want" ]; then echo "ok   a hidden word's carrier is read where one run spells it, and a clue is complete with the parts its kind has"; else
+  echo "FAIL block-less types: expected [$want], got [$blockless]"; fails=$((fails + 1)); fi
+
 [ "$fails" -eq 0 ] && echo "all letter_facts checks passed" || { echo "$fails failed"; exit 1; }
