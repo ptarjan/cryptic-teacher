@@ -111,8 +111,6 @@ def derivation(bl, src):
         return set()
     if len(sw) == 1 and len(bl) == 1:
         return {"first letter"} if sw[0][0] == bl and len(sw[0]) > 1 else set()
-    if len(sw) == 1:
-        return {"deletion"} if len(bl) >= 3 and cut(sw[0], bl) else set()
     cands = set()
     for w in sw:
         if w == bl:
