@@ -21,7 +21,8 @@ The SNITCH chooses components and never sets weights. A component joins the
 index, or replaces one, only when the index with it beats the index without
 it held out, on two sets: the annotated Times dailies under the full index,
 and the rated Times dailies with no annotation under the components that
-need none (rarity, the two novelty counts, question_marks). Each set splits into its own date thirds, each third
+need none (rarity, the two novelty counts, question_marks,
+definition_unrelated). Each set splits into its own date thirds, each third
 scored against the NITCH minus the weekday mean of the rated puzzles outside
 it, and the candidate must win in at least two of the three and on the mean
 in both, with the Sunday Times not falling and --validate's SERIES ORDER
@@ -35,7 +36,7 @@ for its band (snitch_ranges()), and choosing components. tools/snitch_report.py 
 against the NITCH minus its weekday mean, by date third, and is rerun
 nightly into tools/data/snitch_report.txt.
 
-So this measures seven things that are genuinely in the file, reports each one
+So this measures eight things that are genuinely in the file, reports each one
 separately so a reader can disagree with the weighting, and bands a puzzle by
 where it sits *against the rest of the collection*: "tougher than 80% of the
 puzzles here" is a claim the data can support, "Difficulty 7/10" is not.
@@ -93,7 +94,7 @@ puzzles a solver had already seen — a puzzle remembered as Tough quietly
 becoming Moderate because six easier ones arrived that week. Refreshing the
 baseline is a deliberate act (--rebaseline) that shows the diff.
 
-The seven components, higher = harder:
+The eight components, higher = harder:
 
   checking   The share of an answer's letters that no other entry crosses.
              The oldest and least arguable measure there is: an unchecked
@@ -147,6 +148,19 @@ The seven components, higher = harder:
              the rest. It needs only the clue text, so it is there for every
              series, annotated or not.
 
+  definition_unrelated  The share of clues whose definition WordNet does not
+             tie to the answer: no content word of it is the answer's synset,
+             a near hypernym, hyponym, look-alike or derived form of it, a
+             sibling under the same hypernym, or a word of either one's gloss.
+             An unrelated definition is an indirect one, which the solver
+             cannot reach by synonym lookup. Each word is judged alone, so a
+             long definition is not unrelated for its length. It needs the
+             blog's or our annotation's definition, not our wordplay, so
+             unannotated Times puzzles have it. WordNet is read from
+             tools/data/wordnet.json.gz, committed and written by
+             tools/build_wordnet.py, so no rating depends on nltk being
+             installed; a word the file lacks counts as one WordNet lacks.
+
 Weights are fixed (above): checking leads at 0.45, rarity 0.30, and every
 other component 0.25. The components are printed alongside the index so a
 reader can argue with them.
@@ -158,6 +172,7 @@ Usage:
 """
 
 import functools
+import gzip
 import json
 import math
 import random
@@ -174,6 +189,7 @@ from fetch_puzzle import (  # noqa: E402 — one glob, one reader for every tool
 LEXICON = ROOT / "tools" / "data" / "lexicon.tsv"
 BASELINE = ROOT / "tools" / "data" / "difficulty_baseline.json"
 BLOG_FACTS = ROOT / "tools" / "data" / "blog_facts"
+WORDNET = ROOT / "tools" / "data" / "wordnet.json.gz"
 # What an answer scores when the lexicon has never heard of it. Deliberately the
 # tail of the list rather than beyond it: unknown here almost always means a
 # proper noun build_lexicon.js dropped by design, not a hard word.
@@ -189,7 +205,8 @@ PAIRING_SCALE = 10000
 # the one component that is a fact rather than a judgement; rarity follows it,
 # and the rest are equal. Fixed, never fitted: see the module docstring.
 WEIGHTS = {"checking": 0.45, "rarity": 0.30, "device": 0.25, "machinery": 0.25,
-           "answer_novelty": 0.25, "pairing_novelty": 0.25, "question_marks": 0.25}
+           "answer_novelty": 0.25, "pairing_novelty": 0.25, "question_marks": 0.25,
+           "definition_unrelated": 0.25}
 
 # The series their own papers declare gentle, an input to --validate that lives
 # here rather than in the prose above so the test and the story it tells cannot
@@ -488,6 +505,98 @@ def definition_head(d):
     return kept[-1] if kept else d
 
 
+#: Words a definition's relatedness is never judged on.
+FUNCTION_WORDS = {"a", "an", "the", "of", "to", "in", "on", "for", "and", "or", "is", "be",
+                  "with", "by", "at", "as", "that", "this", "it", "one", "s", "from", "who",
+                  "what", "may", "some", "being", "one's", "its", "his", "her", "their",
+                  "not", "no"}
+#: How far up the tree an answer's hypernyms still count as related to it...
+HYPERNYM_DEPTH = 5
+#: ...short of the generic top ("object", "person", "act"), which relates everything.
+GENERIC_DEPTH = 3
+
+
+@functools.lru_cache(maxsize=1)
+def wordnet():
+    """(word -> synset ids, synset rows) from tools/data/wordnet.json.gz
+    (tools/build_wordnet.py), whose rows are (gloss words, hypernyms,
+    instance hypernyms, neighbours, generic)."""
+    data = json.loads(gzip.decompress(WORDNET.read_bytes()))
+    rows = [(set(g.split()), h, ih, nb, bool(gen)) for g, h, ih, nb, gen in data["synsets"]]
+    return {w: set(ids) for w, ids in data["words"].items()}, rows
+
+
+@functools.lru_cache(maxsize=None)
+def near_synsets(answer):
+    """(synsets, gloss words) around an answer ("sea_dog" for a phrase): its
+    own synsets, their hypernyms HYPERNYM_DEPTH deep short of the generic top,
+    and their hyponyms, look-alikes, holonyms and derived forms."""
+    words, rows = wordnet()
+    own = words.get(answer, set())
+    ss, gloss = set(own), set()
+    level = set(own)
+    for _ in range(HYPERNYM_DEPTH):
+        level = {h for s in level for h in rows[s][1] + rows[s][2]}
+        ss.update(h for h in level if not rows[h][4])
+    for s in own:
+        ss.update(rows[s][3])
+        gloss |= rows[s][0]
+    return ss, gloss - FUNCTION_WORDS
+
+
+def definition_related(answer, definition):
+    """Whether WordNet ties any content word of the definition to the answer:
+    a synset near the answer's, one of the answer's gloss words, a synset
+    whose hypernym (not instance hypernym) is near the answer's, or the answer named in the word's
+    own gloss. Each word is judged alone, so a long definition is not read as
+    unrelated for its length. None when WordNet lacks the answer."""
+    ws = definition.split()
+    ss, gloss = near_synsets(answer)
+    if not ws or not ss:
+        return None
+    ans_words = set(answer.split("_"))
+    for c in {x for x in ws if x not in FUNCTION_WORDS} or set(ws):
+        ds, hyper, own_gloss = word_synsets(c)
+        if c in gloss or not ds.isdisjoint(ss) or not hyper.isdisjoint(ss) \
+                or not ans_words.isdisjoint(own_gloss):
+            return True
+    return False
+
+
+@functools.lru_cache(maxsize=None)
+def word_synsets(word):
+    """(synsets, their hypernyms short of the generic top, their gloss words)
+    of one definition word."""
+    words, rows = wordnet()
+    ds = words.get(word, set())
+    return (ds, {h for d in ds for h in rows[d][1] if not rows[h][4]},
+            set().union(*(rows[d][0] for d in ds)) if ds else set())
+
+
+#: Judged clues a puzzle needs before definition_unrelated is scored.
+UNRELATED_FLOOR = 5
+
+
+def definition_unrelated(puz):
+    """Share of the clues whose definition WordNet does not tie to the answer.
+    The definition is the blog's underlined one, else our annotation's; a clue
+    whose answer WordNet lacks is not judged. None below UNRELATED_FLOOR."""
+    bd = blog_definitions().get(puz["id"], {})
+    judged = []
+    for e in puz["entries"]:
+        d = bd.get(e.get("id")) or definition_key((e.get("annotation") or {}).get("definition"))
+        if not d or not e.get("solution"):
+            continue
+        clue = ENUMERATION.sub("", e.get("clue") or "").strip()
+        if not clue or re.match(r"(?i)see\b", clue):
+            continue
+        _, ws = answer_words(e)
+        r = definition_related("_".join(w.lower() for w in ws), d)
+        if r is not None:
+            judged.append(not r)
+    return sum(judged) / len(judged) if len(judged) >= UNRELATED_FLOOR else None
+
+
 @functools.lru_cache(maxsize=1)
 def blog_definitions():
     """{puzzle id: {entry id: definition}}: the blogger's underlined definition,
@@ -663,7 +772,8 @@ def raw(puz, ctx):
             "device": device(puz), "machinery": machinery(puz),
             "answer_novelty": fam.get("answer_novelty"),
             "pairing_novelty": fam.get("pairing_novelty"),
-            "question_marks": question_marks(puz)}
+            "question_marks": question_marks(puz),
+            "definition_unrelated": definition_unrelated(puz)}
 
 
 def score(puz, ctx):
