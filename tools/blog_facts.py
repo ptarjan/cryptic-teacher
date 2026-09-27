@@ -1701,8 +1701,8 @@ def _items(field, value):
     norm = lambda t: t.lower().replace("’", "'").strip()
     if field == "definition":
         return {norm(d) for d in value or ()}
-    if field == "blocks":
-        return {(atom_letters(l.upper()), norm(src)) for l, src, *_ in value or ()}
+    if field == "blocks":  # a block letter_facts.py read off the letters is not the post's
+        return {(atom_letters(l.upper()), norm(src)) for l, src, *how in value or () if "inferred" not in how}
     if field == "indicators":
         return {w for i in value or () for w in re.findall(r"[\w'’]+", norm(i))}
     return {frozenset(value.split(" + "))} if value else set()
@@ -1791,7 +1791,8 @@ def main():
     import letter_facts
     corpus = list(letter_facts.rows())
     n = letter_facts.write(corpus, letter_facts.indicator_votes(corpus))
-    print(f"and a type read off the letters for {n} clues the blogs left untyped (tools/letter_facts.py)")
+    print(f"and read off the letters (tools/letter_facts.py): a type for {n['type']} clues the blogs "
+          f"left untyped, blocks for {n['blocks']} whose blocks they left out")
     if not (args.blog or args.from_dump):
         STAMP.write_text(digest + "\n")
 

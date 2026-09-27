@@ -378,6 +378,8 @@ def clue_html(e, blog_note=True):
             f"<li><span class=\"s-frag\">{esc(b.get('clueFragment'))}</span> "
             f"&rarr; <strong>{esc(b.get('gives'))}</strong>"
             + (f" <span class=\"s-note\">{esc(b.get('note'))}</span>" if b.get("note") else "")
+            # a piece tools/letter_facts.py split the answer into is not the blogger's
+            + (' <span class="s-note">worked out from the letters</span>' if b.get("inferred") else "")
             + "</li>" for b in blocks)
         bits.append(f'<p class="s-fit"><em>Wordplay, piece by piece:</em></p>'
                     f'<ul class="s-blocks">{rows}</ul>')
@@ -616,10 +618,12 @@ def puzzle_page(puz, meta, prev_p, next_p):
     blog_only = (not any(e.get("annotation") for e in across + down)
                  and any(e.get("blog") for e in across + down))
     if blog_only:
+        read = any("inferred" in b[2:] for e in across + down for b in (e.get("blog") or {}).get("blocks", ()))
         body.append('<p class="muted small-note">The definitions, pieces and indicators '
                     "below are marked up from the "
                     + (f"{esc(blog['name'])} write-up" if blog and blog.get("name")
                        else "blogger\'s write-up")
+                    + (", but for the pieces worked out from the letters" if read else "")
                     + "; our own explanations are not written yet.</p>")
     for label, entries in (("Across", across), ("Down", down)):
         body.append(f'<section class="s-list"><h2>{label}</h2>')

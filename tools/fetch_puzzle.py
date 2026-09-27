@@ -494,7 +494,8 @@ def blog_annotation(e):
     defs = b.get("definition") or []
     ann = {"fromBlog": True, "answer": e.get("solution") or "", "type": b.get("type") or "",
            "indicators": list(b.get("indicators") or []),
-           "blocks": [{"clueFragment": src, "gives": gives} for gives, src, *_ in b.get("blocks") or []]}
+           "blocks": [{"clueFragment": src, "gives": gives, **({"inferred": True} if "inferred" in how else {})}
+                      for gives, src, *how in b.get("blocks") or []]}
     if defs:
         ann["definition"] = defs[0]
     if len(defs) == 2 and "double definition" in ann["type"]:
