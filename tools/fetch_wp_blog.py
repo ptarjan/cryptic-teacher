@@ -148,8 +148,12 @@ def fetch_comments(blog):
                 break
             page += 1
             time.sleep(blog.crawl_delay)
-        if len(rows) != total:
+        # The API's total can count a comment its listing never serves (2021-04
+        # is one short on every walk), so only a real hole is fatal.
+        if len({r["id"] for r in rows}) != len(rows) or not 0 <= total - len(rows) <= max(1, total // 200):
             raise FetchError(f"comments {month:%Y-%m}: {len(rows)} rows, the API says {total}")
+        if len(rows) != total:
+            print(f"  comments {month:%Y-%m}: {len(rows)} rows, the API says {total}", flush=True)
         (blog.comments / f"{month:%Y-%m}.json").write_text(json.dumps(rows), encoding="utf-8")
         if month.month == 1:
             print(f"  comments {month:%Y}", flush=True)
