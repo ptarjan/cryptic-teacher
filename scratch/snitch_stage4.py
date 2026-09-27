@@ -3,6 +3,7 @@
     nice -n 19 python3 scratch/snitch_stage4.py dump   # rows to ~/.cache/cryptic-stage4-rows.json
     nice -n 19 python3 scratch/snitch_stage4.py test   # every candidate, both sets, held out
     nice -n 19 python3 scratch/snitch_stage4.py order  # series-order margin, per component
+    nice -n 19 python3 scratch/snitch_stage4.py compare A.json B.json  # base index of two dumps
 
 Two evaluation sets:
   annotated  the annotated Times dailies (and Sunday Times), scored by the full
@@ -316,14 +317,6 @@ def test(keys):
                 print(f"  {'':22s} sunday {fmt(heldout(rows, 'new', sel, 'sundaytimes'))}")
 
 
-if __name__ == "__main__":
-    cmd = sys.argv[1]
-    if cmd == "dump":
-        dump()
-    elif cmd == "test":
-        test(sys.argv[2:] or list(CANDIDATES))
-
-
 def order():
     """Gentle-series margin of the index, per component and without each."""
     rows = [r for r in json.loads(CACHE.read_text()) if r["index"] is not None]
@@ -368,5 +361,34 @@ def order():
             f"{sum(r['z'][k] for r in rs if k in r['z']) / max(1, sum(k in r['z'] for r in rs)):+10.3f}" for k in comps))
 
 
-if __name__ == "__main__" and sys.argv[1] == "order":
-    order()
+def margin_of(rows):
+    rows = [r for r in rows if r["index"] is not None]
+    g = [r["index"] for r in rows if r["series"] in D.GENTLE_SERIES]
+    h = [r["index"] for r in rows if r["series"] not in D.GENTLE_SERIES]
+    return sum(h) / len(h) - sum(g) / len(g)
+
+
+def compare(paths):
+    """Each rows cache's base index side by side: a change to an existing
+    component, dumped once before it and once after (STAGE4_ROWS)."""
+    print(f"{'rows':32s} {'annotated times':28s} {'fresh times':28s} sunday  margin")
+    for p in paths:
+        rows = json.loads(Path(p).read_text())
+        cells = []
+        for bk, _, sel in SETS.values():
+            t, _ = heldout(rows, bk, sel)
+            cells.append(" ".join(f"{x:.3f}" for x in t) + f" = {sum(t) / 3:.3f}")
+        sun, _ = heldout(rows, "index", SETS["annotated"][2], "sundaytimes")
+        print(f"{Path(p).name:32s} {cells[0]:28s} {cells[1]:28s} {sum(sun) / 3:.3f}   {margin_of(rows):.3f}")
+
+
+if __name__ == "__main__":
+    cmd = sys.argv[1]
+    if cmd == "dump":
+        dump()
+    elif cmd == "test":
+        test(sys.argv[2:] or list(CANDIDATES))
+    elif cmd == "order":
+        order()
+    elif cmd == "compare":
+        compare(sys.argv[2:])
