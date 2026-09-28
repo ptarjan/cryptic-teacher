@@ -48,6 +48,7 @@ clue's "inferred". It is read before the indicators, which want one.
 """
 import argparse
 import collections
+import copy
 import functools
 import hashlib
 import itertools
@@ -925,6 +926,23 @@ def voted(answer, facts):
     return parts.pop() if len(parts) == 1 else None
 
 
+class _Less(dict):
+    """A read-only view of counts `base` less `delta`: a Counter less a
+    Counter, a [count, count] less a [count, count], key by key."""
+
+    def __init__(self, base, delta):
+        super().__init__()
+        self.base, self.delta = base, delta
+
+    def get(self, k, d=None):
+        v = self.base.get(k)
+        if v is None or k not in self.delta:
+            return d if v is None else v
+        if isinstance(v, collections.Counter):
+            return v - self.delta[k]
+        return [a - b for a, b in zip(v, self.delta[k])]
+
+
 class Indicators:
     """The indicators blogs stated, keyed to the part they signal.
 
@@ -939,7 +957,25 @@ class Indicators:
     word) -> [indicators it is the end word of on that side, indicators it
     stood beside on that side, in no other role, and was left out of]."""
 
-    def __init__(self, corpus, skip=frozenset()):
+    def __init__(self, corpus, skip=frozenset(), extra=()):
+        extra = [r for r in extra if r[0] not in skip]
+        self.own = {(r[2], r[3]): r for r in extra}
+        self.votes, self.left, self.inner, self.edge = self._count(itertools.chain(corpus, extra), skip)
+        self.left = {k: v for k, v in self.left.items() if v[1] or v[0] >= MIN_LINK_SEEN and len(k) == 1}
+
+    def less(self, clue, answer):
+        """This lexicon without what the `extra` row of this clue added, so a
+        clue our annotations explain never confirms itself."""
+        row = self.own.get((clue, answer))
+        if row is None:
+            return self
+        view = copy.copy(self)
+        for name, delta in zip(("votes", "left", "inner", "edge"), self._count([row])):
+            setattr(view, name, _Less(getattr(self, name), delta))
+        return view
+
+    @staticmethod
+    def _count(corpus, skip=frozenset()):
         votes = collections.defaultdict(collections.Counter)
         left = collections.defaultdict(lambda: [0, 0])
         inner = collections.defaultdict(collections.Counter)
@@ -977,9 +1013,7 @@ class Indicators:
                         edge[side, ws[end][1]][0] += 1
                     if 0 <= out < len(ws) and out not in covered:
                         edge[side, ws[out][1]][1] += 1
-        self.votes, self.edge = dict(votes), dict(edge)
-        self.left = {k: v for k, v in left.items() if v[1] or v[0] >= MIN_LINK_SEEN and len(k) == 1}
-        self.inner = dict(inner)
+        return dict(votes), dict(left), dict(inner), dict(edge)
 
     def rate(self, key):
         """The share of the write-ups these words were left over in that named them an indicator."""
@@ -1033,6 +1067,7 @@ def infer_indicators(clue, answer, facts, ilex):
     left undecided."""
     if facts.get("indicators") or not facts.get("definition") or coverage(answer, facts) != "full":
         return []
+    ilex = ilex.less(clue, answer)
     need = needed(answer, facts["blocks"], facts.get("type"))
     if need is None:
         return None
@@ -1107,7 +1142,7 @@ def measure_indicators(corpus, n=1, show=30, seed=1):
         if pid in test:
             new = infer_blocks(clue, answer, facts, lex)
             rows_.append((pid, eid, clue, answer, with_blocks(facts, new) if new else facts))
-    report_indicators(n, rows_, Indicators(corpus, skip=test), show, seed)
+    report_indicators(n, rows_, Indicators(corpus, skip=test, extra=annotation_rows()), show, seed)
 
 
 def report_indicators(n, rows_, ilex, show=30, seed=1):
@@ -1301,7 +1336,7 @@ def measure_definitions(corpus, n=1, show=30, seed=1):
     built without them: the blog's own definitions hidden, the blocks
     inferred with them hidden as the write would, and the coverage it adds."""
     test = {pid for pid, *_ in corpus if in_slice(pid, n)}
-    lex, ilex, dlex = Lexicon(corpus, skip=test), Indicators(corpus, skip=test), Definitions(corpus, skip=test)
+    lex, ilex, dlex = Lexicon(corpus, skip=test), Indicators(corpus, skip=test, extra=annotation_rows()), Definitions(corpus, skip=test)
     trained = {letters(clue_body(clue)) for pid, _, clue, *_ in corpus if pid not in test}
     rng = random.Random(seed)
     c = collections.Counter()
@@ -1407,6 +1442,24 @@ def rows(said=None, as_written=False):
                     facts = rec["entries"].get(eid, {})
                     facts = facts if as_written else stated(facts)
                     yield pid, eid, e["clue"], e["solution"], {**facts, "leads": got[eid]} if eid in got else facts
+
+
+def annotation_rows():
+    """(puzzle id, entry id, clue, answer, facts) for every clue our own
+    annotations (puzzles/) explain, in the shape of a blog's facts: a second
+    source for the indicator lexicon."""
+    for path in sorted(PUZZLES.glob("*.json")):
+        p = json.loads(path.read_text(encoding="utf-8"))
+        for e in p.get("entries", []):
+            a = e.get("annotation") or {}
+            if not (a.get("type") and e.get("clue") and e.get("solution")):
+                continue
+            facts = {"type": a["type"], "definition": [a["definition"]] if a.get("definition") else [],
+                     "blocks": [[b["gives"], b["clueFragment"]] for b in a.get("blocks", ())
+                                if b.get("gives") and b.get("clueFragment")]}
+            if a.get("indicators"):
+                facts["indicators"] = list(a["indicators"])
+            yield p["id"], e["id"], e["clue"], e["solution"], facts
 
 
 def read_leads(required=False):
@@ -1534,7 +1587,7 @@ def with_all_blocks(clue, answer, facts, lex, dlex, fuzzy=True):
 def write(corpus, votes):
     """Rewrite tools/data/blog_facts/ with the inferred fields in, as
     blog_facts.write lays it out. {field: clues it was inferred in}."""
-    lex, ilex, dlex = Lexicon(corpus), Indicators(corpus), Definitions(corpus)
+    lex, ilex, dlex = Lexicon(corpus), Indicators(corpus, extra=annotation_rows()), Definitions(corpus)
     by_pid = collections.defaultdict(dict)
     for pid, eid, clue, answer, facts in corpus:
         new = inferred(clue, answer, facts, votes, lex, ilex, dlex)
@@ -1798,7 +1851,7 @@ def measure_fuzzy_blocks(corpus, votes, n=2, show=30, seed=1):
             annotated[p["id"]] = ann
     test = {pid for pid, *_ in corpus if in_slice(pid, n)}
     lex, dlex = Lexicon(corpus, skip=test | set(annotated)), Definitions(corpus, skip=test | set(annotated))
-    ilex = Indicators(corpus, skip=test)
+    ilex = Indicators(corpus, skip=test, extra=annotation_rows())
     rng = random.Random(seed)
     c = collections.Counter()
     by = collections.defaultdict(collections.Counter)
@@ -1918,7 +1971,7 @@ def measure_blockless(corpus, votes, n=4, show=30, seed=1):
             if (e.get("annotation") or {}).get("blocks"):
                 ann[p["id"], e["id"]] = e["annotation"]
     test = {pid for pid, *_ in corpus if in_slice(pid, n)}
-    ilex = Indicators(corpus, skip=test)
+    ilex = Indicators(corpus, skip=test, extra=annotation_rows())
     rng = random.Random(seed)
     c, wrong, sample = collections.Counter(), collections.defaultdict(list), collections.defaultdict(list)
     for pid, eid, clue, answer, facts in corpus:
