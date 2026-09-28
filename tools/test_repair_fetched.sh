@@ -35,11 +35,11 @@ cp "$REPO"/tools/*.py "$work/tools/"
 # corpus checks refuse by design; that gate has its own test,
 # tools/test_puzzle_invariants.sh. Here it stands aside.
 printf '\n\ndef refuse_bad_write(puzzle, old=None):\n    return None\n' >> "$work/tools/puzzle_integrity.py"
-# The tables those modules read at import. tools/series.py loads the book
+# The tables those modules read at import (clue_types.json for the type list). tools/series.py loads the book
 # registry the moment it is imported -- a book's shelf, scan and index are data
 # and the module is only the reader -- so a scratch tree with the code and not
 # the tables is a tree where nothing importable imports.
-cp "$REPO"/tools/data/books.json "$work/tools/data/"
+cp "$REPO"/tools/data/books.json "$REPO"/tools/data/clue_types.json "$work/tools/data/"
 # The one fixture that is NOT built here. The false-cross-reference rule is
 # gated off for the series that enumerate light by light, and a hand-written
 # Private Eye puzzle would only prove the gate against our idea of Private Eye.
