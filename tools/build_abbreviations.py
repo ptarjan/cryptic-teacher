@@ -53,24 +53,71 @@ def render():
 
 # Sets a solver learns whole, shown above the A-to-Z list. Each member names
 # its word and letters; families() refuses one the table does not hold, so a
-# family can only show what the hints themselves teach.
+# family can only show what the hints themselves teach. Families, and the
+# members within one that has no natural order, run most-used first by the
+# clue counts in LEXICON, so the page opens on what a solver meets most.
 FAMILIES = [
+    ("Nationalities", "english E, european E, american A, british B, american US, "
+                      "german G, irish IR, italian IT, dutch D, greek GR, french FR, "
+                      "welsh W, australian OZ"),
     ("Roman numerals", "one I, five V, ten X, fifty L, hundred C, five hundred D, "
                        "thousand M, four IV, six VI, nine IX, 101 CI, 500 D, 1000 M"),
+    ("Words for O", "old O, love O, nothing O, round O, ring O, duck O, zero O, "
+                    "circle O"),
+    ("Time", "time T, second S, day D, second MO, year Y, date D, minute M, hour H, "
+             "century C, month M, week W"),
+    ("Family", "son S, daughter D, husband H, wife W, married M, mother MA, father PA, "
+               "dad PA, mum MA, children CH, child CH, brother BR, sister SR"),
+    ("Physics", "energy E, power P, pressure P, current I, temperature T, "
+                "resistance R, mass M, force F, constant C, length L, height H, "
+                "tesla T, kelvin K, depth D, newton N, acceleration A"),
+    ("Cricket", "caught C, over O, run R, runs R, duck O, maiden M, wide W, leg ON, "
+                "bowled B, team XI, wicket W, run out RO, stumped ST, bye B"),
+    ("Sizes", "small S, large L, medium M, huge OS, outsize OS, extra large XL"),
+    ("Politics", "conservative C, republican R, liberal L, politician MP, democrat D, "
+                 "independent I, tory CON, nationalist N, unionist U, member MP, "
+                 "labour LAB"),
+    ("NATO alphabet", "alpha A, bravo B, charlie C, delta D, echo E, foxtrot F, "
+                      "golf G, hotel H, india I, juliet J, kilo K, lima L, mike M, "
+                      "november N, oscar O, papa P, quebec Q, romeo R, sierra S, "
+                      "tango T, uniform U, victor V, whisky W, x-ray X, yankee Y, "
+                      "zulu Z"),
+    ("Royalty and nobility", "king R, duke D, queen ER, queen R, earl E, prince P, "
+                             "rex R, royal R, baron B, his majesty HM"),
+    ("Playing cards", "king K, clubs C, ace A, diamonds D, jack J, hearts H, spades S, "
+                      "queen Q"),
+    ("Church", "church CH, church CE, books OT, saint ST, priest P, saint S, rector R, "
+               "father FR, religious education RE, vicar REV, catholic RC, "
+               "new testament NT"),
+    ("Chess pieces", "king K, queen Q, bishop B, knight N, rook R, castle R, pawn P"),
+    ("Music", "quiet P, piano P, soft P, loud F, very loud FF, forte F, tenor T, "
+              "soprano S, bass B, contralto C, alto A, note TE, note MI, note RE, "
+              "note E, note LA"),
+    ("Chemical symbols", "copper CU, gold AU, silver AG, oxygen O, iron FE, carbon C, "
+                         "uranium U, sulphur S, nitrogen N, hydrogen H, tin SN, "
+                         "potassium K, sodium NA, helium HE, chlorine CL, lead PB, "
+                         "neon NE, argon AR, zinc ZN"),
     ("Compass points", "north N, south S, east E, west W, northeast NE, northwest NW, "
                        "southeast SE, southwest SW"),
-    ("NATO alphabet", "alpha A, bravo B, charlie C, delta D, echo E, foxtrot F, golf G, "
-                      "hotel H, india I, juliet J, kilo K, lima L, mike M, november N, "
-                      "oscar O, papa P, quebec Q, romeo R, sierra S, tango T, uniform U, "
-                      "victor V, whisky W, x-ray X, yankee Y, zulu Z"),
-    ("Chemical symbols", "gold AU, silver AG, iron FE, copper CU, tin SN, lead PB, "
-                         "carbon C, oxygen O, hydrogen H, nitrogen N, sulphur S, "
-                         "potassium K, sodium NA, helium HE, neon NE, argon AR, "
-                         "chlorine CL, zinc ZN, uranium U"),
-    ("Chess pieces", "king K, queen Q, bishop B, knight N, rook R, castle R, pawn P"),
-    ("Armed forces", "sailor AB, seaman OS, soldier GI, soldiers OR, engineers RE, "
-                     "gunners RA, marines RM, navy RN, volunteers TA, "
-                     "commanding officer CO, lieutenant LT, general GEN"),
+    ("Armed forces", "men OR, sailor AB, soldier GI, soldiers OR, volunteers TA, "
+                     "engineers RE, sailors RN, gunners RA, lieutenant LT, navy RN, "
+                     "commanding officer CO, marines RM, general GEN, seaman OS"),
+    ("Doctors and degrees", "doctor DR, doctor MB, doctor MO, graduate BA, doctor GP, "
+                            "graduate MA, doctor MD, degree MA, degree BA, master MA, "
+                            "bachelor BA"),
+    ("Money", "grand G, penny P, pound L, yen Y, pence P, shilling S, thousand K, "
+              "cents C, penny D, euros E, rand R"),
+    ("Countries (car codes)", "spain E, italy I, germany D, france F, britain B, "
+                              "switzerland CH, sweden S, norway N, thailand T, "
+                              "belgium B, australia A, cuba C, luxembourg L, "
+                              "portugal P, austria A, malta M"),
+    ("Drugs", "drug E, ecstasy E, heroin H, cocaine C, coke C"),
+    ("Measures", "yard Y, pound L, tons T, miles M, gallons G, litre L, pound LB, "
+                 "yard YD, pint PT, foot FT, metre M, kilometre K, gram G, acre A, "
+                 "ounce OZ"),
+    ("US states", "new york NY, virginia VA, california CA, rhode island RI, ohio O, "
+                  "washington WA, florida FL, alabama AL, delaware DE, oregon OR, "
+                  "north dakota ND"),
 ]
 
 
