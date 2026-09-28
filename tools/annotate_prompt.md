@@ -92,8 +92,9 @@ disagree, it wins.
   words in any prose field: "aloud" means homophone, "shuffle" anagram, "hidden"
   extraction, "reversed" turnaround.
 - `surface` is the picture, not a paraphrase and no mechanics: `Behaved antisocially
-  and gave birth` is one person's bad week. Omit it only when the clue paints no picture
-  apart from its mechanism (`Flat (4)`).
+  and gave birth` is one person's bad week. A clue of four or more words has one unless
+  it is a pure double or cryptic definition; otherwise omit it only when the clue paints
+  no picture apart from its mechanism (`Flat (4)`).
 - `walkthrough` says only what the blocks cannot: why the surface misleads, a convention
   the solver may not know (`ER` = Queen), why a definition is fair. Naming a chunk is
   fine when the sentence teaches (`OCT is the calendar abbreviation`); narrating

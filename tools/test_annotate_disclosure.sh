@@ -121,6 +121,19 @@ V.check_features("1A", {"features": {"misdirectedWord": None, "joke": None,
                                      "aptDefinition": False}}, "Some words", [], w)
 say("features_present_quiet", not w)
 
+# surface: absent on a picture-painting clue warns and counts against the
+# ratchet; a short clue, a pure definition, or a present surface is quiet.
+w = []
+V.check_surface("1A", {"type": ["charade"]}, "Behaved antisocially and gave birth (5)", w)
+say("surface_absent_warns", len(w) == 1 and "no surface" in w[0])
+say("surface_counted_by_ratchet", V.count_backlog(w)["surface"] == 1)
+w = []
+V.check_surface("1A", {"type": ["charade"]}, "Flat pack (4,4)", w)
+V.check_surface("1A", {"type": ["double_definition"]}, "Seize part of a finger (4)", w)
+V.check_surface("1A", {"type": ["charade"], "surface": "A bad week."},
+                "Behaved antisocially and gave birth (5)", w)
+say("surface_optional_quiet", not w)
+
 
 # The blog lookup, from annotate_check's notes.
 def puzzle(series="cryptic", nulls=0, total=30, solutions=True):
@@ -191,6 +204,7 @@ for k in linked_leader_quiet annotated_continuation_flagged \
          bare_continuation_not_flagged grouped_continuation_flagged \
          hint_names_clue_spelling \
          hint_without_lookalike_says_copy features_absent_warns \
+         surface_absent_warns surface_counted_by_ratchet surface_optional_quiet \
          features_counted_by_ratchet features_present_quiet \
          blog_hidden_when_many_null blog_hidden_when_all_done \
          blog_shown_for_last_few blog_hidden_when_blind \

@@ -735,9 +735,28 @@ BACKTRACKS = ("no wait", "no, wait", "hold on", "scratch that", "still wrong",
               "let me try", "let me reconsider", "on second thought",
               "correct parse", "actually:", "ignore that", "wait—", "wait --")
 WALKTHROUGH_HARD_MAX = 60
-# The surface is one sentence of picture. A warning, not an error: it is a new
-# field (2026-09-06) and a long one is still better than a missing one.
+# The surface is one sentence of picture. A warning, not an error: a long one is
+# still better than a missing one.
 SURFACE_MAX = 25
+# A clue this short, or one that is nothing but definitions, may paint no
+# picture apart from its mechanism (`Flat (4)`), so its surface is optional.
+SURFACE_MIN_WORDS = 4
+SURFACE_OPTIONAL_TYPES = {"double_definition", "cryptic_definition"}
+WORD_RE = re.compile(r"[\w'’\-]+")
+
+
+def check_surface(tag, ann, clue, warnings):
+    """Every clue of SURFACE_MIN_WORDS or more words carries a `surface`,
+    unless it is a pure double or cryptic definition, where the clue itself is
+    the picture. Warned, and required through the ratchet: puzzles annotated
+    before the rule are grandfathered in annotation_backlog.json."""
+    if "surface" in ann or set(types_of(ann)) <= SURFACE_OPTIONAL_TYPES:
+        return
+    words = WORD_RE.findall(definitions.ENUMERATION.sub("", clue or ""))
+    if len(words) >= SURFACE_MIN_WORDS:
+        warnings.append(f"{tag}: no surface — say in one sentence (25 words max) what "
+                        f"the clue pretends to be about; a clue of {len(words)} words "
+                        f"paints a picture")
 
 # `definitionFit` — one sentence on why the ANSWER means the DEFINITION — became
 # required on 2026-08-01 (feedback: "in the full walkthrough explain why the
@@ -1286,8 +1305,9 @@ JOKE_KINDS = ("pun", "absurd")
 def check_features(tag, ann, clue, errors, warnings):
     """The `features` block is data, not teaching, and is checked like data.
 
-    Absent is silent: it was added on 2026-09-10 and every annotation written
-    before that lacks it. Present means every key is present and typed, because
+    Absent is warned, and required through the ratchet: puzzles annotated
+    before the block existed are grandfathered in annotation_backlog.json.
+    Present means every key is present and typed, because
     the whole value of the block is that a missing row and a false row mean
     different things when these get counted against the favourite votes.
 
@@ -2360,6 +2380,7 @@ def validate_puzzle(puzzle, corpus=False):
         check_coverage(tag, ann, clue, warnings)
         check_part_of_speech(tag, ann, warnings)
         check_features(tag, ann, clue, errors, warnings)
+        check_surface(tag, ann, clue, warnings)
         # Not under `authored`. is_authored means WE wrote the clue; the
         # walkthrough is ours either way, and every hit these two have ever had
         # was on a published grid. Gated, they would never fire.
@@ -2466,6 +2487,7 @@ BACKLOG_MARKERS = {
     "indicatorNote": ("no indicator notes", "has no note"),
     "indicatorFor": ("lack `for`",),
     "features": ("no features",),
+    "surface": ("no surface",),
 }
 
 
