@@ -1,16 +1,19 @@
 {
   "_comment": [
     "Standard British-cryptic abbreviations: the one- to three-letter chunks a",
-    "setter may drop into wordplay without signalling them further. Used by",
-    "tools/clueability.py as legal charade / container pieces, so a word only",
-    "counts as buildable if every piece is either a real word or listed here.",
+    "setter may drop into wordplay without signalling them further. Keys are",
+    "uppercase letters; values are the lowercase clue words that stand for them.",
     "",
-    "This is a STARTER table and is meant to grow. When a clue-writing pass",
-    "wants an abbreviation that isn't here, add it with its meanings rather than",
-    "special-casing it — the same rule STYLE.md applies to feedback: encode it",
-    "once, never rediscover it. Meanings are listed as the surface words a clue",
-    "would use, so the later clue-writing stage can read them straight off.",
-    "Keys are uppercase A-Z; values are lowercase clue words."
+    "Derived from usage: every reading ten or more clues in",
+    "tools/data/lexicons/blocks.json give (build_abbreviations.SEEN_MIN) is here,",
+    "unless build_abbreviations.derived() shows it is two pieces or REJECT says",
+    "why it is not one convention; `python3 tools/build_abbreviations.py --check`",
+    "fails in CI on any it misses. Below that count a sense stays only as a member",
+    "of a set solvers learn whole (build_abbreviations.FAMILIES, Roman numerals)",
+    "or a textbook convention. Write it with tools/add_abbreviation.py, never by hand.",
+    "",
+    "tools/clueability.py uses these as legal charade and container pieces, and",
+    "the site's hints and /abbreviations/ page teach them to solvers."
   ],
   "abbreviations": {
     "A": [
@@ -41,16 +44,27 @@
       "australia",
       "australian",
       "austria",
+      "key",
+      "note",
       "one"
     ],
+    "AA": [
+      "drivers"
+    ],
     "AB": [
+      "boatman",
+      "jack",
+      "muscle",
+      "rating",
       "sailor",
+      "salt",
       "seaman"
     ],
     "AC": [
       "account",
       "air conditioning",
       "athletic club",
+      "bill",
       "current"
     ],
     "ACC": [
@@ -60,7 +74,17 @@
       "advert",
       "advertisement",
       "advertising",
-      "promotion"
+      "bill",
+      "commercial",
+      "notice",
+      "plug",
+      "poster",
+      "promo",
+      "promotion",
+      "publicity",
+      "puff",
+      "these days",
+      "trailer"
     ],
     "ADM": [
       "admiral"
@@ -68,14 +92,24 @@
     "AG": [
       "silver"
     ],
+    "AH": [
+      "i see"
+    ],
     "AI": [
       "artificial intelligence",
+      "excellent",
+      "first-class",
+      "perfect",
+      "road",
+      "sloth",
       "smart tech"
     ],
     "AL": [
       "alabama",
       "albert",
-      "aluminium"
+      "aluminium",
+      "capone",
+      "gangster"
     ],
     "AM": [
       "amateur",
@@ -98,7 +132,8 @@
     "AR": [
       "arabian",
       "arabic",
-      "argon"
+      "argon",
+      "republican"
     ],
     "ARE": [
       "area"
@@ -111,14 +146,24 @@
       "attending"
     ],
     "AU": [
-      "gold"
+      "gold",
+      "golden"
     ],
     "AUS": [
       "australias"
     ],
     "AV": [
       "avenue",
-      "average"
+      "average",
+      "bible"
+    ],
+    "AY": [
+      "agreed",
+      "indeed",
+      "yes"
+    ],
+    "AZ": [
+      "extreme characters"
     ],
     "B": [
       "bachelor",
@@ -139,27 +184,39 @@
       "bravo",
       "britain",
       "british",
-      "bye"
+      "bye",
+      "key",
+      "second-class",
+      "second-rate"
     ],
     "BA": [
+      "airline",
       "arts degree",
       "bachelor",
       "degree",
       "graduate"
     ],
     "BC": [
-      "before christ",
-      "long ago"
+      "before christ"
     ],
     "BI": [
-      "bismuth"
+      "ac/dc",
+      "bismuth",
+      "swinging both ways"
     ],
     "BL": [
       "british library"
     ],
     "BO": [
+      "bad smell",
       "body odour",
-      "box office"
+      "box office",
+      "hum",
+      "nasty smell",
+      "personal problem",
+      "smell",
+      "stink",
+      "unpleasant smell"
     ],
     "BP": [
       "fuel company"
@@ -171,9 +228,13 @@
     "BRO": [
       "brother"
     ],
+    "BS": [
+      "nonsense"
+    ],
     "C": [
       "100",
       "about",
+      "around",
       "calorie",
       "canine",
       "cape",
@@ -199,27 +260,40 @@
       "corps",
       "cuba",
       "hundred",
-      "note"
+      "key",
+      "many",
+      "note",
+      "roughly",
+      "see",
+      "speed of light",
+      "tory"
     ],
     "CA": [
       "about",
+      "around",
       "calcium",
       "california",
       "central america",
-      "circa"
+      "circa",
+      "more or less",
+      "roughly"
     ],
     "CAL": [
       "california"
     ],
     "CC": [
       "copied",
-      "cricket club"
+      "cricket club",
+      "small volume",
+      "volume"
     ],
     "CD": [
       "disc",
       "record"
     ],
     "CE": [
+      "anglican",
+      "anglicans",
       "church"
     ],
     "CH": [
@@ -234,8 +308,10 @@
       "china",
       "chinese",
       "church",
+      "companion",
       "companion of honour",
-      "switzerland"
+      "switzerland",
+      "taps"
     ],
     "CI": [
       "101",
@@ -254,10 +330,10 @@
       "chlorine"
     ],
     "CO": [
+      "business",
       "care of",
       "colombia",
       "commander",
-      "commanding",
       "commanding officer",
       "commanding officers",
       "company",
@@ -274,7 +350,9 @@
     ],
     "CR": [
       "credit",
-      "crown"
+      "crown",
+      "his majesty",
+      "king"
     ],
     "CT": [
       "court"
@@ -285,7 +363,6 @@
       "cuba"
     ],
     "CV": [
-      "career record",
       "résumé"
     ],
     "D": [
@@ -310,22 +387,36 @@
       "dutch",
       "five hundred",
       "germany",
+      "key",
+      "many",
+      "note",
       "penny"
     ],
     "DA": [
+      "american lawyer",
+      "attorney",
       "district attorney",
-      "prosecutor"
+      "father",
+      "lawyer",
+      "prosecutor",
+      "us lawyer",
+      "us prosecutor"
     ],
     "DC": [
       "capital",
-      "direct current"
+      "direct current",
+      "washington"
+    ],
+    "DD": [
+      "divine",
+      "theologian"
     ],
     "DE": [
-      "delaware"
+      "delaware",
+      "of french"
     ],
     "DEG": [
-      "degree",
-      "degrees"
+      "degree"
     ],
     "DEM": [
       "democrat"
@@ -333,13 +424,26 @@
     "DET": [
       "detective"
     ],
+    "DG": [
+      "bbc boss"
+    ],
     "DI": [
+      "copper",
       "detective",
       "detective inspector",
-      "inspector"
+      "girl",
+      "inspector",
+      "little girl",
+      "officer",
+      "police officer",
+      "policeman",
+      "princess"
     ],
     "DIS": [
       "disrespect"
+    ],
+    "DJ": [
+      "radio presenter"
     ],
     "DO": [
       "does"
@@ -347,16 +451,20 @@
     "DR": [
       "debtor",
       "doctor",
-      "drive"
+      "drive",
+      "medic"
     ],
     "DS": [
-      "detective sergeant"
+      "detective",
+      "detective sergeant",
+      "police officer"
     ],
     "DUD": [
       "dudley"
     ],
     "E": [
       "drug",
+      "drugs",
       "earl",
       "earth",
       "east",
@@ -371,29 +479,59 @@
       "europe",
       "european",
       "euros",
+      "mdma",
       "note",
+      "pill",
+      "point",
       "spain"
     ],
     "EA": [
       "each"
+    ],
+    "EC": [
+      "city"
     ],
     "ECT": [
       "shock treatment",
       "therapy"
     ],
     "ED": [
+      "balls",
       "edited",
       "edition",
       "editor",
       "education",
-      "edward"
+      "edward",
+      "hack",
+      "journalist",
+      "miliband",
+      "my boss",
+      "news boss",
+      "newsman",
+      "newspaper boss",
+      "newspaperman",
+      "press chief",
+      "senior journalist"
     ],
     "EG": [
       "for example",
       "for instance",
-      "say"
+      "for one",
+      "say",
+      "such as"
+    ],
+    "EH": [
+      "what"
+    ],
+    "EL": [
+      "spanish article",
+      "the spanish"
+    ],
+    "EM": [
+      "space"
     ],
     "EN": [
+      "measure",
       "nurse",
       "printer's measure",
       "space"
@@ -414,19 +552,47 @@
       "epistle",
       "european parliament",
       "letter",
-      "record"
+      "record",
+      "recording"
     ],
     "ER": [
+      "brenda",
       "east riding",
       "emergency room",
+      "head of state",
       "hesitation",
+      "i hesitate to say",
+      "i'm not sure",
+      "leading lady",
+      "little hesitation",
+      "monarch",
+      "old monarch",
+      "old queen",
       "queen",
+      "queen elizabeth",
+      "royal",
+      "royalty",
+      "sign of hesitation",
+      "some hesitation",
       "um"
+    ],
+    "ES": [
+      "drugs",
+      "french art"
     ],
     "EST": [
       "established"
     ],
+    "ET": [
+      "alien",
+      "film",
+      "french and",
+      "movie",
+      "sci-fi film",
+      "spielberg film"
+    ],
     "EU": [
+      "brussels",
       "europe",
       "european union",
       "europeans",
@@ -442,10 +608,24 @@
       "evening"
     ],
     "EX": [
+      "divorcee",
       "exodus",
       "former",
+      "former lover",
+      "former partner",
+      "formerly",
+      "late",
+      "no longer",
+      "old",
       "old flame",
-      "out of"
+      "old lover",
+      "old partner",
+      "once",
+      "one-time",
+      "out of",
+      "partner once",
+      "previous",
+      "retired"
     ],
     "EXT": [
       "external",
@@ -466,13 +646,22 @@
       "france",
       "french",
       "function",
-      "loud"
+      "key",
+      "loud",
+      "loudly",
+      "strong"
+    ],
+    "FA": [
+      "note",
+      "nothing"
     ],
     "FE": [
       "iron"
     ],
     "FF": [
-      "very loud"
+      "very loud",
+      "very loudly",
+      "very strong"
     ],
     "FL": [
       "florida"
@@ -492,9 +681,12 @@
       "feet",
       "financial times",
       "foot",
-      "newspaper"
+      "newspaper",
+      "paper",
+      "this paper"
     ],
     "G": [
+      "force",
       "gallon",
       "gallons",
       "gee",
@@ -508,7 +700,8 @@
       "grand",
       "gravity",
       "great",
-      "key"
+      "key",
+      "note"
     ],
     "GB": [
       "britain"
@@ -523,12 +716,17 @@
       "german",
       "germany"
     ],
+    "GG": [
+      "horse"
+    ],
     "GI": [
       "american soldier",
-      "soldier"
+      "joe",
+      "private",
+      "soldier",
+      "us soldier"
     ],
     "GM": [
-      "gram",
       "grandmaster"
     ],
     "GP": [
@@ -537,7 +735,11 @@
     "GR": [
       "grain",
       "greek",
-      "gross"
+      "gross",
+      "old king"
+    ],
+    "GT": [
+      "sports car"
     ],
     "H": [
       "hard",
@@ -555,6 +757,9 @@
       "hours",
       "husband",
       "hydrogen"
+    ],
+    "HA": [
+      "laugh"
     ],
     "HE": [
       "helium",
@@ -574,22 +779,25 @@
       "honorary"
     ],
     "HQ": [
-      "base",
       "headquarters"
     ],
     "HR": [
       "hour",
-      "human resources"
+      "human resources",
+      "personnel"
     ],
     "HS": [
-      "high school",
-      "high speed"
+      "high school"
     ],
     "HT": [
       "high tension"
     ],
     "I": [
+      "boatman",
       "current",
+      "cyclops",
+      "ego",
+      "everyman",
       "independence",
       "independent",
       "india",
@@ -603,18 +811,24 @@
       "israel",
       "italy",
       "me",
-      "one"
+      "newspaper",
+      "one",
+      "setter",
+      "yours truly"
     ],
     "IC": [
       "in charge",
       "integrated circuit"
     ],
     "ID": [
+      "documents",
       "identification",
-      "identify",
-      "identity"
+      "identity",
+      "papers",
+      "passport"
     ],
     "IE": [
+      "namely",
       "that is"
     ],
     "II": [
@@ -642,8 +856,16 @@
     "INV": [
       "invented"
     ],
+    "IO": [
+      "moon",
+      "satellite",
+      "ten"
+    ],
     "IP": [
       "intellectual property"
+    ],
+    "IQ": [
+      "intelligence"
     ],
     "IR": [
       "inland revenue",
@@ -666,7 +888,8 @@
     "IV": [
       "4",
       "drip",
-      "four"
+      "four",
+      "quartet"
     ],
     "IX": [
       "nine"
@@ -678,10 +901,14 @@
       "juliet",
       "justice"
     ],
+    "JO": [
+      "little woman"
+    ],
     "JUN": [
       "junior"
     ],
     "K": [
+      "grand",
       "kay",
       "kelvin",
       "kilo",
@@ -698,11 +925,13 @@
     ],
     "KO": [
       "flatten",
+      "floor",
       "kick off",
       "knockout"
     ],
     "L": [
       "50",
+      "apprentice",
       "fifty",
       "lake",
       "lambert",
@@ -724,11 +953,20 @@
       "long",
       "lost",
       "luxembourg",
-      "pound"
+      "new driver",
+      "novice",
+      "pound",
+      "pounds",
+      "student"
     ],
     "LA": [
+      "american city",
+      "city",
+      "hollywood",
       "los angeles",
-      "note"
+      "note",
+      "the french",
+      "us city"
     ],
     "LAB": [
       "labour",
@@ -737,6 +975,10 @@
     "LB": [
       "pound",
       "weight"
+    ],
+    "LE": [
+      "the french",
+      "the parisian"
     ],
     "LET": [
       "letter"
@@ -758,20 +1000,20 @@
       "literature"
     ],
     "LO": [
+      "behold",
       "look",
-      "looking"
+      "looking",
+      "see"
     ],
     "LP": [
       "album",
-      "record"
+      "record",
+      "recording"
     ],
     "LT": [
       "lieutenant",
-      "light"
-    ],
-    "LTA": [
-      "lawn tennis association",
-      "tennis organisers"
+      "light",
+      "officer"
     ],
     "LV": [
       "55"
@@ -807,6 +1049,7 @@
       "monsieur",
       "month",
       "motorway",
+      "spy boss",
       "thousand"
     ],
     "MA": [
@@ -814,13 +1057,18 @@
       "graduate",
       "master",
       "mother",
-      "mum"
+      "mum",
+      "old lady",
+      "parent",
+      "parents",
+      "scholar"
     ],
     "MAG": [
       "magazine"
     ],
     "MB": [
-      "doctor"
+      "doctor",
+      "medic"
     ],
     "MC": [
       "compere",
@@ -840,7 +1088,8 @@
       "1001",
       "intelligence",
       "motorway",
-      "note"
+      "note",
+      "road"
     ],
     "MIC": [
       "microphone"
@@ -852,22 +1101,36 @@
     "MIT": [
       "us college"
     ],
+    "MM": [
+      "frenchmen"
+    ],
     "MO": [
       "doctor",
+      "flash",
+      "instant",
+      "little time",
+      "maureen",
+      "medic",
       "medical officer",
+      "minute",
       "modus operandi",
       "molybdenum",
       "moment",
-      "second"
+      "second",
+      "short time",
+      "tick",
+      "way of working"
     ],
     "MON": [
       "day",
       "monday"
     ],
     "MP": [
+      "legislator",
       "member",
-      "police",
-      "politician"
+      "parliamentarian",
+      "politician",
+      "representative"
     ],
     "MR": [
       "man",
@@ -876,11 +1139,14 @@
     "MS": [
       "manuscript",
       "miss",
-      "woman"
+      "woman",
+      "writing"
     ],
     "MT": [
-      "empty",
       "mount"
+    ],
+    "MU": [
+      "greek character"
     ],
     "N": [
       "knight",
@@ -899,7 +1165,8 @@
       "note",
       "november",
       "nuclear",
-      "number"
+      "number",
+      "pole"
     ],
     "NA": [
       "north american",
@@ -919,6 +1186,8 @@
       "north dakota"
     ],
     "NE": [
+      "born",
+      "geordie",
       "neon",
       "north east",
       "north eastern",
@@ -932,7 +1201,10 @@
     ],
     "NI": [
       "nickel",
-      "northern ireland"
+      "northern ireland",
+      "part of uk",
+      "province",
+      "ulster"
     ],
     "NJ": [
       "new jersey"
@@ -943,12 +1215,20 @@
       "refusal"
     ],
     "NS": [
-      "not specified"
+      "not specified",
+      "poles"
     ],
     "NT": [
+      "books",
+      "collection of books",
+      "holy books",
       "national theatre",
       "national trust",
-      "new testament"
+      "new testament",
+      "set of books"
+    ],
+    "NU": [
+      "greek character"
     ],
     "NUM": [
       "number"
@@ -960,12 +1240,22 @@
       "northwest"
     ],
     "NY": [
-      "new york"
+      "city",
+      "new york",
+      "us city"
     ],
     "O": [
+      "bagel",
+      "ball",
+      "band",
       "circle",
+      "circuit",
+      "circular letter",
+      "disc",
       "duck",
+      "egg",
       "love",
+      "nil",
       "nothing",
       "ocean",
       "ohio",
@@ -976,15 +1266,21 @@
       "oxygen",
       "ring",
       "round",
-      "zero"
+      "wheel",
+      "zero",
+      "zip"
     ],
     "OB": [
+      "alumnus",
       "died",
+      "former pupil",
+      "former student",
       "obiit",
       "old boy",
       "outside broadcast"
     ],
     "OC": [
+      "commander",
       "officer commanding"
     ],
     "OE": [
@@ -1003,6 +1299,8 @@
     ],
     "OM": [
       "award",
+      "honour",
+      "order",
       "order of merit"
     ],
     "ON": [
@@ -1010,9 +1308,14 @@
       "playing",
       "working"
     ],
+    "OO": [
+      "spectacles"
+    ],
     "OP": [
       "operation",
       "opus",
+      "surgery",
+      "surgical procedure",
       "work"
     ],
     "OR": [
@@ -1023,21 +1326,35 @@
       "soldiers"
     ],
     "ORG": [
-      "organisation",
-      "organization"
+      "organisation"
     ],
     "OS": [
+      "big",
       "bone",
       "huge",
+      "mapmakers",
       "outsize",
-      "seaman"
+      "sailor",
+      "seaman",
+      "very big",
+      "very large"
     ],
     "OT": [
       "books",
-      "old testament"
+      "old books",
+      "old testament",
+      "religious books",
+      "set of books"
     ],
     "OU": [
       "oxford university"
+    ],
+    "OW": [
+      "cry of pain",
+      "it hurts",
+      "pained expression",
+      "that hurt",
+      "that hurts"
     ],
     "OZ": [
       "australia",
@@ -1063,37 +1380,68 @@
       "priest",
       "prince",
       "quiet",
-      "soft"
+      "quietly",
+      "soft",
+      "softly"
     ],
     "PA": [
+      "a year",
+      "assistant",
       "dad",
+      "each year",
+      "every year",
       "father",
+      "old man",
       "parent",
       "per annum",
       "personal assistant",
-      "public address"
+      "pop",
+      "public address",
+      "secretary",
+      "yearly"
     ],
     "PB": [
       "lead"
     ],
     "PC": [
       "computer",
+      "copper",
       "police constable",
       "policeman",
       "politically correct"
     ],
     "PE": [
+      "drill",
       "exercise",
+      "exercise class",
+      "exercises",
+      "exercising",
       "games",
       "gym",
-      "physical exercise"
+      "gym class",
+      "physical exercise",
+      "sport",
+      "sports",
+      "training"
     ],
     "PH": [
-      "acidity"
+      "acidity",
+      "local",
+      "pub"
     ],
     "PI": [
+      "constant",
+      "detective",
+      "good",
+      "greek character",
+      "holy",
+      "irrational",
       "private eye",
-      "private investigator"
+      "private investigator",
+      "religious",
+      "sanctimonious",
+      "self-righteous",
+      "very good"
     ],
     "PIC": [
       "picture"
@@ -1106,31 +1454,42 @@
       "prime minister"
     ],
     "PO": [
-      "loo",
+      "flower",
+      "italian river",
       "petty officer",
-      "post office"
+      "post office",
+      "river"
     ],
     "POP": [
       "popular"
     ],
     "PP": [
-      "pages"
+      "pages",
+      "very quiet",
+      "very quietly",
+      "very soft"
     ],
     "PR": [
+      "advertising",
       "price",
       "prince",
       "public relations",
       "publicity",
-      "spin"
+      "spin",
+      "voting system"
     ],
     "PRO": [
       "professional"
     ],
     "PS": [
       "afterthought",
-      "postscript"
+      "postscript",
+      "rider"
     ],
     "PT": [
+      "exercise",
+      "exercises",
+      "gym",
       "part",
       "physical training",
       "pint",
@@ -1177,8 +1536,14 @@
     ],
     "RA": [
       "academician",
+      "artillery",
       "artist",
-      "gunners"
+      "egyptian god",
+      "god",
+      "gunmen",
+      "gunners",
+      "painter",
+      "soldiers"
     ],
     "RAF": [
       "airmen"
@@ -1188,19 +1553,30 @@
       "roman catholic"
     ],
     "RD": [
-      "road"
+      "road",
+      "way"
     ],
     "RE": [
       "about",
       "again",
+      "army corps",
       "concerning",
+      "connected with",
+      "dealing with",
       "engineers",
       "note",
+      "on the subject of",
       "regarding",
       "religious education",
       "respecting",
       "royal engineers",
-      "sappers"
+      "sappers",
+      "school subject",
+      "soldier",
+      "soldiers",
+      "to do with",
+      "touching",
+      "troops"
     ],
     "REL": [
       "relative"
@@ -1226,12 +1602,17 @@
       "buried",
       "dead"
     ],
+    "RL": [
+      "both sides"
+    ],
     "RM": [
+      "jolly",
       "marines"
     ],
     "RN": [
       "navy",
-      "sailors"
+      "sailors",
+      "service"
     ],
     "RO": [
       "run out"
@@ -1240,6 +1621,8 @@
       "robert"
     ],
     "RR": [
+      "bishop",
+      "posh car",
       "rolls royce"
     ],
     "RS": [
@@ -1247,16 +1630,25 @@
       "royal society"
     ],
     "RU": [
+      "game",
       "rugby",
-      "rugby union"
+      "rugby union",
+      "sport"
     ],
     "RV": [
       "recreational vehicle"
     ],
     "RY": [
-      "railway"
+      "line",
+      "lines",
+      "railway",
+      "track",
+      "tracks"
     ],
     "S": [
+      "old bob",
+      "point",
+      "pole",
       "sabbath",
       "saint",
       "saints",
@@ -1286,21 +1678,20 @@
       "sweden"
     ],
     "SA": [
+      "appeal",
       "s american",
       "sex appeal",
       "south africa",
       "south america",
       "south american"
     ],
-    "SAS": [
-      "forces",
-      "special"
-    ],
     "SC": [
+      "namely",
       "scene",
       "self catering",
       "south carolina",
-      "special constable"
+      "special constable",
+      "that is"
     ],
     "SCH": [
       "school",
@@ -1310,6 +1701,10 @@
       "science"
     ],
     "SE": [
+      "home counties",
+      "kent",
+      "kent area",
+      "london area",
       "south east",
       "southeast"
     ],
@@ -1317,7 +1712,14 @@
       "series"
     ],
     "SH": [
-      "quiet"
+      "be quiet",
+      "can it",
+      "keep quiet",
+      "mum",
+      "pipe down",
+      "quiet",
+      "quietly",
+      "silence"
     ],
     "SI": [
       "silicon"
@@ -1326,9 +1728,11 @@
       "sister"
     ],
     "SM": [
+      "kinky sex",
       "sergeant major"
     ],
     "SN": [
+      "poles",
       "tin"
     ],
     "SO": [
@@ -1341,27 +1745,36 @@
     "SP": [
       "special",
       "species",
-      "starting price",
-      "without"
+      "starting price"
     ],
     "SR": [
       "senior",
       "sister"
     ],
     "SS": [
+      "aboard ship",
+      "boat",
       "nazis",
+      "on board",
       "saints",
       "ship",
       "steam ship",
       "steamer"
     ],
     "ST": [
+      "good man",
+      "good person",
+      "holy man",
+      "holy person",
+      "road",
       "saint",
       "simon templar",
       "stone",
       "street",
       "stumped",
-      "sunday times"
+      "sunday times",
+      "thoroughfare",
+      "way"
     ],
     "STA": [
       "station"
@@ -1374,6 +1787,7 @@
     ],
     "T": [
       "model",
+      "square",
       "tango",
       "tea",
       "temperature",
@@ -1392,6 +1806,13 @@
     ],
     "TA": [
       "army",
+      "cheers",
+      "i'm grateful",
+      "i'm obliged",
+      "much appreciated",
+      "reserves",
+      "reservists",
+      "soldiers",
       "thanks",
       "volunteers"
     ],
@@ -1403,6 +1824,7 @@
       "disease"
     ],
     "TE": [
+      "lawrence",
       "note"
     ],
     "TEL": [
@@ -1413,6 +1835,7 @@
       "territory"
     ],
     "TI": [
+      "note",
       "titanium"
     ],
     "TO": [
@@ -1426,9 +1849,17 @@
       "translator",
       "treasurer"
     ],
+    "TS": [
+      "eliot"
+    ],
     "TT": [
+      "abstainer",
       "dry",
+      "non-drinker",
+      "not drinking",
       "race",
+      "races",
+      "sober",
       "teetotal",
       "tourist trophy"
     ],
@@ -1441,6 +1872,13 @@
     ],
     "U": [
       "acceptable",
+      "bend",
+      "classy",
+      "for all to see",
+      "for everyone",
+      "high-class",
+      "posh",
+      "socially acceptable",
       "turn",
       "uniform",
       "union",
@@ -1454,9 +1892,25 @@
       "you"
     ],
     "UK": [
-      "country"
+      "britain",
+      "british",
+      "country",
+      "our country",
+      "this country"
+    ],
+    "UM": [
+      "hesitation",
+      "i'm not sure",
+      "let me see"
     ],
     "UN": [
+      "a foreign",
+      "a french",
+      "a parisian",
+      "french article",
+      "international body",
+      "international organisation",
+      "large body",
       "one",
       "peacekeepers"
     ],
@@ -1468,6 +1922,11 @@
       "raised",
       "riding"
     ],
+    "UR": [
+      "ancient city",
+      "old city",
+      "original"
+    ],
     "US": [
       "america",
       "american",
@@ -1477,6 +1936,7 @@
     "V": [
       "against",
       "five",
+      "opposing",
       "vanadium",
       "verse",
       "version",
@@ -1493,6 +1953,8 @@
     ],
     "VI": [
       "6",
+      "sex",
+      "sextet",
       "six"
     ],
     "VII": [
@@ -1502,6 +1964,7 @@
       "against"
     ],
     "W": [
+      "tungsten",
       "watt",
       "week",
       "weight",
@@ -1527,7 +1990,8 @@
       "toilet"
     ],
     "WI": [
-      "west indies"
+      "west indies",
+      "women's group"
     ],
     "WR": [
       "western region"
@@ -1537,7 +2001,10 @@
       "cross",
       "kiss",
       "ten",
+      "that's wrong",
+      "times",
       "unknown",
+      "vote",
       "wrong",
       "x-ray"
     ],
@@ -1568,8 +2035,13 @@
     "XXX": [
       "thirty"
     ],
+    "XY": [
+      "axes"
+    ],
     "Y": [
+      "axes",
       "unknown",
+      "variable",
       "yankee",
       "yard",
       "year",
@@ -1580,12 +2052,22 @@
       "yard",
       "yards"
     ],
+    "YE": [
+      "the old",
+      "you"
+    ],
     "Z": [
+      "last character",
+      "last letter",
       "sleep",
       "unknown",
+      "variable",
       "zed",
       "zenith",
       "zulu"
+    ],
+    "ZA": [
+      "south africa"
     ],
     "ZN": [
       "zinc"
