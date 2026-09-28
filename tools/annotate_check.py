@@ -32,6 +32,7 @@ ROOT = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
 
 import clue_types  # noqa: E402
+import groups  # noqa: E402
 import series  # noqa: E402
 import validate_annotations  # noqa: E402
 from apply_annotations import default_input  # noqa: E402
@@ -74,11 +75,13 @@ def blog_of(puzzle):
 
 
 def unsolved(puzzle):
-    """Entries still null that need an annotation: not a clue the setter left
-    blank, and not a blind run's miss (validate_annotations decides both)."""
+    """Entries still null that need an annotation: not a linked answer's
+    continuation, not a clue the setter left blank, and not a blind run's miss (validate_annotations decides both)."""
     misses = validate_annotations.blind_misses(puzzle["id"])
+    continuations = groups.leader_of(puzzle["entries"])
     return [e for e in puzzle["entries"]
             if not e.get("annotation") and e["id"] not in misses
+            and e["id"] not in continuations
             and not validate_annotations.is_blank_clue(e["clue"])]
 
 

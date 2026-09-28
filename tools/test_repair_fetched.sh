@@ -101,35 +101,22 @@ write("cryptic", 102, base + 2 * DAY, [
     entry("1-across", 1, "across", 0, 0, 6, "One who tries (6)", "TESTER"),
     entry("2-down", 2, "down", 1, 0, 5, "Withheld (5)", "T?S?R")])
 
-# 103 — three lights of one answer, each naming a different pair as the group.
-# The enumeration on the leading clue is what settles the order.
-write("cryptic", 103, base + 3 * DAY, [
-    entry("13-across", 13, "across", 0, 4, 8, "Second word (8)", "SYMPHONY",
-          ["3-down", "13-across"]),
-    entry("21-across", 21, "across", 0, 8, 9, "Third word (9)", "ORCHESTRA",
-          ["3-down", "21-across"]),
-    entry("3-down", 3, "down", 2, 0, 6, "The whole thing (6,8,9)", "LONDON",
-          ["3-down", "21-across"])])
-
 # 104 — cryptic 27,884's defect: 20-across's "See 5 across" is WORDPLAY, and
-# the Guardian's parser read it as a cross-reference and linked the two. Both
-# lights agree about the membership, so reconcile_groups has nothing to fix —
-# what gives it away is that each clue already counts its own light in full.
+# the Guardian's parser read it as a cross-reference and linked the two.
+# What gives it away is that each clue already counts its own light in full.
 write("cryptic", 104, base + 4 * DAY, [
     entry("5-across", 5, "across", 0, 2, 7,
           "Tempted to carry Olympic torch, at last took faltering steps (7)",
           "LURCHED", ["5-across", "20-across"]),
     entry("20-across", 20, "across", 0, 10, 10,
-          "See 5 across out to find another date (10)", "RESCHEDULE",
-          ["5-across", "20-across"])])
+          "See 5 across out to find another date (10)", "RESCHEDULE")])
 
 # 105 — a genuine Guardian link, which must survive untouched: the whole count
 # sits on the leading light and the continuation carries none at all.
 write("cryptic", 105, base + 5 * DAY, [
     entry("1-across", 1, "across", 0, 0, 3, "The whole phrase (3,4)", "ODD",
           ["1-across", "5-across"]),
-    entry("5-across", 5, "across", 0, 2, 4, "See 1", "JOBS",
-          ["1-across", "5-across"])])
+    entry("5-across", 5, "across", 0, 2, 4, "See 1", "JOBS")])
 
 # 106 — cryptic-25,430's defect: a real linked answer with a stranger hung off
 # it. NATURE I LOVED... runs over three lights and is counted once, on 22-down;
@@ -138,12 +125,10 @@ write("cryptic", 105, base + 5 * DAY, [
 write("cryptic", 106, base + 6 * DAY, [
     entry("22-down", 22, "down", 0, 0, 6, "The whole quotation (6,1,5,3,5)",
           "NATURE", ["22-down", "23-down", "12-across", "19-down"]),
-    entry("23-down", 23, "down", 2, 0, 6, "See 22", "ILOVED",
-          ["22-down", "23-down", "12-across", "19-down"]),
-    entry("12-across", 12, "across", 0, 6, 8, "See 22 down", "ANDNEXTX",
-          ["22-down", "23-down", "12-across", "19-down"]),
+    entry("23-down", 23, "down", 2, 0, 6, "See 22", "ILOVED"),
+    entry("12-across", 12, "across", 0, 6, 8, "See 22 down", "ANDNEXTX"),
     entry("19-down", 19, "down", 4, 0, 8, "None left, which is good (3,5)",
-          "ALLRIGHT", ["22-down", "23-down", "12-across", "19-down"])])
+          "ALLRIGHT")])
 
 # 107 — cryptic-23,578: IGNATIUS LOYOLA, counted "(8,6)" on the light that
 # carries the clue, and a continuation that ALSO prints a count — its own six
@@ -153,8 +138,7 @@ write("cryptic", 106, base + 6 * DAY, [
 write("cryptic", 107, base + 7 * DAY, [
     entry("2-down", 2, "down", 0, 0, 8, "Saint? Saint! You and I go all funny (8,6)",
           "IGNATIUS", ["2-down", "7-down"]),
-    entry("7-down", 7, "down", 4, 0, 6, "See 2 (6)", "LOYOLA",
-          ["2-down", "7-down"])])
+    entry("7-down", 7, "down", 4, 0, 6, "See 2 (6)", "LOYOLA")])
 
 # 108 — cryptic-23,987: DIS, TEN, CON and TED, four three-letter answers the
 # paper cross-referenced and its parser linked. 13-across counts its own three
@@ -163,12 +147,9 @@ write("cryptic", 107, base + 7 * DAY, [
 write("cryptic", 108, base + 8 * DAY, [
     entry("13-across", 13, "across", 0, 0, 3, "The other three are not (3)",
           "DIS", ["13-across", "18-down", "16-down", "24-across"]),
-    entry("18-down", 18, "down", 4, 0, 3, "See 13", "TEN",
-          ["13-across", "18-down", "16-down", "24-across"]),
-    entry("16-down", 16, "down", 6, 0, 3, "See 13", "CON",
-          ["13-across", "18-down", "16-down", "24-across"]),
-    entry("24-across", 24, "across", 0, 4, 3, "See 13", "TED",
-          ["13-across", "18-down", "16-down", "24-across"])])
+    entry("18-down", 18, "down", 4, 0, 3, "See 13", "TEN"),
+    entry("16-down", 16, "down", 6, 0, 3, "See 13", "CON"),
+    entry("24-across", 24, "across", 0, 4, 3, "See 13", "TED")])
 
 # 109 — cryptic-23,541: a quotation over three lights whose counts do NOT add
 # up, because the Guardian's data leaves out a light the enumeration counts.
@@ -178,10 +159,8 @@ write("cryptic", 108, base + 8 * DAY, [
 write("cryptic", 109, base + 9 * DAY, [
     entry("4-down", 4, "down", 0, 0, 6, "The quotation (6,1,5 and 4,2,6,3)",
           "NATURE", ["4-down", "19-down", "8-down"]),
-    entry("19-down", 19, "down", 2, 0, 6, "See 4", "ILOVED",
-          ["4-down", "19-down", "8-down"]),
-    entry("8-down", 8, "down", 4, 0, 11, "See 4 (2,6,3)", "TONATUREART",
-          ["4-down", "19-down", "8-down"])])
+    entry("19-down", 19, "down", 2, 0, 6, "See 4", "ILOVED"),
+    entry("8-down", 8, "down", 4, 0, 11, "See 4 (2,6,3)", "TONATUREART")])
 
 # 110 — cryptic-23,816's defect, the other way round: TREAD is counted "(5,3,6)"
 # over five cells and THE BOARDS sits in 10-across under "See above", in no group
@@ -240,8 +219,8 @@ write("cryptic", 117, base + 17 * DAY, [
 
 # 113 — cryptic-24,951: SET THE CAT AMONG THE PIGEONS "(3,3,3,5,3,7)" needs the THE
 # in 24-across, and the paper has already spent that light on LET THE DOG SEE THE
-# RABBIT. One `group` field cannot hold a light that ends two answers, so the
-# enumeration is left unsatisfied rather than 18-down quietly robbed.
+# RABBIT. A reconstruction takes only lights the paper left spare, so the
+# enumeration is left unsatisfied rather than 24-across claimed for a second answer.
 write("cryptic", 113, base + 13 * DAY, [
     entry("16-down", 16, "down", 2, 0, 3,
           "To facilitate predation, dodgy mate's gone cheetah spotting (3,3,3,5,3,7)",
@@ -250,49 +229,7 @@ write("cryptic", 113, base + 13 * DAY, [
     entry("1-down", 1, "down", 0, 0, 15, "See 16", "AMONGTHEPIGEONS"),
     entry("18-down", 18, "down", 4, 0, 3, "Forgetfulness about time (3,3)", "LET",
           ["18-down", "24-across"]),
-    entry("24-across", 24, "across", 0, 8, 3, "See 16", "THE",
-          ["18-down", "24-across"])])
-
-# 114 — cryptic-24,640: FROM THE NEW WORLD over 13-across, 18-across and
-# 20-across, which the Guardian's markup grouped as "18-DOWN" — a light the
-# puzzle does not have. The light that was meant is not in the data, so the
-# group goes whole rather than being shortened to the two lights that are here
-# and storing FROM THE + WORLD as a finished answer. 20-across then names its
-# three leading clues, which is a light ending three answers and is allowed to
-# disagree with every one of them: NEW WORLD ORDER keeps its group.
-write("cryptic", 114, base + 14 * DAY, [
-    entry("13-across", 13, "across", 0, 4, 7,
-          "Work of 23, originating in 9 or 29, say (4,3,3,2)", "FROMTHE",
-          ["13-across", "18-down", "20-across"]),
-    entry("17-across", 17, "across", 0, 6, 5,
-          "Novel utterance from 25, originally in 14 (5,3,5)", "BRAVE",
-          ["17-across", "18-down", "20-across"]),
-    entry("18-across", 18, "across", 0, 8, 3,
-          "Dr Low, possibly, providing answer to all our ills (3,5,5)", "NEW",
-          ["18-across", "20-across", "31-across"]),
-    entry("20-across", 20, "across", 0, 10, 5, "See 13, 17 and 18", "WORLD",
-          ["13-across", "18-down", "20-across"]),
-    entry("31-across", 31, "across", 0, 12, 5, "See 18", "ORDER",
-          ["18-across", "20-across", "31-across"])])
-
-# 115 — cryptic-25,126: MAJOR AND MINOR over three lights, with ASIA MINOR and
-# DRUM MAJOR each claiming one of them for a second answer. Every claim adds up,
-# so reconcile_groups leaves all three as published — and two of them are stated
-# by one side only, because 17-across and 20-across store the answer they are
-# both in. "See 17" names ONE leading clue, so it is held to its group and the
-# claims on it go; MAJOR AND MINOR is untouched.
-write("cryptic", 115, base + 15 * DAY, [
-    entry("6-down", 6, "down", 0, 0, 4, "Romania is unsettled region near Greece (4,5)",
-          "ASIA", ["6-down", "20-across"]),
-    entry("8-down", 8, "down", 2, 0, 4, "NCO and daughter having drink with PM once (4,5)",
-          "DRUM", ["8-down", "17-across"]),
-    entry("17-across", 17, "across", 0, 4, 5,
-          "Like 4 and 11, or 24 down and 22 down, or 13 across, 14 and 27 (5,3,5)",
-          "MAJOR", ["17-across", "19-across", "20-across"]),
-    entry("19-across", 19, "across", 0, 6, 3, "See 17", "AND",
-          ["17-across", "19-across", "20-across"]),
-    entry("20-across", 20, "across", 0, 8, 5, "See 17", "MINOR",
-          ["17-across", "19-across", "20-across"])])
+    entry("24-across", 24, "across", 0, 8, 3, "See 16", "THE")])
 
 # A series whose numbers and dates climb together, except for one puzzle served
 # under a date from 1934 — the Guardian does this at /cryptic/1183, which is
@@ -337,16 +274,6 @@ absent "$(grep '"solution"' "$work/$(at cryptic-102)")" "T?S?R" \
   "the mask is gone rather than kept as an answer"
 absent "$(one cryptic-102)" "cryptic-102:" "clean on the second run"
 
-echo "lights that disagree about their group are reconciled"
-out=$(one cryptic-103)
-check "$out" "cryptic-103" "the puzzle is reported"
-check "$out" "linked-clue group(s) reconciled" "and why"
-one cryptic-103 --apply >/dev/null
-same "every member now names the same three lights, in enumeration order" \
-  "$(groups "$(at cryptic-103)")" \
-  '[["13-across", ["3-down", "13-across", "21-across"]], ["21-across", ["3-down", "13-across", "21-across"]], ["3-down", ["3-down", "13-across", "21-across"]]]'
-absent "$(one cryptic-103)" "cryptic-103:" "clean on the second run"
-
 echo "a group whose every light counts itself in full is not a linked answer"
 out=$(one cryptic-104)
 check "$out" "cryptic-104" "the puzzle is reported"
@@ -368,7 +295,7 @@ absent "$out" "cryptic-105" "the whole count on the leading light is not a false
 same "byte-identical after a repair run" \
   "$(cksum < "$work/$(at cryptic-105)")" "$before"
 same "the group survives" "$(groups "$(at cryptic-105)")" \
-  '[["1-across", ["1-across", "5-across"]], ["5-across", ["1-across", "5-across"]]]'
+  '[["1-across", ["1-across", "5-across"]], ["5-across", null]]'
 
 echo "Private Eye prints a count per light, so the rule is off for cyclops"
 before=$(cksum < "$work/$(at cyclops-401)")
@@ -379,7 +306,7 @@ same "byte-identical after a repair run" \
   "$(cksum < "$work/$(at cyclops-401)")" "$before"
 same "2-down (4-6) and 22-down (6) are still one answer" \
   "$(groups "$(at cyclops-401)" | python3 -c 'import json,sys; \
-     print(json.dumps(dict(json.load(sys.stdin))["22-down"]))')" \
+     print(json.dumps(dict(json.load(sys.stdin))["2-down"]))')" \
   '["2-down", "22-down"]'
 
 echo "a light that counts itself in full leaves the group it was hung on"
@@ -392,7 +319,7 @@ check "$out" "WARNING: 19-down: counts its own light in full" \
 one cryptic-106 --apply >/dev/null
 same "the quotation keeps its three lights and the stranger is free" \
   "$(groups "$(at cryptic-106)")" \
-  '[["22-down", ["22-down", "23-down", "12-across"]], ["23-down", ["22-down", "23-down", "12-across"]], ["12-across", ["22-down", "23-down", "12-across"]], ["19-down", null]]'
+  '[["22-down", ["22-down", "23-down", "12-across"]], ["23-down", null], ["12-across", null], ["19-down", null]]'
 absent "$(one cryptic-106)" "cryptic-106:" "clean on the second run"
 
 echo "a continuation that prints its own cell count is not a false link"
@@ -402,7 +329,7 @@ absent "$out" "cryptic-107" "\"See 2 (6)\" counts the leg, not the answer"
 same "byte-identical after a repair run" \
   "$(cksum < "$work/$(at cryptic-107)")" "$before"
 same "IGNATIUS LOYOLA survives whole" "$(groups "$(at cryptic-107)")" \
-  '[["2-down", ["2-down", "7-down"]], ["7-down", ["2-down", "7-down"]]]'
+  '[["2-down", ["2-down", "7-down"]], ["7-down", null]]'
 
 echo "a group left with no clue in it is four answers, not one"
 out=$(one cryptic-108)
@@ -422,7 +349,7 @@ absent "$out" "cryptic-109" "\"See 4 (2,6,3)\" is not a light claiming to be an 
 same "byte-identical after a repair run" \
   "$(cksum < "$work/$(at cryptic-109)")" "$before"
 same "all three lights stay in the quotation" "$(groups "$(at cryptic-109)")" \
-  '[["4-down", ["4-down", "19-down", "8-down"]], ["19-down", ["4-down", "19-down", "8-down"]], ["8-down", ["4-down", "19-down", "8-down"]]]'
+  '[["4-down", ["4-down", "19-down", "8-down"]], ["19-down", null], ["8-down", null]]'
 
 echo "a light the paper left out of the group is put back when the counts say so"
 out=$(one cryptic-110)
@@ -436,7 +363,7 @@ same "a dry run wrote nothing" "$(groups "$(at cryptic-110)")" \
 one cryptic-110 --apply >/dev/null
 same "TREAD THE BOARDS is one answer, and the light that counts itself is not in it" \
   "$(groups "$(at cryptic-110)")" \
-  '[["9-across", ["9-across", "10-across"]], ["10-across", ["9-across", "10-across"]], ["20-down", null]]'
+  '[["9-across", ["9-across", "10-across"]], ["10-across", null], ["20-down", null]]'
 absent "$(one cryptic-110)" "cryptic-110:" "clean on the second run"
 
 echo "a light the paper printed no clue for is free, and the counts say whose"
@@ -446,7 +373,7 @@ check "$out" "2 linked answer(s) reassembled: 13-across + 15-across, 17-across +
 one cryptic-111 --apply >/dev/null
 same "RESERVE RATIOS and RETAIL THERAPY, not crossed over" \
   "$(groups "$(at cryptic-111)")" \
-  '[["13-across", ["13-across", "15-across"]], ["15-across", ["13-across", "15-across"]], ["17-across", ["17-across", "19-across"]], ["19-across", ["17-across", "19-across"]]]'
+  '[["13-across", ["13-across", "15-across"]], ["15-across", null], ["17-across", ["17-across", "19-across"]], ["19-across", null]]'
 absent "$(one cryptic-111)" "cryptic-111:" "clean on the second run"
 
 echo "when several readings add up, the unclued leg belongs to the clue before it"
@@ -457,7 +384,7 @@ check "$out" "WARNING: 7-down: 2 sets of spare lights hold the letters it counts
   "warned on stderr, saying the choice was made and how"
 one cryptic-112 --apply >/dev/null
 same "MISTRUST and BACK DOWN, not crossed over" "$(groups "$(at cryptic-112)")" \
-  '[["7-down", ["7-down", "8-down"]], ["22-down", ["22-down", "23-down"]], ["8-down", ["7-down", "8-down"]], ["23-down", ["22-down", "23-down"]]]'
+  '[["7-down", ["7-down", "8-down"]], ["22-down", ["22-down", "23-down"]], ["8-down", null], ["23-down", null]]'
 absent "$(one cryptic-112)" "cryptic-112:" "clean on the second run"
 
 echo "an unclued light numbered before the clue is not that clue's continuation"
@@ -485,34 +412,7 @@ absent "$out" "cryptic-113" "the enumeration is left unsatisfied instead"
 same "byte-identical after a repair run" \
   "$(cksum < "$work/$(at cryptic-113)")" "$before"
 same "24-across stays where the paper put it" "$(groups "$(at cryptic-113)")" \
-  '[["16-down", null], ["13-across", null], ["1-down", null], ["18-down", ["18-down", "24-across"]], ["24-across", ["18-down", "24-across"]]]'
-
-echo "a group naming a light the puzzle does not have is dropped, not shortened"
-out=$(one cryptic-114)
-check "$out" "cryptic-114" "the puzzle is reported"
-check "$out" "3 one-sided group(s) dropped" "all three lights that named 18-down"
-check "$out" "WARNING: 17-across: 18-down is in no group with it" \
-  "warned on stderr, naming the light that is not there"
-check "$out" "is an answer with a light missing — group dropped" "and why the whole group goes"
-same "a dry run wrote nothing" "$(groups "$(at cryptic-114)")" \
-  '[["13-across", ["13-across", "18-down", "20-across"]], ["17-across", ["17-across", "18-down", "20-across"]], ["18-across", ["18-across", "20-across", "31-across"]], ["20-across", ["13-across", "18-down", "20-across"]], ["31-across", ["18-across", "20-across", "31-across"]]]'
-one cryptic-114 --apply >/dev/null
-same "no group names 18-down, and NEW WORLD ORDER is untouched behind a light that names three leaders" \
-  "$(groups "$(at cryptic-114)")" \
-  '[["13-across", ["13-across", "20-across"]], ["17-across", null], ["18-across", ["18-across", "20-across", "31-across"]], ["20-across", ["13-across", "20-across"]], ["31-across", ["18-across", "20-across", "31-across"]]]'
-absent "$(one cryptic-114)" "cryptic-114:" "clean on the second run"
-
-echo "a group naming a light that stores an answer of its own is dropped"
-out=$(one cryptic-115)
-check "$out" "cryptic-115: 2 one-sided group(s) dropped: 6-down 6-down + 20-across, 8-down 8-down + 17-across" \
-  "both claims, and neither of the lights they were made on"
-check "$out" "WARNING: 6-down: 20-across is in no group with it" \
-  "warned on stderr, naming the light that stores another answer"
-one cryptic-115 --apply >/dev/null
-same "ASIA MINOR and DRUM MAJOR go, MAJOR AND MINOR stays whole" \
-  "$(groups "$(at cryptic-115)")" \
-  '[["6-down", null], ["8-down", null], ["17-across", ["17-across", "19-across", "20-across"]], ["19-across", ["17-across", "19-across", "20-across"]], ["20-across", ["17-across", "19-across", "20-across"]]]'
-absent "$(one cryptic-115)" "cryptic-115:" "clean on the second run"
+  '[["16-down", null], ["13-across", null], ["1-down", null], ["18-down", ["18-down", "24-across"]], ["24-across", null]]'
 
 echo "a date its own neighbours contradict is reported and never guessed at"
 out=$(run)

@@ -112,6 +112,16 @@ del fresh["provenance"]
 got = write("refetch-keeps-acquiredOn", fresh, over=p)
 print("ACQUIRED", got and got["provenance"]["acquiredOn"])
 
+p = copy.deepcopy(indy)
+lead, cont = p["entries"][0], p["entries"][1]
+lead["clue"] = fetcher.ENUMERATION.sub(f"({lead['length']},{cont['length']})", lead["clue"])
+cont["clue"] = f"See {lead['number']}"
+lead["group"] = cont["group"] = [lead["id"], cont["id"]]
+cont.pop("annotation", None)
+write("continuation-holds-group", p)
+del cont["group"]
+write("leader-holds-group", p)
+
 quick = real("timesquick-2000")
 p = copy.deepcopy(quick)
 lead = next(e for e in p["entries"] if not fetcher.is_continuation(e["clue"]))
@@ -156,6 +166,8 @@ PY
 )
 echo "every puzzle write runs the corpus sweep's per-puzzle checks"
 same "a healthy puzzle writes" "$(grep '^WROTE healthy$' <<<"$out")" "WROTE healthy"
+same "a group held by its leader alone writes" "$(grep ' leader-holds-group' <<<"$out")" "WROTE leader-holds-group"
+same "a continuation holding the group is refused" "$(grep ' continuation-holds-group' <<<"$out")" "REFUSED continuation-holds-group SHAPE"
 same "a placeholder setter is refused" "$(grep ' placeholder-setter' <<<"$out")" "REFUSED placeholder-setter SETTER"
 same "a syndication suffix on a setter is refused" "$(grep ' licensed-setter' <<<"$out")" "REFUSED licensed-setter SETTER"
 same "a setter with stray whitespace is refused" "$(grep ' padded-setter' <<<"$out")" "REFUSED padded-setter SETTER"

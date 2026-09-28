@@ -262,7 +262,7 @@ def build(record, identifier, model, unsolved=False):
             e["clue"] = f"{e['clue']} ({enumeration})"
         if seps.get(e["id"]):
             e["separatorLocations"] = seps[e["id"]]
-        if e["id"] in groups:
+        if groups.get(e["id"], [None])[0] == e["id"]:
             e["group"] = list(groups[e["id"]])
         # null, not absent, on an unsolved puzzle: that is how every unsolved
         # puzzle in this corpus spells an unanswered light.

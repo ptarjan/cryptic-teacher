@@ -379,7 +379,7 @@ def build(rec, row, series, date, setter, typed=None):
             if seps:
                 by_id[gid]["separatorLocations"] = seps
     for e in out:
-        if e["id"] in groups:
+        if groups.get(e["id"], [None])[0] == e["id"]:
             e["group"] = list(groups[e["id"]])
         e["solution"] = e.pop("solution")  # last, as every other series writes it
 

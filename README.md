@@ -163,8 +163,19 @@ Shape:
   - `pieces` must concatenate to the answer.
   - `subAnagrams` and `subReversals` verify embedded steps.
   - A hidden answer must appear inside the clue's letters.
-- Linked entries: the group's first entry carries the full annotation and
-  `"coversGroup": true`. The others carry `{"linkedTo": "<first-id>"}`.
+- Linked answers (one answer over several lights, "See 21"): the leader, the
+  light the answer starts on, carries `group`, the answer's entry ids in
+  order with its own first, and the one annotation, whose `answer` is the
+  whole answer. The other lights carry neither a group nor an annotation, so
+  a light's leader is the entry whose `group` names it. A light whose clue
+  continues two answers ("See 19, 22") is in both leaders' groups.
+
+  ```jsonc
+  {"id": "21-across", "clue": "‘Army-stopper’ inventor exploded, making a big noise (4,9,6)",
+   "group": ["21-across", "25-across"], "solution": "VERY",
+   "annotation": {"answer": "VERY IMPORTANT PERSON", …}},
+  {"id": "25-across", "clue": "See 21", "solution": "IMPORTANTPERSON"}
+  ```
 - `preamble` (puzzle level) is the paper's note above the clues: a themed
   puzzle's special instructions ("Seven solutions, not defined, are linked"),
   or an erratum. The Guardian fetcher takes it from the page's `instructions`,

@@ -168,7 +168,7 @@ print("CORRECTED", c.corroborate(served, [lambda _p: []])["entries"][-1]["soluti
 print("LETTERS", c.letters("gets-ready"), c.letters("Détente"), c.answer_letters("ANYONE/CERISE"))
 linked = puzzle("quiptic-900", AGREED + [
     light(8, "across", 0, 16, "TEAM", group=["8-across", "9-across"]),
-    light(9, "across", 5, 16, "MATE", group=["8-across", "9-across"])])
+    light(9, "across", 5, 16, "MATE")])
 print("LINKED", len(settled(linked, source("f", "fifteensquared",
                                             answers={**AGREED_ANSWERS, "8-across": c.letters("TEAM MATE")}))))
 

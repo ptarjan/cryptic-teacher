@@ -8,7 +8,9 @@ series numbers from 1 and the number alone names nothing.
 ## What to produce
 
 One file, `tools/_ann_<ID>.json`: a single object with a key for every entry id, and
-`null` for a clue not done yet.
+`null` for a clue not done yet. A linked answer is annotated once, on its leader (the
+entry with a `group`), with the whole answer as `answer`; every other light in the
+group ("See 21") is `null`.
 
 ```json
 {"1-across": { ...annotation... }, "5-across": { ...annotation... }, "12-across": null}

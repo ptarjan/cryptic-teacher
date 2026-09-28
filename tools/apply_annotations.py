@@ -45,6 +45,7 @@ from pathlib import Path
 TOOLS = Path(__file__).resolve().parent
 sys.path.insert(0, str(TOOLS))
 import provenance  # noqa: E402
+import groups  # noqa: E402 — linked answers
 from fetch_puzzle import read_puzzle_file, resolve_puzzle, write_puzzle_file  # noqa: E402
 
 # The commands whose Bash call is the one running this file right now.
@@ -151,10 +152,13 @@ def annotator(by, pid):
 
 def apply(path, annotations, by=None):
     puzzle = read_puzzle_file(path)
-    ids = [e["id"] for e in puzzle["entries"]]
+    continuations = groups.leader_of(puzzle["entries"])
+    ids = [e["id"] for e in puzzle["entries"] if e["id"] not in continuations]
     missing = [i for i in ids if i not in annotations]
-    extra = [k for k in annotations if k not in ids]
-    if missing or extra:
+    extra = [k for k in annotations if k not in ids and k not in continuations]
+    covered = [f"{k} (annotate it on {continuations[k]})" for k in annotations
+               if k in continuations and annotations[k] is not None]
+    if missing or extra or covered:
         why = []
         if missing:
             why.append("no annotation for " + ", ".join(missing) +
@@ -163,10 +167,16 @@ def apply(path, annotations, by=None):
         if extra:
             why.append("not a clue in this puzzle: " + ", ".join(extra) +
                        " — the ids are " + ", ".join(ids[:4]) + ", ...")
+        if covered:
+            why.append("continues a linked answer, so it takes null and its "
+                       "leader's annotation covers the whole answer: "
+                       + ", ".join(covered))
         raise SystemExit(f"apply_annotations: {path.name}: " + "; ".join(why))
     had_hints = provenance.has_hints(puzzle)
     before = [e.get("annotation") for e in puzzle["entries"]]
     for entry in puzzle["entries"]:
+        if entry["id"] in continuations:
+            continue
         ann = annotations[entry["id"]]
         if ann is None:
             entry.pop("annotation", None)

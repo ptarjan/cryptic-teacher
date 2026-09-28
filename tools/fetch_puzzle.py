@@ -55,6 +55,7 @@ import corroborate  # every other source we hold; see tools/corroborate.py
 import clue_types  # the closed list of clue types; see tools/clue_types.py
 import puzzle_schema  # noqa: E402 — the file's shape and presence rule; see tools/puzzle_schema.py
 import puzzle_paths  # noqa: E402 — where each file lives; see tools/puzzle_paths.py
+import groups  # noqa: E402 — linked answers; see tools/groups.py
 import definitions  # where each definition sits in its clue; see tools/definitions.py
 from puzzle_paths import (  # noqa: E402, F401 — re-exported for the tools that ask here
     puzzle_path, puzzle_files, resolve_puzzle, shim_path)
@@ -301,7 +302,7 @@ def is_continuation(clue):
 
 # The exemption every rule about linked groups needs, stated once. Read by
 # prune_one_sided_members below and by tools/validate_annotations.py
-# check_groups_agree, which must agree about which disagreements are the
+# check_groups, which must agree about which disagreements are the
 # paper's doing rather than a fetch's.
 LEADERS_NAMED = re.compile(r"\s*See\s+([\d,\s and]+?)\.?\s*", re.IGNORECASE)
 
@@ -1018,7 +1019,7 @@ def prune_one_sided_members(entries):
     A light whose own clue names SEVERAL leading clues is exempt and holds any
     group it is named in: it ends more than one answer, so it cannot store every
     group it is in and its silence is not evidence against anybody's claim. See
-    leaders_named, which tools/validate_annotations.py check_groups_agree asks
+    leaders_named, which tools/validate_annotations.py check_groups asks
     the same way — the fetcher and that check must exempt the same clues, or one
     of them is writing what the other rejects.
 
@@ -1763,6 +1764,9 @@ def convert(data):
     prune_one_sided_members(entries)
     dissolve_false_groups(entries, series)
     reconstruct_groups(entries, series)
+    # The paper states a group on every light it covers; the file keeps it on
+    # the leader alone. See tools/groups.py.
+    groups.collapse(entries)
     # Say it here, where the paper's own data is still in front of us.
     # Downstream a wordless clue is indistinguishable from a hard one: a cold
     # solve burns inference guessing it off the crossings, and the annotator
@@ -2018,7 +2022,8 @@ def print_grade(puzzle, graded):
 
 
 def puzzle_is_annotated(puzzle):
-    """Every clue that CAN be annotated has been.
+    """Every clue that CAN be annotated has been. A linked answer's
+    continuation is annotated by its leader's annotation.
 
     A clue the paper published with no words in it is not a gap in this site's
     work and never will be: there is nothing to explain, and no annotator,
@@ -2026,7 +2031,9 @@ def puzzle_is_annotated(puzzle):
     marks that puzzle permanently un-annotated, which buys a full annotation
     run on it every night, for ever, to solve the clues that were already done.
     """
+    continuations = groups.leader_of(puzzle["entries"])
     return all("annotation" in e or not has_words(e["clue"])
+               or e["id"] in continuations
                for e in puzzle["entries"])
 
 

@@ -371,5 +371,6 @@ elements checked nothing.
 
 ## Existing schema rules
 See `tools/annotate_prompt.md`: definition and indicator strings are verbatim
-substrings of the clue, pieces and fodder are letter-perfect, grouped entries
-get `linkedTo` stubs, and the validator must pass before commit.
+substrings of the clue, pieces and fodder are letter-perfect, a linked answer
+is annotated once on its leader (the entry carrying `group`) and its other
+lights not at all, and the validator must pass before commit.

@@ -46,9 +46,9 @@ check("a group's enumeration is split across its lights",
       seps({"id": "1", "length": 7, "clue": "Q (4,3,5)", "group": ["1", "2"]},
            {"id": "2", "length": 5, "clue": "See 1"}),
       [{",": [4, 7]}, None])
-check("only the group's first light splits the group's enumeration",
-      seps({"id": "8", "length": 4, "clue": "Q (3,5)", "group": ["9", "8"]},
-           {"id": "9", "length": 4, "clue": "x"}),
+check("a continuation printing the whole answer's count splits nothing",
+      seps({"id": "9", "length": 4, "clue": "x", "group": ["9", "8"]},
+           {"id": "8", "length": 4, "clue": "Q (3,5)"}),
       [None, None])
 check("a group head whose own light is the phrase",
       seps({"id": "1", "length": 10, "clue": "Q (7,3)", "group": ["1", "2"]},

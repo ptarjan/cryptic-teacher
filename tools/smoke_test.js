@@ -2838,7 +2838,6 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
       + JSON.stringify(runs('<mark class="def ind" data-edge="start end">x</mark>')));
     const checkMarks = (id, e) => {
       const ann = e.annotation;
-      if (ann.linkedTo) return;                     // renders its holder's text
       const rs = runs(registry["hint-clue"].innerHTML);
       const plain = rs.map((r) => r.text).join("");
       assert(plain === e.clue,
@@ -3121,8 +3120,8 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
       for (const e of puzzles[id].entries || []) {
         const a = e.annotation;
         // the indicator has to literally occur in the clue or there is nothing
-        // to mark, and a linked clue renders its holder's text instead
-        if (a && !a.linkedTo && (a.indicators || []).some((s) => e.clue.includes(s.text))) return { id, e };
+        // to mark
+        if (a && (a.indicators || []).some((s) => e.clue.includes(s.text))) return { id, e };
       }
     }
     return null;
@@ -3780,8 +3779,8 @@ registry["reset-puzzle"].onclick();
   for (let i = 0; i < 40 && !solo; i++) {
     kd(ev("Tab"));
     const e = currentEntry();
-    if (e && e.solution && !(e.annotation && e.annotation.linkedTo)
-      && !openPuz.entries.some((g) => g.annotation && g.annotation.linkedTo === e.id)) solo = e;
+    if (e && e.solution && !e.group
+      && !openPuz.entries.some((g) => (g.group || []).includes(e.id))) solo = e;
   }
   assert(solo, "found an unlinked entry with a published answer to solve");
   assert(registry["hint-next"].children.some((b) => b.disabled),
@@ -4103,11 +4102,10 @@ registry["reset-puzzle"].onclick();
 
   // The leading light's own share of a linked answer: the first `length`
   // squares' worth of letters, returned only when the answer really does break
-  // there. Anything else — the entry is not the leader, the answer is too
-  // short, the boundary lands mid-word — is a statement about the group's
+  // there. Anything else — the answer is too short, the boundary lands
+  // mid-word — is a statement about the group's
   // shape rather than about the strip, and is not this check's business.
   const leadShare = (e, ans) => {
-    if (e.group[0] !== e.id) return null;
     let letters = 0, cut = -1;
     for (let i = 0; i < ans.length; i++) {
       if (!/[ \-–'’]/.test(ans[i])) letters++;
@@ -4130,7 +4128,7 @@ registry["reset-puzzle"].onclick();
       // the leading light alone, and then the strip is dividing that light's
       // share of the answer and only that share is what it can be checked
       // against. A continuation reads "see 16dn." and has no enumeration at all.
-      const text = e.group && e.group.length > 1 ? leadShare(e, ans) : ans;
+      const text = e.group ? leadShare(e, ans) : ans;
       if (text === null) return;
       // An apostrophe occupies no square, and the Guardian counts HOW'S as four
       // — so it is taken out of both sides rather than compared. An enumeration
@@ -5284,7 +5282,7 @@ global.realSetTimeout(() => {
   for (const id of Object.keys(puzzles).sort()) {
     for (const e of puzzles[id].entries || []) {
       const a = e.annotation;
-      if (!a || a.linkedTo) continue;
+      if (!a) continue;
       if ((a.blocks || []).length >= 2 && (a.blocks || []).some((b) => b.gives)) {
         target = { id, e };
         break;
@@ -5909,7 +5907,7 @@ global.realSetTimeout(() => {
     for (const id of Object.keys(puzzles).sort()) {
       for (const e of puzzles[id].entries || []) {
         const a = e.annotation;
-        if (a && !a.linkedTo && JSON.stringify(a.type) === JSON.stringify([name])) return { id, e, a };
+        if (a && JSON.stringify(a.type) === JSON.stringify([name])) return { id, e, a };
       }
     }
     return null;
@@ -6034,7 +6032,7 @@ global.realSetTimeout(() => {
   for (const id of Object.keys(puzzles).sort()) {
     for (const e of puzzles[id].entries || []) {
       const a = e.annotation;
-      if (!a || a.linkedTo || JSON.stringify(a.type) !== '["double_definition"]' || defTexts(a).length < 2) continue;
+      if (!a || JSON.stringify(a.type) !== '["double_definition"]' || defTexts(a).length < 2) continue;
       const bl = a.blocks || [];
       if (!pure && bl.length === 2 && bl.every((b) => isDef(a, b) && plain(b))) pure = { id, e, bl };
       if (!third && bl.some((b) => !isDef(a, b) && plain(b) && bare(b.gives) && !defTexts(a).join(" ")
@@ -6107,7 +6105,7 @@ global.realSetTimeout(() => {
   for (const id of Object.keys(puzzles).sort()) {
     for (const e of puzzles[id].entries || []) {
       const a = e.annotation;
-      if (!a || a.linkedTo || defTexts(a).length > 1 || !claimed(e, a)) continue;
+      if (!a || defTexts(a).length > 1 || !claimed(e, a)) continue;
       const bl = a.blocks || [];
       const bare = (t) => String(t || "").replace(/[^A-Za-z]/g, "").toUpperCase();
       // Fodder written as its own letters never asked; fodder that resolves to
