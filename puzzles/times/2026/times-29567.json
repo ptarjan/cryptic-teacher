@@ -47,11 +47,12 @@
     "answer": "BECKON",
     "definition": "Summon",
     "indicators": [
-     "when denied"
+     {
+      "text": "when denied",
+      "for": "deletion",
+      "note": "a word denied something has to go without it, so RECKON loses its R"
+     }
     ],
-    "indicatorNotes": {
-     "when denied": "a word denied something has to go without it, so RECKON loses its R"
-    },
     "pieces": [
      "B",
      "ECKON"
@@ -103,11 +104,11 @@
     "answer": "BRING ABOUT",
     "definition": "Produce",
     "indicators": [
-     "out of place"
+     {
+      "text": "out of place",
+      "note": "the O is in the wrong word: it leaves BORING and turns up in BUT"
+     }
     ],
-    "indicatorNotes": {
-     "out of place": "the O is in the wrong word: it leaves BORING and turns up in BUT"
-    },
     "pieces": [
      "BRING",
      "A",
@@ -296,11 +297,12 @@
     "answer": "AHA",
     "definition": "I see now",
     "indicators": [
-     "at first hidden"
+     {
+      "text": "at first hidden",
+      "for": "deletion",
+      "note": "the first letter is hidden from view, so it drops out"
+     }
     ],
-    "indicatorNotes": {
-     "at first hidden": "the first letter is hidden from view, so it drops out"
-    },
     "pieces": [
      "AHA"
     ],
@@ -309,10 +311,6 @@
       "clueFragment": "Ditch",
       "gives": "HAHA",
       "note": "a sunken boundary ditch on a country estate, named for the surprise of finding it"
-     },
-     {
-      "clueFragment": "at first hidden",
-      "note": "deletion indicator: the first H goes"
      }
     ],
     "surface": "A trench that was invisible at first suddenly becomes visible.",
@@ -344,11 +342,12 @@
     "answer": "SPINNAKER",
     "definition": "sail",
     "indicators": [
-     "cut by"
+     {
+      "text": "cut by",
+      "for": "container",
+      "note": "PIN slices into the middle of SNAKER"
+     }
     ],
-    "indicatorNotes": {
-     "cut by": "PIN slices into the middle of SNAKER"
-    },
     "blocks": [
      {
       "clueFragment": "Wind",
@@ -400,13 +399,15 @@
     "answer": "CHILLED",
     "definition": "Very leisurely",
     "indicators": [
-     "climbing",
-     "bagging"
+     {
+      "text": "climbing",
+      "note": "in a down entry, climbing means reading upwards, so DEC becomes CED"
+     },
+     {
+      "text": "bagging",
+      "note": "to bag is to capture, so CED takes HILL inside it"
+     }
     ],
-    "indicatorNotes": {
-     "climbing": "in a down entry, climbing means reading upwards, so DEC becomes CED",
-     "bagging": "to bag is to capture, so CED takes HILL inside it"
-    },
     "blocks": [
      {
       "clueFragment": "last month",
@@ -588,11 +589,12 @@
      "from"
     ],
     "indicators": [
-     "supply"
+     {
+      "text": "supply",
+      "for": "anagram",
+      "note": "read as the adverb of supple: the letters are bent into a new shape"
+     }
     ],
-    "indicatorNotes": {
-     "supply": "read as the adverb of supple: the letters are bent into a new shape"
-    },
     "anagram": {
      "fodder": "IRAQI FUEL"
     },
@@ -601,10 +603,6 @@
       "clueFragment": "Iraqi fuel",
       "gives": "IRAQIFUEL",
       "note": "anagram fodder, 9 letters"
-     },
-     {
-      "clueFragment": "supply",
-      "note": "anagram indicator"
      }
     ],
     "surface": "Heat produced by oil from Iraq.",
@@ -641,11 +639,12 @@
     "answer": "GRAND NATIONAL",
     "definition": "race",
     "indicators": [
-     "collected by"
+     {
+      "text": "collected by",
+      "for": "container",
+      "note": "NDNA is gathered inside RATIONAL"
+     }
     ],
-    "indicatorNotes": {
-     "collected by": "NDNA is gathered inside RATIONAL"
-    },
     "blocks": [
      {
       "clueFragment": "Good",
@@ -702,19 +701,16 @@
     "answer": "IDEALISTIC",
     "definition": "Impractical",
     "indicators": [
-     "doctor"
+     {
+      "text": "doctor",
+      "for": "anagram",
+      "note": "as a verb, to doctor is to tamper with, so the letters are altered"
+     }
     ],
-    "indicatorNotes": {
-     "doctor": "as a verb, to doctor is to tamper with, so the letters are altered"
-    },
     "anagram": {
      "fodder": "ELICITS AID"
     },
     "blocks": [
-     {
-      "clueFragment": "doctor",
-      "note": "anagram indicator"
-     },
      {
       "clueFragment": "elicits aid",
       "gives": "ELICITSAID",
@@ -751,15 +747,22 @@
     "answer": "MONDEGREEN",
     "definition": "Words misinterpreted",
     "indicators": [
-     "say",
-     "opening",
-     "case"
+     {
+      "text": "say",
+      "for": "letter_selection",
+      "note": "BA is given as an example of a degree"
+     },
+     {
+      "text": "opening",
+      "for": "container",
+      "note": "ON DEGREE opens up the middle of Macron's case"
+     },
+     {
+      "text": "case",
+      "for": "letter_selection",
+      "note": "a word's case is its outside, its first and last letters"
+     }
     ],
-    "indicatorNotes": {
-     "say": "BA is given as an example of a degree",
-     "opening": "ON DEGREE opens up the middle of Macron's case",
-     "case": "a word's case is its outside, its first and last letters"
-    },
     "blocks": [
      {
       "clueFragment": "Macron’s case",
@@ -813,13 +816,17 @@
     "answer": "BLASPHEME",
     "definition": "Utter profanity",
     "indicators": [
-     "regularly",
-     "out"
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "take every other letter of MY HEAD: M, H, A"
+     },
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out of order, so the letters are mixed"
+     }
     ],
-    "indicatorNotes": {
-     "regularly": "take every other letter of MY HEAD: M, H, A",
-     "out": "out of order, so the letters are mixed"
-    },
     "anagram": {
      "fodder": "MHA BLEEPS"
     },
@@ -870,11 +877,12 @@
     "answer": "PIECE RATE",
     "definition": "Pay for each item",
     "indicators": [
-     "put in"
+     {
+      "text": "put in",
+      "for": "container",
+      "note": "E is placed inside PIE CRATE"
+     }
     ],
-    "indicatorNotes": {
-     "put in": "E is placed inside PIE CRATE"
-    },
     "blocks": [
      {
       "clueFragment": "pastry",
@@ -927,13 +935,15 @@
     "answer": "KIDDO",
     "definition": "Dear boy",
     "indicators": [
-     "turned",
-     "in the end"
+     {
+      "text": "turned",
+      "note": "the whole string is turned round"
+     },
+     {
+      "text": "in the end",
+      "note": "take only the end letter of THINK"
+     }
     ],
-    "indicatorNotes": {
-     "turned": "the whole string is turned round",
-     "in the end": "take only the end letter of THINK"
-    },
     "blocks": [
      {
       "clueFragment": "queer",
@@ -990,11 +1000,12 @@
     "answer": "UNDUE",
     "definition": "too much",
     "indicators": [
-     "heard"
+     {
+      "text": "heard",
+      "for": "homophone",
+      "note": "only the sound of 'you' is wanted, not its spelling"
+     }
     ],
-    "indicatorNotes": {
-     "heard": "only the sound of 'you' is wanted, not its spelling"
-    },
     "pieces": [
      "UND",
      "UE"
@@ -1041,13 +1052,15 @@
     "answer": "DIPTYCH",
     "definition": "pair of pictures",
     "indicators": [
-     "fiddled with",
-     "a misplaced"
+     {
+      "text": "fiddled with",
+      "note": "fiddling with the letters rearranges them"
+     },
+     {
+      "text": "a misplaced",
+      "note": "the A has gone missing from the letters"
+     }
     ],
-    "indicatorNotes": {
-     "fiddled with": "fiddling with the letters rearranges them",
-     "a misplaced": "the A has gone missing from the letters"
-    },
     "anagram": {
      "fodder": "TIDY CHP"
     },
@@ -1093,13 +1106,15 @@
     "answer": "POLARISED",
     "definition": "in opposing camps",
     "indicators": [
-     "Incomplete",
-     "differently"
+     {
+      "text": "Incomplete",
+      "note": "POLL loses its last letter"
+     },
+     {
+      "text": "differently",
+      "note": "IS READ is arranged differently"
+     }
     ],
-    "indicatorNotes": {
-     "Incomplete": "POLL loses its last letter",
-     "differently": "IS READ is arranged differently"
-    },
     "subAnagrams": [
      {
       "fodder": "ISREAD",
@@ -1194,11 +1209,12 @@
     "answer": "PREPOSSESSING",
     "definition": "Attractive",
     "indicators": [
-     "trousers"
+     {
+      "text": "trousers",
+      "for": "container",
+      "note": "as a verb, to trouser is to pocket, so PRESSING takes POSSE inside it"
+     }
     ],
-    "indicatorNotes": {
-     "trousers": "as a verb, to trouser is to pocket, so PRESSING takes POSSE inside it"
-    },
     "blocks": [
      {
       "clueFragment": "ironing",
@@ -1247,13 +1263,15 @@
     "answer": "SALSA",
     "definition": "dance",
     "indicators": [
-     "Recalled",
-     "50 per cent of"
+     {
+      "text": "Recalled",
+      "note": "called back, so the letters run backwards, upward in this down entry"
+     },
+     {
+      "text": "50 per cent of",
+      "note": "fifty per cent is a half, so only half the letters of LASSES are kept: its first three"
+     }
     ],
-    "indicatorNotes": {
-     "Recalled": "called back, so the letters run backwards, upward in this down entry",
-     "50 per cent of": "fifty per cent is a half, so only half the letters of LASSES are kept: its first three"
-    },
     "blocks": [
      {
       "clueFragment": "seeing that",
@@ -1303,20 +1321,17 @@
     "answer": "PLEA",
     "definition": "Legal statement",
     "indicators": [
-     "back-to-front"
+     {
+      "text": "back-to-front",
+      "for": "cycling",
+      "note": "the back letter comes to the front"
+     }
     ],
-    "indicatorNotes": {
-     "back-to-front": "the back letter comes to the front"
-    },
     "blocks": [
      {
       "clueFragment": "bound",
       "gives": "LEAP",
       "note": "to bound is to leap"
-     },
-     {
-      "clueFragment": "back-to-front",
-      "note": "cycling indicator: the last letter moves to the front"
      }
     ],
     "pieces": [
@@ -1401,11 +1416,12 @@
     "answer": "DIE",
     "definition": "Long",
     "indicators": [
-     "if unoccupied"
+     {
+      "text": "if unoccupied",
+      "for": "letter_selection",
+      "note": "an unoccupied word has had everything inside it cleared out, leaving only its first and last letters"
+     }
     ],
-    "indicatorNotes": {
-     "if unoccupied": "an unoccupied word has had everything inside it cleared out, leaving only its first and last letters"
-    },
     "pieces": [
      "D",
      "IE"
@@ -1451,11 +1467,12 @@
     "answer": "LATHE",
     "definition": "Spinner",
     "indicators": [
-     "running through"
+     {
+      "text": "running through",
+      "for": "hidden_word",
+      "note": "the answer runs through the words, across the gap between them"
+     }
     ],
-    "indicatorNotes": {
-     "running through": "the answer runs through the words, across the gap between them"
-    },
     "blocks": [
      {
       "clueFragment": "tail at Headingley",
@@ -1542,11 +1559,12 @@
     "answer": "CANNON",
     "definition": "Nelson’s arm?",
     "indicators": [
-     "Almost"
+     {
+      "text": "Almost",
+      "for": "deletion",
+      "note": "NONE falls one letter short"
+     }
     ],
-    "indicatorNotes": {
-     "Almost": "NONE falls one letter short"
-    },
     "pieces": [
      "CAN",
      "NON"

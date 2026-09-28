@@ -49,13 +49,17 @@
     "answer": "TIMEKEEPER",
     "definition": "recorder of minutes",
     "indicators": [
-     "around",
-     "withdrawn"
+     {
+      "text": "around",
+      "for": "container",
+      "note": "the support wraps round the leader's name"
+     },
+     {
+      "text": "withdrawn",
+      "for": "reversal",
+      "note": "withdrawn = drawn back, so the name reads backwards"
+     }
     ],
-    "indicatorNotes": {
-     "around": "the support wraps round the leader's name",
-     "withdrawn": "withdrawn = drawn back, so the name reads backwards"
-    },
     "blocks": [
      {
       "clueFragment": "Support",
@@ -114,11 +118,12 @@
     "answer": "TICKER",
     "definition": "heart",
     "indicators": [
-     "not having leader"
+     {
+      "text": "not having leader",
+      "for": "deletion",
+      "note": "the word loses its first letter"
+     }
     ],
-    "indicatorNotes": {
-     "not having leader": "the word loses its first letter"
-    },
     "linkWords": [
      "’s"
     ],
@@ -127,10 +132,6 @@
       "clueFragment": "Adherent",
       "gives": "STICKER",
       "note": "a sticker is someone who sticks to a cause"
-     },
-     {
-      "clueFragment": "not having leader",
-      "note": "drop the first letter, S"
      }
     ],
     "pieces": [
@@ -164,11 +165,12 @@
     "answer": "MEAGRE",
     "definition": "lacking",
     "indicators": [
-     "somewhat"
+     {
+      "text": "somewhat",
+      "for": "hidden_word",
+      "note": "only some of the words is used, so the answer sits inside them"
+     }
     ],
-    "indicatorNotes": {
-     "somewhat": "only some of the words is used, so the answer sits inside them"
-    },
     "blocks": [
      {
       "clueFragment": "Some agreements",
@@ -210,11 +212,12 @@
     "answer": "KITCHEN CABINET",
     "definition": "Unit of storage",
     "indicators": [
-     "recalibrated"
+     {
+      "text": "recalibrated",
+      "for": "anagram",
+      "note": "the letters are set up afresh in a new order"
+     }
     ],
-    "indicatorNotes": {
-     "recalibrated": "the letters are set up afresh in a new order"
-    },
     "subAnagrams": [
      {
       "fodder": "KBTECHNICIAN",
@@ -272,11 +275,12 @@
     "answer": "EXTENUATE",
     "definition": "Underrate",
     "indicators": [
-     "across"
+     {
+      "text": "across",
+      "for": "container",
+      "note": "the distance stretches across the country code, holding it"
+     }
     ],
-    "indicatorNotes": {
-     "across": "the distance stretches across the country code, holding it"
-    },
     "linkWords": [
      "and"
     ],
@@ -332,13 +336,17 @@
     "answer": "ERICA",
     "definition": "Plant",
     "indicators": [
-     "unlimited",
-     "in"
+     {
+      "text": "unlimited",
+      "for": "deletion",
+      "note": "without its limits, the first and last letters"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the remaining letters sit in the other word"
+     }
     ],
-    "indicatorNotes": {
-     "unlimited": "without its limits, the first and last letters",
-     "in": "the remaining letters sit in the other word"
-    },
     "blocks": [
      {
       "clueFragment": "time",
@@ -386,13 +394,15 @@
     "answer": "OPAL",
     "definition": "Rock",
     "indicators": [
-     "sacking",
-     "at the opening"
+     {
+      "text": "sacking",
+      "note": "sacking = throwing out, so ER is dropped"
+     },
+     {
+      "text": "at the opening",
+      "note": "only the first letter is used"
+     }
     ],
-    "indicatorNotes": {
-     "sacking": "sacking = throwing out, so ER is dropped",
-     "at the opening": "only the first letter is used"
-    },
     "blocks": [
      {
       "clueFragment": "opera",
@@ -443,11 +453,12 @@
     "answer": "PHISHING",
     "definition": "bait for unwary surfers",
     "indicators": [
-     "Caught"
+     {
+      "text": "Caught",
+      "for": "homophone",
+      "note": "to catch what someone says is to hear it, so the word is taken by ear"
+     }
     ],
-    "indicatorNotes": {
-     "Caught": "to catch what someone says is to hear it, so the word is taken by ear"
-    },
     "blocks": [
      {
       "clueFragment": "trawling",
@@ -486,11 +497,12 @@
     "answer": "LEGALISM",
     "definition": "strictly observing the law",
     "indicators": [
-     "regularly"
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly = at even intervals, so the letters are taken at a steady every-other-one rhythm"
+     }
     ],
-    "indicatorNotes": {
-     "regularly": "regularly = at even intervals, so the letters are taken at a steady every-other-one rhythm"
-    },
     "blocks": [
      {
       "clueFragment": "Support",
@@ -550,15 +562,20 @@
     "answer": "BLACK-MARKETEER",
     "definition": "Illicit trader",
     "indicators": [
-     "dodgy",
-     "about",
-     "after"
+     {
+      "text": "dodgy",
+      "for": "anagram",
+      "note": "dodgy = unsound, so the letters are rearranged"
+     },
+     {
+      "text": "about",
+      "note": "the rearranged word goes round the letter"
+     },
+     {
+      "text": "after",
+      "note": "this part comes after the colour"
+     }
     ],
-    "indicatorNotes": {
-     "dodgy": "dodgy = unsound, so the letters are rearranged",
-     "about": "the rearranged word goes round the letter",
-     "after": "this part comes after the colour"
-    },
     "linkWords": [
      "‘s"
     ],
@@ -665,15 +682,19 @@
     "answer": "TRIALLING",
     "definition": "testing",
     "indicators": [
-     "Briefly",
-     "admitting",
-     "back"
+     {
+      "text": "Briefly",
+      "note": "said briefly, a word is cut short, so its last letter is lost"
+     },
+     {
+      "text": "admitting",
+      "note": "letting the other letters in"
+     },
+     {
+      "text": "back",
+      "note": "going back means travelling the other way, so the letters run right to left"
+     }
     ],
-    "indicatorNotes": {
-     "Briefly": "said briefly, a word is cut short, so its last letter is lost",
-     "admitting": "letting the other letters in",
-     "back": "going back means travelling the other way, so the letters run right to left"
-    },
     "linkWords": [
      "for"
     ],
@@ -739,13 +760,17 @@
     "answer": "EARTHEN",
     "definition": "material for Planet Normal mug?",
     "indicators": [
-     "initially",
-     "chasing"
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially = at the start, so only the word's opening letter is used"
+     },
+     {
+      "text": "chasing",
+      "for": "letter_selection",
+      "note": "coming after the other piece"
+     }
     ],
-    "indicatorNotes": {
-     "initially": "initially = at the start, so only the word's opening letter is used",
-     "chasing": "coming after the other piece"
-    },
     "blocks": [
      {
       "clueFragment": "Planet",
@@ -800,13 +825,17 @@
     "answer": "ALCOHOL",
     "definition": "drink",
     "indicators": [
-     "to leave",
-     "dividing"
+     {
+      "text": "to leave",
+      "for": "deletion",
+      "note": "the last couple leave the party, so the final two letters depart from the word"
+     },
+     {
+      "text": "dividing",
+      "for": "container",
+      "note": "the result splits the other word in two"
+     }
     ],
-    "indicatorNotes": {
-     "to leave": "the last couple leave the party, so the final two letters depart from the word",
-     "dividing": "the result splits the other word in two"
-    },
     "blocks": [
      {
       "clueFragment": "everyone’s",
@@ -858,11 +887,12 @@
     "answer": "ENHANCEMENTS",
     "definition": "bleached highlights, for example",
     "indicators": [
-     "blend"
+     {
+      "text": "blend",
+      "for": "anagram",
+      "note": "the letters are mixed together"
+     }
     ],
-    "indicatorNotes": {
-     "blend": "the letters are mixed together"
-    },
     "subAnagrams": [
      {
       "fodder": "HENNA",
@@ -919,13 +949,17 @@
     "answer": "COME CLEAN",
     "definition": "Admit",
     "indicators": [
-     "involving",
-     "falling short"
+     {
+      "text": "involving",
+      "for": "container",
+      "note": "the fraud wraps round what follows"
+     },
+     {
+      "text": "falling short",
+      "for": "deletion",
+      "note": "the word stops a letter early"
+     }
     ],
-    "indicatorNotes": {
-     "involving": "the fraud wraps round what follows",
-     "falling short": "the word stops a letter early"
-    },
     "blocks": [
      {
       "clueFragment": "fraud",
@@ -979,15 +1013,19 @@
     "answer": "CLINICAL",
     "definition": "Detached",
     "indicators": [
-     "spray",
-     "endlessly",
-     "brought inside"
+     {
+      "text": "spray",
+      "note": "a spray scatters, so the letters are rearranged"
+     },
+     {
+      "text": "endlessly",
+      "note": "without an end, so the word's final letter is lost"
+     },
+     {
+      "text": "brought inside",
+      "note": "placed within the other letters"
+     }
     ],
-    "indicatorNotes": {
-     "spray": "a spray scatters, so the letters are rearranged",
-     "endlessly": "without an end, so the word's final letter is lost",
-     "brought inside": "placed within the other letters"
-    },
     "blocks": [
      {
       "clueFragment": "spray of lilac",
@@ -1094,11 +1132,12 @@
     "answer": "LOW-WATER MARK",
     "definition": "main retreat",
     "indicators": [
-     "phoney"
+     {
+      "text": "phoney",
+      "for": "anagram",
+      "note": "not genuine, so the letters are faked into a new order"
+     }
     ],
-    "indicatorNotes": {
-     "phoney": "not genuine, so the letters are faked into a new order"
-    },
     "linkWords": [
      "indicated"
     ],
@@ -1156,13 +1195,17 @@
      "to"
     ],
     "indicators": [
-     "following",
-     "heading off"
+     {
+      "text": "following",
+      "for": "deletion",
+      "note": "the letters that come after G in the alphabet"
+     },
+     {
+      "text": "heading off",
+      "for": "deletion",
+      "note": "the first letter is removed"
+     }
     ],
-    "indicatorNotes": {
-     "following": "the letters that come after G in the alphabet",
-     "heading off": "the first letter is removed"
-    },
     "blocks": [
      {
       "clueFragment": "Three characters following Golf",
@@ -1207,20 +1250,17 @@
     "answer": "OCULAR",
     "definition": "Looker’s",
     "indicators": [
-     "taking off top"
+     {
+      "text": "taking off top",
+      "for": "deletion",
+      "note": "the first letter is removed"
+     }
     ],
-    "indicatorNotes": {
-     "taking off top": "the first letter is removed"
-    },
     "blocks": [
      {
       "clueFragment": "light-hearted",
       "gives": "JOCULAR",
       "note": "jocular = playful, light-hearted"
-     },
-     {
-      "clueFragment": "taking off top",
-      "note": "remove the first letter, J"
      }
     ],
     "pieces": [
@@ -1258,13 +1298,17 @@
     "answer": "NEEDING",
     "definition": "Lacking",
     "indicators": [
-     "originally",
-     "absorbs"
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "originally = at its origin, so only the first letter of grid is used"
+     },
+     {
+      "text": "absorbs",
+      "for": "container",
+      "note": "a sponge absorbs water by taking it in, so the name goes inside the letters"
+     }
     ],
-    "indicatorNotes": {
-     "originally": "originally = at its origin, so only the first letter of grid is used",
-     "absorbs": "a sponge absorbs water by taking it in, so the name goes inside the letters"
-    },
     "blocks": [
      {
       "clueFragment": "northern",
@@ -1317,11 +1361,12 @@
     "answer": "GHANA",
     "definition": "land",
     "indicators": [
-     "contributing"
+     {
+      "text": "contributing",
+      "for": "hidden_word",
+      "note": "the words each give part of the answer"
+     }
     ],
-    "indicatorNotes": {
-     "contributing": "the words each give part of the answer"
-    },
     "blocks": [
      {
       "clueFragment": "Plough a nation",
@@ -1358,13 +1403,15 @@
     "answer": "COELIAC",
     "definition": "someone avoiding gluten",
     "indicators": [
-     "only half",
-     "digested"
+     {
+      "text": "only half",
+      "note": "just half the word is used"
+     },
+     {
+      "text": "digested",
+      "note": "broken down, so the letters are rearranged"
+     }
     ],
-    "indicatorNotes": {
-     "only half": "just half the word is used",
-     "digested": "broken down, so the letters are rearranged"
-    },
     "linkWords": [
      "in"
     ],
@@ -1381,10 +1428,6 @@
       "clueFragment": "acid only half",
       "gives": "AC",
       "note": "first half of ACID"
-     },
-     {
-      "clueFragment": "digested",
-      "note": "anagram indicator"
      }
     ],
     "surface": "A diet note: a certain fatty acid is only partly absorbed by people on a gluten-free diet.",
@@ -1421,11 +1464,12 @@
     "answer": "CRIME WAVE",
     "definition": "outburst of bad behaviour",
     "indicators": [
-     "during"
+     {
+      "text": "during",
+      "for": "container",
+      "note": "happening within, so the letters go inside"
+     }
     ],
-    "indicatorNotes": {
-     "during": "happening within, so the letters go inside"
-    },
     "linkWords": [
      "in"
     ],
@@ -1481,13 +1525,15 @@
     "answer": "EMAIL",
     "definition": "message",
     "indicators": [
-     "behind",
-     "discovered"
+     {
+      "text": "behind",
+      "note": "coming after the other piece"
+     },
+     {
+      "text": "discovered",
+      "note": "dis-covered: its covering outer letters taken off"
+     }
     ],
-    "indicatorNotes": {
-     "behind": "coming after the other piece",
-     "discovered": "dis-covered: its covering outer letters taken off"
-    },
     "linkWords": [
      "in"
     ],
@@ -1536,11 +1582,12 @@
     "answer": "LOGO",
     "definition": "Device",
     "indicators": [
-     "content from"
+     {
+      "text": "content from",
+      "for": "hidden_word",
+      "note": "the contents of the phrase supply the letters"
+     }
     ],
-    "indicatorNotes": {
-     "content from": "the contents of the phrase supply the letters"
-    },
     "blocks": [
      {
       "clueFragment": "travelog ongoing",
@@ -1577,13 +1624,15 @@
     "answer": "PAWNBROKER",
     "definition": "Loan provider",
     "indicators": [
-     "misused",
-     "in"
+     {
+      "text": "misused",
+      "note": "used wrongly, so the letters are rearranged"
+     },
+     {
+      "text": "in",
+      "note": "the rearranged letters go inside"
+     }
     ],
-    "indicatorNotes": {
-     "misused": "used wrongly, so the letters are rearranged",
-     "in": "the rearranged letters go inside"
-    },
     "blocks": [
      {
       "clueFragment": "brawn",

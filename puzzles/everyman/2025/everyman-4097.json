@@ -87,11 +87,12 @@
     "answer": "ALOHA",
     "definition": "'Hello'",
     "indicators": [
-     "audible"
+     {
+      "text": "audible",
+      "for": "homophone",
+      "note": "What is audible is heard rather than read, so the words are worth their sound and not their spelling."
+     }
     ],
-    "indicatorNotes": {
-     "audible": "What is audible is heard rather than read, so the words are worth their sound and not their spelling."
-    },
     "blocks": [
      {
       "clueFragment": "A cow's",
@@ -135,11 +136,12 @@
     "answer": "ITERATE",
     "definition": "say again",
     "indicators": [
-     "but not"
+     {
+      "text": "but not",
+      "for": "deletion",
+      "note": "'But not' rules out what follows it, so the letter named there is struck from the letters already found."
+     }
     ],
-    "indicatorNotes": {
-     "but not": "'But not' rules out what follows it, so the letter named there is struck from the letters already found."
-    },
     "pieces": [
      "ITERATE"
     ],
@@ -192,11 +194,12 @@
      "and"
     ],
     "indicators": [
-     "grasping"
+     {
+      "text": "grasping",
+      "for": "container",
+      "note": "Something grasping closes its hands round what is next to it, so the letters named after it go inside the ones named before."
+     }
     ],
-    "indicatorNotes": {
-     "grasping": "Something grasping closes its hands round what is next to it, so the letters named after it go inside the ones named before."
-    },
     "pieces": [
      "G",
      "OLD",
@@ -249,11 +252,12 @@
     "answer": "MOPES",
     "definition": "sulks",
     "indicators": [
-     "when rebuffed"
+     {
+      "text": "when rebuffed",
+      "for": "reversal",
+      "note": "To be rebuffed is to be turned back, so everything collected up to that point is written out the other way round."
+     }
     ],
-    "indicatorNotes": {
-     "when rebuffed": "To be rebuffed is to be turned back, so everything collected up to that point is written out the other way round."
-    },
     "subReversals": [
      {
       "from": "SEPOM",
@@ -313,11 +317,12 @@
      "or"
     ],
     "indicators": [
-     "you say"
+     {
+      "text": "you say",
+      "for": "homophone",
+      "note": "'You say' points at the spoken version of the words, so what is wanted is the spelling you would write down on hearing them."
+     }
     ],
-    "indicatorNotes": {
-     "you say": "'You say' points at the spoken version of the words, so what is wanted is the spelling you would write down on hearing them."
-    },
     "blocks": [
      {
       "clueFragment": "the Round Table",
@@ -399,11 +404,12 @@
     "answer": "MINARET",
     "definition": "tower",
     "indicators": [
-     "invested in"
+     {
+      "text": "invested in",
+      "for": "container",
+      "note": "To invest in something is to put money into it, and putting one thing into another is what the word does to the letters here."
+     }
     ],
-    "indicatorNotes": {
-     "invested in": "To invest in something is to put money into it, and putting one thing into another is what the word does to the letters here."
-    },
     "pieces": [
      "MIN",
      "ARE",
@@ -457,11 +463,12 @@
      "in"
     ],
     "indicators": [
-     "acting up"
+     {
+      "text": "acting up",
+      "for": "anagram",
+      "note": "Equipment acting up is not behaving as it should, and letters that misbehave will not stay in the order they were given."
+     }
     ],
-    "indicatorNotes": {
-     "acting up": "Equipment acting up is not behaving as it should, and letters that misbehave will not stay in the order they were given."
-    },
     "anagram": {
      "fodder": "THE SONAR"
     },
@@ -470,10 +477,6 @@
       "clueFragment": "The sonar",
       "gives": "THESONAR",
       "note": "anagram fodder, eight letters"
-     },
-     {
-      "clueFragment": "acting up",
-      "note": "anagram indicator"
      }
     ],
     "surface": "A ship's sonar playing up in the waters off the Atlantic.",
@@ -552,11 +555,12 @@
      "given"
     ],
     "indicators": [
-     "in retrospect"
+     {
+      "text": "in retrospect",
+      "for": "reversal",
+      "note": "To look at something in retrospect is to look back over it, so the letters are read from the far end towards the front."
+     }
     ],
-    "indicatorNotes": {
-     "in retrospect": "To look at something in retrospect is to look back over it, so the letters are read from the far end towards the front."
-    },
     "subReversals": [
      {
       "from": "RENEERG",
@@ -607,11 +611,12 @@
     "answer": "ALARM",
     "definition": "rattle",
     "indicators": [
-     "hiding"
+     {
+      "text": "hiding",
+      "for": "hidden_word",
+      "note": "Something hiding is in the room but covered over, so the letters sit unbroken inside the words in front of you."
+     }
     ],
-    "indicatorNotes": {
-     "hiding": "Something hiding is in the room but covered over, so the letters sit unbroken inside the words in front of you."
-    },
     "blocks": [
      {
       "clueFragment": "Territorial Army",
@@ -700,13 +705,17 @@
     "answer": "JEAN-PAUL SARTRE",
     "definition": "Philosopher",
     "indicators": [
-     "twisting",
-     "at last"
+     {
+      "text": "twisting",
+      "for": "anagram",
+      "note": "Twisting something pulls it out of shape, so the letters beside the word come out in an order of their own."
+     },
+     {
+      "text": "at last",
+      "for": "letter_selection",
+      "note": "At last points to the end of the word next to it, so only its final letter is taken."
+     }
     ],
-    "indicatorNotes": {
-     "twisting": "Twisting something pulls it out of shape, so the letters beside the word come out in an order of their own.",
-     "at last": "At last points to the end of the word next to it, so only its final letter is taken."
-    },
     "anagram": {
      "fodder": "JAR SEAL PEANUT R"
     },
@@ -721,10 +730,6 @@
       "gives": "R",
       "select": "last",
       "note": "the final letter of butter, joining the fodder"
-     },
-     {
-      "clueFragment": "twisting",
-      "note": "anagram indicator"
      }
     ],
     "surface": "A jar of peanut butter whose seal finally gives when you twist it.",
@@ -758,11 +763,12 @@
      "for"
     ],
     "indicators": [
-     "Some"
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "'Some' asks for a part and not the whole, so a run of letters is taken out of the words as they already stand."
+     }
     ],
-    "indicatorNotes": {
-     "Some": "'Some' asks for a part and not the whole, so a run of letters is taken out of the words as they already stand."
-    },
     "blocks": [
      {
       "clueFragment": "creamer I can order",
@@ -798,11 +804,12 @@
     "answer": "ANNOUNCED",
     "definition": "Professed",
     "indicators": [
-     "dubious"
+     {
+      "text": "dubious",
+      "for": "anagram",
+      "note": "What is dubious cannot be trusted, and letters that cannot be trusted will not stay as they were written."
+     }
     ],
-    "indicatorNotes": {
-     "dubious": "What is dubious cannot be trusted, and letters that cannot be trusted will not stay as they were written."
-    },
     "anagram": {
      "fodder": "NUANCE DON"
     },
@@ -811,10 +818,6 @@
       "clueFragment": "nuance; don",
       "gives": "NUANCEDON",
       "note": "anagram fodder, nine letters"
-     },
-     {
-      "clueFragment": "dubious",
-      "note": "anagram indicator"
      }
     ],
     "surface": "A don of questionable standing casting doubt on a fine distinction.",
@@ -847,13 +850,15 @@
     "answer": "TORTOISE",
     "definition": "One shooting around outstripped hare, backing over",
     "indicators": [
-     "primarily",
-     "to protect"
+     {
+      "text": "primarily",
+      "note": "Primarily means first of all, so each word it governs hands over the letter it begins with."
+     },
+     {
+      "text": "to protect",
+      "note": "Protecting something means getting round the outside of it, so one set of letters closes over the others."
+     }
     ],
-    "indicatorNotes": {
-     "primarily": "Primarily means first of all, so each word it governs hands over the letter it begins with.",
-     "to protect": "Protecting something means getting round the outside of it, so one set of letters closes over the others."
-    },
     "pieces": [
      "TOR",
      "TO",
@@ -1008,11 +1013,12 @@
     "answer": "IN TRUTH",
     "definition": "to be honest",
     "indicators": [
-     "overwhelmed"
+     {
+      "text": "overwhelmed",
+      "for": "container",
+      "note": "To be overwhelmed is to be covered over completely, so those letters end up buried inside the letters around them."
+     }
     ],
-    "indicatorNotes": {
-     "overwhelmed": "To be overwhelmed is to be covered over completely, so those letters end up buried inside the letters around them."
-    },
     "pieces": [
      "I",
      "NT",
@@ -1152,11 +1158,12 @@
     "answer": "GHANA",
     "definition": "'Gold' here, also named 'Ashanti', originally?",
     "indicators": [
-     "originally"
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "Originally asks for what came first, and what comes first in a written word is the letter it opens with."
+     }
     ],
-    "indicatorNotes": {
-     "originally": "Originally asks for what came first, and what comes first in a written word is the letter it opens with."
-    },
     "pieces": [
      "G",
      "H",
@@ -1201,11 +1208,12 @@
     "answer": "UNTIL",
     "definition": "Before",
     "indicators": [
-     "starters"
+     {
+      "text": "starters",
+      "for": "letter_selection",
+      "note": "Starters are what come first at a table, and what comes first in a word is the letter it starts with."
+     }
     ],
-    "indicatorNotes": {
-     "starters": "Starters are what come first at a table, and what comes first in a word is the letter it starts with."
-    },
     "pieces": [
      "UN",
      "TIL"
@@ -1257,11 +1265,12 @@
     "answer": "LET ON",
     "definition": "Divulge",
     "indicators": [
-     "passed back"
+     {
+      "text": "passed back",
+      "for": "reversal",
+      "note": "Anything passed back travels the way it came, so the word beside it is written out in reverse."
+     }
     ],
-    "indicatorNotes": {
-     "passed back": "Anything passed back travels the way it came, so the word beside it is written out in reverse."
-    },
     "subReversals": [
      {
       "from": "NOTE",
@@ -1314,13 +1323,15 @@
     "answer": "INERTIA",
     "definition": "Passivity",
     "indicators": [
-     "falls back",
-     "in"
+     {
+      "text": "falls back",
+      "note": "What falls back drops away the way it came, so those letters are set down in reverse."
+     },
+     {
+      "text": "in",
+      "note": "'In' means within, so the piece named before it goes inside the piece named after."
+     }
     ],
-    "indicatorNotes": {
-     "falls back": "What falls back drops away the way it came, so those letters are set down in reverse.",
-     "in": "'In' means within, so the piece named before it goes inside the piece named after."
-    },
     "subReversals": [
      {
       "from": "IT",
@@ -1424,11 +1435,12 @@
     "answer": "EVERY NOW AND THEN",
     "definition": "occasionally",
     "indicators": [
-     "sports"
+     {
+      "text": "sports",
+      "for": "anagram",
+      "note": "A sport is a plant or animal that has come out unlike its parents, so to sport is to turn up in a different form from the one given."
+     }
     ],
-    "indicatorNotes": {
-     "sports": "A sport is a plant or animal that has come out unlike its parents, so to sport is to turn up in a different form from the one given."
-    },
     "anagram": {
      "fodder": "VERY TANNED HE WON"
     },
@@ -1437,10 +1449,6 @@
       "clueFragment": "Very tanned, he won",
       "gives": "VERYTANNEDHEWON",
       "note": "anagram fodder, fifteen letters"
-     },
-     {
-      "clueFragment": "sports",
-      "note": "anagram indicator"
      }
     ],
     "surface": "A deeply suntanned man who picks up the odd win at the athletics.",

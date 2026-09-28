@@ -48,13 +48,15 @@
     "answer": "PADDLE",
     "definition": "row",
     "indicators": [
-     "first",
-     "by"
+     {
+      "text": "first",
+      "note": "takes the first letter of 'puzzle'"
+     },
+     {
+      "text": "by",
+      "note": "places the two pieces side by side"
+     }
     ],
-    "indicatorNotes": {
-     "first": "takes the first letter of 'puzzle'",
-     "by": "places the two pieces side by side"
-    },
     "pieces": [
      "P",
      "ADDLE"
@@ -159,17 +161,24 @@
     "answer": "DOLMADES",
     "definition": "Food evenly rolled, cooked in hollow leaves",
     "indicators": [
-     "evenly",
-     "rolled",
-     "in",
-     "hollow"
+     {
+      "text": "evenly",
+      "for": "letter_selection",
+      "note": "keeps the even-numbered letters of 'Food'"
+     },
+     {
+      "text": "rolled",
+      "note": "turns those letters round"
+     },
+     {
+      "text": "in",
+      "note": "puts MADE inside the next piece"
+     },
+     {
+      "text": "hollow",
+      "note": "empties 'leaves' to its outer letters"
+     }
     ],
-    "indicatorNotes": {
-     "evenly": "keeps the even-numbered letters of 'Food'",
-     "rolled": "turns those letters round",
-     "in": "puts MADE inside the next piece",
-     "hollow": "empties 'leaves' to its outer letters"
-    },
     "pieces": [
      "DO",
      "L",
@@ -233,11 +242,12 @@
     "answer": "LENIN",
     "definition": "Revolutionary",
     "indicators": [
-     "regularly reordered"
+     {
+      "text": "regularly reordered",
+      "for": "anagram",
+      "note": "rearranges the letters of 'material'"
+     }
     ],
-    "indicatorNotes": {
-     "regularly reordered": "rearranges the letters of 'material'"
-    },
     "anagram": {
      "fodder": "LINEN"
     },
@@ -246,10 +256,6 @@
       "clueFragment": "material",
       "gives": "LINEN",
       "note": "linen is a fabric"
-     },
-     {
-      "clueFragment": "regularly reordered",
-      "note": "anagram indicator"
      }
     ],
     "surface": "Cloth rearranged on some fixed routine.",
@@ -281,13 +287,16 @@
     "answer": "BOARDING",
     "definition": "Getting in",
     "indicators": [
-     "ordered",
-     "by"
+     {
+      "text": "ordered",
+      "for": "anagram",
+      "note": "'ordered' means put in a set order, so GIN's letters are arranged afresh"
+     },
+     {
+      "text": "by",
+      "note": "sets the pieces next to each other"
+     }
     ],
-    "indicatorNotes": {
-     "ordered": "'ordered' means put in a set order, so GIN's letters are arranged afresh",
-     "by": "sets the pieces next to each other"
-    },
     "pieces": [
      "BOARD",
      "ING"
@@ -389,11 +398,12 @@
      "for"
     ],
     "indicators": [
-     "end of"
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "takes the last letter of 'film'"
+     }
     ],
-    "indicatorNotes": {
-     "end of": "takes the last letter of 'film'"
-    },
     "pieces": [
      "RE",
      "M",
@@ -451,11 +461,12 @@
     "answer": "INCITE",
     "definition": "Prompt",
     "indicators": [
-     "when overheard"
+     {
+      "text": "when overheard",
+      "for": "homophone",
+      "note": "says the answer sounds like a phrase for 'noticeable'"
+     }
     ],
-    "indicatorNotes": {
-     "when overheard": "says the answer sounds like a phrase for 'noticeable'"
-    },
     "blocks": [
      {
       "clueFragment": "noticeable",
@@ -535,11 +546,12 @@
     "answer": "TALENT",
     "definition": "expertise",
     "indicators": [
-     "on"
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "puts the books after the fabrication"
+     }
     ],
-    "indicatorNotes": {
-     "on": "puts the books after the fabrication"
-    },
     "pieces": [
      "TALE",
      "NT"
@@ -628,11 +640,12 @@
     "answer": "DISCONSOLATE",
     "definition": "Sad",
     "indicators": [
-     "fancy"
+     {
+      "text": "fancy",
+      "for": "anagram",
+      "note": "'fancy' as an adjective means elaborate or ornamented, so the letters are dressed up into a new pattern"
+     }
     ],
-    "indicatorNotes": {
-     "fancy": "'fancy' as an adjective means elaborate or ornamented, so the letters are dressed up into a new pattern"
-    },
     "anagram": {
      "fodder": "SCOTNOLADIES"
     },
@@ -641,10 +654,6 @@
       "clueFragment": "Scot no ladies",
       "gives": "SCOTNOLADIES",
       "note": "anagram fodder, 12 letters"
-     },
-     {
-      "clueFragment": "fancy",
-      "note": "anagram indicator"
      }
     ],
     "surface": "A Scotsman is unhappy that no women take a shine to him.",
@@ -723,11 +732,12 @@
      "IO"
     ],
     "indicators": [
-     "drinking"
+     {
+      "text": "drinking",
+      "for": "container",
+      "note": "the port takes AT inside it"
+     }
     ],
-    "indicatorNotes": {
-     "drinking": "the port takes AT inside it"
-    },
     "blocks": [
      {
       "clueFragment": "Port",
@@ -827,11 +837,12 @@
     "answer": "RHODESIAN",
     "definition": "Former African",
     "indicators": [
-     "novel"
+     {
+      "text": "novel",
+      "for": "anagram",
+      "note": "new, rearranged: IN A becomes IAN"
+     }
     ],
-    "indicatorNotes": {
-     "novel": "new, rearranged: IN A becomes IAN"
-    },
     "pieces": [
      "RHODES",
      "IAN"
@@ -928,11 +939,12 @@
     "answer": "TSARINAS",
     "definition": "rulers",
     "indicators": [
-     "plastic"
+     {
+      "text": "plastic",
+      "for": "anagram",
+      "note": "mouldable, so the letters are reshaped"
+     }
     ],
-    "indicatorNotes": {
-     "plastic": "mouldable, so the letters are reshaped"
-    },
     "anagram": {
      "fodder": "ARTISANS"
     },
@@ -941,10 +953,6 @@
       "clueFragment": "Artisan’s",
       "gives": "ARTISANS",
       "note": "anagram fodder, 8 letters, the 's supplying the S"
-     },
-     {
-      "clueFragment": "plastic",
-      "note": "anagram indicator"
      }
     ],
     "surface": "A craftsman's rulers made of plastic.",
@@ -978,13 +986,15 @@
     "answer": "CORNERSTONES",
     "definition": "bases",
     "indicators": [
-     "gutless",
-     "outside"
+     {
+      "text": "gutless",
+      "note": "removes the insides of 'spies'"
+     },
+     {
+      "text": "outside",
+      "note": "puts S…S around the next piece"
+     }
     ],
-    "indicatorNotes": {
-     "gutless": "removes the insides of 'spies'",
-     "outside": "puts S…S around the next piece"
-    },
     "pieces": [
      "CORNER",
      "S",
@@ -1092,13 +1102,17 @@
      "AILING"
     ],
     "indicators": [
-     "Start off",
-     "perhaps"
+     {
+      "text": "Start off",
+      "for": "deletion",
+      "note": "the start is taken off, so the word loses its first letter"
+     },
+     {
+      "text": "perhaps",
+      "for": "deletion",
+      "note": "being at sea is one example of sailing"
+     }
     ],
-    "indicatorNotes": {
-     "Start off": "the start is taken off, so the word loses its first letter",
-     "perhaps": "being at sea is one example of sailing"
-    },
     "blocks": [
      {
       "clueFragment": "at sea, perhaps",
@@ -1140,11 +1154,12 @@
     "answer": "OPINE",
     "definition": "Volunteer",
     "indicators": [
-     "leads to"
+     {
+      "text": "leads to",
+      "for": "letter_selection",
+      "note": "takes the first letters of the words that follow"
+     }
     ],
-    "indicatorNotes": {
-     "leads to": "takes the first letters of the words that follow"
-    },
     "pieces": [
      "OP",
      "INE"
@@ -1330,11 +1345,12 @@
      "from"
     ],
     "indicators": [
-     "in"
+     {
+      "text": "in",
+      "for": "container",
+      "note": "puts N inside the city's name"
+     }
     ],
-    "indicatorNotes": {
-     "in": "puts N inside the city's name"
-    },
     "blocks": [
      {
       "clueFragment": "an Italian city",
@@ -1376,11 +1392,12 @@
     "answer": "BEGINNER",
     "definition": "novice",
     "indicators": [
-     "embraced by"
+     {
+      "text": "embraced by",
+      "for": "container",
+      "note": "puts G and INN inside BEER"
+     }
     ],
-    "indicatorNotes": {
-     "embraced by": "puts G and INN inside BEER"
-    },
     "pieces": [
      "BE",
      "G",

@@ -82,11 +82,12 @@
     "answer": "DESCRIBE",
     "definition": "Paint picture of",
     "indicators": [
-     "ignoring parts"
+     {
+      "text": "ignoring parts",
+      "for": "hidden_word",
+      "note": "we ignore the outer parts of the phrase and keep the letters running inside it"
+     }
     ],
-    "indicatorNotes": {
-     "ignoring parts": "we ignore the outer parts of the phrase and keep the letters running inside it"
-    },
     "blocks": [
      {
       "clueFragment": "Claude’s crib, expertly",
@@ -122,11 +123,12 @@
     "answer": "ANN",
     "definition": "her name?",
     "indicators": [
-     "saving skin"
+     {
+      "text": "saving skin",
+      "for": "deletion",
+      "note": "the skin is the outer layer, the first and last letters, which are saved, that is kept out of the answer"
+     }
     ],
-    "indicatorNotes": {
-     "saving skin": "the skin is the outer layer, the first and last letters, which are saved, that is kept out of the answer"
-    },
     "pieces": [
      "ANN"
     ],
@@ -278,11 +280,12 @@
     "answer": "HOOF IT",
     "definition": "Walk",
     "indicators": [
-     "flipping"
+     {
+      "text": "flipping",
+      "for": "reversal",
+      "note": "to flip something is to turn it over, so the letters run the other way"
+     }
     ],
-    "indicatorNotes": {
-     "flipping": "to flip something is to turn it over, so the letters run the other way"
-    },
     "pieces": [
      "HOO",
      "FIT"
@@ -334,13 +337,16 @@
     "answer": "ORIGAMI",
     "definition": "folding",
     "indicators": [
-     "Not",
-     "less"
+     {
+      "text": "Not",
+      "for": "deletion",
+      "note": "not having IN: the letters IN are taken out"
+     },
+     {
+      "text": "less",
+      "note": "friendless: the word without ALLY, a friend"
+     }
     ],
-    "indicatorNotes": {
-     "Not": "not having IN: the letters IN are taken out",
-     "less": "friendless: the word without ALLY, a friend"
-    },
     "pieces": [
      "ORIG",
      "AMI"
@@ -402,11 +408,12 @@
     "answer": "FINDING NEMO",
     "definition": "fishy film",
     "indicators": [
-     "doing badly"
+     {
+      "text": "doing badly",
+      "for": "anagram",
+      "note": "the letters are put together badly, into a new order"
+     }
     ],
-    "indicatorNotes": {
-     "doing badly": "the letters are put together badly, into a new order"
-    },
     "pieces": [
      "FIN",
      "DINGNEMO"
@@ -458,11 +465,12 @@
     "answer": "TWANGY",
     "definition": "with nasal tone",
     "indicators": [
-     "A little"
+     {
+      "text": "A little",
+      "for": "hidden_word",
+      "note": "only a little of the phrase is used: a run of letters inside it"
+     }
     ],
-    "indicatorNotes": {
-     "A little": "only a little of the phrase is used: a run of letters inside it"
-    },
     "blocks": [
      {
       "clueFragment": "faint, wan gynaecologist",
@@ -499,11 +507,12 @@
     "definition": "get clean",
     "definitionNote": "\"get clean\" means make clean, a verb like SANITISE",
     "indicators": [
-     "just a bit"
+     {
+      "text": "just a bit",
+      "for": "hidden_word",
+      "note": "just a bit of the phrase is used, a run of letters inside it"
+     }
     ],
-    "indicatorNotes": {
-     "just a bit": "just a bit of the phrase is used, a run of letters inside it"
-    },
     "blocks": [
      {
       "clueFragment": "That’s a nit I see",
@@ -581,11 +590,12 @@
     "answer": "ROTOR",
     "definition": "It spins",
     "indicators": [
-     "forward – and backward?"
+     {
+      "text": "forward – and backward?",
+      "for": "palindrome",
+      "note": "the word reads the same in both directions"
+     }
     ],
-    "indicatorNotes": {
-     "forward – and backward?": "the word reads the same in both directions"
-    },
     "pieces": [
      "ROTOR"
     ],
@@ -625,11 +635,12 @@
     "answer": "TACTFULNESS",
     "definition": "discretion",
     "indicators": [
-     "moved"
+     {
+      "text": "moved",
+      "for": "anagram",
+      "note": "the letters are moved around into a new order"
+     }
     ],
-    "indicatorNotes": {
-     "moved": "the letters are moved around into a new order"
-    },
     "anagram": {
      "fodder": "FLATUS SCENT"
     },
@@ -676,11 +687,12 @@
     "answer": "REREADING",
     "definition": "Studying again",
     "indicators": [
-     "finally"
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "take the final letter of each of the next words"
+     }
     ],
-    "indicatorNotes": {
-     "finally": "take the final letter of each of the next words"
-    },
     "pieces": [
      "RE",
      "READING"
@@ -732,11 +744,12 @@
     "answer": "ROLLER SKATE",
     "definition": "fun way to get about",
     "indicators": [
-     "After components switched"
+     {
+      "text": "After components switched",
+      "for": "charade",
+      "note": "the parts of KATE’S ROLLER swap places, the car going first"
+     }
     ],
-    "indicatorNotes": {
-     "After components switched": "the parts of KATE’S ROLLER swap places, the car going first"
-    },
     "pieces": [
      "ROLLER",
      "S",
@@ -792,11 +805,12 @@
     "answer": "BACK-PEDALLING",
     "definition": "Climbing down",
     "indicators": [
-     "high"
+     {
+      "text": "high",
+      "for": "anagram",
+      "note": "intoxicated, so the letters are scrambled"
+     }
     ],
-    "indicatorNotes": {
-     "high": "intoxicated, so the letters are scrambled"
-    },
     "anagram": {
      "fodder": "BAND PICK LEGAL"
     },
@@ -835,11 +849,12 @@
     "answer": "ESTONIAN",
     "definition": "old Soviet",
     "indicators": [
-     "sheltering"
+     {
+      "text": "sheltering",
+      "for": "container",
+      "note": "the first part shelters, or holds, the second inside it"
+     }
     ],
-    "indicatorNotes": {
-     "sheltering": "the first part shelters, or holds, the second inside it"
-    },
     "pieces": [
      "E",
      "S",
@@ -890,11 +905,12 @@
     "answer": "FRONT-BENCHERS",
     "definition": "Top politicians",
     "indicators": [
-     "decadent"
+     {
+      "text": "decadent",
+      "for": "anagram",
+      "note": "morally loose, so the letters are rearranged"
+     }
     ],
-    "indicatorNotes": {
-     "decadent": "morally loose, so the letters are rearranged"
-    },
     "anagram": {
      "fodder": "FRENCH BORN SET"
     },
@@ -975,15 +991,20 @@
     "answer": "CAPTAIN",
     "definition": "Naval officer",
     "indicators": [
-     "a little",
-     "put in",
-     "ill-considered"
+     {
+      "text": "a little",
+      "for": "letter_selection",
+      "note": "just a little of the word: its first letter"
+     },
+     {
+      "text": "put in",
+      "note": "that letter is put inside the rest"
+     },
+     {
+      "text": "ill-considered",
+      "note": "badly thought out, so the letters are rearranged"
+     }
     ],
-    "indicatorNotes": {
-     "a little": "just a little of the word: its first letter",
-     "put in": "that letter is put inside the rest",
-     "ill-considered": "badly thought out, so the letters are rearranged"
-    },
     "pieces": [
      "CAPTA",
      "I",
@@ -1078,13 +1099,17 @@
     "answer": "HILLSIDES",
     "definition": "Where lands steepen",
     "indicators": [
-     "in",
-     "at first"
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the next part goes in the shelters"
+     },
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "take the first letter of sleep"
+     }
     ],
-    "indicatorNotes": {
-     "in": "the next part goes in the shelters",
-     "at first": "take the first letter of sleep"
-    },
     "pieces": [
      "H",
      "ILL",
@@ -1180,11 +1205,12 @@
     "answer": "THEORY",
     "definition": "presumption",
     "indicators": [
-     "is smothered by"
+     {
+      "text": "is smothered by",
+      "for": "container",
+      "note": "the first part is smothered, wrapped round, by the second"
+     }
     ],
-    "indicatorNotes": {
-     "is smothered by": "the first part is smothered, wrapped round, by the second"
-    },
     "pieces": [
      "T",
      "HE",
@@ -1237,13 +1263,15 @@
     "answer": "MACARONI",
     "definition": "a kind of pasta",
     "indicators": [
-     "will eat",
-     "Getting to"
+     {
+      "text": "will eat",
+      "note": "the president eats, so takes inside, the letter A"
+     },
+     {
+      "text": "Getting to",
+      "note": "the result reaches, is joined to, Italy’s I"
+     }
     ],
-    "indicatorNotes": {
-     "will eat": "the president eats, so takes inside, the letter A",
-     "Getting to": "the result reaches, is joined to, Italy’s I"
-    },
     "pieces": [
      "MAC",
      "A",
@@ -1294,11 +1322,12 @@
     "answer": "ODD",
     "definition": "Peculiar",
     "indicators": [
-     "regularly ignore"
+     {
+      "text": "regularly ignore",
+      "for": "letter_selection",
+      "note": "skip every other letter, starting with the first"
+     }
     ],
-    "indicatorNotes": {
-     "regularly ignore": "skip every other letter, starting with the first"
-    },
     "pieces": [
      "O",
      "D",
@@ -1341,11 +1370,12 @@
     "answer": "MESMER",
     "definition": "man espousing strange ‘magnetism’ – especially restoratively?",
     "indicators": [
-     "Primarily"
+     {
+      "text": "Primarily",
+      "for": "letter_selection",
+      "note": "take the prime, first, letter of each word"
+     }
     ],
-    "indicatorNotes": {
-     "Primarily": "take the prime, first, letter of each word"
-    },
     "pieces": [
      "M",
      "E",
@@ -1394,11 +1424,12 @@
     "answer": "REINED IN",
     "definition": "Bridled",
     "indicators": [
-     "heard"
+     {
+      "text": "heard",
+      "for": "homophone",
+      "note": "what is heard is a sound, so spell a word that sounds the same"
+     }
     ],
-    "indicatorNotes": {
-     "heard": "what is heard is a sound, so spell a word that sounds the same"
-    },
     "blocks": [
      {
       "clueFragment": "noise of downpour",

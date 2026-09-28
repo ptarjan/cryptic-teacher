@@ -48,13 +48,15 @@
     "definition": "strike it!",
     "definitionNote": "The definition is an instruction about the answer: a lucifer is the thing you strike.",
     "indicators": [
-     "initially",
-     "badly"
+     {
+      "text": "initially",
+      "note": "'initially' means at the start, so only the first letter of 'reads' is taken"
+     },
+     {
+      "text": "badly",
+      "note": "letters that read badly are out of order, so they must be rearranged"
+     }
     ],
-    "indicatorNotes": {
-     "initially": "'initially' means at the start, so only the first letter of 'reads' is taken",
-     "badly": "letters that read badly are out of order, so they must be rearranged"
-    },
     "anagram": {
      "fodder": "IF CLUE R"
     },
@@ -69,10 +71,6 @@
       "gives": "R",
       "select": "first",
       "note": "the first letter of Reads"
-     },
-     {
-      "clueFragment": "badly",
-      "note": "anagram indicator"
      }
     ],
     "surface": "An exasperated solver, fed up with a garbled clue, wants to strike it out.",
@@ -104,11 +102,12 @@
     "answer": "LAID",
     "definition": "Bet",
     "indicators": [
-     "to be superseded by"
+     {
+      "text": "to be superseded by",
+      "for": "substitution",
+      "note": "to supersede is to take the place of, so AI replaces the core of the word"
+     }
     ],
-    "indicatorNotes": {
-     "to be superseded by": "to supersede is to take the place of, so AI replaces the core of the word"
-    },
     "pieces": [
      "L",
      "AI",
@@ -161,13 +160,15 @@
     "answer": "CATNAPS",
     "definition": "rests",
     "indicators": [
-     "cycling",
-     "in retirement"
+     {
+      "text": "cycling",
+      "note": "a cycle goes round, so a letter from one end travels round to the other"
+     },
+     {
+      "text": "in retirement",
+      "note": "retiring means drawing back, so the word is written backwards"
+     }
     ],
-    "indicatorNotes": {
-     "in retirement": "retiring means drawing back, so the word is written backwards",
-     "cycling": "a cycle goes round, so a letter from one end travels round to the other"
-    },
     "linkWords": [
      "and"
     ],
@@ -191,14 +192,6 @@
       "clueFragment": "huffs and puffs",
       "gives": "TNAPS",
       "note": "PANTS (breathes hard), turned round to STNAP, then its S cycled to the end"
-     },
-     {
-      "clueFragment": "in retirement",
-      "note": "reversal indicator"
-     },
-     {
-      "clueFragment": "cycling",
-      "note": "cycling indicator"
      }
     ],
     "surface": "A retired accountant takes up cycling and finds himself wheezing, so stops for breathers.",
@@ -236,13 +229,16 @@
     "answer": "FOR GOODNESS SAKE",
     "definition": "in God’s name",
     "indicators": [
-     "not",
-     "after"
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "'one daughter's not' says one D is not there, so it is dropped"
+     },
+     {
+      "text": "after",
+      "note": "'after' sets the preceding letters behind FORGO in the answer"
+     }
     ],
-    "indicatorNotes": {
-     "not": "'one daughter's not' says one D is not there, so it is dropped",
-     "after": "'after' sets the preceding letters behind FORGO in the answer"
-    },
     "pieces": [
      "FORGO",
      "ODNESS",
@@ -293,11 +289,12 @@
     "answer": "RARITY",
     "definition": "It can be difficult to find",
     "indicators": [
-     "ceded to"
+     {
+      "text": "ceded to",
+      "for": "substitution",
+      "note": "to cede is to hand over, so P hands its place over to R"
+     }
     ],
-    "indicatorNotes": {
-     "ceded to": "to cede is to hand over, so P hands its place over to R"
-    },
     "pieces": [
      "R",
      "ARITY"
@@ -343,13 +340,17 @@
     "answer": "CHASSIS",
     "definition": "frame",
     "indicators": [
-     "injected into",
-     "mainly"
+     {
+      "text": "injected into",
+      "for": "container",
+      "note": "an injection goes inside, so H is put inside the other letters"
+     },
+     {
+      "text": "mainly",
+      "for": "deletion",
+      "note": "'mainly' means for the most part, so ASSIST keeps all but its last letter"
+     }
     ],
-    "indicatorNotes": {
-     "injected into": "an injection goes inside, so H is put inside the other letters",
-     "mainly": "'mainly' means for the most part, so ASSIST keeps all but its last letter"
-    },
     "pieces": [
      "C",
      "H",
@@ -406,11 +407,12 @@
     "answer": "CUTIE-PIE",
     "definition": "Peach",
     "indicators": [
-     "peeled"
+     {
+      "text": "peeled",
+      "for": "deletion",
+      "note": "peeling takes off the skin, so the outer letters come off"
+     }
     ],
-    "indicatorNotes": {
-     "peeled": "peeling takes off the skin, so the outer letters come off"
-    },
     "linkWords": [
      "or"
     ],
@@ -474,13 +476,17 @@
     "answer": "A STORM IN A TEACUP",
     "definition": "Bit of a hoo-ha",
     "indicators": [
-     "derailed",
-     "ultimately"
+     {
+      "text": "derailed",
+      "for": "anagram",
+      "note": "a derailed train leaves its tracks in disorder, so the letters are jumbled"
+     },
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "'ultimately' means in the end, so the last letters of llama and farm are taken"
+     }
     ],
-    "indicatorNotes": {
-     "derailed": "a derailed train leaves its tracks in disorder, so the letters are jumbled",
-     "ultimately": "'ultimately' means in the end, so the last letters of llama and farm are taken"
-    },
     "anagram": {
      "fodder": "PRECAUTIONS AT A M"
     },
@@ -495,10 +501,6 @@
       "gives": "AM",
       "select": "last",
       "note": "the last letters of llamA and farM"
-     },
-     {
-      "clueFragment": "derailed",
-      "note": "anagram indicator"
      }
     ],
     "surface": "A fuss at a llama farm when safety measures went wrong.",
@@ -531,13 +533,15 @@
     "answer": "SALIERI",
     "definition": "composer",
     "indicators": [
-     "Dreadful",
-     "opening piece from"
+     {
+      "text": "Dreadful",
+      "note": "a dreadful arrangement is a bad one, so the letters are rearranged"
+     },
+     {
+      "text": "opening piece from",
+      "note": "the opening piece of a word is its first letter"
+     }
     ],
-    "indicatorNotes": {
-     "Dreadful": "a dreadful arrangement is a bad one, so the letters are rearranged",
-     "opening piece from": "the opening piece of a word is its first letter"
-    },
     "anagram": {
      "fodder": "I SERIAL"
     },
@@ -552,10 +556,6 @@
       "clueFragment": "serial",
       "gives": "SERIAL",
       "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "Dreadful",
-      "note": "anagram indicator"
      }
     ],
     "surface": "A critic pans the opening of an Italian twelve-tone composer's work.",
@@ -588,13 +588,15 @@
     "answer": "SWEATSHIRT",
     "definition": "Wear this running in street?",
     "indicators": [
-     "running",
-     "in"
+     {
+      "text": "running",
+      "note": "letters left running about are out of order, so they are rearranged"
+     },
+     {
+      "text": "in",
+      "note": "'in' puts the jumble inside the abbreviation for street"
+     }
     ],
-    "indicatorNotes": {
-     "running": "letters left running about are out of order, so they are rearranged",
-     "in": "'in' puts the jumble inside the abbreviation for street"
-    },
     "pieces": [
      "S",
      "WEATSHIR",
@@ -616,10 +618,6 @@
       "clueFragment": "Wear this",
       "gives": "WEATSHIR",
       "note": "WEAR THIS jumbled"
-     },
-     {
-      "clueFragment": "running",
-      "note": "anagram indicator"
      }
     ],
     "surface": "Advice on what to put on for a jog along the road.",
@@ -649,11 +647,12 @@
     "answer": "INTERPRET",
     "definition": "Try to make sense of",
     "indicators": [
-     "houses"
+     {
+      "text": "houses",
+      "for": "hidden_word",
+      "note": "to house is to hold inside, so the words before it contain the answer"
+     }
     ],
-    "indicatorNotes": {
-     "houses": "to house is to hold inside, so the words before it contain the answer"
-    },
     "blocks": [
      {
       "clueFragment": "painter prettifying",
@@ -689,11 +688,12 @@
     "answer": "TILDE",
     "definition": "Mark",
     "indicators": [
-     "Boxing"
+     {
+      "text": "Boxing",
+      "for": "container",
+      "note": "to box something is to enclose it, so TILE encloses D"
+     }
     ],
-    "indicatorNotes": {
-     "Boxing": "to box something is to enclose it, so TILE encloses D"
-    },
     "linkWords": [
      "on"
     ],
@@ -751,15 +751,19 @@
     "answer": "ZADOK THE PRIEST",
     "definition": "anthem",
     "indicators": [
-     "Feeding",
-     "shattered",
-     "missing"
+     {
+      "text": "Feeding",
+      "note": "food goes inside, so the anagram is fed into ZEST"
+     },
+     {
+      "text": "shattered",
+      "note": "something shattered is in pieces, so the letters are broken up and rearranged"
+     },
+     {
+      "text": "missing",
+      "note": "'missing' means lacking, so N is left out"
+     }
     ],
-    "indicatorNotes": {
-     "Feeding": "food goes inside, so the anagram is fed into ZEST",
-     "shattered": "something shattered is in pieces, so the letters are broken up and rearranged",
-     "missing": "'missing' means lacking, so N is left out"
-    },
     "linkWords": [
      "to"
     ],
@@ -784,10 +788,6 @@
       "clueFragment": "tenor had kip, missing intro to national",
       "gives": "ADOKTHEPRI",
       "note": "TENOR HAD KIP without N (first letter of national), then jumbled"
-     },
-     {
-      "clueFragment": "shattered",
-      "note": "anagram indicator"
      }
     ],
     "surface": "An exhausted tenor snoozes and misses the start of the national anthem.",
@@ -818,11 +818,12 @@
     "answer": "MINISERIES",
     "definition": "short run",
     "indicators": [
-     "outside"
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "'outside' puts the first word around the second"
+     }
     ],
-    "indicatorNotes": {
-     "outside": "'outside' puts the first word around the second"
-    },
     "pieces": [
      "M",
      "IN",
@@ -869,11 +870,12 @@
     "answer": "INSIDE",
     "definition": "What’s here: villains ideally?",
     "indicators": [
-     "What’s here"
+     {
+      "text": "What’s here",
+      "for": "hidden_word",
+      "note": "'what's here' asks what is contained in the words that follow, so the answer is held within them"
+     }
     ],
-    "indicatorNotes": {
-     "What’s here": "'what's here' asks what is contained in the words that follow, so the answer is held within them"
-    },
     "blocks": [
      {
       "clueFragment": "villains ideally",
@@ -910,11 +912,12 @@
     "answer": "DIMINISH",
     "definition": "contract",
     "indicators": [
-     "to gain access to"
+     {
+      "text": "to gain access to",
+      "for": "container",
+      "note": "gaining access means getting in, so I'M IN goes inside DISH"
+     }
     ],
-    "indicatorNotes": {
-     "to gain access to": "gaining access means getting in, so I'M IN goes inside DISH"
-    },
     "pieces": [
      "D",
      "IMIN",
@@ -961,11 +964,12 @@
     "answer": "BESMEARS",
     "definition": "slurs",
     "indicators": [
-     "penning"
+     {
+      "text": "penning",
+      "for": "container",
+      "note": "to pen is to shut in an enclosure, so the message encloses the next piece"
+     }
     ],
-    "indicatorNotes": {
-     "penning": "to pen is to shut in an enclosure, so the message encloses the next piece"
-    },
     "linkWords": [
      "and"
     ],
@@ -1085,11 +1089,12 @@
     "answer": "TACKILY",
     "definition": "Lacy kit’s modelled in such a way?",
     "indicators": [
-     "modelled"
+     {
+      "text": "modelled",
+      "for": "anagram",
+      "note": "to model is to shape, so the letters are shaped into a new order"
+     }
     ],
-    "indicatorNotes": {
-     "modelled": "to model is to shape, so the letters are shaped into a new order"
-    },
     "anagram": {
      "fodder": "LACY KIT"
     },
@@ -1098,10 +1103,6 @@
       "clueFragment": "Lacy kit",
       "gives": "LACYKIT",
       "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "modelled",
-      "note": "anagram indicator"
      }
     ],
     "surface": "A catwalk critic suggests the lace outfit was worn in poor taste.",
@@ -1132,11 +1133,12 @@
     "answer": "GASPER",
     "definition": "smoke",
     "indicators": [
-     "Starting to"
+     {
+      "text": "Starting to",
+      "for": "letter_selection",
+      "note": "the start of a word is its first letter, so gag gives G"
+     }
     ],
-    "indicatorNotes": {
-     "Starting to": "the start of a word is its first letter, so gag gives G"
-    },
     "linkWords": [
      "’s",
      "with"
@@ -1187,11 +1189,12 @@
     "answer": "PICTURE",
     "definition": "Vivid description",
     "indicators": [
-     "regularly"
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "at regular intervals, so every other letter of curries is taken"
+     }
     ],
-    "indicatorNotes": {
-     "regularly": "at regular intervals, so every other letter of curries is taken"
-    },
     "linkWords": [
      "of",
      "having"
@@ -1245,11 +1248,12 @@
      "FISH"
     ],
     "indicators": [
-     "maybe"
+     {
+      "text": "maybe",
+      "for": "charade",
+      "note": "'maybe' flags that a ray is only one example of the class meant"
+     }
     ],
-    "indicatorNotes": {
-     "maybe": "'maybe' flags that a ray is only one example of the class meant"
-    },
     "blocks": [
      {
       "clueFragment": "’s",
@@ -1338,11 +1342,12 @@
     "answer": "STAT",
     "definition": "One piece of information",
     "indicators": [
-     "uncovered"
+     {
+      "text": "uncovered",
+      "for": "deletion",
+      "note": "uncovering takes off the cover, so the first and last letters go"
+     }
     ],
-    "indicatorNotes": {
-     "uncovered": "uncovering takes off the cover, so the first and last letters go"
-    },
     "linkWords": [
      "is"
     ],
@@ -1385,11 +1390,12 @@
     "answer": "IBIZA",
     "definition": "island",
     "indicators": [
-     "in"
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'in' places the first piece inside the letter that follows"
+     }
     ],
-    "indicatorNotes": {
-     "in": "'in' places the first piece inside the letter that follows"
-    },
     "pieces": [
      "I",
      "BIZ",
@@ -1535,13 +1541,15 @@
     "answer": "HIPPEST",
     "definition": "Maximally in",
     "indicators": [
-     "boomeranging",
-     "after"
+     {
+      "text": "boomeranging",
+      "note": "a boomerang comes back, so the letters are read backwards"
+     },
+     {
+      "text": "after",
+      "note": "'after' sends 'pain' behind the reversed piece in the answer"
+     }
     ],
-    "indicatorNotes": {
-     "boomeranging": "a boomerang comes back, so the letters are read backwards",
-     "after": "'after' sends 'pain' behind the reversed piece in the answer"
-    },
     "pieces": [
      "HIP",
      "PEST"
