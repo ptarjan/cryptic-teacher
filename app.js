@@ -2783,11 +2783,6 @@
       // claim the page then disproves: both words define, so the definition
       // rung has nothing to ask and there are no blocks either. A blurb that
       // promises work the clue does not contain reads as a lie.
-      // This blurb is an early rung, and a rung before the walkthrough may not
-      // contain the answer. Family blurbs are shown on every clue in the family,
-      // so they cannot use a word that is ever one of its answers if a synonym
-      // will do. tools/validate_annotations.py rejects a cryptic definition whose
-      // answer this sentence spells, so a collision surfaces at annotate time.
       blurb: "No wordplay at all: none of the clue is rearranged, concealed or assembled. It is two definitions placed together, or one playful, misleading description of the answer.",
       match: (t) => t.includes("double definition") || t.includes("cryptic definition") },
     { label: "&lit", n: 160,
@@ -2837,6 +2832,22 @@
     const t = (type || "").toLowerCase();
     const hits = TYPE_BLURBS.filter(([k]) => t.includes(k)).map(([, v]) => v);
     return hits.join(" ") || "";
+  }
+
+  // Fixed prose with the clue's answer blanked out. The family and type
+  // sentences are written once for every clue of their kind, so each word in
+  // them is some clue's answer, and a rung before the walkthrough may not say
+  // the answer. Every fixed sentence on those rungs goes through here rather
+  // than being worded around the corpus. Whole words, any case; a multi-word
+  // answer matches spaced, hyphenated or run together, and each of its words
+  // of four letters or more is blanked alone too (shorter ones are "in",
+  // "the", and blanking those would gut the sentence).
+  function maskAnswer(text, answer) {
+    const words = String(answer || "").match(/[A-Za-z]+/g);
+    if (!words) return String(text || "");
+    const alts = [words.join("[\\s\\-'\u2019]*")];
+    if (words.length > 1) alts.push(...words.filter((w) => w.length >= 4));
+    return String(text || "").replace(new RegExp(`\\b(?:${alts.join("|")})\\b`, "gi"), "\u2026");
   }
 
   // The letters a block may show, "" when it may show none.
@@ -3471,7 +3482,8 @@
     if (ann.type) steps.push({
       key: "type",
       label: LABELS.type,
-      html: shown.map((f) => `<p><strong>${esc(f.label)}</strong>. ${esc(f.blurb)}</p>`).join("")
+      html: shown.map((f) => `<p><strong>${esc(maskAnswer(f.label, ann.answer))}</strong>. ` +
+        `${esc(maskAnswer(f.blurb, ann.answer))}</p>`).join("")
     });
 
     // The exact mechanism, held back until every spotting rung is behind the
@@ -3492,8 +3504,8 @@
     // rung may restate an earlier one.
     // A blog's blocks can come without a type it named or spelled out, and a
     // mechanism line with no mechanism in it says nothing.
-    const mechanics = !ann.type ? "" : `<p class="mechanism">Mechanism: <strong>${esc(ann.type)}</strong>.
-      ${isDD || isCD ? "" : esc(typeBlurb(ann.type))}</p>`;
+    const mechanics = !ann.type ? "" : `<p class="mechanism">Mechanism: <strong>${esc(maskAnswer(ann.type, ann.answer))}</strong>.
+      ${isDD || isCD ? "" : esc(maskAnswer(typeBlurb(ann.type), ann.answer))}</p>`;
 
     // Where the definition lives. For a double definition the news is not "there
     // are two" — the family rung says that, and says it later — it is WHERE the

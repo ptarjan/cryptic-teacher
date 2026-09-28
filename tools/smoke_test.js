@@ -2477,6 +2477,55 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
     }
   }
 
+  // --- the ladder's fixed prose never says the answer ---
+  // The family and type sentences are written once for every clue of their
+  // kind, so each of their words is somebody's answer: OTHER, CLUE, CHARADE and
+  // dozens more were printed on the type or blocks rung of their own clue.
+  // app.js blanks the answer out of that prose (maskAnswer); this drives the
+  // real ladder on every clue whose own family label, family blurb, type name or
+  // type sentence contains its answer as a word, and reads those paragraphs.
+  {
+    const fixedBlock = appSrc.slice(appSrc.indexOf("const TYPE_BLURBS"), appSrc.indexOf("const FAMILY_CHIPS"));
+    const unq = (v) => v.replace(/\\"/g, '"').replace(/\\u([0-9a-f]{4})/gi, (_, h) => String.fromCharCode(parseInt(h, 16)));
+    const typeBlurbs = [...fixedBlock.matchAll(/\["((?:[^"\\]|\\.)*)",\s*"((?:[^"\\]|\\.)*)"\]/g)].map((m) => [m[1], unq(m[2])]);
+    const fams = fixedBlock.split(/\{ label: "/).slice(1).map((chunk) => ({
+      label: chunk.slice(0, chunk.indexOf('"')),
+      blurb: unq((/blurb:\s*"((?:[^"\\]|\\.)*)"/.exec(chunk) || [0, ""])[1]),
+      keys: [...chunk.matchAll(/t\.includes\("([^"]+)"\)/g)].map((m) => m[1])
+    }));
+    assert(typeBlurbs.length > 10 && fams.length === 7,
+      `the fixed prose parsed out of app.js: ${typeBlurbs.length} type sentences, ${fams.length} families`);
+    const says = (text, answer) => {
+      const words = String(answer || "").match(/[A-Za-z]+/g) || [];
+      return words.length > 0 &&
+        new RegExp(`\\b${words.join("[\\s\\-'\u2019]*")}\\b`, "i").test(String(text).replace(/<[^>]*>/g, " "));
+    };
+    const hits = [];
+    for (const id of Object.keys(puzzles).sort()) {
+      for (const e of puzzles[id].entries || []) {
+        const a = e.annotation || {};
+        const t = (a.type || "").toLowerCase();
+        if (!a.answer || !t) continue;
+        const fam = fams.find((f) => f.keys.some((k) => t.includes(k))) || { label: "", blurb: "" };
+        const prose = [t, fam.label, fam.blurb, ...typeBlurbs.filter(([k]) => t.includes(k)).map(([, v]) => v)];
+        if (says(prose.join(" "), a.answer)) hits.push({ id, e });
+      }
+    }
+    assert(hits.length, "the corpus still has a clue whose answer is a word of its own family or type prose");
+    for (const h of hits) {
+      openClue(h);
+      for (let i = 0; i < 8; i++) {
+        const btn = registry["hint-next"].children[0];
+        if (!CLIMBABLE(btn) || /walkthrough/i.test(btn.textContent)) break;
+        takeRung(btn);
+        const html = registry["hint-body"].innerHTML;
+        const fixed = html.match(/<p><strong>[\s\S]*?<\/p>|<p class="mechanism">[\s\S]*?<\/p>/g) || [];
+        const leak = fixed.find((p) => says(p, h.e.annotation.answer));
+        assert(!leak, `${h.id} ${h.e.id} (${h.e.annotation.answer}): the ladder's fixed prose says the answer before the walkthrough — ${leak}`);
+      }
+    }
+  }
+
   // --- the letters rung never prints the whole answer as letters ---
   // For a hidden word, a homophone or a double definition one block legitimately
   // resolves to the entire word, so the building blocks handed the solve over one
