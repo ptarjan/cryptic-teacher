@@ -450,8 +450,21 @@ tools/qr_check.py                            decodes qr.js’s own output with a
 tools/tutorial.html                          source of the learn/ lesson
 tools/difficulty_page.html                   the prose of the difficulty/ page; every number in
                                              it is filled in at build time
-tools/og_card.html                           source and type for og.png, the site’s one social
-                                             card
+tools/og_card.html                           source and type for og.png, the site card, and
+                                             every puzzle’s clue card
+tools/og_page_card.html                      source for og/page/<slug>.png, the card of every
+                                             page that is not a puzzle
+tools/page_card.py                           fills og_page_card.html from a page’s title and
+                                             description; build_seo_pages.head() links one for
+                                             every page
+tools/test_og_tags.js                        every generated page carries a full, valid social
+                                             card, and no non-puzzle page borrows the site card
+tools/test_difficulty_page.sh                can /difficulty/ describe a rating other than the
+                                             one the badges show? It must refuse to build when
+                                             its prose and difficulty.WEIGHTS name different
+                                             components, quote the scorecard only while it
+                                             matches today's weights, and leave no
+                                             {{placeholder}} unfilled
 
 syncing between devices and telling them about new puzzles, with no login and no accounts
 sync/worker.js                               the Cloudflare Worker: merges saves and events in
@@ -736,5 +749,10 @@ scratch/snitch_stage11.py                    stage 11: clue-surface and answer-f
                                              screened on both sets
 scratch/snitch_stage12.py                    stage 12: blog-fact candidates, screened on both
                                              sets
+scratch/blog_solve_times.py                  can fifteensquared / bigdave44 comments give a
+                                             per-puzzle solver signal like TftT's?
+scratch/blog_solve_times_fetch.py            sample ~200 bigdave44 posts plus every annotated
+                                             one; posts' comments (3s crawl delay) into
+                                             ~/.cache/blog_solve_times/bigdave44
 ```
 <!-- LAYOUT-END -->

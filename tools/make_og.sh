@@ -7,6 +7,10 @@
 #                               $OG_LIMIT (600) puzzles whose card is missing
 #                               or out of date, and drops cards no puzzle gets
 #   tools/make_og.sh 30066      just that puzzle's card
+#   tools/make_og.sh --pages    og/page/<slug>.png for every page card that
+#                               tools/build_seo_pages.py linked and that is
+#                               missing or out of date — so run it AFTER the
+#                               pages; see tools/page_card.py
 #
 # Every puzzle page unfurls as a clue from THAT puzzle (2026-08-08). One shared
 # card meant a hundred different pages all previewing the same crossword; which
@@ -64,6 +68,25 @@ shot() {  # shot <html> <png>
     return 1
   fi
 }
+
+page() {  # page <slug>
+  local out="$REPO/og/page/$1.png"
+  python3 "$REPO/tools/page_card.py" --out "$TMP/page-$1.html" "$1"
+  shot "$TMP/page-$1.html" "$out"
+  python3 "$REPO/tools/page_card.py" --record "$1"
+  echo "wrote og/page/$1.png"
+}
+
+# Before the site card, which --pages must not redraw: the pages it follows
+# have already stamped og.png with a hash of its bytes.
+if [ "${1:-}" = --pages ]; then
+  python3 "$REPO/tools/page_card.py" --prune
+  list="$(python3 "$REPO/tools/page_card.py" --stale)"
+  for s in $list; do page "$s"; done
+  shopt -s nullglob
+  python3 "$REPO/tools/og_palette.py" "$REPO"/og/page/*.png
+  exit 0
+fi
 
 # The site card. Rebuilt from a published puzzle before screenshotting, which
 # also checks that the answer really is hidden where the card underlines it, so

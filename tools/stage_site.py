@@ -35,7 +35,7 @@ PUBLISH = [
     "CNAME", "*.html", "*.js", "*.css", "*.png", "*.ico", "*.svg", "*.xml",
     "*.txt", "*.webmanifest",
     "vendor/*", "sync/*.js",
-    "og/*.png",
+    "og/*.png", "og/page/*.png",
     "learn/index.html", "abbreviations/index.html", "difficulty/index.html",
     "puzzles/index.html", "puzzles/index.json", "puzzles/*.js",
     "puzzles/*/index.html", "puzzles/series/**/*",
