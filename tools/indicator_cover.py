@@ -16,7 +16,6 @@ order. Everything after the cover keeps the order it arrived in.
 Recomputed from the puzzle files on every call, so a pair stops counting the
 moment any annotation on disk links it.
 """
-import functools
 import hashlib
 import heapq
 import json
@@ -27,33 +26,21 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from fetch_puzzle import puzzle_files, read_puzzle_file
-from indicator_keys import indicator_key, names_type
+import indicator_keys
+from indicator_keys import clue_pairs
 
 ROOT = Path(__file__).resolve().parent.parent
 INDICATORS = ROOT / "tools" / "data" / "lexicons" / "indicators.json"
 BLOG_FACTS = ROOT / "tools" / "data" / "blog_facts"
 
 
-key = functools.cache(indicator_key)
+def entry_pairs(lex, annotation_type, indicators):
+    """The (type, key) pairs one clue's indicators give: the pairs the
+    /indicators/ page links it under (indicator_keys.clue_pairs)."""
+    return set(clue_pairs(lex, annotation_type, indicators))
 
 
-@functools.cache
-def _named(kinds, annotation_type):
-    return [t for t in kinds if names_type(t, annotation_type)]
-
-
-def entry_pairs(kinds, annotation_type, indicators):
-    """The (type, key) pairs one clue's indicators give, for the types in `kinds`
-    its type names."""
-    if not indicators:
-        return set()
-    if isinstance(annotation_type, list):
-        annotation_type = tuple(annotation_type)
-    named = _named(tuple(kinds), annotation_type)
-    return {(t, key(i)) for i in indicators for t in named}
-
-
-def linked_pairs(kinds, skip=frozenset()):
+def linked_pairs(lex, skip=frozenset()):
     """Every (type, key) pair one of our annotations already links, reading
     each puzzle file not in `skip` (the queue: nothing there is annotated)."""
     out = set()
@@ -62,20 +49,21 @@ def linked_pairs(kinds, skip=frozenset()):
             continue
         for e in read_puzzle_file(path).get("entries", ()):
             ann = e.get("annotation") or {}
-            out |= entry_pairs(kinds, ann.get("type"), ann.get("indicators"))
+            out |= entry_pairs(lex, ann.get("type"), ann.get("indicators"))
     return out
 
 
 #: blog_pairs' scan of every post, which takes seconds the burn pays each wave;
-#: reused while the blog facts and the indicator types it was taken under stand.
+#: reused while the blog facts, the lexicon and the matching code it was taken under stand.
 BLOG_CACHE = (Path(tempfile.gettempdir())
               / f"ct-indicator-cover-blog-{hashlib.sha1(str(ROOT).encode()).hexdigest()[:8]}.json")
 
 
-def blog_pairs(kinds, wanted):
+def blog_pairs(lex, wanted):
     """{puzzle id: (type, key) pairs its blog facts give} for the puzzles in `wanted`."""
-    stamp = [kinds] + [[p.name, p.stat().st_mtime_ns, p.stat().st_size]
-                       for p in sorted(BLOG_FACTS.glob("*.json"))]
+    stamp = [hashlib.sha1(json.dumps(lex, sort_keys=True).encode()
+                          + Path(indicator_keys.__file__).read_bytes()).hexdigest()] \
+        + [[p.name, p.stat().st_mtime_ns, p.stat().st_size] for p in sorted(BLOG_FACTS.glob("*.json"))]
     try:
         cached = json.loads(BLOG_CACHE.read_text(encoding="utf-8"))
     except (OSError, ValueError):
@@ -86,7 +74,7 @@ def blog_pairs(kinds, wanted):
             for pid, post in json.loads(path.read_text(encoding="utf-8")).items():
                 got = set()
                 for facts in (post.get("entries") or {}).values():
-                    got |= entry_pairs(kinds, facts.get("type"), facts.get("indicators"))
+                    got |= entry_pairs(lex, facts.get("type"), facts.get("indicators"))
                 if got:
                     every[pid] = sorted(got)
         cached = {"stamp": stamp, "pairs": every}
@@ -137,9 +125,8 @@ def order(queue, pairs_of, weight, pinned=()):
 def plan(queue, pinned=()):
     """order() against the data on disk. Returns (queue, picks, unlinked weights)."""
     lex = json.loads(INDICATORS.read_text(encoding="utf-8"))
-    kinds = list(lex)
-    linked = linked_pairs(kinds, skip=set(queue))
+    linked = linked_pairs(lex, skip=set(queue))
     weight = {(t, k): n for t, d in lex.items() for k, n in d.items() if (t, k) not in linked}
-    pairs_of = blog_pairs(kinds, set(queue))
+    pairs_of = blog_pairs(lex, set(queue))
     ordered, picks = order(queue, pairs_of, weight, pinned)
     return ordered, picks, weight
