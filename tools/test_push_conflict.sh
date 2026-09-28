@@ -41,6 +41,22 @@ git config user.email nobody@example.com
 git config user.name "test"
 eval "$fn"
 
+# The builders the function runs are the real ones, with two cuts that change
+# nothing it decides. build_seo_pages.py writes only untracked pages, which no
+# check below reads and no conflict can involve. The second case and the
+# builders there are skipped whole: that case is about which file is left
+# unresolved, and building nothing leaves the same one. Each full build costs
+# minutes on a runner, and this test was the slowest in the suite.
+skip_builds=
+python3() {
+  case "$1" in
+    tools/build_seo_pages.py) return 0 ;;
+    tools/build_*.py|tools/fetch_puzzle.py|tools/stamp_assets.py)
+      [ -n "$skip_builds" ] && return 0 ;;
+  esac
+  command python3 "$@"
+}
+
 rebase_running() { [ -d "$(git rev-parse --git-path rebase-merge)" ] ||
                    [ -d "$(git rev-parse --git-path rebase-apply)" ]; }
 base=$(git rev-parse HEAD)
@@ -92,6 +108,7 @@ check "the asset stamps match what was rebuilt" \
   "$(python3 tools/stamp_assets.py --check 2>&1)" "asset stamps up to date"
 
 echo "a conflict no builder owns is left alone:"
+skip_builds=1
 git checkout -q -B upstream2 "$base"
 printf '\n// upstream edited this by hand\n' >> app.js
 git commit -qam "a human edited app.js"
