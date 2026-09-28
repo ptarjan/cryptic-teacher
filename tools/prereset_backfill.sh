@@ -772,16 +772,19 @@ commit_puzzle() {
     # 2026-08-05 and 08-06, so the work stayed on the mini and the site went on
     # serving un-annotated puzzles that were annotated locally. HEAD is detached
     # in this worktree, so master is named on both sides of the push.
-    git fetch -q origin master && git rebase -q --autostash origin/master &&
-      git push -q origin HEAD:master || {
-      # One retry, because the common failure is origin moving between the fetch
-      # and the push — a sibling wave, or the 06:15 job. The second pass rebases
-      # onto whatever landed. Anything that fails twice is alerted, not retried
-      # again: the rest of the night cannot commit through it either.
+    attempt_push() {
       git fetch -q origin master && git rebase -q --autostash origin/master &&
-        git push -q origin HEAD:master ||
-        alert "pre-reset backfill committed $what $num but could not push it — the site will not show it until someone pushes. See .prereset.log."
+        git push -q origin HEAD:master
     }
+    # push_race_retry (tools/nightly_worktree.sh) redoes this a few times, with
+    # a backoff, if a sibling worktree (a sibling wave, the 06:15 job, or
+    # daily_update.sh's own nightly run) wins the lock on the shared
+    # refs/remotes/origin/master first — "cannot lock ref ... is at X but
+    # expected Y" is that race, not a conflict, and used to get only one bare
+    # retry here with no backoff and no check that it was even the same
+    # failure. Anything else it returns straight through to the alert below.
+    push_race_retry attempt_push ||
+      alert "pre-reset backfill committed $what $num but could not push it — the site will not show it until someone pushes. See .prereset.log."
     # An unmerged file is not this puzzle's problem, it is the rest of the
     # night's: every commit and every autostash from here on fails, so the job
     # would keep buying Opus annotations it cannot save and alert once per wave.
@@ -1081,13 +1084,13 @@ if [ -n "$(git status --porcelain)" ]; then
   [ -n "$left" ] && alert "the pre-reset backfill committed, and left these behind in its own worktree: $left"
   # HEAD is detached here, so master is named on both sides — `pull --rebase`
   # has no upstream to read and `push origin HEAD` has no branch to write.
-  git fetch -q origin master && git rebase -q --autostash origin/master &&
-    git push -q origin HEAD:master || {
-    # One retry, for the reason commit_puzzle gives at its own.
+  attempt_push() {
     git fetch -q origin master && git rebase -q --autostash origin/master &&
-      git push -q origin HEAD:master ||
-      alert "pre-reset backfill could not push its republish commit — the built pages are committed locally only. See .prereset.log."
+      git push -q origin HEAD:master
   }
+  # push_race_retry, for the reason commit_puzzle gives at its own.
+  push_race_retry attempt_push ||
+    alert "pre-reset backfill could not push its republish commit — the built pages are committed locally only. See .prereset.log."
 fi
 
 # Where the rollout got to. Nothing to flip by hand any more: the ratchet in
