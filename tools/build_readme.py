@@ -328,8 +328,6 @@ LAYOUT = [
     ("tables everything else reads", "scratch/snitch_stage12.py", "stage 12: blog-fact candidates, screened on both sets"),
     ("tables everything else reads", "scratch/blog_solve_times.py", "can fifteensquared / bigdave44 comments give a per-puzzle solver signal like TftT's?"),
     ("tables everything else reads", "scratch/blog_solve_times_fetch.py", "sample ~200 bigdave44 posts plus every annotated one; posts' comments (3s crawl delay) into ~/.cache/blog_solve_times/bigdave44"),
-    ("tables everything else reads", "tools/migrate_blog_fact_types.py", "rewrite the blog facts' and the indicator lexicon's type strings as clue_types names"),
-    ("tables everything else reads", "tools/migrate_type_array.py", "rewrite every \" + \"-joined `type` string in puzzles/ and tools/data/blog_facts/"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

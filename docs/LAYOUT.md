@@ -819,9 +819,5 @@ scratch/blog_solve_times.py                  can fifteensquared / bigdave44 comm
 scratch/blog_solve_times_fetch.py            sample ~200 bigdave44 posts plus every annotated
                                              one; posts' comments (3s crawl delay) into
                                              ~/.cache/blog_solve_times/bigdave44
-tools/migrate_blog_fact_types.py             rewrite the blog facts' and the indicator
-                                             lexicon's type strings as clue_types names
-tools/migrate_type_array.py                  rewrite every " + "-joined `type` string in
-                                             puzzles/ and tools/data/blog_facts/
 ```
 <!-- LAYOUT-END -->
