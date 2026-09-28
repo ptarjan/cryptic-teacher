@@ -33,7 +33,6 @@ OUT = ROOT / "abbreviations.js"
 # these markers is the pointer to it.
 MARK_START = "<!-- ABBREVIATIONS-START -->"
 MARK_END = "<!-- ABBREVIATIONS-END -->"
-COLUMNS = 3
 
 
 def render():
@@ -120,7 +119,8 @@ def table_html(senses, links=None, rare=None):
     is how the site could tell a solver CH was check while the glossary had
     never heard of it.
 
-    Every word cell carries its own id. A hint that names a convention links to
+    Grouped A to Z, each group a word list flowed into as many columns as the
+    screen fits. Every entry carries its own id. A hint that names a convention links to
     that one row, so the solver lands on the line they asked about instead of on
     the top of a four-hundred-row table with the reading still to do.
 
@@ -136,18 +136,22 @@ def table_html(senses, links=None, rare=None):
     for w, r in rare.items():
         merged.setdefault(by_anchor[anchor(w)], []).extend(r)
     rare = merged
-    rows, cells = [], sorted(by_anchor.values(), key=str.lower)
-    for i in range(0, len(cells), COLUMNS):
-        row = "".join(
-            f'<td id="{anchor(w)}">'
-            + (f'<a href="{links[w]}">{w}</a>' if w in links else w)
-            + "</td><td>" + ", ".join(
-                sorted(senses.get(w, []))
-                + [f'<span class="muted" title="seen in {n:,} clues">{k}</span>'
-                   for k, n in rare.get(w, [])]) + "</td>"
-            for w in cells[i:i + COLUMNS])
-        rows.append(f"<tr>{row}</tr>")
-    return '<table class="glossary">\n' + "\n".join(rows) + "\n</table>"
+    groups = {}
+    for w in sorted(by_anchor.values(), key=str.lower):
+        head = w[0].upper() if w[0].isalpha() else "0–9"
+        groups.setdefault(head, []).append(w)
+    out = ['<p class="glossary-jump">' + " ".join(
+        f'<a href="#abbr-{h[0].lower()}-">{h}</a>' for h in groups) + "</p>"]
+    for head, words in groups.items():
+        out.append(f'<h3 id="abbr-{head[0].lower()}-">{head}</h3>\n<dl class="glossary">')
+        for w in words:
+            letters = sorted(senses.get(w, [])) + [
+                f'<span class="muted" title="seen in {n:,} clues">{k}</span>'
+                for k, n in rare.get(w, [])]
+            word = f'<a href="{links[w]}">{w}</a>' if w in links else w
+            out.append(f'<div id="{anchor(w)}"><dt>{word}</dt><dd>{", ".join(letters)}</dd></div>')
+        out.append("</dl>")
+    return "\n".join(out)
 
 
 def write(path, text):
