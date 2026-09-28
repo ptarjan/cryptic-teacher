@@ -1281,11 +1281,14 @@ def abbreviations_page(blocks):
     n = len(senses)
     links = clue_links(senses, blocks)
     seen = build_abbreviations.seen()
-    title = f"Cryptic crossword abbreviations — {n} standard, plus {len(seen)} rarer ones"
+    rare = {}
+    for w, letters, count in seen:
+        rare.setdefault(w, []).append((letters, count))
+    title = f"Cryptic crossword abbreviations — {n + len(seen):,} of them, A to Z"
     desc = (f"All {n} abbreviations cryptic crossword setters use in these puzzles, listed "
             "by word: check is CH, sailor is AB, right is R. Every one comes from a real "
             f"published puzzle, and {len(links)} of them link to a clue that uses it, "
-            f"explained. Plus {len(seen)} more readings counted in solved clues.")
+            f"explained. Plus {len(seen)} rarer readings counted in solved clues.")
     canonical = f"{BASE}/abbreviations/"
     crumbs = [("Cryptic Teacher", "/"), ("How cryptic clues work", "/learn/"),
               ("Abbreviations", "")]
@@ -1310,25 +1313,14 @@ def abbreviations_page(blocks):
         "pieces: <em>check</em> + <em>weapon</em> gives CH + ARM, which is CHARM. Some words "
         "stand for more than one set of letters. Try each one until the pieces build a word "
         "that matches the definition.</p>",
-        f"<p>This list has all {n} abbreviations used in the puzzles explained on this site. "
-        "Words are in alphabetical order. Find the word from your clue, and the letters it "
-        "stands for are right next to it. The list grows as new puzzles are added.</p>",
-        f"<p>{len(links)} of the words are links. Each one takes you to a real clue that uses "
-        "that abbreviation, with the clue explained step by step. The rest have no example "
-        "clue yet.</p>",
-        build_abbreviations.table_html(senses, links),
-        f'<h2 id="seen">{len(seen)} more, counted in solved clues</h2>',
-        "<p>These come from tens of thousands of clues explained by solving blogs and by "
-        "this site. Each row is a word a setter used for a short set of letters, with the "
-        "number of clues it was seen in. They are the rarer conventions, and some are "
-        "one setter's habit.</p>",
-        f"<p>A reading is listed only if it is one or two letters, is not an everyday "
-        f"word (so <em>popular</em> as IN is left out), turns up in at least "
-        f"{build_abbreviations.SEEN_MIN} clues, and cannot be spelled from the word's own "
-        "letters. The last rule keeps out clues that took the first or last letters of a "
-        "word, like T from <em>trade</em>. It also leaves out R for <em>river</em>, but "
-        "the list above has those. Words have lost their apostrophes.</p>",
-        build_abbreviations.seen_html(seen),
+        f"<p>Find the word from your clue; the letters it stands for are next to it. "
+        f"The {n} in plain type are the standard ones, used in the puzzles explained on "
+        f"this site. The {len(seen)} in grey are rarer, counted in tens of thousands of "
+        "solved clues; some are one setter's habit. Hover one to see how many clues used "
+        "it.</p>",
+        f"<p>{len(links)} of the words are links to a real clue that uses that "
+        "abbreviation, explained step by step.</p>",
+        build_abbreviations.table_html(senses, links, rare),
         f'<p class="s-cta"><a class="cta" href="{BASE}/learn/">New to cryptics? '
         f'Learn how the clues work &rarr;</a></p>',
         "</main>",
