@@ -18,7 +18,10 @@
   "retrievedFrom": "publisher",
   "retrievedUrl": null,
   "gridOrigin": "published",
-  "solutionOrigin": "published"
+  "solutionOrigin": "published",
+  "annotatedBy": [
+   "claude-opus-5-5"
+  ]
  },
  "entries": [
   {
@@ -31,7 +34,45 @@
    },
    "length": 4,
    "clue": "Not for the first time, 20% is skimmed off top as profit (4)",
-   "solution": "GAIN"
+   "solution": "GAIN",
+   "annotation": {
+    "type": "deletion",
+    "answer": "GAIN",
+    "definition": "profit",
+    "indicators": [
+     "is skimmed off top"
+    ],
+    "indicatorNotes": {
+     "is skimmed off top": "skimming takes from the surface, so the front of the word goes"
+    },
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Not for the first time",
+      "gives": "AGAIN",
+      "note": "something done again is not being done for the first time"
+     },
+     {
+      "clueFragment": "20%",
+      "gives": "A",
+      "note": "one letter of the five in AGAIN is 20% of it"
+     }
+    ],
+    "pieces": [
+     "GAIN"
+    ],
+    "surface": "A repeat skimmer creams a fifth off the top of the takings.",
+    "walkthrough": "The 20% sounds like a cut of money, but it measures the word: one letter out of five.",
+    "definitionFit": "A gain is a profit, money made over what was spent.",
+    "features": {
+     "misdirectedWord": "skimmed",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "2-down",
@@ -43,7 +84,37 @@
    },
    "length": 8,
    "clue": "Strong drink available in judge’s press office (8)",
-   "solution": "ESPRESSO"
+   "solution": "ESPRESSO",
+   "annotation": {
+    "type": "hidden word",
+    "answer": "ESPRESSO",
+    "definition": "Strong drink",
+    "indicators": [
+     "available in"
+    ],
+    "indicatorNotes": {
+     "available in": "the answer can be found inside the words that follow"
+    },
+    "blocks": [
+     {
+      "clueFragment": "judge’s press office",
+      "gives": "ESPRESSO",
+      "note": "the letters run from the end of judge's, through all of press, to the O that starts office"
+     }
+    ],
+    "pieces": [
+     "ESPRESSO"
+    ],
+    "surface": "Hard liquor is on hand in the room where a judge meets reporters.",
+    "walkthrough": "'Strong drink' suggests alcohol, but espresso is strong coffee.",
+    "definitionFit": "Espresso is a small, concentrated shot of coffee, a strong drink.",
+    "features": {
+     "misdirectedWord": "Strong",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "3-down",
@@ -60,7 +131,57 @@
      4
     ]
    },
-   "solution": "HIGHPRIEST"
+   "solution": "HIGHPRIEST",
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "HIGH PRIEST",
+    "definition": "Religious leader",
+    "indicators": [
+     "under",
+     "bungled"
+    ],
+    "indicatorNotes": {
+     "under": "in a down clue, what comes under sits lower in the grid, so the leader is built on top of the rest",
+     "bungled": "a bungled thing is botched, so these letters are jumbled"
+    },
+    "blocks": [
+     {
+      "clueFragment": "intense",
+      "gives": "HIGH",
+      "note": "high feelings are intense ones"
+     },
+     {
+      "clueFragment": "pressure",
+      "gives": "P",
+      "note": "P is the physics symbol for pressure"
+     },
+     {
+      "clueFragment": "rites",
+      "gives": "RIEST",
+      "note": "RITES rearranged"
+     }
+    ],
+    "pieces": [
+     "HIGH",
+     "P",
+     "RIEST"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "RITES",
+      "gives": "RIEST"
+     }
+    ],
+    "surface": "A cleric under great stress makes a mess of a ceremony.",
+    "walkthrough": "The surface reads 'under intense pressure' as one idiom, but it splits into HIGH and P, with 'under' placing the leader's name above them.",
+    "definitionFit": "A plain title: the chief priest of a faith, as in ancient Israel, heads its worship.",
+    "features": {
+     "misdirectedWord": "under",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "4-down",
@@ -72,7 +193,51 @@
    },
    "length": 6,
    "clue": "Rest of MPs are heard too much after vote’s cancelled (6)",
-   "solution": "RECESS"
+   "solution": "RECESS",
+   "annotation": {
+    "type": "homophone + charade + deletion",
+    "answer": "RECESS",
+    "definition": "Rest of MPs",
+    "indicators": [
+     "heard",
+     "cancelled"
+    ],
+    "indicatorNotes": {
+     "heard": "what is heard is what is spoken, so 'are' becomes the letter that sounds like it",
+     "cancelled": "a cancelled thing is struck out, so the X goes"
+    },
+    "blocks": [
+     {
+      "clueFragment": "are",
+      "soundsLike": "ARE",
+      "gives": "R",
+      "note": "the letter R is said the same as 'are'"
+     },
+     {
+      "clueFragment": "too much",
+      "gives": "EXCESS",
+      "note": "an excess is too much of something"
+     },
+     {
+      "clueFragment": "vote",
+      "gives": "X",
+      "note": "a voter marks the ballot with an X"
+     }
+    ],
+    "pieces": [
+     "R",
+     "ECESS"
+    ],
+    "surface": "Politicians in Parliament are said to talk too much once a vote is called off.",
+    "walkthrough": "Recess is the break when Parliament does not sit; MPs are Members of Parliament.",
+    "definitionFit": "A recess is the period when Parliament stops sitting, the MPs' rest.",
+    "features": {
+     "misdirectedWord": "Rest",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "5-down",
@@ -84,7 +249,51 @@
    },
    "length": 8,
    "clue": "Rose, while initially cultivated, later destroyed (8)",
-   "solution": "ASCENDED"
+   "solution": "ASCENDED",
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "ASCENDED",
+    "definition": "Rose",
+    "indicators": [
+     "initially",
+     "later"
+    ],
+    "indicatorNotes": {
+     "initially": "the start of the next word gives one letter",
+     "later": "what comes later goes after the rest"
+    },
+    "blocks": [
+     {
+      "clueFragment": "while",
+      "gives": "AS",
+      "note": "'as' and 'while' both mean during the time that"
+     },
+     {
+      "clueFragment": "cultivated",
+      "gives": "C",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "destroyed",
+      "gives": "ENDED",
+      "note": "something destroyed is ended"
+     }
+    ],
+    "pieces": [
+     "AS",
+     "C",
+     "ENDED"
+    ],
+    "surface": "A rose bush, tended at first, was later wrecked.",
+    "walkthrough": "'Rose' sits next to 'cultivated' and looks like the flower, but it is the past tense of rise.",
+    "definitionFit": "To ascend is to rise, so ascended means rose.",
+    "features": {
+     "misdirectedWord": "Rose",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "6-down",
@@ -96,7 +305,43 @@
    },
    "length": 4,
    "clue": "Raise temperature for last part of personal story (4)",
-   "solution": "LIFT"
+   "solution": "LIFT",
+   "annotation": {
+    "type": "substitution",
+    "answer": "LIFT",
+    "definition": "Raise",
+    "indicators": [
+     "for last part of"
+    ],
+    "indicatorNotes": {
+     "for last part of": "one letter is put in place of the final letter of the word that follows"
+    },
+    "blocks": [
+     {
+      "clueFragment": "temperature",
+      "gives": "T",
+      "note": "T is the abbreviation for temperature"
+     },
+     {
+      "clueFragment": "personal story",
+      "gives": "LIFE",
+      "note": "a life is the story of one person; its E is swapped out"
+     }
+    ],
+    "pieces": [
+     "LIF",
+     "T"
+    ],
+    "surface": "Heat up the ending of a memoir.",
+    "walkthrough": "A 'life' in this sense is a biography, the story of one person.",
+    "definitionFit": "A plain synonym: both mean moving something upward.",
+    "features": {
+     "misdirectedWord": "Raise",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "7-down",
@@ -108,7 +353,37 @@
    },
    "length": 6,
    "clue": "Drag higher on charts? It’s way up there (6)",
-   "solution": "HEAVEN"
+   "solution": "HEAVEN",
+   "annotation": {
+    "type": "charade",
+    "answer": "HEAVEN",
+    "definition": "It’s way up there",
+    "blocks": [
+     {
+      "clueFragment": "Drag",
+      "gives": "HEAVE",
+      "note": "to heave is to drag or haul"
+     },
+     {
+      "clueFragment": "higher on charts",
+      "gives": "N",
+      "note": "north is the upper edge of a map, so N"
+     }
+    ],
+    "pieces": [
+     "HEAVE",
+     "N"
+    ],
+    "surface": "A drag act rising in the music charts is flying high.",
+    "walkthrough": "'Charts' suggests the hit parade, but these are maps, on which north is at the top.",
+    "definitionFit": "Heaven is traditionally placed in the sky, far above us.",
+    "features": {
+     "misdirectedWord": "charts",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "8-down",
@@ -120,7 +395,40 @@
    },
    "length": 4,
    "clue": "Starts off puzzle like ultimate solver – that’s an advantage (4)",
-   "solution": "PLUS"
+   "solution": "PLUS",
+   "annotation": {
+    "type": "first letters",
+    "answer": "PLUS",
+    "definition": "an advantage",
+    "indicators": [
+     "Starts"
+    ],
+    "indicatorNotes": {
+     "Starts": "the starts of the next words give the letters"
+    },
+    "linkWords": [
+     "that’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "puzzle like ultimate solver",
+      "gives": "PLUS",
+      "note": "first letters"
+     }
+    ],
+    "pieces": [
+     "PLUS"
+    ],
+    "surface": "Solving a puzzle as the best solver does gives you a head start.",
+    "walkthrough": "It pairs with 28 across, MINUS, which is 'a disadvantage'.",
+    "definitionFit": "A plain synonym: a point in something's favour, the opposite of a drawback.",
+    "features": {
+     "misdirectedWord": "Starts",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "9-across",
@@ -132,7 +440,51 @@
    },
    "length": 9,
    "clue": "They attack nitwit introducing crazy serial (9)",
-   "solution": "ASSAILERS"
+   "solution": "ASSAILERS",
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "ASSAILERS",
+    "definition": "They attack",
+    "indicators": [
+     "introducing",
+     "crazy"
+    ],
+    "indicatorNotes": {
+     "introducing": "the nitwit comes first and brings in what follows",
+     "crazy": "crazy letters are in disorder, so these are jumbled"
+    },
+    "blocks": [
+     {
+      "clueFragment": "nitwit",
+      "gives": "ASS",
+      "note": "an ass is a fool"
+     },
+     {
+      "clueFragment": "serial",
+      "gives": "AILERS",
+      "note": "SERIAL rearranged"
+     }
+    ],
+    "pieces": [
+     "ASS",
+     "AILERS"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "SERIAL",
+      "gives": "AILERS"
+     }
+    ],
+    "surface": "Critics lay into an idiot who launches a mad TV series.",
+    "walkthrough": "'Serial' looks like a TV drama; here it is only six letters to rearrange.",
+    "definitionFit": "Assailers are those who assail, that is, attack.",
+    "features": {
+     "misdirectedWord": "serial",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "10-across",
@@ -144,7 +496,43 @@
    },
    "length": 5,
    "clue": "Most fitting introduction to Trump’s cogito? (5)",
-   "solution": "IDEAL"
+   "solution": "IDEAL",
+   "annotation": {
+    "type": "charade",
+    "answer": "IDEAL",
+    "definition": "Most fitting",
+    "indicators": [
+     "introduction to"
+    ],
+    "indicatorNotes": {
+     "introduction to": "the opening words of the saying are wanted"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Trump’s cogito",
+      "gives": "I",
+      "note": "Descartes' cogito opens with I"
+     },
+     {
+      "clueFragment": "Trump’s cogito",
+      "gives": "DEAL",
+      "note": "where Descartes thinks, the author of The Art of the Deal deals"
+     }
+    ],
+    "pieces": [
+     "I",
+     "DEAL"
+    ],
+    "surface": "What better way to open a philosophy of Donald Trump?",
+    "walkthrough": "Descartes wrote 'cogito, ergo sum': 'I think, therefore I am'. Trump, author of The Art of the Deal, might open his version with 'I deal'.",
+    "definitionFit": "Ideal means perfect for the purpose, the most fitting.",
+    "features": {
+     "misdirectedWord": "introduction",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "11-across",
@@ -156,7 +544,40 @@
    },
    "length": 5,
    "clue": "Partner of 26, or just the opposite (5)",
-   "solution": "NORTH"
+   "solution": "NORTH",
+   "annotation": {
+    "type": "double definition",
+    "answer": "NORTH",
+    "definition": "Partner of 26",
+    "definition2": "just the opposite",
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Partner of 26",
+      "gives": "NORTH",
+      "note": "26 across is a compass point; bridge players are named for the compass, and those facing each other are partners"
+     },
+     {
+      "clueFragment": "just the opposite",
+      "gives": "NORTH",
+      "note": "the point directly across the compass from 26 across"
+     }
+    ],
+    "pieces": [
+     "NORTH"
+    ],
+    "surface": "One thing is either a partner of another or its exact opposite.",
+    "walkthrough": "26 across is SOUTH, whose clue mirrors this one. In bridge, the four players are named for compass points and North partners South.",
+    "definitionFit": "North sits opposite South both at the bridge table and on the compass.",
+    "features": {
+     "misdirectedWord": "Partner",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "12-across",
@@ -168,7 +589,52 @@
    },
    "length": 9,
    "clue": "Televise broadcast about cold courses for choosy types (9)",
-   "solution": "ELECTIVES"
+   "solution": "ELECTIVES",
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "ELECTIVES",
+    "definition": "courses for choosy types",
+    "indicators": [
+     "broadcast",
+     "about"
+    ],
+    "indicatorNotes": {
+     "broadcast": "broadcast seed is scattered, so these letters are jumbled",
+     "about": "the jumbled word goes around the next letter"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Televise",
+      "gives": "ELETIVES",
+      "note": "TELEVISE rearranged"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C is the abbreviation for cold, as on a tap"
+     }
+    ],
+    "pieces": [
+     "ELE",
+     "C",
+     "TIVES"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "TELEVISE",
+      "gives": "ELETIVES"
+     }
+    ],
+    "surface": "A TV channel airs a programme about cooking courses for fussy eaters.",
+    "walkthrough": "'Courses' suggests a meal; here they are classes a student may choose.",
+    "definitionFit": "Electives are optional courses of study, taken by students who choose them.",
+    "features": {
+     "misdirectedWord": "courses",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "13-across",
@@ -180,7 +646,49 @@
    },
    "length": 7,
    "clue": "Takes in one lot of rubbish or another (7)",
-   "solution": "ABSORBS"
+   "solution": "ABSORBS",
+   "annotation": {
+    "type": "charade",
+    "answer": "ABSORBS",
+    "definition": "Takes in",
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "a means one"
+     },
+     {
+      "clueFragment": "lot of rubbish",
+      "gives": "BS",
+      "note": "BS is short for bullshit"
+     },
+     {
+      "clueFragment": "or",
+      "gives": "OR",
+      "note": "used as it stands"
+     },
+     {
+      "clueFragment": "another",
+      "gives": "BS",
+      "note": "another lot of rubbish"
+     }
+    ],
+    "pieces": [
+     "A",
+     "BS",
+     "OR",
+     "BS"
+    ],
+    "surface": "Someone swallows one load of nonsense or another.",
+    "walkthrough": "'Another' does its work by repeating the rubbish, so BS appears twice.",
+    "definitionFit": "To absorb something is to take it in.",
+    "features": {
+     "misdirectedWord": "rubbish",
+     "joke": "pun",
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "13-down",
@@ -192,7 +700,40 @@
    },
    "length": 5,
    "clue": "Confer on area with room for improvement (5)",
-   "solution": "AWARD"
+   "solution": "AWARD",
+   "annotation": {
+    "type": "charade",
+    "answer": "AWARD",
+    "definition": "Confer on",
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "A is the abbreviation for area"
+     },
+     {
+      "clueFragment": "room for improvement",
+      "gives": "WARD",
+      "note": "a hospital ward is a room where patients get better"
+     }
+    ],
+    "pieces": [
+     "A",
+     "WARD"
+    ],
+    "surface": "Discuss a part of the business that could do better.",
+    "walkthrough": "'Room for improvement' is the stock phrase for a shortfall, but here it is read literally: a room where the sick improve.",
+    "definitionFit": "A plain synonym: to give someone an honour or prize formally is to bestow it upon them.",
+    "features": {
+     "misdirectedWord": "room",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "14-across",
@@ -204,7 +745,46 @@
    },
    "length": 7,
    "clue": "Protest less than polite, altogether fiendish (7)",
-   "solution": "DEMONIC"
+   "solution": "DEMONIC",
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "DEMONIC",
+    "definition": "fiendish",
+    "indicators": [
+     "less than"
+    ],
+    "indicatorNotes": {
+     "less than": "the word falls short of complete, so its last letter goes"
+    },
+    "linkWords": [
+     "altogether"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Protest",
+      "gives": "DEMO",
+      "note": "a demo is a protest march"
+     },
+     {
+      "clueFragment": "polite",
+      "gives": "NICE",
+      "note": "nice manners are polite ones; cut short to NIC"
+     }
+    ],
+    "pieces": [
+     "DEMO",
+     "NIC"
+    ],
+    "surface": "A rude demonstration can be utterly devilish.",
+    "walkthrough": "'Less than polite' reads as 'rude', but it asks for NICE with a letter short.",
+    "definitionFit": "Demonic means like a demon, fiendish.",
+    "features": {
+     "misdirectedWord": "less",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "15-down",
@@ -216,7 +796,56 @@
    },
    "length": 10,
    "clue": "I help police following gang I left, preparing for action (10)",
-   "solution": "MOBILISING"
+   "solution": "MOBILISING",
+   "annotation": {
+    "type": "charade",
+    "answer": "MOBILISING",
+    "definition": "preparing for action",
+    "indicators": [
+     "following"
+    ],
+    "indicatorNotes": {
+     "following": "what follows comes after, so the helping of police goes last"
+    },
+    "blocks": [
+     {
+      "clueFragment": "gang",
+      "gives": "MOB",
+      "note": "a mob is a gang"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "the second I, used as it stands"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is short for left"
+     },
+     {
+      "clueFragment": "I help police",
+      "gives": "ISING",
+      "note": "to sing is slang for informing to the police"
+     }
+    ],
+    "pieces": [
+     "MOB",
+     "I",
+     "L",
+     "I",
+     "SING"
+    ],
+    "surface": "An informer who has quit a gang explains why they are cooperating.",
+    "walkthrough": "To sing, in criminal slang, is to tell the police what you know.",
+    "definitionFit": "Mobilising means readying troops or resources for action.",
+    "features": {
+     "misdirectedWord": "help",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "16-down",
@@ -228,7 +857,47 @@
    },
    "length": 5,
    "clue": "Concealing pained expression, call for old form of money (5)",
-   "solution": "COWRY"
+   "solution": "COWRY",
+   "annotation": {
+    "type": "container",
+    "answer": "COWRY",
+    "definition": "old form of money",
+    "indicators": [
+     "Concealing"
+    ],
+    "indicatorNotes": {
+     "Concealing": "the call hides the pained expression inside it"
+    },
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "call",
+      "gives": "CRY",
+      "note": "a cry is a call"
+     },
+     {
+      "clueFragment": "pained expression",
+      "gives": "OW",
+      "note": "'ow!' is what you say when hurt"
+     }
+    ],
+    "pieces": [
+     "C",
+     "OW",
+     "RY"
+    ],
+    "surface": "Hiding their grimace, someone shouts for obsolete currency.",
+    "walkthrough": "'Pained expression' suggests a face, but it is a word said aloud in pain.",
+    "definitionFit": "Cowry shells were used as money in parts of Africa and Asia.",
+    "features": {
+     "misdirectedWord": "expression",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "17-across",
@@ -250,7 +919,51 @@
      5
     ]
    },
-   "solution": "ABOVE"
+   "solution": "ABOVE",
+   "annotation": {
+    "type": "anagram",
+    "coversGroup": true,
+    "answer": "ABOVE, AND BELOW",
+    "definition": "Like others in hierarchy",
+    "indicators": [
+     "must change"
+    ],
+    "indicatorNotes": {
+     "must change": "the letters are to be changed into a new order"
+    },
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "used as it stands"
+     },
+     {
+      "clueFragment": "baron",
+      "gives": "B",
+      "note": "B is the abbreviation for baron"
+     },
+     {
+      "clueFragment": "avowed noble",
+      "gives": "AVOWEDNOBLE",
+      "note": "used as they stand"
+     }
+    ],
+    "pieces": [
+     "ABOVEANDBELOW"
+    ],
+    "anagram": {
+     "fodder": "ABAVOWEDNOBLE"
+    },
+    "surface": "A peer who has sworn to be noble must accept a change, like others in the ranks.",
+    "walkthrough": "In a hierarchy every rank but the top and bottom has others both above and below it.",
+    "definitionFit": "Someone in the middle of a hierarchy has people both above and below them.",
+    "features": {
+     "misdirectedWord": "noble",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "18-across",
@@ -272,7 +985,10 @@
      3
     ]
    },
-   "solution": "AND"
+   "solution": "AND",
+   "annotation": {
+    "linkedTo": "17-across"
+   }
   },
   {
    "id": "18-down",
@@ -284,7 +1000,58 @@
    },
    "length": 8,
    "clue": "Dropped from height, rests up in a part of hospital (8)",
-   "solution": "ABSEILED"
+   "solution": "ABSEILED",
+   "annotation": {
+    "type": "reversal + container",
+    "answer": "ABSEILED",
+    "definition": "Dropped from height",
+    "indicators": [
+     "up",
+     "in"
+    ],
+    "indicatorNotes": {
+     "up": "in a down clue, going up reverses the word",
+     "in": "the reversed word goes inside the bed"
+    },
+    "blocks": [
+     {
+      "clueFragment": "rests",
+      "gives": "LIES",
+      "note": "someone resting lies down; reversed to SEIL"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "used as it stands"
+     },
+     {
+      "clueFragment": "part of hospital",
+      "gives": "BED",
+      "note": "a hospital is made up of beds"
+     }
+    ],
+    "pieces": [
+     "A",
+     "B",
+     "SEIL",
+     "ED"
+    ],
+    "subReversals": [
+     {
+      "from": "LIES",
+      "to": "SEIL"
+     }
+    ],
+    "surface": "A patient who fell from a height lies in a hospital bed.",
+    "walkthrough": "The surface sends the injured faller to hospital, but abseiling is a controlled descent.",
+    "definitionFit": "To abseil is to descend a rope from a height.",
+    "features": {
+     "misdirectedWord": "Dropped",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "19-across",
@@ -304,7 +1071,10 @@
    "separatorLocations": {
     ",": []
    },
-   "solution": "BELOW"
+   "solution": "BELOW",
+   "annotation": {
+    "linkedTo": "17-across"
+   }
   },
   {
    "id": "20-down",
@@ -316,7 +1086,40 @@
    },
    "length": 8,
    "clue": "Bottom falling out of luxury vehicle in part of France once (8)",
-   "solution": "LIMOUSIN"
+   "solution": "LIMOUSIN",
+   "annotation": {
+    "type": "deletion",
+    "answer": "LIMOUSIN",
+    "definition": "part of France once",
+    "indicators": [
+     "Bottom falling out of"
+    ],
+    "indicatorNotes": {
+     "Bottom falling out of": "in a down clue the bottom of a word is its last letter, and it drops away"
+    },
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "luxury vehicle",
+      "gives": "LIMOUSINE",
+      "note": "a limousine is a luxury car; its E goes"
+     }
+    ],
+    "pieces": [
+     "LIMOUSIN"
+    ],
+    "surface": "A limo's floor collapses on a French road years ago.",
+    "walkthrough": "Limousin was a region of France until it was merged into Nouvelle-Aquitaine in 2016, hence 'once'.",
+    "definitionFit": "Limousin was a French region and an older province, now part of a larger region.",
+    "features": {
+     "misdirectedWord": "Bottom",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "21-across",
@@ -328,7 +1131,52 @@
    },
    "length": 7,
    "clue": "Removes children, withdrawn over inadequate service (7)",
-   "solution": "DELETES"
+   "solution": "DELETES",
+   "annotation": {
+    "type": "reversal + container",
+    "answer": "DELETES",
+    "definition": "Removes",
+    "indicators": [
+     "withdrawn",
+     "over"
+    ],
+    "indicatorNotes": {
+     "withdrawn": "drawn back, so the word runs backwards",
+     "over": "the children cover the service, sitting either side of it"
+    },
+    "blocks": [
+     {
+      "clueFragment": "children",
+      "gives": "SEED",
+      "note": "seed means offspring, as in the Bible; reversed to DEES"
+     },
+     {
+      "clueFragment": "inadequate service",
+      "gives": "LET",
+      "note": "in tennis a let is a serve that clips the net and must be taken again"
+     }
+    ],
+    "pieces": [
+     "DE",
+     "LET",
+     "ES"
+    ],
+    "subReversals": [
+     {
+      "from": "SEED",
+      "to": "DEES"
+     }
+    ],
+    "surface": "Someone takes their children out of a school with poor provision.",
+    "walkthrough": "'Service' suggests public services, but it is a tennis serve.",
+    "definitionFit": "To delete something is to remove it.",
+    "features": {
+     "misdirectedWord": "service",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "22-down",
@@ -340,7 +1188,44 @@
    },
    "length": 6,
    "clue": "Full of affection, experience desire, sex included (6)",
-   "solution": "LOVING"
+   "solution": "LOVING",
+   "annotation": {
+    "type": "container",
+    "answer": "LOVING",
+    "definition": "Full of affection",
+    "indicators": [
+     "included"
+    ],
+    "indicatorNotes": {
+     "included": "the six goes inside the desire"
+    },
+    "blocks": [
+     {
+      "clueFragment": "experience desire",
+      "gives": "LONG",
+      "note": "to long is to feel a desire"
+     },
+     {
+      "clueFragment": "sex",
+      "gives": "VI",
+      "note": "sex is Latin for six, VI in Roman numerals"
+     }
+    ],
+    "pieces": [
+     "LO",
+     "VI",
+     "NG"
+    ],
+    "surface": "An affectionate person feels desire, sex included.",
+    "walkthrough": "'Sex' looks like the obvious meaning, but it is the Latin word for six.",
+    "definitionFit": "Loving means full of love, affectionate.",
+    "features": {
+     "misdirectedWord": "sex",
+     "joke": "pun",
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "23-across",
@@ -352,7 +1237,44 @@
    },
    "length": 7,
    "clue": "Slander university in peaceful US city (7)",
-   "solution": "CALUMNY"
+   "solution": "CALUMNY",
+   "annotation": {
+    "type": "container",
+    "answer": "CALUMNY",
+    "definition": "Slander",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "the university goes inside the city"
+    },
+    "blocks": [
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "U is short for university"
+     },
+     {
+      "clueFragment": "peaceful US city",
+      "gives": "CALMNY",
+      "note": "CALM (peaceful) plus NY, New York"
+     }
+    ],
+    "pieces": [
+     "CAL",
+     "U",
+     "MNY"
+    ],
+    "surface": "A college is defamed in a quiet American town.",
+    "walkthrough": "'Peaceful US city' reads as one place, but it splits into CALM and NY.",
+    "definitionFit": "Calumny is a false and damaging statement, slander.",
+    "features": {
+     "misdirectedWord": "peaceful",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "23-down",
@@ -369,7 +1291,47 @@
      2
     ]
    },
-   "solution": "COHOST"
+   "solution": "COHOST",
+   "annotation": {
+    "type": "container",
+    "answer": "CO-HOST",
+    "definition": "one party organizer",
+    "indicators": [
+     "goes into"
+    ],
+    "indicatorNotes": {
+     "goes into": "the house goes inside the next word"
+    },
+    "linkWords": [
+     "gives"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "House",
+      "gives": "HO",
+      "note": "HO is an abbreviation for house"
+     },
+     {
+      "clueFragment": "what bill",
+      "gives": "COST",
+      "note": "a bill tells you what something cost"
+     }
+    ],
+    "pieces": [
+     "CO",
+     "HO",
+     "ST"
+    ],
+    "surface": "A household pays whatever the bill says, and one person throws the party.",
+    "walkthrough": "'Party' suggests politics, but a co-host shares the job of running a social gathering.",
+    "definitionFit": "A co-host is one of two or more people hosting an event.",
+    "features": {
+     "misdirectedWord": "party",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "24-across",
@@ -381,7 +1343,53 @@
    },
    "length": 9,
    "clue": "Bad fine contributed to ruin for sinister school members (9)",
-   "solution": "DEVILFISH"
+   "solution": "DEVILFISH",
+   "annotation": {
+    "type": "container",
+    "answer": "DEVILFISH",
+    "definition": "sinister school members",
+    "indicators": [
+     "contributed to"
+    ],
+    "indicatorNotes": {
+     "contributed to": "the pieces are put into the next word"
+    },
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bad",
+      "gives": "EVIL",
+      "note": "evil means bad"
+     },
+     {
+      "clueFragment": "fine",
+      "gives": "F",
+      "note": "F is short for fine, as on pencil leads"
+     },
+     {
+      "clueFragment": "ruin",
+      "gives": "DISH",
+      "note": "to dish someone's chances is to ruin them"
+     }
+    ],
+    "pieces": [
+     "D",
+     "EVIL",
+     "F",
+     "ISH"
+    ],
+    "surface": "A bad fine helps bring ruin to wicked pupils.",
+    "walkthrough": "'School members' suggests pupils, but a school is a group of fish; 'sinister' points at the devil in the name.",
+    "definitionFit": "A devilfish, such as the manta ray, is a fish, and fish swim in schools.",
+    "features": {
+     "misdirectedWord": "school",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "24-down",
@@ -393,7 +1401,53 @@
    },
    "length": 4,
    "clue": "Put down as stupid, giving away bishop for pawn (4)",
-   "solution": "DUMP"
+   "solution": "DUMP",
+   "annotation": {
+    "type": "substitution",
+    "answer": "DUMP",
+    "definition": "Put down",
+    "indicators": [
+     "giving away",
+     "for"
+    ],
+    "indicatorNotes": {
+     "giving away": "to give something away is to part with it, so the B leaves the word",
+     "for": "one letter is exchanged for another"
+    },
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stupid",
+      "gives": "DUMB",
+      "note": "dumb means stupid"
+     },
+     {
+      "clueFragment": "bishop",
+      "gives": "B",
+      "note": "B is the chess notation for bishop"
+     },
+     {
+      "clueFragment": "pawn",
+      "gives": "P",
+      "note": "P is the chess notation for pawn"
+     }
+    ],
+    "pieces": [
+     "DUM",
+     "P"
+    ],
+    "surface": "A chess player gives up a bishop for a pawn and is called stupid for it.",
+    "walkthrough": "Swapping a bishop for a pawn is a bad trade in chess, so the surface reads naturally as an insult.",
+    "definitionFit": "To dump something is to put it down, often heavily.",
+    "features": {
+     "misdirectedWord": "Put",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "25-down",
@@ -405,7 +1459,43 @@
    },
    "length": 4,
    "clue": "Part of Hollywood location ultimately doubled deficit (4)",
-   "solution": "LOSS"
+   "solution": "LOSS",
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "LOSS",
+    "definition": "deficit",
+    "indicators": [
+     "ultimately doubled"
+    ],
+    "indicatorNotes": {
+     "ultimately doubled": "the final letter is repeated"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Part of Hollywood location",
+      "gives": "LOS",
+      "note": "the first word of Los Angeles, where Hollywood is"
+     },
+     {
+      "clueFragment": "Hollywood location",
+      "gives": "S",
+      "note": "the last letter of LOS, used again"
+     }
+    ],
+    "pieces": [
+     "LOS",
+     "S"
+    ],
+    "surface": "A section of a film set ends up with its debt doubled.",
+    "walkthrough": "Hollywood is a district of Los Angeles; only part of that name, LOS, is used.",
+    "definitionFit": "A loss is a deficit, spending more than comes in.",
+    "features": {
+     "misdirectedWord": "doubled",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "26-across",
@@ -417,7 +1507,40 @@
    },
    "length": 5,
    "clue": "Partner of 11, or just the opposite (5)",
-   "solution": "SOUTH"
+   "solution": "SOUTH",
+   "annotation": {
+    "type": "double definition",
+    "answer": "SOUTH",
+    "definition": "Partner of 11",
+    "definition2": "just the opposite",
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Partner of 11",
+      "gives": "SOUTH",
+      "note": "11 across is a compass point; bridge players are named for the compass, and those facing each other are partners"
+     },
+     {
+      "clueFragment": "just the opposite",
+      "gives": "SOUTH",
+      "note": "the point directly across the compass from 11 across"
+     }
+    ],
+    "pieces": [
+     "SOUTH"
+    ],
+    "surface": "One thing is either a partner of another or its exact opposite.",
+    "walkthrough": "11 across is NORTH, whose clue mirrors this one. In bridge, the four players are named for compass points and South partners North.",
+    "definitionFit": "South sits opposite North both at the bridge table and on the compass.",
+    "features": {
+     "misdirectedWord": "Partner",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "27-down",
@@ -429,7 +1552,40 @@
    },
    "length": 4,
    "clue": "It’s a long way down but it can be raised (4)",
-   "solution": "HELL"
+   "solution": "HELL",
+   "annotation": {
+    "type": "double definition",
+    "answer": "HELL",
+    "definition": "It’s a long way down",
+    "definition2": "it can be raised",
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It’s a long way down",
+      "gives": "HELL",
+      "note": "the underworld of tradition lies far below the earth"
+     },
+     {
+      "clueFragment": "it can be raised",
+      "gives": "HELL",
+      "note": "'raise' as in the idiom for causing an uproar"
+     }
+    ],
+    "pieces": [
+     "HELL"
+    ],
+    "surface": "Something deep down can still be lifted.",
+    "walkthrough": "It pairs with 7 down, HEAVEN, 'way up there'.",
+    "definitionFit": "Hell lies far below in tradition, and 'raise hell' is the idiom.",
+    "features": {
+     "misdirectedWord": "raised",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "28-across",
@@ -441,7 +1597,40 @@
    },
    "length": 5,
    "clue": "It’s signed like this – that’s a disadvantage (5)",
-   "solution": "MINUS"
+   "solution": "MINUS",
+   "annotation": {
+    "type": "double definition",
+    "answer": "MINUS",
+    "definition": "It’s signed like this –",
+    "definition2": "a disadvantage",
+    "linkWords": [
+     "that’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It’s signed like this –",
+      "gives": "MINUS",
+      "note": "the dash printed in the clue is the sign meant"
+     },
+     {
+      "clueFragment": "a disadvantage",
+      "gives": "MINUS",
+      "note": "a drawback or negative point"
+     }
+    ],
+    "pieces": [
+     "MINUS"
+    ],
+    "surface": "Something signed with a dash is a drawback.",
+    "walkthrough": "The dash printed in the clue is the minus sign itself. It pairs with 8 down, PLUS, 'an advantage'.",
+    "definitionFit": "A minus is written as a dash and also means a drawback.",
+    "features": {
+     "misdirectedWord": "signed",
+     "joke": "pun",
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "29-across",
@@ -453,7 +1642,50 @@
    },
    "length": 9,
    "clue": "Key line on senate is rewritten (9)",
-   "solution": "ESSENTIAL"
+   "solution": "ESSENTIAL",
+   "annotation": {
+    "type": "anagram",
+    "answer": "ESSENTIAL",
+    "definition": "Key",
+    "indicators": [
+     "is rewritten"
+    ],
+    "indicatorNotes": {
+     "is rewritten": "writing again lets the letters come out in a new order"
+    },
+    "blocks": [
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L is short for line"
+     },
+     {
+      "clueFragment": "senate",
+      "gives": "SENATE",
+      "note": "used as it stands"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "used as it stands"
+     }
+    ],
+    "pieces": [
+     "ESSENTIAL"
+    ],
+    "anagram": {
+     "fodder": "LSENATEIS"
+    },
+    "surface": "A crucial line in a Senate bill is redrafted.",
+    "walkthrough": "'Is' belongs to the fodder as well as to the sentence: the letters of L, SENATE and IS are rearranged.",
+    "definitionFit": "Essential means key, absolutely necessary.",
+    "features": {
+     "misdirectedWord": "Key",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
