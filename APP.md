@@ -100,27 +100,27 @@ Terms used below:
   `definitionNote` is different: it justifies a definition that disagrees with
   the answer grammatically. Every clue has a fit; only a few need a note.
 - **The type rung names the family, never the precise type.** Saying
-  `charade + alternate letters` hands over the whole mechanism. Families, in
+  `charade + letter selection` hands over the whole mechanism. Families, in
   match order (first match wins, so the dominant mechanism of a compound type
   decides):
-  1. **Definitions only**: double or cryptic definition
+  1. **Double or cryptic definition**
   2. **&lit**
-  3. **Rearrangement**: anagram
-  4. **Sound**: homophone, spoonerism
+  3. **Anagram**: anagram, cycling
+  4. **Homophone**: homophone, spoonerism
   5. **Charade**: the most common build; it reads nothing like a container or
      reversal, so it keeps its own family
-  6. **Alteration**: container, reversal, deletion
-  7. **Extraction**: hidden word and all the letter-selection parts
+  6. **Container, reversal or deletion**: also substitution, palindrome
+  7. **Hidden or letter selection**
 
-  Every part in `TYPE_PARTS` (in `tools/validate_annotations.py`) must be
-  claimed by exactly one family in `FAMILIES` in `app.js`. Adding a type part
-  means assigning it a family in the same commit. The smoke test checks this.
+  The families and the 15 types live in `tools/data/clue_types.json`; each
+  type names its one family there. The app reads that file through
+  `puzzles/index.js`.
 - **Every clue shows its exact type**, styled `.mechanism`, on the
   building-blocks rung, or on the walkthrough if there is no blocks rung. The
   smoke test checks every clue. This includes double and cryptic definitions:
   the *Definitions only* blurb covers both, so without the type name the solver
   cannot tell which one this clue is. Those two get the type name but not its
-  `TYPE_BLURBS` sentence, because that sentence would restate the definition
+  type blurb, because that sentence would restate the definition
   rung. General rule: drop a rung only because it is redundant. Never drop it
   because you assume another rung covered it; read what that rung actually
   says.
@@ -461,8 +461,8 @@ same prompt and flags, and was compared with Fable's existing annotation:
 - **Card checks that fail the build** (all in `tools/make_og_card.py`):
   - No card may print its answer. The rungs are built from annotation prose,
     which can give it away.
-  - Card family labels are diffed against `FAMILIES` in `app.js` on every build,
-    so a card cannot describe a clue differently from the app.
+  - Card family labels come from `tools/data/clue_types.json`, the file the
+    app reads, so a card cannot describe a clue differently from the app.
   - `check_prose_stays_in_family`: card wording may not borrow another device's
     signal words. For example, "out loud" means a homophone, so it must not
     appear on a hidden-word card. It scans only the words the card adds, never

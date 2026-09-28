@@ -49,7 +49,7 @@ path, answer, ann = sys.argv[1:]
 e = {"id": "1-across", "clue": "Test (3)", "solution": answer, "length": 3,
      "position": {"x": 0, "y": 0}, "direction": "across"}
 if ann:
-    e["annotation"] = {"type": ann}
+    e["annotation"] = {"type": [ann]}
 json.dump({"id": path.rsplit("/", 1)[1][:-5], "dimensions": {"rows": 3, "cols": 3},
            "entries": [e]}, open(path, "w"))
 EOF

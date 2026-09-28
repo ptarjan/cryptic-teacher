@@ -161,6 +161,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
+import clue_types  # noqa: E402
 from difficulty import _rank_list, moments  # noqa: E402
 from fetch_puzzle import puzzle_files, read_puzzle_file  # noqa: E402 — one glob, one reader for every tool
 
@@ -188,14 +189,14 @@ def annotated(puz):
     out = []
     for e in puz.get("entries", []):
         ann = e.get("annotation") or {}
-        if (ann.get("type") or "").strip():
+        if ann.get("type"):
             out.append(e)
     return out
 
 
 def devices(ann):
-    """The atomic devices in a composite type string."""
-    return [p.strip().lower() for p in (ann.get("type") or "").split("+") if p.strip()]
+    """The clue's devices: its type array."""
+    return ann.get("type") or []
 
 
 def words_of(s):
@@ -301,7 +302,7 @@ def observe(puz):
     if share is None or repeat is None or dd is None or grid is None:
         return None
     return {
-        "dominant_device": share, "dominant_device_name": device,
+        "dominant_device": share, "dominant_device_name": clue_types.label(device),
         "anagram_share": anagrams,
         "repeated_indicators": repeat, "repeated_strings": repeated,
         "double_duty": dd, "double_duty_clues": dd_hits,
@@ -422,8 +423,7 @@ def device_vs_favourites(voted):
         puzzles, clues, names = puzzles + 1, clues + n, names + k
         seen = defaultdict(list)
         for e in ents:
-            kind = (e["annotation"].get("type") or "").lower()
-            for atom in {a.strip() for a in kind.replace("&", "and ").split("+") if a.strip()}:
+            for atom in set(e["annotation"]["type"]):
                 seen[atom].append(e["id"] in voted[pid])
         for atom, flags in seen.items():
             m = len(flags)
@@ -445,7 +445,7 @@ def device_vs_favourites(voted):
     print(f"  devices in fewer than {MIN_DEVICE_CLUES} clues are not shown; "
           f"{len(rows)} tests, so read p against {0.05 / max(len(rows), 1):.4f}")
     for z, atom, m, x, e, pv in rows:
-        print(f"  {atom:22s} n={m:5d}  named {x:4d} vs {e:7.1f} expected"
+        print(f"  {clue_types.label(atom):22s} n={m:5d}  named {x:4d} vs {e:7.1f} expected"
               f"   z={z:+5.2f}  p={pv:.4f}")
     return rows
 

@@ -369,8 +369,12 @@ tools/blind_annotate.py                      hides a published key from the anno
                                              grades what it derived — an explanation that lands
                                              on the wrong answer is the only proof the wordplay
                                              wasn’t reverse-engineered
-tools/app_tables.py                          the clue-family table, read by the tools so there
-                                             is no port of the app’s wording to keep in step
+tools/clue_types.py                          the closed list of clue types an annotation's
+                                             `type` array names, with their labels and
+                                             families, for the Python tools
+tools/app_tables.py                          the rung ladder and series blurbs, read out of
+                                             app.js by the tools so there is no copy of the
+                                             app’s order or wording to keep in step
 
 setting our own puzzles
 tools/AUTHORING.md                           how an original puzzle gets set: the grid is
@@ -666,6 +670,9 @@ tools/data/penguin5_control.json             the ten-puzzle Penguin volume 5 con
 tools/data/sample_fill_11.json               the worked 11x11 fill tools/AUTHORING.md walks
                                              through
 tools/data/authored_A001_clues.json          the hand-written clues for that fill
+tools/data/clue_types.json                   the fifteen clue types and the seven families they
+                                             fall in, with the labels and blurbs the app and
+                                             the tools show
 tools/data/blog_facts/                       per series, the blog facts tools/blog_facts.py
                                              read off the write-ups, with the site's hints and
                                              the validator's definition and block checks
@@ -777,5 +784,9 @@ scratch/blog_solve_times.py                  can fifteensquared / bigdave44 comm
 scratch/blog_solve_times_fetch.py            sample ~200 bigdave44 posts plus every annotated
                                              one; posts' comments (3s crawl delay) into
                                              ~/.cache/blog_solve_times/bigdave44
+tools/migrate_blog_fact_types.py             rewrite the blog facts' and the indicator
+                                             lexicon's type strings as clue_types names
+tools/migrate_type_array.py                  rewrite every " + "-joined `type` string in
+                                             puzzles/ and tools/data/blog_facts/
 ```
 <!-- LAYOUT-END -->

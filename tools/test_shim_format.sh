@@ -29,7 +29,7 @@ odd = {"id": "odd-1", "series": "odd", "number": 1, "dimensions": {"cols": 3, "r
            {"id": "1-across-2", "number": 1, "direction": "across",
             "position": {"x": 0, "y": 0}, "length": 3, "clue": "A <i>b</i> (3)",
             "solution": "ABC", "separatorLocations": {",": [1]},
-            "annotation": {"type": "anagram", "answer": "ABC", "pieces": ["A"],
+            "annotation": {"type": ["anagram"], "answer": "ABC", "pieces": ["A"],
                            "features": {"joke": None}}},
            # packed, nothing extra
            {"id": "1-down", "number": 1, "direction": "down",

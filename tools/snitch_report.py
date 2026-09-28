@@ -54,7 +54,7 @@ def feats(puz, s):
     clues = []
     for e in puz["entries"]:
         a = e.get("annotation") or {}
-        parts = [p for p in (a.get("type") or "").split("+") if p.strip()]
+        parts = a.get("type") or []
         if parts:
             clue = re.sub(r"\s*\([\d,\s\-–]+\)\s*$", "", e.get("clue") or "")
             clues.append((len(a.get("indicators") or []), len(parts), len(clue.split())))

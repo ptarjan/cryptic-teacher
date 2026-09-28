@@ -34,7 +34,7 @@ does not, the parse is wrong, so rethink it rather than stretch it.
 
 ```json
 {
-  "type": "every mechanism, joined with ' + ', from the Reference below",
+  "type": ["every mechanism, in the order applied, from the Reference below"],
   "answer": "DISPLAY FORM: the solution's letters, spaced only where the enumeration is",
   "definition": "exact substring of the clue",
   "definition2": "second definition, double definitions only",
@@ -44,6 +44,7 @@ does not, the parse is wrong, so rethink it rather than stretch it.
   "linkWords": ["exact substring joining definition to wordplay, e.g. 'to locate'"],
   "blocks": [
     {"clueFragment": "exact words from the clue", "gives": "LETTERS", "note": "why"},
+    {"clueFragment": "for letter_selection", "gives": "THE KEPT LETTERS", "select": "first", "note": "why"},
     {"clueFragment": "for homophones/spoonerisms", "soundsLike": "WHAT YOU SAY ALOUD", "gives": "HOW IT IS SPELT", "note": "why"}
   ],
   "surface": "one sentence, 25 words max: what the clue pretends to be about",
@@ -116,22 +117,22 @@ when it says `clean`. What it prints under "worth knowing now" is advice, not a 
 
 ## Reference
 
-Generated from the code that enforces it; do not read app.js or the validator
-to check it.
+Generated from tools/data/clue_types.json; do not read it to check this.
 
 ### The controlled vocabulary for `type`
 
-Join parts with ` + `. Each part belongs to one family, shown on the
-"What kind of clue is this?" rung; a compound type's family is the
-FIRST row below that matches it.
+`type` is a JSON array of these names, every mechanism the wordplay uses,
+in the order it is applied, each once: `["charade", "reversal"]`. Each
+name belongs to one family, shown on the "What kind of clue is this?"
+rung; a compound type's family is the FIRST row below that it uses.
 
 **Double or cryptic definition**
 
-  `cryptic definition` `double definition`
+  `double_definition` `cryptic_definition`
 
 **&lit**
 
-  `&lit`
+  `and_lit`
 
 **Anagram**
 
@@ -147,16 +148,13 @@ FIRST row below that matches it.
 
 **Container, reversal or deletion**
 
-  `container` `deletion` `palindrome` `reversal` `substitution`
+  `container` `reversal` `deletion` `substitution` `palindrome`
 
 **Hidden or letter selection**
 
-  `alternate letters` `eighth letter` `eighth letters` `eleventh letter`
-  `eleventh letters` `fifth letter` `fifth letters` `first letter` `first letters`
-  `fourth letter` `fourth letters` `hidden word` `last letter` `last letters`
-  `middle letter` `middle letters` `ninth letter` `ninth letters` `outer letters`
-  `prime letters` `regular letters` `second letter` `second letters` `seventh letter`
-  `seventh letters` `sixth letter` `sixth letters` `tenth letter` `tenth letters`
-  `third letter` `third letters` `twelfth letter` `twelfth letters`
+  `hidden_word` `letter_selection`
+
+`letter_selection` says which letters on the block that keeps them, as
+`"select"`: `"first"`, `"last"`, `"middle"`, `"outer"`, `"alternate"`, `"regular"`, `"prime"`, or a number n for the nth letter (`2` for the second).
 
 <!-- REFERENCE-END -->

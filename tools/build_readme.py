@@ -141,7 +141,8 @@ LAYOUT = [
     ("annotating", "tools/find_renarration.py", "flags a walkthrough that only restates the blocks instead of teaching past them"),
     ("annotating", "tools/clue_quality.py", "warns about the clue shapes that lost to human setters in blind grading"),
     ("annotating", "tools/blind_annotate.py", "hides a published key from the annotator, then grades what it derived — an explanation that lands on the wrong answer is the only proof the wordplay wasn’t reverse-engineered"),
-    ("annotating", "tools/app_tables.py", "the clue-family table, read by the tools so there is no port of the app’s wording to keep in step"),
+    ("annotating", "tools/clue_types.py", "the closed list of clue types an annotation's `type` array names, with their labels and families, for the Python tools"),
+    ("annotating", "tools/app_tables.py", "the rung ladder and series blurbs, read out of app.js by the tools so there is no copy of the app’s order or wording to keep in step"),
 
     ("setting our own puzzles", "tools/AUTHORING.md", "how an original puzzle gets set: the grid is filled first, the clues written by hand after"),
     ("setting our own puzzles", "tools/grid_rules.py", "what makes a British blocked grid legal, in one place"),
@@ -270,6 +271,7 @@ LAYOUT = [
     ("tables everything else reads", "tools/data/penguin5_control.json", "the ten-puzzle Penguin volume 5 control tools/test_acquire_book.sh gates on: light specs, black-square patterns and a digest of the parser's output, and none of the book's words"),
     ("tables everything else reads", "tools/data/sample_fill_11.json", "the worked 11x11 fill tools/AUTHORING.md walks through"),
     ("tables everything else reads", "tools/data/authored_A001_clues.json", "the hand-written clues for that fill"),
+    ("tables everything else reads", "tools/data/clue_types.json", "the fifteen clue types and the seven families they fall in, with the labels and blurbs the app and the tools show"),
     ("tables everything else reads", "tools/data/blog_facts/", "per series, the blog facts tools/blog_facts.py read off the write-ups, with the site's hints and the validator's definition and block checks reading them; inputs.sha256 is the digest of what they were written from"),
     ("tables everything else reads", "tools/data/snitch.json", "the SNITCH's rating of every Times and Sunday Times puzzle it has rated, written nightly by tools/fetch_snitch.py; tools/difficulty.py scores against it and shows each band's range"),
     ("tables everything else reads", "tools/fixtures/snitch_archive.html", "a saved copy of the SNITCH's archive page, the fixture tools/test_fetch_snitch.sh reads"),
@@ -317,6 +319,8 @@ LAYOUT = [
     ("tables everything else reads", "scratch/snitch_stage12.py", "stage 12: blog-fact candidates, screened on both sets"),
     ("tables everything else reads", "scratch/blog_solve_times.py", "can fifteensquared / bigdave44 comments give a per-puzzle solver signal like TftT's?"),
     ("tables everything else reads", "scratch/blog_solve_times_fetch.py", "sample ~200 bigdave44 posts plus every annotated one; posts' comments (3s crawl delay) into ~/.cache/blog_solve_times/bigdave44"),
+    ("tables everything else reads", "tools/migrate_blog_fact_types.py", "rewrite the blog facts' and the indicator lexicon's type strings as clue_types names"),
+    ("tables everything else reads", "tools/migrate_type_array.py", "rewrite every \" + \"-joined `type` string in puzzles/ and tools/data/blog_facts/"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

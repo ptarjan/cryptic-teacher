@@ -8,7 +8,7 @@
 The input is one JSON object keyed by entry id, each value the annotation object
 `tools/annotate_prompt.md` describes:
 
-    {"1-across": {"type": "charade", "answer": "...", ...},
+    {"1-across": {"type": ["charade"], "answer": "...", ...},
      "12-across": null}
 
 Every entry in the puzzle must appear as a key. A key whose value is `null` says

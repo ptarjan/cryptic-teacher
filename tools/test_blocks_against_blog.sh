@@ -42,13 +42,13 @@ def typed(ours, theirs, **fact):
     v.check_cryptic_definition_against_blog(puzzle, warnings)
     return warnings
 
-check("a labelling choice between types is silent", False, typed("anagram", "container"))
-check("a cryptic definition the blog also calls one is silent", False, typed("cryptic definition", "double definition"))
-check("a cryptic definition the blog parses as an anagram is reported", True, typed("cryptic definition", "anagram"))
+check("a labelling choice between types is silent", False, typed(["anagram"], ["container"]))
+check("a cryptic definition the blog also calls one is silent", False, typed(["cryptic_definition"], ["double_definition"]))
+check("a cryptic definition the blog parses as an anagram is reported", True, typed(["cryptic_definition"], ["anagram"]))
 core = {"inferred": ["type"], "typeCore": True}
-check("an inferred core type is a lower bound, not a contradiction", False, typed("container + deletion", "container", **core))
+check("an inferred core type is a lower bound, not a contradiction", False, typed(["container", "deletion"], ["container"], **core))
 check("a cryptic definition against an inferred core type is reported as at least it", True,
-      [w for w in typed("cryptic definition", "container", **core) if "at least 'container'" in w])
+      [w for w in typed(["cryptic_definition"], ["container"], **core) if "at least 'container'" in w])
 raise SystemExit(fails)
 PY
 echo "all check_blocks_against_blog checks passed"

@@ -73,7 +73,7 @@ print("BLANK", by["2-down"]["clue"].strip(), by["2-down"].get("clueMissing"))
 # An annotation crosses a re-fetch only to the same words. Typography may
 # differ; a corrected clue is re-annotated rather than keeping notes on the
 # text it replaced.
-note = {"type": "hidden word", "blocks": [{"clueFragment": "sis trumpeted"}]}
+note = {"type": ["hidden_word"], "blocks": [{"clueFragment": "sis trumpeted"}]}
 fetched = {"id": "cryptic-2", "entries": [
     entry("1-across", "Music producer Oasis trumpeted for a while (7)"),
     entry("2-down", "Café — au lait? (5)"),

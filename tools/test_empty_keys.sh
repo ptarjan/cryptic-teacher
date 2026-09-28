@@ -68,7 +68,7 @@ with tempfile.TemporaryDirectory() as d:
 # against tools/data/blind_misses.json that no solve ever made.
 fetcher.record_misses = lambda *a, **k: None
 entries = [{"id": "1-across", "clue": "x (5)", "solution": "WRONG",
-            "annotation": {"type": "anagram"}}]
+            "annotation": {"type": ["anagram"]}}]
 fetcher.grade_model_fill({"id": "cryptic-1", "entries": entries},
                          {"1-across": "RIGHT"})
 print("BLANKED", "annotation" in entries[0])
