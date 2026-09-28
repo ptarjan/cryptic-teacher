@@ -87,9 +87,9 @@ jobs:
       matrix:
         # The count is read from `strategy.job-total` below, so adding or
         # removing an entry here is the only edit a reshard needs.
-        shard: [0, 1, 2, 3, 4, 5, 6, 7]
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
     # A run that stops making progress otherwise sits on GitHub's 6h default,
-    # holding a red check over every commit behind it. A shard is about seven
+    # holding a red check over every commit behind it. A shard is about six
     # minutes of checkout, build and scripts; fifteen leaves room for a slow
     # runner and a growing corpus, and still fails a stall inside a quarter hour.
     timeout-minutes: 15
