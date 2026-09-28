@@ -367,6 +367,40 @@ button:disabled:hover { border-color: var(--line); }
 .picker-bar select:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 /* A menu set to anything but "all" is a filter in force, so it says so. */
 .picker-bar select.on { border-color: var(--fg); font-weight: 600; }
+/* The open list. Where the browser lets a page draw it (the customizable
+   select, Chromium 135+), it is drawn in the site's palette instead of the OS
+   one, and at least as wide as its longest row so no count is clipped.
+   Elsewhere the native list is left exactly as it was. The closed box keeps
+   the rules above; only the built-in arrow is dropped, since the box already
+   draws its own chevron. */
+@supports (appearance: base-select) {
+  .picker-bar select, .picker-bar select::picker(select) { appearance: base-select; }
+  .picker-bar select::picker-icon { display: none; }
+  .picker-bar select::picker(select) {
+    min-width: anchor-size(width); width: max-content; max-width: calc(100vw - 16px);
+    max-height: min(26rem, 70vh); margin: 4px 0; padding: 4px;
+    background: var(--card); color: var(--fg);
+    border: 1px solid var(--line); border-radius: 8px;
+    box-shadow: 0 8px 24px rgb(0 0 0 / .18);
+    scrollbar-width: thin; scrollbar-color: var(--line) transparent;
+  }
+  .picker-bar option {
+    padding: 5px 12px; border-radius: 5px;
+    font-size: .92rem; font-weight: 400; line-height: 1.3;
+    letter-spacing: normal; text-transform: none; color: var(--fg);
+  }
+  .picker-bar option::checkmark { display: none; }
+  .picker-bar option:hover, .picker-bar option:focus-visible {
+    background: color-mix(in srgb, var(--accent-soft) 65%, transparent); outline: none;
+  }
+  .picker-bar option:checked { background: var(--accent-soft); font-weight: 600; }
+  /* A group label is a heading over its rows, not one more row. */
+  .picker-bar optgroup {
+    padding: 8px 12px 2px; font-size: .7rem; font-weight: 600;
+    letter-spacing: .06em; text-transform: uppercase; color: var(--muted);
+  }
+  .picker-bar optgroup option { margin-inline: -12px; padding-inline-start: 24px; }
+}
 /* Completions for what is being typed: setters, weekdays, solved/unfinished. */
 .picker-filters { display: flex; flex-wrap: wrap; gap: 6px; align-items: baseline; margin: 8px 0 0; }
 .picker-filters:empty { display: none; }
