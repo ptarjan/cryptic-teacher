@@ -2783,7 +2783,7 @@
       // claim the page then disproves: both words define, so the definition
       // rung has nothing to ask and there are no blocks either. A blurb that
       // promises work the clue does not contain reads as a lie.
-      blurb: "No wordplay at all: none of the clue is rearranged, concealed or assembled. It is two definitions placed together, or one playful, misleading description of the answer.",
+      blurb: "No wordplay at all: the answer is not built from any of the clue's letters. It is two definitions placed together, or one playful, misleading description of the answer.",
       match: (t) => t.includes("double definition") || t.includes("cryptic definition") },
     { label: "&lit", n: 160,
       blurb: "&lit is short for \u201cand literally so\u201d. The whole clue does double duty: read it once as a definition, then read the very same words again as wordplay.",
