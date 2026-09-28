@@ -114,11 +114,11 @@ def cand(puz):
     for e in ents:
         t = [p.strip().lower() for p in ((e.get("annotation") or {}).get("type") or "").split("+") if p.strip()]
         types.append(t)
-    clues = [ENUM.sub("", e.get("clue") or "").strip() for e in ents]
+    clues = [ENUM.sub("", e["clue"].get("text", "")).strip() for e in ents]
     real = [(e, c, t) for e, c, t in zip(ents, clues, types) if c and not re.match(r"(?i)^see\b", c)]
     defs = [D.definition_key((e.get("annotation") or {}).get("definition")) for e, _, _ in real]
     defs = [d for d in defs if d]
-    multi = [bool(e.get("separatorLocations")) for e in ents]
+    multi = [bool(e["clue"].get("separators")) for e in ents]
     f = {
         "phrase_cells": sum(e["length"] for e, m in zip(ents, multi) if m) / cells,
         "long12_cells": sum(e["length"] for e in ents if e["length"] >= 12) / cells,

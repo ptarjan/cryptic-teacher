@@ -110,7 +110,7 @@ for (const e of puz.entries) {
     id: e.id,
     number: e.number,
     direction: e.direction,
-    clue: e.clue, // the enumeration is already in the clue text: "... (8)"
+    clue: e.clue.text || "", // the enumeration is already in the clue text: "... (8)"
     rungs
   });
   key.push({ puzzle: puzzleId, id: e.id, answer });

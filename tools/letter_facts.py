@@ -1506,10 +1506,10 @@ def rows(said=None, as_written=False):
             ents = {e["id"]: e for e in json.loads(path.read_text(encoding="utf-8"))["entries"]}
             got = (said or {}).get(pid, {})
             for eid, e in ents.items():
-                if e.get("solution") and e.get("clue"):
+                if e.get("solution") and e["clue"].get("text"):
                     facts = fact_from_json(rec["entries"].get(eid, {}))
                     facts = facts if as_written else stated(facts)
-                    yield pid, eid, e["clue"], e["solution"], {**facts, "leads": got[eid]} if eid in got else facts
+                    yield pid, eid, e["clue"]["text"], e["solution"], {**facts, "leads": got[eid]} if eid in got else facts
 
 
 def annotation_rows():
@@ -1520,14 +1520,14 @@ def annotation_rows():
         p = json.loads(path.read_text(encoding="utf-8"))
         for e in p.get("entries", []):
             a = e.get("annotation") or {}
-            if not (a.get("type") and e.get("clue") and e.get("solution")):
+            if not (a.get("type") and e["clue"].get("text") and e.get("solution")):
                 continue
             facts = {"type": a["type"], "definition": [d["text"] for d in a.get("definitions", ())],
                      "blocks": [[b["gives"], b["clueFragment"]] for b in a.get("blocks", ())
                                 if b.get("gives") and b.get("clueFragment")]}
             if a.get("indicators"):
                 facts["indicators"] = list(a["indicators"])
-            yield p["id"], e["id"], e["clue"], e["solution"], facts
+            yield p["id"], e["id"], e["clue"]["text"], e["solution"], facts
 
 
 def read_leads(required=False):

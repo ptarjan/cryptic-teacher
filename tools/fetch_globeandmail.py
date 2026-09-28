@@ -68,9 +68,9 @@ sample sample payload ends in anything parenthesised). This tool always
 appends the rendered form, and only skips appending if the clue text already
 ends in one — belt and braces, in case some other day's clue already carries
 it. A multi-element wordLens (a "REAL LIFE"-style answer spanning contiguous
-boxes) becomes a comma-separated enumeration and a comma separatorLocations
-entry, exactly like a Guardian/Independent multi-word answer — Amuse gives no
-signal that would ever justify a hyphen instead, so hyphens are never emitted.
+boxes) becomes a comma-separated enumeration and a comma clue separator,
+exactly like a Guardian/Independent multi-word answer — Amuse gives no signal
+that would ever justify a hyphen instead, so hyphens are never emitted.
 
 NUMBERING. Amuse's `title` field is not a date artifact, it is the paper's own
 sequence number: "No 3368" for 2026-09-17. That is exactly the kind of number
@@ -349,13 +349,10 @@ def convert(data, ymd):
         # as ranges, exactly as the Guardian and Independent clues do.
         clue_text, italics = flatten_clue(pw["clue"]["clue"].strip())
         full_clue = clue_text if ENUM_TAIL_RE.search(clue_text) else f"{clue_text} {enum}"
-        seps = {}
-        if len(word_lens) > 1:
-            cum, locs = 0, []
-            for n in word_lens[:-1]:
-                cum += n
-                locs.append(cum)
-            seps = {",": locs}
+        seps, cum = [], 0
+        for n in word_lens[:-1]:
+            cum += n
+            seps.append({"at": cum, "mark": ","})
         num = int(pw["clueNum"])
         entries.append({
             "id": f"{num}-{direction}",
@@ -363,9 +360,11 @@ def convert(data, ymd):
             "direction": direction,
             "position": {"x": x0, "y": y0},
             "length": length,
-            "clue": full_clue,
-            **({"clueItalics": italics} if italics else {}),
-            **({"separatorLocations": seps} if seps else {}),
+            "clue": {
+                "text": full_clue,
+                **({"separators": seps} if seps else {}),
+                **({"italics": italics} if italics else {}),
+            },
             "solution": solution_letters(box, cells),
         })
     entries.sort(key=lambda e: (e["position"]["y"], e["position"]["x"], e["direction"]))

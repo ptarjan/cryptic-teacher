@@ -216,9 +216,11 @@ def convert(data):
             "direction": direction,
             "position": {"x": col, "y": row},
             "length": length,
-            "clue": clue,
-            **({"clueItalics": italics} if italics else {}),
-            **({} if has_words(clue) else {"clueMissing": True}),
+            "clue": {
+                **({"text": clue} if clue else {}),
+                **({"italics": italics} if italics else {}),
+                **({} if has_words(clue) else {"missing": True}),
+            },
             "solution": answer,
         })
 
@@ -235,7 +237,7 @@ def convert(data):
         raise SystemExit(f"grid reconstruction mismatch — missing cells {missing[:10]}, "
                           f"unexpected filled cells {extra[:10]}")
 
-    wordless = [e["id"] for e in entries if not has_words(e["clue"])]
+    wordless = [e["id"] for e in entries if e["clue"].get("missing")]
     if wordless:
         print("WARNING: published with no clue text: " + ", ".join(wordless), file=sys.stderr)
 

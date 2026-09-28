@@ -176,7 +176,7 @@ import puzzle_integrity as pi
 
 today = datetime.now(timezone.utc).date()
 # A real puzzle, so the fixture cannot drift out of the shape the checker reads.
-# clueMissing on every entry is the state the 2005-2008 Saturday prize puzzles are
+# clue.missing on every entry is the state the 2005-2008 Saturday prize puzzles are
 # in: answers scraped, clue text never fetched. Per-entry forgiveness finds nothing
 # wrong with any single one of them, which is the whole reason the puzzle is asked.
 puzzle = copy.deepcopy(pi.read_puzzle_file(pi.puzzle_paths.find("cryptic-24104")))
@@ -184,7 +184,7 @@ puzzle = copy.deepcopy(pi.read_puzzle_file(pi.puzzle_paths.find("cryptic-24104")
 
 def blank(p, entries):
     for e in entries:
-        e["clue"], e["clueMissing"] = f"({e['length']})", True
+        e["clue"] = {"text": f"({e['length']})", "missing": True}
     flags = []
     pi.check_shape(p, today, flags)
     return [f[2] for f in flags if "blank" in f[2]]
@@ -255,7 +255,7 @@ def shape(series_key, number, **when):
     flags = []
     pi.check_shape({"id": f"{series_key}-{number}", "series": series_key,
                     "number": number, **when,
-                    "entries": [{"id": "1-across", "clue": "x (1)"}]},
+                    "entries": [{"id": "1-across", "clue": {"text": "x (1)"}}]},
                    date(2026, 9, 25), flags)
     return sum(1 for kind, _pid, msg in flags
                if kind == "SHAPE" and ("date" in msg or "year" in msg))

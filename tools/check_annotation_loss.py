@@ -73,8 +73,8 @@ def main(argv):
         # Two very different failures land in the same gap, and treating them
         # alike sent someone to grade a model that had been handed a clue with
         # no words in it. Only the solvable one is a loss.
-        unsolved = [e["id"] for e in missing if has_words(e["clue"])]
-        wordless = [e["id"] for e in missing if not has_words(e["clue"])]
+        unsolved = [e["id"] for e in missing if has_words(e["clue"].get("text", ""))]
+        wordless = [e["id"] for e in missing if not has_words(e["clue"].get("text", ""))]
         if unsolved:
             short.append((puzzle["id"], total - len(missing), total,
                           unsolved, wordless))

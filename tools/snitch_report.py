@@ -57,7 +57,7 @@ def feats(puz, s):
         a = e.get("annotation") or {}
         parts = a.get("type") or []
         if parts:
-            clue = re.sub(r"\s*\([\d,\s\-–]+\)\s*$", "", e.get("clue") or "")
+            clue = re.sub(r"\s*\([\d,\s\-–]+\)\s*$", "", e["clue"].get("text", ""))
             clues.append((len(a.get("indicators") or []), len(parts), len(clue.split())))
     return {"index": s["index"], **{"z_" + k: v for k, v in s["z"].items()},
             "indicators": mean([c[0] for c in clues]),

@@ -24,7 +24,7 @@ import validate_annotations as V
 
 def entry(eid, clue="Some words here (4)", sol="ABCD", group=None, **kw):
     num, _, d = eid.partition("-")
-    e = {"id": eid, "number": int(num), "direction": d, "clue": clue,
+    e = {"id": eid, "number": int(num), "direction": d, "clue": {"text": clue},
          "solution": sol, **kw}
     if group:
         e["group"] = group
@@ -101,8 +101,8 @@ committed = puzzle_paths.find("sundaytimes-5067")
 held = fetch_puzzle.read_puzzle_file(committed)
 lead = next(e for e in held["entries"] if e.get("annotation"))
 reworded, retyped = copy.deepcopy(held), copy.deepcopy(held)
-next(e for e in reworded["entries"] if e["id"] == lead["id"])["clue"] = "Invented " + lead["clue"]
-next(e for e in retyped["entries"] if e["id"] == lead["id"])["clue"] = lead["clue"].replace(" ", "  ") + "!"
+next(e for e in reworded["entries"] if e["id"] == lead["id"])["clue"]["text"] = "Invented " + lead["clue"]["text"]
+next(e for e in retyped["entries"] if e["id"] == lead["id"])["clue"]["text"] = lead["clue"]["text"].replace(" ", "  ") + "!"
 errs = []
 V.check_clue_unchanged(reworded, committed, errs)
 say("reworded_clue_fails", len(errs) == 1 and "drop this entry's annotation" in errs[0])

@@ -99,8 +99,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import provenance  # noqa: E402
 import puzzle_paths  # noqa: E402
 import series as series_meta  # noqa: E402
-from fetch_puzzle import (enumeration_separators, grade_model_fill, http_bytes,  # noqa: E402
-                          merge_annotations, print_grade, puzzle_files,
+from fetch_puzzle import (enumeration_separators, grade_model_fill, has_words,  # noqa: E402
+                          http_bytes, merge_annotations, print_grade, puzzle_files,
                           puzzle_path, read_puzzle_file, still_worth_refreshing,
                           write_puzzle_file)
 
@@ -303,19 +303,23 @@ def convert(num, puz):
     # built, so the group can go in beside the clue it was read from rather than
     # be bolted on afterwards. See link_groups.
     groups = link_groups({"entries": [
-        {"number": n, "direction": d, "clue": c.strip()}
+        {"number": n, "direction": d, "clue": {"text": c.strip()}}
         for (n, d, _x, _y, _len), c in zip(grid_entries, puz["clues"])]})
 
     entries = []
     for (number, direction, x, y, length), clue in zip(grid_entries, puz["clues"]):
         eid = f"{number}-{direction}"
+        text = clue.strip()
         entries.append({
             "id": eid,
             "number": number,
             "direction": direction,
             "position": {"x": x, "y": y},
             "length": length,
-            "clue": clue.strip(),
+            "clue": {
+                **({"text": text} if text else {}),
+                **({} if has_words(text) else {"missing": True}),
+            },
             **({"group": groups[eid]} if groups.get(eid, [None])[0] == eid else {}),
             "solution": None,  # see module docstring — never recoverable from this feed today
         })
@@ -650,7 +654,7 @@ def find_link_groups(puzzle):
     by_id = {(e["number"], e["direction"]) for e in puzzle["entries"]}
     referencer_of = {}
     for e in puzzle["entries"]:
-        m = _SEE_RE.match(e["clue"].strip())
+        m = _SEE_RE.match(e["clue"].get("text", "").strip())
         if m:
             word = (m.group(2) or "").lower()
             if word:
@@ -670,7 +674,7 @@ def find_link_groups(puzzle):
     # the "see" links are fitted around it below.
     groups = {}
     for e in puzzle["entries"]:
-        m = _AMP_PREFIX_RE.match(e["clue"].strip())
+        m = _AMP_PREFIX_RE.match(e["clue"].get("text", "").strip())
         if not m:
             continue
         leading = (e["number"], e["direction"])
@@ -724,7 +728,7 @@ def order_group(puzzle_entry, group):
     """
     leader = (puzzle_entry["number"], puzzle_entry["direction"])
     rest = [m for m in group if m != leader]
-    m = _AMP_PREFIX_RE.match(puzzle_entry["clue"].strip())
+    m = _AMP_PREFIX_RE.match(puzzle_entry["clue"].get("text", "").strip())
     if m:
         named = [int(t.group(1)) for t in _AMP_MEMBER_RE.finditer(m.group(1))]
         if sorted(named) == sorted(n for n, _ in rest):

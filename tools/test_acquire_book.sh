@@ -171,10 +171,6 @@ else:
     import puzzle_paths
     import series
     SKIP_ENTRY = {"solution", "annotation", "solutionConfidence"}
-    # An absent separatorLocations and an empty one are the same statement —
-    # this answer has no word break in it — and only the first is written now,
-    # so they are compared as the same thing rather than as a pipeline change.
-    EMPTY = {"separatorLocations": {}}
     with tempfile.TemporaryDirectory() as tmp:
         for bn in CONTROL["known_good_in_corpus"]:
             want = PUZZLES[str(bn)]
@@ -220,14 +216,14 @@ else:
                 diffs.append("entry ids")
             for eid in set(me) & set(we):
                 for k in (set(me[eid]) | set(we[eid])) - SKIP_ENTRY:
-                    if me[eid].get(k, EMPTY.get(k)) != we[eid].get(k, EMPTY.get(k)):
+                    if me[eid].get(k) != we[eid].get(k):
                         diffs.append(f"{eid}.{k}")
             if diffs:
                 # book-3018's 7-down is a KNOWN corpus error, not a
                 # pipeline one: the book prints a hyphenated enumeration and the
                 # file in puzzles/ carries a comma. The pipeline reads what is
                 # printed.
-                known = {"book-3018": {"7-down.clue", "7-down.separatorLocations"}}
+                known = {"book-3018": {"7-down.clue"}}
                 unexpected = sorted(set(diffs) - known.get(pid, set()))
                 if unexpected:
                     fail(f"{pid}: differs from puzzles/ in "

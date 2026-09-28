@@ -28,10 +28,9 @@ import fetch_puzzle as fetcher
 
 def entry(eid, clue, **kw):
     e = {"id": eid, "number": 1, "direction": "across",
-         "position": {"x": 0, "y": 0}, "length": 5, "clue": clue,
-         "separatorLocations": {}, "solution": "ABCDE", "annotation": None}
-    if not fetcher.has_words(clue):
-        e["clueMissing"] = True
+         "position": {"x": 0, "y": 0}, "length": 5,
+         "clue": {"text": clue, **({} if fetcher.has_words(clue) else {"missing": True})},
+         "solution": "ABCDE"}
     e.update(kw)
     return e
 
@@ -51,8 +50,8 @@ stored = {"id": "cryptic-23370", "entries": [
 ]}
 fetcher.carry_recovered_clues(fetched, stored)
 by = {e["id"]: e for e in fetched["entries"]}
-print("KEPT", by["1-across"]["clue"])
-print("FLAG", by["1-across"].get("clueMissing"))
+print("KEPT", by["1-across"]["clue"]["text"])
+print("FLAG", by["1-across"]["clue"].get("missing"))
 print("GROUP", json.dumps(by["2-down"].get("group")), json.dumps(by["3-down"].get("group")))
 
 # The paper still wins wherever it prints words, and a blank it prints over a
@@ -67,8 +66,8 @@ stored = {"id": "cryptic-1", "entries": [
 ]}
 fetcher.carry_recovered_clues(fetched, stored)
 by = {e["id"]: e for e in fetched["entries"]}
-print("PAPER", by["1-across"]["clue"])
-print("BLANK", by["2-down"]["clue"].strip(), by["2-down"].get("clueMissing"))
+print("PAPER", by["1-across"]["clue"]["text"])
+print("BLANK", by["2-down"]["clue"]["text"].strip(), by["2-down"]["clue"].get("missing"))
 
 # An annotation crosses a re-fetch only to the same words. Typography may
 # differ; a corrected clue is re-annotated rather than keeping notes on the
@@ -84,8 +83,15 @@ stored = {"id": "cryptic-2", "entries": [
 ]}
 fetcher.merge_annotations(fetched, stored)
 by = {e["id"]: e for e in fetched["entries"]}
-print("REWORDED", by["1-across"]["annotation"])
+print("REWORDED", by["1-across"].get("annotation"))
 print("RETYPED", by["2-down"]["annotation"] is note)
+
+# The hand-written note on a blank clue crosses a re-fetch inside the clue.
+fetched = {"id": "cryptic-3", "entries": [entry("1-across", " (5)")]}
+stored = {"id": "cryptic-3", "entries": [entry("1-across", " (5)")]}
+stored["entries"][0]["clue"]["missingNote"] = "Printed blank on purpose."
+fetcher.merge_annotations(fetched, stored)
+print("NOTE", json.dumps(fetched["entries"][0]["clue"]))
 
 # A puzzle seen for the first time has nothing to carry, and says so loudly
 # rather than in a list of every light it owns.
@@ -95,13 +101,15 @@ PY
 echo "a re-fetch must not empty a puzzle whose clues were recovered by hand"
 same "recovered clue text survives a blank re-fetch" \
   "$(grep '^KEPT ' <<<"$out")" "KEPT Recovered by hand (5)"
-same "and clueMissing comes off with it" "$(grep '^FLAG ' <<<"$out")" "FLAG None"
+same "and missing comes off with it" "$(grep '^FLAG ' <<<"$out")" "FLAG None"
 same "the group travels with the leader's clue, and only the leader's" \
   "$(grep '^GROUP ' <<<"$out")" 'GROUP ["2-down", "3-down"] null'
 same "a clue the paper prints replaces the stored one" \
   "$(grep '^PAPER ' <<<"$out")" "PAPER The clue as published (5)"
 same "a reworded clue loses its annotation" "$(grep '^REWORDED ' <<<"$out")" "REWORDED None"
 same "a retyped clue keeps it" "$(grep '^RETYPED ' <<<"$out")" "RETYPED True"
+same "a blank clue's note survives a re-fetch" "$(grep '^NOTE ' <<<"$out")" \
+  'NOTE {"text": " (5)", "missing": true, "missingNote": "Printed blank on purpose."}'
 same "blank over blank stays blank" "$(grep '^BLANK ' <<<"$out")" "BLANK (5) True"
 
 # The other half of the guarantee, on the real files. Named one by one rather

@@ -8,8 +8,8 @@ The same file's $defs/blogFacts is the shape of each row of
 tools/data/blog_facts/<series>.json, checked by the no-argument run too.
 
 The rule: an absent key means empty. No puzzle file holds null, "", [] or {}
-as a value, except `clue`, which every entry has and which is "" on a clue the
-paper printed blank (`clueMissing`). prune() is how every write obeys it:
+as a value; a clue the paper printed blank is `"clue": {"missing": true}`.
+prune() is how every write obeys it:
 fetch_puzzle.write_puzzle_file calls it, so a fetcher or an annotation that
 hands over `"setter": None` or `"indicators": []` writes no key at all.
 
@@ -31,10 +31,6 @@ sys.path.insert(0, str(TOOLS))
 SCHEMA_PATH = TOOLS / "data" / "puzzle.schema.json"
 SCHEMA = json.loads(SCHEMA_PATH.read_text(encoding="utf-8"))
 
-# Written even when empty: every entry has a clue, and "" is what a blank one is.
-KEEP_EMPTY = frozenset({"clue"})
-
-
 def is_empty(v):
     return v is None or v == "" or v == [] or v == {}
 
@@ -46,7 +42,7 @@ def prune(value):
         out = {}
         for k, v in value.items():
             v = prune(v)
-            if k in KEEP_EMPTY or not is_empty(v):
+            if not is_empty(v):
                 out[k] = v
         return out
     if isinstance(value, list):

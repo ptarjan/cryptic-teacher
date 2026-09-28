@@ -61,7 +61,7 @@ SEED = 20260909
 def annotated_entries(puz):
     """Entries with a clue, a solution and an annotation - the ones a judge can read."""
     return [e for e in puz.get("entries", [])
-            if e.get("clue") and e.get("solution") and e.get("annotation")]
+            if e["clue"].get("text") and e.get("solution") and e.get("annotation")]
 
 
 def build_pairs(votes, rng):
@@ -182,7 +182,7 @@ def extend(args):
 
 
 def clue_row(pid, entry, label):
-    return {"label": label, "clue": entry["clue"],
+    return {"label": label, "clue": entry["clue"]["text"],
             "solution": entry["solution"], "_puzzle": pid, "_entry": entry["id"]}
 
 
