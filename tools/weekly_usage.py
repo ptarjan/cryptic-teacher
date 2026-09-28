@@ -347,7 +347,45 @@ def _fetch(req, attempt):
         return None, _retry_after(exc, RETRY_BACKOFF_SECONDS[attempt])
 
 
+# A sampled row younger than this IS the live reading: the bridge takes it every
+# five minutes from the same endpoint. The endpoint's rate limit is per login,
+# so every request made here is one the sampler loses — a burn polling between
+# puzzles starved it for 30 minutes on 2026-09-28.
+SAMPLE_FRESH_SECONDS = 420
+
+
+def _sampled_payload():
+    """The endpoint's answer rebuilt from fresh sampler rows, or None."""
+    try:
+        with open(SAMPLE_CSV_PATH) as fh:
+            rows = fh.readlines()[-20:]
+    except OSError:
+        return None
+    data = {}
+    for line in rows:
+        parts = line.strip().split(",")
+        if len(parts) != 4 or parts[1] not in LEGACY_FIELD.values():
+            continue
+        try:
+            at, pct = int(parts[0]), float(parts[2])
+        except ValueError:
+            continue
+        if time.time() - at > SAMPLE_FRESH_SECONDS:
+            continue
+        window = {"utilization": pct}
+        try:
+            window["resets_at"] = datetime.datetime.fromtimestamp(
+                float(parts[3]), datetime.timezone.utc).isoformat()
+        except ValueError:
+            pass
+        data[parts[1]] = window
+    return data if len(data) == len(LEGACY_FIELD) else None
+
+
 def _payload():
+    sampled = _sampled_payload()
+    if sampled:
+        return sampled, False
     token, expires, fallback = access_token()
     req = urllib.request.Request(USAGE_URL, headers={
         "Authorization": f"Bearer {token}",
