@@ -2783,13 +2783,12 @@
       // claim the page then disproves: both words define, so the definition
       // rung has nothing to ask and there are no blocks either. A blurb that
       // promises work the clue does not contain reads as a lie.
-      // "nothing is shuffled" rather than "nothing is anagrammed", because this
-      // blurb is an early rung and a rung before the walkthrough may not contain the
-      // answer: 30103 28A is a cryptic definition whose answer is ANAGRAM, and
-      // the generic sentence spelled it out before the solver had bought a
-      // single hint. Family blurbs are shown on every clue in the family, so
-      // they cannot use a word that is ever an answer if a synonym will do.
-      blurb: "No letter tricks at all — nothing is shuffled, hidden or spelled out. Either two plain definitions sit side by side, or one playful, misleading description stands for the answer.",
+      // This blurb is an early rung, and a rung before the walkthrough may not
+      // contain the answer. Family blurbs are shown on every clue in the family,
+      // so they cannot use a word that is ever one of its answers if a synonym
+      // will do. tools/validate_annotations.py rejects a cryptic definition whose
+      // answer this sentence spells, so a collision surfaces at annotate time.
+      blurb: "No wordplay at all: none of the clue is rearranged, concealed or assembled. It is two definitions placed together, or one playful, misleading description of the answer.",
       match: (t) => t.includes("double definition") || t.includes("cryptic definition") },
     { label: "&lit", n: 160,
       blurb: "&lit is short for \u201cand literally so\u201d. The whole clue does double duty: read it once as a definition, then read the very same words again as wordplay.",

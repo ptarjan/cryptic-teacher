@@ -2475,7 +2475,10 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
       for (const e of puzzles[id].entries || []) {
         const a = e.annotation || {};
         const ans = bare(a.answer);
-        if (ans && (a.blocks || []).some((b) => bare(b.gives) === ans)) risky.push({ id, e, ans });
+        // A soundsLike prints unmasked, so one that is the answer leaks the same way.
+        if (ans && (a.blocks || []).some((b) => bare(b.gives) === ans || bare(b.soundsLike) === ans)) {
+          risky.push({ id, e, ans });
+        }
       }
     }
     assert(risky.length, "the corpus still has a block whose letters are the whole answer");
