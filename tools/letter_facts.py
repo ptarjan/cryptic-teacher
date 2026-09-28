@@ -13,6 +13,7 @@ four; bigdave44 writes prose) are read the same way: the answer split into
 the blocks the blog gave and runs of the other clue words, each run read as
 blogs read those words in other puzzles, kept where the split is the only
 one (see infer_blocks). Each is written [letters, clue words, "inferred"].
+An anagram the blog gave no blocks has its fodder for its one block (see infer_fodder).
 Where a write-up gives its blocks in prose ("GAFFE or error", "a synonym of
 'misrepresent' followed by Female"), what it prints (blog_facts.leads) says
 which pieces to try, and the split is kept on the same terms (see
@@ -614,7 +615,7 @@ def infer_blocks(clue, answer, facts, lex):
 
 # ------------------------------------------------------------ blocks from the write-up's prose
 
-def verified(c, src, key, lex, dlex, printed=frozenset()):
+def verified(c, src, key, lex, dlex, printed=frozenset(), own=None):
     """Whether the clue words `src` (letters `key`) give the letters `c` by
     what the letters or the blogs say: literally, as a listed abbreviation,
     a selection or cut of the one word, a reading blogs gave them as a block, or an
@@ -622,12 +623,14 @@ def verified(c, src, key, lex, dlex, printed=frozenset()):
     or last letter cut (FATHE(r) from "old man"), unless the write-up
     prints that word whole (`printed`): T(OG)ETHER is TETHER around OG, and
     not T and a cut TETHER. One or two letters are what blogs read them as
-    often enough (Lexicon.spellings): "close to" is R in three write-ups."""
+    often enough (Lexicon.spellings): "close to" is R in three write-ups.
+    An answer `own` is left out of those blogs underlined them for."""
     if c == "".join(key) or listed(c, src) or len(key) == 1 and derivation(c, src):
         return True
     if len(c) < 3:  # one or two letters blogs give in passing: as often as infer_blocks reads them
         return c in lex.spellings(key)
     whole = set(lex.seen.get(key, ())) | dlex.by_words.get(key, set())
+    whole.discard(own)
     return c in whole or any(c in (w[1:], w[:-1]) and w not in printed for w in whole)
 
 
@@ -644,8 +647,9 @@ def infer_fuzzy_blocks(clue, answer, facts, lex, dlex, said, sources=None, why=N
     when the split is not the only one. `sources`, a list, is given what led
     to each: "caps verified", "caps near", "lexicon caps", "lexicon printed"
     or "anagram". `why`, a list, is given the reason for a [] or None:
-    "no split", "two splits", "too many splits" or "edge" (a word beside a
-    new piece that blogs do not leave out)."""
+    "no split", "two splits", "too many splits", "edge" (a word beside a
+    new piece that blogs do not leave out) or "own answer" (a piece read
+    only as the answer less a letter, where the blog underlined nothing)."""
     note = lambda r, v: (why.append(r) if why is not None else None) or v
     answer = letters(answer or "")
     t = facts.get("type") or ""
@@ -749,6 +753,15 @@ def infer_fuzzy_blocks(clue, answer, facts, lex, dlex, said, sources=None, why=N
     if len(new) != 1:
         return note("two splits", None) if new else note("no split", [])
     new = sorted(x - have for x in new.pop())
+    for x in new if not facts.get("definition") else ():
+        # a piece read only as this answer less a letter (LUMBAGO from "Lead"
+        # for PLUMBAGO) is the definition the blog left out, not a block
+        i, size, cut_, _ = runs[x]
+        src = " ".join([w for w, _ in ws[i:i + size - 1]] + [(bare if cut_ else ws)[i + size - 1][0]])
+        s, key = pieces[have + x][0], _key(src)
+        if tags[x] == "caps verified" and verified(s, src, key, lex, dlex, capset) \
+                and not verified(s, src, key, lex, dlex, capset, own=answer):
+            return note("own answer", None)
     used = taken | {k for x in new for k in range(runs[x][0], runs[x][0] + runs[x][1])}
     out = []
     for x in new:
@@ -1431,12 +1444,27 @@ def inferred(clue, answer, facts, votes, lex, ilex, dlex, fuzzy=True):
         if w:
             facts = {**facts, "type": w[0], "inferred": ["type"], **({"typeCore": True} if w[1] else {})}
     facts = with_all_blocks(clue, answer, facts, lex, dlex, fuzzy)
+    new = infer_fodder(clue, answer, facts, votes)
+    facts = with_blocks(facts, new) if new else facts
     new = infer_definition(clue, answer, facts, dlex)
     facts = with_definition(facts, new) if new else facts
     new = infer_carrier(clue, answer, facts)
     facts = with_blocks(facts, new) if new else facts
     new = infer_indicators(clue, answer, facts, ilex)
     return with_indicators(facts, new) if new else facts
+
+
+def infer_fodder(clue, answer, facts, votes):
+    """An anagram's one block, as the blogs write it: [(the fodder in
+    capitals, the fodder, "anagrammed")], the fodder the one run of clue
+    words outside the definition with the answer's letters, where the type
+    is an anagram and there are no blocks; else []."""
+    if facts.get("type") != "anagram" or facts.get("blocks"):
+        return []
+    got = infer(clue, answer, {k: facts[k] for k in ("definition",) if k in facts}, votes)
+    if not got or got.get("type") != "anagram" or not got.get("fodder"):
+        return []
+    return [(got["fodder"].upper(), got["fodder"], "anagrammed")]
 
 
 #: A hidden word's type, and whether the answer is spelt backwards in its carrier.

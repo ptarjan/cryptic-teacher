@@ -187,4 +187,25 @@ full {'homophone'} {'spoonerism'} False True"
 if [ "$heard" = "$want" ]; then echo "ok   a homophone's and a spoonerism's blocks are heard where they sound like the answer, and want their indicator"; else
   echo "FAIL heard blocks: expected [$want], got [$heard]"; fails=$((fails + 1)); fi
 
+# An anagram the blog gave no blocks has the fodder the letters read for its
+# block, as blogs write it (its letters, not the answer's); untyped, none. A
+# piece read only as the clue's own answer less a letter (LUMBAGO from "Lead",
+# underlined for PLUMBAGO) is the definition the blog left out, so no claim.
+own=$(cd "$REPO/tools" && python3 -c '
+import letter_facts as l
+clue = "Men on phone exchange will be a rarity"
+print(l.infer_fodder(clue, "PHENOMENON", {"type": "anagram", "definition": ["a rarity"]}, {}),
+      l.infer_fodder(clue, "PHENOMENON", {"definition": ["a rarity"]}, {}))
+rows = [("d", "e", "Lead (8)", "PLUMBAGO", {"definition": ["Lead"]})]
+lex, dlex = l.Lexicon(rows), l.Definitions(rows)
+lex.edge = {(side, w): [0, 50] for side in "LR" for w in ("WITH", "ON")}
+said = {"caps": ["LUMBAGO", "P"]}
+print(l.infer_fuzzy_blocks("Lead with pressure on bad back (8)", "PLUMBAGO", {}, lex, dlex, said),
+      sorted(l.infer_fuzzy_blocks("Lead with pressure on bad back (8)", "PLUMBAGO", {}, lex, l.Definitions([]),
+                                  {"caps": ["LUMBAGO", "P"], "near": [["LUMBAGO", "Lead"]]})))')
+want="[('MEN ON PHONE', 'Men on phone', 'anagrammed')] []
+None [('LUMBAGO', 'Lead'), ('P', 'pressure')]"
+if [ "$own" = "$want" ]; then echo "ok   an anagram with no blocks gets its fodder, and a clue's own answer is not read from its definition"; else
+  echo "FAIL fodder and own answer: expected [$want], got [$own]"; fails=$((fails + 1)); fi
+
 [ "$fails" -eq 0 ] && echo "all letter_facts checks passed" || { echo "$fails failed"; exit 1; }
