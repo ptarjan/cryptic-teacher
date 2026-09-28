@@ -467,7 +467,7 @@ def check(eid, spec, norms):
     out = []
     ws = words(clue)
     lower = clue.lower()
-    definition = (ann.get("definition") or "").strip()
+    definition = ((ann.get("definitions") or [{}])[0].get("text") or "").strip()
 
     # 1. Definition welded on with a copula, at the seam of the wordplay.
     if definition:
@@ -603,7 +603,8 @@ def calibrate(corpus, n, seed):
     fracs = []
     for clue, answer, definition in sample:
         spec = {"clue": clue, "annotation": {
-            "answer": answer, "definition": definition or "", "indicators": []}}
+            "answer": answer, "definitions": [{"text": definition}] if definition else [],
+            "indicators": []}}
         for code, _ in check("pub", spec, norms):
             counts[code] += 1
         toks = tokens(strip_enum(clue))

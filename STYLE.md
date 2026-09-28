@@ -155,7 +155,7 @@ worse than no warning.
 Agreement is about grammar, not spelling. `aircraft` really is plural, so it
 really does define PLANES. Such nouns live in `INVARIANT_PLURALS` in the
 validator. Add to that set instead of silencing the warning with a
-`definitionNote`, which would tell the learner there is a mismatch when there
+definition `note`, which would tell the learner there is a mismatch when there
 is none.
 
 ### Account for every word
@@ -342,10 +342,10 @@ so explicitly instead of leaving the solver to hunt for a meaning.
 ### When the definition really doesn't agree: say so
 Sometimes the setter's definition really does not match the answer's number or
 part of speech: "Lousy payment" for PEANUTS, "hearing aid" for EARPHONES, "work"
-for OPUSES. Do not hide it and do not stretch the definition to fit. Add a
-`definitionNote`: a sentence, shown to the learner on the definition rung,
+for OPUSES. Do not hide it and do not stretch the definition to fit. Give the
+definition a `note`: a sentence, shown to the learner on the walkthrough rung,
 saying what disagrees and why the setter is allowed it (a mass-noun idiom,
-objects that come in pairs, a plural naming one thing). A `definitionNote` also
+objects that come in pairs, a plural naming one thing). A definition `note` also
 silences `check_part_of_speech()`, so the validator requires it to be a real
 explanation of at least 25 characters, not a rubber stamp. An unexplained
 mismatch is a bug; an explained one is a lesson.

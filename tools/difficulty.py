@@ -209,6 +209,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from fetch_puzzle import (  # noqa: E402 — one glob, one reader for every tool
     puzzle_files, puzzle_is_annotated, read_puzzle_file)
+import definitions
 LEXICON = ROOT / "tools" / "data" / "lexicon.tsv"
 BASELINE = ROOT / "tools" / "data" / "difficulty_baseline.json"
 BLOG_FACTS = ROOT / "tools" / "data" / "blog_facts"
@@ -619,7 +620,7 @@ def definition_unrelated(puz):
     bd = blog_definitions().get(puz["id"], {})
     judged = []
     for e in puz["entries"]:
-        d = bd.get(e.get("id")) or definition_key((e.get("annotation") or {}).get("definition"))
+        d = bd.get(e.get("id")) or definition_key(definitions.texts(e.get("annotation")))
         if not d or not e.get("solution"):
             continue
         clue = ENUMERATION.sub("", e.get("clue") or "").strip()
@@ -694,7 +695,7 @@ def history():
             if not sol or e.get("separatorLocations"):
                 continue
             sols.add(sol)
-            d = bd.get(e.get("id")) or definition_key((e.get("annotation") or {}).get("definition"))
+            d = bd.get(e.get("id")) or definition_key(definitions.texts(e.get("annotation")))
             if d:
                 pairs.add((sol, definition_head(d)))
         rows.append((day, puz["id"], sols, pairs))

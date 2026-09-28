@@ -38,10 +38,8 @@ prints it.
 {
   "type": ["every mechanism, in the order applied, from the Reference below"],
   "answer": "DISPLAY FORM: the solution's letters, spaced only where the enumeration is",
-  "definition": "exact substring of the clue",
-  "definition2": "second definition, double definitions only",
-  "definedByPreamble": "true instead of definition, only when the puzzle's preamble defines this answer",
-  "definitionNote": "only if the definition disagrees with the answer in number or part of speech",
+  "definitions": [{"text": "exact substring of the clue", "note": "only if it disagrees with the answer in number or part of speech"}],
+  "definedByPreamble": "true instead of definitions, only when the puzzle's preamble defines this answer",
   "indicators": [{"text": "exact substring", "for": "one of this clue's own type names", "note": "why THESE words signal that operation here"}],
   "linkWords": ["exact substring joining definition to wordplay, e.g. 'to locate'"],
   "blocks": [
@@ -68,6 +66,10 @@ prints it.
 
 Blocks are listed in the order the answer reads, not the clue; with a container,
 reversal or rotation, in the order the pieces are assembled before that step.
+
+`definitions` has one object, or two for a double definition. Leave out `at`, the
+text's offset in the clue: `apply_annotations.py` computes it, and asks for it only
+when the text occurs in the clue more than once and it cannot tell which.
 
 `indicators` has one object per indicator phrase. `text` is the clue words exactly as
 printed; `for` is the one name from this clue's own `type` whose operation they signal

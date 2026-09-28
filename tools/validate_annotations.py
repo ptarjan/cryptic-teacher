@@ -2,14 +2,14 @@
 """Validate clue annotations in puzzles/<series>/<year>/*.json.
 
 Checks, for every annotated entry:
-  - annotation has type, definition, walkthrough, answer, blocks
+  - annotation has type, definitions, walkthrough, answer, blocks
   - `type` is an array of names from tools/data/clue_types.json (check_type)
   - answer letters match the grid solution (group-aware for linked entries)
-  - definition / definition2 / every indicator / every linkWord is an exact
-    substring of the clue, and every content word of the clue is claimed by one
+  - each definition sits at its `at` in the clue (tools/definitions.py), every
+    indicator and every linkWord is an exact substring of the clue, and every content word of the clue is claimed by one
     of those or by a block (check_coverage)
-  - definition and answer agree in inflection, unless a definitionNote explains
-    why they don't (check_part_of_speech)
+  - each definition and the answer agree in inflection, unless the definition's
+    `note` explains why they don't (check_part_of_speech)
   - anagram fodder letters match the answer letters (multiset)
   - charade/container "pieces" concatenate exactly to the answer letters
   - hidden answers actually occur in the clue's letters
@@ -58,6 +58,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import clue_types  # noqa: E402
 import puzzle_schema  # noqa: E402 — tools/data/puzzle.schema.json
+import definitions  # where each definition sits; tools/definitions.py
 from fetch_puzzle import (  # noqa: E402 — one reader, one exemption
     blog_facts_for, clue_words, leaders_named, read_puzzle_file)
 from puzzle_paths import puzzle_files, resolve_puzzle  # noqa: E402 — one glob, one id resolver
@@ -573,7 +574,7 @@ def check_indicator_adjacency(tag, ann, clue, errors, warnings):
             f"clue we wrote, check by eye that the indicator touches it")
         return
     allowed = set(FODDER_GLUE)
-    for src in (ann.get("definition"), ann.get("definition2")):
+    for src in definitions.texts(ann):
         allowed |= set(words_of(src))
     for b in ann.get("blocks", []):
         if not str(b.get("gives") or "").strip():
@@ -815,8 +816,7 @@ def check_definition_fit(tag, ann, errors, warnings):
         return
     if len(fit.split()) > 30:
         warnings.append(f"{tag}: definitionFit is {len(fit.split())} words — 30 max")
-    known = set(re.findall(r"[a-z']+", (ann.get("definition") or "").lower()))
-    known |= set(re.findall(r"[a-z']+", (ann.get("definition2") or "").lower()))
+    known = set(re.findall(r"[a-z']+", " ".join(definitions.texts(ann)).lower()))
     known |= set(re.findall(r"[a-z']+", (ann.get("answer") or "").lower()))
     fresh = [w for w in re.findall(r"[a-z']+", fit.lower())
              if w not in known and w not in FILLER_WORDS and len(w) > 2]
@@ -830,10 +830,10 @@ def check_definition_fit(tag, ann, errors, warnings):
 # field rendered above that line which names the answer collapses the ladder —
 # the solver pays a hint and is handed the solve.
 #
-# Found 2026-08-09 by Paul, on 1392 11-across: `definitionNote` read "the setter
+# Found 2026-08-09 by Paul, on 1392 11-across: a definition's `note` read "the setter
 # defines trump cards by what their holders enjoy", printed on the DEFINITION
 # rung. Sixteen notes in the corpus did the same, and the reason is structural
-# rather than careless — a definitionNote exists to explain why the definition
+# rather than careless — a definition's note exists to explain why the definition
 # does not agree with the ANSWER, so it is written about the answer and always
 # will be. It was moved to the walkthrough rung rather than reworded, because
 # rewording would leave the next one free to make the same mistake.
@@ -853,7 +853,7 @@ def check_definition_fit(tag, ann, errors, warnings):
 # There the letters are the clue's own, on screen from the start, and the
 # definition rung adds nothing the solver could not already see; a leak is text
 # the annotator WROTE that the clue does not say.
-EARLY_RUNG_FIELDS = ("definition", "definition2", "indicators", "linkWords")
+EARLY_RUNG_FIELDS = ("definitions", "indicators", "linkWords")
 
 
 def check_no_answer_in_early_rungs(tag, ann, errors, warnings):
@@ -868,6 +868,8 @@ def check_no_answer_in_early_rungs(tag, ann, errors, warnings):
         if field == "indicators":
             parts = [p for i in val if isinstance(i, dict)
                      for p in (i.get("text"), i.get("note")) if p]
+        elif field == "definitions":
+            parts = [d.get("text") for d in val if isinstance(d, dict) and d.get("text")]
         else:
             parts = val if isinstance(val, list) else [val]
         for part in parts:
@@ -1181,7 +1183,7 @@ def check_coverage(tag, ann, clue, warnings):
     2026-07-29: 30067 13A never accounted for 'state' = CAL, and the walkthrough
     hedged instead of admitting it)."""
     claimed = set()
-    for src in [ann.get("definition"), ann.get("definition2")]:
+    for src in definitions.texts(ann):
         claimed |= set(words_of(src))
     for ind in indicator_texts(ann):
         claimed |= set(words_of(ind))
@@ -1212,7 +1214,7 @@ def is_word(s):
 # field taking a singular verb, not several SEMANTICs (30076 11A). STAPES is
 # one bone in one ear, not several STAPs (30095 5D) — the Latin nominative
 # happens to end in S.
-# Without this the plural check invites a definitionNote that would lie —
+# Without this the plural check invites a definition note that would lie —
 # same principle as INVARIANT_PLURALS below, on the answer side.
 NOT_PLURALS = {"ALAS", "ALWAYS", "LENS", "STAPES", "SEMANTICS", "PHYSICS", "MATHEMATICS",
                "ECONOMICS", "LINGUISTICS", "POLITICS", "ETHICS", "GENETICS",
@@ -1230,7 +1232,7 @@ def is_plural(ans):
 
 # Nouns that are already plural without an -S, so "aircraft" really does define
 # PLANES and "cattle" really does define COWS. Without these the plural check
-# fires on a perfectly fair definition and invites a definitionNote that would
+# fires on a perfectly fair definition and invites a definition note that would
 # be a lie — the definition agrees with the answer, English just spells it oddly.
 INVARIANT_PLURALS = {
     "aircraft", "cattle", "clergy", "crossroads", "deer", "fish", "folk",
@@ -1242,7 +1244,7 @@ INVARIANT_PLURALS = {
     "women", "feet", "teeth", "geese", "mice", "lice", "oxen", "dice",
     # Not nouns, but the plural head of a definition all the same: "Those in
     # charge" defines RULERS and "these" and "those" carry the number on their
-    # own (30051 3D). Without them the check asks for a definitionNote about a
+    # own (30051 3D). Without them the check asks for a definition note about a
     # mismatch that isn't there. "They print" defines PRESSES the same way
     # (12401 18A) — the pronoun is plural without an S.
     "those", "these", "they",
@@ -1255,7 +1257,7 @@ INVARIANT_PLURALS = {
 # plain noun (30103 6D, "Canopy"). STRING is here for the same reason, and it
 # is in the docstring below as an example the stem test handles — it does not.
 # Same reasoning as NOT_PLURALS above: a warning on one of these invites a
-# definitionNote explaining a mismatch that does not exist.
+# definition note explaining a mismatch that does not exist.
 NOT_GERUNDS = {"AWNING", "STRING", "HERRING", "SHILLING", "CEILING", "MORNING",
                "PUDDING"}
 
@@ -1335,33 +1337,36 @@ def check_part_of_speech(tag, ann, warnings):
     right"). Only the mechanical, unambiguous endings are checked here; the
     judgement call lives in STYLE.md and tools/annotate_prompt.md.
 
-    A `definitionNote` silences this: some setters genuinely define a plural with
-    a mass noun ("Lousy payment" = PEANUTS), and the honest response is to
-    explain that to the learner, not to fake agreement the clue does not have."""
+    A definition's `note` silences this for it: some setters genuinely define a
+    plural with a mass noun ("Lousy payment" = PEANUTS), and the honest response
+    is to explain that to the learner, not to fake agreement the clue does not
+    have."""
     ans = letters(ann.get("answer"))
-    dwords = words_of(ann.get("definition"))
-    if not ans or not dwords or ann.get("definitionNote"):
-        return
-    ends = lambda sufs: any(w.endswith(sufs) for w in dwords)
-    # A long definition is usually a descriptive phrase ("About to go off perhaps"
-    # = TICKING), where the -ing test says nothing; only short ones are meaningful.
-    if is_gerund(ans) and len(dwords) <= 2 and not ends(("ing",)):
-        warnings.append(f"{tag}: answer ends -ING but no word in the definition does "
-                        f"({ann.get('definition')!r}). The definition must substitute "
-                        f"for the answer in a sentence: say the swap out loud. If it "
-                        f"does not, the definition is probably a different span of the "
-                        f"clue; if the setter really is loose, add a definitionNote "
-                        f"saying in a sentence why that is fair")
-    # Multi-word answers are phrases whose trailing -S is rarely the head's
-    # inflection: PICK UP THE PIECES is a verb phrase, defined by a verb phrase.
-    elif (is_plural(ans) and " " not in (ann.get("answer") or "")
-          and not ends(("s",)) and not (set(dwords) & INVARIANT_PLURALS)):
-        warnings.append(f"{tag}: answer looks plural but the definition "
-                        f"({ann.get('definition')!r}) is not. The definition must "
-                        f"substitute for the answer in a sentence: say the swap out "
-                        f"loud. If the setter really is loose (\"Lousy payment\" = "
-                        f"PEANUTS), add a definitionNote saying in a sentence why that "
-                        f"is fair; do not stretch the definition to fit")
+    for d in ann.get("definitions") or []:
+        dwords = words_of(d.get("text"))
+        if not ans or not dwords or d.get("note"):
+            continue
+        ends = lambda sufs: any(w.endswith(sufs) for w in dwords)  # noqa: B023
+        # A long definition is usually a descriptive phrase ("About to go off
+        # perhaps" = TICKING), where the -ing test says nothing; only short ones
+        # are meaningful.
+        if is_gerund(ans) and len(dwords) <= 2 and not ends(("ing",)):
+            warnings.append(f"{tag}: answer ends -ING but no word in the definition does "
+                            f"({d.get('text')!r}). The definition must substitute "
+                            f"for the answer in a sentence: say the swap out loud. If it "
+                            f"does not, the definition is probably a different span of the "
+                            f"clue; if the setter really is loose, give the definition a "
+                            f"`note` saying in a sentence why that is fair")
+        # Multi-word answers are phrases whose trailing -S is rarely the head's
+        # inflection: PICK UP THE PIECES is a verb phrase, defined by a verb phrase.
+        elif (is_plural(ans) and " " not in (ann.get("answer") or "")
+              and not ends(("s",)) and not (set(dwords) & INVARIANT_PLURALS)):
+            warnings.append(f"{tag}: answer looks plural but the definition "
+                            f"({d.get('text')!r}) is not. The definition must "
+                            f"substitute for the answer in a sentence: say the swap out "
+                            f"loud. If the setter really is loose (\"Lousy payment\" = "
+                            f"PEANUTS), give the definition a `note` saying in a sentence "
+                            f"why that is fair; do not stretch the definition to fit")
     # Deliberately NOT checked: -LY (plenty of adverbs don't end in -ly: "always"),
     # and -ing definitions for non-ing answers ("Working vessel" = DREDGER is fine).
     # A noisy warning is a warning nobody reads.
@@ -1571,9 +1576,10 @@ def check_cryptic_definition_blocks(tag, ann, errors, warnings):
     ans = re.sub(r"[^a-z]", "", str(ann.get("answer") or "").lower())
     if len(ans) >= 4:
         bare = lambda s: re.sub(r"[^a-z]", "", (s or "").lower())
-        if ans in bare(ann.get("definition")):
+        defined = " / ".join(definitions.texts(ann))
+        if ans in bare(defined):
             errors.append(
-                f"{tag}: cryptic definition {ann.get('definition')!r} hides the answer "
+                f"{tag}: cryptic definition {defined!r} hides the answer "
                 f"in its own letters, and the definition rung shows it before the "
                 f"walkthrough. A clue that hides its answer is a hidden word: type it "
                 f"as one, with the definition, the indicator and the fodder")
@@ -1631,13 +1637,14 @@ def check_definition_against_blog(puzzle, warnings):
         fact = row["entries"].get(e["id"]) or {}
         # one tools/letter_facts.py read off other write-ups is not this blogger's underline
         theirs = None if "definition" in fact.get("inferred", ()) else fact.get("definition")
-        if not ann.get("definition") or not theirs:
+        defined = definitions.texts(ann)
+        if not defined or not theirs:
             continue
-        ours = words(ann["definition"]) | words(ann.get("definition2") or "")
+        ours = set().union(*map(words, defined))
         if not any(words(t) & ours for t in theirs):
             tag = f"{e['number']}{'A' if e['direction'] == 'across' else 'D'}"
             warnings.append(
-                f"{tag}: definition {ann['definition']!r} shares no word with the "
+                f"{tag}: definition {' / '.join(defined)!r} shares no word with the "
                 f"definition {row['name']} underlined ({' / '.join(map(repr, theirs))}, "
                 f"{row['url']}). Bloggers slip too: keep ours if theirs is wordplay")
 
@@ -1753,7 +1760,7 @@ def check_definition_not_fodder(entries, errors, warnings):
         if any(x in types_of(ann) for x in DEFINITION_REUSE_EXEMPT):
             continue
         tag = f"{e['number']}{'A' if e['direction'] == 'across' else 'D'}"
-        dw = set(re.findall(r"[a-z]+", (ann.get("definition") or "").lower()))
+        dw = set(re.findall(r"[a-z]+", " ".join(definitions.texts(ann)).lower()))
         dw -= DEFINITION_STOPWORDS
         if not dw:
             continue
@@ -1768,7 +1775,7 @@ def check_definition_not_fodder(entries, errors, warnings):
                 hits.append(tag)
                 warnings.append(
                     f"{tag}: block {frag!r} gives {b.get('gives')!r} out of "
-                    f"{sorted(shared)}, which the definition {ann.get('definition')!r} "
+                    f"{sorted(shared)}, which the definition {' / '.join(definitions.texts(ann))!r} "
                     f"has already claimed. A clue is definition + wordplay, not one "
                     f"phrase doing both — unless the setter reuses the word on "
                     f"purpose, this parse is faked out of the definition")
@@ -2274,8 +2281,8 @@ def validate_puzzle(puzzle, corpus=False):
             continue
 
         clue = e["clue"]
-        for key in ("type", "definition", "walkthrough", "answer", "blocks"):
-            if key == "definition" and ann.get("definedByPreamble") is True:
+        for key in ("type", "definitions", "walkthrough", "answer", "blocks"):
+            if key == "definitions" and ann.get("definedByPreamble") is True:
                 continue
             if not ann.get(key):
                 errors.append(f"{tag}: missing annotation field '{key}'")
@@ -2291,9 +2298,9 @@ def validate_puzzle(puzzle, corpus=False):
                 errors.append(f"{tag}: definedByPreamble, but the puzzle has no "
                               f"preamble to define it. Give the definition from "
                               f"the clue")
-            elif ann.get("definition"):
+            elif ann.get("definitions"):
                 errors.append(f"{tag}: definedByPreamble and a definition "
-                              f"{ann['definition']!r} — the clue defines it or the "
+                              f"{' / '.join(definitions.texts(ann))!r} — the clue defines it or the "
                               f"preamble does, not both")
 
         check_type(tag, ann, errors)
@@ -2308,12 +2315,19 @@ def validate_puzzle(puzzle, corpus=False):
         if target_letters and ans_letters != target_letters:
             errors.append(f"{tag}: answer '{ann.get('answer')}' != grid solution {target_letters}")
 
-        # Definition and indicators must appear verbatim in the clue.
-        for field in ("definition", "definition2"):
-            d = ann.get(field)
-            if d and d not in clue:
-                errors.append(f"{tag}: {field} {d!r} not found in clue {clue!r}"
-                              + verbatim_hint(d, clue))
+        # Definitions and indicators must appear verbatim in the clue, and each
+        # definition's `at` must point at its text.
+        for d in ann.get("definitions") or []:
+            text = d.get("text") or ""
+            if text not in clue:
+                errors.append(f"{tag}: definition {text!r} not found in clue {clue!r}"
+                              + verbatim_hint(text, clue))
+            elif not definitions.span_ok(d, clue):
+                errors.append(f"{tag}: definition {text!r} is not at {d.get('at')!r} in "
+                              f"{clue!r}; it occurs at "
+                              f"{', '.join(map(str, definitions.candidates(text, clue)))}. "
+                              f"`at` is the offset in code points, filled by "
+                              f"apply_annotations when the text occurs once")
         for ind in indicator_texts(ann):
             if ind not in clue:
                 errors.append(f"{tag}: indicator {ind!r} not found in clue {clue!r}"
@@ -2360,16 +2374,16 @@ def validate_puzzle(puzzle, corpus=False):
                             f"ones included) for an anagram, and `subAnagrams` / "
                             f"`subReversals` for any embedded step")
 
-        # A definitionNote silences the part-of-speech check, so it has to say
+        # A definition's note silences the part-of-speech check, so it has to say
         # something: a one-word "fine" would turn the check into an off switch.
-        note = ann.get("definitionNote")
-        if note is not None and len(str(note).strip()) < 25:
-            errors.append(f"{tag}: definitionNote {note!r} is too thin — it exists only "
-                          f"where the definition disagrees with the answer in number or "
-                          f"part of speech, and it must say in a real sentence why the "
-                          f"setter is allowed that (\"Lousy payment\" = PEANUTS: a "
-                          f"mass noun defining a plural, fair because peanuts is itself "
-                          f"used as a mass noun for a pittance). Explain it or drop it")
+        for note in [d["note"] for d in ann.get("definitions") or [] if "note" in d]:
+            if len(str(note).strip()) < 25:
+                errors.append(f"{tag}: definition note {note!r} is too thin — it exists only "
+                              f"where the definition disagrees with the answer in number or "
+                              f"part of speech, and it must say in a real sentence why the "
+                              f"setter is allowed that (\"Lousy payment\" = PEANUTS: a "
+                              f"mass noun defining a plural, fair because peanuts is itself "
+                              f"used as a mass noun for a pittance). Explain it or drop it")
 
         check_definition_fit(tag, ann, errors, warnings)
         check_answer_matches_separators(tag, ann, e, errors)

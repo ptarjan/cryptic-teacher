@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# definedByPreamble stands in for `definition` only where the puzzle prints a
+# definedByPreamble stands in for `definitions` only where the puzzle prints a
 # preamble, and never beside a definition.
 set -euo pipefail
 cd "$(dirname "$0")"
@@ -30,9 +30,9 @@ check("flag with a preamble replaces the definition", False,
       errors({"definedByPreamble": True}, "Unclued answers are birds."))
 check("flag without a preamble", True, errors({"definedByPreamble": True}))
 check("flag beside a definition", True,
-      errors({"definedByPreamble": True, "definition": "colour"}, "Birds."))
+      errors({"definedByPreamble": True, "definitions": [{"text": "colour", "at": 8}]}, "Birds."))
 check("flag false is not a spelling of absent", True,
-      errors({"definedByPreamble": False, "definition": "colour"}, "Birds."))
+      errors({"definedByPreamble": False, "definitions": [{"text": "colour", "at": 8}]}, "Birds."))
 check("no flag, no definition", True, errors({}, "Birds."))
 raise SystemExit(fails)
 PY

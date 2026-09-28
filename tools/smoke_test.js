@@ -88,6 +88,10 @@ assert(LADDER.length === 5, "the ladder has five rungs: " + LADDER.map((r) => r.
 // guarantee (Paul, backfill past 1,183 puzzles, 2026-09-17). Anchored so a
 // number can only match its own row, not a longer number it happens to
 // prefix.
+// An annotation's definitions, as clue text; `at` counts code points, so
+// cpToIdx turns it into a JS string index.
+const defTexts = (a) => ((a && a.definitions) || []).map((d) => d.text);
+const cpToIdx = (s, at) => [...s].slice(0, at).join("").length;
 const rowHasNumber = (html, num) => new RegExp("№ " + num + "(?!\\d)").test(html);
 
 // --- the vendored decoder is the build vendor/README.md pins ---
@@ -2378,10 +2382,12 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
 {
   const puzzles = global.window.CRYPTIC_PUZZLES;
   const findClue = (field) => {
+    const has = typeof field === "function" ? field
+      : (a) => (Array.isArray(a[field]) ? a[field].length : a[field]);
     for (const id of Object.keys(puzzles).sort().reverse()) {
       for (const e of puzzles[id].entries || []) {
         const a = e.annotation;
-        if (a && (Array.isArray(a[field]) ? a[field].length : a[field])) return { id, e };
+        if (a && has(a)) return { id, e };
       }
     }
     return null;
@@ -2394,8 +2400,8 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
     const row = registry["clue-" + e.id];
     assert(row && row.listeners.click, `clue list shows ${e.number}${e.direction[0]}: ${e.clue}`);
     row.listeners.click[0]();
-    // The definition rung and NOTHING else, which is where linkWords and
-    // definitionNote hang. By name and on its own: climbing to it by taking
+    // The definition rung and NOTHING else, which is where linkWords
+    // hang. By name and on its own: climbing to it by taking
     // whatever leads pins the ladder's order into a helper about something
     // else, and swallows the indicators rung that three later tests assert is
     // still on offer. It is tier 0, so it is reachable from cold whatever
@@ -2413,13 +2419,13 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
   assert(registry["hint-clue"].innerHTML.includes('mark class="link"'),
     "link words are highlighted in the clue: " + registry["hint-clue"].innerHTML);
 
-  // A definitionNote explains why the definition does not agree with the ANSWER,
+  // A definition's `note` explains why the definition does not agree with the ANSWER,
   // so it is written about the answer and routinely names it — 16 in the corpus
   // did, and one of them handed TRUMP CARDS over on rung 2.
   // It belongs beside definitionFit on the walkthrough, not on the definition
   // rung. Assert BOTH ends: absent early, present late. Only checking that it is
   // shown somewhere is what let it sit on the wrong rung for months.
-  const noted = findClue("definitionNote");
+  const noted = findClue((a) => (a.definitions || []).some((d) => d.note));
   assert(noted, "at least one annotation explains a definition that disagrees with its answer");
   openClue(noted);
   assert(!registry["hint-body"].innerHTML.includes("def-note"),
@@ -2875,31 +2881,32 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
       }
       // The definition may legitimately be interrupted — an &lit's indicator sits
       // inside it — so what is required of it is that none of it goes unmarked.
-      const def = ann.definition;
-      if (def && e.clue.includes(def)) {
-        const at = e.clue.indexOf(def);
+      const d0 = (ann.definitions || [])[0];
+      const def = d0 && d0.text;
+      const defAt = d0 ? cpToIdx(e.clue, d0.at) : -1;
+      assert(!d0 || e.clue.slice(defAt, defAt + def.length) === def,
+        `${id} ${e.id}: the definition's \`at\` does not point at its text: ${JSON.stringify(d0)}`);
+      if (def && e.clue.slice(defAt, defAt + def.length) === def) {
+        const at = defAt;
         const gap = [...Array(def.length).keys()].filter((k) => !anyMarked.has(at + k));
         assert(!gap.length || spans.some((s) => s.cls.split(/\s+/).includes("def")),
           `${id} ${e.id}: the definition is not marked at all: ` + registry["hint-clue"].innerHTML);
       }
       // A definition whose words occur twice in the clue ("Sam, Tim, Rich and
       // Ali each cutting last cutting", definition "cutting", indicator "each
-      // cutting last") is marked at the end of the clue, where definitions
-      // sit, and not on the first match, which is inside the indicator.
-      const hasLetter = (t) => /[A-Za-z]/.test(t);
+      // cutting last") is marked on the occurrence its `at` names, not on
+      // another match.
       const defHits = [];
       for (let i = def ? e.clue.indexOf(def) : -1; i >= 0; i = e.clue.indexOf(def, i + 1)) defHits.push(i);
-      const ends = defHits.filter((i) => whole(i, def.length) &&
-        (!hasLetter(e.clue.slice(0, i)) || !hasLetter(e.clue.slice(i + def.length))));
-      if (defHits.length > 1 && ends.length) {
+      if (defHits.length > 1 && defHits.includes(defAt)) {
         repeatedDefs.push(`${id} ${e.id}`);
         // An indicator inside the definition takes its own words (see
         // clueMarks), so the rule is: all of it marked, some of it as def.
         const keys = [...Array(def.length).keys()];
-        assert(ends.some((i) => keys.every((k) => anyMarked.has(i + k)) &&
-                                keys.some((k) => (covered.def || new Set()).has(i + k))),
+        assert(keys.every((k) => anyMarked.has(defAt + k)) &&
+               keys.some((k) => (covered.def || new Set()).has(defAt + k)),
           `${id} ${e.id}: the definition ${JSON.stringify(def)} occurs ${defHits.length} times and ` +
-          `is not marked on the occurrence at the end of the clue: ` + registry["hint-clue"].innerHTML);
+          `is not marked at its \`at\` (${d0.at}): ` + registry["hint-clue"].innerHTML);
       }
     };
     const repeatedDefs = [];
@@ -4792,11 +4799,12 @@ global.realSetTimeout(() => {
   let found = null;
   for (const id of Object.keys(puzzles).sort()) {
     for (const e of puzzles[id].entries || []) {
-      const def = e.annotation && e.annotation.definition;
+      const defs = defTexts(e.annotation);
+      const def = defs[0];
       if (!def || !e.clue.startsWith(def)) continue;
       // Whole words, and one definition: a double definition asks for both
       // halves at once and the opening words are then only part of the answer.
-      if (e.annotation.definition2 || !/\s/.test(e.clue[def.length] || "")) continue;
+      if (defs.length > 1 || !/\s/.test(e.clue[def.length] || "")) continue;
       const words = def.trim().split(/\s+/).length;
       // Not the whole clue: guessAsk refuses a question whose answer is
       // everything, and rightly.
@@ -5324,14 +5332,16 @@ global.realSetTimeout(() => {
   for (const id of Object.keys(puzzles).sort()) {
     for (const e of puzzles[id].entries || []) {
       const a = e.annotation;
-      if (!a || !a.definition || a.definition2 || !(a.indicators || []).length) continue;
-      if (!e.clue.startsWith(a.definition) || !/\s/.test(e.clue[a.definition.length] || "")) continue;
-      const words = a.definition.trim().split(/\s+/).length;
+      const defs = defTexts(a);
+      if (defs.length !== 1 || !(a.indicators || []).length) continue;
+      const def = defs[0];
+      if (!e.clue.startsWith(def) || !/\s/.test(e.clue[def.length] || "")) continue;
+      const words = def.trim().split(/\s+/).length;
       const all = e.clue.replace(/\s*\([^()]*\)\s*$/, "").split(/\s+/).length;
       // Two words at least, or there is no run to drag across; and never the
       // whole clue, which guessAsk refuses to make a question of.
       if (words < 2 || words >= all) continue;
-      if ((a.indicators || []).some((t) => a.definition.includes(t.text))) continue;
+      if ((a.indicators || []).some((t) => def.includes(t.text))) continue;
       found = { id, e, words, all };
       break;
     }
@@ -5855,11 +5865,12 @@ global.realSetTimeout(() => {
   for (const id of Object.keys(puzzles).sort()) {
     for (const e of puzzles[id].entries || []) {
       const a = e.annotation;
-      if (!a || !a.definition || !a.definition2) continue;
+      const defs = defTexts(a);
+      if (defs.length < 2) continue;
       // The two definitions together are the whole clue, so once the question is
       // asked there is nothing left over to eliminate against.
       const clue = words(String(e.clue).replace(/\([^)]*\)\s*$/, ""));
-      if (clue.length && clue.length === words(a.definition).length + words(a.definition2).length) {
+      if (clue.length && clue.length === words(defs[0]).length + words(defs[1]).length) {
         found = { id, e };
         break;
       }
@@ -5953,9 +5964,10 @@ global.realSetTimeout(() => {
   for (const id of Object.keys(puzzles).sort()) {
     for (const e of puzzles[id].entries || []) {
       const a = e.annotation;
-      if (!a || !a.definition || a.definition2) continue;
-      const w = a.definition.split(/\s+/);
-      if (w.length < 3 || String(e.clue).indexOf(a.definition) < 0) continue;
+      const defs = defTexts(a);
+      if (defs.length !== 1) continue;
+      const w = defs[0].split(/\s+/);
+      if (w.length < 3 || String(e.clue).indexOf(defs[0]) < 0) continue;
       if (EDGE.indexOf(bare(w[w.length - 1])) < 0) continue;
       if (EDGE.indexOf(bare(w[0])) >= 0) continue;   // the near-miss must be a real one
       found = { id, e };
@@ -5991,7 +6003,7 @@ global.realSetTimeout(() => {
 
   assert(/guess-verdict right/.test(verdict(marks.slice(0, -1))),
     "stopping one word short of the definition's optional end is right on "
-      + found.e.clue + " (" + found.e.annotation.definition + ")");
+      + found.e.clue + " (" + defTexts(found.e.annotation)[0] + ")");
   assert(!/guess-verdict right/.test(verdict(marks.slice(1))),
     "but dropping a word that carries the meaning is still wrong on " + found.e.clue);
 }
@@ -6006,7 +6018,7 @@ global.realSetTimeout(() => {
 {
   const puzzles = global.window.CRYPTIC_PUZZLES;
   const bare = (t) => String(t || "").replace(/[^A-Za-z]/g, "").toUpperCase();
-  const isDef = (a, b) => [a.definition, a.definition2].some((d) => bare(d) === bare(b.clueFragment));
+  const isDef = (a, b) => defTexts(a).some((d) => bare(d) === bare(b.clueFragment));
   const plain = (b) => b.note && /^[A-Za-z ,.;:-]+$/.test(b.note) && !b.soundsLike;
   const open = (id, e) => {
     registry["btn-picker"].onclick();
@@ -6022,10 +6034,10 @@ global.realSetTimeout(() => {
   for (const id of Object.keys(puzzles).sort()) {
     for (const e of puzzles[id].entries || []) {
       const a = e.annotation;
-      if (!a || a.linkedTo || JSON.stringify(a.type) !== '["double_definition"]' || !a.definition2) continue;
+      if (!a || a.linkedTo || JSON.stringify(a.type) !== '["double_definition"]' || defTexts(a).length < 2) continue;
       const bl = a.blocks || [];
       if (!pure && bl.length === 2 && bl.every((b) => isDef(a, b) && plain(b))) pure = { id, e, bl };
-      if (!third && bl.some((b) => !isDef(a, b) && plain(b) && bare(b.gives) && !(a.definition + " " + a.definition2)
+      if (!third && bl.some((b) => !isDef(a, b) && plain(b) && bare(b.gives) && !defTexts(a).join(" ")
         .includes(b.clueFragment))) third = { id, e };
     }
     if (pure && third) break;
@@ -6065,7 +6077,7 @@ global.realSetTimeout(() => {
   // Every word of the clue named exactly once, by counting: the rungs' spans and
   // the pieces add up to the clue and no fragment is written twice in it.
   const claimed = (e, a) => {
-    const parts = [a.definition, ...(a.indicators || []).map((i) => i.text), ...(a.linkWords || []),
+    const parts = [defTexts(a)[0], ...(a.indicators || []).map((i) => i.text), ...(a.linkWords || []),
       ...(a.blocks || []).map((b) => b.clueFragment)];
     return parts.every((p) => p && e.clue.split(p).length === 2)
       && count(parts) === words(e.clue).length;
@@ -6095,7 +6107,7 @@ global.realSetTimeout(() => {
   for (const id of Object.keys(puzzles).sort()) {
     for (const e of puzzles[id].entries || []) {
       const a = e.annotation;
-      if (!a || a.linkedTo || a.definition2 || !claimed(e, a)) continue;
+      if (!a || a.linkedTo || defTexts(a).length > 1 || !claimed(e, a)) continue;
       const bl = a.blocks || [];
       const bare = (t) => String(t || "").replace(/[^A-Za-z]/g, "").toUpperCase();
       // Fodder written as its own letters never asked; fodder that resolves to
@@ -6145,7 +6157,7 @@ global.realSetTimeout(() => {
     for (const e of puzzles[id].entries || []) {
       const a = e.annotation;
       if (!a || !(a.indicators || []).length) continue;
-      if (!a.definition || !(a.blocks || []).some((b) => b.clueFragment && b.gives)) continue;
+      if (!defTexts(a).length || !(a.blocks || []).some((b) => b.clueFragment && b.gives)) continue;
       found = { id, e };
       break;
     }

@@ -80,6 +80,8 @@ LAYOUT = [
     ("fetching", "tools/puzzle_paths.py", "where a puzzle's file lives, puzzles/<series>/<year>/<id>.json: the one place the layout is spelled, and `python3 tools/puzzle_paths.py ID...` prints a held puzzle's path for shell scripts and prompts"),
     ("fetching", "tools/puzzle_paths.js", "the same rule for node, for the harnesses that read the puzzle sources"),
     ("fetching", "tools/puzzle_schema.py", "checks every puzzle file against tools/data/puzzle.schema.json, and prunes null and empty values on every write: an absent key means empty"),
+    ("fetching", "tools/definitions.py", "where each of an annotation's definitions sits in its clue: fills `at` from the text on every write, by the whole-word, before-the-enumeration, no-overlap, clue-end rules, and refuses to guess past them"),
+    ("fetching", "tools/test_definitions.sh", "holds each of those rules, the refusal, and the validator's check that `at` points at its text"),
     ("fetching", "tools/puzzle_integrity.py", "checks the puzzles themselves: two puzzles that are the same puzzle, an answer that does not fit its clue’s printed length, two entries that cross and disagree"),
     ("fetching", "tools/test_puzzle_integrity.sh", "proves the two LENGTH exception tables match by nothing looser than the exact sentence they’re keyed on, and that baselining one finding never silences the rest of its puzzle"),
     ("fetching", "tools/test_puzzle_invariants.sh", "proves every puzzle write refuses what the corpus sweep would report"),

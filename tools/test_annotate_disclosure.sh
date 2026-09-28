@@ -36,7 +36,7 @@ def say(name, ok):
 
 
 # Linked groups: the lead covers the group, every other leg only points at it.
-lead_ann = {"type": ["charade"], "answer": "ABCDEFGH", "definition": "Some",
+lead_ann = {"type": ["charade"], "answer": "ABCDEFGH", "definitions": [{"text": "Some", "at": 0}],
             "walkthrough": "w", "blocks": [{"clueFragment": "words", "gives": "X"}],
             "coversGroup": True}
 g = ["1-across", "2-down"]

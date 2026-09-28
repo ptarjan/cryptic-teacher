@@ -55,6 +55,7 @@ import corroborate  # every other source we hold; see tools/corroborate.py
 import clue_types  # the closed list of clue types; see tools/clue_types.py
 import puzzle_schema  # noqa: E402 — the file's shape and presence rule; see tools/puzzle_schema.py
 import puzzle_paths  # noqa: E402 — where each file lives; see tools/puzzle_paths.py
+import definitions  # where each definition sits in its clue; see tools/definitions.py
 from puzzle_paths import (  # noqa: E402, F401 — re-exported for the tools that ask here
     puzzle_path, puzzle_files, resolve_puzzle, shim_path)
 
@@ -535,10 +536,10 @@ def blog_annotation(e):
     ann = {"fromBlog": True, "answer": e.get("solution") or "", "type": b.get("type") or [],
            "indicators": list(b.get("indicators") or []),
            "blocks": [blog_block(e.get("solution"), gives, src, how) for gives, src, *how in b.get("blocks") or []]}
+    defs = defs if len(defs) == 2 and "double_definition" in ann["type"] else defs[:1]
+    clue = e.get("clue") or ""
     if defs:
-        ann["definition"] = defs[0]
-    if len(defs) == 2 and "double_definition" in ann["type"]:
-        ann["definition2"] = defs[1]
+        ann["definitions"] = [{"text": d, "at": clue.find(d)} for d in defs]
     return ann
 
 
@@ -740,6 +741,8 @@ def write_puzzle_file(path, puzzle, generator=None):
     # An absent key means empty, so no writer can put a null or an empty value
     # on disk: tools/puzzle_schema.py.
     puzzle = puzzle_schema.prune(puzzle)
+    # Writers name a definition's words; its offset in the clue is computed.
+    puzzle = definitions.place_puzzle(puzzle)
     # Every write goes through the corpus sweep's per-puzzle checks, so no
     # fetcher can write what tools/puzzle_integrity.py would report.
     import puzzle_integrity  # noqa: PLC0415 — it imports this module

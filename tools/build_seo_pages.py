@@ -398,11 +398,12 @@ def clue_html(e, blog_note=True):
 
     # A definition, type or indicators tools/letter_facts.py read off the letters are not the blogger's.
     inferred = (e.get("blog") or {}).get("inferred", ()) if ann.get("fromBlog") else ()
-    if ann.get("definition"):
+    if ann.get("definitions"):
         kind = clue_types.labels(ann.get("type"))
         # The type is a word from the lesson ("charade", "container"), so its
         # label is the way to the lesson that defines it.
-        bits.append(f'<p>Definition: <dfn>{esc(ann["definition"])}</dfn>'
+        dfns = " and ".join(f'<dfn>{esc(d["text"])}</dfn>' for d in ann["definitions"])
+        bits.append(f'<p>Definition: {dfns}'
                     + (' <span class="s-note">worked out from the letters</span>' if "definition" in inferred else "")
                     + (f' · <span class="s-type"><a href="{BASE}/learn/">Clue type</a>: '
                        f'{esc(kind)}</span>' if kind else "")
