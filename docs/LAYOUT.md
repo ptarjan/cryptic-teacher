@@ -93,9 +93,10 @@ tools/fetch_metro.py                         the Metro’s cryptic; today’s on
                                              paper keeps no archive
 tools/repair_fetched.py                      applies the fetchers’ current rules to puzzles
                                              already on disk — bare-capital solutions, a masked
-                                             prize answer, a group that is really a cross-reference
-                                             in the wordplay — and reports the dates their own
-                                             neighbours contradict
+                                             prize answer, a group that is really a
+                                             cross-reference in the wordplay, a linked answer
+                                             the paper never grouped — and reports the dates
+                                             their own neighbours contradict
 tools/test_repair_fetched.sh                 builds a puzzle file with each of those defects
                                              and proves the repair fixes it, leaves a clean
                                              file and a real Cyclops per-light group
