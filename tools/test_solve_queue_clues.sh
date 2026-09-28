@@ -42,9 +42,9 @@ out=$(python3 - <<'EOF'
 import sys
 sys.path.insert(0, "tools")
 from fetch_puzzle import clue_coverage
-p = {"entries": [{"clue": "Vehicle for a comeback (3)"},    # readable
-                 {"clue": " (8)"},                          # printed blank
-                 {"clue": "␣␣ 9 (5)"}]}           # bare cross-reference
+p = {"entries": [{"clue": {"text": "Vehicle for a comeback (3)"}},    # readable
+                 {"clue": {"text": " (8)", "missing": True}},       # printed blank
+                 {"clue": {"text": "␣␣ 9 (5)"}}]}        # bare cross-reference
 c = clue_coverage(p)
 print(f"{c['present']}/{c['total']}")
 EOF
@@ -66,7 +66,7 @@ from fetch_puzzle import puzzle_files, read_puzzle_file
 # "␣␣ 9 (5)" is a whole clue, cryptic-30059 14-down, and so is ")" on its own,
 # the whole of CLOSE BRACKETS.
 def readable(e):
-    return bool(re.sub(r"\([\d,\-. ]*\)", "", e["clue"]).strip())
+    return bool(re.sub(r"\([\d,\-. ]*\)", "", e["clue"].get("text", "")).strip())
 
 
 want = {}

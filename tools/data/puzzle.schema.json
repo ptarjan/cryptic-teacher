@@ -2,7 +2,7 @@
  "$schema": "https://json-schema.org/draft/2020-12/schema",
  "$id": "https://crypticteacher.com/tools/data/puzzle.schema.json",
  "title": "A puzzle file, puzzles/<series>-<number>.json",
- "description": "An absent key means empty: no value is ever null, \"\", [] or {}, except `clue`, which every entry has and which is \"\" on a clue the paper printed blank. A flag is written only when true. Checked on every write (tools/fetch_puzzle.py write_puzzle_file) and over the corpus in CI (tools/puzzle_schema.py).",
+ "description": "An absent key means empty: no value is ever null, \"\", [] or {}; a clue the paper printed blank is {\"missing\": true}. A flag is written only when true. Checked on every write (tools/fetch_puzzle.py write_puzzle_file) and over the corpus in CI (tools/puzzle_schema.py).",
  "type": "object",
  "required": [
   "id",
@@ -308,44 +308,7 @@
      "minimum": 1
     },
     "clue": {
-     "description": "The clue as printed, enumeration included. \"\" only with clueMissing.",
-     "type": "string"
-    },
-    "clueMissing": {
-     "description": "The paper printed no words for this clue.",
-     "const": true
-    },
-    "clueMissingNote": {
-     "type": "string",
-     "minLength": 1,
-     "description": "A person's note on why the blank clue still gives its answer."
-    },
-    "clueItalics": {
-     "description": "[start, end) character spans of the clue printed in italics.",
-     "type": "array",
-     "minItems": 1,
-     "items": {
-      "type": "array",
-      "minItems": 2,
-      "maxItems": 2,
-      "items": {
-       "type": "integer",
-       "minimum": 0
-      }
-     }
-    },
-    "separatorLocations": {
-     "description": "Breaks inside the answer: separator -> positions (letters before the break).",
-     "type": "object",
-     "minProperties": 1,
-     "additionalProperties": {
-      "type": "array",
-      "minItems": 1,
-      "items": {
-       "type": "integer",
-       "minimum": 1
-      }
-     }
+     "$ref": "#/$defs/clue"
     },
     "solution": {
      "description": "The answer, A-Z. Absent when the puzzle has no answers yet.",
@@ -367,6 +330,75 @@
     },
     "annotation": {
      "$ref": "#/$defs/annotation"
+    }
+   }
+  },
+  "clue": {
+   "description": "The clue as the paper printed it. Every entry has one, with at least one key: a clue the paper printed blank is {\"missing\": true}.",
+   "type": "object",
+   "minProperties": 1,
+   "additionalProperties": false,
+   "properties": {
+    "text": {
+     "description": "The clue exactly as printed, enumeration included, e.g. \"Moscow politician revolting in style (7)\". The enumeration is not split out: about 9,500 clues print none or print a cross-reference (\"See 5\"), and printed ones vary (\"(1'5)\", \"(6 and 5)\", \"(3/5)\"); `separators` holds the word breaks in structured form. Absent only when the paper printed nothing at all, not even an enumeration (then `missing` is true). Offsets into it (`italics`, annotation `definitions[].at`) count Unicode code points.",
+     "type": "string",
+     "minLength": 1
+    },
+    "separators": {
+     "description": "The marks the enumeration prints inside this light's answer, in answer order: (5,4) is [{\"at\": 5, \"mark\": \",\"}]. `at` counts this entry's own answer letters before the mark (1 to `length`), not clue characters; on a linked answer each light carries the marks inside it, and a mark at `length` falls between this light and the next light of its group. Absent when the answer is one word.",
+     "type": "array",
+     "minItems": 1,
+     "items": {
+      "type": "object",
+      "required": [
+       "at",
+       "mark"
+      ],
+      "additionalProperties": false,
+      "properties": {
+       "at": {
+        "type": "integer",
+        "minimum": 1
+       },
+       "mark": {
+        "description": "As printed: \",\" is a word break and \"-\" a hyphen; rarely \"'\", \".\", \"/\", \":\", \";\" or \"and\".",
+        "type": "string",
+        "minLength": 1
+       }
+      }
+     }
+    },
+    "italics": {
+     "description": "Spans of `text` printed in italics, in order: text[at : at+length], counted in code points.",
+     "type": "array",
+     "minItems": 1,
+     "items": {
+      "type": "object",
+      "required": [
+       "at",
+       "length"
+      ],
+      "additionalProperties": false,
+      "properties": {
+       "at": {
+        "type": "integer",
+        "minimum": 0
+       },
+       "length": {
+        "type": "integer",
+        "minimum": 1
+       }
+      }
+     }
+    },
+    "missing": {
+     "description": "The paper printed no words for this clue (`text`, if present, is only its enumeration). Kept, never filled in: a blank can be the setter's joke (cryptic-30098 12-across).",
+     "const": true
+    },
+    "missingNote": {
+     "description": "A person's note on why the blank clue still gives its answer. Only with `missing`.",
+     "type": "string",
+     "minLength": 1
     }
    }
   },

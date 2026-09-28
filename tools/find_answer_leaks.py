@@ -73,7 +73,7 @@ def leaks(only=()):
                 yield {
                     "file": path.name,
                     "entry": entry.get("id"),
-                    "clue": entry.get("clue"),
+                    "clue": entry["clue"].get("text"),
                     "type": ann.get("type"),
                     "answer": answer,
                     "notes": [{"clueFragment": b.get("clueFragment"), "note": b.get("note")}

@@ -69,7 +69,7 @@ def cand(puz, facts):
         e = ents.get(eid)
         if not e:
             continue
-        clue = D.ENUMERATION.sub("", e.get("clue") or "").strip()
+        clue = D.ENUMERATION.sub("", e["clue"].get("text", "")).strip()
         if not clue or re.match(r"(?i)see\b", clue):
             continue
         inds.append(len(f.get("indicators") or []))

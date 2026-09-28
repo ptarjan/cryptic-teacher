@@ -26,6 +26,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 sys.path.insert(0, str(ROOT / "scratch"))
 import difficulty as D
+import series as series_meta
 import snitch_stage4 as S4
 from fetch_puzzle import puzzle_files, puzzle_is_annotated, read_puzzle_file
 
@@ -83,7 +84,7 @@ def cand(puz, pats):
             used[(x + dx * i, y + dy * i)] = used.get((x + dx * i, y + dy * i), 0) + 1
     real, linked, caps, amb, prop = 0, 0, 0, [], 0
     for e in ents:
-        clue = D.ENUMERATION.sub("", e.get("clue") or "").strip()
+        clue = D.ENUMERATION.sub("", e["clue"].get("text", "")).strip()
         if re.match(r"(?i)see\b", clue) or XREF.search(clue):
             linked += 1
         sol, words = D.answer_words(e)
@@ -117,7 +118,7 @@ def dump():
         rw = D.raw(puz, ctx)
         pz = {k: (rw[k] - ctx.base[k]["mean"]) / ctx.base[k]["sd"] for k in S4.PORTABLE if rw.get(k) is not None}
         tot = sum(D.WEIGHTS[k] for k in pz)
-        rows.append({"pid": pid, "series": series, "date": D.puzzle_day(puz),
+        rows.append({"pid": pid, "series": series, "date": series_meta.puzzle_day(puz),
                      "nitch": sn[pid]["nitch"] if rated else None,
                      "annotated": puzzle_is_annotated(puz),
                      "index": s["index"] if s else None, "z": s["z"] if s else None,

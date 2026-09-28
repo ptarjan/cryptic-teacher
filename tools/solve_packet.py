@@ -56,7 +56,7 @@ def packet(puzzle):
     by_id = {e["id"]: e for e in puzzle["entries"]}
     for e in sorted(puzzle["entries"],
                     key=lambda e: (e["direction"], e["number"])):
-        lines.append(f"{e['id']}  {label(e)} ({e['length']}) {e['clue']}")
+        lines.append(f"{e['id']}  {label(e)} ({e['length']}) {e['clue'].get('text', '')}")
         pairs = sorted(cross.get(e["id"], []))
         if pairs:
             lines.append("    crossings: " + "; ".join(

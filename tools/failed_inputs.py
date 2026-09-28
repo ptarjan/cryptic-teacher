@@ -87,6 +87,8 @@ def puzzle_inputs(pid):
     entries = []
     for e in puzzle.get("entries", []):
         row = {k: e.get(k) for k in ENTRY_INPUTS}
+        # The clue's printed words, the one part of it a run reads.
+        row["clue"] = e["clue"].get("text", "")
         if e.get("id") in key:
             row["solution"] = key[e["id"]]
         entries.append(row)

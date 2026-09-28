@@ -428,10 +428,12 @@ def parse(xml_bytes, ymd):
                     # matching the Guardian's own wording for the same thing.
                     # The enumeration goes on the END, so it cannot disturb any
                     # italic range; a continuation carries none of either.
-                    "clue": f"{text} ({fmt})" if i == 0 else f"See {nums[0]}",
-                    **({"clueItalics": italics} if italics and i == 0 else {}),
+                    "clue": {
+                        "text": f"{text} ({fmt})" if i == 0 else f"See {nums[0]}",
+                        **({"separators": seps[i]} if seps[i] else {}),
+                        **({"italics": italics} if italics and i == 0 else {}),
+                    },
                     **({"group": group} if len(group) > 1 and i == 0 else {}),
-                    **({"separatorLocations": seps[i]} if seps[i] else {}),
                     "solution": "".join(letters.get(c, "") for c in cells).upper(),
                 })
             # NOTE: clue elements also carry a `citation` attribute holding the

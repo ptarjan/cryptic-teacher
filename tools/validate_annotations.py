@@ -746,9 +746,9 @@ SURFACE_MAX = 25
 # without letting a new puzzle skip it.
 
 
-# The paper's own word divisions, as the source filed them: separatorLocations
-# maps a separator character to the letter counts it follows, so a clue printed
-# (5,1,1) arrives as {",": [5, 6]}. Tracked data, not a second parse of the
+# The paper's own word divisions, as the source filed them: clue.separators
+# lists each mark with the letter count it follows, so a clue printed (5,1,1)
+# arrives as [{"at": 5, "mark": ","}, {"at": 6, "mark": ","}]. Tracked data, not a second parse of the
 # enumeration in brackets — app.js already parses that, and one rule spelled
 # twice is a rule that drifts.
 #
@@ -757,7 +757,7 @@ SURFACE_MAX = 25
 # An answer that breaks where the paper does not is our own spelling, and the
 # letter strip draws its gaps over the wrong squares.
 def check_answer_matches_separators(tag, ann, entry, errors):
-    seps = entry.get("separatorLocations") or {}
+    seps = entry["clue"].get("separators") or []
     answer = ann.get("answer")
     if not seps or not answer:
         return
@@ -777,8 +777,7 @@ def check_answer_matches_separators(tag, ann, entry, errors):
             letters += 1
     if not breaks:
         return
-    filed = sorted({n for ch, v in seps.items() if ch not in ("'", "\u2019")
-                    for n in v})
+    filed = sorted({s["at"] for s in seps if s["mark"] not in ("'", "\u2019")})
     if breaks != filed:
         errors.append(
             f"{tag}: answer {answer!r} breaks after {breaks}, but the paper "
@@ -1491,7 +1490,7 @@ def check_every_clue_is_annotated(entries, errors, warnings, misses=(), corpus=F
                 f"{misses[e['id']]!r} wrongly and the grader dropped its "
                 f"explanation. It ships with answers only until someone annotates it")
             continue
-        if is_blank_clue(e["clue"]):
+        if is_blank_clue(e["clue"].get("text", "")):
             warnings.append(f"{tag}: no annotation, and no clue to annotate — "
                             f"the setter left this entry blank on purpose")
             continue
@@ -2140,7 +2139,7 @@ def check_groups(puzzle, errors):
                               f"leads its own {other['group']} — a light starts "
                               f"one answer at most, and only as its first light")
     for gid, leads in held_by.items():
-        if len(leads) > 1 and leaders_named(by_id[gid].get("clue")) < 2:
+        if len(leads) > 1 and leaders_named(by_id[gid]["clue"].get("text", "")) < 2:
             errors.append(f"{gid}: in the groups of {' and '.join(leads)}, but its "
                           f"clue names one leader. A light continues more than "
                           f"one answer only when its clue says so")
@@ -2162,14 +2161,15 @@ def check_no_markup(puzzle, errors):
     field someone adds should not have to be remembered here.
     """
     for e in puzzle["entries"]:
-        for r in e.get("clueItalics") or []:
-            ok = (isinstance(r, list) and len(r) == 2
-                  and all(isinstance(n, int) for n in r)
-                  and r[0] >= 0 and r[1] > 0 and r[0] + r[1] <= len(e["clue"]))
+        text = e["clue"].get("text", "")
+        for r in e["clue"].get("italics") or []:
+            at, length = r.get("at"), r.get("length")
+            ok = (isinstance(at, int) and isinstance(length, int)
+                  and at >= 0 and length > 0 and at + length <= len(text))
             if not ok:
-                errors.append(f"{e['id']}: clueItalics range {r!r} is not inside the "
-                              f"{len(e['clue'])}-character clue. The ranges index the clue "
-                              f"string, so editing one without the other silently italicises "
+                errors.append(f"{e['id']}: clue.italics range {r!r} is not inside the "
+                              f"{len(text)}-character clue text. The ranges index the clue "
+                              f"text, so editing one without the other silently italicises "
                               f"the wrong words.")
 
     def walk(o, path):
@@ -2212,12 +2212,14 @@ def check_clue_unchanged(puzzle, path, errors):
                            capture_output=True, text=True, check=False)
     if shown.returncode:
         return                  # not committed yet: nothing to compare with
-    was = {e["id"]: e.get("clue") for e in json.loads(shown.stdout).get("entries", [])}
+    was = {e["id"]: e["clue"].get("text", "")
+           for e in json.loads(shown.stdout).get("entries", [])}
     for e in puzzle["entries"]:
+        now = e["clue"].get("text", "")
         if (e.get("annotation") is not None and e["id"] in was
-                and clue_words(was[e["id"]]) != clue_words(e.get("clue"))):
+                and clue_words(was[e["id"]]) != clue_words(now)):
             errors.append(
-                f"{e['id']}: clue changed from {was[e['id']]!r} to {e.get('clue')!r} "
+                f"{e['id']}: clue changed from {was[e['id']]!r} to {now!r} "
                 f"under an annotation. The clue text is the source's, not the "
                 f"annotator's: put it back, or, correcting it, drop this entry's "
                 f"annotation so it is annotated afresh")
@@ -2241,7 +2243,7 @@ def validate_puzzle(puzzle, corpus=False):
             continue        # check_every_clue_is_annotated reports these
         annotated += 1
 
-        clue = e["clue"]
+        clue = e["clue"].get("text", "")
         for key in ("type", "definitions", "walkthrough", "answer", "blocks"):
             if key == "definitions" and ann.get("definedByPreamble") is True:
                 continue

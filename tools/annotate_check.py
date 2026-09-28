@@ -82,7 +82,7 @@ def unsolved(puzzle):
     return [e for e in puzzle["entries"]
             if not e.get("annotation") and e["id"] not in misses
             and e["id"] not in continuations
-            and not validate_annotations.is_blank_clue(e["clue"])]
+            and not validate_annotations.is_blank_clue(e["clue"].get("text", ""))]
 
 
 def is_blind(puzzle):

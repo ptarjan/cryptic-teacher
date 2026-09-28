@@ -49,6 +49,7 @@ Usage:
 
 import functools
 import html
+import itertools
 import json
 import re
 import sys
@@ -103,22 +104,21 @@ def asset(rel):
     return esc(asset_url(rel, BASE + "/"))
 
 
-# Setters italicise titles and foreign words, and both the Guardian and the
-# Independent ship that as markup inside the clue string: "Case for <i>Turandot</i>
-# lyrics…". The app renders clue text as HTML and always has; these static pages
-# were escaping it, so every such clue read "&lt;i&gt;Turandot&lt;/i&gt;" on the
-# page that is supposed to be the readable one.
-#
-# So: escape everything, then put back exactly these tags. A whitelist and not a
-# "don't escape clues" shortcut, because clue text is scraped from two
-# publishers' feeds and is not ours to trust — anything they send that isn't on
-# this list still comes out as visible text rather than as markup.
-CLUE_TAGS = ("i", "b", "em", "strong", "span", "sub", "sup")
-_CLUE_TAG_RE = re.compile(r"&lt;(/?)(" + "|".join(CLUE_TAGS) + r")&gt;")
-
-
-def esc_clue(s):
-    return _CLUE_TAG_RE.sub(r"<\1\2>", esc(s))
+# Setters italicise titles and foreign words. The clue text is plain and its
+# italics are code-point ranges beside it (clue.italics [{at, length}]), so the
+# page escapes the text and wraps exactly those ranges in <i>, the way app.js's
+# markUp does.
+def clue_html_text(clue):
+    text = clue.get("text", "")
+    cuts = sorted({0, len(text)} | {p for r in clue.get("italics", ())
+                                   for p in (r["at"], r["at"] + r["length"])
+                                   if 0 <= p <= len(text)})
+    out = []
+    for a, b in itertools.pairwise(cuts):
+        piece = esc(text[a:b])
+        italic = any(r["at"] <= a < r["at"] + r["length"] for r in clue.get("italics", ()))
+        out.append(f"<i>{piece}</i>" if italic else piece)
+    return "".join(out)
 
 
 # The fields a puzzle is named, dated and addressed by: all a neighbour's pager
@@ -394,7 +394,7 @@ def clue_html(e, blog_note=True):
     # each piece was the bulk of what the pages weighed.
     bits = [f'<article id="{esc(e["id"])}">',
             f'<h3><span>{esc(num)}</span> <b>{esc(answer)}</b></h3>',
-            f'<p>{esc_clue(e.get("clue"))}</p>']
+            f'<p>{clue_html_text(e["clue"])}</p>']
 
     # A definition, type or indicators tools/letter_facts.py read off the letters are not the blogger's.
     inferred = (e.get("blog") or {}).get("inferred", ()) if ann.get("fromBlog") else ()
@@ -456,20 +456,20 @@ def clue_html(e, blog_note=True):
         bits.append(f'<p class="s-walk"><em>How it works:</em> {esc(ann["walkthrough"])}</p>')
     if not ann:
         # Two different silences, and telling them apart is the whole point —
-        # the same split app.js makes off clueMissing. "No explanation yet"
+        # the same split app.js makes off clue.missing. "No explanation yet"
         # promises a ladder that is coming; a clue the paper printed blank has
         # no ladder ever, because there is no clue. Say which, or the reader
         # hunts the grid for wordplay that was never printed.
         # A blank clue printed on purpose still yields its answer. Without the
         # reason the page shows an answer and no way to get to it, so the
-        # hand-written clueMissingNote carries it; the annotation queue never
+        # hand-written clue.missingNote carries it; the annotation queue never
         # writes one, having no words to read.
         bits.append(
             '<p class="muted">The paper printed no clue here. '
-            + (esc(e["clueMissingNote"]) if e.get("clueMissingNote")
+            + (esc(e["clue"]["missingNote"]) if "missingNote" in e["clue"]
                else "With no clue, there is no wordplay to explain.")
             + '</p>'
-            if e.get("clueMissing") else
+            if e["clue"].get("missing") else
             '<p class="muted">No explanation yet.</p>')
     bits.append("</article>")
     return "".join(bits)
@@ -544,8 +544,8 @@ def puzzle_page(puz, meta, prev_p, next_p):
                 if meta else []),
               (f"No {pretty}", "")]
 
-    across = [e for e in puz["entries"] if e["direction"] == "across" and e.get("clue")]
-    down = [e for e in puz["entries"] if e["direction"] == "down" and e.get("clue")]
+    across = [e for e in puz["entries"] if e["direction"] == "across"]
+    down = [e for e in puz["entries"] if e["direction"] == "down"]
     across.sort(key=lambda e: e["number"])
     down.sort(key=lambda e: e["number"])
 
