@@ -258,11 +258,11 @@ def convert(data):
         "setter": series_meta.default_setter(SERIES),
         "date": epoch_millis,
         "dimensions": {"cols": cols, "rows": rows},
-        "sourceUrl": URL,
-        # Provenance, not identity — see the module docstring for why the id
-        # is date-keyed instead. Harmless extra key for every other tool here:
-        # each reads named fields off the puzzle dict and ignores the rest.
-        "pmlId": data.get("pml_id"),
+        # feedId is provenance, not identity — see the module docstring for
+        # why the id is date-keyed instead. Harmless extra key for every
+        # other tool here: each reads named fields off the puzzle dict and
+        # ignores the rest.
+        "source": {"url": URL, "feedId": data.get("pml_id")},
         "entries": entries,
     }
 

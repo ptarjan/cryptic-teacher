@@ -106,11 +106,11 @@ first["clueMissing"] = True
 write("refetch-blanks-a-clue", blank, over=p)
 
 p = copy.deepcopy(indy)
-p["provenance"]["acquiredOn"] = "2020-01-01"
+p["source"]["acquiredOn"] = "2020-01-01"
 fresh = copy.deepcopy(indy)
-del fresh["provenance"]
+del fresh["source"]
 got = write("refetch-keeps-acquiredOn", fresh, over=p)
-print("ACQUIRED", got and got["provenance"]["acquiredOn"])
+print("ACQUIRED", got and got["source"]["acquiredOn"])
 
 p = copy.deepcopy(indy)
 lead, cont = p["entries"][0], p["entries"][1]

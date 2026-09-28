@@ -167,6 +167,7 @@ else:
     sys.path.insert(0, "tools")
     from acquire_book import file_unsolved
     import fetch_puzzle
+    import provenance
     import puzzle_paths
     import series
     SKIP_ENTRY = {"solution", "annotation", "solutionConfidence"}
@@ -197,22 +198,22 @@ else:
             corpus = fetch_puzzle.read_puzzle_file(puzzle_paths.find(pid))
             if any(e["solution"] is not None for e in mine["entries"]):
                 fail(f"{pid}: filed with answers; --unsolved must file none")
-            if "solutionSource" in mine:
-                fail(f"{pid}: carries solutionSource — an unsolved file "
+            if provenance.solution_detail(mine):
+                fail(f"{pid}: carries solution detail — an unsolved file "
                      f"must not, or reindex marks it model-solved")
-            # provenance is stamped at WRITE time and records when this file
+            # source is stamped at WRITE time and records when this file
             # arrived, so the copy just written into /tmp says it arrived today
             # while the corpus copy carries its real git date. They are supposed
             # to differ; what must match is the puzzle.
             diffs = [k for k in set(mine) | set(corpus)
-                     if k not in {"solutionSource", "entries", "provenance"}
+                     if k not in {"solutions", "entries", "source"}
                      and mine.get(k) != corpus.get(k)]
-            # Not solutionOrigin: this files --unsolved and the corpus copies
+            # Not solutions.origin: this files --unsolved and the corpus copies
             # have been solved since, so "unsolved" vs "model" is the pipeline
             # working, not drifting.
-            for k in ("gridOrigin", "retrievedFrom", "publisher", "series"):
-                if mine.get("provenance", {}).get(k) != corpus.get("provenance", {}).get(k):
-                    diffs.append(f"provenance.{k}")
+            for k in ("gridOrigin", "retrievedFrom", "publisher"):
+                if mine.get("source", {}).get(k) != corpus.get("source", {}).get(k):
+                    diffs.append(f"source.{k}")
             me = {e["id"]: e for e in mine["entries"]}
             we = {e["id"]: e for e in corpus["entries"]}
             if set(me) != set(we):

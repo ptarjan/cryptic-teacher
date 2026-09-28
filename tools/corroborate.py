@@ -64,6 +64,7 @@ from pathlib import Path
 
 TOOLS = Path(__file__).resolve().parent
 sys.path.insert(0, str(TOOLS))
+import provenance
 
 DATA = Path.home() / "cryptic-setter-data"
 GEORGEHO = DATA / "georgeho" / "data.db"
@@ -520,9 +521,11 @@ class Dispute:
 
 def primary_origins(puzzle):
     """(answer origin, everything-else origin) of the file's own values."""
-    kind = (puzzle.get("solutionSource") or {}).get("kind")
+    detail = provenance.solution_detail(puzzle)
+    kind = detail.get("blog") or ("model" if "model" in detail else None)
     answer = kind or "publisher"
-    rest = kind if (puzzle.get("provenance") or {}).get("retrievedFrom") == "blog" else "publisher"
+    source = puzzle.get("source") or {}
+    rest = kind if source.get("retrievedFrom") == "blog" else "publisher"
     return answer, rest or "publisher"
 
 

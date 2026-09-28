@@ -384,7 +384,7 @@ def convert(data, ymd):
         "setter": setter_name(data.get("author")),
         "date": when_ms,
         "dimensions": {"cols": data["w"], "rows": data["h"]},
-        "sourceUrl": PLAY_URL.format(ymd=ymd),
+        "source": {"url": PLAY_URL.format(ymd=ymd)},
         "entries": entries,
     }
 

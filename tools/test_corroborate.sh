@@ -131,8 +131,8 @@ print("SEQUENCE", seq[("date", "")][0], c.day(seq[("date", "")][1]))
 # unresolved: one origin on both sides, an unchecked cell, and the file keeps
 # the primary's answer without raising.
 times = puzzle("timesquick-700", AGREED + [light(18, "across", 0, 12, "SAWS")],
-               solutionSource={"kind": "timesforthetimes"},
-               provenance={"retrievedFrom": "blog"})
+               solutions={"blog": "timesforthetimes"},
+               source={"retrievedFrom": "blog"})
 same_origin = source("georgeho:times_xwd_times", "timesforthetimes",
                      answers={**AGREED_ANSWERS, "18-across": "SOWN"})
 kept = c.corroborate(times, [same_origin])

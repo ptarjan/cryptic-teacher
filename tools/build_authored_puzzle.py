@@ -20,7 +20,7 @@ letter-prefixed id has no hyphen before its digits) until we choose to publish o
       --annotated-by human
 
 --annotated-by says who wrote the clues' annotations — `human`, or the exact
-model id that drafted them — and lands in provenance.annotatedBy.
+model id that drafted them — and lands in the top-level `annotatedBy`.
 """
 
 import argparse
@@ -83,7 +83,6 @@ def build(fill_path, clues_path, puzzle_id, name, setter, date_ms):
         "setter": setter,
         "date": date_ms,
         "dimensions": {"cols": size, "rows": size},
-        "sourceUrl": "",
         "entries": entries,
     }
 
