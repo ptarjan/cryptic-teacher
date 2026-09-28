@@ -254,6 +254,7 @@ LAYOUT = [
     ("tables everything else reads", "tools/data/README.md", "what in tools/data is committed, what is fetched, and under what licence"),
     ("tables everything else reads", "tools/data/abbreviations.json", "the hand-built starter table of standard abbreviations"),
     ("tables everything else reads", "tools/data/lexicons/blocks.json", "clue word -> letters -> clues, off the blogs and our annotations (tools/letter_facts.py --lexicons); the abbreviations/ page lists its short conventions"),
+    ("tables everything else reads", "tools/data/cmudict.txt.gz", "the CMU Pronouncing Dictionary, stress dropped; tools/letter_facts.py hears a homophone block by it"),
     ("tables everything else reads", "tools/data/lexicons/indicators.json", "type -> indicator -> clues, from the same sources; the indicators/ page is built from it"),
     ("tables everything else reads", "tools/data/unclueable.json", "words rejected as answers, with reasons; grid_fill.py vetoes them"),
     ("tables everything else reads", "tools/data/corroboration_ledger.json", "every disagreement tools/corroborate.py settled or could not, and every field it filled: the puzzle, the field, each candidate with its sources, the winner and the rule that picked it"),

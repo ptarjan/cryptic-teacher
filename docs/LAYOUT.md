@@ -617,6 +617,8 @@ tools/data/lexicons/blocks.json              clue word -> letters -> clues, off 
                                              our annotations (tools/letter_facts.py
                                              --lexicons); the abbreviations/ page lists its
                                              short conventions
+tools/data/cmudict.txt.gz                    the CMU Pronouncing Dictionary, stress dropped;
+                                             tools/letter_facts.py hears a homophone block by it
 tools/data/lexicons/indicators.json          type -> indicator -> clues, from the same sources;
                                              the indicators/ page is built from it
 tools/data/unclueable.json                   words rejected as answers, with reasons;
