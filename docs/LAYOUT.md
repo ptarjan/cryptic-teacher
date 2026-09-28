@@ -191,11 +191,12 @@ tools/fetch_fifteensquared.py                caches the blog that covers six of 
 tools/blog_facts.py                          joins each cached blog write-up to the puzzle it
                                              explains and keeps what its markup states about
                                              the clues — the underlined definition, marked
-                                             indicators, WORD (clue words) building blocks, and
-                                             a clue type the write-up names or spells out in
-                                             letters that check against the answer — never the
-                                             blog's prose; the nightly reruns it only when an
-                                             input moved
+                                             indicators, WORD (clue words) building blocks (a
+                                             homophone's or spoonerism's as the words heard,
+                                             where they sound like the answer), and a clue type
+                                             the write-up names or spells out in letters that
+                                             check against the answer — never the blog's prose;
+                                             the nightly reruns it only when an input moved
 tools/letter_facts.py                        adds a clue type the blog left out where the
                                              letters leave one reading and that reading's class
                                              matched the blogs' own types at least 97% of the
@@ -223,10 +224,11 @@ tools/letter_facts.py                        adds a clue type the blog left out 
                                              beside its cache; 98.6% exact against blog blocks
                                              hidden from it, held out by puzzle); a hidden
                                              word's carrier, the one run of clue words that
-                                             spells it (98.4% our annotations' own);
-                                             blog_facts.py runs it after each write; --coverage
-                                             says what the written facts cover and why the rest
-                                             fall short
+                                             spells it (98.4% our annotations' own); and the
+                                             indicator a homophone's or spoonerism's heard
+                                             blocks want; blog_facts.py runs it after each
+                                             write; --coverage says what the written facts
+                                             cover and why the rest fall short
 tools/test_letter_facts.sh                   holds letter_facts.py to one reading per clue: a
                                              literal word is not an anagram, a lone word's
                                              initial not an abbreviation unless listed, fodder

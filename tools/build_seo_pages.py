@@ -386,7 +386,8 @@ def clue_html(e, blog_note=True):
     if blocks:
         rows = "".join(
             f"<li><mark>{esc(b.get('clueFragment'))}</mark> "
-            f"→ <strong>{esc(b.get('gives'))}</strong>"
+            + (f"→ {esc(b['soundsLike'])} said aloud " if b.get("soundsLike") else "")
+            + f"→ <strong>{esc(b.get('gives'))}</strong>"
             + (f" <span class=\"s-note\">{esc(b.get('note'))}</span>" if b.get("note") else "")
             # a piece tools/letter_facts.py split the answer into is not the blogger's
             + (' <span class="s-note">worked out from the letters</span>' if b.get("inferred") else "")

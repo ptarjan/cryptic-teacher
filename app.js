@@ -884,7 +884,8 @@
   // A field named in `inferred` (the definition, the type, the indicators) is not the blog's
   // but tools/letter_facts.py's, read off the letters; `typeCore` makes its type a lower bound, the clue
   // that and perhaps a cut or a letter selection besides. A block whose third
-  // element is "inferred" is one of the pieces letter_facts.py split the answer into.
+  // element is "inferred" is one of the pieces letter_facts.py split the answer into,
+  // and one with {soundsLike} after it is a homophone's or spoonerism's heard block.
   // The answer is the solution, so blockLetters holds back a block that is the
   // whole of it exactly as it does for ours; a hidden word's carrier then shows
   // the note ours write, the run capitalised in its words (carrierNote).
@@ -894,8 +895,10 @@
     const defs = b.definition || [];
     const answer = e.solution || "";
     const ann = { fromBlog: true, answer, type: b.type || "", indicators: b.indicators || [],
-                  blocks: (b.blocks || []).map(([gives, clueFragment, how]) => {
-                    const block = how === "inferred" ? { clueFragment, gives, inferred: true } : { clueFragment, gives };
+                  blocks: (b.blocks || []).map(([gives, clueFragment, ...how]) => {
+                    const block = how.includes("inferred") ? { clueFragment, gives, inferred: true } : { clueFragment, gives };
+                    const heard = how.find((h) => h && typeof h === "object" && h.soundsLike);
+                    if (heard) return { ...block, soundsLike: heard.soundsLike };
                     const note = wholeWord(gives) === wholeWord(answer) ? carrierNote(answer, clueFragment) : "";
                     return note ? { ...block, note } : block;
                   }),
