@@ -29,7 +29,7 @@ breaks three or four crossings. Anything short of a clean sheet writes nothing
 at all and exits non-zero, because a puzzle with no answers is honest and a
 puzzle with wrong answers is worse than useless to someone learning.
 
-Solutions written this way are marked in the file with solutionSource, so the
+Solutions written this way are marked in the file's `solutions` detail, so the
 site can say whose answers these are, refresh_unsolved keeps re-fetching until
 the paper publishes, and the official key — when it lands — grades this fill
 automatically instead of quietly replacing it.
@@ -52,6 +52,7 @@ from fetch_puzzle import (read_puzzle_file, reindex,  # noqa: E402
 from grid_fill import MIN_CHECKED_RATIO  # noqa: E402 — the authoring rulebook's floor
 from series import official_key  # noqa: E402
 import corroborate  # noqa: E402
+import provenance  # noqa: E402
 
 
 def normalise(answer):
@@ -269,15 +270,14 @@ def main():
     if args.check_only:
         return
 
-    if any(e.get("solution") for e in puzzle["entries"]) and "solutionSource" not in puzzle:
+    if any(e.get("solution") for e in puzzle["entries"]) and not provenance.solution_detail(puzzle):
         # Refuse to paint over the paper's own answers. Only a puzzle that is
         # unsolved, or already carrying a model fill, can be written here.
         raise SystemExit(f"{args.number} already has published solutions — refusing to overwrite")
 
     for entry in puzzle["entries"]:
         entry["solution"] = normalise(fill[entry["id"]])
-    puzzle["solutionSource"] = {
-        "kind": "model",
+    detail = {
         "model": args.model,
         "date": datetime.date.today().isoformat(),
         "check": f"{len(puzzle['entries'])} entries, {crossings} crossings, 0 conflicts",
@@ -291,10 +291,11 @@ def main():
     # appear" for a book that prints its solutions as pictures.
     never = official_key(puzzle.get("series"))
     if never:
-        puzzle["solutionSource"]["officialKey"] = never
+        detail["officialKey"] = never
     # No generator: this fills answers into a file a fetcher laid out, and
     # stamping its own name would erase which fetcher that was. What this tool
-    # did is recorded in solutionSource, above.
+    # did is recorded in the solutions detail, above.
+    puzzle = provenance.with_solution_detail(puzzle, detail)
     path = write_puzzle_file(path, puzzle)
     print(f"wrote {len(puzzle['entries'])} solutions into {path} (marked unofficial)")
     reindex()

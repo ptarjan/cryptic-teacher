@@ -27,7 +27,7 @@ work, and they are all that goes in the JSON now.
 Validation runs automatically once the write succeeds, because the write is never
 the last step — `--no-validate` if you want it separately.
 
-Every write records who wrote the hints, in provenance.annotatedBy (see
+Every write records who wrote the hints, in the top-level `annotatedBy` (see
 tools/provenance.py). Inside Claude Code that is the exact model id of the
 session running this command, read off the session's own transcript, so it is
 the model that actually ran and not the alias a script asked for. Outside a

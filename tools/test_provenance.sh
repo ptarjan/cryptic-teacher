@@ -25,7 +25,7 @@
 #      resolved to a file on disk.
 #
 #   3. THE ORIGIN CANNOT CONTRADICT THE FILE IT SITS ON. Saying "published"
-#      over a solutionSource that says "model" is the exact failure provenance
+#      over solutions detail that says "model" is the exact failure provenance
 #      exists to prevent, and it must be refused rather than preferred — as
 #      must "unsolved" over a grid full of answers, and a retrieval channel
 #      that disagrees with the tool that did the retrieving.
@@ -80,7 +80,7 @@ missing = flagged = total = 0
 for path in fetch_puzzle.puzzle_files():
     puzzle = fetch_puzzle.read_puzzle_file(path)
     total += 1
-    if not puzzle.get("provenance"):
+    if not (puzzle.get("source") and puzzle.get("solutions")):
         missing += 1
     flagged += 1 if p.check(puzzle) else 0
 print("TOTAL", total)
@@ -88,7 +88,7 @@ print("MISSING", missing)
 print("FLAGGED", flagged)
 PY
 )
-same "every puzzle has a provenance block" "$(field MISSING "$out2")" "0"
+same "every puzzle has a source and a solutions block" "$(field MISSING "$out2")" "0"
 same "and not one of them is flagged" "$(field FLAGGED "$out2")" "0"
 
 echo "one enum, proved by deletion: removing a value flags every puzzle using it"
@@ -105,14 +105,18 @@ def flagged():
 
 
 using = {}
-for field, table in (("gridOrigin", p.GRID_ORIGINS),
-                     ("solutionOrigin", p.SOLUTION_ORIGINS),
-                     ("retrievedFrom", p.RETRIEVAL_CHANNELS)):
+for label, getter, table in (
+        ("gridOrigin", lambda z: (z.get("source") or {}).get("gridOrigin"),
+         p.GRID_ORIGINS),
+        ("origin", lambda z: (z.get("solutions") or {}).get("origin"),
+         p.SOLUTION_ORIGINS),
+        ("retrievedFrom", lambda z: (z.get("source") or {}).get("retrievedFrom"),
+         p.RETRIEVAL_CHANNELS)):
     counts = {}
     for puzzle in corpus:
-        value = (puzzle.get("provenance") or {}).get(field)
+        value = getter(puzzle)
         counts[value] = counts.get(value, 0) + 1
-    using[field] = counts
+    using[label] = counts
 
 print("CLEAN", flagged())
 # "published" grids are 15,931 of the corpus; drop the value and every one of
@@ -125,7 +129,7 @@ p.GRID_ORIGINS = kept
 
 kept = dict(p.SOLUTION_ORIGINS)
 p.SOLUTION_ORIGINS = {k: v for k, v in kept.items() if k != "writeup"}
-print("DROP_WRITEUP", flagged(), using["solutionOrigin"].get("writeup", 0))
+print("DROP_WRITEUP", flagged(), using["origin"].get("writeup", 0))
 p.SOLUTION_ORIGINS = kept
 
 kept = dict(p.RETRIEVAL_CHANNELS)
@@ -156,8 +160,8 @@ import provenance as p
 # "source" field cannot express and the reason there are three fields.
 base = fetch_puzzle.read_puzzle_file(fetch_puzzle.resolve_puzzle("cyclops-526"))
 print("PRISTINE", len(p.check(base)))
-print("REALLY_WRITEUP", (base["provenance"]["solutionOrigin"] == "writeup"
-                         and base["provenance"]["retrievedFrom"] == "publisher"))
+print("REALLY_WRITEUP", (base["solutions"]["origin"] == "writeup"
+                         and base["source"]["retrievedFrom"] == "publisher"))
 
 
 def flagged(mutate):
@@ -171,28 +175,28 @@ def says(findings, needle):
 
 
 # THE headline refusal: answers taken from a blog write-up, relabelled as the
-# paper's own key.
-f = flagged(lambda z: z["provenance"].update(solutionOrigin="published"))
-print("LIE_PUBLISHED", len(f), says(f, "solutionSource.kind is 'fifteensquared'"))
+# paper's own key. The file's own blog says "writeup".
+f = flagged(lambda z: z["solutions"].update(origin="published"))
+print("LIE_PUBLISHED", len(f), says(f, "the file says 'writeup'"))
 
 # A value that is simply not in the enum.
-f = flagged(lambda z: z["provenance"].update(solutionOrigin="probably right"))
+f = flagged(lambda z: z["solutions"].update(origin="probably right"))
 print("OFF_ENUM", len(f) > 0)
 
-# Dropping the block entirely.
-f = flagged(lambda z: z.pop("provenance"))
-print("ABSENT", len(f), says(f, "no provenance object"))
+# Dropping both blocks entirely.
+f = flagged(lambda z: (z.pop("source"), z.pop("solutions")))
+print("ABSENT", len(f), says(f, "no source or no solutions block"))
 
 # "unsolved" over a grid that is full of answers.
-f = flagged(lambda z: z["provenance"].update(solutionOrigin="unsolved"))
+f = flagged(lambda z: z["solutions"].update(origin="unsolved"))
 print("FALSE_UNSOLVED", len(f) > 0)
 
 # A channel that disagrees with the tool that did the retrieving.
-f = flagged(lambda z: z["provenance"].update(retrievedFrom="wayback"))
+f = flagged(lambda z: z["source"].update(retrievedFrom="wayback"))
 print("CHANNEL_MISMATCH", len(f), says(f, "reads through 'publisher'"))
 
 # A publisher that disagrees with the series the id states.
-f = flagged(lambda z: z["provenance"].update(publisher="Guardian"))
+f = flagged(lambda z: z["source"].update(publisher="Guardian"))
 print("WRONG_PUBLISHER", len(f) > 0)
 
 # A puzzle that does not state its series, or states another than its id.
@@ -205,11 +209,11 @@ print("WRONG_SERIES", len(f))
 book = fetch_puzzle.read_puzzle_file(fetch_puzzle.resolve_puzzle("book-3027"))
 print("BOOK_PRISTINE", len(p.check(book)))
 lied = copy.deepcopy(book)
-lied["provenance"]["solutionOrigin"] = "published"
+lied["solutions"]["origin"] = "published"
 print("BOOK_LIE", len(p.check(lied)) > 0)
 # ...and its reconstructed geometry passed off as the printed diagram.
 lied = copy.deepcopy(book)
-lied["provenance"]["gridOrigin"] = "published"
+lied["source"]["gridOrigin"] = "published"
 print("BOOK_GRID_LIE", len(p.check(lied)) > 0)
 PY
 )
@@ -218,10 +222,10 @@ same "and it really is writeup answers off a publisher channel" \
   "$(field REALLY_WRITEUP "$out4")" "True"
 same "calling fifteensquared answers the paper's own key is one finding" \
   "$(field LIE_PUBLISHED "$out4")" "1"
-same "and the finding names the solutionSource it contradicts" \
+same "and it names the origin the file's own detail implies" \
   "$(awk '$1=="LIE_PUBLISHED" {print $3}' <<<"$out4")" "True"
-same "a solutionOrigin outside the enum is refused" "$(field OFF_ENUM "$out4")" "True"
-same "no provenance at all is exactly one finding" "$(field ABSENT "$out4")" "1"
+same "a solutions.origin outside the enum is refused" "$(field OFF_ENUM "$out4")" "True"
+same "no source or solutions at all is exactly one finding" "$(field ABSENT "$out4")" "1"
 same "and it says so plainly" "$(awk '$1=="ABSENT" {print $3}' <<<"$out4")" "True"
 same "calling an answered grid unsolved is refused" "$(field FALSE_UNSOLVED "$out4")" "True"
 same "a channel the fetching tool does not read through is one finding" \
@@ -256,20 +260,20 @@ def flagged(puzzle, mutate):
     return p.check(puzzle)
 
 
-print("NO_CREDIT", len(flagged(hinted, lambda z: z["provenance"].pop("annotatedBy"))))
+print("NO_CREDIT", len(flagged(hinted, lambda z: z.pop("annotatedBy"))))
 # An alias is a pointer that moves; the id it resolved to is the record.
-print("ALIAS", len(flagged(hinted, lambda z: z["provenance"].update(annotatedBy=["opus"]))))
-print("NOT_A_LIST", len(flagged(hinted, lambda z: z["provenance"].update(annotatedBy="claude-opus-5"))))
-print("HUMAN_OK", len(flagged(hinted, lambda z: z["provenance"].update(annotatedBy=["human"]))))
-print("STALE", len(flagged(bare, lambda z: z["provenance"].update(annotatedBy=["claude-opus-5"]))))
+print("ALIAS", len(flagged(hinted, lambda z: z.update(annotatedBy=["opus"]))))
+print("NOT_A_LIST", len(flagged(hinted, lambda z: z.update(annotatedBy="claude-opus-5"))))
+print("HUMAN_OK", len(flagged(hinted, lambda z: z.update(annotatedBy=["human"]))))
+print("STALE", len(flagged(bare, lambda z: z.update(annotatedBy=["claude-opus-5"]))))
 
 # A run on a puzzle that had hints adds itself once; a run on a puzzle that had
 # none wrote every hint in it, so the old credits go.
 once = p.credit_annotator(hinted, "claude-opus-5-5", had_hints=True)
 twice = p.credit_annotator(once, "claude-opus-5-5", had_hints=True)
-print("APPENDS", ",".join(twice["provenance"]["annotatedBy"]))
+print("APPENDS", ",".join(twice["annotatedBy"]))
 fresh = p.credit_annotator(hinted, "claude-opus-5-5", had_hints=False)
-print("RESTARTS", ",".join(fresh["provenance"]["annotatedBy"]))
+print("RESTARTS", ",".join(fresh["annotatedBy"]))
 try:
     p.credit_annotator(hinted, "opus", had_hints=True)
     print("REFUSES_ALIAS", False)
@@ -278,11 +282,11 @@ except ValueError:
 
 # Every write re-derives provenance: the credit survives it, and goes when the
 # hints do.
-print("SURVIVES_WRITE", p.stamp(hinted, "tools/fetch_puzzle.py")["provenance"].get("annotatedBy"))
+print("SURVIVES_WRITE", p.stamp(hinted, "tools/fetch_puzzle.py").get("annotatedBy"))
 stripped = copy.deepcopy(hinted)
 for e in stripped["entries"]:
     e.pop("annotation", None)
-print("DROPPED_WITH_HINTS", "annotatedBy" in p.stamp(stripped, "tools/fetch_puzzle.py")["provenance"])
+print("DROPPED_WITH_HINTS", "annotatedBy" in p.stamp(stripped, "tools/fetch_puzzle.py"))
 PY
 )
 same "an annotated puzzle with its credit passes" "$(field HINTED_PRISTINE "$out7")" "0"
@@ -303,17 +307,18 @@ import copy
 import fetch_puzzle
 import provenance as p
 
-# book-3027 is a model solve. Swap its solutionSource for a write-up's, as
+# book-3027 is a model solve. Swap its solutions detail for a write-up's, as
 # fetch_fifteensquared.py does when a blogger posts the answers, and stamp it:
 # the block it is written over still says "model", and nothing else will.
 book = fetch_puzzle.read_puzzle_file(fetch_puzzle.resolve_puzzle("book-3027"))
-print("WAS_MODEL", book["provenance"]["solutionOrigin"])
-confirmed = copy.deepcopy(book)
-confirmed["solutionSource"] = {"kind": "fifteensquared"}
-prov = p.stamp(confirmed, "tools/file_penguin_puzzle.py")["provenance"]
-print("NOW", prov["solutionOrigin"])
-print("REMEMBERS", prov.get("previousSolutionOrigin"))
-print("STILL_MODEL", "previousSolutionOrigin" in p.stamp(book, "tools/file_penguin_puzzle.py")["provenance"])
+print("WAS_MODEL", book["solutions"]["origin"])
+confirmed = p.with_solution_detail(copy.deepcopy(book), {
+    "blog": "fifteensquared", "url": "https://fifteensquared.net/x",
+    "date": "2026-01-01", "check": "checked"})
+solutions = p.stamp(confirmed, "tools/file_penguin_puzzle.py")["solutions"]
+print("NOW", solutions["origin"])
+print("REMEMBERS", solutions.get("previousOrigin"))
+print("STILL_MODEL", "previousOrigin" in p.stamp(book, "tools/file_penguin_puzzle.py")["solutions"])
 PY
 )
 same "the fixture really is a model solve" "$(field WAS_MODEL "$out8")" "model"
@@ -348,11 +353,10 @@ print("PRENAMESPACE_NUMBER", series_table.parse_id("30089")[1])
 puzzle = {
     "id": "A001", "number": "A001", "series": "authored",
     "name": "x", "setter": "x", "date": 0,
-    "dimensions": {"cols": 1, "rows": 1}, "sourceUrl": "", "entries": [],
+    "dimensions": {"cols": 1, "rows": 1}, "entries": [],
 }
 stamped = p.stamp(puzzle, "tools/build_authored_puzzle.py")
-print("STAMPED_SERIES", stamped["provenance"]["series"])
-print("STAMPED_GRID_ORIGIN", stamped["provenance"]["gridOrigin"])
+print("STAMPED_GRID_ORIGIN", stamped["source"]["gridOrigin"])
 PY
 )
 same "parse_id reads the authored id's series" "$(field AUTHORED_SERIES "$out6")" "authored"
@@ -364,9 +368,7 @@ same "with an integer number" "$(field FETCHED_NUMBER "$out6")" "4165"
 same "a bare pre-namespacing number still names no series" \
   "$(field PRENAMESPACE_SERIES "$out6")" "None"
 same "and still parses to an integer" "$(field PRENAMESPACE_NUMBER "$out6")" "30089"
-same "stamping an authored puzzle doesn't crash and tags its series" \
-  "$(field STAMPED_SERIES "$out6")" "authored"
-same "and marks the grid as ours, not the publisher's" \
+same "stamping an authored puzzle doesn't crash and marks the grid as ours, not the publisher's" \
   "$(field STAMPED_GRID_ORIGIN "$out6")" "authored"
 
 [ "$fails" = 0 ] && echo "provenance: all checks passed" || echo "provenance: $fails FAILED"

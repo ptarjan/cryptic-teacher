@@ -98,7 +98,7 @@ print("CLEAN", by_id["1-down"]["clue"])
 print("SEPARATORS", json.dumps(by_id["2-down"].get("separatorLocations")))
 print("SOLVED", all(e["solution"] for e in p["entries"]))
 print("DATED", p["date"])
-print("ORIGINS", p["provenance"]["gridOrigin"], p["provenance"]["solutionOrigin"])
+print("ORIGINS", p["source"]["gridOrigin"], p["solutions"]["origin"])
 print("PROV_CLEAN", provenance.check(p) == [])
 fixed = json.loads(puzzle_paths.find("times-101").read_text())
 print("CORRECTED", {e["id"]: e for e in fixed["entries"]}["1-across"]["solution"] == right)
@@ -166,7 +166,7 @@ for e in typo["entries"]:
 built, why = B.build(typo, row(typo), "times", None, None)
 by_id = {e["id"]: e for e in built["entries"]}
 print("RECOUNTED", by_id["5-across"]["clue"], "|", by_id["2-down"]["clue"], "|",
-      built["solutionSource"]["check"].split("; ")[-1])
+      built["solutions"]["check"].split("; ")[-1])
 for e in typo["entries"]:
     if (e["number"], e["direction"]) == (5, "across"):
         e["clue"], e["enumeration"] = "Lost a word (2,4)", "2,4"

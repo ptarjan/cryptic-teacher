@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Write a `provenance` block into every puzzle that hasn't got one.
+"""Write `source`, `solutions` and `annotatedBy` into every puzzle that hasn't got them.
 
     python3 tools/backfill_provenance.py            # write it
     python3 tools/backfill_provenance.py --dry-run  # count what would change
@@ -19,7 +19,7 @@ WHAT IT DERIVES, AND FROM WHAT
                       reading the field would have filed them under the default
                       without anyone noticing.
 
-  acquiredBy          the tool the file already names as its acquirer, checked
+  source.acquiredBy   the tool the file already names as its acquirer, checked
                       against provenance.ACQUISITION_BY_SOURCE — which tools can
                       actually produce this (series, host). What a file claims
                       is the last tool to WRITE it rather than the one that
@@ -29,7 +29,7 @@ WHAT IT DERIVES, AND FROM WHAT
                       it. The banner on the generated .js shim restates this
                       field and is never a source for it.
 
-  acquiredOn          the date the puzzle first appears in git. That is
+  source.acquiredOn   the date the puzzle first appears in git. That is
                       what is knowable: no fetcher recorded a fetch time, and
                       the commit that added the file is the closest honest
                       statement of when the puzzle arrived. Puzzles added before
@@ -37,22 +37,22 @@ WHAT IT DERIVES, AND FROM WHAT
                       those are re-resolved with `git log --follow` to reach the
                       real first appearance rather than the rename.
 
-  retrievedFrom       the channel that tool reads through — the publisher's own
+  source.retrievedFrom the channel that tool reads through — the publisher's own
                       site, a Wayback capture, a blog, a book scan. Derived from
                       acquiredBy so the two can never disagree. This is the
-                      distinction sourceUrl could not make: 492 Guardian puzzles
-                      and 50 of the 52 Metro ones were recovered from archive
-                      captures of pages that no longer exist, and on disk they
-                      looked exactly like a same-morning fetch.
+                      distinction source.url alone could not make: 492 Guardian
+                      puzzles and 50 of the 52 Metro ones were recovered from
+                      archive captures of pages that no longer exist, and on disk
+                      they looked exactly like a same-morning fetch.
 
-  gridOrigin          "reconstructed" for the Penguin-book volumes, whose black
+  source.gridOrigin   "reconstructed" for the Penguin-book volumes, whose black
                       squares were worked out from the clue list by
                       tools/reconstruct_grid.py, and "published" everywhere
                       else. Not a guess: file_penguin_puzzle.py is the only tool
                       in the repo that builds a puzzle out of a reconstruction.
 
-  solutionOrigin      "unsolved" when no entry carries an answer; "writeup" or
-                      "model" when solutionSource says so; "published"
+  solutions.origin    "unsolved" when no entry carries an answer; "writeup" or
+                      "model" when the solution detail says so; "published"
                       otherwise. That last reading is an argument about this
                       corpus, not an assumption, and it is set out below.
 
@@ -90,7 +90,7 @@ because the set of such code is small and its whole history is here:
     from that same first commit, refused outright to touch a puzzle that
     already has answers — there was never a version of it that could leave a
     model fill unmarked.
-  * The coverage arithmetic corroborates it exactly. solutionSource sits
+  * The coverage arithmetic corroborates it exactly. Solution detail sits
     precisely where the non-publisher routes ran: 434 of 518 Cyclops, and the
     other 84 Cyclops files have no answers at all — so every Cyclops file that
     HAS answers is labelled. Same for all 5 Penguin volume 5 puzzles. What is left unlabelled
@@ -105,10 +105,10 @@ because the set of such code is small and its whole history is here:
     GETSTEADY -> GETSREADY, HALLWAY -> HALFWAY, CHOCOLOHICS -> CHOCOHOLICS —
     every one of which moves the file TOWARDS the published answer.
 
-So "answers present and no solutionSource" means the publisher's key, and the
+So "answers present and no solution detail" means the publisher's key, and the
 87 puzzles carrying no answers at all are recorded as "unsolved" rather than
 being quietly counted as anything. If a later import ever breaks that invariant
-— someone fills a grid without stamping solutionSource — the argument above
+— someone fills a grid without stamping solution detail — the argument above
 stops holding and the right change is to mark the affected range "unknown"
 here, not to keep asserting "published" because this file once did.
 """
@@ -190,7 +190,7 @@ def machine_solved_ever():
     together. -S counts occurrences of the string per commit and reports the
     commits where the count CHANGED, so a file shows up whether the marker was
     being added or later removed, which is the whole point: fetch_observer.py
-    deletes solutionSource the day the real key lands.
+    deletes the solution detail the day the real key lands.
 
     Commit SUBJECTS are no use here and it is worth saying why, because it is
     the obvious thing to try: the nightly cold-solve lands under the very same
@@ -274,25 +274,29 @@ def main(argv=None):
     bulk = add_dates()
     solved_ever, unresolved = machine_solved_ever()
     buckets = {k: {} for k in ("acquiredBy", "acquiredOn", "retrievedFrom",
-                               "gridOrigin", "solutionOrigin")}
+                               "gridOrigin", "origin")}
     changed = unchanged = 0
     carried = []
 
     for path in puzzle_files():
         puzzle = read_puzzle_file(path)
         rel = path.relative_to(ROOT).as_posix()
-        existing = (puzzle.get("provenance") or {}).get("acquiredOn")
+        existing = (puzzle.get("source") or {}).get("acquiredOn")
         prov = provenance.derive(puzzle, generator_of(path),
                                  acquired_on(rel, bulk, existing),
                                  previously="model" if path.stem in solved_ever else None)
-        if prov.get("previousSolutionOrigin"):
-            carried.append(f"{path.stem} ({prov['solutionOrigin']} now)")
-        for field in ("gridOrigin", "solutionOrigin", "acquiredBy", "retrievedFrom"):
-            buckets[field][prov[field]] = buckets[field].get(prov[field], 0) + 1
-        key = "not recorded" if prov["acquiredOn"] == "unknown" else "recorded"
+        source, solutions = prov["source"], prov["solutions"]
+        if solutions.get("previousOrigin"):
+            carried.append(f"{path.stem} ({solutions['origin']} now)")
+        for field in ("gridOrigin", "acquiredBy", "retrievedFrom"):
+            buckets[field][source[field]] = buckets[field].get(source[field], 0) + 1
+        buckets["origin"][solutions["origin"]] = \
+            buckets["origin"].get(solutions["origin"], 0) + 1
+        key = "not recorded" if source["acquiredOn"] == "unknown" else "recorded"
         buckets["acquiredOn"][key] = buckets["acquiredOn"].get(key, 0) + 1
 
-        if puzzle.get("provenance") == prov:
+        if puzzle.get("source") == source and puzzle.get("solutions") == solutions \
+                and puzzle.get("annotatedBy") == prov["annotatedBy"]:
             unchanged += 1
             continue
         changed += 1
@@ -308,7 +312,7 @@ def main(argv=None):
     verb = "would change" if args.dry_run else "changed"
     print(f"\n{changed + unchanged} puzzles: {verb} {changed}, already correct {unchanged}")
     for field in ("acquiredBy", "acquiredOn", "retrievedFrom",
-                  "gridOrigin", "solutionOrigin"):
+                  "gridOrigin", "origin"):
         print(f"\n  {field}")
         for value, n in sorted(buckets[field].items(), key=lambda kv: -kv[1]):
             print(f"    {n:6d}  {value}")

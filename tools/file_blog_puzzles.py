@@ -25,7 +25,7 @@ its reason:
     in tools/series.py) holds, or has not reached yet, is left to it.
 
 The blog's answers are a solver's write-up, not the paper's key, so
-solutionSource.kind names the blog (series.py's `blog`) and provenance says so.
+solutions.blog names the blog (series.py's `blog`) and solutions.origin says so.
 
 A file already on disk is never rewritten but for its date, which facts
 arriving later can prove, and a placeholder setter the post names: by then it
@@ -405,11 +405,11 @@ def build(rec, row, series, date, setter, typed=None):
         "setter": setter,
         "date": date and epoch_ms(date),
         "dimensions": {"cols": len(row["grid"][0]), "rows": len(row["grid"])},
-        "sourceUrl": rec["link"],
+        "source": {"url": rec["link"]},
         # The blog's own name: "timesforthetimes", "bigdave44".
-        "solutionSource": {"kind": series_meta.meta(series)["blog"].split(".")[0],
-                           "url": rec["link"],
-                           "date": rec["date"], "check": check},
+        "solutions": {"blog": series_meta.meta(series)["blog"].split(".")[0],
+                     "url": rec["link"],
+                     "date": rec["date"], "check": check},
         "entries": out,
     }, None
 

@@ -88,7 +88,7 @@ SERIES = {
     "cyclops": {
         # Private Eye ships the grid and the clues but strips the answers -- the
         # .puz solution grid is one repeated letter -- so these are filled from
-        # fifteensquared's write-ups and carry a solutionSource saying so. The
+        # fifteensquared's write-ups and carry solutions.blog saying so. The
         # setter is named in the file, hence no default here.
         "kind": "Cryptic",
         "publisher": "Private Eye",
@@ -375,7 +375,7 @@ SERIES[BOOK_SERIES] = {
     # puzzle here carries no paper number and no date and there is nothing a
     # publisher could ever serve an answer key AGAINST. The book's own printed
     # answer grids are page images no job can read (see file_penguin_puzzle.py). Stated once and copied
-    # onto each puzzle as solutionSource.officialKey by whichever route fills
+    # onto each puzzle as solutions.officialKey by whichever route fills
     # the grid — a puzzle that lost it would have tools/build_seo_pages.py
     # promise a reader that official answers replace ours "as soon as those
     # appear", which is a promise nothing can keep.
@@ -515,7 +515,7 @@ def book_number(identifier, position):
     The one place the arithmetic is written, and the archive.org identifier is
     the only thing a caller may name the book with. A free identifier beside a
     free --volume is exactly how a puzzle came to cite one book in its
-    sourceUrl and another in its provenance: the run reads one item's text, so
+    source.url and another in its source.book: the run reads one item's text, so
     that item decides the number, the title and the scan alike, and there is no
     second argument for it to disagree with.
     """
@@ -626,7 +626,7 @@ def scan_identifier(series, number):
 
     Read through the series and the number, never taken as a free argument: a
     caller-supplied identifier is how a puzzle comes to name one book in
-    sourceUrl and another in provenance.book. None for a feed.
+    source.url and another in source.book. None for a feed.
     """
     if not is_book(series):
         return None

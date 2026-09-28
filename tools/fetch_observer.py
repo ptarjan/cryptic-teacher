@@ -82,6 +82,7 @@ from fetch_puzzle import (http_bytes, flatten_clue, grade_model_fill,  # noqa: E
                           write_puzzle_file)
 from fetch_independent import span  # noqa: E402 — same 1-based "2-7"/"7" span format
                                      # for a different paper's crossword
+import provenance  # noqa: E402
 import series as series_meta  # noqa: E402
 
 ARTICLE_URL = "https://observer.co.uk/puzzles/everyman/article/everyman-no-{num}"
@@ -267,7 +268,7 @@ def convert(num, manifest, data):
         "setter": data["copy"].get("setter") or series_meta.default_setter("everyman"),
         "date": int(when.timestamp() * 1000),
         "dimensions": {"cols": cols, "rows": rows},
-        "sourceUrl": ARTICLE_URL.format(num=num),
+        "source": {"url": ARTICLE_URL.format(num=num)},
         "entries": entries,
     }
     return puzzle
@@ -420,7 +421,7 @@ def refresh_unsolved():
         # where the cutoff and the reasoning both live).
         if not still_worth_refreshing(p):
             continue
-        if not all(e.get("solution") for e in p["entries"]) or p.get("solutionSource"):
+        if not all(e.get("solution") for e in p["entries"]) or provenance.solution_detail(p):
             pending.append(p["number"])
     filled = 0
     for num in pending:
@@ -437,7 +438,7 @@ def refresh_unsolved():
             path = puzzle_path("everyman", num)
             puzzle = read_puzzle_file(path)
             guessed = ({e["id"]: e.get("solution") for e in puzzle["entries"]}
-                       if (puzzle.get("solutionSource") or {}).get("kind") == "model" else None)
+                       if "model" in provenance.solution_detail(puzzle) else None)
             fill_solutions(puzzle["entries"], solution,
                             puzzle["dimensions"]["rows"], puzzle["dimensions"]["cols"], num)
             if guessed is not None:
@@ -445,7 +446,7 @@ def refresh_unsolved():
                 # starts being an attempt that can be marked. Same grading the
                 # Guardian gets on re-fetch, from the same function.
                 graded = grade_model_fill(puzzle, guessed)
-                puzzle.pop("solutionSource", None)
+                puzzle["solutions"] = provenance.drop_solution_detail(puzzle)["solutions"]
                 print_grade(puzzle, graded)
             write_puzzle_file(path, puzzle, generator="tools/fetch_observer.py")
             print(f"solutions now published for {num}")

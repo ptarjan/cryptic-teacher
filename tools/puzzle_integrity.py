@@ -63,12 +63,12 @@ The flags, in the order they matter:
             on every puzzle (series.py `bylined`).
   PROV      a puzzle that does not say where it came from, or says something
             tools/provenance.py does not allow. The one that matters is
-            solutionOrigin: a grid the setter published is ground truth, a grid
+            solutions.origin: a grid the setter published is ground truth, a grid
             this repo cold-solved is our guess, and until provenance existed
             the two were the same 15x15 of capital letters with nothing to tell
             them apart. So the check refuses an origin outside the enum, an
             origin that contradicts the file it sits on (claiming "published"
-            over a solutionSource that says "model", or "unsolved" over a grid
+            over solutions detail that says "model", or "unsolved" over a grid
             full of answers), a retrieval channel that disagrees with the tool
             that did the retrieving, and a publisher or series that disagrees
             with the puzzle's own id. Every allowed value is enumerated in
@@ -883,7 +883,7 @@ def check_shape(puzzle, today, flags):
     if not any(has_words(e.get("clue")) for e in entries):
         flags.append(("SHAPE", pid, f"all {len(entries)} clues are blank"))
 
-    from_blog = (puzzle.get("provenance") or {}).get("retrievedFrom") == "blog"
+    from_blog = (puzzle.get("source") or {}).get("retrievedFrom") == "blog"
     seen, checkable = set(), []
     for e in entries:
         eid = e.get("id")

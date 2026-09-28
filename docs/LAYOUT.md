@@ -739,12 +739,19 @@ tools/data/favourite_grading/scores/         the judge’s five scores per label
                                              numbering as the packets
 tools/suggest_demand.json                    the last autocomplete reading, advisory only:
                                              nothing downstream sorts on it
-tools/backfill_provenance.py                 write a `provenance` block into every puzzle that
-                                             hasn't got one
+tools/backfill_provenance.py                 write `source` and `solutions` blocks into every
+                                             puzzle that hasn't got them
 tools/provenance.py                          where a puzzle came from — and, the part that
                                              matters, where its ANSWERS came from
 tools/test_provenance.sh                     does provenance actually REFUSE a puzzle that lies
                                              about where it came from?
+tools/test_puzzle_source.sh                  holds where a puzzle came from to `source`, whose
+                                             answers it holds to `solutions` and who wrote its
+                                             hints to `annotatedBy`: a write lands all three and
+                                             nothing that repeats them, the detail keys decide
+                                             the origin, a key printed later replaces a model
+                                             fill and remembers it, and provenance.check refuses
+                                             detail that does not back its origin
 tools/rank_book_candidates.py                rank archive.org crossword books by whether
                                              acquiring one in full is worth it
 tools/acquire_books.sh                       read the next archive.org crossword book nobody

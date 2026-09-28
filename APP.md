@@ -398,7 +398,7 @@ answer, not solving it.
 The nightly jobs annotate with Opus (`ANNOTATE_MODEL`, default `opus`, in
 `tools/daily_update.sh` and `tools/prereset_backfill.sh`).
 That is an alias, so each run records the exact model id it resolved to in the
-puzzle's `provenance.annotatedBy`, and the commit trailer is read back from
+puzzle's `annotatedBy`, and the commit trailer is read back from
 there by `python3 tools/provenance.py trailer`. The choice rests
 on one benchmark puzzle, 30078. Each model annotated it from scratch with the
 same prompt and flags, and was compared with Fable's existing annotation:

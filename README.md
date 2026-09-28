@@ -117,7 +117,7 @@ Shape:
 {
   "id": "cryptic-30066", "number": 30066, "name": "Cryptic crossword No 30,066",
   "setter": "Tramp", "date": 1784764800000, "dimensions": {"rows": 15, "cols": 15},
-  "sourceUrl": "https://www.theguardian.com/crosswords/cryptic/30066",
+  "source": {"url": "https://www.theguardian.com/crosswords/cryptic/30066"},
   "entries": [
     {
       "id": "16-across", "number": 16, "direction": "across",
@@ -203,35 +203,37 @@ Shape:
 
 ### Provenance: where the puzzle, its grid and its answers each came from
 
-Every puzzle has a `provenance` block next to `sourceUrl`. `sourceUrl` is only a
-link to the page the puzzle was printed on. `provenance` records how the file
-got here and, most importantly, **whose answers these are**.
+Every puzzle has a `source` block and a `solutions` block. `source` records how
+the file got here — which paper, which page, which channel the bytes were
+actually read through. `solutions` records, most importantly, **whose answers
+these are**.
 
 ```jsonc
-"sourceUrl": "https://www.theguardian.com/crosswords/everyman/3716",
-"provenance": {
+"source": {
   "publisher": "Observer",          // from tools/series.py, by the id's series
-  "series": "everyman",             // read off the id, never the `series` field
+  "url": "https://www.theguardian.com/crosswords/everyman/3716",
   "acquiredBy": "tools/fetch_wayback.py",   // the command that actually ran
   "acquiredOn": "2026-09-17",       // when the file first appeared in git
   "retrievedFrom": "wayback",       // publisher | wayback | blog | book | authored
-  "gridOrigin": "published",        // published | reconstructed | authored
-  "solutionOrigin": "published",    // published | writeup | model | authored | unsolved
-  "annotatedBy": ["claude-opus-5"]  // who wrote the hints: exact model ids, or human | published | unknown
-}
+  "gridOrigin": "published"         // published | reconstructed | authored
+},
+"solutions": {
+  "origin": "published"             // published | writeup | model | authored | unsolved
+},
+"annotatedBy": ["claude-opus-5"]    // who wrote the hints: exact model ids, or human | published | unknown
 ```
 
 **The clues, the grid and the answers can each come from a different place.**
-That is why these are separate fields. Two examples:
+That is why these are separate blocks. Two examples:
 
 - A Cyclops puzzle comes from Private Eye's own `.puz` download. Private Eye
   blanks the solution grid, so the answers come from a fifteensquared write-up:
-  `retrievedFrom: publisher`, `solutionOrigin: writeup`.
+  `retrievedFrom: publisher`, `solutions.origin: writeup`.
 - A scanned-book puzzle has three origins. The clues come from a book scan, the
   grid is reconstructed here from those clues, and the answers are solved here
   by a model.
 
-**Read `solutionOrigin` before trusting a grid:**
+**Read `solutions.origin` before trusting a grid:**
 
 | Value | Meaning |
 |-------|---------|
@@ -246,27 +248,29 @@ field keeps them apart.
 
 Other fields:
 
-- `previousSolutionOrigin` appears when the answers in the file replaced answers
-  of a different origin. Example: a grid was cold-solved, then the paper
-  published the same answers.
+- `solutions.previousOrigin` appears when the answers in the file replaced
+  answers of a different origin. Example: a grid was cold-solved, then the
+  paper published the same answers.
 - `annotatedBy` is on every puzzle with hints and says who wrote them: exact
   model ids such as `claude-opus-5`, never an alias like `opus`, because an alias
   points at a different model from one month to the next. One entry per run, in
   the order they ran; a run that was cut off and resumed by the same model
   counts once. `tools/apply_annotations.py` writes it from the running
   session's transcript. Hints no model wrote say `human` or `published`.
-- `solutionSource`, where present, is the detail behind `solutionOrigin`: which
-  write-up, which model, whether an official key can ever exist. The validator
-  rejects a file where the two disagree.
-- The canonical URL is **not** copied into the block. It lives only in
-  `sourceUrl`, because a second copy is a second thing that can be wrong.
+- `solutions` also carries the detail behind a non-published `origin`: `blog`
+  and `url` for a write-up, `model` for a model solve, and `date` and `check`
+  for both — which write-up, which model, whether an official key can ever
+  exist. The validator rejects a file where the two disagree.
+  `tools/provenance.solution_detail(puzzle)` reads these keys back out.
+- `source.url` is the page to cite; `solutions.url` is the write-up the
+  answers came from. They coincide on a puzzle read off its blog write-up.
 
 Every allowed value is listed in `tools/provenance.py` and nowhere else.
 `tools/puzzle_integrity.py` validates against those same dicts.
 `tools/test_provenance.sh` proves it: it deletes a value and checks that the
-corpus is then rejected. `tools/backfill_provenance.py` writes the block. It is
-idempotent and safe to re-run. New puzzles get the block automatically, because
-`write_puzzle_file` stamps it on every write.
+corpus is then rejected. `tools/backfill_provenance.py` writes the blocks. It is
+idempotent and safe to re-run. New puzzles get the blocks automatically, because
+`write_puzzle_file` stamps them on every write.
 
 ## Adding puzzles
 
@@ -379,8 +383,9 @@ run also *solves* up to `SOLVE_MAX` puzzles a night from the clues alone:
 - `tools/apply_solution.py` is the only way the answers reach the puzzle file.
   It writes nothing unless every entry is answered, every answer has the length
   the grid needs, and all crossing letters agree (about 58 on a typical grid).
-- The answers are marked `solutionSource` in the file and `solutionsUnofficial`
-  in the index. The site says so wherever it shows them.
+- The answers are marked with a `solutions` detail (`model`, `date`, `check`)
+  in the file and `solutionsUnofficial` in the index. The site says so
+  wherever it shows them.
 - The puzzle keeps being re-fetched. When the official key lands, it replaces
   the model's answers and prints a `BLIND SOLVE GRADED n/30` line. The
   annotation of any clue the model got wrong is thrown away, so the queue

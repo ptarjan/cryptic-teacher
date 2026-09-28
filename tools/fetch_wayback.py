@@ -63,9 +63,9 @@ and write_puzzle_file) — this literally calls fetch_puzzle.convert() on the
 recovered JSON, because the archived payload carries the same fields the live
 CrosswordComponent props do (id, number, name, date, dimensions, entries[]
 with position/length/clue/separatorLocations/solution, and creator when the
-paper credited one). sourceUrl is therefore the ORIGINAL theguardian.com URL,
+paper credited one). source.url is therefore the ORIGINAL theguardian.com URL,
 never the web.archive.org one — it is the address a reader would cite, and
-several tools read it expecting that. provenance.retrievedFrom "wayback" says
+several tools read it expecting that. source.retrievedFrom "wayback" says
 the bytes came from a capture.
 
 reindex() (puzzles/index.json + index.js) only runs when writing into the

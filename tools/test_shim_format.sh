@@ -23,7 +23,7 @@ import fetch_puzzle as fp
 out = Path(sys.argv[1])
 (out / "shims").mkdir()
 odd = {"id": "odd-1", "series": "odd", "number": 1, "dimensions": {"cols": 3, "rows": 3},
-       "provenance": {"acquiredBy": "tools/test_shim_format.sh"}, "sourceUrl": "x",
+       "source": {"acquiredBy": "tools/test_shim_format.sh", "url": "x"},
        "entries": [
            # packed, with extras and an id that is not number-direction
            {"id": "1-across-2", "number": 1, "direction": "across",

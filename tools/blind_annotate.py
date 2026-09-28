@@ -40,6 +40,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
+import provenance
 from fetch_puzzle import (read_puzzle_file, record_misses, resolve_puzzle,
                           write_puzzle_file)
 
@@ -61,7 +62,7 @@ def hide(arg):
         raise SystemExit(f"{puzzle['id']} has no published key to hide "
                          f"({sum(1 for v in key.values() if not v)} entries "
                          f"unanswered) — it is already a blind solve")
-    if (puzzle.get("solutionSource") or {}).get("kind") == "model":
+    if "model" in provenance.solution_detail(puzzle):
         # A prize grid we filled ourselves. The letters are there, but they are
         # our own guess, so hiding them and grading against them would score the
         # model against itself and call the agreement accuracy.
