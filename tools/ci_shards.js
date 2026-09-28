@@ -21,7 +21,8 @@
 const COST = {
   "tools/test_reconstruct_grid.sh": 218,
   "tools/test_push_conflict.sh": 217,
-  "tools/smoke_test.js": 215,
+  // Measured on a runner, 2026-09-27; it grows with the corpus.
+  "tools/smoke_test.js": 700,
   "tools/test_puzzle_integrity.sh": 165,
   "tools/test_acquire_book.sh": 56,
   "tools/test_provenance.sh": 46,
