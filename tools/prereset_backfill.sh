@@ -985,6 +985,7 @@ print(" ".join(n for n,_ in sorted(d.items(), key=lambda kv: kv[1])))' "$field")
     definitionFit) what="ONE sentence saying why the answer means the definition; it renders last in the walkthrough" ;;
     indicatorNote) name="\`note\` on each indicator object"
       what="ONE sentence saying why THOSE words carry THAT instruction — never the generic sentence about what the device does, and never a word of the answer" ;;
+    surface) what="ONE sentence, 25 words max, of the picture the clue pretends to paint — never its mechanics" ;;
     indicatorFor) name="\`for\` on each indicator object"
       what="the one name from the clue's own \`type\` whose operation those words signal" ;;
     *) what="the field as tools/annotate_prompt.md describes it" ;;
