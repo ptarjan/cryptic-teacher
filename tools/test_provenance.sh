@@ -200,6 +200,12 @@ print("STRAY_CAPTURE_URL", len(f) > 0)
 f = flagged(lambda z: z["provenance"].update(publisher="Guardian"))
 print("WRONG_PUBLISHER", len(f) > 0)
 
+# A puzzle that does not state its series, or states another than its id.
+f = flagged(lambda z: z.pop("series"))
+print("NO_SERIES", len(f), says(f, "series is None"))
+f = flagged(lambda z: z.update(series="cryptic"))
+print("WRONG_SERIES", len(f))
+
 # A model fill relabelled as the publisher's, on a puzzle that says model.
 book = fetch_puzzle.read_puzzle_file(fetch_puzzle.PUZZLE_DIR / "book-3027.json")
 print("BOOK_PRISTINE", len(p.check(book)))
@@ -231,6 +237,9 @@ same "a capture URL on a publisher fetch is refused" \
   "$(field STRAY_CAPTURE_URL "$out4")" "True"
 same "a publisher contradicting the id's series is refused" \
   "$(field WRONG_PUBLISHER "$out4")" "True"
+same "a puzzle with no series is one finding" "$(field NO_SERIES "$out4")" "1"
+same "and it says the series is missing" "$(awk '$1=="NO_SERIES" {print $3}' <<<"$out4")" "True"
+same "a series contradicting the id is one finding" "$(field WRONG_SERIES "$out4")" "1"
 same "the real book puzzle passes" "$(field BOOK_PRISTINE "$out4")" "0"
 same "its model fill cannot be relabelled published" "$(field BOOK_LIE "$out4")" "True"
 same "nor its reconstruction relabelled a printed diagram" \
