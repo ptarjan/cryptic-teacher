@@ -2154,6 +2154,48 @@ if (autoPuzzle && assert(autoRow, `picker finds ${autoPuzzle.id} when searched f
   }
 }
 
+// --- a blog's homophone reads as ours do: the word heard, then held back ---
+// blog_facts.py keeps the word a write-up says a homophone's clue words are
+// heard as (TUN for TON) as the block's soundsLike, as our annotations do; the
+// rung shows it "said aloud" and, the block being the whole answer, not the answer.
+{
+  const bare = (t) => String(t || "").replace(/[^A-Za-z]/g, "").toUpperCase();
+  const factsDir = path.join(ROOT, "tools/data/blog_facts");
+  let target = null;
+  for (const f of fs.readdirSync(factsDir).filter((n) => n.endsWith(".json")).sort()) {
+    const rows = JSON.parse(fs.readFileSync(path.join(factsDir, f), "utf8"));
+    for (const [pid, rec] of Object.entries(rows)) {
+      const hit = Object.entries(rec.entries).find(([, fa]) => fa.type === "homophone"
+        && (fa.blocks || []).length === 1 && fa.blocks[0].some((h) => h && /^[A-Z]+$/.test(h.soundsLike || "")));
+      if (!hit) continue;
+      const file = path.join(ROOT, "puzzles", pid + ".json");
+      const e = fs.existsSync(file) && JSON.parse(fs.readFileSync(file, "utf8")).entries.find((x) => x.id === hit[0]);
+      if (e && !e.annotation && e.solution && e.clue.includes(hit[1].blocks[0][1])) {
+        target = { pid, eid: hit[0], answer: bare(e.solution), heard: hit[1].blocks[0].find((h) => h && h.soundsLike).soundsLike };
+        break;
+      }
+    }
+    if (target) break;
+  }
+  if (assert(target, "the blog facts hold an un-annotated homophone with the word heard") && openFromPicker(target.pid)) {
+    const { pid, eid, answer, heard } = target;
+    registry["clue-" + eid].listeners.click[0]();
+    for (let guard = 0; guard < 6; guard++) {
+      const next = registry["hint-next"].children.find(CLIMBABLE);
+      if (!next || /building blocks/.test(next.textContent)) break;
+      takeRung(next);
+    }
+    const rung = registry["hint-next"].children.find((b) => CLIMBABLE(b) && /building blocks/.test(b.textContent));
+    if (assert(rung, `${pid} ${eid}: the heard block makes a building-blocks rung: ${btnNames()}`)) {
+      takeRung(rung);
+      const body = registry["hint-body"].innerHTML;
+      assert(body.includes(`<span class="gives">${heard}</span> <span class="muted">said aloud</span>`)
+        && !body.includes(`<span class="gives">${answer}</span>`),
+        `${pid} ${eid}: the rung says ${heard} is heard and holds back ${answer}: ${body}`);
+    }
+  }
+}
+
 // --- a clue type read off the letters is not credited to the blog ---
 // tools/letter_facts.py fills in a type the blog left out, marked "inferred".
 // A clue with nothing else from the blog is badged as ours, not the blog's.

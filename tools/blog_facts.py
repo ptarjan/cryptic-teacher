@@ -1604,7 +1604,7 @@ def facts_for_post(blog, entries, post):
         if t:
             fact["type"] = t
         if blk and "hidden" not in (t or ""):
-            fact["blocks"] = blk
+            fact["blocks"] = heard_blocks(t, blk, answer, body)
         whole_clue = defs and projection(" ".join(defs))[0] == projection(body)[0]  # &lit
         ind = indicators(blog, expl_marked, body, brackets,
                          avoid=([] if whole_clue else defs or []) + [b[1] for b in blk])
@@ -1736,6 +1736,91 @@ def two_ends(defs, body):
         and n(body[a + len(head):b]) <= MAX_DD_GAP
 
 
+#: How a word sounds, roughly: spellings of one sound made one (PH, F; a soft
+#: C, S), letters not heard dropped (the GH of NIGHT, a KN's K, an R before a
+#: consonant, as British setters hear it), and then the vowels, which is how
+#: homophones differ most: TUN, TON; COUNCIL, COUNSEL; MONICA, MONIKER.
+SOUND_RULES = [(r"PH", "F"), (r"GH(?![AEIOU])", ""), (r"^KN|^GN|^PN", "N"), (r"^WR", "R"), (r"^PS", "S"),
+               (r"MB$", "M"), (r"CK", "K"), (r"SC(?=[EIY])", "S"), (r"C(?=[EIY])", "S"), (r"SCH", "SH"),
+               (r"C", "K"), (r"Q", "K"), (r"X", "KS"), (r"Z", "S"), (r"DG", "J"), (r"TCH", "CH"), (r"WH", "W"),
+               (r"(?<=[AEIOUY])R(?=E?(?:[^AEIOUY]|$))", ""), (r"(?<=[AEIOUY])[WYH]", ""), (r"^H", ""),
+               (r"(.)\1+", r"\1")]
+#: Nor is a word heard as one this much shorter or longer: EYESORE is no I SAW.
+MIN_HEARD_SHARE = 0.6
+
+
+def _az(s):
+    return "".join(f for f in map(fold, s or "") if "A" <= f.upper() <= "Z").upper()
+
+
+def _sounded(s):
+    s = _az(s)
+    for a, b in SOUND_RULES:
+        s = re.sub(a, b, s)
+    return s
+
+
+def sounds_alike(heard, answer):
+    """Whether `heard` is said as `answer` is, roughly (SOUND_RULES): the same
+    consonants, both or neither opening on a vowel, and about as long."""
+    a, b = _sounded(heard), _sounded(answer)
+    key = lambda s: re.sub("[AEIOUY]", "", s)  # ARSE is no ARSIS: a vowel between keeps two S's
+    x, y = len(_az(heard)), len(_az(answer))
+    return bool(key(a)) and key(a) == key(b) and (a[0] in "AEIOUY") == (b[0] in "AEIOUY") \
+        and min(x, y) >= MIN_HEARD_SHARE * max(x, y)
+
+
+def spooned(heard):
+    """The two words `heard` with their opening consonants swapped, as
+    Spooner says them: COOK BASES, [BOOK, CASES]; None unless two words."""
+    ws = [w for w in map(_az, heard.split()) if w]
+    if len(ws) != 2:
+        return None
+    (o1, r1), (o2, r2) = (re.match(r"(QU|[^AEIOU]*)(.*)", w).groups() for w in ws)
+    return [o2 + r1, o1 + r2]
+
+
+def _heard_from(heard, src, body):
+    """`src` with the word of the clue `body` just before it, where that is the
+    first word heard: "A SALT (seaman)" is heard in "A seaman", not "seaman"."""
+    first = _az(heard.split()[0]) if " " in heard.strip() else ""
+    at = re.search(r"(?<![\w'’\-])" + re.escape(src) + r"(?!\w)", body, re.IGNORECASE) if first else None
+    word = at and re.search(r"([\w'’\-]+)[^\w'’\-]*$", body[:at.start()])
+    if word and _az(word.group(1)) == first != _az(src.split()[0]):
+        return body[word.start(1):at.end()]
+    return src
+
+
+def heard_blocks(t, blocks, answer, body=""):
+    """A homophone's or a spoonerism's blocks as the app holds them, where the
+    write-up gives the words heard in place of the answer's letters: [(the
+    letters, clue words, {"soundsLike": the words heard})]. A homophone's one
+    block must sound like the whole answer (see sounds_alike); a spoonerism's
+    words, swapped (see spooned), like the answer, and where it is two blocks,
+    each like the one part of the answer it gives. Else `blocks` as they were.
+    A word heard as itself is one of the clue words (see _heard_from)."""
+    answer = _az(answer)
+    if t not in ("homophone", "spoonerism") or not blocks or any(len(b) != 2 for b in blocks) \
+            or _az("".join(b[0] for b in blocks)) == answer:
+        return blocks
+    heard = [b[0] for b in blocks]
+    as_heard = lambda gives, b: [gives, _heard_from(b[0], b[1], body), {"soundsLike": b[0]}]
+    if t == "homophone":
+        ok = len(blocks) == 1 and sounds_alike(heard[0], answer)
+        return [as_heard(answer, blocks[0])] if ok else blocks
+    said = spooned(" ".join(heard))
+    if not said or not sounds_alike("".join(said), answer) or len(blocks) > 2:
+        return blocks
+    if len(blocks) == 1:
+        return [as_heard(answer, blocks[0])]
+    cuts = [k for k in range(1, len(answer))
+            if sounds_alike(said[0], answer[:k]) and sounds_alike(said[1], answer[k:])]
+    if len(cuts) != 1:
+        return blocks
+    k = cuts[0]
+    return [as_heard(answer[:k], blocks[0]), as_heard(answer[k:], blocks[1])]
+
+
 def publishable(fact):
     """The facts of one clue that ship: what was found, minus the bookkeeping.
 
@@ -1812,8 +1897,9 @@ def _items(field, value):
     norm = lambda t: t.lower().replace("’", "'").strip()
     if field == "definition":
         return {norm(d) for d in value or ()}
-    if field == "blocks":  # a block letter_facts.py read off the letters is not the post's
-        return {(atom_letters(l.upper()), norm(src)) for l, src, *how in value or () if "inferred" not in how}
+    if field == "blocks":  # a block letter_facts.py read off the letters is not the post's; a heard one is its words
+        heard = lambda l, how: next((h["soundsLike"] for h in how if isinstance(h, dict) and "soundsLike" in h), l)
+        return {(atom_letters(heard(l, how).upper()), norm(src)) for l, src, *how in value or () if "inferred" not in how}
     if field == "indicators":
         return {w for i in value or () for w in re.findall(r"[\w'’]+", norm(i))}
     return {frozenset(value.split(" + "))} if value else set()
@@ -1900,6 +1986,9 @@ def main():
         for r, eid, f in rng.sample(pool, min(args.sample, len(pool))):
             print(json.dumps({"id": r["id"], "entry": eid, "url": r["url"], **f}, ensure_ascii=False))
     print(f"wrote blog facts for {write(best, series)} puzzles to {OUT.relative_to(ROOT)}")
+    # letter_facts reads back what was just written, so the joins it came from
+    # are not held under its corpus: both at once were the run's peak memory.
+    del best, series
     import letter_facts
     corpus = list(letter_facts.rows(letter_facts.read_leads(required=True)))
     n = letter_facts.write(corpus, letter_facts.indicator_votes(corpus))
