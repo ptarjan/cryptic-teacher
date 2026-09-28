@@ -59,7 +59,6 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from fetch_puzzle import (  # noqa: E402 — one glob, one id resolver, one reader, one exemption
     blog_facts_for, clue_words, leaders_named, puzzle_files, read_puzzle_file, resolve_puzzle)
 from find_answer_leaks import says  # noqa: E402 — one matcher, shared with the finder
-import app_tables  # noqa: E402 — the ladder's fixed prose, read out of app.js
 
 # The controlled vocabulary for `type`. Compound types join parts with " + " and
 # must name EVERY mechanism the wordplay uses (see STYLE.md — "honest types").
@@ -1543,34 +1542,6 @@ def check_cryptic_definition_blocks(tag, ann, errors, warnings):
                 f"walkthrough. For every other type the blocks are where the answer "
                 f"is assembled; here there is nothing to assemble, so a note that "
                 f"names it is just the solve. Describe the reading, not the word")
-        # The ladder's own sentences are on the same rungs: the family's name and
-        # blurb on the type rung, the type's blurb on the blocks rung. They are
-        # app.js's words, so the fix is there, but it is found here, before the
-        # annotation ships, rather than by the smoke test after it has.
-        fam = app_tables.family_of(ann.get("type"), _families())
-        prose = fam[0] + fam[1] + "".join(
-            v for k, v in _type_blurbs() if k in (ann.get("type") or "").lower())
-        if ans in bare(prose):
-            errors.append(
-                f"{tag}: the ladder's fixed prose for a {fam[0]!r} clue spells the "
-                f"answer {ann.get('answer')!r} before the walkthrough — app.js's "
-                f"FAMILIES blurb or TYPE_BLURBS entry contains its letters. The "
-                f"annotation is not wrong: reword that sentence in app.js")
-
-
-_TABLES = {}
-
-
-def _families():
-    if "f" not in _TABLES:
-        _TABLES["f"] = app_tables.families()
-    return _TABLES["f"]
-
-
-def _type_blurbs():
-    if "t" not in _TABLES:
-        _TABLES["t"] = app_tables.type_blurbs()
-    return _TABLES["t"]
 
 
 # Function words are shared by every English phrase; an overlap on "of" or "in"

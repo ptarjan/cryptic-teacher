@@ -1,7 +1,7 @@
 // Build blind solve-packets: a clue, then its hint rungs one at a time, answer removed.
 //
-//   node tools/make_hint_packets.js 30078 > /tmp/packets.json
-//   node tools/make_hint_packets.js 30078 --key /tmp/key.json
+//   node tools/make_hint_packets.js cryptic-30078 > /tmp/packets.json
+//   node tools/make_hint_packets.js cryptic-30078 --key /tmp/key.json
 //
 // WHY A SOLVER AND NOT A RUBRIC
 //
@@ -41,8 +41,8 @@ const path = require("path");
 const { boot, ROOT } = require("./fake_dom.js");
 
 const args = process.argv.slice(2);
-const puzzleId = args.find((a) => /^\d+$/.test(a));
 const keyPath = (() => { const i = args.indexOf("--key"); return i >= 0 ? args[i + 1] : null; })();
+const puzzleId = args.find((a, i) => !a.startsWith("--") && args[i - 1] !== "--key");
 if (!puzzleId) {
   console.error("usage: node tools/make_hint_packets.js <puzzle-id> [--key out.json]");
   process.exit(2);
@@ -89,11 +89,14 @@ for (const e of puz.entries) {
 
   for (let guard = 0; guard < 10; guard++) {
     const btn = registry["hint-next"].children[0];
-    if (!btn || !btn.onclick) break;
-    // "Fill in answer" ends the ladder by writing the solution into the grid.
-    if (!/^Show hint/.test(btn.textContent || "")) break;
-    const label = btn.textContent;
+    if (!btn || !btn.onclick || btn.disabled) break;
+    // Rungs are "N · label", and the blocks rung comes out as "Next building
+    // block · ..." buttons; anything else ("Fill in answer") ends the ladder.
+    const label = btn.textContent || "";
+    if (!/^\d+ · |^Next building block · /.test(label)) break;
     btn.onclick();
+    // A rung that asks the solver to point at the words first: take "Just tell me".
+    if (registry["hint-body"].innerHTML.includes('class="hint-step guess"')) registry["guess-tell"].onclick();
     const body = text(registry["hint-body"].innerHTML);
     if (/\bAnswer:/.test(body)) break; // the reveal rung is not a teaching rung
     const after = redact(body, answer);
