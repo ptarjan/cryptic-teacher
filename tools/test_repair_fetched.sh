@@ -39,7 +39,8 @@ printf '\n\ndef refuse_bad_write(puzzle, old=None):\n    return None\n' >> "$wor
 # registry the moment it is imported -- a book's shelf, scan and index are data
 # and the module is only the reader -- so a scratch tree with the code and not
 # the tables is a tree where nothing importable imports.
-cp "$REPO"/tools/data/books.json "$REPO"/tools/data/clue_types.json "$work/tools/data/"
+cp "$REPO"/tools/data/books.json "$REPO"/tools/data/clue_types.json \
+   "$REPO"/tools/data/puzzle.schema.json "$work/tools/data/"
 # The one fixture that is NOT built here. The false-cross-reference rule is
 # gated off for the series that enumerate light by light, and a hand-written
 # Private Eye puzzle would only prove the gate against our idea of Private Eye.
@@ -331,8 +332,8 @@ check "$out" "2-down T?S?R" "naming the light the paper withheld"
 check "$out" "all 2 entries stored unsolved" "and what that costs"
 check "$out" "WARNING: cryptic-102: solution masked on" "warned on stderr"
 one cryptic-102 --apply >/dev/null
-same "the masked light is stored unsolved" \
-  "$(grep -c '"solution": null' "$work/puzzles/cryptic-102.json")" "2"
+same "the masked puzzle is stored unsolved: no light carries a solution" \
+  "$(grep -c '"solution"' "$work/puzzles/cryptic-102.json")" "0"
 absent "$(grep '"solution"' "$work/puzzles/cryptic-102.json")" "T?S?R" \
   "the mask is gone rather than kept as an answer"
 absent "$(one cryptic-102)" "cryptic-102:" "clean on the second run"

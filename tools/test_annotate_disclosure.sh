@@ -163,7 +163,6 @@ blog = "https://fifteensquared.net/2025/08/02/cyclops-99998-x/"
 real = puzzle(series="cyclops", nulls=30)
 real.update(id="cyclops-99998", name="Private Eye Cyclops crossword No 99998",
             sourceUrl="https://www.private-eye.co.uk/crossword",
-            provenance={"retrievedUrl": blog},
             solutionSource={"kind": "fifteensquared", "url": blog})
 path = Path(tempfile.mkdtemp()) / "cyclops-99998.json"
 path.write_text(json.dumps(real))

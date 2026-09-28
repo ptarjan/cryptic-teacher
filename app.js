@@ -4795,7 +4795,7 @@
   // clue. The badge says whose marks the rungs were built from, the way
   // "unverified answers" says whose answers the checker uses.
   function blogLinkHTML(e, ann) {
-    if (!P.blog || (ann && !ann.fromBlog) || e.clueMissing || e.clueCorrupt) return "";
+    if (!P.blog || (ann && !ann.fromBlog) || e.clueMissing) return "";
     return `<a class="blog-link small" href="${esc(P.blog.url)}" target="_blank" rel="noopener">Full explanation on ${esc(P.blog.name)} →</a>`;
   }
   // Credits the blog with what it marked and nothing else: a definition, a type,
@@ -4898,11 +4898,6 @@
         the space was empty in every copy, not just yours. ${e.clueMissingNote
           ? esc(e.clueMissingNote)
           : "Nothing was left to solve with, so there is no wordplay to explain."}
-        ${canCheck() ? "You can reveal the answer below." : ""}</p></div>`
-        : e.clueCorrupt
-        ? `<div class="hint-step"><p class="muted">The paper printed the wrong text against
-        this clue — the words above are not the ones this answer came from, so there is no
-        wordplay in them to explain. ${esc(e.clueCorrupt)}
         ${canCheck() ? "You can reveal the answer below." : ""}</p></div>`
         : `<div class="hint-step"><p class="muted">This clue hasn’t been explained yet
         (<span class="badge auto">answers only</span>), so it has no hints.

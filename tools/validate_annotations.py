@@ -57,6 +57,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import clue_types  # noqa: E402
+import puzzle_schema  # noqa: E402 — tools/data/puzzle.schema.json
 from fetch_puzzle import (  # noqa: E402 — one glob, one id resolver, one reader, one exemption
     blog_facts_for, clue_words, leaders_named, puzzle_files, read_puzzle_file, resolve_puzzle)
 from find_answer_leaks import says  # noqa: E402 — one matcher, shared with the finder
@@ -1248,7 +1249,8 @@ def check_features(tag, ann, clue, errors, warnings):
     feats = ann.get("features")
     if feats is None:
         warnings.append(f"{tag}: no features — add the block: misdirectedWord, joke, "
-                        f"answerInScene, aptDefinition (null/false where absent)")
+                        f"answerInScene, aptDefinition (false, or leave out misdirectedWord "
+                        f"and joke, where there is none)")
         return
     if not isinstance(feats, dict):
         errors.append(f"{tag}: features must be an object, got {type(feats).__name__}")
@@ -1264,14 +1266,14 @@ def check_features(tag, ann, clue, errors, warnings):
 
     joke = feats.get("joke")
     if joke is not None and joke not in JOKE_KINDS:
-        errors.append(f"{tag}: features.joke must be null or one of "
-                      f"{', '.join(JOKE_KINDS)}, got {joke!r}")
+        errors.append(f"{tag}: features.joke must be one of "
+                      f"{', '.join(JOKE_KINDS)} or left out, got {joke!r}")
 
     word = feats.get("misdirectedWord")
     if word is not None:
         if not isinstance(word, str) or not word.strip():
-            errors.append(f"{tag}: features.misdirectedWord must be null or a "
-                          f"word from the clue, got {word!r}")
+            errors.append(f"{tag}: features.misdirectedWord must be a word from "
+                          f"the clue or left out, got {word!r}")
         elif len(word.split()) > 1:
             errors.append(f"{tag}: features.misdirectedWord {word!r} is more than "
                           f"one word — name the single word that misleads")
@@ -2200,6 +2202,9 @@ def check_clue_unchanged(puzzle, path, errors):
 
 def validate_puzzle(puzzle, corpus=False):
     errors, warnings = [], []
+    # The file's shape first: tools/fetch_puzzle.write_puzzle_file refuses to
+    # write anything that breaks it, and this catches a file written any other way.
+    errors.extend(f"schema: {p}" for p in puzzle_schema.validate(puzzle))
     check_no_markup(puzzle, errors)
     check_groups_agree(puzzle, errors)
     check_linked_entries(puzzle, errors)
@@ -2249,7 +2254,7 @@ def validate_puzzle(puzzle, corpus=False):
 
         # What letters must the wordplay produce?
         if ann.get("coversGroup"):
-            target_letters = "".join(letters(by_id[gid]["solution"])
+            target_letters = "".join(letters(by_id[gid].get("solution") or "")
                                      for gid in e.get("group") or [e["id"]])
         else:
             target_letters = letters(e.get("solution"))

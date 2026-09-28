@@ -45,12 +45,6 @@ WHAT IT DERIVES, AND FROM WHAT
                       captures of pages that no longer exist, and on disk they
                       looked exactly like a same-morning fetch.
 
-  retrievedUrl        the capture actually read, when it differs from sourceUrl.
-                      Only the fetcher can know it, so this is carried across
-                      from the file rather than derived — null for everything
-                      retrieved before the field existed, because the archive
-                      URL was printed to stdout and never stored.
-
   gridOrigin          "reconstructed" for the Penguin-book volumes, whose black
                       squares were worked out from the clue list by
                       tools/reconstruct_grid.py, and "published" everywhere
@@ -117,10 +111,6 @@ being quietly counted as anything. If a later import ever breaks that invariant
 — someone fills a grid without stamping solutionSource — the argument above
 stops holding and the right change is to mark the affected range "unknown"
 here, not to keep asserting "published" because this file once did.
-
-The one thing the backfill genuinely cannot recover is which leaf of the
-Penguin scan each of the five book puzzles was read off: the solve records that
-knew were temporary files, long gone. provenance.book.leaf is null for all five.
 """
 import argparse
 import subprocess
@@ -283,7 +273,7 @@ def main(argv=None):
     bulk = add_dates()
     solved_ever, unresolved = machine_solved_ever()
     buckets = {k: {} for k in ("acquiredBy", "acquiredOn", "retrievedFrom",
-                               "retrievedUrl", "gridOrigin", "solutionOrigin")}
+                               "gridOrigin", "solutionOrigin")}
     changed = unchanged = 0
     carried = []
 
@@ -298,10 +288,8 @@ def main(argv=None):
             carried.append(f"{path.stem} ({prov['solutionOrigin']} now)")
         for field in ("gridOrigin", "solutionOrigin", "acquiredBy", "retrievedFrom"):
             buckets[field][prov[field]] = buckets[field].get(prov[field], 0) + 1
-        for field, unknown in (("acquiredOn", prov["acquiredOn"] == "unknown"),
-                               ("retrievedUrl", not prov["retrievedUrl"])):
-            key = "not recorded" if unknown else "recorded"
-            buckets[field][key] = buckets[field].get(key, 0) + 1
+        key = "not recorded" if prov["acquiredOn"] == "unknown" else "recorded"
+        buckets["acquiredOn"][key] = buckets["acquiredOn"].get(key, 0) + 1
 
         if puzzle.get("provenance") == prov:
             unchanged += 1
@@ -318,7 +306,7 @@ def main(argv=None):
 
     verb = "would change" if args.dry_run else "changed"
     print(f"\n{changed + unchanged} puzzles: {verb} {changed}, already correct {unchanged}")
-    for field in ("acquiredBy", "acquiredOn", "retrievedFrom", "retrievedUrl",
+    for field in ("acquiredBy", "acquiredOn", "retrievedFrom",
                   "gridOrigin", "solutionOrigin"):
         print(f"\n  {field}")
         for value, n in sorted(buckets[field].items(), key=lambda kv: -kv[1]):

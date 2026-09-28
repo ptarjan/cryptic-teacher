@@ -134,6 +134,7 @@ from fetch_puzzle import (ENUMERATION, PER_LIGHT_ENUMERATION,  # noqa: E402
                           PUZZLE_DIR, has_words, is_bare_letters,
                           is_continuation, prints_own_count, puzzle_path,
                           read_puzzle_file, reindex)
+import puzzle_schema  # noqa: E402
 from reconstruct_grid import grid_of, lights_from_grid, lights_of  # noqa: E402
 import provenance  # noqa: E402
 import series as series_meta  # noqa: E402
@@ -1099,7 +1100,7 @@ PLACEHOLDER_SETTERS = {"", "unknown", "none", "null", "undefined", "n/a"}
 
 
 def check_setter(puzzle, flags):
-    """The byline is a name as printed, or null when nobody is known.
+    """The byline is a name as printed, or no setter key when nobody is known.
 
     A series whose source prints a byline on every puzzle (series.py
     `bylined`) never has a null one: null there is a parser that missed it."""
@@ -1112,7 +1113,7 @@ def check_setter(puzzle, flags):
         return
     if not isinstance(setter, str) or setter.strip().casefold() in PLACEHOLDER_SETTERS:
         flags.append(("SETTER", pid, f"setter {setter!r} is a placeholder; a puzzle "
-                      f"with no known setter has null"))
+                      f"with no known setter has no setter key"))
     elif setter != setter.strip() or "\u00a9" in setter:
         flags.append(("SETTER", pid, f"setter {setter!r} carries more than the "
                       f"name: whitespace or a copyright notice"))
@@ -1167,6 +1168,7 @@ def refuse_bad_write(puzzle, old=None):
     """Raise ValueError naming every finding `puzzle` would bring to disk."""
     flags = []
     check_puzzle(puzzle, datetime.now(timezone.utc).date(), flags)
+    flags += [("SCHEMA", puzzle.get("id"), p) for p in puzzle_schema.validate(puzzle)]
     if old is not None:
         check_rewrite(old, puzzle, flags)
     if flags:

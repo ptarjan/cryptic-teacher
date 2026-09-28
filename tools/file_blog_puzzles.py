@@ -531,7 +531,7 @@ def run(source, grids, parsed, write=True, newest=None):
                 fix["date"] = puzzle["date"]
                 redated[series] += 1
             if (held.get("setter") == series_meta.default_setter(series)
-                    and puzzle["setter"] != held["setter"]):
+                    and puzzle.get("setter") != held.get("setter")):
                 fix["setter"] = puzzle["setter"]
                 renamed[series] += 1
             if fix and write:

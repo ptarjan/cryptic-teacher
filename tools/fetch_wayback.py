@@ -65,14 +65,8 @@ CrosswordComponent props do (id, number, name, date, dimensions, entries[]
 with position/length/clue/separatorLocations/solution, and creator when the
 paper credited one). sourceUrl is therefore the ORIGINAL theguardian.com URL,
 never the web.archive.org one — it is the address a reader would cite, and
-several tools read it expecting that. The capture actually read is recorded
-separately, in provenance.retrievedUrl, alongside provenance.retrievedFrom
-"wayback"; without it a puzzle recovered from a 2016 snapshot of a page the
-Guardian has since dropped was indistinguishable on disk from one fetched live
-that morning, and the only address that can still serve it was printed to
-stdout and thrown away. The 492 puzzles recovered before that field existed
-have it null: which capture answered on the day was never written down, and
-guessing one would be worse than admitting it.
+several tools read it expecting that. provenance.retrievedFrom "wayback" says
+the bytes came from a capture.
 
 reindex() (puzzles/index.json + index.js) only runs when writing into the
 real puzzle directory. Anything written to a --out override is a sample, not
@@ -227,8 +221,7 @@ def main(argv):
         if args.dry_run:
             print(f"  DRY RUN — would write {path}")
         else:
-            write_puzzle_file(path, puzzle, generator="tools/fetch_wayback.py",
-                              retrieved_url=archive_url)
+            write_puzzle_file(path, puzzle, generator="tools/fetch_wayback.py")
             print(f"  wrote {path}")
         recovered += 1
 

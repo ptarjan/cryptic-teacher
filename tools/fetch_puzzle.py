@@ -52,6 +52,7 @@ import series as series_meta  # noqa: E402 — what each series IS; see tools/se
 import provenance  # noqa: E402 — where each puzzle came from; see tools/provenance.py
 import corroborate  # every other source we hold; see tools/corroborate.py
 import clue_types  # the closed list of clue types; see tools/clue_types.py
+import puzzle_schema  # noqa: E402 — the file's shape and presence rule; see tools/puzzle_schema.py
 
 ROOT = Path(__file__).resolve().parent.parent
 PUZZLE_DIR = ROOT / "puzzles"
@@ -743,7 +744,7 @@ def generator_of(path):
     return prov.get("acquiredBy") or "tools/fetch_puzzle.py"
 
 
-def write_puzzle_file(path, puzzle, generator=None, retrieved_url=None):
+def write_puzzle_file(path, puzzle, generator=None):
     # The file is named by the id, and the id carries the series, so two papers
     # that reach the same number cannot land on the same file — the collision is
     # impossible rather than guarded against. This assert is the one thing left
@@ -768,7 +769,10 @@ def write_puzzle_file(path, puzzle, generator=None, retrieved_url=None):
     # Every write of a puzzle file records where the puzzle came from, here,
     # rather than in each of the nine tools that write one. See
     # provenance.stamp.
-    puzzle = provenance.stamp(puzzle, generator, retrieved_url)
+    puzzle = provenance.stamp(puzzle, generator)
+    # An absent key means empty, so no writer can put a null or an empty value
+    # on disk: tools/puzzle_schema.py.
+    puzzle = puzzle_schema.prune(puzzle)
     # Every write goes through the corpus sweep's per-puzzle checks, so no
     # fetcher can write what tools/puzzle_integrity.py would report.
     import puzzle_integrity  # noqa: PLC0415 — it imports this module
@@ -1816,7 +1820,7 @@ def convert(data):
     # refresh_unsolved would stop re-fetching a puzzle whose answers might yet
     # appear. Written empty, it is re-fetched nightly and fills itself in the
     # day the paper publishes properly.
-    masked = [e for e in entries if e["solution"] and not is_bare_letters(e["solution"])]
+    masked = [e for e in entries if e.get("solution") and not is_bare_letters(e["solution"])]
     if masked:
         print(f"WARNING: {data['id']}: solution masked on "
               + ", ".join(f"{e['id']} {e['solution']!r}" for e in masked)
@@ -1886,22 +1890,19 @@ def merge_annotations(new_puzzle, old_puzzle):
     puzzle every night until its answers land, so every one of those nights
     relabelled the puzzle's true, days-old arrival date as today's. Carrying
     the old block forward is what stamp() needs to see the real acquiredOn (and
-    retrievedUrl, previousSolutionOrigin, book.leaf) instead of nothing; every
+    previousSolutionOrigin) instead of nothing; every
     field that should change with this fetch — solutionOrigin chief among
     them — is re-derived from new_puzzle's own content regardless of what
     provenance said before."""
     if old_puzzle.get("provenance"):
         new_puzzle["provenance"] = old_puzzle["provenance"]
-    # The two hand-written fields on entries the annotation queue never touches.
-    # A blank clue has no words for a model to read and a corrupt one has the
-    # wrong words, so in both cases the explanation can only come from a person.
-    # Carry them, or a re-fetch silently drops the single sentence that makes
-    # that clue make sense and the page falls back to the generic line.
-    for field in ("clueMissingNote", "clueCorrupt"):
-        notes = {e["id"]: e.get(field) for e in old_puzzle.get("entries", [])}
-        for e in new_puzzle["entries"]:
-            if notes.get(e["id"]):
-                e[field] = notes[e["id"]]
+    # The hand-written note on a blank clue: it has no words for a model to
+    # read, so its explanation can only come from a person. Carry it, or a
+    # re-fetch silently drops the one sentence that makes that clue make sense.
+    notes = {e["id"]: e.get("clueMissingNote") for e in old_puzzle.get("entries", [])}
+    for e in new_puzzle["entries"]:
+        if notes.get(e["id"]):
+            e["clueMissingNote"] = notes[e["id"]]
 
     carry_recovered_clues(new_puzzle, old_puzzle)
 
@@ -1982,8 +1983,8 @@ def grade_model_fill(puzzle, guessed):
     and merges, Everyman re-reads one hashed field and fills in place. They
     graded differently for as long as they graded separately — Everyman not at
     all — so the marking lives here and both call it."""
-    wrong = [(e["id"], guessed.get(e["id"]), e["solution"])
-             for e in puzzle["entries"] if guessed.get(e["id"]) != e["solution"]]
+    wrong = [(e["id"], guessed.get(e["id"]), e.get("solution"))
+             for e in puzzle["entries"] if guessed.get(e["id"]) != e.get("solution")]
     # An annotation explains how the clue yields the answer, so an annotation
     # written off a wrong answer is wrong all the way through — definition,
     # blocks, walkthrough. Drop it and let the queue write it again against
@@ -2049,14 +2050,9 @@ def puzzle_is_annotated(puzzle):
     model or human, can write a ladder for it. Counting one against its puzzle
     marks that puzzle permanently un-annotated, which buys a full annotation
     run on it every night, for ever, to solve the clues that were already done.
-
-    A clue the paper published with the WRONG words costs exactly the same and
-    is just as unfillable — the printed text does not lead to the printed
-    answer, so a ladder over it would have to be invented. clueCorrupt is a
-    person saying so, and it counts the same way.
     """
-    return all(e.get("annotation") is not None or not has_words(e["clue"])
-               or e.get("clueCorrupt") for e in puzzle["entries"])
+    return all("annotation" in e or not has_words(e["clue"])
+               for e in puzzle["entries"])
 
 
 def clue_coverage(puzzle):
@@ -2067,9 +2063,7 @@ def clue_coverage(puzzle):
     missing all 28 is a picture of a lattice. Only the ratio separates them, so
     the ratio is what the index carries and each reader picks its own line.
 
-    Readable is has_words plus not clueCorrupt, the same pair puzzle_is_annotated
-    excuses: printed-blank and printed-wrong are equally unsolvable, and a solver
-    handed either has to invent the clue before it can answer it.
+    Readable is has_words, the same test puzzle_is_annotated excuses.
 
     A one-character clue counts as present, because it is one: ")" is the whole
     of CLOSE BRACKETS and a line of morse the whole of MORSE. What stays
@@ -2079,7 +2073,7 @@ def clue_coverage(puzzle):
     grid that is still entirely solvable.
     """
     return {"present": sum(1 for e in puzzle["entries"]
-                           if has_words(e["clue"]) and not e.get("clueCorrupt")),
+                           if has_words(e["clue"])),
             "total": len(puzzle["entries"])}
 
 
@@ -2120,7 +2114,7 @@ def reindex():
             "number": p["number"],
             "series": p["series"],
             "name": p["name"],
-            "setter": p["setter"],
+            **({"setter": p["setter"]} if "setter" in p else {}),
             "date": p.get("date"),
             # The generated shim, because that is what app.js injects — the
             # .json beside it is the source the shim was built from.

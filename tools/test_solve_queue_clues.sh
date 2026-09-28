@@ -44,14 +44,13 @@ sys.path.insert(0, "tools")
 from fetch_puzzle import clue_coverage
 p = {"entries": [{"clue": "Vehicle for a comeback (3)"},    # readable
                  {"clue": " (8)"},                          # printed blank
-                 {"clue": "Nonsense the paper garbled (5)", "clueCorrupt": True},
                  {"clue": "␣␣ 9 (5)"}]}           # bare cross-reference
 c = clue_coverage(p)
 print(f"{c['present']}/{c['total']}")
 EOF
 ) || out="raised: $out"
-check "a blank clue and a corrupt one are unreadable, a cross-reference is not" \
-  "$out" "2/4"
+check "a blank clue is unreadable, a cross-reference is not" \
+  "$out" "2/3"
 
 echo "and every puzzle on disk is counted the same way in puzzles/index.json"
 # Generated and untracked, so it is built before it is read: CI is a fresh clone.
@@ -65,10 +64,9 @@ from fetch_puzzle import puzzle_files, read_puzzle_file
 # Counted here rather than imported: a test that asks the writer what the writer
 # wrote asserts nothing. Readable is anything left once the enumeration is off —
 # "␣␣ 9 (5)" is a whole clue, cryptic-30059 14-down, and so is ")" on its own,
-# the whole of CLOSE BRACKETS — and not marked corrupt.
+# the whole of CLOSE BRACKETS.
 def readable(e):
-    return (bool(re.sub(r"\([\d,\-. ]*\)", "", e["clue"]).strip())
-            and not e.get("clueCorrupt"))
+    return bool(re.sub(r"\([\d,\-. ]*\)", "", e["clue"]).strip())
 
 
 want = {}

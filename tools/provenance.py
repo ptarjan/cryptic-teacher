@@ -30,7 +30,6 @@ cannot be added without saying what it means.
      "acquiredBy": "tools/fetch_wayback.py",
      "acquiredOn": "2026-09-02",
      "retrievedFrom": "wayback",
-     "retrievedUrl": "https://web.archive.org/web/2016id_/https://...",
      "gridOrigin": "published",
      "solutionOrigin": "published"
     }
@@ -41,10 +40,7 @@ puzzle's canonical page, the address a reader would cite — because several
 tools read it expecting that and a second copy is a second thing that can be
 wrong. What provenance adds is the RULE about it (check() refuses a puzzle that
 has provenance and no sourceUrl) and the thing sourceUrl never said: WHERE THE
-BYTES WERE ACTUALLY READ FROM. `retrievedFrom` is that channel, and
-`retrievedUrl` is the address actually fetched when it differs — the Wayback
-capture, which is what someone re-verifying the puzzle would need and which
-sourceUrl, pointing at a page the paper has since dropped, will not give them.
+BYTES WERE ACTUALLY READ FROM. `retrievedFrom` is that channel.
 
 ONE PUZZLE CAN HAVE THREE DIFFERENT ORIGINS, so they are three fields rather
 than one "source". Cyclops is the ordinary case, not an edge case: the grid and
@@ -363,7 +359,7 @@ def book_of(series, number):
 
 
 REQUIRED = ("publisher", "series", "acquiredBy", "acquiredOn",
-            "retrievedFrom", "retrievedUrl", "gridOrigin", "solutionOrigin")
+            "retrievedFrom", "gridOrigin", "solutionOrigin")
 
 ISO_DATE = re.compile(r"\d{4}-\d{2}-\d{2}")
 
@@ -453,15 +449,6 @@ def derive(puzzle, claimed, acquired_on, previously=None):
         "acquiredBy": tool,
         "acquiredOn": acquired_on if acquired_on else "unknown",
         "retrievedFrom": channel_of(tool),
-        # The address actually fetched, when it is not sourceUrl. Only the tool
-        # that did the fetching can know it, so it is carried across from
-        # whatever is already on the file rather than derived: fetch_wayback.py
-        # and fetch_metro.py --wayback write it now, and for the 542 puzzles
-        # they retrieved BEFORE this field existed it is null, because the
-        # capture URL was printed to stdout and never stored. Null here means
-        # "not recorded", and no reconstruction of it would be anything but a
-        # guess at which capture was served that day.
-        "retrievedUrl": (puzzle.get("provenance") or {}).get("retrievedUrl"),
         "gridOrigin": grid_origin(series),
         "solutionOrigin": origin,
     }
@@ -489,11 +476,6 @@ def derive(puzzle, claimed, acquired_on, previously=None):
         # The book's own number, not the file's: the file's carries the volume
         # (series.py, volume * 1000 + position) and the book prints No 18.
         book["numberInBook"] = position_of(series, puzzle["number"])
-        # Which leaf of the scan the clues were read off. parse_penguin_book.py
-        # knows it (it emits source_leaves) but the five puzzles filed before
-        # provenance existed were written from solve records that no longer
-        # exist, so theirs cannot be recovered. null, not a guess.
-        book["leaf"] = (puzzle.get("provenance") or {}).get("book", {}).get("leaf")
         prov["book"] = book
     return prov
 
@@ -517,7 +499,7 @@ def place(puzzle, prov):
     return out
 
 
-def stamp(puzzle, tool, retrieved_url=None):
+def stamp(puzzle, tool):
     """Provenance for a puzzle being written right now, by `tool`.
 
     Called from fetch_puzzle.write_puzzle_file, which means EVERY write of a
@@ -534,9 +516,6 @@ def stamp(puzzle, tool, retrieved_url=None):
     write.
     """
     existing = puzzle.get("provenance") or {}
-    if retrieved_url:
-        puzzle = {**puzzle,
-                  "provenance": {**existing, "retrievedUrl": retrieved_url}}
     return place(puzzle, derive(puzzle, tool,
                                 existing.get("acquiredOn") or today()))
 
@@ -608,16 +587,6 @@ def check(puzzle):
         findings.append(f"provenance.retrievedFrom is {prov['retrievedFrom']!r} but "
                         f"{prov.get('acquiredBy')!r} reads through "
                         f"{expected_channel!r}")
-
-    # A capture URL on a puzzle fetched from the publisher would mean the two
-    # fields describe different retrievals. Null on an archive channel is
-    # allowed and means "not recorded" — see derive().
-    url = prov.get("retrievedUrl")
-    if url is not None and not isinstance(url, str):
-        findings.append(f"provenance.retrievedUrl is {url!r} — want a URL or null")
-    elif url and expected_channel == "publisher":
-        findings.append("provenance.retrievedUrl is set but this was read from the "
-                        "publisher, where sourceUrl IS the address fetched")
 
     # The canonical URL is not copied into provenance, so this is where the rule
     # about it lives: provenance without a link is provenance that cannot be
