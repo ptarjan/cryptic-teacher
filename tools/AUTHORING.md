@@ -148,8 +148,9 @@ What each extra is used for:
 
 Licences, and what is committed versus fetched: `tools/data/README.md`.
 
-`tools/data/abbreviations.json` is hand-built (H = hard, R = river, ...) and is
-*meant to grow*. Add to it when a clue needs an abbreviation it lacks. Solvers
+`tools/data/abbreviations.json` (H = hard, R = river, ...) holds every reading
+ten or more solved clues use, and `tools/build_abbreviations.py --check` fails
+CI on one it lacks; add a sense with `tools/add_abbreviation.py`. Solvers
 read it too: `tools/build_abbreviations.py` publishes it as `abbreviations.js`,
 and the building-blocks rung names the conventions a clue used ("sailor = AB").
 So an entry added here is something the site then teaches.

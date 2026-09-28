@@ -55,16 +55,18 @@ add A about >/dev/null
 after=$(md5sum "$sand/tools/data/abbreviations.json" | cut -d' ' -f1)
 check "an existing letter's existing sense changes nothing" "$after" "$before"
 
-echo "a second sense is appended, sorted, existing rows untouched elsewhere:"
-add AB stopgap >/dev/null
-check "AB gained the new sense alongside the old ones" "$(row AB)" \
-  "['sailor', 'seaman', 'stopgap']"
+echo "a second sense is appended, sorted, the row's others kept:"
+add ZX alpha beta >/dev/null
+add ZX gamma >/dev/null
+check "ZX gained the new sense alongside the old ones" "$(row ZX)" \
+  "['alpha', 'beta', 'gamma']"
 
 echo "a sense that differs only in punctuation takes the existing spelling:"
-add ZY "High-Speed" >/dev/null
-check "the table's own spelling lands, not a second anchor" "$(row ZY)" "['high speed']"
+add ZW "odd spelling" >/dev/null
+add ZY "Odd-Spelling" >/dev/null
+check "the table's own spelling lands, not a second anchor" "$(row ZY)" "['odd spelling']"
 add ZY "test sense" "test-sense" >/dev/null
-check "two spellings in one call land once" "$(row ZY)" "['high speed', 'test sense']"
+check "two spellings in one call land once" "$(row ZY)" "['odd spelling', 'test sense']"
 
 echo "several concurrent adds to the same row all survive:"
 pids=()

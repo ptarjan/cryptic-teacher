@@ -11,6 +11,13 @@ pieces were conventions.
 Generated, not hand-written, so the solver's glossary and the clue-writer's
 cannot drift into two different tables. tools/smoke_test.js fails if this file
 is stale.
+
+    python3 tools/build_abbreviations.py --check
+
+fails, printing the tools/add_abbreviation.py command for each, when a reading
+SEEN_MIN clues use is neither in the table, derived() from pieces it holds, nor
+in REJECT. CI runs it, so the table follows the corpus instead of waiting for
+an annotator to notice a gap.
 """
 import json
 import re
@@ -19,10 +26,30 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "tools" / "data" / "abbreviations.json"
 # Clue word -> {letters: clues}, off the solving blogs and our own annotations
-# (tools/letter_facts.py --lexicons). Read only by seen(), for the page.
+# (tools/letter_facts.py --lexicons). Read by seen(), for the page and --check.
 LEXICON = ROOT / "tools" / "data" / "lexicons" / "blocks.json"
-# seen() keeps a reading only when this many clues use it.
+# A reading this many clues use is a convention the table must hold, unless
+# derived() or REJECT says it is not one: `--check` fails on the rest. Set where
+# the ranked readings are still mostly standard conventions (sober TT, puff AD,
+# apprentice L at 10); below it paraphrases and two-piece readings (a kiss X,
+# one pound L) crowd them out.
 SEEN_MIN = 10
+# Readings over SEEN_MIN that are not one convention, each with the reason.
+REJECT = {
+    ("french", "UN"): "the convention is 'a French'; the A was a separate clue word",
+    ("parisian", "UN"): "the convention is 'a Parisian'; the A was a separate clue word",
+    ("foreign", "UN"): "the convention is 'a foreign'; the A was a separate clue word",
+    ("i see", "IC"): "I + C, two conventions (I; see C)",
+    ("both hands", "L"): "'both hands' is LR together; L alone is half the piece",
+    ("both hands", "R"): "'both hands' is LR together; R alone is half the piece",
+    ("without hesitation", "ER"): "'without' is the clue's container indicator",
+    ("learner", "AL"): "A + L; the A was a separate clue word",
+    ("large", "AL"): "A + L; the A was a separate clue word",
+    ("everyone", "AL"): "ALL cut short, an operation",
+    ("entirely", "AL"): "ALL cut short, an operation",
+    ("everything", "AL"): "ALL cut short, an operation",
+    ("not one", "I"): "'not' belongs to another part of the wordplay",
+}
 # Two-letter readings that are everyday words. POPULAR -> IN and WHEN -> AS are
 # synonyms, however often setters use them, not conventions to learn.
 EVERYDAY = frozenset("AM AN AS AT BE BY DO GO HE HI IF IN IS IT ME MY NO OF OH OK "
@@ -115,6 +142,9 @@ FAMILIES = [
     ("Measures", "yard Y, pound L, tons T, miles M, gallons G, litre L, pound LB, "
                  "yard YD, pint PT, foot FT, metre M, kilometre K, gram G, acre A, "
                  "ounce OZ"),
+    ("Foreign words", "the french LE, the spanish EL, a french UN, the french LA, "
+                      "of french DE, the parisian LE, a parisian UN, french article UN, "
+                      "spanish article EL, french art ES, french and ET, frenchmen MM"),
     ("US states", "new york NY, virginia VA, california CA, rhode island RI, ohio O, "
                   "washington WA, florida FL, alabama AL, delaware DE, oregon OR, "
                   "north dakota ND"),
@@ -175,13 +205,10 @@ def seen():
     blocks.json holds every reading a clue piece was given, synonyms and fodder
     included, so a reading is kept only when it is a convention by construction:
     one or two letters, not an everyday word, used by at least SEEN_MIN clues,
-    and not made of the clue word's own letters in order. That last rule costs
-    the initial-letter conventions (R for river), which the curated table
-    already has, and is what keeps out the clues that took a word's first or
-    outer letters: T from trade, TY from totally.
-
-    This is for the page only. tools/clueability.py builds from
-    tools/data/abbreviations.json alone, so nothing here widens what it may use.
+    not made of the clue word's own letters in order, and not in REJECT. The
+    letters rule costs the initial-letter conventions (R for river), which the
+    table already has, and is what keeps out the clues that took a word's first
+    or outer letters: T from trade, TY from totally.
     """
     curated = {(letters_of(w), k) for k, ws in json.loads(SRC.read_text())["abbreviations"].items()
                for w in ws}
@@ -191,9 +218,55 @@ def seen():
         for letters, n in readings.items():
             if (n >= SEEN_MIN and len(letters) <= 2 and len(letters) < len(bare)
                     and letters not in EVERYDAY and not subsequence(letters, bare)
-                    and (bare, letters) not in curated):
+                    and (bare, letters) not in curated
+                    and (word.lower(), letters) not in REJECT):
                 rows.append((word.lower(), letters, n))
     return sorted(rows)
+
+
+def derived(word, letters, known):
+    """Why a reading is pieces the table already holds rather than a convention
+    of its own, or None. `known` is (letters_of(word), letters) pairs.
+
+    An article on a sense (a hundred C, a king AR), a plural or pair written
+    twice (lines LL, two females FF), and a self-reference with 's or 'd
+    (setter's IM, one had ID) each teach nothing the parts do not.
+    """
+    if letters == "IM" and (word.endswith("s") or word.endswith(" is")):
+        return "I + 'm, the I being the clue's self-reference"
+    if letters == "ID" and word.endswith(" had") and (letters_of(word[:-4]), "I") in known:
+        return f"{word[:-4]} = I, + 'd for had"
+    for head in ("a ", "an ", "the ", "one "):
+        if word.startswith(head):
+            rest = letters_of(word[len(head):])
+            if (rest, letters) in known:
+                return f"{word[len(head):]} = {letters}, with {head.strip()!r}"
+            if head == "a " and letters[0] == "A" and (rest, letters[1:]) in known:
+                return f"A + {word[len(head):]} = {letters[1:]}"
+    if len(letters) == 2 and letters[0] == letters[1]:
+        bare = word.removeprefix("two ").removeprefix("both ")
+        stems = {bare, bare.removesuffix("s"), bare.removesuffix("es")}
+        if bare.endswith("ies"):
+            stems.add(bare[:-3] + "y")
+        for stem in sorted(stems, key=len):
+            if (letters_of(stem), letters[0]) in known:
+                return f"{stem} = {letters[0]}, twice"
+    return None
+
+
+def readings():
+    """seen() as (clue word, letters, clues, why): `why` is derived()'s reason,
+    None for a convention the table should hold and does not."""
+    rows = seen()
+    known = ({(letters_of(w), k) for w, k, _ in rows}
+             | {(letters_of(w), k) for k, ws in json.loads(SRC.read_text())["abbreviations"].items()
+                for w in ws})
+    return [(w, k, n, derived(w, k, known)) for w, k, n in rows]
+
+
+def proposals():
+    """seen() readings the table should hold and does not: (word, letters, clues)."""
+    return [(w, k, n) for w, k, n, why in readings() if not why]
 
 
 def letters_of(s):
@@ -217,9 +290,9 @@ def table_html(senses, links=None, rare=None):
     that one row, so the solver lands on the line they asked about instead of on
     the top of a four-hundred-row table with the reading still to do.
 
-    `links` maps a word to a clue that uses it. `rare` maps a word to seen()'s
-    readings for it, which join the same row in muted type: one list, looked up
-    the same way, with the curated readings first.
+    `links` maps a word to a clue that uses it. `rare` maps a word to its
+    readings() as (letters, clues, why), which join the same row in muted type:
+    one list, looked up the same way, with the table's readings first.
     """
     links, rare = links or {}, rare or {}
     by_anchor = {anchor(w): w for w in senses}
@@ -239,8 +312,8 @@ def table_html(senses, links=None, rare=None):
         out.append(f'<h3 id="abbr-{head[0].lower()}-">{head}</h3>\n<dl class="glossary">')
         for w in words:
             letters = sorted(senses.get(w, [])) + [
-                f'<span class="muted" title="seen in {n:,} clues">{k}</span>'
-                for k, n in rare.get(w, [])]
+                f'<span class="muted" title="seen in {n:,} clues{f": {why}" if why else ""}">'
+                f'{k}</span>' for k, n, why in rare.get(w, [])]
             word = f'<a href="{links[w]}">{w}</a>' if w in links else w
             out.append(f'<div id="{anchor(w)}"><dt>{word}</dt><dd>{", ".join(letters)}</dd></div>')
         out.append("</dl>")
@@ -254,5 +327,30 @@ def write(path, text):
     return "rebuilt" if stale else "unchanged"
 
 
+def check():
+    """Exit non-zero with the command for each reading the table should hold."""
+    lexicon = json.loads(LEXICON.read_text())
+    stale = [f"{w} {k}" for w, k in REJECT if lexicon.get(w.upper(), {}).get(k, 0) < SEEN_MIN]
+    if stale:
+        print(f"REJECT in tools/build_abbreviations.py lists {', '.join(stale)}, which "
+              f"fewer than {SEEN_MIN} clues now use; delete the entry")
+        return 1
+    missing = proposals()
+    if not missing:
+        print(f"abbreviations.json holds every reading >= {SEEN_MIN} clues use")
+        return 0
+    print(f"{len(missing)} reading(s) in {LEXICON.relative_to(ROOT)} are used by >= "
+          f"{SEEN_MIN} clues and not in {SRC.relative_to(ROOT)}. Add each (fix the "
+          "spelling if the lexicon dropped a hyphen or apostrophe), or add it to "
+          "REJECT in tools/build_abbreviations.py with the reason it is not one "
+          "convention:")
+    for word, letters, n in sorted(missing, key=lambda r: -r[2]):
+        print(f"  python3 tools/add_abbreviation.py {letters} {word!r}  # {n} clues")
+    return 1
+
+
 if __name__ == "__main__":
+    import sys
+    if sys.argv[1:] == ["--check"]:
+        sys.exit(check())
     print(f"abbreviations.js: {write(OUT, render())}")

@@ -611,8 +611,9 @@ docs/LAYOUT.md                               this page: every tracked file and w
 tables everything else reads
 tools/data/README.md                         what in tools/data is committed, what is fetched,
                                              and under what licence
-tools/data/abbreviations.json                the hand-built starter table of standard
-                                             abbreviations
+tools/data/abbreviations.json                standard abbreviations: every reading ten or more
+                                             clues use, checked by build_abbreviations.py
+                                             --check
 tools/data/lexicons/blocks.json              clue word -> letters -> clues, off the blogs and
                                              our annotations (tools/letter_facts.py
                                              --lexicons); the abbreviations/ page lists its

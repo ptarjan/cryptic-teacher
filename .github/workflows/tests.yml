@@ -79,6 +79,8 @@ jobs:
         run: |
           fails=()
           python3 tools/build_readme.py --check-layout || fails+=("layout table")
+          python3 tools/build_abbreviations.py --check \
+            || fails+=("abbreviations.json lacks a frequent reading: run the commands above")
           python3 tools/build_annotate_prompt.py >/dev/null
           git diff --exit-code tools/annotate_prompt.md \
             || fails+=("annotate_prompt.md reference section: run tools/build_annotate_prompt.py")

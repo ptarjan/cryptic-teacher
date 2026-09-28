@@ -50,6 +50,7 @@ Usage:
 """
 
 import argparse
+import hashlib
 import json
 import math
 import sys
@@ -330,7 +331,7 @@ def build_cache(min_len=3, max_len=15, min_familiarity=PIECE_FLOOR, verbose=True
         if verbose and i % 10000 == 0 and i:
             print(f"  scored {i}/{len(targets)}…", file=sys.stderr)
     CACHE.write_text(
-        f"#clueability v{CACHE_VERSION}\twords={len(rows)}\n" + "\n".join(rows) + "\n",
+        f"{cache_header()}\twords={len(rows)}\n" + "\n".join(rows) + "\n",
         encoding="ascii")
     if verbose:
         print(f"wrote {CACHE} — {len(rows)} words in {time.time() - t0:.1f}s",
@@ -338,12 +339,19 @@ def build_cache(min_len=3, max_len=15, min_familiarity=PIECE_FLOOR, verbose=True
     return cl
 
 
+def cache_header():
+    """The cache's first line: the scorer version and the table it scored with,
+    so an edit to either rebuilds it."""
+    digest = hashlib.sha1(ABBREV_FILE.read_bytes()).hexdigest()[:12]
+    return f"#clueability v{CACHE_VERSION} abbreviations={digest}"
+
+
 def load_cache():
     """Returns {word: (clue_score, familiarity, flags)} or None if unusable."""
     if not CACHE.exists():
         return None
     lines = CACHE.read_text(encoding="ascii").splitlines()
-    if not lines or not lines[0].startswith(f"#clueability v{CACHE_VERSION}\t"):
+    if not lines or not lines[0].startswith(f"{cache_header()}\t"):
         return None
     out = {}
     for line in lines[1:]:
