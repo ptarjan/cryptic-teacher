@@ -62,6 +62,11 @@ check "\"another (gloss) of\" after an anagram is a second anagram" \
   'anagram + container' "$(t bigdave44 'I’m so aroused in fancy lace underwear (8)' 'CAMISOLE An anagram (aroused) of IM SO inserted into another (fancy) of LACE' CAMISOLE)"
 check "IS in capitals before an operator is letters, not filler" \
   'charade + container' "$(t timesforthetimes 'Seafood from Hull is served in fine hotel (9)' 'SHELLFISH – SHELL(hull), then IS inside F(fine) and H(hotel)' SHELLFISH)"
+ind() { facts "$1" "$2" "<p>1 $2<br/>$3</p>" "$4" | python3 -c 'import json,sys; print(json.load(sys.stdin).get("indicators"))'; }
+check "a gloss on letters put in, not clue words, holds their source: only its container word is the indicator" \
+  "['round']" "$(ind bigdave44 'Travel guide and staff going round one area, politician round another (4,3)' 'ROAD MAP – MP (politician) into which a second A is inserted (round another).' ROADMAP)"
+check "a gloss on clue words put in is the indicator whole" \
+  "['standing in']" "$(ind bigdave44 'Nasty chore, standing in queue after arranging method of payment (10)' 'EUROCHEQUE – a nasty CHORE is inserted into (standing in) an anagram of QUEUE' EUROCHEQUE)"
 
 # Two underlines with only a space between them are two spans.
 DD='<p>3 <u>Consequence</u> of <u>lob</u>? (6)<br/>Double definition</p>'
