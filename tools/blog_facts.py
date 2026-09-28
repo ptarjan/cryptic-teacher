@@ -793,6 +793,14 @@ def tokens(s, depth=0):
                 if src and (src.group("p") or src.group("q") or src.group("f") or src.group("e") or src.group("c")
                             or re.search(r"[a-z]", (src.group("s") or "") + (src.group("b") or ""))):
                     i = src.end()
+                    e = src.group("e")
+                    if e and re.match(rf"\s*[{CAP}]", s[src.end():]):
+                        # "PAPA = pop has KIR": an unbracketed gloss that runs into
+                        # the next letters ends at the operator before them.
+                        op_at = next((w.start() for w in re.finditer(r"(?<= )[a-z]", e)
+                                      if (o := OP_RX.match(e, w.start())) and not e[o.end():].strip()), None)
+                        if op_at is not None:
+                            i = src.start("e") + op_at
                     sourced = True
                     continue
                 break
