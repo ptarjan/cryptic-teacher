@@ -139,6 +139,7 @@ LAYOUT = [
     ("annotating", "tools/annotate_check.py", "the one command an annotation run needs after every edit: applies, validates, audits, reindexes, and says everything wrong at once"),
     ("annotating", "tools/test_annotate_disclosure.sh", "proves each rule cut from the annotation prompt still arrives through its check, and that the blog lookup is disclosed only once the last few clues are null — never earlier, never blind"),
     ("annotating", "tools/validate_annotations.py", "proves every annotation actually spells its answer, plus the other rules about what a rung may and may not say"),
+    ("annotating", "tools/test_indicator_repeats.sh", "an indicator may repeat in `indicators` only as often as the clue prints it"),
     ("annotating", "tools/test_blocks_against_blog.sh", "holds the blog block check to its fixtures: a piece we spell, reverse, hear, delete from or anagram is silent, and one we lack is reported"),
     ("annotating", "tools/test_defined_by_preamble.sh", "holds `definedByPreamble` to standing in for `definition` only where the puzzle prints a preamble, and never beside a definition"),
     ("annotating", "tools/apply_annotations.py", "writes a run’s annotation JSON into the puzzle file, and validates the result"),
