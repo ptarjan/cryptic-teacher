@@ -1,5 +1,5 @@
-"""The one spelling of an indicator phrase, and whether an annotation's type
-names an indicator type.
+"""The one spelling of an indicator phrase, and the (type, key) pairs a
+clue's indicators give.
 
 tools/data/lexicons/indicators.json is keyed by indicator_key(); anything that
 looks a phrase up in it — the /indicators/ page, the burn's indicator cover —
@@ -32,12 +32,6 @@ def indicator_key(s):
     return " ".join(indicator_words(s))
 
 
-def names_type(kind, types):
-    """Whether an annotation's (or a blog's) type array names indicator type
-    `kind`: indicators.json is keyed by the same clue_types names."""
-    return kind in (types or ())
-
-
 def lexicon_key(words, keys):
     """(key, exact) for the indicators.json key among `keys` that a phrase's
     words (indicator_words) stand for, or None: the whole phrase, else the
@@ -52,21 +46,21 @@ def lexicon_key(words, keys):
     return None
 
 
-def clue_pairs(lex, types, indicators):
-    """{(type, key): exact} for one clue: each indicator phrase against
-    indicators.json `lex` for every type in `lex` the clue's `types` name.
+def clue_pairs(lex, indicators):
+    """{(type, key): exact} for one clue: each indicator object against
+    indicators.json `lex` under its own `for`, where `lex` has that type. An
+    indicator without `for` gives nothing: which mechanism it signals is unknown.
 
-    A phrase that is not itself a key matches the longest key inside it only
-    when the clue has one type: with several, nothing says which type the
-    phrase served, and a charade's "touched on" would link anagram TOUCHED."""
-    single = len(types or ()) == 1
-    types = [t for t in lex if names_type(t, types)]
+    A phrase that is not itself a key matches the longest key inside it
+    (lexicon_key): "variety of" is anagram VARIETY. That is safe exactly
+    because the type is the phrase's own `for`, so a charade's "touched on"
+    is only ever looked up among charade keys, never as anagram TOUCHED."""
     out = {}
-    for phrase in indicators or ():
-        words = indicator_words(phrase)
-        for t in types:
-            hit = lexicon_key(words, lex[t]) if single else (
-                (k, True) if (k := " ".join(words)) in lex[t] else None)
-            if hit and not out.get((t, hit[0])):
-                out[(t, hit[0])] = hit[1]
+    for ind in indicators or ():
+        t = ind.get("for")
+        if t not in lex:
+            continue
+        hit = lexicon_key(indicator_words(ind["text"]), lex[t])
+        if hit and not out.get((t, hit[0])):
+            out[(t, hit[0])] = hit[1]
     return out

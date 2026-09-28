@@ -114,6 +114,11 @@ PRECISION_BAR = 0.97
 MAX_BLOCKS = 5
 
 
+def texts(inds):
+    """The clue words of indicator objects: each one's `text`."""
+    return [i["text"] for i in inds or ()]
+
+
 def words(body):
     """The clue's words as (text, letters), punctuation dropped."""
     return [(m.group(), letters(m.group())) for m in WORD.finditer(body) if letters(m.group())]
@@ -386,7 +391,7 @@ def indicators(ws, free, fodder, t, lexicon):
             span = set(range(i, i + n))
             if not span <= free or span & used or (fodder and not span & near):
                 continue
-            phrase = " ".join(w[0] for w in ws[i:i + n]).lower().replace("’", "'")
+            phrase = vote_key(" ".join(w[0] for w in ws[i:i + n]))
             votes = lexicon.get(phrase)
             if votes and sum(votes[p] for p in parts) >= MIN_INDICATOR \
                     and max(votes, key=votes.get) in parts:
@@ -593,7 +598,7 @@ def infer_blocks(clue, answer, facts, lex):
     ws = words(clue_body(clue))
     bare = [(w[:-2], l[:-1]) if POSSESSIVE.search(w) else (w, l) for w, l in ws]
     taken = set()
-    for phrase in facts.get("definition", []) + facts.get("indicators", []):
+    for phrase in facts.get("definition", []) + texts(facts.get("indicators")):
         taken |= locate(phrase, ws) or set()
     pieces, runs = [], []
     for bl, src, *op in given:
@@ -685,7 +690,7 @@ def infer_fuzzy_blocks(clue, answer, facts, lex, dlex, said, sources=None, why=N
     ws = words(clue_body(clue))
     bare = [(w[:-2], l[:-1]) if POSSESSIVE.search(w) else (w, l) for w, l in ws]
     taken = set()
-    for phrase in facts.get("definition", []) + facts.get("indicators", []):
+    for phrase in facts.get("definition", []) + texts(facts.get("indicators")):
         taken |= locate(phrase, ws) or set()
     pieces, runs, seen = [], [], set()
     for bl, src, *op in given:
@@ -858,6 +863,9 @@ def narrowest(pieces, ws, lex, phrases=frozenset()):
 SIGNALLED = frozenset({"anagram", "container", "reversal", "deletion", "letter_selection"})
 #: What blog types name an indicator for, as the parts SIGNALLED is drawn from.
 IND_PARTS = SIGNALLED | {"hidden_word", "homophone", "spoonerism"}
+#: The parts the indicator lexicon counts: a charade's too, where blogs name
+#: "after" and "supporting".
+VOTED_PARTS = IND_PARTS | {"charade"}
 #: The most clue words one indicator is.
 MAX_IND = 4
 #: A phrase is read as an indicator of a part where blogs named it one at
@@ -937,19 +945,6 @@ def spans(clue):
     return body, [(m.group(), letters(m.group())) for m in ms], [m.span() for m in ms]
 
 
-def voted(answer, facts):
-    """The one part a clue's indicators signal, from its type or, untyped, the
-    parts its blocks imply. A charade with nothing else is one part too,
-    where blogs name "after" and "supporting"."""
-    t = facts.get("type")
-    parts = set(t) if t else \
-        (wordplay(answer, facts.get("blocks")) or set()) if coverage(answer, facts) == "full" else set()
-    parts &= IND_PARTS | {"charade"}
-    if len(parts) > 1:
-        parts.discard("charade")
-    return parts.pop() if len(parts) == 1 else None
-
-
 class _Less(dict):
     """A read-only view of counts `base` less `delta`: a Counter less a
     Counter, a [count, count] less a [count, count], key by key."""
@@ -971,8 +966,9 @@ class Indicators:
     """The indicators blogs stated, keyed to the part they signal.
 
     `votes`: clue words (their letters, word by word) -> Counter of the parts
-    of the clues blogs named them an indicator in, counted only where the
-    clue has one part an indicator signals (see voted). `left`: clue
+    blogs named them an indicator for: each indicator counted under its own
+    `for` where that is a part an indicator signals (VOTED_PARTS), and under
+    nothing without one. `left`: clue
     words -> [write-ups naming indicators that left them outside the
     definition and blocks, those that named them an indicator]: "to" is left
     over in thousands and an indicator in a few. `inner`: clue words ->
@@ -1007,11 +1003,10 @@ class Indicators:
         for pid, eid, clue, answer, facts in corpus:
             if pid in skip or not facts.get("indicators"):
                 continue
-            named = {_key(i) for i in facts["indicators"]}
-            part = voted(answer, facts)
-            if part:
-                for k in named:
-                    votes[k][part] += 1
+            named = {_key(i["text"]) for i in facts["indicators"]}
+            for i in facts["indicators"]:
+                if i.get("for") in VOTED_PARTS:
+                    votes[_key(i["text"])][i["for"]] += 1
             if not facts.get("definition"):
                 continue
             ws = words(clue_body(clue))
@@ -1029,7 +1024,7 @@ class Indicators:
                         for z in range(a + 1, n + 1):
                             if z - a < n and key[a:z] in named:
                                 inner[key][a, z] += 1
-            inds = [sorted(locate(i, ws) or ()) for i in facts["indicators"]]
+            inds = [sorted(locate(i["text"], ws) or ()) for i in facts["indicators"]]
             covered = roles | {k for sp in inds for k in sp}
             for sp in filter(None, inds):
                 for side, end, out in (("L", sp[0], sp[0] - 1), ("R", sp[-1], sp[-1] + 1)):
@@ -1086,8 +1081,9 @@ def infer_indicators(clue, answer, facts, ilex):
     other word left over a link word, or for a forward hidden word or an
     anagram, where the lexicon reads none, the free words
     themselves (see free_words_indicator). A
-    list of clue phrases, [] when none is wanted, None when the reading is
-    not the only one.
+    list of indicator objects, {"text": clue phrase} with "for" the part
+    read where the clue's type is that one part, [] when none is wanted,
+    None when the reading is not the only one.
 
     Where the blocks want two, blogs name one of them as often as both (74%
     of the phrases read were the blog's, against 98% for one), so those are
@@ -1113,7 +1109,10 @@ def infer_indicators(clue, answer, facts, ilex):
     got = _lexicon_indicator(ws, at, body, taken, part, ilex)
     if got is None and part in FREE_WORDS_PARTS:
         got = free_words_indicator(ws, at, body, taken, ilex)
-    return got
+    if got is None:
+        return None
+    t = {"for": part} if facts.get("type") == [part] else {}
+    return [{"text": x, **t} for x in got]
 
 
 #: The parts whose one indicator, where the lexicon reads none, is the free
@@ -1226,12 +1225,12 @@ def report_indicators(n, rows_, ilex, show=30, seed=1):
             if facts.get("definition") and coverage(answer, facts) == "full":
                 c["eligible"] += 1
                 c["undecided"] += got is None
-            truth = {_key(i) for i in stated_ind}
+            truth = {_key(i) for i in texts(stated_ind)}
             if got:
                 c["clues"] += 1
-                c["clue exact"] += {_key(i) for i in got} == truth
+                c["clue exact"] += {_key(i) for i in texts(got)} == truth
                 parts = needed(answer, hid["blocks"], hid.get("type"))
-                for i in got:
+                for i in texts(got):
                     ok = _key(i) in truth
                     c["claimed"] += 1
                     c["exact"] += ok
@@ -1241,7 +1240,7 @@ def report_indicators(n, rows_, ilex, show=30, seed=1):
                         by_part[p]["exact"] += ok
                     if not ok:
                         kind = "boundary" if any(set(_key(i)) & set(t) for t in truth) else \
-                            "blog omitted" if truth <= {_key(g) for g in got} else "other"
+                            "blog omitted" if truth <= {_key(g) for g in texts(got)} else "other"
                         c["miss", kind] += 1
                         wrong.append((kind, clue, answer, got, stated_ind, hid.get("blocks")))
         full = bool(facts.get("definition")) and coverage(answer, facts) == "full"
@@ -1378,7 +1377,7 @@ def enumerated(clue, answer):
 def named_words(facts, ws):
     """The indices of the clue words in `facts`' blocks and indicators."""
     taken = set()
-    for phrase in [b[1] for b in facts.get("blocks", ())] + facts.get("indicators", []):
+    for phrase in [b[1] for b in facts.get("blocks", ())] + texts(facts.get("indicators")):
         taken |= locate(phrase, ws) or set()
     return taken
 
@@ -1614,7 +1613,7 @@ def infer_carrier(clue, answer, facts):
         return []
     body, ws, at = spans(clue)
     taken = set()
-    for phrase in facts.get("definition", []) + facts.get("indicators", []):
+    for phrase in facts.get("definition", []) + texts(facts.get("indicators")):
         taken |= locate(phrase, ws) or set()
     hits = hidden(answer, ws, set(range(len(ws))) - taken)
     if not rev and not any(not r for _, r in hits):
@@ -1793,34 +1792,37 @@ def export_lexicons(lex, ilex):
     return {name: len(data) if name == "blocks.json" else sum(map(len, data.values())) for name, data in out.items()}
 
 
+def vote_key(phrase):
+    """An indicator phrase as indicator_votes keys it."""
+    return phrase.lower().replace("’", "'")
+
+
 def indicator_votes(corpus):
-    """Indicator phrase -> Counter of the type parts of the clues blogs named it in."""
+    """Indicator phrase -> Counter of the types blogs named it an indicator
+    for: each under its own `for`, and under nothing without one."""
     votes = collections.defaultdict(collections.Counter)
     for *_, facts in corpus:
-        if facts.get("type") and facts.get("indicators"):
-            parts = facts["type"]
-            for i in facts["indicators"]:
-                for p in parts:
-                    votes[i.lower().replace("’", "'")][p] += 1
+        for i in facts.get("indicators", ()):
+            if i.get("for"):
+                votes[vote_key(i["text"])][i["for"]] += 1
     return votes
 
 
 def without(votes, facts):
     """`votes` less this clue's own contribution, so a clue never confirms itself."""
-    if not (facts.get("type") and facts.get("indicators")):
+    own = collections.defaultdict(collections.Counter)
+    for i in facts.get("indicators", ()):
+        if i.get("for"):
+            own[vote_key(i["text"])][i["for"]] += 1
+    if not own:
         return votes
-    own = {i.lower().replace("’", "'") for i in facts["indicators"]}
-    parts = facts["type"]
 
     class Minus(dict):
         def get(self, k, d=None):
             v = votes.get(k)
             if v is None or k not in own:
                 return v
-            v = collections.Counter(v)
-            for p in parts:
-                v[p] -= 1
-            return +v
+            return collections.Counter(v) - own[k]
     return Minus()
 
 
@@ -1875,7 +1877,7 @@ def measure(corpus, votes, show=8, split="held-out"):
         if not agrees(t, gold):
             fps[t].append((gold, clue, answer, got))
         if facts.get("indicators") and got.get("indicators"):
-            g = {w for i in facts["indicators"] for w in re.findall(r"[\w'’]+", i.lower())}
+            g = {w for i in texts(facts["indicators"]) for w in re.findall(r"[\w'’]+", i.lower())}
             p = {w for i in got["indicators"] for w in re.findall(r"[\w'’]+", i.lower())}
             for key in ("all", t) if t in TRUSTED else ("all",):
                 ind[key, "tp"] += len(g & p)
@@ -1938,7 +1940,7 @@ def leftover_runs(clue, facts):
     """The runs of clue words no definition, block or indicator takes."""
     ws = words(clue_body(clue))
     taken = set()
-    for phrase in facts.get("definition", []) + facts.get("indicators", []) + [b[1] for b in facts.get("blocks", [])]:
+    for phrase in facts.get("definition", []) + texts(facts.get("indicators")) + [b[1] for b in facts.get("blocks", [])]:
         taken |= locate(phrase, ws) or set()
     return sum(1 for k in range(len(ws)) if k not in taken and (k == 0 or k - 1 in taken))
 
@@ -2187,7 +2189,7 @@ def measure_blockless(corpus, votes, n=4, show=30, seed=1):
                 hid = with_blocks({k: v for k, v in facts.items() if k != "indicators"}, new)
                 got = infer_indicators(clue, answer, hid, ilex)
                 if facts.get("indicators") and got:
-                    ok = {_key(i) for i in got} == {_key(i) for i in facts["indicators"]}
+                    ok = {_key(i) for i in texts(got)} == {_key(i) for i in texts(facts["indicators"])}
                     c["hidden indicators", "claimed"] += 1
                     c["hidden indicators", "exact"] += ok
                     if not ok:
@@ -2215,7 +2217,7 @@ def measure_blockless(corpus, votes, n=4, show=30, seed=1):
                     hid = {k: v for k, v in facts.items() if k != "indicators"}
                     got = infer_indicators(clue, answer, hid, ilex)
                     if facts.get("indicators") and got:
-                        ok = {_key(i) for i in got} == {_key(i) for i in facts["indicators"]}
+                        ok = {_key(i) for i in texts(got)} == {_key(i) for i in texts(facts["indicators"])}
                         c["heard indicators", "claimed"] += 1
                         c["heard indicators", "exact"] += ok
                         if not ok:
@@ -2269,7 +2271,7 @@ def _measure_free_words(clue, answer, facts, votes, ilex, held, ours, c, wrong, 
         if held:
             sample[key].append((clue, answer, hid["blocks"], got))
         return
-    ok = {_key(i) for i in got} == {_key(i) for i in truth}
+    ok = {_key(i) for i in texts(got)} == {_key(i) for i in texts(truth)}
     c[key, "claimed"] += 1
     c[key, "exact"] += ok
     if not ok:

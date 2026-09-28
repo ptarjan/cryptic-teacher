@@ -130,7 +130,7 @@ def ladder_steps(ann, clue_text):
     is_dd = "double_definition" in t
     is_cd = "cryptic_definition" in t
     is_lit = "and_lit" in t
-    inds = ann.get("indicators") or []
+    inds = [i["text"] for i in ann.get("indicators") or []]
     senses = [b for b in ann.get("blocks") or [] if sense_block(ann, b)]
     blocks = [b for b in ann.get("blocks") or [] if not sense_block(ann, b)]
     steps = []

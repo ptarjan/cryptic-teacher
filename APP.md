@@ -69,23 +69,25 @@ Terms used below:
 
 - **Never write a count into prose next to the list it counts.** Number words
   come from `.length`, always.
-- **The indicator rung says what each indicator does, and `indicatorNotes` says
-  why that word means it.** A general sentence ("it tells you to shuffle the
-  letters") is the same on every anagram, so it feels empty to pay for. Write
-  one sentence per indicator, keyed by the exact indicator string, naming the
-  sense of the word that carries the instruction. Example: "'stable? No' means
+- **The indicator rung says what each indicator does, and its `note` says
+  why that word means it.** Each entry of `indicators` is
+  `{"text", "for", "note"}`: `text` is the clue words verbatim, `for` the
+  `clue_types.json` type it signals (one of the annotation's own types), `note`
+  one sentence naming the sense of the word that carries the instruction. A
+  general sentence ("it tells you to shuffle the letters") is the same on every
+  anagram, so it feels empty to pay for. Example note: "'stable? No' means
   unstable, and unstable will not stay in the order it is given."
   - The notes render before the answer, so the validator checks them for answer
     leaks (`EARLY_RUNG_FIELDS` in `tools/validate_annotations.py`).
-  - The validator requires `indicatorNotes` on every puzzle except those
-    grandfathered in `tools/annotation_backlog.json`.
-- **No filler around real content.** When every indicator has a note, the notes
-  are the whole indicator rung. No "this clue does two things", no list of
-  operations, no "which word calls for which is the step to work out here".
-  Operations come from the clue *type*, which is a different rung. The generic
-  sentence survives only for puzzles that predate `indicatorNotes`. The smoke
-  test enforces this structurally, not by banned phrases: remove the notes from
-  a fully-noted rung, and what is left must be empty.
+  - An indicator with no `note` but a `for` is shown with the operation its
+    `for` names; an indicator is credited to its own `for` and nothing else.
+- **No filler around real content.** When every indicator has a note or a
+  `for`, that list is the whole indicator rung. No "this clue does two
+  things", no list of operations, no "which word calls for which is the step
+  to work out here". The type-derived sentence is said only when some
+  indicator has neither. The smoke test enforces this structurally, not by
+  banned phrases: remove the notes from a fully-noted rung, and what is left
+  must be empty.
 - **Do not refer to the surface picture with a definite noun phrase you never
   introduced** (for example "the impromptu band" in a walkthrough that never
   mentioned a band). Name the picture in the clue's own words. See
@@ -170,7 +172,8 @@ Terms used below:
   timesforthetimes, fifteensquared and bigdave44 caches and keeps three facts
   per clue: the definition the blogger underlined (only as an exact run of
   whole words of our clue), the clue type where the write-up names it
-  unambiguously, and indicators where the blog's own key marks them. Anything
+  unambiguously, and indicators where the blog's own key marks them (`{"text"}`,
+  with `for` only when the fact names exactly one type). Anything
   hedged ("almost a DD", "cd/dd"), anything that cuts into a word, and any
   multi-span underline that is not a double definition is dropped.
 - **Where it lives.** `tools/data/blog_facts/<series>.json`, a sidecar, because a

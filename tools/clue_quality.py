@@ -489,7 +489,7 @@ def check(eid, spec, norms):
     # 3. Anagram indicator jammed against its own fodder.
     fodder = ((ann.get("anagram") or {}).get("fodder") or "").strip()
     if fodder:
-        for ind in ann.get("indicators") or []:
+        for ind in (i["text"] for i in ann.get("indicators") or []):
             pat = rf"\b{re.escape(fodder.lower())}\s+{re.escape(ind.lower())}\b|" \
                   rf"\b{re.escape(ind.lower())}\s+{re.escape(fodder.lower())}\b"
             if re.search(pat, lower):
@@ -544,7 +544,7 @@ def check(eid, spec, norms):
                             f"letters, not spoken"))
 
         # 4. Stock indicators. Rarity is the cheapest misdirection there is.
-        for ind in ann.get("indicators") or []:
+        for ind in (i["text"] for i in ann.get("indicators") or []):
             k = ind.strip().lower()
             if k in norms["stock"]:
                 out.append(("stock-indicator",

@@ -193,9 +193,9 @@ def plan(entry):
     try:
         p["definition"] = span_of(clue, ann["definition"])
         for ind in ann.get("indicators") or []:
-            p["indicator"] = p["indicator"] or ind
-            span_of(clue, ind)                      # must be quotable from the clue
-            p["indicators"].append(ind)
+            p["indicator"] = p["indicator"] or ind["text"]
+            span_of(clue, ind["text"])              # must be quotable from the clue
+            p["indicators"].append(ind["text"])
         if "hidden_word" in t and "reversal" not in t:
             block = next((b for b in ann.get("blocks") or []
                           if b.get("clueFragment")), None)
@@ -218,13 +218,15 @@ def plan(entry):
         elif "anagram" in t:
             p["fodder"], p["partial"] = clue_fodder(clue, ann, fodder, t == ["anagram"])
         if p["fodder"] and p["indicators"]:
-            # The indicator that shuffles is the one touching its letters; the
-            # others do the rest of a compound clue's work.
-            # Located by its first and last words, since a comma in the clue
-            # can sit between words the fodder writes side by side.
+            # The indicator that shuffles is the one marked for the anagram,
+            # else the one touching its letters; the others do the rest of a
+            # compound clue's work. Located by its first and last words, since
+            # a comma in the clue can sit between words the fodder writes side
+            # by side.
+            shufflers = [i["text"] for i in ann["indicators"] if i.get("for") == "anagram"]
             words = re.findall(r"[A-Za-z]+", p["fodder"])
             fs = (span_of(clue, words[0])[0], span_of(clue, words[-1])[1])
-            p["indicator"] = min(p["indicators"], key=lambda i: min(
+            p["indicator"] = min(shufflers or p["indicators"], key=lambda i: min(
                 abs(span_of(clue, i)[0] - fs[1]), abs(fs[0] - span_of(clue, i)[1])))
     except SystemExit:
         return None                                 # annotation and clue disagree
@@ -571,7 +573,7 @@ def compose(entry, p, number=0):
     if p["hidden"]:
         marks.append((*p["hidden"], "hit"))
     for ind in ann.get("indicators") or []:
-        marks.append((*span_of(clue, ind), "ind"))
+        marks.append((*span_of(clue, ind["text"]), "ind"))
     try:
         clue_html = marked_clue(clue, marks)
     except SystemExit:

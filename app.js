@@ -1902,7 +1902,7 @@
     const add = (text, kind) => { if (text) frags.push({ text, kind, n: frags.length }); };
     add(ann.definition, "def");
     add(ann.definition2, "def2");
-    (ann.indicators || []).forEach((t) => add(t, "ind"));
+    (ann.indicators || []).forEach((t) => add(t.text, "ind"));
     (ann.linkWords || []).forEach((t) => add(t, "link"));
     const order = frags.slice().sort((a, b) =>
       (a.kind === "link") - (b.kind === "link") || b.text.length - a.text.length || a.n - b.n);
@@ -3551,29 +3551,24 @@
 
     // Indicators only exist for some clue types — no rung that says "none".
     if (inds.length) {
-      // A blog marks its indicators without saying which does what, and its
-      // type names only the dominant mechanism, so pairing them would guess.
+      // A blog marks its indicators and credits them to a mechanism only when
+      // it names a single type, so pairing its words with operations would guess.
       const ops = ann.fromBlog ? [] : indicatorOps(t, ann.blocks || []);
-      const marks = inds.map((i) => `<mark class="ind">${esc(i)}</mark>`).join(", ");
-      // The sentences below are the same on every clue of a type: an anagram
-      // indicator always "tells you to shuffle", and a compound one always does
-      // N things. `indicatorNotes` is the part that is only true of THIS clue,
-      // and where it covers every indicator the rung is those notes and nothing
-      // else — "this is just context free, never just put out text for the sake
-      // of filling space" — on "this clue does two things, and
-      // the indicators are what tell them apart"). The generic wording is not a
-      // frame worth keeping around a real answer; it is what gets said when
-      // there is no real answer, and it survives only for the puzzles that
-      // predate the field (tools/annotation_backlog.json).
-      //
-      // The count made that plain: the ops list is derived from the clue TYPE,
-      // so `container + charade + middle letters + reversal` promises four
-      // things while only three of them have an indicator to point at. It never
-      // described the indicators; it described the type.
-      const notes = ann.indicatorNotes || {};
-      const written = inds.filter((i) => notes[i]);
+      const marks = inds.map((i) => `<mark class="ind">${esc(i.text)}</mark>`).join(", ");
+      // What is only true of THIS clue comes first: an indicator's `note` says
+      // why these words signal their mechanism here, and failing that its `for`
+      // names the operation it asks for. Where every indicator has one of the
+      // two, the rung is that list and nothing else. The type-derived sentences
+      // below are the same on every clue of a type and describe the type, not
+      // the indicators, so they are said only when the indicators themselves
+      // cannot be.
+      const said = (i) => {
+        const op = INDICATOR_OPS.find(([o]) => o === i.for);
+        return i.note || (op ? `tells you to ${op[1]}` : "");
+      };
+      const written = inds.filter(said);
       const noteList = `<ul class="ind-notes">${written.map((i) =>
-        `<li><mark class="ind">${esc(i)}</mark> — ${esc(notes[i])}</li>`).join("")}</ul>`;
+        `<li><mark class="ind">${esc(i.text)}</mark> — ${esc(said(i))}</li>`).join("")}</ul>`;
       let html;
       if (written.length === inds.length) {
         html = noteList;
@@ -3582,13 +3577,8 @@
           ${ops[0][1]}.</p><p class="muted">${ops[0][2]}</p>`;
       } else if (ops.length > 1) {
         // A compound type has more than one operation and usually more than one
-        // indicator, and nothing in the annotation maps word to job. Saying so is
-        // the honest move, and pairing them up is exactly the work of this rung.
-        // Counted off the list rather than written into the sentence: it said
-        // "two things" and then printed three for `container + charade +
-        // middle letters + reversal` (clue 4096 16d). A number in
-        // prose beside a list it is supposed to describe will go wrong the
-        // first time a clue does something the sentence never imagined.
+        // indicator. The list is counted off the ops rather than written into
+        // the sentence, so the number always matches what is printed.
         const HOWMANY = ["no", "one", "two", "three", "four", "five", "six"];
         html = `<p>${marks} — this clue does ${HOWMANY[ops.length] || ops.length} things, and
           the indicators are what tell them apart:</p><ul>${ops.map(([, op]) => `<li>${op}</li>`).join("")}</ul>
@@ -3597,9 +3587,8 @@
         html = `<p>${marks} — ${inds.length > 1 ? "these tell" : "this tells"} you
           what to do with the rest of the wordplay.</p>`;
       }
-      // A partly-noted clue is a backlog puzzle mid-repair: the generic wording
-      // above is carrying the indicators nobody has written up yet, so whatever
-      // notes exist go under it rather than replacing it.
+      // Where only some indicators can be explained, the generic wording carries
+      // the rest and the explained ones are listed under it.
       if (written.length && written.length !== inds.length) html += noteList;
       steps.push({
         key: "indicators",
