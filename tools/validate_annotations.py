@@ -924,9 +924,10 @@ INDICATOR_NOTE_HOW = (
 INDICATOR_KEYS = {"text", "for", "note"}
 
 
-def check_indicators(tag, ann, errors, warnings):
+def check_indicators(tag, ann, clue, errors, warnings):
     """Each indicator is {"text", "for", "note"}: the clue words, the type they
-    signal, and one sentence on why THIS word signals it."""
+    signal, and one sentence on why THIS word signals it. A text is listed at
+    most as often as the clue prints it."""
     if "indicatorNotes" in ann:
         errors.append(f"{tag}: indicatorNotes is removed; put each note on its "
                       f"indicator object as `note`")
@@ -951,8 +952,9 @@ def check_indicators(tag, ann, errors, warnings):
         if extra:
             errors.append(f"{tag}: indicator {text!r} has {extra}; the keys are "
                           f"text, for and note")
-        if text in texts:
-            errors.append(f"{tag}: indicator {text!r} is listed twice")
+        if texts.count(text) >= clue.count(text):
+            errors.append(f"{tag}: indicator {text!r} is listed more often than "
+                          f"the clue prints it")
         texts.append(text)
         kind = ind.get("for")
         if kind is None:
@@ -2389,7 +2391,7 @@ def validate_puzzle(puzzle, corpus=False):
         check_answer_matches_separators(tag, ann, e, errors)
         check_sound_names_its_source(tag, ann, errors, warnings)
         check_sound_is_not_a_letter_swap(tag, ann, errors, warnings)
-        check_indicators(tag, ann, errors, warnings)
+        check_indicators(tag, ann, clue, errors, warnings)
         check_no_answer_in_early_rungs(tag, ann, errors, warnings)
         check_block_notes_dont_name_the_answer(tag, ann, errors, warnings)
         check_cryptic_definition_blocks(tag, ann, errors, warnings)
