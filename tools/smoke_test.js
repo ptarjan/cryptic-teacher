@@ -522,8 +522,10 @@ assert(openPuz, "the opened puzzle's data is loaded: " + openId);
 // the puzzle's identity: Metro names itself by date and carries no "No", so a
 // /No [\d,]+/ scrape resolves to no puzzle at all the first night a Metro is
 // the newest one. Escaped the way app.js escapes it, so the two cannot drift.
-const escName = String(openPuz.name).replace(/[&<>"']/g, (c) =>
+// app.js's esc(): an expected string with an apostrophe in it must be compared escaped.
+const htmlEsc = (t) => String(t).replace(/[&<>"']/g, (c) =>
   ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const escName = htmlEsc(openPuz.name);
 assert(openTitle.includes(escName),
   `the title names the opened puzzle: want ${escName}, got ${openTitle}`);
 // A ?p= URL hands its indexing credit to the static write-up, not to the
@@ -2012,7 +2014,7 @@ const blogPuzzle = allPuzzles.find((p) => !p.annotated && p.blog);
 const blogRow = blogPuzzle && pickerRowFor(blogPuzzle.id);
 if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched for`)) {
   const html = blogRow.children[0].innerHTML;
-  assert(html.includes("hints via " + blogPuzzle.blog) && !html.includes("answers only"),
+  assert(html.includes("hints via " + htmlEsc(blogPuzzle.blog)) && !html.includes("answers only"),
     `a puzzle with blog hints is badged by its blog, not "answers only": ${blogPuzzle.id}`);
 }
 
