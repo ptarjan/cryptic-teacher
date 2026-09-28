@@ -6,6 +6,7 @@ set -euo pipefail
 cd "$(dirname "$0")"
 python3 - <<'PY'
 import definitions as D
+import puzzle_schema
 import validate_annotations as v
 
 fails = 0
@@ -47,7 +48,7 @@ def errors(defs):
                              "definitions": defs, "assembly": {"pieces": ["TURNS", "TONE"]},
                              "blocks": [{"clueFragment": "Changes", "gives": "TURNS"},
                                         {"clueFragment": "colour", "gives": "TONE"}]}}]}
-    return [e for e in v.validate_puzzle(puzzle)[1] if "definition" in e]
+    return [e for e in v.validate_puzzle(puzzle_schema.order(puzzle))[1] if "definition" in e]
 check("validator: `at` on its text", [], errors([{"text": "Changes", "at": 0}]))
 check("validator: `at` off its text", True,
       any("is not at 3" in e for e in errors([{"text": "Changes", "at": 3}])))

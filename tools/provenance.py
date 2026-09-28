@@ -64,6 +64,7 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import puzzle_schema  # noqa: E402
 import series as series_table  # noqa: E402
 
 # One series per BOOK, with the volume in the number (series.py:
@@ -321,27 +322,16 @@ def book_of(series, number):
 
 # ------------------------------------------------------------ the file shape
 #
-# Top-level key order, and each block's. place() writes them in this order so a
-# person reading a file finds who and where before the few hundred entries.
-KEY_ORDER = ("id", "number", "series", "name", "setter", "date", "year", "preamble",
-             "dimensions", "source", "solutions", "annotatedBy", "entries")
-SOURCE_ORDER = ("publisher", "url", "retrievedFrom", "acquiredBy", "acquiredOn",
-                "gridOrigin", "feedId", "book")
+# Key order is the schema's (puzzle_schema.order), not listed here.
 SOURCE_REQUIRED = ("publisher", "retrievedFrom", "acquiredBy", "acquiredOn",
                    "gridOrigin")
 #: The keys that back a claim that the answers are not the publisher's.
 SOLUTION_DETAIL = ("blog", "url", "model", "date", "check", "officialKey")
-SOLUTIONS_ORDER = ("origin", "previousOrigin") + SOLUTION_DETAIL
 #: What each non-published origin must carry.
 DETAIL_REQUIRED = {"writeup": ("blog", "url", "date", "check"),
                    "model": ("model", "date", "check")}
 
 ISO_DATE = re.compile(r"\d{4}-\d{2}-\d{2}")
-
-
-def _ordered(block, order):
-    return {k: block[k] for k in order if k in block} | \
-        {k: v for k, v in block.items() if k not in order}
 
 
 def source_url(puzzle):
@@ -394,8 +384,7 @@ def with_solution_detail(puzzle, detail):
     """
     solutions = {k: v for k, v in (puzzle.get("solutions") or {}).items()
                  if k not in SOLUTION_DETAIL}
-    return {**puzzle, "solutions": _ordered({**solutions, **detail},
-                                            SOLUTIONS_ORDER)}
+    return {**puzzle, "solutions": {**solutions, **detail}}
 
 
 def drop_solution_detail(puzzle):
@@ -480,20 +469,15 @@ def derive(puzzle, claimed, acquired_on, previously=None):
         solutions.update(solution_detail(puzzle))
     # Only the run that wrote the hints knew its model; dropped with the hints.
     credits = puzzle.get("annotatedBy") if has_hints(puzzle) else None
-    return {"source": source, "solutions": _ordered(solutions, SOLUTIONS_ORDER),
+    return {"source": source, "solutions": solutions,
             "annotatedBy": credits or None}
 
 
 def place(puzzle, fields=None):
-    """The puzzle with `fields` set, its keys in KEY_ORDER and its blocks in
-    theirs. A field set to None is removed."""
-    merged = {k: v for k, v in {**puzzle, **(fields or {})}.items()
-              if v is not None}
-    if "source" in merged:
-        merged["source"] = _ordered(merged["source"], SOURCE_ORDER)
-    if "solutions" in merged:
-        merged["solutions"] = _ordered(merged["solutions"], SOLUTIONS_ORDER)
-    return _ordered(merged, KEY_ORDER)
+    """The puzzle with `fields` set, its keys in the schema's order. A field
+    set to None is removed."""
+    return puzzle_schema.order({k: v for k, v in {**puzzle, **(fields or {})}.items()
+                                if v is not None})
 
 
 def stamp(puzzle, tool):
