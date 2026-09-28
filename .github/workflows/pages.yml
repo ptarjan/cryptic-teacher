@@ -90,6 +90,12 @@ jobs:
         run: bash tools/make_og.sh --all
       - name: Generate the crawlable pages
         run: python3 tools/build_seo_pages.py
+      # Every page that is not a puzzle gets a card of its own title and
+      # description, so these are drawn from the pages and come after them.
+      # Their URLs are stamped with a hash of what they are drawn from, not of
+      # the PNG, which is what lets the pages link them first.
+      - name: Draw the page cards
+        run: bash tools/make_og.sh --pages
       - name: Stamp the assets
         run: python3 tools/stamp_assets.py
       - name: Check the annotations
