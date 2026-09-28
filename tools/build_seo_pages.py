@@ -1438,7 +1438,7 @@ def indicators_page(found):
         "gives NORMA. Spot the indicator and you know what kind of clue you have.</p>",
         f"<p>These {total:,} indicators were counted in tens of thousands of solved clues, "
         "from solving blogs and from this site's own explanations. The number after each "
-        "word is how many clues used it that way, most used first. The same word can do more than one job: "
+        "word is how many clues used it that way. The same word can do more than one job: "
         "<em>about</em> is a container, but it can also mean an anagram. "
         f"{linked:,} of the words are links to a real clue that uses them, explained.</p>",
         "<p>Jump to: " + " &middot; ".join(
@@ -1446,11 +1446,15 @@ def indicators_page(found):
     ]
     for t in types:
         ranked = sorted(lex[t].items(), key=lambda kv: (-kv[1], kv[0]))
-        body += [f'<h2 id="{t}">{t.capitalize()} indicators '
-                 f'<span class="muted">{len(ranked):,}</span></h2>',
+        top, rest = ranked[:15], ranked[15:]
+        body += [f'<h2 id="{t}">{t.capitalize()} indicators</h2>',
                  f"<p>{INDICATOR_TYPES[t]}</p>",
-                 '<ol class="ix-list">'
-                 + "".join(f"<li>{item(t, k, n)}</li>" for k, n in ranked) + "</ol>"]
+                 "<p><strong>Most used:</strong> "
+                 + " &middot; ".join(item(t, k, n) for k, n in top) + "</p>"]
+        if rest:
+            body += [f"<details><summary>All {len(ranked):,} {t} indicators</summary>",
+                     "<p>" + " &middot; ".join(item(t, k, n) for k, n in rest) + "</p>",
+                     "</details>"]
     body += [f'<p class="s-cta"><a class="cta" href="{BASE}/learn/">New to cryptics? '
              f'Learn how the clues work &rarr;</a></p>', "</main>"]
     return head(title, desc, canonical, ld(page_ld) + ld(breadcrumb_ld(crumbs))) \
