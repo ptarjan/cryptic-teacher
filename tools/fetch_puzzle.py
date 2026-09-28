@@ -507,7 +507,7 @@ def with_blog_facts(puzzle):
     for e in puzzle["entries"]:
         fact = row["entries"].get(e["id"])
         if fact and not e.get("annotation") and all(
-                w in e["clue"] for w in fact.get("definition", []) + fact.get("indicators", [])
+                w in e["clue"] for w in fact.get("definition", []) + [i["text"] for i in fact.get("indicators", [])]
                 + [b[1] for b in fact.get("blocks", [])]):
             e = {**e, "blog": fact}
         out["entries"].append(e)

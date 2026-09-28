@@ -1523,6 +1523,14 @@ def indicators(blog, expl_marked, body, brackets, avoid=()):
     return out
 
 
+def indicator_objects(texts, types):
+    """Indicator phrases as a fact stores them: [{"text": phrase}], with
+    "for" the fact's type where `types` is exactly one type, the only case
+    where which mechanism each phrase signals is known."""
+    t = {"for": types[0]} if len(types or ()) == 1 else {}
+    return [{"text": x, **t} for x in texts]
+
+
 def overlaps(phrase, others):
     """Whether `phrase` is, or sits inside, or holds, one of `others`."""
     words = lambda t: " " + " ".join(re.findall(r"[\w'’]+", t.lower())) + " "
@@ -1714,7 +1722,7 @@ def facts_for_post(blog, entries, post):
         ind = indicators(blog, expl_marked, body, brackets,
                          avoid=([] if whole_clue else defs or []) + [b[1] for b in blk])
         if ind:
-            fact["indicators"] = ind
+            fact["indicators"] = indicator_objects(ind, t)
         if answer:
             said = leads(expl, body, answer)
             if said:
@@ -2025,6 +2033,8 @@ def score(path=GOLD):
         post = load_post(BLOGS[r["blog"]][0] / "posts" / r["post"])
         got = publishable(facts_for_post(r["blog"], entries[r["puzzle"]], post).get(r["entry"], {}))
         got = stated(got)  # what letter_facts.py read off the letters is not the post's
+        if got.get("indicators"):
+            got["indicators"] = [i["text"] for i in got["indicators"]]
         for field in ("definition", "blocks", "indicators", "type"):
             g, p = _items(field, r["gold"].get(field)), _items(field, got.get(field))
             c = tally[(r.get("split", "dev"), r["blog"], field)]

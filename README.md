@@ -129,7 +129,7 @@ Shape:
         "type": ["anagram"],
         "answer": "CULMINATES",
         "definition": "reaches highest point",
-        "indicators": ["Destroying"],
+        "indicators": [{"text": "Destroying", "for": "anagram", "note": "destroying a thing breaks it apart, so its letters are rearranged"}],
         "anagram": {"fodder": "CLIMATE SUN"},
         "blocks": [{"clueFragment": "climate, sun", "gives": "CLIMATESUN", "note": "anagram fodder"}],
         "walkthrough": "…2-4 friendly sentences…"
@@ -143,8 +143,13 @@ Shape:
 
 `tools/validate_annotations.py` enforces these:
 
-- `definition`, `definition2` and each `indicators[]` string must appear
+- `definition`, `definition2` and each indicator's `text` must appear
   **verbatim** in the clue text. Guardian clues use `’` and `–`.
+- `indicators` holds one object per indicator phrase: `text`, `for` (the one
+  type from the annotation's own `type` that the words signal) and `note` (why
+  they signal it in this clue). New annotations need `for` and `note`; older
+  puzzles may lack them up to their allowance in
+  `tools/annotation_backlog.json`.
 - The letters of `answer` must equal the grid solution. For linked clues, that
   is the whole group.
 - Letter mechanics must be machine-checkable:

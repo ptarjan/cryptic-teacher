@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # The (type, key) pairs a clue's indicators give /indicators/ and the burn's
-# indicator cover: a phrase links the longest key inside it, but only in a
-# one-type clue, and never through link words alone.
+# indicator cover: each phrase under its own `for` only, the longest key inside
+# it, and never through link words alone.
 set -euo pipefail
 cd "$(dirname "$0")"
 python3 - <<'PY'
@@ -16,20 +16,25 @@ def check(name, want, got):
     fails += got != want
     print(("ok  " if got == want else "FAIL"), name, "" if got == want else got)
 
+A = lambda text, t="anagram": {"text": text, "for": t}
 check("a phrase that is a key is an exact match",
-      {("anagram", "VARIETY"): True}, clue_pairs(LEX, ["anagram"], ["variety"]))
-check("a longer phrase in a one-type clue links the key inside it",
-      {("anagram", "VARIETY"): False}, clue_pairs(LEX, ["anagram"], ["Variety of"]))
+      {("anagram", "VARIETY"): True}, clue_pairs(LEX, [A("variety")]))
+check("a longer phrase links the key inside it under its own for",
+      {("anagram", "VARIETY"): False}, clue_pairs(LEX, [A("Variety of")]))
 check("the longest key inside wins",
-      {("anagram", "ALL OVER"): False}, clue_pairs(LEX, ["anagram"], ["strewn all over"]))
+      {("anagram", "ALL OVER"): False}, clue_pairs(LEX, [A("strewn all over")]))
 check("link words alone never match, even when the lexicon has them",
-      {}, clue_pairs(LEX, ["anagram"], ["out of"]))
-check("in a clue of several types only an exact phrase counts",
-      {}, clue_pairs(LEX, ["charade", "anagram"], ["touched on"]))
-check("a type the clue does not name gives nothing",
-      {}, clue_pairs(LEX, ["charade"], ["variety"]))
+      {}, clue_pairs(LEX, [A("out of")]))
+check("a charade's phrase is looked up among charade keys only, never as anagram TOUCHED",
+      {}, clue_pairs(LEX, [A("touched on", "charade")]))
+check("the same phrase for an anagram links the key inside it",
+      {("anagram", "TOUCHED"): False}, clue_pairs(LEX, [A("touched on")]))
+check("an indicator without for gives nothing",
+      {}, clue_pairs(LEX, [{"text": "variety"}]))
+check("a for the lexicon lacks gives nothing",
+      {}, clue_pairs(LEX, [A("variety", "container")]))
 check("hyphens key as blogs key them",
-      {("reversal", "UPSIDEDOWN"): True}, clue_pairs(LEX, ["reversal"], ["upside-down"]))
+      {("reversal", "UPSIDEDOWN"): True}, clue_pairs(LEX, [A("upside-down", "reversal")]))
 
 # /indicators/ links each pair to one clue: ours over a blog's, exact over contained.
 import build_seo_pages as b
@@ -40,15 +45,15 @@ def linked(*entries):
     b.clue_indicators(found, puz, " ".join(f'id="{i}-across"' for i in range(len(entries))))
     return {k: v[2] for k, v in found.items()}
 
-blog = {"annotation": None, "blog": {"type": ["anagram"], "indicators": ["variety"]}}
+blog = {"annotation": None, "blog": {"type": ["anagram"], "indicators": [A("variety")]}}
 check("a clue only a blog's facts explain is linked",
       {("anagram", "VARIETY"): "0-across"}, linked(blog))
 check("our annotation outranks a blog's, even one matching the key exactly",
       {("anagram", "VARIETY"): "1-across"},
-      linked(blog, {"annotation": {"type": ["anagram"], "indicators": ["variety of"]}}))
+      linked(blog, {"annotation": {"type": ["anagram"], "indicators": [A("variety of")]}}))
 check("an exact phrase outranks one containing the key",
       {("anagram", "VARIETY"): "1-across"},
-      linked({"annotation": {"type": ["anagram"], "indicators": ["variety of"], "walkthrough": "long " * 9}},
-             {"annotation": {"type": ["anagram"], "indicators": ["variety"]}}))
+      linked({"annotation": {"type": ["anagram"], "indicators": [A("variety of")], "walkthrough": "long " * 9}},
+             {"annotation": {"type": ["anagram"], "indicators": [A("variety")]}}))
 raise SystemExit(fails)
 PY

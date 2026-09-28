@@ -59,7 +59,7 @@ if [ "$written" = "$want" ]; then echo "ok   a trusted reading is written whole,
 # and "within" are container indicators, "the" a word blogs leave over and never name.
 inds=$(cd "$REPO/tools" && python3 -c '
 import letter_facts as l
-rows = [(f"p{i}", "e", f"Box {w} the key", "BKOEYX", {"type": ["container"], "definition": ["Box"], "indicators": [w]})
+rows = [(f"p{i}", "e", f"Box {w} the key", "BKOEYX", {"type": ["container"], "definition": ["Box"], "indicators": [{"text": w, "for": "container"}]})
         for i in range(25) for w in ("holding", "within")]
 ilex = l.Indicators(rows)
 blocks = [["TUTS", "expresses disapproval"], ["ORES", "minerals"]]
@@ -68,9 +68,10 @@ def read(clue, **kw):
 print(read("Teacher expresses disapproval holding the minerals (8)"),
       read("Teacher expresses disapproval holding the minerals within (8)"),
       read("Teacher expresses disapproval holding strange minerals (8)"),
-      read("Teacher expresses disapproval holding the minerals (8)", indicators=["holding"]),
-      l.stated({"indicators": ["holding"], "inferred": ["indicators"], "definition": ["d"]}))')
-want="['holding'] None None [] {'definition': ['d']}"
+      read("Teacher expresses disapproval holding the minerals (8)", indicators=[{"text": "holding"}]),
+      read("Teacher expresses disapproval holding the minerals (8)", type=["container"]),
+      l.stated({"indicators": [{"text": "holding"}], "inferred": ["indicators"], "definition": ["d"]}))')
+want="[{'text': 'holding'}] None None [] [{'text': 'holding', 'for': 'container'}] {'definition': ['d']}"
 if [ "$inds" = "$want" ]; then echo "ok   the one indicator the blocks want is read, not two rivals or an unknown word, and is not the blog's"; else
   echo "FAIL indicators: expected [$want], got [$inds]"; fails=$((fails + 1)); fi
 
@@ -79,19 +80,29 @@ if [ "$inds" = "$want" ]; then echo "ok   the one indicator the blocks want is r
 ours=$(cd "$REPO/tools" && python3 -c '
 import letter_facts as l
 clue = "Teacher expresses disapproval holding the minerals (8)"
-facts = {"type": ["container"], "definition": ["Teacher"], "indicators": ["holding"],
+facts = {"type": ["container"], "definition": ["Teacher"], "indicators": [{"text": "holding", "for": "container"}],
          "blocks": [["TUTS", "expresses disapproval"], ["ORES", "minerals"]]}
 own = ("q", "e", clue, "TUTORESS", facts)
 box = lambda w, n: [(f"{w}{i}", "e", f"Box {w} the key", "BKOEYX",
-                     {"type": ["container"], "definition": ["Box"], "indicators": [w]}) for i in range(n)]
+                     {"type": ["container"], "definition": ["Box"], "indicators": [{"text": w, "for": "container"}]}) for i in range(n)]
 blogs = box("within", 25)  # "the", left over in all of them and never named, is a link word
 read = lambda ilex: l.infer_indicators(clue, "TUTORESS", {k: v for k, v in facts.items() if k != "indicators"}, ilex)
 print(read(l.Indicators(blogs, extra=box("holding", l.MIN_INDICATOR) + [own])),
       read(l.Indicators(blogs, extra=box("holding", l.MIN_INDICATOR - 1) + [own])),
       read(l.Indicators(blogs + box("holding", l.MIN_INDICATOR - 1) + [own])))')
-want="['holding'] None ['holding']"
+want="[{'text': 'holding', 'for': 'container'}] None [{'text': 'holding', 'for': 'container'}]"
 if [ "$ours" = "$want" ]; then echo "ok   our annotations add indicators, never a clue's own"; else
   echo "FAIL annotations as indicators: expected [$want], got [$ours]"; fails=$((fails + 1)); fi
+
+# Each indicator votes for its own `for` only; one without `for` votes for nothing.
+votes=$(cd "$REPO/tools" && python3 -c '
+import letter_facts as l
+ind = [{"text": "holding", "for": "container"}, {"text": "mixed"}]
+rows = [("p", "e", "Box holding mixed key", "X", {"type": ["container", "anagram"], "definition": ["Box"], "indicators": ind})]
+print(dict(l.Indicators(rows).votes), dict(l.indicator_votes(rows)), l.without(l.indicator_votes(rows), rows[0][4]).get("holding"))')
+want="{('HOLDING',): Counter({'container': 1})} {'holding': Counter({'container': 1})} Counter()"
+if [ "$votes" = "$want" ]; then echo "ok   an indicator votes for its own for only, never the clue's other types"; else
+  echo "FAIL votes by for: expected [$want], got [$votes]"; fails=$((fails + 1)); fi
 
 # Our annotations are a second source of the published block lexicon ("zorp" read as AB).
 ours=$(cd "$REPO/tools" && python3 -c '
@@ -188,7 +199,7 @@ print(carrier, l.infer_carrier("Bird spotted in Leatherhead (4)", "RHEA", {**h, 
       l.infer_carrier("Bird in Leatherhead or Leatherhead (4)", "RHEA", h), l.needed("RHEA", carrier),
       l.infer_carrier("Ruler rejects any dubious packages from the East (6)", "DYNAST", {"type": ["hidden_word"]}))
 blocks = {"blocks": [[*carrier[0], "inferred"]]}
-print(l.complete("RHEA", {**h, **blocks}), l.complete("RHEA", {**h, **blocks, "indicators": ["spotted in"]}),
+print(l.complete("RHEA", {**h, **blocks}), l.complete("RHEA", {**h, **blocks, "indicators": [{"text": "spotted in", "for": "hidden_word"}]}),
       l.complete("TIRE", {"type": ["double_definition"], "definition": ["Tire", "wheel cover"]}),
       l.complete("CUBA", {"definition": ["island"], "blocks": [["CUB", "Baby animal"], ["A", "a"]]}))')
 want="[('RHEA', 'Leatherhead')] [] [] {'hidden_word'} [('DYNAST', 'rejects any dubious')]
@@ -232,7 +243,7 @@ print(b.heard_blocks(["homophone"], [["UP", "getting out of bed"]], "TEEUP"),
       b.heard_blocks(["homophone"], [["ARSE", "bottom"]], "ARSIS"), b.heard_blocks(["charade"], [["TUN", "x"]], "TON"))
 h = {"type": ["homophone"], "definition": ["Heavyweight"], "blocks": tun}
 print(l.coverage("TON", h), l.needed("TON", tun, ["homophone"]), l.needed("MORSECODE", spoon, ["spoonerism"]),
-      l.complete("TON", h), l.complete("TON", {**h, "indicators": ["by the sound of it"]}))')
+      l.complete("TON", h), l.complete("TON", {**h, "indicators": [{"text": "by the sound of it", "for": "homophone"}]}))')
 want="[['TON', 'beer cask', {'soundsLike': 'TUN'}]] [['MORSE', 'common', {'soundsLike': 'COARSE'}], ['CODE', 'kind', {'soundsLike': 'MODE'}]]
 [['ARRIVAL', 'a competitor', {'soundsLike': 'A RIVAL'}]]
 [['UP', 'getting out of bed']] [['ARSE', 'bottom']] [['TUN', 'x']]

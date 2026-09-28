@@ -524,7 +524,7 @@ JSON is the source. While it exists, `tools/smoke_test.js` fails, because every
 puzzle file must be named `<series>-<number>.json`.
 
 A clean validate ends with no ERROR lines. A001 itself does not pass today. Among its ERRORs: it
-predates the required `definitionFit` and `indicatorNotes` fields, and its 18A
+predates the required `definitionFit` field and indicator `for` and `note`, and its 18A
 block note names the answer. Fix those in the clues JSON before relying on it.
 
 ### Why filler is banned, and the nine fixes
