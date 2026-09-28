@@ -2805,7 +2805,7 @@
     { label: "Container, reversal or deletion", n: 4434,
       blurb: "A piece of the wordplay is changed, not just placed next to the others: it is put inside something, turned around, or trimmed.",
       match: (t) => t.includes("container") || t.includes("reversal") || t.includes("deletion") || t.includes("substitution") || t.includes("palindrome") },
-    { label: "Hidden", n: 2200,
+    { label: "Hidden or letter selection", n: 2200,
       blurb: "The answer's letters are already sitting in the clue in order — the job is working out which ones to pick out.",
       match: (t) => t.includes("hidden") || t.includes("letter") }
   ];
