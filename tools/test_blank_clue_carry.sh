@@ -47,13 +47,13 @@ fetched = {"id": "cryptic-23370", "entries": [
 stored = {"id": "cryptic-23370", "entries": [
     entry("1-across", "Recovered by hand (5)"),
     entry("2-down", "Leg of a linked answer (5,5)", group=["2-down", "3-down"]),
-    entry("3-down", "See 2 (5)", group=["2-down", "3-down"]),
+    entry("3-down", "See 2 (5)"),
 ]}
 fetcher.carry_recovered_clues(fetched, stored)
 by = {e["id"]: e for e in fetched["entries"]}
 print("KEPT", by["1-across"]["clue"])
 print("FLAG", by["1-across"].get("clueMissing"))
-print("GROUP", json.dumps(by["2-down"].get("group")))
+print("GROUP", json.dumps(by["2-down"].get("group")), json.dumps(by["3-down"].get("group")))
 
 # The paper still wins wherever it prints words, and a blank it prints over a
 # blank we hold stays blank rather than inventing a carry.
@@ -96,8 +96,8 @@ echo "a re-fetch must not empty a puzzle whose clues were recovered by hand"
 same "recovered clue text survives a blank re-fetch" \
   "$(grep '^KEPT ' <<<"$out")" "KEPT Recovered by hand (5)"
 same "and clueMissing comes off with it" "$(grep '^FLAG ' <<<"$out")" "FLAG None"
-same "the group travels with the clue that needs it" \
-  "$(grep '^GROUP ' <<<"$out")" 'GROUP ["2-down", "3-down"]'
+same "the group travels with the leader's clue, and only the leader's" \
+  "$(grep '^GROUP ' <<<"$out")" 'GROUP ["2-down", "3-down"] null'
 same "a clue the paper prints replaces the stored one" \
   "$(grep '^PAPER ' <<<"$out")" "PAPER The clue as published (5)"
 same "a reworded clue loses its annotation" "$(grep '^REWORDED ' <<<"$out")" "REWORDED None"

@@ -77,7 +77,7 @@ const key = [];
 let leaked = 0;
 
 for (const e of puz.entries) {
-  if (!e.annotation || e.annotation.linkedTo) continue;
+  if (!e.annotation) continue;
   const row = registry["clue-" + e.id];
   if (!row || !row.listeners.click) continue;
   row.listeners.click[0]();

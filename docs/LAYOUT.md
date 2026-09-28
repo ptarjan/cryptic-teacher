@@ -93,8 +93,7 @@ tools/fetch_metro.py                         the Metro’s cryptic; today’s on
                                              paper keeps no archive
 tools/repair_fetched.py                      applies the fetchers’ current rules to puzzles
                                              already on disk — bare-capital solutions, a masked
-                                             prize answer, a linked group whose members
-                                             disagree, a group that is really a cross-reference
+                                             prize answer, a group that is really a cross-reference
                                              in the wordplay — and reports the dates their own
                                              neighbours contradict
 tools/test_repair_fetched.sh                 builds a puzzle file with each of those defects
@@ -117,6 +116,11 @@ tools/definitions.py                         where each of an annotation's defin
                                              by the whole-word, before-the-enumeration,
                                              no-overlap, clue-end rules, and refuses to guess
                                              past them
+tools/groups.py                              linked answers: the leader carries `group`, its
+                                             lights in order, and the other lights nothing;
+                                             maps each light to its group or leader, and
+                                             spreads/collapses the per-light claims the
+                                             Guardian ships
 tools/test_definitions.sh                    holds each of those rules, the refusal, and the
                                              validator's check that `at` points at its text
 tools/puzzle_integrity.py                    checks the puzzles themselves: two puzzles that

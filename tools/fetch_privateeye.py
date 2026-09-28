@@ -315,7 +315,7 @@ def convert(num, puz):
             "position": {"x": x, "y": y},
             "length": length,
             "clue": clue.strip(),
-            **({"group": groups[eid]} if eid in groups else {}),
+            **({"group": groups[eid]} if groups.get(eid, [None])[0] == eid else {}),
             "solution": None,  # see module docstring — never recoverable from this feed today
         })
     # The .puz carries no word breaks; the Eye prints them in each clue's enumeration.
@@ -765,10 +765,8 @@ def link_groups(puzzle):
         # Two lights can each name the other — Cyclops 464's 7ac says "(& 25dn.)"
         # and 25dn says "(& 7ac.)", both carrying a full clue, for POOR TASTE.
         # That is agreement about the group and silence about which light leads
-        # it, so the members stand and the first arrangement reached is kept.
-        # Only membership is load-bearing: the app groups by annotation.linkedTo,
-        # check_length sums over the group, and validate_annotations compares the
-        # legs to each other, so none of them can see the order.
+        # it, so the members stand and the first arrangement reached is kept;
+        # its first light is the leader, which carries the group in the file.
         if settled == {frozenset(ids)}:
             continue
 

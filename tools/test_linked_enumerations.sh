@@ -203,7 +203,8 @@ same("the word break sits in the light it falls in",
      built["7-down"].get("separatorLocations"), {",": [4]})
 same("the continuation carries no break, and writes no empty key for it",
      "separatorLocations" in built["8-down"], False)
-same("both lights know the group", built["8-down"]["group"], ["7-down", "8-down"])
+same("the leader holds the group", built["7-down"].get("group"), ["7-down", "8-down"])
+same("the continuation holds none", "group" in built["8-down"], False)
 
 print("a record with no answers at all is still put into leader form")
 # A puzzle filed UNSOLVED for the nightly cold solve to finish: the book's

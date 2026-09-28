@@ -136,6 +136,7 @@ from itertools import pairwise, zip_longest
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import groups  # noqa: E402 — linked answers
 from apply_solution import (check_fill, check_geometry,  # noqa: E402
                             normalise)
 from fetch_puzzle import (ENUMERATION, PER_LIGHT_ENUMERATION,  # noqa: E402
@@ -969,6 +970,7 @@ def check_length(puzzle, checkable, flags):
     Guardian's own data had truncated to 15."""
     pid = puzzle["id"]
     by_id = {e["id"]: e for e in puzzle.get("entries") or []}
+    group_of = groups.group_of(puzzle.get("entries") or [])
     for e in checkable:
         eid, solution = e["id"], e["solution"]
         if len(solution) != e.get("length"):
@@ -984,7 +986,7 @@ def check_length(puzzle, checkable, flags):
         counts = [int(n) for n in re.findall(r"\d+", m.group(1))]
         if not counts:
             continue
-        group = e.get("group") or [eid]
+        group = group_of.get(eid) or [eid]
         legs = [by_id.get(gid, {}).get("solution") for gid in group]
         if any(not s for s in legs):
             continue  # part of the answer is unpublished; nothing to compare yet
@@ -1129,14 +1131,14 @@ def check_setter(puzzle, flags):
 
 def check_puzzle_text(puzzle, flags):
     """validate_annotations' checks on the puzzle's own text and groups: no
-    markup or undecodable character, and every leg of a linked answer naming
-    the same group. Annotations are left to that validator, which grades them."""
+    markup or undecodable character, and each linked answer's group on its
+    leader alone. Annotations are left to that validator, which grades them."""
     import validate_annotations  # noqa: PLC0415 — it imports this module's fetcher
     bare = {**puzzle, "entries": [{k: v for k, v in e.items() if k != "annotation"}
                                   for e in puzzle.get("entries") or []]}
     errors = []
     validate_annotations.check_no_markup(bare, errors)
-    validate_annotations.check_groups_agree(bare, errors)
+    validate_annotations.check_groups(bare, errors)
     flags.extend(("SHAPE", puzzle["id"], err) for err in errors)
 
 

@@ -818,6 +818,7 @@
   let cells = [];        // rows x cols of {x,y,sol,num,across,down,el,letter,wrong,revealed} | null
   let entries = [];      // puzzle entries in tab order (across by number, then down)
   let byId = {};
+  let leaderOf = {};     // continuation id -> its linked group's leader id (buildLeaderOf)
   let cur = { x: 0, y: 0, dir: "across" };
   // The clue the LINK asked for, read once and spent once.
   //
@@ -874,10 +875,19 @@
   let touchAnchor = null; // touchstart position, to distinguish taps from scrolls
 
   const stateKey = () => "ct:" + P.id;
-  const entryKey = (e) => (e.annotation && e.annotation.linkedTo) ? e.annotation.linkedTo : e.id;
+  // A linked answer is one clue: only its leader carries `group` (itself first)
+  // and the annotation, and each continuation belongs to the first leader in
+  // the puzzle's entry order whose group lists it.
+  const buildLeaderOf = (list) => {
+    const out = {};
+    list.forEach((e) => (e.group || []).slice(1).forEach((id) => { if (id !== e.id && !(id in out)) out[id] = e.id; }));
+    return out;
+  };
+  const holderOf = (e) => byId[leaderOf[e.id]] || e;
+  const entryKey = (e) => holderOf(e).id;
   const annOf = (e) => {
-    if (!e.annotation) return blogAnn(e);
-    return e.annotation.linkedTo ? (byId[e.annotation.linkedTo] || {}).annotation || null : e.annotation;
+    const h = holderOf(e);
+    return h.annotation || blogAnn(h);
   };
   // A clue we have not annotated may still carry what a blog's write-up marks
   // about it (tools/blog_facts.py, merged into the shim by fetch_puzzle): the
@@ -1647,6 +1657,7 @@
       (a.direction === b.direction) ? a.number - b.number : (a.direction === "across" ? -1 : 1));
     byId = {};
     entries.forEach((e) => { byId[e.id] = e; });
+    leaderOf = buildLeaderOf(P.entries);
     entries.forEach((e) => {
       for (let i = 0; i < e.length; i++) {
         const x = e.position.x + (e.direction === "across" ? i : 0);
@@ -1989,7 +2000,7 @@
     entries.forEach((e) => {
       const li = $("clue-" + e.id);
       if (!li) return;
-      const holder = (e.annotation && e.annotation.linkedTo) ? byId[e.annotation.linkedTo] : e;
+      const holder = holderOf(e);
       li.querySelector(".clue-text").innerHTML = (holder === e) ? clueHTML(e) : plainClueHTML(e);
       const solved = isEntrySolved(e);
       // Nothing to tell you about a clue you have finished — the row greys out
@@ -2699,9 +2710,8 @@
   // The whole of a linked group, not one leg of it: a linked clue's hints cover
   // both entries, so getting the first must not hand over the second.
   function groupSolved(e) {
-    const key = entryKey(e);
-    const group = entries.filter((g) => entryKey(g) === key);
-    return group.length > 0 && group.every(isEntrySolved);
+    const h = holderOf(e);
+    return (h.group || [h.id]).map((id) => byId[id]).filter(Boolean).every(isEntrySolved);
   }
 
   // viaType marks the one call (typeLetter) that represents an actual solve;
@@ -4822,7 +4832,7 @@
     if (!e) { panel.classList.add("hidden"); return; }
     panel.classList.remove("hidden");
 
-    const holder = (e.annotation && e.annotation.linkedTo) ? byId[e.annotation.linkedTo] : e;
+    const holder = holderOf(e);
     const ann = annOf(e);
     const key = entryKey(e);
     const level = shownRungs(e).filter((r) => r !== ANSWER_RUNG).length;
@@ -5307,7 +5317,7 @@
   }
 
   function renderScore() {
-    const total = entries.filter((e) => !(e.annotation && e.annotation.linkedTo)).length;
+    const total = entries.filter((e) => !leaderOf[e.id]).length;
     let solved = 0, noHints = 0, levelsUsed = 0, lettersRevealed = 0;
     const counted = {};
     entries.forEach((e) => {
@@ -6181,7 +6191,7 @@
     }
     if (tallyDrawn && !earned) return;
     tallyDrawn = true;
-    const total = entries.filter((e) => !(e.annotation && e.annotation.linkedTo)).length;
+    const total = entries.filter((e) => !leaderOf[e.id]).length;
     const counted = {};
     let noHints = 0, levels = 0;
     entries.forEach((e) => {

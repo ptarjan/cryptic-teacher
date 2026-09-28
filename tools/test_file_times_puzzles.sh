@@ -138,7 +138,7 @@ for key, held in (("PLACEHOLDER", None), ("NAMED", "Someone")):
 
 # "See 5 Across (3)" under a light 5-across's clue names, each light counting
 # only itself, is a pointer to where its clue is, not a linked answer; a
-# pointer the leader's clue never names stays a group.
+# pointer the leader's clue never names stays a group, held on the leader.
 import file_blog_puzzles as B
 pointed = rec(10, 105, "2026-01-13")
 for e in pointed["entries"]:
@@ -151,7 +151,7 @@ for e in pointed["entries"]:
         e["clue"] = "See 2 (5)"
 built, why = B.build(pointed, row(pointed), "times", None, None)
 groups = {e["id"]: e.get("group") for e in built["entries"]}
-print("COMPOSITE", groups["7-across"], groups["3-down"])
+print("COMPOSITE", groups["5-across"], groups["7-across"], groups["2-down"], groups["3-down"])
 
 # The grid proves the answers, so a count the blog mistyped is recounted from
 # them -- 5-across typed (4), 2-down typed (0,5) -- and named in the check;
@@ -200,8 +200,8 @@ check "the Sunday Times takes its setter from the title; the Times stays anonymo
   "Dean Mayer None" "$(got SETTERS)"
 check "a puzzle filed with no setter is named" "Dean Mayer" "$(got RENAMED_PLACEHOLDER)"
 check "a setter already named is never overwritten" "Someone" "$(got RENAMED_NAMED)"
-check "a pointer into the leader's clue is no group; an unnamed pointer is one" \
-  "None ['2-down', '3-down']" "$(got COMPOSITE)"
+check "a pointer into the leader's clue is no group; an unnamed pointer is one, held by its leader alone" \
+  "None None ['2-down', '3-down'] None" "$(got COMPOSITE)"
 check "a count the grid-proved answers contradict is recounted from them, and said" \
   "Mistyped (5) | Zero first (5) | the grid proves the blog's enumeration wrong at 2 down, 5 across, recounted from the answer here" \
   "$(got RECOUNTED)"
