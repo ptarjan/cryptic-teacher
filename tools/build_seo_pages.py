@@ -1353,14 +1353,21 @@ INDICATOR_TYPES = {
 assert set(INDICATOR_TYPES) <= set(clue_types.NAMES)
 
 
-# indicators.json's key for a phrase: shared with the burn's indicator cover
-# (tools/prereset_plan.py).
-from indicator_keys import indicator_key
+# Which (type, key) pairs a clue's indicators give: shared with the burn's
+# indicator cover (tools/indicator_cover.py).
+from indicator_keys import clue_pairs
+
+
+@functools.cache
+def indicator_lexicon():
+    """tools/data/lexicons/indicators.json: {type: {key: clues}}."""
+    return json.loads(INDICATORS.read_text(encoding="utf-8"))
 
 
 def clue_indicators(found, puz, page):
     """Add one puzzle's annotated indicators to found, {(type, key): candidate},
-    keeping the fullest annotation (then the newest puzzle) for each.
+    keeping for each a clue whose phrase is the key over one whose phrase only
+    contains it, then the fullest annotation, then the newest puzzle.
 
     Only a clue whose annotation names the type counts, so "about" links to a
     container clue from the container list and not to an anagram that used it.
@@ -1368,16 +1375,14 @@ def clue_indicators(found, puz, page):
     """
     for e in puz["entries"]:
         ann = e.get("annotation") or {}
-        kinds = ann.get("type") or ()
         if not ann.get("indicators") or f'id="{esc(e["id"])}"' not in page:
             continue
         depth = len((ann.get("walkthrough") or "") + (ann.get("definitionFit") or ""))
-        rank = (depth, series_meta.date_ms(puz.get("date")) or 0)
-        for word in ann["indicators"]:
-            key = indicator_key(word)
-            for t in INDICATOR_TYPES:
-                if t in kinds and ((t, key) not in found or found[(t, key)][0] < rank):
-                    found[(t, key)] = (rank, puz["id"], e["id"])
+        date = series_meta.date_ms(puz.get("date")) or 0
+        for (t, key), exact in clue_pairs(indicator_lexicon(), ann.get("type"), ann["indicators"]).items():
+            rank = (exact, depth, date)
+            if (t, key) not in found or found[(t, key)][0] < rank:
+                found[(t, key)] = (rank, puz["id"], e["id"])
 
 
 def indicator_label(key):
@@ -1393,7 +1398,7 @@ def indicators_page(found):
     (tools/letter_facts.py --lexicons). An indicator links to one annotated clue
     that uses it where the archive has one.
     """
-    lex = json.loads(INDICATORS.read_text(encoding="utf-8"))
+    lex = indicator_lexicon()
     types = [t for t in INDICATOR_TYPES if lex.get(t)]
     unknown = sorted(set(lex) - set(INDICATOR_TYPES))
     if unknown:
