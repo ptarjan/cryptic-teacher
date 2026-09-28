@@ -332,15 +332,15 @@ button:disabled:hover { border-color: var(--line); }
 }
 /* In the picker a tap on it opens /difficulty/ rather than the puzzle. */
 #picker-list .badge.diff { cursor: help; }
-.badge.diff-gentle   { color: #2f7d52; }
-.badge.diff-moderate { color: #7a6a1f; }
-.badge.diff-tough    { color: #a3541b; }
-.badge.diff-brutal   { color: #a33025; }
+.badge.diff-gentle,   .chart .diff-gentle   { color: #2f7d52; }
+.badge.diff-moderate, .chart .diff-moderate { color: #7a6a1f; }
+.badge.diff-tough,    .chart .diff-tough    { color: #a3541b; }
+.badge.diff-brutal,   .chart .diff-brutal   { color: #a33025; }
 @media (prefers-color-scheme: dark) {
-  .badge.diff-gentle   { color: #6fc48f; }
-  .badge.diff-moderate { color: #ccb455; }
-  .badge.diff-tough    { color: #e39055; }
-  .badge.diff-brutal   { color: #e8756a; }
+  .badge.diff-gentle,   .chart .diff-gentle   { color: #6fc48f; }
+  .badge.diff-moderate, .chart .diff-moderate { color: #ccb455; }
+  .badge.diff-tough,    .chart .diff-tough    { color: #e39055; }
+  .badge.diff-brutal,   .chart .diff-brutal   { color: #e8756a; }
 }
 
 /* Paper and difficulty menus on one line under the search box. Native selects,
@@ -1288,6 +1288,16 @@ mark.link {
 .tutorial-static td, .tutorial-static th {
   border: 1px solid var(--line); padding: 3px 10px; text-align: left;
 }
+/* /difficulty/'s charts, inline SVG drawn by tools/build_seo_pages.py. */
+.chart { margin: 10px 0 18px; }
+.chart svg { width: 100%; max-width: 560px; height: auto; display: block; }
+.chart text { fill: var(--muted); font-size: 11px; font-family: inherit; }
+.chart text.big { fill: var(--fg); font-size: 13px; font-weight: 700; }
+.chart .bar, .chart .dot { fill: var(--accent); }
+.chart .dot { opacity: .45; }
+.chart .band { fill: currentColor; opacity: .8; }
+.chart .axis { stroke: var(--line); stroke-width: 1; }
+.chart figcaption { color: var(--muted); font-size: .82rem; margin-top: 4px; }
 .tutorial-static code { font-family: ui-monospace, Menlo, monospace; font-size: .85em; }
 
 /* The glossary is long on purpose — it is a lookup table, not a lesson, and a

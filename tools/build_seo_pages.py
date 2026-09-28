@@ -983,6 +983,94 @@ def difficulty_bands(idx):
     return f"<table>{head}{''.join(rows)}</table>"
 
 
+def svg(w, h, body, label):
+    """An inline chart. Colours come from style.css (.chart), so it follows
+    the site's light and dark themes."""
+    return (f'<figure class="chart"><svg viewBox="0 0 {w} {h}" role="img" '
+            f'aria-label="{esc(label)}">{body}</svg><figcaption>{esc(label)}</figcaption></figure>')
+
+
+def weights_chart(order, labels):
+    """Horizontal bars, one per component, from difficulty.WEIGHTS."""
+    total = sum(difficulty.WEIGHTS.values())
+    top = max(difficulty.WEIGHTS.values())
+    row, left, width = 22, 170, 300
+    body = []
+    for i, k in enumerate(order):
+        w = difficulty.WEIGHTS[k]
+        y = i * row
+        body.append(f'<text x="{left - 8}" y="{y + 15}" text-anchor="end">{esc(labels[k])}</text>'
+                    f'<rect class="bar" x="{left}" y="{y + 4}" width="{width * w / top:.1f}" height="14"/>'
+                    f'<text x="{left + width * w / top + 6:.1f}" y="{y + 15}">'
+                    f'{round(100 * w / total)}%</text>')
+    return svg(left + width + 50, len(order) * row + 4, "".join(body),
+               "Share of the rating each measure carries")
+
+
+def bands_chart(idx):
+    """One stacked bar: how the badged puzzles split across the bands now."""
+    counts = {}
+    for p in idx["puzzles"]:
+        b = (p.get("difficulty") or {}).get("band")
+        if b:
+            counts[b] = counts.get(b, 0) + 1
+    total = sum(counts.values())
+    if not total:
+        return ""
+    width, x, body = 520, 0.0, []
+    for _, band in difficulty.BANDS:
+        n = counts.get(band, 0)
+        w = width * n / total
+        if w:
+            body.append(f'<rect class="band diff-{esc(band.lower())}" x="{x:.1f}" y="0" '
+                        f'width="{w:.1f}" height="26"/>'
+                        f'<text x="{x + w / 2:.1f}" y="44" text-anchor="middle">'
+                        f'{esc(band.lower())} {round(100 * n / total)}%</text>')
+        x += w
+    return svg(width, 52, "".join(body), f"How the {total:,} badged puzzles split across the bands")
+
+
+def scatter(idx):
+    """The badge rating of every rated Times daily against its NITCH minus
+    the weekday mean of all rated Times dailies, with the rank correlation of
+    exactly the points drawn."""
+    sn = difficulty.load_snitch()
+    by = {}
+    for pid, v in sn.items():
+        if pid.rpartition("-")[0] == "times":
+            by.setdefault(datetime.fromisoformat(v["date"]).weekday(), []).append(v["nitch"])
+    means = {d: sum(x) / len(x) for d, x in by.items()}
+    pts = []
+    for p in idx["puzzles"]:
+        d, v = p.get("difficulty") or {}, sn.get(p.get("id"))
+        if v and d.get("index") is not None and p.get("series") == "times":
+            pts.append((d["index"], v["nitch"] - means[datetime.fromisoformat(v["date"]).weekday()]))
+    if len(pts) < 30:
+        return ""
+    rho = difficulty._spearman([a for a, _ in pts], [b for _, b in pts])
+    xs, ys = sorted(a for a, _ in pts), sorted(b for _, b in pts)
+    # The middle 98% sets the axes, so a few outliers do not squash the rest.
+    lo_x, hi_x = xs[len(xs) // 100], xs[-1 - len(xs) // 100]
+    lo_y, hi_y = ys[len(ys) // 100], ys[-1 - len(ys) // 100]
+    W, H, L, B = 520, 300, 40, 30
+    def px(a):
+        return L + (min(max(a, lo_x), hi_x) - lo_x) / (hi_x - lo_x) * (W - L - 10)
+    def py(b):
+        return (H - B) - (min(max(b, lo_y), hi_y) - lo_y) / (hi_y - lo_y) * (H - B - 10)
+    body = [f'<line class="axis" x1="{L}" y1="{py(0):.1f}" x2="{W - 10}" y2="{py(0):.1f}"/>',
+            f'<line class="axis" x1="{px(0):.1f}" y1="10" x2="{px(0):.1f}" y2="{H - B}"/>']
+    body += [f'<circle class="dot" cx="{px(a):.1f}" cy="{py(b):.1f}" r="2.2"/>' for a, b in pts]
+    body.append(f'<text x="{W - 10}" y="{H - 8}" text-anchor="end">our rating, easier &#8594; harder</text>'
+                f'<text x="12" y="{H / 2}" transform="rotate(-90 12 {H / 2})" text-anchor="middle">'
+                f"NITCH minus weekday mean</text>"
+                f'<text class="big" x="{L + 8}" y="26">rho {signed(rho)}, {len(pts):,} Times puzzles</text>')
+    return svg(W, H, "".join(body),
+               "Each dot is a Times daily with full hints: the rating its badge shows, posted times "
+               "included where there are enough, against how much "
+               "slower than usual for its weekday the SNITCH solvers were. The rho is over every dot, "
+               "not held out.")
+
+
 def difficulty_page(idx):
     """Render tools/difficulty_page.html as /difficulty/.
 
@@ -1047,7 +1135,9 @@ def difficulty_page(idx):
         margin = ("The rating has to put them clearly below the other series, by at least "
                   f"{difficulty.MARGIN_FLOOR:g} standard deviations.")
 
-    fill = {"bands": difficulty_bands(idx), "component_count": str(len(order)),
+    fill = {"bands": difficulty_bands(idx), "bands_chart": bands_chart(idx),
+            "weights_chart": weights_chart(order, {k: blocks[k][0] for k in order}),
+            "scatter": scatter(idx), "component_count": str(len(order)),
             "components": "\n".join(comps), "comment_min_times": str(difficulty.COMMENT_MIN_TIMES),
             "comment_series_min": str(difficulty.COMMENT_SERIES_MIN), "blended_series": blended,
             "checks": checks, "margin": margin, "portable_measures": portable}
