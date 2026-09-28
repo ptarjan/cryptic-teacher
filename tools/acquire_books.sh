@@ -51,7 +51,8 @@ if [ -z "$id" ]; then
 fi
 echo "next unread book: $id ($(python3 tools/book_queue.py --count) still unread)"
 
-python3 tools/acquire_book.py "$id" --file --puzzle-dir puzzles
+# Two jobs at lowest priority: the box also runs the burn and CI-style test runs.
+nice -n 19 python3 tools/acquire_book.py "$id" --file --puzzle-dir puzzles --jobs 2
 rc=$?
 
 # 3 is EXIT_LENDING_LIMIT: the account is over its allowance, which says
