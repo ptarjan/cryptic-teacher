@@ -7,8 +7,8 @@ python3 - <<'PY'
 import validate_annotations as v
 
 def errors(ann, preamble=None):
-    base = {"type": ["charade"], "answer": "TURNSTONE", "walkthrough": "w",
-            "pieces": ["TURNS", "TONE"],
+    base = {"type": ["charade"], "answer": "TURNSTONE", "explanation": {"walkthrough": "w"},
+            "assembly": {"pieces": ["TURNS", "TONE"]},
             "blocks": [{"clueFragment": "Changes", "gives": "TURNS"},
                        {"clueFragment": "colour", "gives": "TONE"}]}
     puzzle = {"id": "t-1", "entries": [{"id": "1-across", "number": 1, "direction": "across",

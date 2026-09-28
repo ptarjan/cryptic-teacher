@@ -93,7 +93,7 @@ Terms used below:
   mentioned a band). Name the picture in the clue's own words. See
   `tools/annotate_prompt.md`.
 - **The walkthrough ends by saying why the answer means the definition.** This
-  is `definitionFit`. It is required on every annotation and rendered just
+  is `explanation.definitionFit`. It is required on every annotation and rendered just
   before the answer. Name the relation: plain synonym, definition by example, a
   sense mostly found in crosswords, a technical or regional use, a whole-phrase
   idiom. Restating the definition with the answer substituted in ("an army ant
@@ -380,7 +380,7 @@ of the annotation against each other. All are in
   reuse a word on purpose ("Nobody drunk now nobody drinks!"). It errors past
   three in one puzzle.
 - `check_blocks_account_for_answer`: the blocks' letters must match the answer.
-- `check_blocks_decompose`: the blocks must match `pieces`.
+- `check_blocks_decompose`: the blocks must match `assembly.pieces`.
 - `check_blocks_carry_notes`: every block that claims letters has a note.
 - `check_indicator_outside_fodder`: an indicator cannot sit inside its own
   fodder. A word being shuffled cannot also be the word that says to shuffle.

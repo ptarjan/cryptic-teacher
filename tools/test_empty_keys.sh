@@ -164,7 +164,7 @@ p["setter"] = None
 e = p["entries"][0]
 e.update(solution=None, clue={"text": "", "separators": [], "italics": [], "missing": True})
 e["annotation"] = {"type": ["anagram"], "indicators": [],
-                   "linkWords": [], "surface": "",
+                   "linkWords": [], "explanation": {"surface": ""}, "assembly": {"pieces": []},
                    "features": {"joke": None, "misdirectedWord": None,
                                 "answerInScene": False, "aptDefinition": False},
                    "blocks": [{"clueFragment": "x", "gives": ""}]}

@@ -49,25 +49,35 @@ prints it.
     {"clueFragment": "for letter_selection", "gives": "THE KEPT LETTERS", "select": "first", "note": "why"},
     {"clueFragment": "for homophones/spoonerisms", "soundsLike": "WHAT YOU SAY ALOUD", "gives": "HOW IT IS SPELT", "note": "why"}
   ],
-  "surface": "one sentence, 25 words max: what the clue pretends to be about",
-  "walkthrough": "1-2 sentences, 45 words max: what the blocks cannot show",
-  "definitionFit": "one sentence, 30 words max: why the answer means the definition",
+  "assembly": {
+    "pieces": ["CHUNKS", "THAT", "CONCATENATE", "TO", "THE", "ANSWER"],
+    "anagrams": [{"fodder": "SUIT", "gives": "TISU"}],
+    "reversals": [{"from": "MAC", "to": "CAM"}]
+  },
+  "explanation": {
+    "surface": "one sentence, 25 words max: what the clue pretends to be about",
+    "walkthrough": "1-2 sentences, 45 words max: what the blocks cannot show",
+    "definitionFit": "one sentence, 30 words max: why the answer means the definition"
+  },
   "features": {
     "misdirectedWord": "the one clue word, spelt as printed, whose surface sense is furthest from its job; or null",
     "joke": "\"pun\" (a word's second sense or sound), \"absurd\" (silly on purpose), or null",
     "answerInScene": "true/false: does the solution belong in the picture the surface paints?",
     "aptDefinition": "true/false: is the definition fresh or witty rather than a dictionary synonym?"
-  },
-
-  "pieces": ["CHUNKS", "THAT", "CONCATENATE", "TO", "THE", "ANSWER"],
-  "anagram": {"fodder": "LETTERS WHOSE MULTISET EQUALS THE ANSWER"},
-  "subAnagrams": [{"fodder": "SUIT", "gives": "TISU"}],
-  "subReversals": [{"from": "MAC", "to": "CAM"}]
+  }
 }
 ```
 
 Blocks are listed in the order the answer reads, not the clue; with a container,
 reversal or rotation, in the order the pieces are assembled before that step.
+
+`assembly` rebuilds the answer so the check can verify every letter; it may cut the
+answer differently from the blocks. `pieces` are the final chunks in answer order, for a
+charade, container or deletion. `anagrams` holds every anagram step as the fodder (every
+letter shuffled, added ones included) and what it becomes; when the whole answer is an
+anagram, that item's `gives` is the answer. `reversals` holds every reversal step. Leave
+out any key with nothing in it, and `assembly` itself for a hidden word, homophone, or
+double or cryptic definition.
 
 `definitions` has one object, or two for a double definition. Leave out `at`, the
 text's offset in the clue: `apply_annotations.py` computes it, and asks for it only
@@ -91,11 +101,11 @@ disagree, it wins.
 - A link word joins and says nothing else. Don't borrow another mechanism's signal
   words in any prose field: "aloud" means homophone, "shuffle" anagram, "hidden"
   extraction, "reversed" turnaround.
-- `surface` is the picture, not a paraphrase and no mechanics: `Behaved antisocially
+- `explanation.surface` is the picture, not a paraphrase and no mechanics: `Behaved antisocially
   and gave birth` is one person's bad week. A clue of four or more words has one unless
   it is a pure double or cryptic definition; otherwise omit it only when the clue paints
   no picture apart from its mechanism (`Flat (4)`).
-- `walkthrough` says only what the blocks cannot: why the surface misleads, a convention
+- `explanation.walkthrough` says only what the blocks cannot: why the surface misleads, a convention
   the solver may not know (`ER` = Queen), why a definition is fair. Naming a chunk is
   fine when the sentence teaches (`OCT is the calendar abbreviation`); narrating
   fragment to letters is not.

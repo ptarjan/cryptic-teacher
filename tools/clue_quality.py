@@ -204,6 +204,8 @@ import statistics
 import sys
 from pathlib import Path
 
+from annotation import whole_anagram  # tools/annotation.py
+
 ROOT = Path(__file__).resolve().parent.parent
 CORPUS = Path.home() / "cryptic-setter-data" / "georgeho" / "data.db"
 
@@ -487,7 +489,7 @@ def check(eid, spec, norms):
             break
 
     # 3. Anagram indicator jammed against its own fodder.
-    fodder = ((ann.get("anagram") or {}).get("fodder") or "").strip()
+    fodder = (whole_anagram(ann) or "").strip()
     if fodder:
         for ind in (i["text"] for i in ann.get("indicators") or []):
             pat = rf"\b{re.escape(fodder.lower())}\s+{re.escape(ind.lower())}\b|" \

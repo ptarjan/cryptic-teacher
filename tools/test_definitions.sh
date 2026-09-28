@@ -43,8 +43,8 @@ check("not in the clue", True, "not in the clue" in (refused("Big cat (4)", "dog
 def errors(defs):
     puzzle = {"id": "t-1", "entries": [{"id": "1-across", "number": 1, "direction": "across",
               "clue": {"text": "Changes colour (9)"}, "solution": "TURNSTONE",
-              "annotation": {"type": ["charade"], "answer": "TURNSTONE", "walkthrough": "w",
-                             "definitions": defs, "pieces": ["TURNS", "TONE"],
+              "annotation": {"type": ["charade"], "answer": "TURNSTONE", "explanation": {"walkthrough": "w"},
+                             "definitions": defs, "assembly": {"pieces": ["TURNS", "TONE"]},
                              "blocks": [{"clueFragment": "Changes", "gives": "TURNS"},
                                         {"clueFragment": "colour", "gives": "TONE"}]}}]}
     return [e for e in v.validate_puzzle(puzzle)[1] if "definition" in e]

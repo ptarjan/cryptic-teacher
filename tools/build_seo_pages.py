@@ -412,8 +412,9 @@ def clue_html(e, blog_note=True):
     # that's the answer" rung, minus the answer/definition repeated back at
     # the reader (both are already on the page a line up). Written work sat
     # unindexed for ~500 puzzles until this rendered it here too.
-    if ann.get("definitionFit"):
-        bits.append(f'<p><em>Why it fits:</em> {esc(ann["definitionFit"])}</p>')
+    prose = ann.get("explanation") or {}
+    if prose.get("definitionFit"):
+        bits.append(f'<p><em>Why it fits:</em> {esc(prose["definitionFit"])}</p>')
     blocks = ann.get("blocks") or []
     if blocks:
         rows = "".join(
@@ -450,10 +451,10 @@ def clue_html(e, blog_note=True):
                         'not the blogger\'s.</p>')
     # The surface first, the same order and for the same reason as the app's
     # walkthrough rung: what the clue pretends to be about, then what it is doing.
-    if ann.get("surface"):
-        bits.append(f'<p class="s-walk"><em>What it seems to say:</em> {esc(ann["surface"])}</p>')
-    if ann.get("walkthrough"):
-        bits.append(f'<p class="s-walk"><em>How it works:</em> {esc(ann["walkthrough"])}</p>')
+    if prose.get("surface"):
+        bits.append(f'<p class="s-walk"><em>What it seems to say:</em> {esc(prose["surface"])}</p>')
+    if prose.get("walkthrough"):
+        bits.append(f'<p class="s-walk"><em>How it works:</em> {esc(prose["walkthrough"])}</p>')
     if not ann:
         # Two different silences, and telling them apart is the whole point —
         # the same split app.js makes off clue.missing. "No explanation yet"
@@ -1214,7 +1215,8 @@ def clue_blocks(blocks, puz, page):
         ann = e.get("annotation") or {}
         if f'id="{esc(e["id"])}"' not in page:
             continue
-        depth = len((ann.get("walkthrough") or "") + (ann.get("definitionFit") or ""))
+        prose = ann.get("explanation") or {}
+        depth = len((prose.get("walkthrough") or "") + (prose.get("definitionFit") or ""))
         for b in ann.get("blocks") or []:
             frag = (b.get("clueFragment") or "").lower()
             key = letters_of(b.get("gives"))
@@ -1376,7 +1378,8 @@ def clue_indicators(found, puz, page):
         if not ann.get("indicators") or f'id="{esc(e["id"])}"' not in page:
             continue
         ours = bool(e.get("annotation"))
-        depth = len((ann.get("walkthrough") or "") + (ann.get("definitionFit") or ""))
+        prose = ann.get("explanation") or {}
+        depth = len((prose.get("walkthrough") or "") + (prose.get("definitionFit") or ""))
         day = series_meta.puzzle_day(puz) or date.min
         for (t, key), exact in clue_pairs(indicator_lexicon(), ann["indicators"]).items():
             rank = (ours, exact, depth, day)
