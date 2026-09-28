@@ -6556,6 +6556,10 @@
 
     document.addEventListener("keydown", (ev) => {
       if (ev.target && (ev.target.tagName === "INPUT" && ev.target.id !== "kbd" || ev.target.tagName === "TEXTAREA")) return;
+      // A select owns every key while it has focus, open or closed. Where the
+      // page draws the open list (appearance: base-select), focus sits on an
+      // <option>, so arrows and Enter would otherwise steer the grid instead.
+      if (ev.target && ev.target.closest && ev.target.closest("select")) return;
       if (ev.metaKey || ev.ctrlKey || ev.altKey) return;
       // Tab, Enter and Space belong to whatever control has focus. onKey swallows
       // all three on behalf of the grid, so forwarding them from a focused button
