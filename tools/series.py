@@ -316,33 +316,40 @@ def _load_books():
             raise ValueError(f"{where}: name {row['name']!r} has to end in "
                              f"volume {volume} — puzzle_name() appends "
                              f"\" No <position>\" to it")
-        if not is_year(row.get("published")):
+        if not (isinstance(row.get("published"), int)
+                and 1000 <= row["published"] <= 9999):
             raise ValueError(f"{where}: published {row.get('published')!r} has "
-                             f"to be the imprint page's year as a \"YYYY\" "
-                             f"string — it becomes every puzzle's date")
+                             f"to be the imprint page's year as an integer — "
+                             f"it becomes every puzzle's `year`")
         by_index[index] = row
         by_identifier[identifier] = row
     return by_index
 
 
-# A puzzle's `date` is epoch milliseconds (a day the paper printed it), a
-# "YYYY" string (a book's year, the most its imprint page says), or null.
-# Every reader goes through these rather than treating it as a number.
-_YEAR = re.compile(r"\d{4}")
+# A puzzle holds `date`, epoch milliseconds at UTC midnight of the day its paper
+# printed it, or `year`, an integer, for a book whose imprint page prints only
+# the year; never both. A paper puzzle not yet dated off its neighbours holds
+# neither. Readers that need one number or one year ask here.
 
 
-def is_year(value):
-    """Whether a stored date is a bare year: "1995"."""
-    return isinstance(value, str) and bool(_YEAR.fullmatch(value))
-
-
-def date_ms(value):
-    """A stored date as epoch milliseconds, for sorting and comparing: a bare
-    year is its 1 January, UTC. None stays None."""
-    if is_year(value):
-        return int(datetime.datetime(int(value), 1, 1,
+def puzzle_ms(puzzle):
+    """The puzzle's date as epoch milliseconds, for sorting and comparing: a
+    `year` is its 1 January, UTC. None when it holds neither."""
+    if "year" in puzzle:
+        return int(datetime.datetime(puzzle["year"], 1, 1,
                                      tzinfo=datetime.timezone.utc).timestamp() * 1000)
-    return value
+    return puzzle.get("date")
+
+
+def puzzle_year(puzzle):
+    """The puzzle's year: its `year`, or the UTC year of its `date`. None when
+    it holds neither."""
+    if "year" in puzzle:
+        return puzzle["year"]
+    if puzzle.get("date") is None:
+        return None
+    return datetime.datetime.fromtimestamp(puzzle["date"] / 1000,
+                                           datetime.timezone.utc).year
 
 
 BOOKS = _load_books()
@@ -634,7 +641,7 @@ def scan_identifier(series, number):
 
 
 def published(series, number):
-    """The year this puzzle's book was published, "YYYY" — its `date`. None
+    """The year this puzzle's book was published, an integer — its `year`. None
     for a feed, whose date is the day its paper printed it."""
     if not is_book(series):
         return None

@@ -385,8 +385,8 @@ def entries_from_grid(grid, across, down):
 
 def file_unsolved(puzzle_meta, grid, across, down, identifier, out_dir):
     """(path, problems). Reuses tools/file_penguin_puzzle.py's own guard, in
-    process, so everything it knows about these books -- the id, the null
-    date, the absent solution detail, how a linked group is stored -- is
+    process, so everything it knows about these books -- the id, the
+    book's year, the absent solution detail, how a linked group is stored -- is
     applied here too instead of being restated and drifting.
 
     `identifier` is the archive.org item THIS RUN read, and it is the ONLY

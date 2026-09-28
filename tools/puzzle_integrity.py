@@ -80,9 +80,9 @@ The flags, in the order they matter:
             per-clue forgiveness can be — a solution
             carrying something other than letters, the same entry id twice in one
             puzzle, a date in the future or before EARLIEST_YEAR, a date that
-            is neither epoch milliseconds nor a "YYYY" year, a book puzzle
-            not dated with its book's `published` year, no date at all where
-            the source prints one, a blog's brace markup left in a clue, a
+            is not epoch milliseconds, a book puzzle whose `year` is not its
+            book's `published` year or that holds a date, a `year` on a paper's
+            puzzle, no date at all where the source prints one, a blog's brace markup left in a clue, a
             clue transcribed from a blog with no enumeration, and — from
             validate_annotations — markup or an undecodable character in the
             puzzle's text, or the legs of a linked answer naming different
@@ -839,31 +839,33 @@ def check_shape(puzzle, today, flags):
         flags.append(("SHAPE", pid, "no entries at all"))
         return []
 
-    stored = puzzle.get("date")
     series = puzzle.get("series", "cryptic")
-    # A book puzzle's date is its book's imprint year, read off the registry
-    # by the filer; any other value is a book cited under the wrong year.
+    # A book puzzle's `year` is its book's imprint year, read off the registry
+    # by the filer; any other value is a book cited under the wrong year. Only
+    # a book holds a year: a paper prints the day.
     if series_meta.is_book(series):
         want = series_meta.published(series, puzzle.get("number"))
-        if stored != want:
-            flags.append(("SHAPE", pid, f"dated {stored!r}, but its book "
-                          f"(tools/data/books.json) was published in {want!r}"))
-    if stored is None:
+        if puzzle.get("year") != want:
+            flags.append(("SHAPE", pid, f"year {puzzle.get('year')!r}, but its "
+                          f"book (tools/data/books.json) was published in {want!r}"))
+    elif "year" in puzzle:
+        flags.append(("SHAPE", pid, f"has year {puzzle['year']!r}, but only a "
+                      f"book puzzle holds a year; a paper prints the day"))
+    if "date" in puzzle and series_meta.is_book(series):
+        flags.append(("SHAPE", pid, "has a date, but a book's imprint prints "
+                      "only a year"))
+    elif "date" not in puzzle:
         # Every paper puzzle has a day: a series dated off its neighbours
-        # gets a best fit (file_blog_puzzles.fit_undated), and a null is a
-        # hole in every listing.
+        # gets a best fit (file_blog_puzzles.fit_undated), and a missing date
+        # is a hole in every listing.
         if not series_meta.is_book(series):
             flags.append(("SHAPE", pid, f"no date; a {series} puzzle always "
                           f"has one (file_blog_puzzles.fit_undated)"))
-    elif not (series_meta.is_year(stored) or isinstance(stored, int)):
-        flags.append(("SHAPE", pid, f"date {stored!r} is neither epoch "
-                      f"milliseconds nor a \"YYYY\" year"))
-    elif series_meta.is_year(stored) and not series_meta.is_book(series):
-        flags.append(("SHAPE", pid, f"dated {stored!r}, a bare year, but only "
-                      f"a book's date is its year; a paper prints the day"))
+    elif not isinstance(puzzle["date"], int):
+        flags.append(("SHAPE", pid, f"date {puzzle['date']!r} is not epoch "
+                      f"milliseconds"))
     else:
-        d = datetime.fromtimestamp(series_meta.date_ms(stored) / 1000,
-                                   timezone.utc).date()
+        d = datetime.fromtimestamp(puzzle["date"] / 1000, timezone.utc).date()
         if d > today:
             flags.append(("SHAPE", pid, f"dated {d}, which is in the future"))
         elif d.year < EARLIEST_YEAR:
@@ -1200,7 +1202,7 @@ def check_dates(held, flags):
             by_series[series].append((number, date, pid))
     for series, rows in by_series.items():
         rows.sort()
-        dated = [(n, _utc_day(series_meta.date_ms(d)), pid)
+        dated = [(n, _utc_day(d), pid)
                  for n, d, pid in rows if d is not None]
         for (a, da, _), (_b, db, pid) in pairwise(dated):
             if db <= da:

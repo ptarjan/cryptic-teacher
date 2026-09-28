@@ -208,6 +208,23 @@ def _any_of(v, arg, s, at, out):
                + " | ".join("; ".join(t) for t in tries))
 
 
+def _one_of(v, arg, s, at, out):
+    tries = []
+    for sub in arg:
+        got = []
+        _check(v, sub, at, got)
+        tries.append(got)
+    matched = sum(not t for t in tries)
+    if matched == 1:
+        return
+    if matched:
+        both = [sub for sub, t in zip(arg, tries) if not t]
+        out.append(f"{at}: matches {json.dumps(both)[:120]}, want exactly one")
+    else:
+        out.append(f"{at}: matches none of its alternatives: "
+                   + " | ".join("; ".join(t) for t in tries))
+
+
 def _if(v, arg, s, at, out):
     probe = []
     _check(v, arg, at, probe)
@@ -222,7 +239,7 @@ KEYWORDS = {
     "items": _items, "minItems": _min_items, "maxItems": _max_items,
     "uniqueItems": _unique, "minLength": _min_length, "pattern": _pattern,
     "minimum": _minimum, "maximum": _maximum, "enum": _enum, "const": _const,
-    "$ref": _ref, "anyOf": _any_of, "if": _if,
+    "$ref": _ref, "anyOf": _any_of, "oneOf": _one_of, "if": _if,
     "then": lambda *a: None, "else": lambda *a: None,   # read by _if
 }
 

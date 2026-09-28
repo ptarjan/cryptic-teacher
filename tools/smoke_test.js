@@ -470,9 +470,9 @@ function load(p) {
 const corpus = (() => {
   const all = global.CRYPTIC_INDEX.puzzles;
   if (FULL) return all.filter((p) => inSlice(p.id) || p.id === openId);
-  // A book's date is a "YYYY" string, its 1 January for ordering.
-  const ms = (d) => (typeof d === "string" ? Date.UTC(+d, 0, 1) : d || 0);
-  const newest = (f) => all.filter(f).sort((a, b) => ms(b.date) - ms(a.date));
+  // A book puzzle holds a `year` and no `date`: its 1 January for ordering.
+  const ms = (p) => (p.year !== undefined ? Date.UTC(p.year, 0, 1) : p.date || 0);
+  const newest = (f) => all.filter(f).sort((a, b) => ms(b) - ms(a));
   const bySeries = new Map();
   for (const p of newest((p) => p.annotated)) if (!bySeries.has(p.series)) bySeries.set(p.series, p);
   // The shapes individual sections go looking for, each one the newest of its
@@ -1893,7 +1893,7 @@ assert(registry["picker-search"].value === "", "the filter box starts empty on o
   // Driven through a series with no day dates, because a day-dated one passes
   // this without the ordering being there at all: annotating follows fetching,
   // so newest-first is annotated-first by accident. The book puzzles are
-  // reprints dated only by their book's year, which is what made their taught
+  // reprints holding only their book's `year`, which is what made their taught
   // ones unreachable.
   const undated = allPuzzles.find((p) => typeof p.date !== "number" && p.annotated);
   if (undated) {

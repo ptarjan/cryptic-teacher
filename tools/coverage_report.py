@@ -122,7 +122,7 @@ CADENCE_DAYS = {
 
 
 def as_date(ms):
-    return datetime.fromtimestamp(series_meta.date_ms(ms) / 1000, timezone.utc).date()
+    return datetime.fromtimestamp(ms / 1000, timezone.utc).date()
 
 
 def is_date_keyed(held):
@@ -160,7 +160,8 @@ def audit(puzzles, today):
     for name in sorted(by_series):
         held = by_series[name]
         all_numbers = sorted(p["number"] for p in held)
-        dates = sorted(as_date(p["date"]) for p in held if p.get("date"))
+        dates = sorted(as_date(series_meta.puzzle_ms(p)) for p in held
+                       if series_meta.puzzle_ms(p) is not None)
         dateless = len(held) - len(dates)
         floor = ARCHIVE_FLOOR.get(name)
         cadence = CADENCE_DAYS.get(name)
@@ -229,8 +230,8 @@ def audit(puzzles, today):
         # schedules, so a paper that moves its crossword day needs no edit here.
         odd = defaultdict(list)
         for p in held:
-            # A bare year has no weekday; its 1 January is not a publishing day.
-            if p.get("date") and not series_meta.is_year(p["date"]):
+            # A `year` has no weekday; its 1 January is not a publishing day.
+            if p.get("date"):
                 odd[as_date(p["date"]).strftime("%a")].append(p["number"])
         for day, nums in sorted(odd.items()):
             if len(nums) * 100 / len(dates) >= ODD_WEEKDAY_PCT:
@@ -253,8 +254,7 @@ def audit(puzzles, today):
             "numbers": (numbers[0], numbers[-1]),
             # A shelf dated by years says so in years, not as 1 January.
             **({"oldest": oldest.year, "newest": newest.year}
-               if dates and all(series_meta.is_year(p["date"]) for p in held
-                                if p.get("date"))
+               if dates and not any(p.get("date") for p in held)
                else {"oldest": oldest, "newest": newest}),
             "flags": flags,
         })

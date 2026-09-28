@@ -5546,12 +5546,12 @@
   // disagree. getUTCDay to match the UTC the ISO string is sliced out of, or a
   // solver west of Greenwich gets a day that contradicts the date beside it.
   //
-  // A book puzzle's date is its book's year, the string "1995": the imprint
-  // prints no day, so there is no weekday to show and iso is the year alone.
+  // A book puzzle holds its book's `year` and no `date`: the imprint prints no
+  // day, so there is no weekday to show and iso is the year alone.
   const WEEKDAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   function puzzleDate(p) {
+    if (p.year !== undefined) return { iso: String(p.year), day: "", short: "" };
     if (!p.date) return { iso: "", day: "", short: "" };
-    if (typeof p.date === "string") return { iso: p.date, day: "", short: "" };
     const dt = new Date(p.date);
     const day = WEEKDAYS[dt.getUTCDay()] || "";
     return { iso: dt.toISOString().slice(0, 10), day, short: day.slice(0, 3) };

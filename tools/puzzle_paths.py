@@ -6,10 +6,10 @@ puzzle file asks here; tools/puzzle_paths.js is the same rule for node.
 
   series  from the id (series.parse_id), so an id alone narrows the search to
           one folder.
-  year    the UTC year of the puzzle's `date` — the year build_seo_pages.py
-          prints. A book puzzle's year-only date is that year. A puzzle with no
-          date (a datedFromNeighbours series whose neighbours are not held yet)
-          goes in `undated`, and moves out when a write gives it a date.
+  year    series.puzzle_year(): the UTC year of the puzzle's `date`, or a book
+          puzzle's `year` — the year build_seo_pages.py prints. A puzzle with
+          neither (a datedFromNeighbours series whose neighbours are not held
+          yet) goes in `undated`, and moves out when a write gives it a date.
 
 The year is a fact about the contents, so a file can only be placed by
 something that has the puzzle: file_for(). Something holding only an id finds
@@ -22,7 +22,6 @@ crawlable pages at puzzles/<id>/index.html, so no public URL depends on this.
 
   python3 tools/puzzle_paths.py ID...   # print each held puzzle's path
 """
-import datetime
 import sys
 from pathlib import Path
 
@@ -36,12 +35,10 @@ PUZZLE_DIR = ROOT / "puzzles"
 UNDATED = "undated"
 
 
-def year_folder(date):
-    """The folder a stored `date` files under: its UTC year, or UNDATED."""
-    ms = series_meta.date_ms(date)
-    if ms is None:
-        return UNDATED
-    return str(datetime.datetime.fromtimestamp(ms / 1000, datetime.timezone.utc).year)
+def year_folder(puzzle):
+    """The folder a puzzle files under: its year, or UNDATED."""
+    year = series_meta.puzzle_year(puzzle)
+    return UNDATED if year is None else str(year)
 
 
 def series_folder(pid):
@@ -55,7 +52,7 @@ def series_folder(pid):
 def file_for(puzzle):
     """THE path function: where this puzzle's file belongs."""
     pid = puzzle["id"]
-    return PUZZLE_DIR / series_folder(pid) / year_folder(puzzle.get("date")) / f"{pid}.json"
+    return PUZZLE_DIR / series_folder(pid) / year_folder(puzzle) / f"{pid}.json"
 
 
 def find(pid):

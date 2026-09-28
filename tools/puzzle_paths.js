@@ -1,8 +1,8 @@
 /* Where a puzzle's file lives, for node: puzzles/<series>/<year>/<id>.json.
 
    The same rule as tools/puzzle_paths.py, which owns it and documents it: the
-   series from the id, the UTC year of the puzzle's `date` (a bare year string
-   is that year), `undated` when there is none. The browser never reads these
+   series from the id, the UTC year of the puzzle's `date` or a book puzzle's
+   `year`, `undated` when it holds neither. The browser never reads these
    files — it loads the flat puzzles/<id>.js shims — so only harnesses that
    read the sources need this. */
 const fs = require("fs");
@@ -14,10 +14,10 @@ const UNDATED = "undated";
 // The id shape puzzle_files() globs for: <series>-<number>.json.
 const PUZZLE_FILE = /^[a-z0-9]+-\d[^/]*\.json$/;
 
-function yearFolder(date) {
-  if (date === null || date === undefined || date === "") return UNDATED;
-  if (/^\d{4}$/.test(String(date))) return String(date);
-  return String(new Date(date).getUTCFullYear());
+function yearFolder(puzzle) {
+  if (puzzle.year !== undefined) return String(puzzle.year);
+  if (puzzle.date === undefined) return UNDATED;
+  return String(new Date(puzzle.date).getUTCFullYear());
 }
 
 function seriesFolder(id) {
@@ -27,7 +27,7 @@ function seriesFolder(id) {
 }
 
 function fileFor(puzzle, dir = PUZZLE_DIR) {
-  return path.join(dir, seriesFolder(puzzle.id), yearFolder(puzzle.date), `${puzzle.id}.json`);
+  return path.join(dir, seriesFolder(puzzle.id), yearFolder(puzzle), `${puzzle.id}.json`);
 }
 
 function dirs(d) {

@@ -123,7 +123,7 @@ def esc_clue(s):
 
 # The fields a puzzle is named, dated and addressed by: all a neighbour's pager
 # link or a redirect page reads of it.
-STUB_KEYS = ("id", "series", "number", "date")
+STUB_KEYS = ("id", "series", "number", "date", "year")
 
 
 def puzzles():
@@ -141,7 +141,7 @@ def puzzles():
     # the same thing while every puzzle was a cryptic; now that quiptics (~1,400)
     # sit alongside cryptics (~30,000) it would file every quiptic at the end of
     # time and make prev/next hop between series.
-    out.sort(key=lambda t: (series_meta.date_ms(t[1].get("date")) or 0,
+    out.sort(key=lambda t: (series_meta.puzzle_ms(t[1]) or 0,
                             t[1].get("series", "cryptic") == "cryptic",
                             t[1]["number"]), reverse=True)
     return out
@@ -229,19 +229,19 @@ def index_json():
     return json.loads((puzzle_paths.PUZZLE_DIR / "index.json").read_text(encoding="utf-8"))
 
 
-def datestr(ms, fmt="%A %-d %B %Y"):
+def datestr(puzzle, fmt="%A %-d %B %Y"):
     # The weekday is in the DEFAULT because a Guardian week has a shape — Monday
     # gentle, Friday and the Saturday prize hard — so it is a difficulty cue, not
     # trim (Paul, 2026-08-16). Callers that want a machine date (datePublished,
     # sitemap lastmod) pass an explicit fmt and are unaffected.
     #
-    # A book's date is a bare year, and a bare year is all any format prints:
+    # A book puzzle holds a `year`, and the year is all any format prints:
     # "1995" is valid ISO 8601 for datePublished and W3C for sitemap lastmod.
-    if not ms:
+    if "year" in puzzle:
+        return str(puzzle["year"])
+    if not puzzle.get("date"):
         return ""
-    if series_meta.is_year(ms):
-        return ms
-    return datetime.fromtimestamp(ms / 1000, timezone.utc).strftime(fmt)
+    return datetime.fromtimestamp(puzzle["date"] / 1000, timezone.utc).strftime(fmt)
 
 
 def app_name():
@@ -498,7 +498,7 @@ def puzzle_page(puz, meta, prev_p, next_p):
     what = kind(puz)                  # "Cryptic", "Quiptic", "Everyman"
     paper = publisher(puz)            # "Guardian", "Observer"
     pretty = f"{position(puz):,}"
-    when = datestr(puz.get("date"))
+    when = datestr(puz)
     diff = (meta or {}).get("difficulty") or {}
     annotated = (meta or {}).get("annotated")
     # The page lives at its ID, not its number: two papers can reach the same
@@ -585,8 +585,8 @@ def puzzle_page(puz, meta, prev_p, next_p):
         "isAccessibleForFree": True,
         "about": {"@type": "Game", "name": f"{paper} {what} Crossword No {pretty}"},
     }
-    if puz.get("date"):
-        article_ld["datePublished"] = datestr(puz["date"], "%Y-%m-%d")
+    if datestr(puz):
+        article_ld["datePublished"] = datestr(puz, "%Y-%m-%d")
 
     body = [
         masthead(crumbs),
@@ -695,7 +695,7 @@ def puzzle_page(puz, meta, prev_p, next_p):
 def hub_row(p):
     """One archive row. Every listing page is made of these and nothing else."""
     d = p.get("difficulty") or {}
-    when = datestr(p.get("date"))
+    when = datestr(p)
     badge = (f'<span class="badge diff diff-{esc(d["band"].lower())}">'
              f'{esc(d["band"].lower())}</span>') if d.get("band") else ""
     # The app's hintsBadge() in the same words: ours, a blog's (the index's
@@ -774,7 +774,7 @@ def series_name(series):
 def listing_key(p):
     """(series, year) of the listing page a puzzle is on; year may be UNDATED."""
     return (p.get("series") or "cryptic",
-            datestr(p.get("date"), "%Y") or UNDATED)
+            datestr(p, "%Y") or UNDATED)
 
 
 def listing_path(series, year):
@@ -1222,7 +1222,7 @@ def clue_blocks(blocks, puz, page):
             if key and frag:
                 blocks.setdefault(key, []).append(
                     (frag, depth + len(b.get("note") or ""),
-                     series_meta.date_ms(puz.get("date")) or 0, puz["id"], e["id"]))
+                     series_meta.puzzle_ms(puz) or 0, puz["id"], e["id"]))
 
 
 def clue_links(senses, blocks):
@@ -1378,7 +1378,7 @@ def clue_indicators(found, puz, page):
             continue
         ours = bool(e.get("annotation"))
         depth = len((ann.get("walkthrough") or "") + (ann.get("definitionFit") or ""))
-        date = series_meta.date_ms(puz.get("date")) or 0
+        date = series_meta.puzzle_ms(puz) or 0
         for (t, key), exact in clue_pairs(indicator_lexicon(), ann["indicators"]).items():
             rank = (ours, exact, depth, date)
             if (t, key) not in found or found[(t, key)][0] < rank:
@@ -1472,7 +1472,7 @@ def sitemap(idx):
     for p in idx["puzzles"]:
         if p.get("hasSolutions"):
             urls.append((f"{BASE}/puzzles/{p['id']}/", "monthly", "0.7",
-                         datestr(p.get("date"), "%Y-%m-%d") or None))
+                         datestr(p, "%Y-%m-%d") or None))
     out = ['<?xml version="1.0" encoding="UTF-8"?>',
            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for loc, freq, prio, lastmod in urls:

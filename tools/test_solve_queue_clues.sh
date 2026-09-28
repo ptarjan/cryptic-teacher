@@ -102,7 +102,8 @@ python3 - "$sand/puzzles/index.json" <<'EOF'
 import json, sys
 # id, date, hasSolutions, clues — newest first, so a queue that ignored the clue
 # counts would hand back the blank one at the head of the list. Real epoch
-# milliseconds, because a book's year is compared against them.
+# milliseconds, because a book's year is compared against them. A row's `when`
+# is its index keys: `date`, or a book's `year`, or neither.
 NOW = 1_790_000_000_000
 rows = [("ct-blank", NOW + 900, False, {"present": 0, "total": 28}),
         ("ct-half", NOW + 800, False, {"present": 14, "total": 28}),
@@ -113,13 +114,14 @@ rows = [("ct-blank", NOW + 900, False, {"present": 0, "total": 28}),
         ("ct-answered", NOW + 300, True, None),
         # A book reprint, dated only by its book's year. Newest first is the
         # rule, and a 1973 reprint is not new — it is an old FT puzzle we will
-        # get to eventually. A string, which the sort key has to turn into a
-        # number rather than crash on.
-        ("ct-reprint", "1973", False, None),
-        # And a puzzle with no date at all (four cyclops carry none).
-        ("ct-nodate", None, False, None)]
+        # get to eventually. A `year` and no `date`, which the sort key has to
+        # turn into a number rather than crash on.
+        ("ct-reprint", {"year": 1973}, False, None),
+        # And a puzzle with no date at all (a cyclops not yet dated).
+        ("ct-nodate", {}, False, None)]
 json.dump({"puzzles": [
-    {"id": i, "date": d, "hasSolutions": s, **({"clues": c} if c else {})}
+    {"id": i, **(d if isinstance(d, dict) else {"date": d}), "hasSolutions": s,
+     **({"clues": c} if c else {})}
     for i, d, s, c in rows]}, open(sys.argv[1], "w"))
 EOF
 run() (  # the block itself against the sandbox; the skip note goes to $sand/note
