@@ -1440,10 +1440,38 @@ def combined_type(named, spelled):
     return None
 
 
-def operation_indicators(expl_marked):
+#: Letters a passive operation is said of: "a second A is inserted (round another)".
+PASSIVE_SUBJECT = re.compile(rf"(?<![\w'’\]}})])(?P<x>[{CAP}][{CAP}'’]*(?: [{CAP}][{CAP}'’]*)*)"
+                             r"\s+(?:is|are)(?:\s+(?:then|now|also|being|placed|put))*\s+$")
+
+
+#: The operations that bring in a piece from elsewhere: a container's.
+PUTS_IN = {"inside", "around"}
+
+
+def op_gloss(plain, m, body):
+    """The indicator in the gloss IND_OP matched at `m`. "X is inserted
+    (gloss)" glosses the whole clause, so where X is put in and is letters
+    that are not clue words themselves, the gloss may hold X's source too
+    ("round another" for A): only an end of it that names a container is
+    the indicator then. A deletion's X is the clue's own letters."""
+    g = m.group("q") or m.group("w") or m.group("s") or m.group("b")
+    subj = PASSIVE_SUBJECT.search(plain, 0, m.start())
+    if (not (subj and body) or bracketed_operator(re.split(r"\s*[(\[/]", m.group())[0]) not in PUTS_IN
+            or atom_letters(subj.group("x")) in _clue_runs(body)):
+        return g
+    words = g.split()
+    for n in range(len(words) - 1, 0, -1):
+        for part in (" ".join(words[:n]), " ".join(words[-n:])):
+            if bracketed_operator(part) in PUTS_IN:
+                return part
+    return g if len(words) == 1 else None
+
+
+def operation_indicators(expl_marked, body=""):
     """The glosses the write-up hangs on a named operation, italic or plain."""
     plain = expl_marked.replace(E_ON, "").replace(E_OFF, "")
-    out = [m.group("q") or m.group("w") or m.group("s") or m.group("b") for m in IND_OP.finditer(plain)]
+    out = [g for m in IND_OP.finditer(plain) if (g := op_gloss(plain, m, body))]
     out += [m.group("w") for m in STAR_GLOSS.finditer(plain)]
     for m in re.finditer(r"[(\[]\s*([^()\[\]]{2,60}?)\s*[)\]]", plain):
         # After letters the bracket's first part is their source: PART ("region", reversed).
@@ -1474,7 +1502,7 @@ def indicators(blog, expl_marked, body, brackets, avoid=()):
     raw = []
     if blog == "timesforthetimes" and brackets:
         raw += [bracket_reading(r)[0] for r in BRACKETED.findall(marked.replace(E_ON, "").replace(E_OFF, ""))]
-    raw += operation_indicators(marked)
+    raw += operation_indicators(marked, body)
     plain = re.sub("[" + MARKS + "]", "", marked)
     for m in ATOM.finditer(plain):
         s = SOURCE.match(plain, m.end())
