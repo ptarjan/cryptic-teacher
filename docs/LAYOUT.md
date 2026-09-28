@@ -351,6 +351,9 @@ tools/validate_annotations.py                proves every annotation actually sp
 tools/test_blocks_against_blog.sh            holds the blog block check to its fixtures: a
                                              piece we spell, reverse, hear, delete from or
                                              anagram is silent, and one we lack is reported
+tools/test_defined_by_preamble.sh            holds `definedByPreamble` to standing in for
+                                             `definition` only where the puzzle prints a
+                                             preamble, and never beside a definition
 tools/apply_annotations.py                   writes a run’s annotation JSON into the puzzle
                                              file, and validates the result
 tools/annotation_backlog.json                how many clues of each OLD puzzle predate a
