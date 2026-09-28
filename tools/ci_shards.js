@@ -29,9 +29,11 @@
 // Runner seconds, measured 2026-09-28. Every script that took three seconds or
 // more is here; the default covers the rest and any test written since.
 const COST = {
-  // One slice of four; the whole file was 1006s, and it grows with the corpus.
-  "tools/smoke_test.js": 280,
-  "tools/test_push_conflict.sh": 554,
+  // One slice of six. As four slices, one took 280-360s (run 36387064566):
+  // about 70s every slice pays plus its share of ~1000s of sweeps.
+  "tools/smoke_test.js": 240,
+  // 554s in a shard that had just written the pages, 185s in one that had not.
+  "tools/test_push_conflict.sh": 185,
   "tools/test_puzzle_integrity.sh": 318,
   "tools/test_reconstruct_grid.sh": 106,
   "tools/test_solve_queue_clues.sh": 88,
@@ -48,7 +50,7 @@ const COST = {
 const DEFAULT_COST = 3;
 
 // How many slices each splittable script runs as (see the header).
-const SLICES = { "tools/smoke_test.js": 4 };
+const SLICES = { "tools/smoke_test.js": 6 };
 
 // The scripts that read what tools/build_seo_pages.py writes.
 const PAGES = new Set(["tools/smoke_test.js", "tools/test_og_tags.js"]);
