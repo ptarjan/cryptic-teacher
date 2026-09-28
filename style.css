@@ -1642,3 +1642,11 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
   background: var(--bg); color: var(--fg); font: inherit;
   color-scheme: light dark;
 }
+
+/* /indicators/: one ranked list per type, flowed into columns; a long type
+   scrolls inside its box rather than running the page to thousands of rows. */
+.ix-list { list-style: none; padding: 8px 12px; margin: 6px 0 12px;
+  columns: 11em; column-gap: 20px; font-size: .92rem; line-height: 1.6;
+  max-height: 22em; overflow-y: auto; border: 1px solid var(--line); border-radius: 8px; }
+.ix-list li { break-inside: avoid; }
+.static-main h2 .muted { font-size: .8em; font-weight: normal; }
