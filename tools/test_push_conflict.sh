@@ -108,6 +108,9 @@ check "the asset stamps match what was rebuilt" \
   "$(python3 tools/stamp_assets.py --check 2>&1)" "asset stamps up to date"
 
 echo "a conflict no builder owns is left alone:"
+# A case above that failed leaves its rebase running; start clean so its
+# failure is not reported again here as three of this case's own.
+rebase_running && git rebase --abort
 skip_builds=1
 git checkout -q -B upstream2 "$base"
 printf '\n// upstream edited this by hand\n' >> app.js
