@@ -96,7 +96,7 @@ run() {  # $1 = MODE ("" for a clean first run),
   transcripts "${3-$(printf '%s\n' ${2:-} | sed -n 's/^[^:]*://p')}"
   . tools/claude_session.sh
   [ -n "${SESSION_ID_BROKEN:-}" ] && session_id() { return 1; }
-  local ANNOTATE_MODEL=opus ann_tools=Read ann_turns=80 num=test-1 run_log
+  local ANNOTATE_MODEL=opus ANNOTATE_EFFORT=medium ann_tools=Read ann_turns=80 num=test-1 run_log
   local ann_file=tools/_puzzle_test-1.json
   local ANNOTATE_MAX_MINUTES=90
   local ann_cap ann_rc ann_timeout lost_ids=""
@@ -192,7 +192,7 @@ check "resuming no conversation, least of all an empty one" \
 
 # --- the solve side: what it leaves behind for the annotation to find ---
 solve() {  # $1 = id, $2 = applied|rejected — the applier's verdict on the fill
-  local num="$1" applied=1 fill solvelog verdict ANNOTATE_MODEL=opus
+  local num="$1" applied=1 fill solvelog verdict ANNOTATE_MODEL=opus ANNOTATE_EFFORT=medium
   local solve_sid solve_sess
   CALLS=$(mktemp -d); export CALLS MODE=""
   export CLAUDE_CONFIG_DIR="$stub/config"

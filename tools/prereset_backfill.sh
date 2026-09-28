@@ -95,6 +95,7 @@ exec > >(tee -a "$RUN_LOG") 2>&1
 # so a cheaper annotator is straightforwardly more puzzles per reset.
 ANNOTATE_MODEL="${ANNOTATE_MODEL:-opus}"
 MODEL="$ANNOTATE_MODEL"
+ANNOTATE_EFFORT="${ANNOTATE_EFFORT:-medium}"  # see daily_update.sh
 # How much of each FIVE-hour window is kept back for whoever else is on this
 # account — but only while they are actually using it, and only while the week
 # can still afford it. See reserve_affordable, bridge_busy and after_wave.
@@ -475,6 +476,7 @@ run_claude() {
   # Niced, with everything it runs: a wave shares this machine with the bridge.
   nice -n 19 claude -p "$prompt" "${sess[@]}" \
     --model "$MODEL" \
+    --effort "$ANNOTATE_EFFORT" \
     --allowedTools "Read,Write,Edit,Bash(python3 *),Bash(node *),WebSearch,WebFetch" \
     --max-turns 80 >"$log" 2>&1
   local rc=$?
