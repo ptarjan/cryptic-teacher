@@ -191,11 +191,6 @@ print("FALSE_UNSOLVED", len(f) > 0)
 f = flagged(lambda z: z["provenance"].update(retrievedFrom="wayback"))
 print("CHANNEL_MISMATCH", len(f), says(f, "reads through 'publisher'"))
 
-# A capture URL on a puzzle read from the publisher, where sourceUrl already IS
-# the address fetched -- two fields describing different retrievals.
-f = flagged(lambda z: z["provenance"].update(retrievedUrl="https://web.archive.org/x"))
-print("STRAY_CAPTURE_URL", len(f) > 0)
-
 # A publisher that disagrees with the series the id states.
 f = flagged(lambda z: z["provenance"].update(publisher="Guardian"))
 print("WRONG_PUBLISHER", len(f) > 0)
@@ -233,8 +228,6 @@ same "a channel the fetching tool does not read through is one finding" \
   "$(field CHANNEL_MISMATCH "$out4")" "1"
 same "and it names the channel that tool really uses" \
   "$(awk '$1=="CHANNEL_MISMATCH" {print $3}' <<<"$out4")" "True"
-same "a capture URL on a publisher fetch is refused" \
-  "$(field STRAY_CAPTURE_URL "$out4")" "True"
 same "a publisher contradicting the id's series is refused" \
   "$(field WRONG_PUBLISHER "$out4")" "True"
 same "a puzzle with no series is one finding" "$(field NO_SERIES "$out4")" "1"

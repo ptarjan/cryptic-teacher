@@ -1,0 +1,735 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://crypticteacher.com/tools/data/puzzle.schema.json",
+ "title": "A puzzle file, puzzles/<series>-<number>.json",
+ "description": "An absent key means empty: no value is ever null, \"\", [] or {}, except `clue`, which every entry has and which is \"\" on a clue the paper printed blank. A flag is written only when true. Checked on every write (tools/fetch_puzzle.py write_puzzle_file) and over the corpus in CI (tools/puzzle_schema.py).",
+ "type": "object",
+ "required": [
+  "id",
+  "number",
+  "series",
+  "name",
+  "date",
+  "dimensions",
+  "entries",
+  "provenance"
+ ],
+ "additionalProperties": false,
+ "properties": {
+  "id": {
+   "description": "<series>-<number>; also the file name.",
+   "type": "string",
+   "pattern": "^[a-z]+-\\d+$"
+  },
+  "number": {
+   "description": "The paper's puzzle number. Book puzzles carry volume * 1000 + position in the book.",
+   "type": "integer",
+   "minimum": 1
+  },
+  "series": {
+   "$ref": "#/$defs/series"
+  },
+  "name": {
+   "type": "string",
+   "minLength": 1,
+   "description": "The title as the paper gives it."
+  },
+  "setter": {
+   "type": "string",
+   "minLength": 1,
+   "description": "The byline as printed. Absent when the paper names no setter, which Times, Telegraph and Metro puzzles never do."
+  },
+  "date": {
+   "description": "Publication date as epoch milliseconds (UTC midnight), or a four-digit year for a book puzzle whose book gives only the year.",
+   "anyOf": [
+    {
+     "type": "integer"
+    },
+    {
+     "type": "string",
+     "pattern": "^\\d{4}$"
+    }
+   ]
+  },
+  "preamble": {
+   "type": "string",
+   "minLength": 1,
+   "description": "The paper's note above the clues: a themed puzzle's instructions, or an erratum."
+  },
+  "pmlId": {
+   "type": "string",
+   "minLength": 1,
+   "description": "Metro only: the puzzle's id in the PuzzleMe feed it was read from."
+  },
+  "dimensions": {
+   "type": "object",
+   "required": [
+    "cols",
+    "rows"
+   ],
+   "additionalProperties": false,
+   "properties": {
+    "cols": {
+     "type": "integer",
+     "minimum": 1
+    },
+    "rows": {
+     "type": "integer",
+     "minimum": 1
+    }
+   }
+  },
+  "sourceUrl": {
+   "type": "string",
+   "minLength": 1,
+   "description": "The page the puzzle was printed on: the address to cite, not necessarily the one read (see provenance.retrievedFrom)."
+  },
+  "provenance": {
+   "$ref": "#/$defs/provenance"
+  },
+  "solutionSource": {
+   "$ref": "#/$defs/solutionSource"
+  },
+  "entries": {
+   "type": "array",
+   "minItems": 1,
+   "items": {
+    "$ref": "#/$defs/entry"
+   }
+  }
+ },
+ "$defs": {
+  "series": {
+   "description": "tools/series.py SERIES.",
+   "enum": [
+    "cryptic",
+    "quiptic",
+    "everyman",
+    "authored",
+    "independent",
+    "metro",
+    "cyclops",
+    "globeandmail",
+    "indysunday",
+    "times",
+    "timesquick",
+    "timesjumbo",
+    "sundaytimes",
+    "ftcryptic",
+    "telegraph",
+    "toughie",
+    "sundaytel",
+    "sundaytough",
+    "book"
+   ]
+  },
+  "direction": {
+   "description": "tools/fetch_puzzle.py DIRECTIONS.",
+   "enum": [
+    "across",
+    "down"
+   ]
+  },
+  "clueType": {
+   "description": "tools/data/clue_types.json types[].name.",
+   "enum": [
+    "anagram",
+    "charade",
+    "container",
+    "hidden_word",
+    "homophone",
+    "reversal",
+    "deletion",
+    "double_definition",
+    "cryptic_definition",
+    "and_lit",
+    "spoonerism",
+    "cycling",
+    "substitution",
+    "palindrome",
+    "letter_selection"
+   ]
+  },
+  "selectWord": {
+   "description": "tools/clue_types.py SELECT_WORDS.",
+   "enum": [
+    "first",
+    "last",
+    "middle",
+    "outer",
+    "alternate",
+    "regular",
+    "prime"
+   ]
+  },
+  "joke": {
+   "description": "tools/validate_annotations.py JOKE_KINDS.",
+   "enum": [
+    "pun",
+    "absurd"
+   ]
+  },
+  "acquiredBy": {
+   "description": "tools/provenance.py ACQUIRED_BY: the command that wrote the file first.",
+   "enum": [
+    "tools/fetch_puzzle.py",
+    "tools/fetch_independent.py",
+    "tools/fetch_privateeye.py",
+    "tools/fetch_globeandmail.py",
+    "tools/fetch_observer.py",
+    "tools/fetch_metro.py",
+    "tools/fetch_metro.py --wayback",
+    "tools/fetch_wayback.py",
+    "tools/fetch_fifteensquared.py",
+    "tools/acquire_book.py",
+    "tools/file_penguin_puzzle.py",
+    "tools/file_times_puzzles.py",
+    "tools/file_telegraph_puzzles.py",
+    "tools/ft_puzzles.py",
+    "tools/build_authored_puzzle.py",
+    "unknown"
+   ]
+  },
+  "retrievedFrom": {
+   "description": "tools/provenance.py RETRIEVAL_CHANNELS.",
+   "enum": [
+    "publisher",
+    "wayback",
+    "blog",
+    "book",
+    "authored",
+    "unknown"
+   ]
+  },
+  "gridOrigin": {
+   "description": "tools/provenance.py GRID_ORIGINS.",
+   "enum": [
+    "published",
+    "reconstructed",
+    "authored",
+    "unknown"
+   ]
+  },
+  "solutionOrigin": {
+   "description": "tools/provenance.py SOLUTION_ORIGINS.",
+   "enum": [
+    "published",
+    "writeup",
+    "model",
+    "authored",
+    "unsolved",
+    "unknown"
+   ]
+  },
+  "annotator": {
+   "description": "tools/provenance.py ANNOTATORS; a model is named by its exact id instead.",
+   "enum": [
+    "human",
+    "published",
+    "unknown"
+   ]
+  },
+  "solutionKind": {
+   "description": "tools/provenance.py WRITEUP_KINDS, plus model.",
+   "enum": [
+    "fifteensquared",
+    "timesforthetimes",
+    "bigdave44",
+    "model"
+   ]
+  },
+  "string": {
+   "type": "string",
+   "minLength": 1
+  },
+  "strings": {
+   "type": "array",
+   "minItems": 1,
+   "items": {
+    "type": "string",
+    "minLength": 1
+   }
+  },
+  "entry": {
+   "type": "object",
+   "required": [
+    "id",
+    "number",
+    "direction",
+    "position",
+    "length",
+    "clue"
+   ],
+   "additionalProperties": false,
+   "properties": {
+    "id": {
+     "description": "<number>-<direction>.",
+     "type": "string",
+     "pattern": "^\\d+-(across|down)$"
+    },
+    "number": {
+     "type": "integer",
+     "minimum": 1
+    },
+    "direction": {
+     "$ref": "#/$defs/direction"
+    },
+    "position": {
+     "description": "The first cell, 0-based from the top left.",
+     "type": "object",
+     "required": [
+      "x",
+      "y"
+     ],
+     "additionalProperties": false,
+     "properties": {
+      "x": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "y": {
+       "type": "integer",
+       "minimum": 0
+      }
+     }
+    },
+    "length": {
+     "description": "Cells in this light (a linked answer's other lights are separate entries).",
+     "type": "integer",
+     "minimum": 1
+    },
+    "clue": {
+     "description": "The clue as printed, enumeration included. \"\" only with clueMissing.",
+     "type": "string"
+    },
+    "clueMissing": {
+     "description": "The paper printed no words for this clue.",
+     "const": true
+    },
+    "clueMissingNote": {
+     "type": "string",
+     "minLength": 1,
+     "description": "A person's note on why the blank clue still gives its answer."
+    },
+    "clueItalics": {
+     "description": "[start, end) character spans of the clue printed in italics.",
+     "type": "array",
+     "minItems": 1,
+     "items": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+       "type": "integer",
+       "minimum": 0
+      }
+     }
+    },
+    "separatorLocations": {
+     "description": "Breaks inside the answer: separator -> positions (letters before the break).",
+     "type": "object",
+     "minProperties": 1,
+     "additionalProperties": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+       "type": "integer",
+       "minimum": 1
+      }
+     }
+    },
+    "solution": {
+     "description": "The answer, A-Z. Absent when the puzzle has no answers yet.",
+     "type": "string",
+     "minLength": 1
+    },
+    "solutionConfidence": {
+     "description": "The letters are a model's likely fill, not the paper's.",
+     "const": "LIKELY"
+    },
+    "group": {
+     "description": "Every entry id of a linked answer, in order, the same on each leg.",
+     "type": "array",
+     "minItems": 2,
+     "items": {
+      "type": "string",
+      "minLength": 1
+     }
+    },
+    "annotation": {
+     "if": {
+      "required": [
+       "linkedTo"
+      ]
+     },
+     "then": {
+      "$ref": "#/$defs/linkedAnnotation"
+     },
+     "else": {
+      "$ref": "#/$defs/annotation"
+     }
+    }
+   }
+  },
+  "linkedAnnotation": {
+   "description": "A later leg of a linked answer; its explanation is on the entry named.",
+   "type": "object",
+   "required": [
+    "linkedTo"
+   ],
+   "additionalProperties": false,
+   "properties": {
+    "linkedTo": {
+     "type": "string",
+     "minLength": 1
+    }
+   }
+  },
+  "annotation": {
+   "type": "object",
+   "required": [
+    "type",
+    "answer",
+    "walkthrough",
+    "blocks"
+   ],
+   "anyOf": [
+    {
+     "required": [
+      "definition"
+     ]
+    },
+    {
+     "required": [
+      "definedByPreamble"
+     ]
+    }
+   ],
+   "additionalProperties": false,
+   "properties": {
+    "type": {
+     "description": "Every mechanism the wordplay uses, in the order applied.",
+     "type": "array",
+     "minItems": 1,
+     "uniqueItems": true,
+     "items": {
+      "$ref": "#/$defs/clueType"
+     }
+    },
+    "answer": {
+     "type": "string",
+     "minLength": 1
+    },
+    "definition": {
+     "type": "string",
+     "minLength": 1,
+     "description": "The clue words that define the answer, verbatim."
+    },
+    "definition2": {
+     "type": "string",
+     "minLength": 1,
+     "description": "The second definition of a double definition."
+    },
+    "definedByPreamble": {
+     "description": "The preamble, not the clue, defines this answer; replaces definition.",
+     "const": true
+    },
+    "definitionNote": {
+     "type": "string",
+     "minLength": 1
+    },
+    "definitionFit": {
+     "type": "string",
+     "minLength": 1
+    },
+    "indicators": {
+     "$ref": "#/$defs/strings"
+    },
+    "indicatorNotes": {
+     "description": "indicator -> what it tells the solver to do.",
+     "type": "object",
+     "minProperties": 1,
+     "additionalProperties": {
+      "type": "string",
+      "minLength": 1
+     }
+    },
+    "linkWords": {
+     "$ref": "#/$defs/strings"
+    },
+    "pieces": {
+     "$ref": "#/$defs/strings"
+    },
+    "anagram": {
+     "type": "object",
+     "required": [
+      "fodder"
+     ],
+     "additionalProperties": false,
+     "properties": {
+      "fodder": {
+       "type": "string",
+       "minLength": 1
+      }
+     }
+    },
+    "subAnagrams": {
+     "type": "array",
+     "minItems": 1,
+     "items": {
+      "type": "object",
+      "required": [
+       "fodder",
+       "gives"
+      ],
+      "additionalProperties": false,
+      "properties": {
+       "fodder": {
+        "type": "string",
+        "minLength": 1
+       },
+       "gives": {
+        "type": "string",
+        "minLength": 1
+       }
+      }
+     }
+    },
+    "subReversals": {
+     "type": "array",
+     "minItems": 1,
+     "items": {
+      "type": "object",
+      "required": [
+       "from",
+       "to"
+      ],
+      "additionalProperties": false,
+      "properties": {
+       "from": {
+        "type": "string",
+        "minLength": 1
+       },
+       "to": {
+        "type": "string",
+        "minLength": 1
+       }
+      }
+     }
+    },
+    "blocks": {
+     "type": "array",
+     "minItems": 1,
+     "items": {
+      "$ref": "#/$defs/block"
+     }
+    },
+    "surface": {
+     "type": "string",
+     "minLength": 1
+    },
+    "walkthrough": {
+     "type": "string",
+     "minLength": 1
+    },
+    "coversGroup": {
+     "description": "This explanation covers every leg of the entry's group.",
+     "const": true
+    },
+    "features": {
+     "$ref": "#/$defs/features"
+    }
+   }
+  },
+  "block": {
+   "description": "One piece of the wordplay: the clue words, and the letters they give. No gives means the words give no letters (an indicator or link).",
+   "type": "object",
+   "required": [
+    "clueFragment"
+   ],
+   "additionalProperties": false,
+   "properties": {
+    "clueFragment": {
+     "type": "string",
+     "minLength": 1
+    },
+    "gives": {
+     "type": "string",
+     "minLength": 1
+    },
+    "note": {
+     "type": "string",
+     "minLength": 1
+    },
+    "soundsLike": {
+     "type": "string",
+     "minLength": 1
+    },
+    "select": {
+     "description": "Which letters the block keeps: a word, or n for the nth letter.",
+     "anyOf": [
+      {
+       "$ref": "#/$defs/selectWord"
+      },
+      {
+       "type": "integer",
+       "minimum": 2,
+       "maximum": 20
+      }
+     ]
+    },
+    "reversed": {
+     "const": true
+    },
+    "anagramOf": {
+     "const": true
+    }
+   }
+  },
+  "features": {
+   "description": "Data for analysis, never shown to a solver.",
+   "type": "object",
+   "required": [
+    "answerInScene",
+    "aptDefinition"
+   ],
+   "additionalProperties": false,
+   "properties": {
+    "answerInScene": {
+     "type": "boolean"
+    },
+    "aptDefinition": {
+     "type": "boolean"
+    },
+    "joke": {
+     "$ref": "#/$defs/joke"
+    },
+    "misdirectedWord": {
+     "type": "string",
+     "minLength": 1
+    }
+   }
+  },
+  "provenance": {
+   "description": "How the file got here and whose answers these are. See tools/provenance.py.",
+   "type": "object",
+   "required": [
+    "publisher",
+    "series",
+    "acquiredBy",
+    "acquiredOn",
+    "retrievedFrom",
+    "gridOrigin",
+    "solutionOrigin"
+   ],
+   "additionalProperties": false,
+   "properties": {
+    "publisher": {
+     "type": "string",
+     "minLength": 1
+    },
+    "series": {
+     "$ref": "#/$defs/series"
+    },
+    "acquiredBy": {
+     "$ref": "#/$defs/acquiredBy"
+    },
+    "acquiredOn": {
+     "type": "string",
+     "pattern": "^(\\d{4}-\\d{2}-\\d{2}|unknown)$"
+    },
+    "retrievedFrom": {
+     "$ref": "#/$defs/retrievedFrom"
+    },
+    "gridOrigin": {
+     "$ref": "#/$defs/gridOrigin"
+    },
+    "solutionOrigin": {
+     "$ref": "#/$defs/solutionOrigin"
+    },
+    "previousSolutionOrigin": {
+     "$ref": "#/$defs/solutionOrigin"
+    },
+    "annotatedBy": {
+     "type": "array",
+     "minItems": 1,
+     "uniqueItems": true,
+     "items": {
+      "anyOf": [
+       {
+        "$ref": "#/$defs/annotator"
+       },
+       {
+        "type": "string",
+        "pattern": "^claude-[a-z]+(-\\d+)+$"
+       }
+      ]
+     }
+    },
+    "book": {
+     "type": "object",
+     "required": [
+      "identifier",
+      "title",
+      "volume",
+      "numberInBook"
+     ],
+     "additionalProperties": false,
+     "properties": {
+      "identifier": {
+       "type": "string",
+       "minLength": 1
+      },
+      "title": {
+       "type": "string",
+       "minLength": 1
+      },
+      "volume": {
+       "type": "integer",
+       "minimum": 1
+      },
+      "numberInBook": {
+       "type": "integer",
+       "minimum": 1
+      }
+     }
+    }
+   }
+  },
+  "solutionSource": {
+   "description": "Where the answers came from when the publisher did not print them.",
+   "type": "object",
+   "required": [
+    "kind",
+    "check",
+    "date"
+   ],
+   "additionalProperties": false,
+   "properties": {
+    "kind": {
+     "$ref": "#/$defs/solutionKind"
+    },
+    "check": {
+     "type": "string",
+     "minLength": 1
+    },
+    "date": {
+     "type": "string",
+     "minLength": 1
+    },
+    "url": {
+     "type": "string",
+     "minLength": 1
+    },
+    "model": {
+     "type": "string",
+     "minLength": 1
+    },
+    "officialKey": {
+     "type": "string",
+     "minLength": 1
+    }
+   }
+  }
+ }
+}

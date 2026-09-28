@@ -114,7 +114,7 @@ filed, _, drifted = F.run(grids, parsed, listing=LISTING)
 print("RERUN_FILED", sum(filed.values()))
 print("RERUN_UNTOUCHED", before == {q.name: q.read_bytes() for q in fetch_puzzle.PUZZLE_DIR.iterdir()})
 print("DRIFTED", ",".join(drifted))
-print("SETTERS", sunday["setter"], json.loads((fetch_puzzle.PUZZLE_DIR / "times-29000.json").read_text())["setter"])
+print("SETTERS", sunday["setter"], json.loads((fetch_puzzle.PUZZLE_DIR / "times-29000.json").read_text()).get("setter"))
 
 # A number inside the Globe's run that it never printed is still filed here.
 (fetch_puzzle.PUZZLE_DIR / "globeandmail-3152.json").write_text("{}")
@@ -127,10 +127,11 @@ print("RETYPED", F.retyped({"number": 5445, "date": "2023-02-12"}, fits, {5044, 
       F.retyped({"number": 5445, "date": "2023-02-12"}, fits, {5045}),
       F.retyped({"number": 2019, "date": "2019-02-23"}, fits, set()))
 
-# A null setter on disk is replaced by the title's; a name never is.
+# A puzzle filed with no setter is given the title's; a name never is replaced.
 sp = fetch_puzzle.PUZZLE_DIR / "sundaytimes-4321.json"
 for key, held in (("PLACEHOLDER", None), ("NAMED", "Someone")):
-    sp.write_text(json.dumps({**sunday, "setter": held}))
+    sp.write_text(json.dumps({k: v for k, v in {**sunday, "setter": held}.items()
+                              if v is not None}))
     F.run(grids, parsed, listing=LISTING)
     print(f"RENAMED_{key}", json.loads(sp.read_text())["setter"])
 
@@ -196,7 +197,7 @@ check "a second run rewrites nothing" "True" "$(got RERUN_UNTOUCHED)"
 check "a drifted file is named" "times-102" "$(got DRIFTED)"
 check "the Sunday Times takes its setter from the title; the Times stays anonymous" \
   "Dean Mayer None" "$(got SETTERS)"
-check "a null setter already filed is named" "Dean Mayer" "$(got RENAMED_PLACEHOLDER)"
+check "a puzzle filed with no setter is named" "Dean Mayer" "$(got RENAMED_PLACEHOLDER)"
 check "a setter already named is never overwritten" "Someone" "$(got RENAMED_NAMED)"
 check "a pointer into the leader's clue is no group; an unnamed pointer is one" \
   "None ['2-down', '3-down']" "$(got COMPOSITE)"

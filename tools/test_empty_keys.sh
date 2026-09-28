@@ -150,5 +150,88 @@ found=$(grep -rlF --include='*.json' \
 same "no puzzle file writes an empty separatorLocations or a null annotation" \
   "${found:-none}" "none"
 
+echo "every key obeys it: tools/data/puzzle.schema.json"
+# The rule for all keys, not just the two above: the write prunes null and empty
+# values, the write gate and the validator refuse whatever breaks the schema,
+# and the schema's closed lists are the ones their sources hold.
+out=$(PYTHONPATH=tools python3 - <<'PY'
+import copy, json, tempfile
+from pathlib import Path
+import fetch_puzzle as fetcher
+import puzzle_integrity, puzzle_schema, validate_annotations
+
+real = fetcher.read_puzzle_file(Path("puzzles/cryptic-30066.json"))
+
+# The write drops every empty form, however deep, and keeps `clue` even blank.
+gate = puzzle_integrity.refuse_bad_write
+puzzle_integrity.refuse_bad_write = lambda puzzle, old=None: None
+p = copy.deepcopy(real)
+p["setter"] = None
+e = p["entries"][0]
+e.update(solution=None, clue="", separatorLocations={",": []})
+e["annotation"] = {"type": ["anagram"], "indicators": [], "linkWords": [],
+                   "indicatorNotes": {}, "surface": "",
+                   "features": {"joke": None, "misdirectedWord": None,
+                                "answerInScene": False, "aptDefinition": False},
+                   "blocks": [{"clueFragment": "x", "gives": ""}]}
+with tempfile.TemporaryDirectory() as d:
+    path = Path(d) / "cryptic-30066.json"
+    fetcher.write_puzzle_file(path, p)
+    back = json.loads(path.read_text(encoding="utf-8"))
+b0 = back["entries"][0]
+print("PRUNED", "setter" in back, "solution" in b0, "separatorLocations" in b0,
+      sorted(b0["annotation"]), sorted(b0["annotation"]["features"]),
+      b0["annotation"]["blocks"], repr(b0["clue"]))
+puzzle_integrity.refuse_bad_write = gate
+
+# A key the schema does not know is refused at the write gate...
+bad = copy.deepcopy(real)
+bad["entries"][0]["clueCorrupt"] = "retired"
+try:
+    puzzle_integrity.refuse_bad_write(bad)
+    print("GATE wrote it")
+except ValueError as err:
+    print("GATE", "SCHEMA" in str(err) and "clueCorrupt" in str(err))
+
+# ...and a null that reached disk some other way fails the validator.
+nulled = copy.deepcopy(real)
+nulled["setter"] = None
+_, errors, _ = validate_annotations.validate_puzzle(nulled)
+print("VALIDATOR", any(x.startswith("schema: $.setter") for x in errors))
+
+print("ENUMS", puzzle_schema.check_enums())
+print("CORPUS_SAMPLE", puzzle_schema.validate(real))
+
+# The small validator refuses a keyword it does not implement, so the schema
+# cannot come to promise a check nothing runs.
+try:
+    puzzle_schema._check("x", {"format": "email"}, "$", [])
+    print("KEYWORD accepted")
+except ValueError:
+    print("KEYWORD refused")
+
+# Where the real jsonschema is installed, it agrees the file is 2020-12 and
+# that a real puzzle passes it and a nulled one does not.
+try:
+    import jsonschema
+except ImportError:
+    print("JSONSCHEMA skipped")
+else:
+    jsonschema.Draft202012Validator.check_schema(puzzle_schema.SCHEMA)
+    v = jsonschema.Draft202012Validator(puzzle_schema.SCHEMA)
+    print("JSONSCHEMA", not list(v.iter_errors(real)) and bool(list(v.iter_errors(nulled))))
+PY
+)
+same "the write drops every null and empty value and keeps a blank clue" \
+  "$(grep '^PRUNED ' <<<"$out")" \
+  "PRUNED False False False ['blocks', 'features', 'type'] ['answerInScene', 'aptDefinition'] [{'clueFragment': 'x'}] ''"
+same "the write gate refuses a key the schema does not have" "$(grep '^GATE ' <<<"$out")" "GATE True"
+same "the validator fails a null on disk" "$(grep '^VALIDATOR ' <<<"$out")" "VALIDATOR True"
+same "the schema's enums are their sources' lists" "$(grep '^ENUMS ' <<<"$out")" "ENUMS []"
+same "a real puzzle matches the schema" "$(grep '^CORPUS_SAMPLE ' <<<"$out")" "CORPUS_SAMPLE []"
+same "an unimplemented schema keyword is refused" "$(grep '^KEYWORD ' <<<"$out")" "KEYWORD refused"
+js=$(grep '^JSONSCHEMA ' <<<"$out")
+[ "$js" = "JSONSCHEMA skipped" ] || same "jsonschema agrees on the schema and the puzzle" "$js" "JSONSCHEMA True"
+
 if [ "$fails" -gt 0 ]; then echo "empty_keys: $fails check(s) failed"; exit 1; fi
 echo "empty_keys: all checks passed"

@@ -2304,10 +2304,10 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
 }
 
 // --- an unattributed puzzle names no setter ---
-// A source that ships no byline has a null setter. Both the picker row and the
+// A source that ships no byline has no setter key. Both the picker row and the
 // puzzle title leave the setter out entirely rather than print "null".
 {
-  const anon = allPuzzles.find((p) => p.setter === null && global.window.CRYPTIC_PUZZLES[p.id]);
+  const anon = allPuzzles.find((p) => !("setter" in p) && global.window.CRYPTIC_PUZZLES[p.id]);
   if (anon) {
     const row = openFromPicker(anon.id);
     assert(row && !/null|undefined/.test(row.children[0].innerHTML),
@@ -4032,19 +4032,6 @@ registry["reset-puzzle"].onclick();
       + "answer, and only a person can write it, so nothing may silently discard it");
   });
 
-  // The third silence: the paper printed WORDS, but not the ones this answer
-  // came from. Unfillable like a blank clue, so it must be counted like one —
-  // or the puzzle stays annotated:false and buys a whole run every night to
-  // solve the one clue nobody can solve. Both renderers, the re-fetch, the
-  // index's annotated flag, and the alert that would otherwise cry wolf.
-  const loss = fs.readFileSync(path.join(ROOT, "tools", "check_annotation_loss.py"), "utf8");
-  ["app.js", "tools/build_seo_pages.py", "tools/fetch_puzzle.py",
-   "tools/check_annotation_loss.py"].forEach((f, i) => {
-    assert(/clueCorrupt/.test([src, seo, fetcher, loss][i]),
-      `${f} ignores clueCorrupt — a clue the paper printed wrong can never be `
-      + "annotated, and treating it as merely unsolved re-spends a run on it nightly");
-  });
-
   // Mirrors has_words() in tools/fetch_puzzle.py: anything left after the
   // enumeration comes off is a clue, punctuation included.
   const hasWords = (clue) => clue.replace(/\([\d,\-. ]*\)/g, "").trim() !== "";
@@ -4060,18 +4047,12 @@ registry["reset-puzzle"].onclick();
         `${puz.id} ${e.id}: annotated a clue with no words in it — that explanation was invented`);
       assert(!(e.clueMissingNote && !e.clueMissing),
         `${puz.id} ${e.id}: clueMissingNote on a clue that has words — it renders nowhere`);
-      assert(!(e.clueCorrupt && e.annotation),
-        `${puz.id} ${e.id}: annotated a clue whose printed text is wrong — that `
-        + "explanation cannot have come from the words on the page");
-      assert(!(e.clueCorrupt && e.clueMissing),
-        `${puz.id} ${e.id}: both clueCorrupt and clueMissing — a blank clue has no `
-        + "wrong words in it; pick the one that is true");
     });
     // The re-spend is the bug, and this is where it would come back: a puzzle
     // whose only gaps are blank clues has to count as done, or it sits in the
     // backlog forever.
     if (annotatedInIndex.has(puz.id)) {
-      const answerable = puz.entries.filter((e) => hasWords(e.clue) && !e.clueCorrupt);
+      const answerable = puz.entries.filter((e) => hasWords(e.clue));
       assert(annotatedInIndex.get(puz.id) === answerable.every((e) => e.annotation),
         `${puz.id}: index 'annotated' should count only the clues that can be annotated`);
     }
