@@ -94,7 +94,8 @@ def is_blind(puzzle):
 # trying a single clue; the blog is disclosed by notes() below, once the run is
 # stuck, and not before. A whitelist, so a new top-level field stays hidden
 # until someone decides the run should see it.
-VIEW_KEYS = ("id", "number", "series", "name", "setter", "dimensions", "entries")
+VIEW_KEYS = ("id", "number", "series", "name", "setter", "dimensions", "preamble",
+             "entries")
 
 
 def view_path(path):

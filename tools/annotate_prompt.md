@@ -38,6 +38,7 @@ does not, the parse is wrong, so rethink it rather than stretch it.
   "answer": "DISPLAY FORM: the solution's letters, spaced only where the enumeration is",
   "definition": "exact substring of the clue",
   "definition2": "second definition, double definitions only",
+  "definedByPreamble": "true instead of definition, only when the puzzle's preamble defines this answer",
   "definitionNote": "only if the definition disagrees with the answer in number or part of speech",
   "indicators": ["exact substring", "..."],
   "indicatorNotes": {"<each indicator string>": "why THIS word gives that instruction"},
