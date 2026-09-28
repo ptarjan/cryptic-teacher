@@ -112,6 +112,13 @@ tools/puzzle_schema.py                       checks every puzzle file against
                                              tools/data/puzzle.schema.json, and prunes null and
                                              empty values on every write: an absent key means
                                              empty
+tools/definitions.py                         where each of an annotation's definitions sits in
+                                             its clue: fills `at` from the text on every write,
+                                             by the whole-word, before-the-enumeration,
+                                             no-overlap, clue-end rules, and refuses to guess
+                                             past them
+tools/test_definitions.sh                    holds each of those rules, the refusal, and the
+                                             validator's check that `at` points at its text
 tools/puzzle_integrity.py                    checks the puzzles themselves: two puzzles that
                                              are the same puzzle, an answer that does not fit
                                              its clue’s printed length, two entries that cross

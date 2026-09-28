@@ -1520,7 +1520,7 @@ def annotation_rows():
             a = e.get("annotation") or {}
             if not (a.get("type") and e.get("clue") and e.get("solution")):
                 continue
-            facts = {"type": a["type"], "definition": [a["definition"]] if a.get("definition") else [],
+            facts = {"type": a["type"], "definition": [d["text"] for d in a.get("definitions", ())],
                      "blocks": [[b["gives"], b["clueFragment"]] for b in a.get("blocks", ())
                                 if b.get("gives") and b.get("clueFragment")]}
             if a.get("indicators"):

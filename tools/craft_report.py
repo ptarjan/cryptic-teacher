@@ -240,7 +240,7 @@ def double_duty(entries):
     hits = []
     for e in entries:
         ann = e["annotation"]
-        dwords = set(words_of(ann.get("definition")))
+        dwords = set(words_of(" ".join(d["text"] for d in ann.get("definitions") or [])))
         if not dwords:
             continue
         others = set()

@@ -81,18 +81,16 @@ def type_blurb(types):
     return " ".join(clue_types.TYPES[t]["blurb"] for t in types or ())
 
 
-def def_place(clue, definition):
+def def_place(clue, d):
     # Simplified: app.js's version also names the flanking fragments; here we
     # only need the length of the connective clause, which is fixed regardless.
-    bare = re.sub(r"\s*\([^)]*\)\s*$", "", clue or "").strip()
-    definition = (definition or "").strip()
-    if not bare or not definition:
+    clue = clue or ""
+    text, at = (d or {}).get("text") or "", (d or {}).get("at", -1)
+    if not text or at < 0 or clue[at:at + len(text)] != text:
         return "."
-    at = bare.lower().find(definition.lower())
-    if at < 0:
-        return "."
+    bare = re.sub(r"\s*\([^)]*\)\s*$", "", clue)
     before = bare[:at].strip()
-    after = bare[at + len(definition):].strip()
+    after = bare[at + len(text):].strip()
     if not before and not after:
         return " — which is the whole clue, and that is what makes this one unusual."
     if not before:
@@ -108,7 +106,7 @@ def _whole_word(s):
 
 def sense_block(ann, b):
     """app.js senseBlock(): a double definition's half that shows only a note."""
-    if not ann.get("definition2") or "double_definition" not in (ann.get("type") or []):
+    if len(ann.get("definitions") or []) < 2 or "double_definition" not in (ann.get("type") or []):
         return False
     answer = _whole_word(ann.get("answer"))
     gives = _whole_word(b.get("gives"))
@@ -116,7 +114,7 @@ def sense_block(ann, b):
                                and gives != _whole_word(b.get("clueFragment"))):
         return False
     frag = _whole_word(b.get("clueFragment"))
-    defs = [_whole_word(ann.get("definition")), _whole_word(ann.get("definition2"))]
+    defs = [_whole_word(d.get("text")) for d in ann["definitions"]]
     return bool(frag) and any(d and (frag in d or d in frag) for d in defs)
 
 
@@ -143,9 +141,10 @@ def ladder_steps(ann, clue_text):
     mechanics = f"Mechanism: {clue_types.labels(t)}." + (
         "" if (is_dd or is_cd) else f" {type_blurb(t)}")
 
-    definition = ann.get("definition") or ""
-    if is_dd and ann.get("definition2"):
-        def_text = (f"It splits between {definition} and {ann['definition2']} — two "
+    defs = ann.get("definitions") or [{}]
+    definition = defs[0].get("text") or ""
+    if is_dd and len(defs) == 2:
+        def_text = (f"It splits between {definition} and {defs[1]['text']} — two "
                     "unrelated senses of the same word, which is where the surface "
                     "reading misleads you.")
         def_text += "".join(f" \"{b['clueFragment']}\" -- {b['note']}"
@@ -158,7 +157,7 @@ def ladder_steps(ann, clue_text):
                     "whole-clue description that only makes sense once you see it "
                     "the setter's way.")
     else:
-        def_text = f"The definition is {definition}{def_place(clue_text, definition)}"
+        def_text = f"The definition is {definition}{def_place(clue_text, defs[0])}"
     if ann.get("linkWords"):
         lw = ", ".join(ann["linkWords"])
         verb = "are" if len(ann["linkWords"]) > 1 else "is"
@@ -200,11 +199,9 @@ def ladder_steps(ann, clue_text):
 
     fit = ""
     if ann.get("definitionFit"):
-        fit = f" {definition}"
-        if ann.get("definition2"):
-            fit += f" and {ann['definition2']}"
+        fit = " " + " and ".join(d.get("text") or "" for d in defs)
         fit += f" -> {ann.get('answer', '')}: {ann['definitionFit']}"
-    note = f" {ann['definitionNote']}" if ann.get("definitionNote") else ""
+    note = "".join(f" {d['note']}" for d in defs if d.get("note"))
     has_blocks = any(k == "blocks" for k, _ in steps)
     walk_prefix = "" if has_blocks else mechanics + " "
     walk_text = walk_prefix + (ann.get("walkthrough") or "") + fit + note + \

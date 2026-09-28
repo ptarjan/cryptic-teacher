@@ -396,7 +396,7 @@
    "anyOf": [
     {
      "required": [
-      "definition"
+      "definitions"
      ]
     },
     {
@@ -420,23 +420,39 @@
      "type": "string",
      "minLength": 1
     },
-    "definition": {
-     "type": "string",
-     "minLength": 1,
-     "description": "The clue words that define the answer, verbatim."
-    },
-    "definition2": {
-     "type": "string",
-     "minLength": 1,
-     "description": "The second definition of a double definition."
+    "definitions": {
+     "description": "The clue words that define the answer, in clue order: one, or two for a double definition. `at` is the offset of `text` in the entry's `clue`, in Unicode code points, so clue[at:at+len(text)] == text. Where the text occurs more than once, `at` is the occurrence that (1) stands as whole words, (2) lies before the trailing enumeration, (3) does not overlap another definition, and (4) touches the clue's start or end, since a definition sits at one end of a cryptic clue; a text those rules leave ambiguous has its `at` given by hand (tools/definitions.py).",
+     "type": "array",
+     "minItems": 1,
+     "items": {
+      "type": "object",
+      "required": [
+       "text",
+       "at"
+      ],
+      "additionalProperties": false,
+      "properties": {
+       "text": {
+        "description": "The clue words, verbatim.",
+        "type": "string",
+        "minLength": 1
+       },
+       "at": {
+        "description": "Offset of text in the clue, in Unicode code points.",
+        "type": "integer",
+        "minimum": 0
+       },
+       "note": {
+        "description": "Why the setter may define the answer this way, where the definition disagrees with the answer in number or part of speech.",
+        "type": "string",
+        "minLength": 1
+       }
+      }
+     }
     },
     "definedByPreamble": {
-     "description": "The preamble, not the clue, defines this answer; replaces definition.",
+     "description": "The preamble, not the clue, defines this answer; replaces definitions.",
      "const": true
-    },
-    "definitionNote": {
-     "type": "string",
-     "minLength": 1
     },
     "definitionFit": {
      "type": "string",
