@@ -67,10 +67,13 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Check the committed layout table
+      - name: Check the committed layout table and prompt reference
         run: |
           fails=()
           python3 tools/build_readme.py --check-layout || fails+=("layout table")
+          python3 tools/build_annotate_prompt.py >/dev/null
+          git diff --exit-code tools/annotate_prompt.md \
+            || fails+=("annotate_prompt.md reference section: run tools/build_annotate_prompt.py")
           if [ "${#fails[@]}" -gt 0 ]; then
             echo "FAILED: ${#fails[@]}"
             for f in "${fails[@]}"; do echo "  - $f"; done
