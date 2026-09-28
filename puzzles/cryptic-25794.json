@@ -18,7 +18,10 @@
   "retrievedFrom": "publisher",
   "retrievedUrl": null,
   "gridOrigin": "published",
-  "solutionOrigin": "published"
+  "solutionOrigin": "published",
+  "annotatedBy": [
+   "claude-opus-5-5"
+  ]
  },
  "entries": [
   {
@@ -31,7 +34,43 @@
    },
    "length": 4,
    "clue": "You guess the lad finally took drugs (4)",
-   "solution": "USED"
+   "solution": "USED",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "USED",
+    "definition": "took drugs",
+    "indicators": [
+     "finally"
+    ],
+    "indicatorNotes": {
+     "finally": "asks for the final letter of each word before it"
+    },
+    "pieces": [
+     "U",
+     "S",
+     "E",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "You guess the lad",
+      "gives": "USED",
+      "select": "last",
+      "note": "the last letters of yoU guesS thE laD"
+     }
+    ],
+    "surface": "A knowing guess that some young man's decline came down to drugs.",
+    "walkthrough": "\"Finally\" applies to every word of \"You guess the lad\", not just to \"lad\"; taking only D is the trap.",
+    "definitionFit": "Someone who used took drugs, in the slang sense of the verb.",
+    "features": {
+     "misdirectedWord": "finally",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "2-down",
@@ -43,7 +82,43 @@
    },
    "length": 6,
    "clue": "Support of a bra regularly dispensed with, causing commotion (6)",
-   "solution": "UPROAR"
+   "solution": "UPROAR",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "UPROAR",
+    "definition": "commotion",
+    "indicators": [
+     "regularly dispensed with"
+    ],
+    "indicatorNotes": {
+     "regularly dispensed with": "every other letter is thrown away, keeping the rest"
+    },
+    "linkWords": [
+     "causing"
+    ],
+    "pieces": [
+     "UPROAR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Support of a bra",
+      "gives": "UPROAR",
+      "select": "alternate",
+      "note": "drop the 1st, 3rd, 5th... letters of SUPPORTOFABRA, keeping sUpPoRtOfAbRa"
+     }
+    ],
+    "surface": "Someone abandons the support of a bra, and the result is a scandal.",
+    "walkthrough": "The run of letters spans three words, so \"Support of a bra\" is read as one string; it is the odd letters that go, the even ones that stay.",
+    "definitionFit": "A plain synonym: both words name a noisy public disturbance.",
+    "features": {
+     "misdirectedWord": "bra",
+     "joke": "absurd",
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "3-down",
@@ -55,7 +130,49 @@
    },
    "length": 10,
    "clue": "Masterminds using file to break into Scottish banks (10)",
-   "solution": "BRAINBOXES"
+   "solution": "BRAINBOXES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BRAINBOXES",
+    "definition": "Masterminds",
+    "indicators": [
+     "to break into"
+    ],
+    "indicatorNotes": {
+     "to break into": "one piece is placed inside the other"
+    },
+    "linkWords": [
+     "using"
+    ],
+    "pieces": [
+     "BRA",
+     "INBOX",
+     "ES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scottish banks",
+      "gives": "BRAES",
+      "note": "braes are hillsides or banks in Scots"
+     },
+     {
+      "clueFragment": "file",
+      "gives": "INBOX",
+      "note": "an in-box, a tray where papers are filed"
+     }
+    ],
+    "surface": "Criminal masterminds use a file to break into Scottish banks, as in an old prison-break caper.",
+    "walkthrough": "The file of the surface is a tool for cutting bars; here it is where office papers go. BRAES is the Scots word for hillsides and riverbanks.",
+    "definitionFit": "Brainboxes is informal British for very clever people, masterminds.",
+    "features": {
+     "misdirectedWord": "banks",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "4-down",
@@ -67,7 +184,46 @@
    },
    "length": 6,
    "clue": "Wolf circling eastern Galloway? (6)",
-   "solution": "GEORGE"
+   "solution": "GEORGE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GEORGE",
+    "definition": "Galloway?",
+    "indicators": [
+     "circling"
+    ],
+    "indicatorNotes": {
+     "circling": "one piece goes round the other"
+    },
+    "pieces": [
+     "G",
+     "E",
+     "ORGE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wolf",
+      "gives": "GORGE",
+      "note": "to wolf food is to gorge"
+     },
+     {
+      "clueFragment": "eastern",
+      "gives": "E",
+      "note": "E = eastern"
+     }
+    ],
+    "surface": "A wolf prowls round the eastern side of Galloway, the region of south-west Scotland.",
+    "walkthrough": "Galloway is a Scottish region, but here it is the surname of George Galloway, a British politician; the question mark flags the definition by example.",
+    "definitionFit": "George is the first name of the politician George Galloway.",
+    "features": {
+     "misdirectedWord": "Galloway",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "5-down",
@@ -79,7 +235,47 @@
    },
    "length": 8,
    "clue": "Careless pathologist got nasty cut in his workplace (8)",
-   "solution": "HOSPITAL"
+   "solution": "HOSPITAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "HOSPITAL",
+    "definition": "his workplace",
+    "indicators": [
+     "cut",
+     "Careless"
+    ],
+    "indicatorNotes": {
+     "cut": "the letters named are removed",
+     "Careless": "the remaining letters are handled carelessly, jumbled"
+    },
+    "anagram": {
+     "fodder": "PAHLOIST"
+    },
+    "blocks": [
+     {
+      "clueFragment": "pathologist",
+      "gives": "PATHOLOGIST",
+      "note": "the word itself"
+     },
+     {
+      "clueFragment": "got nasty",
+      "gives": "GOT",
+      "note": "the letters G, O, T, removed; nasty says they need not sit in order"
+     }
+    ],
+    "surface": "A slapdash pathologist loses his temper and gets hurt at work.",
+    "walkthrough": "\"Cut\" looks like a wound, but it is a removal instruction applied before the rearranging. \"His\" points back to the pathologist, whose workplace is the answer.",
+    "definitionFit": "A pathologist typically works in a hospital.",
+    "features": {
+     "misdirectedWord": "cut",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "6-down",
@@ -91,7 +287,39 @@
    },
    "length": 4,
    "clue": "Must edit filth! (4)",
-   "solution": "SMUT"
+   "solution": "SMUT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SMUT",
+    "definition": "filth",
+    "indicators": [
+     "edit"
+    ],
+    "indicatorNotes": {
+     "edit": "editing rearranges the letters"
+    },
+    "anagram": {
+     "fodder": "MUST"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Must",
+      "gives": "MUST",
+      "note": "anagram fodder"
+     }
+    ],
+    "surface": "A censor's cry: this filth must be cut!",
+    "walkthrough": "The surface is a censor's order, and the answer is exactly what a censor cuts.",
+    "definitionFit": "A plain synonym for indecent talk or pictures, the sort of dirt a censor removes.",
+    "features": {
+     "misdirectedWord": "edit",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "7-down",
@@ -103,7 +331,43 @@
    },
    "length": 8,
    "clue": "Wanton Italian politician on top of lass (8)",
-   "solution": "PRODIGAL"
+   "solution": "PRODIGAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PRODIGAL",
+    "definition": "Wanton",
+    "indicators": [],
+    "linkWords": [
+     "on top of"
+    ],
+    "pieces": [
+     "PRODI",
+     "GAL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Italian politician",
+      "gives": "PRODI",
+      "note": "Romano Prodi, former Italian prime minister"
+     },
+     {
+      "clueFragment": "lass",
+      "gives": "GAL",
+      "note": "a gal is a lass"
+     }
+    ],
+    "surface": "A scandal: a randy Italian politician in bed with a young woman.",
+    "walkthrough": "In a down clue \"on top of\" means placed above, so the politician comes first. \"Wanton\" suggests lust; the answer's wantonness is with money.",
+    "definitionFit": "Prodigal means wastefully extravagant, wanton with money.",
+    "features": {
+     "misdirectedWord": "Wanton",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "8-down",
@@ -115,7 +379,47 @@
    },
    "length": 4,
    "clue": "Originally acquiescent and retiring, like Cinders? (4)",
-   "solution": "ASHY"
+   "solution": "ASHY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ASHY",
+    "definition": "like Cinders?",
+    "indicators": [
+     "Originally"
+    ],
+    "indicatorNotes": {
+     "Originally": "take the original, first letter"
+    },
+    "pieces": [
+     "A",
+     "SHY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "acquiescent",
+      "gives": "A",
+      "select": "first",
+      "note": "first letter of acquiescent"
+     },
+     {
+      "clueFragment": "retiring",
+      "gives": "SHY",
+      "note": "retiring = shy"
+     }
+    ],
+    "surface": "Cinderella described as meek and shy.",
+    "walkthrough": "Cinders is Cinderella, who sat among the ashes; the surface describes her character, the definition her appearance.",
+    "definitionFit": "Cinderella was covered in ash from the hearth, so ashy.",
+    "features": {
+     "misdirectedWord": "Cinders",
+     "joke": "pun",
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "9-across",
@@ -127,7 +431,49 @@
    },
    "length": 9,
    "clue": "Hulk perhaps has delightful woman round (9)",
-   "solution": "SUPERHERO"
+   "solution": "SUPERHERO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SUPERHERO",
+    "definition": "Hulk perhaps",
+    "indicators": [],
+    "linkWords": [
+     "has"
+    ],
+    "pieces": [
+     "SUPER",
+     "HER",
+     "O"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "delightful",
+      "gives": "SUPER",
+      "note": "super = delightful"
+     },
+     {
+      "clueFragment": "woman",
+      "gives": "HER",
+      "note": "her = a woman"
+     },
+     {
+      "clueFragment": "round",
+      "gives": "O",
+      "note": "O is round"
+     }
+    ],
+    "surface": "A hulking man has a lovely woman over.",
+    "walkthrough": "A hulk is a big lout, but capital H makes it the Incredible Hulk; \"perhaps\" marks him as an example.",
+    "definitionFit": "A definition by example: the green-skinned Marvel comics character belongs to the caped-crusader class.",
+    "features": {
+     "misdirectedWord": "Hulk",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "10-across",
@@ -139,7 +485,46 @@
    },
    "length": 5,
    "clue": "Lawgiver's essentially changed customs of a people (5)",
-   "solution": "MORES"
+   "solution": "MORES",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "MORES",
+    "definition": "customs of a people",
+    "indicators": [
+     "essentially changed"
+    ],
+    "indicatorNotes": {
+     "essentially changed": "the essence, the middle letter, is altered"
+    },
+    "pieces": [
+     "MO",
+     "R",
+     "ES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lawgiver's",
+      "gives": "MOSES",
+      "note": "Moses brought down the Ten Commandments"
+     },
+     {
+      "clueFragment": "essentially changed",
+      "gives": "MORES",
+      "note": "the central S of MOSES becomes R"
+     }
+    ],
+    "surface": "Moses's laws altering a nation's way of life.",
+    "walkthrough": "Only the middle letter changes, and nothing in the clue says to what; the definition and crossers settle R.",
+    "definitionFit": "A Latin borrowing used by sociologists for a community's accepted norms, matching the clue's phrase closely.",
+    "features": {
+     "misdirectedWord": "essentially",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "11-across",
@@ -151,7 +536,55 @@
    },
    "length": 5,
    "clue": "Scorching day ahead beginning to indicate what one might wear in India (5)",
-   "solution": "DHOTI"
+   "solution": "DHOTI",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "DHOTI",
+    "definition": "what one might wear in India",
+    "indicators": [
+     "ahead",
+     "beginning to"
+    ],
+    "indicatorNotes": {
+     "ahead": "'ahead' means in front, so the day's letter is placed before HOT rather than after it",
+     "beginning to": "the first letter of the next word"
+    },
+    "pieces": [
+     "D",
+     "HOT",
+     "I"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "day",
+      "gives": "D",
+      "note": "d = day"
+     },
+     {
+      "clueFragment": "Scorching",
+      "gives": "HOT",
+      "note": "scorching = hot"
+     },
+     {
+      "clueFragment": "indicate",
+      "gives": "I",
+      "select": "first",
+      "note": "first letter of indicate"
+     }
+    ],
+    "surface": "Advice on dressing for a scorching day in India.",
+    "walkthrough": "\"Ahead\" moves D in front of HOT even though \"day\" follows \"Scorching\" in the clue.",
+    "definitionFit": "A dhoti is a loincloth worn by men in India.",
+    "features": {
+     "misdirectedWord": null,
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "12-across",
@@ -163,7 +596,61 @@
    },
    "length": 9,
    "clue": "Deputy contracted to act criminally in bank, so they say (9)",
-   "solution": "REPUTEDLY"
+   "solution": "REPUTEDLY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "container"
+    ],
+    "answer": "REPUTEDLY",
+    "definition": "so they say",
+    "indicators": [
+     "contracted",
+     "act criminally",
+     "in"
+    ],
+    "indicatorNotes": {
+     "contracted": "shortened, losing its last letter",
+     "act criminally": "the letters behave badly, rearranged",
+     "in": "something that is in the bank sits inside it, so these letters go inside RELY"
+    },
+    "linkWords": [
+     "to"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "DEPUT",
+      "gives": "PUTED"
+     }
+    ],
+    "pieces": [
+     "RE",
+     "PUTED",
+     "LY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Deputy",
+      "gives": "DEPUT",
+      "note": "DEPUTY contracted, last letter dropped"
+     },
+     {
+      "clueFragment": "bank",
+      "gives": "RELY",
+      "note": "to bank on is to rely on"
+     }
+    ],
+    "surface": "A deputy sheriff, it is rumoured, is secretly in on a bank job.",
+    "walkthrough": "\"Bank\" looks like the robbers' target, but it is a verb here: to bank on something is to rely on it.",
+    "definitionFit": "Reputedly means according to what people say.",
+    "features": {
+     "misdirectedWord": "bank",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "13-across",
@@ -175,7 +662,54 @@
    },
    "length": 7,
    "clue": "Soldier omitting element in rude story (7)",
-   "solution": "PARABLE"
+   "solution": "PARABLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "PARABLE",
+    "definition": "story",
+    "indicators": [
+     "omitting"
+    ],
+    "indicatorNotes": {
+     "omitting": "leaving the named letter out"
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "PARA",
+     "BLE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Soldier",
+      "gives": "PARA",
+      "note": "a para is a paratrooper"
+     },
+     {
+      "clueFragment": "rude",
+      "gives": "BLUE",
+      "note": "blue jokes are rude ones"
+     },
+     {
+      "clueFragment": "omitting element",
+      "gives": "BLE",
+      "note": "U, the symbol for uranium, is left out of BLUE"
+     }
+    ],
+    "surface": "A soldier leaves out a key detail when telling a dirty tale.",
+    "walkthrough": "The element is a chemical one: U is uranium's symbol. \"Soldier omitting element\" reads as if PARA loses the letter, but it is BLUE that does.",
+    "definitionFit": "A parable is a story told to make a moral point.",
+    "features": {
+     "misdirectedWord": "element",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "13-down",
@@ -187,7 +721,50 @@
    },
    "length": 5,
    "clue": "Empty pan to be filled with uncooked seafood (5)",
-   "solution": "PRAWN"
+   "solution": "PRAWN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PRAWN",
+    "definition": "seafood",
+    "indicators": [
+     "Empty",
+     "to be filled with"
+    ],
+    "indicatorNotes": {
+     "Empty": "remove the inside, keeping the outer letters",
+     "to be filled with": "the other piece goes inside"
+    },
+    "pieces": [
+     "P",
+     "RAW",
+     "N"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pan",
+      "gives": "PN",
+      "select": "outer",
+      "note": "PAN emptied of its middle"
+     },
+     {
+      "clueFragment": "uncooked",
+      "gives": "RAW",
+      "note": "uncooked = raw"
+     }
+    ],
+    "surface": "A kitchen instruction: fill the empty pan with raw seafood.",
+    "walkthrough": "The surface reads as a recipe, and the answer is the seafood going into the pan.",
+    "definitionFit": "A definition by example: the shellfish is one of many kinds of seafood.",
+    "features": {
+     "misdirectedWord": "Empty",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "14-across",
@@ -204,7 +781,61 @@
      5
     ]
    },
-   "solution": "TYINGUP"
+   "solution": "TYINGUP",
+   "annotation": {
+    "type": [
+     "anagram",
+     "reversal",
+     "charade"
+    ],
+    "answer": "TYING UP",
+    "definition": "Tethering",
+    "indicators": [
+     "mongrel",
+     "rebellious"
+    ],
+    "indicatorNotes": {
+     "mongrel": "a mongrel is a mixed breed, so the letters are mixed",
+     "rebellious": "turning against, so turned round"
+    },
+    "subAnagrams": [
+     {
+      "fodder": "TINY",
+      "gives": "TYIN"
+     }
+    ],
+    "subReversals": [
+     {
+      "from": "PUG",
+      "to": "GUP"
+     }
+    ],
+    "pieces": [
+     "TYIN",
+     "GUP"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tiny",
+      "gives": "TYIN",
+      "note": "anagram fodder"
+     },
+     {
+      "clueFragment": "little dog",
+      "gives": "PUG",
+      "note": "a pug is a small dog"
+     }
+    ],
+    "surface": "Someone ties up a disobedient little mutt.",
+    "walkthrough": "Both indicators come from the dog world: \"mongrel\" mixes TINY and \"rebellious\" turns PUG round.",
+    "definitionFit": "A plain synonym: both phrases describe securing an animal with a rope or lead.",
+    "features": {
+     "misdirectedWord": "mongrel",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "15-down",
@@ -216,7 +847,40 @@
    },
    "length": 10,
    "clue": "Breach fashionable quarter? (10)",
-   "solution": "INFRACTION"
+   "solution": "INFRACTION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INFRACTION",
+    "definition": "Breach",
+    "indicators": [],
+    "pieces": [
+     "IN",
+     "FRACTION"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fashionable",
+      "gives": "IN",
+      "note": "in = fashionable"
+     },
+     {
+      "clueFragment": "quarter?",
+      "gives": "FRACTION",
+      "note": "a quarter is one example of a fraction"
+     }
+    ],
+    "surface": "A breach into a trendy district of a city.",
+    "walkthrough": "\"Quarter\" suggests a part of town; it is one-fourth, a fraction, and the question mark admits it is only an example.",
+    "definitionFit": "A plain synonym in the sense of breaking a rule or law, not of breaking through a wall.",
+    "features": {
+     "misdirectedWord": "quarter",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "16-down",
@@ -228,7 +892,46 @@
    },
    "length": 5,
    "clue": "What fathers losing last of hair may show? (5)",
-   "solution": "PATES"
+   "solution": "PATES",
+   "annotation": {
+    "type": [
+     "deletion",
+     "and_lit"
+    ],
+    "answer": "PATES",
+    "definition": "What fathers losing last of hair may show?",
+    "indicators": [
+     "losing"
+    ],
+    "indicatorNotes": {
+     "losing": "the named letter is dropped"
+    },
+    "pieces": [
+     "PATE",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fathers",
+      "gives": "PATERS",
+      "note": "pater is Latin, and old public-school slang, for father"
+     },
+     {
+      "clueFragment": "losing last of hair",
+      "gives": "PATES",
+      "note": "the last letter of hair, R, is removed"
+     }
+    ],
+    "surface": "Balding fathers and what they end up showing.",
+    "walkthrough": "The whole clue is both definition and wordplay: fathers going bald show their pates, the tops of their heads.",
+    "definitionFit": "A pate is the top of the head, which balding men expose.",
+    "features": {
+     "misdirectedWord": null,
+     "joke": "pun",
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "17-across",
@@ -240,7 +943,54 @@
    },
    "length": 5,
    "clue": "Forward individuals shun ban on sex as appropriate (5)",
-   "solution": "ANNEX"
+   "solution": "ANNEX",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ANNEX",
+    "definition": "appropriate",
+    "indicators": [
+     "Forward individuals shun"
+    ],
+    "indicatorNotes": {
+     "Forward individuals shun": "the front letter of each individual word is dropped"
+    },
+    "linkWords": [
+     "as"
+    ],
+    "pieces": [
+     "AN",
+     "N",
+     "EX"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ban",
+      "gives": "AN",
+      "note": "BAN without its first letter, B"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "N",
+      "note": "ON without its first letter, O"
+     },
+     {
+      "clueFragment": "sex",
+      "gives": "EX",
+      "note": "SEX without its first letter, S"
+     }
+    ],
+    "surface": "Pushy people defy a ban on sex.",
+    "walkthrough": "\"Forward individuals\" looks like pushy people; it means the forward, first letter of each individual word.",
+    "definitionFit": "Appropriate is the verb here, to take for oneself, as a state does when it seizes a neighbour's territory.",
+    "features": {
+     "misdirectedWord": "Forward",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "18-down",
@@ -257,7 +1007,39 @@
      2
     ]
    },
-   "solution": "NOCHANCE"
+   "solution": "NOCHANCE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NO CHANCE",
+    "definition": "Not a hope!",
+    "indicators": [
+     "jockey"
+    ],
+    "indicatorNotes": {
+     "jockey": "to jockey is to manoeuvre, shifting the letters about"
+    },
+    "anagram": {
+     "fodder": "CANHECON"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Can he con",
+      "gives": "CANHECON",
+      "note": "anagram fodder"
+     }
+    ],
+    "surface": "Could he swindle a jockey? Not a chance.",
+    "walkthrough": "\"Jockey\" looks like the rider being conned; it is a verb telling you to manoeuvre the letters.",
+    "definitionFit": "\"No chance!\" and \"Not a hope!\" are the same exclamation of refusal.",
+    "features": {
+     "misdirectedWord": "jockey",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "19-across",
@@ -269,7 +1051,37 @@
    },
    "length": 3,
    "clue": "Posh female set (3)",
-   "solution": "GEL"
+   "solution": "GEL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GEL",
+    "definition": "Posh female",
+    "definition2": "set",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Posh female",
+      "gives": "GEL",
+      "note": "a young woman, spelt the way an upper-class accent pronounces 'girl'"
+     },
+     {
+      "clueFragment": "set",
+      "gives": "GEL",
+      "note": "a verb: to set firm, as jelly does"
+     }
+    ],
+    "surface": "An upper-class girl's social circle.",
+    "walkthrough": "\"Set\" sits so naturally after \"Posh female\" as a noun, the posh set, that it is hard to see it as the verb.",
+    "definitionFit": "Gel is a jokey spelling of how the upper classes say girl; to gel is to set.",
+    "features": {
+     "misdirectedWord": "set",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "19-down",
@@ -286,7 +1098,52 @@
      4
     ]
    },
-   "solution": "GLADRAGS"
+   "solution": "GLADRAGS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "GLAD RAGS",
+    "definition": "Top Gear",
+    "indicators": [
+     "caught in",
+     "briefly"
+    ],
+    "indicatorNotes": {
+     "caught in": "something caught in a trap is held within it, so DRAG sits inside",
+     "briefly": "said briefly, a word is cut short, losing its last letter"
+    },
+    "linkWords": [
+     "'s"
+    ],
+    "pieces": [
+     "GLA",
+     "DRAG",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mirror, briefly",
+      "gives": "GLAS",
+      "note": "GLASS, a mirror, loses its last letter"
+     },
+     {
+      "clueFragment": "car race",
+      "gives": "DRAG",
+      "note": "a drag race"
+     }
+    ],
+    "surface": "A car race filmed through a mirror on the TV motoring show Top Gear.",
+    "walkthrough": "Top Gear is a British motoring show, which the car race plays on; split apart, top gear is best clothing.",
+    "definitionFit": "Glad rags are one's best clothes, top gear.",
+    "features": {
+     "misdirectedWord": "Top",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "20-across",
@@ -298,7 +1155,40 @@
    },
    "length": 5,
    "clue": "Record time cut in France? (5)",
-   "solution": "FILET"
+   "solution": "FILET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FILET",
+    "definition": "cut in France?",
+    "indicators": [],
+    "pieces": [
+     "FILE",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Record",
+      "gives": "FILE",
+      "note": "a file is a record"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "t = time"
+     }
+    ],
+    "surface": "A new record time set somewhere in France.",
+    "walkthrough": "\"Cut\" here is a cut of meat; filet is the French word for fillet.",
+    "definitionFit": "A filet is the French for a fillet, a cut of meat.",
+    "features": {
+     "misdirectedWord": "cut",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "21-across",
@@ -310,7 +1200,40 @@
    },
    "length": 7,
    "clue": "Capital's articulate observer of squid? (7)",
-   "solution": "NICOSIA"
+   "solution": "NICOSIA",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "NICOSIA",
+    "definition": "Capital",
+    "indicators": [
+     "articulate"
+    ],
+    "indicatorNotes": {
+     "articulate": "spoken clearly, so said out loud"
+    },
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "observer of squid",
+      "soundsLike": "NICKER SEER",
+      "gives": "NICOSIA",
+      "note": "a seer is an observer; a nicker is a quid, a pound"
+     }
+    ],
+    "surface": "A capital city's well-spoken marine biologist who watches squid.",
+    "walkthrough": "Squid is to be read as quids, pounds; nicker and quid are both British slang for a pound.",
+    "definitionFit": "A definition by example: the city is the capital of Cyprus.",
+    "features": {
+     "misdirectedWord": "squid",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "22-across",
@@ -322,7 +1245,43 @@
    },
    "length": 7,
    "clue": "Love causes changes to reproductive organs (7)",
-   "solution": "OVARIES"
+   "solution": "OVARIES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OVARIES",
+    "definition": "reproductive organs",
+    "indicators": [],
+    "linkWords": [
+     "causes"
+    ],
+    "pieces": [
+     "O",
+     "VARIES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Love",
+      "gives": "O",
+      "note": "love = nil = O, from tennis"
+     },
+     {
+      "clueFragment": "changes",
+      "gives": "VARIES",
+      "note": "varies = changes"
+     }
+    ],
+    "surface": "Being in love brings about changes in the body.",
+    "walkthrough": "The surface reads as romance; \"love\" is zero.",
+    "definitionFit": "A definition by class: they are the egg-producing organs in the female reproductive system.",
+    "features": {
+     "misdirectedWord": "Love",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "22-down",
@@ -339,7 +1298,52 @@
      2
     ]
    },
-   "solution": "OHDEAR"
+   "solution": "OHDEAR",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "OH DEAR",
+    "definition": "cry of dismay",
+    "indicators": [
+     "terrible"
+    ],
+    "indicatorNotes": {
+     "terrible": "the letters are in a terrible state, jumbled"
+    },
+    "subAnagrams": [
+     {
+      "fodder": "HEARD",
+      "gives": "HDEAR"
+     }
+    ],
+    "pieces": [
+     "O",
+     "HDEAR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Oscar",
+      "gives": "O",
+      "note": "Oscar is O in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "heard",
+      "gives": "HDEAR",
+      "note": "anagram fodder"
+     }
+    ],
+    "surface": "Oscar hears a dreadful wail.",
+    "walkthrough": "\"Heard\" is a natural sound signal, but here it is only fodder for the anagram.",
+    "definitionFit": "An idiom: the everyday exclamation people use when something mildly goes wrong.",
+    "features": {
+     "misdirectedWord": "heard",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "23-down",
@@ -356,7 +1360,48 @@
      2
     ]
    },
-   "solution": "INTRIM"
+   "solution": "INTRIM",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "IN TRIM",
+    "definition": "fit",
+    "indicators": [
+     "lacking"
+    ],
+    "indicatorNotes": {
+     "lacking": "a word lacking something goes without it, so the E is taken away"
+    },
+    "linkWords": [
+     "to get"
+    ],
+    "pieces": [
+     "INT",
+     "RIM"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Caretaker",
+      "gives": "INTERIM",
+      "note": "a caretaker government is an interim one"
+     },
+     {
+      "clueFragment": "lacking energy",
+      "gives": "INTRIM",
+      "note": "E for energy is removed"
+     }
+    ],
+    "surface": "A janitor who has no energy trying to get fit.",
+    "walkthrough": "\"Caretaker\" is an adjective here, as in a caretaker manager: temporary, interim.",
+    "definitionFit": "An idiom, originally nautical, for being in good physical shape.",
+    "features": {
+     "misdirectedWord": "Caretaker",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "24-across",
@@ -368,7 +1413,36 @@
    },
    "length": 9,
    "clue": "Rendered incapable (9)",
-   "solution": "PLASTERED"
+   "solution": "PLASTERED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PLASTERED",
+    "definition": "Rendered",
+    "definition2": "incapable",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Rendered",
+      "gives": "PLASTERED",
+      "note": "a builder's sense: render is a coat applied to a wall"
+     },
+     {
+      "clueFragment": "incapable",
+      "gives": "PLASTERED",
+      "note": "helplessly drunk, from the phrase 'drunk and incapable'"
+     }
+    ],
+    "walkthrough": "The two words read as one phrase, made helpless; split them. \"Drunk and incapable\" is the British legal phrase behind the second sense.",
+    "definitionFit": "Plastered means covered with render, and also very drunk.",
+    "features": {
+     "misdirectedWord": "Rendered",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "24-down",
@@ -380,7 +1454,37 @@
    },
    "length": 4,
    "clue": "Report of setter on Guardian cover (4)",
-   "solution": "PALL"
+   "solution": "PALL",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "PALL",
+    "definition": "cover",
+    "indicators": [
+     "Report of"
+    ],
+    "indicatorNotes": {
+     "Report of": "a report is a spoken account, so the sound is used"
+    },
+    "blocks": [
+     {
+      "clueFragment": "setter on Guardian",
+      "soundsLike": "PAUL",
+      "gives": "PALL",
+      "note": "Paul is one of the Guardian's crossword setters"
+     }
+    ],
+    "surface": "A news report about a Guardian crossword setter's cover story.",
+    "walkthrough": "The setter is a crossword compiler, Paul, whose name sounds like PALL; Arachne, who set this puzzle, is a Guardian colleague.",
+    "definitionFit": "A pall is a cloth cover laid over a coffin.",
+    "features": {
+     "misdirectedWord": "setter",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "25-down",
@@ -392,7 +1496,47 @@
    },
    "length": 4,
    "clue": "Message on Twitter is short and sweet (4)",
-   "solution": "TWEE"
+   "solution": "TWEE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TWEE",
+    "definition": "sweet",
+    "indicators": [
+     "is short"
+    ],
+    "indicatorNotes": {
+     "is short": "cut short by its last letter"
+    },
+    "linkWords": [
+     "and"
+    ],
+    "pieces": [
+     "TWEE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Message on Twitter",
+      "gives": "TWEET",
+      "note": "a tweet"
+     },
+     {
+      "clueFragment": "is short",
+      "gives": "TWEE",
+      "note": "TWEET loses its last T"
+     }
+    ],
+    "surface": "Tweets are short and sweet.",
+    "walkthrough": "\"Short and sweet\" is a set phrase, but \"short\" belongs to the wordplay and \"sweet\" alone is the definition.",
+    "definitionFit": "Twee means excessively sweet or quaint.",
+    "features": {
+     "misdirectedWord": "short",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "26-across",
@@ -404,7 +1548,36 @@
    },
    "length": 5,
    "clue": "Spiritual symbol at heart of Shinto temples (5)",
-   "solution": "TOTEM"
+   "solution": "TOTEM",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TOTEM",
+    "definition": "Spiritual symbol",
+    "indicators": [
+     "at heart of"
+    ],
+    "indicatorNotes": {
+     "at heart of": "the answer sits in the middle of the words that follow"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Shinto temples",
+      "gives": "TOTEM",
+      "note": "shinTO TEMples"
+     }
+    ],
+    "surface": "A sacred emblem at the centre of Japanese Shinto shrines.",
+    "walkthrough": "The answer spans the word break between Shinto and temples.",
+    "definitionFit": "A totem is an object revered as a spiritual emblem of a group.",
+    "features": {
+     "misdirectedWord": null,
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "27-down",
@@ -416,7 +1589,40 @@
    },
    "length": 4,
    "clue": "Submissive male's squeal of fear (4)",
-   "solution": "MEEK"
+   "solution": "MEEK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MEEK",
+    "definition": "Submissive",
+    "indicators": [],
+    "pieces": [
+     "M",
+     "EEK"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "male",
+      "gives": "M",
+      "note": "m = male"
+     },
+     {
+      "clueFragment": "squeal of fear",
+      "gives": "EEK",
+      "note": "eek! is a squeal of fright"
+     }
+    ],
+    "surface": "A timid man lets out a frightened squeak.",
+    "walkthrough": "The surface paints a timid man, and the answer describes him.",
+    "definitionFit": "A plain synonym: both describe someone who gives way to others without protest.",
+    "features": {
+     "misdirectedWord": null,
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "28-across",
@@ -428,7 +1634,49 @@
    },
    "length": 5,
    "clue": "River pike's eaten — it's filthy stuff (5)",
-   "solution": "LUCRE"
+   "solution": "LUCRE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LUCRE",
+    "definition": "filthy stuff",
+    "indicators": [
+     "'s eaten"
+    ],
+    "indicatorNotes": {
+     "'s eaten": "the pike has eaten the river, so R goes inside"
+    },
+    "linkWords": [
+     "it's"
+    ],
+    "pieces": [
+     "LUC",
+     "R",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pike",
+      "gives": "LUCE",
+      "note": "luce is an old name for a pike"
+     },
+     {
+      "clueFragment": "River",
+      "gives": "R",
+      "note": "r = river"
+     }
+    ],
+    "surface": "A river pike has swallowed something disgusting.",
+    "walkthrough": "\"Filthy stuff\" hints at the stock phrase filthy lucre, meaning money. LUCE is an old word for the pike, a fish.",
+    "definitionFit": "Lucre is money, usually called filthy lucre.",
+    "features": {
+     "misdirectedWord": "filthy",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "29-across",
@@ -440,7 +1688,55 @@
    },
    "length": 9,
    "clue": "Give romantic account of maiden confined in seething seraglio (9)",
-   "solution": "GLAMORISE"
+   "solution": "GLAMORISE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "GLAMORISE",
+    "definition": "Give romantic account of",
+    "indicators": [
+     "confined in",
+     "seething"
+    ],
+    "indicatorNotes": {
+     "confined in": "a prisoner confined in a place is shut inside it, so M goes inside",
+     "seething": "agitated, so the letters are churned"
+    },
+    "subAnagrams": [
+     {
+      "fodder": "SERAGLIO",
+      "gives": "GLAORISE"
+     }
+    ],
+    "pieces": [
+     "GLA",
+     "M",
+     "ORISE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seraglio",
+      "gives": "GLAORISE",
+      "note": "anagram fodder"
+     },
+     {
+      "clueFragment": "maiden",
+      "gives": "M",
+      "note": "m = maiden, an over with no runs in cricket scoring"
+     }
+    ],
+    "surface": "A romanticised tale of a maiden imprisoned in a seething harem.",
+    "walkthrough": "A seraglio is a harem, which suits the romantic surface. M for maiden comes from cricket, where a maiden is an over with no runs.",
+    "definitionFit": "To glamorise is to make something seem more romantic than it is.",
+    "features": {
+     "misdirectedWord": "maiden",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   }
  ]
 }
