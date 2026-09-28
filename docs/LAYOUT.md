@@ -542,6 +542,9 @@ tools/test_solve_queue_clues.sh              drives the cold-solve queue out of 
 tools/test_push_conflict.sh                  proves the nightly push rebuilds a generated file
                                              the remote also rebuilt, and refuses to resolve
                                              anything else
+tools/test_push_race.sh                      a push that loses the shared ref-lock race to
+                                             another worktree is retried; any other failure is
+                                             not
 tools/prereset_plan.py                       how many puzzles the remaining quota will carry
                                              before the reset
 tools/indicator_cover.py                     puts first the backlog puzzles whose blog-named
