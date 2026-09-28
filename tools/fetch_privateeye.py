@@ -513,6 +513,30 @@ def _leading_answers(cell_html):
     return m.group(0) if m else None
 
 
+# The untagged templates print the answer first and the blogger's note after a
+# spaced dash: "PUB(L)IC HAIR &#8211; Bush in the clue ...", "SMART-ARSE - CD".
+_NOTE_DASH_RE = re.compile(r"\s+(?:&#8211;|&#8212;|\u2013|\u2014|-{1,2})\s+")
+# What an answer written with its wordplay marked may hold: capitals, the
+# brackets and hyphens that show its parts, and lowercase inside brackets for a
+# letter the wordplay removes ("LIC(e)"). A "*", "<" or a lowercase word
+# ("IC in (WHIPS)*") is wordplay standing in for the answer, not the answer.
+_MARKED_ANSWER_RE = re.compile(r"(?=.*[A-Z])(?:[A-Z\s\-'’.,!?()]|\([a-z]+\))+")
+
+
+def _untagged_answer(cell_html):
+    """The answer at the head of a cell that tags nothing, or None when the head
+    is wordplay rather than an answer. The cell must be the answer alone, or the
+    answer then a spaced dash then the note; bracketed lowercase letters are the
+    ones the wordplay removes and are not in the answer."""
+    text = html.unescape(_TAG_RE.sub("", cell_html)).strip()
+    text = "".join(c for c in unicodedata.normalize("NFKD", text)
+                   if not unicodedata.combining(c))
+    head = _NOTE_DASH_RE.split(text, maxsplit=1)[0].strip()
+    if not _MARKED_ANSWER_RE.fullmatch(head):
+        return None
+    return re.sub(r"\([a-z]+\)", "", head)
+
+
 def parse_fifteensquared_rows(content_html):
     """content.rendered -> [(key, direction, answer_letters), ...] in document order.
 
@@ -561,7 +585,10 @@ def parse_fifteensquared_rows(content_html):
         # is dropped before anything reads the cell.
         cell = _DEL_RE.sub("", cells[1])
         answers = _leading_answers(cell)
-        raw_answer = _TAG_RE.sub("", answers if answers is not None else cell).strip()
+        raw_answer = (_TAG_RE.sub("", answers).strip() if answers is not None
+                      else _untagged_answer(cell))
+        if raw_answer is None:
+            continue
         # Answers are printed as words, accents and all — "DÉTENTE". Decompose
         # first so the accent becomes a separate combining mark and the base
         # letter survives; stripping non-A-Z straight off drops the É outright

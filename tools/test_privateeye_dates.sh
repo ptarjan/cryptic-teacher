@@ -1,6 +1,7 @@
 #!/bin/bash
 # Does tools/fetch_privateeye.py read the issue off every title shape the
-# archive ships, and take the Eye's Christmas cover date as it prints it?
+# archive ships, take the Eye's Christmas cover date as it prints it, and read
+# the answer off an untagged fifteensquared row?
 #
 #     bash tools/test_privateeye_dates.sh
 #
@@ -39,6 +40,16 @@ for num, d in ((330, "2007-01-05"), (331, None), (332, "2007-02-02"), (333, None
         json.dumps({"id": f"cyclops-{num}", "date": d and ms(d), "entries": []}, indent=1) + "\n")
 pe.date_by_cadence(tmp)
 print("CADENCE", *(json.loads((tmp / f"cyclops-{n}.json").read_text())["date"] for n in (331, 333)))
+
+# The untagged 2007 template: answer with its wordplay marked, a dash, a note.
+rows = pe.parse_fifteensquared_rows(
+    "<table><tr><th>Across</th></tr>"
+    "<tr><td>10</td><td>PUB(L)IC HAIR &#8211; Bush in the clue</td></tr>"
+    "<tr><td>12</td><td>IN THE PUB LIC(e) INTEREST &#8211; long</td></tr>"
+    "<tr><td>9</td><td>(HARPO)&lt; &#8211; Does Marx ever</td></tr>"
+    "<tr><td>18</td><td>IC in (WHIPS)*</td></tr>"
+    "<tr><td>1</td><td>D\u00c9TENTE</td></tr></table>")
+print("UNTAGGED", *(f"{k}={v}" for k, _, v in rows))
 PY
 )
 got() { echo "$out" | sed -n "s/^$1 //p"; }
@@ -48,5 +59,7 @@ check "a Friday and a Christmas cover date are kept, another weekday is not" \
   "2011-01-07 2016-12-20 None" "$(got COVERS)"
 check "an undated Cyclops between neighbours four weeks apart takes the Friday between" \
   "1169164800000 None" "$(got CADENCE)"
+check "an untagged answer is read up to its note; wordplay standing in for one is not" \
+  "10=PUBLICHAIR 12=INTHEPUBLICINTEREST 1=DETENTE" "$(got UNTAGGED)"
 
 [ "$fails" -eq 0 ] && echo "all passed" || { echo "$fails failed"; exit 1; }
