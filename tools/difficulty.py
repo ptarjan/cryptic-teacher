@@ -22,9 +22,9 @@ index, or replaces one, only when the index with it beats the index without
 it held out, on two sets: the annotated Times dailies under the full index,
 and the rated Times dailies with no annotation under the components that
 need none (rarity, the two novelty counts, question_marks,
-definition_unrelated). Each set splits into its own date thirds, each third
-scored against the NITCH minus the weekday mean of the rated puzzles outside
-it, and the candidate must win in at least two of the three and on the mean
+definition_unrelated, clue_count). Each set splits into its own date thirds,
+each third scored against the NITCH minus the weekday mean of the rated
+puzzles outside it, and the candidate must win in at least two of the three and on the mean
 in both, with the Sunday Times not falling and --validate's SERIES ORDER
 passing at a margin of at least 0.08 (scratch/snitch_stage4.py runs all of
 it). A candidate's sign is fixed before it is measured. The weights are fixed,
@@ -36,7 +36,7 @@ for its band (snitch_ranges()), and choosing components. tools/snitch_report.py 
 against the NITCH minus its weekday mean, by date third, and is rerun
 nightly into tools/data/snitch_report.txt.
 
-So this measures eight things that are genuinely in the file, reports each one
+So this measures nine things that are genuinely in the file, reports each one
 separately so a reader can disagree with the weighting, and bands a puzzle by
 where it sits *against the rest of the collection*: "tougher than 80% of the
 puzzles here" is a claim the data can support, "Difficulty 7/10" is not.
@@ -94,7 +94,7 @@ puzzles a solver had already seen — a puzzle remembered as Tough quietly
 becoming Moderate because six easier ones arrived that week. Refreshing the
 baseline is a deliberate act (--rebaseline) that shows the diff.
 
-The eight components, higher = harder:
+The nine components, higher = harder:
 
   checking   The share of an answer's letters that no other entry crosses.
              The oldest and least arguable measure there is: an unchecked
@@ -165,6 +165,11 @@ The eight components, higher = harder:
              tools/build_wordnet.py, so no rating depends on nltk being
              installed; a word the file lacks counts as one WordNet lacks.
 
+  clue_count  How many clues the puzzle sets, a cross-reference ("See 5")
+             not counted. Every clue is one more thing to solve, so the
+             count is felt in the time whatever each clue is like. It puts a
+             Times Jumbo well above a daily, which is right for time taken.
+
 The badges add one thing the clues cannot: where a Times for the Times post
 has comments stating at least COMMENT_MIN_TIMES solve times, all_scores()
 blends the clue index with them (blend()): the mean of the index's z and the
@@ -224,7 +229,7 @@ PAIRING_SCALE = 10000
 # and the rest are equal. Fixed, never fitted: see the module docstring.
 WEIGHTS = {"checking": 0.45, "rarity": 0.30, "device": 0.25, "machinery": 0.25,
            "answer_novelty": 0.25, "pairing_novelty": 0.25, "question_marks": 0.25,
-           "definition_unrelated": 0.25}
+           "definition_unrelated": 0.25, "clue_count": 0.25}
 
 # The series their own papers declare gentle, an input to --validate that lives
 # here rather than in the prose above so the test and the story it tells cannot
@@ -802,6 +807,15 @@ def question_marks(puz):
     return sum(ends) / len(ends) if ends else None
 
 
+def clue_count(puz):
+    """The number of clues with an answer, cross-references ("See 5") left
+    out. None when the puzzle carries no answers."""
+    n = sum(1 for e in puz["entries"] if e.get("solution")
+            and (c := ENUMERATION.sub("", e.get("clue") or "").strip())
+            and not re.match(r"(?i)see\b", c))
+    return n or None
+
+
 def raw(puz, ctx):
     """The measurements, in their natural units, before any scaling."""
     fam = ctx.history.get(puz["id"]) or {}
@@ -810,7 +824,8 @@ def raw(puz, ctx):
             "answer_novelty": fam.get("answer_novelty"),
             "pairing_novelty": fam.get("pairing_novelty"),
             "question_marks": question_marks(puz),
-            "definition_unrelated": definition_unrelated(puz)}
+            "definition_unrelated": definition_unrelated(puz),
+            "clue_count": clue_count(puz)}
 
 
 def score(puz, ctx):
