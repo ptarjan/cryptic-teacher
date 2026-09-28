@@ -1365,22 +1365,26 @@ def indicator_lexicon():
 
 
 def clue_indicators(found, puz, page):
-    """Add one puzzle's annotated indicators to found, {(type, key): candidate},
-    keeping for each a clue whose phrase is the key over one whose phrase only
-    contains it, then the fullest annotation, then the newest puzzle.
+    """Add one puzzle's indicators to found, {(type, key): candidate}, keeping
+    for each a clue we annotated over one only a blog's facts explain, then a
+    clue whose phrase is the key over one whose phrase only contains it, then
+    the fullest annotation, then the newest puzzle.
 
-    Only a clue whose annotation names the type counts, so "about" links to a
-    container clue from the container list and not to an anagram that used it.
-    Like clue_blocks(), every candidate is on a page this same run writes.
+    Only a clue whose type names the indicator's type counts, so "about" links
+    to a container clue from the container list and not to an anagram that
+    used it. Like clue_blocks(), every candidate is on a page this same run
+    writes, and the page shows the indicator: a blog's facts are on it only
+    for a clue we have not annotated (fetch_puzzle.with_blog_facts).
     """
     for e in puz["entries"]:
-        ann = e.get("annotation") or {}
+        ann = e.get("annotation") or e.get("blog") or {}
         if not ann.get("indicators") or f'id="{esc(e["id"])}"' not in page:
             continue
+        ours = bool(e.get("annotation"))
         depth = len((ann.get("walkthrough") or "") + (ann.get("definitionFit") or ""))
         date = series_meta.date_ms(puz.get("date")) or 0
         for (t, key), exact in clue_pairs(indicator_lexicon(), ann.get("type"), ann["indicators"]).items():
-            rank = (exact, depth, date)
+            rank = (ours, exact, depth, date)
             if (t, key) not in found or found[(t, key)][0] < rank:
                 found[(t, key)] = (rank, puz["id"], e["id"])
 
@@ -1395,8 +1399,8 @@ def indicators_page(found):
     """Every indicator the corpus has seen, by type, most used first.
 
     The counts are clues, off the solving blogs and this site's own annotations
-    (tools/letter_facts.py --lexicons). An indicator links to one annotated clue
-    that uses it where the archive has one.
+    (tools/letter_facts.py --lexicons). An indicator links to one clue on a
+    puzzle page that uses it (clue_indicators), explained by us where we can.
     """
     lex = indicator_lexicon()
     types = [t for t in INDICATOR_TYPES if lex.get(t)]
@@ -1436,7 +1440,7 @@ def indicators_page(found):
         "from solving blogs and from this site's own explanations. The number after each "
         "word is how many clues used it that way. The same word can do more than one job: "
         "<em>about</em> is a container, but it can also mean an anagram. "
-        f"{linked:,} of the words are links to a real clue that uses them, explained.</p>",
+        f"{linked:,} of the words are links to a real clue that uses them.</p>",
         "<p>Jump to: " + " &middot; ".join(
             f'<a href="#{t}">{clue_types.label(t)}</a>' for t in types) + "</p>",
     ]

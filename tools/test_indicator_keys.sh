@@ -30,5 +30,25 @@ check("a type the clue does not name gives nothing",
       {}, clue_pairs(LEX, ["charade"], ["variety"]))
 check("hyphens key as blogs key them",
       {("reversal", "UPSIDEDOWN"): True}, clue_pairs(LEX, ["reversal"], ["upside-down"]))
+
+# /indicators/ links each pair to one clue: ours over a blog's, exact over contained.
+import build_seo_pages as b
+b.indicator_lexicon = lambda: LEX
+def linked(*entries):
+    found = {}
+    puz = {"id": "t-1", "date": None, "entries": [dict(e, id=f"{i}-across") for i, e in enumerate(entries)]}
+    b.clue_indicators(found, puz, " ".join(f'id="{i}-across"' for i in range(len(entries))))
+    return {k: v[2] for k, v in found.items()}
+
+blog = {"annotation": None, "blog": {"type": ["anagram"], "indicators": ["variety"]}}
+check("a clue only a blog's facts explain is linked",
+      {("anagram", "VARIETY"): "0-across"}, linked(blog))
+check("our annotation outranks a blog's, even one matching the key exactly",
+      {("anagram", "VARIETY"): "1-across"},
+      linked(blog, {"annotation": {"type": ["anagram"], "indicators": ["variety of"]}}))
+check("an exact phrase outranks one containing the key",
+      {("anagram", "VARIETY"): "1-across"},
+      linked({"annotation": {"type": ["anagram"], "indicators": ["variety of"], "walkthrough": "long " * 9}},
+             {"annotation": {"type": ["anagram"], "indicators": ["variety"]}}))
 raise SystemExit(fails)
 PY
