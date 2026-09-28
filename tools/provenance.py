@@ -323,7 +323,7 @@ def book_of(series, number):
 #
 # Top-level key order, and each block's. place() writes them in this order so a
 # person reading a file finds who and where before the few hundred entries.
-KEY_ORDER = ("id", "number", "series", "name", "setter", "date", "preamble",
+KEY_ORDER = ("id", "number", "series", "name", "setter", "date", "year", "preamble",
              "dimensions", "source", "solutions", "annotatedBy", "entries")
 SOURCE_ORDER = ("publisher", "url", "retrievedFrom", "acquiredBy", "acquiredOn",
                 "gridOrigin", "feedId", "book")

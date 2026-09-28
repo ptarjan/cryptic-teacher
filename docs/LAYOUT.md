@@ -50,8 +50,8 @@ puzzles/index.json, puzzles/index.js         manifest: one row per puzzle, lates
                                              the same as a script so file:// works — built by
                                              tools/fetch_puzzle.py --reindex, not committed
 puzzles/<series>/<year>/<series>-<n>.json    one puzzle per file, plain JSON: the whole file is
-                                             the payload; <year> is the UTC year of its date (a
-                                             book's year as printed), or `undated` —
+                                             the payload; <year> is the UTC year of its date,
+                                             or a book puzzle's `year`, or `undated` —
                                              tools/puzzle_paths.py owns the rule
 puzzles/<series>-<n>.js                      the same puzzle as a script, so app.js can inject
                                              it from file:// — flat, so its URL does not move
@@ -144,8 +144,9 @@ tools/parse_penguin_book.py                  segments that book's OCR text into 
                                              destroyed
 tools/file_penguin_puzzle.py                 turns one solved Penguin-book puzzle into a puzzle
                                              file: the book's own number, its book's imprint
-                                             year as the date, and answers marked as a model's
-                                             with no official key ever coming
+                                             year as `year` in place of a date, and answers
+                                             marked as a model's with no official key ever
+                                             coming
 tools/normalise_linked_enumerations.py       puts a solve record’s linked answers into the
                                              shape the corpus stores them in — the whole
                                              answer’s count on the leader, none on the

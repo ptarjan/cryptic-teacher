@@ -30,11 +30,11 @@ would put thirty different puzzles at No 3 and walk prev/next from the Herald
 into the Daily Mail — while thirty keys meant thirty badges, thirty colours and
 thirty tooltips for one shelf.
 
-THE DATE IS THE BOOK'S YEAR. No volume prints the day a puzzle ran, but every
-imprint page prints the year the book came out, so `date` is that year as a
-"YYYY" string, read off the book's row in tools/data/books.json
-(series.published) — never an invented 1 January, which would put a weekday
-beside a puzzle that never had one.
+THE BOOK'S YEAR, NOT A DATE. No volume prints the day a puzzle ran, but every
+imprint page prints the year the book came out, so the puzzle holds `year`, an
+integer, read off the book's row in tools/data/books.json (series.published),
+and no `date` — never an invented 1 January, which would put a weekday beside a
+puzzle that never had one.
 
 NO JOB CAN FETCH THE ANSWER KEY. The book does print one — solved answer grids
 at the back — but as page IMAGES: their OCR text is noise, and archive.org
@@ -289,7 +289,7 @@ def build(record, identifier, model, unsolved=False):
         # Some books print no byline over a puzzle: the series table's answer,
         # which is null unless the whole book is one setter's.
         "setter": record.get("setter") or default_setter(series, number),
-        "date": published(series, number),
+        "year": published(series, number),
         "dimensions": src["dimensions"],
         "source": {"url": source_url(series, number)},
         "entries": out,
@@ -343,7 +343,7 @@ def main(argv=None):
     path = write_puzzle_file(path, puzzle, generator="tools/file_penguin_puzzle.py")
     if args.unsolved:
         print(f"wrote {path} — {len(puzzle['entries'])} entries, dated "
-              f"{puzzle['date']}, NO ANSWERS: "
+              f"{puzzle['year']}, NO ANSWERS: "
               f"it is now the cold-solve queue's problem (daily_update.sh, step 3a)")
         coarse = coarse_continuations(record)
         if coarse:
@@ -351,7 +351,7 @@ def main(argv=None):
                   f"as one word of their own length: {', '.join(coarse)}")
         return 0
     likely = [e["id"] for e in puzzle["entries"] if e.get("solutionConfidence")]
-    print(f"wrote {path} — {len(puzzle['entries'])} entries, dated {puzzle['date']}, model fill, "
+    print(f"wrote {path} — {len(puzzle['entries'])} entries, dated {puzzle['year']}, model fill, "
           f"no official key will ever exist")
     print(f"  {len(likely)} entr{'y' if len(likely) == 1 else 'ies'} below CONFIDENT: "
           + (", ".join(likely) or "none"))

@@ -242,7 +242,7 @@ same "and it names the light, the run and the board" "$(field OFFBOARD_SAYS "$ou
 same "two acrosses over four cells is four findings" "$(field OVERLAP "$out5")" "4"
 same "each names the cell and both lights" "$(field OVERLAP_SAYS "$out5")" "True"
 
-echo "a book puzzle is dated with its book's year, and only a book's date is a year"
+echo "a book puzzle holds its book's year and no date; only a book holds a year"
 # Synthetic puzzles, so the check is exercised whatever the corpus holds.
 out6=$(PYTHONPATH="$REPO/tools" python3 - <<'PY'
 from datetime import date
@@ -250,25 +250,31 @@ import puzzle_integrity as pi
 import series
 
 book = series.book_number("newpenguinbkguar0000perk", 1)
-def shape(series_key, number, when):
+DAY = 1419984000000   # 2014-12-31
+def shape(series_key, number, **when):
     flags = []
     pi.check_shape({"id": f"{series_key}-{number}", "series": series_key,
-                    "number": number, "date": when,
+                    "number": number, **when,
                     "entries": [{"id": "1-across", "clue": "x (1)"}]},
                    date(2026, 9, 25), flags)
-    return sum(1 for kind, _pid, msg in flags if kind == "SHAPE" and "date" in msg)
-print("BOOK_RIGHT", shape("book", book, series.published("book", book)))
-print("BOOK_UNDATED", shape("book", book, None))
-print("BOOK_WRONG_YEAR", shape("book", book, "1996"))
-print("PAPER_YEAR", shape("cryptic", 30000, "1995"))
-print("PAPER_JUNK", shape("cryptic", 30000, "May 1995"))
+    return sum(1 for kind, _pid, msg in flags
+               if kind == "SHAPE" and ("date" in msg or "year" in msg))
+print("BOOK_RIGHT", shape("book", book, year=series.published("book", book)))
+print("BOOK_UNDATED", shape("book", book))
+print("BOOK_WRONG_YEAR", shape("book", book, year=1996))
+print("BOOK_DAY", shape("book", book, year=series.published("book", book), date=DAY))
+print("PAPER_RIGHT", shape("cryptic", 30000, date=DAY))
+print("PAPER_YEAR", shape("cryptic", 30000, year=1995))
+print("PAPER_JUNK", shape("cryptic", 30000, date="1995"))
 PY
 )
 same "the registry's year passes" "$(field BOOK_RIGHT "$out6")" "0"
-same "a book puzzle filed undated is flagged" "$(field BOOK_UNDATED "$out6")" "1"
+same "a book puzzle with no year is flagged" "$(field BOOK_UNDATED "$out6")" "1"
 same "a book puzzle under another year is flagged" "$(field BOOK_WRONG_YEAR "$out6")" "1"
-same "a paper's puzzle dated by a bare year is flagged" "$(field PAPER_YEAR "$out6")" "1"
-same "a date that is neither shape is flagged" "$(field PAPER_JUNK "$out6")" "1"
+same "a book puzzle with a day is flagged" "$(field BOOK_DAY "$out6")" "1"
+same "a paper's day passes" "$(field PAPER_RIGHT "$out6")" "0"
+same "a paper's puzzle holding a year, and no date, is flagged twice" "$(field PAPER_YEAR "$out6")" "2"
+same "a date that is not epoch milliseconds is flagged" "$(field PAPER_JUNK "$out6")" "1"
 
 echo "a file not at file_for is FILED: wrong year, flat stray, wrong name"
 scratch=$(mktemp -d)

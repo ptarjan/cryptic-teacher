@@ -101,8 +101,9 @@ and `tools/build_readme.py` all do.
 
 `puzzles/<series>/<year>/<series>-<n>.json` holds one puzzle as plain JSON. It
 is the committed source that every tool reads and writes. `<year>` is the UTC
-year of the puzzle's `date`; a book puzzle's year-only date is used as it is,
-and a puzzle with no date goes in `undated`. `tools/puzzle_paths.py` owns that
+year of the puzzle's `date` (epoch milliseconds, the day the paper printed
+it). A book puzzle holds its book's `year`, an integer, instead of a `date` and is
+filed under that year. A puzzle with neither goes in `undated`. `tools/puzzle_paths.py` owns that
 rule, and `python3 tools/puzzle_paths.py <id>` prints where a puzzle is.
 Generated and not committed, `puzzles/<series>-<n>.js` stays flat, so no URL
 depends on the year folder. It puts the puzzle in

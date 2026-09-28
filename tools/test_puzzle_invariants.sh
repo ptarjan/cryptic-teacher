@@ -152,8 +152,9 @@ dates("same-day", [("timesquick", 181, day(2014, 11, 17), "timesquick-181"),
                    ("timesquick", 182, day(2014, 11, 17), "timesquick-182")])
 dates("backwards", [("cryptic", 24744, day(2009, 7, 14), "cryptic-24744"),
                     ("cryptic", 24745, day(2009, 7, 7), "cryptic-24745")])
-dates("book-years", [("book", 1001, "1995", "book-1001"),
-                     ("book", 1002, "1990", "book-1002")])
+# A book puzzle holds a `year` and no `date`, so the sweep hands it over undated.
+dates("book-years", [("book", 1001, None, "book-1001"),
+                     ("book", 1002, None, "book-1002")])
 
 held, flags = [], []
 for path in fetcher.puzzle_files():
