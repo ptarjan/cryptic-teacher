@@ -874,7 +874,6 @@ for p in todo:
 # never raises: this key crashed the whole listing, which is read with $(...),
 # so one None emptied the queue and the wave spent itself on definitionFit
 # instead of on the backlog it exists to clear.
-#
 for lane in lanes.values():
     lane.sort(key=lambda p: -(date_ms(p["date"]) or 0))
 # Series order within a wave, so a window cut short by a lockout has spent
@@ -887,12 +886,6 @@ cycle = sorted(lanes, key=lambda s: (BY_DEMAND.index(s) if s in BY_DEMAND
 todo = [lanes[s][i]
         for i in range(max((len(l) for l in lanes.values()), default=0))
         for s in cycle if i < len(lanes[s])]
-# Ahead of all of it, newest first: every puzzle the SNITCH has rated. The
-# difficulty index is calibrated against the SNITCH and only an annotated puzzle
-# scores, so each of these is a calibration point the rest of the queue is not.
-rated = set(json.load(open("tools/data/snitch.json")))
-todo = (sorted((p for p in todo if p["id"] in rated), key=lambda p: -(date_ms(p["date"]) or 0))
-        + [p for p in todo if p["id"] not in rated])
 # The order this job spends a whole window in is worth one readable line in the
 # log. It ran in the wrong order for weeks behind a single line listing 166 ids.
 # stderr, because stdout is the queue itself.
