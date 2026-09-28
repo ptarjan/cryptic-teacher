@@ -1332,9 +1332,16 @@ REBUILT
     # sides. --autostash still earns its place: a rebase refuses outright with
     # anything unstaged, and the leftover check above reports that case rather
     # than preventing it.
-    if git fetch -q origin master &&
-       { git rebase -q --autostash origin/master || rebuild_generated_conflicts; } &&
-       git push -q origin HEAD:master
+    attempt_push() {
+      git fetch -q origin master &&
+        { git rebase -q --autostash origin/master || rebuild_generated_conflicts; } &&
+        git push -q origin HEAD:master
+    }
+    # push_race_retry (tools/nightly_worktree.sh) redoes this whole attempt a
+    # few times if a sibling worktree's fetch or push wins the lock on the
+    # shared refs/remotes/origin/master first; anything else it returns straight
+    # through to the alert below.
+    if push_race_retry attempt_push
     then
       # Pushed is not published. GitHub Pages builds afterwards, and a build that
       # fails leaves the site serving yesterday with a green git log in front of
