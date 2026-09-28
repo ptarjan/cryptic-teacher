@@ -548,6 +548,9 @@ ANNOTATE_MAX_WEEKLY_PCT="${ANNOTATE_MAX_WEEKLY_PCT:-90}"
 # tonight; the exact id that ran is recorded in each puzzle's
 # provenance.annotatedBy, and the commit trailer is read back from there.
 ANNOTATE_MODEL="${ANNOTATE_MODEL:-opus}"
+# Explicit, because the CLI default differs per model (medium on Opus 5.5,
+# high elsewhere) and would change silently when the alias moves.
+ANNOTATE_EFFORT="${ANNOTATE_EFFORT:-medium}"
 # Annotate without being shown the published answers, and grade what the model
 # derives against them afterwards. See tools/blind_annotate.py for what this
 # measures that the sighted path cannot.
@@ -709,6 +712,7 @@ if [ -n "$unsolved" ] && command -v claude >/dev/null 2>&1; then
     claude -p "Solve the cryptic crossword in puzzles/$num.json in this repo. Its answers have not been published, so there is no key: follow tools/solve_prompt.md exactly, write your fill to $fill, and iterate against 'python3 tools/apply_solution.py $num --fill $fill --check-only' until every crossing agrees. Do not write to puzzles/ — the calling script applies the fill." \
       "${solve_sess[@]}" \
       --model "$ANNOTATE_MODEL" \
+      --effort "$ANNOTATE_EFFORT" \
       --allowedTools "Read,Write,Edit,Bash(python3 *),Bash(node *)" \
       --max-turns 120 >"$solvelog" 2>&1
     tail -40 "$solvelog"
@@ -853,6 +857,7 @@ if [ -n "$pending" ]; then
         # shellcheck disable=SC2086
         $ann_cap claude -p "$ann_prompt" "${ann_sess[@]}" \
             --model "$ANNOTATE_MODEL" \
+            --effort "$ANNOTATE_EFFORT" \
             --allowedTools "$ann_tools" \
             --max-turns "$ann_turns" 2>&1 | tee "$run_log"
         ann_rc=$?
@@ -1014,6 +1019,7 @@ if bad_hints=$(python3 tools/reports.py --since 14 2>&1); then
 
 $bad_hints" \
           --model "$ANNOTATE_MODEL" \
+          --effort "$ANNOTATE_EFFORT" \
           --allowedTools "Read,Write,Edit,Bash(python3 *),Bash(node *)" \
           --max-turns 120 >"$fixlog" 2>&1
         tail -40 "$fixlog"

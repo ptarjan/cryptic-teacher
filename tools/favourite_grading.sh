@@ -7,6 +7,7 @@ cd "$(dirname "$0")/.." || exit 1
 . tools/claude_path.sh
 DIR=${1:-tools/data/favourite_grading}
 MODEL=${GRADE_MODEL:-opus}
+EFFORT=${GRADE_EFFORT:-medium}  # explicit: the CLI default differs per model
 
 for pkt in "$DIR"/packets/*.json; do
   name=$(basename "$pkt" .json)
@@ -21,7 +22,7 @@ for pkt in "$DIR"/packets/*.json; do
   # each would parse whichever answer landed last into its own score file.
   raw=$(mktemp)
   { cat tools/favourite_grading_prompt.md; echo; cat "$pkt"; } \
-    | claude -p --model "$MODEL" > "$raw" 2>"$raw.err"
+    | claude -p --model "$MODEL" --effort "$EFFORT" > "$raw" 2>"$raw.err"
   # The model is asked for bare JSON but sometimes fences it; take the array.
   python3 - "$name" "$out" "$raw" <<'PY'
 import json, re, sys
