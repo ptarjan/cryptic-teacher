@@ -41,10 +41,11 @@
 #   1. Un-annotated puzzles, NEWEST FIRST BY DATE, across every series at once.
 #      A solver arriving today is looking at this week's puzzles, so this week's
 #      puzzles are the ones worth spending on, whoever printed them.
-#   2. Every field in tools/annotation_backlog.json — definitionFit, the
-#      one-sentence "why does the answer mean the definition"; indicatorNote,
-#      "why is THAT word the indicator"; indicatorFor, which of the clue's
-#      types each indicator signals. New puzzles are
+#   2. Every field in tools/annotation_backlog.json, each named by its key
+#      path — explanation.definitionFit, the one-sentence "why does the answer
+#      mean the definition"; indicators.note, "why is THAT word the
+#      indicator"; indicators.for, which of the clue's types each indicator
+#      signals; features; explanation.surface. New puzzles are
 #      required to carry these; the file is the list of puzzles annotated
 #      before each rule existed, and draining one tightens the rule on it
 #      forever. The fields are read from the file, so this job needs no edit
@@ -968,9 +969,9 @@ done
 # bug, not an improvement.
 #
 # The list of fields is read from tools/annotation_backlog.json, so a rule added
-# next month is drained by this job without anyone editing it. Newest field
-# first: it is the one the app has just started rendering, so it is the one a
-# solver is most likely to hit an empty rung on.
+# next month is drained by this job without anyone editing it. Fields drain in
+# the file's key order, which is BACKLOG_MARKERS order in
+# tools/validate_annotations.py (write_backlog writes them so).
 backlog_fields=$(python3 -c 'import json;print(" ".join(k for k in json.load(open("tools/annotation_backlog.json")) if not k.startswith("_")))')
 
 for field in $backlog_fields; do
@@ -982,15 +983,15 @@ print(" ".join(n for n,_ in sorted(d.items(), key=lambda kv: kv[1])))' "$field")
   echo "$field backlog: ${nums:-none}"
   name="\`$field\`"
   case "$field" in
-    definitionFit) what="ONE sentence saying why the answer means the definition; it renders last in the walkthrough" ;;
-    indicatorNote) name="\`note\` on each indicator object"
+    explanation.definitionFit) what="ONE sentence saying why the answer means the definition; it renders last in the walkthrough" ;;
+    indicators.note) name="\`note\` on each indicator object"
       what="ONE sentence saying why THOSE words carry THAT instruction — never the generic sentence about what the device does, and never a word of the answer" ;;
-    surface) what="ONE sentence, 25 words max, of the picture the clue pretends to paint — never its mechanics" ;;
-    indicatorFor) name="\`for\` on each indicator object"
+    explanation.surface) what="ONE sentence, 25 words max, of the picture the clue pretends to paint — never its mechanics" ;;
+    indicators.for) name="\`for\` on each indicator object"
       what="the one name from the clue's own \`type\` whose operation those words signal" ;;
     *) what="the field as tools/annotate_prompt.md describes it" ;;
   esac
-  prompt="In this repo, add the missing $name to every annotated clue in @PATH@ that lacks one. It is $what. Read tools/annotate_prompt.md and STYLE.md for the voice, and read an existing puzzle that already has the field so yours match. This is ADDITIVE: change nothing else, do not rewrite existing hints, types, indicator texts or pieces. Run python3 tools/annotate_check.py @ until it reports clean. Do not commit — the calling script commits."
+  prompt="In this repo, add the missing $name to every annotated clue in @PATH@ that lacks one. It is $what. Read tools/annotate_prompt.md and STYLE.md for the voice, and read an existing puzzle that already has the field so yours match. This is ADDITIVE: change nothing else, do not rewrite existing hints, types, indicator texts or assembly. Run python3 tools/annotate_check.py @ until it reports clean. Do not commit — the calling script commits."
   queue=($nums)
   at=0
   while [ "$at" -lt "${#queue[@]}" ]; do

@@ -198,13 +198,14 @@ def ladder_steps(ann, clue_text):
         steps.append(("blocks", prefix + " ".join(items)))
 
     fit = ""
-    if ann.get("definitionFit"):
+    prose = ann.get("explanation") or {}
+    if prose.get("definitionFit"):
         fit = " " + " and ".join(d.get("text") or "" for d in defs)
-        fit += f" -> {ann.get('answer', '')}: {ann['definitionFit']}"
+        fit += f" -> {ann.get('answer', '')}: {prose['definitionFit']}"
     note = "".join(f" {d['note']}" for d in defs if d.get("note"))
     has_blocks = any(k == "blocks" for k, _ in steps)
     walk_prefix = "" if has_blocks else mechanics + " "
-    walk_text = walk_prefix + (ann.get("walkthrough") or "") + fit + note + \
+    walk_text = walk_prefix + (prose.get("walkthrough") or "") + fit + note + \
         f" Answer: {ann.get('answer', '')}"
     steps.append(("walkthrough", walk_text))
     return steps

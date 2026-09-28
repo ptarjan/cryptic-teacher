@@ -738,11 +738,11 @@ def clue_cost(e):
     cost += STACKING_COST * (len(parts) - 1)
     if not (ann.get("indicators") or []) and not (set(parts) & ALWAYS_UNINDICATED):
         cost += UNINDICATED_COST
-    # `pieces` is the answer broken into the chunks the wordplay builds it
+    # `assembly.pieces` is the answer broken into the chunks the wordplay builds it
     # from; annotate_prompt.md asks for it on charades, containers and
     # deletions. Two is the floor — every one of those families has at
     # least two parts by definition, so only the extra seams cost.
-    pieces = [str(p) for p in (ann.get("pieces") or [])]
+    pieces = [str(p) for p in ((ann.get("assembly") or {}).get("pieces") or [])]
     cost += SEAM_COST * max(0, len(pieces) - 2)
     # Strip anything that isn't a letter first: pieces are written as the
     # letters they contribute, but a few carry a hyphen or an apostrophe

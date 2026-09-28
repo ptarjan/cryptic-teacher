@@ -52,6 +52,7 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import app_tables  # noqa: E402 — app.js's tables, read from app.js
+from annotation import whole_anagram  # tools/annotation.py
 import clue_types  # noqa: E402
 from fetch_puzzle import (  # noqa: E402 — one glob, one reader, one puzzles/ for every tool
     blog_annotation, blog_facts_for, puzzle_files, read_puzzle_file,
@@ -208,7 +209,7 @@ def plan(entry):
                           if b.get("clueFragment")), None)
             if block:
                 p["hidden"] = hidden_span(clue, block["clueFragment"], ann["answer"])
-        fodder = ((ann.get("anagram") or {}).get("fodder") or "").strip()
+        fodder = (whole_anagram(ann) or "").strip()
         # A fodder line is only worth showing when it is the whole story. With a
         # second mechanism stacked on top, the letters on the card are not the
         # letters that get shuffled, and a card that shows the wrong ones is
@@ -364,7 +365,7 @@ def indicator_gloss(ann, ind, family):
     check_prose_stays_in_family guards words the CARD chose, and these are the
     annotator's. annotate_prompt.md carries the same rule for the source.
     """
-    walk = (ann.get("walkthrough") or "").strip()
+    walk = ((ann.get("explanation") or {}).get("walkthrough") or "").strip()
     if not walk:
         return None
     first = re.split(r"(?<=[.!?])\s+", walk)[0]

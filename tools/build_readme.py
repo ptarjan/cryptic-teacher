@@ -81,6 +81,7 @@ LAYOUT = [
     ("fetching", "tools/puzzle_paths.js", "the same rule for node, for the harnesses that read the puzzle sources"),
     ("fetching", "tools/puzzle_schema.py", "checks every puzzle file against tools/data/puzzle.schema.json, and prunes null and empty values on every write: an absent key means empty"),
     ("fetching", "tools/definitions.py", "where each of an annotation's definitions sits in its clue: fills `at` from the text on every write, by the whole-word, before-the-enumeration, no-overlap, clue-end rules, and refuses to guess past them"),
+    ("fetching", "tools/annotation.py", "an annotation's two groups, read one way by every tool: `explanation` (the prose rung) and `assembly` (the machine-checkable rebuild), and which of `assembly.anagrams` gives the whole answer"),
     ("fetching", "tools/groups.py", "linked answers: the leader carries `group`, its lights in order, and the other lights nothing; maps each light to its group or leader, and spreads/collapses the per-light claims the Guardian ships"),
     ("fetching", "tools/test_definitions.sh", "holds each of those rules, the refusal, and the validator's check that `at` points at its text"),
     ("fetching", "tools/puzzle_integrity.py", "checks the puzzles themselves: two puzzles that are the same puzzle, an answer that does not fit its clue’s printed length, two entries that cross and disagree"),

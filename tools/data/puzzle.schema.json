@@ -403,13 +403,13 @@
    }
   },
   "annotation": {
-   "description": "Our teaching annotation of one clue, on the leader alone for a linked answer. Keys marked required-by-ratchet (definitionFit, features, surface, and an indicator's for and note) are carried by every annotation written since each was added; older ones are counted per puzzle in tools/annotation_backlog.json and drained by the nightly backfill (tools/validate_annotations.py, the ratchet).",
+   "description": "Our teaching annotation of one clue, on the leader alone for a linked answer. `blocks` are the wordplay as the app shows it, `assembly` is the same answer restated for a machine to check, and `explanation` is the prose the last hint rung prints. Keys marked required-by-ratchet are carried by every annotation written since each was added; older ones are counted per puzzle in tools/annotation_backlog.json under the key's dotted path (explanation.surface, indicators.note) and drained by the nightly backfill (tools/validate_annotations.py, the ratchet).",
    "type": "object",
    "required": [
     "type",
     "answer",
-    "walkthrough",
-    "blocks"
+    "blocks",
+    "explanation"
    ],
    "anyOf": [
     {
@@ -473,11 +473,6 @@
      "description": "The preamble, not the clue, defines this answer; replaces definitions.",
      "const": true
     },
-    "definitionFit": {
-     "description": "One sentence on why the answer means the definition. Required by ratchet: absent only where tools/annotation_backlog.json grandfathers it, an allowance per puzzle that may only shrink.",
-     "type": "string",
-     "minLength": 1
-    },
     "indicators": {
      "description": "One object per indicator phrase: the clue words, the clue type they signal, and why.",
      "type": "array",
@@ -495,11 +490,11 @@
         "minLength": 1
        },
        "for": {
-        "description": "The one of this annotation's own types these words signal. Required by ratchet: absent only where tools/annotation_backlog.json grandfathers it, an allowance per puzzle that may only shrink (indicatorFor).",
+        "description": "The one of this annotation's own types these words signal. Required by ratchet: absent only where tools/annotation_backlog.json grandfathers it, an allowance per puzzle that may only shrink (indicators.for).",
         "$ref": "#/$defs/clueType"
        },
        "note": {
-        "description": "Why these words signal that operation in this clue. Required by ratchet: absent only where tools/annotation_backlog.json grandfathers it, an allowance per puzzle that may only shrink (indicatorNote).",
+        "description": "Why these words signal that operation in this clue. Required by ratchet: absent only where tools/annotation_backlog.json grandfathers it, an allowance per puzzle that may only shrink (indicators.note).",
         "type": "string",
         "minLength": 1
        }
@@ -510,70 +505,6 @@
      "description": "Clue words that join the definition to the wordplay and give no letters. Absent when the clue has none.",
      "$ref": "#/$defs/strings"
     },
-    "pieces": {
-     "description": "The answer in the chunks the wordplay builds, in answer order, joining to the answer's letters (LI, MITE, D for LID around MITE). Given for a charade, container or deletion; absent where an anagram, hidden word, homophone or definition is the whole assembly.",
-     "$ref": "#/$defs/strings"
-    },
-    "anagram": {
-     "description": "Present when the answer as a whole is an anagram: fodder is every letter before shuffling, added ones included.",
-     "type": "object",
-     "required": [
-      "fodder"
-     ],
-     "additionalProperties": false,
-     "properties": {
-      "fodder": {
-       "type": "string",
-       "minLength": 1
-      }
-     }
-    },
-    "subAnagrams": {
-     "description": "Each anagram inside the wordplay: the fodder and the letters it becomes. Absent when there is none.",
-     "type": "array",
-     "minItems": 1,
-     "items": {
-      "type": "object",
-      "required": [
-       "fodder",
-       "gives"
-      ],
-      "additionalProperties": false,
-      "properties": {
-       "fodder": {
-        "type": "string",
-        "minLength": 1
-       },
-       "gives": {
-        "type": "string",
-        "minLength": 1
-       }
-      }
-     }
-    },
-    "subReversals": {
-     "description": "Each reversal inside the wordplay: the letters and what they read reversed. Absent when there is none.",
-     "type": "array",
-     "minItems": 1,
-     "items": {
-      "type": "object",
-      "required": [
-       "from",
-       "to"
-      ],
-      "additionalProperties": false,
-      "properties": {
-       "from": {
-        "type": "string",
-        "minLength": 1
-       },
-       "to": {
-        "type": "string",
-        "minLength": 1
-       }
-      }
-     }
-    },
     "blocks": {
      "description": "The wordplay, one block per clue fragment, in the order the answer reads (before a container, reversal or rotation is applied).",
      "type": "array",
@@ -582,18 +513,95 @@
       "$ref": "#/$defs/block"
      }
     },
-    "surface": {
-     "description": "One sentence, 25 words max, of the picture the clue pretends to paint. Required by ratchet on every clue of four or more words that is not a pure double or cryptic definition (absent only where tools/annotation_backlog.json grandfathers it, an allowance per puzzle that may only shrink); on the others, absent when the clue paints no picture apart from its mechanism.",
-     "type": "string",
-     "minLength": 1
+    "assembly": {
+     "description": "The answer rebuilt from the wordplay in forms a program can verify letter for letter, independent of `blocks`: blocks follow the clue's fragments and what the app shows, and often cut the answer differently. Every key is optional and absent when the clue has no such step; the whole object is absent when the clue has none (a hidden word, homophone, or double or cryptic definition has nothing to rebuild). tools/validate_annotations.py checks each key.",
+     "type": "object",
+     "minProperties": 1,
+     "additionalProperties": false,
+     "properties": {
+      "pieces": {
+       "description": "The answer in the chunks the wordplay builds, in answer order, joining to the answer's letters (LI, MITE, D for LID around MITE). Given for a charade, container or deletion; absent where an anagram is the whole assembly.",
+       "$ref": "#/$defs/strings"
+      },
+      "anagrams": {
+       "description": "Each anagram in the wordplay: its fodder and the letters it becomes, `fodder` a rearrangement of `gives`. When the whole answer is an anagram, one item's `gives` is the answer's letters (A\u2013Z, no spaces); the others are anagrams inside the wordplay.",
+       "type": "array",
+       "minItems": 1,
+       "items": {
+        "type": "object",
+        "required": [
+         "fodder",
+         "gives"
+        ],
+        "additionalProperties": false,
+        "properties": {
+         "fodder": {
+          "description": "Every letter before shuffling, added ones included, as written (spaces allowed).",
+          "type": "string",
+          "minLength": 1
+         },
+         "gives": {
+          "description": "The letters the fodder is shuffled into; the answer's letters when the whole answer is the anagram.",
+          "type": "string",
+          "minLength": 1
+         }
+        }
+       }
+      },
+      "reversals": {
+       "description": "Each reversal in the wordplay: `to` is `from` read backwards.",
+       "type": "array",
+       "minItems": 1,
+       "items": {
+        "type": "object",
+        "required": [
+         "from",
+         "to"
+        ],
+        "additionalProperties": false,
+        "properties": {
+         "from": {
+          "description": "The letters before reversal.",
+          "type": "string",
+          "minLength": 1
+         },
+         "to": {
+          "description": "The same letters back to front.",
+          "type": "string",
+          "minLength": 1
+         }
+        }
+       }
+      }
+     }
     },
-    "walkthrough": {
-     "description": "One or two sentences on what the blocks cannot show: why the surface misleads, a convention the solver may not know, why a definition is fair.",
-     "type": "string",
-     "minLength": 1
+    "explanation": {
+     "description": "The prose a solver reads on the last hint rung, after the blocks: what the clue seems to say, how the trick works, and why the answer means the definition. Each is plain text, one or two sentences.",
+     "type": "object",
+     "required": [
+      "walkthrough"
+     ],
+     "additionalProperties": false,
+     "properties": {
+      "surface": {
+       "description": "One sentence, 25 words max, of the picture the clue pretends to paint. Required by ratchet on every clue of four or more words that is not a pure double or cryptic definition (absent only where tools/annotation_backlog.json grandfathers it under explanation.surface, an allowance per puzzle that may only shrink); on the others, absent when the clue paints no picture apart from its mechanism.",
+       "type": "string",
+       "minLength": 1
+      },
+      "walkthrough": {
+       "description": "One or two sentences on what the blocks cannot show: why the surface misleads, a convention the solver may not know, why a definition is fair.",
+       "type": "string",
+       "minLength": 1
+      },
+      "definitionFit": {
+       "description": "One sentence on why the answer means the definition. Required by ratchet: absent only where tools/annotation_backlog.json grandfathers it, an allowance per puzzle that may only shrink (explanation.definitionFit).",
+       "type": "string",
+       "minLength": 1
+      }
+     }
     },
     "features": {
-     "description": "Required by ratchet: absent only where tools/annotation_backlog.json grandfathers it, an allowance per puzzle that may only shrink.",
+     "description": "Required by ratchet: absent only where tools/annotation_backlog.json grandfathers it, an allowance per puzzle that may only shrink (features).",
      "$ref": "#/$defs/features"
     }
    }
