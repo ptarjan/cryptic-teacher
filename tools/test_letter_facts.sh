@@ -72,6 +72,25 @@ want="['holding'] None None [] {'definition': ['d']}"
 if [ "$inds" = "$want" ]; then echo "ok   the one indicator the blocks want is read, not two rivals or an unknown word, and is not the blog's"; else
   echo "FAIL indicators: expected [$want], got [$inds]"; fails=$((fails + 1)); fi
 
+# Our annotations are a second source of indicators, but a clue never
+# confirms itself: its own annotation is taken out of the lexicon it is read with.
+ours=$(cd "$REPO/tools" && python3 -c '
+import letter_facts as l
+clue = "Teacher expresses disapproval holding the minerals (8)"
+facts = {"type": "container", "definition": ["Teacher"], "indicators": ["holding"],
+         "blocks": [["TUTS", "expresses disapproval"], ["ORES", "minerals"]]}
+own = ("q", "e", clue, "TUTORESS", facts)
+box = lambda w, n: [(f"{w}{i}", "e", f"Box {w} the key", "BKOEYX",
+                     {"type": "container", "definition": ["Box"], "indicators": [w]}) for i in range(n)]
+blogs = box("within", 25)  # "the", left over in all of them and never named, is a link word
+read = lambda ilex: l.infer_indicators(clue, "TUTORESS", {k: v for k, v in facts.items() if k != "indicators"}, ilex)
+print(read(l.Indicators(blogs, extra=box("holding", l.MIN_INDICATOR) + [own])),
+      read(l.Indicators(blogs, extra=box("holding", l.MIN_INDICATOR - 1) + [own])),
+      read(l.Indicators(blogs + box("holding", l.MIN_INDICATOR - 1) + [own])))')
+want="['holding'] None ['holding']"
+if [ "$ours" = "$want" ]; then echo "ok   our annotations add indicators, never a clue's own"; else
+  echo "FAIL annotations as indicators: expected [$want], got [$ours]"; fails=$((fails + 1)); fi
+
 # A definition read off the ones blogs underlined for the same answer: "Teacher"
 # for TUTORESS in other clues. The word inside it must be wordplay or one blogs
 # leave out of definitions ("for", never inside one), not a free word blogs may
