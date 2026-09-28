@@ -14,8 +14,8 @@ write a full hint/clue string anywhere. Only short fixed labels (types, marker
 words) get printed.
 
 Our side is a Python port of the rung-building LOGIC in app.js (`ladderSteps`,
-`familyOf`, `typeBlurb`, `def_place`). The rung TEXT is not ported — `FAMILIES`
-and `TYPE_BLURBS` come from tools/app_tables.py, which reads them out of app.js,
+`familyOf`, `typeBlurb`, `def_place`). The rung TEXT is not ported — family
+and type blurbs come from tools/clue_types.py, the same list app.js reads,
 because a word count taken over a stale transcription measures words the app
 never shows. Kept close enough to match word counts; not a byte-exact re-render
 (HTML escaping, the abbreviation-glossary link, and the definition-place
@@ -37,46 +37,48 @@ COURSE_PATH = MC_DIR / "course.json"
 sys.path.insert(0, str(ROOT / "tools"))
 
 
-# ---------- our own rung text, read from app.js so word counts are real ----------
+# ---------- our own rung text, from the list app.js reads ----------
 
-# app.js's own tables. This file measures OUR rung text
-# against Minute Cryptic's, so a transcription that had drifted would be
-# measuring words the app never shows. See tools/app_tables.py.
 import app_tables  # noqa: E402 — needs the sys.path line above
+import clue_types  # noqa: E402
 
-FAMILIES = app_tables.families()
-DEFAULT_FAMILY = app_tables.FALLBACK_FAMILY
-TYPE_BLURBS = app_tables.type_blurbs()
-
+# app.js INDICATOR_OPS: keyed by type name, and a letter selection by its
+# block's `select`.
 INDICATOR_OPS = [
     ("anagram", "rearrange the letters it points at"),
     ("container", "put one piece inside another"),
     ("reversal", "write a piece backwards"),
     ("deletion", "drop letters from a word"),
-    ("hidden", "find a run of letters already sitting in the clue"),
+    ("hidden_word", "find a run of letters already sitting in the clue"),
     ("homophone", "take how a word sounds, not how it is spelled"),
     ("spoonerism", "swap the opening sounds of two words"),
-    ("alternate letters", "take every other letter"),
-    ("regular letters", "count through the letters at a fixed step and keep the ones you land on"),
-    ("first letter", "take the opening letter of the words it points at"),
-    ("last letter", "take the final letter of the words it points at"),
-    ("middle letter", "take just the middle of a word"),
-    ("outer letters", "keep only the outside letters of a word"),
+    ("alternate", "take every other letter"),
+    ("regular", "count through the letters at a fixed step and keep the ones you land on"),
+    ("first", "take the opening letter of the words it points at"),
+    ("last", "take the final letter of the words it points at"),
+    ("middle", "take just the middle of a word"),
+    ("outer", "keep only the outside letters of a word"),
     ("cycling", "move letters from one end to the other, keeping their order"),
     ("substitution", "swap one letter or chunk for another"),
+    ("palindrome", "check that the answer reads the same in both directions"),
+    ("letter_selection", "keep only some of the letters of the words it points at"),
 ]
 
 HOWMANY = ["no", "one", "two", "three", "four", "five", "six"]
 
 
-def family_of(ann_type):
-    label, blurb, _ = app_tables.family_of(ann_type, FAMILIES)
-    return label, blurb
+def indicator_ops(ann):
+    """app.js indicatorOps(): the clue's operations in the order its type applies them."""
+    ops = dict(INDICATOR_OPS)
+    selects = list(dict.fromkeys(b.get("select") for b in ann.get("blocks") or []
+                                 if b.get("select") in ops))
+    keys = [k for t in ann.get("type") or []
+            for k in ([t] if t != "letter_selection" else selects or [t])]
+    return [ops[k] for k in keys if k in ops]
 
 
-def type_blurb(ann_type):
-    t = (ann_type or "").lower()
-    return " ".join(v for k, v in TYPE_BLURBS if k in t)
+def type_blurb(types):
+    return " ".join(clue_types.TYPES[t]["blurb"] for t in types or ())
 
 
 def def_place(clue, definition):
@@ -106,7 +108,7 @@ def _whole_word(s):
 
 def sense_block(ann, b):
     """app.js senseBlock(): a double definition's half that shows only a note."""
-    if not ann.get("definition2") or "double definition" not in (ann.get("type") or "").lower():
+    if not ann.get("definition2") or "double_definition" not in (ann.get("type") or []):
         return False
     answer = _whole_word(ann.get("answer"))
     gives = _whole_word(b.get("gives"))
@@ -124,22 +126,22 @@ def ladder_steps(ann, clue_text):
     in — it does not depend on clue content, only on which rungs a clue has."""
     if not ann:
         return []
-    t = (ann.get("type") or "").lower()
-    is_dd = "double definition" in t
-    is_cd = "cryptic definition" in t
-    is_lit = "&lit" in t
+    t = ann.get("type") or []
+    is_dd = "double_definition" in t
+    is_cd = "cryptic_definition" in t
+    is_lit = "and_lit" in t
     inds = ann.get("indicators") or []
     senses = [b for b in ann.get("blocks") or [] if sense_block(ann, b)]
     blocks = [b for b in ann.get("blocks") or [] if not sense_block(ann, b)]
     steps = []
 
-    fam_label, fam_blurb = family_of(ann.get("type"))
-    steps.append(("type", f"{fam_label}. {fam_blurb}"))
+    fam = clue_types.family_of(t)
+    steps.append(("type", f"{fam['label']}. {fam['blurb']}"))
 
     # Named on every type; the blurb is held back on the two whose definition
     # rung already says it, as in app.js.
-    mechanics = f"Mechanism: {ann.get('type', '')}." + (
-        "" if (is_dd or is_cd) else f" {type_blurb(ann.get('type'))}")
+    mechanics = f"Mechanism: {clue_types.labels(t)}." + (
+        "" if (is_dd or is_cd) else f" {type_blurb(t)}")
 
     definition = ann.get("definition") or ""
     if is_dd and ann.get("definition2"):
@@ -165,7 +167,7 @@ def ladder_steps(ann, clue_text):
     steps.append(("definition", def_text))
 
     if inds:
-        ops = [op for k, op in INDICATOR_OPS if k in t]
+        ops = indicator_ops(ann)
         marks = ", ".join(inds)
         if len(ops) == 1:
             verb = "they tell" if len(inds) > 1 else "it tells"
@@ -411,7 +413,7 @@ def main():
         answer = re.sub(r"[^A-Za-z]", "", ann.get("answer", ""))
         if not answer:
             continue
-        fam = ann.get("type") or "?"
+        fam = clue_types.labels(ann.get("type")) or "?"
         total_by_type[fam] += 1
         steps = ladder_steps(ann, e.get("clue", ""))
         early = [text for k, text in steps if k != "walkthrough"]
@@ -441,8 +443,7 @@ def main():
           "unconditional).")
     multi_op_clues = 0
     for _, e, ann in ours:
-        t = (ann.get("type") or "").lower()
-        ops = [op for k, op in INDICATOR_OPS if k in t]
+        ops = indicator_ops(ann)
         if len(ops) > 1 and ann.get("indicators"):
             multi_op_clues += 1
     print(f"Ours: {multi_op_clues} annotated clues have a compound type (>1 "

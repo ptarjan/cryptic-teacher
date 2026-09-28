@@ -643,16 +643,20 @@ const patBoxes = () => (patHTML().match(/class="pat-box [^"]*"/g) || []);
     `the hint meter is a count, not a sentence (${meter.length} chars): ${meter}`);
 }
 
-// --- every validator type part must be claimed by a family in app.js (APP.md) ---
+// --- every clue type belongs to exactly one family (tools/data/clue_types.json) ---
+const CLUE_TYPES = JSON.parse(fs.readFileSync(path.join(ROOT, "tools/data/clue_types.json"), "utf8"));
+const TYPE_FAMILY = Object.fromEntries(CLUE_TYPES.types.map((t) => [t.name, t.family]));
 {
-  const famBlock = appSrc.slice(appSrc.indexOf("const FAMILIES"), appSrc.indexOf("function familyOf"));
-  const keywords = [...famBlock.matchAll(/t\.includes\("([^"]+)"\)/g)].map((m) => m[1]);
-  const py = fs.readFileSync(path.join(ROOT, "tools/validate_annotations.py"), "utf8");
-  const partsBlock = py.slice(py.indexOf("TYPE_PARTS = {"), py.indexOf("}", py.indexOf("TYPE_PARTS = {")));
-  const parts = [...partsBlock.matchAll(/"([^"]+)"/g)].map((m) => m[1]);
-  assert(parts.length > 10, "TYPE_PARTS parsed from the validator: " + parts.length);
-  parts.forEach((p) => assert(keywords.some((k) => p.includes(k)),
-    `type part '${p}' is claimed by a clue family in app.js`));
+  const famNames = CLUE_TYPES.families.map((f) => f.name);
+  assert(CLUE_TYPES.types.length > 10, "clue types read from clue_types.json: " + CLUE_TYPES.types.length);
+  CLUE_TYPES.types.forEach((t) => assert(famNames.includes(t.family),
+    `clue type '${t.name}' names family '${t.family}', which clue_types.json declares`));
+  famNames.forEach((f) => assert(CLUE_TYPES.types.some((t) => t.family === f),
+    `family '${f}' claims at least one clue type`));
+  assert(new Set(CLUE_TYPES.types.map((t) => t.name)).size === CLUE_TYPES.types.length,
+    "every clue type is named once");
+  assert(JSON.stringify(global.CRYPTIC_INDEX.clueTypes) === JSON.stringify(CLUE_TYPES),
+    "puzzles/index.js carries clue_types.json as it stands — run python3 tools/fetch_puzzle.py --reindex");
 }
 
 // --- the chips are offered commonest first, and `n` still says how common ---
@@ -662,38 +666,31 @@ const patBoxes = () => (patHTML().match(/class="pat-box [^"]*"/g) || []);
   // older corpus quietly stops being the reason the chips sit where they do.
   // Shares rather than raw counts, because the corpus only grows and a count
   // that grew with it is not wrong.
-  const famBlock = appSrc.slice(appSrc.indexOf("const FAMILIES"),
-                                appSrc.indexOf("const FAMILY_CHIPS"));
-  const fams = famBlock.split(/\{ label: "/).slice(1).map((chunk) => ({
-    label: chunk.slice(0, chunk.indexOf('"')),
-    n: +(/^[^\n]*\bn: (\d+)/.exec(chunk) || [0, 0])[1],
-    keys: [...chunk.matchAll(/t\.includes\("([^"]+)"\)/g)].map((m) => m[1])
-  }));
+  const fams = CLUE_TYPES.families;
   assert(fams.length === 7 && fams.every((f) => f.n > 0),
-    "every clue family in app.js declares its corpus count: " + JSON.stringify(fams.map((f) => [f.label, f.n])));
+    "every clue family in clue_types.json declares its corpus count: " + JSON.stringify(fams.map((f) => [f.name, f.n])));
 
   const seen = {};
   fs.readdirSync(path.join(ROOT, "puzzles"))
     .filter((f) => f.endsWith(".json") && f !== "index.json")
     .forEach((f) => {
-      const src = fs.readFileSync(path.join(ROOT, "puzzles", f), "utf8");
-      [...src.matchAll(/"type"\s*:\s*"([^"]*)"/g)].forEach((m) => {
-        const t = m[1].toLowerCase();
+      const puz = JSON.parse(fs.readFileSync(path.join(ROOT, "puzzles", f), "utf8"));
+      (puz.entries || []).forEach((e) => {
+        const types = (e.annotation || {}).type;
+        if (!Array.isArray(types)) return;
         // Every family the type uses, not just the dominant one: gradeChoice
         // accepts any of them, so that is what a chip's odds run on.
-        fams.forEach((fam) => {
-          if (fam.keys.some((k) => t.includes(k))) seen[fam.label] = (seen[fam.label] || 0) + 1;
-        });
+        new Set(types.map((t) => TYPE_FAMILY[t])).forEach((fam) => { seen[fam] = (seen[fam] || 0) + 1; });
       });
     });
-  const total = (o) => fams.reduce((a, f) => a + (typeof o === "function" ? o(f) : o[f.label] || 0), 0);
+  const total = (o) => fams.reduce((a, f) => a + (typeof o === "function" ? o(f) : o[f.name] || 0), 0);
   const declaredTotal = total((f) => f.n), countedTotal = total(seen);
   assert(countedTotal > 5000, "the corpus was actually read: " + countedTotal + " family hits");
   fams.forEach((f) => {
-    const want = (seen[f.label] || 0) / countedTotal, got = f.n / declaredTotal;
+    const want = (seen[f.name] || 0) / countedTotal, got = f.n / declaredTotal;
     assert(Math.abs(want - got) <= 0.03,
-      `app.js says ${f.label} is ${(got * 100).toFixed(1)}% of family hits; the corpus `
-      + `now says ${(want * 100).toFixed(1)}% (${seen[f.label] || 0}) — retype its n so the chip order stays true`);
+      `clue_types.json says ${f.label} is ${(got * 100).toFixed(1)}% of family hits; the corpus `
+      + `now says ${(want * 100).toFixed(1)}% (${seen[f.name] || 0}) — retype its n so the chip order stays true`);
   });
 }
 
@@ -2151,7 +2148,7 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
       const file = path.join(ROOT, "puzzles", pid + ".json");
       if (!fs.existsSync(file)) continue;
       const ents = JSON.parse(fs.readFileSync(file, "utf8")).entries;
-      const hit = Object.entries(rec.entries).find(([eid, fa]) => fa.type === "hidden word"
+      const hit = Object.entries(rec.entries).find(([eid, fa]) => JSON.stringify(fa.type) === '["hidden_word"]'
         && (fa.blocks || []).length === 1 && !(fa.indicators || []).length
         && ents.some((x) => x.id === eid && !x.annotation && x.solution && bare(x.solution) === bare(fa.blocks[0][0])
           && x.clue.includes(fa.blocks[0][1])));
@@ -2192,7 +2189,7 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
   for (const f of fs.readdirSync(factsDir).filter((n) => n.endsWith(".json")).sort()) {
     const rows = JSON.parse(fs.readFileSync(path.join(factsDir, f), "utf8"));
     for (const [pid, rec] of Object.entries(rows)) {
-      const hit = Object.entries(rec.entries).find(([, fa]) => fa.type === "homophone"
+      const hit = Object.entries(rec.entries).find(([, fa]) => JSON.stringify(fa.type) === '["homophone"]'
         && (fa.blocks || []).length === 1 && fa.blocks[0].some((h) => h && /^[A-Z]+$/.test(h.soundsLike || "")));
       if (!hit) continue;
       const file = path.join(ROOT, "puzzles", pid + ".json");
@@ -2448,7 +2445,7 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
     const cds = [];
     for (const id of Object.keys(puzzles).sort()) {
       for (const e of puzzles[id].entries || []) {
-        if (((e.annotation || {}).type || "") === "cryptic definition") cds.push({ id, e });
+        if (JSON.stringify((e.annotation || {}).type) === '["cryptic_definition"]') cds.push({ id, e });
       }
     }
     assert(cds.length, "the corpus still has a cryptic definition to check");
@@ -2493,16 +2490,7 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
   // real ladder on every clue whose own family label, family blurb, type name or
   // type sentence contains its answer as a word, and reads those paragraphs.
   {
-    const fixedBlock = appSrc.slice(appSrc.indexOf("const TYPE_BLURBS"), appSrc.indexOf("const FAMILY_CHIPS"));
-    const unq = (v) => v.replace(/\\"/g, '"').replace(/\\u([0-9a-f]{4})/gi, (_, h) => String.fromCharCode(parseInt(h, 16)));
-    const typeBlurbs = [...fixedBlock.matchAll(/\["((?:[^"\\]|\\.)*)",\s*"((?:[^"\\]|\\.)*)"\]/g)].map((m) => [m[1], unq(m[2])]);
-    const fams = fixedBlock.split(/\{ label: "/).slice(1).map((chunk) => ({
-      label: chunk.slice(0, chunk.indexOf('"')),
-      blurb: unq((/blurb:\s*"((?:[^"\\]|\\.)*)"/.exec(chunk) || [0, ""])[1]),
-      keys: [...chunk.matchAll(/t\.includes\("([^"]+)"\)/g)].map((m) => m[1])
-    }));
-    assert(typeBlurbs.length > 10 && fams.length > 0,
-      `the fixed prose parsed out of app.js: ${typeBlurbs.length} type sentences, ${fams.length} families`);
+    const TYPE = Object.fromEntries(CLUE_TYPES.types.map((t) => [t.name, t]));
     const says = (text, answer) => {
       const words = String(answer || "").match(/[A-Za-z]+/g) || [];
       return words.length > 0 &&
@@ -2512,14 +2500,14 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
     for (const id of Object.keys(puzzles).sort()) {
       for (const e of puzzles[id].entries || []) {
         const a = e.annotation || {};
-        const t = (a.type || "").toLowerCase();
-        if (!a.answer || !t) continue;
-        const fam = fams.find((f) => f.keys.some((k) => t.includes(k))) || { label: "", blurb: "" };
-        const prose = [t, fam.label, fam.blurb, ...typeBlurbs.filter(([k]) => t.includes(k)).map(([, v]) => v)];
+        const t = a.type || [];
+        if (!a.answer || !t.length) continue;
+        const fam = CLUE_TYPES.families.find((f) => t.some((k) => TYPE[k].family === f.name)) || { label: "", blurb: "" };
+        const prose = [fam.label, fam.blurb, ...t.flatMap((k) => [TYPE[k].label, TYPE[k].blurb])];
         if (says(prose.join(" "), a.answer)) hits.push({ id, e });
       }
     }
-    assert(hits.length, "the corpus still has a clue whose answer is a word of its own family or type prose");
+    assert(hits.length || !FULL, "the corpus still has a clue whose answer is a word of its own family or type prose");
     for (const h of hits) {
       openClue(h);
       for (let i = 0; i < 8; i++) {
@@ -2597,7 +2585,7 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
       for (const e of puzzles[id].entries || []) {
         const a = e.annotation || {};
         const f = bare((a.anagram || {}).fodder);
-        if ((a.type || "").toLowerCase().includes("anagram") && f.length >= 4) {
+        if ((a.type || []).includes("anagram") && f.length >= 4) {
           anas.push({ id, e, f, ans: bare(a.answer) });
         }
       }
@@ -2923,7 +2911,7 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
       for (const e of withAnn) {
         const row = registry["clue-" + e.id];
         if (!row || !row.listeners.click) continue;
-        seenTypes.add(e.annotation.type);
+        seenTypes.add(String(e.annotation.type));
         row.listeners.click[0]();
         // The ladder numbers its rungs in LADDER's order, on every clue in the
         // corpus. Checked by the NUMBER on each button rather than by the
@@ -3037,8 +3025,8 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
     const sound = [];
     for (const id of Object.keys(puzzles).sort()) {
       for (const e of puzzles[id].entries || []) {
-        const t = ((e.annotation || {}).type || "");
-        if (/homophone|spoonerism/.test(t)) sound.push({ id, e });
+        const t = (e.annotation || {}).type || [];
+        if (t.includes("homophone") || t.includes("spoonerism")) sound.push({ id, e });
       }
     }
     assert(enough(sound.length, 20), "the corpus still has sound clues to check: " + sound.length);
@@ -5651,7 +5639,7 @@ global.realSetTimeout(() => {
   let found = null;
   for (const id of Object.keys(puzzles).sort()) {
     for (const e of puzzles[id].entries || []) {
-      if (e.annotation && e.annotation.type) { found = { id, e }; break; }
+      if (e.annotation && (e.annotation.type || []).length) { found = { id, e }; break; }
     }
     if (found) break;
   }
@@ -5763,18 +5751,15 @@ global.realSetTimeout(() => {
       + registry["hint-meter"].innerHTML);
 
   // A compound clue names one family and grades every one it is made of right.
-  // Which clue is compound is read off the corpus by keyword; what the rung
+  // Which clue is compound is read off clue_types.json's families; what the rung
   // names and what the grader accepts are read off the page.
   {
-    const famBlock = appSrc.slice(appSrc.indexOf("const FAMILIES"), appSrc.indexOf("const FAMILY_CHIPS"));
-    const famKeys = famBlock.split(/\{ label: "/).slice(1)
-      .map((c) => [...c.matchAll(/t\.includes\("([^"]+)"\)/g)].map((m) => m[1]));
-    const hits = (t) => famKeys.filter((ks) => ks.some((k) => t.toLowerCase().includes(k))).length;
+    const hits = (t) => new Set(t.map((k) => TYPE_FAMILY[k])).size;
     const plain = found;
     found = null;
     for (const id of Object.keys(puzzles).sort()) {
       for (const e of puzzles[id].entries || []) {
-        if (e.annotation && hits(e.annotation.type || "") >= 2) { found = { id, e }; break; }
+        if (e.annotation && hits(e.annotation.type || []) >= 2) { found = { id, e }; break; }
       }
       if (found) break;
     }
@@ -5797,7 +5782,7 @@ global.realSetTimeout(() => {
   // open after.
   assert(/asks you a question before it tells you/.test(cold), "a cold clue says what the ladder is: " + cold);
   const other = (puzzles[found.id].entries || []).find(
-    (x) => x.id !== found.e.id && x.annotation && x.annotation.type);
+    (x) => x.id !== found.e.id && x.annotation && (x.annotation.type || []).length);
   assert(other, "the puzzle has a second annotated clue to open cold");
   registry["clue-" + other.id].listeners.click[0]();
   assert(!/asks before it tells/.test(registry["hint-body"].innerHTML),
@@ -5821,8 +5806,8 @@ global.realSetTimeout(() => {
   let found = null;
   for (const id of Object.keys(puzzles).sort()) {
     for (const e of puzzles[id].entries || []) {
-      const t = ((e.annotation || {}).type || "").toLowerCase();
-      if (t.includes("charade") && (t.includes("letter") || t.includes("hidden"))) {
+      const t = (e.annotation || {}).type || [];
+      if (t.includes("charade") && (t.includes("letter_selection") || t.includes("hidden_word"))) {
         found = { id, e };
         break;
       }
@@ -5923,17 +5908,18 @@ global.realSetTimeout(() => {
 // because the claim is about what ends up on the screen.
 {
   const puzzles = global.window.CRYPTIC_PUZZLES;
-  const pick = (want) => {
+  const pick = (name) => {
     for (const id of Object.keys(puzzles).sort()) {
       for (const e of puzzles[id].entries || []) {
         const a = e.annotation;
-        if (a && !a.linkedTo && (a.type || "").toLowerCase() === want) return { id, e, a };
+        if (a && !a.linkedTo && JSON.stringify(a.type) === JSON.stringify([name])) return { id, e, a };
       }
     }
     return null;
   };
-  for (const want of ["double definition", "cryptic definition"]) {
-    const found = pick(want);
+  for (const name of ["double_definition", "cryptic_definition"]) {
+    const want = CLUE_TYPES.types.find((t) => t.name === name).label;
+    const found = pick(name);
     assert(found, "the corpus has a clue typed " + want);
     registry["btn-picker"].onclick();
     const li = pickerRowFor(found.id);
@@ -5954,7 +5940,7 @@ global.realSetTimeout(() => {
     const body = registry["hint-body"].innerHTML;
     assert(body.includes('class="mechanism"') && body.includes(want),
       "the ladder names the mechanism on a " + want + " (" + found.e.clue + "): " + body);
-    // The name, not the generic sentence: on these two types the TYPE_BLURBS
+    // The name, not the generic sentence: on these two types the type's blurb
     // wording only re-says the definition rung, and no rung may restate another.
     assert(!body.includes("there is no other wordplay")
         && !body.includes("no separate wordplay — the whole clue"),
@@ -6050,7 +6036,7 @@ global.realSetTimeout(() => {
   for (const id of Object.keys(puzzles).sort()) {
     for (const e of puzzles[id].entries || []) {
       const a = e.annotation;
-      if (!a || a.linkedTo || a.type !== "double definition" || !a.definition2) continue;
+      if (!a || a.linkedTo || JSON.stringify(a.type) !== '["double_definition"]' || !a.definition2) continue;
       const bl = a.blocks || [];
       if (!pure && bl.length === 2 && bl.every((b) => isDef(a, b) && plain(b))) pure = { id, e, bl };
       if (!third && bl.some((b) => !isDef(a, b) && plain(b) && bare(b.gives) && !(a.definition + " " + a.definition2)
@@ -6128,9 +6114,9 @@ global.realSetTimeout(() => {
       const bare = (t) => String(t || "").replace(/[^A-Za-z]/g, "").toUpperCase();
       // Fodder written as its own letters never asked; fodder that resolves to
       // the answer did, and is the case this is about.
-      if (!ana && a.type === "anagram" && bl.length === 1 && bl[0].gives
+      if (!ana && JSON.stringify(a.type) === '["anagram"]' && bl.length === 1 && bl[0].gives
         && bare(bl[0].gives) !== bare(bl[0].clueFragment)) ana = { id, e };
-      if (!cha && a.type === "charade" && bl.length === 2 && bl[0].gives !== bl[1].gives
+      if (!cha && JSON.stringify(a.type) === '["charade"]' && bl.length === 2 && bl[0].gives !== bl[1].gives
         && bl.every((b) => b.gives && bare(b.gives) !== bare(b.clueFragment))) cha = { id, e, bl };
     }
     if (ana && cha) break;

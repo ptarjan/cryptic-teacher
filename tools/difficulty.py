@@ -264,21 +264,17 @@ GENTLE_SERIES = {"quiptic", "everyman"}
 # all charades are hard" (Paul, 2026-08-02), and a family-level bump would say
 # they are.
 DEVICE_COST = {
-    "hidden word": 0.15,
+    "hidden_word": 0.15,
     "anagram": 0.30,
     "charade": 0.45,
     "reversal": 0.50,
     "container": 0.50,
-    "double definition": 0.55,     # no wordplay to check the definition against
-    "first letter": 0.55, "first letters": 0.55,
-    "last letter": 0.55, "last letters": 0.55,
-    "middle letter": 0.55, "middle letters": 0.55,
-    "outer letters": 0.55,
-    "alternate letters": 0.55,
+    "double_definition": 0.55,     # no wordplay to check the definition against
+    "letter_selection": 0.55,
     "homophone": 0.60,             # accent-dependent, and rarely exact
     "deletion": 0.60,              # you must know what to remove before you can
-    "&lit": 0.80,
-    "cryptic definition": 0.85,    # a single unconfirmable leap
+    "and_lit": 0.80,
+    "cryptic_definition": 0.85,    # a single unconfirmable leap
 }
 DEVICE_DEFAULT = 0.50
 STACKING_COST = 0.12               # per device beyond the first
@@ -329,7 +325,7 @@ UNINDICATED_COST = 0.06
 # ...except where the family is unindicated by definition. A double definition
 # has no indicator because there is nothing to indicate, and its 0.55 already
 # prices that; bumping it too would just re-level the whole class.
-ALWAYS_UNINDICATED = {"double definition", "cryptic definition"}
+ALWAYS_UNINDICATED = {"double_definition", "cryptic_definition"}
 
 # --- how much machinery a clue carries: operations, counted -----------------
 #
@@ -348,7 +344,7 @@ STACKED_OPERATIONS = 1
 def clue_machinery(e):
     """One clue's operation count, or None when it carries no type."""
     ann = e.get("annotation") or {}
-    parts = [p for p in (ann.get("type") or "").split("+") if p.strip()]
+    parts = ann.get("type") or []
     if not parts:
         return None
     return (len(ann.get("indicators") or [])
@@ -741,10 +737,7 @@ def context(base=None):
 def clue_cost(e):
     """One clue's wordplay cost, 0-1, or None when it carries no type."""
     ann = e.get("annotation") or {}
-    kind = (ann.get("type") or "").strip()
-    if not kind:
-        return None
-    parts = [p.strip().lower() for p in kind.split("+") if p.strip()]
+    parts = ann.get("type") or []
     if not parts:
         return None
     cost = max(DEVICE_COST.get(p, DEVICE_DEFAULT) for p in parts)

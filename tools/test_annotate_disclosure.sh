@@ -36,7 +36,7 @@ def say(name, ok):
 
 
 # Linked groups: the lead covers the group, every other leg only points at it.
-lead_ann = {"type": "charade", "answer": "ABCDEFGH", "definition": "Some",
+lead_ann = {"type": ["charade"], "answer": "ABCDEFGH", "definition": "Some",
             "walkthrough": "w", "blocks": [{"clueFragment": "words", "gives": "X"}],
             "coversGroup": True}
 g = ["1-across", "2-down"]
@@ -80,7 +80,7 @@ say("fragment_not_in_clue_fails",
 
 # A hole is the annotating run's failure; in the committed corpus it is a
 # clue queued to be annotated again, not a broken build.
-hole = [entry("1-across", annotation={"type": "charade"}), entry("2-across")]
+hole = [entry("1-across", annotation={"type": ["charade"]}), entry("2-across")]
 errs, warns = [], []
 V.check_every_clue_is_annotated(hole, errs, warns)
 say("hole_fails_the_run", bool(errs))
@@ -123,7 +123,7 @@ def puzzle(series="cryptic", nulls=0, total=30, solutions=True):
     for i in range(total):
         e = entry(f"{i + 1}-across", sol="ABCD" if solutions else "")
         if i >= nulls:
-            e["annotation"] = {"type": "charade"}
+            e["annotation"] = {"type": ["charade"]}
         es.append(e)
     return {"id": f"{series}-99999", "series": series, "number": 99999,
             "entries": es}
@@ -145,7 +145,7 @@ say("times_names_its_own_blog", bool(times) and "timesforthetimes.co.uk" in time
 # A cryptic definition and a LIKELY letter get their advice; plain clues none.
 p = puzzle()
 say("plain_puzzle_no_notes", not AC.notes(p))
-p["entries"][0]["annotation"] = {"type": "cryptic definition"}
+p["entries"][0]["annotation"] = {"type": ["cryptic_definition"]}
 p["entries"][1]["solutionConfidence"] = "LIKELY"
 ns = AC.notes(p)
 say("cd_note", any("1-across typed `cryptic definition`" in n for n in ns))
@@ -175,7 +175,7 @@ try:
         [e["solution"] for e in json.loads(text)["entries"]] == ["ABCD"] * 30)
 finally:
     view.unlink()
-apply_annotations.apply(path, {e["id"]: {"type": "charade"} for e in real["entries"]},
+apply_annotations.apply(path, {e["id"]: {"type": ["charade"]} for e in real["entries"]},
                         by="human")
 say("apply_keeps_solutionSource",
     json.loads(path.read_text()).get("solutionSource", {}).get("url") == blog)

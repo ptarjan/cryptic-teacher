@@ -55,6 +55,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
+from clue_types import NAMES
 from fetch_puzzle import puzzle_files, read_puzzle_file
 
 DATA = Path.home() / "cryptic-setter-data"
@@ -220,19 +221,19 @@ def spans_of(runs, pos, body):
 #: of one ("Hidden in ...", "BRUSSELS – hidden reversed ...").
 OPENS = r"(?:^|(?<=[\n:–—;.(])|(?<=[\n:–—;.(] ))\s*(?:it's\s+|this\s+is\s+|an?\s+|just\s+an?\s+|simply\s+an?\s+)?"
 
-#: The wordplay a write-up names in a form that means one thing, as the
-#: TYPE_PARTS string app.js's familyOf reads. First match wins, in the same
-#: dominance order as FAMILIES. &lit is not read: bloggers and annotators
-#: split on &lit against cryptic definition too often for it to be a fact.
+#: The wordplay a write-up names in a form that means one thing, as a
+#: clue_types name. First match wins. and_lit is not read: bloggers and
+#: annotators split on &lit against cryptic definition too often for it to
+#: be a fact.
 TYPES = (
-    ("double definition", re.compile(
+    ("double_definition", re.compile(
         r"\b(?:double|two|triple|three)[\s-]+def(?:inition|n)?s?\b|\bDD\b|\b2\s?defs?\b"
         r"|\b(?:two|three|2|3) meanings\b", re.IGNORECASE)),
-    ("cryptic definition", re.compile(OPENS + r"(?:cryptic(?:ally)?\s+def(?:inition)?|CD)\b", re.IGNORECASE)),
+    ("cryptic_definition", re.compile(OPENS + r"(?:cryptic(?:ally)?\s+def(?:inition)?|CD)\b", re.IGNORECASE)),
     ("anagram", re.compile(r"\banagram\b|\banag\b|[A-Z)]\*|\*\s*\(|\banagrind", re.IGNORECASE)),
     ("spoonerism", re.compile(r"\bspooner(?:ism|'s)?\b", re.IGNORECASE)),
     ("homophone", re.compile(r"\bhomophone\b|\bsounds like\b", re.IGNORECASE)),
-    ("hidden word", re.compile(
+    ("hidden_word", re.compile(
         OPENS + r"(?:reversed?\s+|reverse\s+)?hidden\b"
         r"|\bhidden\s+(?:reversed?\s+|backwards\s+)?(?:word\s+)?(?:in|within|inside)\b|\[hidden", re.IGNORECASE)),
 )
@@ -246,17 +247,18 @@ HEDGED = re.compile(
     re.IGNORECASE)
 ANAGRAM_NAMED = dict(TYPES)["anagram"]
 REVERSED = re.compile(r"\brevers|\bbackwards?\b|\bup\b(?=.*\bhidden)", re.IGNORECASE)
+assert {n for n, _ in TYPES} <= set(NAMES)
 
 
 def clue_type(expl):
-    """The one clue type `expl` names unambiguously, or None."""
+    """The one clue type `expl` names unambiguously, as a type list, or None."""
     if HEDGED.search(expl):
         return None
     for name, rx in TYPES:
         if rx.search(expl):
-            if name == "hidden word" and REVERSED.search(expl):
-                return "hidden word + reversal"
-            return name
+            if name == "hidden_word" and REVERSED.search(expl):
+                return ["hidden_word", "reversal"]
+            return [name]
     return None
 
 
@@ -566,14 +568,14 @@ POSTFIX = {"reversed", "reversed_all", "anagrammed", "trimmed"}
 SELECT = {"first letter", "first letters", "last letter", "last letters", "middle letter",
           "middle letters", "outer letters", "alternate letters", "trimmed"}
 PREFIX = {"reverse_of", "anagram_of"} | (SELECT - {"trimmed"})
-#: What each operator makes the clue, as TYPE_PARTS names it.
+#: What each operator makes the clue, as a clue_types name.
 PART = {"concat": "charade", "rconcat": "charade", "adjoin": "charade", "reversed_all": "reversal", "juxtapose": "charade", "around": "container",
         "inside": "container", "minus": "deletion", "reversed": "reversal", "reverse_of": "reversal",
         "anagrammed": "anagram", "anagram_of": "anagram", "cut": "deletion",
-        "trimmed": "deletion", **{k: k for k in SELECT - {"trimmed"}}}
-PART_ORDER = ["charade", "anagram", "container", "deletion", "reversal", "first letter",
-              "first letters", "last letter", "last letters", "middle letter", "middle letters",
-              "outer letters", "alternate letters"]
+        "trimmed": "deletion", **{k: "letter_selection" for k in SELECT - {"trimmed"}}}
+#: The order a type read off the wordplay lists its names in.
+PART_ORDER = ["charade", "anagram", "container", "deletion", "reversal", "letter_selection"]
+assert set(PART.values()) <= set(PART_ORDER) <= set(NAMES)
 #: The standard abbreviations: R(un) is the convention R = run, where B[ail]
 #: is a word cut short.
 ABBREVIATIONS = ROOT / "tools" / "data" / "abbreviations.json"
@@ -1134,7 +1136,7 @@ def head_type(head, answer, body=""):
         return None
     if len(toks) == 1 and toks[0][0] == "val" and toks[0][1] == answer and toks[0][2] == {"cut"} \
             and " " not in head.strip():
-        return "deletion"  # {r}OSIER, LO[g]IN: one word with letters taken off
+        return ["deletion"]  # {r}OSIER, LO[g]IN: one word with letters taken off
     if not any(t[0] in ("bin", "pre", "post") or (t[0] == "val" and t[2]) for t in toks) \
             and sum(t[0] != "bin" for t in toks) < 2:
         return None
@@ -1155,12 +1157,7 @@ def head_type(head, answer, body=""):
     (p,) = parts
     if not p:
         return None
-    # {articl}E + {o}N: two words each giving their last letter is "last letters".
-    flat = [t for t in toks for t in (t[1] if t[0] == "group" else [t])]
-    for one in ("first letter", "last letter"):
-        if one in p and (one + "s" in p or sum(t[0] == "val" and one in t[2] for t in flat) > 1):
-            p = (p - {one}) | {one + "s"}
-    return " + ".join(x for x in PART_ORDER if x in p)
+    return [x for x in PART_ORDER if x in p]
 
 
 #: An operation the write-up names, then in parentheses the clue words that
@@ -1224,7 +1221,7 @@ HIDE_SEP = r"[\s()\[\]{}'’.\-]*"
 
 
 def shown_hidden(expl, body, answer):
-    """"hidden word" (+ reversal) where the write-up prints the run of clue
+    """["hidden_word"] (+ "reversal") where the write-up prints the run of clue
     words the answer hides in with the answer marked off by case or by
     brackets: "ValentiNO BLEeding", "milTON Keynes", "G(RAVE)send",
     "[slipsh]OD ESSA[y]"; or calls it a lurker and the clue's letters hold it.
@@ -1235,7 +1232,7 @@ def shown_hidden(expl, body, answer):
     words = [(m.start(), m.end(), "".join(f for f in map(fold, m.group()) if f.isalnum() and f.isascii()))
              for m in re.finditer(r"[\w'’\-]+", body)]
     run_letters = "".join(w for _, _, w in words)
-    for target, kind in ((answer, "hidden word"), (answer[::-1], "hidden word + reversal")):
+    for target, kind in ((answer, ["hidden_word"]), (answer[::-1], ["hidden_word", "reversal"])):
         if LURKER.search(expl) and target in run_letters:
             return kind
         at = run_letters.find(target)
@@ -1295,13 +1292,13 @@ def checked_type(expl, expl_marked, answer, blk, body=""):
     them was cut away, which the operators would then not have named."""
     named = clue_type(expl) or (not HEDGED.search(expl) and shown_hidden(expl, body, answer)) or None
     head = wordplay_head(expl_marked, answer) if answer else ""
-    if named == "anagram" and not has_fodder(expl, answer):
+    if named == ["anagram"] and not has_fodder(expl, answer):
         named = None
-    if named == "homophone" and (re.search(r"\+|\band\b|\bplus\b", head) or len(blk) > 1):
+    if named == ["homophone"] and (re.search(r"\+|\band\b|\bplus\b", head) or len(blk) > 1):
         named = None
     spelled = wordplay_type(expl_marked, answer, body) if answer else None
-    if spelled and any(selected(letters, src) for letters, src in blk) and not re.search(
-            r"deletion|letter", spelled):
+    if spelled and any(selected(letters, src) for letters, src in blk) and not \
+            {"deletion", "letter_selection"} & set(spelled):
         spelled = None
     return combined_type(named, spelled)
 
@@ -1443,7 +1440,7 @@ def combined_type(named, spelled):
     the named one; where they disagree, neither is a fact."""
     if not (named and spelled):
         return named or spelled
-    if set(named.split(" + ")) <= set(spelled.split(" + ")):
+    if set(named) <= set(spelled):
         return spelled
     return None
 
@@ -1708,10 +1705,10 @@ def facts_for_post(blog, entries, post):
         answer = projection(solution)[0]
         blk = blocks(expl, body, answer, brackets) if answer else []
         t = checked_type(expl, expl_marked, answer, [b for b in blk if len(b) == 2], body) \
-            or ("double definition" if two_ends(defs, body) and not blk and "+" not in expl else None)
+            or (["double_definition"] if two_ends(defs, body) and not blk and "+" not in expl else None)
         if t:
             fact["type"] = t
-        if blk and "hidden" not in (t or ""):
+        if blk and "hidden_word" not in (t or ()):
             fact["blocks"] = heard_blocks(t, blk, answer, body)
         whole_clue = defs and projection(" ".join(defs))[0] == projection(body)[0]  # &lit
         ind = indicators(blog, expl_marked, body, brackets,
@@ -1909,12 +1906,12 @@ def heard_blocks(t, blocks, answer, body="", alike=sounds_alike):
     `blocks` as they were. A word heard as itself is one of the clue words
     (see _heard_from)."""
     answer = _az(answer)
-    if t not in ("homophone", "spoonerism") or not blocks or any(len(b) != 2 for b in blocks) \
+    if t not in (["homophone"], ["spoonerism"]) or not blocks or any(len(b) != 2 for b in blocks) \
             or _az("".join(b[0] for b in blocks)) == answer:
         return blocks
     heard = [b[0] for b in blocks]
     as_heard = lambda gives, b: [gives, _heard_from(b[0], b[1], body), {"soundsLike": b[0]}]
-    if t == "homophone":
+    if t == ["homophone"]:
         ok = len(blocks) == 1 and alike(heard[0], answer)
         return [as_heard(answer, blocks[0])] if ok else blocks
     said = spooned(" ".join(heard))
@@ -1940,7 +1937,7 @@ def publishable(fact):
     if fact.get("blocks"):
         out["blocks"] = [list(b) for b in fact["blocks"]]
     defs = out.get("definition", [])
-    if len(defs) > 1 and not (len(defs) == 2 and out.get("type") == "double definition"):
+    if len(defs) > 1 and not (len(defs) == 2 and out.get("type") == ["double_definition"]):
         del out["definition"]
     return out
 
@@ -2013,7 +2010,7 @@ def _items(field, value):
                 if "inferred" not in how and "anagrammed" not in how}
     if field == "indicators":
         return {w for i in value or () for w in re.findall(r"[\w'’]+", norm(i))}
-    return {frozenset(value.split(" + "))} if value else set()
+    return {frozenset(value)} if value else set()
 
 
 def score(path=GOLD):

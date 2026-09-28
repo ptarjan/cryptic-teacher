@@ -556,8 +556,8 @@ def self_test():
         # once annotated the pair is linked, so it no longer counts: nothing jumps
         (["new", "mid", "old2"], {"old2": {A}}, {}, (), ["new", "mid", "old2"]),
         # one common indicator beats two rare ones
-        (["a", "b", "c"], {"b": {A}, "c": {B, ("hidden", "IN")}},
-         {A: 10, B: 1, ("hidden", "IN"): 1}, (), ["b", "c", "a"]),
+        (["a", "b", "c"], {"b": {A}, "c": {B, ("hidden_word", "IN")}},
+         {A: 10, B: 1, ("hidden_word", "IN"): 1}, (), ["b", "c", "a"]),
         # a pair counts once: the second puzzle giving only it stays in place
         (["a", "b", "c"], {"b": {A}, "c": {A}}, {A: 5}, (), ["b", "a", "c"]),
         # ties keep queue order (newest first)

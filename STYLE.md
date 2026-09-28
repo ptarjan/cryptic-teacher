@@ -40,30 +40,26 @@ puzzles it exists for, the ones not yet written, for as long as nobody flips it.
 ## Annotation rules
 
 ### Honest types
-`type` names EVERY mechanism the wordplay uses, joined with `" + "`, in the
-order they occur. Never give only the main mechanism. If a charade's second
+`type` is an array naming EVERY mechanism the wordplay uses, in the order they
+occur, each once. Never give only the main mechanism. If a charade's second
 chunk comes from the alternate letters of a word, the type is
-`charade + alternate letters`, not `charade`.
+`["charade", "letter_selection"]`, not `["charade"]`.
 
-The vocabulary is fixed. `TYPE_PARTS` in the validator is the complete list, and
-the validator ERRORs on any other part. This list must match it. Where a part is
-written `X letter(s)` below, both `X letter` and `X letters` are valid.
+The vocabulary is fixed: the 15 names in `tools/data/clue_types.json`. The
+validator ERRORs on any other name, and on a string.
 
-- Base types: `anagram`, `charade`, `container`, `hidden word`, `homophone`,
-  `reversal`, `deletion`, `double definition`, `cryptic definition`, `&lit`,
+- Base types: `anagram`, `charade`, `container`, `hidden_word`, `homophone`,
+  `reversal`, `deletion`, `double_definition`, `cryptic_definition`, `and_lit`,
   `spoonerism`.
-- Letter selection: `first letter(s)`, `last letter(s)`, `middle letter(s)`,
-  `outer letters`, `alternate letters`.
-  - `regular letters`: letters taken at a fixed step other than every second.
+- `letter_selection`: some letters of a word or run of words are kept. The
+  block that keeps them says which, as `select`:
+  - `"first"`, `"last"`, `"middle"`, `"outer"`, `"alternate"`.
+  - `"regular"`: letters taken at a fixed step other than every second.
     30077 17D takes every THIRD letter of "Hope to God" to spell POD.
-  - `second letter(s)`: a letter picked by its position. 12420 14D takes the
-    second letter of "master" for the A of AGO; 30065 6D takes the second letter
-    of each of four words to spell EDAM.
-  - `third letter(s)` through `twelfth letter(s)` (`third`, `fourth`, `fifth`,
-    `sixth`, `seventh`, `eighth`, `ninth`, `tenth`, `eleventh`, `twelfth`): the
-    same, counted further in. 30103 25D takes the fifth letter of "citizens" for
-    the Z of UZBEK.
-  - `prime letters`: positions picked by a rule, not a fixed step.
+  - a number n: the letter at position n. 12420 14D takes the second letter of
+    "master" (`"select": 2`) for the A of AGO; 30103 25D takes the fifth letter
+    of "citizens" (`"select": 5`) for the Z of UZBEK.
+  - `"prime"`: positions picked by a rule, not a fixed step.
     indysunday-1871 12A keeps the 2nd, 3rd, 5th, 7th and 11th letters of a
     phrase to spell OASES.
 - Letter movement:
@@ -78,14 +74,14 @@ written `X letter(s)` below, both `X letter` and `X letters` are valid.
     `pieces` carrying the machine-checkable assembly.
 
 Worked examples:
-- 30067 1A GARBAGE = `charade + alternate letters` (GARB + alternate letters of
-  bAgGiEr).
-- 30066 5D ALLOCATE = `anagram + last letter` (anagram of A COL TALE... + storE,
-  "ultimately").
-- 30079 7D TSUNAMIS = `charade + cycling` (A + MIST + SUN, back half cycled to
-  the front).
-- 30079 15D LAUGH LINE = `charade + substitution` (TAUGHT + IN + E, with student
-  Ls "covering" for the tense Ts).
+- 30067 1A GARBAGE = `["charade", "letter_selection"]` (GARB + alternate
+  letters of bAgGiEr, `"select": "alternate"`).
+- 30066 5D ALLOCATE = `["anagram", "letter_selection"]` (anagram of A COL
+  TALE... + storE, "ultimately", `"select": "last"`).
+- 30079 7D TSUNAMIS = `["charade", "cycling"]` (A + MIST + SUN, back half
+  cycled to the front).
+- 30079 15D LAUGH LINE = `["charade", "substitution"]` (TAUGHT + IN + E, with
+  student Ls "covering" for the tense Ts).
 
 **`pieces` and blocks tell the same assembly.** Charades, containers and
 deletions carry `pieces`: the final chunks of the answer, in answer order.
@@ -94,9 +90,9 @@ hidden words need neither. The blocks must take the answer apart the same way
 `pieces` does, not hand it over in one lump, and are listed in the order the
 answer reads. The full schema is in `tools/annotate_prompt.md`.
 
-To add a new type part, change all of these in one commit: `TYPE_PARTS` in the
-validator, this list, a level-1 blurb in `TYPE_BLURBS` in `app.js`, and a family
-in `FAMILIES` in `app.js`. Then run `python3 tools/build_annotate_prompt.py`.
+To add a type, add it to `tools/data/clue_types.json` (name, label, family,
+blurb) and to this list, in one commit. Then run
+`python3 tools/build_annotate_prompt.py`.
 
 **A sound type must name the sound.** A `homophone` or `spoonerism` puts
 `soundsLike` on the block that does the sounding. `soundsLike` is the word you

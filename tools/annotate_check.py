@@ -31,6 +31,7 @@ TOOLS = Path(__file__).resolve().parent
 ROOT = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
 
+import clue_types  # noqa: E402
 import series  # noqa: E402
 import validate_annotations  # noqa: E402
 from apply_annotations import default_input  # noqa: E402
@@ -129,7 +130,7 @@ def notes(puzzle):
     """
     out = []
     cds = [e["id"] for e in puzzle["entries"]
-           if (e.get("annotation") or {}).get("type") == "cryptic definition"]
+           if (e.get("annotation") or {}).get("type") == ["cryptic_definition"]]
     if cds:
         out.append(
             f"{', '.join(cds)} typed `cryptic definition`: the one type with no "
@@ -203,7 +204,7 @@ def main(argv):
         print("\nblock notes that say the answer out loud "
               "(the walkthrough is the reveal, not the blocks):")
         for f in found:
-            print(f"  {f['entry']} ({f['answer']}, {f['type']})")
+            print(f"  {f['entry']} ({f['answer']}, {clue_types.labels(f['type'])})")
             for n in f["notes"]:
                 print(f"      {n['clueFragment']}: {n['note']}")
         issues.append(f"{sum(len(f['notes']) for f in found)} answer leak(s)")

@@ -10,8 +10,8 @@ cryptic can read the whole card in four seconds and know both what the site is
 and that the trick is learnable.
 
 Everything on it comes out of a published puzzle. Nothing here is retyped — the
-wording of the rungs is the app's own, the family labels and blurbs are checked
-against app.js's FAMILIES table on every build, and the clue, definition,
+wording of the rungs is the app's own, the family labels and blurbs are read
+from tools/clue_types.py, the list app.js reads too, and the clue, definition,
 indicator and hidden span are read from the annotation. A card that disagrees
 with the app is a build error rather than a thing nobody noticed. The highlight
 in particular is computed, not marked up: it finds where the answer's letters
@@ -52,6 +52,7 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import app_tables  # noqa: E402 — app.js's tables, read from app.js
+import clue_types  # noqa: E402
 from fetch_puzzle import (  # noqa: E402 — one glob, one reader, one puzzles/ for every tool
     PUZZLE_DIR, blog_annotation, blog_facts_for, puzzle_files, read_puzzle_file,
     with_blog_facts)
@@ -61,17 +62,6 @@ CARD = REPO / "tools" / "og_card.html"
 # the card for the homepage and for any puzzle that has no card of its own.
 DEFAULT_PUZZLE = "quiptic-1393"
 DEFAULT_ENTRY = "3-down"
-
-# The card has to describe a clue in the same words as the app that teaches it,
-# so it renders from the app's own table rather than a port of it. See
-# tools/app_tables.py for why there is no copy here to keep in step.
-FAMILIES = app_tables.families()
-FALLBACK_FAMILY = app_tables.FALLBACK_FAMILY
-
-
-def family_of(type_):
-    return app_tables.family_of(type_, FAMILIES)
-
 
 def first_sentence(text):
     """The head of a blurb: enough for a thumbnail, still the app's own words."""
@@ -195,9 +185,9 @@ def plan(entry):
     clue, enumeration = bare_clue(entry)
     if len(clue) > 78:
         return None                                 # no type size makes this fit
-    t = (ann.get("type") or "").lower()
+    t = ann.get("type") or []
     p = {"clue": clue, "ann": ann, "hidden": None, "fodder": None, "partial": False,
-         "indicator": None, "indicators": [], "family": family_of(ann.get("type")),
+         "indicator": None, "indicators": [], "family": clue_types.family_of(t),
          "enumeration": enumeration}
     try:
         p["definition"] = span_of(clue, ann["definition"])
@@ -205,7 +195,7 @@ def plan(entry):
             p["indicator"] = p["indicator"] or ind
             span_of(clue, ind)                      # must be quotable from the clue
             p["indicators"].append(ind)
-        if "hidden" in t and "reversal" not in t:
+        if "hidden_word" in t and "reversal" not in t:
             block = next((b for b in ann.get("blocks") or []
                           if b.get("clueFragment")), None)
             if block:
@@ -220,12 +210,12 @@ def plan(entry):
         # fodder is CRUELLY AT MAN, but the clue says "crew", and a rung reading
         # "Rearrange CRUELLY AT MAN" over a clue with no MAN in it asks the reader to
         # take a step the picture never shows. Such a clue keeps its indicator rung.
-        if fodder and t == "anagram" and all(
+        if fodder and t == ["anagram"] and all(
                 re.search(rf"(?<![A-Za-z]){w}(?![A-Za-z])", clue, re.I)
                 for w in re.findall(r"[A-Za-z]+", fodder)):
             p["fodder"] = fodder
         elif "anagram" in t:
-            p["fodder"], p["partial"] = clue_fodder(clue, ann, fodder, t == "anagram")
+            p["fodder"], p["partial"] = clue_fodder(clue, ann, fodder, t == ["anagram"])
         if p["fodder"] and p["indicators"]:
             # The indicator that shuffles is the one touching its letters; the
             # others do the rest of a compound clue's work.
@@ -401,7 +391,7 @@ def rungs_for(p):
     the card climbs the same ladder the app does.
     """
     ann = p["ann"]
-    label, blurb, _ = p["family"]
+    label, blurb = p["family"]["label"], p["family"]["blurb"]
     def mark(i):
         return f'<mark class="ind">{html.escape(i)}</mark>'
     others = [i for i in p["indicators"] if i != p["indicator"]]
@@ -520,28 +510,15 @@ def check_no_answer(clue_html, prose_html, answer):
 # "said" and "inside" are ordinary English in an instruction — listing them would
 # flag "says to shuffle" and teach nobody anything.
 FAMILY_SIGNALS = {
-    "Homophone": ("aloud", "out loud", "sounds like", "we hear", "reportedly",
+    "homophone": ("aloud", "out loud", "sounds like", "we hear", "reportedly",
               "spoken", "pronounced", "homophone"),
-    "Anagram": ("anagram", "shuffle", "scrambled", "jumbled", "rearranged"),
-    "Hidden or letter selection": ("hidden", "hiding", "buried", "concealed"),
-    "Container, reversal or deletion": ("reversed", "backwards", "turned around", "inserted"),
+    "anagram": ("anagram", "shuffle", "scrambled", "jumbled", "rearranged"),
+    "selection": ("hidden", "hiding", "buried", "concealed"),
+    "change": ("reversed", "backwards", "turned around", "inserted"),
 }
 
 
-def families_in(type_):
-    """Every family a (possibly compound) type belongs to, not just the winning one.
-
-    family_of takes the first match because a card has one headline to print.
-    Whether the card's prose is allowed to name a mechanism is a different
-    question with a different answer: "&lit + hidden word" IS an extraction, and
-    saying so lower down is the clue being taught, not a second device wandering
-    in from another family.
-    """
-    t = (type_ or "").lower()
-    return {fam[0] for fam in FAMILIES if any(k in t for k in fam[2])}
-
-
-def check_prose_stays_in_family(prose_html, family, type_):
+def check_prose_stays_in_family(prose_html, family, types):
     """The card's own words may not borrow another family's signal.
 
     Rung 3 on a hidden-word card read "<ind> says so out loud" from the day the
@@ -564,22 +541,23 @@ def check_prose_stays_in_family(prose_html, family, type_):
     not a backlog.
     """
     # Every family this clue actually is, so a hybrid type is judged against all
-    # of them and not only against the one that won the headline.
-    mine_families = families_in(type_) | {family[0]}
-    own = {sig for label in mine_families for sig in FAMILY_SIGNALS.get(label, ())}
+    # of them and not only against the one that won the headline: "&lit + hidden
+    # word" IS an extraction, and saying so lower down is the clue being taught.
+    mine_families = {f["name"] for f in clue_types.families_of(types)} | {family["name"]}
+    own = {sig for name in mine_families for sig in FAMILY_SIGNALS.get(name, ())}
     # The marks and the fodder are quoted from the clue and the annotation. Only
     # the words the card puts around them are ours to be judged on.
     mine = re.sub(r'<mark\b[^>]*>.*?</mark>|<span class="fodder">.*?</span>',
                   " ", prose_html, flags=re.S)
     mine = html.unescape(re.sub(r"<[^>]+>", " ", mine)).lower()
-    for label, signals in FAMILY_SIGNALS.items():
-        if label in mine_families:
+    for name, signals in FAMILY_SIGNALS.items():
+        if name in mine_families:
             continue
         for sig in signals:
             if sig in mine and sig not in own:
                 raise RuntimeError(
-                    f"og card: this {family[0]} card's own prose says {sig!r}, which "
-                    f"names the {label} mechanism. The card would teach one device "
+                    f"og card: this {family['label']} card's own prose says {sig!r}, which "
+                    f"names the {name} mechanism. The card would teach one device "
                     f"in rung 1 and point at another lower down — reword it.")
 
 
@@ -678,7 +656,8 @@ def _salt():
     """
     h = hashlib.sha256()
     h.update(Path(__file__).resolve().read_bytes())
-    h.update(repr((FAMILIES, FALLBACK_FAMILY, LADDER)).encode("utf-8"))
+    words = [(f["name"], f["label"], f["blurb"]) for f in clue_types.FAMILIES]
+    h.update(repr((words, clue_types.FALLBACK_FAMILY, LADDER)).encode("utf-8"))
     h.update(CARD_REGION.sub("", CARD.read_text(encoding="utf-8")).encode("utf-8"))
     return h
 

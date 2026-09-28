@@ -9,17 +9,17 @@ check() {  # check <what> <expected type> <clue> <answer> [--definition D] [--bl
   what=$1 want=$2
   shift 2
   got=$(python3 "$REPO/tools/letter_facts.py" --clue "$@" | python3 -c \
-    'import json,sys; r=json.load(sys.stdin); print("NONE" if r is None else r.get("type") or "UNDECIDED")')
+    'import json,sys; r=json.load(sys.stdin); print("NONE" if r is None else " + ".join(r.get("type") or ["UNDECIDED"]))')
   if [ "$want" = "$got" ]; then echo "ok   $what"; else
     echo "FAIL $what: expected [$want], got [$got]"; fails=$((fails + 1)); fi
 }
 
 check "a run of words with the answer's letters is an anagram" anagram \
   'Men on phone exchange will be a rarity' PHENOMENON --definition 'a rarity'
-check "the answer inside one word is hidden" "hidden word" 'Bird spotted in Leatherhead (4)' RHEA
-check "the answer backwards across words is a hidden reversal" "hidden word + reversal" \
+check "the answer inside one word is hidden" "hidden_word" 'Bird spotted in Leatherhead (4)' RHEA
+check "the answer backwards across words is a hidden reversal" "hidden_word + reversal" \
   'Ruler rejects any dubious packages from the East (6)' DYNAST
-check "an answer spelt both ways in one run is read forward, taking no reversal" "hidden word" \
+check "an answer spelt both ways in one run is read forward, taking no reversal" "hidden_word" \
   'Mate getting into top position (4)' OPPO
 check "a block inside another is a container" container \
   'American novelist gets stuck penning English (5)' JAMES --block 'JAMS=gets stuck' --block E=English
@@ -29,9 +29,9 @@ check "fodder beside a block is charade + anagram" "charade + anagram" \
   "Girl's to eat after brewing lager (9)" GERALDINE --block DINE=eat
 check "a literal clue word inside a block is a container, not an anagram" container \
   'Try to catch the girl (7)' HEATHER --block HEAR=Try --definition girl
-check "a letter taken from a word the source names is a first letter" "charade + reversal + first letter" \
+check "a letter taken from a word the source names is a first letter" "charade + reversal + letter_selection" \
   "Famous college backed Delius' overture (5)" NOTED --block ETON=college --block "D=Delius' overture"
-check "a lone word's initial is a first letter unless it is a listed abbreviation" "charade + first letter" \
+check "a lone word's initial is a first letter unless it is a listed abbreviation" "charade + letter_selection" \
   'One from Yokohama being paid in yen (8)' YEARNING --block Y=Yokohama --block 'EARNING=being paid'
 check "fodder less the blocks is left to a person" UNDECIDED \
   'Being dry, replacement unfortunately left out (10)' TEMPERANCE --block L=left --definition 'Being dry'
@@ -49,9 +49,9 @@ check "a short answer is not hidden by chance" NONE 'Tea and scones (3)' AND
 
 written=$(cd "$REPO/tools" && python3 -c '
 import letter_facts as l
-print(l.written("anagram"), l.written("container + first letter"), l.written("charade"),
-      l.stated({"type": "container", "typeCore": True, "inferred": ["type"], "definition": ["d"]}))')
-want="('anagram', False) ('container', True) None {'definition': ['d']}"
+print(l.written(["anagram"]), l.written(["container", "letter_selection"]), l.written(["charade"]),
+      l.stated({"type": ["container"], "typeCore": True, "inferred": ["type"], "definition": ["d"]}))')
+want="(['anagram'], False) (['container'], True) None {'definition': ['d']}"
 if [ "$written" = "$want" ]; then echo "ok   a trusted reading is written whole, a core-trusted one as its core, marked"; else
   echo "FAIL written/stated: expected [$want], got [$written]"; fails=$((fails + 1)); fi
 
@@ -59,7 +59,7 @@ if [ "$written" = "$want" ]; then echo "ok   a trusted reading is written whole,
 # and "within" are container indicators, "the" a word blogs leave over and never name.
 inds=$(cd "$REPO/tools" && python3 -c '
 import letter_facts as l
-rows = [(f"p{i}", "e", f"Box {w} the key", "BKOEYX", {"type": "container", "definition": ["Box"], "indicators": [w]})
+rows = [(f"p{i}", "e", f"Box {w} the key", "BKOEYX", {"type": ["container"], "definition": ["Box"], "indicators": [w]})
         for i in range(25) for w in ("holding", "within")]
 ilex = l.Indicators(rows)
 blocks = [["TUTS", "expresses disapproval"], ["ORES", "minerals"]]
@@ -79,11 +79,11 @@ if [ "$inds" = "$want" ]; then echo "ok   the one indicator the blocks want is r
 ours=$(cd "$REPO/tools" && python3 -c '
 import letter_facts as l
 clue = "Teacher expresses disapproval holding the minerals (8)"
-facts = {"type": "container", "definition": ["Teacher"], "indicators": ["holding"],
+facts = {"type": ["container"], "definition": ["Teacher"], "indicators": ["holding"],
          "blocks": [["TUTS", "expresses disapproval"], ["ORES", "minerals"]]}
 own = ("q", "e", clue, "TUTORESS", facts)
 box = lambda w, n: [(f"{w}{i}", "e", f"Box {w} the key", "BKOEYX",
-                     {"type": "container", "definition": ["Box"], "indicators": [w]}) for i in range(n)]
+                     {"type": ["container"], "definition": ["Box"], "indicators": [w]}) for i in range(n)]
 blogs = box("within", 25)  # "the", left over in all of them and never named, is a link word
 read = lambda ilex: l.infer_indicators(clue, "TUTORESS", {k: v for k, v in facts.items() if k != "indicators"}, ilex)
 print(read(l.Indicators(blogs, extra=box("holding", l.MIN_INDICATOR) + [own])),
@@ -118,11 +118,11 @@ def read(clue, **kw):
 print(read("Teacher expresses disapproval over minerals (8)"),
       read("Teacher for expresses disapproval over minerals (8)", blocks=[]),
       read("Expresses disapproval over minerals, strict teacher (8)", blocks=[]),
-      read("Teacher expresses disapproval over minerals (8)", type="double definition"),
+      read("Teacher expresses disapproval over minerals (8)", type=["double_definition"]),
       l.infer_definition("Teacher expresses disapproval (8)", "TUTEE", {"blocks": blocks}, dlex),
       read("Teacher expresses disapproval over minerals (8,4)"),
-      l.stated({"definition": ["Teacher"], "inferred": ["definition"], "type": "charade"}))')
-want="['Teacher'] ['Teacher'] None [] [] [] {'type': 'charade'}"
+      l.stated({"definition": ["Teacher"], "inferred": ["definition"], "type": ["charade"]}))')
+want="['Teacher'] ['Teacher'] None [] [] [] {'type': ['charade']}"
 if [ "$defs" = "$want" ]; then echo "ok   a definition blogs underlined for the answer is read where wordplay or a link word bounds it, and is not the blog's"; else
   echo "FAIL definitions: expected [$want], got [$defs]"; fails=$((fails + 1)); fi
 
@@ -182,16 +182,16 @@ if [ "$edges" = "$want" ]; then echo "ok   a word blogs seldom take into a block
 # with its two halves.
 blockless=$(cd "$REPO/tools" && python3 -c '
 import letter_facts as l
-h = {"type": "hidden word", "definition": ["Bird"]}
+h = {"type": ["hidden_word"], "definition": ["Bird"]}
 carrier = l.infer_carrier("Bird spotted in Leatherhead (4)", "RHEA", h)
-print(carrier, l.infer_carrier("Bird spotted in Leatherhead (4)", "RHEA", {**h, "type": "hidden word + reversal"}),
+print(carrier, l.infer_carrier("Bird spotted in Leatherhead (4)", "RHEA", {**h, "type": ["hidden_word", "reversal"]}),
       l.infer_carrier("Bird in Leatherhead or Leatherhead (4)", "RHEA", h), l.needed("RHEA", carrier),
-      l.infer_carrier("Ruler rejects any dubious packages from the East (6)", "DYNAST", {"type": "hidden word"}))
+      l.infer_carrier("Ruler rejects any dubious packages from the East (6)", "DYNAST", {"type": ["hidden_word"]}))
 blocks = {"blocks": [[*carrier[0], "inferred"]]}
 print(l.complete("RHEA", {**h, **blocks}), l.complete("RHEA", {**h, **blocks, "indicators": ["spotted in"]}),
-      l.complete("TIRE", {"type": "double definition", "definition": ["Tire", "wheel cover"]}),
+      l.complete("TIRE", {"type": ["double_definition"], "definition": ["Tire", "wheel cover"]}),
       l.complete("CUBA", {"definition": ["island"], "blocks": [["CUB", "Baby animal"], ["A", "a"]]}))')
-want="[('RHEA', 'Leatherhead')] [] [] {'hidden'} [('DYNAST', 'rejects any dubious')]
+want="[('RHEA', 'Leatherhead')] [] [] {'hidden_word'} [('DYNAST', 'rejects any dubious')]
 False True True True"
 if [ "$blockless" = "$want" ]; then echo "ok   a hidden word's carrier is read where one run spells it, and a clue is complete with the parts its kind has"; else
   echo "FAIL block-less types: expected [$want], got [$blockless]"; fails=$((fails + 1)); fi
@@ -224,14 +224,14 @@ if [ "$hiding" = "$want" ]; then echo "ok   a one-part clue's indicator is its f
 # Such a clue wants that part's indicator, and with it and a definition is complete.
 heard=$(cd "$REPO/tools" && python3 -c '
 import blog_facts as b, letter_facts as l
-tun = b.heard_blocks("homophone", [["TUN", "beer cask"]], "TON")
-spoon = b.heard_blocks("spoonerism", [["COARSE", "common"], ["MODE", "kind"]], "MORSECODE")
+tun = b.heard_blocks(["homophone"], [["TUN", "beer cask"]], "TON")
+spoon = b.heard_blocks(["spoonerism"], [["COARSE", "common"], ["MODE", "kind"]], "MORSECODE")
 print(tun, spoon)
-print(b.heard_blocks("homophone", [["A RIVAL", "competitor"]], "ARRIVAL", "We’re told a competitor’s coming"))
-print(b.heard_blocks("homophone", [["UP", "getting out of bed"]], "TEEUP"),
-      b.heard_blocks("homophone", [["ARSE", "bottom"]], "ARSIS"), b.heard_blocks("charade", [["TUN", "x"]], "TON"))
-h = {"type": "homophone", "definition": ["Heavyweight"], "blocks": tun}
-print(l.coverage("TON", h), l.needed("TON", tun, "homophone"), l.needed("MORSECODE", spoon, "spoonerism"),
+print(b.heard_blocks(["homophone"], [["A RIVAL", "competitor"]], "ARRIVAL", "We’re told a competitor’s coming"))
+print(b.heard_blocks(["homophone"], [["UP", "getting out of bed"]], "TEEUP"),
+      b.heard_blocks(["homophone"], [["ARSE", "bottom"]], "ARSIS"), b.heard_blocks(["charade"], [["TUN", "x"]], "TON"))
+h = {"type": ["homophone"], "definition": ["Heavyweight"], "blocks": tun}
+print(l.coverage("TON", h), l.needed("TON", tun, ["homophone"]), l.needed("MORSECODE", spoon, ["spoonerism"]),
       l.complete("TON", h), l.complete("TON", {**h, "indicators": ["by the sound of it"]}))')
 want="[['TON', 'beer cask', {'soundsLike': 'TUN'}]] [['MORSE', 'common', {'soundsLike': 'COARSE'}], ['CODE', 'kind', {'soundsLike': 'MODE'}]]
 [['ARRIVAL', 'a competitor', {'soundsLike': 'A RIVAL'}]]
@@ -247,15 +247,15 @@ if [ "$heard" = "$want" ]; then echo "ok   a homophone's and a spoonerism's bloc
 # are the blog's block again. A word said otherwise is no homophone.
 cmu=$(cd "$REPO/tools" && python3 -c '
 import letter_facts as l
-f = {"type": "homophone", "blocks": [["BARRED", "banned"]]}
+f = {"type": ["homophone"], "blocks": [["BARRED", "banned"]]}
 new = l.infer_heard("Singer banned from listening (4)", "BARD", f)
 print(new, l.stated(l.with_heard(f, new)))
-print(l.infer_heard("Get a letter read out (3)", "SEE", {"type": "homophone", "blocks": [["C", "a letter"]]}),
+print(l.infer_heard("Get a letter read out (3)", "SEE", {"type": ["homophone"], "blocks": [["C", "a letter"]]}),
       l.infer_heard("Betrayed only uncertainty in speech (4,3)", "SOLDOUT",
-                    {"type": "homophone", "blocks": [["SOLE DOUBT", "only uncertainty"]]}),
+                    {"type": ["homophone"], "blocks": [["SOLE DOUBT", "only uncertainty"]]}),
       l.said_like("LARVA", "LAVA"), l.said_like("SHIP", "SHEEP"),
-      l.infer_heard("Skin trouble said to be found in London (4)", "ACNE", {"type": "homophone", "blocks": [["HACKNEY", "found in London"]]}))')
-want="[['BARD', 'banned', {'soundsLike': 'BARRED'}]] {'type': 'homophone', 'blocks': [['BARRED', 'banned']]}
+      l.infer_heard("Skin trouble said to be found in London (4)", "ACNE", {"type": ["homophone"], "blocks": [["HACKNEY", "found in London"]]}))')
+want="[['BARD', 'banned', {'soundsLike': 'BARRED'}]] {'type': ['homophone'], 'blocks': [['BARRED', 'banned']]}
 [['SEE', 'a letter', {'soundsLike': 'C'}]] [['SOLDOUT', 'only uncertainty', {'soundsLike': 'SOLE DOUBT'}]] True False []"
 if [ "$cmu" = "$want" ]; then echo "ok   a homophone's block is heard by the pronouncing dictionary where the spelling rules miss"; else
   echo "FAIL dictionary homophones: expected [$want], got [$cmu]"; fails=$((fails + 1)); fi
@@ -267,7 +267,7 @@ if [ "$cmu" = "$want" ]; then echo "ok   a homophone's block is heard by the pro
 own=$(cd "$REPO/tools" && python3 -c '
 import letter_facts as l
 clue = "Men on phone exchange will be a rarity"
-print(l.infer_fodder(clue, "PHENOMENON", {"type": "anagram", "definition": ["a rarity"]}, {}),
+print(l.infer_fodder(clue, "PHENOMENON", {"type": ["anagram"], "definition": ["a rarity"]}, {}),
       l.infer_fodder(clue, "PHENOMENON", {"definition": ["a rarity"]}, {}))
 rows = [("d", "e", "Lead (8)", "PLUMBAGO", {"definition": ["Lead"]})]
 lex, dlex = l.Lexicon(rows), l.Definitions(rows)

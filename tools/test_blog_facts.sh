@@ -31,23 +31,23 @@ PY
 FS='<table><tr><td>9</td><td><b>SARI</b></td><td><font color="blue"><u>Cloth</u> sample in Mombasa rickshaw (4)</font><br />Hidden in mombaSA Rickshaw</td></tr>
 <tr><td>10</td><td><b>HAMMERTOE</b></td><td><font color="blue"><u>Digital discomfort</u> caused as actor pressed remote (9)</font><br />HAM (actor) + REMOTE*</td></tr></table>'
 check "fifteensquared definition and hidden type" \
-  '{"definition": ["Cloth"], "type": "hidden word"}' \
+  '{"definition": ["Cloth"], "type": ["hidden_word"]}' \
   "$(facts fifteensquared 'Cloth sample in Mombasa rickshaw (4)' "$FS" SARI)"
 check "a star and a plus spell the answer: anagram + charade, the block sourced" \
-  '{"blocks": [["HAM", "actor"], ["REMOTE", "remote", "anagrammed"]], "definition": ["Digital discomfort"], "type": "charade + anagram"}' \
+  '{"blocks": [["HAM", "actor"], ["REMOTE", "remote", "anagrammed"]], "definition": ["Digital discomfort"], "type": ["charade", "anagram"]}' \
   "$(facts fifteensquared 'Digital discomfort caused as actor pressed remote (9)' "$FS" HAMMERTOE)"
 
 # A hidden word the write-up shows rather than names: the answer set off by
 # case or brackets inside the clue words it hides in, or called a lurker.
-t() { facts "$1" "$2" "<p>1 $2<br/>$3</p>" "$4" | python3 -c 'import json,sys; print(json.load(sys.stdin).get("type"))'; }
+t() { facts "$1" "$2" "<p>1 $2<br/>$3</p>" "$4" | python3 -c 'import json,sys; print(" + ".join(json.load(sys.stdin).get("type") or ["None"]))'; }
 check "the answer in capitals inside the clue words is a hidden word, a clue capital no mark" \
-  'hidden word' "$(t timesforthetimes 'Princely Valentino bleeding a little (5)' 'NOBLE – “a little” of the letters of ValentiNO BLEeding' NOBLE)"
+  'hidden_word' "$(t timesforthetimes 'Princely Valentino bleeding a little (5)' 'NOBLE – “a little” of the letters of ValentiNO BLEeding' NOBLE)"
 check "the answer in brackets inside a clue word is a hidden word" \
-  'hidden word' "$(t timesforthetimes 'Wild party in Gravesend (4)' 'RAVE – G(RAVE)send.' RAVE)"
+  'hidden_word' "$(t timesforthetimes 'Wild party in Gravesend (4)' 'RAVE – G(RAVE)send.' RAVE)"
 check "the answer backwards in capitals is a reversed hidden word" \
-  'hidden word + reversal' "$(t fifteensquared 'Bird seen soaring in Milton Keynes (4)' 'reversed, i.e. soaring in, in ‘milTON Keynes’' KNOT)"
+  'hidden_word + reversal' "$(t fifteensquared 'Bird seen soaring in Milton Keynes (4)' 'reversed, i.e. soaring in, in ‘milTON Keynes’' KNOT)"
 check "a lurker the clue's letters hold is a hidden word" \
-  'hidden word' "$(t bigdave44 'Responsibility deacon usually carries (4)' 'ONUS: A lurker hiding in (carries) deacon usually.' ONUS)"
+  'hidden_word' "$(t bigdave44 'Responsibility deacon usually carries (4)' 'ONUS: A lurker hiding in (carries) deacon usually.' ONUS)"
 check "a lurker the clue's letters do not hold is not" \
   'None' "$(t bigdave44 'Responsibility deacon carries (4)' 'ONUS: not a lurker, a word for it.' ONUS)"
 check "letters cut off one end of a clue word are a deletion, not a hidden word" \
@@ -55,7 +55,7 @@ check "letters cut off one end of a clue word are a deletion, not a hidden word"
 check "the core of a clue word under a selecting word is not a hidden word" \
   'None' "$(t fifteensquared 'Heart of start is a star (3)' 's(TAR)t' TAR)"
 check "bigdave44's \"2 meanings\" is a double definition" \
-  'double definition' "$(t bigdave44 'Extraordinary red (4)' '{RARE} 2 meanings: extraordinary/red (as underdone meat)' RARE)"
+  'double_definition' "$(t bigdave44 'Extraordinary red (4)' '{RARE} 2 meanings: extraordinary/red (as underdone meat)' RARE)"
 check "\"is placed around\" is read past to its operator" \
   'anagram + container' "$(t bigdave44 'Grave-digger needs stone to be put in position about ten (6)' '{SEXTON} – An anagram (to be put in position) of STONE is placed around X (ten).' SEXTON)"
 check "\"another (gloss) of\" after an anagram is a second anagram" \
@@ -75,7 +75,7 @@ check "a gloss on clue words put in is the indicator whole" \
 # Two underlines with only a space between them are two spans.
 DD='<p>3 <u>Consequence</u> of <u>lob</u>? (6)<br/>Double definition</p>'
 check "double definition keeps both halves" \
-  '{"definition": ["Consequence", "lob"], "type": "double definition"}' \
+  '{"definition": ["Consequence", "lob"], "type": ["double_definition"]}' \
   "$(facts fifteensquared 'Consequence of lob? (6)' "$DD" UPSHOT)"
 SPLIT='<p>3 <u>Consequence</u> of <u>lob</u>? (6)<br/>UP + SHOT</p>'
 check "two spans that are not a double definition ship no definition" \
@@ -83,7 +83,7 @@ check "two spans that are not a double definition ship no definition" \
 # A blogger who underlines both ends and names no type has marked a double
 # definition; one whose explanation spells the answer has marked a split one.
 check "two spans at the two ends, the explanation no wordplay, are a double definition" \
-  '{"definition": ["Criminal", "tendency"], "type": "double definition"}' \
+  '{"definition": ["Criminal", "tendency"], "type": ["double_definition"]}' \
   "$(facts bigdave44 'Criminal tendency (4)' '<p>1a <u>Criminal</u> <u>tendency</u> (4)<br/>BENT – Slang for criminal or a tendency or inclination</p>' BENT)"
 check "two spans at the two ends round wordplay are not" \
   '{"blocks": [["RASH VOTE", "Rash vote", "anagrammed"]]}' "$(facts timesforthetimes 'Rash vote cast before end of day could be this? (9)' \
@@ -103,10 +103,10 @@ KEY='<p>definitions underlined, [anagrinds, containment, reversal and other indi
 TT='<tr><td>6</td><td><span><i><b><u>Pick</u></b></i> brief lecture arranged during afternoon (8)</span></td></tr>
 <tr><td></td><td><b>PLECTRUM</b></td></tr><tr><td></td><td>Anagram [arranged] of LECTUR{e} [brief] contained by [during] PM (afternoon)</td></tr>'
 check "timesforthetimes bracketed indicators under the key, a spelled compound type" \
-  '{"blocks": [["LECTUR", "lecture", "anagrammed"], ["PM", "afternoon"]], "definition": ["Pick"], "indicators": ["arranged", "brief", "during"], "type": "anagram + container + deletion"}' \
+  '{"blocks": [["LECTUR", "lecture", "anagrammed"], ["PM", "afternoon"]], "definition": ["Pick"], "indicators": ["arranged", "brief", "during"], "type": ["anagram", "container", "deletion"]}' \
   "$(facts timesforthetimes 'Pick brief lecture arranged during afternoon (8)' "$KEY$TT" PLECTRUM)"
 check "no key: a bracket after an operation or a cut names its indicator, never a source" \
-  '{"blocks": [["LECTUR", "lecture", "anagrammed"], ["PM", "afternoon"]], "definition": ["Pick"], "indicators": ["arranged", "during", "brief"], "type": "anagram + container + deletion"}' \
+  '{"blocks": [["LECTUR", "lecture", "anagrammed"], ["PM", "afternoon"]], "definition": ["Pick"], "indicators": ["arranged", "during", "brief"], "type": ["anagram", "container", "deletion"]}' \
   "$(facts timesforthetimes 'Pick brief lecture arranged during afternoon (8)' "$TT" PLECTRUM)"
 
 # bigdave44: indicators in italics inside parentheses, answer in a spoiler.
@@ -122,7 +122,7 @@ check "bigdave44 underline by style" \
 
 # A cross-reference is part of the clue, so a digit inside the underline stays.
 check "digits inside a definition are kept" \
-  '{"definition": ["3 characters"], "type": "hidden word"}' \
+  '{"definition": ["3 characters"], "type": ["hidden_word"]}' \
   "$(facts fifteensquared '3 characters in hotel ate ridiculously (8)' '<p>16 <u>3 characters</u> in hotel ate ridiculously (8)<br/>Hidden in hotEL ATE RIDiculously</p>' ELATERID)"
 
 # Building blocks: WORD (clue words), letters checked against the answer.
@@ -132,10 +132,10 @@ FT='<table><tr><td>1</td><td><strong>TAKE COVER</strong></td><td><div><span>Arra
 <tr><td>6</td><td><strong>SEÑOR</strong></td><td><div><span style="text-decoration: underline">European’s address</span><span> from individuals backing Republican (5)</span></div></td></tr>
 <tr><td colspan="2"></td><td><strong>ONES</strong> (individuals) <em>reversed </em>(backing) + <strong>R</strong> (Republican)</td></tr></table>'
 check "FT 18486 1A: blocks joined by + that spell the answer are a charade" \
-  '{"blocks": [["TAKE", "Arrange"], ["COVER", "insurance"]], "definition": ["head for shelter"], "type": "charade"}' \
+  '{"blocks": [["TAKE", "Arrange"], ["COVER", "insurance"]], "definition": ["head for shelter"], "type": ["charade"]}' \
   "$(facts fifteensquared 'Arrange insurance and head for shelter (4,5)' "$FT" TAKECOVER)"
 check "FT 18486 6A: an italic operation names its indicator, and the reversal is letter-checked" \
-  '{"blocks": [["ONES", "individuals"], ["R", "Republican"]], "definition": ["European’s address"], "indicators": ["backing"], "type": "charade + reversal"}' \
+  '{"blocks": [["ONES", "individuals"], ["R", "Republican"]], "definition": ["European’s address"], "indicators": ["backing"], "type": ["charade", "reversal"]}' \
   "$(facts fifteensquared 'European’s address from individuals backing Republican (5)' "$FT" SENOR)"
 check "pieces that do not spell the answer are no type; a source not in the clue is no block" \
   '{"blocks": [["TAKE", "Arrange"]], "definition": ["head for shelter"]}' \
@@ -144,21 +144,21 @@ check "clue words that hold the letters and a selecting word: the type would lea
   '{"blocks": [["TH", "most of the"], ["IN", "batting"]], "definition": ["Balding"]}' \
   "$(facts fifteensquared 'Balding most of the batting (4)' '<p>1 <u>Balding</u> most of the batting (4)<br/>TH (most of the) + IN (batting)</p>' THIN)"
 check "an operator binds to the piece beside it: MO + (HERON)*, not an anagram of both" \
-  '{"blocks": [["HERON", "heron", "anagrammed"], ["MO", "second"]], "definition": ["Bird"], "indicators": ["flapping"], "type": "charade + anagram"}' \
+  '{"blocks": [["HERON", "heron", "anagrammed"], ["MO", "second"]], "definition": ["Bird"], "indicators": ["flapping"], "type": ["charade", "anagram"]}' \
   "$(facts timesforthetimes 'Bird flapping heron after second (7)' '<p>1 <u>Bird</u> flapping heron after second (7)<br/>MOORHEN – anagram (flapping) of HERON, after MO (second)</p>' MOORHEN)"
 check "a hidden word keeps its type and shows no blocks" \
-  '{"definition": ["Record-holder"], "indicators": ["somewhat"], "type": "hidden word"}' \
+  '{"definition": ["Record-holder"], "indicators": ["somewhat"], "type": ["hidden_word"]}' \
   "$(facts timesforthetimes 'Record-holder, somewhat egotistical, bumptious (5)' '<p>1 <u>Record-holder</u>, somewhat egotistical, bumptious (5)<br/>ALBUM : Hidden in (somewhat) {egotistic}AL BUM{ptious}</p>' ALBUM)"
 
 # Bracketed letters are the unused ones, which is a selection as often as a deletion.
 check "the kept letters name the selection: O[penly] R[evered] is first letters, not a deletion" \
-  '{"blocks": [["O", "openly"], ["R", "revered"]], "definition": ["Teacher"], "type": "charade + first letters"}' \
+  '{"blocks": [["O", "openly"], ["R", "revered"]], "definition": ["Teacher"], "type": ["charade", "letter_selection"]}' \
   "$(facts timesforthetimes 'Teacher openly revered at first by boy king (5)' '<p>1 <u>Teacher</u> openly revered at first by boy king (5)<br/>TUTOR – TUT + O[penly] R[evered].</p>' TUTOR)"
 check "letters kept one in two are alternate letters, not a deletion" \
-  '{"definition": ["Passion"], "indicators": ["regularly"], "type": "alternate letters"}' \
+  '{"definition": ["Passion"], "indicators": ["regularly"], "type": ["letter_selection"]}' \
   "$(facts timesforthetimes 'Passion Zoe regularly (4)' '<p>1 <u>Passion</u> Zoe regularly (4)<br/>ZEAL – Z{o}E{e}A{r}L{y} [regularly]</p>' ZEAL)"
 check "brackets at both ends of a run of words are a hidden word, never a deletion" \
-  '{"definition": ["Port"], "type": "hidden word"}' \
+  '{"definition": ["Port"], "type": ["hidden_word"]}' \
   "$(facts fifteensquared 'Port contributing to slipshod essay (6)' '<p>1 <u>Port</u> contributing to slipshod essay (6)<br/>[slipsh]OD ESSA[y]</p>' ODESSA)"
 check "clue words that only say what to cut are no block's source" \
   '{"blocks": [["E", "European"]], "definition": ["Learned"]}' \
@@ -168,20 +168,20 @@ check "clue words that only say what to cut are no block's source" \
 # doubled letter, and brackets that also gloss or hold fodder.
 T29='<p>definitions underlined, [anagrinds, containment, reversal and other indicators in square ones]</p>'
 check "the answer as a word less a cut is that word's block; a bracket's gloss is a block and the rest its indicator" \
-  '{"blocks": [["RESIGN", "Give up work"], ["S", "son"]], "definition": ["hold sway"], "indicators": ["releasing"], "type": "deletion"}' \
+  '{"blocks": [["RESIGN", "Give up work"], ["S", "son"]], "definition": ["hold sway"], "indicators": ["releasing"], "type": ["deletion"]}' \
   "$(facts timesforthetimes 'Give up work, releasing son to hold sway (5)' "$T29<p>10 Give up work, releasing son to <u>hold sway</u> (5)<br/>REIGN<br/>RE{s}IGN {give up work} [releasing son – s]</p>" REIGN)"
 check "B+B (bishops) is the block BB, and the container is spelled" \
-  '{"blocks": [["BB", "bishops"], ["NILE", "river"]], "definition": ["Quick bite"], "indicators": ["demanded in middle of"], "type": "container"}' \
+  '{"blocks": [["BB", "bishops"], ["NILE", "river"]], "definition": ["Quick bite"], "indicators": ["demanded in middle of"], "type": ["container"]}' \
   "$(facts timesforthetimes 'Quick bite bishops demanded in middle of river (6)' "$T29<p>18 <u>Quick bite</u> bishops demanded in middle of river (6)<br/>NIBBLE<br/>B+B (bishops) contained by [demanded in middle of] NILE (river).</p>" NIBBLE)"
 check "fodder at the end of a bracket is not the indicator" \
-  '{"blocks": [["CANTERBURY", "See"], ["BELLS", "beautiful girls"]], "definition": ["flowers"], "indicators": ["cutting last of"], "type": "charade + deletion"}' \
+  '{"blocks": [["CANTERBURY", "See"], ["BELLS", "beautiful girls"]], "definition": ["flowers"], "indicators": ["cutting last of"], "type": ["charade", "deletion"]}' \
   "$(facts timesforthetimes 'See beautiful girls cutting last of ornate flowers (10,5)' "$T29<p>6 See beautiful girls cutting last of ornate <u>flowers</u> (10,5)<br/>CANTERBURY BELLS<br/>CANTERBURY (see), BELL{e}S (beautiful girls) [cutting last of {ornat}e]</p>" CANTERBURYBELLS)"
 
 check "a cut word glossed with its cut is no block: STOA{t} (tailless) is not STOAT" \
-  '{"definition": ["colonnade"], "indicators": ["Tailless"], "type": "deletion"}' \
+  '{"definition": ["colonnade"], "indicators": ["Tailless"], "type": ["deletion"]}' \
   "$(facts timesforthetimes 'Tailless furry creature by colonnade (4)' '<p>1 Tailless furry creature by <u>colonnade</u> (4)<br/>STOA – STOA{t} (furry creature without last letter – tailless)</p>' STOA)"
 check "a letter and a cut word starting with it are not a doubled letter" \
-  '{"blocks": [["EG", "Eulogising"], ["G", "good"], ["SHE", "woman"], ["LL", "lines"]], "definition": ["of great delicacy"], "type": "charade + outer letters"}' \
+  '{"blocks": [["EG", "Eulogising"], ["G", "good"], ["SHE", "woman"], ["LL", "lines"]], "definition": ["of great delicacy"], "type": ["charade", "letter_selection"]}' \
   "$(facts fifteensquared 'Eulogising emptily good woman lines of great delicacy (8)' '<p>1 Eulogising emptily good woman lines <u>of great delicacy</u> (8)<br/>E(ulogisin)G + G(ood) + SHE (“woman”) + LL (“lines”)</p>' EGGSHELL)"
 
 # Definition marks other than <u>, and the refusal that keeps bold italic narrow.
@@ -195,10 +195,10 @@ check "bold italic is the definition only on a post with no underline" \
   '["city"] null' \
   "$(for u in '' '<u>x</u>'; do facts fifteensquared 'The fisherman’s bringing up food for the city (5,10)' "$u<p>5 The fisherman’s bringing up food for the <strong><em>city</em></strong> (5,10)<br/>x</p>" SAINTPETERSBURG | python3 -c 'import json,sys; print(json.dumps(json.load(sys.stdin).get("definition")))'; done | paste -sd' ')"
 check "the clue's operator in brackets between blocks: LASS (girl) [wrapping] G" \
-  '{"blocks": [["MINUTE", "Tiny"], ["LASS", "girl"], ["G", "grand"]], "definition": ["timing device"], "indicators": ["wrapping"], "type": "charade + container"}' \
+  '{"blocks": [["MINUTE", "Tiny"], ["LASS", "girl"], ["G", "grand"]], "definition": ["timing device"], "indicators": ["wrapping"], "type": ["charade", "container"]}' \
   "$(facts timesforthetimes 'Tiny girl wrapping grand timing device (6-5)' '<p>12 Tiny girl wrapping grand <u>timing device</u> (6-5)<br/>MINUTE-GLASS – MINUTE (tiny) LASS (girl) [wrapping] G (grand).</p>' MINUTEGLASS)"
 check "minus the first letter trims; a curly quote opening a source; ', for' starts prose" \
-  '{"blocks": [["SEND UP", "burlesque"]], "definition": ["Finish"], "indicators": ["topless"], "type": "deletion"}' \
+  '{"blocks": [["SEND UP", "burlesque"]], "definition": ["Finish"], "indicators": ["topless"], "type": ["deletion"]}' \
   "$(facts timesforthetimes 'Finish burlesque topless (3,2)' '<p>1 <u>Finish</u> burlesque topless (3,2)<br/>END UP – SEND UP (burlesque), minus the first letter (topless), for leader of the gang.</p>' ENDUP)"
 check "a source quoted with a closing quote, an apostrophe inside it" \
   '[["IS ON", "hasn’t been cancelled"], ["UN", "international organisation"]]' \
@@ -266,7 +266,7 @@ check "two splits of the answer are undecided" \
 check "a reading blogs gave in too few of the clues its words stand in is not read" \
   '[]' "$(lex 'Frozen: one church and (4)' ICED '{"definition": ["Frozen"]}')"
 check "an anagram's letters are not split into blocks" \
-  '[]' "$(lex 'Polar covering: one church hat (6)' ICECAP '{"definition": ["Polar covering"], "type": "anagram"}')"
+  '[]' "$(lex 'Polar covering: one church hat (6)' ICECAP '{"definition": ["Polar covering"], "type": ["anagram"]}')"
 check "a possessive reads as the word, written as blogs write it" \
   '[["I", "one"], ["CE", "church"], ["CAP", "hat"]]' \
   "$(lex 'Polar covering: one church’s hat (6)' ICECAP '{"definition": ["Polar covering"]}')"
@@ -285,12 +285,12 @@ print(json.dumps(bf.leads("DULCIE (girl) entertaining M, then IMER = right instr
 
 # An inferred block is marked, and every reader tells it from the blog's.
 check "an inferred block is marked, and the facts as stated drop it" \
-  '{"blocks": [["CAP", "hat"], ["I", "one", "inferred"]], "inferred": ["blocks", "type"], "type": "charade"} {"blocks": [["CAP", "hat"]]}' \
+  '{"blocks": [["CAP", "hat"], ["I", "one", "inferred"]], "inferred": ["blocks", "type"], "type": ["charade"]} {"blocks": [["CAP", "hat"]]}' \
   "$(REPO="$REPO" python3 -c '
 import json, os, sys
 sys.path.insert(0, os.path.join(os.environ["REPO"], "tools"))
 import letter_facts as lf
-f = lf.with_blocks({"blocks": [["CAP", "hat"]], "type": "charade", "inferred": ["type"]}, [("I", "one")])
+f = lf.with_blocks({"blocks": [["CAP", "hat"]], "type": ["charade"], "inferred": ["type"]}, [("I", "one")])
 print(json.dumps(f, sort_keys=True), json.dumps(lf.stated(f), sort_keys=True))')"
 check "the site, the validator and --score take an inferred block as ours, not the blogger's" \
   '[{"clueFragment": "hat", "gives": "CAP"}, {"clueFragment": "one", "gives": "I", "inferred": true}] [] 1' \
