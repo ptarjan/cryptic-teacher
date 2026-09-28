@@ -23,6 +23,10 @@ So this writes real HTML files alongside the app:
                            abbreviations" is a question people type, and a
                            lookup table buried a third of the way down a
                            beginner's guide cannot answer it.
+  difficulty/index.html    how the difficulty badge is worked out and checked,
+                           from tools/difficulty_page.html with every number
+                           filled in from tools/difficulty.py and
+                           tools/data/difficulty_check.json.
   sitemap.xml              all of the above, with real lastmod dates.
 
 These pages are not doorways: each carries the annotation work for one specific
@@ -52,6 +56,8 @@ from urllib.parse import urlparse
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import app_tables  # noqa: E402 — the app's own sentence about each series
 import build_abbreviations  # noqa: E402 — one glossary, rendered into every page that shows it
+import difficulty  # noqa: E402 — the weights, bands and constants /difficulty/ quotes
+import difficulty_check  # noqa: E402 — the held-out scorecard /difficulty/ quotes
 import series as series_meta  # noqa: E402 — what each series IS; see tools/series.py
 from fetch_puzzle import (  # noqa: E402 — one glob, one reader, one puzzles/ for every tool
     PUZZLE_DIR, blog_annotation, puzzle_files, read_puzzle_file, with_blog_facts)
@@ -286,6 +292,7 @@ FOOTER = f"""<footer>
   <a href="{BASE}/puzzles/">All puzzles</a> &middot;
   <a href="{BASE}/learn/">How cryptic clues work</a> &middot;
   <a href="{BASE}/abbreviations/">Crossword abbreviations</a> &middot;
+  <a href="{BASE}/difficulty/">How difficulty is rated</a> &middot;
   <a href="https://github.com/ptarjan/cryptic-teacher">Source code</a>.</p>
 </footer>
 </body>
@@ -535,7 +542,7 @@ def puzzle_page(puz, meta, prev_p, next_p):
         # never seen the archive index that explains it. So the label is the
         # link to that explanation rather than leaving "Brutal" to read as a
         # fact about the crossword.
-        facts.append(f'<a href="{BASE}/puzzles/#difficulty">Difficulty</a>: '
+        facts.append(f'<a href="{BASE}/difficulty/">Difficulty</a>: '
                      f'<strong class="diff-{esc(diff["band"].lower())}">'
                      f'{esc(diff["band"])}</strong>{esc(extra)}')
     facts.append(f'Grid: <strong>{puz["dimensions"]["cols"]}&times;'
@@ -780,8 +787,8 @@ BADGE_KEY = ("<strong>full hints</strong>: every clue explained. "
              "<strong>answers only</strong>: answers now, explanations not written yet. "
              "<strong>unverified answers</strong>: our own solve, not yet confirmed by the "
              "paper. Difficulty runs <strong>gentle</strong>, <strong>moderate</strong>, "
-             f'<strong>tough</strong>, <strong>brutal</strong> (<a href="{BASE}/puzzles/'
-             '#difficulty">how it is judged</a>).')
+             f'<strong>tough</strong>, <strong>brutal</strong> (<a href="{BASE}/difficulty/">'
+             'how it is judged</a>).')
 
 
 def hub_page(idx):
@@ -821,10 +828,8 @@ def hub_page(idx):
         "explained (its definition, its wordplay and how they fit) or <strong>answers "
         "only</strong> if we have the answers but have not written the explanations yet.</p>",
         "<p class=\"muted small-note\" id=\"difficulty\">Difficulty runs Gentle, Moderate, "
-        "Tough, Brutal. It compares each puzzle with the others on this site, using three "
-        "things: how many squares in the grid belong to only one answer (so no crossing "
-        "answer gives you that letter), how unusual the answers are, and which kinds of "
-        "wordplay the setter uses. "
+        "Tough, Brutal. It compares each puzzle with the others on this site, from its grid, "
+        f'clues and answers: <a href="{BASE}/difficulty/">how difficulty is rated</a>. '
         f'New to cryptic crosswords? <a href="{BASE}/learn/">Start with how the clues work</a>.</p>',
         *sections,
         "</main>",
@@ -933,6 +938,137 @@ def learn_page():
         f'with hints &rarr;</a></p>',
         "</main>",
     ]
+    return head(title, desc, canonical, ld(page_ld) + ld(breadcrumb_ld(crumbs))) \
+        + "\n".join(body) + "\n" + FOOTER
+
+
+# ------------------------------------------------------------ difficulty page
+
+DIFFICULTY_TEMPLATE = ROOT / "tools" / "difficulty_page.html"
+COMPONENT = re.compile(r"<!-- component: (\w+) \| ([^>]*?) -->\n(.*?)(?=<!-- component:|\Z)", re.DOTALL)
+
+
+def signed(x):
+    """+0.50, &minus;0.25, and 0.00 for anything that rounds to zero."""
+    x = round(x, 2)
+    return "0.00" if x == 0 else f"{x:+.2f}".replace("-", "&minus;")
+
+
+def difficulty_bands(idx):
+    """The band table: where each band is cut, how many puzzles are in it now,
+    and the NITCH range its Times badges quote. All of it read off
+    difficulty.BANDS and the index."""
+    counts = {}
+    for p in idx["puzzles"]:
+        b = (p.get("difficulty") or {}).get("band")
+        if b:
+            counts[b] = counts.get(b, 0) + 1
+    total = sum(counts.values()) or 1
+    ranges = idx.get("snitchRanges") or {}
+    quoted = [s for s in difficulty.SNITCH_SERIES if ranges.get(s)]
+    head = ("<tr><th>Band</th><th>Score</th><th>Puzzles here now</th>"
+            + "".join(f"<th>{esc(series_name(s))} NITCH</th>" for s in quoted) + "</tr>")
+    rows, lo = [], None
+    for hi, band in difficulty.BANDS:
+        cut = (f"below {signed(hi)}" if lo is None else
+               f"above {signed(lo)}" if hi == float("inf") else f"{signed(lo)} to {signed(hi)}")
+        n = counts.get(band, 0)
+        nitch = "".join(
+            f"<td>{r[0]}&ndash;{r[1]}</td>" if (r := ranges[s].get(band)) else "<td>&ndash;</td>"
+            for s in quoted)
+        rows.append(f'<tr><td><span class="badge diff diff-{esc(band.lower())}">'
+                    f'{esc(band.lower())}</span></td><td>{cut}</td>'
+                    f"<td>{n:,} ({round(100 * n / total)}%)</td>{nitch}</tr>")
+        lo = hi
+    return f"<table>{head}{''.join(rows)}</table>"
+
+
+def difficulty_page(idx):
+    """Render tools/difficulty_page.html as /difficulty/.
+
+    The prose is hand-written; every number and list is filled in here from
+    the code that computes it, so the page cannot describe a rating other than
+    the one the badges show. The held-out numbers come from
+    tools/data/difficulty_check.json, which the nightly job rewrites, and are
+    quoted only if that file was measured under today's weights and baseline.
+    """
+    text = DIFFICULTY_TEMPLATE.read_text(encoding="utf-8")
+    text = re.sub(r"\A<!--.*?-->\n", "", text, flags=re.DOTALL)
+    blocks = {m.group(1): (m.group(2).strip(), m.group(3).strip()) for m in COMPONENT.finditer(text)}
+    text = text[:m.start()].rstrip() + "\n" if (m := COMPONENT.search(text)) else text
+    if set(blocks) != set(difficulty.WEIGHTS):
+        raise SystemExit(f"{DIFFICULTY_TEMPLATE.name} describes components "
+                         f"{sorted(blocks)}, but difficulty.WEIGHTS has "
+                         f"{sorted(difficulty.WEIGHTS)}: add or remove a block to match")
+
+    check = json.loads(difficulty_check.OUT.read_text(encoding="utf-8")) \
+        if difficulty_check.OUT.exists() else {}
+    live = bool(check) and difficulty_check.current(check)
+    order = sorted(difficulty.WEIGHTS, key=lambda k: -difficulty.WEIGHTS[k])
+    total = sum(difficulty.WEIGHTS.values())
+    comps = []
+    for k in order:
+        label, prose = blocks[k]
+        w = difficulty.WEIGHTS[k]
+        alone = (f" &middot; on its own {signed(check['components'][k]['mean'])}"
+                 if live and k in check.get("components", {}) else "")
+        comps.append(f'<h3 id="{esc(k)}">{esc(label)}</h3>\n'
+                     f'<p class="muted">Weight {w:g}, {round(100 * w / total)}% of the rating{alone}</p>\n'
+                     f"{prose}")
+
+    base = difficulty.load_baseline()
+    blend = base.get("comment_blend") or {}
+    blended = listed([f"the {esc(series_name(s))} ({blend[s]['index']['n']:,} puzzles)"
+                      for s in sorted(blend, key=lambda s: -blend[s]["index"]["n"])]) or "no series yet"
+    labels = {k: blocks[k][0].lower() for k in difficulty.WEIGHTS}
+    portable = listed([labels[k] for k in order if k in difficulty.PORTABLE])
+
+    if live:
+        h, b = check["heldout"], check["blended"]
+        def row(name, key):
+            c, cb = h[key], b[key]
+            return (f"<tr><td>{name}</td><td>{c['n']:,}</td><td>{signed(c['mean'])}</td>"
+                    f"<td>{signed(cb['mean'])}</td></tr>")
+        checks = ("<table><tr><th>Puzzles tested</th><th>Number</th><th>Clue rating</th>"
+                  "<th>With posted times</th></tr>"
+                  + row("Times, with our hints", "annotated")
+                  + row("Times, not yet explained (measures that need no hints)", "unannotated")
+                  + row("Sunday Times, with our hints (plain NITCH)", "sunday")
+                  + "</table>"
+                  f'<p class="muted">Each figure is the average over the three periods. Measured '
+                  f"on SNITCH ratings up to {esc(check['snitch_newest'])}.</p>")
+        g = check["gentle_margin"]
+        margin = (f"The rating puts them {g['margin']:.2f} standard deviations below the other "
+                  f"series ({g['gentle_n']:,} gentle puzzles against {g['other_n']:,} others). "
+                  f"A change that pushed this below {g['floor']:g} would be rejected.")
+    else:
+        checks = ("<p>These figures are being re-measured for the current version of the "
+                  "rating and will be back after the next nightly run.</p>")
+        margin = ("The rating has to put them clearly below the other series, by at least "
+                  f"{difficulty.MARGIN_FLOOR:g} standard deviations.")
+
+    fill = {"bands": difficulty_bands(idx), "component_count": str(len(order)),
+            "components": "\n".join(comps), "comment_min_times": str(difficulty.COMMENT_MIN_TIMES),
+            "comment_series_min": str(difficulty.COMMENT_SERIES_MIN), "blended_series": blended,
+            "checks": checks, "margin": margin, "portable_measures": portable}
+    text = re.sub(r"\{\{(\w+)\}\}", lambda m: fill.pop(m.group(1)), text)
+    if fill:
+        raise SystemExit(f"{DIFFICULTY_TEMPLATE.name} never uses "
+                         + ", ".join("{{" + k + "}}" for k in fill))
+
+    title = "How the difficulty rating works"
+    desc = ("How Cryptic Teacher rates a cryptic crossword gentle, moderate, tough or brutal: "
+            "what it measures, how each part is weighted, and how it is checked against real "
+            "solve times.")
+    canonical = f"{BASE}/difficulty/"
+    crumbs = [("Cryptic Teacher", "/"), ("How difficulty is rated", "")]
+    page_ld = {"@context": "https://schema.org", "@type": "Article",
+               "headline": title, "url": canonical, "description": desc,
+               "isAccessibleForFree": True}
+    body = [masthead(crumbs), '<main class="static-main tutorial-static">',
+            f"<h1>{title}</h1>", text,
+            f'<p class="s-cta"><a class="cta" href="{BASE}/">Pick a puzzle &rarr;</a></p>',
+            "</main>"]
     return head(title, desc, canonical, ld(page_ld) + ld(breadcrumb_ld(crumbs))) \
         + "\n".join(body) + "\n" + FOOTER
 
@@ -1069,7 +1205,8 @@ def sitemap(idx):
     urls = [(f"{BASE}/", "daily", "1.0", None),
             (f"{BASE}/puzzles/", "daily", "0.9", None),
             (f"{BASE}/learn/", "monthly", "0.8", None),
-            (f"{BASE}/abbreviations/", "weekly", "0.8", None)]
+            (f"{BASE}/abbreviations/", "weekly", "0.8", None),
+            (f"{BASE}/difficulty/", "weekly", "0.6", None)]
     for s, years in listings(idx).items():
         for y in years:
             urls.append((site_url(listing_path(s, y)), "weekly", "0.6", None))
@@ -1115,7 +1252,8 @@ def homepage_nav(idx):
      not made-up practice clues. Every puzzle has a page with all its answers, and
      many explain every clue: its definition, its wordplay and how they fit.
      New to cryptics? Start with <a href="{BASE}/learn/">how cryptic clues work</a>
-     and the <a href="{BASE}/abbreviations/">common abbreviations</a>, or browse
+     and the <a href="{BASE}/abbreviations/">common abbreviations</a>, read
+     <a href="{BASE}/difficulty/">how difficulty is rated</a>, or browse
      <a href="{BASE}/puzzles/">all {len(solved):,} puzzles</a>. The newest:</p>
   <ul>{items}</ul>
 </section>
@@ -1288,6 +1426,7 @@ def outputs():
     yield from listing_pages(idx)
     yield ROOT / "learn" / "index.html", learn_page()
     yield ROOT / "abbreviations" / "index.html", abbreviations_page(blocks)
+    yield ROOT / "difficulty" / "index.html", difficulty_page(idx)
     yield ROOT / "sitemap.xml", sitemap(idx)
     yield home
 

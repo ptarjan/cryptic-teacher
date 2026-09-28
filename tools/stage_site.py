@@ -36,7 +36,7 @@ PUBLISH = [
     "*.txt", "*.webmanifest",
     "vendor/*", "sync/*.js",
     "og/*.png",
-    "learn/index.html", "abbreviations/index.html",
+    "learn/index.html", "abbreviations/index.html", "difficulty/index.html",
     "puzzles/index.html", "puzzles/index.json", "puzzles/*.js",
     "puzzles/*/index.html", "puzzles/series/**/*",
 ]

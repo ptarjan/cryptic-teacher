@@ -25,12 +25,12 @@ import json
 import os
 import re
 import sys
-from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 import difficulty as D
+import difficulty_check as C
 from fetch_puzzle import (
     puzzle_files,
     puzzle_is_annotated,
@@ -38,8 +38,7 @@ from fetch_puzzle import (
 )
 
 CACHE = Path(os.environ.get("STAGE4_ROWS") or Path.home() / ".cache" / "cryptic-stage4-rows.json")
-PORTABLE = ("rarity", "answer_novelty", "pairing_novelty", "question_marks", "definition_unrelated",
-            "clue_count")
+PORTABLE = D.PORTABLE
 #: name -> expected sign (higher raw value = harder when +1), fixed in advance.
 CANDIDATES = {"wn_unrelated": +1, "defonly_share": +1, "example_markers": +1,
               "long_anagram_cells": -1, "def_indirect": +1,
@@ -236,30 +235,8 @@ def dump():
     print(len(rows), "rows")
 
 
-def weekday_resid_target(all_rated, lo, hi):
-    by = {}
-    for d, x in all_rated:
-        if not lo <= d <= hi:
-            by.setdefault(date.fromisoformat(d).weekday(), []).append(x)
-    return lambda r: r["nitch"] - sum(by[date.fromisoformat(r["date"]).weekday()]) / len(
-        by[date.fromisoformat(r["date"]).weekday()])
-
-
-def heldout(rows, key, sel, series="times"):
-    """rho per date third of the rows `sel` picks, and their mean."""
-    allr = sorted((r["date"], r["nitch"]) for r in rows if r["nitch"] is not None and r["series"] == series)
-    ann = sorted((r for r in rows if r["series"] == series and r["nitch"] is not None and sel(r)
-                  and r.get(key) is not None), key=lambda r: r["date"])
-    n = len(ann)
-    out = []
-    for t in (ann[: n // 3], ann[n // 3: 2 * n // 3], ann[2 * n // 3:]):
-        if series == "times":
-            f = weekday_resid_target(allr, t[0]["date"], t[-1]["date"])
-            y = [f(r) for r in t]
-        else:
-            y = [r["nitch"] for r in t]
-        out.append(D._spearman([r[key] for r in t], y))
-    return out, n
+# The shipped index's own check (tools/difficulty_check.py) defines the test.
+weekday_resid_target, heldout = C.weekday_resid_target, C.heldout
 
 
 def add(rows, base_key, k, sign, w=0.25, weight_of=None):
@@ -363,10 +340,7 @@ def order():
 
 
 def margin_of(rows):
-    rows = [r for r in rows if r["index"] is not None]
-    g = [r["index"] for r in rows if r["series"] in D.GENTLE_SERIES]
-    h = [r["index"] for r in rows if r["series"] not in D.GENTLE_SERIES]
-    return sum(h) / len(h) - sum(g) / len(g)
+    return C.margin_of(rows)[0]
 
 
 def compare(paths):

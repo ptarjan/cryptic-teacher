@@ -51,6 +51,7 @@ LAYOUT = [
     ("", "vendor/", "the one dependency shipped to the browser: jsQR, pinned by filename and sha256, fetched only when someone scans a code"),
     ("", "learn/", "the “How cryptic clues work” lesson, built from tools/tutorial.html — generated, not committed"),
     ("", "abbreviations/", "the glossary of standard abbreviations the blocks rung links into — generated, not committed"),
+    ("", "difficulty/", "how the difficulty badge is worked out and checked, built from tools/difficulty_page.html — generated, not committed"),
     ("", "og/", "one 1200x630 social card per puzzle, drawn from one of its clues — generated, not committed"),
     ("", "puzzles/index.json, puzzles/index.js",
      "manifest: one row per puzzle, latest first, and the same as a script so file:// works — built by tools/fetch_puzzle.py --reindex, not committed"),
@@ -180,6 +181,7 @@ LAYOUT = [
     ("building and checking the site", "tools/test_ci_coverage.js", "checks every test in tools/ is run, in exactly one shard, by the workflow a later push cannot cancel, so no check is quietly optional"),
     ("building and checking the site", "tools/qr_check.py", "decodes qr.js’s own output with a real decoder — a wrong QR code draws perfectly and simply never scans"),
     ("building and checking the site", "tools/tutorial.html", "source of the learn/ lesson"),
+    ("building and checking the site", "tools/difficulty_page.html", "the prose of the difficulty/ page; every number in it is filled in at build time"),
     ("building and checking the site", "tools/og_card.html", "source and type for og.png, the site’s one social card"),
 
     ("syncing between devices and telling them about new puzzles, with no login and no accounts",
@@ -224,6 +226,8 @@ LAYOUT = [
     ("finding out whether any of it is working", "tools/ga_wire_check.py", "watches the wire to confirm GA hits actually leave the browser"),
     ("finding out whether any of it is working", "tools/difficulty.py", "rates a puzzle from what its own file contains, banded against the corpus"),
     ("finding out whether any of it is working", "tools/snitch_report.py", "the difficulty index and each component against the SNITCH, raw and minus its weekday mean, by date third, and per clue against the clues commenters found hard; run nightly"),
+    ("finding out whether any of it is working", "tools/difficulty_check.py", "the shipped difficulty rating's held-out scorecard against the SNITCH, and the gentle-series margin; run nightly"),
+    ("finding out whether any of it is working", "tools/data/difficulty_check.json", "tools/difficulty_check.py's output, which the difficulty/ page quotes only while it matches the current weights and baseline"),
     ("finding out whether any of it is working", "tools/data/snitch_report.txt", "tools/snitch_report.py's output, rewritten nightly, so its git history shows each number moving as ratings and annotations arrive"),
     ("finding out whether any of it is working", "tools/craft_report.py", "reports the four things about how a puzzle is set that the fifteensquared threads argue about and our fields can actually measure — separately, because the composite it replaced turned out to be thread size"),
     ("finding out whether any of it is working", "tools/favourites_survey.py", "joins the favourite clues commenters name back to our own clues, so craft_report.py has something outside this project to be tested against"),
@@ -298,6 +302,9 @@ LAYOUT = [
     ("tables everything else reads", "scratch/comment_blend.py", "the blog-comment blend measured held out: clue index, blend and comments alone, by date third"),
     ("tables everything else reads", "tools/build_wordnet.py", "writes tools/data/wordnet.json.gz, the slice of WordNet difficulty.py's definition_unrelated reads"),
     ("tables everything else reads", "tools/data/wordnet.json.gz", "WordNet synsets and hypernyms for lexicon words and corpus definitions; committed so scoring needs no nltk"),
+    ("tables everything else reads", "scratch/snitch_stage10.py", "stage 10: clue- and answer-structure candidates, screened on both sets"),
+    ("tables everything else reads", "scratch/snitch_stage11.py", "stage 11: clue-surface and answer-form candidates, screened on both sets"),
+    ("tables everything else reads", "scratch/snitch_stage12.py", "stage 12: blog-fact candidates, screened on both sets"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

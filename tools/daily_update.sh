@@ -265,6 +265,9 @@ python3 tools/fetch_snitch.py || echo "fetch_snitch failed (rc=$?); continuing w
 python3 tools/fetch_wp_blog.py timesforthetimes --comments || echo "fetch_wp_blog --comments failed (rc=$?); the badges blend the comments already cached"
 python3 tools/blog_comment_difficulty.py || echo "blog_comment_difficulty: rc=$?; the badges and the per-clue check use the table already committed"
 python3 tools/snitch_report.py --write >/dev/null || echo "snitch_report failed (rc=$?); tools/data/snitch_report.txt is last night's"
+# The held-out scorecard /difficulty/ quotes. The page drops the numbers rather
+# than quote ones measured under other weights, so a missed night shows there.
+python3 tools/difficulty_check.py --write >/dev/null || echo "difficulty_check failed (rc=$?); /difficulty/ quotes tools/data/difficulty_check.json from last night"
 
 # What we hold of every series, printed every night whether or not anything is
 # wrong, because the two ways a series dies are both silent: a fetcher that can
