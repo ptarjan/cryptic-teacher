@@ -149,7 +149,7 @@ FIRST row below that matches it.
 
   `container` `deletion` `palindrome` `reversal` `substitution`
 
-**Hidden**
+**Hidden or letter selection**
 
   `alternate letters` `eighth letter` `eighth letters` `eleventh letter`
   `eleventh letters` `fifth letter` `fifth letters` `first letter` `first letters`
