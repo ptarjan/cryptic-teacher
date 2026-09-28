@@ -395,7 +395,8 @@ def report(tag, paths, fn, mode, budget):
     return summarize(tag, run_jobs(fn, [(p, mode, budget) for p in paths]))
 
 
-files = sorted(puzzle_files())
+# By file name, so the fixed-seed sample does not move with the folder layout.
+files = sorted(puzzle_files(), key=lambda path: path.name)
 sample, n_groups = stratify(files, int(os.environ["SAMPLE"]))
 print("GROUPS", n_groups)
 print("SAMPLED", len(sample))
