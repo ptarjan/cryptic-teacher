@@ -19,6 +19,8 @@ check "a run of words with the answer's letters is an anagram" anagram \
 check "the answer inside one word is hidden" "hidden word" 'Bird spotted in Leatherhead (4)' RHEA
 check "the answer backwards across words is a hidden reversal" "hidden word + reversal" \
   'Ruler rejects any dubious packages from the East (6)' DYNAST
+check "an answer spelt both ways in one run is read forward, taking no reversal" "hidden word" \
+  'Mate getting into top position (4)' OPPO
 check "a block inside another is a container" container \
   'American novelist gets stuck penning English (5)' JAMES --block 'JAMS=gets stuck' --block E=English
 check "one block taken out of another is a deletion" deletion \
@@ -173,7 +175,8 @@ if [ "$edges" = "$want" ]; then echo "ok   a word blogs seldom take into a block
   echo "FAIL edges and fodder: expected [$want], got [$edges]"; fails=$((fails + 1)); fi
 
 # A hidden word's block is its carrier, the one run of words outside the
-# definition that spells it (backwards for a reversal), and it wants an
+# definition that spells it (backwards for a reversal, or for a "hidden word"
+# not spelt forward), and it wants an
 # indicator for the hiding. A clue is complete with a definition, full blocks
 # and the indicators they want, none for a charade, and a double definition
 # with its two halves.
@@ -182,12 +185,13 @@ import letter_facts as l
 h = {"type": "hidden word", "definition": ["Bird"]}
 carrier = l.infer_carrier("Bird spotted in Leatherhead (4)", "RHEA", h)
 print(carrier, l.infer_carrier("Bird spotted in Leatherhead (4)", "RHEA", {**h, "type": "hidden word + reversal"}),
-      l.infer_carrier("Bird in Leatherhead or Leatherhead (4)", "RHEA", h), l.needed("RHEA", carrier))
+      l.infer_carrier("Bird in Leatherhead or Leatherhead (4)", "RHEA", h), l.needed("RHEA", carrier),
+      l.infer_carrier("Ruler rejects any dubious packages from the East (6)", "DYNAST", {"type": "hidden word"}))
 blocks = {"blocks": [[*carrier[0], "inferred"]]}
 print(l.complete("RHEA", {**h, **blocks}), l.complete("RHEA", {**h, **blocks, "indicators": ["spotted in"]}),
       l.complete("TIRE", {"type": "double definition", "definition": ["Tire", "wheel cover"]}),
       l.complete("CUBA", {"definition": ["island"], "blocks": [["CUB", "Baby animal"], ["A", "a"]]}))')
-want="[('RHEA', 'Leatherhead')] [] [] {'hidden'}
+want="[('RHEA', 'Leatherhead')] [] [] {'hidden'} [('DYNAST', 'rejects any dubious')]
 False True True True"
 if [ "$blockless" = "$want" ]; then echo "ok   a hidden word's carrier is read where one run spells it, and a clue is complete with the parts its kind has"; else
   echo "FAIL block-less types: expected [$want], got [$blockless]"; fails=$((fails + 1)); fi
