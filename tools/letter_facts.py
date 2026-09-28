@@ -41,7 +41,7 @@ clue's "inferred". It is read before the indicators, which want one.
     python3 tools/letter_facts.py --measure-indicators  # the inferred indicators the same way
     python3 tools/letter_facts.py --measure-definitions  # the inferred definitions the same way
     python3 tools/letter_facts.py --measure-fuzzy-blocks  # the blocks read off write-ups' prose the same way
-    python3 tools/letter_facts.py --measure-blockless  # hidden, homophone and spoonerism blocks and indicators
+    python3 tools/letter_facts.py --measure-blockless  # hidden, homophone and spoonerism blocks and indicators, free-word indicators
     python3 tools/letter_facts.py --coverage  # what the written facts cover, and why the rest fall short
     python3 tools/letter_facts.py --fill      # what it would add to untyped clues
     python3 tools/letter_facts.py --clue 'Men on phone exchange will be a rarity' PHENOMENON
@@ -1074,8 +1074,9 @@ def infer_indicators(clue, answer, facts, ilex):
     """The indicator a blog left out of a clue whose definition and blocks it
     gave, where the blocks want one (see needed): the one run of the other
     clue words blogs name that part's indicator elsewhere (`ilex`), every
-    other word left over a link word, or for a forward hidden word, where
-    the lexicon reads none, the free words themselves (see hiding_run). A
+    other word left over a link word, or for a forward hidden word or an
+    anagram, where the lexicon reads none, the free words
+    themselves (see free_words_indicator). A
     list of clue phrases, [] when none is wanted, None when the reading is
     not the only one.
 
@@ -1101,17 +1102,24 @@ def infer_indicators(clue, answer, facts, ilex):
             return None
         taken |= span
     got = _lexicon_indicator(ws, at, body, taken, part, ilex)
-    if got is None and part == "hidden":
-        got = hiding_run(ws, at, body, taken, ilex)
+    if got is None and part in FREE_WORDS_PARTS:
+        got = free_words_indicator(ws, at, body, taken, ilex)
     return got
 
 
-def hiding_run(ws, at, body, taken, ilex):
-    """A forward hidden word's indicator: the clue words outside its
-    definition and carrier, where they are one run of at most MAX_IND, less
-    an end word blogs leave out of indicators on that side
-    (Indicators.side); None where they are not one run or blogs both take
-    in and leave out an end word ("captured in" is named with and without "in")."""
+#: The parts whose one indicator, where the lexicon reads none, is the free
+#: words (free_words_indicator). Not a container: its blog blocks often take
+#: in the containing word, leaving a link word free ("and", "with").
+FREE_WORDS_PARTS = frozenset({"hidden", "anagram"})
+
+
+def free_words_indicator(ws, at, body, taken, ilex):
+    """The one indicator of a clue with one part to signal: the clue words
+    outside its definition and blocks, where they are one run of at most
+    MAX_IND, less an end word blogs leave out of indicators on that side
+    (Indicators.side) and a closing "'s" (blogs name "criminal" in
+    "criminal's"); None where they are not one run or blogs both take in
+    and leave out an end word ("captured in" is named with and without "in")."""
     free = [k for k in range(len(ws)) if k not in taken]
     if not free or free[-1] + 1 - free[0] != len(free):
         return None
@@ -1126,7 +1134,9 @@ def hiding_run(ws, at, body, taken, ilex):
             j -= 1
         else:
             break
-    return [body[at[i][0]:at[j - 1][1]]] if j - i <= MAX_IND else None
+    if j - i > MAX_IND:
+        return None
+    return [re.sub(r"['’]s$", "", body[at[i][0]:at[j - 1][1]])]
 
 
 def _lexicon_indicator(ws, at, body, taken, part, ilex):
@@ -2094,6 +2104,8 @@ def measure_blockless(corpus, votes, n=4, show=30, seed=1):
                         wrong["hidden indicators"].append((clue, answer, got, facts["indicators"]))
                 elif got:
                     sample["hidden indicators"].append((clue, answer, new[0][1], got))
+        if t in FREE_WORDS_PARTS - {"hidden"} and facts.get("definition"):
+            _measure_free_words(clue, answer, facts, votes, ilex, pid in test, ours, c, wrong, sample)
         new = facts.get("blocks") if t in SOUNDED and sounds_like(answer, facts.get("blocks") or ()) else None
         if new:  # the blog's own blocks, heard (blog_facts.heard_blocks)
             pairs = [(b[1], next(h["soundsLike"] for h in b[2:] if isinstance(h, dict))) for b in new]
@@ -2123,9 +2135,10 @@ def measure_blockless(corpus, votes, n=4, show=30, seed=1):
                     c["heard and complete on the slice"] += complete(
                         answer, with_indicators(hid, got) if got else {**hid, "indicators": facts.get("indicators", [])})
     print(f"slice {n}: {len(test)} puzzles held out")
-    for k in ("carrier", "hidden indicators", "heard", "heard indicators"):
-        print(f"  {k:18} {c[k, 'claimed']:6} claimed, exact {c[k, 'exact'] / max(1, c[k, 'claimed']):.4f}"
-              + (" against our annotations" if k in ("carrier", "heard") else ""))
+    free = [f"{t} free words{o}" for o in ("", ", ours") for t in sorted(FREE_WORDS_PARTS - {"hidden"})]
+    for k in ("carrier", "hidden indicators", "heard", "heard indicators", *free):
+        print(f"  {k:26} {c[k, 'claimed']:6} claimed, exact {c[k, 'exact'] / max(1, c[k, 'claimed']):.4f}"
+              + (" against our annotations" if k in ("carrier", "heard") or k.endswith("ours") else ""))
     print(f"  heard on the slice {c['heard on the slice']}, and complete {c['heard and complete on the slice']}")
     for k, lst in wrong.items():
         for x in rng.sample(lst, min(show // 3, len(lst))):
@@ -2133,6 +2146,43 @@ def measure_blockless(corpus, votes, n=4, show=30, seed=1):
     for k, lst in sample.items():
         for x in rng.sample(lst, min(show // 2, len(lst))):
             print(f"   read [{k}]", x)
+
+
+def _measure_free_words(clue, answer, facts, votes, ilex, held, ours, c, wrong, sample):
+    """measure_blockless for an anagram's indicator read as its free words
+    (free_words_indicator), where the lexicon reads none: on a `held` out
+    clue against the blog's, hidden, and on a clue the blog named none for,
+    against `ours`, our annotation's."""
+    new = infer_fodder(clue, answer, facts, votes)
+    facts = with_blocks(facts, new) if new else facts
+    if coverage(answer, facts) != "full" or needed(answer, facts["blocks"], facts["type"]) != {facts["type"]}:
+        return
+    hid = {k: v for k, v in facts.items() if k != "indicators"}
+    body, ws, at = spans(clue)
+    taken = set()
+    for phrase in hid["definition"] + [b[1] for b in hid["blocks"]]:
+        taken |= locate(phrase, ws) or set()
+    if _lexicon_indicator(ws, at, body, taken, facts["type"], ilex.less(clue, answer)) is not None:
+        return
+    got = infer_indicators(clue, answer, hid, ilex)
+    if not got:
+        return
+    key = f"{facts['type']} free words"
+    if facts.get("indicators"):
+        truth = facts["indicators"]
+        if not held:
+            return
+    elif (ours or {}).get("indicators"):
+        truth, key = ours["indicators"], key + ", ours"
+    else:
+        if held:
+            sample[key].append((clue, answer, hid["blocks"], got))
+        return
+    ok = {_key(i) for i in got} == {_key(i) for i in truth}
+    c[key, "claimed"] += 1
+    c[key, "exact"] += ok
+    if not ok:
+        wrong[key].append((clue, answer, got, truth))
 
 
 def score_gold(votes):
