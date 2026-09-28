@@ -2,7 +2,7 @@
 """Validate clue annotations in puzzles/<series>/<year>/*.json.
 
 Checks, for every annotated entry:
-  - annotation has type, definitions, walkthrough, answer, blocks
+  - annotation has type, definitions, answer, blocks, explanation.walkthrough
   - `type` is an array of names from tools/data/clue_types.json (check_type)
   - answer letters match the grid solution (group-aware for linked entries)
   - each definition sits at its `at` in the clue (tools/definitions.py), every
@@ -10,10 +10,10 @@ Checks, for every annotated entry:
     of those or by a block (check_coverage)
   - each definition and the answer agree in inflection, unless the definition's
     `note` explains why they don't (check_part_of_speech)
-  - anagram fodder letters match the answer letters (multiset)
-  - charade/container "pieces" concatenate exactly to the answer letters
+  - assembly: "pieces" concatenate exactly to the answer letters, each of
+    "anagrams" is a letter-for-letter anagram of its gives, and each of
+    "reversals" reverses correctly
   - hidden answers actually occur in the clue's letters
-  - subAnagrams are letter-for-letter anagrams; subReversals reverse correctly
   - a linked answer's `group` sits on its leader alone, leader first, and its
     other lights carry no annotation (check_groups)
 
@@ -32,7 +32,7 @@ And checks that need the whole puzzle in hand:
   - at most MAX_CRYPTIC_DEFINITIONS clues typed cryptic_definition
   - a definition's words are not also its wordplay's letters
   - the blocks hand over exactly the answer's letters, take it apart the way
-    `pieces` does, and are listed in the order the answer reads
+    `assembly.pieces` does, and are listed in the order the answer reads
   - a block that claims letters says why it gets them
   - every convention a block leans on is in the solver's glossary
 
@@ -59,6 +59,7 @@ import clue_types  # noqa: E402
 import puzzle_schema  # noqa: E402 — tools/data/puzzle.schema.json
 import definitions  # where each definition sits; tools/definitions.py
 import groups  # noqa: E402 — linked answers; tools/groups.py
+from annotation import assembly, explanation, whole_anagram  # tools/annotation.py
 from fetch_puzzle import (  # noqa: E402 — one reader, one exemption
     blog_facts_for, clue_words, leaders_named, read_puzzle_file)
 from puzzle_paths import puzzle_files, resolve_puzzle  # noqa: E402 — one glob, one id resolver
@@ -257,7 +258,7 @@ def check_walkthrough_opener(tag, ann, warnings):
     walkthrough and this must not chase them there. A warning, not an error —
     the sentence after the preamble is usually fine, so this asks for a cut, not
     a rewrite."""
-    wt = (ann.get("walkthrough") or "").strip()
+    wt = (explanation(ann).get("walkthrough") or "").strip()
     if not wt:
         return
     for pat, why in WALKTHROUGH_PREAMBLE:
@@ -284,7 +285,7 @@ def check_walkthrough_closer(tag, ann, warnings):
     the definition to the two chunks" survive on purpose: they name a mechanism,
     which is a fact. A warning — the cure is deleting the sentence, and where the
     walkthrough has room, spending it on the surface joke instead."""
-    wt = (ann.get("walkthrough") or "").strip()
+    wt = (explanation(ann).get("walkthrough") or "").strip()
     sents = [s for s in re.split(r"(?<=[.!?])\s+", wt) if s.strip()]
     if len(sents) < 2:
         return
@@ -315,7 +316,7 @@ def check_walkthrough_budget(tag, ann, warnings):
     The judgement half stays procedure: keep only what the blocks cannot show —
     why the surface misleads, the joke, a convention (ER = Queen), or why the
     definition is fair."""
-    wt = (ann.get("walkthrough") or "").split()
+    wt = (explanation(ann).get("walkthrough") or "").split()
     has_blocks = any(b.get("gives") or b.get("note") for b in ann.get("blocks", []))
     if has_blocks and len(wt) > MAX_WALKTHROUGH_WORDS:
         warnings.append(
@@ -560,9 +561,10 @@ def check_indicator_adjacency(tag, ann, clue, errors, warnings):
     allowances above are each carrying exactly one published clue: 30043 1A
     (`Bans recitals - where this is played?`, definition in the gap) and 30067
     20D (`Bertie develops from bad to worse`, annotated padding in the gap)."""
-    if not ann.get("anagram"):
+    fodder = whole_anagram(ann)
+    if not fodder:
         return
-    spans = _fodder_spans(clue, ann["anagram"].get("fodder"), ann.get("blocks", []))
+    spans = _fodder_spans(clue, fodder, ann.get("blocks", []))
     inds = [(clue.find(i), clue.find(i) + len(i), i) for i in indicator_texts(ann, "anagram")
             if i in clue]
     if not inds:
@@ -617,9 +619,10 @@ def check_indicator_outside_fodder(tag, ann, clue, errors):
     CALIBRATION (2026-08-08, all 116 annotations carrying a fodder): 0 flagged.
     A guard against a future annotation, not a description of a present one.
     """
-    if not ann.get("anagram"):
+    fodder = whole_anagram(ann)
+    if not fodder:
         return
-    spans = _fodder_spans(clue, ann["anagram"].get("fodder"), ann.get("blocks", []))
+    spans = _fodder_spans(clue, fodder, ann.get("blocks", []))
     if not spans:
         return
     for ind in indicator_texts(ann, "anagram"):
@@ -629,7 +632,7 @@ def check_indicator_outside_fodder(tag, ann, clue, errors):
         if all(i < fe and i + len(ind) > fs for fs, fe in spans):
             errors.append(
                 f"{tag}: anagram indicator {ind!r} sits inside the fodder "
-                f"{ann['anagram']['fodder']!r} — its letters are already being "
+                f"{fodder!r} — its letters are already being "
                 f"shuffled, so it cannot also be the instruction to shuffle them. "
                 f"The indicator is some other word in the clue.")
 
@@ -672,9 +675,9 @@ def check_reversal_direction(tag, ann, direction, errors):
     word the axis will not license.
 
     Only declared indicators are examined, and only on clues whose type or
-    subReversals say a reversal happens, so an ordinary `up` elsewhere in the
+    assembly.reversals say a reversal happens, so an ordinary `up` elsewhere in the
     surface is not the check's business (30039 11A reverses UP itself)."""
-    if "reversal" not in types_of(ann) and not ann.get("subReversals"):
+    if "reversal" not in types_of(ann) and not assembly(ann).get("reversals"):
         return
     wrong = VERTICAL_REVERSAL if direction == "across" else HORIZONTAL_REVERSAL
     axis = ("an across entry reads right to left when reversed, so it wants "
@@ -750,11 +753,11 @@ def check_surface(tag, ann, clue, warnings):
     unless it is a pure double or cryptic definition, where the clue itself is
     the picture. Warned, and required through the ratchet: puzzles annotated
     before the rule are grandfathered in annotation_backlog.json."""
-    if "surface" in ann or set(types_of(ann)) <= SURFACE_OPTIONAL_TYPES:
+    if "surface" in explanation(ann) or set(types_of(ann)) <= SURFACE_OPTIONAL_TYPES:
         return
     words = WORD_RE.findall(definitions.ENUMERATION.sub("", clue or ""))
     if len(words) >= SURFACE_MIN_WORDS:
-        warnings.append(f"{tag}: no surface — say in one sentence (25 words max) what "
+        warnings.append(f"{tag}: no explanation.surface — say in one sentence (25 words max) what "
                         f"the clue pretends to be about; a clue of {len(words)} words "
                         f"paints a picture")
 
@@ -822,9 +825,9 @@ def check_definition_fit(tag, ann, errors, warnings):
     explanation and teaches nothing — detectable because it contains no content
     word that isn't already in the definition or the answer.
     """
-    fit = ann.get("definitionFit")
+    fit = explanation(ann).get("definitionFit")
     if fit is None:
-        msg = (f"{tag}: no definitionFit — say in one sentence (30 words max) why the "
+        msg = (f"{tag}: no explanation.definitionFit — say in one sentence (30 words max) why the "
                f"answer means the definition. {DEFINITION_FIT_HOW}")
         warnings.append(msg)
         return
@@ -946,9 +949,6 @@ def check_indicators(tag, ann, clue, errors, warnings):
     """Each indicator is {"text", "for", "note"}: the clue words, the type they
     signal, and one sentence on why THIS word signals it. A text is listed at
     most as often as the clue prints it."""
-    if "indicatorNotes" in ann:
-        errors.append(f"{tag}: indicatorNotes is removed; put each note on its "
-                      f"indicator object as `note`")
     inds = ann.get("indicators")
     if inds is None:
         return
@@ -1893,7 +1893,7 @@ def check_blocks_decompose(entries, errors, warnings):
         ann = e.get("annotation") or {}
         if not ann:
             continue
-        pieces = ann.get("pieces") or []
+        pieces = assembly(ann).get("pieces") or []
         if len(pieces) < 2:
             continue
         # `pieces` spelled out letter by letter — A+L+F+A, N+U+D+I+T+Y — is an
@@ -1909,7 +1909,7 @@ def check_blocks_decompose(entries, errors, warnings):
             tag = f"{e['number']}{'A' if e['direction'] == 'across' else 'D'}"
             hits.append(tag)
             warnings.append(
-                f"{tag}: pieces are {'+'.join(ann['pieces'])} but there is one block "
+                f"{tag}: pieces are {'+'.join(pieces)} but there is one block "
                 f"handing over the whole answer — split it, one block per piece. "
                 f"Naming a charade is not doing the charade")
     if hits:
@@ -2264,11 +2264,13 @@ def validate_puzzle(puzzle, corpus=False):
         annotated += 1
 
         clue = e["clue"].get("text", "")
-        for key in ("type", "definitions", "walkthrough", "answer", "blocks"):
+        for key in ("type", "definitions", "answer", "blocks"):
             if key == "definitions" and ann.get("definedByPreamble") is True:
                 continue
             if not ann.get(key):
                 errors.append(f"{tag}: missing annotation field '{key}'")
+        if not explanation(ann).get("walkthrough"):
+            errors.append(f"{tag}: missing annotation field 'explanation.walkthrough'")
         # A themed answer the puzzle's preamble defines ("the unclued answers
         # are birds") has no definition in its clue. Only a puzzle that prints
         # a preamble can say so, and the flag replaces the definition rather
@@ -2328,17 +2330,21 @@ def validate_puzzle(puzzle, corpus=False):
                               + verbatim_hint(frag, clue))
 
         # Letter mechanics.
-        if ann.get("anagram"):
-            fodder = letters(ann["anagram"].get("fodder"))
-            extra, missing = multiset_diff(fodder, ans_letters)
+        build = assembly(ann)
+        for a in build.get("anagrams", []):
+            fodder, gives = letters(a["fodder"]), letters(a["gives"])
+            extra, missing = multiset_diff(fodder, gives)
             if extra or missing:
                 errors.append(
-                    f"{tag}: anagram fodder {fodder} != answer {ans_letters}"
+                    f"{tag}: anagram fodder {fodder} != its gives {gives}"
                     f" (fodder extra: {extra or '-'}, fodder missing: {missing or '-'})")
-        if ann.get("pieces"):
-            joined = letters("".join(ann["pieces"]))
+        for r in build.get("reversals", []):
+            if letters(r["from"])[::-1] != letters(r["to"]):
+                errors.append(f"{tag}: reversal {r['from']} reversed != {r['to']}")
+        if build.get("pieces"):
+            joined = letters("".join(build["pieces"]))
             if joined != ans_letters:
-                errors.append(f"{tag}: pieces {ann['pieces']} join to {joined}, expected {ans_letters}")
+                errors.append(f"{tag}: pieces {build['pieces']} join to {joined}, expected {ans_letters}")
         if "hidden_word" in types_of(ann):
             # A reversed hidden word sits in the clue back to front (30045 26A
             # hides LEND across "commanD NELson"), so when the type also declares
@@ -2348,14 +2354,13 @@ def validate_puzzle(puzzle, corpus=False):
                            and ans_letters[::-1] in clue_letters)
             if ans_letters not in clue_letters and not reversed_ok:
                 errors.append(f"{tag}: hidden answer {ans_letters} not found inside clue letters")
-        if not (ann.get("anagram") or ann.get("pieces")
-                or {"hidden_word", "double_definition", "cryptic_definition",
+        if not (build.get("pieces") or whole_anagram(ann) or {"hidden_word", "double_definition", "cryptic_definition",
                     "homophone"} & set(types_of(ann))):
-            warnings.append(f"{tag}: no machine-checkable assembly. Give `pieces` (the "
-                            f"final chunks in answer order) for a charade, container or "
-                            f"deletion, `anagram.fodder` (every letter shuffled, added "
-                            f"ones included) for an anagram, and `subAnagrams` / "
-                            f"`subReversals` for any embedded step")
+            warnings.append(f"{tag}: no machine-checkable assembly. Give `assembly.pieces` "
+                            f"(the final chunks in answer order) for a charade, container "
+                            f"or deletion, and `assembly.anagrams` / `assembly.reversals` "
+                            f"for every anagram or reversal step (a whole-answer anagram "
+                            f"is the item whose gives is the answer)")
 
         # A definition's note silences the part-of-speech check, so it has to say
         # something: a one-word "fine" would turn the check into an off switch.
@@ -2398,7 +2403,7 @@ def validate_puzzle(puzzle, corpus=False):
             check_indicator_adjacency(tag, ann, clue, errors, warnings)
             check_indicator_outside_fodder(tag, ann, clue, errors)
             check_reversal_direction(tag, ann, e["direction"], errors)
-        walk = ann.get("walkthrough") or ""
+        walk = explanation(ann).get("walkthrough") or ""
         low = walk.lower()
         for h in HEDGES:
             if h in low:
@@ -2412,7 +2417,7 @@ def validate_puzzle(puzzle, corpus=False):
         # Published under "What it seems to say" on the walkthrough rung, so it is held to the
         # length it was specified at rather than to the walkthrough's: it is one
         # sentence of picture, and a paragraph there pushes the trick off the screen.
-        surface = ann.get("surface") or ""
+        surface = explanation(ann).get("surface") or ""
         if len(surface.split()) > SURFACE_MAX:
             warnings.append(f"{tag}: surface is {len(surface.split())} words "
                             f"(max {SURFACE_MAX}) — it is the picture the clue paints, "
@@ -2424,7 +2429,7 @@ def validate_puzzle(puzzle, corpus=False):
                           f"they are printed as two paragraphs, so say the picture once "
                           f"in surface and spend walkthrough on what the clue is doing")
         for field, text in ([("walkthrough", walk), ("surface", surface),
-                             ("definitionFit", ann.get("definitionFit") or "")]
+                             ("definitionFit", explanation(ann).get("definitionFit") or "")]
                             + [("block note", b.get("note") or "")
                                for b in ann.get("blocks", [])]):
             for marker in BACKTRACKS:
@@ -2433,13 +2438,6 @@ def validate_puzzle(puzzle, corpus=False):
                                   f"working-out, not an explanation. Settle the parse "
                                   f"first, then write the finished sentence")
 
-        for sub in ann.get("subAnagrams", []):
-            extra, missing = multiset_diff(letters(sub["fodder"]), letters(sub["gives"]))
-            if extra or missing:
-                errors.append(f"{tag}: subAnagram {sub['fodder']} !~ {sub['gives']}")
-        for sub in ann.get("subReversals", []):
-            if letters(sub["from"])[::-1] != letters(sub["to"]):
-                errors.append(f"{tag}: subReversal {sub['from']} reversed != {sub['to']}")
 
     if annotated:
         check_every_clue_is_annotated(puzzle["entries"], errors, warnings,
@@ -2482,12 +2480,14 @@ WARN_PREFIX = "  warn: "
 ERROR_PREFIX = "  ERROR: "
 
 BACKLOG_PATH = ROOT / "tools" / "annotation_backlog.json"
+# Each field is the dotted path of the key it counts. The file lists them in
+# this order, and tools/prereset_backfill.sh drains them in the file's order.
 BACKLOG_MARKERS = {
-    "definitionFit": ("no definitionFit",),
-    "indicatorNote": ("no indicator notes", "has no note"),
-    "indicatorFor": ("lack `for`",),
+    "explanation.definitionFit": ("no explanation.definitionFit",),
+    "indicators.note": ("no indicator notes", "has no note"),
+    "indicators.for": ("lack `for`",),
     "features": ("no features",),
-    "surface": ("no surface",),
+    "explanation.surface": ("no explanation.surface",),
 }
 
 

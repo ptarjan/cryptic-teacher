@@ -53,7 +53,7 @@ check("our annotation outranks a blog's, even one matching the key exactly",
       linked(blog, {"annotation": {"type": ["anagram"], "indicators": [A("variety of")]}}))
 check("an exact phrase outranks one containing the key",
       {("anagram", "VARIETY"): "1-across"},
-      linked({"annotation": {"type": ["anagram"], "indicators": [A("variety of")], "walkthrough": "long " * 9}},
+      linked({"annotation": {"type": ["anagram"], "indicators": [A("variety of")], "explanation": {"walkthrough": "long " * 9}}},
              {"annotation": {"type": ["anagram"], "indicators": [A("variety")]}}))
 raise SystemExit(fails)
 PY

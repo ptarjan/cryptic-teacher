@@ -63,7 +63,7 @@ def chunks_of(ann):
         g = (b.get("gives") or "").replace(" ", "").upper()
         if len(g) >= 2:
             out.add(g)
-    for p in ann.get("pieces") or []:
+    for p in (ann.get("assembly") or {}).get("pieces") or []:
         p = p.replace(" ", "").upper()
         if len(p) >= 2:
             out.add(p)
@@ -75,7 +75,7 @@ def scan(path):
     found = []
     for e in puz.get("entries", []):
         ann = e.get("annotation") or {}
-        walk = ann.get("walkthrough")
+        walk = (ann.get("explanation") or {}).get("walkthrough")
         if not walk:
             continue
         answer = (ann.get("answer") or "").replace(" ", "").upper()

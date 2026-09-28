@@ -31,7 +31,8 @@ odd = {"id": "odd-1", "series": "odd", "number": 1, "dimensions": {"cols": 3, "r
             "clue": {"text": "A b (3)", "separators": [{"at": 1, "mark": ","}],
                      "italics": [{"at": 2, "length": 1}]},
             "solution": "ABC",
-            "annotation": {"type": ["anagram"], "answer": "ABC", "pieces": ["A"],
+            "annotation": {"type": ["anagram"], "answer": "ABC",
+                           "assembly": {"pieces": ["A"], "anagrams": [{"fodder": "CAB", "gives": "ABC"}]},
                            "features": {"joke": None}}},
            # packed, nothing extra, a clue that is only text (packed as the string)
            {"id": "2-across", "number": 2, "direction": "across",

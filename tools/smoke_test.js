@@ -2593,7 +2593,8 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
     for (const id of Object.keys(puzzles).sort()) {
       for (const e of puzzles[id].entries || []) {
         const a = e.annotation || {};
-        const f = bare((a.anagram || {}).fodder);
+        const whole = ((a.assembly || {}).anagrams || []).find((x) => bare(x.gives) === bare(a.answer));
+        const f = bare(whole && whole.fodder);
         if ((a.type || []).includes("anagram") && f.length >= 4) {
           anas.push({ id, e, f, ans: bare(a.answer) });
         }
@@ -2641,7 +2642,9 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
     for (const id of Object.keys(puzzles).sort()) {
       for (const e of puzzles[id].entries || []) {
         const a = e.annotation || {};
-        const fod = ((a.anagram || {}).fodder || "").toUpperCase().replace(/[^A-Z]/g, "");
+        const bareFod = (s) => String(s || "").toUpperCase().replace(/[^A-Z]/g, "");
+        const whole = ((a.assembly || {}).anagrams || []).find((x) => bareFod(x.gives) === bareFod(a.answer));
+        const fod = bareFod(whole && whole.fodder);
         const words = String(a.answer || "").toUpperCase().split(/[^A-Z]+/).filter(Boolean);
         if (fod.length >= 4 && words.length > 1
             && words.join("").length === fod.length) multi.push({ id, e, words });
@@ -3153,7 +3156,7 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
   // synthesised here rather than waiting on a puzzle that happens to carry one.
   {
     const e = withInd.e;
-    e.annotation.definitionFit = "SMOKE-FIT: the answer is an instance of the definition.";
+    e.annotation.explanation.definitionFit = "SMOKE-FIT: the answer is an instance of the definition.";
     registry["clue-" + e.id].listeners.click[0]();
     let guard = 0;
     while (registry["hint-next"].children[0] && registry["hint-next"].children[0].onclick && guard++ < 8) {
@@ -3171,7 +3174,7 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
       "the fit line must name both ends it is joining: " + fitLine);
     assert(walk.indexOf("SMOKE-FIT") < walk.lastIndexOf("Answer:"),
       "the fit comes before the answer — it is what turns a spelling into a solve");
-    delete e.annotation.definitionFit;
+    delete e.annotation.explanation.definitionFit;
   }
 }
 
@@ -6455,7 +6458,7 @@ global.realSetTimeout(() => {
 
   d.storage["ct:sync"] = JSON.stringify("TESTCODE");
   const puz = (global.window.CRYPTIC_PUZZLES || {})["cryptic-30066"];
-  const entry = (puz.entries || []).find((e) => e.annotation && e.annotation.walkthrough);
+  const entry = (puz.entries || []).find((e) => e.annotation && e.annotation.explanation.walkthrough);
   assert(entry, "a clue with a walkthrough rung to open");
   reg["clue-" + entry.id].listeners.click[0]();
 
@@ -6482,7 +6485,7 @@ global.realSetTimeout(() => {
 
   walk.onclick();
   const shown = reg["hint-body"].innerHTML;
-  assert(shown.includes(entry.annotation.walkthrough.slice(0, 40)),
+  assert(shown.includes(entry.annotation.explanation.walkthrough.slice(0, 40)),
     "the walkthrough is on screen after the click");
 
   // The reply to a push that left before that click now lands.
@@ -6495,7 +6498,7 @@ global.realSetTimeout(() => {
   assert(pushed, "the click really did schedule a push");
   assert(pushed.puzzles["cryptic-30066"].hintsShown[entry.id].indexOf("walkthrough") >= 0,
     "and what we pushed includes the rung — a save still in its debounce is flushed first");
-  assert(reg["hint-body"].innerHTML.includes(entry.annotation.walkthrough.slice(0, 40)),
+  assert(reg["hint-body"].innerHTML.includes(entry.annotation.explanation.walkthrough.slice(0, 40)),
     "the walkthrough survives the reply: " + reg["hint-body"].innerHTML.slice(0, 120));
   assert(save().hintsShown[entry.id].indexOf("walkthrough") >= 0,
     "and it survives in the saved state, not just on the screen");

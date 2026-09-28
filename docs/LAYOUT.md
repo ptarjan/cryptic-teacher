@@ -117,6 +117,10 @@ tools/definitions.py                         where each of an annotation's defin
                                              by the whole-word, before-the-enumeration,
                                              no-overlap, clue-end rules, and refuses to guess
                                              past them
+tools/annotation.py                          an annotation's two groups, read one way by every
+                                             tool: `explanation` (the prose rung) and
+                                             `assembly` (the machine-checkable rebuild), and
+                                             which of `assembly.anagrams` gives the whole answer
 tools/groups.py                              linked answers: the leader carries `group`, its
                                              lights in order, and the other lights nothing;
                                              maps each light to its group or leader, and

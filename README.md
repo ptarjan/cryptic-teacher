@@ -130,9 +130,13 @@ Shape:
         "answer": "CULMINATES",
         "definitions": [{"text": "reaches highest point", "at": 24}],
         "indicators": [{"text": "Destroying", "for": "anagram", "note": "destroying a thing breaks it apart, so its letters are rearranged"}],
-        "anagram": {"fodder": "CLIMATE SUN"},
         "blocks": [{"clueFragment": "climate, sun", "gives": "CLIMATESUN", "note": "anagram fodder"}],
-        "walkthrough": "…2-4 friendly sentences…"
+        "assembly": {"anagrams": [{"fodder": "CLIMATE SUN", "gives": "CULMINATES"}]},
+        "explanation": {
+          "surface": "…the picture the clue pretends to paint…",
+          "walkthrough": "…1-2 sentences on what the blocks cannot show…",
+          "definitionFit": "…why the answer means the definition…"
+        }
       }
     }
   ]
@@ -158,10 +162,21 @@ Shape:
   `tools/annotation_backlog.json`.
 - The letters of `answer` must equal the grid solution. For linked clues, that
   is the whole group.
-- Letter mechanics must be machine-checkable:
-  - `anagram.fodder` must be a multiset match for the answer.
+- An annotation has three layers. `blocks` are the wordplay as the app shows
+  it, one per clue fragment. `assembly` restates the answer for a program to
+  check, and may cut it differently from the blocks. `explanation` is the
+  prose the last hint rung prints: `walkthrough` (always), `surface` (the
+  picture the clue pretends to paint) and `definitionFit` (why the answer
+  means the definition). New annotations need `definitionFit`, and `surface`
+  on a clue of four or more words that is not a pure double or cryptic
+  definition; `tools/annotation_backlog.json` lists older puzzles' allowance
+  under each key's dotted path (`explanation.surface`, `indicators.note`).
+- Letter mechanics must be machine-checkable, through `assembly`:
   - `pieces` must concatenate to the answer.
-  - `subAnagrams` and `subReversals` verify embedded steps.
+  - Each of `anagrams` is `{fodder, gives}` with `fodder` a rearrangement of
+    `gives`; when the whole answer is an anagram, one item's `gives` is the
+    answer.
+  - Each of `reversals` is `{from, to}` with `to` equal to `from` backwards.
   - A hidden answer must appear inside the clue's letters.
 - Linked answers (one answer over several lights, "See 21"): the leader, the
   light the answer starts on, carries `group`, the answer's entry ids in

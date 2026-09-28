@@ -16,15 +16,15 @@ prompt or validator fix, and it happens now.
 
 Items are ordered by what a solver would notice first.
 
-## 1. Add `surface` to existing walkthroughs
+## 1. Add `explanation.surface` to existing walkthroughs
 
 The walkthrough rung shows two labelled parts:
 
-- **What it seems to say**: the `surface` field, what the clue pretends to be
-  about.
-- **The trick**: the `walkthrough` field, what the clue is actually doing.
+- **What it seems to say**: `explanation.surface`, what the clue pretends to
+  be about.
+- **The trick**: `explanation.walkthrough`, what the clue is actually doing.
 
-An annotation without `surface` shows "The trick" alone. That is correct, but
+An annotation without a surface shows "The trick" alone. That is correct, but
 poorer. `tools/annotate_prompt.md` asks for `surface` on new annotations, and
 omits it only when the clue has no surface apart from its mechanism (double
 definitions, cryptic definitions, idioms). On 2026-09-24, 11,111 of 17,769
@@ -42,5 +42,8 @@ So it is a per-clue model pass:
 1. Read the clue and decide whether it paints a picture.
 2. If it does, write one sentence of at most 25 words.
 3. Move any surface sentence already in `walkthrough` into `surface`.
+
+The ratchet counts what is left per puzzle under `explanation.surface` in
+`tools/annotation_backlog.json`, and `tools/prereset_backfill.sh` drains it.
 
 Scope each run by puzzle, so a killed run keeps what it finished.

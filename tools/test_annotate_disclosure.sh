@@ -38,7 +38,7 @@ def say(name, ok):
 # Linked groups: the leader holds the group and the whole annotation; every
 # continuation carries neither.
 lead_ann = {"type": ["charade"], "answer": "ABCDEFGH", "definitions": [{"text": "Some", "at": 0}],
-            "walkthrough": "w", "blocks": [{"clueFragment": "words", "gives": "X"}]}
+            "explanation": {"walkthrough": "w"}, "blocks": [{"clueFragment": "words", "gives": "X"}]}
 g = ["1-across", "2-down"]
 good = {"id": "t-1", "entries": [
     entry("1-across", group=g, annotation=lead_ann),
@@ -125,12 +125,12 @@ say("features_present_quiet", not w)
 # ratchet; a short clue, a pure definition, or a present surface is quiet.
 w = []
 V.check_surface("1A", {"type": ["charade"]}, "Behaved antisocially and gave birth (5)", w)
-say("surface_absent_warns", len(w) == 1 and "no surface" in w[0])
-say("surface_counted_by_ratchet", V.count_backlog(w)["surface"] == 1)
+say("surface_absent_warns", len(w) == 1 and "no explanation.surface" in w[0])
+say("surface_counted_by_ratchet", V.count_backlog(w)["explanation.surface"] == 1)
 w = []
 V.check_surface("1A", {"type": ["charade"]}, "Flat pack (4,4)", w)
 V.check_surface("1A", {"type": ["double_definition"]}, "Seize part of a finger (4)", w)
-V.check_surface("1A", {"type": ["charade"], "surface": "A bad week."},
+V.check_surface("1A", {"type": ["charade"], "explanation": {"surface": "A bad week."}},
                 "Behaved antisocially and gave birth (5)", w)
 say("surface_optional_quiet", not w)
 

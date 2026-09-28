@@ -3156,8 +3156,13 @@
     return (ann.answer || "") + "|" + ringFodder(ann);
   }
 
+  // The fodder of the anagram whose gives is the whole answer, as bare letters.
   function ringFodder(ann) {
-    return (((ann || {}).anagram || {}).fodder || "").toUpperCase().replace(/[^A-Z]/g, "");
+    const bare = (s) => String(s || "").toUpperCase().replace(/[^A-Z]/g, "");
+    const want = bare((ann || {}).answer);
+    const whole = ((((ann || {}).assembly) || {}).anagrams || [])
+      .find((a) => want && bare(a.gives) === want);
+    return bare(whole && whole.fodder);
   }
 
   // The answer's words, one ring each. A ring reads clockwise from the top as
@@ -3701,12 +3706,13 @@
     // it is exactly what a solver is missing when they have the right letters
     // and no confidence in them. It goes LAST, immediately before the answer,
     // because it is the step that turns a spelling into a solve.
-    const fit = ann.definitionFit && ann.definedByPreamble
-      ? `<p class="def-fit"><b class="wt-part">Why that's the answer</b>the preamble → <span class="gives">${esc(ann.answer)}</span>: ${esc(ann.definitionFit)}</p>`
-      : ann.definitionFit
+    const prose = ann.explanation || {};
+    const fit = prose.definitionFit && ann.definedByPreamble
+      ? `<p class="def-fit"><b class="wt-part">Why that's the answer</b>the preamble → <span class="gives">${esc(ann.answer)}</span>: ${esc(prose.definitionFit)}</p>`
+      : prose.definitionFit
       ? `<p class="def-fit"><b class="wt-part">Why that's the answer</b>${(ann.definitions || []).map((d, k) =>
           `<mark class="${k ? "def2" : "def"}">${esc(d.text)}</mark>`).join(" and ")
-        } → <span class="gives">${esc(ann.answer)}</span>: ${esc(ann.definitionFit)}</p>`
+        } → <span class="gives">${esc(ann.answer)}</span>: ${esc(prose.definitionFit)}</p>`
       : "";
     // Why the definition may fairly disagree with the answer in number or part of
     // speech — a footnote to the fit, so it sits with it rather than two rungs above.
@@ -3720,19 +3726,19 @@
     // would be a lie. Which is present is a fact about the annotation, not a
     // guess about its prose — a scan of all 6,403 walkthroughs
     // established that no phrase list can tell a surface sentence from a
-    // mechanical one — so `surface` is its own field and the labels follow it.
+    // mechanical one — so `explanation.surface` is its own field and the labels follow it.
     // Clues with no surface apart from their mechanism (double definitions,
     // cryptic definitions, idioms) correctly have none and show "The trick"
     // alone, exactly as they do today.
-    const joke = ann.surface
-      ? `<p><b class="wt-part">What it seems to say</b>${esc(ann.surface)}</p>` : "";
+    const joke = prose.surface
+      ? `<p><b class="wt-part">What it seems to say</b>${esc(prose.surface)}</p>` : "";
     // A blog-derived ladder stops at what the blogger marked; the rest of the
     // explanation is theirs, and the panel links to it (blogCreditHTML).
     if (!ann.fromBlog) steps.push({
       key: "walkthrough",
       label: LABELS.walkthrough,
       html: (steps.some((s) => s.key === "blocks") ? "" : mechanics) +
-        joke + `<p><b class="wt-part">The trick</b>${esc(ann.walkthrough)}</p>${fit}${note}` +
+        joke + `<p><b class="wt-part">The trick</b>${esc(prose.walkthrough)}</p>${fit}${note}` +
         `<p>Answer: <span class="gives">${esc(ann.answer)}</span></p>`
     });
     // Ordered by how much each rung gives away, cheapest first — not by the

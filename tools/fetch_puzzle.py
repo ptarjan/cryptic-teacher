@@ -577,9 +577,9 @@ def carrier_note(answer, gives, frag):
 # What the browser never reads, so the shims do not carry it: where the puzzle
 # and its answers came from, and who wrote the hints, are for tools/ and the
 # static pages, which read
-# the .json; features and pieces are the annotation's working, not its hints.
+# the .json; features and assembly.pieces are the annotation's working, not its
+# hints (the app reads assembly.anagrams for its ring).
 SHIM_DROP = ("source", "solutions", "annotatedBy")
-SHIM_DROP_ANNOTATION = ("features", "pieces")
 
 # The fields every entry has, which a packed entry lists by position.
 ENTRY_CORE = ("id", "number", "direction", "position", "length", "clue", "solution")
@@ -629,10 +629,20 @@ def browser_puzzle(puzzle):
     """The puzzle as window.CRYPTIC_PUZZLES holds it once its shim has run."""
     out = {k: v for k, v in with_blog_facts(puzzle).items() if k not in SHIM_DROP}
     out["entries"] = [
-        {**e, "annotation": {k: v for k, v in e["annotation"].items()
-                             if k not in SHIM_DROP_ANNOTATION}}
+        {**e, "annotation": browser_annotation(e["annotation"])}
         if isinstance(e.get("annotation"), dict) else e
         for e in out["entries"]]
+    return out
+
+
+def browser_annotation(ann):
+    """The annotation without features or assembly.pieces."""
+    out = {k: v for k, v in ann.items() if k != "features"}
+    build = {k: v for k, v in (ann.get("assembly") or {}).items() if k != "pieces"}
+    if build:
+        out["assembly"] = build
+    else:
+        out.pop("assembly", None)
     return out
 
 

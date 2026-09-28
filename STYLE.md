@@ -71,7 +71,7 @@ validator ERRORs on any other name, and on a string.
     `reversal`: nothing is turned round to become something else, so no
     fragment hands over letters. Annotate it like a cryptic definition: blocks
     that split the clue into the definition and the mirror instruction, with
-    `pieces` carrying the machine-checkable assembly.
+    `assembly.pieces` carrying the machine-checkable assembly.
 
 Worked examples:
 - 30067 1A GARBAGE = `["charade", "letter_selection"]` (GARB + alternate
@@ -83,11 +83,11 @@ Worked examples:
 - 30079 15D LAUGH LINE = `["charade", "substitution"]` (TAUGHT + IN + E, with
   student Ls "covering" for the tense Ts).
 
-**`pieces` and blocks tell the same assembly.** Charades, containers and
-deletions carry `pieces`: the final chunks of the answer, in answer order.
-Anagrams carry `anagram.fodder` instead. Double definitions, homophones and
-hidden words need neither. The blocks must take the answer apart the same way
-`pieces` does, not hand it over in one lump, and are listed in the order the
+**`assembly` and blocks tell the same assembly.** Charades, containers and
+deletions carry `assembly.pieces`: the final chunks of the answer, in answer
+order. Anagrams carry `assembly.anagrams` instead, the whole-answer one with
+the answer as its `gives`. Double definitions, homophones and hidden words need
+neither. The blocks must take the answer apart the same way `pieces` does, not hand it over in one lump, and are listed in the order the
 answer reads. The full schema is in `tools/annotate_prompt.md`.
 
 To add a type, add it to `tools/data/clue_types.json` (name, label, family,
@@ -170,7 +170,7 @@ an ERROR. If a walkthrough needs a hedge, the parse is wrong, not the clue.
 Add new hedges to `HEDGES` in the validator when they appear.
 
 Publish the finished explanation, never the working-out. A walkthrough,
-`definitionFit` or block `note` that argues with itself ("No wait—", "Still
+`explanation.definitionFit` or block `note` that argues with itself ("No wait—", "Still
 wrong.", "Actually:", "Correct parse:") is an ERROR. So is a walkthrough longer
 than `WALKTHROUGH_HARD_MAX` words. Settle the parse first, taking as long as you
 need, then write the sentence. If you cannot settle it, the annotation is not
