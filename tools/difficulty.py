@@ -649,10 +649,11 @@ def blog_definitions():
 
 
 def puzzle_day(puz):
-    """The puzzle's date as YYYY-MM-DD, or None."""
+    """The puzzle's date as YYYY-MM-DD, a book puzzle's `year` as YYYY (which
+    sorts before every day of that year), or None."""
+    if "year" in puz:
+        return str(puz["year"])
     d = puz.get("date")
-    if isinstance(d, str):
-        return d[:10] or None
     return datetime.fromtimestamp(d / 1000, timezone.utc).date().isoformat() if d else None
 
 

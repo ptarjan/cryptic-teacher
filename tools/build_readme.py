@@ -56,7 +56,7 @@ LAYOUT = [
     ("", "og/", "one 1200x630 social card per puzzle, drawn from one of its clues — generated, not committed"),
     ("", "puzzles/index.json, puzzles/index.js",
      "manifest: one row per puzzle, latest first, and the same as a script so file:// works — built by tools/fetch_puzzle.py --reindex, not committed"),
-    ("", "puzzles/<series>/<year>/<series>-<n>.json", "one puzzle per file, plain JSON: the whole file is the payload; <year> is the UTC year of its date (a book's year as printed), or `undated` — tools/puzzle_paths.py owns the rule"),
+    ("", "puzzles/<series>/<year>/<series>-<n>.json", "one puzzle per file, plain JSON: the whole file is the payload; <year> is the UTC year of its date, or a book puzzle's `year`, or `undated` — tools/puzzle_paths.py owns the rule"),
     ("", "puzzles/<series>-<n>.js", "the same puzzle as a script, so app.js can inject it from file:// — flat, so its URL does not move with the source's year; built by tools/fetch_puzzle.py --reindex, not committed"),
 
     ("the rest of the site", "site.webmanifest", "PWA name, icons and display mode"),
@@ -88,7 +88,7 @@ LAYOUT = [
     ("fetching", "tools/test_puzzle_invariants.sh", "proves every puzzle write refuses what the corpus sweep would report"),
     ("fetching", "tools/fetch_ia_book.py", "borrows a lending-restricted archive.org book, saves its OCR text outside the repo, returns the loan, and hands back on startup any loan a killed run left out \u2014 a finally clause does not run when the process is killed by a signal"),
     ("fetching", "tools/parse_penguin_book.py", "segments that book's OCR text into puzzles, clues and enumerations, and reports per-puzzle what OCR destroyed"),
-    ("fetching", "tools/file_penguin_puzzle.py", "turns one solved Penguin-book puzzle into a puzzle file: the book's own number, its book's imprint year as the date, and answers marked as a model's with no official key ever coming"),
+    ("fetching", "tools/file_penguin_puzzle.py", "turns one solved Penguin-book puzzle into a puzzle file: the book's own number, its book's imprint year as `year` in place of a date, and answers marked as a model's with no official key ever coming"),
     ("fetching", "tools/normalise_linked_enumerations.py", "puts a solve record’s linked answers into the shape the corpus stores them in — the whole answer’s count on the leader, none on the continuation — reading the words off the answer rather than off the per-light numbers, and refusing when a “See N” names two lights it cannot choose between"),
     ("fetching", "tools/acquire_book.py", "takes a book from an archive.org identifier to filed puzzles with no model in the loop: public text layer, split, light spec, reconstructed grid, filed unsolved for the nightly solve queue, and a per-puzzle report of what it got and why the rest failed"),
     ("fetching", "tools/light_spec.py", "turns one OCR'd clue list into the light spec the reconstructor wants, repairing linked fields, clues OCR ran together, and numbers that lost a digit, without ever guessing a number"),

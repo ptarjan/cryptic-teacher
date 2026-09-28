@@ -9,11 +9,22 @@
   "number",
   "series",
   "name",
-  "date",
   "dimensions",
   "source",
   "solutions",
   "entries"
+ ],
+ "oneOf": [
+  {
+   "required": [
+    "date"
+   ]
+  },
+  {
+   "required": [
+    "year"
+   ]
+  }
  ],
  "additionalProperties": false,
  "properties": {
@@ -41,16 +52,14 @@
    "description": "The byline as printed. Absent when the paper names no setter, which Times, Telegraph and Metro puzzles never do."
   },
   "date": {
-   "description": "Publication date as epoch milliseconds (UTC midnight), or a four-digit year for a book puzzle whose book gives only the year.",
-   "anyOf": [
-    {
-     "type": "integer"
-    },
-    {
-     "type": "string",
-     "pattern": "^\\d{4}$"
-    }
-   ]
+   "description": "The day the paper printed it, as epoch milliseconds at UTC midnight. A book puzzle holds `year` instead; a puzzle holds exactly one of the two.",
+   "type": "integer"
+  },
+  "year": {
+   "description": "The year a book puzzle's book was published, the most its imprint page prints (tools/data/books.json `published`). Only a book puzzle holds it, in place of `date`.",
+   "type": "integer",
+   "minimum": 1000,
+   "maximum": 9999
   },
   "preamble": {
    "type": "string",
@@ -582,9 +591,11 @@
      ]
     },
     "reversed": {
+     "description": "The block's letters go in back to front: `gives` is the letters before reversal (\"charge\" gives FEE, which the answer holds as EEF).",
      "const": true
     },
     "anagramOf": {
+     "description": "Anagram fodder: `gives` is the clue words' letters before they are shuffled.",
      "const": true
     }
    }
