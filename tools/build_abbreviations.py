@@ -88,7 +88,7 @@ FAMILIES = [
                       "german G, irish IR, italian IT, dutch D, greek GR, french FR, "
                       "welsh W, australian OZ"),
     ("Roman numerals", "one I, five V, ten X, fifty L, hundred C, five hundred D, "
-                       "thousand M, four IV, six VI, nine IX, 101 CI, 500 D, 1000 M"),
+                       "thousand M, four IV, six VI, eight VIII, nine IX, 101 CI, 500 D, 1000 M"),
     ("Words for O", "old O, love O, nothing O, round O, ring O, duck O, zero O, "
                     "circle O"),
     ("Time", "time T, second S, day D, second MO, year Y, date D, minute M, hour H, "
