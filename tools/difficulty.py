@@ -640,7 +640,7 @@ def blog_definitions():
     out = {}
     for f in sorted(BLOG_FACTS.glob("*.json")):
         for pid, v in json.loads(f.read_text(encoding="utf-8")).items():
-            defs = {eid: definition_key(b.get("definition"))
+            defs = {eid: definition_key(definitions.texts(b))
                     for eid, b in (v.get("entries") or {}).items()}
             defs = {k: d for k, d in defs.items() if d}
             if defs:

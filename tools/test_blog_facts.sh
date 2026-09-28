@@ -15,7 +15,7 @@ check() {  # check <what> <expected> <got>
     echo "FAIL $1: expected [$2], got [$3]"; fails=$((fails + 1)); fi
 }
 
-facts() {  # facts <blog> <clue> <html> <answer> -> the published facts of that one clue, as JSON
+facts() {  # facts <blog> <clue> <html> <answer> -> the facts of that one clue that ship, as the parser holds them (fact_json below gives the file shape)
   REPO="$REPO" python3 - "$1" "$2" "$3" "$4" <<'PY'
 import json, os, sys
 sys.path.insert(0, os.path.join(os.environ["REPO"], "tools"))
@@ -301,10 +301,10 @@ import blog_facts as bf, fetch_puzzle as fp, validate_annotations as va
 blocks = [["CAP", "hat"], ["OUCH", "one", "inferred"]]
 e = {"id": "1-across", "number": 1, "direction": "across", "clue": "Polar covering: one hat (6)", "solution": "ICECAP",
      "annotation": {"blocks": [{"clueFragment": "hat", "gives": "CAP"}]}}
-va.blog_facts_for = lambda p: {"name": "Blog", "url": "u", "entries": {"1-across": {"blocks": blocks}}}
+va.blog_facts_for = lambda p: {"name": "Blog", "url": "u", "entries": {"1-across": bf.fact_json({"blocks": blocks}, e["clue"])}}
 w = []
 va.check_blocks_against_blog({"entries": [e]}, w)
-ann = fp.blog_annotation({**e, "blog": {"blocks": [["CAP", "hat"], ["I", "one", "inferred"]]}})
+ann = fp.blog_annotation({**e, "blog": bf.fact_json({"blocks": [["CAP", "hat"], ["I", "one", "inferred"]]}, e["clue"])})
 print(json.dumps(ann["blocks"]), json.dumps(w), len(bf._items("blocks", blocks)))')"
 check "--score leaves an anagram's fodder out of the blocks, as the gold does" \
   '[["tl", "tea"]]' \
@@ -318,8 +318,8 @@ check "a hidden word's carrier gets the note ours write, the run in capitals" \
   "$(REPO="$REPO" python3 -c '
 import json, os, sys
 sys.path.insert(0, os.path.join(os.environ["REPO"], "tools"))
-import fetch_puzzle as fp
-note = lambda sol, blocks: fp.blog_annotation({"solution": sol, "blog": {"blocks": blocks}})["blocks"][0].get("note")
+import blog_facts as bf, fetch_puzzle as fp
+note = lambda sol, blocks: fp.blog_annotation({"solution": sol, "blog": bf.fact_json({"blocks": blocks}, "")})["blocks"][0].get("note")
 print(json.dumps([note("WHIZ", [["WHIZ", "saw Hizbollah", "inferred"]]),
                   note("ORGANISM", [["ORGANISM", "whom sin a grotesque", "inferred"]]),
                   note("NOGGINS", [["GINS", "drinks"]])]))')"
@@ -328,27 +328,52 @@ check "the site takes inferred indicators as ours, not the blogger's" \
   "$(REPO="$REPO" python3 -c '
 import os, sys
 sys.path.insert(0, os.path.join(os.environ["REPO"], "tools"))
-import build_seo_pages as sp, letter_facts as lf
+import blog_facts as bf, build_seo_pages as sp, letter_facts as lf
 f = lf.with_indicators({"definition": ["Teacher"], "blocks": [["TUTS", "expresses disapproval"], ["ORES", "minerals"]]}, [{"text": "holding"}])
+clue = "Teacher expresses disapproval holding minerals (8)"
 html = sp.clue_html({"id": "1-across", "number": 1, "direction": "across", "solution": "TUTORESS",
-                     "clue": "Teacher expresses disapproval holding minerals (8)", "blog": f})
+                     "clue": clue, "blog": bf.fact_json(f, clue)})
 print("holding</mark> <span class=\"s-note\">worked out from the letters</span>" in html,
       "Indicators worked out from the letters" in html)')"
 check "the site and the validator take an inferred definition as ours, not the blogger's" \
-  'True True 0' \
+  'True True 0 1' \
   "$(REPO="$REPO" python3 -c '
 import os, sys
 sys.path.insert(0, os.path.join(os.environ["REPO"], "tools"))
-import build_seo_pages as sp, letter_facts as lf, validate_annotations as va
-f = lf.with_definition({"blocks": [["TUTS", "expresses disapproval"], ["ORES", "minerals"]]}, ["Teacher"])
-html = sp.clue_html({"id": "1-across", "number": 1, "direction": "across", "solution": "TUTORESS",
-                     "clue": "Teacher expresses disapproval over minerals (8)", "blog": f})
-e = {"id": "1-across", "number": 1, "direction": "across", "clue": "Teacher expresses disapproval over minerals (8)",
-     "annotation": {"definition": "minerals"}}
-va.blog_facts_for = lambda p: {"name": "b", "url": "u", "entries": {"1-across": f}}
-w = []
-va.check_definition_against_blog({"entries": [e]}, w)
+import blog_facts as bf, build_seo_pages as sp, letter_facts as lf, validate_annotations as va
+clue = "Teacher expresses disapproval over minerals (8)"
+f = bf.fact_json(lf.with_definition({"blocks": [["TUTS", "expresses disapproval"], ["ORES", "minerals"]]}, ["Teacher"]), clue)
+html = sp.clue_html({"id": "1-across", "number": 1, "direction": "across", "solution": "TUTORESS", "clue": clue, "blog": f})
+e = {"id": "1-across", "number": 1, "direction": "across", "clue": clue,
+     "annotation": {"definitions": [{"text": "minerals", "at": 35}]}}
+def warned(fact):
+    va.blog_facts_for = lambda p: {"name": "b", "url": "u", "entries": {"1-across": fact}}
+    w = []
+    va.check_definition_against_blog({"entries": [e]}, w)
+    return len(w)
+stated = {k: v for k, v in f.items() if k != "inferred"}
 print("Teacher</dfn> <span class=\"s-note\">worked out from the letters</span>" in html,
-      "Definition worked out from the letters" in html, len(w))')"
+      "Definition worked out from the letters" in html, warned(f), warned(stated))')"
+
+# The files hold each clue's facts in the annotation's shapes: block objects,
+# definitions placed by tools/definitions.py, `inferred` naming the file's keys.
+check "fact_json writes the annotation's shapes, and fact_from_json reads them back" \
+  '{"blocks": [{"clueFragment": "Cry", "gives": "SOB", "inferred": true}, {"anagramOf": true, "clueFragment": "ab", "gives": "AB"}, {"clueFragment": "beer cask", "gives": "TON", "inferred": true, "soundsLike": "TUN"}], "definitions": [{"at": 0, "text": "Advocate"}], "inferred": ["blocks", "definitions"], "type": ["charade"]} True' \
+  "$(REPO="$REPO" python3 -c '
+import json, os, sys
+sys.path.insert(0, os.path.join(os.environ["REPO"], "tools"))
+import blog_facts as bf
+f = {"definition": ["Advocate"], "type": ["charade"], "inferred": ["blocks", "definition"],
+     "blocks": [["SOB", "Cry", "inferred"], ["AB", "ab", "anagrammed"], ["TON", "beer cask", "inferred", {"soundsLike": "TUN"}]]}
+j = bf.fact_json({**f, "leads": {"caps": []}}, "Advocate: cry ab beer cask (8)")
+print(json.dumps(j, sort_keys=True), bf.fact_from_json(j) == f)')"
+check "a definition tools/definitions.py cannot place is left out, and so is its inferred mark" \
+  '{"type": ["charade"]}' \
+  "$(REPO="$REPO" python3 -c '
+import json, os, sys
+sys.path.insert(0, os.path.join(os.environ["REPO"], "tools"))
+import blog_facts as bf
+print(json.dumps(bf.fact_json({"definition": ["King"], "inferred": ["definition"], "type": ["charade"]},
+                              "King, nearly everybody scoffed about King (6)"), sort_keys=True))')"
 
 [ "$fails" -eq 0 ] && echo "all blog_facts checks passed" || { echo "$fails failed"; exit 1; }
