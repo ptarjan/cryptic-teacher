@@ -40,6 +40,7 @@ bought everything it could.
     tools/prereset_plan.py --width 6.5             # runs to keep in flight
     tools/prereset_plan.py --observe 4.2 1.5 3     # climb, hours, width
     tools/prereset_plan.py --observe-yield 4.2 33  # weekly climb, session climb
+    ids | tools/prereset_plan.py --cover-first "PINNED"   # the queue, cover first
     tools/prereset_plan.py --self-test
 
 Reads only, except the --observe flags, which write .prereset_rate/.prereset_yield.
@@ -545,6 +546,25 @@ def self_test():
         (26, 63, 100, 4.9, True),
         (26, 63, 0, 5.0, False),
     ]
+    # The backlog order: a puzzle whose blog names an indicator none of our
+    # annotations links yet jumps the queue; weighted by that indicator's clues.
+    # queue, {puzzle: pairs its blog gives}, {unlinked pair: clues}, pinned -> order
+    A, B = ("anagram", "UPSIDEDOWN"), ("reversal", "UP")
+    covers = [
+        # a puzzle covering an unlinked indicator jumps the queue
+        (["new", "mid", "old"], {"old": {A}}, {A: 5}, (), ["old", "new", "mid"]),
+        # once annotated the pair is linked, so it no longer counts: nothing jumps
+        (["new", "mid", "old2"], {"old2": {A}}, {}, (), ["new", "mid", "old2"]),
+        # one common indicator beats two rare ones
+        (["a", "b", "c"], {"b": {A}, "c": {B, ("hidden", "IN")}},
+         {A: 10, B: 1, ("hidden", "IN"): 1}, (), ["b", "c", "a"]),
+        # a pair counts once: the second puzzle giving only it stays in place
+        (["a", "b", "c"], {"b": {A}, "c": {A}}, {A: 5}, (), ["b", "a", "c"]),
+        # ties keep queue order (newest first)
+        (["a", "b", "c"], {"b": {A}, "c": {B}}, {A: 3, B: 3}, (), ["b", "c", "a"]),
+        # puzzles a lockout cut off still resume first
+        (["r", "a", "b"], {"b": {A}}, {A: 5}, ("r", "gone"), ["r", "b", "a"]),
+    ]
     plans = [
         # (days ago, measured yield)..., blend -> what to plan with
         # The 2026-09-08 shift: three windows agreeing at 15-16 do not outvote
@@ -640,14 +660,53 @@ def self_test():
             bad += 1
     # Counted, not typed: a hand-written total goes stale the first time a case
     # is added and then reports a shrinking suite as a passing one.
+    bad += cover_self_test(covers)
     n = (len(starts) + len(widths) + len(schedule) + len(endgames) + len(fills)
-         + len(reserves) + len(plans) + len(stubs) + len(tilings) + len(phases))
+         + len(reserves) + len(plans) + len(stubs) + len(tilings) + len(phases)
+         + len(yields) + len(covers))
     print(f"prereset plan self-test FAILED: {bad} of {n}" if bad
           else f"prereset plan self-test: {n} cases pass")
     return 1 if bad else 0
 
 
+def cover_self_test(covers):
+    """covers' cases, and the key both sides of the match are spelled in."""
+    import indicator_cover
+    from indicator_keys import indicator_key
+    bad = 0
+    for queue, pairs_of, weight, pinned, want in covers:
+        got, _ = indicator_cover.order(queue, pairs_of, weight, pinned)
+        if got != want:
+            print(f"FAIL cover {queue} with {pairs_of}: {got} (want {want})", file=sys.stderr)
+            bad += 1
+    # indicators.json keys "upside-down" as one word; so must the lookup
+    for phrase, want in [("upside-down", "UPSIDEDOWN"), ("So-called", "SOCALLED"),
+                         ("it’s off", "ITS OFF")]:
+        if indicator_key(phrase) != want:
+            print(f"FAIL indicator_key({phrase!r}) = {indicator_key(phrase)!r} (want {want!r})",
+                  file=sys.stderr)
+            bad += 1
+    return bad
+
+
+def cover_first(pinned):
+    """The ids on stdin, reordered: pinned first, then the indicator cover, then
+    the rest as they came. The summary goes to stderr, which is the burn's log."""
+    import indicator_cover
+    queue = sys.stdin.read().split()
+    ordered, picks, weight = indicator_cover.plan(queue, pinned)
+    reached = set().union(*(m for _, m in picks))
+    head = ", ".join(f"{pid} ({len(m)})" for pid, m in picks[:4])
+    print(f"indicator cover: {len(picks)} puzzles reach {len(reached)} of {len(weight)} "
+          f"unlinked indicators" + (f"; next {head}" if picks else ""), file=sys.stderr)
+    print("\n".join(ordered))
+    return 0
+
+
 def main():
+    if "--cover-first" in sys.argv:
+        at = sys.argv.index("--cover-first")
+        return cover_first(" ".join(sys.argv[at + 1:]).split())
     if "--self-test" in sys.argv:
         return self_test()
     if "--observe" in sys.argv:

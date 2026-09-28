@@ -1361,15 +1361,9 @@ INDICATOR_TYPES = {
 }
 
 
-# How an annotation's type names each indicator type, where not by the type's
-# own name: selection clues are typed "first letter", "alternate letters"...
-TYPE_NAMES = {"selection": ("selection", "letter")}
-
-
-def indicator_key(s):
-    """An indicator as indicators.json keys it: capitals and spaces, no apostrophes."""
-    return " ".join(re.sub(r"[^A-Z ]", "", re.sub(r"['’]", "", s.upper())
-                           .replace("-", " ")).split())
+# indicators.json's key for a phrase, and which indicator types an annotation's
+# type names: shared with the burn's indicator cover (tools/prereset_plan.py).
+from indicator_keys import TYPE_NAMES, indicator_key
 
 
 def clue_indicators(found, puz, page):

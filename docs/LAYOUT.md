@@ -236,6 +236,11 @@ tools/letter_facts.py                        adds a clue type the blog left out 
                                              blocks want; blog_facts.py runs it after each
                                              write; --coverage says what the written facts
                                              cover and why the rest fall short
+tools/indicator_keys.py                      the one spelling of an indicator phrase
+                                             indicators.json is keyed by, and which indicator
+                                             types an annotation's type names; the /indicators/
+                                             page and the burn's indicator cover both match
+                                             through it
 tools/test_letter_facts.sh                   holds letter_facts.py to one reading per clue: a
                                              literal word is not an anagram, a lone word's
                                              initial not an abbreviation unless listed, fodder
@@ -527,6 +532,11 @@ tools/test_push_conflict.sh                  proves the nightly push rebuilds a 
                                              anything else
 tools/prereset_plan.py                       how many puzzles the remaining quota will carry
                                              before the reset
+tools/indicator_cover.py                     puts first the backlog puzzles whose blog-named
+                                             indicators no annotation of ours links yet on
+                                             /indicators/: a greedy set cover weighted by each
+                                             indicator's clue count, re-planned every wave
+                                             through prereset_plan.py --cover-first
 tools/backlog_burndown.py                    the annotation backlog over time, rebuilt from git
                                              history, and how long the rest will take at that
                                              pace
