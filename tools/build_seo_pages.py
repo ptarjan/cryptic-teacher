@@ -405,7 +405,7 @@ def clue_html(e, blog_note=True):
         # label is the way to the lesson that defines it.
         dfns = " and ".join(f'<dfn>{esc(d["text"])}</dfn>' for d in ann["definitions"])
         bits.append(f'<p>Definition: {dfns}'
-                    + (' <span class="s-note">worked out from the letters</span>' if "definition" in inferred else "")
+                    + (' <span class="s-note">worked out from the letters</span>' if "definitions" in inferred else "")
                     + (f' · <span class="s-type"><a href="{BASE}/learn/">Clue type</a>: '
                        f'{esc(kind)}</span>' if kind else "")
                     + "</p>")
@@ -439,7 +439,7 @@ def clue_html(e, blog_note=True):
                     + (' <span class="s-note">worked out from the letters</span>' if "indicators" in inferred else "")
                     + "</p>")
     if ann.get("fromBlog"):
-        read = listed([name for key, name in (("definition", "definition"), ("type", "clue type"),
+        read = listed([name for key, name in (("definitions", "definition"), ("type", "clue type"),
                                               ("indicators", "indicators")) if key in inferred]).capitalize()
         if blog_note:
             bits.append('<p class="muted">'
@@ -657,8 +657,8 @@ def puzzle_page(puz, meta, prev_p, next_p):
     if blog_only:
         facts = [e.get("blog") or {} for e in across + down]
         read = listed([name for name, hit in (
-            ("definitions", any("definition" in f.get("inferred", ()) for f in facts)),
-            ("pieces", any("inferred" in b[2:] for f in facts for b in f.get("blocks", ()))),
+            ("definitions", any("definitions" in f.get("inferred", ()) for f in facts)),
+            ("pieces", any(b.get("inferred") for f in facts for b in f.get("blocks", ()))),
             ("indicators", any("indicators" in f.get("inferred", ()) for f in facts))) if hit])
         body.append('<p class="muted small-note">The definitions, pieces and indicators '
                     "below are marked up from the "

@@ -12,7 +12,9 @@ The blocks a blog left out ("D[utch] + ADA + IS + [Utrech]T" glosses two of
 four; bigdave44 writes prose) are read the same way: the answer split into
 the blocks the blog gave and runs of the other clue words, each run read as
 blogs read those words in other puzzles, kept where the split is the only
-one (see infer_blocks). Each is written [letters, clue words, "inferred"].
+one (see infer_blocks). Each is held as [letters, clue words, "inferred"]
+and written as a block object with `inferred: true` (blog_facts.fact_json
+gives the file shape).
 An anagram the blog gave no blocks has its fodder for its one block (see infer_fodder).
 Where a write-up gives its blocks in prose ("GAFFE or error", "a synonym of
 'misrepresent' followed by Female"), what it prints (blog_facts.leads) says
@@ -33,7 +35,7 @@ indicator in other puzzles, all the rest link words (see infer_indicators);
 Where the blog named no definition, it is the one span at an end of the
 clue, clear of the wordplay, that blogs underlined for the same answer
 elsewhere, where the word inside it is wordplay or a word blogs leave out
-of definitions (see infer_definition); "definition" is then named in the
+of definitions (see infer_definition); "definitions" is then named in the
 clue's "inferred". It is read before the indicators, which want one.
 
     python3 tools/letter_facts.py --measure   # precision per type where the blog named it
@@ -65,10 +67,13 @@ from blog_facts import (
     ABBR,
     ENUM_TAIL,
     GOLD,
+    INFERRED,
     LEADS,
     OUT,
     PART_ORDER,
     clue_body,
+    fact_from_json,
+    fact_json,
     heard_blocks,
 )
 from indicator_keys import WORD, letters
@@ -425,9 +430,6 @@ MIN_EDGE_SEEN = 20
 MAX_SPLITS = 200
 #: Types whose letters are not a sequence of blocks, so a split found in them is chance.
 NO_SPLIT = ("anagram", "hidden_word", "homophone", "spoonerism", "double_definition", "cryptic_definition")
-#: The third element of a block this file read off the letters, where a
-#: blog's anagram fodder carries "anagrammed".
-INFERRED = "inferred"
 POSSESSIVE = re.compile(r"[a-z]['’]s$", re.IGNORECASE)
 
 
@@ -1505,7 +1507,7 @@ def rows(said=None, as_written=False):
             got = (said or {}).get(pid, {})
             for eid, e in ents.items():
                 if e.get("solution") and e.get("clue"):
-                    facts = rec["entries"].get(eid, {})
+                    facts = fact_from_json(rec["entries"].get(eid, {}))
                     facts = facts if as_written else stated(facts)
                     yield pid, eid, e["clue"], e["solution"], {**facts, "leads": got[eid]} if eid in got else facts
 
@@ -1744,8 +1746,7 @@ def write(corpus, votes):
     lex, ilex, dlex = Lexicon(corpus), Indicators(corpus, extra=ours), Definitions(corpus)
     by_pid = collections.defaultdict(dict)
     for pid, eid, clue, answer, facts in corpus:
-        new = inferred(clue, answer, facts, votes, lex, ilex, dlex)
-        new.pop("leads", None)
+        new = fact_json(inferred(clue, answer, facts, votes, lex, ilex, dlex), clue)
         if new:
             by_pid[pid][eid] = new
     n = collections.Counter()

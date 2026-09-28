@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
 """The puzzle file's shape: tools/data/puzzle.schema.json, and the one presence rule.
 
-    python3 tools/puzzle_schema.py              # every puzzles/<series>/<year>/*.json, and the enums
+    python3 tools/puzzle_schema.py              # every puzzles/<series>/<year>/*.json, the enums and the blog facts
     python3 tools/puzzle_schema.py cryptic-30066 times-29001
+
+The same file's $defs/blogFacts is the shape of each row of
+tools/data/blog_facts/<series>.json, checked by the no-argument run too.
 
 The rule: an absent key means empty. No puzzle file holds null, "", [] or {}
 as a value, except `clue`, which every entry has and which is "" on a clue the
@@ -265,6 +268,21 @@ def check_enums():
     return problems
 
 
+BLOG_FACTS = TOOLS / "data" / "blog_facts"
+
+
+def validate_blog_facts(row):
+    """Every way one puzzle's row of tools/data/blog_facts/ departs from $defs/blogFacts."""
+    out = []
+    _check(row, {"$ref": "#/$defs/blogFacts"}, "$", out)
+    return out
+
+
+def _check_blog_file(path):
+    rows = json.loads(Path(path).read_text(encoding="utf-8"))
+    return Path(path).name, {pid: p for pid, row in rows.items() if (p := validate_blog_facts(row))}
+
+
 def _check_file(path):
     puzzle = json.loads(Path(path).read_text(encoding="utf-8"))
     return Path(path).stem, validate(puzzle)
@@ -285,11 +303,17 @@ def main(argv):
                 shown = problems[:5] + ([f"... {len(problems) - 5} more"]
                                         if len(problems) > 5 else [])
                 print(f"{pid}: " + "; ".join(shown))
+        blog_files = [] if argv else sorted(map(str, BLOG_FACTS.glob("*.json")))
+        for name, bad in pool.map(_check_blog_file, blog_files):
+            for pid, problems in bad.items():
+                failed += 1
+                print(f"{name} {pid}: " + "; ".join(problems[:5]))
     if failed:
         print(f"puzzle schema: {failed} failure(s) over {len(paths)} puzzle(s) "
               f"— tools/data/puzzle.schema.json says what the shape is")
         return 1
-    print(f"puzzle schema: {len(paths)} puzzle(s) match tools/data/puzzle.schema.json")
+    print(f"puzzle schema: {len(paths)} puzzle(s) and {len(blog_files)} blog facts file(s) "
+          f"match tools/data/puzzle.schema.json")
     return 0
 
 

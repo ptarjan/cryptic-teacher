@@ -736,6 +736,149 @@
      "description": "\"never\" when no official key will ever exist (tools/series.py)."
     }
    }
+  },
+  "blogFacts": {
+   "description": "Not part of a puzzle file: one puzzle's row of tools/data/blog_facts/<series>.json, which maps puzzle id to this. What one blog write-up marks about the puzzle's clues, read by parser rules only (tools/blog_facts.py, tools/letter_facts.py); each clue's facts use the annotation's own keys and shapes. Checked in CI by tools/puzzle_schema.py.",
+   "type": "object",
+   "required": [
+    "blog",
+    "name",
+    "url",
+    "entries"
+   ],
+   "additionalProperties": false,
+   "properties": {
+    "blog": {
+     "$ref": "#/$defs/blog"
+    },
+    "name": {
+     "description": "The blog's name as a reader knows it.",
+     "type": "string",
+     "minLength": 1
+    },
+    "url": {
+     "description": "The write-up.",
+     "type": "string",
+     "pattern": "^https?://"
+    },
+    "entries": {
+     "description": "Entry id -> blogFact, for the clues the write-up marks something about.",
+     "type": "object",
+     "minProperties": 1,
+     "additionalProperties": {
+      "$ref": "#/$defs/blogFact"
+     }
+    }
+   }
+  },
+  "blogFact": {
+   "description": "One clue's facts from a blog write-up: a partial annotation, with the same key names and shapes.",
+   "type": "object",
+   "minProperties": 1,
+   "additionalProperties": false,
+   "properties": {
+    "definitions": {
+     "description": "As annotation.definitions, without notes: the span the blogger underlined, or both halves of a double definition, in clue order, `at` placed by tools/definitions.py. A text those rules cannot place is left out.",
+     "type": "array",
+     "minItems": 1,
+     "maxItems": 2,
+     "items": {
+      "type": "object",
+      "required": [
+       "text",
+       "at"
+      ],
+      "additionalProperties": false,
+      "properties": {
+       "text": {
+        "$ref": "#/$defs/annotation/properties/definitions/items/properties/text"
+       },
+       "at": {
+        "$ref": "#/$defs/annotation/properties/definitions/items/properties/at"
+       }
+      }
+     }
+    },
+    "type": {
+     "$ref": "#/$defs/annotation/properties/type"
+    },
+    "typeCore": {
+     "description": "`type` is a lower bound: the clue is that, and perhaps a cut or a letter selection besides.",
+     "const": true
+    },
+    "indicators": {
+     "description": "The words the write-up marks as indicators, and the type each signals where it says.",
+     "type": "array",
+     "minItems": 1,
+     "items": {
+      "type": "object",
+      "required": [
+       "text"
+      ],
+      "additionalProperties": false,
+      "properties": {
+       "text": {
+        "description": "The clue words, verbatim.",
+        "type": "string",
+        "minLength": 1
+       },
+       "for": {
+        "$ref": "#/$defs/clueType"
+       }
+      }
+     }
+    },
+    "blocks": {
+     "type": "array",
+     "minItems": 1,
+     "items": {
+      "$ref": "#/$defs/blogBlock"
+     }
+    },
+    "inferred": {
+     "description": "The fields tools/letter_facts.py read off the answer's letters rather than off the write-up.",
+     "type": "array",
+     "minItems": 1,
+     "uniqueItems": true,
+     "items": {
+      "enum": [
+       "blocks",
+       "definitions",
+       "indicators",
+       "type"
+      ]
+     }
+    }
+   }
+  },
+  "blogBlock": {
+   "description": "One piece of a blog's wordplay, as an annotation block: the clue words and the letters they give.",
+   "type": "object",
+   "required": [
+    "clueFragment",
+    "gives"
+   ],
+   "additionalProperties": false,
+   "properties": {
+    "clueFragment": {
+     "$ref": "#/$defs/block/properties/clueFragment"
+    },
+    "gives": {
+     "$ref": "#/$defs/block/properties/gives"
+    },
+    "soundsLike": {
+     "description": "A homophone's or spoonerism's piece: the word the clue words say, which `gives` sounds like.",
+     "$ref": "#/$defs/block/properties/soundsLike"
+    },
+    "anagramOf": {
+     "description": "Anagram fodder: `gives` is the clue words' letters before they are shuffled.",
+     "const": true
+    },
+    "inferred": {
+     "description": "A piece tools/letter_facts.py split the answer into; the write-up did not name it.",
+     "const": true
+    }
+   }
   }
  }
 }

@@ -716,10 +716,12 @@ tools/data/clue_types.json                   the fifteen clue types and the seve
                                              fall in, with the labels and blurbs the app and
                                              the tools show
 tools/data/blog_facts/                       per series, the blog facts tools/blog_facts.py
-                                             read off the write-ups, with the site's hints and
-                                             the validator's definition and block checks
-                                             reading them; inputs.sha256 is the digest of what
-                                             they were written from
+                                             read off the write-ups, each clue in the
+                                             annotation's keys and shapes ($defs/blogFacts in
+                                             puzzle.schema.json), with the site's hints and the
+                                             validator's definition and block checks reading
+                                             them; inputs.sha256 is the digest of what they
+                                             were written from
 tools/data/snitch.json                       the SNITCH's rating of every Times and Sunday
                                              Times puzzle it has rated, written nightly by
                                              tools/fetch_snitch.py; tools/difficulty.py scores
@@ -748,11 +750,11 @@ tools/test_provenance.sh                     does provenance actually REFUSE a p
                                              about where it came from?
 tools/test_puzzle_source.sh                  holds where a puzzle came from to `source`, whose
                                              answers it holds to `solutions` and who wrote its
-                                             hints to `annotatedBy`: a write lands all three and
-                                             nothing that repeats them, the detail keys decide
-                                             the origin, a key printed later replaces a model
-                                             fill and remembers it, and provenance.check refuses
-                                             detail that does not back its origin
+                                             hints to `annotatedBy`: a write lands all three
+                                             and nothing that repeats them, the detail keys
+                                             decide the origin, a key printed later replaces a
+                                             model fill and remembers it, and provenance.check
+                                             refuses detail that does not back its origin
 tools/rank_book_candidates.py                rank archive.org crossword books by whether
                                              acquiring one in full is worth it
 tools/acquire_books.sh                       read the next archive.org crossword book nobody
