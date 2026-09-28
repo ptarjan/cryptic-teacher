@@ -101,21 +101,19 @@ mkdir -p "$sand/puzzles"
 python3 - "$sand/puzzles/index.json" <<'EOF'
 import json, sys
 # id, date, hasSolutions, clues — newest first, so a queue that ignored the clue
-# counts would hand back the blank one at the head of the list. Real epoch
-# milliseconds, because a book's year is compared against them. A row's `when`
+# counts would hand back the blank one at the head of the list. A row's `when`
 # is its index keys: `date`, or a book's `year`, or neither.
-NOW = 1_790_000_000_000
-rows = [("ct-blank", NOW + 900, False, {"present": 0, "total": 28}),
-        ("ct-half", NOW + 800, False, {"present": 14, "total": 28}),
-        ("ct-most", NOW + 700, False, {"present": 15, "total": 28}),
-        ("ct-gap", NOW + 600, False, {"present": 27, "total": 28}),
-        ("ct-whole", NOW + 500, False, None),
-        ("ct-tried", NOW + 400, False, None),
-        ("ct-answered", NOW + 300, True, None),
+rows = [("ct-blank", "2026-09-09", False, {"present": 0, "total": 28}),
+        ("ct-half", "2026-09-08", False, {"present": 14, "total": 28}),
+        ("ct-most", "2026-09-07", False, {"present": 15, "total": 28}),
+        ("ct-gap", "2026-09-06", False, {"present": 27, "total": 28}),
+        ("ct-whole", "2026-09-05", False, None),
+        ("ct-tried", "2026-09-04", False, None),
+        ("ct-answered", "2026-09-03", True, None),
         # A book reprint, dated only by its book's year. Newest first is the
         # rule, and a 1973 reprint is not new — it is an old FT puzzle we will
         # get to eventually. A `year` and no `date`, which the sort key has to
-        # turn into a number rather than crash on.
+        # order among the days rather than crash on.
         ("ct-reprint", {"year": 1973}, False, None),
         # And a puzzle with no date at all (a cyclops not yet dated).
         ("ct-nodate", {}, False, None)]

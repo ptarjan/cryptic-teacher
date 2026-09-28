@@ -25,19 +25,16 @@ print("ALONE", pe.issue_number(434, "Eye 1279"), pe.issue_number(436, "Eye 1280 
 covers = {1: datetime.date(2011, 1, 7), 2: datetime.date(2016, 12, 20),
           3: datetime.date(2007, 1, 20)}
 pe.fetch_cover_date = covers.get
-day = lambda issue: (ms := pe.cover_date(99, f"Eye 99/{issue}")) and str(
-    datetime.datetime.fromtimestamp(ms / 1000, datetime.timezone.utc).date())
+day = lambda issue: pe.cover_date(99, f"Eye 99/{issue}")
 print("COVERS", day(1), day(2), day(3))
 
 # The cadence: the one issue between neighbours four weeks apart is dated;
 # one between neighbours six weeks apart (a skipped week) is not.
 import json, pathlib, tempfile
-ms = lambda d: int(datetime.datetime.combine(
-    datetime.date.fromisoformat(d), datetime.time(), datetime.timezone.utc).timestamp() * 1000)
 tmp = pathlib.Path(tempfile.mkdtemp())
 for num, d in ((330, "2007-01-05"), (331, None), (332, "2007-02-02"), (333, None), (334, "2007-03-16")):
     (tmp / f"cyclops-{num}.json").write_text(
-        json.dumps({"id": f"cyclops-{num}", "date": d and ms(d), "entries": []}, indent=1) + "\n")
+        json.dumps({"id": f"cyclops-{num}", "date": d, "entries": []}, indent=1) + "\n")
 pe.date_by_cadence(tmp)
 print("CADENCE", *(json.loads((tmp / f"cyclops-{n}.json").read_text())["date"] for n in (331, 333)))
 
@@ -72,7 +69,7 @@ check "a title naming one number names the issue" "1279 1280 None" "$(got ALONE)
 check "a Friday and a Christmas cover date are kept, another weekday is not" \
   "2011-01-07 2016-12-20 None" "$(got COVERS)"
 check "an undated Cyclops between neighbours four weeks apart takes the Friday between" \
-  "1169164800000 None" "$(got CADENCE)"
+  "2007-01-19 None" "$(got CADENCE)"
 check "an untagged answer is read up to its note; wordplay standing in for one is not" \
   "10=PUBLICHAIR 12=INTHEPUBLICINTEREST 1=DETENTE" "$(got UNTAGGED)"
 check "a misnumbered blog row fills the one open light of its length" "TEN" "$(got STRAY)"

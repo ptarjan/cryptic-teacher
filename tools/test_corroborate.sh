@@ -20,6 +20,7 @@ trap 'rm -rf "$TMP"' EXIT
 
 export TMP REPO
 out=$(PYTHONPATH="$REPO/tools" python3 - 2>"$TMP/stderr" <<'PY'
+import datetime
 import json
 import os
 from pathlib import Path
@@ -47,7 +48,7 @@ def light(number, direction, x, y, solution, clue="A clue (3)", group=None):
 def puzzle(pid, entries, **extra):
     series, _, number = pid.rpartition("-")
     return {"id": pid, "series": series, "number": int(number), "setter": "Paul",
-            "date": c.day_ms("2020-01-02"), "entries": entries, **extra}
+            "date": "2020-01-02", "entries": entries, **extra}
 
 
 def source(name, origin, **fields):
@@ -121,12 +122,12 @@ print("ENUMERATION", *enum[("clue", "1-across")])
 # sequence: the neighbours on disk put 501 between 2020-01-01 and -03, so the
 # file's 2021 date loses to the source's.
 for n, d in ((500, "2020-01-01"), (502, "2020-01-03")):
-    held = {"id": f"cryptic-{n}", "date": c.day_ms(d)}
+    held = {"id": f"cryptic-{n}", "date": d}
     puzzle_paths.file_for(held).parent.mkdir(parents=True, exist_ok=True)
     puzzle_paths.file_for(held).write_text(json.dumps(held))
-dated = puzzle("cryptic-501", AGREED, date=c.day_ms("2021-06-01"))
-seq = settled(dated, source("a", "times-listing", date=c.day_ms("2020-01-02")))
-print("SEQUENCE", seq[("date", "")][0], c.day(seq[("date", "")][1]))
+dated = puzzle("cryptic-501", AGREED, date="2021-06-01")
+seq = settled(dated, source("a", "times-listing", date=datetime.date(2020, 1, 2)))
+print("SEQUENCE", seq[("date", "")][0], seq[("date", "")][1])
 
 # unresolved: one origin on both sides, an unchecked cell, and the file keeps
 # the primary's answer without raising.

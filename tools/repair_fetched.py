@@ -90,7 +90,7 @@ import bisect
 import copy
 import json
 import sys
-from datetime import datetime, timezone
+from datetime import timedelta
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -154,7 +154,7 @@ def rebuild(puzzle):
 def misfiled_dates(dated):
     """Which of a series' puzzles are dated against the run of their own numbers?
 
-    `dated` is (number, date-in-ms) for one series, and the rule it is weighed
+    `dated` is (number, datetime.date or None) for one series, and the rule it is weighed
     against is that the two climb together: puzzle n+1 is never published before
     puzzle n. So the dates that CAN all be true together are a non-decreasing
     subsequence, and the longest one is the reading that calls fewest files
@@ -164,7 +164,7 @@ def misfiled_dates(dated):
     hiccup puts a puzzle a day out — so each candidate is then measured against
     the window its surviving neighbours leave it: the date of the last good
     puzzle below it and the first good one above. Only a date more than
-    fetch_puzzle.MISFILED_MS outside that window is reported, which is the same
+    fetch_puzzle.MISFILED outside that window is reported, which is the same
     month convert() refuses a live page for.
 
     Returns {number: (stored, earliest, latest)}, the bounds being None where
@@ -197,18 +197,16 @@ def misfiled_dates(dated):
         above = [seq[j][1] for j in keep if j > k]
         earliest = max(below) if below else None
         latest = min(above) if above else None
-        out_by = max((earliest - stored) if earliest is not None else 0,
-                     (stored - latest) if latest is not None else 0)
-        if out_by > fetcher.MISFILED_MS:
+        out_by = max((earliest - stored) if earliest is not None else timedelta(0),
+                     (stored - latest) if latest is not None else timedelta(0))
+        if out_by > fetcher.MISFILED:
             flagged[number] = (stored, earliest, latest)
     return flagged
 
 
-def day(ms):
-    """An epoch-milliseconds date as a readable day, for the report."""
-    if ms is None:
-        return "—"
-    return datetime.fromtimestamp(ms / 1000, timezone.utc).date().isoformat()
+def day(when):
+    """A datetime.date as a readable day, for the report."""
+    return "—" if when is None else when.isoformat()
 
 
 def in_range(number, args):
@@ -283,7 +281,7 @@ def main(argv):
         # A book's numbers are this repo's registry order, not a publication
         # sequence, so there is no run of dates for them to climb with.
         if not series_meta.is_book(series):
-            by_series.setdefault(series, []).append((number, puzzle.get("date")))
+            by_series.setdefault(series, []).append((number, series_meta.puzzle_day(puzzle)))
         if not in_range(number, args):
             continue
         examined += 1

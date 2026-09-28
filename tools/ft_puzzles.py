@@ -39,6 +39,7 @@ import file_blog_puzzles
 import file_times_puzzles as ftp
 import parse_timesforthetimes as tftt
 import puzzle_integrity
+import series as series_meta
 import times_grids as tg
 from fetch_puzzle import puzzle_files, puzzle_path, read_puzzle_file, write_puzzle_file
 
@@ -390,11 +391,11 @@ def file(write=True, limit=None):
             # post arriving later can move it.
             held = read_puzzle_file(puzzle_path(SERIES, number))
             day = dates.get(number)
-            ms = day and file_blog_puzzles.epoch_ms(day)
-            if ms and held.get("date") != ms:
+            if day and series_meta.puzzle_day(held) != day:
                 skipped["already filed, redated"] += 1
                 if write:
-                    write_puzzle_file(puzzle_path(SERIES, number), {**held, "date": ms})
+                    write_puzzle_file(puzzle_path(SERIES, number),
+                                      {**held, "date": day.isoformat()})
         elif limit is not None and len(filed) >= limit:
             skipped["past --limit"] += 1
         else:

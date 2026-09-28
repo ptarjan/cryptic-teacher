@@ -73,6 +73,7 @@ import time
 import urllib.error
 import urllib.request
 from datetime import datetime
+from zoneinfo import ZoneInfo
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -259,14 +260,17 @@ def convert(num, manifest, data):
             })
 
     entries.sort(key=lambda e: (e["position"]["y"], e["position"]["x"], e["direction"]))
+    # The manifest stamps London midnight, which in BST is 23:00 UTC the day
+    # before: the calendar day is read in London time, never in UTC.
     when = datetime.fromisoformat(manifest["date"].replace("Z", "+00:00"))
+    when = when.astimezone(ZoneInfo("Europe/London"))
     puzzle = {
         "id": series_meta.puzzle_id("everyman", num),
         "number": num,
         "series": "everyman",
         "name": f"Everyman crossword No {num:,}",
         "setter": data["copy"].get("setter") or series_meta.default_setter("everyman"),
-        "date": int(when.timestamp() * 1000),
+        "date": when.date().isoformat(),
         "dimensions": {"cols": cols, "rows": rows},
         "source": {"url": ARTICLE_URL.format(num=num)},
         "entries": entries,

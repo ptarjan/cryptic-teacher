@@ -245,9 +245,6 @@ def convert(data):
 
     date = publication_date(data)
     number = int(date.strftime("%Y%m%d"))
-    epoch_millis = int(datetime.datetime(
-        date.year, date.month, date.day, tzinfo=datetime.timezone.utc
-    ).timestamp() * 1000)
 
     return {
         "id": series_meta.puzzle_id(SERIES, number),
@@ -256,7 +253,7 @@ def convert(data):
         "name": f"Metro cryptic crossword, {date.day} {date.strftime('%B %Y')}",
         # Metro prints no byline, so this is null unless series.py names one.
         "setter": series_meta.default_setter(SERIES),
-        "date": epoch_millis,
+        "date": date.isoformat(),
         "dimensions": {"cols": cols, "rows": rows},
         # feedId is provenance, not identity — see the module docstring for
         # why the id is date-keyed instead. Harmless extra key for every

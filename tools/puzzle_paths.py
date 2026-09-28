@@ -6,7 +6,7 @@ puzzle file asks here; tools/puzzle_paths.js is the same rule for node.
 
   series  from the id (series.parse_id), so an id alone narrows the search to
           one folder.
-  year    series.puzzle_year(): the UTC year of the puzzle's `date`, or a book
+  year    series.puzzle_year(): the year of the puzzle's `date`, or a book
           puzzle's `year` — the year build_seo_pages.py prints. A puzzle with
           neither (a datedFromNeighbours series whose neighbours are not held
           yet) goes in `undated`, and moves out when a write gives it a date.

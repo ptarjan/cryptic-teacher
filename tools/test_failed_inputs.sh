@@ -55,13 +55,13 @@ json.dump({"id": path.rsplit("/", 1)[1][:-5], "dimensions": {"rows": 3, "cols": 
            "entries": [e]}, open(path, "w"))
 EOF
 }
-index() {  # each argument is id:date:annotated
+index() {  # each argument is id:YYYY-MM-DD:annotated
   python3 - "$sand/puzzles/index.json" "$@" <<'EOF'
 import json, sys
 out = []
 for arg in sys.argv[2:]:
     pid, when, done = arg.split(":")
-    out.append({"id": pid, "date": int(when), "annotated": done == "yes",
+    out.append({"id": pid, "date": when, "annotated": done == "yes",
                 "hasSolutions": True})
 json.dump({"puzzles": out}, open(sys.argv[1], "w"))
 EOF
@@ -70,7 +70,7 @@ queue() { ( cd "$sand" && ANNOTATE_MAX=2 eval "$pick" && printf '%s\n' "$pending
 eval "$charge"
 
 puzzle ct-1 CAT; puzzle ct-2 DOG; puzzle ct-3 EMU
-index ct-1:300:no ct-2:200:no ct-3:100:no
+index ct-1:2020-01-03:no ct-2:2020-01-02:no ct-3:2020-01-01:no
 
 echo "a puzzle is in the queue until it fails"
 check "the two newest" "$(queue)" "ct-1 ct-2"
@@ -105,7 +105,7 @@ check "from the file too" "$(python3 -c "import json; print(json.load(open('$FAI
 echo "a clean run clears the record; a clean exit that annotated nothing records one"
 record_annotate_failure ct-3 "ct-3 ran past 90m without finishing and was stopped" >/dev/null
 check "a wall-clock kill is the puzzle's" "$(ledger skipped annotate)" "ct-3"
-index ct-1:300:no ct-2:200:no ct-3:100:yes
+index ct-1:2020-01-03:no ct-2:2020-01-02:no ct-3:2020-01-01:yes
 annotated_nums="ct-2 ct-3"
 ( cd "$sand" && eval "$settle" ) >/dev/null
 check "ct-3 cleared, ct-2 recorded" "$(ledger skipped annotate | tr '\n' ' ')" "ct-2 "
@@ -120,15 +120,14 @@ check "answers arriving are a new input" "$(ledger skipped solve)" ""
 echo "new arrivals are not capped; ANNOTATE_MAX bounds only the older backlog"
 # shellcheck disable=SC2154 # $fresh is set by the eval of $pick
 fresh_q() { ( cd "$sand" && ANNOTATE_MAX=2 eval "$pick" && printf '%s\n' "$fresh" ); }
-now=$(python3 -c 'import time; print(int(time.time() * 1000))')
-day=86400000
+ago() { python3 -c "import datetime as d; print(d.datetime.now(d.timezone.utc).date() - d.timedelta(days=$1))"; }
 for i in 1 2 3; do puzzle "nw-$i" CAT; done
 puzzle old-1 CAT; puzzle old-2 CAT; puzzle old-3 CAT
-index "nw-1:$now:no" "nw-2:$((now - day)):no" "nw-3:$((now - day - 1000)):no" \
-      old-1:300:no old-2:200:no old-3:100:no
-check "all three of the last two days' puzzles" "$(fresh_q)" "nw-1 nw-2 nw-3"
+index "nw-1:$(ago 0):no" "nw-2:$(ago 1):no" "nw-3:$(ago 1):no" \
+      old-1:2020-01-03:no old-2:2020-01-02:no old-3:2020-01-01:no
+check "all three of the last two days' puzzles" "$(fresh_q | tr ' ' '\n' | sort | xargs)" "nw-1 nw-2 nw-3"
 check "and the backlog still gets its two" "$(queue)" "old-1 old-2"
-index "nw-1:$((now - 3 * day)):no" old-1:300:no
+index "nw-1:$(ago 3):no" old-1:2020-01-03:no
 check "three days old is backlog" "$(fresh_q)" ""
 
 echo "a puzzle whose official key landed tonight is a new arrival too"
@@ -137,7 +136,7 @@ puzzle old-1 ""
 git -C "$sand" add puzzles/old/undated/old-1.json
 git -C "$sand" -c user.name=t -c user.email=t@t commit -qm keyless
 puzzle old-1 CAT
-index old-1:300:no old-2:200:no old-3:100:no
+index old-1:2020-01-03:no old-2:2020-01-02:no old-3:2020-01-01:no
 check "old-1 jumps the cap" "$(fresh_q)" "old-1"
 check "and the backlog is the rest" "$(queue)" "old-2 old-3"
 rm -rf "$sand/.git"

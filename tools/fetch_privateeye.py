@@ -321,6 +321,7 @@ def convert(num, puz):
         })
     # The .puz carries no word breaks; the Eye prints them in each clue's enumeration.
     enumeration_separators(entries)
+    day = cover_date(num, puz["title"])
 
     return {
         "id": f"{SERIES}-{num}",
@@ -328,7 +329,7 @@ def convert(num, puz):
         "series": SERIES,
         "name": f"Private Eye Cyclops crossword No {num}",
         "setter": SETTER,
-        "date": cover_date(num, puz["title"]),
+        "date": day.isoformat() if day else None,
         "dimensions": {"cols": width, "rows": height},
         "source": {"url": INDEX_URL},
         "entries": entries,
@@ -394,7 +395,7 @@ def fetch_cover_date(issue):
 
 
 def cover_date(num, title):
-    """Publication date of Cyclops `num` in epoch ms at midnight UTC, or None.
+    """Publication day of Cyclops `num` as a datetime.date, or None.
 
     The .puz itself carries no date, but it names its issue, and the Eye dates
     that issue on its own cover page — so this is the publisher's date for this
@@ -418,8 +419,7 @@ def cover_date(num, title):
             print(f"  {SERIES}-{num}: cover-{issue} says {found} "
                   f"({found:%A}), not a Friday nor Christmas — left undated")
         return None
-    return int(datetime.datetime.combine(
-        found, datetime.time(), datetime.timezone.utc).timestamp() * 1000)
+    return found
 
 
 # ---------- fifteensquared.net answer join ----------
@@ -1157,11 +1157,12 @@ def refresh_unsolved():
     print(f"refresh-unsolved: {filled}/{len(pending)} puzzle(s) gained solutions")
 
 
-DATE_LINE = re.compile(r'^ "date": (?:null|\d+),$', re.MULTILINE)
+DATE_LINE = re.compile(r'^ "date": (?:null|"\d{4}-\d{2}-\d{2}"),$', re.MULTILINE)
 
 
-def stamp_date(path, epoch_ms):
-    """Write just the top-level `date` of an on-disk puzzle, in place.
+def stamp_date(path, day):
+    """Write just the top-level `date` of an on-disk puzzle, in place, as the
+    ISO day of the datetime.date `day`.
 
     A line edit, not a re-serialisation, because the only thing being learned
     here is the date: re-emitting the whole file would also quietly restyle
@@ -1171,7 +1172,7 @@ def stamp_date(path, epoch_ms):
     it under.
     """
     text = path.read_text()
-    text, count = DATE_LINE.subn(f' "date": {epoch_ms},', text, count=1)
+    text, count = DATE_LINE.subn(f' "date": "{day.isoformat()}",', text, count=1)
     if count != 1:
         raise ValueError(f"{path.name}: no top-level date line to write")
     dest = puzzle_paths.file_for(json.loads(text)) if puzzle_paths.in_corpus(path) else path
@@ -1191,9 +1192,9 @@ def backfill_dates(out_dir, dry_run=False):
     written = skipped = 0
     held = {}
     for num in on_disk_numbers(out_dir):
-        date = read_puzzle_file(out_path(out_dir, num)).get("date")
-        if date:
-            held[date] = num
+        day = series_meta.puzzle_day(read_puzzle_file(out_path(out_dir, num)))
+        if day:
+            held[day] = num
     for num in on_disk_numbers(out_dir):
         path = out_path(out_dir, num)
         puzzle = read_puzzle_file(path)
@@ -1201,22 +1202,20 @@ def backfill_dates(out_dir, dry_run=False):
             continue
         try:
             data = http_bytes(PUZ_URL.format(num=num))
-            epoch_ms = cover_date(num, parse_puz(data)["title"])
+            day = cover_date(num, parse_puz(data)["title"])
         except Exception as err:  # noqa: BLE001 — one bad puzzle shouldn't stop the walk
             print(f"skip {SERIES}-{num}: {err}")
-            epoch_ms = None
-        if epoch_ms in held:
-            print(f"skip {SERIES}-{num}: its title's issue is {SERIES}-{held[epoch_ms]}'s")
-            epoch_ms = None
-        if epoch_ms is None:
+            day = None
+        if day in held:
+            print(f"skip {SERIES}-{num}: its title's issue is {SERIES}-{held[day]}'s")
+            day = None
+        if day is None:
             skipped += 1
         else:
-            held[epoch_ms] = num
-            shown = datetime.datetime.fromtimestamp(
-                epoch_ms / 1000, datetime.timezone.utc).date()
+            held[day] = num
             if not dry_run:
-                stamp_date(path, epoch_ms)
-            print(f"{'[dry-run] ' if dry_run else ''}dated {SERIES}-{num}: {shown}")
+                stamp_date(path, day)
+            print(f"{'[dry-run] ' if dry_run else ''}dated {SERIES}-{num}: {day}")
             written += 1
         time.sleep(1)  # one request per second, max
     cadence = date_by_cadence(out_dir, dry_run)
@@ -1233,24 +1232,20 @@ def date_by_cadence(out_dir, dry_run=False):
     (summer, Christmas) and proves nothing. This is for the cover page that
     misprints its date (issue 1176's says Saturday 20 January 2007).
     """
-    dates = {num: read_puzzle_file(out_path(out_dir, num)).get("date")
-             for num in on_disk_numbers(out_dir)}
+    days = {num: series_meta.puzzle_day(read_puzzle_file(out_path(out_dir, num)))
+            for num in on_disk_numbers(out_dir)}
     written = 0
-    for num, date in dates.items():
-        before, after = dates.get(num - 1), dates.get(num + 1)
-        if date or not before or not after or after - before != 28 * DAY_MS:
+    for num, day in days.items():
+        before, after = days.get(num - 1), days.get(num + 1)
+        if day or not before or not after or (after - before).days != 28:
             continue
-        epoch_ms = before + 14 * DAY_MS
+        day = before + datetime.timedelta(days=14)
         if not dry_run:
-            stamp_date(out_path(out_dir, num), epoch_ms)
-        shown = datetime.datetime.fromtimestamp(epoch_ms / 1000, datetime.timezone.utc).date()
-        print(f"{'[dry-run] ' if dry_run else ''}dated {SERIES}-{num}: {shown}, "
+            stamp_date(out_path(out_dir, num), day)
+        print(f"{'[dry-run] ' if dry_run else ''}dated {SERIES}-{num}: {day}, "
               f"between {SERIES}-{num - 1} and {SERIES}-{num + 1}")
         written += 1
     return written
-
-
-DAY_MS = 86_400_000
 
 
 def on_disk_numbers(out_dir):

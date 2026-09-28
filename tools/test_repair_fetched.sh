@@ -61,11 +61,11 @@ print(json.dumps([[e["id"], e.get("group")] for e in puzzle["entries"]]))' "$1")
 # Written through the fetcher's own writer, so a fixture cannot be in a format
 # the tool would reject for reasons of its own.
 PYTHONPATH="$work/tools" python3 - <<'PY'
-from datetime import datetime, timezone
+from datetime import date, timedelta
 import fetch_puzzle as fetcher
 import puzzle_paths
 
-DAY = 86_400_000
+DAY = timedelta(days=1)
 def entry(eid, num, direction, x, y, length, clue, solution, group=None):
     e = {"id": eid, "number": num, "direction": direction,
          "position": {"x": x, "y": y}, "length": length, "clue": clue,
@@ -77,12 +77,12 @@ def entry(eid, num, direction, x, y, length, clue, solution, group=None):
 def write(series, number, date, entries):
     pid = f"{series}-{number}"
     puzzle = {"id": pid, "number": number, "series": series,
-              "name": f"Fixture {number}", "setter": "Nobody", "date": date,
+              "name": f"Fixture {number}", "setter": "Nobody", "date": date.isoformat(),
               "dimensions": {"cols": 15, "rows": 15},
               "source": {"url": f"https://example.invalid/{pid}"}, "entries": entries}
     fetcher.write_puzzle_file(puzzle_paths.PUZZLE_DIR / f"{pid}.json", puzzle)
 
-base = 1_600_000_000_000
+base = date(2020, 9, 13)
 
 # 100 — nothing wrong with it. The control: every run below must leave it alone.
 write("cryptic", 100, base, [
@@ -237,7 +237,7 @@ write("cryptic", 113, base + 13 * DAY, [
 for n in range(200, 207):
     when = base + (n - 200) * 7 * DAY
     if n == 203:
-        when = int(datetime(1934, 1, 18, tzinfo=timezone.utc).timestamp() * 1000)
+        when = date(1934, 1, 18)
     write("quiptic", n, when, [
         entry("1-across", 1, "across", 0, 0, 4, "Plain (4)", "EASY")])
 PY

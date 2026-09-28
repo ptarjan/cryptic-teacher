@@ -352,7 +352,7 @@ print("PRENAMESPACE_NUMBER", series_table.parse_id("30089")[1])
 
 puzzle = {
     "id": "A001", "number": "A001", "series": "authored",
-    "name": "x", "setter": "x", "date": 0,
+    "name": "x", "setter": "x", "date": "2026-01-01",
     "dimensions": {"cols": 1, "rows": 1}, "entries": [],
 }
 stamped = p.stamp(puzzle, "tools/build_authored_puzzle.py")

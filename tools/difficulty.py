@@ -201,7 +201,7 @@ import math
 import random
 import re
 import sys
-from datetime import datetime, timezone
+from datetime import datetime
 from pathlib import Path
 from types import SimpleNamespace
 
@@ -210,6 +210,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from fetch_puzzle import (  # noqa: E402 — one glob, one reader for every tool
     puzzle_files, puzzle_is_annotated, read_puzzle_file)
 import definitions
+import series as series_meta
 LEXICON = ROOT / "tools" / "data" / "lexicon.tsv"
 BASELINE = ROOT / "tools" / "data" / "difficulty_baseline.json"
 BLOG_FACTS = ROOT / "tools" / "data" / "blog_facts"
@@ -648,15 +649,6 @@ def blog_definitions():
     return out
 
 
-def puzzle_day(puz):
-    """The puzzle's date as YYYY-MM-DD, a book puzzle's `year` as YYYY (which
-    sorts before every day of that year), or None."""
-    if "year" in puz:
-        return str(puz["year"])
-    d = puz.get("date")
-    return datetime.fromtimestamp(d / 1000, timezone.utc).date().isoformat() if d else None
-
-
 @functools.lru_cache(maxsize=1)
 def history():
     """{puzzle id: {"answer_novelty", "pairing_novelty"}}, each counted over
@@ -686,7 +678,7 @@ def history():
     rows = []
     for path in puzzle_files():
         puz = read_puzzle_file(path)
-        day = puzzle_day(puz)
+        day = series_meta.puzzle_day(puz)
         if not day:
             continue
         bd = blog.get(puz["id"], {})
@@ -1066,7 +1058,7 @@ def scored_meta():
 
 def cryptic_weekdays(scores, meta):
     """(weekday, index, setter) for every scored Guardian cryptic."""
-    return [(datetime.fromtimestamp(meta[p]["date"] / 1000, timezone.utc).weekday(),
+    return [(series_meta.puzzle_day(meta[p]).weekday(),
              s["index"], meta[p].get("setter") or "")
             for p, s in scores.items()
             if meta[p].get("series", "cryptic") == "cryptic"]
