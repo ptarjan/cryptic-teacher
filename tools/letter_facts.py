@@ -61,7 +61,17 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
-from blog_facts import ABBR, ENUM_TAIL, GOLD, LEADS, OUT, PART_ORDER, clue_body, fold
+from blog_facts import (
+    ABBR,
+    ENUM_TAIL,
+    GOLD,
+    LEADS,
+    OUT,
+    PART_ORDER,
+    clue_body,
+    fold,
+    heard_blocks,
+)
 
 PUZZLES = ROOT / "puzzles"
 WORD = re.compile(r"[\w'’\-]+")
@@ -1534,10 +1544,12 @@ def read_leads(required=False):
 def stated(facts):
     """A clue's facts as the blog stated them, without what this file inferred:
     a field named in "inferred" (the type, the definition, the indicators), or
-    a block marked INFERRED."""
+    a block marked INFERRED, but for a heard one (with_heard), the blog's block it was read from."""
     ours = {"inferred", "typeCore", *facts.get("inferred", ())} - {"blocks"}
     out = {k: v for k, v in facts.items() if k not in ours and k != "blocks"}
-    blocks = [b for b in facts.get("blocks", ()) if INFERRED not in b[2:]]
+    heard = lambda b: next((h["soundsLike"] for h in b[2:] if isinstance(h, dict) and "soundsLike" in h), None)
+    blocks = [b if INFERRED not in b[2:] else [heard(b), b[1]]  # the blog's own words, read as heard (with_heard)
+              for b in facts.get("blocks", ()) if INFERRED not in b[2:] or heard(b)]
     return {**out, "blocks": blocks} if blocks else out
 
 
@@ -1558,6 +1570,8 @@ def inferred(clue, answer, facts, votes, lex, ilex, dlex, fuzzy=True):
         w = written(got.get("type")) if got else None
         if w:
             facts = {**facts, "type": w[0], "inferred": ["type"], **({"typeCore": True} if w[1] else {})}
+    new = infer_heard(clue, answer, facts)
+    facts = with_heard(facts, new) if new else facts
     facts = with_all_blocks(clue, answer, facts, lex, dlex, fuzzy)
     new = infer_fodder(clue, answer, facts, votes)
     facts = with_blocks(facts, new) if new else facts
@@ -1624,6 +1638,82 @@ def sounds_like(answer, blocks):
     if not blocks or None in heard or letters("".join(b[0] for b in blocks)) != letters(answer or ""):
         return None
     return " ".join(heard)
+
+
+#: The CMU Pronouncing Dictionary, stress dropped: word -> its pronunciations.
+CMUDICT = ROOT / "tools" / "data" / "cmudict.txt.gz"
+PHONE_VOWELS = frozenset({"AA", "AE", "AH", "AO", "AW", "AY", "EH", "ER", "EY", "IH", "IY", "OW", "OY", "UH", "UW"})
+#: The most pronunciations one phrase is read as; the rest are not tried.
+MAX_SAID = 64
+
+
+@functools.cache
+def _cmudict():
+    import gzip
+    with gzip.open(CMUDICT, "rt", encoding="utf-8") as f:
+        return {w: [tuple(p.split()) for p in ps.split("|")]
+                for w, ps in (line.rstrip("\n").split("\t") for line in f if not line.startswith("#"))}
+
+
+def _british(p):
+    """A pronunciation as British setters say it: no R but before a vowel."""
+    return tuple(x for i, x in enumerate(p) if x != "R" or i + 1 < len(p) and p[i + 1] in PHONE_VOWELS)
+
+
+@functools.cache
+def said_word(w):
+    """How the letters `w` are said: the dictionary's, or where it has no
+    such word, those of words of three or more letters (or A, I) that spell it."""
+    d, w = _cmudict(), letters(w).lower()
+    at = {len(w): {()}}
+    for i in range(len(w) - 1, -1, -1):
+        at[i] = {p + rest for j in range(i + 1, len(w) + 1) if j - i >= 3 or w[i:j] in ("a", "i")
+                 for p in d.get(w[i:j], ()) for rest in at[j]} if w[i:] not in d else set(d[w[i:]])
+        if len(at[i]) > MAX_SAID:
+            at[i] = set(sorted(at[i])[:MAX_SAID])
+    return frozenset(map(_british, at[0])) if w else frozenset()
+
+
+def said(phrase):
+    """How `phrase` is said, word after word (see said_word); empty where a word is unknown."""
+    got = {()}
+    for _, w in words(phrase):
+        ps = said_word(w)
+        got = set(sorted(a + b for a in got for b in ps)[:MAX_SAID])
+        if not got:
+            break
+    return got
+
+
+def said_like(heard, answer, clue=""):
+    """Whether `heard` is said as `answer` is, by the dictionary (see said):
+    the answer read whole and, where the clue's enumeration splits it, as those words."""
+    enum = [int(n) for n in re.findall(r"\d+", (ENUM_TAIL.search(clue) or [""])[0])]
+    a, ways = letters(answer), said(answer)
+    if len(enum) > 1 and sum(enum) == len(a):
+        ends = list(itertools.accumulate(enum))
+        ways |= said(" ".join(a[e - n:e] for e, n in zip(ends, enum)))
+    return bool(ways) and not said(heard).isdisjoint(ways)
+
+
+def infer_heard(clue, answer, facts):
+    """A homophone's or a spoonerism's blocks read as heard (see
+    blog_facts.heard_blocks), where the blog's are the words heard and they
+    are said as the answer is by the dictionary (see said_like), not only by
+    blog_facts.sounds_alike's spelling rules; else []."""
+    blocks = facts.get("blocks") or []
+    if facts.get("type") not in SOUNDED or not blocks or any(len(b) != 2 for b in blocks) \
+            or letters("".join(b[0] for b in blocks)) == letters(answer or ""):
+        return []
+    new = heard_blocks(facts["type"], [list(b) for b in blocks], answer, clue_body(clue),
+                       alike=lambda h, a: said_like(h, a, clue))
+    return new if sounds_like(answer, new) else []
+
+
+def with_heard(facts, new):
+    """`facts` with the blog's blocks read as the heard blocks `new`, marked inferred."""
+    return {**facts, "blocks": [[g, src, INFERRED, *how] for g, src, *how in new],
+            "inferred": sorted({*facts.get("inferred", ()), "blocks"})}
 
 
 def carried(answer, blocks):

@@ -240,6 +240,26 @@ full {'homophone'} {'spoonerism'} False True"
 if [ "$heard" = "$want" ]; then echo "ok   a homophone's and a spoonerism's blocks are heard where they sound like the answer, and want their indicator"; else
   echo "FAIL heard blocks: expected [$want], got [$heard]"; fails=$((fails + 1)); fi
 
+# Where blog_facts.sounds_alike's spelling rules miss, a homophone's blog
+# block is heard by the pronouncing dictionary, British (no R before a
+# consonant), the answer read whole or as its enumeration's words, and a
+# letter read as its name. It is marked inferred, and the facts as stated
+# are the blog's block again. A word said otherwise is no homophone.
+cmu=$(cd "$REPO/tools" && python3 -c '
+import letter_facts as l
+f = {"type": "homophone", "blocks": [["BARRED", "banned"]]}
+new = l.infer_heard("Singer banned from listening (4)", "BARD", f)
+print(new, l.stated(l.with_heard(f, new)))
+print(l.infer_heard("Get a letter read out (3)", "SEE", {"type": "homophone", "blocks": [["C", "a letter"]]}),
+      l.infer_heard("Betrayed only uncertainty in speech (4,3)", "SOLDOUT",
+                    {"type": "homophone", "blocks": [["SOLE DOUBT", "only uncertainty"]]}),
+      l.said_like("LARVA", "LAVA"), l.said_like("SHIP", "SHEEP"),
+      l.infer_heard("Skin trouble said to be found in London (4)", "ACNE", {"type": "homophone", "blocks": [["HACKNEY", "found in London"]]}))')
+want="[['BARD', 'banned', {'soundsLike': 'BARRED'}]] {'type': 'homophone', 'blocks': [['BARRED', 'banned']]}
+[['SEE', 'a letter', {'soundsLike': 'C'}]] [['SOLDOUT', 'only uncertainty', {'soundsLike': 'SOLE DOUBT'}]] True False []"
+if [ "$cmu" = "$want" ]; then echo "ok   a homophone's block is heard by the pronouncing dictionary where the spelling rules miss"; else
+  echo "FAIL dictionary homophones: expected [$want], got [$cmu]"; fails=$((fails + 1)); fi
+
 # An anagram the blog gave no blocks has the fodder the letters read for its
 # block, as blogs write it (its letters, not the answer's); untyped, none. A
 # piece read only as the clue's own answer less a letter (LUMBAGO from "Lead",
