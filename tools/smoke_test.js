@@ -443,13 +443,27 @@ const openId = bootLoaded[0];
 // count below is gated on, because those counts are statements about the whole
 // corpus and a sample cannot make them.
 const FULL = !!process.env.CI || !!process.env.CT_FULL;
+// CI runs this file as several jobs at once, CI_SLICE="i/n" in each, and each
+// one sweeps the puzzles whose id hashes to its slice: together they sweep all
+// of it, in a fraction of the wall time. The checks that are not sweeps run in
+// every slice (they are seconds), except the shelled-out ones, which slice 0
+// runs alone. Unset, this run is the only slice.
+const SLICE = (() => {
+  const m = /^(\d+)\/(\d+)$/.exec(process.env.CI_SLICE || "");
+  return m && +m[1] < +m[2] ? { i: +m[1], n: +m[2] } : { i: 0, n: 1 };
+})();
+const inSlice = (key) => {
+  let h = 2166136261;  // FNV-1a: stable across runs and machines
+  for (const c of String(key)) h = Math.imul(h ^ c.charCodeAt(0), 16777619) >>> 0;
+  return h % SLICE.n === SLICE.i;
+};
 function load(p) {
   if (global.window.CRYPTIC_PUZZLES[p.id]) return;
   new Function("window", fs.readFileSync(path.join(ROOT, "puzzles", p.file), "utf8"))(global.window);
 }
 const corpus = (() => {
   const all = global.CRYPTIC_INDEX.puzzles;
-  if (FULL) return all;
+  if (FULL) return all.filter((p) => inSlice(p.id) || p.id === openId);
   // A book's date is a "YYYY" string, its 1 January for ordering.
   const ms = (d) => (typeof d === "string" ? Date.UTC(+d, 0, 1) : d || 0);
   const newest = (f) => all.filter(f).sort((a, b) => ms(b.date) - ms(a.date));
@@ -491,7 +505,8 @@ if (!FULL) console.log(`(sampled ${corpus.length} puzzles of ${global.CRYPTIC_IN
 // that quietly stopped finding anything — a filter that matches nothing passes
 // every assertion inside the loop by never running one — and a sample can make
 // that statement. So the floor stands in CI and becomes "more than none" here.
-const enough = (n, floor) => n > (FULL ? floor : 0);
+// A slice holds about 1/n of the corpus, so it owes about 1/n of the floor.
+const enough = (n, floor) => n > (FULL ? floor / SLICE.n : 0);
 // Which puzzle boots is NOT pinned here on purpose: the nightly job adds one
 // every day, and a test that only ever exercises a frozen fixture stops
 // covering the puzzles people actually land on. Everything below therefore
@@ -864,7 +879,7 @@ const patBoxes = () => (patHTML().match(/class="pat-box [^"]*"/g) || []);
   // the burn's shell, none of which app.js can break. CI pays for them; the
   // edit-and-run loop does not, because a loop nobody waits out is the only
   // kind that gets run before a push. Change any of these and run CT_FULL=1.
-  if (FULL) {
+  if (FULL && SLICE.i === 0) {
     const hold = require("child_process").spawnSync(
       process.execPath, [path.join(ROOT, "tools/test_push_hold.js")], { encoding: "utf8" });
     assert(hold.status === 0,
@@ -5403,7 +5418,7 @@ global.realSetTimeout(() => {
   // that finds nothing is worse than no suggestion — is about one probe at a
   // time, so the hundredth setter is re-proving what the first proved.
   const probes = new Set(["so", "un"].concat(
-    FULL ? [...openings] : [...openings].sort().slice(0, 12)));
+    FULL ? [...openings].filter(inSlice) : [...openings].sort().slice(0, 12)));
   const offered = new Set();
   probes.forEach((q) => {
     typeInPicker(q);
