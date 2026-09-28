@@ -227,7 +227,7 @@ OPENS = r"(?:^|(?<=[\n:–—;.(])|(?<=[\n:–—;.(] ))\s*(?:it's\s+|this\s+is\
 TYPES = (
     ("double definition", re.compile(
         r"\b(?:double|two|triple|three)[\s-]+def(?:inition|n)?s?\b|\bDD\b|\b2\s?defs?\b"
-        r"|\b(?:two|three) meanings\b", re.IGNORECASE)),
+        r"|\b(?:two|three|2|3) meanings\b", re.IGNORECASE)),
     ("cryptic definition", re.compile(OPENS + r"(?:cryptic(?:ally)?\s+def(?:inition)?|CD)\b", re.IGNORECASE)),
     ("anagram", re.compile(r"\banagram\b|\banag\b|[A-Z)]\*|\*\s*\(|\banagrind", re.IGNORECASE)),
     ("spoonerism", re.compile(r"\bspooner(?:ism|'s)?\b", re.IGNORECASE)),
@@ -1205,6 +1205,74 @@ def selected(letters, src):
     return all(ch in it for ch in atom_letters(letters))
 
 
+#: A write-up's word for a hidden answer, which it may not otherwise name:
+#: "A lurker hiding in (carries) deacon usually", "lurking in AustraLIAN Alps".
+LURKER = re.compile(r"(?i)\blurk(?:er|ers|ing|s)?\b")
+HIDE_SEP = r"[\s()\[\]{}'’.\-]*"
+
+
+def shown_hidden(expl, body, answer):
+    """"hidden word" (+ reversal) where the write-up prints the run of clue
+    words the answer hides in with the answer marked off by case or by
+    brackets: "ValentiNO BLEeding", "milTON Keynes", "G(RAVE)send",
+    "[slipsh]OD ESSA[y]"; or calls it a lurker and the clue's letters hold it.
+    One word must carry letters on both sides, and no selecting word may sit
+    in the clue, else "s(TAR)t" or "HATRE(d)" would be a hidden word."""
+    if not answer or len(answer) < 3:
+        return None
+    words = [(m.start(), m.end(), "".join(f for f in map(fold, m.group()) if f.isalnum() and f.isascii()))
+             for m in re.finditer(r"[\w'’\-]+", body)]
+    run_letters = "".join(w for _, _, w in words)
+    for target, kind in ((answer, "hidden word"), (answer[::-1], "hidden word + reversal")):
+        if LURKER.search(expl) and target in run_letters:
+            return kind
+        at = run_letters.find(target)
+        while at >= 0:
+            end, k, first = at + len(target), 0, None
+            for i, (_, _, w) in enumerate(words):  # the clue words the answer's letters fall in
+                if first is None and k + len(w) > at:
+                    first = i
+                k += len(w)
+                if k >= end:
+                    last = i
+                    break
+            start = sum(len(w) for _, _, w in words[:first])
+            run = "".join(w for _, _, w in words[first:last + 1])
+            pre, post = at - start, len(run) - (end - start)
+            one_word = first == last
+            if (pre or post) and not (one_word and (not (pre and post) or SELECTING.search(body))):
+                rx = HIDE_SEP.join(map(re.escape, run))
+                for m in re.finditer(r"(?<![A-Za-z])" + rx + r"(?![A-Za-z])", expl, re.IGNORECASE):
+                    if _marks_off(m.group(), pre, len(target), body[words[first][0]:words[last][1]]):
+                        return kind
+            at = run_letters.find(target, at + 1)
+    return None
+
+
+def _marks_off(text, pre, n, clue_run):
+    """Whether letters pre..pre+n of `text` stand apart from the rest: all
+    capitals among lower case (a capital the clue has, as in "ValentiNO
+    BLEeding", marks nothing), or all inside brackets, or all outside them."""
+    clue_caps = [ch.isupper() for ch in clue_run if ch.isalpha()]
+    letters, inside, depth = [], [], 0
+    for ch in text:
+        if ch in "([{":
+            depth += 1
+        elif ch in ")]}":
+            depth -= 1
+        elif ch.isalpha():
+            letters.append(ch)
+            inside.append(depth > 0)
+    ans = range(pre, pre + n)
+    rest = [i for i in range(len(letters)) if i not in ans]
+    if len(clue_caps) == len(letters) and all(letters[i].isupper() for i in ans) \
+            and not all(clue_caps[i] for i in ans) \
+            and all(letters[i].islower() or clue_caps[i] for i in rest):
+        return True
+    return bool(rest) and (all(inside[i] for i in ans) and not any(inside[i] for i in rest)
+                           or all(inside[i] for i in rest) and not any(inside[i] for i in ans))
+
+
 def checked_type(expl, expl_marked, answer, blk, body=""):
     """The clue type, where the write-up's letters bear it out.
 
@@ -1213,7 +1281,7 @@ def checked_type(expl, expl_marked, answer, blk, body=""):
     one in it; a named homophone stands only where nothing is added to it.
     A spelled-out type stands only where no block's clue words say part of
     them was cut away, which the operators would then not have named."""
-    named = clue_type(expl)
+    named = clue_type(expl) or (not HEDGED.search(expl) and shown_hidden(expl, body, answer)) or None
     head = wordplay_head(expl_marked, answer) if answer else ""
     if named == "anagram" and not has_fodder(expl, answer):
         named = None
