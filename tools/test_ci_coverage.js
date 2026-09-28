@@ -30,7 +30,7 @@
 "use strict";
 const fs = require("fs");
 const path = require("path");
-const { shards } = require("./ci_shards.js");
+const { shards, items } = require("./ci_shards.js");
 const ROOT = path.join(__dirname, "..");
 const WORKFLOWS = path.join(ROOT, ".github/workflows");
 
@@ -123,16 +123,24 @@ if (shardIds.length >= 2) {
   split.forEach((s, i) => assert(s.length > 0,
     `shard ${i} of ${shardIds.length} is handed no tests — drop a shard rather ` +
     "than paying for a job that passes by running nothing"));
+  // An item is a file, or one slice of a file that runs as several.
   const placed = split.flat();
   const seen = new Set();
   placed.forEach((f) => {
     assert(!seen.has(f), `${f} is in two shards, so the suite pays for it twice`);
     seen.add(f);
   });
-  files.forEach((f) => assert(seen.has(f),
+  const want = items(files);
+  want.forEach((f) => assert(seen.has(f),
     `${f} is matched by the globs but lands in no shard, so it runs nowhere`));
-  assert(placed.length === files.length,
-    `the shards hold ${placed.length} scripts and the globs matched ${files.length}`);
+  assert(placed.length === want.length,
+    `the shards hold ${placed.length} items and the globs matched ${want.length}`);
+  // The workflow hands a slice to its script as CI_SLICE; one it does not
+  // hand over runs the whole script in every slice's shard.
+  if (want.length > files.length) {
+    assert(/CI_SLICE=/.test(body),
+      "tests.yml passes an item's slice to its script as CI_SLICE");
+  }
 }
 
 /* --- one check name carries the verdict --- */
