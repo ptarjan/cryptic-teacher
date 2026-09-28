@@ -22,8 +22,9 @@
 # total-CPU/2. Each job globs the WHOLE list and asks tools/ci_shards.js for one
 # slice of it; the split is a pure function of that list, so the jobs partition
 # it without coordinating and a file matched by the globs runs in exactly one of
-# them. The wall clock is therefore the slowest single script plus setup, and no
-# arrangement of jobs can beat that — the heaviest script is the floor.
+# them. The wall clock is therefore the slowest single item plus setup; a
+# script heavier than the rest is split into slices (CI_SLICE) so it is not the
+# floor.
 #
 # All failures are reported rather than stopping at the first, within a job
 # (the `fails` array) and across them (`fail-fast: false`): a workflow that
@@ -85,18 +86,13 @@ jobs:
       fail-fast: false
       matrix:
         # The count is read from `strategy.job-total` below, so adding or
-        # removing an entry here is the only edit a reshard needs. Five is the
-        # point past which more jobs buy nothing: the slowest single script is
-        # already the whole shard.
-        shard: [0, 1, 2, 3, 4]
+        # removing an entry here is the only edit a reshard needs.
+        shard: [0, 1, 2, 3, 4, 5, 6, 7]
     # A run that stops making progress otherwise sits on GitHub's 6h default,
-    # holding a red check over every commit behind it. The cap has to clear the
-    # slowest single script plus about two and a half minutes of checkout and
-    # page build, and that script is tools/smoke_test.js, whose corpus sweeps
-    # grow with every puzzle: 11.5 min on a runner on 2026-09-27, when a 15 min
-    # cap was killing its shard on every run. Thirty leaves room for a slow
-    # runner and a year of corpus, and still fails a stall inside half an hour.
-    timeout-minutes: 30
+    # holding a red check over every commit behind it. A shard is about seven
+    # minutes of checkout, build and scripts; fifteen leaves room for a slow
+    # runner and a growing corpus, and still fails a stall inside a quarter hour.
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -105,27 +101,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
-      # tools/smoke_test.js drives the app against the generated pages and stops
-      # with "run: python3 tools/build_seo_pages.py" if they are not there, so
-      # they are built first. The index comes before the pages because the pages
-      # are generated from it. Neither step touches the network, and the social
-      # cards are deliberately not drawn: a page points at its own card only if
-      # the file is on disk, and nothing here asks about cards.
-      # --reindex also builds puzzles/<id>.js from puzzles/<id>.json, and a
-      # clone has only the .json. Every test below that loads a puzzle the way
-      # the browser does needs those shims on disk.
-      # The glossary comes before all of it because --reindex restamps
-      # index.html, and a stamp is a hash of the file it points at: every asset
-      # the page names has to be on disk by then, glossary included.
-      # Every shard rebuilds rather than downloading one shard's build: the
-      # output is ~440 MB across ~47k files, which costs more to move than the
-      # minute it takes to make.
-      - name: Build the pages the tests read
-        run: |
-          python3 tools/build_abbreviations.py
-          python3 tools/fetch_puzzle.py --reindex
-          python3 tools/build_seo_pages.py
-      - name: Run this shard of the test scripts
+      # The loop globs both of the repo's test-file spellings and asks
+      # tools/ci_shards.js for this shard's slice. An item is a script, or
+      # "<script> i/n" for one slice of a script too heavy for a single job.
+      - name: Pick this shard's test scripts
+        id: pick
         env:
           SHARD: ${{ matrix.shard }}
           SHARDS: ${{ strategy.job-total }}
@@ -135,19 +115,44 @@ jobs:
             [ -e "$t" ] || continue
             all+=("$t")
           done
-          mapfile -t mine < <(printf '%s\n' "${all[@]}" | node tools/ci_shards.js "$SHARD" "$SHARDS")
+          printf '%s\n' "${all[@]}" | node tools/ci_shards.js "$SHARD" "$SHARDS" > "$RUNNER_TEMP/mine"
           # A shard handed nothing would pass by running nothing, which reads as
           # a green check for a suite that never ran.
-          if [ "${#mine[@]}" -eq 0 ]; then
+          if [ ! -s "$RUNNER_TEMP/mine" ]; then
             echo "shard $SHARD of $SHARDS was handed no tests out of ${#all[@]}"
             exit 1
           fi
+          cat "$RUNNER_TEMP/mine"
+          if node tools/ci_shards.js --needs-pages < "$RUNNER_TEMP/mine"; then
+            echo "pages=true" >> "$GITHUB_OUTPUT"
+          fi
+      # --reindex builds the index and puzzles/<id>.js from puzzles/<id>.json
+      # (a clone has only the .json), and every test that loads a puzzle the
+      # way the browser does needs those shims. The glossary comes first
+      # because --reindex restamps index.html, and a stamp is a hash of the file
+      # it points at. Neither touches the network.
+      - name: Build the index the tests read
+        run: |
+          python3 tools/build_abbreviations.py
+          python3 tools/fetch_puzzle.py --reindex
+      # Only a shard holding a script in ci_shards.js's PAGES builds the pages,
+      # a minute and a half each. The social cards are deliberately not drawn:
+      # a page points at its own card only if the file is on disk.
+      - name: Build the pages the tests read
+        if: steps.pick.outputs.pages == 'true'
+        run: python3 tools/build_seo_pages.py
+      - name: Run this shard of the test scripts
+        run: |
+          mapfile -t mine < "$RUNNER_TEMP/mine"
           before=$(git status --porcelain)
           fails=()
-          for t in "${mine[@]}"; do
+          for item in "${mine[@]}"; do
+            t=${item%% *}
+            slice=
+            [ "$item" = "$t" ] || slice=${item#* }
             case "$t" in *.sh) run=bash ;; *) run=node ;; esac
-            echo "::group::$run $t"
-            "$run" "$t" || fails+=("$t")
+            echo "::group::$run $item"
+            CI_SLICE="$slice" "$run" "$t" || fails+=("$item")
             echo "::endgroup::"
             # A script that writes to a tracked file or the real puzzles/ index
             # and restores it with a trap still fails this the moment it is
@@ -158,9 +163,9 @@ jobs:
             # instead of whichever ran last.
             after=$(git status --porcelain)
             if [ "$after" != "$before" ]; then
-              echo "$t left the working tree dirty:"
+              echo "$item left the working tree dirty:"
               diff <(printf '%s\n' "$before") <(printf '%s\n' "$after") || true
-              fails+=("$t left the working tree dirty")
+              fails+=("$item left the working tree dirty")
               before="$after"
             fi
           done
@@ -171,7 +176,7 @@ jobs:
             for f in "${fails[@]}"; do echo "  - $f"; done
             exit 1
           fi
-          echo "shard $SHARD: ${#mine[@]} test script(s) passed"
+          echo "shard: ${#mine[@]} test item(s) passed"
 
   # The single check that means the suite is green. It runs even when something
   # it needs failed — `if: always()` — because a skipped job has no conclusion
