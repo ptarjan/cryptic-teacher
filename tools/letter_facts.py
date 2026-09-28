@@ -69,12 +69,12 @@ from blog_facts import (
     OUT,
     PART_ORDER,
     clue_body,
-    fold,
     heard_blocks,
 )
+from indicator_keys import WORD, letters
+from indicator_keys import indicator_words as _key
 
 PUZZLES = ROOT / "puzzles"
-WORD = re.compile(r"[\w'’\-]+")
 #: A hidden answer shorter than this turns up by chance in too many clues.
 MIN_HIDDEN = 4
 #: Nor is an anagram of fewer letters worth a claim: ERA in "are" is as often a literal.
@@ -110,10 +110,6 @@ MIN_CORE_CLAIMS = 100
 PRECISION_BAR = 0.97
 #: The most blocks put together; more is a blog listing alternatives.
 MAX_BLOCKS = 5
-
-
-def letters(s):
-    return "".join(f for f in map(fold, s) if f.isalnum() and f.isascii()).upper()
 
 
 def words(body):
@@ -420,10 +416,6 @@ NO_SPLIT = ("anagram", "hidden", "homophone", "spoonerism", "double definition",
 #: blog's anagram fodder carries "anagrammed".
 INFERRED = "inferred"
 POSSESSIVE = re.compile(r"[a-z]['’]s$", re.IGNORECASE)
-
-
-def _key(src):
-    return tuple(l for _, l in words(src))
 
 
 ABBR_OF = collections.defaultdict(set)
