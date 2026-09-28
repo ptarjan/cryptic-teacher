@@ -53,7 +53,7 @@ const spec = path.join(ROOT, "og/page/cards.json");
 if (fs.existsSync(spec)) cards = JSON.parse(fs.readFileSync(spec, "utf8"));
 else fails.push("og/page/cards.json is missing: build_seo_pages.py writes it");
 
-const files = [path.join(ROOT, "index.html"), ...["puzzles", "learn", "abbreviations", "difficulty"]
+const files = [path.join(ROOT, "index.html"), ...["puzzles", "learn", "abbreviations", "indicators", "difficulty"]
   .flatMap((d) => pages(path.join(ROOT, d)))];
 let checked = 0;
 for (const file of files) {

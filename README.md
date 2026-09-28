@@ -44,7 +44,10 @@ Other features:
 - A gentle score: clues solved with no hints, rungs shown, rungs worked out.
 - A collapsible "How cryptic clues work" tutorial.
 - A **glossary of standard abbreviations**. The building-blocks rung links into
-  it word by word.
+  it word by word. Below the hand-built table, /abbreviations/ also lists the
+  rarer conventions counted in solved clues.
+- A list of **indicators** at /indicators/, by clue type and by how many clues
+  use each one, from `tools/data/lexicons/indicators.json`.
 - A puzzle picker.
 - Progress is saved in localStorage, per puzzle.
 

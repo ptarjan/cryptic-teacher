@@ -18,6 +18,15 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "tools" / "data" / "abbreviations.json"
+# Clue word -> {letters: clues}, off the solving blogs and our own annotations
+# (tools/letter_facts.py --lexicons). Read only by seen(), for the page.
+LEXICON = ROOT / "tools" / "data" / "lexicons" / "blocks.json"
+# seen() keeps a reading only when this many clues use it.
+SEEN_MIN = 10
+# Two-letter readings that are everyday words. POPULAR -> IN and WHEN -> AS are
+# synonyms, however often setters use them, not conventions to learn.
+EVERYDAY = frozenset("AM AN AS AT BE BY DO GO HE HI IF IN IS IT ME MY NO OF OH OK "
+                     "ON OR OX SO TO UP US WE".split())
 OUT = ROOT / "abbreviations.js"
 # Where the glossary belongs inside the lesson. The 400 rows themselves live on
 # one URL — /abbreviations/ — so what tools/build_seo_pages.py writes between
@@ -59,6 +68,54 @@ def by_word():
             "two senses in tools/data/abbreviations.json slugify to the same anchor; "
             "one of them would be unreachable from a hint")
     return senses
+
+
+def subsequence(short, word):
+    """Whether short's letters appear in word in order (T in TRADE, TY in TOTALLY)."""
+    rest = iter(word)
+    return all(c in rest for c in short)
+
+
+def seen():
+    """The conventions the corpus uses that the curated table lacks, as sorted
+    (clue word, letters, clues) rows.
+
+    blocks.json holds every reading a clue piece was given, synonyms and fodder
+    included, so a reading is kept only when it is a convention by construction:
+    one or two letters, not an everyday word, used by at least SEEN_MIN clues,
+    and not made of the clue word's own letters in order. That last rule costs
+    the initial-letter conventions (R for river), which the curated table
+    already has, and is what keeps out the clues that took a word's first or
+    outer letters: T from trade, TY from totally.
+
+    This is for the page only. tools/clueability.py builds from
+    tools/data/abbreviations.json alone, so nothing here widens what it may use.
+    """
+    curated = {(letters_of(w), k) for k, ws in json.loads(SRC.read_text())["abbreviations"].items()
+               for w in ws}
+    rows = []
+    for word, readings in json.loads(LEXICON.read_text()).items():
+        bare = letters_of(word)
+        for letters, n in readings.items():
+            if (n >= SEEN_MIN and len(letters) <= 2 and len(letters) < len(bare)
+                    and letters not in EVERYDAY and not subsequence(letters, bare)
+                    and (bare, letters) not in curated):
+                rows.append((word.lower(), letters, n))
+    return sorted(rows)
+
+
+def letters_of(s):
+    """A clue word or reading reduced to the capitals blocks.json keys on."""
+    return re.sub(r"[^A-Z0-9]", "", (s or "").upper())
+
+
+def seen_html(rows):
+    """seen()'s rows as the page's second table: word, letters, how many clues."""
+    body = "\n".join(
+        f"<tr><td>{w}</td><td>{letters}</td><td>seen in {n:,} clues</td></tr>"
+        for w, letters, n in rows)
+    return ('<table class="glossary-seen">\n<thead><tr><th>Word</th><th>Stands for</th>'
+            "<th>Evidence</th></tr></thead>\n<tbody>\n" + body + "\n</tbody>\n</table>")
 
 
 def table_html(senses, links=None):
