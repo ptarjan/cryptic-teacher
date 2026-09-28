@@ -5374,15 +5374,15 @@
   // only to warn you when the one in front of you isn't. The archive page
   // (tools/build_seo_pages.py) still badges both, and correctly — it lists
   // every puzzle, so there the two states are a real distinction.
-  function hintsBadge(annotated) {
-    return annotated ? "" : `<span class="badge auto" title="No hints for this puzzle yet: you can check your letters and reveal answers, but nothing is explained">answers only</span>`;
-  }
-
-  // Still the coverage axis: a puzzle whose hints are read off a blog's
-  // write-up is the exception in the other direction from "answers only".
-  function blogBadge(blog, inferred) {
-    const also = inferred ? ", some definitions, clue types, indicators and pieces are worked out from the letters instead," : "";
-    return `<span class="badge auto blog" title="We haven't written our own hints for this puzzle yet. Its hints are built from the definitions and clue types ${esc(blog.name)} marked${also} and each clue links to their full explanation.">hints via ${esc(blog.name)}</span>`;
+  //
+  // Not ours comes in two kinds. `blog` names the blog whose write-up some
+  // clues' hints are read off (has_blog_hints in tools/fetch_puzzle.py, the
+  // index's `blog`), and then the puzzle has hints, just not ours; only with
+  // no blog either is it "answers only".
+  function hintsBadge(annotated, blog) {
+    if (annotated) return "";
+    if (blog) return `<span class="badge auto blog" title="We haven't written our own hints for this puzzle yet. Its hints come from the ${esc(blog)} write-up: the definitions, clue types and pieces it marked, with some of what it left out worked out from the letters. Each clue links to the full explanation there, and a clue it marked nothing on has no hints yet.">hints via ${esc(blog)}</span>`;
+    return `<span class="badge auto" title="No hints for this puzzle yet: you can check your letters and reveal answers, but nothing is explained">answers only</span>`;
   }
 
   // Shares the coverage axis (neutral) with the hints badge on purpose: both
@@ -5821,7 +5821,7 @@
     btn.innerHTML = `<span class="p-num">${displayNumber(p)}</span>
         <span class="p-setter">${esc(p.setter || "")}</span>
         <span class="p-meta">${d}</span>
-        <span class="p-tags">${seriesBadge(p)}${difficultyBadge(p)}${hintsBadge(p.annotated)}${sourceBadge(p)}
+        <span class="p-tags">${seriesBadge(p)}${difficultyBadge(p)}${hintsBadge(p.annotated, p.blog)}${sourceBadge(p)}
           ${!st.filled ? ""
             : st.done ? `<span class="p-prog done" title="Every square filled in and correct">solved ✓</span>`
             : `<span class="p-prog">${st.filled}${st.total ? "/" + st.total : ""} letters filled</span>`}</span>`;
@@ -6120,7 +6120,7 @@
       esc(P.name) +
       (setter ? ` — set by <em>${esc(setter)}</em>` : "") +
       (when.iso ? ` <span class="muted">· ${when.day ? when.day + " " : ""}${when.iso}</span>` : "") +
-      (meta.annotated ? "" : " " + (P.blog ? blogBadge(P.blog, entries.some((e) => e.blog && e.blog.inferred)) : hintsBadge(false))) +
+      (meta.annotated ? "" : " " + hintsBadge(false, P.blog && entries.some((e) => e.blog) && P.blog.name)) +
       // Prize puzzles publish their answers about a week late, and this site
       // solves them in the meantime rather than leaving its newest puzzle
       // hintless (tools/apply_solution.py). Every letter the checker marks wrong

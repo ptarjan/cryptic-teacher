@@ -554,6 +554,15 @@ def with_blog_facts(puzzle):
     return out
 
 
+def has_blog_hints(browser_puzzle):
+    """Whether a puzzle as with_blog_facts() shapes it gives some clue hints read
+    off a blog's write-up. The one definition behind every "hints via <blog>"
+    badge: the index's blogHints, the app's title and rows, the archive, the
+    README count. A puzzle with this and no annotation of ours is not "answers
+    only"; one without it and without ours is."""
+    return any(e.get("blog") for e in browser_puzzle["entries"])
+
+
 def blog_annotation(e):
     """A clue's blog facts shaped as the partial annotation app.js's blogAnn()
     makes of them, or None: what the static page and the social card read in
@@ -2096,6 +2105,9 @@ def reindex():
     puzzles = []
     for path in puzzle_files():
         p = read_puzzle_file(path)
+        annotated = puzzle_is_annotated(p)
+        browser = with_blog_facts(p)
+        blog = browser["blog"]["name"] if not annotated and has_blog_hints(browser) else None
         shim = shim_path(path)
         rating = ratings.get(p["id"])
         coverage = clue_coverage(p)
@@ -2115,7 +2127,12 @@ def reindex():
             # content hash → app.js appends it as ?v= so browsers never serve a
             # stale puzzle after a re-annotation (see APP.md, cache busting)
             "v": hashlib.md5(shim.read_bytes()).hexdigest()[:8],
-            "annotated": puzzle_is_annotated(p),
+            "annotated": annotated,
+            # Written only where some clue's hints are read off a blog's
+            # write-up (has_blog_hints) and the puzzle is not all ours: the
+            # blog's name, which it is badged "hints via" instead of "answers
+            # only". Per puzzle, because nothing ties a series to one blog.
+            **({"blog": blog} if blog else {}),
             "hasSolutions": all(e.get("solution") for e in p["entries"]),
             # Clue coverage, written ONLY where some clue is unreadable: absent
             # means every entry carries a clue, which is 12,424 of 12,462

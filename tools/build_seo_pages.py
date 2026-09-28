@@ -60,7 +60,7 @@ import difficulty  # noqa: E402 — the weights, bands and constants /difficulty
 import difficulty_check  # noqa: E402 — the held-out scorecard /difficulty/ quotes
 import series as series_meta  # noqa: E402 — what each series IS; see tools/series.py
 from fetch_puzzle import (  # noqa: E402 — one glob, one reader, one puzzles/ for every tool
-    PUZZLE_DIR, blog_annotation, puzzle_files, read_puzzle_file, with_blog_facts)
+    PUZZLE_DIR, blog_annotation, has_blog_hints, puzzle_files, read_puzzle_file, with_blog_facts)
 from stamp_assets import asset_url  # noqa: E402 — content-hashed asset URLs
 # Which clue a puzzle's card shows, and how to describe it. Imported rather than
 # reimplemented: the alt text has to describe the picture that was actually
@@ -526,10 +526,11 @@ def puzzle_page(puz, meta, prev_p, next_p):
     title = (f"{what} {pretty} {lead} — {paper} crossword{by}" if by
              else f"{what} {pretty} {lead}, {tail} — {paper} crossword")
     # The snippet leads with the same promise for the same reason, and still says
-    # which of the two pages this is: explained clue by clue, or answers only.
+    # which of the three pages this is: explained clue by clue, marked up from a
+    # blog's write-up, or answers only.
     # The kind keeps its capitals ("Penguin Book 5 Cryptic"): it is a name.
     full = f"{paper} {what} {pretty}{by}" + (f" ({when})" if when else "")
-    blog = puz.get("blog")
+    blog = puz.get("blog") if has_blog_hints(puz) else None
     desc = (f"Every answer to {full}, with each clue's definition and wordplay explained."
             if annotated else
             f"Every answer to {full}, with the definitions and wordplay marked up "
@@ -696,7 +697,10 @@ def hub_row(p):
     when = datestr(p.get("date"))
     badge = (f'<span class="badge diff diff-{esc(d["band"].lower())}">'
              f'{esc(d["band"].lower())}</span>') if d.get("band") else ""
+    # The app's hintsBadge() in the same words: ours, a blog's (the index's
+    # `blog`, see has_blog_hints), or none.
     hints = ('<span class="badge full">full hints</span>' if p.get("annotated")
+             else f'<span class="badge auto blog">hints via {esc(p["blog"])}</span>' if p.get("blog")
              else '<span class="badge auto">answers only</span>')
     # Same coverage axis as the hints badge, same neutral colour — see
     # sourceBadge() in app.js.
@@ -803,7 +807,9 @@ def listings(idx):
 # The badges and the difficulty scale, said once in words. Every listing page
 # carries it: a reader arriving from a search lands there, not on the hub.
 BADGE_KEY = ("<strong>full hints</strong>: every clue explained. "
-             "<strong>answers only</strong>: answers now, explanations not written yet. "
+             "<strong>hints via</strong> a blog: definitions and wordplay marked up from that "
+             "blog's write-up, our own explanations not written yet. "
+             "<strong>answers only</strong>: answers now, no explanations yet. "
              "<strong>unverified answers</strong>: our own solve, not yet confirmed by the "
              "paper. Difficulty runs <strong>gentle</strong>, <strong>moderate</strong>, "
              f'<strong>tough</strong>, <strong>brutal</strong> (<a href="{BASE}/difficulty/">'
@@ -844,8 +850,9 @@ def hub_page(idx):
         "<h1>Cryptic crossword answers and explanations</h1>",
         f"<p>All {n_all:,} puzzles on this site, sorted by paper and year. Pick a year to see "
         "its puzzles. Each puzzle is labelled <strong>full hints</strong> if every clue is "
-        "explained (its definition, its wordplay and how they fit) or <strong>answers "
-        "only</strong> if we have the answers but have not written the explanations yet.</p>",
+        "explained (its definition, its wordplay and how they fit), <strong>hints via</strong> a "
+        "solving blog if its hints are marked up from that blog's write-up, or <strong>answers "
+        "only</strong> if we have the answers and no explanations yet.</p>",
         "<p class=\"muted small-note\" id=\"difficulty\">Difficulty runs Gentle, Moderate, "
         "Tough, Brutal. It compares each puzzle with the others on this site, from its grid, "
         f'clues and answers: <a href="{BASE}/difficulty/">how difficulty is rated</a>. '
@@ -864,14 +871,19 @@ def listing_page(series, year, ps, prev_year, next_year):
     title = (f"{name} {year} — crossword answers and explanations" if year != UNDATED
              else f"{name}, undated — crossword answers and explanations")
     explained = sum(1 for p in ps if p.get("annotated"))
+    blogged = sum(1 for p in ps if p.get("blog"))
     # How many are explained is counted, not claimed: a year of answers-only
     # puzzles must not promise wordplay in its search snippet.
+    ours = ("Every one is explained clue by clue." if explained == len(ps) else
+            f"{explained:,} of them are explained clue by clue." if explained else "")
+    theirs = ("" if not blogged else
+              "Every one has hints marked up from a solving blog's write-up."
+              if blogged == len(ps) else
+              f"{blogged:,} have hints marked up from a solving blog's write-up.")
     desc = (f"All {len(ps):,} {name} crosswords"
             + (f" from {year}" if year != UNDATED else " with no publication date")
             + " on this site, with the answer to every clue. "
-            + ("Every one is explained clue by clue." if explained == len(ps) else
-               f"{explained:,} of them are explained clue by clue." if explained else
-               "Explanations are not written yet."))
+            + (" ".join(filter(None, (ours, theirs))) or "Explanations are not written yet."))
     path = listing_path(series, year)
     canonical = site_url(path)
     crumbs = [("Cryptic Teacher", "/"), ("Puzzles", "/puzzles/"),

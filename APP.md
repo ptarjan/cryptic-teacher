@@ -177,14 +177,16 @@ Terms used below:
   re-fetch rewrites the puzzle file and these facts come from somewhere else.
   `fetch_puzzle.write_shim` merges them into the puzzle's shim for entries with
   no annotation, and drops any fact whose words are no longer in the clue. The
-  index carries nothing, so `index.js` does not grow.
+  index carries only the blog's name, as `blog`, on a puzzle not all ours that
+  has at least one such fact (`fetch_puzzle.has_blog_hints`), so the picker and
+  the archive can badge it without loading the puzzle.
 - **Our annotation always wins.** `annOf` falls back to `blogAnn`, which shapes
   the facts as a partial annotation, so highlighting, questions and scoring
   read it like ours. A blog ladder has only the rungs it has facts for: no
   blocks, no walkthrough. Its indicator rung does not pair words with jobs,
   because the blog does not say which does what.
-- **It says whose marks they are.** The title reads "hints via <blog>" in place
-  of "answers only", the meter badges the clue, and the escape row links to the
+- **It says whose marks they are.** The title, the picker row and the archive
+  row read "hints via <blog>" in place of "answers only", the meter badges the clue, and the escape row links to the
   post ("Full explanation on <blog> →") on every clue we have not annotated.
 - **The nightly refreshes it** (`tools/daily_update.sh`, step 1d) with
   `--if-changed`, which skips the ~5-minute parse when the digest in
@@ -294,15 +296,15 @@ Terms used below:
 - **Badge the exception, never the norm.** There is no "full hints" badge
   anywhere in the app, neither on picker rows nor on the puzzle title. Every
   listed puzzle is annotated, so that badge would say nothing. The
-  `answers only` badge stays, because it appears exactly when a puzzle is the
-  odd one out. The generated archive page (`tools/build_seo_pages.py`) does
+  `hints via <blog>` and `answers only` badges stay, because they appear
+  exactly when a puzzle is the odd one out. The generated archive page (`tools/build_seo_pages.py`) does
   badge both states, correctly, because it lists every puzzle. In general: a
   label that every item carries is decoration, not information.
 - **Each badge colour names exactly one axis, and no two axes share a colour.**
   A puzzle row has three axes:
   - which crossword it is (`series`): purple;
-  - what the site has for it (`full hints` / `answers only`): blue for hinted,
-    neutral for not;
+  - what the site has for it (`full hints` / `hints via <blog>` /
+    `answers only`): blue for ours, neutral for not;
   - how hard we judged it (`gentle`…`brutal`): outlined rather than filled,
     because it is the only one of the three we made up.
 
