@@ -2231,7 +2231,9 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
     && (x.blog.inferred || []).includes("type") && x.blog.typeCore
     && !(x.blog.definition || []).length && !(x.blog.blocks || []).length && !(x.blog.indicators || []).length);
   const target = allPuzzles.find((p) => !p.annotated && puzzles[p.id] && puzzles[p.id].blog && hit(p));
-  if (assert(target, "the sample holds an un-annotated clue whose only blog fact is an inferred core type")
+  // Rare enough that some slices hold none; the unsliced run must find one.
+  if ((target || SLICE.n === 1)
+      && assert(target, "the sample holds an un-annotated clue whose only blog fact is an inferred core type")
       && openFromPicker(target.id)) {
     const e = hit(target);
     registry["clue-" + e.id].listeners.click[0]();
