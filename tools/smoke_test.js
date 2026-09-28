@@ -2946,7 +2946,9 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
           const btns = registry["hint-next"].children.filter((b) => b.onclick);
           if (!btns.length) break;
           for (const b of btns) {
-            const m = /^\d+ · (.*)$/.exec(b.textContent || "");
+            // "· free" is the price, not the name: every rung of a clue its
+            // crossers already solved is free.
+            const m = /^\d+ · (.*?)(?: · free)?$/.exec(b.textContent || "");
             if (m && !names.has(m[1])) names.set(m[1], `${id} ${e.id} (${e.annotation.type})`);
           }
           takeRung(btns[0]);
