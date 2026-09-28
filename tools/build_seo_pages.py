@@ -52,7 +52,7 @@ import html
 import json
 import re
 import sys
-from datetime import datetime, timezone
+from datetime import date, datetime
 from pathlib import Path
 from urllib.parse import urlparse
 
@@ -141,7 +141,7 @@ def puzzles():
     # the same thing while every puzzle was a cryptic; now that quiptics (~1,400)
     # sit alongside cryptics (~30,000) it would file every quiptic at the end of
     # time and make prev/next hop between series.
-    out.sort(key=lambda t: (series_meta.puzzle_ms(t[1]) or 0,
+    out.sort(key=lambda t: (series_meta.puzzle_day(t[1]) or date.min,
                             t[1].get("series", "cryptic") == "cryptic",
                             t[1]["number"]), reverse=True)
     return out
@@ -239,9 +239,8 @@ def datestr(puzzle, fmt="%A %-d %B %Y"):
     # "1995" is valid ISO 8601 for datePublished and W3C for sitemap lastmod.
     if "year" in puzzle:
         return str(puzzle["year"])
-    if not puzzle.get("date"):
-        return ""
-    return datetime.fromtimestamp(puzzle["date"] / 1000, timezone.utc).strftime(fmt)
+    day = series_meta.puzzle_day(puzzle)
+    return day.strftime(fmt) if day else ""
 
 
 def app_name():
@@ -1222,7 +1221,7 @@ def clue_blocks(blocks, puz, page):
             if key and frag:
                 blocks.setdefault(key, []).append(
                     (frag, depth + len(b.get("note") or ""),
-                     series_meta.puzzle_ms(puz) or 0, puz["id"], e["id"]))
+                     (series_meta.puzzle_day(puz) or date.min).toordinal(), puz["id"], e["id"]))
 
 
 def clue_links(senses, blocks):
@@ -1378,9 +1377,9 @@ def clue_indicators(found, puz, page):
             continue
         ours = bool(e.get("annotation"))
         depth = len((ann.get("walkthrough") or "") + (ann.get("definitionFit") or ""))
-        date = series_meta.puzzle_ms(puz) or 0
+        day = series_meta.puzzle_day(puz) or date.min
         for (t, key), exact in clue_pairs(indicator_lexicon(), ann["indicators"]).items():
-            rank = (ours, exact, depth, date)
+            rank = (ours, exact, depth, day)
             if (t, key) not in found or found[(t, key)][0] < rank:
                 found[(t, key)] = (rank, puz["id"], e["id"])
 

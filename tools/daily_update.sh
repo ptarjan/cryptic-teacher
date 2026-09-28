@@ -396,14 +396,14 @@ ANNOTATE_MAX="${ANNOTATE_MAX:-3}"
 python3 tools/fetch_puzzle.py --reindex
 annotate_blocked=$(python3 tools/failed_inputs.py skipped annotate)
 { read -r fresh; read -r pending; } < <(python3 - "$ANNOTATE_MAX" "$annotate_blocked" <<'EOF'
-import json, subprocess, sys, time
+import json, subprocess, sys
 sys.path.insert(0, "tools")
 import provenance
-from series import puzzle_ms
+import datetime
+from series import puzzle_day
 idx = json.load(open("puzzles/index.json"))
 blocked = set(sys.argv[2].split())
-FRESH_MS = 2 * 86400 * 1000
-cutoff = time.time() * 1000 - FRESH_MS
+cutoff = datetime.date.today() - datetime.timedelta(days=2)
 
 def keyed(text):
     """True when a puzzle file's text carries the paper's complete key."""
@@ -427,7 +427,7 @@ for path in show("diff", "--name-only", "HEAD", "--", "puzzles/").split():
 # IDs, not numbers: an id is what every step below names and what
 # tools/puzzle_paths.py finds a file by, so no consumer has to resolve a number
 # two papers could share.
-todo = sorted(((puzzle_ms(p) or 0, p["id"]) for p in idx["puzzles"]
+todo = sorted(((puzzle_day(p) or datetime.date.min, p["id"]) for p in idx["puzzles"]
                if not p["annotated"] and p.get("hasSolutions")
                and p["id"] not in blocked), reverse=True)
 fresh = [i for d, i in todo if d >= cutoff or i in keyed_tonight]
@@ -484,7 +484,8 @@ solve_blocked=$(python3 tools/failed_inputs.py skipped solve)
 unsolved=$(python3 - "$SOLVE_MAX" "$solve_blocked" <<'EOF'
 import json, sys
 sys.path.insert(0, "tools")
-from series import puzzle_ms
+import datetime
+from series import puzzle_day
 limit, tried = int(sys.argv[1]), set(sys.argv[2].split())
 idx = json.load(open("puzzles/index.json"))
 unsolved_ids = {p["id"] for p in idx["puzzles"] if not p.get("hasSolutions")}
@@ -513,7 +514,7 @@ if unreadable:
     print("not queued for a cold solve, too little clue text to read: "
           + ", ".join(f"{i} ({readable[i][0]}/{readable[i][1]} clues)"
                       for i in sorted(unreadable)), file=sys.stderr)
-todo = sorted(((puzzle_ms(p) or 0, p["id"]) for p in idx["puzzles"]
+todo = sorted(((puzzle_day(p) or datetime.date.min, p["id"]) for p in idx["puzzles"]
                if p["id"] in unsolved_ids and p["id"] not in unreadable
                and p["id"] not in tried), reverse=True)
 print(" ".join(i for _, i in todo[:limit]))

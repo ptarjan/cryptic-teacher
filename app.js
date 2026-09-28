@@ -5541,10 +5541,10 @@
   // The date and the day it fell on. A weekday is not decoration on a cryptic:
   // the Guardian's week has a shape — Monday gentle, Friday and Saturday's prize
   // hard — so "what day is this from" is a difficulty cue people read before
-  // they start. Always COMPUTED from the timestamp, never
+  // they start. Always COMPUTED from the date, never
   // stored: a saved weekday is a second copy of the date, and second copies
-  // disagree. getUTCDay to match the UTC the ISO string is sliced out of, or a
-  // solver west of Greenwich gets a day that contradicts the date beside it.
+  // disagree. `date` is a calendar day, "YYYY-MM-DD", which new Date() reads as
+  // UTC midnight: getUTCDay, or a solver west of Greenwich gets the day before.
   //
   // A book puzzle holds its book's `year` and no `date`: the imprint prints no
   // day, so there is no weekday to show and iso is the year alone.
@@ -5552,9 +5552,8 @@
   function puzzleDate(p) {
     if (p.year !== undefined) return { iso: String(p.year), day: "", short: "" };
     if (!p.date) return { iso: "", day: "", short: "" };
-    const dt = new Date(p.date);
-    const day = WEEKDAYS[dt.getUTCDay()] || "";
-    return { iso: dt.toISOString().slice(0, 10), day, short: day.slice(0, 3) };
+    const day = WEEKDAYS[new Date(p.date).getUTCDay()] || "";
+    return { iso: p.date, day, short: day.slice(0, 3) };
   }
   // The half of a puzzle's search text that cannot change while the page is
   // open: every word in it is read off INDEX, which is loaded once and never
@@ -5563,7 +5562,7 @@
   //
   // Kept because it was the search: rebuilding all 15,992 of these cost ~56 ms
   // on every keystroke and on every chip tap, before a single row was drawn,
-  // and a quarter of that was the `new Date` + `toISOString` in puzzleDate.
+  // and a quarter of that was the `new Date` in puzzleDate.
   // A plain object, not a Map, though it holds all 15,992 ids and that puts it
   // in dictionary mode — which is the argument for a Map, and the measurement
   // goes the other way: 20M lookups cost 423 ms against the object and 991 ms

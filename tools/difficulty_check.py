@@ -29,12 +29,12 @@ import argparse
 import hashlib
 import json
 import sys
-from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 import difficulty as D  # noqa: E402
+import series as series_meta  # noqa: E402
 from fetch_puzzle import puzzle_files, puzzle_is_annotated, read_puzzle_file  # noqa: E402
 
 OUT = ROOT / "tools" / "data" / "difficulty_check.json"
@@ -64,7 +64,7 @@ def rows():
               for k in D.PORTABLE if rw.get(k) is not None}
         tot = sum(D.WEIGHTS[k] for k in pz)
         out.append({"pid": pid, "series": puz.get("series") or pid.rpartition("-")[0],
-                    "date": D.puzzle_day(puz), "nitch": sn[pid]["nitch"] if rated else None,
+                    "date": series_meta.puzzle_day(puz), "nitch": sn[pid]["nitch"] if rated else None,
                     "annotated": puzzle_is_annotated(puz),
                     "index": s["index"] if s else None, "z": s["z"] if s else None,
                     "portable": sum(D.WEIGHTS[k] * z for k, z in pz.items()) / tot if tot else None,
@@ -77,9 +77,8 @@ def weekday_resid_target(all_rated, lo, hi):
     by = {}
     for d, x in all_rated:
         if not lo <= d <= hi:
-            by.setdefault(date.fromisoformat(d).weekday(), []).append(x)
-    return lambda r: r["nitch"] - sum(by[date.fromisoformat(r["date"]).weekday()]) / len(
-        by[date.fromisoformat(r["date"]).weekday()])
+            by.setdefault(d.weekday(), []).append(x)
+    return lambda r: r["nitch"] - sum(by[r["date"].weekday()]) / len(by[r["date"].weekday()])
 
 
 def heldout(rows, key, sel, series="times"):

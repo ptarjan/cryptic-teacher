@@ -470,9 +470,10 @@ function load(p) {
 const corpus = (() => {
   const all = global.CRYPTIC_INDEX.puzzles;
   if (FULL) return all.filter((p) => inSlice(p.id) || p.id === openId);
-  // A book puzzle holds a `year` and no `date`: its 1 January for ordering.
-  const ms = (p) => (p.year !== undefined ? Date.UTC(p.year, 0, 1) : p.date || 0);
-  const newest = (f) => all.filter(f).sort((a, b) => ms(b) - ms(a));
+  // `date` is "YYYY-MM-DD", which sorts as a string. A book puzzle holds a
+  // `year` and no `date`: its 1 January for ordering.
+  const day = (p) => (p.year !== undefined ? `${p.year}-01-01` : p.date || "");
+  const newest = (f) => all.filter(f).sort((a, b) => day(b).localeCompare(day(a)));
   const bySeries = new Map();
   for (const p of newest((p) => p.annotated)) if (!bySeries.has(p.series)) bySeries.set(p.series, p);
   // The shapes individual sections go looking for, each one the newest of its
@@ -1895,7 +1896,7 @@ assert(registry["picker-search"].value === "", "the filter box starts empty on o
   // so newest-first is annotated-first by accident. The book puzzles are
   // reprints holding only their book's `year`, which is what made their taught
   // ones unreachable.
-  const undated = allPuzzles.find((p) => typeof p.date !== "number" && p.annotated);
+  const undated = allPuzzles.find((p) => p.date === undefined && p.annotated);
   if (undated) {
     typeInPicker(String(undated.series));
     const badged = drainPicker().map((li) => /answers only|hints via /.test(li.children[0].innerHTML));
@@ -5576,10 +5577,10 @@ global.realSetTimeout(() => {
       `${biggest} + ${band} matches the ${both} puzzles that are both: ${matched()}`);
     assert(registry["picker-paper"].classList.contains("on"),
       "a menu set to anything but all is marked as a filter in force");
-    const one = allPuzzles.find((p) => p.series === biggest && typeof p.date === "number"
+    const one = allPuzzles.find((p) => p.series === biggest && p.date !== undefined
       && p.difficulty && p.difficulty.band.toLowerCase() === band);
     if (one) {
-      const day = new Date(one.date).toISOString().slice(0, 10);
+      const day = one.date;
       typeInPicker(day);
       assert(matched() > 0 && matched() <= both,
         `typing "${day}" narrows the chosen paper and band: ${matched()} of ${both}`);

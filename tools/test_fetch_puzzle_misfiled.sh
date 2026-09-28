@@ -18,7 +18,7 @@ import puzzle_paths
 
 DAY = 86_400_000
 puzzle_paths.PUZZLE_DIR = pathlib.Path(tempfile.mkdtemp())
-for n, d in ((26751, 1449705600000), (26753, 1449878400000)):   # 2015-12-10, 12-12
+for n, d in ((26751, "2015-12-10"), (26753, "2015-12-12")):
     held = {"id": f"cryptic-{n}", "date": d}
     puzzle_paths.file_for(held).parent.mkdir(parents=True, exist_ok=True)
     puzzle_paths.file_for(held).write_text(json.dumps(held))

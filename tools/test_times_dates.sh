@@ -23,6 +23,8 @@ REPO="$(cd "$(dirname "$0")/.." && pwd)"
 
 python3 - "$REPO/puzzles" <<'PY'
 import datetime, json, pathlib, sys
+sys.path.insert(0, str(pathlib.Path(sys.argv[1]).parent / "tools"))
+from series import puzzle_day
 
 SATURDAY, SUNDAY = 5, 6
 held = {}
@@ -30,8 +32,7 @@ for series in ("times", "timesjumbo", "sundaytimes"):
     rows = []
     for path in pathlib.Path(sys.argv[1]).glob(f"{series}/*/{series}-[0-9]*.json"):
         p = json.loads(path.read_text(encoding="utf-8"))
-        if p.get("date"):
-            day = datetime.datetime.fromtimestamp(p["date"] / 1000, datetime.timezone.utc).date()
+        if day := puzzle_day(p):
             posted = (p.get("solutions") or {}).get("date")
             rows.append((p["number"], day, posted and datetime.date.fromisoformat(posted)))
     held[series] = sorted(rows)

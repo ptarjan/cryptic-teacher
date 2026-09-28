@@ -20,15 +20,14 @@ same() { if [ "$2" = "$3" ]; then echo "  ok: $1"; else
 tree_before=$(git status --porcelain)
 
 out=$(PYTHONPATH=tools python3 - <<'PY'
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 import fetch_puzzle as fetcher
 
 NOW = datetime(2026, 9, 24, tzinfo=timezone.utc)
-DAY_MS = 86_400_000
 
 
 def at(days_ago):
-    return int(NOW.timestamp() * 1000) - days_ago * DAY_MS
+    return (NOW - timedelta(days=days_ago)).date().isoformat()
 
 
 # A Saturday prize puzzle 10 days old: still well inside the ~2-week window
