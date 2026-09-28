@@ -208,4 +208,17 @@ None [('LUMBAGO', 'Lead'), ('P', 'pressure')]"
 if [ "$own" = "$want" ]; then echo "ok   an anagram with no blocks gets its fodder, and a clue's own answer is not read from its definition"; else
   echo "FAIL fodder and own answer: expected [$want], got [$own]"; fails=$((fails + 1)); fi
 
+# Clue words the write-up prints in capitals, with the answer's letters but
+# neither in a row nor reversed, are anagram fodder though it names no anagram.
+caps=$(cd "$REPO/tools" && python3 -c '
+import letter_facts as l
+lex, dlex = l.Lexicon([]), l.Definitions([])
+lex.edge = {("R", "WRECKED"): [0, 50], ("R", "TURNING"): [0, 50]}
+print(l.infer_fuzzy_blocks("Great Dane wrecked open-air restaurant (3,6)", "TEAGARDEN", {"definition": ["open-air restaurant"]},
+                           lex, dlex, {"caps": ["GREATDANE"], "printed": ["Great Dane"]}),
+      l.infer_fuzzy_blocks("Ivan turning up (4)", "NAVI", {}, lex, dlex, {"caps": ["IVAN"], "printed": ["Ivan"]}))')
+want="[('GREATDANE', 'Great Dane', 'anagrammed')] []"
+if [ "$caps" = "$want" ]; then echo "ok   fodder printed in capitals is an anagram's, a reversal's is not"; else
+  echo "FAIL fodder in capitals: expected [$want], got [$caps]"; fails=$((fails + 1)); fi
+
 [ "$fails" -eq 0 ] && echo "all letter_facts checks passed" || { echo "$fails failed"; exit 1; }
