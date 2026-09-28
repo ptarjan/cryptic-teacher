@@ -56,6 +56,12 @@ check "the core of a clue word under a selecting word is not a hidden word" \
   'None' "$(t fifteensquared 'Heart of start is a star (3)' 's(TAR)t' TAR)"
 check "bigdave44's \"2 meanings\" is a double definition" \
   'double definition' "$(t bigdave44 'Extraordinary red (4)' '{RARE} 2 meanings: extraordinary/red (as underdone meat)' RARE)"
+check "\"is placed around\" is read past to its operator" \
+  'anagram + container' "$(t bigdave44 'Grave-digger needs stone to be put in position about ten (6)' '{SEXTON} – An anagram (to be put in position) of STONE is placed around X (ten).' SEXTON)"
+check "\"another (gloss) of\" after an anagram is a second anagram" \
+  'anagram + container' "$(t bigdave44 'I’m so aroused in fancy lace underwear (8)' 'CAMISOLE An anagram (aroused) of IM SO inserted into another (fancy) of LACE' CAMISOLE)"
+check "IS in capitals before an operator is letters, not filler" \
+  'charade + container' "$(t timesforthetimes 'Seafood from Hull is served in fine hotel (9)' 'SHELLFISH – SHELL(hull), then IS inside F(fine) and H(hotel)' SHELLFISH)"
 
 # Two underlines with only a space between them are two spans.
 DD='<p>3 <u>Consequence</u> of <u>lob</u>? (6)<br/>Double definition</p>'
