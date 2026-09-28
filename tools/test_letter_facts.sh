@@ -164,4 +164,27 @@ False True True True"
 if [ "$blockless" = "$want" ]; then echo "ok   a hidden word's carrier is read where one run spells it, and a clue is complete with the parts its kind has"; else
   echo "FAIL block-less types: expected [$want], got [$blockless]"; fails=$((fails + 1)); fi
 
+# A homophone's or a spoonerism's block is the blog's, heard: the words it
+# gives for the clue words, kept as soundsLike (blog_facts.heard_blocks), where
+# they sound like the whole answer, or swapped, like a spoonerism's parts, and
+# from the clue word before them too where that is the first word heard.
+# Such a clue wants that part's indicator, and with it and a definition is complete.
+heard=$(cd "$REPO/tools" && python3 -c '
+import blog_facts as b, letter_facts as l
+tun = b.heard_blocks("homophone", [["TUN", "beer cask"]], "TON")
+spoon = b.heard_blocks("spoonerism", [["COARSE", "common"], ["MODE", "kind"]], "MORSECODE")
+print(tun, spoon)
+print(b.heard_blocks("homophone", [["A RIVAL", "competitor"]], "ARRIVAL", "We’re told a competitor’s coming"))
+print(b.heard_blocks("homophone", [["UP", "getting out of bed"]], "TEEUP"),
+      b.heard_blocks("homophone", [["ARSE", "bottom"]], "ARSIS"), b.heard_blocks("charade", [["TUN", "x"]], "TON"))
+h = {"type": "homophone", "definition": ["Heavyweight"], "blocks": tun}
+print(l.coverage("TON", h), l.needed("TON", tun, "homophone"), l.needed("MORSECODE", spoon, "spoonerism"),
+      l.complete("TON", h), l.complete("TON", {**h, "indicators": ["by the sound of it"]}))')
+want="[['TON', 'beer cask', {'soundsLike': 'TUN'}]] [['MORSE', 'common', {'soundsLike': 'COARSE'}], ['CODE', 'kind', {'soundsLike': 'MODE'}]]
+[['ARRIVAL', 'a competitor', {'soundsLike': 'A RIVAL'}]]
+[['UP', 'getting out of bed']] [['ARSE', 'bottom']] [['TUN', 'x']]
+full {'homophone'} {'spoonerism'} False True"
+if [ "$heard" = "$want" ]; then echo "ok   a homophone's and a spoonerism's blocks are heard where they sound like the answer, and want their indicator"; else
+  echo "FAIL heard blocks: expected [$want], got [$heard]"; fails=$((fails + 1)); fi
+
 [ "$fails" -eq 0 ] && echo "all letter_facts checks passed" || { echo "$fails failed"; exit 1; }

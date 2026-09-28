@@ -565,14 +565,21 @@ def blog_annotation(e):
     defs = b.get("definition") or []
     ann = {"fromBlog": True, "answer": e.get("solution") or "", "type": b.get("type") or "",
            "indicators": list(b.get("indicators") or []),
-           "blocks": [{"clueFragment": src, "gives": gives, **({"inferred": True} if "inferred" in how else {}),
-                       **({"note": note} if (note := carrier_note(e.get("solution"), gives, src)) else {})}
-                      for gives, src, *how in b.get("blocks") or []]}
+           "blocks": [blog_block(e.get("solution"), gives, src, how) for gives, src, *how in b.get("blocks") or []]}
     if defs:
         ann["definition"] = defs[0]
     if len(defs) == 2 and "double definition" in ann["type"]:
         ann["definition2"] = defs[1]
     return ann
+
+
+def blog_block(answer, gives, src, how):
+    """A blog block [gives, src, *how] as app.js's blogAnn() makes it: marked
+    inferred, with what it is heard as, or a hidden word's carrier note."""
+    heard = next((h["soundsLike"] for h in how if isinstance(h, dict) and h.get("soundsLike")), None)
+    note = "" if heard else carrier_note(answer, gives, src)
+    return {"clueFragment": src, "gives": gives, **({"inferred": True} if "inferred" in how else {}),
+            **({"soundsLike": heard} if heard else {}), **({"note": note} if note else {})}
 
 
 def carrier_note(answer, gives, frag):

@@ -19,7 +19,9 @@ which pieces to try, and the split is kept on the same terms (see
 infer_fuzzy_blocks); anagram fodder is written with "anagrammed" after.
 A hidden word's one block is its carrier, the one run of clue words
 outside the definition that spells it (see infer_carrier), as our own
-annotations write it.
+annotations write it. A homophone's or a spoonerism's blocks are the blog's,
+heard ([letters, clue words, {"soundsLike": the words heard}], see
+blog_facts.heard_blocks), and want that part's indicator.
 
 Where the blog then has the definition and every block but named no
 indicator, the part the blocks want one for (a container, a reversal, ...)
@@ -38,7 +40,7 @@ clue's "inferred". It is read before the indicators, which want one.
     python3 tools/letter_facts.py --measure-indicators  # the inferred indicators the same way
     python3 tools/letter_facts.py --measure-definitions  # the inferred definitions the same way
     python3 tools/letter_facts.py --measure-fuzzy-blocks  # the blocks read off write-ups' prose the same way
-    python3 tools/letter_facts.py --measure-blockless  # hidden words' carriers and indicators
+    python3 tools/letter_facts.py --measure-blockless  # hidden, homophone and spoonerism blocks and indicators
     python3 tools/letter_facts.py --coverage  # what the written facts cover, and why the rest fall short
     python3 tools/letter_facts.py --fill      # what it would add to untyped clues
     python3 tools/letter_facts.py --clue 'Men on phone exchange will be a rarity' PHENOMENON
@@ -812,7 +814,7 @@ def narrowest(pieces, ws, lex, phrases=frozenset()):
 #: side, and a letter selection is read with its block's words ("Delius' overture").
 SIGNALLED = frozenset({"anagram", "container", "reversal", "deletion", "selection"})
 #: What blog types name an indicator for, as the parts SIGNALLED is drawn from.
-IND_PARTS = SIGNALLED | {"hidden", "homophone"}
+IND_PARTS = SIGNALLED | {"hidden", "homophone", "spoonerism"}
 #: The most clue words one indicator is.
 MAX_IND = 4
 #: A phrase is read as an indicator of a part where blogs named it one at
@@ -858,12 +860,16 @@ def wordplay(answer, blocks):
     return reads.pop() | derived | ({"anagram"} if fod else set())
 
 
-def needed(answer, blocks):
+def needed(answer, blocks, t=""):
     """The parts (SIGNALLED) that `blocks` spelling `answer` want an indicator
     for in the clue words outside them, or None where the wordplay is not
     the only one: a letter taken from one word ("F" from "Found") wants its
     own, where "Delius' overture" holds it. A hidden word (see carried)
-    wants one for the hiding, and one for the reversal where spelt backwards."""
+    wants one for the hiding, and one for the reversal where spelt backwards;
+    a homophone's or a spoonerism's (type `t`) heard block (see sounds_like)
+    one for that."""
+    if sounds_like(answer, blocks):
+        return {"spoonerism" if "spoonerism" in (t or "") else "homophone"}
     how = carried(answer, blocks)
     if how:
         return {"hidden", "reversal"} if how == "reversed" else {"hidden"}
@@ -1010,7 +1016,7 @@ def infer_indicators(clue, answer, facts, ilex):
     left undecided."""
     if facts.get("indicators") or not facts.get("definition") or coverage(answer, facts) != "full":
         return []
-    need = needed(answer, facts["blocks"])
+    need = needed(answer, facts["blocks"], facts.get("type"))
     if need is None:
         return None
     if not need:
@@ -1105,7 +1111,7 @@ def report_indicators(n, rows_, ilex, show=30, seed=1):
             if got:
                 c["clues"] += 1
                 c["clue exact"] += {_key(i) for i in got} == truth
-                parts = needed(answer, hid["blocks"])
+                parts = needed(answer, hid["blocks"], hid.get("type"))
                 for i in got:
                     ok = _key(i) in truth
                     c["claimed"] += 1
@@ -1127,7 +1133,7 @@ def report_indicators(n, rows_, ilex, show=30, seed=1):
         c["ind after"] += bool(after)
         c["three after"] += full and bool(after)
         if full and not stated_ind:
-            c["no indicator wanted"] += needed(answer, facts["blocks"]) == set()
+            c["no indicator wanted"] += needed(answer, facts["blocks"], facts.get("type")) == set()
         if after and not stated_ind:
             c["filled"] += 1
             sample.append((pid, eid, clue, answer, facts, after))
@@ -1361,7 +1367,7 @@ def complete(answer, facts):
         return len(d) == 2 if t == "double definition" else bool(d)
     if not d or coverage(answer, facts) != "full":
         return False
-    return bool(facts.get("indicators")) or needed(answer, facts["blocks"]) == set()
+    return bool(facts.get("indicators")) or needed(answer, facts["blocks"], facts.get("type")) == set()
 
 
 # ------------------------------------------------------------ corpus
@@ -1454,6 +1460,21 @@ def infer_carrier(clue, answer, facts):
     if len(got) != 1:
         return []
     return [(answer, body[at[got[0][0]][0]:at[got[0][-1]][1]])]
+
+
+#: The types whose blocks are heard: the answer, from clue words read as words
+#: it sounds like, the block's soundsLike (see blog_facts.heard_blocks).
+SOUNDED = ("homophone", "spoonerism")
+
+
+def sounds_like(answer, blocks):
+    """What `blocks` are heard as, where every one is heard (see
+    blog_facts.heard_blocks) and they spell `answer`; else None."""
+    heard = [next((h["soundsLike"] for h in b[2:] if isinstance(h, dict) and "soundsLike" in h), None)
+             for b in blocks]
+    if not blocks or None in heard or letters("".join(b[0] for b in blocks)) != letters(answer or ""):
+        return None
+    return " ".join(heard)
 
 
 def carried(answer, blocks):
@@ -1894,10 +1915,39 @@ def measure_blockless(corpus, votes, n=4, show=30, seed=1):
                         wrong["hidden indicators"].append((clue, answer, got, facts["indicators"]))
                 elif got:
                     sample["hidden indicators"].append((clue, answer, new[0][1], got))
+        new = facts.get("blocks") if t in SOUNDED and sounds_like(answer, facts.get("blocks") or ()) else None
+        if new:  # the blog's own blocks, heard (blog_facts.heard_blocks)
+            pairs = [(b[1], next(h["soundsLike"] for h in b[2:] if isinstance(h, dict))) for b in new]
+            heard = [b for b in (ours or {}).get("blocks", ()) if b.get("soundsLike")]
+            if heard:  # ours say what is heard, block by block
+                src = lambda f: {w for _, w in words(f or "")}
+                ok = letters("".join(h for _, h in pairs)) == letters("".join(b["soundsLike"] for b in heard)) \
+                    and set().union(*(src(f) for f, _ in pairs)) == set().union(*(src(b.get("clueFragment")) for b in heard))
+                c["heard", "claimed"] += 1
+                c["heard", "exact"] += ok
+                if not ok:
+                    wrong["heard"].append((clue, answer, pairs, [(b.get("clueFragment"), b["soundsLike"]) for b in heard]))
+            if pid in test:
+                c["heard on the slice"] += 1
+                sample["heard"].append((pid, eid, clue, answer, facts.get("definition"), facts.get("indicators"), pairs))
+                if facts.get("definition"):
+                    hid = {k: v for k, v in facts.items() if k != "indicators"}
+                    got = infer_indicators(clue, answer, hid, ilex)
+                    if facts.get("indicators") and got:
+                        ok = {_key(i) for i in got} == {_key(i) for i in facts["indicators"]}
+                        c["heard indicators", "claimed"] += 1
+                        c["heard indicators", "exact"] += ok
+                        if not ok:
+                            wrong["heard indicators"].append((clue, answer, got, facts["indicators"]))
+                    elif got:
+                        sample["heard indicators"].append((clue, answer, pairs, got))
+                    c["heard and complete on the slice"] += complete(
+                        answer, with_indicators(hid, got) if got else {**hid, "indicators": facts.get("indicators", [])})
     print(f"slice {n}: {len(test)} puzzles held out")
-    for k in ("carrier", "hidden indicators"):
+    for k in ("carrier", "hidden indicators", "heard", "heard indicators"):
         print(f"  {k:18} {c[k, 'claimed']:6} claimed, exact {c[k, 'exact'] / max(1, c[k, 'claimed']):.4f}"
-              + (" against our annotations" if k == "carrier" else ""))
+              + (" against our annotations" if k in ("carrier", "heard") else ""))
+    print(f"  heard on the slice {c['heard on the slice']}, and complete {c['heard and complete on the slice']}")
     for k, lst in wrong.items():
         for x in rng.sample(lst, min(show // 3, len(lst))):
             print(f"   miss [{k}]", x)
@@ -1960,7 +2010,8 @@ def main():
                     help="precision of the blocks read off the write-ups' prose on one puzzle in twenty "
                          "(default slice %(const)s)")
     ap.add_argument("--measure-blockless", type=int, nargs="?", const=4, metavar="SLICE",
-                    help="precision of hidden words' carriers and indicators (default slice %(const)s)")
+                    help="precision of hidden words' carriers, homophones' and spoonerisms' heard blocks,"
+                         " and their indicators (default slice %(const)s)")
     ap.add_argument("--coverage", action="store_true",
                     help="what the written blog facts cover, and why the rest fall short")
     ap.add_argument("--clue", nargs=2, metavar=("CLUE", "ANSWER"))
