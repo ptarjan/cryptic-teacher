@@ -179,7 +179,7 @@ def main():
         answer = "".join(
             c for c in spec["annotation"]["answer"].upper() if c.isalpha()
         )
-        mine = clean(spec["clue"])
+        mine = clean(spec["clue"]["text"])
         rivals = fetch_rivals(db, answer, RIVALS_PER_ANSWER, rng)
         if len(rivals) < RIVALS_PER_ANSWER:
             thin.append(f"{answer} ({len(rivals)} rivals)")

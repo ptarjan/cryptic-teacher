@@ -4,6 +4,7 @@
 set -euo pipefail
 cd "$(dirname "$0")"
 python3 - <<'PY'
+import puzzle_schema
 import validate_annotations as v
 
 def errors(ann, preamble=None):
@@ -16,7 +17,7 @@ def errors(ann, preamble=None):
               "annotation": {**base, **ann}}]}
     if preamble:
         puzzle["preamble"] = preamble
-    return [e for e in v.validate_puzzle(puzzle)[1]
+    return [e for e in v.validate_puzzle(puzzle_schema.order(puzzle))[1]
             if "definition" in e or "Preamble" in e or "preamble" in e]
 
 fails = 0

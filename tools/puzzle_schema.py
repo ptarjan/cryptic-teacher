@@ -7,6 +7,12 @@
 The same file's $defs/blogFacts is the shape of each row of
 tools/data/blog_facts/<series>.json, checked by the no-argument run too.
 
+Key order is the schema's: every object's keys come in its `properties`
+order, so two files with the same content are the same bytes and a reader
+finds `type` before `blocks` in every annotation. order() is how every write
+obeys it (write_puzzle_file, the blog facts writers), and the validator
+refuses a file whose keys are out of that order.
+
 The rule: an absent key means empty. No puzzle file holds null, "", [] or {}
 as a value; a clue the paper printed blank is `"clue": {"missing": true}`.
 prune() is how every write obeys it:
@@ -47,6 +53,35 @@ def prune(value):
         return out
     if isinstance(value, list):
         return [prune(v) for v in value]
+    return value
+
+
+def _properties_of(schema):
+    """The `properties` an object under `schema` is keyed by, following $refs."""
+    while "$ref" in schema and "properties" not in schema:
+        schema = _resolve(schema["$ref"])
+    return schema
+
+
+def order(value, ref="#"):
+    """`value` with every object's keys in its schema's `properties` order,
+    depth first. Keys the schema does not list (a map such as a blog facts
+    row's `entries`) keep their order, after the listed ones."""
+    return _order(value, _resolve(ref) if ref != "#" else SCHEMA)
+
+
+def _order(value, schema):
+    schema = _properties_of(schema)
+    if isinstance(value, dict):
+        props = schema.get("properties", {})
+        extra = schema.get("additionalProperties")
+        out = {k: _order(value[k], props[k]) for k in props if k in value}
+        for k, v in value.items():
+            if k not in props:
+                out[k] = _order(v, extra) if isinstance(extra, dict) else v
+        return out
+    if isinstance(value, list) and isinstance(schema.get("items"), dict):
+        return [_order(v, schema["items"]) for v in value]
     return value
 
 
@@ -102,6 +137,11 @@ def _properties(v, arg, s, at, out):
     for k, sub in arg.items():
         if k in v:
             _check(v[k], sub, f"{at}.{k}", out)
+    got = [k for k in v if k in arg]
+    want = [k for k in arg if k in v]
+    if got != want:
+        out.append(f"{at}: keys in the order {', '.join(got)}; the schema's order is "
+                   f"{', '.join(want)} (puzzle_schema.order() writes it)")
 
 
 @_typed("object")

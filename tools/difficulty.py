@@ -422,8 +422,8 @@ def snitch_bands(scores, snitch):
 
 
 def snitch_ranges(scores, snitch=None):
-    """{series: {band: [q1, q3, n]}}: the NITCH a band's rated puzzles typically
-    got, as the interquartile range. A band with fewer than SNITCH_RANGE_MIN
+    """{series: {band: {q1, q3, rated}}}: the NITCH a band's rated puzzles
+    typically got, as the interquartile range q1 to q3 over `rated` puzzles. A band with fewer than SNITCH_RANGE_MIN
     rated puzzles is left out, and the badge says nothing for it."""
     snitch = load_snitch() if snitch is None else snitch
     out = {}
@@ -431,7 +431,7 @@ def snitch_ranges(scores, snitch=None):
         for band, xs in bands.items():
             if len(xs) >= SNITCH_RANGE_MIN:
                 q1, _, q3 = _quartiles(xs)
-                out.setdefault(series, {})[band] = [round(q1), round(q3), len(xs)]
+                out.setdefault(series, {})[band] = {"q1": round(q1), "q3": round(q3), "rated": len(xs)}
     return out
 
 

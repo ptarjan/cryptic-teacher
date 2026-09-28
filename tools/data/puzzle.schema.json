@@ -2,7 +2,7 @@
  "$schema": "https://json-schema.org/draft/2020-12/schema",
  "$id": "https://crypticteacher.com/tools/data/puzzle.schema.json",
  "title": "A puzzle file, puzzles/<series>-<number>.json",
- "description": "An absent key means empty: no value is ever null, \"\", [] or {}; a clue the paper printed blank is {\"missing\": true}. A flag is written only when true. Checked on every write (tools/fetch_puzzle.py write_puzzle_file) and over the corpus in CI (tools/puzzle_schema.py).",
+ "description": "An absent key means empty: no value is ever null, \"\", [] or {}; a clue the paper printed blank is {\"missing\": true}. A flag is written only when true. Checked on every write (tools/fetch_puzzle.py write_puzzle_file) and over the corpus in CI (tools/puzzle_schema.py). Every object's keys are in its `properties` order below (tools/puzzle_schema.py order() writes it; the check refuses any other).",
  "type": "object",
  "required": [
   "id",
@@ -524,7 +524,7 @@
        "$ref": "#/$defs/strings"
       },
       "anagrams": {
-       "description": "Each anagram in the wordplay: its fodder and the letters it becomes, `fodder` a rearrangement of `gives`. When the whole answer is an anagram, one item's `gives` is the answer's letters (A\u2013Z, no spaces); the others are anagrams inside the wordplay.",
+       "description": "Each anagram in the wordplay: its fodder and the letters it becomes, `fodder` a rearrangement of `gives`. When the whole answer is an anagram, one item's `gives` is the answer's letters (A–Z, no spaces); the others are anagrams inside the wordplay.",
        "type": "array",
        "minItems": 1,
        "items": {
@@ -607,7 +607,7 @@
    }
   },
   "block": {
-   "description": "One piece of the wordplay: the clue words, and the letters they give. No gives means the words give no letters (an indicator or link).",
+   "description": "One piece of the wordplay: the clue words, and the letters they give. `gives` is always the letters these words produce, after `select` or `soundsLike` if the block has one, and before anything done to them together with other blocks: shuffles and reversals are the annotation's assembly.anagrams and assembly.reversals, which say the letters before and after and need not cut the answer where the blocks do. No gives means the words give no letters (an indicator or link).",
    "type": "object",
    "required": [
     "clueFragment"
@@ -622,16 +622,8 @@
      "type": "string",
      "minLength": 1
     },
-    "note": {
-     "type": "string",
-     "minLength": 1
-    },
-    "soundsLike": {
-     "type": "string",
-     "minLength": 1
-    },
     "select": {
-     "description": "Which letters the block keeps: a word, or n for the nth letter.",
+     "description": "How the clue words give `gives`: the letters kept of them, a word from the list or n for the nth letter (\"Hothead\", first, gives H).",
      "anyOf": [
       {
        "$ref": "#/$defs/selectWord"
@@ -643,13 +635,15 @@
       }
      ]
     },
-    "reversed": {
-     "description": "The block's letters go in back to front: `gives` is the letters before reversal (\"charge\" gives FEE, which the answer holds as EEF).",
-     "const": true
+    "soundsLike": {
+     "description": "How the clue words give `gives`: they mean this word, and `gives` sounds like it (\"refusal\" means NAY, which gives NEIGH).",
+     "type": "string",
+     "minLength": 1
     },
-    "anagramOf": {
-     "description": "Anagram fodder: `gives` is the clue words' letters before they are shuffled.",
-     "const": true
+    "note": {
+     "description": "Why the clue words give these letters, in prose.",
+     "type": "string",
+     "minLength": 1
     }
    }
   },
@@ -845,6 +839,13 @@
    "minProperties": 1,
    "additionalProperties": false,
    "properties": {
+    "type": {
+     "$ref": "#/$defs/annotation/properties/type"
+    },
+    "typeCore": {
+     "description": "`type` is a lower bound: the clue is that, and perhaps a cut or a letter selection besides.",
+     "const": true
+    },
     "definitions": {
      "description": "As annotation.definitions, without notes: the span the blogger underlined, or both halves of a double definition, in clue order, `at` placed by tools/definitions.py. A text those rules cannot place is left out.",
      "type": "array",
@@ -866,13 +867,6 @@
        }
       }
      }
-    },
-    "type": {
-     "$ref": "#/$defs/annotation/properties/type"
-    },
-    "typeCore": {
-     "description": "`type` is a lower bound: the clue is that, and perhaps a cut or a letter selection besides.",
-     "const": true
     },
     "indicators": {
      "description": "The words the write-up marks as indicators, and the type each signals where it says.",
@@ -939,7 +933,7 @@
      "$ref": "#/$defs/block/properties/soundsLike"
     },
     "anagramOf": {
-     "description": "Anagram fodder: `gives` is the clue words' letters before they are shuffled.",
+     "description": "Anagram fodder: `gives` is the clue words' letters before they are shuffled. A blog fact has no `assembly`, so this flag is where it says the letters are shuffled; an annotation says it in assembly.anagrams instead, with the shuffled letters too.",
      "const": true
     },
     "inferred": {

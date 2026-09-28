@@ -770,6 +770,8 @@ def write_puzzle_file(path, puzzle, generator=None):
     puzzle = puzzle_schema.prune(puzzle)
     # Writers name a definition's words; its offset in the clue is computed.
     puzzle = definitions.place_puzzle(puzzle)
+    # Every object's keys in the schema's order, so no writer's order survives.
+    puzzle = puzzle_schema.order(puzzle)
     # Every write goes through the corpus sweep's per-puzzle checks, so no
     # fetcher can write what tools/puzzle_integrity.py would report.
     import puzzle_integrity  # noqa: PLC0415 — it imports this module
