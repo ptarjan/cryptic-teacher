@@ -62,6 +62,10 @@ check "\"another (gloss) of\" after an anagram is a second anagram" \
   'anagram + container' "$(t bigdave44 'I’m so aroused in fancy lace underwear (8)' 'CAMISOLE An anagram (aroused) of IM SO inserted into another (fancy) of LACE' CAMISOLE)"
 check "IS in capitals before an operator is letters, not filler" \
   'charade + container' "$(t timesforthetimes 'Seafood from Hull is served in fine hotel (9)' 'SHELLFISH – SHELL(hull), then IS inside F(fine) and H(hotel)' SHELLFISH)"
+check "an unbracketed = gloss ends at the operator before the next letters" \
+  'container + reversal' "$(t timesforthetimes '27 served up in pop is something spicy (7)' 'PAPRIKA – PAPA = pop has KIR reversed inserted.' PAPRIKA)"
+check "an operator word inside an = gloss followed by prose stays in the gloss" \
+  'charade' "$(t timesforthetimes 'Go in with five by two strengthening strip (6)' 'BATTEN – BAT = go in, TEN = five by two' BATTEN)"
 ind() { facts "$1" "$2" "<p>1 $2<br/>$3</p>" "$4" | python3 -c 'import json,sys; print(json.load(sys.stdin).get("indicators"))'; }
 check "a gloss on letters put in, not clue words, holds their source: only its container word is the indicator" \
   "['round']" "$(ind bigdave44 'Travel guide and staff going round one area, politician round another (4,3)' 'ROAD MAP – MP (politician) into which a second A is inserted (round another).' ROADMAP)"
