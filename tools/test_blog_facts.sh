@@ -37,6 +37,26 @@ check "a star and a plus spell the answer: anagram + charade, the block sourced"
   '{"blocks": [["HAM", "actor"], ["REMOTE", "remote", "anagrammed"]], "definition": ["Digital discomfort"], "type": "charade + anagram"}' \
   "$(facts fifteensquared 'Digital discomfort caused as actor pressed remote (9)' "$FS" HAMMERTOE)"
 
+# A hidden word the write-up shows rather than names: the answer set off by
+# case or brackets inside the clue words it hides in, or called a lurker.
+t() { facts "$1" "$2" "<p>1 $2<br/>$3</p>" "$4" | python3 -c 'import json,sys; print(json.load(sys.stdin).get("type"))'; }
+check "the answer in capitals inside the clue words is a hidden word, a clue capital no mark" \
+  'hidden word' "$(t timesforthetimes 'Princely Valentino bleeding a little (5)' 'NOBLE – “a little” of the letters of ValentiNO BLEeding' NOBLE)"
+check "the answer in brackets inside a clue word is a hidden word" \
+  'hidden word' "$(t timesforthetimes 'Wild party in Gravesend (4)' 'RAVE – G(RAVE)send.' RAVE)"
+check "the answer backwards in capitals is a reversed hidden word" \
+  'hidden word + reversal' "$(t fifteensquared 'Bird seen soaring in Milton Keynes (4)' 'reversed, i.e. soaring in, in ‘milTON Keynes’' KNOT)"
+check "a lurker the clue's letters hold is a hidden word" \
+  'hidden word' "$(t bigdave44 'Responsibility deacon usually carries (4)' 'ONUS: A lurker hiding in (carries) deacon usually.' ONUS)"
+check "a lurker the clue's letters do not hold is not" \
+  'None' "$(t bigdave44 'Responsibility deacon carries (4)' 'ONUS: not a lurker, a word for it.' ONUS)"
+check "letters cut off one end of a clue word are a deletion, not a hidden word" \
+  'None' "$(t fifteensquared 'Endless hatred of seaweed (5)' 'HATRE(d)' HATRE)"
+check "the core of a clue word under a selecting word is not a hidden word" \
+  'None' "$(t fifteensquared 'Heart of start is a star (3)' 's(TAR)t' TAR)"
+check "bigdave44's \"2 meanings\" is a double definition" \
+  'double definition' "$(t bigdave44 'Extraordinary red (4)' '{RARE} 2 meanings: extraordinary/red (as underdone meat)' RARE)"
+
 # Two underlines with only a space between them are two spans.
 DD='<p>3 <u>Consequence</u> of <u>lob</u>? (6)<br/>Double definition</p>'
 check "double definition keeps both halves" \
@@ -123,7 +143,7 @@ check "letters kept one in two are alternate letters, not a deletion" \
   '{"definition": ["Passion"], "indicators": ["regularly"], "type": "alternate letters"}' \
   "$(facts timesforthetimes 'Passion Zoe regularly (4)' '<p>1 <u>Passion</u> Zoe regularly (4)<br/>ZEAL – Z{o}E{e}A{r}L{y} [regularly]</p>' ZEAL)"
 check "brackets at both ends of a run of words are a hidden word, never a deletion" \
-  '{"definition": ["Port"]}' \
+  '{"definition": ["Port"], "type": "hidden word"}' \
   "$(facts fifteensquared 'Port contributing to slipshod essay (6)' '<p>1 <u>Port</u> contributing to slipshod essay (6)<br/>[slipsh]OD ESSA[y]</p>' ODESSA)"
 check "clue words that only say what to cut are no block's source" \
   '{"blocks": [["E", "European"]], "definition": ["Learned"]}' \
