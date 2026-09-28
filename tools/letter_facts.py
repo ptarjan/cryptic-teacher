@@ -87,7 +87,7 @@ def cost(parts):
 MAX_CUT = 2
 #: The types written into the corpus: each at least 97% the blog's own type on
 #: the held-out blog-typed clues (--measure). Any other reading is left out.
-TRUSTED = frozenset({"anagram", "hidden word", "deletion"})
+TRUSTED = frozenset({"anagram", "hidden word", "hidden word + reversal", "deletion"})
 #: The readings whose core type (see core()) is written where the full type
 #: is not trusted: each read at least 100 times in the held-out clues and its
 #: core at least 97% the core of the blog's type there. How a block was taken
@@ -338,6 +338,9 @@ def infer(clue, answer, known, lexicon=None):
     least = min(r[3] for r in rs)
     rs = [r for r in rs if r[3] == least]
     types = {r[0] for r in rs}
+    if types == set(HIDDEN):  # spelt both ways ("top position" OPPO): reading it forward takes no reversal
+        rs = [r for r in rs if r[0] == "hidden word"]
+        types = {"hidden word"}
     if len(types) > 1 or types & {"undecided block", "subtractive anagram"}:
         return {"undecided": sorted({(t, " ".join(ws[k][0] for k in run)) for t, run, *_ in rs}),
                 "why": rs[0][2]}
@@ -1518,6 +1521,8 @@ def inferred(clue, answer, facts, votes, lex, ilex, dlex, fuzzy=True):
     new = infer_definition(clue, answer, facts, dlex)
     facts = with_definition(facts, new) if new else facts
     new = infer_carrier(clue, answer, facts)
+    if new and facts.get("type") == "hidden word" and carried(answer, new) == "reversed":
+        facts = {**facts, "type": "hidden word + reversal", "inferred": sorted({*facts.get("inferred", ()), "type"})}
     facts = with_blocks(facts, new) if new else facts
     new = infer_indicators(clue, answer, facts, ilex)
     return with_indicators(facts, new) if new else facts
@@ -1544,7 +1549,8 @@ def infer_carrier(clue, answer, facts):
     """The one block of a hidden word, as our annotations write it: [(the
     answer, the clue words it is spelt in)], where the type is a hidden word
     and the answer (reversed, where the type says so) is spelt in one run of
-    the clue words outside the definition and indicators; else []."""
+    the clue words outside the definition and indicators; else []. A
+    "hidden word" not spelt forward there is looked for reversed."""
     rev = HIDDEN.get(facts.get("type"))
     answer = letters(answer or "")
     if rev is None or facts.get("blocks") or len(answer) < 3:
@@ -1553,7 +1559,10 @@ def infer_carrier(clue, answer, facts):
     taken = set()
     for phrase in facts.get("definition", []) + facts.get("indicators", []):
         taken |= locate(phrase, ws) or set()
-    got = [run for run, r in hidden(answer, ws, set(range(len(ws))) - taken) if r == rev]
+    hits = hidden(answer, ws, set(range(len(ws))) - taken)
+    if not rev and not any(not r for _, r in hits):
+        rev = True  # a blog seldom names a hidden word's reversal
+    got = [run for run, r in hits if r == rev]
     if len(got) != 1:
         return []
     return [(answer, body[at[got[0][0]][0]:at[got[0][-1]][1]])]
@@ -1692,6 +1701,13 @@ def core(t):
     return frozenset(t.split(" + ")) - TAKEN
 
 
+def agrees(t, gold):
+    """Whether the type read, `t`, is the blog's: the same, or a reversed
+    hidden word the blog called hidden, since a blog seldom names the
+    reversal and the letters read one only where the answer is not spelt forward."""
+    return t == gold or (t, gold) == ("hidden word + reversal", "hidden word")
+
+
 def held_out(pid):
     """A quarter of the puzzles, fixed by id, kept back from tuning."""
     return hashlib.sha1(pid.encode()).digest()[0] % 4 == 0
@@ -1718,12 +1734,12 @@ def measure(corpus, votes, show=8, split="held-out"):
             continue
         t = got["type"]
         tally[t]["claimed"] += 1
-        if t == gold:
+        if agrees(t, gold):
             tally[t]["right"] += 1
         if core(t) == core(gold):
             tally[t]["core"] += 1
-        tally[t]["wrote"] += (written(t) or (None,))[0] == gold
-        if t != gold:
+        tally[t]["wrote"] += agrees((written(t) or (None,))[0], gold)
+        if not agrees(t, gold):
             fps[t].append((gold, clue, answer, got))
         if facts.get("indicators") and got.get("indicators"):
             g = {w for i in facts["indicators"] for w in re.findall(r"[\w'’]+", i.lower())}
