@@ -46,11 +46,12 @@
     "answer": "BOBBY",
     "definition": "Policeman",
     "indicators": [
-     "losing"
+     {
+      "text": "losing",
+      "for": "deletion",
+      "note": "a word that is losing something has it taken away, so the pound's letter drops out"
+     }
     ],
-    "indicatorNotes": {
-     "losing": "a word that is losing something has it taken away, so the pound's letter drops out"
-    },
     "pieces": [
      "BOBB",
      "Y"
@@ -102,13 +103,17 @@
     "answer": "BULLET WOUND",
     "definition": "round hole",
     "indicators": [
-     "finally",
-     "twisted"
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "take the final letter of each of the two words before it"
+     },
+     {
+      "text": "twisted",
+      "for": "letter_selection",
+      "note": "twisted = WOUND, the past tense of wind; it gives letters rather than rearranging them"
+     }
     ],
-    "indicatorNotes": {
-     "finally": "take the final letter of each of the two words before it",
-     "twisted": "twisted = WOUND, the past tense of wind; it gives letters rather than rearranging them"
-    },
     "pieces": [
      "BULL",
      "E",
@@ -210,11 +215,12 @@
     "answer": "YORKSHIRE PUDDING",
     "definition": "food from the north",
     "indicators": [
-     "confused"
+     {
+      "text": "confused",
+      "for": "anagram",
+      "note": "confused means muddled, so the letters come out of their order"
+     }
     ],
-    "indicatorNotes": {
-     "confused": "confused means muddled, so the letters come out of their order"
-    },
     "anagram": {
      "fodder": "HUNGRY KIDS PERIOD"
     },
@@ -228,10 +234,6 @@
       "clueFragment": "period",
       "gives": "PERIOD",
       "note": "anagram fodder, 6 letters, joined on by 'with'"
-     },
-     {
-      "clueFragment": "confused",
-      "note": "anagram indicator"
      }
     ],
     "surface": "Hungry children, muddled by the time of day, want a northern dish.",
@@ -263,11 +265,12 @@
     "definition": "part of the family",
     "definitionNote": "the definition is singular in form, but a group of sisters is one part of a family",
     "indicators": [
-     "to ostracise"
+     {
+      "text": "to ostracise",
+      "for": "deletion",
+      "note": "to ostracise is to shut out, so the letters are thrown out of the word"
+     }
     ],
-    "indicatorNotes": {
-     "to ostracise": "to ostracise is to shut out, so the letters are thrown out of the word"
-    },
     "pieces": [
      "SISTERS"
     ],
@@ -312,13 +315,15 @@
     "answer": "SHINDIG",
     "definition": "Do",
     "indicators": [
-     "inane",
-     "trapping"
+     {
+      "text": "inane",
+      "note": "read as in-ane, with nothing inside: only the outer letters of the word stay"
+     },
+     {
+      "text": "trapping",
+      "note": "the outer word traps the other inside it"
+     }
     ],
-    "indicatorNotes": {
-     "inane": "read as in-ane, with nothing inside: only the outer letters of the word stay",
-     "trapping": "the outer word traps the other inside it"
-    },
     "pieces": [
      "S",
      "HINDI",
@@ -373,17 +378,25 @@
     "answer": "SUEZ CANAL",
     "definition": "trade route",
     "indicators": [
-     "rejected",
-     "upturned",
-     "hidden in",
-     "after"
+     {
+      "text": "rejected",
+      "for": "reversal",
+      "note": "rejected = sent back, so the letters run backwards"
+     },
+     {
+      "text": "upturned",
+      "for": "reversal",
+      "note": "in a down clue, turned upside down means read from the bottom, so backwards"
+     },
+     {
+      "text": "hidden in",
+      "note": "the first word is tucked inside the next"
+     },
+     {
+      "text": "after",
+      "note": "the rest comes after this piece"
+     }
     ],
-    "indicatorNotes": {
-     "rejected": "rejected = sent back, so the letters run backwards",
-     "upturned": "in a down clue, turned upside down means read from the bottom, so backwards",
-     "hidden in": "the first word is tucked inside the next",
-     "after": "the rest comes after this piece"
-    },
     "pieces": [
      "SU",
      "EZ",
@@ -452,13 +465,17 @@
     "answer": "EX-SERVICEMEN",
     "definition": "Those who fought",
     "indicators": [
-     "ultimately",
-     "restraining"
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so only the word's end letter is used"
+     },
+     {
+      "text": "restraining",
+      "for": "letter_selection",
+      "note": "the outer word holds the others inside it"
+     }
     ],
-    "indicatorNotes": {
-     "ultimately": "ultimately means in the end, so only the word's end letter is used",
-     "restraining": "the outer word holds the others inside it"
-    },
     "pieces": [
      "E",
      "X",
@@ -517,11 +534,12 @@
     "answer": "STATEMENTS",
     "definition": "accounts",
     "indicators": [
-     "New"
+     {
+      "text": "New",
+      "for": "anagram",
+      "note": "a new version of the word, so its letters are rearranged"
+     }
     ],
-    "indicatorNotes": {
-     "New": "a new version of the word, so its letters are rearranged"
-    },
     "anagram": {
      "fodder": "TESTAMENTS"
     },
@@ -530,10 +548,6 @@
       "clueFragment": "Testament’s",
       "gives": "TESTAMENTS",
       "note": "anagram fodder, the 's included, 10 letters"
-     },
-     {
-      "clueFragment": "New",
-      "note": "anagram indicator"
      }
     ],
     "surface": "A reference to the gospel accounts of the New Testament.",
@@ -565,13 +579,17 @@
     "answer": "MACGUFFIN",
     "definition": "film’s driver",
     "indicators": [
-     "around",
-     "hollowed-out"
+     {
+      "text": "around",
+      "for": "container",
+      "note": "the first word goes around the next pieces"
+     },
+     {
+      "text": "hollowed-out",
+      "for": "letter_selection",
+      "note": "a hollowed-out word has its middle removed, leaving the outer letters"
+     }
     ],
-    "indicatorNotes": {
-     "around": "the first word goes around the next pieces",
-     "hollowed-out": "a hollowed-out word has its middle removed, leaving the outer letters"
-    },
     "linkWords": [
      "for"
     ],
@@ -629,11 +647,12 @@
     "answer": "MOODY",
     "definition": "down",
     "indicators": [
-     "turned"
+     {
+      "text": "turned",
+      "for": "reversal",
+      "note": "turned round, so the letters run backwards"
+     }
     ],
-    "indicatorNotes": {
-     "turned": "turned round, so the letters run backwards"
-    },
     "pieces": [
      "MOOD",
      "Y"
@@ -678,11 +697,12 @@
     "answer": "COCKSURE",
     "definition": "Arrogant",
     "indicators": [
-     "on"
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down clue, the first part sits on top of the second"
+     }
     ],
-    "indicatorNotes": {
-     "on": "in a down clue, the first part sits on top of the second"
-    },
     "pieces": [
      "COCKS",
      "URE"
@@ -768,11 +788,12 @@
     "answer": "FANGIRLED",
     "definition": "Went overboard in support",
     "indicators": [
-     "badly"
+     {
+      "text": "badly",
+      "for": "anagram",
+      "note": "done badly, so the letters are jumbled"
+     }
     ],
-    "indicatorNotes": {
-     "badly": "done badly, so the letters are jumbled"
-    },
     "pieces": [
      "FANGIR",
      "LED"
@@ -824,13 +845,17 @@
     "answer": "NOTHINGNESS",
     "definition": "Lack of substance",
     "indicators": [
-     "hosted by",
-     "originally"
+     {
+      "text": "hosted by",
+      "for": "container",
+      "note": "the first word is held inside the next"
+     },
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "originally means at the origin, so only the word's opening letter is used"
+     }
     ],
-    "indicatorNotes": {
-     "hosted by": "the first word is held inside the next",
-     "originally": "originally means at the origin, so only the word's opening letter is used"
-    },
     "linkWords": [
      "in"
     ],
@@ -888,13 +913,17 @@
     "answer": "LIBERTINE",
     "definition": "Rake",
     "indicators": [
-     "back",
-     "into"
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "sent back, so the ingredient's letters are read from the end"
+     },
+     {
+      "text": "into",
+      "for": "container",
+      "note": "the pieces go into the next word"
+     }
     ],
-    "indicatorNotes": {
-     "back": "sent back, so the ingredient's letters are read from the end",
-     "into": "the pieces go into the next word"
-    },
     "pieces": [
      "LI",
      "B",
@@ -959,11 +988,12 @@
     "answer": "SHADOW CABINET",
     "definition": "Was Badenoch struggling with it?",
     "indicators": [
-     "struggling"
+     {
+      "text": "struggling",
+      "for": "anagram",
+      "note": "the letters struggle out of order"
+     }
     ],
-    "indicatorNotes": {
-     "struggling": "the letters struggle out of order"
-    },
     "anagram": {
      "fodder": "WAS BADENOCH IT"
     },
@@ -977,10 +1007,6 @@
       "clueFragment": "it",
       "gives": "IT",
       "note": "anagram fodder, joined on by 'with'"
-     },
-     {
-      "clueFragment": "struggling",
-      "note": "anagram indicator"
      }
     ],
     "surface": "A question whether Kemi Badenoch struggled to lead her team in opposition.",
@@ -1096,11 +1122,12 @@
     "answer": "SWAHILI",
     "definition": "language",
     "indicators": [
-     "translated"
+     {
+      "text": "translated",
+      "for": "anagram",
+      "note": "turned into another form, so the letters are rearranged"
+     }
     ],
-    "indicatorNotes": {
-     "translated": "turned into another form, so the letters are rearranged"
-    },
     "anagram": {
      "fodder": "I WISH LA"
     },
@@ -1109,10 +1136,6 @@
       "clueFragment": "I wish LA",
       "gives": "IWISHLA",
       "note": "anagram fodder, 7 letters"
-     },
-     {
-      "clueFragment": "translated",
-      "note": "anagram indicator"
      }
     ],
     "surface": "Someone wishes Los Angeles could be translated into another tongue.",
@@ -1149,12 +1172,15 @@
     "answer": "WEDDING ANNIVERSARY",
     "definition": "celebration of union",
     "indicators": [
-     "in",
-     "in"
+     {
+      "text": "in",
+      "note": "the letter goes inside the word"
+     },
+     {
+      "text": "in",
+      "note": "the letter goes inside the word"
+     }
     ],
-    "indicatorNotes": {
-     "in": "the letter goes inside the word"
-    },
     "pieces": [
      "WED",
      "DING",
@@ -1281,11 +1307,12 @@
     "answer": "SHANNON",
     "definition": "river",
     "indicators": [
-     "surrounds"
+     {
+      "text": "surrounds",
+      "for": "container",
+      "note": "the word goes round the letter"
+     }
     ],
-    "indicatorNotes": {
-     "surrounds": "the word goes round the letter"
-    },
     "pieces": [
      "SH",
      "A",
@@ -1336,11 +1363,12 @@
     "answer": "PLUG",
     "definition": "Stop",
     "indicators": [
-     "returning"
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "coming back, so the letters run backwards"
+     }
     ],
-    "indicatorNotes": {
-     "returning": "coming back, so the letters run backwards"
-    },
     "pieces": [
      "PLUG"
     ],
@@ -1445,15 +1473,19 @@
     "answer": "UNIVERSAL",
     "definition": "Catholic",
     "indicators": [
-     "in tangle",
-     "about",
-     "head of"
+     {
+      "text": "in tangle",
+      "note": "letters in a tangle are knotted out of order"
+     },
+     {
+      "text": "about",
+      "note": "the tangled letters go about, around, the other letter"
+     },
+     {
+      "text": "head of",
+      "note": "the head of a word is its first letter"
+     }
     ],
-    "indicatorNotes": {
-     "in tangle": "letters in a tangle are knotted out of order",
-     "about": "the tangled letters go about, around, the other letter",
-     "head of": "the head of a word is its first letter"
-    },
     "anagram": {
      "fodder": "VALUES IN R"
     },
@@ -1498,11 +1530,12 @@
     "answer": "SPLASH",
     "definition": "Trumpet",
     "indicators": [
-     "involved in"
+     {
+      "text": "involved in",
+      "for": "container",
+      "note": "to be involved in something is to be caught up inside it"
+     }
     ],
-    "indicatorNotes": {
-     "involved in": "to be involved in something is to be caught up inside it"
-    },
     "linkWords": [
      "and"
     ],
@@ -1598,11 +1631,12 @@
     "answer": "BRIDLE",
     "definition": "see red",
     "indicators": [
-     "According to reports"
+     {
+      "text": "According to reports",
+      "for": "homophone",
+      "note": "a report is something heard, so the words are taken by their sound"
+     }
     ],
-    "indicatorNotes": {
-     "According to reports": "a report is something heard, so the words are taken by their sound"
-    },
     "blocks": [
      {
       "clueFragment": "hitcher",
@@ -1651,13 +1685,15 @@
     "answer": "FERMAT",
     "definition": "He theorised",
     "indicators": [
-     "over",
-     "lead in"
+     {
+      "text": "over",
+      "note": "in a down clue, one piece sits over the next"
+     },
+     {
+      "text": "lead in",
+      "note": "the lead in a word is the letter at its front"
+     }
     ],
-    "indicatorNotes": {
-     "over": "in a down clue, one piece sits over the next",
-     "lead in": "the lead in a word is the letter at its front"
-    },
     "pieces": [
      "FE",
      "R",
@@ -1711,13 +1747,17 @@
     "answer": "DISQUALIFIED",
     "definition": "thrown out",
     "indicators": [
-     "entertaining",
-     "short"
+     {
+      "text": "entertaining",
+      "for": "container",
+      "note": "a host entertaining guests has them inside, so the court holds the rest"
+     },
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "a word cut short loses its last letter"
+     }
     ],
-    "indicatorNotes": {
-     "entertaining": "a host entertaining guests has them inside, so the court holds the rest",
-     "short": "a word cut short loses its last letter"
-    },
     "pieces": [
      "DIS",
      "QUA",
@@ -1775,11 +1815,12 @@
     "answer": "FARRAGO",
     "definition": "potpourri",
     "indicators": [
-     "impounds"
+     {
+      "text": "impounds",
+      "for": "container",
+      "note": "to impound is to shut something up inside a pound, an enclosure"
+     }
     ],
-    "indicatorNotes": {
-     "impounds": "to impound is to shut something up inside a pound, an enclosure"
-    },
     "pieces": [
      "FAR",
      "RAG",
@@ -1826,13 +1867,15 @@
     "answer": "INTERVIEWS",
     "definition": "Newspaper features",
     "indicators": [
-     "in",
-     "breaking"
+     {
+      "text": "in",
+      "note": "the queen goes inside the two letters"
+     },
+     {
+      "text": "breaking",
+      "note": "the group breaks into the next words, splitting them"
+     }
     ],
-    "indicatorNotes": {
-     "in": "the queen goes inside the two letters",
-     "breaking": "the group breaks into the next words, splitting them"
-    },
     "pieces": [
      "I",
      "N",
@@ -2001,11 +2044,12 @@
     "answer": "ASPIDISTRA",
     "definition": "House plant",
     "indicators": [
-     "with treatment"
+     {
+      "text": "with treatment",
+      "for": "anagram",
+      "note": "treated letters are processed, worked into a new form"
+     }
     ],
-    "indicatorNotes": {
-     "with treatment": "treated letters are processed, worked into a new form"
-    },
     "anagram": {
      "fodder": "IRIS ADAPTS"
     },
@@ -2014,10 +2058,6 @@
       "clueFragment": "Iris — adapts",
       "gives": "IRISADAPTS",
       "note": "anagram fodder, 10 letters"
-     },
-     {
-      "clueFragment": "with treatment",
-      "note": "anagram indicator"
      }
     ],
     "surface": "A house plant called Iris recovers with some care.",
@@ -2053,11 +2093,12 @@
     "answer": "AD INFINITUM",
     "definition": "forever",
     "indicators": [
-     "floundering"
+     {
+      "text": "floundering",
+      "for": "anagram",
+      "note": "floundering means struggling clumsily, so the letters flail out of place"
+     }
     ],
-    "indicatorNotes": {
-     "floundering": "floundering means struggling clumsily, so the letters flail out of place"
-    },
     "anagram": {
      "fodder": "FIND UNIT AIM"
     },
@@ -2071,10 +2112,6 @@
       "clueFragment": "aim",
       "gives": "AIM",
       "note": "anagram fodder, joined on by 'with'"
-     },
-     {
-      "clueFragment": "floundering",
-      "note": "anagram indicator"
      }
     ],
     "surface": "A unit that is floundering keeps trying to find its aim, endlessly.",
@@ -2167,13 +2204,17 @@
     "answer": "WEREWOLFISH",
     "definition": "becoming deadly each month?",
     "indicators": [
-     "raised",
-     "in"
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "in a down clue, raised means lifted up, so the letters read from the bottom"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the pieces go inside the last word"
+     }
     ],
-    "indicatorNotes": {
-     "raised": "in a down clue, raised means lifted up, so the letters read from the bottom",
-     "in": "the pieces go inside the last word"
-    },
     "pieces": [
      "W",
      "E",
@@ -2233,11 +2274,12 @@
     "answer": "WHEELCHAIR",
     "definition": "Possible aid for disabled",
     "indicators": [
-     "penning"
+     {
+      "text": "penning",
+      "for": "container",
+      "note": "to pen an animal is to shut it inside, so the toilet holds the rat"
+     }
     ],
-    "indicatorNotes": {
-     "penning": "to pen an animal is to shut it inside, so the toilet holds the rat"
-    },
     "pieces": [
      "W",
      "HEEL",
@@ -2295,11 +2337,12 @@
     "answer": "I CHING",
     "definition": "Ancient guide",
     "indicators": [
-     "to drop"
+     {
+      "text": "to drop",
+      "for": "deletion",
+      "note": "to drop a letter is to let it fall out of the word"
+     }
     ],
-    "indicatorNotes": {
-     "to drop": "to drop a letter is to let it fall out of the word"
-    },
     "pieces": [
      "I",
      "CHING"
@@ -2350,13 +2393,15 @@
     "answer": "HUDSON BAY",
     "definition": "water in Canada",
     "indicators": [
-     "Oddball",
-     "to hold up"
+     {
+      "text": "Oddball",
+      "note": "an oddball is eccentric, behaving out of line, so the letters are rearranged"
+     },
+     {
+      "text": "to hold up",
+      "note": "in a down clue, the lower group holds up the letter above it, so H goes on top"
+     }
     ],
-    "indicatorNotes": {
-     "Oddball": "an oddball is eccentric, behaving out of line, so the letters are rearranged",
-     "to hold up": "in a down clue, the lower group holds up the letter above it, so H goes on top"
-    },
     "pieces": [
      "H",
      "UDSONBAY"
@@ -2451,11 +2496,12 @@
     "answer": "DOTCOMMER",
     "definition": "online retailer",
     "indicators": [
-     "read out"
+     {
+      "text": "read out",
+      "for": "homophone",
+      "note": "reading aloud turns the symbols into spoken words"
+     }
     ],
-    "indicatorNotes": {
-     "read out": "reading aloud turns the symbols into spoken words"
-    },
     "linkWords": [
      "for"
     ],
@@ -2505,11 +2551,12 @@
     "definition": "lower",
     "definitionNote": "the answer is a past tense (made lower) and 'lower' is used as a verb",
     "indicators": [
-     "taking"
+     {
+      "text": "taking",
+      "for": "container",
+      "note": "the first word takes the letter into itself"
+     }
     ],
-    "indicatorNotes": {
-     "taking": "the first word takes the letter into itself"
-    },
     "pieces": [
      "DEC",
      "R",
@@ -2599,15 +2646,19 @@
     "answer": "FIDO",
     "definition": "Pet",
     "indicators": [
-     "finally",
-     "removed from",
-     "recalled"
+     {
+      "text": "finally",
+      "note": "finally points to the word's last letter"
+     },
+     {
+      "text": "removed from",
+      "note": "the letter is taken out of the poem"
+     },
+     {
+      "text": "recalled",
+      "note": "called back, so the letters are read backwards"
+     }
     ],
-    "indicatorNotes": {
-     "finally": "finally points to the word's last letter",
-     "removed from": "the letter is taken out of the poem",
-     "recalled": "called back, so the letters are read backwards"
-    },
     "pieces": [
      "F",
      "I",
@@ -2777,11 +2828,12 @@
     "answer": "COHERE",
     "definition": "Hold water",
     "indicators": [
-     "within"
+     {
+      "text": "within",
+      "for": "container",
+      "note": "the symbol goes within, inside, the other word"
+     }
     ],
-    "indicatorNotes": {
-     "within": "the symbol goes within, inside, the other word"
-    },
     "linkWords": [
      "and"
     ],
@@ -2836,11 +2888,12 @@
     "answer": "NEO-NOIR",
     "definition": "Blade Runner, say",
     "indicators": [
-     "reflected"
+     {
+      "text": "reflected",
+      "for": "reversal",
+      "note": "a mirror reflection turns things back to front"
+     }
     ],
-    "indicatorNotes": {
-     "reflected": "a mirror reflection turns things back to front"
-    },
     "linkWords": [
      "by"
     ],
@@ -2895,11 +2948,12 @@
     "answer": "CYCLONE",
     "definition": "depression",
     "indicators": [
-     "to ignore first"
+     {
+      "text": "to ignore first",
+      "for": "deletion",
+      "note": "ignoring the first letter leaves it out of the word"
+     }
     ],
-    "indicatorNotes": {
-     "to ignore first": "ignoring the first letter leaves it out of the word"
-    },
     "pieces": [
      "CY",
      "CLONE"
@@ -2993,13 +3047,15 @@
     "answer": "EUROPOL",
     "definition": "Continental crime-fighters",
     "indicators": [
-     "backing",
-     "swimming"
+     {
+      "text": "backing",
+      "note": "going backwards, so the letters run in reverse"
+     },
+     {
+      "text": "swimming",
+      "note": "letters that are swimming move about freely, out of their order"
+     }
     ],
-    "indicatorNotes": {
-     "backing": "going backwards, so the letters run in reverse",
-     "swimming": "letters that are swimming move about freely, out of their order"
-    },
     "pieces": [
      "EUR",
      "OPOL"
@@ -3106,11 +3162,12 @@
     "answer": "TABLE FOOTBALL",
     "definition": "Activity where teams are barred",
     "indicators": [
-     "after"
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "the base comes after the food"
+     }
     ],
-    "indicatorNotes": {
-     "after": "the base comes after the food"
-    },
     "linkWords": [
      "from"
     ],
@@ -3166,11 +3223,12 @@
     "answer": "SPAGHETTI",
     "definition": "kind of pasta",
     "indicators": [
-     "largely"
+     {
+      "text": "largely",
+      "for": "deletion",
+      "note": "largely means for the most part, so the word loses its last letter"
+     }
     ],
-    "indicatorNotes": {
-     "largely": "largely means for the most part, so the word loses its last letter"
-    },
     "pieces": [
      "SPA",
      "GHETT",
@@ -3226,11 +3284,12 @@
     "answer": "MAY BEETLE",
     "definition": "June bug",
     "indicators": [
-     "regularly"
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "at regular intervals, so every other letter is taken"
+     }
     ],
-    "indicatorNotes": {
-     "regularly": "at regular intervals, so every other letter is taken"
-    },
     "pieces": [
      "MAYBE",
      "ETLE"
@@ -3277,11 +3336,12 @@
     "answer": "RESIDUE",
     "definition": "Leftovers",
     "indicators": [
-     "tucking into"
+     {
+      "text": "tucking into",
+      "for": "container",
+      "note": "tucking into food is eating it, so the letter goes inside the word"
+     }
     ],
-    "indicatorNotes": {
-     "tucking into": "tucking into food is eating it, so the letter goes inside the word"
-    },
     "pieces": [
      "RE",
      "SID",
@@ -3333,11 +3393,12 @@
     "answer": "PATCH",
     "definition": "Mend",
     "indicators": [
-     "before"
+     {
+      "text": "before",
+      "for": "charade",
+      "note": "before means in front of, so the cold letter is written ahead of the hot one"
+     }
     ],
-    "indicatorNotes": {
-     "before": "before means in front of, so the cold letter is written ahead of the hot one"
-    },
     "pieces": [
      "PAT",
      "C",

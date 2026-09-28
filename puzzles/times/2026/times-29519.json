@@ -50,11 +50,12 @@
      "’s"
     ],
     "indicators": [
-     "completely defaced"
+     {
+      "text": "completely defaced",
+      "for": "deletion",
+      "note": "both words lose their faces, i.e. their first letters"
+     }
     ],
-    "indicatorNotes": {
-     "completely defaced": "both words lose their faces, i.e. their first letters"
-    },
     "pieces": [
      "URBAN",
      "ITY"
@@ -103,11 +104,12 @@
      "’s"
     ],
     "indicators": [
-     "ignored every so often"
+     {
+      "text": "ignored every so often",
+      "for": "letter_selection",
+      "note": "letters are dropped at regular intervals, leaving the even ones"
+     }
     ],
-    "indicatorNotes": {
-     "ignored every so often": "letters are dropped at regular intervals, leaving the even ones"
-    },
     "pieces": [
      "U",
      "S",
@@ -161,11 +163,12 @@
      "from"
     ],
     "indicators": [
-     "condemned"
+     {
+      "text": "condemned",
+      "for": "anagram",
+      "note": "condemned things are torn down, so the letters are wrecked and rebuilt"
+     }
     ],
-    "indicatorNotes": {
-     "condemned": "condemned things are torn down, so the letters are wrecked and rebuilt"
-    },
     "anagram": {
      "fodder": "ROADTEST BEEF BSE"
     },
@@ -188,10 +191,6 @@
       "clueFragment": "BSE",
       "gives": "BSE",
       "note": "anagram fodder; BSE is mad cow disease"
-     },
-     {
-      "clueFragment": "condemned",
-      "note": "anagram indicator"
      }
     ],
     "surface": "A food test finds beef infected with mad cow disease, and consumers are warned.",
@@ -222,11 +221,12 @@
     "answer": "NOWADAYS",
     "definition": "Currently",
     "indicators": [
-     "cuts"
+     {
+      "text": "cuts",
+      "for": "container",
+      "note": "the pieces cut into, i.e. go inside, NAYS"
+     }
     ],
-    "indicatorNotes": {
-     "cuts": "the pieces cut into, i.e. go inside, NAYS"
-    },
     "pieces": [
      "N",
      "O",
@@ -279,15 +279,20 @@
     "answer": "THIEF",
     "definition": "One who takes",
     "indicators": [
-     "unlimited",
-     "in",
-     "round"
+     {
+      "text": "unlimited",
+      "for": "deletion",
+      "note": "without its limits, i.e. first and last letters"
+     },
+     {
+      "text": "in",
+      "note": "the trimmed word goes inside the paper"
+     },
+     {
+      "text": "round",
+      "note": "the paper goes round the trimmed word"
+     }
     ],
-    "indicatorNotes": {
-     "unlimited": "without its limits, i.e. first and last letters",
-     "in": "the trimmed word goes inside the paper",
-     "round": "the paper goes round the trimmed word"
-    },
     "pieces": [
      "T",
      "HIE",
@@ -341,11 +346,12 @@
      "in"
     ],
     "indicators": [
-     "pressed by"
+     {
+      "text": "pressed by",
+      "for": "container",
+      "note": "squeezed on both sides by the outer word"
+     }
     ],
-    "indicatorNotes": {
-     "pressed by": "squeezed on both sides by the outer word"
-    },
     "pieces": [
      "P",
      "E",
@@ -403,11 +409,12 @@
     "answer": "ERSATZ",
     "definition": "Fake",
     "indicators": [
-     "checks"
+     {
+      "text": "checks",
+      "for": "hidden_word",
+      "note": "holds back, restrains, so the words contain the answer"
+     }
     ],
-    "indicatorNotes": {
-     "checks": "holds back, restrains, so the words contain the answer"
-    },
     "blocks": [
      {
       "clueFragment": "fivers a Tzigane",
@@ -449,13 +456,16 @@
     "answer": "KNUCKLE SANDWICH",
     "definition": "Blow",
     "indicators": [
-     "on vacation",
-     "abroad"
+     {
+      "text": "on vacation",
+      "for": "anagram",
+      "note": "the word is vacated, emptied of its middle"
+     },
+     {
+      "text": "abroad",
+      "note": "the letters are scattered about"
+     }
     ],
-    "indicatorNotes": {
-     "on vacation": "the word is vacated, emptied of its middle",
-     "abroad": "the letters are scattered about"
-    },
     "pieces": [
      "KNUCKLE",
      "SANDWICH"
@@ -481,10 +491,6 @@
       "clueFragment": "weekend on vacation",
       "gives": "WD",
       "note": "WEEKEND with its middle letters removed"
-     },
-     {
-      "clueFragment": "abroad",
-      "note": "anagram indicator for CASHIN + WD"
      }
     ],
     "surface": "Someone smokes a joint, blows their money and cashes in on a weekend holiday abroad.",
@@ -564,13 +570,17 @@
     "answer": "AEGROTAT",
     "definition": "circumstantially awarded degree?",
     "indicators": [
-     "mostly",
-     "defends"
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "most of the word but not all of it, so its last letter is lost"
+     },
+     {
+      "text": "defends",
+      "for": "container",
+      "note": "surrounds and protects EG"
+     }
     ],
-    "indicatorNotes": {
-     "mostly": "most of the word but not all of it, so its last letter is lost",
-     "defends": "surrounds and protects EG"
-    },
     "pieces": [
      "A",
      "EG",
@@ -621,13 +631,15 @@
     "answer": "ERSTWHILE",
     "definition": "Former",
     "indicators": [
-     "regularly",
-     "out"
+     {
+      "text": "regularly",
+      "note": "take letters at regular intervals: the odd ones"
+     },
+     {
+      "text": "out",
+      "note": "the letters are put out of order"
+     }
     ],
-    "indicatorNotes": {
-     "regularly": "take letters at regular intervals: the odd ones",
-     "out": "the letters are put out of order"
-    },
     "anagram": {
      "fodder": "WELSH I TRE"
     },
@@ -647,10 +659,6 @@
       "gives": "TRE",
       "select": "alternate",
       "note": "odd letters of TuRnEd"
-     },
-     {
-      "clueFragment": "out",
-      "note": "anagram indicator"
      }
     ],
     "surface": "A former Wales player used to turn out for the side regularly.",
@@ -682,13 +690,17 @@
     "answer": "SCUBA",
     "definition": "apparatus",
     "indicators": [
-     "breaks",
-     "piece of"
+     {
+      "text": "breaks",
+      "for": "letter_selection",
+      "note": "the youngster breaks into the pair of letters, splitting them apart"
+     },
+     {
+      "text": "piece of",
+      "for": "letter_selection",
+      "note": "just the first letter of aerial"
+     }
     ],
-    "indicatorNotes": {
-     "breaks": "the youngster breaks into the pair of letters, splitting them apart",
-     "piece of": "just the first letter of aerial"
-    },
     "pieces": [
      "S",
      "CUB",
@@ -835,13 +847,16 @@
     "answer": "AFICIONADO",
     "definition": "Fan",
     "indicators": [
-     "following",
-     "heartless"
+     {
+      "text": "following",
+      "note": "the fuss follows, coming after the rest in the answer"
+     },
+     {
+      "text": "heartless",
+      "for": "deletion",
+      "note": "the middle letter is removed"
+     }
     ],
-    "indicatorNotes": {
-     "following": "the fuss follows, coming after the rest in the answer",
-     "heartless": "the middle letter is removed"
-    },
     "pieces": [
      "A",
      "FICION",
@@ -939,13 +954,15 @@
      "of"
     ],
     "indicators": [
-     "attached to",
-     "hacked"
+     {
+      "text": "attached to",
+      "note": "fixed on to the front of the next piece, as a document is attached to an email"
+     },
+     {
+      "text": "hacked",
+      "note": "hacked emails are tampered with, so the letters are jumbled"
+     }
     ],
-    "indicatorNotes": {
-     "attached to": "fixed on to the front of the next piece, as a document is attached to an email",
-     "hacked": "hacked emails are tampered with, so the letters are jumbled"
-    },
     "subAnagrams": [
      {
       "fodder": "EMAILS",
@@ -997,13 +1014,15 @@
     "answer": "SEMI",
     "definition": "Property",
     "indicators": [
-     "withdrawn",
-     "for the most part"
+     {
+      "text": "withdrawn",
+      "note": "drawn back the way it came, so the word is written in reverse"
+     },
+     {
+      "text": "for the most part",
+      "note": "the greater part of the word but not all of it, so the last letter goes"
+     }
     ],
-    "indicatorNotes": {
-     "withdrawn": "drawn back the way it came, so the word is written in reverse",
-     "for the most part": "the greater part of the word but not all of it, so the last letter goes"
-    },
     "pieces": [
      "SEMI"
     ],
@@ -1049,11 +1068,12 @@
     "answer": "CRITERIA",
     "definition": "standards",
     "indicators": [
-     "raised"
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "in a down clue, lifted up, so read bottom to top"
+     }
     ],
-    "indicatorNotes": {
-     "raised": "in a down clue, lifted up, so read bottom to top"
-    },
     "subReversals": [
      {
       "from": "AIRE",
@@ -1105,11 +1125,12 @@
     "answer": "CURB",
     "definition": "Check",
     "indicators": [
-     "at the very least"
+     {
+      "text": "at the very least",
+      "for": "letter_selection",
+      "note": "the least possible, just the first letter"
+     }
     ],
-    "indicatorNotes": {
-     "at the very least": "the least possible, just the first letter"
-    },
     "pieces": [
      "CUR",
      "B"
@@ -1163,11 +1184,12 @@
      "’s"
     ],
     "indicators": [
-     "introduced by"
+     {
+      "text": "introduced by",
+      "for": "charade",
+      "note": "the gambler comes first, introducing the part of the game"
+     }
     ],
-    "indicatorNotes": {
-     "introduced by": "the gambler comes first, introducing the part of the game"
-    },
     "pieces": [
      "BETTER",
      "HALF"
@@ -1258,13 +1280,15 @@
     "answer": "ODDFELLOW",
     "definition": "member of secret society",
     "indicators": [
-     "dividing",
-     "in opposition"
+     {
+      "text": "dividing",
+      "note": "FELL goes between the two parties"
+     },
+     {
+      "text": "in opposition",
+      "note": "the two DOs face each other, one written backwards"
+     }
     ],
-    "indicatorNotes": {
-     "dividing": "FELL goes between the two parties",
-     "in opposition": "the two DOs face each other, one written backwards"
-    },
     "subReversals": [
      {
       "from": "DO",
@@ -1370,13 +1394,15 @@
     "answer": "TIDY",
     "definition": "Considerable",
     "indicators": [
-     "case for",
-     "about"
+     {
+      "text": "case for",
+      "note": "the outside letters of theory, its casing"
+     },
+     {
+      "text": "about",
+      "note": "the case goes around the insert"
+     }
     ],
-    "indicatorNotes": {
-     "case for": "the outside letters of theory, its casing",
-     "about": "the case goes around the insert"
-    },
     "pieces": [
      "T",
      "ID",
@@ -1424,13 +1450,15 @@
     "answer": "DEAD",
     "definition": "Old hat",
     "indicators": [
-     "finally",
-     "packed away by"
+     {
+      "text": "finally",
+      "note": "at the end, so only the word's final letter is used"
+     },
+     {
+      "text": "packed away by",
+      "note": "put inside the word that follows"
+     }
     ],
-    "indicatorNotes": {
-     "finally": "at the end, so only the word's final letter is used",
-     "packed away by": "put inside the word that follows"
-    },
     "pieces": [
      "D",
      "E",
@@ -1478,11 +1506,12 @@
     "answer": "ACTOR",
     "definition": "performer",
     "indicators": [
-     "ditching lead"
+     {
+      "text": "ditching lead",
+      "for": "deletion",
+      "note": "dropping the leading letter"
+     }
     ],
-    "indicatorNotes": {
-     "ditching lead": "dropping the leading letter"
-    },
     "pieces": [
      "ACTOR"
     ],
@@ -1527,11 +1556,12 @@
     "answer": "SPEAR SIDE",
     "definition": "Line of males",
     "indicators": [
-     "failing to reach conclusion"
+     {
+      "text": "failing to reach conclusion",
+      "for": "deletion",
+      "note": "the last letter is not reached, so it is dropped"
+     }
     ],
-    "indicatorNotes": {
-     "failing to reach conclusion": "the last letter is not reached, so it is dropped"
-    },
     "pieces": [
      "SPEARS",
      "IDE"
@@ -1582,13 +1612,15 @@
     "answer": "ON SONG",
     "definition": "Performing well",
     "indicators": [
-     "cracking",
-     "from the back"
+     {
+      "text": "cracking",
+      "note": "breaking into the reversed try"
+     },
+     {
+      "text": "from the back",
+      "note": "read starting from the back end, so the word runs in reverse"
+     }
     ],
-    "indicatorNotes": {
-     "cracking": "breaking into the reversed try",
-     "from the back": "read starting from the back end, so the word runs in reverse"
-    },
     "pieces": [
      "O",
      "N",

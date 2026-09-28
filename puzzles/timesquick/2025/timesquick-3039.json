@@ -108,11 +108,12 @@
     "answer": "IN PUP",
     "definition": "Expecting",
     "indicators": [
-     "Half missing"
+     {
+      "text": "Half missing",
+      "for": "deletion",
+      "note": "half of the word is missing, so only three of its six letters remain"
+     }
     ],
-    "indicatorNotes": {
-     "Half missing": "half of the word is missing, so only three of its six letters remain"
-    },
     "pieces": [
      "IN",
      "PUP"
@@ -158,11 +159,12 @@
     "answer": "GEOLOGIST",
     "definition": "Expert in soil",
     "indicators": [
-     "changed"
+     {
+      "text": "changed",
+      "for": "anagram",
+      "note": "the letters are changed into a new order"
+     }
     ],
-    "indicatorNotes": {
-     "changed": "the letters are changed into a new order"
-    },
     "anagram": {
      "fodder": "SOIL GO GET"
     },
@@ -176,10 +178,6 @@
       "clueFragment": "go get",
       "gives": "GOGET",
       "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "changed",
-      "note": "anagram indicator"
      }
     ],
     "surface": "Someone is told to fetch the soil expert and get changed.",
@@ -256,11 +254,12 @@
     "answer": "FEW",
     "definition": "not many",
     "indicators": [
-     "As you say"
+     {
+      "text": "As you say",
+      "for": "homophone",
+      "note": "the letters come from how the word is spoken"
+     }
     ],
-    "indicatorNotes": {
-     "As you say": "the letters come from how the word is spoken"
-    },
     "linkWords": [
      "here"
     ],
@@ -303,15 +302,20 @@
     "answer": "INSIPID",
     "definition": "tasteless",
     "indicators": [
-     "Initially",
-     "rising",
-     "about"
+     {
+      "text": "Initially",
+      "for": "letter_selection",
+      "note": "what comes initially in a word is its first letter, so only the I of irritated is used"
+     },
+     {
+      "text": "rising",
+      "note": "in a down clue, rising reads the word from bottom to top"
+     },
+     {
+      "text": "about",
+      "note": "the reversed word goes around the drink"
+     }
     ],
-    "indicatorNotes": {
-     "Initially": "what comes initially in a word is its first letter, so only the I of irritated is used",
-     "rising": "in a down clue, rising reads the word from bottom to top",
-     "about": "the reversed word goes around the drink"
-    },
     "pieces": [
      "I",
      "NSIPID"
@@ -368,11 +372,12 @@
     "answer": "HORTICULTURE",
     "definition": "garden business",
     "indicators": [
-     "New"
+     {
+      "text": "New",
+      "for": "anagram",
+      "note": "the letters form a new arrangement"
+     }
     ],
-    "indicatorNotes": {
-     "New": "the letters form a new arrangement"
-    },
     "anagram": {
      "fodder": "COURT RULE HIT"
     },
@@ -381,10 +386,6 @@
       "clueFragment": "court rule hit",
       "gives": "COURTRULEHIT",
       "note": "anagram fodder, 12 letters"
-     },
-     {
-      "clueFragment": "New",
-      "note": "anagram indicator"
      }
     ],
     "surface": "A new court ruling has hurt the garden centre trade.",
@@ -416,11 +417,12 @@
     "answer": "PRESUMPTUOUS",
     "definition": "Bold",
     "indicators": [
-     "regularly"
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "take letters at regular intervals: every other one"
+     }
     ],
-    "indicatorNotes": {
-     "regularly": "take letters at regular intervals: every other one"
-    },
     "pieces": [
      "PRE",
      "SUMPTUOUS"
@@ -472,13 +474,15 @@
     "answer": "RIP CORD",
     "definition": "Feature of parachute",
     "indicators": [
-     "starts to",
-     "unfortunately"
+     {
+      "text": "starts to",
+      "note": "take the starts, or first letters, of the words that follow"
+     },
+     {
+      "text": "unfortunately",
+      "note": "the letters end up in an unlucky, jumbled order"
+     }
     ],
-    "indicatorNotes": {
-     "starts to": "take the starts, or first letters, of the words that follow",
-     "unfortunately": "the letters end up in an unlucky, jumbled order"
-    },
     "anagram": {
      "fodder": "DROP CRI"
     },
@@ -493,10 +497,6 @@
       "gives": "CRI",
       "select": "first",
       "note": "first letters of cause, regular, injuries"
-     },
-     {
-      "clueFragment": "unfortunately",
-      "note": "anagram indicator"
      }
     ],
     "surface": "A warning that parachute drops regularly cause injuries.",
@@ -528,11 +528,12 @@
     "answer": "WISER",
     "definition": "extra shrewd",
     "indicators": [
-     "extremely"
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "take the extremes, the first and last letters"
+     }
     ],
-    "indicatorNotes": {
-     "extremely": "take the extremes, the first and last letters"
-    },
     "pieces": [
      "W",
      "IS",
@@ -584,11 +585,12 @@
     "answer": "SUPPORTED",
     "definition": "Was a fan of",
     "indicators": [
-     "fantastic"
+     {
+      "text": "fantastic",
+      "for": "anagram",
+      "note": "the letters are fantastically rearranged"
+     }
     ],
-    "indicatorNotes": {
-     "fantastic": "the letters are fantastically rearranged"
-    },
     "anagram": {
      "fodder": "REDS UP TOP"
     },
@@ -597,10 +599,6 @@
       "clueFragment": "Reds up top",
       "gives": "REDSUPTOP",
       "note": "anagram fodder, 9 letters"
-     },
-     {
-      "clueFragment": "fantastic",
-      "note": "anagram indicator"
      }
     ],
     "surface": "A football fan used to follow a brilliant Reds side at the top of the league.",
@@ -731,13 +729,17 @@
     "answer": "MUSLIM",
     "definition": "Believer",
     "indicators": [
-     "recalled",
-     "to begin with"
+     {
+      "text": "recalled",
+      "for": "reversal",
+      "note": "called back, so the word is read backwards"
+     },
+     {
+      "text": "to begin with",
+      "for": "letter_selection",
+      "note": "take the first letters of the words before it"
+     }
     ],
-    "indicatorNotes": {
-     "recalled": "called back, so the word is read backwards",
-     "to begin with": "take the first letters of the words before it"
-    },
     "linkWords": [
      "’s"
     ],
@@ -881,11 +883,12 @@
     "answer": "VESSEL",
     "definition": "vase maybe",
     "indicators": [
-     "carrying"
+     {
+      "text": "carrying",
+      "for": "hidden_word",
+      "note": "the phrase carries the answer inside it"
+     }
     ],
-    "indicatorNotes": {
-     "carrying": "the phrase carries the answer inside it"
-    },
     "blocks": [
      {
       "clueFragment": "Leaves Selby",
@@ -964,11 +967,12 @@
     "answer": "THERAPIST",
     "definition": "counsellor",
     "indicators": [
-     "accepts"
+     {
+      "text": "accepts",
+      "for": "container",
+      "note": "one word takes the other in"
+     }
     ],
-    "indicatorNotes": {
-     "accepts": "one word takes the other in"
-    },
     "linkWords": [
      "for"
     ],
@@ -1018,11 +1022,12 @@
     "answer": "ILIAD",
     "definition": "poem",
     "indicators": [
-     "penning"
+     {
+      "text": "penning",
+      "for": "container",
+      "note": "the fellow pens, or encloses, the one"
+     }
     ],
-    "indicatorNotes": {
-     "penning": "the fellow pens, or encloses, the one"
-    },
     "pieces": [
      "I",
      "LIAD"
@@ -1074,11 +1079,12 @@
     "answer": "OLIVE",
     "definition": "girl",
     "indicators": [
-     "held back"
+     {
+      "text": "held back",
+      "for": "reversal",
+      "note": "the word is held backwards"
+     }
     ],
-    "indicatorNotes": {
-     "held back": "the word is held backwards"
-    },
     "pieces": [
      "O",
      "LIVE"
@@ -1129,11 +1135,12 @@
     "answer": "EEL",
     "definition": "Untrustworthy person",
     "indicators": [
-     "after revolution"
+     {
+      "text": "after revolution",
+      "for": "reversal",
+      "note": "the word has turned round"
+     }
     ],
-    "indicatorNotes": {
-     "after revolution": "the word has turned round"
-    },
     "linkWords": [
      "in"
     ],
@@ -1182,11 +1189,12 @@
     "answer": "SHINIER",
     "definition": "shedding more light?",
     "indicators": [
-     "broadcast"
+     {
+      "text": "broadcast",
+      "for": "anagram",
+      "note": "the letters are scattered about"
+     }
     ],
-    "indicatorNotes": {
-     "broadcast": "the letters are scattered about"
-    },
     "anagram": {
      "fodder": "NE IRISH"
     },
@@ -1195,10 +1203,6 @@
       "clueFragment": "NE Irish",
       "gives": "NEIRISH",
       "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "broadcast",
-      "note": "anagram indicator"
      }
     ],
     "surface": "A radio programme from the north-east of Ireland explains more about a topic.",
@@ -1235,11 +1239,12 @@
     "answer": "STEEL-PLATED",
     "definition": "Providing strong protection",
     "indicators": [
-     "unravels"
+     {
+      "text": "unravels",
+      "for": "anagram",
+      "note": "the letters come apart and are rewoven"
+     }
     ],
-    "indicatorNotes": {
-     "unravels": "the letters come apart and are rewoven"
-    },
     "anagram": {
      "fodder": "LEST PET DEAL"
     },
@@ -1248,10 +1253,6 @@
       "clueFragment": "lest pet deal",
       "gives": "LESTPETDEAL",
       "note": "anagram fodder, 11 letters"
-     },
-     {
-      "clueFragment": "unravels",
-      "note": "anagram indicator"
      }
     ],
     "surface": "An owner wants sturdy protection in case a deal over a pet falls apart.",

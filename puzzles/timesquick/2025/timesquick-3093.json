@@ -140,15 +140,20 @@
     "answer": "CLOSED-CIRCUIT",
     "definition": "Type of TV",
     "indicators": [
-     "condemned",
-     "following",
-     "lead"
+     {
+      "text": "condemned",
+      "note": "the studio cleric is damned, so his letters are wrecked"
+     },
+     {
+      "text": "following",
+      "note": "the anagram comes after the C"
+     },
+     {
+      "text": "lead",
+      "for": "letter_selection",
+      "note": "the lead of a word is its first letter"
+     }
     ],
-    "indicatorNotes": {
-     "condemned": "the studio cleric is damned, so his letters are wrecked",
-     "following": "the anagram comes after the C",
-     "lead": "the lead of a word is its first letter"
-    },
     "pieces": [
      "C",
      "LOSEDCIRCUIT"
@@ -170,10 +175,6 @@
       "clueFragment": "studio cleric",
       "gives": "LOSEDCIRCUIT",
       "note": "anagram fodder, 12 letters"
-     },
-     {
-      "clueFragment": "condemned",
-      "note": "anagram indicator"
      }
     ],
     "surface": "A television studio's resident cleric has been condemned, trailing a Conservative politician.",
@@ -206,13 +207,17 @@
     "answer": "SUPERMAN",
     "definition": "Hero",
     "indicators": [
-     "receding",
-     "at heart"
+     {
+      "text": "receding",
+      "for": "reversal",
+      "note": "something receding goes backwards, so US turns round"
+     },
+     {
+      "text": "at heart",
+      "for": "letter_selection",
+      "note": "the heart of a word is its middle"
+     }
     ],
-    "indicatorNotes": {
-     "receding": "something receding goes backwards, so US turns round",
-     "at heart": "the heart of a word is its middle"
-    },
     "pieces": [
      "SU",
      "PERM",
@@ -272,11 +277,12 @@
     "answer": "SHARE",
     "definition": "Maybe halve",
     "indicators": [
-     "the last to go"
+     {
+      "text": "the last to go",
+      "for": "deletion",
+      "note": "the last letter of AREA is dropped"
+     }
     ],
-    "indicatorNotes": {
-     "the last to go": "the last letter of AREA is dropped"
-    },
     "pieces": [
      "SH",
      "ARE"
@@ -322,13 +328,15 @@
     "answer": "PLEASED",
     "definition": "Delighted",
     "indicators": [
-     "extremely",
-     "about"
+     {
+      "text": "extremely",
+      "note": "the extremes of a word are its first and last letters"
+     },
+     {
+      "text": "about",
+      "note": "the outer letters go around LEASE"
+     }
     ],
-    "indicatorNotes": {
-     "extremely": "the extremes of a word are its first and last letters",
-     "about": "the outer letters go around LEASE"
-    },
     "pieces": [
      "P",
      "LEASE",
@@ -381,11 +389,12 @@
     "answer": "ROUND-THE-CLOCK",
     "definition": "without interruption",
     "indicators": [
-     "Outrageous"
+     {
+      "text": "Outrageous",
+      "for": "anagram",
+      "note": "the letters behave wildly and are rearranged"
+     }
     ],
-    "indicatorNotes": {
-     "Outrageous": "the letters behave wildly and are rearranged"
-    },
     "anagram": {
      "fodder": "NECK HOLD COURT"
     },
@@ -394,10 +403,6 @@
       "clueFragment": "neck – hold court",
       "gives": "NECKHOLDCOURT",
       "note": "anagram fodder, 13 letters"
-     },
-     {
-      "clueFragment": "Outrageous",
-      "note": "anagram indicator"
      }
     ],
     "surface": "Someone with outrageous neck, meaning cheek, who holds court and talks on and on.",
@@ -429,13 +434,15 @@
     "answer": "AUGMENT",
     "definition": "boost",
     "indicators": [
-     "welcoming",
-     "exotic"
+     {
+      "text": "welcoming",
+      "note": "AUNT takes the other letters in"
+     },
+     {
+      "text": "exotic",
+      "note": "the letters of GEM turn strange, so they are rearranged"
+     }
     ],
-    "indicatorNotes": {
-     "welcoming": "AUNT takes the other letters in",
-     "exotic": "the letters of GEM turn strange, so they are rearranged"
-    },
     "pieces": [
      "AU",
      "GME",
@@ -488,11 +495,12 @@
     "answer": "ALLOCATE",
     "definition": "Distribute",
     "indicators": [
-     "to begin with"
+     {
+      "text": "to begin with",
+      "for": "letter_selection",
+      "note": "take what each word begins with, its first letter"
+     }
     ],
-    "indicatorNotes": {
-     "to begin with": "take what each word begins with, its first letter"
-    },
     "pieces": [
      "ALL",
      "OCATE"
@@ -538,11 +546,12 @@
     "answer": "URGE",
     "definition": "Press",
     "indicators": [
-     "used regularly"
+     {
+      "text": "used regularly",
+      "for": "letter_selection",
+      "note": "only letters at regular intervals are used"
+     }
     ],
-    "indicatorNotes": {
-     "used regularly": "only letters at regular intervals are used"
-    },
     "linkWords": [
      "for"
     ],
@@ -585,11 +594,12 @@
     "answer": "RECEDE",
     "definition": "withdraw",
     "indicators": [
-     "Reportedly"
+     {
+      "text": "Reportedly",
+      "for": "homophone",
+      "note": "what is reported is heard, so the sound counts"
+     }
     ],
-    "indicatorNotes": {
-     "Reportedly": "what is reported is heard, so the sound counts"
-    },
     "linkWords": [
      "and"
     ],
@@ -629,11 +639,12 @@
     "answer": "RIB",
     "definition": "make fun of",
     "indicators": [
-     "Section of"
+     {
+      "text": "Section of",
+      "for": "hidden_word",
+      "note": "the answer is a section cut from the words that follow"
+     }
     ],
-    "indicatorNotes": {
-     "Section of": "the answer is a section cut from the words that follow"
-    },
     "blocks": [
      {
       "clueFragment": "memoir I briefly",
@@ -669,11 +680,12 @@
     "answer": "SODDEN",
     "definition": "Waterlogged",
     "indicators": [
-     "beside"
+     {
+      "text": "beside",
+      "for": "charade",
+      "note": "DEN is placed next to SOD"
+     }
     ],
-    "indicatorNotes": {
-     "beside": "DEN is placed next to SOD"
-    },
     "pieces": [
      "SOD",
      "DEN"
@@ -764,11 +776,12 @@
     "answer": "LEATHER",
     "definition": "skin product?",
     "indicators": [
-     "about"
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so LATHER is placed around E"
+     }
     ],
-    "indicatorNotes": {
-     "about": "about means around, so LATHER is placed around E"
-    },
     "pieces": [
      "L",
      "E",
@@ -816,11 +829,12 @@
     "answer": "ARSENAL",
     "definition": "Football team",
     "indicators": [
-     "afresh"
+     {
+      "text": "afresh",
+      "for": "anagram",
+      "note": "the letters of LEARNS are laid out anew"
+     }
     ],
-    "indicatorNotes": {
-     "afresh": "the letters of LEARNS are laid out anew"
-    },
     "pieces": [
      "A",
      "RSENAL"
@@ -871,11 +885,12 @@
     "answer": "EYE",
     "definition": "Observer",
     "indicators": [
-     "picked up"
+     {
+      "text": "picked up",
+      "for": "homophone",
+      "note": "what is picked up is heard"
+     }
     ],
-    "indicatorNotes": {
-     "picked up": "what is picked up is heard"
-    },
     "blocks": [
      {
       "clueFragment": "I",
@@ -912,11 +927,12 @@
     "answer": "TAURUS",
     "definition": "Sign",
     "indicators": [
-     "abandoning"
+     {
+      "text": "abandoning",
+      "for": "deletion",
+      "note": "to abandon is to leave behind, so HES is left out of the word"
+     }
     ],
-    "indicatorNotes": {
-     "abandoning": "to abandon is to leave behind, so HES is left out of the word"
-    },
     "pieces": [
      "T",
      "AURUS"
@@ -962,11 +978,12 @@
     "answer": "ACCUSE",
     "definition": "Blame",
     "indicators": [
-     "beginning and end"
+     {
+      "text": "beginning and end",
+      "for": "letter_selection",
+      "note": "take the first and last letters of snide"
+     }
     ],
-    "indicatorNotes": {
-     "beginning and end": "take the first and last letters of snide"
-    },
     "pieces": [
      "AC",
      "CU",
@@ -1018,11 +1035,12 @@
     "answer": "ACTOR",
     "definition": "Player",
     "indicators": [
-     "seen in"
+     {
+      "text": "seen in",
+      "for": "hidden_word",
+      "note": "the answer can be seen inside the next word"
+     }
     ],
-    "indicatorNotes": {
-     "seen in": "the answer can be seen inside the next word"
-    },
     "blocks": [
      {
       "clueFragment": "factory",
@@ -1060,13 +1078,17 @@
     "answer": "SIEGE",
     "definition": "Military action",
     "indicators": [
-     "close to",
-     "set up"
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its final letter"
+     },
+     {
+      "text": "set up",
+      "for": "reversal",
+      "note": "in a down clue, set up means written upwards, so reversed"
+     }
     ],
-    "indicatorNotes": {
-     "close to": "the close of a word is its final letter",
-     "set up": "in a down clue, set up means written upwards, so reversed"
-    },
     "pieces": [
      "SI",
      "E",
@@ -1128,11 +1150,12 @@
     "answer": "THOU",
     "definition": "Second person, old",
     "indicators": [
-     "lodged in"
+     {
+      "text": "lodged in",
+      "for": "hidden_word",
+      "note": "the answer lodges inside the words that follow"
+     }
     ],
-    "indicatorNotes": {
-     "lodged in": "the answer lodges inside the words that follow"
-    },
     "blocks": [
      {
       "clueFragment": "guest house",
@@ -1169,13 +1192,16 @@
     "answer": "NITROGEN",
     "definition": "Element",
     "indicators": [
-     "wrong",
-     "to follow"
+     {
+      "text": "wrong",
+      "for": "anagram",
+      "note": "INTRO is wrongly arranged"
+     },
+     {
+      "text": "to follow",
+      "note": "to follow is to come after, so GEN is placed after the anagram"
+     }
     ],
-    "indicatorNotes": {
-     "wrong": "INTRO is wrongly arranged",
-     "to follow": "to follow is to come after, so GEN is placed after the anagram"
-    },
     "pieces": [
      "NITRO",
      "GEN"
@@ -1227,11 +1253,12 @@
     "answer": "PRATTLER",
     "definition": "one not worth listening to",
     "indicators": [
-     "At back"
+     {
+      "text": "At back",
+      "for": "letter_selection",
+      "note": "the back of a word is its last letter"
+     }
     ],
-    "indicatorNotes": {
-     "At back": "the back of a word is its last letter"
-    },
     "pieces": [
      "P",
      "RATTLER"
@@ -1277,11 +1304,12 @@
     "answer": "KNEW",
     "definition": "Was familiar with",
     "indicators": [
-     "by the sound of it"
+     {
+      "text": "by the sound of it",
+      "for": "homophone",
+      "note": "judged by its sound, not its spelling"
+     }
     ],
-    "indicatorNotes": {
-     "by the sound of it": "judged by its sound, not its spelling"
-    },
     "blocks": [
      {
       "clueFragment": "novel",

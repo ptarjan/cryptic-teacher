@@ -42,11 +42,12 @@
     "definition": "candle-maker",
     "definitionNote": "Chandlery is the candle-maker's trade or wares, not the maker himself; 'for' points the answer at him.",
     "indicators": [
-     "about"
+     {
+      "text": "about",
+      "for": "container",
+      "note": "the shout goes round, about, the name"
+     }
     ],
-    "indicatorNotes": {
-     "about": "the shout goes round, about, the name"
-    },
     "linkWords": [
      "for"
     ],
@@ -95,11 +96,12 @@
     "answer": "CLOTHING",
     "definition": "garments",
     "indicators": [
-     "containing"
+     {
+      "text": "containing",
+      "for": "container",
+      "note": "the clog holds the next word inside it"
+     }
     ],
-    "indicatorNotes": {
-     "containing": "the clog holds the next word inside it"
-    },
     "pieces": [
      "CLO",
      "THIN",
@@ -146,11 +148,12 @@
     "answer": "AGE",
     "definition": "Period",
     "indicators": [
-     "at last"
+     {
+      "text": "at last",
+      "for": "letter_selection",
+      "note": "take the last letter of each of the words before it"
+     }
     ],
-    "indicatorNotes": {
-     "at last": "take the last letter of each of the words before it"
-    },
     "blocks": [
      {
       "clueFragment": "drama getting remade",
@@ -236,11 +239,12 @@
     "answer": "EXPLODING STAR",
     "definition": "supernova?",
     "indicators": [
-     "transformed"
+     {
+      "text": "transformed",
+      "for": "anagram",
+      "note": "the letters are changed into a new form"
+     }
     ],
-    "indicatorNotes": {
-     "transformed": "the letters are changed into a new form"
-    },
     "anagram": {
      "fodder": "GRAND EXPLOITS"
     },
@@ -249,10 +253,6 @@
       "clueFragment": "Grand exploits",
       "gives": "GRANDEXPLOITS",
       "note": "anagram fodder, 13 letters"
-     },
-     {
-      "clueFragment": "transformed",
-      "note": "anagram indicator"
      }
     ],
     "surface": "Great feats turned into something as dramatic as a supernova.",
@@ -329,11 +329,12 @@
     "answer": "CAR",
     "definition": "Ford?",
     "indicators": [
-     "ignoring"
+     {
+      "text": "ignoring",
+      "for": "deletion",
+      "note": "leave out the letter named next"
+     }
     ],
-    "indicatorNotes": {
-     "ignoring": "leave out the letter named next"
-    },
     "blocks": [
      {
       "clueFragment": "Cleaner",
@@ -380,13 +381,17 @@
     "answer": "CIGARETTE",
     "definition": "Smoke",
     "indicators": [
-     "elevated",
-     "after dropping introductions"
+     {
+      "text": "elevated",
+      "for": "deletion",
+      "note": "in a down answer, raised up means written bottom to top"
+     },
+     {
+      "text": "after dropping introductions",
+      "for": "deletion",
+      "note": "each word first loses its opening letter"
+     }
     ],
-    "indicatorNotes": {
-     "elevated": "in a down answer, raised up means written bottom to top",
-     "after dropping introductions": "each word first loses its opening letter"
-    },
     "blocks": [
      {
       "clueFragment": "better",
@@ -441,11 +446,12 @@
     "answer": "ROSS",
     "definition": "Scottish region",
     "indicators": [
-     "seen in"
+     {
+      "text": "seen in",
+      "for": "hidden_word",
+      "note": "the answer can be seen inside the next word"
+     }
     ],
-    "indicatorNotes": {
-     "seen in": "the answer can be seen inside the next word"
-    },
     "blocks": [
      {
       "clueFragment": "crossword",
@@ -485,11 +491,12 @@
     "answer": "ONE STOP",
     "definition": "having everything in the same place",
     "indicators": [
-     "includes"
+     {
+      "text": "includes",
+      "for": "hidden_word",
+      "note": "the phrase holds the answer inside it"
+     }
     ],
-    "indicatorNotes": {
-     "includes": "the phrase holds the answer inside it"
-    },
     "blocks": [
      {
       "clueFragment": "Honest option",
@@ -524,11 +531,12 @@
     "answer": "URGES",
     "definition": "Strongly suggests",
     "indicators": [
-     "when cycling"
+     {
+      "text": "when cycling",
+      "for": "cycling",
+      "note": "move a letter from one end round to the other"
+     }
     ],
-    "indicatorNotes": {
-     "when cycling": "move a letter from one end round to the other"
-    },
     "blocks": [
      {
       "clueFragment": "Boost",
@@ -570,13 +578,15 @@
     "answer": "HARSH",
     "definition": "Bitter",
     "indicators": [
-     "includes",
-     "last of"
+     {
+      "text": "includes",
+      "note": "the dish takes the letter inside it"
+     },
+     {
+      "text": "last of",
+      "note": "take only the final letter of the next word"
+     }
     ],
-    "indicatorNotes": {
-     "includes": "the dish takes the letter inside it",
-     "last of": "take only the final letter of the next word"
-    },
     "pieces": [
      "HA",
      "R",
@@ -628,11 +638,12 @@
     "answer": "RING ROADS",
     "definition": "Routes around town",
     "indicators": [
-     "unfortunately"
+     {
+      "text": "unfortunately",
+      "for": "anagram",
+      "note": "things going wrong suggest the letters falling out of order"
+     }
     ],
-    "indicatorNotes": {
-     "unfortunately": "things going wrong suggest the letters falling out of order"
-    },
     "anagram": {
      "fodder": "R I DRAGS ON"
     },
@@ -651,10 +662,6 @@
       "clueFragment": "drags on",
       "gives": "DRAGSON",
       "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "unfortunately",
-      "note": "anagram indicator"
      }
     ],
     "surface": "A grumble that the right bypass round town seems to go on for ever.",
@@ -685,11 +692,12 @@
     "answer": "OEUVRE",
     "definition": "Works",
     "indicators": [
-     "at first"
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "take the first letter of each word in the run"
+     }
     ],
-    "indicatorNotes": {
-     "at first": "take the first letter of each word in the run"
-    },
     "blocks": [
      {
       "clueFragment": "of Einstein usually varied, relativity especially",
@@ -734,11 +742,12 @@
     "answer": "FLOTILLA",
     "definition": "ships",
     "indicators": [
-     "carried by"
+     {
+      "text": "carried by",
+      "for": "container",
+      "note": "the letters are held inside FA"
+     }
     ],
-    "indicatorNotes": {
-     "carried by": "the letters are held inside FA"
-    },
     "pieces": [
      "F",
      "LOT",
@@ -790,11 +799,12 @@
     "answer": "NONACCIDENTAL",
     "definition": "as planned",
     "indicators": [
-     "change"
+     {
+      "text": "change",
+      "for": "anagram",
+      "note": "the letters are rearranged"
+     }
     ],
-    "indicatorNotes": {
-     "change": "the letters are rearranged"
-    },
     "anagram": {
      "fodder": "ICELAND CANNOT"
     },
@@ -803,10 +813,6 @@
       "clueFragment": "Iceland cannot",
       "gives": "ICELANDCANNOT",
       "note": "anagram fodder, 13 letters"
-     },
-     {
-      "clueFragment": "change",
-      "note": "anagram indicator"
      }
     ],
     "surface": "Iceland is unable to alter its plans.",
@@ -838,13 +844,17 @@
     "answer": "CEILIDH",
     "definition": "Dance in Ireland?",
     "indicators": [
-     "in",
-     "alternatively"
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the first piece goes inside the second"
+     },
+     {
+      "text": "alternatively",
+      "for": "anagram",
+      "note": "the letters are arranged another way"
+     }
     ],
-    "indicatorNotes": {
-     "in": "the first piece goes inside the second",
-     "alternatively": "the letters are arranged another way"
-    },
     "subAnagrams": [
      {
       "fodder": "CHILE",
@@ -982,11 +992,12 @@
     "answer": "CREDO",
     "definition": "principles",
     "indicators": [
-     "adopting"
+     {
+      "text": "adopting",
+      "for": "container",
+      "note": "the company takes the next word into itself"
+     }
     ],
-    "indicatorNotes": {
-     "adopting": "the company takes the next word into itself"
-    },
     "pieces": [
      "C",
      "RED",
@@ -1031,11 +1042,12 @@
     "answer": "JOEY",
     "definition": "Australian baby",
     "indicators": [
-     "to hold"
+     {
+      "text": "to hold",
+      "for": "container",
+      "note": "the word wraps around the next letter"
+     }
     ],
-    "indicatorNotes": {
-     "to hold": "the word wraps around the next letter"
-    },
     "pieces": [
      "JO",
      "E",
@@ -1083,13 +1095,15 @@
     "answer": "OMANI",
     "definition": "Arabic",
     "indicators": [
-     "breaking",
-     "in the centre"
+     {
+      "text": "breaking",
+      "note": "the person splits the other letters apart"
+     },
+     {
+      "text": "in the centre",
+      "note": "take the middle letters of the word before"
+     }
     ],
-    "indicatorNotes": {
-     "breaking": "the person splits the other letters apart",
-     "in the centre": "take the middle letters of the word before"
-    },
     "pieces": [
      "O",
      "MAN",
@@ -1136,11 +1150,12 @@
     "answer": "TOENAIL",
     "definition": "Protection for piggy",
     "indicators": [
-     "thrown"
+     {
+      "text": "thrown",
+      "for": "anagram",
+      "note": "the letters are tossed into a new order"
+     }
     ],
-    "indicatorNotes": {
-     "thrown": "the letters are tossed into a new order"
-    },
     "anagram": {
      "fodder": "INTO ALE"
     },
@@ -1149,10 +1164,6 @@
       "clueFragment": "into ale",
       "gives": "INTOALE",
       "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "thrown",
-      "note": "anagram indicator"
      }
     ],
     "surface": "Something to protect a pig, tossed into a vat of beer.",
@@ -1185,13 +1196,15 @@
     "answer": "ALI",
     "definition": "Boxer",
     "indicators": [
-     "involved in",
-     "after retiring"
+     {
+      "text": "involved in",
+      "note": "the answer sits inside the next word"
+     },
+     {
+      "text": "after retiring",
+      "note": "retiring means going back, so read the letters backwards"
+     }
     ],
-    "indicatorNotes": {
-     "involved in": "the answer sits inside the next word",
-     "after retiring": "retiring means going back, so read the letters backwards"
-    },
     "blocks": [
      {
       "clueFragment": "philanthropy",
@@ -1227,11 +1240,12 @@
     "answer": "YES",
     "definition": "That’s right",
     "indicators": [
-     "missing start"
+     {
+      "text": "missing start",
+      "for": "deletion",
+      "note": "the word lacks its start, so its first letter is left off"
+     }
     ],
-    "indicatorNotes": {
-     "missing start": "the word lacks its start, so its first letter is left off"
-    },
     "pieces": [
      "YES"
     ],
@@ -1271,11 +1285,12 @@
     "answer": "HARMONICA",
     "definition": "instrument",
     "indicators": [
-     "Confused"
+     {
+      "text": "Confused",
+      "for": "anagram",
+      "note": "a confused mind gets things out of order, so the letters come out jumbled"
+     }
     ],
-    "indicatorNotes": {
-     "Confused": "a confused mind gets things out of order, so the letters come out jumbled"
-    },
     "anagram": {
      "fodder": "MONARCH AI"
     },
@@ -1289,10 +1304,6 @@
       "clueFragment": "AI",
       "gives": "AI",
       "note": "anagram fodder, joined 'with' MONARCH"
-     },
-     {
-      "clueFragment": "Confused",
-      "note": "anagram indicator"
      }
     ],
     "surface": "A bewildered king faced with an artificial-intelligence gadget.",

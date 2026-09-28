@@ -46,11 +46,12 @@
     "answer": "SATCHEL",
     "definition": "Bag",
     "indicators": [
-     "some"
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "only some of the letters of the following words are taken"
+     }
     ],
-    "indicatorNotes": {
-     "some": "only some of the letters of the following words are taken"
-    },
     "blocks": [
      {
       "clueFragment": "bargains at Chelsea",
@@ -92,15 +93,20 @@
      "’s"
     ],
     "indicators": [
-     "extremely",
-     "about",
-     "End of"
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "take only the extreme letters of 'savage'"
+     },
+     {
+      "text": "about",
+      "note": "the first pieces go around the next one"
+     },
+     {
+      "text": "End of",
+      "note": "take just the last letter"
+     }
     ],
-    "indicatorNotes": {
-     "extremely": "take only the extreme letters of 'savage'",
-     "about": "the first pieces go around the next one",
-     "End of": "take just the last letter"
-    },
     "pieces": [
      "SCOR",
      "S",
@@ -162,11 +168,12 @@
      "in"
     ],
     "indicators": [
-     "Dicky"
+     {
+      "text": "Dicky",
+      "for": "anagram",
+      "note": "dicky means unsound or faulty, so the letters are in bad order"
+     }
     ],
-    "indicatorNotes": {
-     "Dicky": "dicky means unsound or faulty, so the letters are in bad order"
-    },
     "anagram": {
      "fodder": "MENTORING FATHER"
     },
@@ -175,10 +182,6 @@
       "clueFragment": "mentoring father",
       "gives": "MENTORINGFATHER",
       "note": "anagram fodder, 15 letters"
-     },
-     {
-      "clueFragment": "Dicky",
-      "note": "anagram indicator"
      }
     ],
     "surface": "A father who coaches someone while unwell, perhaps recovering from illness.",
@@ -214,11 +217,12 @@
     "answer": "HOUSE PARTY",
     "definition": "Do",
     "indicators": [
-     "drunk"
+     {
+      "text": "drunk",
+      "for": "anagram",
+      "note": "a drunk staggers about, so the letters are jumbled"
+     }
     ],
-    "indicatorNotes": {
-     "drunk": "a drunk staggers about, so the letters are jumbled"
-    },
     "anagram": {
      "fodder": "HER AUTOPSY"
     },
@@ -227,10 +231,6 @@
       "clueFragment": "her autopsy",
       "gives": "HERAUTOPSY",
       "note": "anagram fodder, 10 letters"
-     },
-     {
-      "clueFragment": "drunk",
-      "note": "anagram indicator"
      }
     ],
     "surface": "An instruction to a tipsy pathologist to carry out a post-mortem.",
@@ -263,11 +263,12 @@
     "answer": "LADDISH",
     "definition": "Boisterous",
     "indicators": [
-     "without first"
+     {
+      "text": "without first",
+      "for": "deletion",
+      "note": "remove the first of the H's, the one at the front"
+     }
     ],
-    "indicatorNotes": {
-     "without first": "remove the first of the H's, the one at the front"
-    },
     "pieces": [
      "L",
      "ADDISH"
@@ -314,11 +315,12 @@
     "definition": "stars",
     "definitionNote": "plural definition for a single constellation, which is a group of stars",
     "indicators": [
-     "Start to"
+     {
+      "text": "Start to",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter, so only P is taken from 'pray'"
+     }
     ],
-    "indicatorNotes": {
-     "Start to": "the start of a word is its opening letter, so only P is taken from 'pray'"
-    },
     "pieces": [
      "P",
      "EG",
@@ -377,11 +379,12 @@
     "answer": "PORTENT",
     "definition": "Sign",
     "indicators": [
-     "with time-sharing"
+     {
+      "text": "with time-sharing",
+      "for": "deletion",
+      "note": "the two words share one T (time), so it is written only once"
+     }
     ],
-    "indicatorNotes": {
-     "with time-sharing": "the two words share one T (time), so it is written only once"
-    },
     "pieces": [
      "PORT",
      "ENT"
@@ -430,11 +433,12 @@
      "to"
     ],
     "indicators": [
-     "about"
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about as in 'about turn': the word faces the other way, so its letters run backwards"
+     }
     ],
-    "indicatorNotes": {
-     "about": "about as in 'about turn': the word faces the other way, so its letters run backwards"
-    },
     "subReversals": [
      {
       "from": "BRAG",
@@ -486,11 +490,12 @@
     "answer": "SPUR-OF-THE-MOMENT",
     "definition": "Spontaneous",
     "indicators": [
-     "is received"
+     {
+      "text": "is received",
+      "for": "container",
+      "note": "the outpouring takes in the other words"
+     }
     ],
-    "indicatorNotes": {
-     "is received": "the outpouring takes in the other words"
-    },
     "pieces": [
      "SPUR",
      "OFTHEM",
@@ -588,11 +593,12 @@
     "answer": "ONE",
     "definition": "An",
     "indicators": [
-     "not using frame"
+     {
+      "text": "not using frame",
+      "for": "deletion",
+      "note": "drop the outside letters, the frame round the word"
+     }
     ],
-    "indicatorNotes": {
-     "not using frame": "drop the outside letters, the frame round the word"
-    },
     "pieces": [
      "ONE"
     ],
@@ -674,13 +680,15 @@
     "answer": "SHORELINES",
     "definition": "coasts",
     "indicators": [
-     "Taking",
-     "unusual"
+     {
+      "text": "Taking",
+      "note": "the second word takes the first inside it"
+     },
+     {
+      "text": "unusual",
+      "note": "an unusual arrangement is not the normal one, so the letters of 'role' are put out of their usual order"
+     }
     ],
-    "indicatorNotes": {
-     "Taking": "the second word takes the first inside it",
-     "unusual": "an unusual arrangement is not the normal one, so the letters of 'role' are put out of their usual order"
-    },
     "subAnagrams": [
      {
       "fodder": "ROLE",
@@ -784,13 +792,17 @@
     "answer": "PLANE CHART",
     "definition": "Sailor’s map",
     "indicators": [
-     "perhaps",
-     "containing"
+     {
+      "text": "perhaps",
+      "for": "container",
+      "note": "earth is one example of a planet"
+     },
+     {
+      "text": "containing",
+      "for": "container",
+      "note": "the first word holds the second"
+     }
     ],
-    "indicatorNotes": {
-     "perhaps": "earth is one example of a planet",
-     "containing": "the first word holds the second"
-    },
     "pieces": [
      "PLANE",
      "CHAR",
@@ -839,11 +851,12 @@
     "answer": "SENNA",
     "definition": "winner at racetrack",
     "indicators": [
-     "backed"
+     {
+      "text": "backed",
+      "for": "reversal",
+      "note": "backed as in 'backed up': moved in reverse, so the letters run backwards"
+     }
     ],
-    "indicatorNotes": {
-     "backed": "backed as in 'backed up': moved in reverse, so the letters run backwards"
-    },
     "subReversals": [
      {
       "from": "ANNES",
@@ -934,13 +947,15 @@
     "answer": "TELEPORT",
     "definition": "move instantaneously",
     "indicators": [
-     "up",
-     "grasping"
+     {
+      "text": "up",
+      "note": "in a down clue, read from bottom to top"
+     },
+     {
+      "text": "grasping",
+      "note": "the words hold the answer within them"
+     }
     ],
-    "indicatorNotes": {
-     "up": "in a down clue, read from bottom to top",
-     "grasping": "the words hold the answer within them"
-    },
     "subReversals": [
      {
       "from": "TROPELET",
@@ -1033,11 +1048,12 @@
     "definition": "I’m dizzy",
     "definitionNote": "the answer speaks: 'I'm dizzy' stands for a dizzy person, a noun",
     "indicators": [
-     "removing top"
+     {
+      "text": "removing top",
+      "for": "deletion",
+      "note": "in a down clue the top of a word is its first letter, so that letter comes off"
+     }
     ],
-    "indicatorNotes": {
-     "removing top": "in a down clue the top of a word is its first letter, so that letter comes off"
-    },
     "pieces": [
      "AIR",
      "HEAD"
@@ -1087,13 +1103,15 @@
     "answer": "ENTICER",
     "definition": "temptress?",
     "indicators": [
-     "entertaining",
-     "lies about"
+     {
+      "text": "entertaining",
+      "note": "the first word takes in the letter"
+     },
+     {
+      "text": "lies about",
+      "note": "the whole lies turned about, reversed"
+     }
     ],
-    "indicatorNotes": {
-     "entertaining": "the first word takes in the letter",
-     "lies about": "the whole lies turned about, reversed"
-    },
     "subReversals": [
      {
       "from": "RECITNE",
@@ -1147,13 +1165,17 @@
     "answer": "NIECE",
     "definition": "Relative",
     "indicators": [
-     "back",
-     "periodically"
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "read at home's word backwards"
+     },
+     {
+      "text": "periodically",
+      "for": "letter_selection",
+      "note": "something done periodically happens at regular intervals, so only every second letter is used"
+     }
     ],
-    "indicatorNotes": {
-     "back": "read at home's word backwards",
-     "periodically": "something done periodically happens at regular intervals, so only every second letter is used"
-    },
     "subReversals": [
      {
       "from": "IN",
@@ -1219,11 +1241,12 @@
      }
     ],
     "indicators": [
-     "clue for"
+     {
+      "text": "clue for",
+      "for": "reversal",
+      "note": "the answer is itself a clue whose solution is the next word"
+     }
     ],
-    "indicatorNotes": {
-     "clue for": "the answer is itself a clue whose solution is the next word"
-    },
     "surface": "Pointing out a hint about the Muslim festival.",
     "walkthrough": "A reverse clue: the answer, read as a clue, leads to Eid. To flag is to weaken, or die, and 'up' reverses DIE.",
     "definitionFit": "To flag something up is to draw attention to it.",
@@ -1252,11 +1275,12 @@
     "answer": "LEAD",
     "definition": "Escort",
     "indicators": [
-     "to take clothes off"
+     {
+      "text": "to take clothes off",
+      "for": "deletion",
+      "note": "strip the outer letters, the clothing round the word"
+     }
     ],
-    "indicatorNotes": {
-     "to take clothes off": "strip the outer letters, the clothing round the word"
-    },
     "blocks": [
      {
       "clueFragment": "begs",
@@ -1304,11 +1328,12 @@
      "in"
     ],
     "indicators": [
-     "relocated"
+     {
+      "text": "relocated",
+      "for": "anagram",
+      "note": "the letters are moved to new places"
+     }
     ],
-    "indicatorNotes": {
-     "relocated": "the letters are moved to new places"
-    },
     "anagram": {
      "fodder": "NOTICE CZAR"
     },
@@ -1317,10 +1342,6 @@
       "clueFragment": "Notice czar",
       "gives": "NOTICECZAR",
       "note": "anagram fodder, 10 letters"
-     },
-     {
-      "clueFragment": "relocated",
-      "note": "anagram indicator"
      }
     ],
     "surface": "An announcement that a Russian tsar has been exiled to Siberia.",
@@ -1398,11 +1419,12 @@
     "answer": "GUTTA-PERCHA",
     "definition": "waterproof material",
     "indicators": [
-     "on"
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across clue, A on B puts A after B"
+     }
     ],
-    "indicatorNotes": {
-     "on": "in an across clue, A on B puts A after B"
-    },
     "pieces": [
      "GUT",
      "TAPER",
@@ -1454,11 +1476,12 @@
     "answer": "EGO",
     "definition": "I",
     "indicators": [
-     "to follow"
+     {
+      "text": "to follow",
+      "for": "charade",
+      "note": "the second part comes after the first"
+     }
     ],
-    "indicatorNotes": {
-     "to follow": "the second part comes after the first"
-    },
     "pieces": [
      "E",
      "GO"
@@ -1554,15 +1577,20 @@
     "answer": "RAT-A-TAT",
     "definition": "Knock",
     "indicators": [
-     "introduction of",
-     "evacuated",
-     "repeatedly"
+     {
+      "text": "introduction of",
+      "for": "letter_selection",
+      "note": "an introduction comes at the beginning, so only the opening letter of 'robots' is used"
+     },
+     {
+      "text": "evacuated",
+      "note": "emptied of its inside, leaving the outer letters"
+     },
+     {
+      "text": "repeatedly",
+      "note": "use the piece several times"
+     }
     ],
-    "indicatorNotes": {
-     "introduction of": "an introduction comes at the beginning, so only the opening letter of 'robots' is used",
-     "evacuated": "emptied of its inside, leaving the outer letters",
-     "repeatedly": "use the piece several times"
-    },
     "pieces": [
      "R",
      "AT",
