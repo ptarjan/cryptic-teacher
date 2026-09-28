@@ -1857,6 +1857,9 @@ def convert(data):
                    or series_meta.default_setter(series)),
         "date": correct_source_date(pid, data.get("date")),
         "dimensions": data["dimensions"],
+        # The paper's own note above the clues: a themed puzzle's special
+        # instructions, or an erratum. Absent when the page has none.
+        **({"preamble": pre} if (pre := " ".join(plain_text(data.get("instructions") or "").split())) else {}),
         "sourceUrl": "https://www.theguardian.com/" + data["id"],
         "entries": entries,
     }

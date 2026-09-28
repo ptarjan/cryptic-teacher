@@ -3480,7 +3480,15 @@
     // Where the definition lives. For a double definition the news is not "there
     // are two" — the family rung says that, and says it later — it is WHERE the
     // clue splits, and which sense each half is read in.
-    if (!ann.definition) {
+    if (ann.definedByPreamble) {
+      // Nothing in the clue to point at, so the rung tells rather than asks.
+      steps.push({
+        key: "definition",
+        label: LABELS.definition,
+        html: `<p>No words in this clue define the answer: the puzzle's preamble
+          does: <q>${esc((P && P.preamble) || "")}</q></p>`
+      });
+    } else if (!ann.definition) {
       // A blog fact with a type and no clean underline: no definition rung.
     } else if (isDD && ann.definition2) {
       const senses = senseBlocks(ann).map((b) =>
@@ -3688,7 +3696,9 @@
     // it is exactly what a solver is missing when they have the right letters
     // and no confidence in them. It goes LAST, immediately before the answer,
     // because it is the step that turns a spelling into a solve.
-    const fit = ann.definitionFit
+    const fit = ann.definitionFit && ann.definedByPreamble
+      ? `<p class="def-fit"><b class="wt-part">Why that's the answer</b>the preamble → <span class="gives">${esc(ann.answer)}</span>: ${esc(ann.definitionFit)}</p>`
+      : ann.definitionFit
       ? `<p class="def-fit"><b class="wt-part">Why that's the answer</b><mark class="def">${esc(ann.definition)}</mark>${
           ann.definition2 ? ` and <mark class="def2">${esc(ann.definition2)}</mark>` : ""
         } → <span class="gives">${esc(ann.answer)}</span>: ${esc(ann.definitionFit)}</p>`
@@ -4941,7 +4951,7 @@
       // reason clueHTML is: it was keyed off the definition rung, so taking the
       // indicators alone left the marks unexplained as well as absent.
       const legend = [];
-      if (isShown(e, "definition")) legend.push('<mark class="def">definition</mark>');
+      if (isShown(e, "definition") && ann.definition) legend.push('<mark class="def">definition</mark>');
       if (isShown(e, "indicators") && (ann.indicators || []).length) {
         legend.push('<mark class="ind">indicator</mark>');
       }
@@ -6109,6 +6119,10 @@
       // someone being told they are wrong deserves to know who is telling them
       // — which the picker's own badge already says, in the same words.
       (meta.solutionsUnofficial ? " " + sourceBadge(meta) : "");
+    // A themed puzzle's special instructions, printed above the clues as the
+    // paper prints them: some answers are defined by nothing else.
+    $("puzzle-preamble").textContent = P.preamble || "";
+    $("puzzle-preamble").classList.toggle("hidden", !P.preamble);
     renderGrid();
     renderClues();
     const checkable = canCheck();

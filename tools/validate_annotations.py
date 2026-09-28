@@ -2224,8 +2224,26 @@ def validate_puzzle(puzzle, corpus=False):
 
         clue = e["clue"]
         for key in ("type", "definition", "walkthrough", "answer", "blocks"):
+            if key == "definition" and ann.get("definedByPreamble") is True:
+                continue
             if not ann.get(key):
                 errors.append(f"{tag}: missing annotation field '{key}'")
+        # A themed answer the puzzle's preamble defines ("the unclued answers
+        # are birds") has no definition in its clue. Only a puzzle that prints
+        # a preamble can say so, and the flag replaces the definition rather
+        # than sitting beside one.
+        if "definedByPreamble" in ann:
+            if ann["definedByPreamble"] is not True:
+                errors.append(f"{tag}: definedByPreamble is true or absent, "
+                              f"never {ann['definedByPreamble']!r}")
+            elif not puzzle.get("preamble"):
+                errors.append(f"{tag}: definedByPreamble, but the puzzle has no "
+                              f"preamble to define it. Give the definition from "
+                              f"the clue")
+            elif ann.get("definition"):
+                errors.append(f"{tag}: definedByPreamble and a definition "
+                              f"{ann['definition']!r} — the clue defines it or the "
+                              f"preamble does, not both")
 
         check_type(tag, ann, errors)
 

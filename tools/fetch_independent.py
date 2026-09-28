@@ -61,7 +61,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from fetch_puzzle import (UA, http_bytes, flatten_clue, separators,  # noqa: E402
-                          merge_annotations, puzzle_files, puzzle_path,
+                          merge_annotations, plain_text, puzzle_files, puzzle_path,
                           read_puzzle_file, reindex, write_puzzle_file)
 import series as series_meta  # noqa: E402
 
@@ -451,6 +451,10 @@ def parse(xml_bytes, ymd):
         "setter": setter,
         "date": int(when.timestamp() * 1000),
         "dimensions": {"cols": cols, "rows": rows},
+        # The setter's special instructions, when a themed puzzle has them
+        # ("Four clues have no definition"). Empty on an ordinary day.
+        **({"preamble": pre} if (pre := " ".join(plain_text(
+            puz.findtext(f"{NS}metadata/{NS}description") or "").split())) else {}),
         "sourceUrl": PLAY_URL,
         "entries": entries,
     }
