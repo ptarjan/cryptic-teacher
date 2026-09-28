@@ -138,3 +138,33 @@ if [ "${CT_IN_WORKTREE:-0}" != 1 ] && [ "${CT_NO_WORKTREE:-0}" != 1 ]; then
     alert "$_ct_job could not get its own worktree and will not run in the main checkout. Nothing ran and nothing was spent. Fix the worktree under ${CT_WORKTREE_ROOT:-$HOME/.cryptic-teacher}."
   exit 1
 fi
+
+# Retry one fetch+rebase+push attempt through the ref-lock race two worktrees
+# of the SAME repo can hit on refs/remotes/origin/master: this job and its
+# sibling (daily_update.sh's nightly run and prereset_backfill.sh's burn, or
+# two runs of the same job) each keep their own worktree but share one
+# .git, and so one refs/remotes/origin/master. A fetch or push that lands
+# while the other is mid-fetch/push fails with "cannot lock ref
+# 'refs/remotes/origin/master': is at X but expected Y" — the ref moved
+# under us, not a real disagreement, so redoing the whole attempt against
+# wherever it landed clears it. On 2026-09-27 this is exactly what happened
+# to the nightly run: its one attempt hit the lock, gave up, and alerted,
+# and a finished night's commit had to be pushed by hand.
+#
+# $1 names a function that performs one whole attempt (fetch, rebase, any
+# conflict handling, push) and returns its exit status; everything it writes
+# to stdout/stderr is preserved either way. A failure that is NOT this lock
+# message returns immediately — retrying a real conflict would only spin.
+push_race_retry() {
+  local fn="$1" attempt out rc
+  for attempt in 1 2 3 4 5; do
+    out=$("$fn" 2>&1)
+    rc=$?
+    [ -n "$out" ] && printf '%s\n' "$out" >&2
+    [ "$rc" -eq 0 ] && return 0
+    printf '%s' "$out" | grep -q "cannot lock ref" || return "$rc"
+    echo "push race: refs/remotes/origin/master moved under us (attempt $attempt) — retrying" >&2
+    sleep "$attempt"
+  done
+  return "$rc"
+}
