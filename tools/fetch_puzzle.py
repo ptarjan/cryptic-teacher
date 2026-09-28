@@ -501,7 +501,8 @@ def with_blog_facts(puzzle):
     The facts live in a sidecar, not in the puzzle file, because a re-fetch
     rewrites the file and the facts come from somewhere else entirely. A fact
     is dropped here if the clue it was read against has since changed: every
-    definition, indicator and block source must still be words of the clue."""
+    definition must still sit at its `at`, and every indicator and block's
+    clue words must still be in the clue."""
     row = blog_facts_for(puzzle)
     if not row:
         return puzzle
@@ -509,8 +510,9 @@ def with_blog_facts(puzzle):
     for e in puzzle["entries"]:
         fact = row["entries"].get(e["id"])
         if fact and not e.get("annotation") and all(
-                w in e["clue"] for w in fact.get("definition", []) + [i["text"] for i in fact.get("indicators", [])]
-                + [b[1] for b in fact.get("blocks", [])]):
+                definitions.span_ok(d, e["clue"]) for d in fact.get("definitions", [])) and all(
+                w in e["clue"] for w in [i["text"] for i in fact.get("indicators", [])]
+                + [b["clueFragment"] for b in fact.get("blocks", [])]):
             e = {**e, "blog": fact}
         out["entries"].append(e)
     return out
@@ -533,24 +535,21 @@ def blog_annotation(e):
     b = e.get("blog")
     if not b:
         return None
-    defs = b.get("definition") or []
+    defs = b.get("definitions") or []
     ann = {"fromBlog": True, "answer": e.get("solution") or "", "type": b.get("type") or [],
            "indicators": list(b.get("indicators") or []),
-           "blocks": [blog_block(e.get("solution"), gives, src, how) for gives, src, *how in b.get("blocks") or []]}
+           "blocks": [blog_block(e.get("solution"), block) for block in b.get("blocks") or []]}
     defs = defs if len(defs) == 2 and "double_definition" in ann["type"] else defs[:1]
-    clue = e.get("clue") or ""
     if defs:
-        ann["definitions"] = [{"text": d, "at": clue.find(d)} for d in defs]
+        ann["definitions"] = [dict(d) for d in defs]
     return ann
 
 
-def blog_block(answer, gives, src, how):
-    """A blog block [gives, src, *how] as app.js's blogAnn() makes it: marked
-    inferred, with what it is heard as, or a hidden word's carrier note."""
-    heard = next((h["soundsLike"] for h in how if isinstance(h, dict) and h.get("soundsLike")), None)
-    note = "" if heard else carrier_note(answer, gives, src)
-    return {"clueFragment": src, "gives": gives, **({"inferred": True} if "inferred" in how else {}),
-            **({"soundsLike": heard} if heard else {}), **({"note": note} if note else {})}
+def blog_block(answer, block):
+    """A blog block as app.js's blogAnn() makes it: as the file holds it, and
+    for a hidden word's carrier, the carrier note ours write."""
+    note = "" if block.get("soundsLike") else carrier_note(answer, block["gives"], block["clueFragment"])
+    return {**block, "note": note} if note else dict(block)
 
 
 def carrier_note(answer, gives, frag):

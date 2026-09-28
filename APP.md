@@ -178,6 +178,14 @@ Terms used below:
   multi-span underline that is not a double definition is dropped.
 - **Where it lives.** `tools/data/blog_facts/<series>.json`, a sidecar, because a
   re-fetch rewrites the puzzle file and these facts come from somewhere else.
+  Each clue's facts use the annotation's own keys and shapes: `definitions`
+  [{text, at}] placed by `tools/definitions.py` (a text it cannot place is left
+  out), `type`, `indicators`, and `blocks` as block objects {clueFragment,
+  gives} with `anagramOf` on fodder, `soundsLike` on a heard piece and
+  `inferred` on a piece `tools/letter_facts.py` split off; `inferred` on the
+  clue names the fields read off the letters. The shape is
+  `$defs/blogFacts` in `tools/data/puzzle.schema.json`, checked in CI by
+  `tools/puzzle_schema.py`.
   `fetch_puzzle.write_shim` merges them into the puzzle's shim for entries with
   no annotation, and drops any fact whose words are no longer in the clue. The
   index carries only the blog's name, as `blog`, on a puzzle not all ours that

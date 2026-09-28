@@ -10,7 +10,8 @@ blogger's markup states about the clue itself:
     OUR copy of the clue;
   * the building blocks, where the write-up gives its wordplay as capitals
     and the clue words they come from: TAKE (arrange), NIC[k] (cut), PAPA =
-    pop, scheme (PLOT). Kept as [letters, clue words], and only where the
+    pop, scheme (PLOT). Kept as [letters, clue words] while parsing, written
+    as the annotation's block object (see fact_json), and only where the
     words are an exact run of whole words of our clue (see blocks);
   * the clue type, where the write-up names it in a form that means one thing
     (see TYPES) and, for an anagram, holds fodder with the answer's letters;
@@ -56,6 +57,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 from clue_types import NAMES
+from definitions import place
 from fetch_puzzle import puzzle_files, read_puzzle_file
 
 DATA = Path.home() / "cryptic-setter-data"
@@ -1950,13 +1952,83 @@ def publishable(fact):
     return out
 
 
+#: A block's marks while parsing, [letters, clue words, *marks], and the key
+#: each is written as: fodder an anagram shuffles, and a piece letter_facts.py
+#: split the answer into rather than one the blogger named.
+ANAGRAMMED, INFERRED = "anagrammed", "inferred"
+#: A clue's fields as they are held while parsing -> as the files name them.
+FILE_FIELDS = {"definition": "definitions", "type": "type", "typeCore": "typeCore",
+               "indicators": "indicators", "blocks": "blocks", "inferred": "inferred"}
+
+
+def block_json(b):
+    """A block [letters, clue words, *marks] as the files hold it: the
+    annotation's block object, {clueFragment, gives}, with anagramOf for
+    anagram fodder, soundsLike for the word a homophone's clue words are
+    heard as, and inferred for a piece letter_facts.py read off the letters."""
+    gives, frag, *how = b
+    heard = next((h["soundsLike"] for h in how if isinstance(h, dict)), None)
+    return {"clueFragment": frag, "gives": gives, **({"anagramOf": True} if ANAGRAMMED in how else {}),
+            **({"soundsLike": heard} if heard else {}), **({"inferred": True} if INFERRED in how else {})}
+
+
+def block_list(b):
+    """block_json's inverse: a file's block object as [letters, clue words, *marks]."""
+    return [b["gives"], b["clueFragment"], *([INFERRED] if b.get("inferred") else []),
+            *([ANAGRAMMED] if b.get("anagramOf") else []),
+            *([{"soundsLike": b["soundsLike"]}] if b.get("soundsLike") else [])]
+
+
+def fact_json(fact, clue):
+    """One clue's facts as tools/data/blog_facts/ holds them, in the
+    annotation's shape: `definitions` [{text, at}] placed in `clue` by
+    tools/definitions.py, `blocks` block objects, and `inferred` naming those
+    fields. A definition place() cannot put in one spot is left out, and so is
+    a field this does not know."""
+    out = {FILE_FIELDS[k]: v for k, v in fact.items() if k in FILE_FIELDS and k not in ("definition", "blocks")}
+    if fact.get("blocks"):
+        out["blocks"] = [block_json(b) for b in fact["blocks"]]
+    if fact.get("definition"):
+        try:
+            out["definitions"] = place([{"text": t} for t in fact["definition"]], clue or "")
+        except ValueError:
+            pass
+    inferred = sorted(FILE_FIELDS[k] for k in fact.get("inferred", ()) if FILE_FIELDS[k] in out)
+    if inferred:
+        out["inferred"] = inferred
+    else:
+        out.pop("inferred", None)
+    return out
+
+
+def fact_from_json(entry):
+    """fact_json's inverse: a clue's facts off a file, as they are held while parsing."""
+    names = {v: k for k, v in FILE_FIELDS.items()}
+    out = {names[k]: v for k, v in entry.items() if k not in ("definitions", "blocks", "inferred")}
+    if entry.get("definitions"):
+        out["definition"] = [d["text"] for d in entry["definitions"]]
+    if entry.get("blocks"):
+        out["blocks"] = [block_list(b) for b in entry["blocks"]]
+    if entry.get("inferred"):
+        out["inferred"] = sorted(names[k] for k in entry["inferred"])
+    return out
+
+
+def clues_of(pid):
+    """{entry id: clue} of puzzle `pid`, {} where we hold no such puzzle."""
+    from puzzle_paths import find
+    path = find(pid)
+    return {e["id"]: e.get("clue") or "" for e in read_puzzle_file(path)["entries"]} if path else {}
+
+
 def write(best, series):
     OUT.mkdir(parents=True, exist_ok=True)
     by_series = collections.defaultdict(dict)
     for pid, r in best.items():
         if pid.startswith("bd:"):
             continue
-        entries = {eid: publishable(f) for eid, f in sorted(r["facts"].items())}
+        clues = clues_of(pid)
+        entries = {eid: fact_json(publishable(f), clues.get(eid)) for eid, f in sorted(r["facts"].items())}
         entries = {k: v for k, v in entries.items() if v}
         if entries:
             by_series[series[pid]][pid] = {"blog": r["blog"], "name": BLOGS[r["blog"]][1],

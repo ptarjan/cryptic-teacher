@@ -2095,10 +2095,10 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
 {
   const puzzles = global.window.CRYPTIC_PUZZLES;
   const target = allPuzzles.find((p) => !p.annotated && puzzles[p.id] && puzzles[p.id].blog
-    && puzzles[p.id].entries.some((e) => !e.annotation && e.blog && (e.blog.definition || []).length === 1));
+    && puzzles[p.id].entries.some((e) => !e.annotation && e.blog && (e.blog.definitions || []).length === 1));
   if (assert(target, "the sample holds an un-annotated puzzle with blog facts")) {
     const puz = puzzles[target.id];
-    const e = puz.entries.find((x) => !x.annotation && x.blog && (x.blog.definition || []).length === 1);
+    const e = puz.entries.find((x) => !x.annotation && x.blog && (x.blog.definitions || []).length === 1);
     // As the page prints it: "Big Dave's" arrives as "Big Dave&#39;s".
     const blogName = puz.blog.name.replace(/&/g, "&amp;").replace(/'/g, "&#39;");
     if (openFromPicker(target.id)) {
@@ -2113,8 +2113,8 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
       const def = registry["hint-next"].children.find((b) => /Where is the definition/.test(b.textContent));
       if (assert(def, `${target.id} ${e.id}: has a definition rung: ${btnNames()}`)) {
         takeRung(def);
-        assert(registry["hint-body"].innerHTML.includes(`<mark class="def">${e.blog.definition[0]}</mark>`)
-          || registry["hint-body"].innerHTML.includes(e.blog.definition[0].replace(/&/g, "&amp;")),
+        assert(registry["hint-body"].innerHTML.includes(`<mark class="def">${e.blog.definitions[0].text}</mark>`)
+          || registry["hint-body"].innerHTML.includes(e.blog.definitions[0].text.replace(/&/g, "&amp;")),
           `${target.id} ${e.id}: the definition rung names the blog's definition`);
         assert(registry["hint-clue"].innerHTML.includes('class="def'),
           `${target.id} ${e.id}: the definition is marked in the clue`);
@@ -2126,7 +2126,7 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
       // is a hidden word's carrier, which shows its note instead.
       const bare = (t) => String(t || "").replace(/[^A-Za-z]/g, "").toUpperCase();
       const sol = bare(e.solution);
-      const shown = (e.blog.blocks || []).filter(([gives, frag]) => bare(gives) !== bare(frag)
+      const shown = (e.blog.blocks || []).filter(({ gives, clueFragment: frag }) => bare(gives) !== bare(frag)
         && (bare(gives) !== sol || sol.length >= 3
           && (bare(frag).includes(sol) || bare(frag).includes([...sol].reverse().join("")))));
       assert(!registry["hint-next"].children.some((b) => /Full walkthrough/.test(b.textContent)),
@@ -2138,8 +2138,8 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
 }
 
 // --- a hidden word's carrier, from the blog facts, reads as ours do ---
-// letter_facts.py writes a hidden word's one block, [answer, the clue words
-// that carry it]. The rung holds its letters back, the whole answer, and shows
+// letter_facts.py writes a hidden word's one block, {clueFragment: the clue
+// words that carry it, gives: the answer}. The rung holds its letters back, the whole answer, and shows
 // the carrier with the run in capitals, the note our own hidden words carry;
 // and the question in front of it never names the letters either.
 {
@@ -2154,9 +2154,9 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
       const ents = JSON.parse(fs.readFileSync(file, "utf8")).entries;
       const hit = Object.entries(rec.entries).find(([eid, fa]) => JSON.stringify(fa.type) === '["hidden_word"]'
         && (fa.blocks || []).length === 1 && !(fa.indicators || []).length
-        && ents.some((x) => x.id === eid && !x.annotation && x.solution && bare(x.solution) === bare(fa.blocks[0][0])
-          && x.clue.includes(fa.blocks[0][1])));
-      if (hit) { target = { pid, eid: hit[0], answer: bare(hit[1].blocks[0][0]) }; break; }
+        && ents.some((x) => x.id === eid && !x.annotation && x.solution && bare(x.solution) === bare(fa.blocks[0].gives)
+          && x.clue.includes(fa.blocks[0].clueFragment)));
+      if (hit) { target = { pid, eid: hit[0], answer: bare(hit[1].blocks[0].gives) }; break; }
     }
     if (target) break;
   }
@@ -2194,12 +2194,12 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
     const rows = JSON.parse(fs.readFileSync(path.join(factsDir, f), "utf8"));
     for (const [pid, rec] of Object.entries(rows)) {
       const hit = Object.entries(rec.entries).find(([, fa]) => JSON.stringify(fa.type) === '["homophone"]'
-        && (fa.blocks || []).length === 1 && fa.blocks[0].some((h) => h && /^[A-Z]+$/.test(h.soundsLike || "")));
+        && (fa.blocks || []).length === 1 && /^[A-Z]+$/.test(fa.blocks[0].soundsLike || ""));
       if (!hit) continue;
       const file = pp.find(pid);
       const e = file && JSON.parse(fs.readFileSync(file, "utf8")).entries.find((x) => x.id === hit[0]);
-      if (e && !e.annotation && e.solution && e.clue.includes(hit[1].blocks[0][1])) {
-        target = { pid, eid: hit[0], answer: bare(e.solution), heard: hit[1].blocks[0].find((h) => h && h.soundsLike).soundsLike };
+      if (e && !e.annotation && e.solution && e.clue.includes(hit[1].blocks[0].clueFragment)) {
+        target = { pid, eid: hit[0], answer: bare(e.solution), heard: hit[1].blocks[0].soundsLike };
         break;
       }
     }
@@ -2231,7 +2231,7 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
   const puzzles = global.window.CRYPTIC_PUZZLES;
   const hit = (p) => (puzzles[p.id].entries || []).find((x) => !x.annotation && x.blog
     && (x.blog.inferred || []).includes("type") && x.blog.typeCore
-    && !(x.blog.definition || []).length && !(x.blog.blocks || []).length && !(x.blog.indicators || []).length);
+    && !(x.blog.definitions || []).length && !(x.blog.blocks || []).length && !(x.blog.indicators || []).length);
   const target = allPuzzles.find((p) => !p.annotated && puzzles[p.id] && puzzles[p.id].blog && hit(p));
   // Rare enough that some slices hold none; the unsliced run must find one.
   if ((target || SLICE.n === 1)
@@ -2246,7 +2246,7 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
 }
 
 // --- a blog's building blocks read like ours ---
-// "TAKE (arrange) + COVER (insurance)" ships as [letters, clue words] pairs,
+// "TAKE (arrange) + COVER (insurance)" ships as {clueFragment, gives} blocks,
 // and the blocks rung shows them the way it shows an annotation's: the clue
 // words, an arrow, the letters.
 {
@@ -2254,7 +2254,7 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
   const bare = (t) => String(t || "").replace(/[^A-Za-z]/g, "").toUpperCase();
   // A hidden word's one block is its carrier, the whole answer: the hidden
   // rung shows that, not a blocks rung.
-  const piece = (x) => ([gives, frag]) => bare(gives) !== bare(frag) && bare(gives) !== bare(x.solution);
+  const piece = (x) => ({ gives, clueFragment: frag }) => bare(gives) !== bare(frag) && bare(gives) !== bare(x.solution);
   const hit = (p) => (puzzles[p.id].entries || []).find((x) => !x.annotation && x.blog
     && (x.blog.blocks || []).some(piece(x)));
   const target = allPuzzles.find((p) => !p.annotated && puzzles[p.id] && puzzles[p.id].blog && hit(p));
@@ -2266,7 +2266,7 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
       if (!btn) break;
       takeRung(btn);
     }
-    const [gives, frag] = e.blog.blocks.find(piece(e));
+    const { gives, clueFragment: frag } = e.blog.blocks.find(piece(e));
     const body = registry["hint-body"].innerHTML;
     assert(body.includes(`“${frag}”`) && body.includes(`<span class="gives">${gives}</span>`),
       `${target.id} ${e.id}: the blocks rung shows “${frag}” → ${gives}: ${body.slice(0, 400)}`);

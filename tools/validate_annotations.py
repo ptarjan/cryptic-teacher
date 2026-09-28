@@ -1634,7 +1634,7 @@ def check_definition_against_blog(puzzle, warnings):
         ann = e.get("annotation") or {}
         fact = row["entries"].get(e["id"]) or {}
         # one tools/letter_facts.py read off other write-ups is not this blogger's underline
-        theirs = None if "definition" in fact.get("inferred", ()) else fact.get("definition")
+        theirs = None if "definitions" in fact.get("inferred", ()) else definitions.texts(fact)
         defined = definitions.texts(ann)
         if not defined or not theirs:
             continue
@@ -1676,10 +1676,10 @@ def check_blocks_against_blog(puzzle, warnings):
         gives = [letters(b.get("gives") or "") for b in ann["blocks"]]
         joined = "".join(gives)
         frags = [words(b.get("clueFragment") or "") for b in ann["blocks"]]
-        for spelt, source, *how in theirs:
-            if "inferred" in how:  # tools/letter_facts.py's split of the answer, not the blogger's word
+        for block in theirs:
+            if block.get("inferred"):  # tools/letter_facts.py's split of the answer, not the blogger's word
                 continue
-            spelt = letters(spelt)
+            spelt, source = letters(block["gives"]), block["clueFragment"]
             if len(spelt) < 2 or not words(source):
                 continue
             if (spelt in joined or spelt[::-1] in joined

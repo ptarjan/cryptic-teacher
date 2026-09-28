@@ -893,43 +893,36 @@
   // about it (tools/blog_facts.py, merged into the shim by fetch_puzzle): the
   // underlined definition, a clue type the blogger named outright or spelled
   // out in letters that check, marked indicators, and the building blocks it
-  // writes as WORD (clue words), each [letters, clue words]. Shaped as a
-  // partial annotation, so the ladder, the highlights and the questions all
-  // read it the way they read ours. Two spans are a definition pair only when
-  // the type says so; the extractor ships no other multi-span definition.
-  // A field named in `inferred` (the definition, the type, the indicators) is not the blog's
+  // writes as WORD (clue words). Held in the annotation's own shape
+  // (definitions [{text, at}], blocks [{clueFragment, gives, soundsLike}]),
+  // so the ladder, the highlights and the questions all read it the way they
+  // read ours. Two spans are a definition pair only when the type says so;
+  // the extractor ships no other multi-span definition.
+  // A field named in `inferred` (definitions, type, indicators) is not the blog's
   // but tools/letter_facts.py's, read off the letters; `typeCore` makes its type a lower bound, the clue
-  // that and perhaps a cut or a letter selection besides. A block whose third
-  // element is "inferred" is one of the pieces letter_facts.py split the answer into,
-  // and one with {soundsLike} after it is a homophone's or spoonerism's heard block.
+  // that and perhaps a cut or a letter selection besides. A block with
+  // `inferred` is one of the pieces letter_facts.py split the answer into.
   // The answer is the solution, so blockLetters holds back a block that is the
   // whole of it exactly as it does for ours; a hidden word's carrier then shows
   // the note ours write, the run capitalised in its words (carrierNote).
   // A definition's `at` counts code points (a Python str index); a JS string
-  // index counts UTF-16 units. These convert between the two.
+  // index counts UTF-16 units. This converts one to the other.
   const cpToIdx = (s, at) => [...s].slice(0, at).join("").length;
-  const idxToCp = (s, i) => [...s.slice(0, i)].length;
 
   function blogAnn(e) {
     const b = e.blog;
     if (!b) return null;
-    const defs = b.definition || [];
+    const defs = b.definitions || [];
     const answer = e.solution || "";
     const ann = { fromBlog: true, answer, type: b.type || [], indicators: b.indicators || [],
-                  blocks: (b.blocks || []).map(([gives, clueFragment, ...how]) => {
-                    const block = how.includes("inferred") ? { clueFragment, gives, inferred: true } : { clueFragment, gives };
-                    const heard = how.find((h) => h && typeof h === "object" && h.soundsLike);
-                    if (heard) return { ...block, soundsLike: heard.soundsLike };
-                    const note = wholeWord(gives) === wholeWord(answer) ? carrierNote(answer, clueFragment) : "";
+                  blocks: (b.blocks || []).map((block) => {
+                    if (block.soundsLike) return block;
+                    const note = wholeWord(block.gives) === wholeWord(answer) ? carrierNote(answer, block.clueFragment) : "";
                     return note ? { ...block, note } : block;
                   }),
                   inferred: b.inferred || [], typeCore: !!b.typeCore };
-    const clue = e.clue || "";
     const texts = defs.length === 2 && ann.type.includes("double_definition") ? defs : defs.slice(0, 1);
-    if (texts.length) ann.definitions = texts.map((text) => {
-      const i = clue.indexOf(text);
-      return { text, at: i < 0 ? -1 : idxToCp(clue, i) };
-    });
+    if (texts.length) ann.definitions = texts;
     return ann;
   }
   // "hidden in saW HIZbollah": the words that carry `answer`, its run in
@@ -4813,7 +4806,7 @@
   function blogHintsBadge(ann) {
     const name = esc(P.blog.name);
     const ours = (ann.inferred || []).includes("type");
-    const ourDef = (ann.inferred || []).includes("definition");
+    const ourDef = (ann.inferred || []).includes("definitions");
     const ourInds = (ann.inferred || []).includes("indicators");
     const ourBlocks = ann.blocks.some((b) => b.inferred);
     const theirs = !!(((ann.definitions || []).length && !ourDef) || (ann.indicators.length && !ourInds) || ann.blocks.some((b) => !b.inferred) || (ann.type.length && !ours));

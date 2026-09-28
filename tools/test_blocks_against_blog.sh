@@ -24,15 +24,16 @@ def check(name, want, got):
     print(("ok  " if ok else "FAIL"), name, "" if ok else got)
 
 b = lambda frag, gives: {"clueFragment": frag, "gives": gives}
-check("same letters", False, run("x", [b("among", "IN"), b("group", "PACK")], [["PACK", "group"]]))
-check("the blog's word before the reversal", False, run("x", [b("pulls back", "SWOT")], [["TOWS", "pulls"]]))
-check("the blog's word heard", False, run("x", [b("Heard husky", "HORSE")], [["HOARSE", "husky"]]))
-check("ours is the blog's less a deletion", False, run("x", [b("x", "IMPRE")], [["IMPURE", "zzz"]]))
-check("the anagram's result against its fodder", False, run("x", [b("male", "MALE")], [["LAME", "zzz"]]))
-check("a lone link word is the blog's parse", False, run("x", [b("x", "HI")], [["ARCHERY", "of"]]))
-check("the blog's anagram fodder against ours", False, run("x", [b("in hat", "INHAT")], [["IN HAT", "in hat", "anagrammed"]]))
-check("the blog's anagram fodder against our result", False, run("x", [b("in hat", "THAIN")], [["IN HAT", "in hat", "anagrammed"]]))
-check("a piece nobody of ours spells or takes", True, run("x", [b("top", "CAP")], [["RED", "communist"]]))
+fodder = lambda frag, gives: {"clueFragment": frag, "gives": gives, "anagramOf": True}
+check("same letters", False, run("x", [b("among", "IN"), b("group", "PACK")], [b("group", "PACK")]))
+check("the blog's word before the reversal", False, run("x", [b("pulls back", "SWOT")], [b("pulls", "TOWS")]))
+check("the blog's word heard", False, run("x", [b("Heard husky", "HORSE")], [b("husky", "HOARSE")]))
+check("ours is the blog's less a deletion", False, run("x", [b("x", "IMPRE")], [b("zzz", "IMPURE")]))
+check("the anagram's result against its fodder", False, run("x", [b("male", "MALE")], [b("zzz", "LAME")]))
+check("a lone link word is the blog's parse", False, run("x", [b("x", "HI")], [b("of", "ARCHERY")]))
+check("the blog's anagram fodder against ours", False, run("x", [b("in hat", "INHAT")], [fodder("in hat", "IN HAT")]))
+check("the blog's anagram fodder against our result", False, run("x", [b("in hat", "THAIN")], [fodder("in hat", "IN HAT")]))
+check("a piece nobody of ours spells or takes", True, run("x", [b("top", "CAP")], [b("communist", "RED")]))
 def typed(ours, theirs, **fact):
     puzzle = {"entries": [{"id": "1-across", "number": 1, "direction": "across",
                            "clue": "x", "annotation": {"type": ours}}]}

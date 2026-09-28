@@ -283,7 +283,7 @@ LAYOUT = [
     ("tables everything else reads", "tools/data/authored_A001_clues.json", "the hand-written clues for that fill"),
     ("tables everything else reads", "tools/data/puzzle.schema.json", "the puzzle file's shape as a JSON Schema (2020-12): every key, its type, and the closed lists it draws from"),
     ("tables everything else reads", "tools/data/clue_types.json", "the fifteen clue types and the seven families they fall in, with the labels and blurbs the app and the tools show"),
-    ("tables everything else reads", "tools/data/blog_facts/", "per series, the blog facts tools/blog_facts.py read off the write-ups, with the site's hints and the validator's definition and block checks reading them; inputs.sha256 is the digest of what they were written from"),
+    ("tables everything else reads", "tools/data/blog_facts/", "per series, the blog facts tools/blog_facts.py read off the write-ups, each clue in the annotation's keys and shapes ($defs/blogFacts in puzzle.schema.json), with the site's hints and the validator's definition and block checks reading them; inputs.sha256 is the digest of what they were written from"),
     ("tables everything else reads", "tools/data/snitch.json", "the SNITCH's rating of every Times and Sunday Times puzzle it has rated, written nightly by tools/fetch_snitch.py; tools/difficulty.py scores against it and shows each band's range"),
     ("tables everything else reads", "tools/fixtures/snitch_archive.html", "a saved copy of the SNITCH's archive page, the fixture tools/test_fetch_snitch.sh reads"),
     ("tables everything else reads", "tools/data/penguin_partial_fills/", "answers from a Penguin-book solve that stopped short; the puzzle itself is filed unsolved for the nightly cold solve to finish"),
