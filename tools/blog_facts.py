@@ -1899,14 +1899,15 @@ def _heard_from(heard, src, body):
     return src
 
 
-def heard_blocks(t, blocks, answer, body=""):
+def heard_blocks(t, blocks, answer, body="", alike=sounds_alike):
     """A homophone's or a spoonerism's blocks as the app holds them, where the
     write-up gives the words heard in place of the answer's letters: [(the
     letters, clue words, {"soundsLike": the words heard})]. A homophone's one
-    block must sound like the whole answer (see sounds_alike); a spoonerism's
-    words, swapped (see spooned), like the answer, and where it is two blocks,
-    each like the one part of the answer it gives. Else `blocks` as they were.
-    A word heard as itself is one of the clue words (see _heard_from)."""
+    block must sound like the whole answer (`alike`, by default sounds_alike);
+    a spoonerism's words, swapped (see spooned), like the answer, and where it
+    is two blocks, each like the one part of the answer it gives. Else
+    `blocks` as they were. A word heard as itself is one of the clue words
+    (see _heard_from)."""
     answer = _az(answer)
     if t not in ("homophone", "spoonerism") or not blocks or any(len(b) != 2 for b in blocks) \
             or _az("".join(b[0] for b in blocks)) == answer:
@@ -1914,15 +1915,15 @@ def heard_blocks(t, blocks, answer, body=""):
     heard = [b[0] for b in blocks]
     as_heard = lambda gives, b: [gives, _heard_from(b[0], b[1], body), {"soundsLike": b[0]}]
     if t == "homophone":
-        ok = len(blocks) == 1 and sounds_alike(heard[0], answer)
+        ok = len(blocks) == 1 and alike(heard[0], answer)
         return [as_heard(answer, blocks[0])] if ok else blocks
     said = spooned(" ".join(heard))
-    if not said or not sounds_alike("".join(said), answer) or len(blocks) > 2:
+    if not said or not alike(" ".join(said), answer) or len(blocks) > 2:
         return blocks
     if len(blocks) == 1:
         return [as_heard(answer, blocks[0])]
     cuts = [k for k in range(1, len(answer))
-            if sounds_alike(said[0], answer[:k]) and sounds_alike(said[1], answer[k:])]
+            if alike(said[0], answer[:k]) and alike(said[1], answer[k:])]
     if len(cuts) != 1:
         return blocks
     k = cuts[0]
