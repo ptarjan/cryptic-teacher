@@ -374,6 +374,8 @@ tools/test_annotate_disclosure.sh            proves each rule cut from the annot
 tools/validate_annotations.py                proves every annotation actually spells its
                                              answer, plus the other rules about what a rung may
                                              and may not say
+tools/test_indicator_repeats.sh              an indicator may repeat in `indicators` only as
+                                             often as the clue prints it
 tools/test_blocks_against_blog.sh            holds the blog block check to its fixtures: a
                                              piece we spell, reverse, hear, delete from or
                                              anagram is silent, and one we lack is reported
