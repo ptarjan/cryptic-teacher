@@ -29,6 +29,10 @@ import sys
 import tempfile
 from pathlib import Path
 
+# A numeral is a convention at any length (eight VIII), so it passes the
+# three-letter cap that keeps whole words out of the table.
+ROMAN = re.compile(r"M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})")
+
 from build_abbreviations import anchor
 
 DATA = Path(__file__).resolve().parent / "data" / "abbreviations.json"
@@ -86,8 +90,9 @@ def main(argv):
         print("usage: add_abbreviation.py LETTERS SENSE [SENSE ...]", file=sys.stderr)
         return 2
     letters, senses = argv[0], argv[1:]
-    if not re.fullmatch(r"[A-Za-z]{1,3}", letters):
-        print(f"'{letters}' is not a 1-3 letter abbreviation", file=sys.stderr)
+    if not (re.fullmatch(r"[A-Za-z]{1,3}", letters) or letters and ROMAN.fullmatch(letters.upper())):
+        print(f"'{letters}' is neither a 1-3 letter abbreviation nor a Roman numeral",
+              file=sys.stderr)
         return 2
     label, lowered = letters.upper(), ", ".join(s.lower() for s in senses)
     if add_row(letters, senses):

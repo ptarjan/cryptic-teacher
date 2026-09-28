@@ -68,6 +68,12 @@ check "the table's own spelling lands, not a second anchor" "$(row ZY)" "['odd s
 add ZY "test sense" "test-sense" >/dev/null
 check "two spellings in one call land once" "$(row ZY)" "['odd spelling', 'test sense']"
 
+echo "a Roman numeral may run past three letters; a word may not:"
+add MMVIII testyear >/dev/null
+check "a four-plus letter numeral lands" "$(row MMVIII)" "['testyear']"
+add ZZZZ testword 2>/dev/null
+check "a four letter non-numeral is refused" "$?" "2"
+
 echo "several concurrent adds to the same row all survive:"
 pids=()
 for i in $(seq 1 10); do
