@@ -2114,10 +2114,7 @@ def reindex():
         puzzles.append({
             "id": p["id"],
             "number": p["number"],
-            # Absent on every file written before quiptics existed, and every one
-            # of those is a cryptic — so default rather than forcing a re-fetch
-            # of 36 puzzles to add one string.
-            "series": p.get("series", "cryptic"),
+            "series": p["series"],
             "name": p["name"],
             "setter": p["setter"],
             "date": p.get("date"),
