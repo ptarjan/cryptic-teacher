@@ -35,35 +35,40 @@ def say(name, ok):
     print(f"{name}={'yes' if ok else 'no'}")
 
 
-# Linked groups: the lead covers the group, every other leg only points at it.
+# Linked groups: the leader holds the group and the whole annotation; every
+# continuation carries neither.
 lead_ann = {"type": ["charade"], "answer": "ABCDEFGH", "definitions": [{"text": "Some", "at": 0}],
-            "walkthrough": "w", "blocks": [{"clueFragment": "words", "gives": "X"}],
-            "coversGroup": True}
+            "walkthrough": "w", "blocks": [{"clueFragment": "words", "gives": "X"}]}
 g = ["1-across", "2-down"]
 good = {"id": "t-1", "entries": [
     entry("1-across", group=g, annotation=lead_ann),
-    entry("2-down", sol="EFGH", group=g, annotation={"linkedTo": "1-across"})]}
+    entry("2-down", sol="EFGH")]}
 errs = []
-V.check_linked_entries(good, errs)
-say("linked_good_quiet", not errs)
+V.check_groups(good, errs)
+say("linked_leader_quiet", not errs)
 
-bad_lead = copy.deepcopy(good)
-del bad_lead["entries"][0]["annotation"]["coversGroup"]
+annotated_cont = copy.deepcopy(good)
+annotated_cont["entries"][1]["annotation"] = dict(lead_ann)
 errs = []
-V.check_linked_entries(bad_lead, errs)
-say("linked_lead_flagged", any("coversGroup" in e for e in errs))
+V.check_groups(annotated_cont, errs)
+say("annotated_continuation_flagged",
+    any(e.startswith("2-down:") and "no annotation" in e for e in errs))
 
-bad_leg = copy.deepcopy(good)
-bad_leg["entries"][1]["annotation"] = dict(lead_ann)
-errs = []
-V.check_linked_entries(bad_leg, errs)
-say("linked_leg_flagged", any('{"linkedTo": "1-across"}' in e for e in errs))
-
-null_leg = copy.deepcopy(good)
-del null_leg["entries"][1]["annotation"]
 errs, warns = [], []
-V.check_every_clue_is_annotated(null_leg["entries"], errs, warns)
-say("null_leg_names_linkedTo", any('{"linkedTo": "1-across"}' in e for e in errs))
+V.check_every_clue_is_annotated(good["entries"], errs, warns)
+ungrouped = copy.deepcopy(good)
+del ungrouped["entries"][0]["group"]
+lone_errs, warns = [], []
+V.check_every_clue_is_annotated(ungrouped["entries"], lone_errs, warns)
+say("bare_continuation_not_flagged", not any(e.startswith("2D:") for e in errs)
+    and any(e.startswith("2D:") for e in lone_errs))
+
+grouped_cont = copy.deepcopy(good)
+grouped_cont["entries"][1]["group"] = g
+errs = []
+V.check_groups(grouped_cont, errs)
+say("grouped_continuation_flagged",
+    any(e.startswith("2-down:") and "does not start with this entry" in e for e in errs))
 
 # A fragment retyped with straight quotes where the clue has curly ones.
 clue = "Setter’s back (4)"
@@ -182,8 +187,9 @@ PY
 )
 echo "$out" | sed 's/^/  /'
 
-for k in linked_good_quiet linked_lead_flagged linked_leg_flagged \
-         null_leg_names_linkedTo hint_names_clue_spelling \
+for k in linked_leader_quiet annotated_continuation_flagged \
+         bare_continuation_not_flagged grouped_continuation_flagged \
+         hint_names_clue_spelling \
          hint_without_lookalike_says_copy features_absent_warns \
          features_counted_by_ratchet features_present_quiet \
          blog_hidden_when_many_null blog_hidden_when_all_done \

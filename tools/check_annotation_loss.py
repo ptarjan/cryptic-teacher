@@ -31,6 +31,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import groups  # noqa: E402
 from fetch_puzzle import ROOT, has_words, read_puzzle_file, resolve_puzzle  # noqa: E402
 
 
@@ -44,8 +45,15 @@ def changed_puzzles():
             and not line.endswith("index.json")]
 
 
+def clues(puzzle):
+    """The entries that are annotated: all but a linked answer's continuations,
+    which its leader's annotation covers (tools/groups.py)."""
+    continuations = groups.leader_of(puzzle["entries"])
+    return [e for e in puzzle["entries"] if e["id"] not in continuations]
+
+
 def unannotated(puzzle):
-    return [e for e in puzzle["entries"] if e.get("annotation") is None]
+    return [e for e in clues(puzzle) if e.get("annotation") is None]
 
 
 def main(argv):
@@ -56,7 +64,7 @@ def main(argv):
             continue
         puzzle = read_puzzle_file(path)
         missing = unannotated(puzzle)
-        total = len(puzzle["entries"])
+        total = len(clues(puzzle))
         # A file with nothing in it was never attempted — that is the backlog,
         # not a loss. A file with SOME annotations is a run that tried and came
         # up short, and that is the case worth waking someone for.

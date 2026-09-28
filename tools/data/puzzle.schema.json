@@ -348,7 +348,7 @@
      "const": "LIKELY"
     },
     "group": {
-     "description": "Every entry id of a linked answer, in order, the same on each leg.",
+     "description": "On the leader of a linked answer only: the answer's entry ids in order, this entry first; an answer that repeats a light names it again. The other lights carry no group and no annotation; a light the clue says continues two answers is in both leaders' groups.",
      "type": "array",
      "minItems": 2,
      "items": {
@@ -357,31 +357,7 @@
      }
     },
     "annotation": {
-     "if": {
-      "required": [
-       "linkedTo"
-      ]
-     },
-     "then": {
-      "$ref": "#/$defs/linkedAnnotation"
-     },
-     "else": {
-      "$ref": "#/$defs/annotation"
-     }
-    }
-   }
-  },
-  "linkedAnnotation": {
-   "description": "A later leg of a linked answer; its explanation is on the entry named.",
-   "type": "object",
-   "required": [
-    "linkedTo"
-   ],
-   "additionalProperties": false,
-   "properties": {
-    "linkedTo": {
-     "type": "string",
-     "minLength": 1
+     "$ref": "#/$defs/annotation"
     }
    }
   },
@@ -563,10 +539,6 @@
     "walkthrough": {
      "type": "string",
      "minLength": 1
-    },
-    "coversGroup": {
-     "description": "This explanation covers every leg of the entry's group.",
-     "const": true
     },
     "features": {
      "$ref": "#/$defs/features"

@@ -30,10 +30,6 @@ the state --refresh-unsolved already knows how to fill in later. A model's blind
 solve is never at risk here, because tools/apply_solution.py writes bare letters
 only, so nothing it wrote can read as masked.
 
-Linked groups whose members disagree. reconcile_groups is re-run over the stored
-entries and writes back what it makes of them, warning on stderr as it does in a
-fetch.
-
 Lights that were never part of a linked answer. A light whose own clue counts its
 own cells in full is a finished answer, whatever group the paper put it in — it
 is the parser reading wordplay as a cross-reference. Cryptic-27,884's 20-across
@@ -98,8 +94,10 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-import fetch_puzzle as fetcher  # noqa: E402 — the rules being applied live there
-import series as series_meta  # noqa: E402
+import fetch_puzzle as fetcher  # the rules being applied live there
+import groups
+import series as series_meta
+
 
 def normalise_solutions(puzzle):
     """Bare capitals in every solution. Returns the ones that were not."""
@@ -134,31 +132,12 @@ def unmask_solutions(puzzle):
     return masked
 
 
-def regroup(puzzle):
-    """Re-run the linked-clue reconciliation. Returns the entries it moved."""
-    before = {e["id"]: e.get("group") for e in puzzle["entries"]}
-    fetcher.reconcile_groups(puzzle["entries"])
-    return [(e["id"], before[e["id"]], e.get("group"))
-            for e in puzzle["entries"] if before[e["id"]] != e.get("group")]
-
-
-def prune(puzzle):
-    """Drop the group memberships only one side ever stated. Returns the entries
-    it changed.
-
-    The fetcher's own rule, called where convert() calls it: after regroup, which
-    is the chance for a disagreement to be READ rather than pruned, and before
-    dissolve and rebuild, which both want a group its members agree about.
-    """
-    return fetcher.prune_one_sided_members(puzzle["entries"])
-
-
 def dissolve(puzzle):
     """Break up groups that are not linked answers. Returns the ones broken.
 
     The fetcher's own rule and its own cyclops gate, called rather than copied.
-    Run AFTER regroup, exactly as convert() runs it after reconcile_groups: the
-    rule reads a group whose members agree, and reconcile is what makes them.
+    It reads the per-light shape, every member carrying its group, so repair()
+    spreads the stored leader-only groups before calling it.
     """
     return fetcher.dissolve_false_groups(puzzle["entries"], puzzle.get("series"))
 
@@ -251,17 +230,9 @@ def repair(path, puzzle, apply_it):
     if masked:
         notes.append(f"masked ({', '.join(f'{eid} {sol}' for eid, sol in masked)})"
                      f" — all {len(fixed['entries'])} entries stored unsolved")
-    moved = regroup(fixed)
-    if moved:
-        notes.append(f"{len(moved)} linked-clue group(s) reconciled: "
-                     + ", ".join(f"{eid} {was or '—'}→{now or '—'}"
-                                 for eid, was, now in moved))
-
-    one_sided = prune(fixed)
-    if one_sided:
-        notes.append(f"{len(one_sided)} one-sided group(s) dropped: "
-                     + ", ".join(f"{eid} {' + '.join(was)}" for eid, was in one_sided))
-
+    # The group rules reason over every member's claim; the file keeps the
+    # group on the leader alone. See tools/groups.py.
+    groups.spread(fixed["entries"])
     broken = dissolve(fixed)
     if broken:
         notes.append(f"{len(broken)} false cross-reference(s) dissolved: "
@@ -271,6 +242,7 @@ def repair(path, puzzle, apply_it):
     if rebuilt:
         notes.append(f"{len(rebuilt)} linked answer(s) reassembled: "
                      + ", ".join(" + ".join(g) for g in rebuilt))
+    groups.collapse(fixed["entries"])
 
     if json.dumps(fixed, sort_keys=True, ensure_ascii=False) == before:
         return None

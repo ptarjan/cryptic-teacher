@@ -14,9 +14,8 @@ Checks, for every annotated entry:
   - charade/container "pieces" concatenate exactly to the answer letters
   - hidden answers actually occur in the clue's letters
   - subAnagrams are letter-for-letter anagrams; subReversals reverse correctly
-  - linkedTo targets exist and cover their group
-  - `group` appears only on genuinely linked clues, and is the same list on
-    every leg of one, containing itself
+  - a linked answer's `group` sits on its leader alone, leader first, and its
+    other lights carry no annotation (check_groups)
 
 And checks that apply only to puzzles we WROTE (see is_authored):
   - no block may have an empty `gives`: every word of an authored clue is
@@ -59,6 +58,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import clue_types  # noqa: E402
 import puzzle_schema  # noqa: E402 — tools/data/puzzle.schema.json
 import definitions  # where each definition sits; tools/definitions.py
+import groups  # noqa: E402 — linked answers; tools/groups.py
 from fetch_puzzle import (  # noqa: E402 — one reader, one exemption
     blog_facts_for, clue_words, leaders_named, read_puzzle_file)
 from puzzle_paths import puzzle_files, resolve_puzzle  # noqa: E402 — one glob, one id resolver
@@ -763,7 +763,7 @@ def check_answer_matches_separators(tag, ann, entry, errors):
         return
     # A linked group files the whole group's answer on its leading light while
     # the separators describe that light alone, so the two are not comparable.
-    if len(entry.get("group") or []) > 1:
+    if entry.get("group"):
         return
     # An apostrophe occupies no square and starts no new word, so it comes out
     # of both sides: DON'T is one four-letter word either way.
@@ -1480,6 +1480,7 @@ def check_every_clue_is_annotated(entries, errors, warnings, misses=(), corpus=F
     Treating it as an error meant one wrong answer in 33 failed the whole
     puzzle, and on 2026-09-11 took a second puzzle down with it.
     """
+    continuations = groups.leader_of(entries)
     for e in entries:
         if e.get("annotation"):
             continue
@@ -1494,13 +1495,8 @@ def check_every_clue_is_annotated(entries, errors, warnings, misses=(), corpus=F
             warnings.append(f"{tag}: no annotation, and no clue to annotate — "
                             f"the setter left this entry blank on purpose")
             continue
-        group = e.get("group") or []
-        if len(group) > 1 and group[0] != e["id"]:
-            errors.append(
-                f"{tag}: no annotation. It is a later leg of the linked group "
-                f"{group}, so its annotation is {{\"linkedTo\": \"{group[0]}\"}} and the "
-                f"whole group is annotated once, on {group[0]}")
-            continue
+        if e["id"] in continuations:
+            continue                      # annotated on its group's leader
         if corpus:
             warnings.append(f"{tag}: no annotation — queued to be annotated again")
             continue
@@ -1757,7 +1753,7 @@ def check_definition_not_fodder(entries, errors, warnings):
     hits = []
     for e in entries:
         ann = e.get("annotation") or {}
-        if not ann or "linkedTo" in ann:
+        if not ann:
             continue
         if any(x in types_of(ann) for x in DEFINITION_REUSE_EXEMPT):
             continue
@@ -1829,7 +1825,7 @@ def check_blocks_account_for_answer(entries, errors, warnings):
     hits = []
     for e in entries:
         ann = e.get("annotation") or {}
-        if not ann or "linkedTo" in ann:
+        if not ann:
             continue
         atype = types_of(ann)
         if any(x in atype for x in UNBALANCED_TYPES) or atype in UNBALANCED_EXACT_TYPES:
@@ -1876,7 +1872,7 @@ def check_blocks_decompose(entries, errors, warnings):
     hits = []
     for e in entries:
         ann = e.get("annotation") or {}
-        if not ann or "linkedTo" in ann:
+        if not ann:
             continue
         pieces = ann.get("pieces") or []
         if len(pieces) < 2:
@@ -1936,7 +1932,7 @@ def check_blocks_in_answer_order(entries, errors, warnings):
     hits = []
     for e in entries:
         ann = e.get("annotation") or {}
-        if not ann or "linkedTo" in ann:
+        if not ann:
             continue
         if types_of(ann) != ["charade"]:
             continue
@@ -1973,7 +1969,7 @@ def check_blocks_carry_notes(entries, warnings):
     """
     for e in entries:
         ann = e.get("annotation") or {}
-        if not ann or "linkedTo" in ann:
+        if not ann:
             continue
         tag = f"{e['number']}{'A' if e['direction'] == 'across' else 'D'}"
         for b in ann.get("blocks", []):
@@ -2049,7 +2045,7 @@ def check_conventions_are_in_the_glossary(entries, warnings):
     known = {k: {w.lower() for w in v} for k, v in table.items()}
     for e in entries:
         ann = e.get("annotation") or {}
-        if not ann or "linkedTo" in ann:
+        if not ann:
             continue
         tag = f"{e['number']}{'A' if e['direction'] == 'across' else 'D'}"
         for b in ann.get("blocks", []):
@@ -2097,85 +2093,57 @@ def verbatim_hint(fragment, clue):
             f"and dashes from the file rather than retyping them")
 
 
-def check_linked_entries(puzzle, errors):
-    """A linked answer is annotated once, on the group's first entry.
+def check_groups(puzzle, errors):
+    """A linked answer is one answer over several lights. Its leader carries
+    `group`, the answer's lights in order with itself first, and the whole
+    annotation; every other light carries neither a group nor an annotation.
+    No group at all is the ordinary case: the entry is its own answer.
 
-    The page renders the group's teaching from its leading light, and every
-    other leg points there. Written the other way — a full annotation on each
-    leg, or the whole answer on a later leg — the answer-letters check fires
-    with a mismatch that says nothing about groups, so this says it instead.
-
-    CALIBRATION (2026-09-25): 467 annotated legs of linked groups in the corpus,
-    0 hits.
+    A light may continue more than one answer, and then it is in more than one
+    group, but only when its own clue names more than one leader. Cryptic
+    28,687's 1-down is CLUB, the second word of both GOLDFISH CLUB (8,4) at
+    19-down and MONDAY CLUB (6,4) at 22-down, and reads "See 19, 22". A
+    continuation naming one leader is in one group: Cyclops 683's 23-down reads
+    "see 9ac.", so 11-across listing it too is an error. The count lives in
+    fetch_puzzle.leaders_named, which prune_one_sided_members asks too, so the
+    fetcher and this check exempt the same clues.
     """
     by_id = {e["id"]: e for e in puzzle["entries"]}
-    for e in puzzle["entries"]:
-        group, ann = e.get("group") or [], e.get("annotation")
-        if len(group) < 2 or not ann or group[0] not in by_id:
-            continue
-        lead = group[0]
-        if e["id"] == lead:
-            if "linkedTo" in ann or not ann.get("coversGroup"):
-                errors.append(
-                    f"{e['id']}: leads the linked group {group}, so it carries the "
-                    f"whole annotation with \"coversGroup\": true and an `answer` of "
-                    f"the group's solutions run together in group order, no spaces")
-        elif ann.get("linkedTo") != lead or len(ann) != 1:
-            errors.append(
-                f"{e['id']}: is a later leg of the linked group {group}, so its "
-                f"annotation is exactly {{\"linkedTo\": \"{lead}\"}} and nothing "
-                f"else; the full annotation goes on {lead}")
-
-
-def check_groups_agree(puzzle, errors):
-    """A `group` is the entry ids whose solutions concatenate into one answer. It
-    is written only on clues that really are linked, and then on every leg, with
-    the same ids in the same order, including the leg itself. No group at all is
-    the ordinary case: the entry is its own answer.
-
-    Both halves are checked, because both are silent when wrong. A singleton
-    group is the shape the Guardian's data ships and we strip on the way in, and
-    left in place it would say "linked" about a clue that is not. Two legs with
-    different lists show up only as an answer-letters error on one leg and not
-    the other, with nothing pointing at the group.
-
-    One shape is exempt, and it is the paper's doing rather than a fetch's: a
-    light can end MORE THAN ONE answer. Cryptic 28,687's 1-down is CLUB, the
-    second word of both GOLDFISH CLUB (8,4) at 19-down and MONDAY CLUB (6,4) at
-    22-down, and its own clue reads "See 19, 22" — it names both. `group` is one
-    list, so whichever it holds, the other leading clue disagrees with it and
-    always will. The exemption is drawn on that clue and nothing else: a
-    continuation naming several leading clues is in several groups, so a leader
-    it names is allowed to disagree. A continuation naming ONE leader is not
-    covered, which is what keeps the check's teeth — Cyclops 683's 23-down reads
-    "see 9ac." while 11-across claims it, names one leader, and still errors.
-    One entry in the corpus qualifies (2026-09-17). The count lives in
-    fetch_puzzle.leaders_named, which tools/fetch_puzzle.py
-    prune_one_sided_members asks the same question of before it prunes a group:
-    the fetcher and this check must exempt the same clues or one of them is
-    writing what the other rejects.
-    """
-    by_id = {e["id"]: e for e in puzzle["entries"]}
-
+    held_by = {}
     for e in puzzle["entries"]:
         group = e.get("group")
         if group is None:
-            continue                      # the ordinary clue: its own answer
-        if len(group) < 2:
-            errors.append(f"{e['id']}: group {group} names only this entry. A clue "
-                          f"that is its own answer carries no group at all.")
             continue
-        if e["id"] not in group:
-            errors.append(f"{e['id']}: group {group} does not contain the entry itself")
+        if len(set(group)) < 2:
+            errors.append(f"{e['id']}: group {group} must name two or more "
+                          f"different lights. A clue that is its own answer "
+                          f"carries no group at all.")
             continue
-        for gid in group:
+        if group[0] != e["id"]:
+            errors.append(f"{e['id']}: group {group} does not start with this "
+                          f"entry. Only the leader carries the group, first in it")
+            continue
+        for gid in dict.fromkeys(group[1:]):
+            if gid == e["id"]:
+                continue                  # an answer that repeats its first light
             other = by_id.get(gid)
             if other is None:
                 errors.append(f"{e['id']}: group names {gid}, which is not in this puzzle")
-            elif other.get("group") != group and leaders_named(other.get("clue")) < 2:
-                errors.append(f"{e['id']}: group {group} disagrees with {gid}'s "
-                              f"{other.get('group')} — the two legs of a linked clue "
-                              f"must name the same entries in the same order")
+                continue
+            held_by.setdefault(gid, []).append(e["id"])
+            if other.get("annotation"):
+                errors.append(f"{gid}: continues {e['id']}'s linked answer, so it "
+                              f"carries no annotation; the whole answer is "
+                              f"annotated on {e['id']}")
+            if other.get("group"):
+                errors.append(f"{gid}: continues {e['id']}'s group {group} and "
+                              f"leads its own {other['group']} — a light starts "
+                              f"one answer at most, and only as its first light")
+    for gid, leads in held_by.items():
+        if len(leads) > 1 and leaders_named(by_id[gid].get("clue")) < 2:
+            errors.append(f"{gid}: in the groups of {' and '.join(leads)}, but its "
+                          f"clue names one leader. A light continues more than "
+                          f"one answer only when its clue says so")
 
 
 def check_no_markup(puzzle, errors):
@@ -2261,8 +2229,7 @@ def validate_puzzle(puzzle, corpus=False):
     # write anything that breaks it, and this catches a file written any other way.
     errors.extend(f"schema: {p}" for p in puzzle_schema.validate(puzzle))
     check_no_markup(puzzle, errors)
-    check_groups_agree(puzzle, errors)
-    check_linked_entries(puzzle, errors)
+    check_groups(puzzle, errors)
     by_id = {e["id"]: e for e in puzzle["entries"]}
     annotated = 0
     authored = is_authored(puzzle)
@@ -2273,14 +2240,6 @@ def validate_puzzle(puzzle, corpus=False):
         if ann is None:
             continue        # check_every_clue_is_annotated reports these
         annotated += 1
-
-        if "linkedTo" in ann:
-            target = by_id.get(ann["linkedTo"])
-            if not target:
-                errors.append(f"{tag}: linkedTo {ann['linkedTo']} does not exist")
-            elif not (target.get("annotation") or {}).get("coversGroup"):
-                errors.append(f"{tag}: linkedTo target is not marked coversGroup")
-            continue
 
         clue = e["clue"]
         for key in ("type", "definitions", "walkthrough", "answer", "blocks"):
@@ -2308,9 +2267,9 @@ def validate_puzzle(puzzle, corpus=False):
         check_type(tag, ann, errors)
 
         # What letters must the wordplay produce?
-        if ann.get("coversGroup"):
-            target_letters = "".join(letters(by_id[gid].get("solution") or "")
-                                     for gid in e.get("group") or [e["id"]])
+        if e.get("group"):
+            target_letters = "".join(letters((by_id.get(gid) or {}).get("solution") or "")
+                                     for gid in e["group"])
         else:
             target_letters = letters(e.get("solution"))
         ans_letters = letters(ann.get("answer"))
