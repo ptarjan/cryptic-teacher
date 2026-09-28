@@ -719,8 +719,12 @@ def infer_fuzzy_blocks(clue, answer, facts, lex, dlex, said, sources=None, why=N
                     own = b[1] != key[-1] and verified(c, " ".join([w for w, _ in ws[i:i + size - 1]] + [b[0]]), short, lex, dlex, capset)
                     found[c].append((i, size, own))
             for fod, own in {("".join(key), False), ("".join(short), True)}:
-                if said.get("anagram") and len(fod) >= MIN_ANAGRAM and fod != answer \
-                        and not collections.Counter(fod) - need:
+                # fodder where the write-up names an anagram, or prints the
+                # clue words in capitals as letters the answer holds neither
+                # in a row nor reversed
+                if (said.get("anagram") or fod in capset and fod not in answer and fod[::-1] not in answer) \
+                        and len(fod) >= MIN_ANAGRAM \
+                        and fod != answer and not collections.Counter(fod) - need:
                     add(fod, i, size, own and short != key, "lead", anagram=True, tag="anagram")
     caps += sorted(set(found) - set(caps))  # a letter the write-up says is taken from a word it prints
     for c in caps:  # a letter taken from one word, and the words beside it blogs take in with it
