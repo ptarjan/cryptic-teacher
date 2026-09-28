@@ -59,6 +59,7 @@ from urllib.parse import urlparse
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import app_tables  # noqa: E402 — the app's own sentence about each series
 import build_abbreviations  # noqa: E402 — one glossary, rendered into every page that shows it
+import clue_types  # noqa: E402 — the one list of clue types, their labels and blurbs
 import difficulty  # noqa: E402 — the weights, bands and constants /difficulty/ quotes
 import difficulty_check  # noqa: E402 — the held-out scorecard /difficulty/ quotes
 import series as series_meta  # noqa: E402 — what each series IS; see tools/series.py
@@ -397,7 +398,7 @@ def clue_html(e, blog_note=True):
     # A definition, type or indicators tools/letter_facts.py read off the letters are not the blogger's.
     inferred = (e.get("blog") or {}).get("inferred", ()) if ann.get("fromBlog") else ()
     if ann.get("definition"):
-        kind = ann.get("type") or ""
+        kind = clue_types.labels(ann.get("type"))
         # The type is a word from the lesson ("charade", "container"), so its
         # label is the way to the lesson that defines it.
         bits.append(f'<p>Definition: <dfn>{esc(ann["definition"])}</dfn>'
@@ -730,24 +731,14 @@ UNDATED = "undated"
 
 
 def type_key(puz):
-    """The clue types this puzzle uses, each with the app's one-line blurb.
-
-    Matched the way app.js matches TYPE_BLURBS (the key is a substring of the
-    type), in the order the types first appear. A clue's "Clue type: charade"
-    is a word from the lesson, and a reader from a search has not had it.
-    """
-    blurbs, seen = app_tables_type_blurbs(), {}
+    """The clue types this puzzle uses, each with its clue_types blurb, in the
+    order the types first appear. A clue's "Clue type: charade" is a word
+    from the lesson, and a reader from a search has not had it."""
+    seen = {}
     for e in puz["entries"]:
-        t = ((e.get("annotation") or {}).get("type") or "").lower()
-        for k, v in blurbs:
-            if k in t:
-                seen.setdefault(k, v)
+        for t in (e.get("annotation") or {}).get("type") or ():
+            seen.setdefault(t, clue_types.TYPES[t]["blurb"])
     return list(seen.values())
-
-
-@functools.cache
-def app_tables_type_blurbs():
-    return app_tables.type_blurbs()
 
 
 @functools.cache
@@ -1338,7 +1329,7 @@ def abbreviations_page(blocks):
 # ------------------------------------------------------------ indicators page
 
 INDICATORS = ROOT / "tools" / "data" / "lexicons" / "indicators.json"
-# Page order and the one-line lesson for each type indicators.json counts.
+# Page order and the one-line lesson for each clue_types name indicators.json keys.
 INDICATOR_TYPES = {
     "anagram": "Mix up the letters of the fodder next to it. <em>Out</em>, <em>new</em> "
                "and <em>drunk</em> all say the letters are in a mess.",
@@ -1346,24 +1337,25 @@ INDICATOR_TYPES = {
                  "<em>wearing</em> say which piece goes round which.",
     "reversal": "Read a piece backwards. <em>Back</em> and <em>returned</em> are the "
                 "usual words; in a down clue, <em>up</em> and <em>raised</em>.",
-    "hidden": "The answer is written out in the clue, running across the words. "
-              "<em>Some</em> and <em>part of</em> tell you to look for it.",
+    "hidden_word": "The answer is written out in the clue, running across the words. "
+                   "<em>Some</em> and <em>part of</em> tell you to look for it.",
     "homophone": "The answer sounds like another word. <em>We hear</em>, "
                  "<em>reportedly</em> and <em>on the radio</em> point at sound.",
     "deletion": "Take letters away. <em>Almost</em> and <em>endlessly</em> drop the last "
                 "letter; <em>headless</em> drops the first.",
-    "selection": "Take only some letters. <em>Initially</em> gives first letters, "
-                 "<em>finally</em> last ones, and <em>regularly</em> every other one.",
+    "letter_selection": "Take only some letters. <em>Initially</em> gives first letters, "
+                        "<em>finally</em> last ones, and <em>regularly</em> every other one.",
     "charade": "Put pieces side by side. These words tell you the order: "
                "<em>following</em> and <em>behind</em> put one piece after another.",
     "spoonerism": "Swap the first sounds of two words, as Dr Spooner was said to do: "
                   "<em>tons of soil</em> for <em>sons of toil</em>.",
 }
+assert set(INDICATOR_TYPES) <= set(clue_types.NAMES)
 
 
-# indicators.json's key for a phrase, and which indicator types an annotation's
-# type names: shared with the burn's indicator cover (tools/prereset_plan.py).
-from indicator_keys import TYPE_NAMES, indicator_key
+# indicators.json's key for a phrase: shared with the burn's indicator cover
+# (tools/prereset_plan.py).
+from indicator_keys import indicator_key
 
 
 def clue_indicators(found, puz, page):
@@ -1376,7 +1368,7 @@ def clue_indicators(found, puz, page):
     """
     for e in puz["entries"]:
         ann = e.get("annotation") or {}
-        kinds = (ann.get("type") or "").lower()
+        kinds = ann.get("type") or ()
         if not ann.get("indicators") or f'id="{esc(e["id"])}"' not in page:
             continue
         depth = len((ann.get("walkthrough") or "") + (ann.get("definitionFit") or ""))
@@ -1384,8 +1376,7 @@ def clue_indicators(found, puz, page):
         for word in ann["indicators"]:
             key = indicator_key(word)
             for t in INDICATOR_TYPES:
-                named = any(n in kinds for n in TYPE_NAMES.get(t, (t,)))
-                if named and ((t, key) not in found or found[(t, key)][0] < rank):
+                if t in kinds and ((t, key) not in found or found[(t, key)][0] < rank):
                     found[(t, key)] = (rank, puz["id"], e["id"])
 
 
@@ -1442,17 +1433,17 @@ def indicators_page(found):
         "<em>about</em> is a container, but it can also mean an anagram. "
         f"{linked:,} of the words are links to a real clue that uses them, explained.</p>",
         "<p>Jump to: " + " &middot; ".join(
-            f'<a href="#{t}">{t}</a>' for t in types) + "</p>",
+            f'<a href="#{t}">{clue_types.label(t)}</a>' for t in types) + "</p>",
     ]
     for t in types:
         ranked = sorted(lex[t].items(), key=lambda kv: (-kv[1], kv[0]))
         top, rest = ranked[:15], ranked[15:]
-        body += [f'<h2 id="{t}">{t.capitalize()} indicators</h2>',
+        body += [f'<h2 id="{t}">{clue_types.label(t).capitalize()} indicators</h2>',
                  f"<p>{INDICATOR_TYPES[t]}</p>",
                  "<p><strong>Most used:</strong> "
                  + " &middot; ".join(item(t, k, n) for k, n in top) + "</p>"]
         if rest:
-            body += [f"<details><summary>All {len(ranked):,} {t} indicators</summary>",
+            body += [f"<details><summary>All {len(ranked):,} {clue_types.label(t)} indicators</summary>",
                      "<p>" + " &middot; ".join(item(t, k, n) for k, n in rest) + "</p>",
                      "</details>"]
     body += [f'<p class="s-cta"><a class="cta" href="{BASE}/learn/">New to cryptics? '

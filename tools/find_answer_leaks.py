@@ -29,6 +29,7 @@ import re
 import sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
+import clue_types  # noqa: E402
 from fetch_puzzle import (  # noqa: E402 — one glob, one reader, one id resolver
     puzzle_files, read_puzzle_file, resolve_puzzle)
 
@@ -100,13 +101,13 @@ def main():
             print(f"no block note names its answer in {' '.join(args.puzzle)}")
             return 0
         for f in found:
-            print(f"{f['file']} {f['entry']} ({f['answer']}, {f['type']})")
+            print(f"{f['file']} {f['entry']} ({f['answer']}, {clue_types.labels(f['type'])})")
             for n in f["notes"]:
                 print(f"    {n['clueFragment']}: {n['note']}")
         return 1
 
     by_file = collections.Counter(f["file"] for f in found)
-    by_type = collections.Counter(f["type"] for f in found)
+    by_type = collections.Counter(clue_types.labels(f["type"]) for f in found)
     print(f"{len(found)} clue(s) in {len(by_file)} puzzle(s) name the answer in a block note.\n")
     print("worst puzzles:")
     for name, n in by_file.most_common(12):

@@ -608,7 +608,13 @@
   }
 
   // ---------- puzzles/index.js: the catalogue, not the puzzles ----------
-  const INDEX = (window.CRYPTIC_INDEX && window.CRYPTIC_INDEX.puzzles) ? window.CRYPTIC_INDEX : { latest: null, puzzles: [] };
+  // index.html loads it before this file. Without it there is no catalogue and
+  // no clue types, so the app stops here rather than drawing itself empty.
+  if (!window.CRYPTIC_INDEX || !window.CRYPTIC_INDEX.clueTypes) {
+    throw new Error("app.js: puzzles/index.js must load first (window.CRYPTIC_INDEX.clueTypes is missing); " +
+                    "build it with python3 tools/fetch_puzzle.py --reindex");
+  }
+  const INDEX = window.CRYPTIC_INDEX;
   window.CRYPTIC_PUZZLES = window.CRYPTIC_PUZZLES || {};
 
   // ---------- ids ----------
@@ -894,7 +900,7 @@
     if (!b) return null;
     const defs = b.definition || [];
     const answer = e.solution || "";
-    const ann = { fromBlog: true, answer, type: b.type || "", indicators: b.indicators || [],
+    const ann = { fromBlog: true, answer, type: b.type || [], indicators: b.indicators || [],
                   blocks: (b.blocks || []).map(([gives, clueFragment, ...how]) => {
                     const block = how.includes("inferred") ? { clueFragment, gives, inferred: true } : { clueFragment, gives };
                     const heard = how.find((h) => h && typeof h === "object" && h.soundsLike);
@@ -904,7 +910,7 @@
                   }),
                   inferred: b.inferred || [], typeCore: !!b.typeCore };
     if (defs.length) ann.definition = defs[0];
-    if (defs.length === 2 && ann.type.includes("double definition")) ann.definition2 = defs[1];
+    if (defs.length === 2 && ann.type.includes("double_definition")) ann.definition2 = defs[1];
     return ann;
   }
   // "hidden in saW HIZbollah": the words that carry `answer`, its run in
@@ -2741,69 +2747,21 @@
   // its rungs are worded for two definitions rather than one. See APP.md.
   const FILL_LABEL = "Fill in answer";
 
-  const TYPE_BLURBS = [
-    ["anagram", "An anagram: the letters of some words in the clue are rearranged to make the answer. Find the indicator, then check those letters add up to the number in brackets."],
-    ["charade", "A charade: the answer is built from parts placed one after another, each clued separately."],
-    ["container", "A container: one part is placed inside another. Look for words like holding, in, covering, swallowing."],
-    ["hidden", "A hidden word: the answer is spelled out, letter by letter in order, inside the words of the clue."],
-    ["homophone", "A homophone: the wordplay describes something that sounds like the answer."],
-    ["reversal", "A reversal: something is spelled backwards (in a down clue, words meaning 'up' can signal this)."],
-    ["deletion", "A deletion: letters are removed from a longer word — heads, tails or insides."],
-    ["double definition", "A double definition: two definitions sit side by side; there is no other wordplay."],
-    ["&lit", "An &lit (short for \u201cand literally so\u201d): the whole clue is both the definition and the wordplay at once."],
-    ["alternate letters", "Alternate letters: take every other letter of an indicated word."],
-    ["regular letters", "Regular letters: count through an indicated phrase at a fixed step — every third letter, say — and keep the ones you land on."],
-    ["first letter", "First letters: take the initial letter(s) of indicated word(s)."],
-    ["last letter", "Last letters: take the final letter(s) of indicated word(s)."],
-    ["middle letter", "Middle letters: take just the centre of an indicated word."],
-    ["second letter", "Second letters: count into the indicated word(s) and keep only the letter in position two."],
-    ["fifth letter", "Fifth letters: count five letters into the indicated word and keep the one you land on."],
-    ["outer letters", "Outer letters: keep only the outside letters of an indicated word."],
-    ["cryptic definition", "A cryptic definition: there is no separate wordplay — the whole clue is one playful, misleading description of the answer."],
-    ["spoonerism", "A spoonerism: swap the opening sounds of two words to get the answer."],
-    ["cycling", "Cycling: letters move from one end to the other without changing their order — the word rotates rather than shuffles."],
-    ["substitution", "A substitution: one indicated letter or chunk stands in for another — make the swap and the answer appears."],
-    ["palindrome", "A palindrome: the answer reads the same forwards and backwards, and that symmetry is the wordplay — there is nothing else to take apart."]
-  ];
-
+  // The clue types and their families, from tools/data/clue_types.json by way
+  // of puzzles/index.js. An annotation's `type` is an array of type names.
+  //
   // The type rung must not hand the mechanism over. It names the FAMILY — the
   // shape of the job — and the precise (honest, compound) type is held back
-  // until the building-blocks rung. First match wins, so the list is ordered by
-  // which mechanism dominates a compound type. Every part in TYPE_PARTS (validator)
-  // must be claimed by exactly one family here. See APP.md.
+  // until the building-blocks rung. The families are in precedence order: the
+  // first one a compound type uses is the one the rung names. See APP.md.
   //
-  // `n` is how many annotated clues in puzzles/ this family is a correct answer
-  // for — grading accepts every family a compound type uses, so that is the
-  // count a solver's odds actually run on. It orders the chips, not this array;
-  // tools/smoke_test.js recounts the corpus and fails if a share has drifted.
-  const FAMILIES = [
-    { label: "Double or cryptic definition", n: 805,
-      // Says what the family IS and stops. It used to add that the work is
-      // spotting which words define, which on a two-word double definition is a
-      // claim the page then disproves: both words define, so the definition
-      // rung has nothing to ask and there are no blocks either. A blurb that
-      // promises work the clue does not contain reads as a lie.
-      blurb: "No wordplay at all: the answer is not built from any of the clue's letters. It is two definitions placed together, or one playful, misleading description of the answer.",
-      match: (t) => t.includes("double definition") || t.includes("cryptic definition") },
-    { label: "&lit", n: 160,
-      blurb: "&lit is short for \u201cand literally so\u201d. The whole clue does double duty: read it once as a definition, then read the very same words again as wordplay.",
-      match: (t) => t.includes("&lit") },
-    { label: "Anagram", n: 2181,
-      blurb: "Letters handed to you in the clue get shuffled into the answer. Find those letters and check they add up to the number in brackets.",
-      match: (t) => t.includes("anagram") || t.includes("cycling") },
-    { label: "Homophone", n: 475,
-      blurb: "The wordplay describes how the answer sounds rather than how it is spelled.",
-      match: (t) => t.includes("homophone") || t.includes("spoonerism") },
-    { label: "Charade", n: 4646,
-      blurb: "The answer is built from pieces laid end to end, each clued separately — read the wordplay left to right.",
-      match: (t) => t.includes("charade") },
-    { label: "Container, reversal or deletion", n: 4434,
-      blurb: "A piece of the wordplay is changed, not just placed next to the others: it is put inside something, turned around, or trimmed.",
-      match: (t) => t.includes("container") || t.includes("reversal") || t.includes("deletion") || t.includes("substitution") || t.includes("palindrome") },
-    { label: "Hidden or letter selection", n: 2200,
-      blurb: "The answer's letters are already sitting in the clue in order — the job is working out which ones to pick out.",
-      match: (t) => t.includes("hidden") || t.includes("letter") }
-  ];
+  // A family's `n` is how many annotated clues in puzzles/ it is a correct
+  // answer for — grading accepts every family a compound type uses, so that is
+  // the count a solver's odds actually run on. It orders the chips, not the
+  // families; tools/smoke_test.js recounts the corpus and fails if a share has
+  // drifted.
+  const TYPES = Object.fromEntries(INDEX.clueTypes.types.map((t) => [t.name, t]));
+  const FAMILIES = INDEX.clueTypes.families;
 
   // Every family a compound type actually uses, dominant one first. A clue can be
   // more than one thing at once — "there was a regularly indicator but I said it
@@ -2813,25 +2771,27 @@
   // solver that a clue has exactly one mechanism, which is the opposite of what
   // this rung is for.
   // The chips the type rung offers, commonest first. The
-  // array above is a precedence order — first match wins — so it cannot also be
+  // families are in precedence order, so that order cannot also be
   // the order a solver reads, and read as one it opened with the two rarest
   // families, putting "Definitions only" and "&lit" in front of every solver on
   // every clue when between them they answer one clue in fourteen.
   const FAMILY_CHIPS = FAMILIES.slice().sort((a, b) => b.n - a.n).map((f) => f.label);
 
-  function familiesOf(type) {
-    const t = (type || "").toLowerCase();
-    return FAMILIES.filter((f) => f.match(t));
+  function familiesOf(types) {
+    const used = new Set((types || []).map((t) => TYPES[t].family));
+    return FAMILIES.filter((f) => used.has(f.name));
   }
-  function familyOf(type) {
-    return familiesOf(type)[0] ||
-      { label: "Wordplay", blurb: "The clue has a definition at one end and wordplay at the other." };
+  // Every type belongs to a family, so any non-empty type has one.
+  function familyOf(types) {
+    return familiesOf(types)[0];
   }
 
-  function typeBlurb(type) {
-    const t = (type || "").toLowerCase();
-    const hits = TYPE_BLURBS.filter(([k]) => t.includes(k)).map(([, v]) => v);
-    return hits.join(" ") || "";
+  function typeBlurb(types) {
+    return (types || []).map((t) => TYPES[t].blurb).join(" ");
+  }
+  // A type array as a reader says it: "charade + letter selection".
+  function typeLabels(types) {
+    return (types || []).map((t) => TYPES[t].label).join(" + ");
   }
 
   // Fixed prose with the clue's answer blanked out. The family and type
@@ -2876,7 +2836,7 @@
   function wholeWord(s) { return String(s || "").toUpperCase().replace(/[^A-Z]/g, ""); }
   function blockLetters(ann, b) {
     if (!b.gives) return "";
-    if ((ann.type || "").toLowerCase().includes("cryptic definition")) return "";
+    if ((ann.type || []).includes("cryptic_definition")) return "";
     const answer = wholeWord(ann.answer);
     if (answer && wholeWord(b.gives) === answer) return "";
     // An arrow from a word to its own letters teaches nothing: “goat” → GOAT is
@@ -2906,7 +2866,7 @@
   // half that is wordplay, a sounded form. So a compound type keeps its rung,
   // and a clue with three senses keeps the one the split did not mention.
   function senseBlock(ann, b) {
-    if (!ann.definition2 || !(ann.type || "").toLowerCase().includes("double definition")) return false;
+    if (!ann.definition2 || !(ann.type || []).includes("double_definition")) return false;
     if (b.soundsLike || blockLetters(ann, b)) return false;
     const frag = wholeWord(b.clueFragment);
     return !!frag && [ann.definition, ann.definition2].map(wholeWord)
@@ -2934,31 +2894,42 @@
       "Reversal words say turn or go back: recalled, returning, over, about. In a DOWN clue, anything meaning upwards does it too — up, rising, climbing — which is why the same clue can work one way and not the other."],
     ["deletion", "drop letters from a word",
       "Deletion words name the part to lose: endless and short take the tail, headless and beheaded the front, gutted and heartless the middle, almost and nearly one final letter."],
-    ["hidden", "find a run of letters already sitting in the clue",
+    ["hidden_word", "find a run of letters already sitting in the clue",
       "Hidden-word markers are quiet on purpose — in, some of, part of, held by, a bit of. They point at consecutive letters spanning the gap between two words."],
     ["homophone", "take how a word sounds, not how it is spelled",
       "Sound indicators name an ear: we hear, reportedly, on the radio, said, aloud, announced."],
     ["spoonerism", "swap the opening sounds of two words",
       "Spoonerisms all but announce themselves — the Reverend Spooner is named in the clue."],
-    ["alternate letters", "take every other letter",
+    ["alternate", "take every other letter",
       "Alternates are signalled by oddly, evenly, regularly, alternately, or by 'every other'."],
-    ["regular letters", "count through the letters at a fixed step and keep the ones you land on",
+    ["regular", "count through the letters at a fixed step and keep the ones you land on",
       "These say the step out loud — 'every third letter', 'each fourth' — so read them as arithmetic, not description."],
-    ["first letter", "take the opening letter of the words it points at",
+    ["first", "take the opening letter of the words it points at",
       "Initials come from leading words: initially, first, leaders, heads, primarily, to start."],
-    ["last letter", "take the final letter of the words it points at",
+    ["last", "take the final letter of the words it points at",
       "Finals come from trailing words: finally, last, ends, tails, ultimately."],
-    ["middle letter", "take just the middle of a word",
+    ["middle", "take just the middle of a word",
       "Middle-letter words: heart of, middle, centrally, core."],
-    ["outer letters", "keep only the outside letters of a word",
+    ["outer", "keep only the outside letters of a word",
       "Outside-letter words: outskirts, extremes, borders, bookends, both sides."],
     ["cycling", "move letters from one end to the other, keeping their order",
       "Cycling is rarer than an anagram and looks like one until you notice the order survives: cycles, rotated, circulating."],
     ["substitution", "swap one letter or chunk for another",
       "Substitution is clued by exchange words: for, replacing, instead of, in place of, takes over from."],
     ["palindrome", "check that the answer reads the same in both directions",
-      "Palindrome markers talk about symmetry rather than movement: both ways, either way, back to front, whichever end you start."]
+      "Palindrome markers talk about symmetry rather than movement: both ways, either way, back to front, whichever end you start."],
+    ["letter_selection", "keep only some of the letters of the words it points at",
+      "Selection words say which letters: initially and leaders for the first, finally and ends for the last, heart of for the middle, oddly and regularly for every other."]
   ];
+  // A clue's operations in the order its type applies them. The rows are keyed
+  // by type name, except that a letter selection is keyed by what its blocks
+  // `select`, falling back to the general letter_selection row.
+  function indicatorOps(types, blocks) {
+    const row = (k) => INDICATOR_OPS.find(([o]) => o === k);
+    const selects = [...new Set(blocks.map((b) => b.select).filter((v) => row(v)))];
+    return types.flatMap((k) => k !== "letter_selection" ? [k] : selects.length ? selects : [k])
+      .map(row).filter(Boolean);
+  }
 
   // The whole answer isn't a teaching rung — it's the end of the road — but it
   // shares the ladder's bookkeeping so it counts against the score like one.
@@ -3438,10 +3409,10 @@
 
   function ladderSteps(ann, clue) {
     if (!ann) return [];
-    const t = (ann.type || "").toLowerCase();
-    const isDD = t.includes("double definition");
-    const isCD = t.includes("cryptic definition");
-    const isLit = t.includes("&lit");
+    const t = ann.type || [];
+    const isDD = t.includes("double_definition");
+    const isCD = t.includes("cryptic_definition");
+    const isLit = t.includes("and_lit");
     const inds = ann.indicators || [];
     const blocks = buildingBlocks(ann);
     const steps = [];
@@ -3478,11 +3449,10 @@
     // Only the dominant family: a headline names one mechanism. The others a
     // compound type is made of still grade right on this rung's quiz
     // (familyAsk), so a solver who names any of them is not marked wrong.
-    const shown = [familyOf(ann.type)];
-    if (ann.type) steps.push({
+    if (t.length) steps.push({
       key: "type",
       label: LABELS.type,
-      html: shown.map((f) => `<p><strong>${esc(maskAnswer(f.label, ann.answer))}</strong>. ` +
+      html: [familyOf(t)].map((f) => `<p><strong>${esc(maskAnswer(f.label, ann.answer))}</strong>. ` +
         `${esc(maskAnswer(f.blurb, ann.answer))}</p>`).join("")
     });
 
@@ -3504,8 +3474,8 @@
     // rung may restate an earlier one.
     // A blog's blocks can come without a type it named or spelled out, and a
     // mechanism line with no mechanism in it says nothing.
-    const mechanics = !ann.type ? "" : `<p class="mechanism">Mechanism: <strong>${esc(maskAnswer(ann.type, ann.answer))}</strong>.
-      ${isDD || isCD ? "" : esc(maskAnswer(typeBlurb(ann.type), ann.answer))}</p>`;
+    const mechanics = !t.length ? "" : `<p class="mechanism">Mechanism: <strong>${esc(maskAnswer(typeLabels(t), ann.answer))}</strong>.
+      ${isDD || isCD ? "" : esc(maskAnswer(typeBlurb(t), ann.answer))}</p>`;
 
     // Where the definition lives. For a double definition the news is not "there
     // are two" — the family rung says that, and says it later — it is WHERE the
@@ -3575,7 +3545,7 @@
     if (inds.length) {
       // A blog marks its indicators without saying which does what, and its
       // type names only the dominant mechanism, so pairing them would guess.
-      const ops = ann.fromBlog ? [] : INDICATOR_OPS.filter(([k]) => t.includes(k));
+      const ops = ann.fromBlog ? [] : indicatorOps(t, ann.blocks || []);
       const marks = inds.map((i) => `<mark class="ind">${esc(i)}</mark>`).join(", ");
       // The sentences below are the same on every clue of a type: an anagram
       // indicator always "tells you to shuffle", and a compound one always does
@@ -3958,7 +3928,7 @@
     // there is no question, and the rung behaves exactly as it always did.
     // A core type (ann.typeCore) is a lower bound: the clue may also cut a word
     // or select letters from one, so those families are right answers too.
-    const right = familiesOf(ann.type + (ann.typeCore ? " + deletion + first letter" : "")).map((f) => f.label);
+    const right = familiesOf((ann.type || []).concat(ann.typeCore ? ["deletion", "letter_selection"] : [])).map((f) => f.label);
     if (!right.length) return null;
     // The families are named for the devices themselves, which means a chip can
     // be a word that is somewhere an answer — 30103 28A is a cryptic definition
@@ -4827,7 +4797,7 @@
     const ourDef = (ann.inferred || []).includes("definition");
     const ourInds = (ann.inferred || []).includes("indicators");
     const ourBlocks = ann.blocks.some((b) => b.inferred);
-    const theirs = !!((ann.definition && !ourDef) || (ann.indicators.length && !ourInds) || ann.blocks.some((b) => !b.inferred) || (ann.type && !ours));
+    const theirs = !!((ann.definition && !ourDef) || (ann.indicators.length && !ourInds) || ann.blocks.some((b) => !b.inferred) || (ann.type.length && !ours));
     const items = [ourDef && "definition", ours && "clue type", ourInds && "indicators", ourBlocks && (ann.blocks.every((b) => b.inferred) ? "pieces" : "some pieces")].filter(Boolean);
     const which = (items.length > 1 ? items.slice(0, -1).join(", ") + " and " + items[items.length - 1] : items[0]) || "clue type";
     const are = ourBlocks || ourInds || items.length > 1 ? "are" : "is";

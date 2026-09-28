@@ -3,7 +3,7 @@
 
 Checks, for every annotated entry:
   - annotation has type, definition, walkthrough, answer, blocks
-  - every " + "-joined part of `type` is in the controlled vocabulary (TYPE_PARTS)
+  - `type` is an array of names from tools/data/clue_types.json (check_type)
   - answer letters match the grid solution (group-aware for linked entries)
   - definition / definition2 / every indicator / every linkWord is an exact
     substring of the clue, and every content word of the clue is claimed by one
@@ -30,7 +30,7 @@ And checks that apply only to puzzles we WROTE (see is_authored):
   - a reversal indicator points the way the entry runs (check_reversal_direction)
 
 And checks that need the whole puzzle in hand:
-  - at most MAX_CRYPTIC_DEFINITIONS clues typed "cryptic definition"
+  - at most MAX_CRYPTIC_DEFINITIONS clues typed cryptic_definition
   - a definition's words are not also its wordplay's letters
   - the blocks hand over exactly the answer's letters, take it apart the way
     `pieces` does, and are listed in the order the answer reads
@@ -56,61 +56,56 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import clue_types  # noqa: E402
 from fetch_puzzle import (  # noqa: E402 — one glob, one id resolver, one reader, one exemption
     blog_facts_for, clue_words, leaders_named, puzzle_files, read_puzzle_file, resolve_puzzle)
 from find_answer_leaks import says  # noqa: E402 — one matcher, shared with the finder
 
-# The controlled vocabulary for `type`. Compound types join parts with " + " and
-# must name EVERY mechanism the wordplay uses (see STYLE.md — "honest types").
-TYPE_PARTS = {
-    # base clue types
-    "anagram", "charade", "container", "hidden word", "homophone", "reversal",
-    "deletion", "double definition", "cryptic definition", "&lit", "spoonerism",
-    # letter-selection mechanisms
-    "first letter", "first letters", "last letter", "last letters",
-    "middle letter", "middle letters", "outer letters", "alternate letters",
-    # A single letter picked by its position in the word, and the plural case
-    # where a run of words each give up the same position. The ordinal is
-    # whatever the setter counted to, so the whole run is spelled out rather
-    # than the handful that happen to have come up: 12420 14D takes the second
-    # letter of master, 12405 3D the third of students, everyman-4143 13A the
-    # fourth of stamps, 30103 25D the fifth of citizens, indy-12373 18A the
-    # ninth of decompress. Not a middle letter, which is what third of means
-    # only when the word has five letters (30068 6D, those). Note the comments
-    # in this block carry no double quotes: tools/smoke_test.js reads every
-    # quoted string between the braces as a type part.
-    "second letter", "second letters",
-    "third letter", "third letters",
-    "fourth letter", "fourth letters",
-    "fifth letter", "fifth letters",
-    # and further in again, as far as a setter has yet counted: 12373 18A takes
-    # the ninth letter of decompress for the S of SALT, the position written as
-    # No.9 in front of the word.
-    "sixth letter", "sixth letters",
-    "seventh letter", "seventh letters",
-    "eighth letter", "eighth letters",
-    "ninth letter", "ninth letters",
-    "tenth letter", "tenth letters",
-    "eleventh letter", "eleventh letters",
-    "twelfth letter", "twelfth letters",
-    # "alternate letters" is the every-SECOND case; a setter may count in any
-    # step (30077 17D takes every third letter of HOPE TO GOD to spell POD)
-    "regular letters",
-    # positions picked by a rule rather than a fixed step: indysunday-1871 12A
-    # keeps the 2nd, 3rd, 5th, 7th and 11th letters of holes in prime spots
-    # along road to spell OASES.
-    "prime letters",
-    # letter-movement mechanisms: a rotation that keeps letter order (30079 7D
-    # TSUNAMIS = A MIST SUN cycled), and a swap of one indicated letter for
-    # another (30079 15D LAUGH LINE = TAUGHT IN E with Ls covering the Ts)
-    "cycling", "substitution",
-    # the answer is its own reversal: 30052 23D PULL-UP, clued Stop going both
-    # ways. Not a reversal, since nothing is turned round to make something
-    # else, so no fragment hands over letters and the blocks split into
-    # readings rather than chunks, the way a cryptic definition's do. As above,
-    # no double quotes in this comment: the smoke test would read them as parts.
-    "palindrome",
-}
+# The controlled vocabulary for `type`: an array of names from
+# tools/data/clue_types.json, naming EVERY mechanism the wordplay uses in the
+# order it is applied (see STYLE.md — "honest types"). A letter_selection says
+# which letters on the block that keeps them, as `select`.
+TYPE_NAMES = clue_types.NAMES
+
+
+def types_of(ann):
+    """The annotation's type array; check_type reports anything else."""
+    t = ann.get("type")
+    return t if isinstance(t, list) else []
+
+
+def check_type(tag, ann, errors):
+    """`type` is a non-empty array of distinct names from clue_types.json, and a
+    letter_selection has at least one block saying which letters (`select`)."""
+    t = ann.get("type")
+    if not isinstance(t, list) or not t:
+        errors.append(
+            f"{tag}: type must be a non-empty array of names from tools/data/"
+            f"clue_types.json, e.g. [\"charade\", \"reversal\"]; got {t!r}")
+        return
+    for name in t:
+        if name not in TYPE_NAMES:
+            errors.append(
+                f"{tag}: type {name!r} is not in the controlled vocabulary "
+                f"({', '.join(TYPE_NAMES)}). The list is closed and this run "
+                f"cannot extend it, so if no name fits, the parse is wrong: find "
+                f"the mechanism the list does name")
+    if len(set(t)) != len(t):
+        errors.append(f"{tag}: type {t!r} names a mechanism twice; list each once")
+    selects = [b["select"] for b in ann.get("blocks") or [] if "select" in b]
+    for v in selects:
+        if not clue_types.valid_select(v):
+            errors.append(
+                f"{tag}: block select {v!r} is not one of "
+                f"{', '.join(clue_types.SELECT_WORDS)} or a letter position 2..20")
+    if "letter_selection" in t and not selects:
+        errors.append(
+            f"{tag}: type has letter_selection but no block says which letters. "
+            f"Put `select` on the block that keeps them: "
+            f"{', '.join(clue_types.SELECT_WORDS)}, or n for the nth letter")
+    if selects and "letter_selection" not in t:
+        errors.append(f"{tag}: a block has `select` but type {t!r} has no "
+                      f"letter_selection — add it or drop the field")
 
 
 # A cryptic definition has no checkable mechanism: the solver either sees the
@@ -666,7 +661,7 @@ def check_reversal_direction(tag, ann, direction, errors):
     Only declared indicators are examined, and only on clues whose type or
     subReversals say a reversal happens, so an ordinary `up` elsewhere in the
     surface is not the check's business (30039 11A reverses UP itself)."""
-    if "reversal" not in (ann.get("type") or "") and not ann.get("subReversals"):
+    if "reversal" not in types_of(ann) and not ann.get("subReversals"):
         return
     wrong = VERTICAL_REVERSAL if direction == "across" else HORIZONTAL_REVERSAL
     axis = ("an across entry reads right to left when reversed, so it wants "
@@ -966,7 +961,7 @@ def check_sound_names_its_source(tag, ann, errors, warnings):
     whose type declares a sound, and it must differ from what the block gives —
     a `soundsLike` equal to the output is not a homophone, it is a spelling.
     """
-    is_sound = any(t in (ann.get("type") or "").lower() for t in SOUND_TYPES)
+    is_sound = any(t in types_of(ann) for t in SOUND_TYPES)
     heard = [b for b in ann.get("blocks", []) if b.get("soundsLike")]
     for b in heard:
         if not b.get("gives"):
@@ -1360,7 +1355,7 @@ def check_cryptic_definition_cap(entries, errors, warnings=None, authored=False)
     """
     cds = [f"{e['number']}{'A' if e['direction'] == 'across' else 'D'}"
            for e in entries
-           if (e.get("annotation") or {}).get("type") == "cryptic definition"]
+           if types_of(e.get("annotation") or {}) == ["cryptic_definition"]]
     if len(cds) < MAX_CRYPTIC_DEFINITIONS:
         return
     if len(cds) > MAX_CRYPTIC_DEFINITIONS and authored:
@@ -1494,7 +1489,7 @@ def check_cryptic_definition_blocks(tag, ann, errors, warnings):
     clue can be a perfectly honest cryptic definition and still be annotated
     into a rung that hands over the answer.
     """
-    if (ann.get("type") or "").lower() != "cryptic definition":
+    if types_of(ann) != ["cryptic_definition"]:
         return
     blocks = ann.get("blocks") or []
     giving = [b.get("clueFragment") or "?" for b in blocks if (b.get("gives") or "").strip()]
@@ -1559,7 +1554,7 @@ MAX_DEFINITION_REUSE = 3
 # The two halves of a cryptic sit side by side and do not overlap: &lit means the
 # whole clue is both at once, a double definition is two definitions and no
 # wordplay, a cryptic definition is no wordplay at all.
-DEFINITION_REUSE_EXEMPT = ("&lit", "double definition", "cryptic definition")
+DEFINITION_REUSE_EXEMPT = ("and_lit", "double_definition", "cryptic_definition")
 
 
 #: Words too common to say two definitions are the same stretch of the clue.
@@ -1647,7 +1642,7 @@ def check_blocks_against_blog(puzzle, warnings):
 
 
 #: Wordplay a blog names in words, which a cryptic definition would leave out.
-BLOG_WORDPLAY = ("anagram", "homophone", "spoonerism", "reversal", "container", "hidden")
+BLOG_WORDPLAY = ("anagram", "homophone", "spoonerism", "reversal", "container", "hidden_word")
 
 
 def check_cryptic_definition_against_blog(puzzle, warnings):
@@ -1666,8 +1661,8 @@ def check_cryptic_definition_against_blog(puzzle, warnings):
     for e in puzzle["entries"]:
         ann = e.get("annotation") or {}
         fact = row["entries"].get(e["id"]) or {}
-        theirs = (fact.get("type") or "").lower()
-        if "cryptic definition" not in (ann.get("type") or ""):
+        theirs = fact.get("type") or []
+        if "cryptic_definition" not in types_of(ann):
             continue
         named = [w for w in BLOG_WORDPLAY if w in theirs]
         # A type in "inferred" is tools/letter_facts.py's reading of the letters, not the
@@ -1678,7 +1673,8 @@ def check_cryptic_definition_against_blog(puzzle, warnings):
             tag = f"{e['number']}{'A' if e['direction'] == 'across' else 'D'}"
             warnings.append(
                 f"{tag}: typed cryptic definition, but {who} as {least}"
-                f"{theirs!r} ({row['url']}). If the {named[0]} is there, annotate it")
+                f"{clue_types.labels(theirs)!r} ({row['url']}). If the "
+                f"{clue_types.label(named[0])} is there, annotate it")
 
 
 def check_definition_not_fodder(entries, errors, warnings):
@@ -1706,7 +1702,7 @@ def check_definition_not_fodder(entries, errors, warnings):
         ann = e.get("annotation") or {}
         if not ann or "linkedTo" in ann:
             continue
-        if any(x in (ann.get("type") or "") for x in DEFINITION_REUSE_EXEMPT):
+        if any(x in types_of(ann) for x in DEFINITION_REUSE_EXEMPT):
             continue
         tag = f"{e['number']}{'A' if e['direction'] == 'across' else 'D'}"
         dw = set(re.findall(r"[a-z]+", (ann.get("definition") or "").lower()))
@@ -1740,16 +1736,15 @@ def check_definition_not_fodder(entries, errors, warnings):
 # Mechanisms where the blocks legitimately do not add up to the answer: a
 # deletion or substitution names letters that are taken away, and the three
 # definition-only types plus the sound types claim no letters at all.
-UNBALANCED_TYPES = ("deletion", "substitution", "cryptic definition",
-                    "double definition", "homophone", "spoonerism", "&lit")
+UNBALANCED_TYPES = ("deletion", "substitution", "cryptic_definition",
+                    "double_definition", "homophone", "spoonerism", "and_lit")
 
-# A clue whose whole mechanism is "middle letter" hands over that letter and
-# nothing else, so when the answer is longer than it the answer is DESCRIBING the
+# A clue whose whole mechanism is one letter selection hands over those letters
+# and nothing else, so when the answer is longer the answer is DESCRIBING the
 # extraction rather than being built from it — 12423 16A, MIDDLE OF NOWHERE.
-# Matched exactly, unlike the list above: the 42 compound types that merely
-# CONTAIN "middle letter" ("charade + middle letter", 111 clues between them) do
-# have to add up, so a substring match here would blind the check on all of them.
-UNBALANCED_EXACT_TYPES = ("middle letter",)
+# Matched exactly: a compound that merely includes a selection
+# (charade + letter_selection) does have to add up.
+UNBALANCED_EXACT_TYPES = (["letter_selection"],)
 
 # The three block-shape checks below took a per-puzzle allowance of 2 until the
 # corpus was drained of every hit (2026-09-07). None of them has a false positive
@@ -1779,7 +1774,7 @@ def check_blocks_account_for_answer(entries, errors, warnings):
         ann = e.get("annotation") or {}
         if not ann or "linkedTo" in ann:
             continue
-        atype = (ann.get("type") or "").strip()
+        atype = types_of(ann)
         if any(x in atype for x in UNBALANCED_TYPES) or atype in UNBALANCED_EXACT_TYPES:
             continue
         from collections import Counter
@@ -1867,7 +1862,7 @@ def check_blocks_in_answer_order(entries, errors, warnings):
     a check (Paul, 2026-08-09), only false positives are, and re-measured under a
     tight scope there are none.
 
-    SCOPE is the whole trick. It applies only to `type == "charade"` exactly.
+    SCOPE is the whole trick. It applies only to `type == ["charade"]` exactly.
     Any positional mechanism in the mix legitimately lists blocks out of final
     order: a container's inner piece goes inside rather than after, and a
     rotation is *defined* by blocks assembled before the spin — 30079 7D TSUNAMIS
@@ -1886,7 +1881,7 @@ def check_blocks_in_answer_order(entries, errors, warnings):
         ann = e.get("annotation") or {}
         if not ann or "linkedTo" in ann:
             continue
-        if (ann.get("type") or "").strip() != "charade":
+        if types_of(ann) != ["charade"]:
             continue
         got = "".join(letters(b.get("gives")) for b in ann.get("blocks", []))
         want = letters(ann.get("answer") or e.get("solution"))
@@ -2232,13 +2227,7 @@ def validate_puzzle(puzzle, corpus=False):
             if not ann.get(key):
                 errors.append(f"{tag}: missing annotation field '{key}'")
 
-        for part in (ann.get("type") or "").split(" + "):
-            if part and part not in TYPE_PARTS:
-                errors.append(
-                    f"{tag}: type part {part!r} is not in the controlled vocabulary "
-                    f"(the Reference list in tools/annotate_prompt.md). The list is "
-                    f"closed and this run cannot extend it, so if no part fits, the "
-                    f"parse is wrong: find the mechanism the list does name")
+        check_type(tag, ann, errors)
 
         # What letters must the wordplay produce?
         if ann.get("coversGroup"):
@@ -2284,19 +2273,18 @@ def validate_puzzle(puzzle, corpus=False):
             joined = letters("".join(ann["pieces"]))
             if joined != ans_letters:
                 errors.append(f"{tag}: pieces {ann['pieces']} join to {joined}, expected {ans_letters}")
-        if "hidden" in (ann.get("type") or ""):
+        if "hidden_word" in types_of(ann):
             # A reversed hidden word sits in the clue back to front (30045 26A
             # hides LEND across "commanD NELson"), so when the type also declares
             # the reversal, the mirror image counts as found.
             clue_letters = letters(expand_cross_references(clue, puzzle["entries"]))
-            reversed_ok = ("reversal" in ann["type"]
+            reversed_ok = ("reversal" in types_of(ann)
                            and ans_letters[::-1] in clue_letters)
             if ans_letters not in clue_letters and not reversed_ok:
                 errors.append(f"{tag}: hidden answer {ans_letters} not found inside clue letters")
         if not (ann.get("anagram") or ann.get("pieces")
-                or "hidden" in (ann.get("type") or "")
-                or "definition" in (ann.get("type") or "")
-                or "homophone" in (ann.get("type") or "")):
+                or {"hidden_word", "double_definition", "cryptic_definition",
+                    "homophone"} & set(types_of(ann))):
             warnings.append(f"{tag}: no machine-checkable assembly. Give `pieces` (the "
                             f"final chunks in answer order) for a charade, container or "
                             f"deletion, `anagram.fodder` (every letter shuffled, added "
@@ -2500,7 +2488,7 @@ def explain(name=None):
 
     if not name:
         print("Every check this file runs. `--explain <name>` prints one in full;\n"
-              "constants and helpers (OPERATION_RE, convention_used, TYPE_PARTS)\n"
+              "constants and helpers (OPERATION_RE, convention_used, TYPE_NAMES)\n"
               "work as names too.\n")
         for key, node in named.items():
             if not key.startswith("check_"):

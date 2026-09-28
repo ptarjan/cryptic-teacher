@@ -51,6 +51,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import series as series_meta  # noqa: E402 — what each series IS; see tools/series.py
 import provenance  # noqa: E402 — where each puzzle came from; see tools/provenance.py
 import corroborate  # every other source we hold; see tools/corroborate.py
+import clue_types  # the closed list of clue types; see tools/clue_types.py
 
 ROOT = Path(__file__).resolve().parent.parent
 PUZZLE_DIR = ROOT / "puzzles"
@@ -572,12 +573,12 @@ def blog_annotation(e):
     if not b:
         return None
     defs = b.get("definition") or []
-    ann = {"fromBlog": True, "answer": e.get("solution") or "", "type": b.get("type") or "",
+    ann = {"fromBlog": True, "answer": e.get("solution") or "", "type": b.get("type") or [],
            "indicators": list(b.get("indicators") or []),
            "blocks": [blog_block(e.get("solution"), gives, src, how) for gives, src, *how in b.get("blocks") or []]}
     if defs:
         ann["definition"] = defs[0]
-    if len(defs) == 2 and "double definition" in ann["type"]:
+    if len(defs) == 2 and "double_definition" in ann["type"]:
         ann["definition2"] = defs[1]
     return ann
 
@@ -2185,8 +2186,11 @@ def reindex():
     # mirrored nowhere.
     books = {str(i): {"shelf": r["shelf"], "volume": r["volume"], "was": r["was"]}
              for i, r in sorted(series_meta.BOOKS.items())}
+    # The clue types, their families and blurbs: app.js names and explains a
+    # type from this and has no table of its own.
     index = {"latest": puzzles[0]["id"] if puzzles else None,
              "papers": papers, "groups": groups, "books": books,
+             "clueTypes": clue_types.DATA,
              "snitchRanges": snitch, "puzzles": puzzles}
     compact = json.dumps(index, ensure_ascii=False, separators=COMPACT)
     (PUZZLE_DIR / "index.json").write_text(compact + "\n", encoding="utf-8")

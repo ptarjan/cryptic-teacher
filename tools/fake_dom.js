@@ -539,8 +539,8 @@ function boot(opts) {
     abbrevSrc + "\n" + appSrc)(global.window, document, global.window.localStorage,
                                global.confirm, navigator);
 
-  // appSrc goes back out because the smoke test greps app.js's own source for the
-  // FAMILIES table — an assertion about the code, not about the rendered DOM.
+  // appSrc goes back out because the smoke test greps app.js's own source (the
+  // LABELS ladder) — an assertion about the code, not about the rendered DOM.
   return { registry, document, storage, docListeners, winListeners, canonicalLink, FakeEl,
            appSrc, beacons, window: global.window };
 }
