@@ -66,6 +66,11 @@ from stamp_assets import asset_url  # noqa: E402 — content-hashed asset URLs
 # reimplemented: the alt text has to describe the picture that was actually
 # drawn, and only the generator knows which clue that was.
 from make_og_card import alt_text as card_alt  # noqa: E402
+from make_og_card import DEFAULT_ENTRY, DEFAULT_PUZZLE  # noqa: E402 — the site card's clue
+import page_card  # noqa: E402 — the card of every page that is not a puzzle
+
+# Every page card head() linked this run, for make_og.sh --pages to draw.
+PAGE_CARDS = {}
 
 ROOT = Path(__file__).resolve().parent.parent
 BASE = "https://cryptic.paultarjan.com"
@@ -246,17 +251,27 @@ def app_name():
     return json.loads((ROOT / "site.webmanifest").read_text(encoding="utf-8"))["short_name"]
 
 
+@functools.cache
+def site_card_alt():
+    return card_alt(DEFAULT_PUZZLE, DEFAULT_ENTRY)
+
+
 def head(title, description, canonical, extra="", image=None, image_alt=None):
     """The shared <head>. Kept identical to index.html's, minus the app-only bits.
 
     `image` is the social card. Puzzle pages pass their own — a clue out of that
-    very puzzle — and everything else falls back to the site card. Sharing a
-    hundred pages as one picture of somebody else's crossword was a wasted
-    unfurl: the card is the only part of the page most people will ever see.
+    very puzzle — or the site card; every other page gets a card of its own
+    title and description (tools/page_card.py), so a page nobody made a card for
+    still unfurls as itself. One site card on every page meant /difficulty/
+    shared as a picture of somebody else's crossword clue.
     """
-    card = asset(image) if image else asset("og.png")
-    alt = (f'<meta property="og:image:alt" content="{esc(image_alt)}">\n'
-           if image_alt else "")
+    if image:
+        card = asset(image)
+    else:
+        s = page_card.spec(canonical, title, description)
+        PAGE_CARDS[page_card.slug(canonical)] = s
+        card = esc(f"{BASE}/{page_card.rel(canonical)}?v={s['v']}")
+        image_alt = page_card.alt(title, description)
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -277,7 +292,10 @@ def head(title, description, canonical, extra="", image=None, image_alt=None):
 <meta property="og:description" content="{esc(description)}">
 <meta property="og:url" content="{esc(canonical)}">
 <meta property="og:image" content="{card}">
-{alt}<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image:width" content="{page_card.WIDTH}">
+<meta property="og:image:height" content="{page_card.HEIGHT}">
+<meta property="og:image:alt" content="{esc(image_alt)}">
+<meta name="twitter:card" content="summary_large_image">
 {extra}<link rel="stylesheet" href="{asset("style.css")}">
 <script src="{asset("analytics.js")}"></script>
 </head>
@@ -659,9 +677,10 @@ def puzzle_page(puz, meta, prev_p, next_p):
     # is the condition rather than "is it annotated", because the page must not
     # advertise an image that isn't there — and asset() would fail on it anyway,
     # having nothing to hash.
-    card = alt = None
     if (ROOT / f"og/{puz['id']}.png").exists():
         card, alt = f"og/{puz['id']}.png", card_alt(puz["id"])
+    else:
+        card, alt = "og.png", site_card_alt()
 
     return (head(title, desc, canonical,
                  app_return(puz["id"]) + ld(article_ld) + ld(breadcrumb_ld(crumbs)),
@@ -1638,6 +1657,7 @@ def main():
         d.rmdir()
         if d.parent.parent == PUZZLE_DIR / "series" and not any(d.parent.iterdir()):
             d.parent.rmdir()          # a series with no listing pages left
+    page_card.write_spec(PAGE_CARDS)
     print(f"{len(files)} page(s); wrote {len(stale)} changed; "
           f"{len(dead)} orphan(s) removed")
     return 0
