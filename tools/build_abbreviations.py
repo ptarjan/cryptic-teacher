@@ -109,16 +109,7 @@ def letters_of(s):
     return re.sub(r"[^A-Z0-9]", "", (s or "").upper())
 
 
-def seen_html(rows):
-    """seen()'s rows as the page's second table: word, letters, how many clues."""
-    body = "\n".join(
-        f"<tr><td>{w}</td><td>{letters}</td><td>seen in {n:,} clues</td></tr>"
-        for w, letters, n in rows)
-    return ('<table class="glossary-seen">\n<thead><tr><th>Word</th><th>Stands for</th>'
-            "<th>Evidence</th></tr></thead>\n<tbody>\n" + body + "\n</tbody>\n</table>")
-
-
-def table_html(senses, links=None):
+def table_html(senses, links=None, rare=None):
     """The glossary markup, for the one page that carries it: /abbreviations/.
 
     The data is stored letters-first because that is the direction the assembler
@@ -133,15 +124,27 @@ def table_html(senses, links=None):
     that one row, so the solver lands on the line they asked about instead of on
     the top of a four-hundred-row table with the reading still to do.
 
-    `links` maps a word to a clue that uses it.
+    `links` maps a word to a clue that uses it. `rare` maps a word to seen()'s
+    readings for it, which join the same row in muted type: one list, looked up
+    the same way, with the curated readings first.
     """
-    links = links or {}
-    rows, cells = [], sorted(senses)
+    links, rare = links or {}, rare or {}
+    by_anchor = {anchor(w): w for w in senses}
+    for w in rare:
+        by_anchor.setdefault(anchor(w), w)
+    merged = {}
+    for w, r in rare.items():
+        merged.setdefault(by_anchor[anchor(w)], []).extend(r)
+    rare = merged
+    rows, cells = [], sorted(by_anchor.values(), key=str.lower)
     for i in range(0, len(cells), COLUMNS):
         row = "".join(
             f'<td id="{anchor(w)}">'
             + (f'<a href="{links[w]}">{w}</a>' if w in links else w)
-            + f'</td><td>{", ".join(sorted(senses[w]))}</td>'
+            + "</td><td>" + ", ".join(
+                sorted(senses.get(w, []))
+                + [f'<span class="muted" title="seen in {n:,} clues">{k}</span>'
+                   for k, n in rare.get(w, [])]) + "</td>"
             for w in cells[i:i + COLUMNS])
         rows.append(f"<tr>{row}</tr>")
     return '<table class="glossary">\n' + "\n".join(rows) + "\n</table>"
