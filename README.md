@@ -164,8 +164,16 @@ Shape:
   (`tools/data/blog_facts/`), or, where no blog marked anything, badges it
   `answers only` and shows no ladder.
   `separatorLocations` works the same way: it is present only when the paper
-  marks a break inside the answer. Nothing writes `{}` or `null` into a puzzle
-  file.
+  marks a break inside the answer, and so does every other key: no value in a
+  puzzle file is `null`, `""`, `[]` or `{}`, and a flag is written only when
+  true. The one exception is `clue`, which every entry has and which is `""`
+  on a clue the paper printed blank. A puzzle whose paper names no setter
+  (the Times, the Telegraph, Metro) has no `setter` key.
+- **The shape is a schema.** `tools/data/puzzle.schema.json` (JSON Schema
+  2020-12) lists every key, its type and the closed lists it draws from.
+  Every write prunes empty values and refuses what breaks the schema, the
+  validator reports it, and CI checks every puzzle with
+  `python3 tools/puzzle_schema.py`.
 
 ### Provenance: where the puzzle, its grid and its answers each came from
 
@@ -181,7 +189,6 @@ got here and, most importantly, **whose answers these are**.
   "acquiredBy": "tools/fetch_wayback.py",   // the command that actually ran
   "acquiredOn": "2026-09-17",       // when the file first appeared in git
   "retrievedFrom": "wayback",       // publisher | wayback | blog | book | authored
-  "retrievedUrl": "https://web.archive.org/web/2016id_/https://…",
   "gridOrigin": "published",        // published | reconstructed | authored
   "solutionOrigin": "published",    // published | writeup | model | authored | unsolved
   "annotatedBy": ["claude-opus-5"]  // who wrote the hints: exact model ids, or human | published | unknown
@@ -227,9 +234,6 @@ Other fields:
   rejects a file where the two disagree.
 - The canonical URL is **not** copied into the block. It lives only in
   `sourceUrl`, because a second copy is a second thing that can be wrong.
-- `retrievedUrl` is null for the 542 puzzles recovered from archive captures
-  before the field existed. The capture address was never stored, and guessing
-  it would be worse than admitting it is unknown.
 
 Every allowed value is listed in `tools/provenance.py` and nowhere else.
 `tools/puzzle_integrity.py` validates against those same dicts.

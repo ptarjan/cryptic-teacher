@@ -98,6 +98,10 @@ tools/test_repair_fetched.sh                 builds a puzzle file with each of t
                                              and proves the repair fixes it, leaves a clean
                                              file and a real Cyclops per-light group
                                              byte-identical, and is clean on the second run
+tools/puzzle_schema.py                       checks every puzzle file against
+                                             tools/data/puzzle.schema.json, and prunes null and
+                                             empty values on every write: an absent key means
+                                             empty
 tools/puzzle_integrity.py                    checks the puzzles themselves: two puzzles that
                                              are the same puzzle, an answer that does not fit
                                              its clue’s printed length, two entries that cross
@@ -681,6 +685,9 @@ tools/data/penguin5_control.json             the ten-puzzle Penguin volume 5 con
 tools/data/sample_fill_11.json               the worked 11x11 fill tools/AUTHORING.md walks
                                              through
 tools/data/authored_A001_clues.json          the hand-written clues for that fill
+tools/data/puzzle.schema.json                the puzzle file's shape as a JSON Schema
+                                             (2020-12): every key, its type, and the closed
+                                             lists it draws from
 tools/data/clue_types.json                   the fifteen clue types and the seven families they
                                              fall in, with the labels and blurbs the app and
                                              the tools show

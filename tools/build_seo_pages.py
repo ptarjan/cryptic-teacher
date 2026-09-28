@@ -472,10 +472,6 @@ def clue_html(e, blog_note=True):
                else "With no clue, there is no wordplay to explain.")
             + '</p>'
             if e.get("clueMissing") else
-            '<p class="muted">The paper printed the wrong clue here: these words '
-            'belong to a different answer, so there is no wordplay to explain. '
-            + esc(e["clueCorrupt"]) + '</p>'
-            if e.get("clueCorrupt") else
             '<p class="muted">No explanation yet.</p>')
     bits.append("</article>")
     return "".join(bits)

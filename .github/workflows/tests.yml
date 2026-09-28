@@ -58,8 +58,9 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # The layout check is not a test script and needs neither the index nor the
-  # pages, so it runs on its own without paying for the build. It is the one
+  # The layout check and the puzzle schema check are not test scripts and need
+  # neither the index nor the pages, so they run on their own without paying for
+  # the build. It is the one
   # generated thing still committed: every other generated file is built by the
   # workflow that publishes it, and a file nobody commits cannot go stale.
   generated:
@@ -75,10 +76,11 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Check the committed layout table and prompt reference
+      - name: Check the committed layout table, prompt reference and puzzle schema
         run: |
           fails=()
           python3 tools/build_readme.py --check-layout || fails+=("layout table")
+          python3 tools/puzzle_schema.py || fails+=("a puzzle breaks tools/data/puzzle.schema.json")
           python3 tools/build_abbreviations.py --check \
             || fails+=("abbreviations.json lacks a frequent reading: run the commands above")
           python3 tools/build_annotate_prompt.py >/dev/null
