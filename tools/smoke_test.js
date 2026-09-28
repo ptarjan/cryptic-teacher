@@ -5541,7 +5541,7 @@ global.realSetTimeout(() => {
   registry["picker-diff-help"].onclick();
   const open = note();
   assert(/with the others on this site/.test(open), "the ? says what a band is measured against: " + open);
-  assert(/solving times aren.t used/.test(open), "and what is not in it: " + open);
+  assert(/href="difficulty\/"/.test(open), "and links the page that explains the rest: " + open);
   // The shares are read off the collection, never written down: one pasted into
   // prose is true on the day it is pasted, and this one moves with every puzzle.
   const bands = {};

@@ -1,0 +1,125 @@
+<!-- The difficulty page. tools/build_seo_pages.py renders it as /difficulty/ and
+     fills every {{name}} from tools/difficulty.py, its frozen baseline,
+     puzzles/index.json and tools/data/difficulty_check.json. Numbers never go
+     in this file: a number typed here is never checked again.
+     Each "component:" block below is keyed by a difficulty.WEIGHTS name, with
+     its heading after the bar, and the build fails unless the blocks and
+     WEIGHTS name the same components. -->
+<p>Every puzzle with full hints carries a difficulty badge: gentle, moderate,
+tough or brutal. This page explains where the badge comes from and how we
+check it.</p>
+
+<h2 id="bands">What the badge means</h2>
+<p>The badge compares a puzzle with the other puzzles on this site, not with
+crosswords in general. No paper publishes a difficulty rating, so there is
+nothing absolute to measure against. "Tough" means tougher than most puzzles
+here.</p>
+<p>The rating is a score in standard deviations: 0 is an average puzzle on this
+site, +1 is one standard deviation harder. The bands are cut at fixed points on
+that score:</p>
+{{bands}}
+<p>The <a href="https://times.xwdsnitch.link/">SNITCH</a> rates every Times
+puzzle by how long about a hundred regular solvers took, each compared with
+their own usual time. Its rating is called the NITCH: 100 is a normal day for
+them, and 130 means solving took 30% longer than usual. On Times puzzles the
+badge's tooltip quotes the NITCH range scored by the middle half of our puzzles
+in that band, shown in the table above.</p>
+
+<h2 id="components">What goes into it</h2>
+<p>We measure the {{component_count}} things below. Each one is compared with
+the rest of the site, so a puzzle scores above or below the usual. The rating
+is a weighted average of those scores. The weights are set by hand and never
+fitted to solve times. If a puzzle is missing a measure, it is rated on the
+rest. The "on its own" figure is how well that measure alone tracks Times
+solve times, using the check described <a href="#checks">below</a>.</p>
+{{components}}
+<p>The rating comes only from the puzzle: its grid, its clues and its answers.
+It never uses the day of the week. The Times gets harder from Monday to Friday
+on purpose, so the weekday alone would predict a Times puzzle well. But it
+would say nothing about the clues, and most papers have no weekly pattern for
+it to carry to.</p>
+
+<h2 id="comments">Solvers' posted times, on Times puzzles</h2>
+<p>The Times for the Times blog writes up every Times puzzle, and its
+commenters often say how long they took, or that they gave up. Where a post
+has at least {{comment_min_times}} stated times, the badge averages the clue
+rating with those times and with the share of commenters who did not finish.
+Each is compared only with other puzzles from the same series. A series needs
+at least {{comment_series_min}} such puzzles before any of them is blended.
+Today that covers {{blended_series}}. A puzzle can change band as its post
+gathers comments.</p>
+<p>No other blog posts solve times, so every other series is rated from the
+clues alone.</p>
+
+<h2 id="checks">How we check it</h2>
+<p>The SNITCH is the only independent rating of puzzles we hold, so it is the
+test. Because the Times ramps up through the week by design, and the rating
+leaves the weekday out, we test against the NITCH minus the average NITCH for
+that weekday. The question is not "was this hard?" but "was this hard for a
+Tuesday?". The Sunday Times appears only one day a week, so it is tested
+against the plain NITCH.</p>
+<p>The puzzles are split into three periods by date. Each period is tested
+against weekday averages taken from the other two, so no puzzle helps set its
+own target. The figure is a rank correlation: 0 means no relation, and 1 means
+the rating puts the puzzles in exactly the order the solvers' times do.</p>
+{{checks}}
+<p>A second check needs no solve times. The Guardian Quiptic and the Observer
+Everyman are gentle puzzles by their own papers' design. {{margin}}</p>
+<p>A new measure is added only if the rating with it beats the rating without
+it on both Times sets, in at least two of the three periods and on average,
+without making the Sunday Times or the gentle-puzzle check worse. Whether a
+measure should make a puzzle harder or easier is fixed before it is tested.</p>
+
+<h2 id="limits">Limits</h2>
+<ul>
+  <li>Only puzzles with our hints get a badge, because the wordplay measures
+      need them. The unannotated check above uses only {{portable_measures}},
+      and those track solve times less well.</li>
+  <li>Only the Times has a SNITCH. For every other paper there are no solve
+      times at all. The same formula rates those puzzles, and the gentle-puzzle
+      check is the only test it gets there.</li>
+  <li>Posted times and the NITCH are both solve times for the same puzzle, so
+      part of what the blended rows gain is solvers agreeing with solvers.</li>
+  <li>Clue features are nearly exhausted. The recent rounds of candidate
+      measures, from clue length to where the definition sits, all failed the
+      test. The biggest recent gain came from solvers' own times, not from
+      reading the clues better.</li>
+</ul>
+
+<!-- component: checking | Unchecked letters -->
+<p>The share of each answer's letters that no crossing answer gives you. An
+unchecked letter has to come from the clue alone, so a grid with many of them
+gives less help.</p>
+<!-- component: rarity | Rare answers -->
+<p>How rare the puzzle's three rarest answers are, from a word list ordered by
+how often words appear. A word you seldom meet is slower to think of, even
+once the clue has told you what it means.</p>
+<!-- component: device | Wordplay types -->
+<p>Which kinds of wordplay the clues use, and how much work each is. A hidden
+word gives itself up. A cryptic definition offers nothing to confirm your
+guess. A clue built from many pieces, especially one- and two-letter
+abbreviations, takes longer to assemble. This needs our hints.</p>
+<!-- component: machinery | Wordplay steps -->
+<p>How many operations the clues ask for: indicators per clue, plus extra for a
+clue that stacks three or more kinds of wordplay. Each step is one more thing
+to spot and do. This needs our hints.</p>
+<!-- component: answer_novelty | Unfamiliar answers -->
+<p>How seldom the answers appeared in earlier puzzles, from any paper. A solver
+who has met an answer before gets to it sooner. Only puzzles published before
+this one count, so a rating never changes because later puzzles arrived.</p>
+<!-- component: pairing_novelty | Unfamiliar definitions -->
+<p>How seldom each answer was clued with the same kind of definition in earlier
+puzzles. A stock pairing, like IDE clued as "fish", is recognised on sight. A
+new one has to be worked out.</p>
+<!-- component: question_marks | Question marks -->
+<p>The share of clues ending in a question mark. The mark usually means the
+definition is a pun, an example or a cryptic definition rather than a plain
+synonym. Commenters name these clues as hard, and as their last one in, more
+often than others.</p>
+<!-- component: definition_unrelated | Indirect definitions -->
+<p>The share of clues whose definition a dictionary of word senses (WordNet)
+does not link to the answer. An indirect definition cannot be reached by
+running through synonyms.</p>
+<!-- component: clue_count | Number of clues -->
+<p>How many clues the puzzle has. Every clue is one more thing to solve, so a
+Jumbo takes longer than a daily however easy each clue is.</p>

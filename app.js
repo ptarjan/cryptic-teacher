@@ -5343,7 +5343,9 @@
   // Difficulty comes from tools/difficulty.py, which rates a puzzle against the
   // rest of the collection rather than in the abstract — see its header for why
   // an absolute rating is not something the data supports. The tooltip carries
-  // that caveat, because a bare word like "Brutal" reads as a fact.
+  // that caveat, because a bare word like "Brutal" reads as a fact, and the
+  // badge itself opens /difficulty/, which explains the rest (pickerRow()).
+  const DIFFICULTY_PAGE = "difficulty/";
   function difficultyBadge(p) {
     const d = p.difficulty;
     if (!d) return "";
@@ -5356,6 +5358,7 @@
     const snitch = nitch ? ` ${d.band} puzzles in this series typically score SNITCH ${nitch[0]}–${nitch[1]}.` : "";
     return `<span class="badge diff diff-${d.band.toLowerCase()}" title="${esc(
       d.band + pct + ". Based on " + basis + ", compared with the other puzzles on this site." + snitch
+      + " Tap the badge for how difficulty is rated."
     )}">${esc(d.band.toLowerCase())}</span>`;
   }
 
@@ -5651,10 +5654,10 @@
       .map((b) => `<span class="band-count"><span class="badge diff diff-${esc(b)}">${esc(b)}</span> ${n[b]}</span>`)
       .join("");
     return "Difficulty compares a puzzle with the others on this site, not with "
-      + "crosswords in general: the papers don\u2019t publish ratings, and solving "
-      + "times aren\u2019t used. A puzzle rates harder when fewer of its squares belong "
-      + "to both an across and a down answer, when its answers are unusual words, and "
-      + "when the wordplay gives less help checking that a guess is right. "
+      + "crosswords in general: the papers don\u2019t publish ratings. It is worked out "
+      + "from the grid, the clues and the answers, and on Times puzzles from the solve "
+      + "times commenters post. "
+      + `<a href="${DIFFICULTY_PAGE}">How difficulty is rated</a>. `
       + (counts ? "Puzzles in each band now:<span class=\"band-counts\">" + counts + "</span>" : "");
   }
 
@@ -5814,7 +5817,15 @@
           ${!st.filled ? ""
             : st.done ? `<span class="p-prog done" title="Every square filled in and correct">solved ✓</span>`
             : `<span class="p-prog">${st.filled}${st.total ? "/" + st.total : ""} letters filled</span>`}</span>`;
-    btn.onclick = () => { openPuzzle(p.id); togglePicker(false); };
+    // The row is one button, so the difficulty badge cannot be an <a> inside
+    // it; a tap on the badge goes to the page explaining it instead.
+    btn.onclick = (ev) => {
+      if (ev && ev.target && ev.target.closest && ev.target.closest(".badge.diff")) {
+        location.href = DIFFICULTY_PAGE;
+        return;
+      }
+      openPuzzle(p.id); togglePicker(false);
+    };
     li.appendChild(btn);
     return li;
   }

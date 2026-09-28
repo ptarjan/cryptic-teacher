@@ -21,13 +21,13 @@ The SNITCH chooses components and never sets weights. A component joins the
 index, or replaces one, only when the index with it beats the index without
 it held out, on two sets: the annotated Times dailies under the full index,
 and the rated Times dailies with no annotation under the components that
-need none (rarity, the two novelty counts, question_marks,
-definition_unrelated, clue_count). Each set splits into its own date thirds,
+need none (PORTABLE). Each set splits into its own date thirds,
 each third scored against the NITCH minus the weekday mean of the rated
 puzzles outside it, and the candidate must win in at least two of the three and on the mean
 in both, with the Sunday Times not falling and --validate's SERIES ORDER
-passing at a margin of at least 0.08 (scratch/snitch_stage4.py runs all of
-it). A candidate's sign is fixed before it is measured. The weights are fixed,
+passing at a margin of at least MARGIN_FLOOR (tools/difficulty_check.py
+measures the shipped index this way nightly; scratch/snitch_stage4.py screens
+candidates with the same functions). A candidate's sign is fixed before it is measured. The weights are fixed,
 not fitted: held-out refits of them
 (scratch/snitch_weights.py) came out unstable and never beat fixed ones. The
 index is NOT a calibrated absolute, and the SNITCH is used for three things:
@@ -230,6 +230,12 @@ PAIRING_SCALE = 10000
 WEIGHTS = {"checking": 0.45, "rarity": 0.30, "device": 0.25, "machinery": 0.25,
            "answer_novelty": 0.25, "pairing_novelty": 0.25, "question_marks": 0.25,
            "definition_unrelated": 0.25, "clue_count": 0.25}
+#: The components an unannotated puzzle has: the index the unannotated held-out
+#: set is scored by (tools/difficulty_check.py).
+PORTABLE = ("rarity", "answer_novelty", "pairing_novelty", "question_marks",
+            "definition_unrelated", "clue_count")
+#: The least the index may put the gentle series below the dailies, in its own sd.
+MARGIN_FLOOR = 0.08
 
 # The series their own papers declare gentle, an input to --validate that lives
 # here rather than in the prose above so the test and the story it tells cannot

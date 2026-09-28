@@ -37,6 +37,9 @@ learn/                                       the “How cryptic clues work” le
                                              tools/tutorial.html — generated, not committed
 abbreviations/                               the glossary of standard abbreviations the blocks
                                              rung links into — generated, not committed
+difficulty/                                  how the difficulty badge is worked out and
+                                             checked, built from tools/difficulty_page.html —
+                                             generated, not committed
 og/                                          one 1200x630 social card per puzzle, drawn from
                                              one of its clues — generated, not committed
 puzzles/index.json, puzzles/index.js         manifest: one row per puzzle, latest first, and
@@ -445,6 +448,8 @@ tools/qr_check.py                            decodes qr.js’s own output with a
                                              wrong QR code draws perfectly and simply never
                                              scans
 tools/tutorial.html                          source of the learn/ lesson
+tools/difficulty_page.html                   the prose of the difficulty/ page; every number in
+                                             it is filled in at build time
 tools/og_card.html                           source and type for og.png, the site’s one social
                                              card
 
@@ -535,6 +540,12 @@ tools/snitch_report.py                       the difficulty index and each compo
                                              the SNITCH, raw and minus its weekday mean, by
                                              date third, and per clue against the clues
                                              commenters found hard; run nightly
+tools/difficulty_check.py                    the shipped difficulty rating's held-out scorecard
+                                             against the SNITCH, and the gentle-series margin;
+                                             run nightly
+tools/data/difficulty_check.json             tools/difficulty_check.py's output, which the
+                                             difficulty/ page quotes only while it matches the
+                                             current weights and baseline
 tools/data/snitch_report.txt                 tools/snitch_report.py's output, rewritten
                                              nightly, so its git history shows each number
                                              moving as ratings and annotations arrive
@@ -719,5 +730,11 @@ tools/build_wordnet.py                       writes tools/data/wordnet.json.gz, 
 tools/data/wordnet.json.gz                   WordNet synsets and hypernyms for lexicon words
                                              and corpus definitions; committed so scoring needs
                                              no nltk
+scratch/snitch_stage10.py                    stage 10: clue- and answer-structure candidates,
+                                             screened on both sets
+scratch/snitch_stage11.py                    stage 11: clue-surface and answer-form candidates,
+                                             screened on both sets
+scratch/snitch_stage12.py                    stage 12: blog-fact candidates, screened on both
+                                             sets
 ```
 <!-- LAYOUT-END -->
