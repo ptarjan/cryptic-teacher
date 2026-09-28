@@ -22,7 +22,7 @@ check() {  # check <what> <expected> <got>
 
 tree="$(mktemp -d)"
 trap 'rm -rf "$tree"' EXIT
-mkdir -p "$tree/tools/data" "$tree/puzzles"
+mkdir -p "$tree/tools/data" "$tree/puzzles/book/2000"
 cp "$REPO/tools/book_queue.py" "$tree/tools/"
 
 cat > "$tree/tools/data/books.json" <<'JSON'
@@ -40,7 +40,7 @@ cat > "$tree/tools/data/book_candidates.json" <<'JSON'
 JSON
 
 # One puzzle filed against book 1 (numbers are book_index * 1000 + position).
-echo '{}' > "$tree/puzzles/book-1007.json"
+echo '{}' > "$tree/puzzles/book/2000/book-1007.json"
 
 got="$(cd "$tree" && python3 tools/book_queue.py | cut -f1 | tr '\n' ' ')"
 # A book with a puzzle in the corpus is read; the rest are offered best first,
@@ -54,7 +54,7 @@ check "--count counts the unread, not the registry" "3" \
 
 # Every book read: --next must FAIL rather than print nothing, or the caller
 # cannot tell "finished" from "broken" and alerts on a finished queue.
-for n in 2007 3007 4007; do echo '{}' > "$tree/puzzles/book-$n.json"; done
+for n in 2007 3007 4007; do echo '{}' > "$tree/puzzles/book/2000/book-$n.json"; done
 check "--count is 0 once every book is read" "0" \
   "$(cd "$tree" && python3 tools/book_queue.py --count)"
 (cd "$tree" && python3 tools/book_queue.py --next >/dev/null 2>&1)

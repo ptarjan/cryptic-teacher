@@ -90,9 +90,9 @@ say("hole_queued_in_corpus", not errs and any("queued" in w for w in warns))
 
 # The clue is the source's: an annotated clue whose words differ from the
 # committed file's fails; one retyped with other punctuation does not.
-from pathlib import Path
 import fetch_puzzle
-committed = Path("puzzles/sundaytimes-5067.json")
+import puzzle_paths
+committed = puzzle_paths.find("sundaytimes-5067")
 held = fetch_puzzle.read_puzzle_file(committed)
 lead = next(e for e in held["entries"] if e.get("annotation"))
 reworded, retyped = copy.deepcopy(held), copy.deepcopy(held)

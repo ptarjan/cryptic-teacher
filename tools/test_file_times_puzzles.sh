@@ -19,7 +19,7 @@ check() {  # check <what> <expected> <got>
 
 out=$(PYTHONPATH="$REPO/tools" python3 - <<'PY'
 import datetime, json, pathlib, tempfile
-import fetch_puzzle, provenance
+import fetch_puzzle, provenance, puzzle_paths
 import reconstruct_grid as rg
 import file_times_puzzles as F
 
@@ -51,8 +51,8 @@ def row(r, **extra):
 LISTING = {("sundaytimes", 4321): datetime.date(2026, 1, 11)}
 
 tmp = pathlib.Path(tempfile.mkdtemp())
-fetch_puzzle.PUZZLE_DIR = tmp / "puzzles"
-fetch_puzzle.PUZZLE_DIR.mkdir()
+puzzle_paths.PUZZLE_DIR = tmp / "puzzles"
+puzzle_paths.PUZZLE_DIR.mkdir()
 
 recs = [rec(1, 100, "2026-01-05"), rec(2, 101, "2026-01-06"),
         rec(3, 2026, "2026-01-07"),               # a year read as the number
@@ -78,7 +78,8 @@ blog_typo["answer"] = "ZZ"
 rows = [row(r) for r in recs]
 rows[1]["corrections"] = [{"number": 1, "direction": "across", "answer": right}]
 # The Globe and Mail already holds the Quick from 3150 on.
-(fetch_puzzle.PUZZLE_DIR / "globeandmail-3150.json").write_text("{}")
+(puzzle_paths.PUZZLE_DIR / "globeandmail" / "undated").mkdir(parents=True)
+(puzzle_paths.PUZZLE_DIR / "globeandmail" / "undated" / "globeandmail-3150.json").write_text("{}")
 
 grids, parsed = tmp / "grids.jsonl", tmp / "parsed.jsonl"
 grids.write_text("".join(json.dumps(r) + "\n" for r in rows))
@@ -90,7 +91,7 @@ print("NO_CLUE", skipped["a light has no clue"])
 print("OUT_OF_SEQUENCE", skipped["number out of sequence"])
 print("REPRINTED", skipped["globeandmail reprints it"])
 
-p = json.loads((fetch_puzzle.PUZZLE_DIR / "times-100.json").read_text())
+p = json.loads(puzzle_paths.find("times-100").read_text())
 by_id = {e["id"]: e for e in p["entries"]}
 print("CLUE_KEEPS_COUNT", by_id["2-down"]["clue"])
 print("CLEAN", by_id["1-down"]["clue"])
@@ -99,25 +100,25 @@ print("SOLVED", all(e["solution"] for e in p["entries"]))
 print("DATED", p["date"])
 print("ORIGINS", p["provenance"]["gridOrigin"], p["provenance"]["solutionOrigin"])
 print("PROV_CLEAN", provenance.check(p) == [])
-fixed = json.loads((fetch_puzzle.PUZZLE_DIR / "times-101.json").read_text())
+fixed = json.loads(puzzle_paths.find("times-101").read_text())
 print("CORRECTED", {e["id"]: e for e in fixed["entries"]}["1-across"]["solution"] == right)
-sunday = json.loads((fetch_puzzle.PUZZLE_DIR / "sundaytimes-4321.json").read_text())
-print("PRIZE_UNDATED", sunday["date"], json.loads((fetch_puzzle.PUZZLE_DIR / "times-29000.json").read_text())["date"])
+sunday = json.loads(puzzle_paths.find("sundaytimes-4321").read_text())
+print("PRIZE_UNDATED", sunday["date"], json.loads(puzzle_paths.find("times-29000").read_text())["date"])
 
 # A second run writes nothing, and a file that has drifted is named, not rewritten.
-path = fetch_puzzle.PUZZLE_DIR / "times-102.json"
+path = puzzle_paths.find("times-102")
 edited = json.loads(path.read_text())
 edited["entries"][0]["clue"] = "Annotated since (2)"
 path.write_text(json.dumps(edited))
-before = {q.name: q.read_bytes() for q in fetch_puzzle.PUZZLE_DIR.iterdir()}
+before = {q.name: q.read_bytes() for q in puzzle_paths.PUZZLE_DIR.rglob("*") if q.is_file()}
 filed, _, drifted = F.run(grids, parsed, listing=LISTING)
 print("RERUN_FILED", sum(filed.values()))
-print("RERUN_UNTOUCHED", before == {q.name: q.read_bytes() for q in fetch_puzzle.PUZZLE_DIR.iterdir()})
+print("RERUN_UNTOUCHED", before == {q.name: q.read_bytes() for q in puzzle_paths.PUZZLE_DIR.rglob("*") if q.is_file()})
 print("DRIFTED", ",".join(drifted))
-print("SETTERS", sunday["setter"], json.loads((fetch_puzzle.PUZZLE_DIR / "times-29000.json").read_text()).get("setter"))
+print("SETTERS", sunday["setter"], json.loads(puzzle_paths.find("times-29000").read_text()).get("setter"))
 
 # A number inside the Globe's run that it never printed is still filed here.
-(fetch_puzzle.PUZZLE_DIR / "globeandmail-3152.json").write_text("{}")
+(puzzle_paths.PUZZLE_DIR / "globeandmail" / "undated" / "globeandmail-3152.json").write_text("{}")
 held = F.reprinted_from()
 print("REPRINT_GAP", ",".join(str(F.reprinted_by(held, "timesquick", n)) for n in (3150, 3151, 3200)))
 
@@ -128,7 +129,7 @@ print("RETYPED", F.retyped({"number": 5445, "date": "2023-02-12"}, fits, {5044, 
       F.retyped({"number": 2019, "date": "2019-02-23"}, fits, set()))
 
 # A puzzle filed with no setter is given the title's; a name never is replaced.
-sp = fetch_puzzle.PUZZLE_DIR / "sundaytimes-4321.json"
+sp = puzzle_paths.find("sundaytimes-4321")
 for key, held in (("PLACEHOLDER", None), ("NAMED", "Someone")):
     sp.write_text(json.dumps({k: v for k, v in {**sunday, "setter": held}.items()
                               if v is not None}))

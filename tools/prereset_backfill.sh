@@ -490,9 +490,20 @@ run_claude() {
   return $rc
 }
 
+# One puzzle's file as a git pathspec: puzzles/<series>/<year>/<id>.json in
+# whichever year folder, so a write that moved it to another year is staged or
+# undone as both halves of the rename.
+puzzle_spec() { printf 'puzzles/*/*/%s.json' "$1"; }
+# Undo a run's edits to one puzzle, including a copy written to a new folder.
+discard_puzzle() {
+  git checkout -- "$(puzzle_spec "$1")" 2>/dev/null
+  git clean -qf -- "$(puzzle_spec "$1")"
+}
+
 # Run a wave of puzzles at once and commit the ones that survive validation.
 #   $1   commit message prefix, e.g. "Annotate"
-#   $2   the prompt, with every @ standing for the puzzle id
+#   $2   the prompt, with every @ standing for the puzzle id and every
+#        @PATH@ for its file (tools/puzzle_paths.py)
 #   $3+  the ids
 # Returns how many runs failed, and names them in WAVE_FAILED_IDS so the caller
 # can put them back in the queue instead of losing them to a lockout that has
@@ -511,7 +522,8 @@ run_wave() {
   done
   [ ${#again[@]} -gt 0 ] && echo "  picking up the cut-off conversations for: ${again[*]}"
   for i in "${!ids[@]}"; do
-    run_claude "${ids[$i]}" "${tmpl//@/${ids[$i]}}" &
+    local prompt="${tmpl//@PATH@/$(python3 tools/puzzle_paths.py "${ids[$i]}")}"
+    run_claude "${ids[$i]}" "${prompt//@/${ids[$i]}}" &
     pids+=($!)
   done
   for i in "${!ids[@]}"; do
@@ -529,15 +541,16 @@ run_wave() {
       # under it while it was stopped, not restate the job.
       # What the retry is told to look at: the annotate run's copy, never the
       # puzzle itself, which names the blog (see run_claude).
-      local seen="puzzles/${ids[$i]}.json"
+      local seen
+      seen=$(python3 tools/puzzle_paths.py "${ids[$i]}")
       [ "$what" = Annotate ] && seen="tools/_puzzle_${ids[$i]}.json"
-      if [ -n "$(git status --porcelain -- "puzzles/${ids[$i]}.json")" ] &&
+      if [ -n "$(git status --porcelain -- "$(puzzle_spec "${ids[$i]}")")" ] &&
          python3 tools/validate_annotations.py "${ids[$i]}" >/dev/null 2>&1; then
         echo "  [${ids[$i]}] run failed — keeping what it finished, the file still validates"
         printf '%s\n' "You were cut off by a usage limit. The limit has since cleared and your edits to $seen are exactly as you left them. Pick up where you stopped, finish the task you were given, and run python3 tools/annotate_check.py ${ids[$i]} until it reports clean. Do not commit." >"/tmp/ct-prereset-${ids[$i]}.resume"
       else
         echo "  [${ids[$i]}] run failed — discarding its changes"
-        git checkout -- "puzzles/${ids[$i]}.json" 2>/dev/null
+        discard_puzzle "${ids[$i]}"
         printf '%s\n' "You were cut off by a usage limit, mid-edit, so $seen was rolled back to how it was before you started — check it before you assume anything about its contents. The limit has since cleared. You already did the solving, so write out what you had worked out rather than working it out again, finish the task you were given, and run python3 tools/annotate_check.py ${ids[$i]} until it reports clean. Do not commit." >"/tmp/ct-prereset-${ids[$i]}.resume"
       fi
       WAVE_FAILED_IDS+=("${ids[$i]}")
@@ -681,7 +694,7 @@ drop_failed() {
     echo "  [$id] failed with the five-hour window at ${1}% — not a lockout, dropped for this run"
     rm -f "/tmp/ct-prereset-$id.resume" "/tmp/ct-prereset-$id.sid"
     [ "$DRY_RUN" = 1 ] && continue
-    git checkout -- "puzzles/$id.json" 2>/dev/null
+    discard_puzzle "$id"
     [ "$WAVE_WHAT" = Annotate ] || continue
     python3 tools/failed_inputs.py record annotate "$id" --reason \
       "$(grep -v '^[[:space:]]*$' "/tmp/ct-prereset-$id.txt" | tail -8 | tr '\n' ' ')" \
@@ -705,10 +718,12 @@ commit_puzzle() {
     # one clue. One attempt only: a second failure means the run cannot see what
     # is wrong with it, and repeating that is the waste this avoids.
     if [ "$attempt" = first ]; then
+      local file
+      file=$(python3 tools/puzzle_paths.py "$num")
       printf '%s\n\n%s\n\n%s\n' \
-        "puzzles/$num.json does not validate:" \
+        "$file does not validate:" \
         "$(grep -E '^  ERROR' /tmp/ct-prereset-validate.txt)" \
-        "Fix those clues in puzzles/$num.json and nothing else, following tools/annotate_prompt.md, then run python3 tools/annotate_check.py $num until it reports clean. Do not commit." \
+        "Fix those clues in $file and nothing else, following tools/annotate_prompt.md, then run python3 tools/annotate_check.py $num until it reports clean. Do not commit." \
         >"/tmp/ct-prereset-$num.resume"
       echo "  [$num] did not validate — handing the errors back rather than discarding the puzzle"
       # Even a fix run the limit cuts off may have landed its edit, so the
@@ -728,7 +743,7 @@ commit_puzzle() {
     # grid. It stays out of the queue until those inputs change.
     python3 tools/failed_inputs.py record annotate "$num" --judged \
       --reason "$(grep -E '^  ERROR' /tmp/ct-prereset-validate.txt | head -1)" || true
-    git checkout -- "puzzles/$num.json" 2>/dev/null
+    discard_puzzle "$num"
     return 1
   fi
   # Solved-but-short is not a failure anywhere else in this pipeline: the nulled
@@ -736,12 +751,13 @@ commit_puzzle() {
   loss=$(python3 tools/check_annotation_loss.py "$num" 2>&1) || \
     alert "pre-reset backfill left clues blank — $loss. They ship with no teaching ladder, and validate_annotations.py fails the puzzle for it."
   echo "$loss"
-  if [ -n "$(git status --porcelain -- "puzzles/$num.json")" ]; then
+  if [ -n "$(git status --porcelain -- "$(puzzle_spec "$num")")" ]; then
     # One puzzle, on purpose: this job runs for hours and publishes as it goes,
     # so each finished puzzle reaches the site without waiting for the rest.
     # Named because it was just written, not as an allow-list — the sweep at the
-    # end takes everything.
-    git add "puzzles/$num.json"
+    # end takes everything. -A, so a file that changed year folders goes in as
+    # a rename rather than as a new copy beside the old one.
+    git add -A -- "$(puzzle_spec "$num")"
     git commit -q -m "$(printf '%s %s\n\n%s' "$what" "$num" "$(python3 tools/provenance.py trailer)")"
     # Nothing generated survives the rebase, because nothing generated is worth
     # carrying: the republish step rewrites every one of these files wholesale
@@ -765,7 +781,7 @@ commit_puzzle() {
     # HEAD over it ("untracked working tree files would be overwritten"), the &&
     # chain never reaches the push, and every puzzle for the rest of the night
     # commits locally and alerts. Same exclusions, same reason (2026-09-02).
-    git clean -qfd -e 'puzzles/*.json' -e 'tools/'
+    git clean -qfd -e 'puzzles/**/*.json' -e 'tools/'
     # --autostash still, for what is left: a plain rebase refuses outright with a
     # sibling's half-written puzzle unstaged ("cannot pull with rebase: You have
     # unstaged changes"). Every push in this job failed that way on the nights of
@@ -899,9 +915,8 @@ for p in todo[:5]:
     print(f"  {when}  {p['id']}", file=sys.stderr)
 if len(todo) > 5:
     print(f"  ... and {len(todo) - 5} older", file=sys.stderr)
-# IDs, not numbers: the file is puzzles/<id>.json and every consumer below names
-# it directly, so nothing downstream has to resolve a number that two papers
-# could one day share.
+# IDs, not numbers: an id is what tools/puzzle_paths.py finds a file by, so
+# nothing downstream has to resolve a number that two papers could one day share.
 print(" ".join(p["id"] for p in todo))
 EOF
 )
@@ -969,7 +984,7 @@ print(" ".join(n for n,_ in sorted(d.items(), key=lambda kv: kv[1])))' "$field")
     indicatorNotes) what="an object keyed by the exact indicator string, ONE sentence each saying why THAT word carries THAT instruction — never the generic sentence about what the device does, and never a word of the answer" ;;
     *) what="the field as tools/annotate_prompt.md describes it" ;;
   esac
-  prompt="In this repo, add the missing \`$field\` to every annotated clue in puzzles/@.json that lacks one. $field is $what. Read tools/annotate_prompt.md and STYLE.md for the voice, and read an existing puzzle that already has the field so yours match. This is ADDITIVE: change nothing else, do not rewrite existing hints, types, indicators or pieces. Run python3 tools/annotate_check.py @ until it reports clean. Do not commit — the calling script commits."
+  prompt="In this repo, add the missing \`$field\` to every annotated clue in @PATH@ that lacks one. $field is $what. Read tools/annotate_prompt.md and STYLE.md for the voice, and read an existing puzzle that already has the field so yours match. This is ADDITIVE: change nothing else, do not rewrite existing hints, types, indicators or pieces. Run python3 tools/annotate_check.py @ until it reports clean. Do not commit — the calling script commits."
   queue=($nums)
   at=0
   while [ "$at" -lt "${#queue[@]}" ]; do
@@ -1009,6 +1024,7 @@ fi
 if [ -n "$(git status --porcelain -- puzzles/)" ]; then
   echo "dropping unfinished puzzles: $(git status --porcelain -- puzzles/ | awk '{print $2}' | tr '\n' ' ')"
   git checkout -- puzzles/
+  git clean -qf -- 'puzzles/*/*/*.json'
 fi
 
 # Its per-puzzle report covers the whole corpus, a megabyte that would trim the

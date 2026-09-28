@@ -15,6 +15,7 @@ from collections import defaultdict
 from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
+import puzzle_paths  # noqa: E402
 from blog_comment_difficulty import MINUTES, DNF  # noqa: E402
 from fetch_puzzle import read_puzzle_file  # noqa: E402
 import difficulty as D  # noqa: E402
@@ -52,7 +53,6 @@ def stats(comments):
 
 def load():
     out = {}  # pid -> stats
-    link = {}
     ids = json.loads((FS / "by_puzzle.json").read_text())["ids"]
     for pid, posts in ids.items() if "BD_ONLY" not in __import__("os").environ else ():
         rows = []
@@ -102,8 +102,8 @@ def main():
         hlp = sum(s["help"] for _, s in rows) / comm
         idx = {}
         for p, s in rows:
-            path = ROOT / "puzzles" / f"{p}.json"
-            if path.exists():
+            path = puzzle_paths.find(p)
+            if path:
                 sc = D.score(read_puzzle_file(path), ctx)
                 if sc:
                     idx[p] = sc["index"]

@@ -2,7 +2,7 @@
 """Which registered archive.org books have not been read yet, best first.
 
 A book is UNREAD here when the corpus holds no puzzle from it at all. That is
-a fact the repo can answer — count `puzzles/book-<index*1000+position>.json` —
+a fact the repo can answer — count `puzzles/book/<year>/book-<index*1000+position>.json` —
 rather than a fraction of `estimated_puzzle_count`, which the ranking's own
 README says runs high because front and back matter print no puzzles. A
 threshold against a number known to be wrong would put books in and out of this
@@ -29,7 +29,7 @@ POSITIONS_PER_VOLUME = 1000
 def filed_counts():
     """{book_index: puzzles filed} over the real corpus."""
     counts = {}
-    for path in (ROOT / "puzzles").glob("book-*.json"):
+    for path in (ROOT / "puzzles" / "book").glob("*/book-*.json"):
         try:
             number = int(path.stem.split("-", 1)[1])
         except ValueError:

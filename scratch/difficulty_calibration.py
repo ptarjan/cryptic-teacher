@@ -16,6 +16,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 DATA = Path.home() / "cryptic-setter-data"
 sys.path.insert(0, str(ROOT / "tools"))
+import puzzle_paths  # noqa: E402
 
 
 def index_table():
@@ -386,8 +387,8 @@ def snitch():
     for s in ("times", "sundaytimes"):
         rows = []
         for n, v in sn.items():
-            path = ROOT / "puzzles" / f"{s}-{n}.json"
-            if not path.exists():
+            path = puzzle_paths.find(f"{s}-{n}")
+            if path is None:
                 continue
             r = D.raw(read_puzzle_file(path), ctx)
             z = {k: (x - base[k]["mean"]) / base[k]["sd"] for k, x in r.items() if x is not None and k in ("checking", "rarity")}

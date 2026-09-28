@@ -97,7 +97,7 @@ PACING. One request per second, max, with a browser-ish User-Agent (reusing
 fetch_puzzle.UA) — this is somebody else's CDN and getting banned would take
 the puzzle away from every future run, not just this one.
 
-Writes puzzles/<series>-<number>.json (preserving any existing per-clue
+Writes puzzles/<series>/<year>/<series>-<number>.json (preserving any existing per-clue
 annotations, same as the other two fetchers), then rebuilds the index via
 fetch_puzzle.reindex() — unless --out points somewhere other than the real
 puzzles/ dir, in which case reindex() is skipped, because it always rebuilds
@@ -115,7 +115,8 @@ from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from fetch_puzzle import (PUZZLE_DIR, flatten_clue, http_bytes,  # noqa: E402
+import puzzle_paths  # noqa: E402
+from fetch_puzzle import (flatten_clue, http_bytes,  # noqa: E402
                           merge_annotations, puzzle_files, puzzle_path,
                           read_puzzle_file, reindex, write_puzzle_file)
 import series as series_meta  # noqa: E402
@@ -403,10 +404,10 @@ def fetch_date(ymd, out_dir, dry_run=False):
     puzzle_id = f"{SET}_{ymd}"
     data = fetch_raw_json(puzzle_id)
     puzzle = convert(data, ymd)
-    # puzzle_path() always resolves against the real puzzles/ dir, so it can't
-    # stand in here — --out is the one caller in this file that deliberately
-    # writes somewhere else.
-    path = out_dir / f"{puzzle['id']}.json"
+    # --out writes flat into its directory; the corpus files by puzzle_path().
+    path = (puzzle_path(puzzle["series"], puzzle["number"])
+            if out_dir.resolve() == puzzle_paths.PUZZLE_DIR.resolve()
+            else out_dir / f"{puzzle['id']}.json")
     if dry_run:
         print(f"[dry-run] would write {path} ({puzzle['name']}, {len(puzzle['entries'])} entries)")
         return puzzle
@@ -488,7 +489,7 @@ def latest():
             # there is nothing newer to find further down the list either.
             print(f"up-to-date {puzzle['id']}")
             return None
-        return fetch_date(ymd, PUZZLE_DIR)
+        return fetch_date(ymd, puzzle_paths.PUZZLE_DIR)
     return None
 
 
@@ -511,7 +512,7 @@ def run_dates(ymds, out_dir, dry_run):
         except Exception as err:  # noqa: BLE001 — one bad day shouldn't stop the run
             print(f"skip {ymd}: {err}")
             missing += 1
-    if not dry_run and out_dir == PUZZLE_DIR:
+    if not dry_run and out_dir.resolve() == puzzle_paths.PUZZLE_DIR.resolve():
         reindex()
     print(f"done: {fetched} fetched, {missing} unavailable/failed")
 
@@ -523,7 +524,7 @@ def main(argv):
 
     dry_run = "--dry-run" in argv
     argv = [a for a in argv if a != "--dry-run"]
-    out_dir = PUZZLE_DIR
+    out_dir = puzzle_paths.PUZZLE_DIR
     if "--out" in argv:
         i = argv.index("--out")
         out_dir = Path(argv[i + 1])

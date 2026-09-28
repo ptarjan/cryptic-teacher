@@ -43,9 +43,9 @@ import numpy as np
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
+import puzzle_paths  # noqa: E402
 import difficulty as D
 
-PUZ = ROOT / "puzzles"
 BLOG = ROOT / "tools" / "data" / "blog_facts"
 COMMENTS = ROOT / "tools" / "data" / "blog_comment_difficulty.json"
 LUFZ = ROOT / "tools" / "data" / "lufz-en-lexicon.js"
@@ -93,9 +93,7 @@ def load_family():
 def corpus():
     """Every puzzle file: {pid: (series, {entry id: answer})}. One pass, ~25 s."""
     out = {}
-    for f in PUZ.glob("*.json"):
-        if f.name == "index.json":
-            continue
+    for f in puzzle_paths.puzzle_files():
         try:
             p = json.loads(f.read_text(encoding="utf-8"))
         except ValueError:
@@ -333,8 +331,8 @@ def build():
     rows = collections.defaultdict(list)
     for pid, v in sn.items():
         series = pid.rpartition("-")[0]
-        path = PUZ / f"{pid}.json"
-        if series not in D.SNITCH_SERIES or not path.exists():
+        path = puzzle_paths.find(pid)
+        if series not in D.SNITCH_SERIES or path is None:
             continue
         puz = D.read_puzzle_file(path)
         if not all(e.get("solution") for e in puz["entries"]):

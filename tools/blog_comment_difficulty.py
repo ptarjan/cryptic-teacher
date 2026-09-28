@@ -29,6 +29,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 from blog_facts import DATA  # noqa: E402
 from fetch_puzzle import read_puzzle_file  # noqa: E402
+import puzzle_paths  # noqa: E402
 
 BLOG = DATA / "timesforthetimes"
 OUT = ROOT / "tools/data/blog_comment_difficulty.json"
@@ -135,8 +136,8 @@ def build():
                 continue
             post = ids.get(v["url"].rstrip("/"))
             comments = by_post.get(post)
-            path = ROOT / "puzzles" / f"{pid}.json"
-            if not comments or not path.exists():
+            path = puzzle_paths.find(pid)
+            if not comments or path is None:
                 continue
             clues, times, dnf = score(read_puzzle_file(path), comments)
             table[pid] = {"comments": len(comments), "dnf": dnf,
@@ -184,7 +185,7 @@ def per_puzzle(table):
         if pid.rpartition("-")[0] != "times" or v["comments"] < 10:
             continue
         named = list(v["clues"].values())
-        s = D.score(read_puzzle_file(ROOT / "puzzles" / f"{pid}.json"), ctx)
+        s = D.score(read_puzzle_file(puzzle_paths.find(pid)), ctx)
         nitch = sn.get(pid, {}).get("nitch")
         resid = nitch - by_day[date.fromisoformat(sn[pid]["date"]).weekday()] if nitch is not None else None
         rows.append({"dnf": v["dnf"] / v["comments"],
@@ -210,7 +211,7 @@ def per_clue(table):
     cols = defaultdict(list)
     puzzles = 0
     for pid, v in table.items():
-        puz = read_puzzle_file(ROOT / "puzzles" / f"{pid}.json")
+        puz = read_puzzle_file(puzzle_paths.find(pid))
         if not D.puzzle_is_annotated(puz):
             continue
         rows = []

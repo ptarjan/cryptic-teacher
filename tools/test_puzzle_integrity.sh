@@ -141,7 +141,7 @@ from datetime import datetime, timezone
 import puzzle_integrity as pi
 
 today = datetime.now(timezone.utc).date()
-path = pi.PUZZLE_DIR / "cryptic-24104.json"
+path = pi.puzzle_paths.find("cryptic-24104")
 puzzle = copy.deepcopy(pi.read_puzzle_file(path))
 by_id = {e["id"]: e for e in puzzle["entries"]}
 target = by_id["1-across"]
@@ -179,7 +179,7 @@ today = datetime.now(timezone.utc).date()
 # clueMissing on every entry is the state the 2005-2008 Saturday prize puzzles are
 # in: answers scraped, clue text never fetched. Per-entry forgiveness finds nothing
 # wrong with any single one of them, which is the whole reason the puzzle is asked.
-puzzle = copy.deepcopy(pi.read_puzzle_file(pi.PUZZLE_DIR / "cryptic-24104.json"))
+puzzle = copy.deepcopy(pi.read_puzzle_file(pi.puzzle_paths.find("cryptic-24104")))
 
 
 def blank(p, entries):
@@ -210,7 +210,7 @@ import puzzle_integrity as pi
 from apply_solution import check_geometry
 
 # A real 15x15, so the fixture cannot drift out of the shape the checker reads.
-puzzle = pi.read_puzzle_file(pi.PUZZLE_DIR / "cryptic-24104.json")
+puzzle = pi.read_puzzle_file(pi.puzzle_paths.find("cryptic-24104"))
 print("PRISTINE", len(check_geometry(puzzle)))
 
 # 1-across is 15 cells of a 15-wide grid. Shifted one column right it is the
@@ -269,6 +269,48 @@ same "a book puzzle filed undated is flagged" "$(field BOOK_UNDATED "$out6")" "1
 same "a book puzzle under another year is flagged" "$(field BOOK_WRONG_YEAR "$out6")" "1"
 same "a paper's puzzle dated by a bare year is flagged" "$(field PAPER_YEAR "$out6")" "1"
 same "a date that is neither shape is flagged" "$(field PAPER_JUNK "$out6")" "1"
+
+echo "a file not at file_for is FILED: wrong year, flat stray, wrong name"
+scratch=$(mktemp -d)
+trap 'rm -rf "$scratch"' EXIT
+out7=$(PYTHONPATH="$REPO/tools" SCRATCH="$scratch" python3 - <<'PY'
+import json, os, shutil
+from datetime import date
+from pathlib import Path
+import puzzle_integrity as pi
+import puzzle_paths
+
+real = puzzle_paths.find("cryptic-24104")
+puzzle = pi.read_puzzle_file(real)
+puzzle_paths.PUZZLE_DIR = Path(os.environ["SCRATCH"]) / "puzzles"
+right = puzzle_paths.file_for(puzzle)
+right.parent.mkdir(parents=True)
+shutil.copy(real, right)
+(puzzle_paths.PUZZLE_DIR / "index.json").write_text("{}")
+
+def filed():
+    flags, _ = pi.audit(puzzle_paths.puzzle_files(), date(2026, 9, 25))
+    return sorted(what for kind, _pid, what in flags if kind == "FILED")
+
+print("CLEAN", len(filed()))
+wrong = puzzle_paths.PUZZLE_DIR / "cryptic" / "1999" / right.name
+wrong.parent.mkdir()
+right.rename(wrong)
+print("WRONG_YEAR", filed() == [f"puzzles/cryptic/1999/cryptic-24104.json belongs at {right.relative_to(puzzle_paths.PUZZLE_DIR.parent)}"])
+wrong.rename(right)
+flat = puzzle_paths.PUZZLE_DIR / right.name
+shutil.copy(right, flat)
+print("FLAT", filed() == [f"puzzles/cryptic-24104.json belongs at {right.relative_to(puzzle_paths.PUZZLE_DIR.parent)}"])
+flat.unlink()
+misnamed = right.with_name("cryptic-24105.json")
+right.rename(misnamed)
+print("MISNAMED", len(filed()))
+PY
+)
+same "a puzzle at file_for is not flagged (nor is the generated index)" "$(field CLEAN "$out7")" "0"
+same "a puzzle in the wrong year folder names where it belongs" "$(field WRONG_YEAR "$out7")" "True"
+same "a stray flat puzzles/<id>.json names where it belongs" "$(field FLAT "$out7")" "True"
+same "a file named for another id is flagged" "$(field MISNAMED "$out7")" "1"
 
 [ "$fails" = 0 ] && echo "puzzle_integrity: all checks passed" || echo "puzzle_integrity: $fails FAILED"
 exit $((fails > 0))

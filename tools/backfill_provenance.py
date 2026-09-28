@@ -139,10 +139,11 @@ PUZZLE_SUFFIXES = (".json", ".js")
 
 
 def puzzle_id(rel):
-    """The id a puzzles/ path names, under any suffix the corpus has used."""
+    """The id a puzzles/ path names, under any suffix the corpus has used, and
+    in any folder under puzzles/ it has been filed in."""
     if not rel.startswith("puzzles/"):
         return None
-    name = rel[len("puzzles/"):]
+    name = rel.rsplit("/", 1)[-1]
     for suffix in PUZZLE_SUFFIXES:
         if name.endswith(suffix):
             return name[:-len(suffix)] or None
@@ -279,7 +280,7 @@ def main(argv=None):
 
     for path in puzzle_files():
         puzzle = read_puzzle_file(path)
-        rel = f"puzzles/{path.name}"
+        rel = path.relative_to(ROOT).as_posix()
         existing = (puzzle.get("provenance") or {}).get("acquiredOn")
         prov = provenance.derive(puzzle, generator_of(path),
                                  acquired_on(rel, bulk, existing),

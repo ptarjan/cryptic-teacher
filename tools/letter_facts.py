@@ -73,8 +73,9 @@ from blog_facts import (
 )
 from indicator_keys import WORD, letters
 from indicator_keys import indicator_words as _key
+from puzzle_paths import find as find_puzzle
+from puzzle_paths import puzzle_files
 
-PUZZLES = ROOT / "puzzles"
 #: A hidden answer shorter than this turns up by chance in too many clues.
 MIN_HIDDEN = 4
 #: Nor is an anagram of fewer letters worth a claim: ERA in "are" is as often a literal.
@@ -1498,8 +1499,8 @@ def rows(said=None, as_written=False):
     with what this file inferred."""
     for f in sorted(OUT.glob("*.json")):
         for pid, rec in json.loads(f.read_text(encoding="utf-8")).items():
-            path = PUZZLES / f"{pid}.json"
-            if not path.exists():
+            path = find_puzzle(pid)
+            if path is None:
                 continue
             ents = {e["id"]: e for e in json.loads(path.read_text(encoding="utf-8"))["entries"]}
             got = (said or {}).get(pid, {})
@@ -1514,7 +1515,7 @@ def annotation_rows():
     """(puzzle id, entry id, clue, answer, facts) for every clue our own
     annotations (puzzles/) explain, in the shape of a blog's facts: a second
     source for the indicator lexicon."""
-    for path in sorted(PUZZLES.glob("*.json")):
+    for path in puzzle_files():
         p = json.loads(path.read_text(encoding="utf-8"))
         for e in p.get("entries", []):
             a = e.get("annotation") or {}
@@ -1955,7 +1956,7 @@ def measure_blocks(corpus, n=0, show=30, seed=1):
     recovered with them hidden (all, or one), what it claims on clues whose
     type has no blocks, the coverage it adds, and how it agrees with ours."""
     annotated = {}
-    for path in PUZZLES.glob("*.json"):
+    for path in puzzle_files():
         p = json.loads(path.read_text(encoding="utf-8"))
         ann = {e["id"]: e["annotation"] for e in p.get("entries", []) if (e.get("annotation") or {}).get("blocks")}
         if ann:
@@ -2037,7 +2038,7 @@ def measure_fuzzy_blocks(corpus, votes, n=2, show=30, seed=1):
     words; one), against our annotations where the blog gave none, and the
     coverage it adds on the slice."""
     annotated = {}
-    for path in PUZZLES.glob("*.json"):
+    for path in puzzle_files():
         p = json.loads(path.read_text(encoding="utf-8"))
         ann = {e["id"]: e["annotation"] for e in p.get("entries", []) if (e.get("annotation") or {}).get("blocks")}
         if ann:
@@ -2158,7 +2159,7 @@ def measure_blockless(corpus, votes, n=4, show=30, seed=1):
     annotations, and on slice `n` of the puzzles, the lexicon built without
     them, their indicators with the blog's hidden."""
     ann = {}
-    for path in PUZZLES.glob("*.json"):
+    for path in puzzle_files():
         p = json.loads(path.read_text(encoding="utf-8"))
         for e in p.get("entries", []):
             if (e.get("annotation") or {}).get("blocks"):

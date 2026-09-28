@@ -63,8 +63,9 @@ import clue_types  # noqa: E402 — the one list of clue types, their labels and
 import difficulty  # noqa: E402 — the weights, bands and constants /difficulty/ quotes
 import difficulty_check  # noqa: E402 — the held-out scorecard /difficulty/ quotes
 import series as series_meta  # noqa: E402 — what each series IS; see tools/series.py
-from fetch_puzzle import (  # noqa: E402 — one glob, one reader, one puzzles/ for every tool
-    PUZZLE_DIR, blog_annotation, has_blog_hints, puzzle_files, read_puzzle_file, with_blog_facts)
+from fetch_puzzle import (  # noqa: E402 — one glob, one reader for every tool
+    blog_annotation, has_blog_hints, puzzle_files, read_puzzle_file, with_blog_facts)
+import puzzle_paths  # noqa: E402 — one puzzles/ for every tool
 from stamp_assets import asset_url  # noqa: E402 — content-hashed asset URLs
 # Which clue a puzzle's card shows, and how to describe it. Imported rather than
 # reimplemented: the alt text has to describe the picture that was actually
@@ -224,7 +225,7 @@ def assert_names_all_papers(where, text, idx):
 
 
 def index_json():
-    return json.loads((PUZZLE_DIR / "index.json").read_text(encoding="utf-8"))
+    return json.loads((puzzle_paths.PUZZLE_DIR / "index.json").read_text(encoding="utf-8"))
 
 
 def datestr(ms, fmt="%A %-d %B %Y"):
@@ -1552,7 +1553,7 @@ def moved_page(slug, target, title, body):
     there are tens of thousands of them, so the site's full template on each
     was a large share of the whole site's weight.
     """
-    return PUZZLE_DIR / slug / "index.html", relative_links(
+    return puzzle_paths.PUZZLE_DIR / slug / "index.html", relative_links(
         bare_head(title, target,
                   f'<meta http-equiv="refresh" content="0; url={esc(target)}">\n')
         + f"<body>\n<p>{body}</p>\n</body>\n</html>\n", PUZZLE_ROOT)
@@ -1639,7 +1640,7 @@ def legacy_redirects(solved):
             f'<li><a href="{BASE}/puzzles/{p["id"]}/">'
             f'{esc(named(p))}</a></li>' for p in ps)
             + "</ul>")
-        yield PUZZLE_DIR / num / "index.html", relative_links(
+        yield puzzle_paths.PUZZLE_DIR / num / "index.html", relative_links(
             bare_head(title, f"{BASE}/puzzles/",
                       f'<meta name="viewport" content="width=device-width, initial-scale=1">\n'
                       f'<link rel="stylesheet" href="{asset("style.css")}">\n')
@@ -1680,10 +1681,10 @@ def outputs():
         page = puzzle_page(puz, meta.get(puz["id"]), prev_p, next_p)
         clue_blocks(blocks, puz, page)
         clue_indicators(found, puz, page)
-        yield PUZZLE_DIR / puz["id"] / "index.html", relative_links(page, PUZZLE_ROOT)
+        yield puzzle_paths.PUZZLE_DIR / puz["id"] / "index.html", relative_links(page, PUZZLE_ROOT)
     yield from legacy_redirects(stubs)
     yield from legacy_ids(stubs)
-    yield PUZZLE_DIR / "index.html", hub_page(idx)
+    yield puzzle_paths.PUZZLE_DIR / "index.html", hub_page(idx)
     yield from listing_pages(idx)
     yield ROOT / "learn" / "index.html", learn_page()
     yield ROOT / "abbreviations" / "index.html", abbreviations_page(blocks)
@@ -1750,6 +1751,8 @@ def orphans(files):
       * only direct child DIRECTORIES of puzzles/, and the listing directories
         puzzles/series/<series>/<year>/, are candidates, so no flat
         puzzles/<series>-<number>.* file can be reached at all;
+      * a source folder, puzzles/<series>/ (or authored/) holding
+        <year>/<id>.json files, is never a candidate;
       * a directory qualifies only if its entire content is one index.html,
         which is the exact shape this generator creates;
       * and only if that index.html is not one this run is about to write.
@@ -1761,11 +1764,12 @@ def orphans(files):
     Anything that does not fit the shape is returned as a leftover rather than
     removed — an unexpected file under puzzles/ is a question, not a target.
     """
-    series_dir = PUZZLE_DIR / "series"
-    wanted = {p.parent for p in files} | {series_dir}
+    series_dir = puzzle_paths.PUZZLE_DIR / "series"
+    sources = {p.parent.parent for p in puzzle_paths.PUZZLE_DIR.glob("*/*/*.json")}
+    wanted = {p.parent for p in files} | {series_dir} | sources
     dead, unexpected = [], []
     # series/<series>/<year>/ is the one nested shape, so it gets the same test.
-    for d in sorted([*PUZZLE_DIR.iterdir(), *series_dir.glob("*/*")]):
+    for d in sorted([*puzzle_paths.PUZZLE_DIR.iterdir(), *series_dir.glob("*/*")]):
         if not d.is_dir() or d in wanted:
             continue
         if [x.name for x in d.iterdir()] == ["index.html"]:
@@ -1809,7 +1813,7 @@ def main():
     for d in dead:
         (d / "index.html").unlink()
         d.rmdir()
-        if d.parent.parent == PUZZLE_DIR / "series" and not any(d.parent.iterdir()):
+        if d.parent.parent == puzzle_paths.PUZZLE_DIR / "series" and not any(d.parent.iterdir()):
             d.parent.rmdir()          # a series with no listing pages left
     page_card.write_spec(PAGE_CARDS)
     print(f"{len(files)} page(s); wrote {len(stale)} changed; "

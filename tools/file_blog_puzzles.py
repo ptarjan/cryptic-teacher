@@ -45,6 +45,7 @@ from pathlib import Path
 TOOLS = Path(__file__).resolve().parent
 sys.path.insert(0, str(TOOLS))
 import fetch_puzzle
+import puzzle_paths
 import reconstruct_grid as rg
 import series as series_meta
 import times_grids as tg
@@ -233,7 +234,7 @@ def reprinted_from():
     for key, meta in series_meta.SERIES.items():
         if meta.get("reprints"):
             numbers = {series_meta.parse_id(p.stem)[1]
-                       for p in fetch_puzzle.PUZZLE_DIR.glob(f"{key}-[0-9]*.json")}
+                       for p in puzzle_paths.PUZZLE_DIR.glob(f"{key}/*/{key}-[0-9]*.json")}
             if numbers:
                 held[meta["reprints"]] = (key, numbers)
     return held

@@ -87,6 +87,13 @@ The flags, in the order they matter:
             validate_annotations — markup or an undecodable character in the
             puzzle's text, or the legs of a linked answer naming different
             groups.
+  FILED     a puzzle file that is not where puzzle_paths.file_for puts it:
+            puzzles/<series>/<year>/<id>.json, the year its `date`'s. A file in
+            the wrong year folder, under a name that is not its id, or left flat
+            at puzzles/<id>.json is a copy every reader that finds by id either
+            misses or trips over, so every .json under puzzles/ that is not the
+            generated index, an authored draft or generated series output is
+            checked against the puzzle it holds.
 
 Every check that one file answers on its own is in check_puzzle, and
 fetch_puzzle.write_puzzle_file runs it on every write: a fetcher cannot write
@@ -103,8 +110,9 @@ nothing to weigh for them and skip. Only entries that actually carry a solution
 are checked, so an empty grid passes and a half-filled one is still checked as far
 as it goes.
 
-The corpus it reads is the puzzle files on disk. puzzles/index.json names them
-and is generated, so it is rebuilt here before it is read — see fetch_puzzle.reindex.
+The corpus it reads is the puzzle files on disk, puzzle_paths.puzzle_files().
+puzzles/index.json is generated from them and rebuilt here first, so the nightly
+leaves an index that matches what was judged — see fetch_puzzle.reindex.
 
 Cost: one rebuild of the index, then one pass, one read per file, no network. All
 six checks together, the index rebuild included, read the whole corpus in about
@@ -131,12 +139,12 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from apply_solution import (check_fill, check_geometry,  # noqa: E402
                             normalise)
 from fetch_puzzle import (ENUMERATION, PER_LIGHT_ENUMERATION,  # noqa: E402
-                          PUZZLE_DIR, has_words, is_bare_letters,
-                          is_continuation, prints_own_count, puzzle_path,
-                          read_puzzle_file, reindex)
+                          has_words, is_bare_letters, is_continuation,
+                          prints_own_count, read_puzzle_file, reindex)
 import puzzle_schema  # noqa: E402
 from reconstruct_grid import grid_of, lights_from_grid, lights_of  # noqa: E402
 import provenance  # noqa: E402
+import puzzle_paths  # noqa: E402
 import series as series_meta  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -144,7 +152,7 @@ ROOT = Path(__file__).resolve().parent.parent
 # The flags, in the order they are reported. One tuple, read by both the
 # per-finding listing and the tally, so a check cannot be added to one and
 # missed from the other.
-FLAGS = ("LENGTH", "CROSS", "GRID", "NUMBER", "DATE", "SETTER", "SHAPE", "PROV")
+FLAGS = ("LENGTH", "CROSS", "GRID", "NUMBER", "DATE", "SETTER", "SHAPE", "PROV", "FILED")
 
 # No cryptic crossword in this corpus predates the Guardian's, which began in 1929.
 # A date below this is a page the publisher mis-filed or a fetcher that lost one,
@@ -1199,19 +1207,59 @@ def check_dates(held, flags):
                     flags.append(("DATE", pid, finding))
 
 
-def audit(rows, today):
-    """One flat list of (flag, puzzle id, what) plus the duplicate groups."""
+def _rel(path):
+    try:
+        return str(path.relative_to(puzzle_paths.PUZZLE_DIR.parent))
+    except ValueError:
+        return str(path)
+
+
+def check_filed(path, puzzle, flags):
+    """FILED: `path` is not file_for(the puzzle it holds)."""
+    try:
+        want = puzzle_paths.file_for(puzzle)
+    except SystemExit as err:
+        flags.append(("FILED", puzzle.get("id"), f"{_rel(path)}: {err}"))
+        return
+    if path != want:
+        flags.append(("FILED", puzzle["id"], f"{_rel(path)} belongs at {_rel(want)}"))
+
+
+def check_strays(published, flags):
+    """FILED for every .json under puzzles/ that puzzle_files() does not walk
+    — a flat puzzles/<id>.json, one loose in a series folder — other than the
+    generated index and series output and the authored drafts."""
+    root = puzzle_paths.PUZZLE_DIR
+    skip = {root / "index.json"}
+    for path in sorted(root.rglob("*.json")):
+        if path in published or path in skip or path.relative_to(root).parts[0] in ("series", "authored"):
+            continue
+        try:
+            puzzle = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, ValueError) as err:
+            flags.append(("FILED", path.stem, f"{_rel(path)}: not a puzzle file ({err})"))
+            continue
+        if not isinstance(puzzle, dict) or "id" not in puzzle:
+            flags.append(("FILED", path.stem, f"{_rel(path)}: not a puzzle file"))
+            continue
+        check_filed(path, puzzle, flags)
+
+
+def audit(paths, today):
+    """One flat list of (flag, puzzle id, what) plus the duplicate groups, over
+    the puzzle files `paths` and whatever else sits under puzzles/."""
     flags, held = [], []
     by_content = defaultdict(list)
-    for row in rows:
-        # From the id, not from row["file"]: that field names the generated
-        # .js shim the browser loads, and the puzzle itself is the .json.
-        puzzle = read_puzzle_file(puzzle_path(row["series"], row["number"]))
+    paths = list(paths)
+    for path in paths:
+        puzzle = read_puzzle_file(path)
+        check_filed(path, puzzle, flags)
         by_content[content_hash(puzzle)].append(puzzle["id"])
         held.append((puzzle.get("series", "cryptic"), puzzle["number"],
                      puzzle.get("date"), puzzle["id"]))
         check_puzzle(puzzle, today, flags)
     check_dates(held, flags)
+    check_strays(set(paths), flags)
     copies = sorted(sorted(ids) for ids in by_content.values() if len(ids) > 1)
     return flags, copies
 
@@ -1219,11 +1267,10 @@ def audit(rows, today):
 def main(argv):
     quiet = "--quiet" in argv
     started = time.time()
-    # Rebuilt, not read: reindex() writes one row per file it just walked, so
-    # every row below names a file that is there. What this tool judges is the
-    # corpus, and a stale manifest is not a defect in it.
+    # What this tool judges is the files; the index is rebuilt from the same
+    # walk so it cannot be stale, and a stale manifest is not a defect in them.
     rows = reindex()["puzzles"]
-    flags, copies = audit(rows, datetime.now(timezone.utc).date())
+    flags, copies = audit(puzzle_paths.puzzle_files(), datetime.now(timezone.utc).date())
 
     for ids in copies:
         print(f"DUPLICATE {len(ids)} files hold the same puzzle: " + ", ".join(ids))
@@ -1246,7 +1293,8 @@ def main(argv):
     if not total:
         print("\nno duplicates, every grid coherent, every grid's own numbering "
               "matches its clues, every stated length agrees, every crossing agrees, "
-              "and every puzzle says where it and its answers came from")
+              "every puzzle says where it and its answers came from, "
+              "and every file is where puzzle_paths.file_for puts it")
     return 1 if total else 0
 
 

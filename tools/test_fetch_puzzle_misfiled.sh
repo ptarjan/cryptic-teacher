@@ -14,12 +14,14 @@ python3 - <<'PY'
 import json, pathlib, sys, tempfile
 sys.path.insert(0, "tools")
 import fetch_puzzle as fp
+import puzzle_paths
 
 DAY = 86_400_000
-tmp = pathlib.Path(tempfile.mkdtemp())
-fp.PUZZLE_DIR = tmp
+puzzle_paths.PUZZLE_DIR = pathlib.Path(tempfile.mkdtemp())
 for n, d in ((26751, 1449705600000), (26753, 1449878400000)):   # 2015-12-10, 12-12
-    (tmp / f"cryptic-{n}.json").write_text(json.dumps({"id": f"cryptic-{n}", "date": d}))
+    held = {"id": f"cryptic-{n}", "date": d}
+    puzzle_paths.file_for(held).parent.mkdir(parents=True, exist_ok=True)
+    puzzle_paths.file_for(held).write_text(json.dumps(held))
 
 def page(number, date, published):
     return {"id": f"crosswords/cryptic/{number}", "number": number, "name": "x",
