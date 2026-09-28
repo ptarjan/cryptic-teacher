@@ -858,6 +858,9 @@ def solve_from_fifteensquared(puzzle, post):
             pos += size
         return None
 
+    # Rows whose number names no light of their length: the blogger's typo for
+    # another light's number (Cyclops 371 prints "23" over the grid's 25dn).
+    strays = []
     for key_raw, heading_dir, letters in rows:
         tokens = key_raw.split("/")
 
@@ -907,6 +910,10 @@ def solve_from_fifteensquared(puzzle, post):
                     if err:
                         return None, err
                     continue
+            if (num, direction) not in entries_by_id or \
+                    entries_by_id[(num, direction)]["length"] != len(letters):
+                strays.append((key_raw, num, direction, letters))
+                continue
             err = assign(num, direction, letters, key_raw)
             if err:
                 return None, err
@@ -969,6 +976,23 @@ def solve_from_fifteensquared(puzzle, post):
             return None, (f"'{key_raw}' -> {letters}: ambiguous linked group — "
                           f"{len(candidates)} readings fit the grid")
         err = assign_across(candidates[0], letters, key_raw)
+        if err:
+            return None, err
+
+    # A stray row takes the one light its letters could fill once every other
+    # row is placed: the only unanswered light of that length, and no other
+    # stray of that length competing for it. The crossing check below grades it.
+    open_lights = [k for k, e in entries_by_id.items() if k not in solutions]
+    for key_raw, num, direction, letters in strays:
+        fits = [k for k in open_lights if entries_by_id[k]["length"] == len(letters)]
+        rivals = [s for s in strays if len(s[3]) == len(letters)]
+        if len(fits) != 1 or len(rivals) != 1:
+            if (num, direction) not in entries_by_id:
+                return None, f"'{key_raw}': no {_clue_id(num, direction)} in the grid"
+            return None, (f"'{key_raw}': {letters} is {len(letters)} letters, grid wants "
+                          f"{entries_by_id[(num, direction)]['length']} for "
+                          f"{_clue_id(num, direction)}")
+        err = assign(*fits[0], letters, key_raw)
         if err:
             return None, err
 

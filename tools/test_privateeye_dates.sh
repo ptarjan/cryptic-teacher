@@ -50,6 +50,20 @@ rows = pe.parse_fifteensquared_rows(
     "<tr><td>18</td><td>IC in (WHIPS)*</td></tr>"
     "<tr><td>1</td><td>D\u00c9TENTE</td></tr></table>")
 print("UNTAGGED", *(f"{k}={v}" for k, _, v in rows))
+
+# A blog row numbered for no light of its length takes the one light left open.
+def light(n, d, x, y, size):
+    return {"id": f"{n}-{d}", "number": n, "direction": d, "position": {"x": x, "y": y},
+            "length": size, "clue": "Clue (%d)" % size, "solution": None}
+grid = {"entries": [light(1, "across", 0, 0, 3), light(1, "down", 0, 0, 3),
+                    light(2, "down", 2, 0, 3), light(3, "across", 0, 2, 3)]}
+def post(rows):
+    return {"content": {"rendered": "<table><tr><th>Across</th></tr>" + "".join(
+        f"<tr><td>{k}</td><td><strong>{v}</strong></td></tr>" for k, v in rows) + "</table>"}}
+sol, _ = pe.solve_from_fifteensquared(grid, post([("1", "CAT"), ("4", "TEN"), ("1d", "CUT"), ("2d", "TIN")]))
+print("STRAY", sol and sol["3-across"])
+sol, why = pe.solve_from_fifteensquared(grid, post([("1", "CAT"), ("4", "TAP"), ("1d", "CUT"), ("2d", "TIN")]))
+print("STRAY_CROSSES", sol, why.split(":")[0])
 PY
 )
 got() { echo "$out" | sed -n "s/^$1 //p"; }
@@ -61,5 +75,7 @@ check "an undated Cyclops between neighbours four weeks apart takes the Friday b
   "1169164800000 None" "$(got CADENCE)"
 check "an untagged answer is read up to its note; wordplay standing in for one is not" \
   "10=PUBLICHAIR 12=INTHEPUBLICINTEREST 1=DETENTE" "$(got UNTAGGED)"
+check "a misnumbered blog row fills the one open light of its length" "TEN" "$(got STRAY)"
+check "and only if it crosses" "None crossing conflict at column 2, row 2" "$(got STRAY_CROSSES)"
 
 [ "$fails" -eq 0 ] && echo "all passed" || { echo "$fails failed"; exit 1; }
