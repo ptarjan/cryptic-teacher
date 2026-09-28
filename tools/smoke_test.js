@@ -4063,7 +4063,8 @@ registry["reset-puzzle"].onclick();
     // whose only gaps are blank clues has to count as done, or it sits in the
     // backlog forever.
     if (annotatedInIndex.has(puz.id)) {
-      const answerable = puz.entries.filter((e) => hasWords(e.clue));
+      const continuations = new Set(puz.entries.flatMap((e) => (e.group || []).slice(1)));
+      const answerable = puz.entries.filter((e) => hasWords(e.clue) && !continuations.has(e.id));
       assert(annotatedInIndex.get(puz.id) === answerable.every((e) => e.annotation),
         `${puz.id}: index 'annotated' should count only the clues that can be annotated`);
     }
