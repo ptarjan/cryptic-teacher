@@ -1074,8 +1074,10 @@ def infer_indicators(clue, answer, facts, ilex):
     """The indicator a blog left out of a clue whose definition and blocks it
     gave, where the blocks want one (see needed): the one run of the other
     clue words blogs name that part's indicator elsewhere (`ilex`), every
-    other word left over a link word. A list of clue phrases, [] when none is
-    wanted, None when the reading is not the only one.
+    other word left over a link word, or for a forward hidden word, where
+    the lexicon reads none, the free words themselves (see hiding_run). A
+    list of clue phrases, [] when none is wanted, None when the reading is
+    not the only one.
 
     Where the blocks want two, blogs name one of them as often as both (74%
     of the phrases read were the blog's, against 98% for one), so those are
@@ -1098,6 +1100,37 @@ def infer_indicators(clue, answer, facts, ilex):
         if span is None:
             return None
         taken |= span
+    got = _lexicon_indicator(ws, at, body, taken, part, ilex)
+    if got is None and part == "hidden":
+        got = hiding_run(ws, at, body, taken, ilex)
+    return got
+
+
+def hiding_run(ws, at, body, taken, ilex):
+    """A forward hidden word's indicator: the clue words outside its
+    definition and carrier, where they are one run of at most MAX_IND, less
+    an end word blogs leave out of indicators on that side
+    (Indicators.side); None where they are not one run or blogs both take
+    in and leave out an end word ("captured in" is named with and without "in")."""
+    free = [k for k in range(len(ws)) if k not in taken]
+    if not free or free[-1] + 1 - free[0] != len(free):
+        return None
+    i, j = free[0], free[-1] + 1
+    while j - i > 1:
+        a, z = ilex.side("L", ws[i][1]), ilex.side("R", ws[j - 1][1])
+        if a is None or z is None:
+            return None
+        if a is False:
+            i += 1
+        elif z is False:
+            j -= 1
+        else:
+            break
+    return [body[at[i][0]:at[j - 1][1]]] if j - i <= MAX_IND else None
+
+
+def _lexicon_indicator(ws, at, body, taken, part, ilex):
+    """The one run of the free clue words blogs name `part`'s indicator, every other a link word; else None."""
     runs = [(i, i + n) for i in range(len(ws)) for n in range(1, MAX_IND + 1)
             if i + n <= len(ws) and not taken & set(range(i, i + n))]
     for rate in (MIN_LEFT, MIN_LEFT_ALONE):  # none read so, one blogs name less often where it is left over
