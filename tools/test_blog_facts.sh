@@ -271,6 +271,13 @@ w = []
 va.check_blocks_against_blog({"entries": [e]}, w)
 ann = fp.blog_annotation({**e, "blog": {"blocks": [["CAP", "hat"], ["I", "one", "inferred"]]}})
 print(json.dumps(ann["blocks"]), json.dumps(w), len(bf._items("blocks", blocks)))')"
+check "--score leaves an anagram's fodder out of the blocks, as the gold does" \
+  '[["tl", "tea"]]' \
+  "$(REPO="$REPO" python3 -c '
+import json, os, sys
+sys.path.insert(0, os.path.join(os.environ["REPO"], "tools"))
+import blog_facts as bf
+print(json.dumps(sorted(bf._items("blocks", [["TL", "tea"], ["LAGER", "lager", "anagrammed"]]))))')"
 check "a hidden word's carrier gets the note ours write, the run in capitals" \
   '["hidden in saW HIZbollah", "hidden backwards in whoM SIN A GROtesque", null]' \
   "$(REPO="$REPO" python3 -c '

@@ -1898,8 +1898,10 @@ def _items(field, value):
     if field == "definition":
         return {norm(d) for d in value or ()}
     if field == "blocks":  # a block letter_facts.py read off the letters is not the post's; a heard one is its words
+        # The gold lists the pieces the wordplay builds, not the fodder an anagram shuffles.
         heard = lambda l, how: next((h["soundsLike"] for h in how if isinstance(h, dict) and "soundsLike" in h), l)
-        return {(atom_letters(heard(l, how).upper()), norm(src)) for l, src, *how in value or () if "inferred" not in how}
+        return {(atom_letters(heard(l, how).upper()), norm(src)) for l, src, *how in value or ()
+                if "inferred" not in how and "anagrammed" not in how}
     if field == "indicators":
         return {w for i in value or () for w in re.findall(r"[\w'’]+", norm(i))}
     return {frozenset(value.split(" + "))} if value else set()
