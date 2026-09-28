@@ -241,6 +241,11 @@ tools/indicator_keys.py                      the one spelling of an indicator ph
                                              types an annotation's type names; the /indicators/
                                              page and the burn's indicator cover both match
                                              through it
+tools/test_indicator_keys.sh                 holds which (type, key) pairs a clue's indicators
+                                             give: a phrase links the longest key inside it
+                                             only in a one-type clue, never through link words
+                                             alone; and which clue /indicators/ links, ours
+                                             over a blog's
 tools/test_letter_facts.sh                   holds letter_facts.py to one reading per clue: a
                                              literal word is not an anagram, a lone word's
                                              initial not an abbreviation unless listed, fodder
