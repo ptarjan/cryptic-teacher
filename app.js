@@ -1494,7 +1494,10 @@
       $("notify-after").value = notifyAfter();
     }
     const on = new Set(notifySeries());
-    list.innerHTML = Object.keys(SERIES_BADGE).map((s) =>
+    const { multi, single } = paperGroups();
+    const order = multi.flat().concat(single);
+    const rank = (s) => (order.includes(s) ? order.indexOf(s) : order.length);
+    list.innerHTML = Object.keys(SERIES_BADGE).sort((a, b) => rank(a) - rank(b)).map((s) =>
       `<li><label><input type="checkbox" data-series="${s}"${on.has(s) ? " checked" : ""}>`
       + `${seriesChip(s)}</label></li>`).join("");
   }
@@ -5683,16 +5686,15 @@
   // the single-series ones share one group, because a heading over one option
   // is only a longer way to say its name.
   // Biggest first at every level, because how much there is to solve is the
-  // useful order when the question is which one to try.
+  // useful order when the question is which one to try. The notify list takes
+  // the same order, so a paper sits in the same place in both.
   //
   // An option's value is the comma-joined series keys it stands for, so the
   // filter reads a key set straight off the menu and never matches a paper by
   // its name: "times" as a search term is inside "times quick" and "sunday
   // times", and a filter must not be.
   const titleCase = (s) => s.replace(/(^|\s)\S/g, (c) => c.toUpperCase());
-  let paperMenu = null;
-  function paperMenuHTML() {
-    if (paperMenu !== null) return paperMenu;
+  function paperGroups() {
     const papers = INDEX.groups || {};
     const n = {};
     INDEX.puzzles.forEach((p) => { const s = p.series || "cryptic"; n[s] = (n[s] || 0) + 1; });
@@ -5700,14 +5702,20 @@
     const biggest = (a, b) => size(b) - size(a);
     const byPub = {};
     Object.keys(n).forEach((s) => { (byPub[papers[s] || ""] = byPub[papers[s] || ""] || []).push(s); });
-    const opt = (keys, label) => `<option value="${keys.join(",")}">${esc(label)} (${
-      size(keys).toLocaleString("en-GB")})</option>`;
-    const seriesOpt = (s) => opt([s], titleCase((SERIES_BADGE[s] || [s])[0]));
     const multi = Object.keys(byPub).filter((pub) => pub && byPub[pub].length > 1)
       .map((pub) => byPub[pub].sort((a, b) => n[b] - n[a]))
       .sort(biggest);
     const single = Object.keys(n).filter((s) => !multi.some((g) => g.includes(s)))
       .sort((a, b) => n[b] - n[a]);
+    return { papers, n, size, multi, single };
+  }
+  let paperMenu = null;
+  function paperMenuHTML() {
+    if (paperMenu !== null) return paperMenu;
+    const { papers, size, multi, single } = paperGroups();
+    const opt = (keys, label) => `<option value="${keys.join(",")}">${esc(label)} (${
+      size(keys).toLocaleString("en-GB")})</option>`;
+    const seriesOpt = (s) => opt([s], titleCase((SERIES_BADGE[s] || [s])[0]));
     paperMenu = `<option value="">All papers</option>`
       + multi.map((g) => `<optgroup label="${esc(papers[g[0]])}">`
         + opt(g, "All " + papers[g[0]]) + g.map(seriesOpt).join("") + "</optgroup>").join("")
