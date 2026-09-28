@@ -420,15 +420,31 @@ for _l, _ws in ABBR.items():
 
 
 class Lexicon:
-    """What blogs read clue words as, from the blocks they gave.
+    """What blogs read clue words as, from the blocks they gave; with
+    `extra`, what our annotations read them as too, which only
+    export_lexicons publishes: inference reads the blogs' alone, as ours
+    cost infer_blocks precision.
 
     `seen`: clue words (their letters, word by word) -> {letters: blocks}.
     `uses`: clue words -> clues they stand in. `edge`: (side, word) ->
     [blocks whose words end with it on that side, blocks it stood beside
     on that side and was left out of] (see MAX_ATTACH)."""
 
-    def __init__(self, corpus, skip=frozenset()):
-        seen = collections.defaultdict(dict)
+    def __init__(self, corpus, skip=frozenset(), extra=()):
+        self.seen, self.edge, keys = self._count(itertools.chain(corpus, extra), skip)
+        self.uses = self._uses(keys, self.seen)
+
+    @staticmethod
+    def _uses(keys, seen):
+        uses = collections.Counter()
+        for ks in keys:
+            uses.update({ks[i:i + n] for i in range(len(ks)) for n in range(1, MAX_RUN + 1)
+                         if i + n <= len(ks) and ks[i:i + n] in seen})
+        return uses
+
+    @staticmethod
+    def _count(corpus, skip=frozenset()):
+        seen = collections.defaultdict(collections.Counter)
         edge = collections.defaultdict(lambda: [0, 0])
         keys = []
         for pid, eid, clue, answer, facts in corpus:
@@ -442,7 +458,7 @@ class Lexicon:
                     continue
                 k, b = _key(src), letters(bl)
                 if b and 0 < len(k) <= MAX_RUN:
-                    seen[k][b] = seen[k].get(b, 0) + 1
+                    seen[k][b] += 1
                 spans.append(sorted(locate(src, ws) or ()))
             covered = {k for sp in spans for k in sp}
             for d in facts.get("definition", []):
@@ -453,11 +469,7 @@ class Lexicon:
                         edge[side, ws[inner][1]][0] += 1
                     if 0 <= outer < len(ws) and outer not in covered:
                         edge[side, ws[outer][1]][1] += 1
-        self.seen, self.edge = dict(seen), dict(edge)
-        self.uses = collections.Counter()
-        for ks in keys:
-            self.uses.update({ks[i:i + n] for i in range(len(ks)) for n in range(1, MAX_RUN + 1)
-                              if i + n <= len(ks) and ks[i:i + n] in self.seen})
+        return dict(seen), dict(edge), keys
 
     def spellings(self, key):
         """The letters blogs read these clue words as, often enough, and any
@@ -1587,7 +1599,8 @@ def with_all_blocks(clue, answer, facts, lex, dlex, fuzzy=True):
 def write(corpus, votes):
     """Rewrite tools/data/blog_facts/ with the inferred fields in, as
     blog_facts.write lays it out. {field: clues it was inferred in}."""
-    lex, ilex, dlex = Lexicon(corpus), Indicators(corpus, extra=annotation_rows()), Definitions(corpus)
+    ours = list(annotation_rows())
+    lex, ilex, dlex = Lexicon(corpus), Indicators(corpus, extra=ours), Definitions(corpus)
     by_pid = collections.defaultdict(dict)
     for pid, eid, clue, answer, facts in corpus:
         new = inferred(clue, answer, facts, votes, lex, ilex, dlex)
@@ -1603,7 +1616,39 @@ def write(corpus, votes):
                 rec["entries"] = dict(sorted(by_pid[pid].items()))
         f.write_text("{\n" + ",\n".join(json.dumps(k) + ": " + json.dumps(v, ensure_ascii=False, sort_keys=True)
                                          for k, v in sorted(rows_.items())) + "\n}\n", encoding="utf-8")
+    n.update(export_lexicons(Lexicon(corpus, extra=ours), ilex))
     return n
+
+
+#: The combined lexicons as write() leaves them, for the site: clue words
+#: -> {letters: blocks} read as, and type part -> {indicator: clues}.
+LEXICON_OUT = ROOT / "tools" / "data" / "lexicons"
+
+
+def export_lexicons(lex, ilex):
+    """Write what infer_blocks and infer_indicators read clue words as, the
+    blogs' and our annotations' together, to LEXICON_OUT: blocks.json, clue
+    words -> {letters: blocks}, only readings spellings() takes; and
+    indicators.json, type part -> {indicator: clues}, only those indicates()
+    takes; each largest first. {file: entries}."""
+    blocks = {}
+    for key, got in lex.seen.items():
+        keep = lex.spellings(key) & set(got)
+        if keep:
+            blocks[" ".join(key)] = dict(sorted(((b, got[b]) for b in keep), key=lambda kv: (-kv[1], kv[0])))
+    parts = collections.defaultdict(dict)
+    for key, v in ilex.votes.items():
+        for part, n in v.items():
+            if ilex.indicates(key, part):
+                parts[part][" ".join(key)] = n
+    out = {"blocks.json": dict(sorted(blocks.items(), key=lambda kv: (-sum(kv[1].values()), kv[0]))),
+           "indicators.json": {p: dict(sorted(d.items(), key=lambda kv: (-kv[1], kv[0])))
+                               for p, d in sorted(parts.items(), key=lambda kv: -sum(kv[1].values()))}}
+    LEXICON_OUT.mkdir(exist_ok=True)
+    for name, data in out.items():
+        (LEXICON_OUT / name).write_text("{\n" + ",\n".join(json.dumps(k, ensure_ascii=False) + ": " + json.dumps(v, ensure_ascii=False)
+                                                           for k, v in data.items()) + "\n}\n", encoding="utf-8")
+    return {name: len(data) if name == "blocks.json" else sum(map(len, data.values())) for name, data in out.items()}
 
 
 def indicator_votes(corpus):
@@ -2097,6 +2142,8 @@ def main():
     ap.add_argument("--measure-blockless", type=int, nargs="?", const=4, metavar="SLICE",
                     help="precision of hidden words' carriers, homophones' and spoonerisms' heard blocks,"
                          " and their indicators (default slice %(const)s)")
+    ap.add_argument("--lexicons", action="store_true",
+                    help="write only the combined lexicons, as --write does, to tools/data/lexicons/")
     ap.add_argument("--coverage", action="store_true",
                     help="what the written blog facts cover, and why the rest fall short")
     ap.add_argument("--clue", nargs=2, metavar=("CLUE", "ANSWER"))
@@ -2130,10 +2177,14 @@ def main():
         measure_fuzzy_blocks(corpus, votes, args.measure_fuzzy_blocks)
     if args.measure_blockless is not None:
         measure_blockless(corpus, votes, args.measure_blockless)
+    if args.lexicons:
+        ours = list(annotation_rows())
+        print(export_lexicons(Lexicon(corpus, extra=ours), Indicators(corpus, extra=ours)))
     if args.write:
         n = write(corpus, votes)
         print(f"inferred a type for {n['type']} clues, blocks for {n['blocks']}, a definition for "
-              f"{n['definition']} and indicators for {n['indicators']} in {OUT.relative_to(ROOT)}")
+              f"{n['definition']} and indicators for {n['indicators']} in {OUT.relative_to(ROOT)}; "
+              f"{n['blocks.json']} block and {n['indicators.json']} indicator readings in {LEXICON_OUT.relative_to(ROOT)}")
 
 
 if __name__ == "__main__":

@@ -91,6 +91,15 @@ want="['holding'] None ['holding']"
 if [ "$ours" = "$want" ]; then echo "ok   our annotations add indicators, never a clue's own"; else
   echo "FAIL annotations as indicators: expected [$want], got [$ours]"; fails=$((fails + 1)); fi
 
+# Our annotations are a second source of the published block lexicon ("zorp" read as AB).
+ours=$(cd "$REPO/tools" && python3 -c '
+import letter_facts as l
+zorp = lambda n: [(f"z{i}", "e", "Zorp here (3)", "ABX", {"blocks": [["AB", "zorp"]]}) for i in range(n)]
+print(l.Lexicon([], extra=zorp(l.MIN_SEEN)).spellings(("ZORP",)), l.Lexicon(zorp(1), extra=zorp(l.MIN_SEEN - 2)).spellings(("ZORP",)))')
+want="{'AB'} set()"
+if [ "$ours" = "$want" ]; then echo "ok   our annotations add readings to the block lexicon"; else
+  echo "FAIL annotations as blocks: expected [$want], got [$ours]"; fails=$((fails + 1)); fi
+
 # A definition read off the ones blogs underlined for the same answer: "Teacher"
 # for TUTORESS in other clues. The word inside it must be wordplay or one blogs
 # leave out of definitions ("for", never inside one), not a free word blogs may
