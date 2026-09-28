@@ -688,7 +688,7 @@ def field_disputes(puzzle, records):
             value = getattr(rec, name)
             # A field the primary left empty after reading this very origin is
             # empty on purpose: the Times filer reads the blog's bylines and
-            # leaves the daily's setter null because the paper prints none.
+            # writes the daily with no setter because the paper prints none.
             if value and (own or rec.origin != origin):
                 _add(cands, key(value), rec.source, rec.origin)
                 shown.setdefault(key(value), value)

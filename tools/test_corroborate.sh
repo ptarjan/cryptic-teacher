@@ -137,11 +137,11 @@ kept = c.corroborate(times, [same_origin])
 print("UNRESOLVED", {e["id"]: e["solution"] for e in kept["entries"]}["18-across"])
 
 # but not from the primary's own origin, which it has already read: the Times
-# filer leaves the daily's setter null because the blog names none.
-anonymous = c.corroborate({**times, "setter": None},
+# filer writes the daily with no setter because the blog names none.
+anonymous = c.corroborate({k: v for k, v in times.items() if k != "setter"},
                           [source("georgeho:times_xwd_times", "timesforthetimes",
                                   answers=AGREED_ANSWERS, setter="Someone")])
-print("SAME_ORIGIN", anonymous["setter"])
+print("SAME_ORIGIN", anonymous.get("setter"))
 
 # no second source: the puzzle comes back as it went in, and nothing is written.
 alone = puzzle("independent-800", AGREED)
@@ -201,7 +201,7 @@ elsewhere.mkdir()
 fetch_puzzle.PUZZLE_DIR = elsewhere
 fetch_puzzle.write_puzzle_file(elsewhere / "cryptic-24104.json", {**real, "setter": None},
                                generator="tools/fetch_puzzle.py")
-print("FIXTURE", repr(fetch_puzzle.read_puzzle_file(elsewhere / "cryptic-24104.json")["setter"]))
+print("FIXTURE", repr(fetch_puzzle.read_puzzle_file(elsewhere / "cryptic-24104.json").get("setter")))
 
 # a cold fill against the blog, before it is written: PEIR v PEER is in an
 # unchecked cell, so only the blog can refuse it; BAT is ruled out by the
