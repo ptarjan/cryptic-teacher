@@ -523,7 +523,7 @@ FAMILY_SIGNALS = {
     "Homophone": ("aloud", "out loud", "sounds like", "we hear", "reportedly",
               "spoken", "pronounced", "homophone"),
     "Anagram": ("anagram", "shuffle", "scrambled", "jumbled", "rearranged"),
-    "Hidden": ("hidden", "hiding", "buried", "concealed"),
+    "Hidden or letter selection": ("hidden", "hiding", "buried", "concealed"),
     "Container, reversal or deletion": ("reversed", "backwards", "turned around", "inserted"),
 }
 
