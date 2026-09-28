@@ -996,7 +996,7 @@ def difficulty_bands(idx):
                f"above {signed(lo)}" if hi == float("inf") else f"{signed(lo)} to {signed(hi)}")
         n = counts.get(band, 0)
         nitch = "".join(
-            f"<td>{r[0]}&ndash;{r[1]}</td>" if (r := ranges[s].get(band)) else "<td>&ndash;</td>"
+            f"<td>{r["q1"]}&ndash;{r["q3"]}</td>" if (r := ranges[s].get(band)) else "<td>&ndash;</td>"
             for s in quoted)
         rows.append(f'<tr><td><span class="badge diff diff-{esc(band.lower())}">'
                     f'{esc(band.lower())}</span></td><td>{cut}</td>'

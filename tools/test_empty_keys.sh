@@ -178,6 +178,25 @@ print("PRUNED", "setter" in back, "solution" in b0, "annotation" in b0,
       b0["annotation"]["blocks"], b0["clue"])
 puzzle_integrity.refuse_bad_write = gate
 
+# Every object is written in the schema's key order, whatever order the
+# writer built it in, and a file in any other order fails the validator.
+def backwards(v):
+    if isinstance(v, dict):
+        return {k: backwards(v[k]) for k in reversed(list(v))}
+    return [backwards(x) for x in v] if isinstance(v, list) else v
+scrambled = backwards(real)
+print("SCRAMBLED", any("the schema's order" in x for x in puzzle_schema.validate(scrambled)))
+with tempfile.TemporaryDirectory() as d:
+    path = Path(d) / "cryptic-30066.json"
+    fetcher.write_puzzle_file(path, scrambled)
+    back = json.loads(path.read_text(encoding="utf-8"))
+print("REORDERED", puzzle_schema.validate(back), list(back)[:3])
+import blog_facts
+row = {"url": "u", "entries": {"2-down": {"blocks": [{"gives": "A", "clueFragment": "a"}], "type": ["charade"]},
+                               "1-across": {"inferred": ["type"], "type": ["anagram"]}},
+       "name": "n", "blog": "fifteensquared"}
+print("BLOGORDER", blog_facts.file_text({"p-1": row}).splitlines()[1])
+
 # A key the schema does not know is refused at the write gate...
 bad = copy.deepcopy(real)
 bad["entries"][0]["clueCorrupt"] = "retired"
@@ -219,6 +238,10 @@ PY
 same "the write drops every null and empty value and keeps a blank clue" \
   "$(grep '^PRUNED ' <<<"$out")" \
   "PRUNED False False True ['blocks', 'features', 'type'] ['answerInScene', 'aptDefinition'] [{'clueFragment': 'x'}] {'missing': True}"
+same "a file in another key order fails the validator" "$(grep '^SCRAMBLED ' <<<"$out")" "SCRAMBLED True"
+same "the write puts every key in the schema's order" "$(grep '^REORDERED ' <<<"$out")" "REORDERED [] ['id', 'number', 'series']"
+same "the blog facts writer puts every key in the schema's order" "$(grep '^BLOGORDER ' <<<"$out")" \
+  'BLOGORDER "p-1": {"blog": "fifteensquared", "name": "n", "url": "u", "entries": {"1-across": {"type": ["anagram"], "inferred": ["type"]}, "2-down": {"type": ["charade"], "blocks": [{"clueFragment": "a", "gives": "A"}]}}}'
 same "the write gate refuses a key the schema does not have" "$(grep '^GATE ' <<<"$out")" "GATE True"
 same "the validator fails a null on disk" "$(grep '^VALIDATOR ' <<<"$out")" "VALIDATOR True"
 same "the schema's enums are their sources' lists" "$(grep '^ENUMS ' <<<"$out")" "ENUMS []"

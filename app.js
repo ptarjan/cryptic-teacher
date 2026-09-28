@@ -5355,7 +5355,7 @@
     // The SNITCH rates the Times: the index carries the interquartile NITCH of
     // each band's rated puzzles per series, and only bands with enough of them.
     const nitch = ((INDEX.snitchRanges || {})[p.series] || {})[d.band];
-    const snitch = nitch ? ` ${d.band} puzzles in this series typically score SNITCH ${nitch[0]}–${nitch[1]}.` : "";
+    const snitch = nitch ? ` ${d.band} puzzles in this series typically score SNITCH ${nitch.q1}–${nitch.q3}.` : "";
     return `<span class="badge diff diff-${d.band.toLowerCase()}" title="${esc(
       d.band + pct + ". Based on " + basis + ", compared with the other puzzles on this site." + snitch
       + " Tap the badge for how difficulty is rated."

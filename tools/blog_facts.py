@@ -59,6 +59,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 from clue_types import NAMES
 from definitions import place
 from fetch_puzzle import puzzle_files, read_puzzle_file
+from puzzle_schema import order
 
 DATA = Path.home() / "cryptic-setter-data"
 OUT = ROOT / "tools" / "data" / "blog_facts"
@@ -2001,6 +2002,16 @@ def fact_json(fact, clue):
     return out
 
 
+def file_text(rows):
+    """A tools/data/blog_facts/<series>.json file: one puzzle per line in id
+    order, its clues in id order, every object's keys in the schema's order."""
+    return "{\n" + ",\n".join(
+        json.dumps(pid) + ": " + json.dumps(
+            order({**row, "entries": dict(sorted(row["entries"].items()))}, "#/$defs/blogFacts"),
+            ensure_ascii=False)
+        for pid, row in sorted(rows.items())) + "\n}\n"
+
+
 def fact_from_json(entry):
     """fact_json's inverse: a clue's facts off a file, as they are held while parsing."""
     names = {v: k for k, v in FILE_FIELDS.items()}
@@ -2043,9 +2054,7 @@ def write(best, series):
                    encoding="utf-8")
     tmp.replace(LEADS)
     for s, rows in sorted(by_series.items()):
-        (OUT / f"{s}.json").write_text(
-            "{\n" + ",\n".join(json.dumps(k) + ": " + json.dumps(v, ensure_ascii=False, sort_keys=True)
-                               for k, v in sorted(rows.items())) + "\n}\n", encoding="utf-8")
+        (OUT / f"{s}.json").write_text(file_text(rows), encoding="utf-8")
     return sum(len(v) for v in by_series.values())
 
 

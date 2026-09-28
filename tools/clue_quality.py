@@ -464,7 +464,7 @@ def opens_imperative(toks, norms):
 
 def check(eid, spec, norms):
     """Return a list of (code, message) smells for one clue."""
-    clue = strip_enum(spec["clue"])
+    clue = strip_enum(spec["clue"]["text"])
     ann = spec.get("annotation", {})
     out = []
     ws = words(clue)
@@ -604,9 +604,8 @@ def calibrate(corpus, n, seed):
     counts = {c: 0 for c in CODES}
     fracs = []
     for clue, answer, definition in sample:
-        spec = {"clue": clue, "annotation": {
-            "answer": answer, "definitions": [{"text": definition}] if definition else [],
-            "indicators": []}}
+        spec = {"clue": {"text": clue}, "annotation": {
+            "answer": answer, **({"definitions": [{"text": definition}]} if definition else {})}}
         for code, _ in check("pub", spec, norms):
             counts[code] += 1
         toks = tokens(strip_enum(clue))
@@ -669,7 +668,7 @@ def main():
         if not smells:
             continue
         flagged += 1
-        print(f"\n{eid}: {spec['clue']}")
+        print(f"\n{eid}: {spec['clue']['text']}")
         for code, msg in smells:
             print(f"  [{code}] {msg}")
 

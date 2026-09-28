@@ -74,6 +74,7 @@ from blog_facts import (
     clue_body,
     fact_from_json,
     fact_json,
+    file_text,
     heard_blocks,
 )
 from indicator_keys import WORD, letters
@@ -1756,8 +1757,7 @@ def write(corpus, votes):
             if pid in by_pid:
                 n.update(k for v in by_pid[pid].values() for k in v.get("inferred", ()))
                 rec["entries"] = dict(sorted(by_pid[pid].items()))
-        f.write_text("{\n" + ",\n".join(json.dumps(k) + ": " + json.dumps(v, ensure_ascii=False, sort_keys=True)
-                                         for k, v in sorted(rows_.items())) + "\n}\n", encoding="utf-8")
+        f.write_text(file_text(rows_), encoding="utf-8")
     n.update(export_lexicons(Lexicon(corpus, extra=ours), ilex))
     return n
 

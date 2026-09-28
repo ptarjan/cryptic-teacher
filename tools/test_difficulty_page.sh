@@ -21,7 +21,7 @@ import difficulty_check as C
 
 tmp = Path(os.environ["TMP"])
 idx = {"puzzles": [{"difficulty": {"band": b}} for b in ("Gentle", "Tough", "Tough")],
-       "snitchRanges": {"times": {"Tough": [80, 110, 12]}}}
+       "snitchRanges": {"times": {"Tough": {"q1": 80, "q3": 110, "rated": 12}}}}
 check = {**C.fingerprint(), "snitch_newest": "2026-01-01",
          "heldout": {k: {"thirds": [0.4, 0.5, 0.6], "mean": 0.5, "n": 100} for k in C.SETS},
          "blended": {k: {"thirds": [0.6, 0.7, 0.8], "mean": 0.7, "n": 100, "puzzles_blended": 90}
