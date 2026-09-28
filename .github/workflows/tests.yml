@@ -42,6 +42,11 @@
 # test out of tools/daily_update.sh and drive it against a stub, and
 # test_push_conflict.sh clones this repo with --local. Anything that needed a
 # model call or a credential would not belong in CI and is not here.
+#
+# The network is not just unused but cut: every `run:` step in a job that runs
+# repo code goes through .github/offline.sh (the job's `defaults`), which gives
+# it loopback and nothing else. A test that fetches fails at once; stub the
+# fetch rather than hand the network back.
 name: Run the test scripts
 
 on:
@@ -62,6 +67,9 @@ jobs:
     runs-on: ubuntu-latest
     # One python builder over files already in the clone; seconds, not minutes.
     timeout-minutes: 5
+    defaults:
+      run:
+        shell: bash .github/offline.sh {0}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -96,6 +104,9 @@ jobs:
     # minutes of checkout, build and scripts; fifteen leaves room for a slow
     # runner and a growing corpus, and still fails a stall inside a quarter hour.
     timeout-minutes: 15
+    defaults:
+      run:
+        shell: bash .github/offline.sh {0}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
