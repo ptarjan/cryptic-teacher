@@ -337,8 +337,15 @@ check("both files agree where borrowed text is cached",
 path, how, status = A.fetch_text("someidentifier0000xxxx", override="/nonexistent/x.txt")
 check("a missing --text is a stop, not a borrow", status, "text-not-public")
 
-real_restriction = A.item_restriction
+real_restriction, real_urlopen = A.item_restriction, A.urllib.request.urlopen
 A.item_restriction = lambda identifier: ("lending", "; a lending item")
+
+
+def refuse_401(req, timeout=None):  # a lending item's _djvu.txt, offline
+    raise A.urllib.error.HTTPError(req.full_url, 401, "Unauthorized", {}, None)
+
+
+A.urllib.request.urlopen = refuse_401
 try:
     path, how, status = A.fetch_text("lending0000xxxx", allow_borrow=False)
     if status != "text-not-public" or "no loan was taken" not in how:
@@ -346,7 +353,7 @@ try:
     else:
         ok("--no-borrow stops on a lending item without taking a loan")
 finally:
-    A.item_restriction = real_restriction
+    A.item_restriction, A.urllib.request.urlopen = real_restriction, real_urlopen
 
 # -------------------------------------------------------------- case 11
 # The account-level refusal. It is not about the identifier, so it must not
