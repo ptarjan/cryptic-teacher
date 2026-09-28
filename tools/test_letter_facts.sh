@@ -196,8 +196,9 @@ False True True True"
 if [ "$blockless" = "$want" ]; then echo "ok   a hidden word's carrier is read where one run spells it, and a clue is complete with the parts its kind has"; else
   echo "FAIL block-less types: expected [$want], got [$blockless]"; fails=$((fails + 1)); fi
 
-# A forward hidden word the lexicon reads no indicator for takes the free
-# words, one run, less an end word blogs leave out; not where blogs both
+# A forward hidden word, an anagram or a container the lexicon reads no
+# indicator for takes the free words, one run, less an end word blogs leave
+# out and a closing "'s"; not where blogs both
 # take it in and leave it out, nor where the free words are not one run.
 hiding=$(cd "$REPO/tools" && python3 -c '
 import letter_facts as l
@@ -207,12 +208,13 @@ class Ilex:
 def run(clue, carrier, sides):
     body, ws, at = l.spans(clue)
     taken = l.locate("Region", ws) | l.locate(carrier, ws)
-    return l.hiding_run(ws, at, body, taken, Ilex(sides))
+    return l.free_words_indicator(ws, at, body, taken, Ilex(sides))
 print(run("Region situated in Far East (4)", "Far East", {("R", "IN"): False}),
       run("Region situated in Far East (4)", "Far East", {("R", "IN"): None}),
-      run("Region situated in Far East today (4)", "Far East", {}))')
-want="['situated'] None None"
-if [ "$hiding" = "$want" ]; then echo "ok   a hidden word's indicator is its free words, one run, less the end words blogs leave out"; else
+      run("Region situated in Far East today (4)", "Far East", {}),
+      run("Region criminal’s Far East (4)", "Far East", {}))')
+want="['situated'] None None ['criminal']"
+if [ "$hiding" = "$want" ]; then echo "ok   a one-part clue's indicator is its free words, one run, less the end words blogs leave out"; else
   echo "FAIL hiding run: expected [$want], got [$hiding]"; fails=$((fails + 1)); fi
 
 # A homophone's or a spoonerism's block is the blog's, heard: the words it
