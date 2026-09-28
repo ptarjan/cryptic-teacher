@@ -373,13 +373,8 @@ def host_of(url):
 
 
 def series_of_id(pid):
-    """The series from the id, never from the `series` field.
-
-    35 files in this corpus (cryptic-30039..30073, the first ones ever fetched)
-    carry no `series` field at all, and a provenance backfill that read the
-    field would have silently filed them under the default. The id is the one
-    statement every puzzle makes — see series.parse_id, which this defers to.
-    """
+    """The series from the id, which every puzzle states — see series.parse_id,
+    which this defers to. check() holds the `series` field to it."""
     series, _ = series_table.parse_id(pid)
     return series or "cryptic"
 
@@ -631,6 +626,9 @@ def check(puzzle):
     if not puzzle.get("sourceUrl") and expected_channel != "authored":
         findings.append("provenance without a sourceUrl — nothing to check it against")
 
+    if puzzle.get("series") != series:
+        findings.append(f"series is {puzzle.get('series')!r} but the id says "
+                        f"{series!r}")
     if prov.get("series") != series:
         findings.append(f"provenance.series is {prov.get('series')!r} but the id "
                         f"says {series!r}")
