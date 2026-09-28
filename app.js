@@ -895,6 +895,11 @@
   // The answer is the solution, so blockLetters holds back a block that is the
   // whole of it exactly as it does for ours; a hidden word's carrier then shows
   // the note ours write, the run capitalised in its words (carrierNote).
+  // A definition's `at` counts code points (a Python str index); a JS string
+  // index counts UTF-16 units. These convert between the two.
+  const cpToIdx = (s, at) => [...s].slice(0, at).join("").length;
+  const idxToCp = (s, i) => [...s.slice(0, i)].length;
+
   function blogAnn(e) {
     const b = e.blog;
     if (!b) return null;
@@ -909,8 +914,12 @@
                     return note ? { ...block, note } : block;
                   }),
                   inferred: b.inferred || [], typeCore: !!b.typeCore };
-    if (defs.length) ann.definition = defs[0];
-    if (defs.length === 2 && ann.type.includes("double_definition")) ann.definition2 = defs[1];
+    const clue = e.clue || "";
+    const texts = defs.length === 2 && ann.type.includes("double_definition") ? defs : defs.slice(0, 1);
+    if (texts.length) ann.definitions = texts.map((text) => {
+      const i = clue.indexOf(text);
+      return { text, at: i < 0 ? -1 : idxToCp(clue, i) };
+    });
     return ann;
   }
   // "hidden in saW HIZbollah": the words that carry `answer`, its run in
@@ -1853,7 +1862,7 @@
   // "in" and grading a different one would tell someone they were wrong about a
   // word the clue had just underlined for them.
   const isLetter = (c) => !!c && /[A-Za-z]/.test(c);
-  function bestOccurrence(clue, text, taken, atEnds) {
+  function bestOccurrence(clue, text, taken) {
     const len = text.length;
     // Only an edge that is itself a letter can be mid-word. Fragments routinely
     // start or end on punctuation that is welded to the neighbouring word —
@@ -1863,15 +1872,12 @@
       !(isLetter(clue[i]) && isLetter(clue[i - 1])) &&
       !(isLetter(clue[i + len - 1]) && isLetter(clue[i + len]));
     const free = (i) => !taken.some((m) => i < m.i + m.len && m.i < i + len);
-    // A definition sits at one end of the clue, so with `atEnds` an occurrence
-    // at either end beats an earlier one in the middle.
-    const atEnd = (i) => !/[A-Za-z]/.test(clue.slice(0, i)) || !/[A-Za-z]/.test(clue.slice(i + len));
     // A whole word somewhere else beats a syllable of the right word: the
     // fragment is a word of the clue, so a match that is not one is a
     // coincidence of spelling. Ties go to the earliest.
     const rank = (i) => {
       const b = onBoundary(i), f = free(i);
-      return b && f ? (atEnds && !atEnd(i) ? 1 : 0) : b ? 2 : f ? 3 : 4;
+      return b && f ? 0 : b ? 2 : f ? 3 : 4;
     };
     let best = -1;
     for (let i = clue.indexOf(text); i >= 0; i = clue.indexOf(text, i + 1))
@@ -1885,10 +1891,9 @@
   // position that depended on what had been paid for would move the link word
   // to a different "in" as soon as the indicators were bought.
   //
-  // Longest first: a long fragment usually has one possible position and a
-  // short one has several. "Sam, Tim, Rich and Ali each cutting last cutting"
-  // has to give the indicator "each cutting last" its only position before the
-  // definition "cutting" picks one.
+  // A definition carries its offset (`at`), so it claims exactly that span
+  // first. The rest search, longest first: a long fragment usually has one
+  // possible position and a short one has several.
   //
   // Link words claim after everything else, because a connective is a word or
   // two the clue is free to use twice: "Wears underwear twisted in the middle
@@ -1899,16 +1904,23 @@
     const ann = annOf(e);
     if (!ann) return [];
     const frags = [];
-    const add = (text, kind) => { if (text) frags.push({ text, kind, n: frags.length }); };
-    add(ann.definition, "def");
-    add(ann.definition2, "def2");
+    const add = (text, kind, at) => { if (text) frags.push({ text, kind, n: frags.length, at }); };
+    (ann.definitions || []).forEach((d, k) => add(d.text, k ? "def2" : "def", d.at));
     (ann.indicators || []).forEach((t) => add(t.text, "ind"));
     (ann.linkWords || []).forEach((t) => add(t, "link"));
-    const order = frags.slice().sort((a, b) =>
-      (a.kind === "link") - (b.kind === "link") || b.text.length - a.text.length || a.n - b.n);
+    // A definition's position is stored, so it claims that span before anything
+    // searches; the rest are placed around it.
     const taken = [];
+    for (const f of frags) {
+      if (f.at === undefined) continue;
+      const i = f.at >= 0 ? cpToIdx(e.clue, f.at) : -1;
+      f.i = i >= 0 && e.clue.slice(i, i + f.text.length) === f.text ? i : -1;
+      if (f.i >= 0) taken.push({ i: f.i, len: f.text.length });
+    }
+    const order = frags.filter((f) => f.at === undefined).sort((a, b) =>
+      (a.kind === "link") - (b.kind === "link") || b.text.length - a.text.length || a.n - b.n);
     for (const f of order) {
-      f.i = bestOccurrence(e.clue, f.text, taken, f.kind === "def" || f.kind === "def2");
+      f.i = bestOccurrence(e.clue, f.text, taken);
       if (f.i >= 0) taken.push({ i: f.i, len: f.text.length });
     }
     return frags.filter((f) => f.i >= 0);
@@ -2866,10 +2878,11 @@
   // half that is wordplay, a sounded form. So a compound type keeps its rung,
   // and a clue with three senses keeps the one the split did not mention.
   function senseBlock(ann, b) {
-    if (!ann.definition2 || !(ann.type || []).includes("double_definition")) return false;
+    const defs = ann.definitions || [];
+    if (defs.length < 2 || !(ann.type || []).includes("double_definition")) return false;
     if (b.soundsLike || blockLetters(ann, b)) return false;
     const frag = wholeWord(b.clueFragment);
-    return !!frag && [ann.definition, ann.definition2].map(wholeWord)
+    return !!frag && defs.map((d) => wholeWord(d.text))
       .some((d) => d && (d.includes(frag) || frag.includes(d)));
   }
   const buildingBlocks = (ann) => (ann.blocks || []).filter((b) => !senseBlock(ann, b));
@@ -3062,17 +3075,15 @@
   // battle, so the seam is what this rung should hand over. It is computable
   // from the clue text, which means every clue gets its own sentence instead of
   // the one about definitions living at one end that used to print 25 times a
-  // puzzle. Falls back to a bare full stop when the definition is not a literal
-  // substring (a normalised apostrophe, an &lit) rather than guessing.
-  function defPlace(clue, definition) {
-    const bare = String(clue || "").replace(/\s*\([^)]*\)\s*$/, "").trim();
-    const def = String(definition || "").trim();
-    if (!bare || !def) return ".";
-    const at = bare.toLowerCase().indexOf(def.toLowerCase());
-    if (at < 0) return ".";
+  // puzzle. Falls back to a bare full stop when the definition has no span in
+  // the clue (a blog underline that is not a literal substring) rather than guessing.
+  function defPlace(clue, def) {
+    const c = String(clue || "");
+    const i = def && def.text && def.at >= 0 ? cpToIdx(c, def.at) : -1;
+    if (i < 0 || c.slice(i, i + def.text.length) !== def.text) return ".";
     const trim = (s) => s.trim().replace(/^[,;:.—–-]+|[,;:—–-]+$/g, "").trim();
-    const before = trim(bare.slice(0, at));
-    const after = trim(bare.slice(at + def.length));
+    const before = trim(c.slice(0, i));
+    const after = trim(c.slice(i + def.text.length).replace(/\s*\([^)]*\)\s*$/, ""));
     if (!before && !after) return " — which is the whole clue, and that is what makes this one unusual.";
     if (!before) return `, so the clue opens with it and “${esc(after)}” is the wordplay.`;
     if (!after) return `, right at the end — so “${esc(before)}” is the wordplay.`;
@@ -3414,6 +3425,7 @@
     const isCD = t.includes("cryptic_definition");
     const isLit = t.includes("and_lit");
     const inds = ann.indicators || [];
+    const defs = ann.definitions || [];
     const blocks = buildingBlocks(ann);
     const steps = [];
 
@@ -3488,16 +3500,16 @@
         html: `<p>No words in this clue define the answer: the puzzle's preamble
           does: <q>${esc((P && P.preamble) || "")}</q></p>`
       });
-    } else if (!ann.definition) {
+    } else if (!defs.length) {
       // A blog fact with a type and no clean underline: no definition rung.
-    } else if (isDD && ann.definition2) {
+    } else if (isDD && defs.length === 2) {
       const senses = senseBlocks(ann).map((b) =>
         `<li>“${esc(b.clueFragment)}” <span class="muted">— ${esc(b.note)}</span></li>`).join("");
       steps.push({
         key: "definition",
         label: LABELS.definition,
-        html: `<p>It splits between <mark class="def">${esc(ann.definition)}</mark> and
-          <mark class="def2">${esc(ann.definition2)}</mark> — two unrelated meanings of the same
+        html: `<p>It splits between <mark class="def">${esc(defs[0].text)}</mark> and
+          <mark class="def2">${esc(defs[1].text)}</mark> — two unrelated meanings of the same
           answer. The clue reads like one sentence so that you don't notice it is two definitions side by side.</p>` +
           (senses ? `<ul>${senses}</ul>` : "")
       });
@@ -3505,14 +3517,14 @@
       steps.push({
         key: "definition",
         label: LABELS.definition,
-        html: `<p>Read <mark class="def">${esc(ann.definition)}</mark> straight through as a
+        html: `<p>Read <mark class="def">${esc(defs[0].text)}</mark> straight through as a
           description of the answer, then read the very same words again as wordplay.</p>`
       });
     } else if (isCD && !ann.fromBlog) {
       steps.push({
         key: "definition",
         label: LABELS.definition,
-        html: `<p>There's no separate wordplay here: <mark class="def">${esc(ann.definition)}</mark>
+        html: `<p>There's no separate wordplay here: <mark class="def">${esc(defs[0].text)}</mark>
           is a whole-clue description of the answer, worded to make you picture something else at first.</p>`
       });
     } else {
@@ -3524,7 +3536,7 @@
       steps.push({
         key: "definition",
         label: LABELS.definition,
-        html: `<p>The definition is <mark class="def">${esc(ann.definition)}</mark>${defPlace(clue, ann.definition)}</p>`
+        html: `<p>The definition is <mark class="def">${esc(defs[0].text)}</mark>${defPlace(clue, defs[0])}</p>`
       });
     }
 
@@ -3533,14 +3545,12 @@
     // that was never there. It hangs off the definition rung because it is about
     // the CLUE, and a solver can act on it without knowing the answer.
     //
-    // `definitionNote` used to hang here too and could not: it explains why the
-    // definition does not agree with the ANSWER ("payment" for PEANUTS, singular
-    // for a plural), so it is written about the answer and 16 of them in the
-    // corpus named it outright — TRUMP CARDS handed over on the definition
-    // rung. Rewording them would only have hidden a structural mistake: a note comparing the
-    // answer to the definition is not an early hint, whatever words it uses. It
-    // now renders beside definitionFit on the walkthrough rung, where the answer
-    // is already on the table, and the validator gates the early fields at zero.
+    // A definition's `note` does not hang here: it explains why the definition
+    // does not agree with the ANSWER ("payment" for PEANUTS, singular for a
+    // plural), so it is written about the answer, and a note comparing the answer
+    // to the definition is not an early hint, whatever words it uses. It renders
+    // beside definitionFit on the walkthrough rung, where the answer is already
+    // on the table.
     const defStep = steps[steps.length - 1];
     if ((ann.linkWords || []).length && defStep) {
       const lw = ann.linkWords.map((w) => `<mark class="link">${esc(w)}</mark>`).join(", ");
@@ -3688,14 +3698,14 @@
     const fit = ann.definitionFit && ann.definedByPreamble
       ? `<p class="def-fit"><b class="wt-part">Why that's the answer</b>the preamble → <span class="gives">${esc(ann.answer)}</span>: ${esc(ann.definitionFit)}</p>`
       : ann.definitionFit
-      ? `<p class="def-fit"><b class="wt-part">Why that's the answer</b><mark class="def">${esc(ann.definition)}</mark>${
-          ann.definition2 ? ` and <mark class="def2">${esc(ann.definition2)}</mark>` : ""
+      ? `<p class="def-fit"><b class="wt-part">Why that's the answer</b>${(ann.definitions || []).map((d, k) =>
+          `<mark class="${k ? "def2" : "def"}">${esc(d.text)}</mark>`).join(" and ")
         } → <span class="gives">${esc(ann.answer)}</span>: ${esc(ann.definitionFit)}</p>`
       : "";
     // Why the definition may fairly disagree with the answer in number or part of
     // speech — a footnote to the fit, so it sits with it rather than two rungs above.
-    const note = ann.definitionNote
-      ? `<p class="def-note">${esc(ann.definitionNote)}</p>` : "";
+    const note = (ann.definitions || []).filter((d) => d.note)
+      .map((d) => `<p class="def-note">${esc(d.note)}</p>`).join("");
     // Two labelled parts, each shown only when it is actually there. What the
     // clue PRETENDS to say and what it is DOING are different things, and one
     // label over both was wrong whichever word it used: "The trick" over a
@@ -3907,7 +3917,7 @@
   function rungEdges(e, rung, step) {
     const ann = annOf(e);
     if (!ann || rung === "indicators") return [];
-    const defs = [ann.definition, ann.definition2].filter(Boolean);
+    const defs = (ann.definitions || []).map((d) => d.text);
     const tokens = clueTokens(e.clue);
     return rungSpans(e, rung, step)
       .filter((s) => rung === "definition" || defs.indexOf(s.text) >= 0)
@@ -4796,7 +4806,7 @@
     const ourDef = (ann.inferred || []).includes("definition");
     const ourInds = (ann.inferred || []).includes("indicators");
     const ourBlocks = ann.blocks.some((b) => b.inferred);
-    const theirs = !!((ann.definition && !ourDef) || (ann.indicators.length && !ourInds) || ann.blocks.some((b) => !b.inferred) || (ann.type.length && !ours));
+    const theirs = !!(((ann.definitions || []).length && !ourDef) || (ann.indicators.length && !ourInds) || ann.blocks.some((b) => !b.inferred) || (ann.type.length && !ours));
     const items = [ourDef && "definition", ours && "clue type", ourInds && "indicators", ourBlocks && (ann.blocks.every((b) => b.inferred) ? "pieces" : "some pieces")].filter(Boolean);
     const which = (items.length > 1 ? items.slice(0, -1).join(", ") + " and " + items[items.length - 1] : items[0]) || "clue type";
     const are = ourBlocks || ourInds || items.length > 1 ? "are" : "is";
@@ -4935,7 +4945,7 @@
       // reason clueHTML is: it was keyed off the definition rung, so taking the
       // indicators alone left the marks unexplained as well as absent.
       const legend = [];
-      if (isShown(e, "definition") && ann.definition) legend.push('<mark class="def">definition</mark>');
+      if (isShown(e, "definition") && (ann.definitions || []).length) legend.push('<mark class="def">definition</mark>');
       if (isShown(e, "indicators") && (ann.indicators || []).length) {
         legend.push('<mark class="ind">indicator</mark>');
       }

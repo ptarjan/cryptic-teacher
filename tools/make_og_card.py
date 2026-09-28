@@ -181,7 +181,7 @@ def plan(entry):
     couldn't have guessed.
     """
     ann = entry.get("annotation") or {}
-    if not ann.get("definition") or not ann.get("answer") or not entry.get("clue"):
+    if not ann.get("definitions") or not ann.get("answer") or not entry.get("clue"):
         return None
     clue, enumeration = bare_clue(entry)
     if len(clue) > 78:
@@ -191,7 +191,11 @@ def plan(entry):
          "indicator": None, "indicators": [], "family": clue_types.family_of(t),
          "enumeration": enumeration}
     try:
-        p["definition"] = span_of(clue, ann["definition"])
+        d = ann["definitions"][0]
+        if clue[d["at"]:d["at"] + len(d["text"])] != d["text"]:
+            raise SystemExit(f"og card: definition {d['text']!r} is not at {d['at']} "
+                             f"in the clue {clue!r}")
+        p["definition"] = (d["at"], d["at"] + len(d["text"]))
         for ind in ann.get("indicators") or []:
             p["indicator"] = p["indicator"] or ind["text"]
             span_of(clue, ind["text"])              # must be quotable from the clue
@@ -401,7 +405,7 @@ def rungs_for(p):
     out = [("type", html.escape(label), html.escape(first_sentence(blurb)))]
     out.append(("definition",
                 f'The definition is <mark class="def">'
-                f'{html.escape(ann["definition"])}</mark>',
+                f'{html.escape(ann["definitions"][0]["text"])}</mark>',
                 "It means the same as the answer. The rest of the clue is wordplay."))
     # The annotation's gloss is one clause of a sentence written for the page,
     # so it is borrowed only where one word is being explained and the card has

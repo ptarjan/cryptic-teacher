@@ -99,7 +99,7 @@ Terms used below:
   idiom. Restating the definition with the answer substituted in ("an army ant
   is a crawler") is a validator error. `check_definition_fit` catches it: the
   fit has no content word that is not already in the definition or the answer.
-  `definitionNote` is different: it justifies a definition that disagrees with
+  A definition's `note` is different: it justifies a definition that disagrees with
   the answer grammatically. Every clue has a fit; only a few need a note.
 - **The type rung names the family, never the precise type.** Saying
   `charade + letter selection` hands over the whole mechanism. Families, in
