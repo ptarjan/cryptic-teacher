@@ -1,291 +1,755 @@
 {
- "_comment": "Clues and annotations authored for the grid in sample_fill_11.json. Keyed by entry id. Consumed by tools/build_authored_puzzle.py, which merges these with the fill geometry to produce puzzles/A001.js. Every word of every clue must be definition, wordplay or joinery — a block with an empty `gives` is a validator ERROR here (see tools/AUTHORING.md, 'Exactly two pieces').",
+ "_comment": "Clues and annotations authored for the grid in sample_fill_11.json. Keyed by entry id. Consumed by tools/build_authored_puzzle.py, which merges these with the fill geometry and writes puzzles/authored/<year>/A001.json through fetch_puzzle.write_puzzle_file. Each entry is the puzzle entry's `clue` and `annotation`, in tools/data/puzzle.schema.json's shapes (definition `at` is placed on write). Every word of every clue must be definition, wordplay or joinery — a block with an empty `gives` is a validator ERROR here (see tools/AUTHORING.md, 'Exactly two pieces').",
  "1-across": {
-  "clue": "Expectant fathers do it up and down (4)",
+  "clue": {
+   "text": "Expectant fathers do it up and down (4)"
+  },
   "annotation": {
-   "type": ["cryptic_definition"],
-   "answer": "PACE",
-   "definitions": [{"text": "Expectant fathers do it up and down"}],
-   "indicators": [],
-   "blocks": [
-    {"clueFragment": "Expectant fathers do it up and down", "gives": "PACE", "note": "what a man does in a hospital corridor: he paces"}
+   "type": [
+    "cryptic_definition"
    ],
-   "explanation": {"walkthrough": "No indicator, no fodder, nothing to take apart: when a short clue offers none of those, read it as one plain statement and hunt for the single word it describes sideways."}
+   "answer": "PACE",
+   "definitions": [
+    {
+     "text": "Expectant fathers do it up and down"
+    }
+   ],
+   "blocks": [
+    {
+     "clueFragment": "Expectant fathers do it up and down",
+     "gives": "PACE",
+     "note": "what a man does in a hospital corridor: he paces"
+    }
+   ],
+   "explanation": {
+    "walkthrough": "No indicator, no fodder, nothing to take apart: when a short clue offers none of those, read it as one plain statement and hunt for the single word it describes sideways."
+   }
   }
  },
  "3-across": {
-  "clue": "Naples was flattened by aircraft (6)",
+  "clue": {
+   "text": "Naples was flattened by aircraft (6)"
+  },
   "annotation": {
-   "type": ["anagram"],
-   "answer": "PLANES",
-   "definitions": [{"text": "aircraft"}],
-   "indicators": ["flattened"],
-   "assembly": {"anagrams": [{"fodder": "NAPLES", "gives": "PLANES"}]},
-   "blocks": [
-    {"clueFragment": "Naples", "gives": "NAPLES", "note": "the six letters to rearrange"}
+   "type": [
+    "anagram"
    ],
-   "explanation": {"walkthrough": "'Flattened' is doing two jobs at once: it is the history — Naples was bombed flat in 1943 — and it is the instruction. The aircraft come out of the city's own name, and that is the whole joke."}
+   "answer": "PLANES",
+   "definitions": [
+    {
+     "text": "aircraft"
+    }
+   ],
+   "indicators": [
+    {
+     "text": "flattened",
+     "for": "anagram"
+    }
+   ],
+   "blocks": [
+    {
+     "clueFragment": "Naples",
+     "gives": "NAPLES",
+     "note": "the six letters to rearrange"
+    }
+   ],
+   "assembly": {
+    "anagrams": [
+     {
+      "fodder": "NAPLES",
+      "gives": "PLANES"
+     }
+    ]
+   },
+   "explanation": {
+    "walkthrough": "'Flattened' is doing two jobs at once: it is the history — Naples was bombed flat in 1943 — and it is the instruction. The aircraft come out of the city's own name, and that is the whole joke."
+   }
   }
  },
  "8-across": {
-  "clue": "Time here leads to yonder (5)",
+  "clue": {
+   "text": "Time here leads to yonder (5)"
+  },
   "annotation": {
-   "type": ["charade"],
-   "answer": "THERE",
-   "definitions": [{"text": "yonder"}],
-   "indicators": [],
-   "linkWords": ["leads to"],
-   "assembly": {"pieces": ["T", "HERE"]},
-   "blocks": [
-    {"clueFragment": "Time", "gives": "T", "note": "t is the standard abbreviation for time — the letter on every stopwatch and in every equation"},
-    {"clueFragment": "here", "gives": "HERE", "note": "the word itself, lifted straight out of the clue"}
+   "type": [
+    "charade"
    ],
-   "explanation": {"walkthrough": "T is the standard abbreviation for time and 'here' is lifted whole, so the charade needs no instruction word. The joke is the sentence's own: our time here leads to the hereafter."}
+   "answer": "THERE",
+   "definitions": [
+    {
+     "text": "yonder"
+    }
+   ],
+   "linkWords": [
+    "leads to"
+   ],
+   "blocks": [
+    {
+     "clueFragment": "Time",
+     "gives": "T",
+     "note": "t is the standard abbreviation for time — the letter on every stopwatch and in every equation"
+    },
+    {
+     "clueFragment": "here",
+     "gives": "HERE",
+     "note": "the word itself, lifted straight out of the clue"
+    }
+   ],
+   "assembly": {
+    "pieces": [
+     "T",
+     "HERE"
+    ]
+   },
+   "explanation": {
+    "walkthrough": "T is the standard abbreviation for time and 'here' is lifted whole, so the charade needs no instruction word. The joke is the sentence's own: our time here leads to the hereafter."
+   }
   }
  },
  "9-across": {
-  "clue": "What the Venus de Milo isn't (5)",
+  "clue": {
+   "text": "What the Venus de Milo isn't (5)"
+  },
   "annotation": {
-   "type": ["cryptic_definition"],
-   "answer": "ARMED",
-   "definitions": [{"text": "What the Venus de Milo isn't"}],
-   "indicators": [],
-   "blocks": [
-    {"clueFragment": "What the Venus de Milo isn't", "gives": "ARMED", "note": "the statue lost both arms, so this is the one thing she cannot be"}
+   "type": [
+    "cryptic_definition"
    ],
-   "explanation": {"walkthrough": "Definition by denial — the answer is the thing the sentence says is missing. The pleasure is the second sense sitting inside it: armed means carrying a weapon, and it also just means having arms."}
+   "answer": "ARMED",
+   "definitions": [
+    {
+     "text": "What the Venus de Milo isn't"
+    }
+   ],
+   "blocks": [
+    {
+     "clueFragment": "What the Venus de Milo isn't",
+     "gives": "ARMED",
+     "note": "the statue lost both arms, so this is the one thing she cannot be"
+    }
+   ],
+   "explanation": {
+    "walkthrough": "Definition by denial — the answer is the thing the sentence says is missing. The pleasure is the second sense sitting inside it: armed means carrying a weapon, and it also just means having arms."
+   }
   }
  },
  "10-across": {
-  "clue": "The press are riddled with pet errors (9)",
+  "clue": {
+   "text": "The press are riddled with pet errors (9)"
+  },
   "annotation": {
-   "type": ["anagram"],
-   "answer": "REPORTERS",
-   "definitions": [{"text": "The press"}],
-   "indicators": ["riddled"],
-   "assembly": {"anagrams": [{"fodder": "PET ERRORS", "gives": "REPORTERS"}]},
-   "blocks": [
-    {"clueFragment": "pet errors", "gives": "PET ERRORS", "note": "the nine letters to rearrange"}
+   "type": [
+    "anagram"
    ],
-   "explanation": {"walkthrough": "A riddle is a coarse sieve, so 'riddled' really does mean shaken up rather than merely infested. The joke is that the newspapermen and their favourite mistakes are the same nine letters."}
+   "answer": "REPORTERS",
+   "definitions": [
+    {
+     "text": "The press"
+    }
+   ],
+   "indicators": [
+    {
+     "text": "riddled",
+     "for": "anagram"
+    }
+   ],
+   "blocks": [
+    {
+     "clueFragment": "pet errors",
+     "gives": "PET ERRORS",
+     "note": "the nine letters to rearrange"
+    }
+   ],
+   "assembly": {
+    "anagrams": [
+     {
+      "fodder": "PET ERRORS",
+      "gives": "REPORTERS"
+     }
+    ]
+   },
+   "explanation": {
+    "walkthrough": "A riddle is a coarse sieve, so 'riddled' really does mean shaken up rather than merely infested. The joke is that the newspapermen and their favourite mistakes are the same nine letters."
+   }
   }
  },
  "12-across": {
-  "clue": "The queen's help comes from a worker (9)",
+  "clue": {
+   "text": "The queen's help comes from a worker (9)"
+  },
   "annotation": {
-   "type": ["and_lit"],
-   "answer": "ASSISTANT",
-   "definitions": [{"text": "The queen's help comes from a worker", "note": "A semi-&lit: the whole sentence defines an assistant, while only 'help' and 'worker' supply letters. In a full &lit every word would do both jobs at once."}],
-   "indicators": [],
-   "assembly": {"pieces": ["ASSIST", "ANT"]},
-   "blocks": [
-    {"clueFragment": "help", "gives": "ASSIST", "note": "to help is to assist"},
-    {"clueFragment": "worker", "gives": "ANT", "note": "the crossword worker is almost always an ANT, occasionally a BEE"}
+   "type": [
+    "and_lit"
    ],
-   "explanation": {"walkthrough": "The sentence you took the pieces out of is also the definition, and the anthill pays for both at once: a queen's helper really would be an ant."}
+   "answer": "ASSISTANT",
+   "definitions": [
+    {
+     "text": "The queen's help comes from a worker",
+     "note": "A semi-&lit: the whole sentence defines an assistant, while only 'help' and 'worker' supply letters. In a full &lit every word would do both jobs at once."
+    }
+   ],
+   "blocks": [
+    {
+     "clueFragment": "help",
+     "gives": "ASSIST",
+     "note": "to help is to assist"
+    },
+    {
+     "clueFragment": "worker",
+     "gives": "ANT",
+     "note": "the crossword worker is almost always an ANT, occasionally a BEE"
+    }
+   ],
+   "assembly": {
+    "pieces": [
+     "ASSIST",
+     "ANT"
+    ]
+   },
+   "explanation": {
+    "walkthrough": "The sentence you took the pieces out of is also the definition, and the anthill pays for both at once: a queen's helper really would be an ant."
+   }
   }
  },
  "15-across": {
-  "clue": "The instrument makes a dreadful groan (5)",
+  "clue": {
+   "text": "The instrument makes a dreadful groan (5)"
+  },
   "annotation": {
-   "type": ["anagram"],
-   "answer": "ORGAN",
-   "definitions": [{"text": "The instrument"}],
-   "indicators": ["dreadful"],
-   "assembly": {"anagrams": [{"fodder": "GROAN", "gives": "ORGAN"}]},
-   "linkWords": ["makes a"],
-   "blocks": [
-    {"clueFragment": "groan", "gives": "GROAN", "note": "the five letters to rearrange"}
+   "type": [
+    "anagram"
    ],
-   "explanation": {"walkthrough": "'Dreadful' describes the noise and instructs you to shake the letters, which is why it does not sound like an order. The joke is that the instrument's own groan is the instrument."}
+   "answer": "ORGAN",
+   "definitions": [
+    {
+     "text": "The instrument"
+    }
+   ],
+   "indicators": [
+    {
+     "text": "dreadful",
+     "for": "anagram"
+    }
+   ],
+   "linkWords": [
+    "makes a"
+   ],
+   "blocks": [
+    {
+     "clueFragment": "groan",
+     "gives": "GROAN",
+     "note": "the five letters to rearrange"
+    }
+   ],
+   "assembly": {
+    "anagrams": [
+     {
+      "fodder": "GROAN",
+      "gives": "ORGAN"
+     }
+    ]
+   },
+   "explanation": {
+    "walkthrough": "'Dreadful' describes the noise and instructs you to shake the letters, which is why it does not sound like an order. The joke is that the instrument's own groan is the instrument."
+   }
   }
  },
  "16-across": {
-  "clue": "Milan club buried in winter (5)",
+  "clue": {
+   "text": "Milan club buried in winter (5)"
+  },
   "annotation": {
-   "type": ["hidden_word"],
-   "answer": "INTER",
-   "definitions": [{"text": "Milan club"}],
-   "indicators": ["buried in"],
-   "blocks": [
-    {"clueFragment": "winter", "gives": "INTER", "note": "the answer is buried in w-INTER"}
+   "type": [
+    "hidden_word"
    ],
-   "explanation": {"walkthrough": "'Buried in' is the back-page verb and the only instruction you get. The second gag is that to inter IS to bury, so the answer means exactly what the clue does to it."}
+   "answer": "INTER",
+   "definitions": [
+    {
+     "text": "Milan club"
+    }
+   ],
+   "indicators": [
+    {
+     "text": "buried in",
+     "for": "hidden_word"
+    }
+   ],
+   "blocks": [
+    {
+     "clueFragment": "winter",
+     "gives": "INTER",
+     "note": "the answer is buried in w-INTER"
+    }
+   ],
+   "explanation": {
+    "walkthrough": "'Buried in' is the back-page verb and the only instruction you get. The second gag is that to inter IS to bury, so the answer means exactly what the clue does to it."
+   }
   }
  },
  "17-across": {
-  "clue": "Delight in the magic word (6)",
+  "clue": {
+   "text": "Delight in the magic word (6)"
+  },
   "annotation": {
-   "type": ["double_definition"],
-   "answer": "PLEASE",
-   "definitions": [{"text": "Delight"}, {"text": "the magic word"}],
-   "indicators": [],
-   "linkWords": ["in"],
-   "blocks": [
-    {"clueFragment": "Delight", "gives": "PLEASE", "note": "to please is to delight"},
-    {"clueFragment": "the magic word", "gives": "PLEASE", "note": "what a parent is fishing for when a child forgets"}
+   "type": [
+    "double_definition"
    ],
-   "explanation": {"walkthrough": "The seam hides inside an idiom: 'delight in' looks like one verb, so nobody notices that 'Delight' has already finished its job before the second definition starts."}
+   "answer": "PLEASE",
+   "definitions": [
+    {
+     "text": "Delight"
+    },
+    {
+     "text": "the magic word"
+    }
+   ],
+   "linkWords": [
+    "in"
+   ],
+   "blocks": [
+    {
+     "clueFragment": "Delight",
+     "gives": "PLEASE",
+     "note": "to please is to delight"
+    },
+    {
+     "clueFragment": "the magic word",
+     "gives": "PLEASE",
+     "note": "what a parent is fishing for when a child forgets"
+    }
+   ],
+   "explanation": {
+    "walkthrough": "The seam hides inside an idiom: 'delight in' looks like one verb, so nobody notices that 'Delight' has already finished its job before the second definition starts."
+   }
   }
  },
  "18-across": {
-  "clue": "The wolf's dinner is heard to pray (4)",
+  "clue": {
+   "text": "The wolf's dinner is heard to pray (4)"
+  },
   "annotation": {
-   "type": ["homophone"],
-   "answer": "PREY",
-   "definitions": [{"text": "The wolf's dinner"}],
-   "indicators": ["is heard to"],
-   "blocks": [
-    {"clueFragment": "pray", "gives": "PRAY", "note": "said aloud, PRAY is PREY"}
+   "type": [
+    "homophone"
    ],
-   "explanation": {"walkthrough": "The joke needs no unpacking once you picture it: the creature with the best reason to pray is the one about to be eaten."}
+   "answer": "PREY",
+   "definitions": [
+    {
+     "text": "The wolf's dinner"
+    }
+   ],
+   "indicators": [
+    {
+     "text": "is heard to",
+     "for": "homophone"
+    }
+   ],
+   "blocks": [
+    {
+     "clueFragment": "pray",
+     "gives": "PRAY",
+     "note": "said aloud, PRAY is PREY"
+    }
+   ],
+   "explanation": {
+    "walkthrough": "The joke needs no unpacking once you picture it: the creature with the best reason to pray is the one about to be eaten."
+   }
   }
  },
  "1-down": {
-  "clue": "Surrounded by pets, the Queen dwindles (6)",
+  "clue": {
+   "text": "Surrounded by pets, the Queen dwindles (6)"
+  },
   "annotation": {
-   "type": ["container"],
-   "answer": "PETERS",
-   "definitions": [{"text": "dwindles", "note": "PETERS means 'dwindles' only inside the phrasal verb 'peters out', so the clue is leaning on that idiom rather than on the bare word."}],
-   "indicators": ["Surrounded by"],
-   "assembly": {"pieces": ["PET", "ER", "S"]},
-   "blocks": [
-    {"clueFragment": "pets", "gives": "PETS", "note": "the container, split between PET and S to let the Queen in"},
-    {"clueFragment": "the Queen", "gives": "ER", "note": "Elizabeth Regina — ER is the crossword's shorthand for the Queen, worth memorising alongside ANT for worker"}
+   "type": [
+    "container"
    ],
-   "explanation": {"walkthrough": "The corgis are the misdirection: it is an ordinary sentence about a royal photocall, and while you picture it the monarch quietly climbs inside another word."}
+   "answer": "PETERS",
+   "definitions": [
+    {
+     "text": "dwindles",
+     "note": "PETERS means 'dwindles' only inside the phrasal verb 'peters out', so the clue is leaning on that idiom rather than on the bare word."
+    }
+   ],
+   "indicators": [
+    {
+     "text": "Surrounded by",
+     "for": "container"
+    }
+   ],
+   "blocks": [
+    {
+     "clueFragment": "pets",
+     "gives": "PETS",
+     "note": "the container, split between PET and S to let the Queen in"
+    },
+    {
+     "clueFragment": "the Queen",
+     "gives": "ER",
+     "note": "Elizabeth Regina — ER is the crossword's shorthand for the Queen, worth memorising alongside ANT for worker"
+    }
+   ],
+   "assembly": {
+    "pieces": [
+     "PET",
+     "ER",
+     "S"
+    ]
+   },
+   "explanation": {
+    "walkthrough": "The corgis are the misdirection: it is an ordinary sentence about a royal photocall, and while you picture it the monarch quietly climbs inside another word."
+   }
   }
  },
  "2-down": {
-  "clue": "Bruised peach goes for next to nothing (5)",
+  "clue": {
+   "text": "Bruised peach goes for next to nothing (5)"
+  },
   "annotation": {
-   "type": ["anagram"],
-   "answer": "CHEAP",
-   "definitions": [{"text": "goes for next to nothing"}],
-   "indicators": ["Bruised"],
-   "assembly": {"anagrams": [{"fodder": "PEACH", "gives": "CHEAP"}]},
-   "blocks": [
-    {"clueFragment": "peach", "gives": "PEACH", "note": "the five letters to rearrange"}
+   "type": [
+    "anagram"
    ],
-   "explanation": {"walkthrough": "Bruising is exactly why fruit ends up in the reduced box, so the word that scrambles the letters is also the reason the price fell. And a peach, in the other sense, is a beauty."}
+   "answer": "CHEAP",
+   "definitions": [
+    {
+     "text": "goes for next to nothing"
+    }
+   ],
+   "indicators": [
+    {
+     "text": "Bruised",
+     "for": "anagram"
+    }
+   ],
+   "blocks": [
+    {
+     "clueFragment": "peach",
+     "gives": "PEACH",
+     "note": "the five letters to rearrange"
+    }
+   ],
+   "assembly": {
+    "anagrams": [
+     {
+      "fodder": "PEACH",
+      "gives": "CHEAP"
+     }
+    ]
+   },
+   "explanation": {
+    "walkthrough": "Bruising is exactly why fruit ends up in the reduced box, so the word that scrambles the letters is also the reason the price fell. And a peach, in the other sense, is a beauty."
+   }
   }
  },
  "4-down": {
-  "clue": "Leaders get hip and find direction (10)",
+  "clue": {
+   "text": "Leaders get hip and find direction (10)"
+  },
   "annotation": {
-   "type": ["charade"],
-   "answer": "LEADERSHIP",
-   "definitions": [{"text": "direction"}],
-   "indicators": [],
-   "linkWords": ["get", "and find"],
-   "assembly": {"pieces": ["LEADERS", "HIP"]},
-   "blocks": [
-    {"clueFragment": "Leaders", "gives": "LEADERS", "note": "the word itself, taken whole"},
-    {"clueFragment": "hip", "gives": "HIP", "note": "hip as in with-it, and the last thing a cabinet minister ever is"}
+   "type": [
+    "charade"
    ],
-   "explanation": {"walkthrough": "A charade needs no instruction word at all — the pieces just stand in the order the clue prints them. The joke is the minister who buys a skateboard and files it under strategy."}
+   "answer": "LEADERSHIP",
+   "definitions": [
+    {
+     "text": "direction"
+    }
+   ],
+   "linkWords": [
+    "get",
+    "and find"
+   ],
+   "blocks": [
+    {
+     "clueFragment": "Leaders",
+     "gives": "LEADERS",
+     "note": "the word itself, taken whole"
+    },
+    {
+     "clueFragment": "hip",
+     "gives": "HIP",
+     "note": "hip as in with-it, and the last thing a cabinet minister ever is"
+    }
+   ],
+   "assembly": {
+    "pieces": [
+     "LEADERS",
+     "HIP"
+    ]
+   },
+   "explanation": {
+    "walkthrough": "A charade needs no instruction word at all — the pieces just stand in the order the clue prints them. The joke is the minister who buys a skateboard and files it under strategy."
+   }
   }
  },
  "5-down": {
-  "clue": "Call them what you like, they're still stars (5)",
+  "clue": {
+   "text": "Call them what you like, they're still stars (5)"
+  },
   "annotation": {
-   "type": ["double_definition"],
-   "answer": "NAMES",
-   "definitions": [{"text": "they're still stars"}, {"text": "Call them what you like"}],
-   "indicators": [],
-   "blocks": [
-    {"clueFragment": "Call them what you like", "gives": "NAMES", "note": "what you call someone is their names"},
-    {"clueFragment": "they're still stars", "gives": "NAMES", "note": "the famous are big names"}
+   "type": [
+    "double_definition"
    ],
-   "explanation": {"walkthrough": "The comma hides the seam, and the pleasure is watching 'call' quietly change job as the second half lands."}
+   "answer": "NAMES",
+   "definitions": [
+    {
+     "text": "they're still stars"
+    },
+    {
+     "text": "Call them what you like"
+    }
+   ],
+   "blocks": [
+    {
+     "clueFragment": "Call them what you like",
+     "gives": "NAMES",
+     "note": "what you call someone is their names"
+    },
+    {
+     "clueFragment": "they're still stars",
+     "gives": "NAMES",
+     "note": "the famous are big names"
+    }
+   ],
+   "explanation": {
+    "walkthrough": "The comma hides the seam, and the pleasure is watching 'call' quietly change job as the second half lands."
+   }
   }
  },
  "6-down": {
-  "clue": "There's a mole in the president's team (4)",
+  "clue": {
+   "text": "There's a mole in the president's team (4)"
+  },
   "annotation": {
-   "type": ["hidden_word"],
-   "answer": "SIDE",
-   "definitions": [{"text": "team"}],
-   "indicators": ["There's a mole in"],
-   "blocks": [
-    {"clueFragment": "the president's", "gives": "SIDE", "note": "hiding in pre-SIDE-nt"}
+   "type": [
+    "hidden_word"
    ],
-   "explanation": {"walkthrough": "A mole is a thing concealed inside an organisation, so the sentence is the hiding instruction without ever sounding like one — and the mole really is buried in the longest word, doing exactly what a mole does."}
+   "answer": "SIDE",
+   "definitions": [
+    {
+     "text": "team"
+    }
+   ],
+   "indicators": [
+    {
+     "text": "There's a mole in",
+     "for": "hidden_word"
+    }
+   ],
+   "blocks": [
+    {
+     "clueFragment": "the president's",
+     "gives": "SIDE",
+     "note": "hiding in pre-SIDE-nt"
+    }
+   ],
+   "explanation": {
+    "walkthrough": "A mole is a thing concealed inside an organisation, so the sentence is the hiding instruction without ever sounding like one — and the mole really is buried in the longest word, doing exactly what a mole does."
+   }
   }
  },
  "7-down": {
-  "clue": "Rep resents what he stands for (10)",
+  "clue": {
+   "text": "Rep resents what he stands for (10)"
+  },
   "annotation": {
-   "type": ["charade"],
-   "answer": "REPRESENTS",
-   "definitions": [{"text": "stands for"}],
-   "indicators": [],
-   "linkWords": ["what he"],
-   "assembly": {"pieces": ["REP", "RESENTS"]},
-   "blocks": [
-    {"clueFragment": "Rep", "gives": "REP", "note": "the union man, or the one from the sales office"},
-    {"clueFragment": "resents", "gives": "RESENTS", "note": "the word itself, lifted straight from the clue"}
+   "type": [
+    "charade"
    ],
-   "explanation": {"walkthrough": "Say it aloud and the false word-division does all the work: the rep who resents is, letter for letter, the man who represents."}
+   "answer": "REPRESENTS",
+   "definitions": [
+    {
+     "text": "stands for"
+    }
+   ],
+   "linkWords": [
+    "what he"
+   ],
+   "blocks": [
+    {
+     "clueFragment": "Rep",
+     "gives": "REP",
+     "note": "the union man, or the one from the sales office"
+    },
+    {
+     "clueFragment": "resents",
+     "gives": "RESENTS",
+     "note": "the word itself, lifted straight from the clue"
+    }
+   ],
+   "assembly": {
+    "pieces": [
+     "REP",
+     "RESENTS"
+    ]
+   },
+   "explanation": {
+    "walkthrough": "Say it aloud and the false word-division does all the work: the rep who resents is, letter for letter, the man who represents."
+   }
   }
  },
  "11-down": {
-  "clue": "Ground oyster makes a floor (6)",
+  "clue": {
+   "text": "Ground oyster makes a floor (6)"
+  },
   "annotation": {
-   "type": ["anagram"],
-   "answer": "STOREY",
-   "definitions": [{"text": "floor"}],
-   "indicators": ["Ground"],
-   "linkWords": ["makes a"],
-   "assembly": {"anagrams": [{"fodder": "OYSTER", "gives": "STOREY"}]},
-   "blocks": [
-    {"clueFragment": "oyster", "gives": "OYSTER", "note": "the six letters to rearrange"}
+   "type": [
+    "anagram"
    ],
-   "explanation": {"walkthrough": "Crushed oyster shell really is laid as flooring, so 'Ground' describes the stuff and shuffles it in the same breath. The joke is which floor you get: not the surface underfoot but a whole storey of the building."}
+   "answer": "STOREY",
+   "definitions": [
+    {
+     "text": "floor"
+    }
+   ],
+   "indicators": [
+    {
+     "text": "Ground",
+     "for": "anagram"
+    }
+   ],
+   "linkWords": [
+    "makes a"
+   ],
+   "blocks": [
+    {
+     "clueFragment": "oyster",
+     "gives": "OYSTER",
+     "note": "the six letters to rearrange"
+    }
+   ],
+   "assembly": {
+    "anagrams": [
+     {
+      "fodder": "OYSTER",
+      "gives": "STOREY"
+     }
+    ]
+   },
+   "explanation": {
+    "walkthrough": "Crushed oyster shell really is laid as flooring, so 'Ground' describes the stuff and shuffles it in the same breath. The joke is which floor you get: not the surface underfoot but a whole storey of the building."
+   }
   }
  },
  "12-down": {
-  "clue": "There's a row among the star guests (5)",
+  "clue": {
+   "text": "There's a row among the star guests (5)"
+  },
   "annotation": {
-   "type": ["hidden_word"],
-   "answer": "ARGUE",
-   "definitions": [{"text": "row"}],
-   "indicators": ["among"],
-   "linkWords": ["There's"],
-   "blocks": [
-    {"clueFragment": "the star guests", "gives": "ARGUE", "note": "hidden inside st-ARGUE-sts"}
+   "type": [
+    "hidden_word"
    ],
-   "explanation": {"walkthrough": "'Row' here rhymes with cow, not with toe — that switch of sense is the whole misdirection. And the row really is inside the star guests, exactly where the caption says it is."}
+   "answer": "ARGUE",
+   "definitions": [
+    {
+     "text": "row"
+    }
+   ],
+   "indicators": [
+    {
+     "text": "among",
+     "for": "hidden_word"
+    }
+   ],
+   "linkWords": [
+    "There's"
+   ],
+   "blocks": [
+    {
+     "clueFragment": "the star guests",
+     "gives": "ARGUE",
+     "note": "hidden inside st-ARGUE-sts"
+    }
+   ],
+   "explanation": {
+    "walkthrough": "'Row' here rhymes with cow, not with toe — that switch of sense is the whole misdirection. And the row really is inside the star guests, exactly where the caption says it is."
+   }
   }
  },
  "13-down": {
-  "clue": "Husband slips out of the halter to change (5)",
+  "clue": {
+   "text": "Husband slips out of the halter to change (5)"
+  },
   "annotation": {
-   "type": ["deletion"],
-   "answer": "ALTER",
-   "definitions": [{"text": "change"}],
-   "indicators": ["slips out of"],
-   "assembly": {"pieces": ["ALTER"]},
-   "blocks": [
-    {"clueFragment": "Husband", "gives": "H", "note": "h = husband, the standard abbreviation (it also does hard, hot and hospital)"},
-    {"clueFragment": "the halter", "gives": "HALTER", "note": "take the H out of HALTER and ALTER is left"}
+   "type": [
+    "deletion"
    ],
-   "explanation": {"walkthrough": "H = husband is shorthand worth memorising, and slipping out of a halter is a real thing to do, so nothing sounds like an instruction. The joke is that a horse wears a halter — and so, apparently, does a married man."}
+   "answer": "ALTER",
+   "definitions": [
+    {
+     "text": "change"
+    }
+   ],
+   "indicators": [
+    {
+     "text": "slips out of",
+     "for": "deletion"
+    }
+   ],
+   "blocks": [
+    {
+     "clueFragment": "Husband",
+     "gives": "H",
+     "note": "h = husband, the standard abbreviation (it also does hard, hot and hospital)"
+    },
+    {
+     "clueFragment": "the halter",
+     "gives": "HALTER",
+     "note": "take the H out of HALTER and ALTER is left"
+    }
+   ],
+   "assembly": {
+    "pieces": [
+     "ALTER"
+    ]
+   },
+   "explanation": {
+    "walkthrough": "H = husband is shorthand worth memorising, and slipping out of a halter is a real thing to do, so nothing sounds like an instruction. The joke is that a horse wears a halter — and so, apparently, does a married man."
+   }
   }
  },
  "14-down": {
-  "clue": "Up the pool for another circuit (4)",
+  "clue": {
+   "text": "Up the pool for another circuit (4)"
+  },
   "annotation": {
-   "type": ["reversal"],
-   "answer": "LOOP",
-   "definitions": [{"text": "circuit"}],
-   "indicators": ["Up"],
-   "linkWords": ["for another"],
-   "assembly": {"pieces": ["LOOP"], "reversals": [{"from": "POOL", "to": "LOOP"}]},
-   "blocks": [
-    {"clueFragment": "pool", "gives": "POOL", "note": "read upward — this is a down entry — it becomes the answer"}
+   "type": [
+    "reversal"
    ],
-   "explanation": {"walkthrough": "A down entry has no 'backwards': its reversal runs upward, which is why 'Up' and never 'Back' can do this job here. And a swimmer going up the pool really is on another circuit."}
+   "answer": "LOOP",
+   "definitions": [
+    {
+     "text": "circuit"
+    }
+   ],
+   "indicators": [
+    {
+     "text": "Up",
+     "for": "reversal"
+    }
+   ],
+   "linkWords": [
+    "for another"
+   ],
+   "blocks": [
+    {
+     "clueFragment": "pool",
+     "gives": "POOL",
+     "note": "read upward — this is a down entry — it becomes the answer"
+    }
+   ],
+   "assembly": {
+    "pieces": [
+     "LOOP"
+    ],
+    "reversals": [
+     {
+      "from": "POOL",
+      "to": "LOOP"
+     }
+    ]
+   },
+   "explanation": {
+    "walkthrough": "A down entry has no 'backwards': its reversal runs upward, which is why 'Up' and never 'Back' can do this job here. And a swimmer going up the pool really is on another circuit."
+   }
   }
  }
 }
