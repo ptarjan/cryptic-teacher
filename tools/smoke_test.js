@@ -288,11 +288,11 @@ const rowHasNumber = (html, num) => new RegExp("№ " + num + "(?!\\d)").test(ht
   const page = readBuilt("abbreviations/index.html");
   {
     // The word itself may be wrapped in a link out to a clue that uses the
-    // convention, so the cell is compared with that unwrapped.
+    // convention, so the term is compared with that unwrapped.
     const missing = [...senses].filter((w) => {
-      const cell = `<td id="${anchor(w)}">`;
+      const cell = `<div id="${anchor(w)}"><dt>`;
       const at = page.indexOf(cell);
-      return at < 0 || page.slice(at + cell.length, page.indexOf("</td>", at))
+      return at < 0 || page.slice(at + cell.length, page.indexOf("</dt>", at))
         .replace(/^<a href="[^"]+">|<\/a>$/g, "") !== w;
     });
     assert(missing.length === 0,
@@ -312,7 +312,8 @@ const rowHasNumber = (html, num) => new RegExp("№ " + num + "(?!\\d)").test(ht
   // description says how many words do, so the count and the table are checked
   // against each other: a description that promises links the table does not
   // carry is the page telling a solver about a thing that is not there.
-  const glossary = page.split('<table class="glossary">')[1].split("</table>")[0];
+  const glossary = page.split('<dl class="glossary">').slice(1)
+    .map((s) => s.split("</dl>")[0]).join("\n");
   const clueLinks = [...glossary.matchAll(/href="[^"]*\/puzzles\/([^/"]+)\/#([^"]+)"/g)];
   assert(clueLinks.length > 0,
     "the glossary links its words into the clues that use them "
@@ -337,7 +338,7 @@ const rowHasNumber = (html, num) => new RegExp("№ " + num + "(?!\\d)").test(ht
   // The glossary is on one indexable URL, not two competing for the same query:
   // /learn/ links to it instead of repeating the table.
   const learn = readBuilt("learn/index.html");
-  assert(!learn.includes('<table class="glossary">'),
+  assert(!learn.includes('<dl class="glossary">'),
     "/learn/ points at /abbreviations/ rather than duplicating the table");
   assert(/href="[^"]*abbreviations\/"/.test(learn),
     "/learn/ links to the standalone glossary");
