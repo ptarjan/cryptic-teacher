@@ -42,8 +42,7 @@ prints it.
   "definition2": "second definition, double definitions only",
   "definedByPreamble": "true instead of definition, only when the puzzle's preamble defines this answer",
   "definitionNote": "only if the definition disagrees with the answer in number or part of speech",
-  "indicators": ["exact substring", "..."],
-  "indicatorNotes": {"<each indicator string>": "why THIS word gives that instruction"},
+  "indicators": [{"text": "exact substring", "for": "one of this clue's own type names", "note": "why THESE words signal that operation here"}],
   "linkWords": ["exact substring joining definition to wordplay, e.g. 'to locate'"],
   "blocks": [
     {"clueFragment": "exact words from the clue", "gives": "LETTERS", "note": "why"},
@@ -69,6 +68,13 @@ prints it.
 
 Blocks are listed in the order the answer reads, not the clue; with a container,
 reversal or rotation, in the order the pieces are assembled before that step.
+
+`indicators` has one object per indicator phrase. `text` is the clue words exactly as
+printed; `for` is the one name from this clue's own `type` whose operation they signal
+(`{"text": "almost", "for": "deletion"}`); `note` is one sentence on why these words
+signal that operation in this clue (`"'stable? No' means unstable, and something
+unstable will not stay in the order it is given"`), never the general sentence about
+what the device does. An indicator gives no letters, so it gets no block.
 
 ## Taste
 

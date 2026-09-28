@@ -3,7 +3,7 @@ every indicator it lists.
 
 The page counts indicators off the solving blogs and our own annotations
 (tools/data/lexicons/indicators.json) but links one only to a clue WE
-annotated whose type names that indicator type. The blog facts know which
+annotated whose indicator is credited to that type (its own `for`). The blog facts know which
 puzzle's clue used each indicator, so the puzzles that would give an unlinked
 indicator its first annotated clue are known before anyone annotates them.
 
@@ -34,10 +34,10 @@ INDICATORS = ROOT / "tools" / "data" / "lexicons" / "indicators.json"
 BLOG_FACTS = ROOT / "tools" / "data" / "blog_facts"
 
 
-def entry_pairs(lex, annotation_type, indicators):
+def entry_pairs(lex, indicators):
     """The (type, key) pairs one clue's indicators give: the pairs the
     /indicators/ page links it under (indicator_keys.clue_pairs)."""
-    return set(clue_pairs(lex, annotation_type, indicators))
+    return set(clue_pairs(lex, indicators))
 
 
 def linked_pairs(lex, skip=frozenset()):
@@ -49,7 +49,7 @@ def linked_pairs(lex, skip=frozenset()):
             continue
         for e in read_puzzle_file(path).get("entries", ()):
             ann = e.get("annotation") or {}
-            out |= entry_pairs(lex, ann.get("type"), ann.get("indicators"))
+            out |= entry_pairs(lex, ann.get("indicators"))
     return out
 
 
@@ -74,7 +74,7 @@ def blog_pairs(lex, wanted):
             for pid, post in json.loads(path.read_text(encoding="utf-8")).items():
                 got = set()
                 for facts in (post.get("entries") or {}).values():
-                    got |= entry_pairs(lex, facts.get("type"), facts.get("indicators"))
+                    got |= entry_pairs(lex, facts.get("indicators"))
                 if got:
                     every[pid] = sorted(got)
         cached = {"stamp": stamp, "pairs": every}

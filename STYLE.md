@@ -270,8 +270,8 @@ first, then A; in a down entry, A sits above B.
 
 The test is mechanical, and it is the check: if the blocks either side of the
 joiner come out in the opposite order to the clue, and no indicator between them
-could have done it, the joiner did. Move the word to `indicators` and give it an
-`indicatorNotes` line saying which piece it sends second.
+could have done it, the joiner did. Move the word to `indicators` as an object whose
+`note` says which piece it sends second.
 `check_link_word_is_not_an_order()` warns, on every puzzle including published
 ones, because the parse is ours even when the clue is the Guardian's. `on` and
 `after` stay in `EQUIVALENCE_LINKS`, because usually they only join: of 65
@@ -326,7 +326,7 @@ mechanism the solver must perform is what is being taught.
 
 ### An indicator that does its job loosely: say so
 This mirrors the definition rule below. When an indicator is vague, stretched or
-understood only by convention, say so plainly in `indicatorNotes`. Saying it is
+understood only by convention, say so plainly in the indicator's `note`. Saying it is
 loose does not mean leaving the choice to the grid. The crossing letters settle
 only what the clue really leaves open (which article, which colour, which of two
 spellings), never what the other pieces settle. "Half of wage" does not say which

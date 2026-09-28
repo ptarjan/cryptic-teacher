@@ -251,10 +251,10 @@ tools/letter_facts.py                        adds a clue type the blog left out 
                                              write; --coverage says what the written facts
                                              cover and why the rest fall short
 tools/indicator_keys.py                      the one spelling of an indicator phrase
-                                             indicators.json is keyed by, and which indicator
-                                             types an annotation's type names; the /indicators/
-                                             page and the burn's indicator cover both match
-                                             through it
+                                             indicators.json is keyed by, and the one type each
+                                             indicator is credited to, its own `for`; the
+                                             /indicators/ page and the burn's indicator cover
+                                             both match through it
 tools/test_indicator_keys.sh                 holds which (type, key) pairs a clue's indicators
                                              give: a phrase links the longest key inside it
                                              only in a one-type clue, never through link words

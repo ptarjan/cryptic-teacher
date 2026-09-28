@@ -2853,8 +2853,8 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
           for (let k = 0; k < s.text.length; k++) (covered[cls] = covered[cls] || new Set()).add(s.i + k);
       }
       const anyMarked = new Set([].concat(...Object.values(covered).map((v) => [...v])));
-      for (const frag of ann.indicators || []) {
-        if (!frag || !e.clue.includes(frag)) continue;
+      for (const { text: frag } of ann.indicators || []) {
+        if (!e.clue.includes(frag)) continue;
         // An indicator is short and specific, so shortest-first guarantees it
         // wins any overlap outright: it must appear whole, in its own colour,
         // on a whole word — unless the clue never has it as one, as in a
@@ -2971,7 +2971,7 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
   // --- the indicator rung says why THAT word indicates ---
   // The indicator rung didn't explain why the indicator word actually
   // indicated (4096 20a RENOVATOR) — it named the words and then gave the
-  // sentence it gives every anagram in the corpus. `indicatorNotes` is the part
+  // sentence it gives every anagram in the corpus. An indicator's `note` is the part
   // that is only true of this clue, so it has to be on the screen the moment it
   // exists in the file; a field that is written and never rendered is worse than
   // no field, because the backlog says the work is done.
@@ -2979,8 +2979,8 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
     const noted = [];
     for (const id of Object.keys(puzzles).sort()) {
       for (const e of puzzles[id].entries || []) {
-        const n = ((e.annotation || {}).indicatorNotes) || null;
-        if (n && Object.keys(n).length) noted.push({ id, e, n });
+        const n = (((e.annotation || {}).indicators) || []).filter((i) => i.note);
+        if (n.length) noted.push({ id, e, n });
       }
     }
     assert(noted.length, "some clue in the corpus explains its indicators");
@@ -2992,7 +2992,7 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
       if (!btn) continue;
       takeRung(btn);
       const html = registry["hint-body"].innerHTML;
-      for (const [ind, note] of Object.entries(s.n)) {
+      for (const { text: ind, note } of s.n) {
         assert(html.includes(note.replace(/&/g, "&amp;").replace(/'/g, "&#39;")),
           `${s.id} ${s.e.id}: the note for ${JSON.stringify(ind)} never reaches the ` +
           `indicators rung: ` + html);
@@ -3004,7 +3004,7 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
       // filling space. Anything the clue type alone could have written is
       // filler beside a sentence about this clue.
       const inds = (s.e.annotation.indicators || []);
-      if (inds.length && inds.every((i) => s.n[i])) {
+      if (inds.length && inds.every((i) => i.note)) {
         const rung = (html.split('<div class="hint-step">')
           .find((sec) => sec.includes("Spot the indicator words")) || "")
           .replace(/<\/div>[\s\S]*$/, "");
@@ -3115,7 +3115,7 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
         const a = e.annotation;
         // the indicator has to literally occur in the clue or there is nothing
         // to mark, and a linked clue renders its holder's text instead
-        if (a && !a.linkedTo && (a.indicators || []).some((s) => e.clue.includes(s))) return { id, e };
+        if (a && !a.linkedTo && (a.indicators || []).some((s) => e.clue.includes(s.text))) return { id, e };
       }
     }
     return null;
@@ -5331,7 +5331,7 @@ global.realSetTimeout(() => {
       // Two words at least, or there is no run to drag across; and never the
       // whole clue, which guessAsk refuses to make a question of.
       if (words < 2 || words >= all) continue;
-      if ((a.indicators || []).some((t) => a.definition.includes(t))) continue;
+      if ((a.indicators || []).some((t) => a.definition.includes(t.text))) continue;
       found = { id, e, words, all };
       break;
     }
@@ -6065,7 +6065,7 @@ global.realSetTimeout(() => {
   // Every word of the clue named exactly once, by counting: the rungs' spans and
   // the pieces add up to the clue and no fragment is written twice in it.
   const claimed = (e, a) => {
-    const parts = [a.definition, ...(a.indicators || []), ...(a.linkWords || []),
+    const parts = [a.definition, ...(a.indicators || []).map((i) => i.text), ...(a.linkWords || []),
       ...(a.blocks || []).map((b) => b.clueFragment)];
     return parts.every((p) => p && e.clue.split(p).length === 2)
       && count(parts) === words(e.clue).length;
@@ -6643,7 +6643,7 @@ global.realSetTimeout(() => {
       if (found || tried > 60) break;
       const inds = ((e.annotation || {}).indicators) || [];
       if (!inds.length) continue;
-      const spans = inds.map((t) => spanTokens(e.clue, t));
+      const spans = inds.map((t) => spanTokens(e.clue, t.text));
       // Every phrase locatable, and at least one of them long enough to have a
       // word to leave out — a one-word indicator cannot pose this question.
       if (spans.some((s) => !s) || !spans.some((s) => s.length > 1)) continue;

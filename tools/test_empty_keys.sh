@@ -169,8 +169,8 @@ p = copy.deepcopy(real)
 p["setter"] = None
 e = p["entries"][0]
 e.update(solution=None, clue="", separatorLocations={",": []})
-e["annotation"] = {"type": ["anagram"], "indicators": [], "linkWords": [],
-                   "indicatorNotes": {}, "surface": "",
+e["annotation"] = {"type": ["anagram"], "indicators": [],
+                   "linkWords": [], "surface": "",
                    "features": {"joke": None, "misdirectedWord": None,
                                 "answerInScene": False, "aptDefinition": False},
                    "blocks": [{"clueFragment": "x", "gives": ""}]}

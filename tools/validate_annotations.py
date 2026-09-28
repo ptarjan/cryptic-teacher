@@ -76,6 +76,16 @@ def types_of(ann):
     return t if isinstance(t, list) else []
 
 
+def indicator_texts(ann, kind=None):
+    """The clue words of each indicator object; check_indicators reports bad shapes.
+
+    With `kind`, only the indicators whose `for` is that type, plus those with
+    no `for`, which could signal any of the clue's types."""
+    return [i["text"] for i in ann.get("indicators") or []
+            if isinstance(i, dict) and isinstance(i.get("text"), str)
+            and (kind is None or i.get("for") in (None, kind))]
+
+
 def check_type(tag, ann, errors):
     """`type` is a non-empty array of distinct names from clue_types.json, and a
     letter_selection has at least one block saying which letters (`select`)."""
@@ -406,7 +416,7 @@ def check_link_word_is_not_inside_an_indicator(tag, ann, clue, errors):
         lw = (lw or "").strip()
         if not lw or not count(lw, clue):
             continue
-        inside = sum(count(lw, ind) for ind in ann.get("indicators", []))
+        inside = sum(count(lw, ind) for ind in indicator_texts(ann))
         if inside and count(lw, clue) <= inside:
             errors.append(
                 f"{tag}: linkWord {lw!r} only appears inside an indicator, so marking "
@@ -448,7 +458,7 @@ def check_link_word_is_not_an_order(tag, ann, clue, warnings):
     pos = [clue.find(b.get("clueFragment", "")) for b in blocks]
     if len(pos) < 2 or any(p < 0 for p in pos):
         return
-    ind_at = [clue.find(i) for i in ann.get("indicators", [])]
+    ind_at = [clue.find(i) for i in indicator_texts(ann)]
     for a in range(len(pos) - 1):
         if pos[a] <= pos[a + 1]:
             continue
@@ -465,8 +475,8 @@ def check_link_word_is_not_an_order(tag, ann, clue, warnings):
                 f"way round, with linkWord {w!r} standing between them and no "
                 f"indicator that could have done it — so {w!r} is what reversed them, "
                 f"and a word that orders the wordplay is an indicator, not an equals "
-                f"sign. Move it to `indicators` with an indicatorNote saying which "
-                f"piece it sends second")
+                f"sign. Move it to `indicators` as {{\"text\": {w!r}, \"for\": ..., \"note\": ...}} "
+                f"with a note saying which piece it sends second")
             return
 
 
@@ -552,7 +562,7 @@ def check_indicator_adjacency(tag, ann, clue, errors, warnings):
     if not ann.get("anagram"):
         return
     spans = _fodder_spans(clue, ann["anagram"].get("fodder"), ann.get("blocks", []))
-    inds = [(clue.find(i), clue.find(i) + len(i), i) for i in ann.get("indicators", [])
+    inds = [(clue.find(i), clue.find(i) + len(i), i) for i in indicator_texts(ann, "anagram")
             if i in clue]
     if not inds:
         return
@@ -611,7 +621,7 @@ def check_indicator_outside_fodder(tag, ann, clue, errors):
     spans = _fodder_spans(clue, ann["anagram"].get("fodder"), ann.get("blocks", []))
     if not spans:
         return
-    for ind in ann.get("indicators", []):
+    for ind in indicator_texts(ann, "anagram"):
         i = clue.find(ind)
         if i < 0:
             continue
@@ -671,7 +681,7 @@ def check_reversal_direction(tag, ann, direction, errors):
             if direction == "across" else
             "a down entry reads bottom to top, so it wants up / rising / "
             "climbing / lifted / from below")
-    for ind in ann.get("indicators", []):
+    for ind in indicator_texts(ann, "reversal"):
         hits = [w for w in words_of(ind) if w in wrong]
         if hits:
             errors.append(
@@ -843,8 +853,7 @@ def check_definition_fit(tag, ann, errors, warnings):
 # There the letters are the clue's own, on screen from the start, and the
 # definition rung adds nothing the solver could not already see; a leak is text
 # the annotator WROTE that the clue does not say.
-EARLY_RUNG_FIELDS = ("definition", "definition2", "indicators", "linkWords",
-                     "indicatorNotes")
+EARLY_RUNG_FIELDS = ("definition", "definition2", "indicators", "linkWords")
 
 
 def check_no_answer_in_early_rungs(tag, ann, errors, warnings):
@@ -856,8 +865,11 @@ def check_no_answer_in_early_rungs(tag, ann, errors, warnings):
         val = ann.get(field)
         if not val:
             continue
-        parts = list(val.values()) if isinstance(val, dict) else \
-            (val if isinstance(val, list) else [val])
+        if field == "indicators":
+            parts = [p for i in val if isinstance(i, dict)
+                     for p in (i.get("text"), i.get("note")) if p]
+        else:
+            parts = val if isinstance(val, list) else [val]
         for part in parts:
             if says(part, ans):
                 errors.append(
@@ -895,9 +907,11 @@ def check_block_notes_dont_name_the_answer(tag, ann, errors, warnings):
 # indicator does is the same on every clue in the corpus; the reason THIS word
 # is one is the only part that teaches anything.
 #
-# Grandfathered the same way as definitionFit — 793 clues had indicators and no
-# notes the day it was added — but only for the puzzles that already existed:
-# see the ratchet at the bottom of this file.
+# A missing note and a missing `for` are grandfathered the same way as
+# definitionFit, through the ratchet at the bottom of this file: stored puzzles
+# may lack them up to their recorded allowance, and a newly annotated puzzle has
+# none. Both warnings count clues, not indicators, except "has no note", which
+# names each unexplained indicator on a clue whose other indicators have notes.
 
 
 INDICATOR_NOTE_HOW = (
@@ -905,40 +919,71 @@ INDICATOR_NOTE_HOW = (
     "\"'stable? No' means unstable, and something unstable will not stay in the "
     "order it is given\", not \"'stable? No' is the anagram indicator\"")
 
+INDICATOR_KEYS = {"text", "for", "note"}
 
-def check_indicator_notes(tag, ann, errors, warnings):
-    """Why THIS word is the indicator — one sentence per indicator."""
-    inds = ann.get("indicators") or []
-    notes = ann.get("indicatorNotes")
-    if not inds:
-        if notes:
-            errors.append(f"{tag}: indicatorNotes but no indicators to explain")
+
+def check_indicators(tag, ann, errors, warnings):
+    """Each indicator is {"text", "for", "note"}: the clue words, the type they
+    signal, and one sentence on why THIS word signals it."""
+    if "indicatorNotes" in ann:
+        errors.append(f"{tag}: indicatorNotes is removed; put each note on its "
+                      f"indicator object as `note`")
+    inds = ann.get("indicators")
+    if inds is None:
         return
-    if not notes:
-        msg = (f"{tag}: no indicatorNotes — give an object keyed by each indicator "
-               f"string exactly as it appears in `indicators`. {INDICATOR_NOTE_HOW}")
-        warnings.append(msg)
+    if not isinstance(inds, list):
+        errors.append(f"{tag}: indicators must be a list of "
+                      f"{{\"text\", \"for\", \"note\"}} objects")
         return
-    if not isinstance(notes, dict):
-        errors.append(f"{tag}: indicatorNotes must be an object keyed by the indicator")
-        return
-    for key, note in notes.items():
-        if key not in inds:
-            errors.append(f"{tag}: indicatorNotes has {key!r}, which is not one of the "
-                          f"indicators {inds!r} — the key is what gets highlighted")
-        note = str(note or "").strip()
+    own = types_of(ann)
+    no_for, no_note, texts = [], [], []
+    for ind in inds:
+        if not isinstance(ind, dict) or not isinstance(ind.get("text"), str) \
+                or not ind["text"].strip():
+            errors.append(f"{tag}: indicator {ind!r} must be an object with a "
+                          f"non-empty `text`: {{\"text\": \"almost\", \"for\": "
+                          f"\"deletion\", \"note\": \"...\"}}")
+            continue
+        text = ind["text"]
+        extra = sorted(set(ind) - INDICATOR_KEYS)
+        if extra:
+            errors.append(f"{tag}: indicator {text!r} has {extra}; the keys are "
+                          f"text, for and note")
+        if text in texts:
+            errors.append(f"{tag}: indicator {text!r} is listed twice")
+        texts.append(text)
+        kind = ind.get("for")
+        if kind is None:
+            no_for.append(text)
+        elif kind not in TYPE_NAMES:
+            errors.append(f"{tag}: indicator {text!r} is for {kind!r}, which is not a "
+                          f"type name ({', '.join(TYPE_NAMES)})")
+        elif kind not in own:
+            errors.append(f"{tag}: indicator {text!r} is for {kind!r}, but the clue's "
+                          f"type is {own!r}; `for` names one of the clue's own types")
+        note = ind.get("note")
+        if note is None:
+            no_note.append(text)
+            continue
+        note = str(note).strip()
         if len(note) < 25:
-            errors.append(f"{tag}: indicatorNote for {key!r} is {note!r} — too thin to "
-                          f"teach. {INDICATOR_NOTE_HOW}")
+            errors.append(f"{tag}: note on indicator {text!r} is {note!r} — too thin "
+                          f"to teach. {INDICATOR_NOTE_HOW}")
         # "'shuffled' tells you to shuffle" is the failure this catches: a note
         # made only of words already in the indicator has restated it.
-        elif not (set(words_of(note)) - set(words_of(key)) - DEFINITION_STOPWORDS):
-            errors.append(f"{tag}: indicatorNote for {key!r} only says {key!r} again. "
-                          f"{INDICATOR_NOTE_HOW}")
-    for missing in [i for i in inds if i not in notes]:
-        msg = (f"{tag}: indicator {missing!r} has no note — every indicator gets one, "
-               f"keyed by the identical string. {INDICATOR_NOTE_HOW}")
-        warnings.append(msg)
+        elif not (set(words_of(note)) - set(words_of(text)) - DEFINITION_STOPWORDS):
+            errors.append(f"{tag}: note on indicator {text!r} only says {text!r} "
+                          f"again. {INDICATOR_NOTE_HOW}")
+    if no_for:
+        warnings.append(f"{tag}: indicator(s) {no_for!r} lack `for` — name the type "
+                        f"each one signals, one of the clue's own {own!r}")
+    if no_note and len(no_note) == len(texts):
+        warnings.append(f"{tag}: no indicator notes — give every indicator a `note`. "
+                        f"{INDICATOR_NOTE_HOW}")
+    else:
+        for text in no_note:
+            warnings.append(f"{tag}: indicator {text!r} has no note — every indicator "
+                            f"gets one. {INDICATOR_NOTE_HOW}")
 
 
 SOUND_TYPES = ("homophone", "spoonerism")
@@ -1138,7 +1183,7 @@ def check_coverage(tag, ann, clue, warnings):
     claimed = set()
     for src in [ann.get("definition"), ann.get("definition2")]:
         claimed |= set(words_of(src))
-    for ind in ann.get("indicators", []):
+    for ind in indicator_texts(ann):
         claimed |= set(words_of(ind))
     for lw in ann.get("linkWords", []):
         claimed |= set(words_of(lw))
@@ -1971,8 +2016,8 @@ def convention_used(ann, b):
         return None
     # An indicator inside the fragment means the clue is operating on those
     # words, not quoting a table.
-    for ind in ann.get("indicators") or []:
-        if str(ind).strip().lower() in frag:
+    for ind in indicator_texts(ann):
+        if ind.strip().lower() in frag:
             return None
     if OPERATION_RE.search(str(b.get("note") or "")):
         return None
@@ -2269,7 +2314,7 @@ def validate_puzzle(puzzle, corpus=False):
             if d and d not in clue:
                 errors.append(f"{tag}: {field} {d!r} not found in clue {clue!r}"
                               + verbatim_hint(d, clue))
-        for ind in ann.get("indicators", []):
+        for ind in indicator_texts(ann):
             if ind not in clue:
                 errors.append(f"{tag}: indicator {ind!r} not found in clue {clue!r}"
                               + verbatim_hint(ind, clue))
@@ -2330,7 +2375,7 @@ def validate_puzzle(puzzle, corpus=False):
         check_answer_matches_separators(tag, ann, e, errors)
         check_sound_names_its_source(tag, ann, errors, warnings)
         check_sound_is_not_a_letter_swap(tag, ann, errors, warnings)
-        check_indicator_notes(tag, ann, errors, warnings)
+        check_indicators(tag, ann, errors, warnings)
         check_no_answer_in_early_rungs(tag, ann, errors, warnings)
         check_block_notes_dont_name_the_answer(tag, ann, errors, warnings)
         check_cryptic_definition_blocks(tag, ann, errors, warnings)
@@ -2441,7 +2486,8 @@ ERROR_PREFIX = "  ERROR: "
 BACKLOG_PATH = ROOT / "tools" / "annotation_backlog.json"
 BACKLOG_MARKERS = {
     "definitionFit": ("no definitionFit",),
-    "indicatorNotes": ("no indicatorNotes", "has no note"),
+    "indicatorNote": ("no indicator notes", "has no note"),
+    "indicatorFor": ("lack `for`",),
     "features": ("no features",),
 }
 

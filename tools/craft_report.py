@@ -221,9 +221,8 @@ def dominant_device(entries):
 
 def repeated_indicators(entries):
     """1 - distinct/uses, and the indicator strings that repeat."""
-    uses = [i.strip().lower()
-            for e in entries for i in (e["annotation"].get("indicators") or [])
-            if i and i.strip()]
+    uses = [i["text"].strip().lower()
+            for e in entries for i in (e["annotation"].get("indicators") or [])]
     if not uses:
         return None, []
     counts = Counter(uses)
@@ -245,8 +244,8 @@ def double_duty(entries):
         if not dwords:
             continue
         others = set()
-        for s in (ann.get("indicators") or []):
-            others |= set(words_of(s))
+        for i in (ann.get("indicators") or []):
+            others |= set(words_of(i["text"]))
         for b in (ann.get("blocks") or []):
             others |= set(words_of(b.get("clueFragment")))
         shared = dwords & others

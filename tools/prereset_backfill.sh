@@ -42,8 +42,9 @@
 #      A solver arriving today is looking at this week's puzzles, so this week's
 #      puzzles are the ones worth spending on, whoever printed them.
 #   2. Every field in tools/annotation_backlog.json — definitionFit, the
-#      one-sentence "why does the answer mean the definition", and
-#      indicatorNotes, "why is THAT word the indicator". New puzzles are
+#      one-sentence "why does the answer mean the definition"; indicatorNote,
+#      "why is THAT word the indicator"; indicatorFor, which of the clue's
+#      types each indicator signals. New puzzles are
 #      required to carry these; the file is the list of puzzles annotated
 #      before each rule existed, and draining one tightens the rule on it
 #      forever. The fields are read from the file, so this job needs no edit
@@ -979,12 +980,16 @@ for field in $backlog_fields; do
 d=json.load(open("tools/annotation_backlog.json")).get(sys.argv[1],{})
 print(" ".join(n for n,_ in sorted(d.items(), key=lambda kv: kv[1])))' "$field")
   echo "$field backlog: ${nums:-none}"
+  name="\`$field\`"
   case "$field" in
     definitionFit) what="ONE sentence saying why the answer means the definition; it renders last in the walkthrough" ;;
-    indicatorNotes) what="an object keyed by the exact indicator string, ONE sentence each saying why THAT word carries THAT instruction — never the generic sentence about what the device does, and never a word of the answer" ;;
+    indicatorNote) name="\`note\` on each indicator object"
+      what="ONE sentence saying why THOSE words carry THAT instruction — never the generic sentence about what the device does, and never a word of the answer" ;;
+    indicatorFor) name="\`for\` on each indicator object"
+      what="the one name from the clue's own \`type\` whose operation those words signal" ;;
     *) what="the field as tools/annotate_prompt.md describes it" ;;
   esac
-  prompt="In this repo, add the missing \`$field\` to every annotated clue in @PATH@ that lacks one. $field is $what. Read tools/annotate_prompt.md and STYLE.md for the voice, and read an existing puzzle that already has the field so yours match. This is ADDITIVE: change nothing else, do not rewrite existing hints, types, indicators or pieces. Run python3 tools/annotate_check.py @ until it reports clean. Do not commit — the calling script commits."
+  prompt="In this repo, add the missing $name to every annotated clue in @PATH@ that lacks one. It is $what. Read tools/annotate_prompt.md and STYLE.md for the voice, and read an existing puzzle that already has the field so yours match. This is ADDITIVE: change nothing else, do not rewrite existing hints, types, indicator texts or pieces. Run python3 tools/annotate_check.py @ until it reports clean. Do not commit — the calling script commits."
   queue=($nums)
   at=0
   while [ "$at" -lt "${#queue[@]}" ]; do

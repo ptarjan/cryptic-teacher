@@ -424,20 +424,16 @@ def clue_html(e, blog_note=True):
             + (' <span class="s-note">worked out from the letters</span>' if b.get("inferred") else "")
             + "</li>" for b in blocks)
         bits.append(f'<p><em>Wordplay, piece by piece:</em></p><ul>{rows}</ul>')
-    # Keyed by the indicator word, so — unlike blocks — order isn't guaranteed
-    # to match the clue text; skip any indicator left without a written note
-    # rather than print an empty one.
-    ind_notes = {k: v for k, v in (ann.get("indicatorNotes") or {}).items() if v}
-    if ind_notes:
-        rows = "".join(
-            f'<li><mark>{esc(k)}</mark> — {esc(v)}</li>'
-            for k, v in ind_notes.items())
+    # Skip any indicator without a written note rather than print an empty one.
+    noted = [i for i in ann.get("indicators") or () if i.get("note")]
+    if noted:
+        rows = "".join(f'<li><mark>{esc(i["text"])}</mark> — {esc(i["note"])}</li>' for i in noted)
         bits.append(f'<p><em>Indicators:</em></p><ul>{rows}</ul>')
     # A blog's marked indicators carry no note of their own; the app lists them
     # bare too.
     if ann.get("fromBlog") and ann.get("indicators"):
         bits.append('<p><em>Indicators:</em> '
-                    + ", ".join(f'<mark>{esc(w)}</mark>' for w in ann["indicators"])
+                    + ", ".join(f'<mark>{esc(i["text"])}</mark>' for i in ann["indicators"])
                     + (' <span class="s-note">worked out from the letters</span>' if "indicators" in inferred else "")
                     + "</p>")
     if ann.get("fromBlog"):
@@ -1367,9 +1363,9 @@ def clue_indicators(found, puz, page):
     clue whose phrase is the key over one whose phrase only contains it, then
     the fullest annotation, then the newest puzzle.
 
-    Only a clue whose type names the indicator's type counts, so "about" links
-    to a container clue from the container list and not to an anagram that
-    used it. Like clue_blocks(), every candidate is on a page this same run
+    An indicator counts only under its own `for` (indicator_keys.clue_pairs),
+    so "about" links to a container clue from the container list and not to
+    an anagram that used it. Like clue_blocks(), every candidate is on a page this same run
     writes, and the page shows the indicator: a blog's facts are on it only
     for a clue we have not annotated (fetch_puzzle.with_blog_facts).
     """
@@ -1380,7 +1376,7 @@ def clue_indicators(found, puz, page):
         ours = bool(e.get("annotation"))
         depth = len((ann.get("walkthrough") or "") + (ann.get("definitionFit") or ""))
         date = series_meta.date_ms(puz.get("date")) or 0
-        for (t, key), exact in clue_pairs(indicator_lexicon(), ann.get("type"), ann["indicators"]).items():
+        for (t, key), exact in clue_pairs(indicator_lexicon(), ann["indicators"]).items():
             rank = (ours, exact, depth, date)
             if (t, key) not in found or found[(t, key)][0] < rank:
                 found[(t, key)] = (rank, puz["id"], e["id"])
