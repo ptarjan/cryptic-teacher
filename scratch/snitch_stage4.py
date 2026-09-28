@@ -38,7 +38,8 @@ from fetch_puzzle import (
 )
 
 CACHE = Path(os.environ.get("STAGE4_ROWS") or Path.home() / ".cache" / "cryptic-stage4-rows.json")
-PORTABLE = ("rarity", "answer_novelty", "pairing_novelty", "question_marks", "definition_unrelated")
+PORTABLE = ("rarity", "answer_novelty", "pairing_novelty", "question_marks", "definition_unrelated",
+            "clue_count")
 #: name -> expected sign (higher raw value = harder when +1), fixed in advance.
 CANDIDATES = {"wn_unrelated": +1, "defonly_share": +1, "example_markers": +1,
               "long_anagram_cells": -1, "def_indirect": +1,
