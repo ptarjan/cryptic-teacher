@@ -90,12 +90,13 @@ jobs:
         # already the whole shard.
         shard: [0, 1, 2, 3, 4]
     # A run that stops making progress otherwise sits on GitHub's 6h default,
-    # holding a red check over every commit behind it. Measured on a runner, a
-    # healthy shard is 112-225s: about a minute of checkout and page build, then
-    # the heaviest script it was handed. Fifteen is four times the slowest of
-    # those — enough for a slow runner and for a suite that grows with the
-    # corpus, and still fails a stall inside a quarter of an hour.
-    timeout-minutes: 15
+    # holding a red check over every commit behind it. The cap has to clear the
+    # slowest single script plus about two and a half minutes of checkout and
+    # page build, and that script is tools/smoke_test.js, whose corpus sweeps
+    # grow with every puzzle: 11.5 min on a runner on 2026-09-27, when a 15 min
+    # cap was killing its shard on every run. Thirty leaves room for a slow
+    # runner and a year of corpus, and still fails a stall inside half an hour.
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
