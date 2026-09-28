@@ -2248,8 +2248,11 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
 {
   const puzzles = global.window.CRYPTIC_PUZZLES;
   const bare = (t) => String(t || "").replace(/[^A-Za-z]/g, "").toUpperCase();
+  // A hidden word's one block is its carrier, the whole answer: the hidden
+  // rung shows that, not a blocks rung.
+  const piece = (x) => ([gives, frag]) => bare(gives) !== bare(frag) && bare(gives) !== bare(x.solution);
   const hit = (p) => (puzzles[p.id].entries || []).find((x) => !x.annotation && x.blog
-    && (x.blog.blocks || []).some(([gives, frag]) => bare(gives) !== bare(frag)));
+    && (x.blog.blocks || []).some(piece(x)));
   const target = allPuzzles.find((p) => !p.annotated && puzzles[p.id] && puzzles[p.id].blog && hit(p));
   if (assert(target, "the sample holds an un-annotated clue with blog blocks") && openFromPicker(target.id)) {
     const e = hit(target);
@@ -2259,7 +2262,7 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
       if (!btn) break;
       takeRung(btn);
     }
-    const [gives, frag] = e.blog.blocks.find(([g, f]) => bare(g) !== bare(f));
+    const [gives, frag] = e.blog.blocks.find(piece(e));
     const body = registry["hint-body"].innerHTML;
     assert(body.includes(`“${frag}”`) && body.includes(`<span class="gives">${gives}</span>`),
       `${target.id} ${e.id}: the blocks rung shows “${frag}” → ${gives}: ${body.slice(0, 400)}`);
@@ -6047,7 +6050,7 @@ global.realSetTimeout(() => {
       if (!a || a.linkedTo || a.type !== "double definition" || !a.definition2) continue;
       const bl = a.blocks || [];
       if (!pure && bl.length === 2 && bl.every((b) => isDef(a, b) && plain(b))) pure = { id, e, bl };
-      if (!third && bl.some((b) => !isDef(a, b) && plain(b) && !(a.definition + " " + a.definition2)
+      if (!third && bl.some((b) => !isDef(a, b) && plain(b) && bare(b.gives) && !(a.definition + " " + a.definition2)
         .includes(b.clueFragment))) third = { id, e };
     }
     if (pure && third) break;
