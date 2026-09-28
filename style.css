@@ -19,7 +19,7 @@
      See the .badge block for what each colour is allowed to mean. */
   --badge-cov-bg: #d5e9f5;   /* we have written hints for this puzzle */
   --badge-cov-fg: #0f4d6f;
-  --badge-none-bg: #e7e3db;  /* we haven't; answers only */
+  --badge-none-bg: #e7e3db;  /* we haven't; hints via a blog, or answers only */
   --badge-none-fg: #5b564d;
   --badge-series-bg: #e9def5; /* which crossword this is */
   --badge-series-fg: #543a75;
@@ -242,7 +242,7 @@ button:disabled:hover { border-color: var(--line); }
    are three of them on a puzzle row and they answer different questions:
 
      which crossword it is   — series: independent, quiptic, everyman   (purple)
-     what this site has      — full hints / answers only        (blue / neutral)
+     what this site has      — full hints / hints via a blog, answers only (blue / neutral)
      how hard we found it    — gentle…brutal          (warm, outlined not filled)
 
    They used to collide. `series` and `full hints` were both var(--def-bg), the

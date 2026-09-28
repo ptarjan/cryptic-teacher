@@ -1879,7 +1879,7 @@ assert(registry["picker-search"].value === "", "the filter box starts empty on o
   const undated = allPuzzles.find((p) => typeof p.date !== "number" && p.annotated);
   if (undated) {
     typeInPicker(String(undated.series));
-    const badged = drainPicker().map((li) => /answers only/.test(li.children[0].innerHTML));
+    const badged = drainPicker().map((li) => /answers only|hints via /.test(li.children[0].innerHTML));
     assert(badged.indexOf(false) === -1 || badged.lastIndexOf(false) < badged.indexOf(true)
       || badged.indexOf(true) === -1,
       "a filtered list puts the puzzles we have hints for first: " + undated.series
@@ -1990,6 +1990,15 @@ if (autoPuzzle && assert(autoRow, `picker finds ${autoPuzzle.id} when searched f
   assert(registry["hint-next"].children.some((b) => /Reveal answer/.test(b.textContent)),
     "answers-only puzzle offers Reveal answer: " + btnNames());
   assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "answers-only puzzle offers letter escape hatch");
+}
+// A puzzle with none of our hints but a blog's marks on some clue has hints,
+// so it must not be called "answers only" on either surface that badges it.
+const blogPuzzle = allPuzzles.find((p) => !p.annotated && p.blog);
+const blogRow = blogPuzzle && pickerRowFor(blogPuzzle.id);
+if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched for`)) {
+  const html = blogRow.children[0].innerHTML;
+  assert(html.includes("hints via " + blogPuzzle.blog) && !html.includes("answers only"),
+    `a puzzle with blog hints is badged by its blog, not "answers only": ${blogPuzzle.id}`);
 }
 
 // --- picking a puzzle rewrites the address bar, because that is what gets shared ---

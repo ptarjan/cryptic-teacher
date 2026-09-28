@@ -427,6 +427,7 @@ def build_corpus():
                 done += 1
 
     annotated = sum(1 for r in rows if r.get("annotated"))
+    blogged = sum(1 for r in rows if r.get("blog"))
     parts = ", ".join(f"{SERIES_NAMES[s]} {n}"
                       for s, n in sorted(by_series.items(),
                                          key=lambda kv: -kv[1]))
@@ -435,10 +436,12 @@ def build_corpus():
         f"**Corpus** — {len(rows):,} puzzles across {len(by_series)} series "
         f"({parts}). {annotated:,} of them are annotated clue-for-clue, all six "
         f"rungs, machine-validated: {done:,} of {clues:,} clues, or {pct}%. The "
-        f"rest are backlog the daily job is still draining — they show an "
-        f"<em>answers only</em> badge and degrade gracefully (checking and letter "
-        f"reveals still work; the teaching ladder appears once a puzzle is "
-        f"annotated)."
+        f"rest are backlog the daily job is still draining. {blogged:,} of those "
+        f"carry hints marked up from a solving blog's write-up (definitions, clue "
+        f"types, pieces) and are badged <em>hints via</em> that blog; the other "
+        f"{len(rows) - annotated - blogged:,} show an <em>answers only</em> badge "
+        f"and degrade gracefully (checking and letter reveals still work; the "
+        f"teaching ladder appears once a puzzle is annotated)."
     )
 
 
