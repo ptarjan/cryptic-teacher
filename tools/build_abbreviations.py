@@ -51,6 +51,52 @@ def render():
     )
 
 
+# Sets a solver learns whole, shown above the A-to-Z list. Each member names
+# its word and letters; families() refuses one the table does not hold, so a
+# family can only show what the hints themselves teach.
+FAMILIES = [
+    ("Roman numerals", "one I, five V, ten X, fifty L, hundred C, five hundred D, "
+                       "thousand M, four IV, six VI, nine IX, 101 CI, 500 D, 1000 M"),
+    ("Compass points", "north N, south S, east E, west W, northeast NE, northwest NW, "
+                       "southeast SE, southwest SW"),
+    ("NATO alphabet", "alpha A, bravo B, charlie C, delta D, echo E, foxtrot F, golf G, "
+                      "hotel H, india I, juliet J, kilo K, lima L, mike M, november N, "
+                      "oscar O, papa P, quebec Q, romeo R, sierra S, tango T, uniform U, "
+                      "victor V, whisky W, x-ray X, yankee Y, zulu Z"),
+    ("Chemical symbols", "gold AU, silver AG, iron FE, copper CU, tin SN, lead PB, "
+                         "carbon C, oxygen O, hydrogen H, nitrogen N, sulphur S, "
+                         "potassium K, sodium NA, helium HE, neon NE, argon AR, "
+                         "chlorine CL, zinc ZN, uranium U"),
+    ("Chess pieces", "king K, queen Q, bishop B, knight N, rook R, castle R, pawn P"),
+    ("Armed forces", "sailor AB, seaman OS, soldier GI, soldiers OR, engineers RE, "
+                     "gunners RA, marines RM, navy RN, volunteers TA, "
+                     "commanding officer CO, lieutenant LT, general GEN"),
+]
+
+
+def families():
+    """FAMILIES as [(name, [(word, letters)])], each checked against the table."""
+    table = json.loads(SRC.read_text())["abbreviations"]
+    out = []
+    for name, spec in FAMILIES:
+        members = [tuple(m.strip().rsplit(" ", 1)) for m in spec.split(",")]
+        missing = [f"{w} {k}" for w, k in members if w not in table.get(k, [])]
+        if missing:
+            raise SystemExit(f"FAMILIES[{name!r}] lists {', '.join(missing)}, which "
+                             f"{SRC.relative_to(ROOT)} does not have; add it with "
+                             "tools/add_abbreviation.py or drop it from the family")
+        out.append((name, members))
+    return out
+
+
+def families_html():
+    """families() as one line each, every word linked to its A-to-Z entry."""
+    return '<dl class="glossary-families">\n' + "\n".join(
+        f"<div><dt>{name}</dt><dd>" + " &middot; ".join(
+            f'<a href="#{anchor(w)}">{w}</a> <strong>{k}</strong>' for w, k in members)
+        + "</dd></div>" for name, members in families()) + "\n</dl>"
+
+
 def anchor(word):
     """The id app.js links a named convention to. Shared by both consumers."""
     return "abbr-" + re.sub(r"[^a-z0-9]+", "-", word.lower()).strip("-")

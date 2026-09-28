@@ -1320,6 +1320,11 @@ def abbreviations_page(blocks):
         "it.</p>",
         f"<p>{len(links)} of the words are links to a real clue that uses that "
         "abbreviation, explained step by step.</p>",
+        '<h2 id="families">Families to learn whole</h2>',
+        "<p>Some abbreviations come in sets. Learn the set once and you know every "
+        "member.</p>",
+        build_abbreviations.families_html(),
+        '<h2 id="a-to-z">A to Z</h2>',
         build_abbreviations.table_html(senses, links, rare),
         f'<p class="s-cta"><a class="cta" href="{BASE}/learn/">New to cryptics? '
         f'Learn how the clues work &rarr;</a></p>',
