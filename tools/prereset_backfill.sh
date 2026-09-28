@@ -924,6 +924,16 @@ while [ "$at" -lt "${#queue[@]}" ]; do
   before=$(python3 tools/weekly_usage.py 2>/dev/null || echo 0)
   before_s=$(python3 tools/weekly_usage.py --group session 2>/dev/null || echo 0)
   wide=$(wave_width "$hours_left" "$before_s")
+  # Ahead of the round-robin: the puzzles that give an indicator on /indicators/
+  # its first annotated clue (tools/indicator_cover.py), re-planned every wave so
+  # the cover shrinks as annotations land. Cut-off puzzles stay first. Anything
+  # but a whole permutation back leaves the order as it was. A dry run plans once.
+  if [ "$DRY_RUN" = 0 ] || [ "$at" = 0 ]; then
+    reordered=($(printf '%s\n' "${queue[@]:$at}" \
+      | python3 tools/prereset_plan.py --cover-first "$requeued" || true))
+    [ "${#reordered[@]}" -eq $(( ${#queue[@]} - at )) ] \
+      && queue=("${queue[@]:0:$at}" "${reordered[@]}")
+  fi
   started=$(date +%s)
   run_wave "Annotate" "$ANNOTATE_PROMPT" "${queue[@]:$at:$wide}"
   failed=$?
