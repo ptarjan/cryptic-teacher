@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "id": "1-across",
@@ -33,7 +36,62 @@
    "clue": {
     "text": "Features of the moon rock at first put in boxes (7)"
    },
-   "solution": "CRATERS"
+   "solution": "CRATERS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CRATERS",
+    "definitions": [
+     {
+      "text": "Features of the moon",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "Only what comes first in rock is wanted, its opening letter."
+     },
+     {
+      "text": "put in",
+      "for": "container",
+      "note": "Something put in boxes sits inside them, so R goes inside CRATES."
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boxes",
+      "gives": "CRATES",
+      "note": "Crates are wooden boxes."
+     },
+     {
+      "clueFragment": "rock",
+      "gives": "R",
+      "select": "first",
+      "note": "The first letter of rock."
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRATE",
+      "R",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Moon rock being packed into boxes, as after a lunar mission.",
+     "walkthrough": "\"Rock\" pulls towards the moon picture, but only its first letter is used.",
+     "definitionFit": "A definition by example: the bowl-shaped pits left by meteor impacts are the moon's most visible landmarks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rock"
+    }
+   }
   },
   {
    "id": "1-down",
@@ -47,7 +105,70 @@
    "clue": {
     "text": "King captured in December revolution is shown to be innocent (7)"
    },
-   "solution": "CLEARED"
+   "solution": "CLEARED",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "CLEARED",
+    "definitions": [
+     {
+      "text": "shown to be innocent",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "revolution",
+      "for": "reversal",
+      "note": "A revolution turns DEC right round, giving CED."
+     },
+     {
+      "text": "captured in",
+      "for": "container",
+      "note": "The king is held inside the turned-round December."
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "December",
+      "gives": "DEC",
+      "note": "DEC is the calendar abbreviation."
+     },
+     {
+      "clueFragment": "King",
+      "gives": "LEAR",
+      "note": "King Lear, Shakespeare's king."
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LEAR",
+      "ED"
+     ],
+     "reversals": [
+      {
+       "from": "DEC",
+       "to": "CED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A king seized during a December uprising turns out to be blameless.",
+     "walkthrough": "\"King\" is usually R or K; here it is the whole name LEAR, split around by CED.",
+     "definitionFit": "The legal sense: a court or inquiry that clears a suspect finds them not guilty."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "revolution"
+    }
+   }
   },
   {
    "id": "2-down",
@@ -61,7 +182,44 @@
    "clue": {
     "text": "Dressed for a military operation, we hear (7)"
    },
-   "solution": "ARRAYED"
+   "solution": "ARRAYED",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "ARRAYED",
+    "definitions": [
+     {
+      "text": "Dressed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "What we hear is the spoken phrase, which is then spelt as a single word."
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for a military operation",
+      "gives": "ARRAYED",
+      "soundsLike": "A RAID",
+      "note": "A raid is a military operation; said out loud it matches the answer."
+     }
+    ],
+    "explanation": {
+     "surface": "Soldiers kitted out for an attack.",
+     "walkthrough": "\"For\" just links the definition to the phrase whose sound gives the answer.",
+     "definitionFit": "A literary synonym: 'array' can mean fine clothing, so someone arrayed in silk is clothed in it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "id": "3-down",
@@ -75,7 +233,44 @@
    "clue": {
     "text": "Peer must have some noble qualities (5)"
    },
-   "solution": "EQUAL"
+   "solution": "EQUAL",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EQUAL",
+    "definitions": [
+     {
+      "text": "Peer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "Only some of the letters of the phrase are taken, a run spanning two words."
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "noble qualities",
+      "gives": "EQUAL",
+      "note": "nobLE QUALities."
+     }
+    ],
+    "explanation": {
+     "surface": "A lord ought to show some nobility of character.",
+     "walkthrough": "\"Peer\" and \"noble\" both point to the House of Lords, but the peer here is an equal.",
+     "definitionFit": "A plain synonym in the non-aristocratic sense: your peers are people of the same age or standing, as in 'peer group'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Peer"
+    }
+   }
   },
   {
    "id": "4-down",
@@ -99,7 +294,54 @@
      }
     ]
    },
-   "solution": "SMELLARAT"
+   "solution": "SMELLARAT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SMELL A RAT",
+    "definitions": [
+     {
+      "text": "Suspect trickery",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "blended",
+      "for": "anagram",
+      "note": "Blended malt whisky mixes its ingredients, so the letters get mixed."
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "real malt's",
+      "gives": "REALMALTS",
+      "note": "The letters used as they stand."
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REALMALTS",
+       "gives": "SMELLARAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A whisky buff suspects a con when a 'real malt' turns out to be blended.",
+     "walkthrough": "The 'S from \"malt's\" supplies the final S of the fodder.",
+     "definitionFit": "An idiom, from a terrier sniffing out vermin it cannot yet see: sensing that something underhand is going on."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "blended"
+    }
+   }
   },
   {
    "id": "5-across",
@@ -113,7 +355,54 @@
    "clue": {
     "text": "Several changes for those who are departing (7)"
    },
-   "solution": "LEAVERS"
+   "solution": "LEAVERS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LEAVERS",
+    "definitions": [
+     {
+      "text": "those who are departing",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changes",
+      "for": "anagram",
+      "note": "The word Several changes its letters into a new order."
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Several",
+      "gives": "SEVERAL",
+      "note": "Used as it stands."
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SEVERAL",
+       "gives": "LEAVERS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Staff turnover as people leave a firm.",
+     "walkthrough": "\"Several changes\" reads as a quantity, but Several is the fodder and changes the instruction.",
+     "definitionFit": "A British usage, especially of school pupils in their final year: the school's leavers are those about to go."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Several"
+    }
+   }
   },
   {
    "id": "5-down",
@@ -127,7 +416,56 @@
    "clue": {
     "text": "Wobbly toilet seat with half missing (5)"
    },
-   "solution": "LOOSE"
+   "solution": "LOOSE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "LOOSE",
+    "definitions": [
+     {
+      "text": "Wobbly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with half missing",
+      "for": "deletion",
+      "note": "Half of SEAT is dropped, leaving SE."
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "toilet",
+      "gives": "LOO",
+      "note": "Loo is British slang for a toilet."
+     },
+     {
+      "clueFragment": "seat",
+      "gives": "SE",
+      "note": "SEAT losing its second half, AT."
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOO",
+      "SE"
+     ]
+    },
+    "explanation": {
+     "surface": "A toilet seat that has come half off and wobbles.",
+     "walkthrough": "The definition sits at the front, not in \"Wobbly toilet seat\" as a single object.",
+     "definitionFit": "A plain synonym: a loose tooth or screw is not firmly fixed and so moves about."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Wobbly"
+    }
+   }
   },
   {
    "id": "6-down",
@@ -141,7 +479,49 @@
    "clue": {
     "text": "Phone feature put up and sized up (9)"
    },
-   "solution": "APPRAISED"
+   "solution": "APPRAISED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "APPRAISED",
+    "definitions": [
+     {
+      "text": "sized up",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Phone feature",
+      "gives": "APP",
+      "note": "An app is a phone application."
+     },
+     {
+      "clueFragment": "put up",
+      "gives": "RAISED",
+      "note": "To put up is to raise."
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "APP",
+      "RAISED"
+     ]
+    },
+    "explanation": {
+     "surface": "A phone function installed and then assessed.",
+     "walkthrough": "The two \"up\" phrases look like a pair, but only the second is the definition.",
+     "definitionFit": "A plain synonym: a valuer who has looked something over and judged its worth has assessed it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "7-down",
@@ -155,7 +535,47 @@
    "clue": {
     "text": "Say why former partner's not attractive (7)"
    },
-   "solution": "EXPLAIN"
+   "solution": "EXPLAIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXPLAIN",
+    "definitions": [
+     {
+      "text": "Say why",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "former partner's",
+      "gives": "EX",
+      "note": "An ex is a former partner; the 's reads as 'is'."
+     },
+     {
+      "clueFragment": "not attractive",
+      "gives": "PLAIN",
+      "note": "Plain means not good-looking."
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "PLAIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking why an ex is no longer attractive.",
+     "walkthrough": "\"Say why\" reads as a request, but it is the definition.",
+     "definitionFit": "A plain synonym: giving the reasons for something, as in 'explain yourself'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "why"
+    }
+   }
   },
   {
    "id": "8-down",
@@ -169,7 +589,50 @@
    "clue": {
     "text": "Odd saint given scope (7)"
    },
-   "solution": "STRANGE"
+   "solution": "STRANGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STRANGE",
+    "definitions": [
+     {
+      "text": "Odd",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "given"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "saint",
+      "gives": "ST",
+      "note": "ST is the abbreviation for saint."
+     },
+     {
+      "clueFragment": "scope",
+      "gives": "RANGE",
+      "note": "Scope and range both mean extent."
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "RANGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A peculiar holy man handed a free rein.",
+     "walkthrough": "\"Odd\" invites taking alternate letters, but here it is the definition.",
+     "definitionFit": "A plain synonym: both describe something unusual or peculiar."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Odd"
+    }
+   }
   },
   {
    "id": "9-across",
@@ -189,7 +652,40 @@
      }
     ]
    },
-   "solution": "ENROUTE"
+   "solution": "ENROUTE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "EN ROUTE",
+    "definitions": [
+     {
+      "text": "On the way from France?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "On the way",
+      "note": "the plain meaning of the answer"
+     },
+     {
+      "clueFragment": "from France?",
+      "note": "reads as travelling out of France, but means the words come from French"
+     }
+    ],
+    "explanation": {
+     "surface": "A traveller heading over from France.",
+     "walkthrough": "\"From France\" reads as a journey's starting point; it really says the phrase is borrowed from French.",
+     "definitionFit": "A French phrase taken into English, meaning in transit, so it literally comes from France."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "from"
+    }
+   }
   },
   {
    "id": "10-across",
@@ -209,7 +705,51 @@
      }
     ]
    },
-   "solution": "ONPAPER"
+   "solution": "ONPAPER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ON PAPER",
+    "definitions": [
+     {
+      "text": "In theory",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "explodes",
+      "for": "anagram",
+      "note": "An explosion scatters the letters of PROPANE."
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "propane",
+      "gives": "PROPANE",
+      "note": "Used as it stands."
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PROPANE",
+       "gives": "ONPAPER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chemist's remark that propane can theoretically explode.",
+     "walkthrough": "\"In theory\" looks like the start of the scene, but it is the definition.",
+     "definitionFit": "An idiom: a plan that works as written down may still fail in practice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "explodes"
+    }
+   }
   },
   {
    "id": "11-across",
@@ -229,7 +769,40 @@
      }
     ]
    },
-   "solution": "ROYALBLUE"
+   "solution": "ROYALBLUE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ROYAL BLUE",
+    "definitions": [
+     {
+      "text": "The colour of princely blood?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The colour of",
+      "note": "asks for a colour name"
+     },
+     {
+      "clueFragment": "princely blood?",
+      "note": "nobles are said to be blue-blooded, and a prince is royal"
+     }
+    ],
+    "explanation": {
+     "surface": "Wondering what colour a prince's blood really is.",
+     "walkthrough": "Aristocrats are said to have blue blood, so a prince's blood would be royal blue.",
+     "definitionFit": "A real colour name, a deep vivid blue, reached by joking that a prince's blood is the bluest of the blue."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "blood"
+    }
+   }
   },
   {
    "id": "12-across",
@@ -243,7 +816,50 @@
    "clue": {
     "text": "Once more making a profit (5)"
    },
-   "solution": "AGAIN"
+   "solution": "AGAIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AGAIN",
+    "definitions": [
+     {
+      "text": "Once more",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "Used as it stands."
+     },
+     {
+      "clueFragment": "profit",
+      "gives": "GAIN",
+      "note": "What a trader makes when selling above cost."
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "GAIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A business back in the black.",
+     "walkthrough": "\"Making\" reads as part of the business picture, but it only joins the definition to the wordplay.",
+     "definitionFit": "A plain synonym: doing something a second time, as in 'try it once more'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "making"
+    }
+   }
   },
   {
    "id": "13-across",
@@ -257,7 +873,46 @@
    "clue": {
     "text": "Avoid this Kansas city (5)"
    },
-   "solution": "DODGE"
+   "solution": "DODGE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DODGE",
+    "definitions": [
+     {
+      "text": "Avoid",
+      "at": 0
+     },
+     {
+      "text": "Kansas city",
+      "at": 11
+     }
+    ],
+    "linkWords": [
+     "this"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Avoid",
+      "note": "a verb: to sidestep something"
+     },
+     {
+      "clueFragment": "Kansas city",
+      "note": "a Wild West cattle town in Kansas"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Dodge City is a Kansas town famous from Wild West stories.",
+     "definitionFit": "Two senses: the verb for sidestepping a blow or a duty, and the Kansas frontier town of Wyatt Earp fame."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Avoid"
+    }
+   }
   },
   {
    "id": "14-down",
@@ -271,7 +926,55 @@
    "clue": {
     "text": "Pupils at a public school, including small Europeans (9)"
    },
-   "solution": "ESTONIANS"
+   "solution": "ESTONIANS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ESTONIANS",
+    "definitions": [
+     {
+      "text": "Europeans",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "including",
+      "for": "container",
+      "note": "The schoolboys take S inside their name."
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pupils at a public school",
+      "gives": "ETONIANS",
+      "note": "Etonians attend Eton, the famous English boarding school; in Britain a 'public school' is an elite private one."
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small."
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "S",
+      "TONIANS"
+     ]
+    },
+    "explanation": {
+     "surface": "A school's intake that includes some young children from Europe.",
+     "walkthrough": "\"Small Europeans\" reads as one phrase, but small only supplies the S.",
+     "definitionFit": "A definition by category: the people of a Baltic state are one kind of European."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "small"
+    }
+   }
   },
   {
    "id": "15-across",
@@ -291,7 +994,53 @@
      }
     ]
    },
-   "solution": "ROADSENSE"
+   "solution": "ROADSENSE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ROAD SENSE",
+    "definitions": [
+     {
+      "text": "required by motorist?",
+      "at": 19,
+      "note": "describes the answer rather than naming it"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Funny",
+      "for": "anagram",
+      "note": "Something funny is peculiar, so the letters come out peculiarly arranged."
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "red nose, as",
+      "gives": "REDNOSEAS",
+      "note": "The letters used as they stand."
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REDNOSEAS",
+       "gives": "ROADSENSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clown's red nose as compulsory kit for drivers.",
+     "walkthrough": "\"As\" looks like a link word, but it belongs to the fodder.",
+     "definitionFit": "A description rather than a synonym: awareness of traffic and hazards is what any driver needs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "as"
+    }
+   }
   },
   {
    "id": "16-down",
@@ -305,7 +1054,42 @@
    "clue": {
     "text": "Remarkable policeman's activity? (9)"
    },
-   "solution": "ARRESTING"
+   "solution": "ARRESTING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ARRESTING",
+    "definitions": [
+     {
+      "text": "Remarkable",
+      "at": 0
+     },
+     {
+      "text": "policeman's activity?",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Remarkable",
+      "note": "an adjective: striking, catching the eye"
+     },
+     {
+      "clueFragment": "policeman's activity?",
+      "note": "police officers arrest people"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags that the second definition is a playful description rather than a synonym.",
+     "definitionFit": "Two senses: an adjective for something that stops you in your tracks, and the police officer's job of taking suspects into custody."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "id": "17-across",
@@ -319,7 +1103,51 @@
    "clue": {
     "text": "One who watches actor step out (9)"
    },
-   "solution": "SPECTATOR"
+   "solution": "SPECTATOR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SPECTATOR",
+    "definitions": [
+     {
+      "text": "One who watches",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "Letters that are out of place are rearranged."
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "actor step",
+      "gives": "ACTORSTEP",
+      "note": "The letters used as they stand."
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ACTORSTEP",
+       "gives": "SPECTATOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An audience member watching a performer walk off stage.",
+     "walkthrough": "\"Step out\" reads as a phrasal verb; out is the anagram signal.",
+     "definitionFit": "A plain synonym, from Latin spectare 'to watch': a member of a sports crowd or audience."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "id": "17-down",
@@ -333,7 +1161,56 @@
    "clue": {
     "text": "A holy place can and must reform (7)"
    },
-   "solution": "SANCTUM"
+   "solution": "SANCTUM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SANCTUM",
+    "definitions": [
+     {
+      "text": "A holy place",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reform",
+      "for": "anagram",
+      "note": "To reform is to form anew, so CAN and MUST are formed into a new word."
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "can",
+      "gives": "CAN",
+      "note": "Used as it stands."
+     },
+     {
+      "clueFragment": "must",
+      "gives": "MUST",
+      "note": "Used as it stands."
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CANMUST",
+       "gives": "SANCTUM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A church insisting that it can and must change its ways.",
+     "walkthrough": "\"Can and must\" reads as a rallying cry for reform; both words are just letters.",
+     "definitionFit": "A Latin loanword, 'holy thing', for the sacred inner part of a temple or church."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "must"
+    }
+   }
   },
   {
    "id": "18-down",
@@ -347,7 +1224,55 @@
    "clue": {
     "text": "Plead with English knight to get something nice (7)"
    },
-   "solution": "ENTREAT"
+   "solution": "ENTREAT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ENTREAT",
+    "definitions": [
+     {
+      "text": "Plead with",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English."
+     },
+     {
+      "clueFragment": "knight",
+      "gives": "N",
+      "note": "N is the knight in chess notation."
+     },
+     {
+      "clueFragment": "something nice",
+      "gives": "TREAT",
+      "note": "A treat is something pleasant."
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "N",
+      "TREAT"
+     ]
+    },
+    "explanation": {
+     "surface": "Begging an English knight for a little reward.",
+     "walkthrough": "Knight is usually N from chess, where K is already taken by the king.",
+     "definitionFit": "A formal synonym: begging someone earnestly to do something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "19-across",
@@ -361,7 +1286,42 @@
    "clue": {
     "text": "Princess sheltered by guardian angel (5)"
    },
-   "solution": "DIANA"
+   "solution": "DIANA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "DIANA",
+    "definitions": [
+     {
+      "text": "Princess",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sheltered by",
+      "for": "hidden_word",
+      "note": "The princess is sheltered inside the words that follow."
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "guardian angel",
+      "gives": "DIANA",
+      "note": "guarDIAN Angel."
+     }
+    ],
+    "explanation": {
+     "surface": "A princess watched over by a guardian angel.",
+     "walkthrough": "The answer runs across the gap between the two words.",
+     "definitionFit": "A definition by example: the Princess of Wales who died in 1997, the best-known royal of that name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "20-down",
@@ -375,7 +1335,59 @@
    "clue": {
     "text": "Capone is scornful, we hear, in African port (7)"
    },
-   "solution": "ALGIERS"
+   "solution": "ALGIERS",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "ALGIERS",
+    "definitions": [
+     {
+      "text": "African port",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "What we hear is the sound of JEERS, which is then spelt differently."
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Capone",
+      "gives": "AL",
+      "note": "Al Capone, the Chicago gangster."
+     },
+     {
+      "clueFragment": "is scornful",
+      "gives": "GIERS",
+      "soundsLike": "JEERS",
+      "note": "Someone who jeers is scornful."
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AL",
+      "GIERS"
+     ]
+    },
+    "explanation": {
+     "surface": "A gangster sneering while in a North African harbour.",
+     "walkthrough": "Said together, AL JEERS sounds like the city.",
+     "definitionFit": "A definition by example: Algeria's capital is a major Mediterranean harbour on Africa's north coast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "id": "21-down",
@@ -389,7 +1401,54 @@
    "clue": {
     "text": "Painters in dire straits? (7)"
    },
-   "solution": "ARTISTS"
+   "solution": "ARTISTS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ARTISTS",
+    "definitions": [
+     {
+      "text": "Painters",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dire",
+      "for": "anagram",
+      "note": "Straits in a dire state are wrecked, so their letters are jumbled."
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "straits",
+      "gives": "STRAITS",
+      "note": "Used as it stands."
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "STRAITS",
+       "gives": "ARTISTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The starving painter in desperate trouble.",
+     "walkthrough": "\"Dire straits\" is a fixed phrase for serious trouble, which hides the split between indicator and fodder.",
+     "definitionFit": "A broader term: painters are one kind of creative practitioner, alongside sculptors and others."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dire"
+    }
+   }
   },
   {
    "id": "22-across",
@@ -409,7 +1468,48 @@
      }
     ]
    },
-   "solution": "NOTON"
+   "solution": "NOTON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NOT ON",
+    "definitions": [
+     {
+      "text": "is unacceptable",
+      "at": 10,
+      "note": "a verb phrase; the answer is used as 'it's not on'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "No",
+      "gives": "NO",
+      "note": "Used as it stands."
+     },
+     {
+      "clueFragment": "weight",
+      "gives": "TON",
+      "note": "A ton is a large weight."
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "TON"
+     ]
+    },
+    "explanation": {
+     "surface": "Being weightless is not acceptable.",
+     "walkthrough": "\"Not on\" is British slang for unacceptable, as in 'that's just not on'.",
+     "definitionFit": "A British idiom: 'that's just not on' says something should not be allowed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "weight"
+    }
+   }
   },
   {
    "id": "23-across",
@@ -429,7 +1529,46 @@
      }
     ]
    },
-   "solution": "JUSTRIGHT"
+   "solution": "JUSTRIGHT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "JUST RIGHT",
+    "definitions": [
+     {
+      "text": "Exactly!",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lawful",
+      "gives": "JUST",
+      "note": "Just means fair and lawful."
+     },
+     {
+      "clueFragment": "entitlement",
+      "gives": "RIGHT",
+      "note": "A right is an entitlement."
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JUST",
+      "RIGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone confirming that a legal claim is spot on.",
+     "walkthrough": "The question mark splits the clue in two; the wordplay is the first half.",
+     "definitionFit": "An idiom: the approving exclamation for something perfect, as in Goldilocks's porridge."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "23-down",
@@ -443,7 +1582,64 @@
    "clue": {
     "text": "Irish author finding happiness, having Catholic education, initially (5)"
    },
-   "solution": "JOYCE"
+   "solution": "JOYCE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "JOYCE",
+    "definitions": [
+     {
+      "text": "Irish author",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "Initially takes just the first letter of education."
+     }
+    ],
+    "linkWords": [
+     "finding"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "happiness",
+      "gives": "JOY",
+      "note": "Joy is happiness."
+     },
+     {
+      "clueFragment": "Catholic",
+      "gives": "C",
+      "note": "C is the abbreviation for Catholic."
+     },
+     {
+      "clueFragment": "education",
+      "gives": "E",
+      "select": "first",
+      "note": "The first letter of education."
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JOY",
+      "C",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A writer finding joy after a Catholic schooling.",
+     "walkthrough": "James Joyce was indeed educated by the Jesuits, which makes the surface true to life.",
+     "definitionFit": "A definition by example: the Dublin-born novelist who wrote Ulysses."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "24-down",
@@ -457,7 +1653,48 @@
    "clue": {
     "text": "Grave letters about Yorkshire city (5)"
    },
-   "solution": "RIPON"
+   "solution": "RIPON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RIPON",
+    "definitions": [
+     {
+      "text": "Yorkshire city",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Grave letters",
+      "gives": "RIP",
+      "note": "RIP, rest in peace, is carved on gravestones."
+     },
+     {
+      "clueFragment": "about",
+      "gives": "ON",
+      "note": "On and about both mean concerning."
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIP",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "Serious correspondence concerning a northern English city.",
+     "walkthrough": "\"Grave\" reads as serious, but it means a tomb, and \"about\" is ON rather than a reversal or container signal.",
+     "definitionFit": "A definition by example: a small cathedral city in North Yorkshire, England."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Grave"
+    }
+   }
   },
   {
    "id": "25-across",
@@ -471,7 +1708,56 @@
    "clue": {
     "text": "They must accept hip hop treatment (7)"
    },
-   "solution": "THERAPY"
+   "solution": "THERAPY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "THERAPY",
+    "definitions": [
+     {
+      "text": "treatment",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "must accept",
+      "for": "container",
+      "note": "What THEY accept goes inside them."
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "They",
+      "gives": "THEY",
+      "note": "Used as it stands."
+     },
+     {
+      "clueFragment": "hip hop",
+      "gives": "RAP",
+      "note": "Rap is a hip hop style."
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THE",
+      "RAP",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "People forced to put up with hip hop as a cure.",
+     "walkthrough": "\"Hip\" suggests medicine alongside treatment, but hip hop is the music.",
+     "definitionFit": "A plain synonym: any course of care meant to heal, from physio to counselling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "hip"
+    }
+   }
   },
   {
    "id": "26-across",
@@ -485,7 +1771,53 @@
    "clue": {
     "text": "One million papers cause admiration (7)"
    },
-   "solution": "IMPRESS"
+   "solution": "IMPRESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IMPRESS",
+    "definitions": [
+     {
+      "text": "cause admiration",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "I is the Roman numeral one."
+     },
+     {
+      "clueFragment": "million",
+      "gives": "M",
+      "note": "M is the abbreviation for million."
+     },
+     {
+      "clueFragment": "papers",
+      "gives": "PRESS",
+      "note": "The press is the newspapers."
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "M",
+      "PRESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A million newspapers sold, winning people over.",
+     "walkthrough": "\"One million\" reads as a single number, but it gives two separate letters.",
+     "definitionFit": "A plain synonym: winning people's respect or wonder by what you do."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "papers"
+    }
+   }
   },
   {
    "id": "27-across",
@@ -499,7 +1831,54 @@
    "clue": {
     "text": "Swirling sea mist depicted by French painter (7)"
    },
-   "solution": "MATISSE"
+   "solution": "MATISSE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MATISSE",
+    "definitions": [
+     {
+      "text": "French painter",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Swirling",
+      "for": "anagram",
+      "note": "Swirling stirs the letters of SEA MIST around."
+     }
+    ],
+    "linkWords": [
+     "depicted by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sea mist",
+      "gives": "SEAMIST",
+      "note": "The letters used as they stand."
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SEAMIST",
+       "gives": "MATISSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A painting of mist swirling over the sea.",
+     "walkthrough": "\"Depicted by\" makes the painter look like the artist of the scene; it only joins wordplay to definition.",
+     "definitionFit": "A definition by example: Henri, leader of the Fauves, known for bold colour and paper cut-outs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Swirling"
+    }
+   }
   },
   {
    "id": "28-across",
@@ -513,7 +1892,45 @@
    "clue": {
     "text": "First book for rock band (7)"
    },
-   "solution": "GENESIS"
+   "solution": "GENESIS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GENESIS",
+    "definitions": [
+     {
+      "text": "First book",
+      "at": 0
+     },
+     {
+      "text": "rock band",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "First book",
+      "note": "the opening book of the Bible"
+     },
+     {
+      "clueFragment": "rock band",
+      "note": "the British band of Peter Gabriel and Phil Collins"
+     }
+    ],
+    "explanation": {
+     "surface": "Choosing a debut album for a rock group.",
+     "walkthrough": "\"First book\" suggests a band's first release, but it is the Bible's opening book.",
+     "definitionFit": "Two senses: the opening book of the Old Testament, and the British prog-rock group."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
