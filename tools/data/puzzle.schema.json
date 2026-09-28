@@ -403,6 +403,7 @@
    }
   },
   "annotation": {
+   "description": "Our teaching annotation of one clue, on the leader alone for a linked answer. Keys marked required-by-ratchet (definitionFit, features, surface, and an indicator's for and note) are carried by every annotation written since each was added; older ones are counted per puzzle in tools/annotation_backlog.json and drained by the nightly backfill (tools/validate_annotations.py, the ratchet).",
    "type": "object",
    "required": [
     "type",
@@ -434,6 +435,7 @@
      }
     },
     "answer": {
+     "description": "The solution in display form, spaced and hyphenated where the enumeration divides it; for a linked answer, the whole answer.",
      "type": "string",
      "minLength": 1
     },
@@ -472,6 +474,7 @@
      "const": true
     },
     "definitionFit": {
+     "description": "One sentence on why the answer means the definition. Required by ratchet: absent only where tools/annotation_backlog.json grandfathers it, an allowance per puzzle that may only shrink.",
      "type": "string",
      "minLength": 1
     },
@@ -492,11 +495,11 @@
         "minLength": 1
        },
        "for": {
-        "description": "The one of this annotation's own types these words signal.",
+        "description": "The one of this annotation's own types these words signal. Required by ratchet: absent only where tools/annotation_backlog.json grandfathers it, an allowance per puzzle that may only shrink (indicatorFor).",
         "$ref": "#/$defs/clueType"
        },
        "note": {
-        "description": "Why these words signal that operation in this clue.",
+        "description": "Why these words signal that operation in this clue. Required by ratchet: absent only where tools/annotation_backlog.json grandfathers it, an allowance per puzzle that may only shrink (indicatorNote).",
         "type": "string",
         "minLength": 1
        }
@@ -504,12 +507,15 @@
      }
     },
     "linkWords": {
+     "description": "Clue words that join the definition to the wordplay and give no letters. Absent when the clue has none.",
      "$ref": "#/$defs/strings"
     },
     "pieces": {
+     "description": "The answer in the chunks the wordplay builds, in answer order, joining to the answer's letters (LI, MITE, D for LID around MITE). Given for a charade, container or deletion; absent where an anagram, hidden word, homophone or definition is the whole assembly.",
      "$ref": "#/$defs/strings"
     },
     "anagram": {
+     "description": "Present when the answer as a whole is an anagram: fodder is every letter before shuffling, added ones included.",
      "type": "object",
      "required": [
       "fodder"
@@ -523,6 +529,7 @@
      }
     },
     "subAnagrams": {
+     "description": "Each anagram inside the wordplay: the fodder and the letters it becomes. Absent when there is none.",
      "type": "array",
      "minItems": 1,
      "items": {
@@ -545,6 +552,7 @@
      }
     },
     "subReversals": {
+     "description": "Each reversal inside the wordplay: the letters and what they read reversed. Absent when there is none.",
      "type": "array",
      "minItems": 1,
      "items": {
@@ -567,6 +575,7 @@
      }
     },
     "blocks": {
+     "description": "The wordplay, one block per clue fragment, in the order the answer reads (before a container, reversal or rotation is applied).",
      "type": "array",
      "minItems": 1,
      "items": {
@@ -574,14 +583,17 @@
      }
     },
     "surface": {
+     "description": "One sentence, 25 words max, of the picture the clue pretends to paint. Required by ratchet on every clue of four or more words that is not a pure double or cryptic definition (absent only where tools/annotation_backlog.json grandfathers it, an allowance per puzzle that may only shrink); on the others, absent when the clue paints no picture apart from its mechanism.",
      "type": "string",
      "minLength": 1
     },
     "walkthrough": {
+     "description": "One or two sentences on what the blocks cannot show: why the surface misleads, a convention the solver may not know, why a definition is fair.",
      "type": "string",
      "minLength": 1
     },
     "features": {
+     "description": "Required by ratchet: absent only where tools/annotation_backlog.json grandfathers it, an allowance per puzzle that may only shrink.",
      "$ref": "#/$defs/features"
     }
    }
@@ -634,7 +646,7 @@
    }
   },
   "features": {
-   "description": "Data for analysis, never shown to a solver.",
+   "description": "Facts about the clue for analysis against solvers' favourites, never shown to a solver.",
    "type": "object",
    "required": [
     "answerInScene",
@@ -643,15 +655,19 @@
    "additionalProperties": false,
    "properties": {
     "answerInScene": {
+     "description": "Does the solution belong in the picture the surface paints?",
      "type": "boolean"
     },
     "aptDefinition": {
+     "description": "Is the definition fresh or witty rather than a dictionary synonym?",
      "type": "boolean"
     },
     "joke": {
+     "description": "pun: the humour is in a word's second sense or sound; absurd: the surface is silly on purpose. Absent when there is no joke.",
      "$ref": "#/$defs/joke"
     },
     "misdirectedWord": {
+     "description": "The one clue word, as printed, whose surface sense is furthest from its job. Absent when nothing misleads.",
      "type": "string",
      "minLength": 1
     }
