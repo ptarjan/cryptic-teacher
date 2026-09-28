@@ -104,7 +104,7 @@ def place_puzzle(puzzle):
         if not all(isinstance(d, dict) for d in ann["definitions"]):
             continue
         try:
-            ann["definitions"] = place(ann["definitions"], e.get("clue") or "")
+            ann["definitions"] = place(ann["definitions"], e["clue"].get("text", ""))
         except ValueError as err:
             raise ValueError(f"{puzzle.get('id')} {e.get('id')}: {err}") from None
     return puzzle

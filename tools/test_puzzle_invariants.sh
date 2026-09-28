@@ -82,15 +82,15 @@ p["date"] = None
 write("feed-undated", p)
 
 p = copy.deepcopy(indy)
-p["entries"][0]["clue"] = "dishe{s a la Mi}lanese " + p["entries"][0]["clue"]
+p["entries"][0]["clue"]["text"] = "dishe{s a la Mi}lanese " + p["entries"][0]["clue"]["text"]
 write("braced-clue", p)
 
 p = copy.deepcopy(indy)
-p["entries"][0]["clue"] = "<i>Black Narcissus</i> " + p["entries"][0]["clue"]
+p["entries"][0]["clue"]["text"] = "<i>Black Narcissus</i> " + p["entries"][0]["clue"]["text"]
 write("markup-clue", p)
 
 p = copy.deepcopy(indy)
-p["entries"][0]["clue"] = "Cyclops \u0096 " + p["entries"][0]["clue"]
+p["entries"][0]["clue"]["text"] = "Cyclops \u0096 " + p["entries"][0]["clue"]["text"]
 write("c1-clue", p)
 
 p = copy.deepcopy(indy)
@@ -101,8 +101,8 @@ write("crossing-conflict", p)
 p = copy.deepcopy(indy)
 blank = copy.deepcopy(indy)
 first = entry(blank, p["entries"][0]["id"])
-first["clue"] = " " + fetcher.ENUMERATION.search(first["clue"]).group(0).strip()
-first["clueMissing"] = True
+first["clue"] = {"text": " " + fetcher.ENUMERATION.search(first["clue"]["text"]).group(0).strip(),
+                "missing": True}
 write("refetch-blanks-a-clue", blank, over=p)
 
 p = copy.deepcopy(indy)
@@ -114,8 +114,8 @@ print("ACQUIRED", got and got["source"]["acquiredOn"])
 
 p = copy.deepcopy(indy)
 lead, cont = p["entries"][0], p["entries"][1]
-lead["clue"] = fetcher.ENUMERATION.sub(f"({lead['length']},{cont['length']})", lead["clue"])
-cont["clue"] = f"See {lead['number']}"
+lead["clue"]["text"] = fetcher.ENUMERATION.sub(f"({lead['length']},{cont['length']})", lead["clue"]["text"])
+cont["clue"] = {"text": f"See {lead['number']}"}
 lead["group"] = cont["group"] = [lead["id"], cont["id"]]
 cont.pop("annotation", None)
 write("continuation-holds-group", p)
@@ -124,8 +124,8 @@ write("leader-holds-group", p)
 
 quick = real("timesquick-2000")
 p = copy.deepcopy(quick)
-lead = next(e for e in p["entries"] if not fetcher.is_continuation(e["clue"]))
-lead["clue"] = fetcher.ENUMERATION.sub("", lead["clue"]).rstrip()
+lead = next(e for e in p["entries"] if not fetcher.is_continuation(e["clue"]["text"]))
+lead["clue"]["text"] = fetcher.ENUMERATION.sub("", lead["clue"]["text"]).rstrip()
 write("blog-clue-no-enumeration", p)
 
 p = copy.deepcopy(real("sundaytimes-5000"))

@@ -68,8 +68,10 @@ import puzzle_paths
 DAY = timedelta(days=1)
 def entry(eid, num, direction, x, y, length, clue, solution, group=None):
     e = {"id": eid, "number": num, "direction": direction,
-         "position": {"x": x, "y": y}, "length": length, "clue": clue,
-         "separatorLocations": {}, "solution": solution, "annotation": None}
+         "position": {"x": x, "y": y}, "length": length,
+         "clue": {**({"text": clue} if clue else {}),
+                  **({} if fetcher.has_words(clue) else {"missing": True})},
+         "solution": solution}
     if group:
         e["group"] = group
     return e

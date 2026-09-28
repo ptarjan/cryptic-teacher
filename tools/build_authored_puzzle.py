@@ -62,7 +62,7 @@ def build(fill_path, clues_path, puzzle_id, name, setter, day):
             "direction": e["direction"],
             "position": e["position"],
             "length": e["length"],
-            "clue": spec["clue"],
+            "clue": {"text": spec["clue"]},
             "solution": e["solution"],
             "annotation": ann,
         })

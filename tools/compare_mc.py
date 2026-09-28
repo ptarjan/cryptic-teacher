@@ -313,7 +313,7 @@ def main():
 
     our_seqs = Counter()
     for _, e, ann in ours:
-        clue_text = e.get("clue", "")
+        clue_text = e["clue"].get("text", "")
         keys = tuple(k for k, _ in ladder_steps(ann, clue_text))
         our_seqs[keys] += 1
     print("\nOurs (rung-key sequence -> count of annotated clues):")
@@ -340,7 +340,7 @@ def main():
 
     our_by_rung = {k: [] for k in OUR_RUNG_ORDER}
     for _, e, ann in ours:
-        clue_text = e.get("clue", "")
+        clue_text = e["clue"].get("text", "")
         for k, text in ladder_steps(ann, clue_text):
             our_by_rung[k].append(word_count(text))
     print("\nOurs, words per rung:")
@@ -372,11 +372,11 @@ def main():
         print(f"  ...{t:12s}      " + voice_stats(texts))
 
     our_all_texts = [text for _, e, ann in ours
-                     for _, text in ladder_steps(ann, e.get("clue", ""))]
+                     for _, text in ladder_steps(ann, e["clue"].get("text", ""))]
     print("\nOurs, all rungs:        " + voice_stats(our_all_texts))
     for k in OUR_RUNG_ORDER:
         texts = [text for _, e, ann in ours
-                 for kk, text in ladder_steps(ann, e.get("clue", "")) if kk == k]
+                 for kk, text in ladder_steps(ann, e["clue"].get("text", "")) if kk == k]
         print(f"  ...{k:12s}      " + voice_stats(texts))
 
     # Answer-naming before the final hint.
@@ -397,7 +397,7 @@ def main():
         if not answer:
             continue
         our_total += 1
-        steps = ladder_steps(ann, e.get("clue", ""))
+        steps = ladder_steps(ann, e["clue"].get("text", ""))
         early = [text for k, text in steps if k != "walkthrough"]
         if any(contains_word(t, answer) for t in early):
             our_leak += 1
@@ -412,7 +412,7 @@ def main():
             continue
         fam = clue_types.labels(ann.get("type")) or "?"
         total_by_type[fam] += 1
-        steps = ladder_steps(ann, e.get("clue", ""))
+        steps = ladder_steps(ann, e["clue"].get("text", ""))
         early = [text for k, text in steps if k != "walkthrough"]
         if any(contains_word(t, answer) for t in early):
             leak_by_type[fam] += 1
@@ -434,7 +434,7 @@ def main():
           "is an X indicator ... another is a Y indicator ...'.)")
 
     our_type_present = sum(1 for _, e, ann in ours
-                           if any(k == "type" for k, _ in ladder_steps(ann, e.get("clue", ""))))
+                           if any(k == "type" for k, _ in ladder_steps(ann, e["clue"].get("text", ""))))
     print(f"\nOurs: the 'type' rung (family name + blurb) is present for "
           f"{our_type_present}/{len(ours)} annotated clues (should be all — it's "
           "unconditional).")

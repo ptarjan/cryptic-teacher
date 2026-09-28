@@ -123,8 +123,7 @@ Shape:
     {
       "id": "16-across", "number": 16, "direction": "across",
       "position": {"x": 0, "y": 8}, "length": 10,
-      "clue": "Destroying climate, sun reaches highest point (10)",
-      "separatorLocations": {",": [7]},
+      "clue": {"text": "Destroying climate, sun reaches highest point (10)"},
       "solution": "CULMINATES",
       "annotation": {
         "type": ["anagram"],
@@ -172,29 +171,50 @@ Shape:
   continues two answers ("See 19, 22") is in both leaders' groups.
 
   ```jsonc
-  {"id": "21-across", "clue": "‘Army-stopper’ inventor exploded, making a big noise (4,9,6)",
+  {"id": "21-across",
+   "clue": {"text": "‘Army-stopper’ inventor exploded, making a big noise (4,9,6)",
+            "separators": [{"at": 4, "mark": ","}]},
    "group": ["21-across", "25-across"], "solution": "VERY",
    "annotation": {"answer": "VERY IMPORTANT PERSON", …}},
-  {"id": "25-across", "clue": "See 21", "solution": "IMPORTANTPERSON"}
+  {"id": "25-across", "clue": {"text": "See 21", "separators": [{"at": 9, "mark": ","}]},
+   "solution": "IMPORTANTPERSON"}
   ```
 - `preamble` (puzzle level) is the paper's note above the clues: a themed
   puzzle's special instructions ("Seven solutions, not defined, are linked"),
   or an erratum. The Guardian fetcher takes it from the page's `instructions`,
   the Independent's from `<metadata><description>`. A puzzle filed from a
   blog carries the write-up's account of the instructions, set by hand.
-- `"definedByPreamble": true` replaces `definition` on an answer the preamble
+- `"definedByPreamble": true` replaces `definitions` on an answer the preamble
   defines and the clue does not. It is valid only when the puzzle has a
-  `preamble`, and never beside a `definition`.
+  `preamble`, and never beside `definitions`.
+- `clue` is the clue as printed, in one object:
+  - `text`: the printed string, enumeration included ("… (4,9,6)", "See 21").
+    The enumeration stays in the text because many clues print none or print
+    it oddly ("(1'5)", "(6 and 5)"); offsets into the text (`italics`, a
+    definition's `at`) count Unicode code points.
+  - `separators`: the marks inside this light's answer, in order, as
+    `{"at", "mark"}`. `at` counts this light's answer letters before the mark,
+    not clue characters. Each light of a linked answer carries the marks inside
+    it, and a mark at `length` falls between it and the group's next light:
+    (4,9,6) above gives VERY `at` 4 and IMPORTANTPERSON `at` 9. The mark is
+    `","` for a word break or `"-"` for a hyphen, rarely `"'"`, `"."`, `"/"`,
+    `":"`, `";"` or `"and"`.
+  - `italics`: spans of `text` printed in italics, `{"at", "length"}`.
+  - `missing: true`: the paper printed no words (`text`, if any, is just the
+    enumeration), with an optional `missingNote`. A blank clue is kept as
+    printed, never filled in: it can be the setter's joke (cryptic-30098
+    12-across is `{"missing": true, …}` because the answer is NOONDAY and the
+    clue number is 12).
 - **An absent key means empty.** An un-annotated entry has no `annotation` key
   at all. The app then badges the puzzle `hints via <blog>` and builds a short
   ladder from what a solving blog's write-up marks on that clue
   (`tools/data/blog_facts/`), or, where no blog marked anything, badges it
   `answers only` and shows no ladder.
-  `separatorLocations` works the same way: it is present only when the paper
+  `clue.separators` works the same way: it is present only when the paper
   marks a break inside the answer, and so does every other key: no value in a
   puzzle file is `null`, `""`, `[]` or `{}`, and a flag is written only when
-  true. The one exception is `clue`, which every entry has and which is `""`
-  on a clue the paper printed blank. A puzzle whose paper names no setter
+  true. Every entry has a `clue`; a blank one is `{"missing": true}`. A
+  puzzle whose paper names no setter
   (the Times, the Telegraph, Metro) has no `setter` key.
 - **The shape is a schema.** `tools/data/puzzle.schema.json` (JSON Schema
   2020-12) lists every key, its type and the closed lists it draws from.

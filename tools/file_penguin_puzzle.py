@@ -110,7 +110,7 @@ from pathlib import Path
 
 TOOLS = Path(__file__).resolve().parent
 sys.path.insert(0, str(TOOLS))
-from fetch_puzzle import puzzle_path, write_puzzle_file  # noqa: E402
+from fetch_puzzle import has_words, puzzle_path, write_puzzle_file  # noqa: E402
 # One rule for linked answers, spelled once. That module owns both halves of it:
 # which lights a "See N" ties together, and what the group's enumeration is.
 from normalise_linked_enumerations import (enumeration_parts,  # noqa: E402
@@ -148,7 +148,8 @@ def separators(group_ids, by_id, enumeration, fill=None):
     break at cumulative position P belongs to the light that ENDS at or after P
     — so a break exactly on a light boundary is written at the end of the
     earlier light, which is how cryptic-30004 stores "(2,3,3,4)" over TOTIE and
-    THEKNOT: {",": [2, 5]} then {",": [3]}.
+    THEKNOT: [{"at": 2, "mark": ","}, {"at": 5, "mark": ","}] then
+    [{"at": 3, "mark": ","}]. Returns {light id: its clue separators}.
 
     The breaks come from the enumeration and the light lengths, so a puzzle
     filed with no answers gets the same ones a solved one would: the app draws
@@ -168,7 +169,7 @@ def separators(group_ids, by_id, enumeration, fill=None):
         if len(answer) != total:
             raise SystemExit(f"{group_ids}: answers hold {len(answer)} letters, grid wants {total}")
 
-    out = {gid: {} for gid, _ in lights}
+    out = {gid: [] for gid, _ in lights}
     at = 0
     for count, sep in parts:
         at += count
@@ -177,7 +178,7 @@ def separators(group_ids, by_id, enumeration, fill=None):
         start = 0
         for gid, length in lights:
             if start < at <= start + length:
-                out[gid].setdefault(sep, []).append(at - start)
+                out[gid].append({"at": at - start, "mark": sep})
                 break
             start += length
         else:
@@ -258,10 +259,12 @@ def build(record, identifier, model, unsolved=False):
         # The clue as the book printed it: the enumeration belongs in the clue
         # text, which is where check_length and the app both read it from. A
         # continuation ("See 11") is printed without one and stays that way.
-        if enumeration:
-            e["clue"] = f"{e['clue']} ({enumeration})"
-        if seps.get(e["id"]):
-            e["separatorLocations"] = seps[e["id"]]
+        text = f"{e['clue']} ({enumeration})" if enumeration else e["clue"]
+        e["clue"] = {
+            **({"text": text} if text else {}),
+            **({"separators": seps[e["id"]]} if seps.get(e["id"]) else {}),
+            **({} if has_words(text) else {"missing": True}),
+        }
         if groups.get(e["id"], [None])[0] == e["id"]:
             e["group"] = list(groups[e["id"]])
         # null, not absent, on an unsolved puzzle: that is how every unsolved

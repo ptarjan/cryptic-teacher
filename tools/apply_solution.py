@@ -57,7 +57,7 @@ import provenance  # noqa: E402
 
 def normalise(answer):
     """"POPULAR FRONT" -> "POPULARFRONT". Solutions are stored as bare letters;
-    the word breaks live in separatorLocations, which comes from the paper."""
+    the word breaks live in the clue's separators, which come from the paper."""
     return re.sub(r"[^A-Z]", "", str(answer).upper())
 
 

@@ -474,7 +474,7 @@ def letters(s):
 def answer_words(e):
     """The entry's answer split where its enumeration splits it."""
     sol = letters(e.get("solution"))
-    cuts = sorted(i for v in (e.get("separatorLocations") or {}).values() for i in v)
+    cuts = sorted({sep["at"] for sep in e["clue"].get("separators", [])})
     words, prev = [], 0
     for c in cuts + [len(sol)]:
         words.append(sol[prev:c])
@@ -624,7 +624,7 @@ def definition_unrelated(puz):
         d = bd.get(e.get("id")) or definition_key(definitions.texts(e.get("annotation")))
         if not d or not e.get("solution"):
             continue
-        clue = ENUMERATION.sub("", e.get("clue") or "").strip()
+        clue = ENUMERATION.sub("", e["clue"].get("text", "")).strip()
         if not clue or re.match(r"(?i)see\b", clue):
             continue
         _, ws = answer_words(e)
@@ -685,7 +685,7 @@ def history():
         sols, pairs = set(), set()
         for e in puz["entries"]:
             sol = letters(e.get("solution"))
-            if not sol or e.get("separatorLocations"):
+            if not sol or e["clue"].get("separators"):
                 continue
             sols.add(sol)
             d = bd.get(e.get("id")) or definition_key(definitions.texts(e.get("annotation")))
@@ -794,7 +794,7 @@ def question_marks(puz):
     clue and is left out."""
     ends = []
     for e in puz["entries"]:
-        clue = ENUMERATION.sub("", e.get("clue") or "").strip().rstrip("\"'”’)")
+        clue = ENUMERATION.sub("", e["clue"].get("text", "")).strip().rstrip("\"'”’)")
         if clue and not re.match(r"(?i)see\b", clue):
             ends.append(clue.endswith("?") and not acrostic(letters(e.get("solution")), clue))
     return sum(ends) / len(ends) if ends else None
@@ -804,7 +804,7 @@ def clue_count(puz):
     """The number of clues with an answer, cross-references ("See 5") left
     out. None when the puzzle carries no answers."""
     n = sum(1 for e in puz["entries"] if e.get("solution")
-            and (c := ENUMERATION.sub("", e.get("clue") or "").strip())
+            and (c := ENUMERATION.sub("", e["clue"].get("text", "")).strip())
             and not re.match(r"(?i)see\b", c))
     return n or None
 

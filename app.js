@@ -318,7 +318,7 @@
   function nuxRungTaken(e) {
     if (!nuxPointsAtRung()) { nuxAdvance(); return; }
     nuxWalked = true;
-    const steps = ladderSteps(annOf(e), e.clue);
+    const steps = ladderSteps(annOf(e), clueText(e));
     if (steps.every((st) => isShown(e, st.key))) { nuxAdvance(); return; }
     nuxDraw();
   }
@@ -354,7 +354,7 @@
   // which charges, so the light leaves the ladder and the grid takes it.
   function nuxTypeIt(e) {
     if (!nuxPointsAtRung() || !e || isEntrySolved(e)) return false;
-    const steps = ladderSteps(annOf(e), e.clue);
+    const steps = ladderSteps(annOf(e), clueText(e));
     if (!steps.length) return false;
     // A rung taken in pieces is not finished until its last piece is out.
     if (isShown(e, "blocks") && piecesLeft(e)) return false;
@@ -1707,17 +1707,14 @@
     }
     // word-separator marks
     entries.forEach((e) => {
-      const seps = e.separatorLocations || {};
-      Object.keys(seps).forEach((ch) => {
-        (seps[ch] || []).forEach((pos) => {
-          if (pos <= 0 || pos >= e.length) return;
-          const x = e.position.x + (e.direction === "across" ? pos - 1 : 0);
-          const y = e.position.y + (e.direction === "down" ? pos - 1 : 0);
-          const c = cells[y][x];
-          if (!c || !c.el) return;
-          const suffix = e.direction === "across" ? "r" : "b";
-          c.el.classList.add((ch === "-" ? "dash-" : "sep-") + suffix);
-        });
+      (e.clue.separators || []).forEach(({ at: pos, mark }) => {
+        if (pos <= 0 || pos >= e.length) return;
+        const x = e.position.x + (e.direction === "across" ? pos - 1 : 0);
+        const y = e.position.y + (e.direction === "down" ? pos - 1 : 0);
+        const c = cells[y][x];
+        if (!c || !c.el) return;
+        const suffix = e.direction === "across" ? "r" : "b";
+        c.el.classList.add((mark === "-" ? "dash-" : "sep-") + suffix);
       });
     });
     refreshGrid();
@@ -1817,7 +1814,7 @@
   function markUp(text, marks, italics, edges) {
     const cuts = [0, text.length];
     marks.forEach((m) => cuts.push(m.i, m.i + m.len));
-    italics.forEach((r) => cuts.push(r[0], r[0] + r[1]));
+    italics.forEach((r) => cuts.push(r.at, r.at + r.length));
     const pts = cuts.filter((p, i) => p >= 0 && p <= text.length && cuts.indexOf(p) === i)
                     .sort((a, b) => a - b);
     let out = "";
@@ -1826,7 +1823,7 @@
       const covers = (i, len) => i <= a && a < i + len;
       const m = marks.filter((k) => covers(k.i, k.len))[0];
       let piece = esc(text.slice(a, pts[s + 1]));
-      if (italics.filter((r) => covers(r[0], r[1])).length) piece = "<i>" + piece + "</i>";
+      if (italics.filter((r) => covers(r.at, r.length)).length) piece = "<i>" + piece + "</i>";
       // A mark cut short by the slice it was asked about is not ending here: the
       // rest of it is in the next slice, so it opens or closes nothing.
       const edge = m && edges
@@ -1839,8 +1836,14 @@
     return out;
   }
   // Italics are the setter's, so they show whether or not any hint is up.
-  const italicsOf = (e) => (Array.isArray(e.clueItalics) ? e.clueItalics : []);
-  const plainClueHTML = (e) => markUp(e.clue, [], italicsOf(e));
+  // clue.italics are code-point ranges; markUp cuts by string index.
+  const italicsOf = (e) => (e.clue.italics || []).map((r) => {
+    const at = cpToIdx(clueText(e), r.at);
+    return { at, length: cpToIdx(clueText(e), r.at + r.length) - at };
+  });
+  // The printed clue, enumeration included; "" where the paper printed nothing.
+  function clueText(e) { return e.clue.text || ""; }
+  const plainClueHTML = (e) => markUp(clueText(e), [], italicsOf(e));
 
   // Where a fragment goes is a placement, not a search. indexOf() takes the
     // first substring that matches and two things went wrong with that, both
@@ -1917,14 +1920,14 @@
     const taken = [];
     for (const f of frags) {
       if (f.at === undefined) continue;
-      const i = f.at >= 0 ? cpToIdx(e.clue, f.at) : -1;
-      f.i = i >= 0 && e.clue.slice(i, i + f.text.length) === f.text ? i : -1;
+      const i = f.at >= 0 ? cpToIdx(clueText(e), f.at) : -1;
+      f.i = i >= 0 && clueText(e).slice(i, i + f.text.length) === f.text ? i : -1;
       if (f.i >= 0) taken.push({ i: f.i, len: f.text.length });
     }
     const order = frags.filter((f) => f.at === undefined).sort((a, b) =>
       (a.kind === "link") - (b.kind === "link") || b.text.length - a.text.length || a.n - b.n);
     for (const f of order) {
-      f.i = bestOccurrence(e.clue, f.text, taken);
+      f.i = bestOccurrence(clueText(e), f.text, taken);
       if (f.i >= 0) taken.push({ i: f.i, len: f.text.length });
     }
     return frags.filter((f) => f.i >= 0);
@@ -1962,7 +1965,7 @@
     return merged;
   }
 
-  const clueHTML = (e) => markUp(e.clue, clueMarks(e), italicsOf(e));
+  const clueHTML = (e) => markUp(clueText(e), clueMarks(e), italicsOf(e));
 
   // A CHECKING letter is the crossword term for a square this entry shares with
   // one crossing the other way — the letters another answer hands you for free.
@@ -2959,8 +2962,8 @@
     if (!hintsShown[key]) {
       const old = hintLevels[key] || 0;
       hintsShown[key] = old > 0
-        ? ladderSteps(annOf(e), e.clue).slice(0, old).map((s) => s.key).concat(
-            old > ladderSteps(annOf(e), e.clue).length ? [ANSWER_RUNG] : [])
+        ? ladderSteps(annOf(e), clueText(e)).slice(0, old).map((s) => s.key).concat(
+            old > ladderSteps(annOf(e), clueText(e)).length ? [ANSWER_RUNG] : [])
         : [];
     }
     return hintsShown[key];
@@ -3863,7 +3866,7 @@
   function rungSpans(e, rung, step) {
     const ann = annOf(e);
     if (!ann) return [];
-    const tokens = clueTokens(e.clue);
+    const tokens = clueTokens(clueText(e));
     const spans = [];
     const add = (t, i) => {
       const span = [];
@@ -3877,7 +3880,7 @@
       placedFragments(e).filter((f) => kinds.includes(f.kind)).forEach((f) => add(f.text, f.i));
     } else if (rung === "blocks") {
       const b = blockAskAt(e, step);
-      const i = b && b.clueFragment ? bestOccurrence(e.clue, b.clueFragment, []) : -1;
+      const i = b && b.clueFragment ? bestOccurrence(clueText(e), b.clueFragment, []) : -1;
       if (i >= 0) add(b.clueFragment, i);
     }
     return spans;
@@ -3921,7 +3924,7 @@
     const ann = annOf(e);
     if (!ann || rung === "indicators") return [];
     const defs = (ann.definitions || []).map((d) => d.text);
-    const tokens = clueTokens(e.clue);
+    const tokens = clueTokens(clueText(e));
     return rungSpans(e, rung, step)
       .filter((s) => rung === "definition" || defs.indexOf(s.text) >= 0)
       .reduce((a, s) => a.concat(edgeTokens(s.tokens, tokens)), []);
@@ -3986,7 +3989,7 @@
     const at = step || 0;
     if (at && rung !== "blocks") return null;
     if (rung === "type") return familyAsk(ann);
-    const tokens = clueTokens(e.clue);
+    const tokens = clueTokens(clueText(e));
     const target = rungTokens(e, rung, at);
     if (!target.length) return null;
     let prompt = "", gives = "";
@@ -4138,10 +4141,10 @@
     // markUp clips its own cut points to the slice and asks only whether a range
     // covers a position, so a mark that starts before this slice or ends after it
     // needs shifting and nothing else.
-    const slice = (a, b) => markUp(e.clue.slice(a, b),
+    const slice = (a, b) => markUp(clueText(e).slice(a, b),
       marks.map((m) => ({ i: m.i - a, len: m.len, cls: m.cls })),
-      italics.map((r) => [r[0] - a, r[1]]), true);
-    const tokens = ask ? ask.tokens : clueTokens(e.clue);
+      italics.map((r) => ({ at: r.at - a, length: r.length })), true);
+    const tokens = ask ? ask.tokens : clueTokens(clueText(e));
     let out = "", at = 0;
     tokens.forEach((t, i) => {
       const settled = ask && ask.known.indexOf(i) >= 0;
@@ -4156,7 +4159,7 @@
       at = t.i + t.text.length;
     });
     return `<span class="guess-clue ${ask ? "ask" : "still"} pick-${rung || "indicators"}">${
-      out + slice(at, e.clue.length)}</span>`;
+      out + slice(at, clueText(e).length)}</span>`;
   }
 
   // ---------- dragging a run of words ----------
@@ -4548,7 +4551,7 @@
     // The walk's last instruction points at this strip, so the strip is what
     // wears the pulse — same mark the grid's own empty squares take.
     const typeIt = nuxTypeIt(e);
-    const breaks = enumBreaks(e.clue, cs.length);
+    const breaks = enumBreaks(clueText(e), cs.length);
     let filled = 0, checked = 0;
     const boxes = cs.map((c, idx) => {
       if (!c) return "";
@@ -4797,7 +4800,7 @@
   // clue. The badge says whose marks the rungs were built from, the way
   // "unverified answers" says whose answers the checker uses.
   function blogLinkHTML(e, ann) {
-    if (!P.blog || (ann && !ann.fromBlog) || e.clueMissing) return "";
+    if (!P.blog || (ann && !ann.fromBlog) || e.clue.missing) return "";
     return `<a class="blog-link small" href="${esc(P.blog.url)}" target="_blank" rel="noopener">Full explanation on ${esc(P.blog.name)} →</a>`;
   }
   // Credits the blog with what it marked and nothing else: a definition, a type,
@@ -4866,7 +4869,7 @@
       // no longer called hints: a rung you answered yourself was never one, and
       // the score has never charged for it. What you worked out is reported
       // beside it, because that is the number this is all for.
-      : (ann ? `<strong>${level}</strong>/${ladderSteps(ann, e.clue).length} hints shown${
+      : (ann ? `<strong>${level}</strong>/${ladderSteps(ann, clueText(e)).length} hints shown${
                  earnedRungs(e).length ? ` · ${earnedRungs(e).length} of those worked out by answering its question, so free` : ""}${revealsNote}`
              : revealsNote.replace(" · ", ""));
     // Whether there is anything left on the ladder, filled in below once the
@@ -4890,15 +4893,15 @@
       // "Not annotated yet" promises a ladder that is coming; a clue the paper
       // printed blank has no ladder ever, because there is no clue. Say which,
       // or the reader hunts the grid for wordplay that was never printed.
-      // clueMissing is written by the fetchers off has_words — see fetch_puzzle.
+      // clue.missing is written by the fetchers off has_words — see fetch_puzzle.
       // A blank clue printed on purpose still yields its answer, and saying
       // only "the space came through empty" leaves the reader staring at an
-      // answer with no reason for it. clueMissingNote is where a person writes
+      // answer with no reason for it. clue.missingNote is where a person writes
       // that reason; the annotation queue cannot, having no words to read.
-      bodyHTML = e.clueMissing
+      bodyHTML = e.clue.missing
         ? `<div class="hint-step"><p class="muted">The paper printed this clue blank —
-        the space was empty in every copy, not just yours. ${e.clueMissingNote
-          ? esc(e.clueMissingNote)
+        the space was empty in every copy, not just yours. ${e.clue.missingNote
+          ? esc(e.clue.missingNote)
           : "Nothing was left to solve with, so there is no wordplay to explain."}
         ${canCheck() ? "You can reveal the answer below." : ""}</p></div>`
         : `<div class="hint-step"><p class="muted">This clue hasn’t been explained yet
@@ -4911,7 +4914,7 @@
       // teaching sequence, not a click log — a solver who took 4 before 2 has
       // still met them as steps 2 and 4, and gaps in the numbers show what
       // they skipped.
-      const steps = ladderSteps(ann, e.clue);
+      const steps = ladderSteps(ann, clueText(e));
       // A guess belongs to the clue it was asked about. Moving on abandons it —
       // carrying it would mean checking an answer against a different question.
       if (guessing && guessing.key !== key) guessing = null;
@@ -5069,7 +5072,7 @@
     // is decided by the MARKS. Set before the write, not after: the elements
     // that animate are created by that write, and a class arriving afterwards
     // would start a fade and then cancel it.
-    const markSig = holder.clue + "\n" + JSON.stringify(clueMarks(holder));
+    const markSig = clueText(holder) + "\n" + JSON.stringify(clueMarks(holder));
     $("hint-clue").classList.toggle("marks-new", markSig !== lastMarkSig);
     lastMarkSig = markSig;
     const clueWrote = setHTML($("hint-clue"), clueLine);

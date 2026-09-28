@@ -81,8 +81,7 @@ import fetch_puzzle as fetcher
 def entry(eid, solution):
     return {"id": eid, "number": 1, "direction": "across",
             "position": {"x": 0, "y": 0}, "length": len(solution or "") or 9,
-            "clue": "As the page sends it (9)", "separatorLocations": {},
-            "solution": solution, "annotation": None}
+            "clue": {"text": "As the page sends it (9)"}, "solution": solution}
 
 
 # The page as the Guardian serves it today, plus two lights the table says

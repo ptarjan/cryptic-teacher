@@ -19,17 +19,17 @@ for pid, v in cmt.items():
     puz = D.read_puzzle_file(p)
     np_ += 1
     for e in puz["entries"]:
-        c = ENUM.sub("", e.get("clue") or "").strip()
+        c = ENUM.sub("", e["clue"].get("text", "")).strip()
         if not c or re.match(r"(?i)^see\b", c): continue
         m = v["clues"].get(e["id"], [0, 0, 0])
-        t = [x.strip().lower() for x in ((e.get("annotation") or {}).get("type") or "").split("+") if x.strip()]
+        t = (e.get("annotation") or {}).get("type") or []
         add("qmark", c.endswith("?"), m)
         add("excl", c.endswith("!"), m)
         if t:
             add("anagram(typed)", "anagram" in t, m)
-            add("defonly(typed)", set(t) <= {"double definition", "cryptic definition", "&lit"}, m)
+            add("defonly(typed)", set(t) <= {"double_definition", "cryptic_definition", "and_lit"}, m)
         add("len>=12", e["length"] >= 12, m)
-        add("phrase", bool(e.get("separatorLocations")), m)
+        add("phrase", bool(e["clue"].get("separators")), m)
 print("puzzles", np_)
 print(f"{'feature':16s} {'flag':5s} {'n':>6s} {'named':>6s} {'hard':>6s} {'loi':>6s}")
 for k, d in stats.items():

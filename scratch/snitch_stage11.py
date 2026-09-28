@@ -80,7 +80,7 @@ def cand(puz, rank):
         if len(parts) == 1 and sol:
             single += 1
             infl += inflected(sol, rank)
-        raw = (e.get("clue") or "").strip()
+        raw = e["clue"].get("text", "").strip()
         clue = D.ENUMERATION.sub("", raw).strip()
         if not clue or re.match(r"(?i)see\b", clue):
             continue

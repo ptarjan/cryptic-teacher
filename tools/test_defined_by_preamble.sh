@@ -12,7 +12,7 @@ def errors(ann, preamble=None):
             "blocks": [{"clueFragment": "Changes", "gives": "TURNS"},
                        {"clueFragment": "colour", "gives": "TONE"}]}
     puzzle = {"id": "t-1", "entries": [{"id": "1-across", "number": 1, "direction": "across",
-              "clue": "Changes colour (9)", "solution": "TURNSTONE",
+              "clue": {"text": "Changes colour (9)"}, "solution": "TURNSTONE",
               "annotation": {**base, **ann}}]}
     if preamble:
         puzzle["preamble"] = preamble

@@ -93,9 +93,9 @@ print("REPRINTED", skipped["globeandmail reprints it"])
 
 p = json.loads(puzzle_paths.find("times-100").read_text())
 by_id = {e["id"]: e for e in p["entries"]}
-print("CLUE_KEEPS_COUNT", by_id["2-down"]["clue"])
-print("CLEAN", by_id["1-down"]["clue"])
-print("SEPARATORS", json.dumps(by_id["2-down"].get("separatorLocations")))
+print("CLUE_KEEPS_COUNT", by_id["2-down"]["clue"]["text"])
+print("CLEAN", by_id["1-down"]["clue"]["text"])
+print("SEPARATORS", json.dumps(by_id["2-down"]["clue"].get("separators")))
 print("SOLVED", all(e["solution"] for e in p["entries"]))
 print("DATED", p["date"])
 print("ORIGINS", p["source"]["gridOrigin"], p["solutions"]["origin"])
@@ -108,7 +108,7 @@ print("PRIZE_UNDATED", sunday["date"], json.loads(puzzle_paths.find("times-29000
 # A second run writes nothing, and a file that has drifted is named, not rewritten.
 path = puzzle_paths.find("times-102")
 edited = json.loads(path.read_text())
-edited["entries"][0]["clue"] = "Annotated since (2)"
+edited["entries"][0]["clue"] = {"text": "Annotated since (2)"}
 path.write_text(json.dumps(edited))
 before = {q.name: q.read_bytes() for q in puzzle_paths.PUZZLE_DIR.rglob("*") if q.is_file()}
 filed, _, drifted = F.run(grids, parsed, listing=LISTING)
@@ -165,7 +165,7 @@ for e in typo["entries"]:
         e["clue"], e["enumeration"] = "Zero first (0,5)", "0,5"
 built, why = B.build(typo, row(typo), "times", None, None)
 by_id = {e["id"]: e for e in built["entries"]}
-print("RECOUNTED", by_id["5-across"]["clue"], "|", by_id["2-down"]["clue"], "|",
+print("RECOUNTED", by_id["5-across"]["clue"]["text"], "|", by_id["2-down"]["clue"]["text"], "|",
       built["solutions"]["check"].split("; ")[-1])
 for e in typo["entries"]:
     if (e["number"], e["direction"]) == (5, "across"):
@@ -186,7 +186,7 @@ check "a mistyped title is renumbered only onto one free slot that fits" \
   "5045 None None" "$(got RETYPED)"
 check "the clue keeps its enumeration" "Two words (2,3)" "$(got CLUE_KEEPS_COUNT)"
 check "markup and lost bytes are stripped from a clue" "Say “it” quietly (2)" "$(got CLEAN)"
-check "word breaks come from the enumeration" '{",": [2]}' "$(got SEPARATORS)"
+check "word breaks come from the enumeration" '[{"at": 2, "mark": ","}]' "$(got SEPARATORS)"
 check "filed with every answer" "True" "$(got SOLVED)"
 check "a daily is dated by its post" "2026-01-05" "$(got DATED)"
 check "rebuilt grid, write-up answers" "reconstructed writeup" "$(got ORIGINS)"

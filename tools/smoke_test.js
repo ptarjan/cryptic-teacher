@@ -10,6 +10,8 @@ const pp = require("./puzzle_paths");
 let failures = 0;
 // Returns the condition, so a check whose failure would crash the checks after it
 // can guard them: a stack trace stops the suite dead and hides every other result.
+// The printed clue, enumeration included; "" where the paper printed nothing.
+const clueText = (e) => e.clue.text || "";
 const assert = (cond, msg) => { if (!cond) { failures++; console.error("FAIL:", msg); } return !!cond; };
 // The walk says its sentence in exactly ONE node: the caption beside the
 // spotlight while there is a hole, the line down in the panel when there is
@@ -2156,7 +2158,7 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
       const hit = Object.entries(rec.entries).find(([eid, fa]) => JSON.stringify(fa.type) === '["hidden_word"]'
         && (fa.blocks || []).length === 1 && !(fa.indicators || []).length
         && ents.some((x) => x.id === eid && !x.annotation && x.solution && bare(x.solution) === bare(fa.blocks[0].gives)
-          && x.clue.includes(fa.blocks[0].clueFragment)));
+          && clueText(x).includes(fa.blocks[0].clueFragment)));
       if (hit) { target = { pid, eid: hit[0], answer: bare(hit[1].blocks[0].gives) }; break; }
     }
     if (target) break;
@@ -2199,7 +2201,7 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
       if (!hit) continue;
       const file = pp.find(pid);
       const e = file && JSON.parse(fs.readFileSync(file, "utf8")).entries.find((x) => x.id === hit[0]);
-      if (e && !e.annotation && e.solution && e.clue.includes(hit[1].blocks[0].clueFragment)) {
+      if (e && !e.annotation && e.solution && clueText(e).includes(hit[1].blocks[0].clueFragment)) {
         target = { pid, eid: hit[0], answer: bare(e.solution), heard: hit[1].blocks[0].soundsLike };
         break;
       }
@@ -2399,7 +2401,7 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
     // flag says otherwise (mid-annotation, or a partial hand-edit).
     reopenForSweep(id, e.id);
     const row = registry["clue-" + e.id];
-    assert(row && row.listeners.click, `clue list shows ${e.number}${e.direction[0]}: ${e.clue}`);
+    assert(row && row.listeners.click, `clue list shows ${e.number}${e.direction[0]}: ${clueText(e)}`);
     row.listeners.click[0]();
     // The definition rung and NOTHING else, which is where linkWords
     // hang. By name and on its own: climbing to it by taking
@@ -2841,14 +2843,14 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
       const ann = e.annotation;
       const rs = runs(registry["hint-clue"].innerHTML);
       const plain = rs.map((r) => r.text).join("");
-      assert(plain === e.clue,
+      assert(plain === clueText(e),
         `${id} ${e.id}: the marked-up clue is no longer the clue: ${JSON.stringify(plain)}`);
       let at = 0;
       const spans = rs.map((r) => { const i = at; at += r.text.length; return { ...r, i }; });
       const isLetter = (c) => !!c && /[A-Za-z]/.test(c);
       const whole = (i, len) =>
-        !(isLetter(e.clue[i]) && isLetter(e.clue[i - 1])) &&
-        !(isLetter(e.clue[i + len - 1]) && isLetter(e.clue[i + len]));
+        !(isLetter(clueText(e)[i]) && isLetter(clueText(e)[i - 1])) &&
+        !(isLetter(clueText(e)[i + len - 1]) && isLetter(clueText(e)[i + len]));
       // Every character of a mark's span, in clue coordinates.
       const covered = {};
       for (const s of spans) {
@@ -2860,13 +2862,13 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
       }
       const anyMarked = new Set([].concat(...Object.values(covered).map((v) => [...v])));
       for (const { text: frag } of ann.indicators || []) {
-        if (!e.clue.includes(frag)) continue;
+        if (!clueText(e).includes(frag)) continue;
         // An indicator is short and specific, so shortest-first guarantees it
         // wins any overlap outright: it must appear whole, in its own colour,
         // on a whole word — unless the clue never has it as one, as in a
         // run-together hashtag clue, where the part-word is all there is.
         const hits = [];
-        for (let i = e.clue.indexOf(frag); i >= 0; i = e.clue.indexOf(frag, i + 1)) hits.push(i);
+        for (let i = clueText(e).indexOf(frag); i >= 0; i = clueText(e).indexOf(frag, i + 1)) hits.push(i);
         const anyWhole = hits.some((i) => whole(i, frag.length));
         let ok = false;
         for (const i of hits) {
@@ -2883,10 +2885,10 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
       // inside it — so what is required of it is that none of it goes unmarked.
       const d0 = (ann.definitions || [])[0];
       const def = d0 && d0.text;
-      const defAt = d0 ? cpToIdx(e.clue, d0.at) : -1;
-      assert(!d0 || e.clue.slice(defAt, defAt + def.length) === def,
+      const defAt = d0 ? cpToIdx(clueText(e), d0.at) : -1;
+      assert(!d0 || clueText(e).slice(defAt, defAt + def.length) === def,
         `${id} ${e.id}: the definition's \`at\` does not point at its text: ${JSON.stringify(d0)}`);
-      if (def && e.clue.slice(defAt, defAt + def.length) === def) {
+      if (def && clueText(e).slice(defAt, defAt + def.length) === def) {
         const at = defAt;
         const gap = [...Array(def.length).keys()].filter((k) => !anyMarked.has(at + k));
         assert(!gap.length || spans.some((s) => s.cls.split(/\s+/).includes("def")),
@@ -2897,7 +2899,7 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
       // cutting last") is marked on the occurrence its `at` names, not on
       // another match.
       const defHits = [];
-      for (let i = def ? e.clue.indexOf(def) : -1; i >= 0; i = e.clue.indexOf(def, i + 1)) defHits.push(i);
+      for (let i = def ? clueText(e).indexOf(def) : -1; i >= 0; i = clueText(e).indexOf(def, i + 1)) defHits.push(i);
       if (defHits.length > 1 && defHits.includes(defAt)) {
         repeatedDefs.push(`${id} ${e.id}`);
         // An indicator inside the definition takes its own words (see
@@ -3122,7 +3124,7 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
         const a = e.annotation;
         // the indicator has to literally occur in the clue or there is nothing
         // to mark
-        if (a && (a.indicators || []).some((s) => e.clue.includes(s.text))) return { id, e };
+        if (a && (a.indicators || []).some((s) => clueText(e).includes(s.text))) return { id, e };
       }
     }
     return null;
@@ -3972,17 +3974,17 @@ registry["reset-puzzle"].onclick();
 
 // --- clue text is text, and its italics are ranges ---
 // The papers ship clues as HTML. tools/fetch_puzzle.flatten_clue takes the tags
-// out and keeps the italics as [start, length] ranges, because the clue string
+// out and keeps the italics as clue.italics {at, length} ranges, because the text
 // itself has to stay plain: every annotation fragment is located in it by
 // indexOf and highlighted by character offset. Structural, not a spot-check —
 // the failure mode is a tag rendering as a tag, seen on the Independent, and
 // it comes back the moment someone escapes a clue directly.
 {
   const src = fs.readFileSync(path.join(ROOT, "app.js"), "utf8");
-  assert(!/esc\(\s*e\.clue\s*\)/.test(src),
+  assert(!/esc\(\s*(e\.clue\.text|clueText\(e\))/.test(src),
     "no clue is escaped straight to the page — that path drops the setter's italics");
-  assert(/clueItalics/.test(src),
-    "app.js reads clueItalics, so the ranges the fetchers write are actually rendered");
+  assert(/\bclue\.italics\b/.test(src),
+    "app.js reads clue.italics, so the ranges the fetchers write are actually rendered");
 
   /* Three sweeps in this file pick their puzzles with /^[a-z0-9]+-\d+\.json$/,
      which is a FILTER: a file whose name does not match is not reported, it is
@@ -4003,12 +4005,12 @@ registry["reset-puzzle"].onclick();
   files.forEach((f) => {
     const puz = JSON.parse(fs.readFileSync(f, "utf8"));
     puz.entries.forEach((e) => {
-      assert(!/<\/?[a-zA-Z][^>]*>/.test(e.clue),
-        `${puz.id} ${e.id}: clue still carries markup — ${e.clue.slice(0, 60)}`);
-      (e.clueItalics || []).forEach((r) => {
+      assert(!/<\/?[a-zA-Z][^>]*>/.test(clueText(e)),
+        `${puz.id} ${e.id}: clue still carries markup — ${clueText(e).slice(0, 60)}`);
+      (e.clue.italics || []).forEach((r) => {
         withItalics++;
-        assert(r[0] >= 0 && r[1] > 0 && r[0] + r[1] <= e.clue.length,
-          `${puz.id} ${e.id}: italic range ${r} falls outside its clue`);
+        assert(r.at >= 0 && r.length > 0 && r.at + r.length <= [...clueText(e)].length,
+          `${puz.id} ${e.id}: italic range ${JSON.stringify(r)} falls outside its clue`);
       });
     });
   });
@@ -4025,22 +4027,22 @@ registry["reset-puzzle"].onclick();
 // wordless (fetch_puzzle.has_words) so the app never re-derives it.
 {
   const src = fs.readFileSync(path.join(ROOT, "app.js"), "utf8");
-  assert(/clueMissing/.test(src),
-    "app.js reads clueMissing — otherwise a blank clue reads as 'not annotated yet', "
+  assert(/\bclue\.missing\b/.test(src),
+    "app.js reads clue.missing — otherwise a blank clue reads as 'not annotated yet', "
     + "which promises a ladder that can never be written");
 
   // The static page makes the same promise to the same reader, and it shipped
   // the wrong half of it while app.js had it right.
   const seo = fs.readFileSync(path.join(ROOT, "tools", "build_seo_pages.py"), "utf8");
-  assert(/clueMissing/.test(seo),
-    "tools/build_seo_pages.py reads clueMissing — the puzzle page has to tell a blank "
+  assert(/\["clue"\]\.get\("missing"\)/.test(seo),
+    "tools/build_seo_pages.py reads clue.missing — the puzzle page has to tell a blank "
     + "clue apart from an unwritten one, same as app.js");
 
   // Both renderers, and the re-fetch that would otherwise drop the note.
   const fetcher = fs.readFileSync(path.join(ROOT, "tools", "fetch_puzzle.py"), "utf8");
   ["app.js", "tools/build_seo_pages.py", "tools/fetch_puzzle.py"].forEach((f, i) => {
-    assert(/clueMissingNote/.test([src, seo, fetcher][i]),
-      `${f} drops clueMissingNote — a blank clue still has a reason it gives its `
+    assert(/missingNote/.test([src, seo, fetcher][i]),
+      `${f} drops clue.missingNote — a blank clue still has a reason it gives its `
       + "answer, and only a person can write it, so nothing may silently discard it");
   });
 
@@ -4053,19 +4055,19 @@ registry["reset-puzzle"].onclick();
   files.forEach((f) => {
     const puz = JSON.parse(fs.readFileSync(f, "utf8"));
     puz.entries.forEach((e) => {
-      assert(hasWords(e.clue) === !e.clueMissing,
-        `${puz.id} ${e.id}: clueMissing disagrees with the clue text — ${JSON.stringify(e.clue)}`);
-      assert(!(e.clueMissing && e.annotation),
+      assert(hasWords(clueText(e)) === !e.clue.missing,
+        `${puz.id} ${e.id}: clue.missing disagrees with the clue text — ${JSON.stringify(clueText(e))}`);
+      assert(!(e.clue.missing && e.annotation),
         `${puz.id} ${e.id}: annotated a clue with no words in it — that explanation was invented`);
-      assert(!(e.clueMissingNote && !e.clueMissing),
-        `${puz.id} ${e.id}: clueMissingNote on a clue that has words — it renders nowhere`);
+      assert(!(e.clue.missingNote && !e.clue.missing),
+        `${puz.id} ${e.id}: clue.missingNote on a clue that has words — it renders nowhere`);
     });
     // The re-spend is the bug, and this is where it would come back: a puzzle
     // whose only gaps are blank clues has to count as done, or it sits in the
     // backlog forever.
     if (annotatedInIndex.has(puz.id)) {
       const continuations = new Set(puz.entries.flatMap((e) => (e.group || []).slice(1)));
-      const answerable = puz.entries.filter((e) => hasWords(e.clue) && !continuations.has(e.id));
+      const answerable = puz.entries.filter((e) => hasWords(clueText(e)) && !continuations.has(e.id));
       assert(annotatedInIndex.get(puz.id) === answerable.every((e) => e.annotation),
         `${puz.id}: index 'annotated' should count only the clues that can be annotated`);
     }
@@ -4121,7 +4123,7 @@ registry["reset-puzzle"].onclick();
     const puz = JSON.parse(fs.readFileSync(f, "utf8"));
     puz.entries.forEach((e) => {
       const ans = e.annotation && e.annotation.answer;
-      const drawn = shape(e.clue, e.length);
+      const drawn = shape(clueText(e), e.length);
       if (!ans || !drawn) return;
       // A linked group's answer is stored whole on its leading light, but the
       // strip is drawn over that light's own squares. Usually the paper
@@ -4801,14 +4803,14 @@ global.realSetTimeout(() => {
     for (const e of puzzles[id].entries || []) {
       const defs = defTexts(e.annotation);
       const def = defs[0];
-      if (!def || !e.clue.startsWith(def)) continue;
+      if (!def || !clueText(e).startsWith(def)) continue;
       // Whole words, and one definition: a double definition asks for both
       // halves at once and the opening words are then only part of the answer.
-      if (defs.length > 1 || !/\s/.test(e.clue[def.length] || "")) continue;
+      if (defs.length > 1 || !/\s/.test(clueText(e)[def.length] || "")) continue;
       const words = def.trim().split(/\s+/).length;
       // Not the whole clue: guessAsk refuses a question whose answer is
       // everything, and rightly.
-      if (words >= e.clue.replace(/\s*\([^()]*\)\s*$/, "").split(/\s+/).length) continue;
+      if (words >= clueText(e).replace(/\s*\([^()]*\)\s*$/, "").split(/\s+/).length) continue;
       found = { id, e, words };
       break;
     }
@@ -4840,7 +4842,7 @@ global.realSetTimeout(() => {
   const boxCount = (html) => (html.match(/class="gw/g) || []).length;
   const restingHTML = registry["hint-clue"].innerHTML;
   const restingBoxes = boxCount(restingHTML);
-  assert(restingBoxes === wordCount(found.e.clue),
+  assert(restingBoxes === wordCount(clueText(found.e)),
     "every word of the clue is boxed even when nothing is being asked: " + restingHTML);
   const btn = defBtn();
   assert(btn, "the definition rung is offered: " + registry["hint-next"].innerHTML);
@@ -5081,7 +5083,7 @@ global.realSetTimeout(() => {
       if (bl.length < 2) continue;
       if (!bl[0].gives || !bl[1].gives || bl[0].gives === bl[1].gives) continue;
       if (!bl[0].clueFragment || !bl[1].clueFragment) continue;
-      const spans = bl.map((b) => b.clueFragment ? spanTokens(e.clue, b.clueFragment) : null);
+      const spans = bl.map((b) => b.clueFragment ? spanTokens(clueText(e), b.clueFragment) : null);
       if (spans.slice(0, 2).some((s) => !s)) continue;
       // The pieces the matching question is made of: the app leaves out any
       // fragment that IS its own letters, because that chip pairs itself.
@@ -5335,9 +5337,9 @@ global.realSetTimeout(() => {
       const defs = defTexts(a);
       if (defs.length !== 1 || !(a.indicators || []).length) continue;
       const def = defs[0];
-      if (!e.clue.startsWith(def) || !/\s/.test(e.clue[def.length] || "")) continue;
+      if (!clueText(e).startsWith(def) || !/\s/.test(clueText(e)[def.length] || "")) continue;
       const words = def.trim().split(/\s+/).length;
-      const all = e.clue.replace(/\s*\([^()]*\)\s*$/, "").split(/\s+/).length;
+      const all = clueText(e).replace(/\s*\([^()]*\)\s*$/, "").split(/\s+/).length;
       // Two words at least, or there is no run to drag across; and never the
       // whole clue, which guessAsk refuses to make a question of.
       if (words < 2 || words >= all) continue;
@@ -5843,7 +5845,7 @@ global.realSetTimeout(() => {
       if (registry["scorebar"].innerHTML === before) free = label;
     }
     assert(also >= 1, "the other family in it is graded right too, not marked wrong: "
-      + found.e.clue + " — " + found.e.annotation.type);
+      + clueText(found.e) + " — " + found.e.annotation.type);
     // And right is right: a true answer that still costs a rung is a wrong answer
     // wearing a compliment.
     assert(free, "and costs nothing, the same as naming the headline one does");
@@ -5869,7 +5871,7 @@ global.realSetTimeout(() => {
       if (defs.length < 2) continue;
       // The two definitions together are the whole clue, so once the question is
       // asked there is nothing left over to eliminate against.
-      const clue = words(String(e.clue).replace(/\([^)]*\)\s*$/, ""));
+      const clue = words(clueText(e).replace(/\([^)]*\)\s*$/, ""));
       if (clue.length && clue.length === words(defs[0]).length + words(defs[1]).length) {
         found = { id, e };
         break;
@@ -5886,12 +5888,12 @@ global.realSetTimeout(() => {
   registry["reset-puzzle"].onclick();
   registry["clue-" + found.e.id].listeners.click[0]();
   const btn = registry["hint-next"].children.find((b) => /definition/i.test(b.textContent || ""));
-  assert(btn, "the definition rung is offered on " + found.e.clue + ": "
+  assert(btn, "the definition rung is offered on " + clueText(found.e) + ": "
     + registry["hint-next"].innerHTML);
   btn.onclick();
   assert(registry["hint-body"].innerHTML.includes("hint-step guess"),
     "and it asks before it tells, even when the answer is the whole clue ("
-      + found.e.clue + "): " + registry["hint-body"].innerHTML);
+      + clueText(found.e) + "): " + registry["hint-body"].innerHTML);
 }
 
 // --- every ladder names its precise type, including the two that used to be
@@ -5936,7 +5938,7 @@ global.realSetTimeout(() => {
     }
     const body = registry["hint-body"].innerHTML;
     assert(body.includes('class="mechanism"') && body.includes(want),
-      "the ladder names the mechanism on a " + want + " (" + found.e.clue + "): " + body);
+      "the ladder names the mechanism on a " + want + " (" + clueText(found.e) + "): " + body);
     // The name, not the generic sentence: on these two types the type's blurb
     // wording only re-says the definition rung, and no rung may restate another.
     assert(!body.includes("there is no other wordplay")
@@ -5967,7 +5969,7 @@ global.realSetTimeout(() => {
       const defs = defTexts(a);
       if (defs.length !== 1) continue;
       const w = defs[0].split(/\s+/);
-      if (w.length < 3 || String(e.clue).indexOf(defs[0]) < 0) continue;
+      if (w.length < 3 || clueText(e).indexOf(defs[0]) < 0) continue;
       if (EDGE.indexOf(bare(w[w.length - 1])) < 0) continue;
       if (EDGE.indexOf(bare(w[0])) >= 0) continue;   // the near-miss must be a real one
       found = { id, e };
@@ -5985,7 +5987,7 @@ global.realSetTimeout(() => {
     registry["reset-puzzle"].onclick();
     registry["clue-" + found.e.id].listeners.click[0]();
     const b = registry["hint-next"].children.find((x) => /definition/i.test(x.textContent || ""));
-    assert(b, "the definition rung is offered on " + found.e.clue);
+    assert(b, "the definition rung is offered on " + clueText(found.e));
     b.onclick();
   };
   const verdict = (pick) => {
@@ -5998,14 +6000,14 @@ global.realSetTimeout(() => {
   // pick rather than worked out here a second time.
   const marks = (verdict([0]).match(/class="gw([^"]*)"/g) || [])
     .reduce((a, m, i) => (/hit|missed/.test(m) ? a.concat(i) : a), []);
-  assert(marks.length >= 3, "the definition of " + found.e.clue + " is three words or more: "
+  assert(marks.length >= 3, "the definition of " + clueText(found.e) + " is three words or more: "
     + JSON.stringify(marks));
 
   assert(/guess-verdict right/.test(verdict(marks.slice(0, -1))),
     "stopping one word short of the definition's optional end is right on "
-      + found.e.clue + " (" + defTexts(found.e.annotation)[0] + ")");
+      + clueText(found.e) + " (" + defTexts(found.e.annotation)[0] + ")");
   assert(!/guess-verdict right/.test(verdict(marks.slice(1))),
-    "but dropping a word that carries the meaning is still wrong on " + found.e.clue);
+    "but dropping a word that carries the meaning is still wrong on " + clueText(found.e));
 }
 
 // --- a double definition has no building blocks of its own ---
@@ -6045,7 +6047,7 @@ global.realSetTimeout(() => {
   assert(pure || !FULL, "the corpus has a double definition whose blocks are its two definitions");
   if (pure && open(pure.id, pure.e)) {
     assert(!/building blocks/i.test(labels()),
-      `${pure.id} ${pure.e.id}: "${pure.e.clue}" offers no building blocks: ${labels()}`);
+      `${pure.id} ${pure.e.id}: "${clueText(pure.e)}" offers no building blocks: ${labels()}`);
     const def = registry["hint-next"].children.find((b) => /definition/i.test(b.textContent || ""));
     if (assert(def, `${pure.id} ${pure.e.id}: the definition rung is offered: ${labels()}`)) {
       def.onclick();
@@ -6059,7 +6061,7 @@ global.realSetTimeout(() => {
   assert(third || !FULL, "the corpus has a double definition with a sense the split does not name");
   if (third && open(third.id, third.e)) {
     assert(/building blocks/i.test(labels()),
-      `${third.id} ${third.e.id}: "${third.e.clue}" keeps the building blocks for the sense `
+      `${third.id} ${third.e.id}: "${clueText(third.e)}" keeps the building blocks for the sense `
         + `the definition rung never named: ${labels()}`);
   }
 }
@@ -6079,8 +6081,8 @@ global.realSetTimeout(() => {
   const claimed = (e, a) => {
     const parts = [defTexts(a)[0], ...(a.indicators || []).map((i) => i.text), ...(a.linkWords || []),
       ...(a.blocks || []).map((b) => b.clueFragment)];
-    return parts.every((p) => p && e.clue.split(p).length === 2)
-      && count(parts) === words(e.clue).length;
+    return parts.every((p) => p && clueText(e).split(p).length === 2)
+      && count(parts) === words(clueText(e)).length;
   };
   const open = (id, e) => {
     registry["btn-picker"].onclick();
@@ -6124,7 +6126,7 @@ global.realSetTimeout(() => {
     const b = climbToBlocks();
     if (assert(b, `${ana.id} ${ana.e.id}: the building blocks are reachable`)) {
       b.onclick();
-      assert(!asking(), `${ana.id} ${ana.e.id}: "${ana.e.clue}" hands its fodder over unasked: `
+      assert(!asking(), `${ana.id} ${ana.e.id}: "${clueText(ana.e)}" hands its fodder over unasked: `
         + registry["hint-body"].innerHTML);
     }
   }
@@ -6133,7 +6135,7 @@ global.realSetTimeout(() => {
     const b = climbToBlocks();
     if (assert(b, `${cha.id} ${cha.e.id}: the building blocks are reachable`)) {
       b.onclick();
-      if (assert(asking(), `${cha.id} ${cha.e.id}: the first piece of "${cha.e.clue}" is asked`)) {
+      if (assert(asking(), `${cha.id} ${cha.e.id}: the first piece of "${clueText(cha.e)}" is asked`)) {
         registry["guess-tell"].onclick();
         assert(!registry["hint-next"].children.some((x) => /next piece/i.test(x.textContent || "")),
           `${cha.id} ${cha.e.id}: the last piece comes with it, not behind a question: `
@@ -6655,7 +6657,7 @@ global.realSetTimeout(() => {
       if (found || tried > 60) break;
       const inds = ((e.annotation || {}).indicators) || [];
       if (!inds.length) continue;
-      const spans = inds.map((t) => spanTokens(e.clue, t.text));
+      const spans = inds.map((t) => spanTokens(clueText(e), t.text));
       // Every phrase locatable, and at least one of them long enough to have a
       // word to leave out — a one-word indicator cannot pose this question.
       if (spans.some((s) => !s) || !spans.some((s) => s.length > 1)) continue;

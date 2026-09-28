@@ -198,12 +198,12 @@ print("the split shape cannot be FILED, not merely rejected")
 puzzle = filing.build(copy.deepcopy(SPLIT), "newpenguinbkguar0000perk", "opus")
 built = {e["id"]: e for e in puzzle["entries"]}
 same("the leader's clue prints the whole answer's count",
-     built["7-down"]["clue"].endswith("(4,4)"), True)
-same("the continuation's clue prints no count at all", built["8-down"]["clue"], "See 7")
+     built["7-down"]["clue"]["text"].endswith("(4,4)"), True)
+same("the continuation's clue prints no count at all", built["8-down"]["clue"], {"text": "See 7"})
 same("the word break sits in the light it falls in",
-     built["7-down"].get("separatorLocations"), {",": [4]})
+     built["7-down"]["clue"].get("separators"), [{"at": 4, "mark": ","}])
 same("the continuation carries no break, and writes no empty key for it",
-     "separatorLocations" in built["8-down"], False)
+     "separators" in built["8-down"]["clue"], False)
 same("the leader holds the group", built["7-down"].get("group"), ["7-down", "8-down"])
 same("the continuation holds none", "group" in built["8-down"], False)
 
@@ -254,7 +254,7 @@ same("a puzzle with a countless continuation can be filed unsolved",
      filing.build(unsolved_record(
          [light("7-down", 7, "down", 5, "That's the Berliner's way!", "5"),
           light("17-down", 17, "down", 9, "See 7", None)]),
-         "newpenguinbkguar0000perk", "opus", unsolved=True)["entries"][0]["clue"].endswith("(5,9)"), True)
+         "newpenguinbkguar0000perk", "opus", unsolved=True)["entries"][0]["clue"]["text"].endswith("(5,9)"), True)
 
 print("with no answer to fall back on it refuses rather than inventing a count")
 refuses("a printed count that does not fit its own light",
@@ -266,10 +266,10 @@ print("an unsolved puzzle files with the same counts and no answers")
 puzzle = filing.build(copy.deepcopy(SPLIT_UNSOLVED), "isbn_9780140248098", "opus", unsolved=True)
 built = {e["id"]: e for e in puzzle["entries"]}
 same("the leader's clue prints the whole answer's count",
-     built["7-down"]["clue"].endswith("(4,4)"), True)
-same("the continuation's clue prints no count", built["8-down"]["clue"], "See 7")
+     built["7-down"]["clue"]["text"].endswith("(4,4)"), True)
+same("the continuation's clue prints no count", built["8-down"]["clue"], {"text": "See 7"})
 same("the word break is placed without an answer to place it from",
-     built["7-down"].get("separatorLocations"), {",": [4]})
+     built["7-down"]["clue"].get("separators"), [{"at": 4, "mark": ","}])
 same("every light is answerless", [e["solution"] for e in puzzle["entries"]], [None, None])
 # hasSolutions in puzzles/index.json is all(e["solution"]), and false is what
 # puts the puzzle in the cold-solve queue. A puzzle carrying a solutions detail
@@ -304,7 +304,7 @@ for path in sorted(Path("puzzles/book").glob("*/book-*.json")):
         groups_seen += 1
         where = f"{puzzle['id']} {' + '.join(group)}"
         cells = sum(entries[gid]["length"] for gid in group)
-        m = COUNT.search(entry["clue"])
+        m = COUNT.search(entry["clue"].get("text", ""))
         if not m:
             fails.append(where)
             print(f"  FAIL: {where}: the leader prints no count")
@@ -314,7 +314,7 @@ for path in sorted(Path("puzzles/book").glob("*/book-*.json")):
             fails.append(where)
             print(f"  FAIL: {where}: leader counts {counted}, the group holds {cells}")
         for gid in group[1:]:
-            if COUNT.search(entries[gid]["clue"]):
+            if COUNT.search(entries[gid]["clue"].get("text", "")):
                 fails.append(where)
                 print(f"  FAIL: {where}: {gid} is a continuation and prints its own count")
 if groups_seen:

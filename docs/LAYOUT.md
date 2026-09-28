@@ -199,7 +199,7 @@ tools/test_blank_clue_carry.sh               proves a re-fetch cannot empty a pu
                                              puzzles still carry every clue
 tools/test_empty_keys.sh                     holds the rule that a puzzle file never writes a
                                              key that says nothing: the fetchers omit an empty
-                                             separatorLocations and an un-written annotation, a
+                                             clue.separators and an un-written annotation, a
                                              file without them round-trips, and every reader —
                                              app.js, the difficulty scorer, the crawlable
                                              pages, the social cards — takes the absence as the

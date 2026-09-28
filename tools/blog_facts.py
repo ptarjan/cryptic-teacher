@@ -1647,9 +1647,9 @@ def load_post(path):
 
 def puzzle_entries(p):
     """[(entry id, clue body, solution)] in the order blogs print them."""
-    rows = [e for e in p["entries"] if clue_body(e.get("clue"))]
+    rows = [e for e in p["entries"] if clue_body(e["clue"].get("text"))]
     rows.sort(key=lambda e: (e["direction"] != "across", e["number"]))
-    return [(e["id"], clue_body(e["clue"]), e.get("solution") or "") for e in rows]
+    return [(e["id"], clue_body(e["clue"]["text"]), e.get("solution") or "") for e in rows]
 
 
 def align(entries, stream):
@@ -2018,7 +2018,7 @@ def clues_of(pid):
     """{entry id: clue} of puzzle `pid`, {} where we hold no such puzzle."""
     from puzzle_paths import find
     path = find(pid)
-    return {e["id"]: e.get("clue") or "" for e in read_puzzle_file(path)["entries"]} if path else {}
+    return {e["id"]: e["clue"].get("text", "") for e in read_puzzle_file(path)["entries"]} if path else {}
 
 
 def write(best, series):

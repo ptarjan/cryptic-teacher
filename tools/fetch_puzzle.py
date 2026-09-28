@@ -327,15 +327,16 @@ def leaders_named(clue):
 
 
 def separators(fmt, lengths):
-    """Guardian-style separatorLocations from an enumeration like "4,2,3".
+    """A clue's `separators` from an enumeration like "4,2,3", one list per entry.
 
-    "4,2,3" over one 9-letter entry -> [{",": [4, 6]}]; the final boundary is
-    the end of the answer and is not a separator. For a linked clue the offsets
-    are split across the entries and re-based on each one, which is what the
-    Guardian's own data does: "4,3,5,5" over TURNTHE + OTHERCHEEK becomes
-    {",": [4, 7]} and {",": [5]}.
+    "4,2,3" over one 9-letter entry -> [[{"at": 4, "mark": ","}, {"at": 6,
+    "mark": ","}]]; the final boundary is the end of the answer and is not a
+    separator. For a linked clue the offsets are split across the entries and
+    re-based on each one, which is what the Guardian's own data does: "4,3,5,5"
+    over TURNTHE + OTHERCHEEK puts marks at 4 and 7 on the first and at 5 on
+    the second.
     """
-    out = [{} for _ in lengths]
+    out = [[] for _ in lengths]
     pos = 0
     for piece in re.split(r"([,\-])", fmt or ""):
         if piece in (",", "-"):
@@ -346,20 +347,31 @@ def separators(fmt, lengths):
             for i, n in enumerate(lengths):
                 end += n
                 if pos <= end:
-                    out[i].setdefault(piece, []).append(pos - (end - n))
+                    out[i].append({"at": pos - (end - n), "mark": piece})
                     break
         elif piece:
             pos += int(piece)
-    return out
+    return [sorted(seps, key=lambda s: (s["at"], s["mark"])) for seps in out]
 
+
+def separator_list(locations):
+    """The Guardian's word breaks, {mark: [positions]}, as a clue's
+    `separators`: [{"at", "mark"}] sorted by (at, mark)."""
+    return sorted(({"at": at, "mark": mark} for mark, ats in (locations or {}).items() for at in ats),
+                  key=lambda s: (s["at"], s["mark"]))
+
+
+#: The keys of an entry's `clue`, in the order every writer spells them.
+CLUE_KEYS = ("text", "separators", "italics", "missing", "missingNote")
 
 #: A clue's printed enumeration at its end: "(5,4)", "(2-3,4)", "(4'1)".
 CLUE_ENUMERATION = re.compile(r"\(\s*(\d+(?:\s*[,\-'\u2019]\s*\d+)*)\s*\)\s*$")
 
 
 def enumeration_separators(entries):
-    """Set separatorLocations on entries from the enumeration printed at the
-    end of each clue, for sources that ship the clue text but no word breaks.
+    """Set clue.separators on entries from the enumeration printed at the
+    end of each clue's text, for sources that ship the clue text but no word
+    breaks.
 
     The enumeration must add up to the entry's own length, or to its linked
     group's in group order, and is then split across the group as
@@ -368,7 +380,7 @@ def enumeration_separators(entries):
     only commas and hyphens are breaks."""
     by_id = {e["id"]: e for e in entries}
     for e in entries:
-        m = CLUE_ENUMERATION.search(e.get("clue") or "")
+        m = CLUE_ENUMERATION.search(e["clue"].get("text", ""))
         if not m:
             continue
         fmt = re.sub(r"\s+", "", m.group(1))
@@ -383,22 +395,14 @@ def enumeration_separators(entries):
             continue
         for t, seps in zip(targets, separators(fmt, [t["length"] for t in targets])):
             if seps:
-                _put_before(t, "solution", "separatorLocations", seps)
+                clue = {**t["clue"], "separators": seps}
+                t["clue"] = {k: clue[k] for k in CLUE_KEYS if k in clue}
     return entries
 
 
-def _put_before(d, before, key, value):
-    """Set d[key] in place, sitting just ahead of d[before] (or last), so the
-    file keeps the key order every other fetcher writes."""
-    items = [(k, v) for k, v in d.items() if k != key]
-    at = next((i for i, (k, _) in enumerate(items) if k == before), len(items))
-    items.insert(at, (key, value))
-    d.clear()
-    d.update(items)
-
-
 def flatten_clue(s):
-    """HTML clue text -> (plain text, italic ranges into that text).
+    """HTML clue text -> (plain text, italic ranges into that text as
+    [{"at": start, "length": n}]).
 
     Both papers ship clues as HTML: an italicised title arrives as
     "<span>Case for </span><i>Turandot</i><span> lyrics…</span>". Storing that
@@ -409,7 +413,7 @@ def flatten_clue(s):
     of time.
 
     So the clue stays ONE plain string and the italics travel beside it as
-    [start, length] ranges. The string has to stay plain because every
+    {"at", "length"} ranges, the clue's `italics`. The string has to stay plain because every
     annotation fragment is found in it with indexOf and highlighted by
     character offset; a tag in the middle would move every offset after it.
     Ranges are just a second list over the same offsets, so the two agree by
@@ -452,10 +456,10 @@ def flatten_clue(s):
         if italic and start is None:
             start = i
         elif not italic and start is not None:
-            ranges.append([start, i - start])
+            ranges.append({"at": start, "length": i - start})
             start = None
     if start is not None:
-        ranges.append([start, len(out) - start])
+        ranges.append({"at": start, "length": len(out) - start})
     return "".join(c for c, _ in out), ranges
 
 
@@ -510,8 +514,8 @@ def with_blog_facts(puzzle):
     for e in puzzle["entries"]:
         fact = row["entries"].get(e["id"])
         if fact and not e.get("annotation") and all(
-                definitions.span_ok(d, e["clue"]) for d in fact.get("definitions", [])) and all(
-                w in e["clue"] for w in [i["text"] for i in fact.get("indicators", [])]
+                definitions.span_ok(d, e["clue"].get("text", "")) for d in fact.get("definitions", [])) and all(
+                w in e["clue"].get("text", "") for w in [i["text"] for i in fact.get("indicators", [])]
                 + [b["clueFragment"] for b in fact.get("blocks", [])]):
             e = {**e, "blog": fact}
         out["entries"].append(e)
@@ -590,7 +594,8 @@ SHIM_UNPACK = (
     "(function(p){p.entries=p.entries.map(function(a){"
     "if(!Array.isArray(a))return a;"
     'var d=["across","down"][a[1]],e={id:a[0]+"-"+d,number:a[0],direction:d,'
-    "position:{x:a[2],y:a[3]},length:a[4],clue:a[5],solution:a[6]};"
+    "position:{x:a[2],y:a[3]},length:a[4],"
+    'clue:typeof a[5]=="string"?{text:a[5]}:a[5],solution:a[6]};'
     "for(var k in a[7])e[k]=a[7][k];return e});"
     "window.CRYPTIC_PUZZLES[p.id]=p})")
 
@@ -602,17 +607,21 @@ def pack_entry(e):
     tools/test_shim_format.sh holds the two to it over the whole corpus.
 
     The field names were a third of every shim, repeated on each of a million
-    entries, and the id is the number and direction said again."""
+    entries, and the id is the number and direction said again. For the same
+    reason a clue that is only text is packed as the bare string, which
+    SHIM_UNPACK turns back into {"text": ...}."""
     pos = e.get("position")
     if not (all(k in e for k in ENTRY_CORE)
             and e["direction"] in DIRECTIONS and type(e["number"]) is int
-            and isinstance(pos, dict) and set(pos) == {"x", "y"}):
+            and isinstance(pos, dict) and set(pos) == {"x", "y"}
+            and isinstance(e["clue"], dict)):
         return e
     rest = {k: v for k, v in e.items() if k not in ENTRY_CORE}
     if e["id"] != f"{e['number']}-{e['direction']}":
         rest["id"] = e["id"]
     packed = [e["number"], DIRECTIONS.index(e["direction"]), pos["x"], pos["y"],
-              e["length"], e["clue"], e["solution"]]
+              e["length"], e["clue"]["text"] if set(e["clue"]) == {"text"} else e["clue"],
+              e["solution"]]
     return packed + [rest] if rest else packed
 
 
@@ -884,7 +893,7 @@ def reconcile_groups(entries):
         # clue and takes the whole group down with it: cryptic-22249 lost
         # EVERYONE SUDDENLY BURST OUT SINGING that way, 31 cells read as 8.
         leads = {s[0] for s in stated
-                 if s and not is_continuation(by_id[s[0]].get("clue"))}
+                 if s and not is_continuation(by_id[s[0]]["clue"].get("text", ""))}
 
         # Several lights each claiming to lead. The enumeration settles it,
         # because a leading clue counts its WHOLE answer: weigh each claimant's
@@ -897,7 +906,7 @@ def reconcile_groups(entries):
         # removed and goes back to being its own answer.
         if len(leads) > 1:
             def adds_up(claim):
-                said = ENUMERATION.search(by_id[claim]["clue"] or "")
+                said = ENUMERATION.search(by_id[claim]["clue"].get("text", ""))
                 own = [m for m in by_id[claim].get("group") or []]
                 return bool(said) and _cuts_into(
                     [int(n) for n in re.findall(r"\d+", said.group(1))],
@@ -929,7 +938,7 @@ def reconcile_groups(entries):
         if not leads:
             continue
         lead = leads.pop()
-        said = ENUMERATION.search(by_id[lead]["clue"] or "")
+        said = ENUMERATION.search(by_id[lead]["clue"].get("text", ""))
         counts = [int(n) for n in re.findall(r"\d+", said.group(1))] if said else []
         fits = [tail for tail in itertools.permutations(rest)
                 if _cuts_into(counts, [by_id[m]["length"] for m in (lead, *tail)])]
@@ -955,7 +964,7 @@ def reconcile_groups(entries):
 
 def _own_count(entry):
     """What an entry's own clue says its answer counts, or None if it says nothing."""
-    said = ENUMERATION.search(entry.get("clue") or "")
+    said = ENUMERATION.search(entry["clue"].get("text", ""))
     if not said:
         return None
     counts = [int(n) for n in re.findall(r"\d+", said.group(1))]
@@ -980,11 +989,11 @@ def prints_own_count(entry):
     that a leg counting its own cells is not read as the group's enumeration and
     reported against it. One rule, because the two must agree about it.
     """
-    clue = entry.get("clue")
+    clue = entry["clue"].get("text", "")
     if is_continuation(clue):
         return True
-    said = ENUMERATION.search(clue or "")
-    if not said or ENUMERATION.sub("", clue or "").strip():
+    said = ENUMERATION.search(clue)
+    if not said or ENUMERATION.sub("", clue).strip():
         return False
     return (_own_count(entry) == entry.get("length")
             and len(said.group(1).strip().split(",")) == 1)
@@ -1044,7 +1053,7 @@ def prune_one_sided_members(entries):
         one_sided = [m for m in group
                      if m != eid and (m not in by_id
                                       or (stated.get(m) != group
-                                          and leaders_named(by_id[m].get("clue")) < 2))]
+                                          and leaders_named(by_id[m]["clue"].get("text", "")) < 2))]
         if not one_sided:
             continue
         del by_id[eid]["group"]
@@ -1119,14 +1128,14 @@ def dissolve_false_groups(entries, series):
         total = sum(by_id[m].get("length") or 0 for m in members)
         if any(_own_count(by_id[m]) == total for m in members):
             continue
-        carriers = [m for m in members if not is_continuation(by_id[m].get("clue"))]
+        carriers = [m for m in members if not is_continuation(by_id[m]["clue"].get("text", ""))]
         complete = [m for m in carriers
                     if _own_count(by_id[m]) == by_id[m].get("length")]
         if not complete and carriers:
             continue
         keep = [m for m in members if m not in complete]
         counters, every = list(complete), not keep
-        if len(keep) < 2 or all(is_continuation(by_id[m].get("clue"))
+        if len(keep) < 2 or all(is_continuation(by_id[m]["clue"].get("text", ""))
                                 for m in keep):
             # What is left is not an answer: one light cannot be a linked one,
             # and a set of bare "See 13" legs with nothing that carries a clue
@@ -1191,7 +1200,7 @@ def _points_at(entry, lead, entries):
     nothing does.
     """
     named = [(int(n), SHORT_DIRECTIONS.get(d.lower(), d.lower()) or None)
-             for n, d in POINTER.findall(ENUMERATION.sub("", entry.get("clue") or ""))]
+             for n, d in POINTER.findall(ENUMERATION.sub("", entry["clue"].get("text", "")))]
     named = [(n, d) for n, d in named
              if any(o["id"] != entry["id"] and o["number"] == n
                     and d in (None, o["direction"]) for o in entries)]
@@ -1226,10 +1235,10 @@ def _spare_light(entry, lead, entries):
     group = entry.get("group") or []
     if len(group) > 1 and lead["id"] not in group:
         return False
-    clue = entry.get("clue")
+    clue = entry["clue"].get("text", "")
     if is_continuation(clue):
         return _points_at(entry, lead, entries)
-    if ENUMERATION.sub("", clue or "").strip():
+    if ENUMERATION.sub("", clue).strip():
         return False
     # Wordless, so the only question is what the count beside it counts. One
     # number equal to this light's own cells is the leg's cell count, printed
@@ -1350,9 +1359,9 @@ def reconstruct_groups(entries, series):
         for lead in entries:
             if lead["id"] in claimed:
                 continue
-            if is_continuation(lead.get("clue")):
+            if is_continuation(lead["clue"].get("text", "")):
                 continue                    # a pointer counts its own light, not an answer
-            said = ENUMERATION.search(lead.get("clue") or "")
+            said = ENUMERATION.search(lead["clue"].get("text", ""))
             counts = [int(n) for n in re.findall(r"\d+", said.group(1))] if said else []
             if not counts:
                 continue
@@ -1451,7 +1460,7 @@ MISFILED = timedelta(days=30)
 
 
 # What a solution is allowed to hold: the capital letters a solver writes into
-# the cells, and nothing else. Word breaks live in separatorLocations and
+# the cells, and nothing else. Word breaks live in the clue's separators and
 # accents are removed by bare_letters, so anything left that is not A-Z did not
 # come from the grid. tools/puzzle_integrity.py imports this rather than
 # spelling the rule again, so the fetcher that writes a solution and the check
@@ -1736,31 +1745,29 @@ def convert(data):
     pid = series_meta.puzzle_id(series, data["number"])
     entries = []
     for e in sorted(data["entries"], key=lambda e: (e["position"]["y"], e["position"]["x"], e["direction"])):
-        clue, italics = flatten_clue(e["clue"])
+        text, italics = flatten_clue(e["clue"])
+        seps = separator_list(e.get("separatorLocations"))
         entries.append({
             "id": e["id"],
             "number": e["number"],
             "direction": e["direction"],
             "position": e["position"],
             "length": e["length"],
-            "clue": clue,
-            # Omitted rather than written empty: most clues have no italics and
-            # a [] on every entry is 84 files of noise.
-            **({"clueItalics": italics} if italics else {}),
-            # Recorded, not re-derived. has_words is the one definition of "the
-            # paper printed nothing here", and the app cannot import it, so the
-            # answer travels in the file instead of a second rule in app.js
-            # that could drift from this one.
-            **({} if has_words(clue) else {"clueMissing": True}),
+            # Each fact only when there is one: no empty text, list or false.
+            # `missing` is recorded, not re-derived: has_words is the one
+            # definition of "the paper printed nothing here", and the app
+            # cannot import it, so the answer travels in the file instead of a
+            # second rule in app.js that could drift from this one.
+            "clue": {
+                **({"text": text} if text else {}),
+                **({"separators": seps} if seps else {}),
+                **({"italics": italics} if italics else {}),
+                **({} if has_words(text) else {"missing": True}),
+            },
             # Only when it links clues. The paper writes a group on every entry,
             # singleton or not; an absent group here means "this clue is its own
             # answer", which is the overwhelming majority of them.
             **({"group": e["group"]} if len(e["group"]) > 1 else {}),
-            # Written only when the paper actually marks a break, and the
-            # annotation only once one exists: an empty object and a null
-            # on every entry were 16 MB of nothing. Absent reads as empty
-            # everywhere — app.js `|| {}`, the tools `.get(...) or {}`.
-            **({"separatorLocations": seps} if (seps := e.get("separatorLocations") or {}) else {}),
             "solution": bare_letters(e.get("solution")),
         })
     # Before anything reads the answers: reconcile_groups and the length checks
@@ -1778,7 +1785,7 @@ def convert(data):
     # Downstream a wordless clue is indistinguishable from a hard one: a cold
     # solve burns inference guessing it off the crossings, and the annotator
     # takes the blame for failing to solve nothing.
-    wordless = [e["id"] for e in entries if not has_words(e["clue"])]
+    wordless = [e["id"] for e in entries if e["clue"].get("missing")]
     if wordless and len(wordless) == len(entries):
         # Every clue blank is a different animal from a blank clue: the page is
         # a grid with no puzzle in it, and for the Guardian's 2005-08 prize
@@ -1874,10 +1881,10 @@ def merge_annotations(new_puzzle, old_puzzle):
     # The hand-written note on a blank clue: it has no words for a model to
     # read, so its explanation can only come from a person. Carry it, or a
     # re-fetch silently drops the one sentence that makes that clue make sense.
-    notes = {e["id"]: e.get("clueMissingNote") for e in old_puzzle.get("entries", [])}
+    notes = {e["id"]: e["clue"].get("missingNote") for e in old_puzzle.get("entries", [])}
     for e in new_puzzle["entries"]:
         if notes.get(e["id"]):
-            e["clueMissingNote"] = notes[e["id"]]
+            e["clue"]["missingNote"] = notes[e["id"]]
 
     carry_recovered_clues(new_puzzle, old_puzzle)
 
@@ -1888,7 +1895,7 @@ def merge_annotations(new_puzzle, old_puzzle):
     for e in new_puzzle["entries"]:
         held = old.get(e["id"])
         if (held and held.get("annotation") is not None
-                and clue_words(held.get("clue")) == clue_words(e.get("clue"))):
+                and clue_words(held["clue"].get("text", "")) == clue_words(e["clue"].get("text", ""))):
             e["annotation"] = held["annotation"]
 
     was_model = "model" in provenance.solution_detail(old_puzzle)
@@ -1935,14 +1942,14 @@ def carry_recovered_clues(new_puzzle, old_puzzle):
     old = {e["id"]: e for e in old_puzzle.get("entries", [])}
     for e in new_puzzle["entries"]:
         was = old.get(e["id"])
-        if not was or has_words(e["clue"]) or not has_words(was.get("clue")):
+        if not was or has_words(e["clue"].get("text", "")) or not has_words(was["clue"].get("text", "")):
             continue
-        e["clue"] = was["clue"]
-        e.pop("clueMissing", None)
-        for field in ("clueItalics", "group"):
-            e.pop(field, None)
-            if was.get(field):
-                e[field] = was[field]
+        clue = {**{k: v for k, v in e["clue"].items() if k not in ("text", "italics", "missing")},
+                **{k: v for k, v in was["clue"].items() if k in ("text", "italics")}}
+        e["clue"] = {k: clue[k] for k in CLUE_KEYS if k in clue}
+        e.pop("group", None)
+        if was.get("group"):
+            e["group"] = was["group"]
 
 
 def grade_model_fill(puzzle, guessed):
@@ -2028,7 +2035,7 @@ def puzzle_is_annotated(puzzle):
     run on it every night, for ever, to solve the clues that were already done.
     """
     continuations = groups.leader_of(puzzle["entries"])
-    return all("annotation" in e or not has_words(e["clue"])
+    return all("annotation" in e or not has_words(e["clue"].get("text", ""))
                or e["id"] in continuations
                for e in puzzle["entries"])
 
@@ -2051,7 +2058,7 @@ def clue_coverage(puzzle):
     grid that is still entirely solvable.
     """
     return {"present": sum(1 for e in puzzle["entries"]
-                           if has_words(e["clue"])),
+                           if has_words(e["clue"].get("text", ""))),
             "total": len(puzzle["entries"])}
 
 

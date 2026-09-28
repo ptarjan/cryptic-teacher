@@ -30,6 +30,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 import difficulty as D
+import series as series_meta
 import difficulty_check as C
 from fetch_puzzle import (
     puzzle_files,
@@ -147,7 +148,7 @@ def clue_rows(puz, facts):
     for e in puz["entries"]:
         if not e.get("solution"):
             continue
-        clue = D.ENUMERATION.sub("", e.get("clue") or "").strip()
+        clue = D.ENUMERATION.sub("", e["clue"].get("text", "")).strip()
         if not clue or re.match(r"(?i)see\b", clue):
             continue
         f = facts.get(e.get("id")) or {}
@@ -225,7 +226,7 @@ def dump():
         rw = D.raw(puz, ctx)
         pz = {k: (rw[k] - ctx.base[k]["mean"]) / ctx.base[k]["sd"] for k in PORTABLE if rw.get(k) is not None}
         tot = sum(D.WEIGHTS[k] for k in pz)
-        rows.append({"pid": pid, "series": series, "date": D.puzzle_day(puz),
+        rows.append({"pid": pid, "series": series, "date": series_meta.puzzle_day(puz),
                      "nitch": sn[pid]["nitch"] if rated else None,
                      "annotated": puzzle_is_annotated(puz),
                      "index": s["index"] if s else None, "z": s["z"] if s else None,

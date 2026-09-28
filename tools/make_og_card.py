@@ -168,8 +168,9 @@ def marked_clue(clue, marks):
 
 def bare_clue(entry):
     """The clue without its enumeration, plus the enumeration on its own."""
-    clue = re.sub(r"\s*\(\d+[\d,\-\s]*\)\s*$", "", entry["clue"])
-    return clue, entry["clue"][len(clue):].strip()
+    text = entry["clue"].get("text", "")
+    clue = re.sub(r"\s*\(\d+[\d,\-\s]*\)\s*$", "", text)
+    return clue, text[len(clue):].strip()
 
 
 def plan(entry):
@@ -183,7 +184,7 @@ def plan(entry):
     couldn't have guessed.
     """
     ann = entry.get("annotation") or {}
-    if not ann.get("definitions") or not ann.get("answer") or not entry.get("clue"):
+    if not ann.get("definitions") or not ann.get("answer") or not entry["clue"].get("text"):
         return None
     clue, enumeration = bare_clue(entry)
     if len(clue) > 78:
@@ -647,7 +648,7 @@ def alt_text(number, entry_id=None):
              "the instruction words highlighted" if len(p["indicators"]) > 1 else
              "the instruction word highlighted")
     entry = next(e for e in load(number)["entries"] if e["id"] == entry_id)
-    return (f'The cryptic clue "{entry["clue"]}" explained in three steps: the definition '
+    return (f'The cryptic clue "{entry["clue"].get("text", "")}" explained in three steps: the definition '
             f'highlighted, {shown}, and the answer left as empty boxes.')
 
 
@@ -672,17 +673,19 @@ def _salt():
 
 
 def card_key(pid, salt):
-    """What a card was drawn from, hashed: the salt plus the puzzle's entries
-    exactly as load() hands them to the drawing code, in canonical JSON.
+    """What a card was drawn from, hashed: the salt plus, for each entry as
+    load() hands it to the drawing code, the three fields the drawing reads —
+    id, clue text and annotation — in canonical JSON.
 
-    The entries are the whole of what a card is drawn from — every function
-    here reads load(pid)["entries"] and nothing else of the puzzle — so this
-    changes when the picture could, and not when a file around it is
-    re-spelled. It used to hash the generated shim, which made every change to
-    the shim's format (for the site's size, say) redraw every card.
+    Nothing else of the puzzle reaches a card, so this changes when the picture
+    could, and not when a file around it is re-spelled or gains a key the card
+    never draws.
     """
+    drawn = [{"id": e["id"], "clue": e["clue"].get("text", ""),
+              "annotation": e.get("annotation")}
+             for e in load(pid)["entries"]]
     h = salt.copy()
-    h.update(json.dumps(load(pid)["entries"], ensure_ascii=False, sort_keys=True,
+    h.update(json.dumps(drawn, ensure_ascii=False, sort_keys=True,
                         separators=(",", ":")).encode("utf-8"))
     return h.hexdigest()
 

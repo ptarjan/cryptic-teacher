@@ -160,9 +160,9 @@ SEPARATOR_RE = re.compile(r"([,\-'])")
 
 
 def clue_separators(fmt, length):
-    """Guardian-style separatorLocations from an Observer enumeration like
-    "4,1'5" (WINE O'CLOCK) or "3-5,6": where the answer breaks for a space,
-    hyphen or apostrophe, keyed by which mark it is. Not fetch_independent's
+    """Clue separators ([{"at", "mark"}], in answer order) from an Observer
+    enumeration like "4,1'5" (WINE O'CLOCK) or "3-5,6": where the answer breaks
+    for a space, hyphen or apostrophe, and which mark it is. Not fetch_puzzle's
     separators() — that one exists to split a single enumeration ACROSS two
     linked grid entries, which Everyman never does (see the module docstring:
     every clue here maps to exactly one word), so it's simpler to total the
@@ -171,12 +171,12 @@ def clue_separators(fmt, length):
     separator at all: fed "1'5" it tries to int() that whole piece and dies,
     which is what happened on 4126 and 4140 (G'DAY, WINE O'CLOCK) before this
     existed."""
-    out = {}
+    out = []
     pos = 0
     for piece in SEPARATOR_RE.split(fmt or ""):
         if piece in (",", "-", "'"):
             if 0 < pos < length:
-                out.setdefault(piece, []).append(pos)
+                out.append({"at": pos, "mark": piece})
         elif piece:
             pos += int(piece)
     return out
@@ -253,9 +253,11 @@ def convert(num, manifest, data):
                 "direction": direction,
                 "position": pos,
                 "length": length,
-                "clue": f"{text} ({fmt})",
-                **({"clueItalics": italics} if italics else {}),
-                **({"separatorLocations": s} if (s := clue_separators(fmt, length)) else {}),
+                "clue": {
+                    "text": f"{text} ({fmt})",
+                    **({"separators": s} if (s := clue_separators(fmt, length)) else {}),
+                    **({"italics": italics} if italics else {}),
+                },
                 "solution": None,
             })
 

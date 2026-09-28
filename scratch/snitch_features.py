@@ -155,7 +155,7 @@ def answer_feats(puz, rank, lufz, fam, count, freq):
         words = [w for w in re.split(r"[\s\-]+", (e.get("annotation") or {}).get("answer") or "") if w]
         if not words:
             # Split the letters where the enumeration does.
-            cuts = sorted(i for v in (e.get("separatorLocations") or {}).values() for i in v)
+            cuts = sorted({sep["at"] for sep in e["clue"].get("separators", [])})
             words, prev = [], 0
             for c in cuts + [len(sol)]:
                 words.append(sol[prev:c])
@@ -175,7 +175,7 @@ def answer_feats(puz, rank, lufz, fam, count, freq):
         lfreq.append(mean([freq[ch] for ch in sol]))
         rare.append(sum(ch in RARE_LETTERS for ch in sol) / len(sol))
     lens = [e["length"] for e in puz["entries"]]
-    multi = [bool(e.get("separatorLocations")) for e in puz["entries"]]
+    multi = [bool(e["clue"].get("separators")) for e in puz["entries"]]
     worst3 = sorted(whole)[-3:]
     return {"obscurity_rarest_word": mean(rar), "obscurity_whole_answer": mean(whole),
             "obscurity_worst3": mean(worst3), "not_in_lufz": share(missing),
@@ -187,7 +187,7 @@ def answer_feats(puz, rank, lufz, fam, count, freq):
 
 
 def clue_texts(puz):
-    return [ENUM.sub("", e.get("clue") or "").strip() for e in puz["entries"]]
+    return [ENUM.sub("", e["clue"].get("text", "")).strip() for e in puz["entries"]]
 
 
 def clue_feats(puz):
@@ -220,7 +220,7 @@ def blog_feats(puz, bf, abbr, lufz, pair_count):
         e = by_id.get(eid)
         if not e:
             continue
-        clue = ENUM.sub("", e.get("clue") or "").strip()
+        clue = ENUM.sub("", e["clue"].get("text", "")).strip()
         t = [p.strip() for p in (v.get("type") or "").split("+") if p.strip()]
         if t:
             typed.append(t)

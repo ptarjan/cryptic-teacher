@@ -3,14 +3,10 @@
 #
 #     bash tools/test_empty_keys.sh
 #
-# Our puzzle shape was copied from the Guardian's API object, and two of its
-# keys came along whether or not they held anything: `separatorLocations`, an
-# empty object on 81% of entries, and `annotation`, null on 98% of them. Across
-# 466,889 entries that was 16.4 MB — 10.5% of the corpus — spent saying nothing,
-# and paid for again on every clone, every CI checkout and every page build.
-#
-# So they follow the rule `clueItalics`, `group` and `clueMissing` already do:
-# written when they carry data, left out when they do not. That only works if an
+# Every key is written when it carries data and left out when it does not:
+# the clue's `separators`, `italics` and `missing`, the entry's `group` and
+# `annotation`. An empty form on every entry is megabytes of the corpus spent
+# saying nothing, paid for again on every clone, CI checkout and page build. That only works if an
 # absent key reads exactly like an empty one, which is what this tests on both
 # sides — the writers must not emit the empty form, and the readers must take
 # the absence as empty rather than throwing on it.
@@ -45,11 +41,11 @@ data = {"id": "crosswords/cryptic/30066", "number": 30066,
                     guardian_entry("2-across", 2, {",": [4]})]}
 puzzle = fetcher.convert(data)
 by = {e["id"]: e for e in puzzle["entries"]}
-print("PLAIN", "separatorLocations" in by["1-across"], "annotation" in by["1-across"])
-print("BREAK", json.dumps(by["2-across"].get("separatorLocations")))
+print("PLAIN", "separators" in by["1-across"]["clue"], "annotation" in by["1-across"])
+print("BREAK", json.dumps(by["2-across"]["clue"].get("separators")))
 # Dropping a key must not shuffle the ones that stay, or the diff over 16,000
 # files is unreadable and no one can check it.
-print("ORDER", ",".join(by["2-across"]))
+print("ORDER", ",".join(by["2-across"]), ",".join(by["2-across"]["clue"]))
 
 # The file is the payload, so what comes back off disk has to be what went
 # down — absent keys and all — and the bytes must hold neither empty form.
@@ -59,7 +55,7 @@ with tempfile.TemporaryDirectory() as d:
     text = path.read_text(encoding="utf-8")
     back = fetcher.read_puzzle_file(path)
     print("TRIP", back["entries"] == puzzle["entries"])
-    print("NOEMPTY", '"separatorLocations": {}' in text, '"annotation": null' in text)
+    print("NOEMPTY", '"separators": []' in text, '"annotation": null' in text)
 
 # An annotation that could not be written is an absent key, not a null one.
 # grade_model_fill throws away an annotation written off a wrong answer; before
@@ -67,19 +63,19 @@ with tempfile.TemporaryDirectory() as d:
 # Its ledger is stubbed: this is a test, and a test must not file a miss
 # against tools/data/blind_misses.json that no solve ever made.
 fetcher.record_misses = lambda *a, **k: None
-entries = [{"id": "1-across", "clue": "x (5)", "solution": "WRONG",
+entries = [{"id": "1-across", "clue": {"text": "x (5)"}, "solution": "WRONG",
             "annotation": {"type": ["anagram"]}}]
 fetcher.grade_model_fill({"id": "cryptic-1", "entries": entries},
                          {"1-across": "RIGHT"})
 print("BLANKED", "annotation" in entries[0])
 PY
 )
-same "no separatorLocations and no annotation on a plain entry" \
+same "no separators and no annotation on a plain entry" \
   "$(grep '^PLAIN ' <<<"$out")" "PLAIN False False"
 same "but a real word break is still written" \
-  "$(grep '^BREAK ' <<<"$out")" 'BREAK {",": [4]}'
+  "$(grep '^BREAK ' <<<"$out")" 'BREAK [{"at": 4, "mark": ","}]'
 same "and the surviving keys keep their order" "$(grep '^ORDER ' <<<"$out")" \
-  "ORDER id,number,direction,position,length,clue,separatorLocations,solution"
+  "ORDER id,number,direction,position,length,clue,solution text,separators"
 same "a puzzle written without the keys round-trips off disk" \
   "$(grep '^TRIP ' <<<"$out")" "TRIP True"
 same "and the bytes on disk hold neither empty form" \
@@ -98,7 +94,7 @@ import difficulty, build_seo_pages, make_og_card, craft_report
 
 puz = fetcher.read_puzzle_file(fetcher.resolve_puzzle("cryptic-30066"))
 for e in puz["entries"]:
-    e.pop("separatorLocations", None)
+    e["clue"].pop("separators", None)
     e.pop("annotation", None)
 print("DEVICE", difficulty.device(puz))
 print("MACHINERY", difficulty.machinery(puz))
@@ -123,13 +119,11 @@ same "and the puzzle reads as un-annotated, which is what it is" \
 
 echo "app.js reads both keys through a guard"
 # app.js is the reader that matters most and cannot be imported here, so its
-# guards are read out of the source. A bare e.separatorLocations[...] or
+# guards are read out of the source. A bare e.clue.separators.forEach or
 # e.annotation.type throws on every puzzle this repo now ships.
-# separatorLocations is read in exactly one place and must land in a variable
-# that has already been defaulted; an absent key indexed directly throws.
-reads=$(grep -cE '\be\.separatorLocations\b' app.js)
-guarded=$(grep -cE '\be\.separatorLocations \|\| \{\}' app.js)
-same "app.js reads separatorLocations only through a || {}" "$reads" "$guarded"
+reads=$(grep -cE '\be\.clue\.separators\b' app.js)
+guarded=$(grep -cE '\be\.clue\.separators \|\| \[\]' app.js)
+same "app.js reads clue.separators only through a || []" "$reads" "$guarded"
 # annotation needs no such guard anywhere: an absent key reads `undefined` and
 # every use in the app is a truthiness test, which undefined and null both fail
 # identically. The one thing that would tell them apart is an identity check,
@@ -145,9 +139,9 @@ echo "and the corpus carries neither empty form"
 # both strings are unambiguous at this indent and parsing 135 MB to learn it
 # would be the slow way round.
 found=$(grep -rlF --include='*.json' \
-  -e '"separatorLocations": {}' -e '"annotation": null' puzzles \
+  -e '"separators": []' -e '"annotation": null' puzzles \
   | head -5 | tr '\n' ' ')
-same "no puzzle file writes an empty separatorLocations or a null annotation" \
+same "no puzzle file writes an empty separators or a null annotation" \
   "${found:-none}" "none"
 
 echo "every key obeys it: tools/data/puzzle.schema.json"
@@ -162,13 +156,13 @@ import puzzle_integrity, puzzle_schema, validate_annotations
 
 real = fetcher.read_puzzle_file(fetcher.resolve_puzzle("cryptic-30066"))
 
-# The write drops every empty form, however deep, and keeps `clue` even blank.
+# The write drops every empty form, however deep; a blank clue is {"missing": true}.
 gate = puzzle_integrity.refuse_bad_write
 puzzle_integrity.refuse_bad_write = lambda puzzle, old=None: None
 p = copy.deepcopy(real)
 p["setter"] = None
 e = p["entries"][0]
-e.update(solution=None, clue="", separatorLocations={",": []})
+e.update(solution=None, clue={"text": "", "separators": [], "italics": [], "missing": True})
 e["annotation"] = {"type": ["anagram"], "indicators": [],
                    "linkWords": [], "surface": "",
                    "features": {"joke": None, "misdirectedWord": None,
@@ -179,9 +173,9 @@ with tempfile.TemporaryDirectory() as d:
     fetcher.write_puzzle_file(path, p)
     back = json.loads(path.read_text(encoding="utf-8"))
 b0 = back["entries"][0]
-print("PRUNED", "setter" in back, "solution" in b0, "separatorLocations" in b0,
+print("PRUNED", "setter" in back, "solution" in b0, "annotation" in b0,
       sorted(b0["annotation"]), sorted(b0["annotation"]["features"]),
-      b0["annotation"]["blocks"], repr(b0["clue"]))
+      b0["annotation"]["blocks"], b0["clue"])
 puzzle_integrity.refuse_bad_write = gate
 
 # A key the schema does not know is refused at the write gate...
@@ -224,7 +218,7 @@ PY
 )
 same "the write drops every null and empty value and keeps a blank clue" \
   "$(grep '^PRUNED ' <<<"$out")" \
-  "PRUNED False False False ['blocks', 'features', 'type'] ['answerInScene', 'aptDefinition'] [{'clueFragment': 'x'}] ''"
+  "PRUNED False False True ['blocks', 'features', 'type'] ['answerInScene', 'aptDefinition'] [{'clueFragment': 'x'}] {'missing': True}"
 same "the write gate refuses a key the schema does not have" "$(grep '^GATE ' <<<"$out")" "GATE True"
 same "the validator fails a null on disk" "$(grep '^VALIDATOR ' <<<"$out")" "VALIDATOR True"
 same "the schema's enums are their sources' lists" "$(grep '^ENUMS ' <<<"$out")" "ENUMS []"

@@ -27,20 +27,25 @@ odd = {"id": "odd-1", "series": "odd", "number": 1, "dimensions": {"cols": 3, "r
        "entries": [
            # packed, with extras and an id that is not number-direction
            {"id": "1-across-2", "number": 1, "direction": "across",
-            "position": {"x": 0, "y": 0}, "length": 3, "clue": "A <i>b</i> (3)",
-            "solution": "ABC", "separatorLocations": {",": [1]},
+            "position": {"x": 0, "y": 0}, "length": 3,
+            "clue": {"text": "A b (3)", "separators": [{"at": 1, "mark": ","}],
+                     "italics": [{"at": 2, "length": 1}]},
+            "solution": "ABC",
             "annotation": {"type": ["anagram"], "answer": "ABC", "pieces": ["A"],
                            "features": {"joke": None}}},
-           # packed, nothing extra
+           # packed, nothing extra, a clue that is only text (packed as the string)
+           {"id": "2-across", "number": 2, "direction": "across",
+            "position": {"x": 0, "y": 2}, "length": 3, "clue": {"text": "f (3)"}, "solution": "FGH"},
+           # packed, a blank clue
            {"id": "1-down", "number": 1, "direction": "down",
-            "position": {"x": 0, "y": 0}, "length": 3, "clue": "", "solution": None},
+            "position": {"x": 0, "y": 0}, "length": 3, "clue": {"missing": True}, "solution": None},
            # not packable: no position, an unknown direction, a string number
            {"id": "2-down", "number": 2, "direction": "down", "length": 3,
-            "clue": "c (3)", "solution": "CDE"},
+            "clue": {"text": "c (3)"}, "solution": "CDE"},
            {"id": "3-sideways", "number": 3, "direction": "sideways",
-            "position": {"x": 1, "y": 1}, "length": 1, "clue": "d (1)", "solution": "D"},
+            "position": {"x": 1, "y": 1}, "length": 1, "clue": {"text": "d (1)"}, "solution": "D"},
            {"id": "4-across", "number": "4", "direction": "across",
-            "position": {"x": 2, "y": 2}, "length": 1, "clue": "e (1)", "solution": "E"},
+            "position": {"x": 2, "y": 2}, "length": 1, "clue": {"text": "e (1)"}, "solution": "E"},
        ]}
 cases = [(Path(f"puzzles/{odd['id']}.json"), odd)]
 cases += [(f, fp.read_puzzle_file(f)) for f in fp.puzzle_files()]

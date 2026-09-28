@@ -343,7 +343,7 @@ def build(rec, row, series, date, setter, typed=None):
         return (all(own_count(by_id[m]) for m in g)
                 and all(str(by_id[m]["number"]) in named for m in g[1:]))
     groups = {gid: g for gid, g in groups.items() if not composite(g)}
-    recounted = []
+    recounted, seps_of = [], {}
     for e in out:
         enumeration = e.pop("enumeration")
         group = groups.get(e["id"], [e["id"]])
@@ -370,10 +370,10 @@ def build(rec, row, series, date, setter, typed=None):
                 seps_by_light = separators(group, by_id, enumeration)
             except SystemExit:
                 return None, "the printed answer's word breaks do not fit its lights"
-        for gid, seps in seps_by_light.items():
-            if seps:
-                by_id[gid]["separatorLocations"] = seps
+        seps_of.update(seps_by_light)
     for e in out:
+        seps = seps_of.get(e["id"])
+        e["clue"] = {"text": e["clue"], **({"separators": seps} if seps else {})}
         if groups.get(e["id"], [None])[0] == e["id"]:
             e["group"] = list(groups[e["id"]])
         e["solution"] = e.pop("solution")  # last, as every other series writes it
@@ -412,7 +412,7 @@ def build(rec, row, series, date, setter, typed=None):
 def content(puzzle):
     """What a later run compares: the grid, the clues' words and the answers.
     A clue retyped with other quotes or dashes is the same clue."""
-    return [(e["id"], e["position"], e["length"], clue_words(e["clue"]), e["solution"])
+    return [(e["id"], e["position"], e["length"], clue_words(e["clue"].get("text", "")), e["solution"])
             for e in puzzle["entries"]]
 
 

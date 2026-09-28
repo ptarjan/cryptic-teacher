@@ -820,7 +820,7 @@ def content_hash(puzzle):
     entries = sorted(
         (e.get("id"), e.get("number"), e.get("direction"),
          (e.get("position") or {}).get("x"), (e.get("position") or {}).get("y"),
-         e.get("length"), e.get("clue"), e.get("solution"))
+         e.get("length"), e["clue"].get("text", ""), e.get("solution"))
         for e in puzzle.get("entries") or []
     )
     dims = puzzle.get("dimensions") or {}
@@ -869,7 +869,7 @@ def check_shape(puzzle, today, flags):
     elif d.year < EARLIEST_YEAR:
         flags.append(("SHAPE", pid, f"dated {d}, before cryptics existed"))
 
-    # A clue marked clueMissing is forgiven one at a time, because a setter who
+    # A clue marked clue.missing is forgiven one at a time, because a setter who
     # prints one blank clue means it. A puzzle where EVERY clue is blank is not a
     # setter's joke, it is a grid with no puzzle in it: nothing to solve, nothing
     # to annotate, and nothing the app can show. Per-entry forgiveness cannot see
@@ -880,7 +880,7 @@ def check_shape(puzzle, today, flags):
     # answers came off a prize puzzle's solution page and the clue text lives on
     # /crosswords/prize/<n>, not /crosswords/cryptic/<n>, and in the printable PDF
     # beside it. So this reports until someone goes and gets the clues.
-    if not any(has_words(e.get("clue")) for e in entries):
+    if not any(has_words(e["clue"].get("text", "")) for e in entries):
         flags.append(("SHAPE", pid, f"all {len(entries)} clues are blank"))
 
     from_blog = (puzzle.get("source") or {}).get("retrievedFrom") == "blog"
@@ -893,7 +893,7 @@ def check_shape(puzzle, today, flags):
 
         # A clue is its words. has_words is the one definition of "the paper
         # printed nothing here" — the same rule fetch_puzzle.convert() uses to
-        # set clueMissing at fetch time — so this reads the words off the same
+        # set clue.missing at fetch time — so this reads the words off the same
         # test rather than reimplementing a stripped-enumeration check that can
         # drift from it. It did drift: cyclops-309's 17-across is "(see 3dn.)",
         # a bare cross-reference wholly inside one parenthesis and a whole clue
@@ -908,11 +908,12 @@ def check_shape(puzzle, today, flags):
         # over (1,6,3,1,4) for I HAVEN'T GOT A CLUE. Both are the joke and must
         # never be filled in or filtered out. fetch_puzzle.convert() settles which
         # is which at fetch time, where the paper's own data is still in front of
-        # it, and records the answer as clueMissing — so this reads that field
+        # it, and records the answer as clue.missing — so this reads that field
         # rather than guessing again from the text and reaching a different
         # verdict. An unmarked blank clue is still a defect and still reported.
-        clue = e.get("clue") or ""
-        if not e.get("clueMissing") and not has_words(clue):
+        clue = e["clue"].get("text", "")
+        missing = e["clue"].get("missing", False)
+        if not missing and not has_words(clue):
             flags.append(("SHAPE", pid, f"{eid}: clue is blank"))
         # Braces are a blogger's markup for a deletion or a hidden word, and no
         # paper prints one in a clue.
@@ -923,7 +924,7 @@ def check_shape(puzzle, today, flags):
         # A blogger copying a clue can leave its count off, and the count is
         # then the answer's word lengths. A paper's own feed prints what it
         # printed, so only a transcribed clue is held to this.
-        if (from_blog and has_words(clue) and not e.get("clueMissing")
+        if (from_blog and has_words(clue) and not missing
                 and not is_continuation(clue) and not ENUMERATION.search(clue)):
             flags.append(("SHAPE", pid, f"{eid}: clue {clue!r}, transcribed from "
                           f"a blog, has no enumeration"))
@@ -978,7 +979,7 @@ def check_length(puzzle, checkable, flags):
                                           f"grid wants {e.get('length')}")))
             continue
 
-        m = ENUMERATION.search(e.get("clue") or "")
+        m = ENUMERATION.search(e["clue"].get("text", ""))
         if not m:
             # A continuation leg ("See 23") carries no count of its own; its length
             # is stated once, on the leg that holds the clue.
@@ -1009,7 +1010,7 @@ def check_length(puzzle, checkable, flags):
         # leg plus 20-across, neither its own seven cells nor the answer's 31.
         # Measuring it against either reports the head's correct enumeration as
         # a defect on the leg. The head is still checked, so nothing goes unread.
-        if len(group) > 1 and is_continuation(e.get("clue")):
+        if len(group) > 1 and is_continuation(e["clue"].get("text", "")):
             continue
         if sum(counts) == held or (len(group) > 1 and per_light
                                    and sum(counts) == len(solution)):
@@ -1166,9 +1167,9 @@ def check_rewrite(old, new, flags):
     A re-fetch of a page that serves the grid without the text (the Guardian's
     2005-08 prizes) would otherwise undo a recovery; see
     fetch_puzzle.carry_recovered_clues."""
-    was = {e["id"]: e.get("clue") for e in old.get("entries") or []}
+    was = {e["id"]: e["clue"].get("text", "") for e in old.get("entries") or []}
     for e in new.get("entries") or []:
-        if has_words(was.get(e["id"])) and not has_words(e.get("clue")):
+        if has_words(was.get(e["id"])) and not has_words(e["clue"].get("text", "")):
             flags.append(("SHAPE", new["id"], f"{e['id']}: would replace the clue "
                           f"{was[e['id']]!r} with a blank one; carry it across "
                           f"(fetch_puzzle.merge_annotations)"))
