@@ -1280,15 +1280,15 @@ def abbreviations_page(blocks):
     senses = build_abbreviations.by_word()
     n = len(senses)
     links = clue_links(senses, blocks)
-    seen = build_abbreviations.seen()
+    seen = build_abbreviations.readings()
     rare = {}
-    for w, letters, count in seen:
-        rare.setdefault(w, []).append((letters, count))
-    title = f"Cryptic crossword abbreviations — {n + len(seen):,} of them, A to Z"
+    for w, letters, count, why in seen:
+        rare.setdefault(w, []).append((letters, count, why))
+    title = f"Cryptic crossword abbreviations — {n:,} of them, A to Z"
     desc = (f"All {n} abbreviations cryptic crossword setters use in these puzzles, listed "
             "by word: check is CH, sailor is AB, right is R. Every one comes from a real "
             f"published puzzle, and {len(links)} of them link to a clue that uses it, "
-            f"explained. Plus {len(seen)} rarer readings counted in solved clues.")
+            "explained.")
     canonical = f"{BASE}/abbreviations/"
     crumbs = [("Cryptic Teacher", "/"), ("How cryptic clues work", "/learn/"),
               ("Abbreviations", "")]
@@ -1314,10 +1314,11 @@ def abbreviations_page(blocks):
         "stand for more than one set of letters. Try each one until the pieces build a word "
         "that matches the definition.</p>",
         f"<p>Find the word from your clue; the letters it stands for are next to it. "
-        f"The {n} in plain type are the standard ones, used in the puzzles explained on "
-        f"this site. The {len(seen)} in grey are rarer, counted in tens of thousands of "
-        "solved clues; some are one setter's habit. Hover one to see how many clues used "
-        "it.</p>",
+        f"The {n} in plain type are the standard ones: every reading "
+        f"{build_abbreviations.SEEN_MIN} or more solved "
+        f"clues use, and the sets below. The {len(seen)} in grey are standard ones put "
+        "together (<em>lines</em> is L twice, <em>a king</em> is A + R); hover one to "
+        "see how.</p>",
         f"<p>{len(links)} of the words are links to a real clue that uses that "
         "abbreviation, explained step by step.</p>",
         '<h2 id="families">Families to learn whole</h2>',
