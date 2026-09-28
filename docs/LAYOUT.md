@@ -37,6 +37,10 @@ learn/                                       the “How cryptic clues work” le
                                              tools/tutorial.html — generated, not committed
 abbreviations/                               the glossary of standard abbreviations the blocks
                                              rung links into — generated, not committed
+indicators/                                  every indicator the blogs and our annotations use,
+                                             by type and by how many clues use it, from
+                                             tools/data/lexicons/indicators.json — generated,
+                                             not committed
 difficulty/                                  how the difficulty badge is worked out and
                                              checked, built from tools/difficulty_page.html —
                                              generated, not committed
@@ -609,6 +613,12 @@ tools/data/README.md                         what in tools/data is committed, wh
                                              and under what licence
 tools/data/abbreviations.json                the hand-built starter table of standard
                                              abbreviations
+tools/data/lexicons/blocks.json              clue word -> letters -> clues, off the blogs and
+                                             our annotations (tools/letter_facts.py
+                                             --lexicons); the abbreviations/ page lists its
+                                             short conventions
+tools/data/lexicons/indicators.json          type -> indicator -> clues, from the same sources;
+                                             the indicators/ page is built from it
 tools/data/unclueable.json                   words rejected as answers, with reasons;
                                              grid_fill.py vetoes them
 tools/data/corroboration_ledger.json         every disagreement tools/corroborate.py settled or

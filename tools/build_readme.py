@@ -51,6 +51,7 @@ LAYOUT = [
     ("", "vendor/", "the one dependency shipped to the browser: jsQR, pinned by filename and sha256, fetched only when someone scans a code"),
     ("", "learn/", "the “How cryptic clues work” lesson, built from tools/tutorial.html — generated, not committed"),
     ("", "abbreviations/", "the glossary of standard abbreviations the blocks rung links into — generated, not committed"),
+    ("", "indicators/", "every indicator the blogs and our annotations use, by type and by how many clues use it, from tools/data/lexicons/indicators.json — generated, not committed"),
     ("", "difficulty/", "how the difficulty badge is worked out and checked, built from tools/difficulty_page.html — generated, not committed"),
     ("", "og/", "one 1200x630 social card per puzzle, drawn from one of its clues — generated, not committed"),
     ("", "puzzles/index.json, puzzles/index.js",
@@ -252,6 +253,8 @@ LAYOUT = [
 
     ("tables everything else reads", "tools/data/README.md", "what in tools/data is committed, what is fetched, and under what licence"),
     ("tables everything else reads", "tools/data/abbreviations.json", "the hand-built starter table of standard abbreviations"),
+    ("tables everything else reads", "tools/data/lexicons/blocks.json", "clue word -> letters -> clues, off the blogs and our annotations (tools/letter_facts.py --lexicons); the abbreviations/ page lists its short conventions"),
+    ("tables everything else reads", "tools/data/lexicons/indicators.json", "type -> indicator -> clues, from the same sources; the indicators/ page is built from it"),
     ("tables everything else reads", "tools/data/unclueable.json", "words rejected as answers, with reasons; grid_fill.py vetoes them"),
     ("tables everything else reads", "tools/data/corroboration_ledger.json", "every disagreement tools/corroborate.py settled or could not, and every field it filled: the puzzle, the field, each candidate with its sources, the winner and the rule that picked it"),
     ("tables everything else reads", "tools/data/times_answers.json", "Times-blog answers settled from the clue's wordplay; times_grids.py applies them before rebuilding"),
@@ -325,7 +328,7 @@ LAYOUT_EXEMPT = re.compile(r"""
     | ^tools/data/blog_facts/                       # covered by the directory line
     | ^og/                          # covered by the og/ line
     | ^vendor/                      # covered by the vendor/ line
-    | ^learn/ | ^abbreviations/
+    | ^learn/ | ^abbreviations/ | ^indicators/
     | ^favicon | ^icon- | ^apple-touch-icon   # covered by the icon-set line
     | ^\. | /\.                     # dotfiles: .nojekyll, .gitignore, .github/
     | ^README\.md$ | ^LICENSE
