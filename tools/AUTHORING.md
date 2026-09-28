@@ -502,7 +502,7 @@ with no clue text.
 
 ### Rebuilding and validating an authored puzzle
 
-The daily sweep globs `*-[0-9]*.json`, the shape of a fetched puzzle's id
+The daily sweep globs `puzzles/*/*/*-[0-9]*.json`, the shape of a fetched puzzle's id
 (`<series>-<number>`). An authored id such as A001 has no hyphen before its
 digits, so the sweep never sees it. After editing a
 `tools/data/authored_*_clues.json` file, you MUST rebuild and validate the
@@ -513,10 +513,11 @@ python3 tools/build_authored_puzzle.py --clues tools/data/authored_A001_clues.js
     --id A001 --name "Cryptic Teacher No 1" --setter "Cryptic Teacher" --date 1785283200000 \
     --annotated-by human
 python3 tools/validate_annotations.py A001
-rm puzzles/A001.json
+rm puzzles/authored/*/A001.json
 ```
 
-`tools/build_authored_puzzle.py` writes `puzzles/A001.json` (it uses the grid in
+`tools/build_authored_puzzle.py` writes `puzzles/authored/<year>/A001.json`, the
+year of `--date` (it uses the grid in
 `tools/data/sample_fill_11.json` unless `--fill` says otherwise). Delete it when
 you are done. It is never committed: A001 is served to no one, and the clues
 JSON is the source. While it exists, `tools/smoke_test.js` fails, because every

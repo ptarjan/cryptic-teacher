@@ -5,8 +5,9 @@
   python3 tools/stage_site.py SRC OUT      # any built tree
 
 .github/workflows/pages.yml uploads _site/, not the checkout. The checkout also
-holds tools/ and its data, the puzzle sources (puzzles/<id>.json, which the
-browser never reads: it loads the puzzles/<id>.js shim built from each one),
+holds tools/ and its data, the puzzle sources (puzzles/<series>/<year>/<id>.json,
+which the browser never reads: it loads the flat puzzles/<id>.js shim built from
+each one, so no PUBLISH glob reaches into a series folder),
 docs, scratch and the card manifest. None of it is part of the site, and GitHub
 Pages caps a site at 1 GB. So the site is what PUBLISH names and nothing else,
 and a new directory has to be named here to ship.

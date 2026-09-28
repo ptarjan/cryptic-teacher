@@ -96,7 +96,7 @@ from pathlib import Path
 import fetch_puzzle as fetcher
 import difficulty, build_seo_pages, make_og_card, craft_report
 
-puz = fetcher.read_puzzle_file(Path("puzzles/cryptic-30066.json"))
+puz = fetcher.read_puzzle_file(fetcher.resolve_puzzle("cryptic-30066"))
 for e in puz["entries"]:
     e.pop("separatorLocations", None)
     e.pop("annotation", None)
@@ -160,7 +160,7 @@ from pathlib import Path
 import fetch_puzzle as fetcher
 import puzzle_integrity, puzzle_schema, validate_annotations
 
-real = fetcher.read_puzzle_file(Path("puzzles/cryptic-30066.json"))
+real = fetcher.read_puzzle_file(fetcher.resolve_puzzle("cryptic-30066"))
 
 # The write drops every empty form, however deep, and keeps `clue` even blank.
 gate = puzzle_integrity.refuse_bad_write

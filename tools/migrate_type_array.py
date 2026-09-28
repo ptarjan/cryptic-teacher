@@ -178,9 +178,7 @@ def reorder(ann):
 
 
 def migrate_puzzles(stats, write):
-    for f in sorted(glob.glob(str(ROOT / "puzzles" / "*.json"))):
-        if f.endswith("index.json"):
-            continue
+    for f in sorted(glob.glob(str(ROOT / "puzzles" / "*" / "*" / "*.json"))):
         text = Path(f).read_text(encoding="utf-8")
         if '"type": "' not in text and '"type":"' not in text:
             continue

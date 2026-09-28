@@ -18,6 +18,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
+import puzzle_paths  # noqa: E402
 import difficulty as D
 import snitch_report as S
 
@@ -58,8 +59,8 @@ def comment_rows():
     for pid, v in tab.items():
         if pid.rpartition("-")[0] != "times" or not v.get("comments"):
             continue
-        path = ROOT / "puzzles" / f"{pid}.json"
-        if not path.exists():
+        path = puzzle_paths.find(pid)
+        if path is None:
             continue
         puz = D.read_puzzle_file(path)
         s = D.score(puz, ctx)

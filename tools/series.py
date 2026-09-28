@@ -722,7 +722,7 @@ def parse_id(pid):
 
     An authored draft's id ("A001") is also bare — no hyphen — but for the
     opposite reason: tools/build_authored_puzzle.py spells it that way
-    deliberately, to stay off the "*-[0-9]*.json" glob the nightly sweep and
+    deliberately, to stay off the "*/*/*-[0-9]*.json" glob the nightly sweep and
     puzzle_files() use, so an unpublished draft is never walked by mistake.
     It is still one puzzle in one series, so unlike a pre-namespacing number
     it resolves to "authored" here rather than to None, and its number is the

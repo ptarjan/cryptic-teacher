@@ -128,8 +128,8 @@ tools/_*
 /puzzles/index.json
 
 # Every puzzle's script shim, written by the same --reindex. A puzzle is
-# committed as puzzles/<id>.json, which is what every tool in tools/ reads and
-# writes; the .js beside it exists only because README.md promises the site
+# committed as puzzles/<series>/<year>/<id>.json, which is what every tool in
+# tools/ reads and writes; the flat puzzles/<id>.js exists only because README.md promises the site
 # opens from file://, where fetch() is blocked and app.js has to inject a
 # <script> tag instead. It is build output: the same bytes this project used to
 # commit, regenerated from the .json in seconds, and CI uploads the whole tree

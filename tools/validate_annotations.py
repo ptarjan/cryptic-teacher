@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate clue annotations in puzzles/*.json.
+"""Validate clue annotations in puzzles/<series>/<year>/*.json.
 
 Checks, for every annotated entry:
   - annotation has type, definition, walkthrough, answer, blocks
@@ -58,8 +58,9 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import clue_types  # noqa: E402
 import puzzle_schema  # noqa: E402 — tools/data/puzzle.schema.json
-from fetch_puzzle import (  # noqa: E402 — one glob, one id resolver, one reader, one exemption
-    blog_facts_for, clue_words, leaders_named, puzzle_files, read_puzzle_file, resolve_puzzle)
+from fetch_puzzle import (  # noqa: E402 — one reader, one exemption
+    blog_facts_for, clue_words, leaders_named, read_puzzle_file)
+from puzzle_paths import puzzle_files, resolve_puzzle  # noqa: E402 — one glob, one id resolver
 from find_answer_leaks import says  # noqa: E402 — one matcher, shared with the finder
 
 # The controlled vocabulary for `type`: an array of names from

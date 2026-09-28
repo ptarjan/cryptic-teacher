@@ -28,7 +28,7 @@ SATURDAY, SUNDAY = 5, 6
 held = {}
 for series in ("times", "timesjumbo", "sundaytimes"):
     rows = []
-    for path in pathlib.Path(sys.argv[1]).glob(f"{series}-[0-9]*.json"):
+    for path in pathlib.Path(sys.argv[1]).glob(f"{series}/*/{series}-[0-9]*.json"):
         p = json.loads(path.read_text(encoding="utf-8"))
         if p.get("date"):
             day = datetime.datetime.fromtimestamp(p["date"] / 1000, datetime.timezone.utc).date()

@@ -6,7 +6,7 @@
 #
 # An answer spanning two lights is stored one way in this corpus: the whole
 # answer's enumeration on the leader, null on the continuation.
-# puzzles/book-3003.json is the settled example — 15-down "(9,5,4)" over
+# puzzles/book/1995/book-3003.json is the settled example — 15-down "(9,5,4)" over
 # NEWCASTLE, 17-down "See 15" with no count over UNDERLYME.
 #
 # The solve scripts emit the opposite shape, a per-light count on each half,
@@ -27,7 +27,7 @@
 # without its space, so deriving over it would produce "(9,9)" — a record that
 # is already in leader form is left alone rather than re-derived.
 #
-# The corpus sweep globs puzzles/book-*.json rather than walking all 15,000
+# The corpus sweep globs puzzles/book/*/book-*.json rather than walking all 15,000
 # puzzles: the Guardian's own pre-2015 markup prints a leg's own count beside
 # its pointer ("See 2 (6)"), which fetch_puzzle.is_continuation and
 # puzzle_integrity.check_length exist to tolerate. That is the paper's shape in
@@ -291,7 +291,7 @@ except SystemExit as exc:
 print("every linked answer in the book series on disk still reads leader form")
 COUNT = re.compile(r"\((\d[\d,\-–/ ]*)\)\s*$")
 groups_seen = 0
-for path in sorted(Path("puzzles").glob("book-*.json")):
+for path in sorted(Path("puzzles/book").glob("*/book-*.json")):
     puzzle = fetch_puzzle.read_puzzle_file(path)
     entries = {e["id"]: e for e in puzzle["entries"]}
     for eid, entry in entries.items():

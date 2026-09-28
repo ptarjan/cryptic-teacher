@@ -39,6 +39,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 import blog_comment_difficulty as B  # noqa: E402
 import difficulty as D  # noqa: E402
+import puzzle_paths  # noqa: E402
 
 OUT = ROOT / "tools" / "data" / "snitch_report.txt"
 #: The components, then counts measured alongside them that are not in the index.
@@ -70,8 +71,10 @@ def rated_rows():
     out = {}
     for pid, v in sn.items():
         series = pid.rpartition("-")[0]
-        path = ROOT / "puzzles" / f"{pid}.json"
-        if series not in D.SNITCH_SERIES or not path.exists():
+        if series not in D.SNITCH_SERIES:
+            continue
+        path = puzzle_paths.find(pid)
+        if path is None:
             continue
         puz = D.read_puzzle_file(path)
         s = D.score(puz, ctx)

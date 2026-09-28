@@ -45,7 +45,7 @@ exactly the N days it's given and reports what came back missing, and a lone
 floor. Finding the floor means rerunning --extend with a larger N and reading
 the summary.
 
-Writes puzzles/<series>-<number>.json (preserving any existing per-clue
+Writes puzzles/<series>/<year>/<series>-<number>.json (preserving any existing per-clue
 annotations), then rebuilds the index via fetch_puzzle.reindex().
 """
 
@@ -60,7 +60,7 @@ from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from fetch_puzzle import (UA, http_bytes, flatten_clue, separators,  # noqa: E402
+from fetch_puzzle import (http_bytes, flatten_clue, separators,  # noqa: E402
                           merge_annotations, plain_text, puzzle_files, puzzle_path,
                           read_puzzle_file, reindex, write_puzzle_file)
 import series as series_meta  # noqa: E402
