@@ -611,7 +611,11 @@ Times Quick Cryptic no 674 by Flamande Friday 7th October 2016=>Flamande
 QC 2000 by &lt;del&gt;Joker&lt;/del&gt; Oink=>Oink
 QC 2001 by (a guest) Mara=>Mara
 Sunday Times Cryptic No 5079 — Anchors aweigh by Dean=>
-Times QC 2326 &#8211; St Withins Day=>"""
+Times QC 2326 &#8211; St Withins Day=>
+Dean Mayer 4910 &#8211; déjà vu all over again=>Dean Mayer
+Sunday Times 4940 &#8211; In the soup=>
+Saturday Times Cryptic 27000=>
+Times Cryptic No 29301=>"""
 for case in CASES.splitlines():
     title, want = case.split("=>")
     got = setter_from_title(title) or ""

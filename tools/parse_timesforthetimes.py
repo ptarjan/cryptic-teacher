@@ -221,6 +221,13 @@ BYLINE = re.compile(
     r"\D*\d[\d,]*\s*(?:[–—-]\s*(?=by\b))?(?:[^–—:]*?\b)?(?:by|By|from)\s+"
     r"(?:<del>.*?</del>\s*|\([^)]*\)\s*)?"
     rf"({NAME}(?: (?:and )?{NAME}){{0,2}})")
+#: Or the title opens with the setter's full name, then the number: "Dean Mayer
+#: 4910 – déjà vu all over again". Two words, neither one the paper's own
+#: ("Sunday Times 4940", "Times Cryptic 29301").
+PAPER_WORD = (r"(?i:Times|Sunday|Saturday|Cryptic|Quick|QC|ST|TLS|Daily|Weekend|Jumbo"
+              r"|Club|Monthly|Crossword|No|Number)\b")
+NAME_FIRST_BYLINE = re.compile(
+    rf"\s*((?!{PAPER_WORD}){NAME} (?!{PAPER_WORD}){NAME})\s+\d")
 #: Titles that spell a setter two ways.
 SETTER_ALIAS = {"Tracey": "Tracy", "Margaret and Bob": "Bob and Margaret"}
 
@@ -228,7 +235,8 @@ SETTER_ALIAS = {"Tracey": "Tracy", "Margaret and Bob": "Bob and Margaret"}
 def setter_from_title(title):
     """The setter the post's title names, or None: the blog is the only
     source of a Times Quick or Sunday Times byline."""
-    m = BYLINE.match(html.unescape(title or ""))
+    title = html.unescape(title or "")
+    m = BYLINE.match(title) or NAME_FIRST_BYLINE.match(title)
     return m and SETTER_ALIAS.get(m.group(1), m.group(1))
 
 
