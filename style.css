@@ -345,12 +345,24 @@ button:disabled:hover { border-color: var(--line); }
 
 /* Paper and difficulty menus on one line under the search box. Native selects,
    because the phone's own picker is the one that fits twenty papers, and the
-   bar is one line tall however many papers there are. */
-.picker-bar { display: flex; gap: 6px; align-items: center; margin: 8px 0 0; }
+   bar is one line tall however many papers there are.
+   appearance:none drops the OS chrome (iOS's grey pill and blue arrows, the
+   desktop's heavy black chevron) so they match #picker-search above them; the
+   chevron is an inline SVG stroked in --muted (a data URI cannot read a
+   variable, so dark mode repeats it with the dark --muted). */
+.picker-bar { display: flex; gap: 6px; align-items: stretch; margin: 8px 0 0; }
 .picker-bar select {
-  flex: 1 1 0; min-width: 0; padding: 6px 8px;
-  font: inherit; font-size: .88rem; color: inherit;
-  background: var(--bg); border: 1px solid var(--line); border-radius: 8px;
+  flex: 1 1 0; min-width: 0; padding: 7px 28px 7px 10px;
+  font: inherit; font-size: .92rem; line-height: 1.3; color: inherit;
+  text-overflow: ellipsis; cursor: pointer;
+  -webkit-appearance: none; appearance: none;
+  background: var(--bg) no-repeat right 10px center / 10px 6px
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%236b6b6b' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  border: 1px solid var(--line); border-radius: 8px;
+}
+.picker-bar select:hover { border-color: var(--muted); }
+@media (prefers-color-scheme: dark) {
+  .picker-bar select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%239a9891' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
 }
 .picker-bar select:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 /* A menu set to anything but "all" is a filter in force, so it says so. */
@@ -370,7 +382,7 @@ button:disabled:hover { border-color: var(--line); }
 /* The ? that opens #picker-note. */
 .badge.help { background: none; border: 1px solid var(--line); color: var(--muted);
               border-radius: 999px; padding: 1px 7px; }
-.picker-bar .badge.help { padding: 5px 10px; font-size: .8rem; }
+.picker-bar .badge.help { flex: none; width: 2.25rem; padding: 0; font-size: .85rem; }
 .badge.help[aria-expanded="true"] { color: inherit; border-color: currentColor; }
 #picker-note:empty { display: none; }
 #picker-note .badge.diff { min-width: 0; }
