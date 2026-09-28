@@ -121,10 +121,6 @@ CADENCE_DAYS = {
 }
 
 
-def as_date(ms):
-    return datetime.fromtimestamp(ms / 1000, timezone.utc).date()
-
-
 def is_date_keyed(held):
     """True when a series' "number" is really its own date spelled YYYYMMDD
     (metro: number 20260918 on 2026-09-18), not a running puzzle count.
@@ -144,7 +140,7 @@ def is_date_keyed(held):
             parsed = datetime.strptime(str(p["number"]), "%Y%m%d").date()
         except ValueError:
             return False
-        if parsed != as_date(p["date"]):
+        if parsed != series_meta.puzzle_day(p):
             return False
         checked = True
     return checked
@@ -160,8 +156,7 @@ def audit(puzzles, today):
     for name in sorted(by_series):
         held = by_series[name]
         all_numbers = sorted(p["number"] for p in held)
-        dates = sorted(as_date(series_meta.puzzle_ms(p)) for p in held
-                       if series_meta.puzzle_ms(p) is not None)
+        dates = sorted(d for d in map(series_meta.puzzle_day, held) if d)
         dateless = len(held) - len(dates)
         floor = ARCHIVE_FLOOR.get(name)
         cadence = CADENCE_DAYS.get(name)
@@ -232,7 +227,7 @@ def audit(puzzles, today):
         for p in held:
             # A `year` has no weekday; its 1 January is not a publishing day.
             if p.get("date"):
-                odd[as_date(p["date"]).strftime("%a")].append(p["number"])
+                odd[series_meta.puzzle_day(p).strftime("%a")].append(p["number"])
         for day, nums in sorted(odd.items()):
             if len(nums) * 100 / len(dates) >= ODD_WEEKDAY_PCT:
                 continue

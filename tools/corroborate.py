@@ -59,12 +59,13 @@ import unicodedata
 import urllib.request
 from collections import Counter, defaultdict
 from dataclasses import dataclass, field
-from datetime import datetime, timezone
+from datetime import date
 from pathlib import Path
 
 TOOLS = Path(__file__).resolve().parent
 sys.path.insert(0, str(TOOLS))
 import provenance
+import series as series_meta
 
 DATA = Path.home() / "cryptic-setter-data"
 GEORGEHO = DATA / "georgeho" / "data.db"
@@ -102,7 +103,7 @@ class Record:
     origin: str
     url: str = ""
     setter: str = None
-    date: int = None              # epoch ms of the PRINT date, never a post date
+    date: date = None             # the PRINT day, never a post date
     answers: dict = field(default_factory=dict)
     clues: dict = field(default_factory=dict)
 
@@ -133,15 +134,6 @@ def clue_key(text):
         "NFKD", html.unescape(text or "")).lower())
 
 
-def day(ms):
-    return datetime.fromtimestamp(ms / 1000, timezone.utc).strftime("%Y-%m-%d")
-
-
-def day_ms(text):
-    return int(datetime.strptime(text, "%Y-%m-%d").replace(
-        tzinfo=timezone.utc).timestamp() * 1000)
-
-
 MONTHS = {m: i for i, m in enumerate(
     ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"], 1)}
 TITLE_DATE = re.compile(r"\b(\d{1,2})(?:st|nd|rd|th)? (" + "|".join(MONTHS) + r"),? (\d{4})\b",
@@ -155,8 +147,7 @@ def title_date(title):
     if not m:
         return None
     try:
-        return int(datetime(int(m.group(3)), MONTHS[m.group(2).lower()], int(m.group(1)),
-                            tzinfo=timezone.utc).timestamp() * 1000)
+        return date(int(m.group(3)), MONTHS[m.group(2).lower()], int(m.group(1)))
     except ValueError:
         return None
 
@@ -452,8 +443,8 @@ def times_listing(puzzle):
     when = _listing["dates"].get((series, number))
     if when is None:
         return []
-    if not isinstance(when, int):
-        when = day_ms(str(when)[:10])
+    if not isinstance(when, date):
+        when = date.fromisoformat(str(when)[:10])
     return [Record("times-listing", "times-listing", date=when)]
 
 
@@ -681,8 +672,11 @@ def field_disputes(puzzle, records):
     import fetch_puzzle
     _, origin = primary_origins(puzzle)
     out = []
-    for name, key, own in (("setter", name_key, puzzle.get("setter")),
-                           ("date", day, puzzle.get("date"))):
+    # A book puzzle is dated by its `year`, which no source corrects.
+    fields = [("setter", name_key, puzzle.get("setter"))]
+    if "year" not in puzzle:
+        fields.append(("date", str, series_meta.puzzle_day(puzzle)))
+    for name, key, own in fields:
         cands, shown = {}, {}
         if own:
             _add(cands, key(own), "primary", origin)
@@ -754,13 +748,15 @@ def apply(puzzle, disputes):
                 by_id[m["id"]]["solution"], rest = rest[:m["length"]], rest[m["length"]:]
         elif d.field == "clue":
             by_id[d.entry]["clue"] = d.winner
+        elif d.field == "date":
+            puzzle["date"] = d.winner.isoformat()
         else:
             puzzle[d.field] = d.winner
     return puzzle
 
 
 def describe(pid, d):
-    shown = day if d.field == "date" else str
+    shown = str
     cands = "; ".join(f"{shown(v)} from {', '.join(sorted(s))}"
                       for v, s in d.candidates.items())
     where = f" {d.entry}" if d.entry else ""
@@ -777,7 +773,7 @@ def record(pid, disputes, ledger=None):
             print(f"WARNING: corroborate: no rule settles {describe(pid, d)} — "
                   f"filed as the primary source had it", file=sys.stderr)
         key = " ".join(filter(None, (pid, d.field, d.entry)))
-        shown = day if d.field == "date" else (lambda v: v)
+        shown = str if d.field == "date" else (lambda v: v)
         held[key] = {
             "candidates": [{"value": shown(v), "sources": sorted(s)}
                            for v, s in d.candidates.items()],
@@ -853,7 +849,7 @@ def sweep(write=False):
             fields[(d.field, "fill" if filled else "dispute", d.rule)] += 1
             if not filled:
                 shown.append((d.rule, describe(puzzle["id"], d)
-                              + f"  => {d.rule}: {d.winner if d.field != 'date' else day(d.winner)}"))
+                              + f"  => {d.rule}: {d.winner}"))
             if d.field == "answer" and d.rule == "grid":
                 for value, src in d.candidates.items():
                     for origin in set(src.values()):

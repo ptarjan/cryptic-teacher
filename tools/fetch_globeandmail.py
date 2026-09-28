@@ -77,12 +77,10 @@ sequence number: "No 3368" for 2026-09-17. That is exactly the kind of number
 Guardian/Independent puzzles already use for `number`/`id`, so it is used
 here too rather than deriving a number from the date — it is monotonic (the
 paper prints six of these a week and counts up by one each time), and it is
-the number a reader of the actual paper would recognise. `date` is taken from
-the payload's own `publishTime` (epoch ms), not reconstructed from the YYYYMMDD
-used to fetch — checked against the sample: 1789617600000 is exactly midnight
-America/New_York on 2026-09-17, i.e. the vendor's own timestamp already agrees
-with the URL date, so there is no reason to recompute it and every reason to
-prefer the field the paper actually stamped.
+the number a reader of the actual paper would recognise. `date` is the
+Toronto calendar day of the YYYYMMDD it was fetched under ("2026-09-17"), the
+day the paper printed it; the payload's `publishTime` is that day's
+America/Toronto midnight, which is 04:00/05:00 UTC, so it names the same day.
 
 If `title` is ever NOT "No <digits>" this raises rather than guessing a
 number — matching fetch_independent.py's title parsing, and for the same
@@ -111,7 +109,7 @@ import sys
 import time
 import urllib.error
 from collections import deque
-from datetime import date, datetime, timedelta, timezone
+from datetime import date, datetime, timedelta
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -372,17 +370,13 @@ def convert(data, ymd):
         })
     entries.sort(key=lambda e: (e["position"]["y"], e["position"]["x"], e["direction"]))
 
-    publish_time = data.get("publishTime")
-    when_ms = int(publish_time) if publish_time else int(
-        datetime.strptime(ymd, "%Y%m%d").replace(tzinfo=timezone.utc).timestamp() * 1000)
-
     return {
         "id": series_meta.puzzle_id("globeandmail", number),
         "number": number,
         "series": "globeandmail",
         "name": f"Globe and Mail cryptic crossword No {number:,}",
         "setter": setter_name(data.get("author")),
-        "date": when_ms,
+        "date": date.fromisoformat(ymd).isoformat(),
         "dimensions": {"cols": data["w"], "rows": data["h"]},
         "source": {"url": PLAY_URL.format(ymd=ymd)},
         "entries": entries,
@@ -414,8 +408,8 @@ def fetch_date(ymd, out_dir, dry_run=False):
     is_new = not path.exists()
     if not is_new:
         old = read_puzzle_file(path)
-        old_day = datetime.fromtimestamp(old["date"] / 1000, timezone.utc).date()
-        new_day = datetime.fromtimestamp(puzzle["date"] / 1000, timezone.utc).date()
+        old_day = series_meta.puzzle_day(old)
+        new_day = series_meta.puzzle_day(puzzle)
         if old_day != new_day:
             # The paper's own title is what convert() files under (see its
             # NUMBERING note) and it has repeated for real: "No 3262" was
@@ -443,11 +437,9 @@ def days_between(start, end):
 
 
 def oldest_held():
-    stamps = [p["date"] for p in (read_puzzle_file(f) for f in puzzle_files())
-              if p["id"].startswith("globeandmail-")]
-    if not stamps:
-        return None
-    return datetime.fromtimestamp(min(stamps) / 1000, timezone.utc).date()
+    days = [series_meta.puzzle_day(p) for p in (read_puzzle_file(f) for f in puzzle_files())
+            if p["id"].startswith("globeandmail-")]
+    return min(days) if days else None
 
 
 def latest():

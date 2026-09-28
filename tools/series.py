@@ -326,30 +326,29 @@ def _load_books():
     return by_index
 
 
-# A puzzle holds `date`, epoch milliseconds at UTC midnight of the day its paper
-# printed it, or `year`, an integer, for a book whose imprint page prints only
+# A puzzle holds `date`, the calendar day its paper printed it as "YYYY-MM-DD"
+# in the paper's own timezone, or `year`, an integer, for a book whose imprint page prints only
 # the year; never both. A paper puzzle not yet dated off its neighbours holds
-# neither. Readers that need one number or one year ask here.
+# neither. Readers that need its day or its year ask here.
 
 
-def puzzle_ms(puzzle):
-    """The puzzle's date as epoch milliseconds, for sorting and comparing: a
-    `year` is its 1 January, UTC. None when it holds neither."""
+def puzzle_day(puzzle):
+    """The puzzle's calendar day as a datetime.date: its `date` ("YYYY-MM-DD"),
+    or a book puzzle's `year` as its 1 January. None when it holds neither.
+    Every reader of a puzzle's date goes through here; sort with
+    `puzzle_day(p) or datetime.date.min`."""
     if "year" in puzzle:
-        return int(datetime.datetime(puzzle["year"], 1, 1,
-                                     tzinfo=datetime.timezone.utc).timestamp() * 1000)
-    return puzzle.get("date")
+        return datetime.date(puzzle["year"], 1, 1)
+    if not puzzle.get("date"):
+        return None
+    return datetime.date.fromisoformat(puzzle["date"])
 
 
 def puzzle_year(puzzle):
-    """The puzzle's year: its `year`, or the UTC year of its `date`. None when
-    it holds neither."""
-    if "year" in puzzle:
-        return puzzle["year"]
-    if puzzle.get("date") is None:
-        return None
-    return datetime.datetime.fromtimestamp(puzzle["date"] / 1000,
-                                           datetime.timezone.utc).year
+    """The puzzle's year: its `year`, or the year of its `date`. None when it
+    holds neither."""
+    day = puzzle_day(puzzle)
+    return day.year if day else None
 
 
 BOOKS = _load_books()

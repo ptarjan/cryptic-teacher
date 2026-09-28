@@ -108,10 +108,12 @@ BLOG_CARDS = 2500
 
 def blog_card_ids():
     """The newest BLOG_CARDS puzzles that only a blog explains, newest first."""
+    import datetime
+
     import series
     rows = [p for p in json.loads((puzzle_paths.PUZZLE_DIR / "index.json").read_text(encoding="utf-8"))["puzzles"]
             if not p.get("annotated") and blog_facts_for(p)]
-    rows.sort(key=lambda p: -(series.puzzle_ms(p) or 0))
+    rows.sort(key=lambda p: series.puzzle_day(p) or datetime.date.min, reverse=True)
     return [p["id"] for p in rows[:BLOG_CARDS]]
 
 

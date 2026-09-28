@@ -440,7 +440,7 @@ def parse(xml_bytes, ymd):
             # and the whole point of the site is annotations written here.
 
     entries.sort(key=lambda e: (e["position"]["y"], e["position"]["x"], e["direction"]))
-    when = datetime.strptime(ymd, "%y%m%d").replace(tzinfo=timezone.utc)
+    day = datetime.strptime(ymd, "%y%m%d").replace(tzinfo=timezone.utc).date()
     series = series_for(ymd)
     paper = ("Independent on Sunday" if series == "indysunday" else "Independent")
     return {
@@ -449,7 +449,7 @@ def parse(xml_bytes, ymd):
         "series": series,
         "name": f"{paper} cryptic crossword No {number:,}",
         "setter": setter,
-        "date": int(when.timestamp() * 1000),
+        "date": day.isoformat(),
         "dimensions": {"cols": cols, "rows": rows},
         # The setter's special instructions, when a themed puzzle has them
         # ("Four clues have no definition"). Empty on an ordinary day.
@@ -486,11 +486,9 @@ def oldest_held(series):
     makes anchoring at the far end of the archive the difference between
     fetching N days and re-fetching the entire history to reach them.
     """
-    stamps = [p["date"] for p in (read_puzzle_file(f) for f in puzzle_files())
-              if p["id"].startswith(f"{series}-")]
-    if not stamps:
-        return None
-    return datetime.fromtimestamp(min(stamps) / 1000, timezone.utc).date()
+    days = [series_meta.puzzle_day(p) for p in (read_puzzle_file(f) for f in puzzle_files())
+            if p["id"].startswith(f"{series}-")]
+    return min(days) if days else None
 
 
 def sundays_back(n, end=None):

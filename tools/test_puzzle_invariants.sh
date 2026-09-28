@@ -137,7 +137,7 @@ write("23053-corrected", real("cryptic-23053"))
 
 
 def day(y, m, d):
-    return int(datetime.datetime(y, m, d, tzinfo=datetime.timezone.utc).timestamp() * 1000)
+    return datetime.date(y, m, d)
 
 
 def dates(name, rows):
@@ -159,7 +159,7 @@ dates("book-years", [("book", 1001, None, "book-1001"),
 held, flags = [], []
 for path in fetcher.puzzle_files():
     z = fetcher.read_puzzle_file(path)
-    held.append((z.get("series", "cryptic"), z["number"], z.get("date"), z["id"]))
+    held.append((z.get("series", "cryptic"), z["number"], pi.date_of(z), z["id"]))
     pi.check_setter(z, flags)
 pi.check_dates(held, flags)
 print("CORPUS " + ("; ".join(f"{f} {pid} {w}" for f, pid, w in flags[:5]) or "clean"))

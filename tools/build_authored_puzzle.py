@@ -17,13 +17,14 @@ letter-prefixed id has no hyphen before its digits) until we choose to publish o
       --fill tools/data/sample_fill_11.json \
       --clues tools/data/authored_A001_clues.json \
       --id A001 --name "Cryptic Teacher No 1" --setter "Cryptic Teacher" \
-      --annotated-by human
+      --date 2026-07-29 --annotated-by human
 
 --annotated-by says who wrote the clues' annotations — `human`, or the exact
 model id that drafted them — and lands in the top-level `annotatedBy`.
 """
 
 import argparse
+import datetime
 import json
 import sys
 from pathlib import Path
@@ -34,7 +35,7 @@ import puzzle_paths  # noqa: E402
 from fetch_puzzle import write_puzzle_file  # noqa: E402
 
 
-def build(fill_path, clues_path, puzzle_id, name, setter, date_ms):
+def build(fill_path, clues_path, puzzle_id, name, setter, day):
     fill = json.loads(Path(fill_path).read_text())
     clues = json.loads(Path(clues_path).read_text())
 
@@ -81,7 +82,7 @@ def build(fill_path, clues_path, puzzle_id, name, setter, date_ms):
         "series": "authored",
         "name": name,
         "setter": setter,
-        "date": date_ms,
+        "date": day.isoformat(),
         "dimensions": {"cols": size, "rows": size},
         "entries": entries,
     }
@@ -94,8 +95,8 @@ def main():
     ap.add_argument("--id", required=True)
     ap.add_argument("--name", required=True)
     ap.add_argument("--setter", default="Cryptic Teacher")
-    ap.add_argument("--date", type=int, required=True,
-                    help="publication date in epoch milliseconds")
+    ap.add_argument("--date", type=datetime.date.fromisoformat, required=True,
+                    help="publication day, YYYY-MM-DD")
     ap.add_argument("--annotated-by", required=True,
                     help="who wrote the annotations: human, or an exact model id")
     args = ap.parse_args()

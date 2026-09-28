@@ -250,7 +250,7 @@ import puzzle_integrity as pi
 import series
 
 book = series.book_number("newpenguinbkguar0000perk", 1)
-DAY = 1419984000000   # 2014-12-31
+DAY = "2014-12-31"
 def shape(series_key, number, **when):
     flags = []
     pi.check_shape({"id": f"{series_key}-{number}", "series": series_key,
@@ -266,6 +266,9 @@ print("BOOK_DAY", shape("book", book, year=series.published("book", book), date=
 print("PAPER_RIGHT", shape("cryptic", 30000, date=DAY))
 print("PAPER_YEAR", shape("cryptic", 30000, year=1995))
 print("PAPER_JUNK", shape("cryptic", 30000, date="1995"))
+print("PAPER_MS", shape("cryptic", 30000, date=1419984000000))
+print("PAPER_NO_DAY", shape("cryptic", 30000, date="2014-02-30"))
+print("PAPER_COMPACT", shape("cryptic", 30000, date="20141231"))
 PY
 )
 same "the registry's year passes" "$(field BOOK_RIGHT "$out6")" "0"
@@ -274,7 +277,10 @@ same "a book puzzle under another year is flagged" "$(field BOOK_WRONG_YEAR "$ou
 same "a book puzzle with a day is flagged" "$(field BOOK_DAY "$out6")" "1"
 same "a paper's day passes" "$(field PAPER_RIGHT "$out6")" "0"
 same "a paper's puzzle holding a year, and no date, is flagged twice" "$(field PAPER_YEAR "$out6")" "2"
-same "a date that is not epoch milliseconds is flagged" "$(field PAPER_JUNK "$out6")" "1"
+same "a date that is only a year is flagged" "$(field PAPER_JUNK "$out6")" "1"
+same "a date in epoch milliseconds is flagged" "$(field PAPER_MS "$out6")" "1"
+same "a date that is not a calendar day is flagged" "$(field PAPER_NO_DAY "$out6")" "1"
+same "a date not written YYYY-MM-DD is flagged" "$(field PAPER_COMPACT "$out6")" "1"
 
 echo "a file not at file_for is FILED: wrong year, flat stray, wrong name"
 scratch=$(mktemp -d)

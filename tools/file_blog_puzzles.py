@@ -151,11 +151,6 @@ def _nearest(slots, guesses, latest):
     return out[::-1]
 
 
-def epoch_ms(day):
-    return int(datetime.datetime(day.year, day.month, day.day,
-                                 tzinfo=datetime.timezone.utc).timestamp() * 1000)
-
-
 #: C1 controls: bytes the blog lost in decoding, never text.
 C1 = re.compile(r"[\x80-\x9f]")
 
@@ -403,7 +398,7 @@ def build(rec, row, series, date, setter, typed=None):
         "series": series,
         "name": f"{series_meta.publisher(series)} {kind.lower()} crossword No {number:,}",
         "setter": setter,
-        "date": date and epoch_ms(date),
+        "date": date.isoformat() if date else None,
         "dimensions": {"cols": len(row["grid"][0]), "rows": len(row["grid"])},
         "source": {"url": rec["link"]},
         # The blog's own name: "timesforthetimes", "bigdave44".
@@ -528,7 +523,8 @@ def run(source, grids, parsed, write=True, newest=None):
             # date is derived from facts that arrive after the file (the next
             # Saturday's title, the listing), and a name never replaces a name.
             fix = {}
-            if puzzle["date"] and held.get("date") != puzzle["date"]:
+            if puzzle["date"] and (series_meta.puzzle_day(held)
+                                   != series_meta.puzzle_day(puzzle)):
                 fix["date"] = puzzle["date"]
                 redated[series] += 1
             if (held.get("setter") == series_meta.default_setter(series)

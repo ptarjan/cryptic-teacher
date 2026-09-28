@@ -100,9 +100,9 @@ and `tools/build_readme.py` all do.
 ## Puzzle file format
 
 `puzzles/<series>/<year>/<series>-<n>.json` holds one puzzle as plain JSON. It
-is the committed source that every tool reads and writes. `<year>` is the UTC
-year of the puzzle's `date` (epoch milliseconds, the day the paper printed
-it). A book puzzle holds its book's `year`, an integer, instead of a `date` and is
+is the committed source that every tool reads and writes. `<year>` is the
+year of the puzzle's `date`, the calendar day the paper printed it, written
+`YYYY-MM-DD`. A book puzzle holds its book's `year`, an integer, instead of a `date` and is
 filed under that year. A puzzle with neither goes in `undated`. `tools/puzzle_paths.py` owns that
 rule, and `python3 tools/puzzle_paths.py <id>` prints where a puzzle is.
 Generated and not committed, `puzzles/<series>-<n>.js` stays flat, so no URL
@@ -117,7 +117,7 @@ Shape:
 ```jsonc
 {
   "id": "cryptic-30066", "number": 30066, "name": "Cryptic crossword No 30,066",
-  "setter": "Tramp", "date": 1784764800000, "dimensions": {"rows": 15, "cols": 15},
+  "setter": "Tramp", "date": "2026-07-23", "dimensions": {"rows": 15, "cols": 15},
   "source": {"url": "https://www.theguardian.com/crosswords/cryptic/30066"},
   "entries": [
     {

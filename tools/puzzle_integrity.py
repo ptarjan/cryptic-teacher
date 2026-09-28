@@ -80,7 +80,7 @@ The flags, in the order they matter:
             per-clue forgiveness can be — a solution
             carrying something other than letters, the same entry id twice in one
             puzzle, a date in the future or before EARLIEST_YEAR, a date that
-            is not epoch milliseconds, a book puzzle whose `year` is not its
+            is not a real calendar day written YYYY-MM-DD, a book puzzle whose `year` is not its
             book's `published` year or that holds a date, a `year` on a paper's
             puzzle, no date at all where the source prints one, a blog's brace markup left in a clue, a
             clue transcribed from a blog with no enumeration, and — from
@@ -861,15 +861,13 @@ def check_shape(puzzle, today, flags):
         if not series_meta.is_book(series):
             flags.append(("SHAPE", pid, f"no date; a {series} puzzle always "
                           f"has one (file_blog_puzzles.fit_undated)"))
-    elif not isinstance(puzzle["date"], int):
-        flags.append(("SHAPE", pid, f"date {puzzle['date']!r} is not epoch "
-                      f"milliseconds"))
-    else:
-        d = datetime.fromtimestamp(puzzle["date"] / 1000, timezone.utc).date()
-        if d > today:
-            flags.append(("SHAPE", pid, f"dated {d}, which is in the future"))
-        elif d.year < EARLIEST_YEAR:
-            flags.append(("SHAPE", pid, f"dated {d}, before cryptics existed"))
+    elif (d := date_of(puzzle)) is None:
+        flags.append(("SHAPE", pid, f"date {puzzle['date']!r} is not a calendar "
+                      f"day written YYYY-MM-DD"))
+    elif d > today:
+        flags.append(("SHAPE", pid, f"dated {d}, which is in the future"))
+    elif d.year < EARLIEST_YEAR:
+        flags.append(("SHAPE", pid, f"dated {d}, before cryptics existed"))
 
     # A clue marked clueMissing is forgiven one at a time, because a setter who
     # prints one blank clue means it. A puzzle where EVERY clue is blank is not a
@@ -1188,22 +1186,34 @@ def refuse_bad_write(puzzle, old=None):
                          + "; ".join(f"{flag} {what}" for flag, _, what in flags))
 
 
-def _utc_day(ms):
-    return datetime.fromtimestamp(ms / 1000, timezone.utc).date()
+ISO_DAY = re.compile(r"\d{4}-\d{2}-\d{2}")
+
+
+def date_of(puzzle):
+    """series.puzzle_day() of a paper puzzle whose `date` is a real calendar
+    day written YYYY-MM-DD; None for anything else (an int, "2024-02-30",
+    "20240101"), which check_puzzle flags."""
+    date = puzzle.get("date")
+    if not isinstance(date, str) or not ISO_DAY.fullmatch(date):
+        return None
+    try:
+        return series_meta.puzzle_day(puzzle)
+    except ValueError:
+        return None
 
 
 def check_dates(held, flags):
     """A series' dates rise with its numbers: one puzzle per issue, numbered in
     the order they are printed. A later number dated on or before an earlier
-    one is a date read off the wrong day. `held` is (series, number, date, id) per puzzle."""
+    one is a date read off the wrong day. `held` is (series, number, day, id)
+    per puzzle, the day a datetime.date or None."""
     by_series = defaultdict(list)
     for series, number, date, pid in held:
         if not series_meta.is_book(series):
             by_series[series].append((number, date, pid))
     for series, rows in by_series.items():
         rows.sort()
-        dated = [(n, _utc_day(d), pid)
-                 for n, d, pid in rows if d is not None]
+        dated = [(n, d, pid) for n, d, pid in rows if d is not None]
         for (a, da, _), (_b, db, pid) in pairwise(dated):
             if db <= da:
                 finding = f"dated {db}, not after {series}-{a}'s {da}"
@@ -1260,7 +1270,7 @@ def audit(paths, today):
         check_filed(path, puzzle, flags)
         by_content[content_hash(puzzle)].append(puzzle["id"])
         held.append((puzzle.get("series", "cryptic"), puzzle["number"],
-                     puzzle.get("date"), puzzle["id"]))
+                     date_of(puzzle), puzzle["id"]))
         check_puzzle(puzzle, today, flags)
     check_dates(held, flags)
     check_strays(set(paths), flags)

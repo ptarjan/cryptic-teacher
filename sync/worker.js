@@ -376,7 +376,8 @@ export default {
 
     const known = new Set(seen);
     const now = Date.now();
-    const cutoff = now - ANNOUNCE_DAYS * 24 * 60 * 60 * 1000;
+    // `date` is "YYYY-MM-DD", so the cutoff is too, and they compare as strings.
+    const cutoff = new Date(now - ANNOUNCE_DAYS * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
     const fresh = puzzles.filter((p) => !known.has(p.id) && p.date >= cutoff);
 
     // No early return on an empty `fresh`: the run that delivers a held puzzle

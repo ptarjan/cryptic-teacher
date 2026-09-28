@@ -65,9 +65,9 @@ Date.now = () => clock;
 
 const fresh = [
   { id: "cryptic-99001", series: "cryptic", name: "Cryptic crossword No 99,001",
-    setter: "Paul", annotated: true, date: clock, difficulty: { band: "Tough" } },
+    setter: "Paul", annotated: true, date: new Date(clock).toISOString().slice(0, 10), difficulty: { band: "Tough" } },
   { id: "everyman-99002", series: "everyman", name: "Everyman crossword No 99,002",
-    setter: "Everyman", annotated: true, date: clock, difficulty: null },
+    setter: "Everyman", annotated: true, date: new Date(clock).toISOString().slice(0, 10), difficulty: null },
 ];
 const index = { ...INDEX, puzzles: [...fresh, ...INDEX.puzzles] };
 
@@ -145,7 +145,7 @@ check(to("legacy") === 1, "for the subscriber with no quiet hours too: " + to("l
 // --- a paper un-ticked while its puzzle waited must not arrive anyway ---
 clock = Date.parse("2026-09-09T09:00:00Z");   // 03:00 again
 const late = { id: "everyman-99003", series: "everyman", name: "Everyman crossword No 99,003",
-  setter: "Everyman", annotated: true, date: clock, difficulty: null };
+  setter: "Everyman", annotated: true, date: new Date(clock).toISOString().slice(0, 10), difficulty: null };
 index.puzzles.unshift(late);
 await worker.scheduled({}, env);
 check(JSON.stringify(heldNow()) === JSON.stringify(["everyman-99003"]), "a later night queues again");

@@ -1,7 +1,7 @@
 /* Where a puzzle's file lives, for node: puzzles/<series>/<year>/<id>.json.
 
    The same rule as tools/puzzle_paths.py, which owns it and documents it: the
-   series from the id, the UTC year of the puzzle's `date` or a book puzzle's
+   series from the id, the year of the puzzle's `date` (YYYY-MM-DD) or a book puzzle's
    `year`, `undated` when it holds neither. The browser never reads these
    files — it loads the flat puzzles/<id>.js shims — so only harnesses that
    read the sources need this. */
@@ -17,7 +17,7 @@ const PUZZLE_FILE = /^[a-z0-9]+-\d[^/]*\.json$/;
 function yearFolder(puzzle) {
   if (puzzle.year !== undefined) return String(puzzle.year);
   if (puzzle.date === undefined) return UNDATED;
-  return String(new Date(puzzle.date).getUTCFullYear());
+  return puzzle.date.slice(0, 4);
 }
 
 function seriesFolder(id) {

@@ -45,7 +45,7 @@ import unicodedata
 import urllib.error
 import urllib.request
 from collections import Counter
-from datetime import datetime, timezone
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -1437,7 +1437,8 @@ def reconstruct_groups(entries, series):
 
 
 def _day(ms):
-    """An epoch-milliseconds date as a readable day, for error messages."""
+    """The UTC calendar day of an epoch-milliseconds stamp, the form the
+    Guardian's page JSON gives `date` and `webPublicationDate` in."""
     return datetime.fromtimestamp(ms / 1000, timezone.utc).date()
 
 
@@ -1446,7 +1447,7 @@ def _day(ms):
 # convert(). Named because tools/repair_fetched.py measures already-written
 # files against the same month, and a second number there could drift from
 # this one into disagreeing about which stored puzzles are mis-filed.
-MISFILED_MS = 30 * 86_400_000
+MISFILED = timedelta(days=30)
 
 
 # What a solution is allowed to hold: the capital letters a solver writes into
@@ -1697,22 +1698,21 @@ SOURCE_DATE_WRONG = {
 
 
 def correct_source_date(pid, when):
-    """The date to file for `pid`, given the `when` its page serves."""
+    """The day to file for `pid`, given the day `when` its page serves."""
     if pid not in SOURCE_DATE_WRONG or when is None:
         return when
     served, corrected, _why = SOURCE_DATE_WRONG[pid]
-    if str(_day(when)) != served:
+    if when.isoformat() != served:
         print(f"WARNING: SOURCE_DATE_WRONG {pid} is STALE: the page serves "
-              f"{_day(when)}, not the {served} this table replaces with "
+              f"{when}, not the {served} this table replaces with "
               f"{corrected} — leaving it as published, delete the key",
               file=sys.stderr)
         return when
-    shift = (datetime.fromisoformat(corrected) - datetime.fromisoformat(served)).days
-    return when + shift * 86_400_000
+    return date.fromisoformat(corrected)
 
 
 def fits_sequence(series, number, when):
-    """Does `when` sit where the puzzles held either side of `number` put it?
+    """Does the day `when` sit where the puzzles held either side of `number` put it?
 
     Both neighbours must be on disk within ARCHIVE_GAP numbers, so a page far
     from the continuous run (cryptic 1,183) never qualifies.
@@ -1721,11 +1721,11 @@ def fits_sequence(series, number, when):
         for k in range(1, ARCHIVE_GAP + 1):
             path = puzzle_path(series, number + step * k)
             if path.exists():
-                return read_puzzle_file(path).get("date")
+                return series_meta.puzzle_day(read_puzzle_file(path))
         return None
     below, above = nearest(-1), nearest(1)
     return (below is not None and above is not None
-            and below - MISFILED_MS <= when <= above + MISFILED_MS)
+            and below - MISFILED <= when <= above + MISFILED)
 
 
 def convert(data):
@@ -1831,12 +1831,14 @@ def convert(data):
     # So the page is refused only when its own `date` ALSO falls outside where
     # the sequence puts it — the same neighbour window, and the same month of
     # slack, that tools/repair_fetched.py measures stored files against.
-    when, published = data.get("date"), data.get("webPublicationDate")
-    if (when and published and abs(when - published) > MISFILED_MS
+    when = data.get("date") and _day(data["date"])
+    published = data.get("webPublicationDate") and _day(data["webPublicationDate"])
+    if (when and published and abs(when - published) > MISFILED
             and not fits_sequence(series, data["number"], when)):
         raise ValueError(
-            f"{data['id']}: date {_day(when)} contradicts webPublicationDate "
-            f"{_day(published)} — mis-filed page, refusing to write it")
+            f"{data['id']}: date {when} contradicts webPublicationDate "
+            f"{published} — mis-filed page, refusing to write it")
+    when = correct_source_date(pid, when)
 
     return {
         "id": pid,
@@ -1845,7 +1847,7 @@ def convert(data):
         "name": data["name"],
         "setter": (((data.get("creator") or {}).get("name") or "").strip()
                    or series_meta.default_setter(series)),
-        "date": correct_source_date(pid, data.get("date")),
+        **({"date": when.isoformat()} if when else {}),
         "dimensions": data["dimensions"],
         # The paper's own note above the clues: a themed puzzle's special
         # instructions, or an erratum. Absent when the page has none.
@@ -2091,7 +2093,7 @@ def reindex():
             "series": p["series"],
             "name": p["name"],
             **({"setter": p["setter"]} if "setter" in p else {}),
-            # As in the file: `date` (epoch ms) for a paper, `year` for a book.
+            # As in the file: `date` (YYYY-MM-DD) for a paper, `year` for a book.
             **{k: p[k] for k in ("date", "year") if k in p},
             # The generated shim, because that is what app.js injects — the
             # .json beside it is the source the shim was built from.
@@ -2133,7 +2135,7 @@ def reindex():
     # and sorting on the number would bury every quiptic below every cryptic
     # forever. Ties (a Monday publishes both) put the cryptic first, so the daily
     # cryptic stays the puzzle the site opens on.
-    puzzles.sort(key=lambda p: (series_meta.puzzle_ms(p) or 0,
+    puzzles.sort(key=lambda p: (series_meta.puzzle_day(p) or date.min,
                                 p["series"] == "cryptic", p["number"]),
                  reverse=True)
     # Which paper each series belongs to, carried here rather than looked up.
@@ -2353,7 +2355,7 @@ REFRESH_WINDOW_DAYS = 90
 def still_worth_refreshing(puzzle, now=None):
     """Should a nightly refresh still ask this puzzle's source for answers?
 
-    Anchored on `date` — the puzzle's own publication day, epoch milliseconds —
+    Anchored on `date` — the puzzle's own publication day —
     when the puzzle has one. A puzzle with no date (an un-backfilled Cyclops;
     see tools/fetch_privateeye.py's backfill_dates) falls back to
     source.acquiredOn, the day this repo first saw it: not the same fact,
@@ -2364,9 +2366,9 @@ def still_worth_refreshing(puzzle, now=None):
     failure REFRESH_WINDOW_DAYS exists to end.
     """
     when = None
-    ms = series_meta.puzzle_ms(puzzle)
-    if ms:
-        when = datetime.fromtimestamp(ms / 1000, timezone.utc)
+    day = series_meta.puzzle_day(puzzle)
+    if day:
+        when = datetime(day.year, day.month, day.day, tzinfo=timezone.utc)
     else:
         acquired = (puzzle.get("source") or {}).get("acquiredOn")
         if acquired:
