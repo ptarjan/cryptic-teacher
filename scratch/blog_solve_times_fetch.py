@@ -6,6 +6,7 @@ import json, random, re, sys, time, urllib.request
 from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
+import puzzle_paths  # noqa: E402
 from fetch_wp_blog import UA, BLOGS
 BD = BLOGS["bigdave44"]
 OUT = Path.home() / ".cache/blog_solve_times/bigdave44"
@@ -28,8 +29,8 @@ def main():
         import difficulty as D
         from fetch_puzzle import read_puzzle_file
         for pid, v in facts.items():
-            f = ROOT / "puzzles" / f"{pid}.json"
-            if (v.get("blog") == "bigdave44" and v["url"].rstrip("/") in link2id and f.exists()
+            f = puzzle_paths.find(pid)
+            if (v.get("blog") == "bigdave44" and v["url"].rstrip("/") in link2id and f
                     and D.puzzle_is_annotated(read_puzzle_file(f))):
                 sample[pid] = link2id[v["url"].rstrip("/")]
     (OUT / "sample.json").write_text(json.dumps(sample, indent=0))

@@ -144,8 +144,9 @@ jobs:
           if node tools/ci_shards.js --needs-pages < "$RUNNER_TEMP/mine"; then
             echo "pages=true" >> "$GITHUB_OUTPUT"
           fi
-      # --reindex builds the index and puzzles/<id>.js from puzzles/<id>.json
-      # (a clone has only the .json), and every test that loads a puzzle the
+      # --reindex builds the index and puzzles/<id>.js from each
+      # puzzles/<series>/<year>/<id>.json (a clone has only the .json), and
+      # every test that loads a puzzle the
       # way the browser does needs those shims. The glossary comes first
       # because --reindex restamps index.html, and a stamp is a hash of the file
       # it points at. Neither touches the network.

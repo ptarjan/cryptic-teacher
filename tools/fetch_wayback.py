@@ -83,7 +83,8 @@ import urllib.error
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from fetch_puzzle import (PUZZLE_DIR, convert, http_bytes,  # noqa: E402
+import puzzle_paths  # noqa: E402
+from fetch_puzzle import (convert, http_bytes,  # noqa: E402
                           puzzle_path, reindex, write_puzzle_file)
 import series as series_meta  # noqa: E402
 
@@ -195,19 +196,19 @@ def main(argv):
                          f"through {YEARS_TO_TRY}")
     p.add_argument("--dry-run", action="store_true",
                     help="fetch and report, but write nothing")
-    p.add_argument("--out", type=Path, default=PUZZLE_DIR,
-                    help="output directory (default: the repo's puzzles dir)")
+    p.add_argument("--out", type=Path,
+                    help="write flat into this directory instead of the corpus")
     args = p.parse_args(argv)
+    args.out = args.out or puzzle_paths.PUZZLE_DIR
 
     numbers = numbers_from_args(args)
     years = (args.year,) if args.year else YEARS_TO_TRY
     args.out.mkdir(parents=True, exist_ok=True)
-    is_live_dir = args.out.resolve() == PUZZLE_DIR.resolve()
+    is_live_dir = args.out.resolve() == puzzle_paths.PUZZLE_DIR.resolve()
 
     recovered = skipped = already = 0
     for num in numbers:
-        # puzzle_path() always resolves against the real puzzles/ dir, so it
-        # can't stand in when --out points elsewhere.
+        # The corpus files by puzzle_path(); --out writes flat.
         path = (puzzle_path(args.series, num) if is_live_dir
                 else args.out / f"{series_meta.puzzle_id(args.series, num)}.json")
         if path.exists():
@@ -221,7 +222,7 @@ def main(argv):
         if args.dry_run:
             print(f"  DRY RUN — would write {path}")
         else:
-            write_puzzle_file(path, puzzle, generator="tools/fetch_wayback.py")
+            path = write_puzzle_file(path, puzzle, generator="tools/fetch_wayback.py")
             print(f"  wrote {path}")
         recovered += 1
 

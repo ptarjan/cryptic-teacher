@@ -9,7 +9,7 @@ Usage:
                                                      # we hold (default 30), walking the
                                                      # number sequence downward
   python3 tools/fetch_privateeye.py --dry-run 838    # parse and print, write nothing
-  python3 tools/fetch_privateeye.py --out DIR ...    # write elsewhere (default puzzles/)
+  python3 tools/fetch_privateeye.py --out DIR ...    # write flat into DIR instead of the corpus
   python3 tools/fetch_privateeye.py --backfill-dates
                                                      # fill in the publication date of
                                                      # every on-disk Cyclops missing one,
@@ -96,7 +96,9 @@ import urllib.request
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from fetch_puzzle import (PUZZLE_DIR, enumeration_separators, grade_model_fill, http_bytes,  # noqa: E402
+import puzzle_paths  # noqa: E402
+import series as series_meta  # noqa: E402
+from fetch_puzzle import (enumeration_separators, grade_model_fill, http_bytes,  # noqa: E402
                           merge_annotations, print_grade, puzzle_files,
                           puzzle_path, read_puzzle_file, still_worth_refreshing,
                           write_puzzle_file)
@@ -1017,11 +1019,16 @@ def solve_from_fifteensquared(puzzle, post):
 
 # ---------- fetch / walk ----------
 
+def is_corpus(out_dir):
+    return out_dir.resolve() == puzzle_paths.PUZZLE_DIR.resolve()
+
+
 def out_path(out_dir, num):
-    """out_dir's own copy of whatever fetch_puzzle.puzzle_path() would name
-    this number under puzzles/ itself — so --out can redirect where a puzzle
-    lands without spelling the file name format a second time."""
-    return out_dir / puzzle_path(SERIES, num).name
+    """Where puzzle `num` is held in out_dir: the corpus's own file for the
+    corpus (puzzle_path), otherwise <id>.json flat in the --out directory."""
+    if is_corpus(out_dir):
+        return puzzle_path(SERIES, num)
+    return out_dir / f"{series_meta.puzzle_id(SERIES, num)}.json"
 
 
 def fill_answers(puzzle, num, old_puzzle):
@@ -1127,7 +1134,7 @@ def refresh_unsolved():
 
     filled = 0
     for num in pending:
-        path = out_path(PUZZLE_DIR, num)
+        path = out_path(puzzle_paths.PUZZLE_DIR, num)
         puzzle = read_puzzle_file(path)
         was_model = (puzzle.get("solutionSource") or {}).get("kind") == "model"
         guessed = ({e["id"]: e.get("solution") for e in puzzle["entries"]}
@@ -1160,13 +1167,18 @@ def stamp_date(path, epoch_ms):
     here is the date: re-emitting the whole file would also quietly restyle
     everything the annotators have written into it. The pattern is anchored to
     the top-level field's one-space indent, so the deeper `solutionSource.date`
-    cannot match.
+    cannot match. A corpus file moves to the year folder its new date files
+    it under.
     """
     text = path.read_text()
     text, count = DATE_LINE.subn(f' "date": {epoch_ms},', text, count=1)
     if count != 1:
         raise ValueError(f"{path.name}: no top-level date line to write")
-    path.write_text(text)
+    dest = puzzle_paths.file_for(json.loads(text)) if puzzle_paths.in_corpus(path) else path
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    dest.write_text(text)
+    if dest != path:
+        path.unlink()
 
 
 def backfill_dates(out_dir, dry_run=False):
@@ -1243,8 +1255,9 @@ DAY_MS = 86_400_000
 
 def on_disk_numbers(out_dir):
     prefix = f"{SERIES}-"
-    return sorted(int(p.stem[len(prefix):]) for p in out_dir.glob(f"{prefix}*.json")
-                  if p.stem[len(prefix):].isdigit())
+    files = puzzle_files() if is_corpus(out_dir) else out_dir.glob(f"{prefix}*.json")
+    return sorted(int(p.stem[len(prefix):]) for p in files
+                  if p.stem.startswith(prefix) and p.stem[len(prefix):].isdigit())
 
 
 def find_latest_number():
@@ -1287,10 +1300,11 @@ def main(argv):
     parser.add_argument("--latest", action="store_true")
     parser.add_argument("--extend", nargs="?", const=30, type=int)
     parser.add_argument("--dry-run", action="store_true")
-    parser.add_argument("--out", type=Path, default=PUZZLE_DIR)
+    parser.add_argument("--out", type=Path)
     parser.add_argument("--refresh-unsolved", action="store_true")
     parser.add_argument("--backfill-dates", action="store_true")
     args = parser.parse_args(argv)
+    args.out = args.out or puzzle_paths.PUZZLE_DIR
 
     args.out.mkdir(parents=True, exist_ok=True)
 

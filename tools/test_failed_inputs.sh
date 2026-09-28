@@ -42,10 +42,11 @@ export FAILED_INPUTS_FILE="$sand/ledger.json"
 export FAILED_INPUTS_PUZZLES="$sand/puzzles"
 ledger() { python3 tools/failed_inputs.py "$@"; }
 
-puzzle() {  # id answer [annotation-type] — one-entry puzzle file
-  python3 - "$sand/puzzles/$1.json" "$2" "${3:-}" <<'EOF'
-import json, sys
+puzzle() {  # id answer [annotation-type] — one-entry, undated puzzle file
+  python3 - "$sand/puzzles/${1%-*}/undated/$1.json" "$2" "${3:-}" <<'EOF'
+import json, os, sys
 path, answer, ann = sys.argv[1:]
+os.makedirs(os.path.dirname(path), exist_ok=True)
 e = {"id": "1-across", "clue": "Test (3)", "solution": answer, "length": 3,
      "position": {"x": 0, "y": 0}, "direction": "across"}
 if ann:
@@ -133,7 +134,7 @@ check "three days old is backlog" "$(fresh_q)" ""
 echo "a puzzle whose official key landed tonight is a new arrival too"
 git -C "$sand" init -q
 puzzle old-1 ""
-git -C "$sand" add puzzles/old-1.json
+git -C "$sand" add puzzles/old/undated/old-1.json
 git -C "$sand" -c user.name=t -c user.email=t@t commit -qm keyless
 puzzle old-1 CAT
 index old-1:300:no old-2:200:no old-3:100:no

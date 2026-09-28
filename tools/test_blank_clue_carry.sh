@@ -110,12 +110,12 @@ same "blank over blank stays blank" "$(grep '^BLANK ' <<<"$out")" "BLANK (5) Tru
 # puzzle_integrity to report, not a red build. What must never come back is a
 # puzzle that was recovered and then emptied again.
 empty=$(PYTHONPATH=tools python3 - <<'PY'
-from pathlib import Path
 import fetch_puzzle as fetcher
+import puzzle_paths
 bad = []
 for n in (22809, 22845, 22929, 23053, 23269, 23370, 23466, 23598, 23646, 23669,
           23681, 23717, 23789, 23821, 23897, 23945, 24141, 24243, 24307, 24331):
-    p = fetcher.read_puzzle_file(Path("puzzles") / f"cryptic-{n}.json")
+    p = fetcher.read_puzzle_file(puzzle_paths.find(f"cryptic-{n}"))
     c = fetcher.clue_coverage(p)
     if c["present"] < c["total"]:
         bad.append(f"{p['id']} {c['present']}/{c['total']}")

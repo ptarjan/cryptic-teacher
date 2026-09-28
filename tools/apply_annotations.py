@@ -206,7 +206,7 @@ def main(argv):
     unsolved = total - solved
     tail = f", {unsolved} left null" if unsolved else ""
     print(f"apply_annotations: {solved}/{total} annotations -> "
-          f"puzzles/{path.name}{tail}")
+          f"{os.path.relpath(path, TOOLS.parent)}{tail}")
     if not validate:
         return 0
     return subprocess.run([sys.executable, str(TOOLS / "validate_annotations.py"),

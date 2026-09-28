@@ -49,11 +49,14 @@ og/                                          one 1200x630 social card per puzzle
 puzzles/index.json, puzzles/index.js         manifest: one row per puzzle, latest first, and
                                              the same as a script so file:// works — built by
                                              tools/fetch_puzzle.py --reindex, not committed
-puzzles/<series>-<n>.json                    one puzzle per file, plain JSON: the whole file is
-                                             the payload
+puzzles/<series>/<year>/<series>-<n>.json    one puzzle per file, plain JSON: the whole file is
+                                             the payload; <year> is the UTC year of its date (a
+                                             book's year as printed), or `undated` —
+                                             tools/puzzle_paths.py owns the rule
 puzzles/<series>-<n>.js                      the same puzzle as a script, so app.js can inject
-                                             it from file:// — built by tools/fetch_puzzle.py
-                                             --reindex, not committed
+                                             it from file:// — flat, so its URL does not move
+                                             with the source's year; built by
+                                             tools/fetch_puzzle.py --reindex, not committed
 
 the rest of the site
 site.webmanifest                             PWA name, icons and display mode
@@ -98,6 +101,13 @@ tools/test_repair_fetched.sh                 builds a puzzle file with each of t
                                              and proves the repair fixes it, leaves a clean
                                              file and a real Cyclops per-light group
                                              byte-identical, and is clean on the second run
+tools/puzzle_paths.py                        where a puzzle's file lives,
+                                             puzzles/<series>/<year>/<id>.json: the one place
+                                             the layout is spelled, and `python3
+                                             tools/puzzle_paths.py ID...` prints a held
+                                             puzzle's path for shell scripts and prompts
+tools/puzzle_paths.js                        the same rule for node, for the harnesses that
+                                             read the puzzle sources
 tools/puzzle_schema.py                       checks every puzzle file against
                                              tools/data/puzzle.schema.json, and prunes null and
                                              empty values on every write: an absent key means

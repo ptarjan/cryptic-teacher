@@ -54,8 +54,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import app_tables  # noqa: E402 — app.js's tables, read from app.js
 import clue_types  # noqa: E402
 from fetch_puzzle import (  # noqa: E402 — one glob, one reader, one puzzles/ for every tool
-    PUZZLE_DIR, blog_annotation, blog_facts_for, puzzle_files, read_puzzle_file,
+    blog_annotation, blog_facts_for, puzzle_files, read_puzzle_file,
     with_blog_facts)
+import puzzle_paths  # noqa: E402
 CARD = REPO / "tools" / "og_card.html"
 # Quiptic 1,393 3D: "Woman found in Oregon or Maine (5)" — five short words, a
 # definition anyone can check, and NORMA sitting across the state line. This is
@@ -82,9 +83,9 @@ def puzzle_file(pid):
     number that matched two series would put one paper's grid on the other
     paper's card.
     """
-    path = PUZZLE_DIR / f"{pid}.json"
-    if not path.exists():
-        raise SystemExit(f"no puzzle {pid} in {PUZZLE_DIR}")
+    path = puzzle_paths.find(pid)
+    if path is None:
+        raise SystemExit(f"no puzzle {pid} in {puzzle_paths.PUZZLE_DIR}")
     return path
 
 
@@ -108,7 +109,7 @@ BLOG_CARDS = 2500
 def blog_card_ids():
     """The newest BLOG_CARDS puzzles that only a blog explains, newest first."""
     import series
-    rows = [p for p in json.loads((PUZZLE_DIR / "index.json").read_text(encoding="utf-8"))["puzzles"]
+    rows = [p for p in json.loads((puzzle_paths.PUZZLE_DIR / "index.json").read_text(encoding="utf-8"))["puzzles"]
             if not p.get("annotated") and blog_facts_for(p)]
     rows.sort(key=lambda p: -(series.date_ms(p.get("date")) or 0))
     return [p["id"] for p in rows[:BLOG_CARDS]]

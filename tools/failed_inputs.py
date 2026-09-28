@@ -38,7 +38,11 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 LEDGER = Path(os.environ.get("FAILED_INPUTS_FILE")
               or Path(os.environ.get("CT_MAIN_CHECKOUT") or ROOT) / ".failed_inputs.json")
-PUZZLES = Path(os.environ.get("FAILED_INPUTS_PUZZLES") or ROOT / "puzzles")
+sys.path.insert(0, str(ROOT / "tools"))
+import puzzle_paths  # noqa: E402
+
+if os.environ.get("FAILED_INPUTS_PUZZLES"):
+    puzzle_paths.PUZZLE_DIR = Path(os.environ["FAILED_INPUTS_PUZZLES"])
 BLIND_STASH = ROOT / ".blind"
 
 # Per kind: the code whose change can turn this failure into a success. The
@@ -63,14 +67,17 @@ ENTRY_INPUTS = ("id", "clue", "solution", "length", "position", "direction")
 
 
 def puzzle_inputs(pid):
-    """The clues, answers and grid of puzzles/<pid>.json, or None if missing.
+    """The clues, answers and grid of puzzle <pid>'s file, or None if missing.
 
     During a blind run the answers sit in .blind/<pid>.json and the file holds
     blanks. The stash is read in their place, so a failure recorded mid-run
     hashes the same key the next night will.
     """
+    path = puzzle_paths.find(pid)
+    if path is None:
+        return None
     try:
-        puzzle = json.loads((PUZZLES / f"{pid}.json").read_text(encoding="utf-8"))
+        puzzle = json.loads(path.read_text(encoding="utf-8"))
     except (FileNotFoundError, ValueError):
         return None
     key = {}

@@ -37,7 +37,8 @@ sys.path.insert(0, str(ROOT / "tools"))
 sys.path.insert(0, str(ROOT / "scratch"))
 import difficulty as D
 import snitch_stage10 as S10
-from fetch_puzzle import PUZZLE_DIR, read_puzzle_file
+from fetch_puzzle import read_puzzle_file
+import puzzle_paths
 
 BASE = Path(os.environ.get("STAGE10_ROWS") or Path.home() / ".cache" / "cryptic-stage10-shipped.json")
 CACHE = Path(os.environ.get("STAGE11_ROWS") or Path.home() / ".cache" / "cryptic-stage11-rows.json")
@@ -98,7 +99,7 @@ def dump():
     rows = json.loads(BASE.read_text())
     rank = D.ranks()
     for r in rows:
-        r["cand"] = cand(read_puzzle_file(PUZZLE_DIR / f"{r['pid']}.json"), rank)
+        r["cand"] = cand(read_puzzle_file(puzzle_paths.find(r["pid"])), rank)
     CACHE.write_text(json.dumps(rows))
     print(len(rows), "rows")
 

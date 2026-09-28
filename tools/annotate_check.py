@@ -104,7 +104,7 @@ def view_path(path):
 
 
 def write_view(path):
-    """Write the annotate run's copy of puzzles/<ID>.json, current as of now."""
+    """Write the annotate run's copy of the puzzle file, current as of now."""
     puzzle = read_puzzle_file(path)
     view = {k: puzzle[k] for k in VIEW_KEYS if k in puzzle}
     view_path(path).write_text(json.dumps(view, indent=1, ensure_ascii=False) + "\n",
@@ -171,6 +171,7 @@ def main(argv):
         return 0
     path = resolve_puzzle(argv[0])
     stem = path.stem
+    shown = path.relative_to(ROOT) if path.is_relative_to(ROOT) else path
     pending = default_input(path)
     issues = []
 
@@ -184,11 +185,11 @@ def main(argv):
             # would be a lie in the direction of "fine".
             print(f"\nannotate_check {stem}: STOPPED — the annotations were not "
                   f"applied, so everything below would be about the previous "
-                  f"contents of puzzles/{path.name}. Fix {pending.name} and re-run.")
+                  f"contents of {shown}. Fix {pending.name} and re-run.")
             return rc
     else:
         print(f"no {pending.name}, so nothing to apply — checking "
-              f"puzzles/{path.name} as it stands")
+              f"{shown} as it stands")
 
     buf = io.StringIO()
     with contextlib.redirect_stdout(buf):
@@ -223,7 +224,7 @@ def main(argv):
     try:
         json.loads(path.read_text(encoding="utf-8"))
     except ValueError as err:
-        print(f"\npuzzles/{path.name} is not valid JSON:\n{err}")
+        print(f"\n{shown} is not valid JSON:\n{err}")
         issues.append("the file is not valid JSON")
 
     write_view(path)
@@ -242,7 +243,7 @@ def main(argv):
         # and the field backfills, which edit the puzzle in place. Naming a file
         # that is not there is an invitation to go looking for it.
         where = (f"tools/{pending.name}" if pending.exists()
-                 else f"puzzles/{path.name}")
+                 else f"{shown}")
         print(f"Fix ALL of these in one edit of {where}, then run "
               f"this command again. Re-running to confirm one fix at a time "
               f"costs a turn per warning and tells you nothing this run did not.")

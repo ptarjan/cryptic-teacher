@@ -58,8 +58,6 @@ from fetch_puzzle import (enumeration_separators, flatten_clue, http_bytes, has_
 from fetch_wayback import maybe_gunzip, SLEEP_SECONDS  # noqa: E402 — shared Wayback plumbing
 import series as series_meta  # noqa: E402 — for puzzle_id()/default_setter() only
 
-ROOT = Path(__file__).resolve().parent.parent
-PUZZLE_DIR = ROOT / "puzzles"
 URL = "https://metro.co.uk/puzzles/cryptic-crossword/"
 SERIES = "metro"
 
@@ -292,7 +290,6 @@ def fetch_today(force=False):
     if path.exists() and not force:
         return puzzle, False
 
-    PUZZLE_DIR.mkdir(exist_ok=True)
     write_puzzle_file(path, puzzle, generator="tools/fetch_metro.py")
     return puzzle, True
 
@@ -382,8 +379,7 @@ def backfill_wayback(dry_run=False):
             if dry_run:
                 print(f"DRY RUN — would write {path}")
             else:
-                PUZZLE_DIR.mkdir(exist_ok=True)
-                write_puzzle_file(path, puzzle,
+                path = write_puzzle_file(path, puzzle,
                                   generator="tools/fetch_metro.py --wayback")
                 print(f"wrote {path}")
             written += 1

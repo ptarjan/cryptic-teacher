@@ -30,7 +30,9 @@ does not, the parse is wrong, so rethink it rather than stretch it.
 
 ## Schema
 
-`puzzles/cryptic-30066.json` is a fully worked example.
+`puzzles/cryptic/2026/cryptic-30066.json` is a fully worked example. A puzzle's
+file is `puzzles/<series>/<year>/<id>.json`; `python3 tools/puzzle_paths.py <id>`
+prints it.
 
 ```json
 {

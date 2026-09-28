@@ -47,8 +47,8 @@ table = fetcher.SOURCE_ANSWER_WRONG
 print("SIZE", "some" if table else "none")
 bad = []
 for (pid, eid), (served, corrected, why) in table.items():
-    path = fetcher.PUZZLE_DIR / f"{pid}.json"
-    if not path.exists():
+    path = fetcher.puzzle_paths.find(pid)
+    if path is None:
         bad.append(f"{pid}: no such puzzle file")
         continue
     entry = {e["id"]: e for e in fetcher.read_puzzle_file(path)["entries"]}.get(eid)
@@ -158,7 +158,7 @@ import fetch_puzzle as fetcher
 import puzzle_integrity as pi
 
 today = datetime.now(timezone.utc).date()
-puzzle = copy.deepcopy(pi.read_puzzle_file(pi.PUZZLE_DIR / "cryptic-23053.json"))
+puzzle = copy.deepcopy(pi.read_puzzle_file(pi.puzzle_paths.find("cryptic-23053")))
 by_id = {e["id"]: e for e in puzzle["entries"]}
 for (pid, eid), (served, corrected, _) in fetcher.SOURCE_ANSWER_WRONG.items():
     if pid == puzzle["id"]:

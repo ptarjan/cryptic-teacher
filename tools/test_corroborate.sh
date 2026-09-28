@@ -26,12 +26,13 @@ from pathlib import Path
 
 import corroborate as c
 import fetch_puzzle
+import puzzle_paths
 
 tmp = Path(os.environ["TMP"])
 c.LEDGER = tmp / "ledger.json"
 fetch_puzzle.ROOT = tmp
-fetch_puzzle.PUZZLE_DIR = tmp / "puzzles"
-fetch_puzzle.PUZZLE_DIR.mkdir()
+puzzle_paths.PUZZLE_DIR = tmp / "puzzles"
+puzzle_paths.PUZZLE_DIR.mkdir()
 
 
 def light(number, direction, x, y, solution, clue="A clue (3)", group=None):
@@ -120,8 +121,9 @@ print("ENUMERATION", *enum[("clue", "1-across")])
 # sequence: the neighbours on disk put 501 between 2020-01-01 and -03, so the
 # file's 2021 date loses to the source's.
 for n, d in ((500, "2020-01-01"), (502, "2020-01-03")):
-    (fetch_puzzle.PUZZLE_DIR / f"cryptic-{n}.json").write_text(
-        json.dumps({"id": f"cryptic-{n}", "date": c.day_ms(d)}))
+    held = {"id": f"cryptic-{n}", "date": c.day_ms(d)}
+    puzzle_paths.file_for(held).parent.mkdir(parents=True, exist_ok=True)
+    puzzle_paths.file_for(held).write_text(json.dumps(held))
 dated = puzzle("cryptic-501", AGREED, date=c.day_ms("2021-06-01"))
 seq = settled(dated, source("a", "times-listing", date=c.day_ms("2020-01-02")))
 print("SEQUENCE", seq[("date", "")][0], c.day(seq[("date", "")][1]))
@@ -188,17 +190,17 @@ print("LEDGER", ledger["cryptic-500 answer 1-across"]["rule"],
 
 # and every write goes through it. The write refuses what the corpus sweep
 # would report, so this one is a real puzzle with its setter left empty.
-real = fetch_puzzle.read_puzzle_file(Path(os.environ["REPO"]) / "puzzles" / "cryptic-24104.json")
+real = fetch_puzzle.read_puzzle_file(
+    next((Path(os.environ["REPO"]) / "puzzles").glob("cryptic/*/cryptic-24104.json")))
 c.SOURCES = (source("fifteensquared", "fifteensquared", setter="Tramp",
                     answers={e["id"]: e["solution"] for e in real["entries"]}),)
 path = fetch_puzzle.puzzle_path("cryptic", 24104)
-fetch_puzzle.write_puzzle_file(path, {**real, "setter": None}, generator="tools/fetch_puzzle.py")
+path = fetch_puzzle.write_puzzle_file(path, {**real, "setter": None}, generator="tools/fetch_puzzle.py")
 print("WRITE_PATH", fetch_puzzle.read_puzzle_file(path)["setter"])
 
 # but only into the corpus: a fixture written elsewhere is left as it came
 elsewhere = tmp / "fixtures"
 elsewhere.mkdir()
-fetch_puzzle.PUZZLE_DIR = elsewhere
 fetch_puzzle.write_puzzle_file(elsewhere / "cryptic-24104.json", {**real, "setter": None},
                                generator="tools/fetch_puzzle.py")
 print("FIXTURE", repr(fetch_puzzle.read_puzzle_file(elsewhere / "cryptic-24104.json").get("setter")))

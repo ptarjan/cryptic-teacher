@@ -154,7 +154,7 @@ import provenance as p
 # A real Cyclops: Private Eye ships the grid, fifteensquared supplies the
 # answers. Two different origins on one puzzle, which is the case a single
 # "source" field cannot express and the reason there are three fields.
-base = fetch_puzzle.read_puzzle_file(fetch_puzzle.PUZZLE_DIR / "cyclops-526.json")
+base = fetch_puzzle.read_puzzle_file(fetch_puzzle.resolve_puzzle("cyclops-526"))
 print("PRISTINE", len(p.check(base)))
 print("REALLY_WRITEUP", (base["provenance"]["solutionOrigin"] == "writeup"
                          and base["provenance"]["retrievedFrom"] == "publisher"))
@@ -202,7 +202,7 @@ f = flagged(lambda z: z.update(series="cryptic"))
 print("WRONG_SERIES", len(f))
 
 # A model fill relabelled as the publisher's, on a puzzle that says model.
-book = fetch_puzzle.read_puzzle_file(fetch_puzzle.PUZZLE_DIR / "book-3027.json")
+book = fetch_puzzle.read_puzzle_file(fetch_puzzle.resolve_puzzle("book-3027"))
 print("BOOK_PRISTINE", len(p.check(book)))
 lied = copy.deepcopy(book)
 lied["provenance"]["solutionOrigin"] = "published"
@@ -245,8 +245,8 @@ import fetch_puzzle
 import provenance as p
 
 # cryptic-30078 is annotated; cyclops-550 has no hints at all.
-hinted = fetch_puzzle.read_puzzle_file(fetch_puzzle.PUZZLE_DIR / "cryptic-30078.json")
-bare = fetch_puzzle.read_puzzle_file(fetch_puzzle.PUZZLE_DIR / "cyclops-550.json")
+hinted = fetch_puzzle.read_puzzle_file(fetch_puzzle.resolve_puzzle("cryptic-30078"))
+bare = fetch_puzzle.read_puzzle_file(fetch_puzzle.resolve_puzzle("cyclops-550"))
 print("HINTED_PRISTINE", len(p.check(hinted)))
 
 
@@ -306,7 +306,7 @@ import provenance as p
 # book-3027 is a model solve. Swap its solutionSource for a write-up's, as
 # fetch_fifteensquared.py does when a blogger posts the answers, and stamp it:
 # the block it is written over still says "model", and nothing else will.
-book = fetch_puzzle.read_puzzle_file(fetch_puzzle.PUZZLE_DIR / "book-3027.json")
+book = fetch_puzzle.read_puzzle_file(fetch_puzzle.resolve_puzzle("book-3027"))
 print("WAS_MODEL", book["provenance"]["solutionOrigin"])
 confirmed = copy.deepcopy(book)
 confirmed["solutionSource"] = {"kind": "fifteensquared"}

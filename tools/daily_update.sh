@@ -423,8 +423,9 @@ for path in show("diff", "--name-only", "HEAD", "--", "puzzles/").split():
     except (OSError, ValueError):
         continue  # deleted or half-written; the validator reports those
 
-# IDs, not numbers: puzzles/<id>.json is what every step below names, so no
-# consumer has to resolve a number two papers could share.
+# IDs, not numbers: an id is what every step below names and what
+# tools/puzzle_paths.py finds a file by, so no consumer has to resolve a number
+# two papers could share.
 todo = sorted(((date_ms(p.get("date")) or 0, p["id"]) for p in idx["puzzles"]
                if not p["annotated"] and p.get("hasSolutions")
                and p["id"] not in blocked), reverse=True)
@@ -678,10 +679,11 @@ has_date() {   # id -> true when the puzzle file carries a publication DAY
 import sys
 from pathlib import Path
 sys.path.insert(0, "tools")
-from fetch_puzzle import PUZZLE_DIR, read_puzzle_file
+from fetch_puzzle import read_puzzle_file
+from puzzle_paths import resolve_puzzle
 from series import is_year
 try:
-    puzzle = read_puzzle_file(PUZZLE_DIR / f"{sys.argv[1]}.json")
+    puzzle = read_puzzle_file(resolve_puzzle(sys.argv[1]))
 except Exception as err:  # noqa: BLE001 — an unreadable file is not a date
     print(f"cannot read {sys.argv[1]} to place it in the queue: {err}", file=sys.stderr)
     sys.exit(1)
@@ -712,7 +714,7 @@ if [ -n "$unsolved" ] && command -v claude >/dev/null 2>&1; then
     solve_sid=$(session_id) || solve_sid=""
     solve_sess=()
     [ -n "$solve_sid" ] && solve_sess=(--session-id "$solve_sid")
-    claude -p "Solve the cryptic crossword in puzzles/$num.json in this repo. Its answers have not been published, so there is no key: follow tools/solve_prompt.md exactly, write your fill to $fill, and iterate against 'python3 tools/apply_solution.py $num --fill $fill --check-only' until every crossing agrees. Do not write to puzzles/ — the calling script applies the fill." \
+    claude -p "Solve the cryptic crossword in $(python3 tools/puzzle_paths.py "$num") in this repo. Its answers have not been published, so there is no key: follow tools/solve_prompt.md exactly, write your fill to $fill, and iterate against 'python3 tools/apply_solution.py $num --fill $fill --check-only' until every crossing agrees. Do not write to puzzles/ — the calling script applies the fill." \
       "${solve_sess[@]}" \
       --model "$ANNOTATE_MODEL" \
       --effort "$ANNOTATE_EFFORT" \
@@ -819,10 +821,10 @@ if [ -n "$pending" ]; then
       ann_file=$(python3 tools/annotate_check.py --view "$num")
       ann_task="Annotate the cryptic crossword $num in this repo, whose clues and answers are in $ann_file."
       if [ -n "$ANNOTATE_BLIND" ] && python3 tools/blind_annotate.py hide "$num"; then
-        ann_file="puzzles/$num.json"
+        ann_file=$(python3 tools/puzzle_paths.py "$num")
         ann_tools="Read,Write,Edit,Bash(python3 *),Bash(node *)"
         ann_turns=120
-        ann_task="Solve AND annotate the cryptic crossword in puzzles/$num.json in this repo. Its \"solution\" fields are deliberately empty: the answers are not published to you, so work each one out from the clue and the crossings, and write what you derive into that entry's \"solution\" field as you go. Do not look for the answers anywhere else in the repo, in git history, or on the web — a derived answer is the point. Where you cannot get an answer with confidence, leave its solution empty and its annotation null rather than guessing."
+        ann_task="Solve AND annotate the cryptic crossword in $ann_file in this repo. Its \"solution\" fields are deliberately empty: the answers are not published to you, so work each one out from the clue and the crossings, and write what you derive into that entry's \"solution\" field as you go. Do not look for the answers anywhere else in the repo, in git history, or on the web — a derived answer is the point. Where you cannot get an answer with confidence, leave its solution empty and its annotation null rather than guessing."
       fi
       # One session id per puzzle, fixed before the first attempt, because a run
       # that dies has already been paid for: it read the grid, worked out the
@@ -1091,7 +1093,9 @@ done
 if [ -n "$ann_failed" ]; then
   echo "VALIDATION FAILED on$ann_failed — reverting those puzzle files"
   for num in $ann_failed; do
-    git checkout -- "puzzles/$num.json"
+    # Every folder: a write that changed the puzzle's year moved its file.
+    git checkout -- "puzzles/*/*/$num.json" 2>/dev/null
+    git clean -qf -- "puzzles/*/*/$num.json"
     # That puzzle is un-annotated again and back at the head of tomorrow's
     # queue. Recorded against its inputs, because it IS the puzzle: the
     # validator read tonight's annotation of it and refused it.

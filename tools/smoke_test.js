@@ -5,6 +5,7 @@
 const fs = require("fs");
 const path = require("path");
 const ROOT = require("path").join(__dirname, "..");
+const pp = require("./puzzle_paths");
 
 let failures = 0;
 // Returns the condition, so a check whose failure would crash the checks after it
@@ -671,10 +672,9 @@ const TYPE_FAMILY = Object.fromEntries(CLUE_TYPES.types.map((t) => [t.name, t.fa
     "every clue family in clue_types.json declares its corpus count: " + JSON.stringify(fams.map((f) => [f.name, f.n])));
 
   const seen = {};
-  fs.readdirSync(path.join(ROOT, "puzzles"))
-    .filter((f) => f.endsWith(".json") && f !== "index.json")
+  pp.puzzleFiles()
     .forEach((f) => {
-      const puz = JSON.parse(fs.readFileSync(path.join(ROOT, "puzzles", f), "utf8"));
+      const puz = JSON.parse(fs.readFileSync(f, "utf8"));
       (puz.entries || []).forEach((e) => {
         const types = (e.annotation || {}).type;
         if (!Array.isArray(types)) return;
@@ -2145,8 +2145,8 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
   for (const f of fs.readdirSync(factsDir).filter((n) => n.endsWith(".json")).sort()) {
     const rows = JSON.parse(fs.readFileSync(path.join(factsDir, f), "utf8"));
     for (const [pid, rec] of Object.entries(rows)) {
-      const file = path.join(ROOT, "puzzles", pid + ".json");
-      if (!fs.existsSync(file)) continue;
+      const file = pp.find(pid);
+      if (!file) continue;
       const ents = JSON.parse(fs.readFileSync(file, "utf8")).entries;
       const hit = Object.entries(rec.entries).find(([eid, fa]) => JSON.stringify(fa.type) === '["hidden_word"]'
         && (fa.blocks || []).length === 1 && !(fa.indicators || []).length
@@ -2192,8 +2192,8 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
       const hit = Object.entries(rec.entries).find(([, fa]) => JSON.stringify(fa.type) === '["homophone"]'
         && (fa.blocks || []).length === 1 && fa.blocks[0].some((h) => h && /^[A-Z]+$/.test(h.soundsLike || "")));
       if (!hit) continue;
-      const file = path.join(ROOT, "puzzles", pid + ".json");
-      const e = fs.existsSync(file) && JSON.parse(fs.readFileSync(file, "utf8")).entries.find((x) => x.id === hit[0]);
+      const file = pp.find(pid);
+      const e = file && JSON.parse(fs.readFileSync(file, "utf8")).entries.find((x) => x.id === hit[0]);
       if (e && !e.annotation && e.solution && e.clue.includes(hit[1].blocks[0][1])) {
         target = { pid, eid: hit[0], answer: bare(e.solution), heard: hit[1].blocks[0].find((h) => h && h.soundsLike).soundsLike };
         break;
@@ -3983,15 +3983,18 @@ registry["reset-puzzle"].onclick();
      three and nobody would be told. tools/series.py's puzzle_id refuses to mint
      such a key, and this says so out loud — the filter and the minter have to
      agree, and this is where that agreement is checked. */
-  const puzzleFiles = fs.readdirSync(path.join(ROOT, "puzzles"))
-    .filter((f) => f.endsWith(".json") && f !== "index.json");
-  const files = puzzleFiles.filter((f) => /^[a-z0-9]+-\d+\.json$/.test(f));
+  // Every .json in a puzzles/<series>/<year>/ folder but the authored drafts'.
+  const subdirs = (d) => fs.readdirSync(d, { withFileTypes: true }).filter((e) => e.isDirectory())
+    .map((e) => path.join(d, e.name));
+  const puzzleFiles = subdirs(pp.PUZZLE_DIR).filter((d) => path.basename(d) !== "authored")
+    .flatMap(subdirs).flatMap((y) => fs.readdirSync(y).filter((f) => f.endsWith(".json")).map((f) => path.join(y, f)));
+  const files = puzzleFiles.filter((f) => /^[a-z0-9]+-\d+\.json$/.test(path.basename(f)));
   assert(files.length === puzzleFiles.length,
     "every puzzle file is named <series>-<number>.json, so the sweeps that filter on "
     + "that shape see all of them: " + puzzleFiles.filter((f) => !files.includes(f)).join(", "));
   let withItalics = 0;
   files.forEach((f) => {
-    const puz = JSON.parse(fs.readFileSync(path.join(ROOT, "puzzles", f), "utf8"));
+    const puz = JSON.parse(fs.readFileSync(f, "utf8"));
     puz.entries.forEach((e) => {
       assert(!/<\/?[a-zA-Z][^>]*>/.test(e.clue),
         `${puz.id} ${e.id}: clue still carries markup — ${e.clue.slice(0, 60)}`);
@@ -4039,9 +4042,9 @@ registry["reset-puzzle"].onclick();
   const hasWords = (clue) => clue.replace(/\([\d,\-. ]*\)/g, "").trim() !== "";
   const index = JSON.parse(fs.readFileSync(path.join(ROOT, "puzzles", "index.json"), "utf8"));
   const annotatedInIndex = new Map(index.puzzles.map((p) => [p.id, p.annotated]));
-  const files = fs.readdirSync(path.join(ROOT, "puzzles")).filter((f) => /^[a-z0-9]+-\d+\.json$/.test(f));
+  const files = pp.puzzleFiles().filter((f) => /^[a-z0-9]+-\d+\.json$/.test(path.basename(f)));
   files.forEach((f) => {
-    const puz = JSON.parse(fs.readFileSync(path.join(ROOT, "puzzles", f), "utf8"));
+    const puz = JSON.parse(fs.readFileSync(f, "utf8"));
     puz.entries.forEach((e) => {
       assert(hasWords(e.clue) === !e.clueMissing,
         `${puz.id} ${e.id}: clueMissing disagrees with the clue text — ${JSON.stringify(e.clue)}`);
@@ -4107,8 +4110,8 @@ registry["reset-puzzle"].onclick();
     return /[ \-–]/.test(ans[cut]) ? ans.slice(0, cut) : null;
   };
 
-  fs.readdirSync(path.join(ROOT, "puzzles")).filter((f) => /^[a-z0-9]+-\d+\.json$/.test(f)).forEach((f) => {
-    const puz = JSON.parse(fs.readFileSync(path.join(ROOT, "puzzles", f), "utf8"));
+  pp.puzzleFiles().filter((f) => /^[a-z0-9]+-\d+\.json$/.test(path.basename(f))).forEach((f) => {
+    const puz = JSON.parse(fs.readFileSync(f, "utf8"));
     puz.entries.forEach((e) => {
       const ans = e.annotation && e.annotation.answer;
       const drawn = shape(e.clue, e.length);

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """The puzzle file's shape: tools/data/puzzle.schema.json, and the one presence rule.
 
-    python3 tools/puzzle_schema.py              # every puzzles/*.json, and the enums
+    python3 tools/puzzle_schema.py              # every puzzles/<series>/<year>/*.json, and the enums
     python3 tools/puzzle_schema.py cryptic-30066 times-29001
 
 The rule: an absent key means empty. No puzzle file holds null, "", [] or {}

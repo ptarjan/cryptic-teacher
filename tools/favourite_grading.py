@@ -49,7 +49,8 @@ import sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 
-from fetch_puzzle import PUZZLE_DIR, read_puzzle_file  # noqa: E402 — one puzzles/, one reader
+from fetch_puzzle import read_puzzle_file  # noqa: E402 — one reader
+import puzzle_paths  # noqa: E402 — one puzzles/
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 AXES = ["surface", "misdirection", "pennydrop", "economy", "fairness"]
@@ -71,8 +72,8 @@ def build_pairs(votes, rng):
 
     pairs, skipped = [], []
     for pid in sorted(voted):
-        path = PUZZLE_DIR / (pid + ".json")
-        if not path.exists():
+        path = puzzle_paths.find(pid)
+        if path is None:
             skipped.append((pid, "no puzzle file"))
             continue
         entries = annotated_entries(read_puzzle_file(path))
@@ -105,8 +106,8 @@ def build_extra_pairs(votes, rng, used, want):
 
     pools = {}
     for pid in sorted(voted):
-        path = PUZZLE_DIR / (pid + ".json")
-        if not path.exists():
+        path = puzzle_paths.find(pid)
+        if path is None:
             continue
         entries = annotated_entries(read_puzzle_file(path))
         yes = [e for e in entries if e["id"] in voted[pid] and (pid, e["id"]) not in used]

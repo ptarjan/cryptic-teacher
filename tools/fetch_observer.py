@@ -61,7 +61,7 @@ fetch_puzzle.py's refresh_unsolved for the same SHAPE of problem even though
 the mechanism differs (there it's the Saturday prize withholding a week; here
 it's every single week).
 
-Writes puzzles/everyman-<number>.json (preserving any existing per-clue
+Writes puzzles/everyman/<year>/everyman-<number>.json (preserving any existing per-clue
 annotations), same file format and same fetch_puzzle.reindex() as every other
 fetcher here.
 """
@@ -76,7 +76,7 @@ from datetime import datetime
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from fetch_puzzle import (PUZZLE_DIR, http_bytes, flatten_clue, grade_model_fill,  # noqa: E402
+from fetch_puzzle import (http_bytes, flatten_clue, grade_model_fill,  # noqa: E402
                           merge_annotations, print_grade, puzzle_files, puzzle_path,
                           read_puzzle_file, reindex, still_worth_refreshing,
                           write_puzzle_file)
@@ -459,7 +459,6 @@ def refresh_unsolved():
 
 
 def main(argv):
-    PUZZLE_DIR.mkdir(exist_ok=True)
     if not argv or argv[0] in ("-h", "--help"):
         print(__doc__)
         return 0

@@ -3,6 +3,7 @@ import json, re, sys
 from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
+import puzzle_paths  # noqa: E402
 import difficulty as D
 ENUM = re.compile(r"\s*\([\d,.\s\-–']+\)\s*$")
 cmt = json.loads((ROOT / "tools/data/blog_comment_difficulty.json").read_text())
@@ -13,8 +14,8 @@ def add(k, flag, m):
 np_ = 0
 for pid, v in cmt.items():
     if v.get("comments", 0) < 10: continue
-    p = ROOT / "puzzles" / f"{pid}.json"
-    if not p.exists(): continue
+    p = puzzle_paths.find(pid)
+    if p is None: continue
     puz = D.read_puzzle_file(p)
     np_ += 1
     for e in puz["entries"]:

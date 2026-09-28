@@ -691,15 +691,18 @@ def staged_annotators():
             return []
         return (json.loads(shown.stdout).get("provenance") or {}).get("annotatedBy") or []
 
+    # A puzzle whose date moved it to another year folder is a rename; its
+    # HEAD copy is the one it was renamed from.
     staged = subprocess.run(
-        ["git", "diff", "--cached", "--name-only", "--", "puzzles/*.json"],
-        capture_output=True, text=True, check=True).stdout.split()
+        ["git", "diff", "--cached", "--name-status", "-M", "--", "puzzles/*/*/*.json"],
+        capture_output=True, text=True, check=True).stdout.splitlines()
     added = []
-    for path in staged:
-        if "/" in path[len("puzzles/"):]:
+    for line in staged:
+        status, *paths = line.split("\t")
+        if status == "D":
             continue
-        old = credits(f"HEAD:{path}")
-        for who in credits(f":{path}"):
+        old = credits(f"HEAD:{paths[0]}")
+        for who in credits(f":{paths[-1]}"):
             if MODEL_ID.fullmatch(who) and who not in old and who not in added:
                 added.append(who)
     return added

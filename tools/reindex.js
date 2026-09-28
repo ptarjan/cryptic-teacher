@@ -1,7 +1,7 @@
 /* Rebuild puzzles/index.json, puzzles/index.js and the per-puzzle .js shims,
    for the node harnesses.
 
-   All of them are generated from the puzzles/<id>.json sources and none are
+   All of them are generated from the puzzles/<series>/<year>/<id>.json sources and none are
    committed, so a fresh clone has none and a working tree has whatever the last
    rebuild left. Anything that reads one calls this first:
 
@@ -26,31 +26,28 @@
 const { execFileSync } = require("child_process");
 const fs = require("fs");
 const path = require("path");
+const pp = require("./puzzle_paths");
 
 const ROOT = path.join(__dirname, "..");
 const PUZZLES = path.join(ROOT, "puzzles");
 let built = false;
 
-// One pass over puzzles/: the newest mtime among the sources, how many there
-// are, and which of them have a shim beside them. Stats rather than a content
-// hash on purpose — hashing the inputs means reading 748 MB, which is most of
-// what the rebuild costs in the first place, and a stat is what tells us
-// whether reading them could possibly change the answer.
+// One pass over the puzzle sources (puzzles/<series>/<year>/<id>.json) and the
+// flat puzzles/<id>.js shims: the newest source mtime, how many sources there
+// are, and whether each has its shim. Stats rather than a content hash on
+// purpose — hashing the inputs means reading 748 MB, which is most of what the
+// rebuild costs in the first place, and a stat is what tells us whether reading
+// them could possibly change the answer.
 function scanPuzzles() {
-  const src = [];
-  const js = new Set();
-  for (const name of fs.readdirSync(PUZZLES)) {
-    // The same shape puzzle_files() globs for in fetch_puzzle.py:
-    // <series>-<number>.json, which is not index.json and not a static page.
-    if (/-\d[^/]*\.json$/.test(name)) src.push(name.slice(0, -5));
-    else if (name.endsWith(".js")) js.add(name.slice(0, -3));
-  }
+  const files = pp.puzzleFiles(PUZZLES);
+  const js = new Set(fs.readdirSync(PUZZLES).filter((n) => n.endsWith(".js")).map((n) => n.slice(0, -3)));
   let at = 0;
-  for (const id of src) {
-    const m = fs.statSync(path.join(PUZZLES, id + ".json")).mtimeMs;
+  for (const f of files) {
+    const m = fs.statSync(f).mtimeMs;
     if (m > at) at = m;
   }
-  return { ids: src, at, shimmed: src.every((id) => js.has(id)) };
+  const ids = files.map((f) => path.basename(f, ".json"));
+  return { ids, at, shimmed: ids.every((id) => js.has(id)) };
 }
 
 // Newest mtime among the entries of `dir` whose name `keep` accepts.

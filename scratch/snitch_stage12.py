@@ -46,7 +46,8 @@ sys.path.insert(0, str(ROOT / "scratch"))
 import difficulty as D
 import snitch_stage4 as S4
 import snitch_stage10 as S10
-from fetch_puzzle import PUZZLE_DIR, read_puzzle_file
+from fetch_puzzle import read_puzzle_file
+import puzzle_paths
 
 BASE = Path(os.environ.get("STAGE10_ROWS") or Path.home() / ".cache" / "cryptic-stage10-shipped.json")
 CACHE = Path(os.environ.get("STAGE12_ROWS") or Path.home() / ".cache" / "cryptic-stage12-rows.json")
@@ -97,7 +98,7 @@ def dump():
     rows = json.loads(BASE.read_text())
     facts = S4.blog_facts()
     for r in rows:
-        r["cand"] = cand(read_puzzle_file(PUZZLE_DIR / f"{r['pid']}.json"), facts.get(r["pid"]))
+        r["cand"] = cand(read_puzzle_file(puzzle_paths.find(r["pid"])), facts.get(r["pid"]))
     CACHE.write_text(json.dumps(rows))
     tr = [r for r in rows if r["series"] == "times" and r["nitch"] is not None]
     for k in CANDIDATES:

@@ -24,8 +24,9 @@ URLs — six a week), the Monday Quiptic (the Guardian's beginner tier) and the
 Sunday Everyman from the Observer. Each of the three runs its own number
 sequence. See GUARDIAN_SERIES below.
 
-Writes puzzles/<series>-<number>.js (preserving any existing per-clue
-annotations), then rebuilds puzzles/index.json and puzzles/index.js. Commands
+Writes puzzles/<series>/<year>/<series>-<number>.json and its shim
+puzzles/<series>-<number>.js (preserving any existing per-clue annotations;
+see tools/puzzle_paths.py for the layout), then rebuilds puzzles/index.json and puzzles/index.js. Commands
 that take a puzzle still accept the bare number while it names only one.
 
 Exit status for --latest: 0 and prints the puzzle number if a NEW puzzle was
@@ -53,9 +54,11 @@ import provenance  # noqa: E402 — where each puzzle came from; see tools/prove
 import corroborate  # every other source we hold; see tools/corroborate.py
 import clue_types  # the closed list of clue types; see tools/clue_types.py
 import puzzle_schema  # noqa: E402 — the file's shape and presence rule; see tools/puzzle_schema.py
+import puzzle_paths  # noqa: E402 — where each file lives; see tools/puzzle_paths.py
+from puzzle_paths import (  # noqa: E402, F401 — re-exported for the tools that ask here
+    puzzle_path, puzzle_files, resolve_puzzle, shim_path)
 
 ROOT = Path(__file__).resolve().parent.parent
-PUZZLE_DIR = ROOT / "puzzles"
 UA = {"User-Agent": "Mozilla/5.0 (cryptic-teacher; personal educational use)"}
 # The three series this fetcher can reach, each with its own number sequence and
 # its own Guardian series page. What each series IS — publisher, display name,
@@ -474,51 +477,6 @@ def extract_crossword_data(page_html):
     return json.loads(html.unescape(m.group(1)))["data"]
 
 
-def puzzle_path(series, number):
-    """The one place a puzzle's file name is spelled. Every other module asks
-    here, so the day the id format changes again it changes once."""
-    return PUZZLE_DIR / f"{series_meta.puzzle_id(series, number)}.json"
-
-
-def puzzle_files():
-    """Every puzzle file and nothing else in puzzles/ — not index.json, not the
-    static answer pages, and not the generated .js shims. Matched off the id
-    shape, so adding a series needs no change here."""
-    return sorted(PUZZLE_DIR.glob("*-[0-9]*.json"))
-
-
-def resolve_puzzle(arg):
-    """A puzzle file from either a namespaced id ("everyman-4165") or the bare
-    number a person types ("4165").
-
-    Bare numbers are what every URL, prompt and habit used before namespacing,
-    so they keep working — but only while one names exactly one puzzle. An
-    ambiguous number is an error naming both candidates, never a guess: guessing
-    would annotate one paper's grid from another paper's clues.
-    """
-    # Everything puzzle-shaped, not just what the nightly sweep walks: an
-    # authored draft (puzzles/A001.json) is deliberately outside puzzle_files(),
-    # and naming one by hand is exactly how it gets validated. index.json is the
-    # generated manifest, not a puzzle, and it is the only sibling that would
-    # otherwise answer to a bare name here.
-    files = [p for p in sorted(PUZZLE_DIR.glob("*.json")) if p.stem != "index"]
-    exact = [p for p in files if p.stem == str(arg)]
-    if exact:
-        return exact[0]
-    hits = [p for p in files if p.stem.rpartition("-")[2] == str(arg)]
-    if len(hits) == 1:
-        return hits[0]
-    if not hits:
-        raise SystemExit(f"no puzzle {arg} in {PUZZLE_DIR}")
-    raise SystemExit(f"{arg} names more than one puzzle — say which: "
-                     + ", ".join(p.stem for p in hits))
-
-
-def shim_path(path):
-    """The generated script the browser loads for a puzzles/<id>.json."""
-    return path.with_suffix(".js")
-
-
 BLOG_FACTS = ROOT / "tools" / "data" / "blog_facts"
 
 
@@ -668,13 +626,13 @@ def browser_puzzle(puzzle):
 
 
 def write_shim(path, puzzle):
-    """Regenerate puzzles/<id>.js from the puzzle in puzzles/<id>.json.
+    """Regenerate puzzles/<id>.js from the puzzle in puzzles/<series>/<year>/<id>.json.
 
     The site is openable from file:// (README), where fetch() is blocked, so
     app.js loads each puzzle by injecting a <script> tag. That is the only
     reason this form exists: it is build output, gitignored, and hand edits to
     it are overwritten by the next --build-shims. The source of truth is the
-    .json next to it.
+    puzzle's .json (puzzle_paths.file_for).
 
     Packed, compact JSON: the shims are a third of the published site, which
     GitHub Pages caps at 1 GB, and nothing reads them but a JavaScript parser.
@@ -712,7 +670,7 @@ def build_shims():
 
 
 def read_puzzle_file(path):
-    """The puzzle in puzzles/<id>.json. Plain JSON — the file IS the payload."""
+    """The puzzle in a puzzle file. Plain JSON — the file IS the payload."""
     try:
         return json.loads(path.read_text(encoding="utf-8"))
     except ValueError as err:
@@ -745,22 +703,31 @@ def generator_of(path):
 
 
 def write_puzzle_file(path, puzzle, generator=None):
+    """Write `puzzle` and its shim; return the path written.
+
+    Inside the corpus the caller's path names the puzzle, not the place: the
+    file goes where puzzle_paths.file_for() puts it, and any copy of the same
+    id in another year folder is removed, so a corrected date moves the file
+    and no writer can file a puzzle under the wrong year. Outside it (fixtures,
+    a fetcher's --out-dir) the path is used as given."""
     # The file is named by the id, and the id carries the series, so two papers
     # that reach the same number cannot land on the same file — the collision is
     # impossible rather than guarded against. This assert is the one thing left
-    # that could break that: a caller writing a puzzle to a path it did not get
-    # from puzzle_path().
+    # that could break that: a caller writing a puzzle under another id's name.
+    path = Path(path)
     assert path.name == f"{puzzle['id']}.json", (
         f"{path.name} is not where {puzzle['id']} goes — that is "
         f"{puzzle['id']}.json. Ask puzzle_path() for it.")
-    old = read_puzzle_file(path) if path.exists() else None
-    generator = generator or generator_of(path)
+    corpus = puzzle_paths.in_corpus(path)
+    held = puzzle_paths.find(puzzle["id"]) if corpus else (path if path.exists() else None)
+    old = read_puzzle_file(held) if held else None
+    generator = generator or generator_of(held or path)
     # Every write to the corpus is corroborated against the other sources we
     # hold for the puzzle, here, so that a new fetcher cannot skip it. Only the
-    # corpus: the caches describe the real puzzles and the ledger records them,
-    # so a fixture written anywhere else is neither looked up nor ledgered.
+    # real corpus: the caches describe the real puzzles and the ledger records
+    # them, so a fixture written anywhere else is neither looked up nor ledgered.
     # See tools/corroborate.py.
-    if path.parent.resolve() == (ROOT / "puzzles").resolve():
+    if path.resolve().is_relative_to((ROOT / "puzzles").resolve()):
         puzzle = corroborate.corroborate(puzzle)
     # A puzzle built fresh from a page has no provenance yet; the file's own
     # says when it was acquired, and re-fetching it does not change that.
@@ -777,13 +744,18 @@ def write_puzzle_file(path, puzzle, generator=None):
     # fetcher can write what tools/puzzle_integrity.py would report.
     import puzzle_integrity  # noqa: PLC0415 — it imports this module
     puzzle_integrity.refuse_bad_write(puzzle, old)
-    path.write_text(json.dumps(puzzle, indent=1, ensure_ascii=False) + "\n",
+    dest = puzzle_paths.file_for(puzzle) if corpus else path
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    dest.write_text(json.dumps(puzzle, indent=1, ensure_ascii=False) + "\n",
                     encoding="utf-8")
+    if held and held.resolve() != dest.resolve():
+        held.unlink()
     # The browser cannot fetch() off file:// (README: the site runs from disk),
     # so it is fed a generated script instead. Written here as well as by
     # --build-shims because a fetcher that has just rewritten a puzzle must not
     # leave the copy the site loads showing yesterday's.
-    write_shim(path, puzzle)
+    write_shim(dest, puzzle)
+    return dest
 
 
 def series_of(page_id):
@@ -2190,8 +2162,8 @@ def reindex():
              "clueTypes": clue_types.DATA,
              "snitchRanges": snitch, "puzzles": puzzles}
     compact = json.dumps(index, ensure_ascii=False, separators=COMPACT)
-    (PUZZLE_DIR / "index.json").write_text(compact + "\n", encoding="utf-8")
-    (PUZZLE_DIR / "index.js").write_text(
+    (puzzle_paths.PUZZLE_DIR / "index.json").write_text(compact + "\n", encoding="utf-8")
+    (puzzle_paths.PUZZLE_DIR / "index.js").write_text(
         "// Generated by tools/fetch_puzzle.py from index.json — do not edit by hand.\n"
         f"window.CRYPTIC_INDEX = {compact};\n",
         encoding="utf-8")
@@ -2470,7 +2442,7 @@ def find_latest_number(series="cryptic"):
 
 
 def main(argv):
-    PUZZLE_DIR.mkdir(exist_ok=True)
+    puzzle_paths.PUZZLE_DIR.mkdir(exist_ok=True)
     if not argv or argv[0] in ("-h", "--help"):
         print(__doc__)
         return 0

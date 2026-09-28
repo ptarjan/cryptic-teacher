@@ -62,7 +62,7 @@ wordplay for exactly those clues, which is the worst thing this route could
 produce — a teaching site confidently teaching a parse nobody verified.
 
 A LINKED ANSWER'S COUNT LIVES ON ITS LEADER, and the continuation prints none
-— puzzles/book-3003.json's 15-down "(9,5,4)" over NEWCASTLE and 17-down "See 15"
+— book-3003's 15-down "(9,5,4)" over NEWCASTLE and 17-down "See 15"
 over UNDERLYME. The solve scripts emit the other shape, a per-light count on
 each half, so this converts it on the way in rather than refusing it: see
 tools/normalise_linked_enumerations.py, which derives the count from the
@@ -341,7 +341,7 @@ def main(argv=None):
     path = puzzle_path(puzzle["series"], puzzle["number"])
     if path.exists():
         raise SystemExit(f"{path} already exists — refusing to overwrite a filed puzzle")
-    write_puzzle_file(path, puzzle, generator="tools/file_penguin_puzzle.py")
+    path = write_puzzle_file(path, puzzle, generator="tools/file_penguin_puzzle.py")
     if args.unsolved:
         print(f"wrote {path} — {len(puzzle['entries'])} entries, dated "
               f"{puzzle['date']}, NO ANSWERS: "

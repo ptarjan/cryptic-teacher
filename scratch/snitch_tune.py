@@ -5,14 +5,15 @@ import json, sys
 from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
+import puzzle_paths  # noqa: E402
 import difficulty as D
 from fetch_puzzle import read_puzzle_file, puzzle_is_annotated
 sn = json.loads((ROOT / "tools/data/snitch.json").read_text())
 ctx = D.context()
 rows = []
 for pid, v in sn.items():
-    path = ROOT / "puzzles" / f"{pid}.json"
-    if not path.exists():
+    path = puzzle_paths.find(pid)
+    if path is None:
         continue
     puz = read_puzzle_file(path)
     r = D.raw(puz, ctx)

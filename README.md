@@ -99,9 +99,13 @@ and `tools/build_readme.py` all do.
 
 ## Puzzle file format
 
-`puzzles/<series>-<n>.json` holds one puzzle as plain JSON. It is the committed
-source that every tool reads and writes. Next to it, generated and not
-committed, `puzzles/<series>-<n>.js` puts the puzzle in
+`puzzles/<series>/<year>/<series>-<n>.json` holds one puzzle as plain JSON. It
+is the committed source that every tool reads and writes. `<year>` is the UTC
+year of the puzzle's `date`; a book puzzle's year-only date is used as it is,
+and a puzzle with no date goes in `undated`. `tools/puzzle_paths.py` owns that
+rule, and `python3 tools/puzzle_paths.py <id>` prints where a puzzle is.
+Generated and not committed, `puzzles/<series>-<n>.js` stays flat, so no URL
+depends on the year folder. It puts the puzzle in
 `window.CRYPTIC_PUZZLES["<series>-<n>"]`: the browser's fields only, with each
 entry packed into an array that the script itself unpacks
 (`fetch_puzzle.write_shim`). That script is how the page loads a puzzle from
@@ -255,7 +259,8 @@ python3 tools/fetch_puzzle.py --backfill 30   # the last 30, skipping ones you h
 Other papers have their own `tools/fetch_*.py` scripts, listed in
 `docs/LAYOUT.md`.
 
-Then annotate the new `puzzles/<series>-<n>.json`, by hand or with Claude Code
+Then annotate the new puzzle file (`python3 tools/puzzle_paths.py cryptic-30123`
+its path), by hand or with Claude Code
 using `tools/annotate_prompt.md`, and check it:
 
 ```

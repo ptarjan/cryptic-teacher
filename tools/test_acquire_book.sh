@@ -167,6 +167,7 @@ else:
     sys.path.insert(0, "tools")
     from acquire_book import file_unsolved
     import fetch_puzzle
+    import puzzle_paths
     import series
     SKIP_ENTRY = {"solution", "annotation", "solutionConfidence"}
     # An absent separatorLocations and an empty one are the same statement —
@@ -193,7 +194,7 @@ else:
                 fail(f"{pid}: could not be filed — {problems[0]}")
                 continue
             mine = fetch_puzzle.read_puzzle_file(path)
-            corpus = fetch_puzzle.read_puzzle_file(Path(f"puzzles/{pid}.json"))
+            corpus = fetch_puzzle.read_puzzle_file(puzzle_paths.find(pid))
             if any(e["solution"] is not None for e in mine["entries"]):
                 fail(f"{pid}: filed with answers; --unsolved must file none")
             if "solutionSource" in mine:

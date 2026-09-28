@@ -4,7 +4,7 @@ every number here comes from counting fields, not from asking a model to judge.
 
 Reads tools/data/minutecryptic/hints.jsonl (24 records, gitignored — their
 copyrighted teaching material, kept locally to measure, never to copy from) and
-every puzzles/*.json annotation on disk. Prints tables to stdout; writes nothing
+every puzzle file's annotation on disk. Prints tables to stdout; writes nothing
 under version control. If the MC corpus isn't on disk this prints one line and
 exits — that directory is local-only, not part of the repo.
 

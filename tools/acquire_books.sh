@@ -98,7 +98,8 @@ if [ "$streak" -ge "$STREAK_ALERT_AT" ]; then
 fi
 streak_write 0
 
-filed="$(git status --porcelain -- puzzles/ | wc -l | tr -d ' ')"
+# -uall: a new year folder is one line per file, not one for the folder.
+filed="$(git status --porcelain -uall -- puzzles/ | wc -l | tr -d ' ')"
 if [ "$filed" = 0 ]; then
   alert "reading $id off archive.org succeeded but filed no puzzle, so the queue will offer the same book every hour forever. Its report says why it rejected every leaf. See .books.log."
   exit 1

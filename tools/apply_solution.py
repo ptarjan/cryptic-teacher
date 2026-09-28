@@ -47,7 +47,7 @@ from collections import defaultdict
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from fetch_puzzle import (PUZZLE_DIR, read_puzzle_file, reindex,  # noqa: E402
+from fetch_puzzle import (read_puzzle_file, reindex,  # noqa: E402
                           resolve_puzzle, write_puzzle_file)
 from grid_fill import MIN_CHECKED_RATIO  # noqa: E402 — the authoring rulebook's floor
 from series import official_key  # noqa: E402
@@ -295,7 +295,7 @@ def main():
     # No generator: this fills answers into a file a fetcher laid out, and
     # stamping its own name would erase which fetcher that was. What this tool
     # did is recorded in solutionSource, above.
-    write_puzzle_file(path, puzzle)
+    path = write_puzzle_file(path, puzzle)
     print(f"wrote {len(puzzle['entries'])} solutions into {path} (marked unofficial)")
     reindex()
 

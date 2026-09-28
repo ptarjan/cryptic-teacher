@@ -6,12 +6,12 @@ entry starts, how long it is, and which word fills it. What it cannot know is
 the clue. This script marries the two halves so the geometry is never retyped
 by hand — retyping is how a solution and a position drift apart.
 
-Output goes to puzzles/<ID>.json, written by tools/fetch_puzzle.write_puzzle_file
+Output goes to puzzles/authored/<year>/<ID>.json, written by tools/fetch_puzzle.write_puzzle_file
 exactly as it writes Guardian puzzles, so the same validator, the same app and
 the same smoke test apply to our own puzzles with no special cases. IDs for
 authored puzzles start with a letter (A001), which keeps them out of the daily
-validator sweep (it globs "*-[0-9]*.json", and a bare letter-prefixed id has no
-hyphen before its digits) until we choose to publish one.
+validator sweep (puzzle_paths.puzzle_files() matches "*-[0-9]*.json", and a bare
+letter-prefixed id has no hyphen before its digits) until we choose to publish one.
 
   python3 tools/build_authored_puzzle.py \
       --fill tools/data/sample_fill_11.json \
@@ -28,11 +28,9 @@ import json
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-PUZZLE_DIR = ROOT / "puzzles"
-
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import provenance  # noqa: E402
+import puzzle_paths  # noqa: E402
 from fetch_puzzle import write_puzzle_file  # noqa: E402
 
 
@@ -110,8 +108,8 @@ def main():
                                                  had_hints=False)
         except ValueError as err:
             sys.exit(f"--annotated-by: {err}")
-    out = PUZZLE_DIR / f"{args.id}.json"
-    write_puzzle_file(out, puzzle, generator="tools/build_authored_puzzle.py")
+    out = write_puzzle_file(puzzle_paths.file_for(puzzle), puzzle,
+                            generator="tools/build_authored_puzzle.py")
     print(f"wrote {out} — {len(puzzle['entries'])} entries")
 
 

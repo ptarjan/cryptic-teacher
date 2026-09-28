@@ -46,7 +46,7 @@ def events(live, flagged):
     def pid_of(path):
         if not path.startswith("puzzles/"):
             return None
-        name = path[len("puzzles/"):]
+        name = path.rsplit("/", 1)[-1]
         for suffix in PUZZLE_SUFFIXES:
             if name.endswith(suffix):
                 return name[:-len(suffix)] or None

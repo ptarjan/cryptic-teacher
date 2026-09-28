@@ -13,13 +13,13 @@ correlation with the index's rank residual over all of it, so the screen is
 optimistic; a shipped component's sign must stand on its own.
 """
 import json
-import math
 import sys
 from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
+import puzzle_paths  # noqa: E402
 import difficulty as D  # noqa: E402
 
 #: A derived table, so it lives outside the repo.
@@ -31,8 +31,8 @@ def dump():
     rows = []
     for pid, v in sn.items():
         series = pid.rpartition("-")[0]
-        path = ROOT / "puzzles" / f"{pid}.json"
-        if series not in D.SNITCH_SERIES or not path.exists():
+        path = puzzle_paths.find(pid)
+        if series not in D.SNITCH_SERIES or path is None:
             continue
         puz = D.read_puzzle_file(path)
         s = D.score(puz, ctx)
@@ -145,7 +145,7 @@ def dump_cand():
     for r in rows:
         if r["index"] is None:
             continue
-        r["cand"] = cand(D.read_puzzle_file(ROOT / "puzzles" / f"{r['pid']}.json"))
+        r["cand"] = cand(D.read_puzzle_file(puzzle_paths.find(r["pid"])))
     CACHE.write_text(json.dumps(rows))
 
 

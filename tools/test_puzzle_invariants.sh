@@ -34,7 +34,7 @@ corroborate.LEDGER = tmp / "ledger.json"
 
 
 def real(pid):
-    return fetcher.read_puzzle_file(fetcher.PUZZLE_DIR / f"{pid}.json")
+    return fetcher.read_puzzle_file(fetcher.resolve_puzzle(pid))
 
 
 def write(name, puzzle, over=None):
