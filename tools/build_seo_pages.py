@@ -23,6 +23,9 @@ So this writes real HTML files alongside the app:
                            abbreviations" is a question people type, and a
                            lookup table buried a third of the way down a
                            beginner's guide cannot answer it.
+  indicators/index.html    every indicator in tools/data/lexicons/indicators.json,
+                           by type and by how many clues use it. "cryptic
+                           crossword indicators" is the other lookup people type.
   difficulty/index.html    how the difficulty badge is worked out and checked,
                            from tools/difficulty_page.html with every number
                            filled in from tools/difficulty.py and
@@ -310,6 +313,7 @@ FOOTER = f"""<footer>
   <a href="{BASE}/puzzles/">All puzzles</a> &middot;
   <a href="{BASE}/learn/">How cryptic clues work</a> &middot;
   <a href="{BASE}/abbreviations/">Crossword abbreviations</a> &middot;
+  <a href="{BASE}/indicators/">Crossword indicators</a> &middot;
   <a href="{BASE}/difficulty/">How difficulty is rated</a> &middot;
   <a href="https://github.com/ptarjan/cryptic-teacher">Source code</a>.</p>
 </footer>
@@ -1276,11 +1280,12 @@ def abbreviations_page(blocks):
     senses = build_abbreviations.by_word()
     n = len(senses)
     links = clue_links(senses, blocks)
-    title = f"Cryptic crossword abbreviations — the full list of {n}"
+    seen = build_abbreviations.seen()
+    title = f"Cryptic crossword abbreviations — {n} standard, plus {len(seen)} rarer ones"
     desc = (f"All {n} abbreviations cryptic crossword setters use in these puzzles, listed "
             "by word: check is CH, sailor is AB, right is R. Every one comes from a real "
             f"published puzzle, and {len(links)} of them link to a clue that uses it, "
-            "explained.")
+            f"explained. Plus {len(seen)} more readings counted in solved clues.")
     canonical = f"{BASE}/abbreviations/"
     crumbs = [("Cryptic Teacher", "/"), ("How cryptic clues work", "/learn/"),
               ("Abbreviations", "")]
@@ -1312,10 +1317,154 @@ def abbreviations_page(blocks):
         "that abbreviation, with the clue explained step by step. The rest have no example "
         "clue yet.</p>",
         build_abbreviations.table_html(senses, links),
+        f'<h2 id="seen">{len(seen)} more, counted in solved clues</h2>',
+        "<p>These come from tens of thousands of clues explained by solving blogs and by "
+        "this site. Each row is a word a setter used for a short set of letters, with the "
+        "number of clues it was seen in. They are the rarer conventions, and some are "
+        "one setter's habit.</p>",
+        f"<p>A reading is listed only if it is one or two letters, is not an everyday "
+        f"word (so <em>popular</em> as IN is left out), turns up in at least "
+        f"{build_abbreviations.SEEN_MIN} clues, and cannot be spelled from the word's own "
+        "letters. The last rule keeps out clues that took the first or last letters of a "
+        "word, like T from <em>trade</em>. It also leaves out R for <em>river</em>, but "
+        "the list above has those. Words have lost their apostrophes.</p>",
+        build_abbreviations.seen_html(seen),
         f'<p class="s-cta"><a class="cta" href="{BASE}/learn/">New to cryptics? '
         f'Learn how the clues work &rarr;</a></p>',
         "</main>",
     ]
+    return head(title, desc, canonical, ld(page_ld) + ld(breadcrumb_ld(crumbs))) \
+        + "\n".join(body) + "\n" + FOOTER
+
+
+# ------------------------------------------------------------ indicators page
+
+INDICATORS = ROOT / "tools" / "data" / "lexicons" / "indicators.json"
+# Page order and the one-line lesson for each type indicators.json counts.
+INDICATOR_TYPES = {
+    "anagram": "Mix up the letters of the fodder next to it. <em>Out</em>, <em>new</em> "
+               "and <em>drunk</em> all say the letters are in a mess.",
+    "container": "Put one piece inside another. <em>About</em>, <em>holding</em> and "
+                 "<em>wearing</em> say which piece goes round which.",
+    "reversal": "Read a piece backwards. <em>Back</em> and <em>returned</em> are the "
+                "usual words; in a down clue, <em>up</em> and <em>raised</em>.",
+    "hidden": "The answer is written out in the clue, running across the words. "
+              "<em>Some</em> and <em>part of</em> tell you to look for it.",
+    "homophone": "The answer sounds like another word. <em>We hear</em>, "
+                 "<em>reportedly</em> and <em>on the radio</em> point at sound.",
+    "deletion": "Take letters away. <em>Almost</em> and <em>endlessly</em> drop the last "
+                "letter; <em>headless</em> drops the first.",
+    "selection": "Take only some letters. <em>Initially</em> gives first letters, "
+                 "<em>finally</em> last ones, and <em>regularly</em> every other one.",
+    "charade": "Put pieces side by side. These words tell you the order: "
+               "<em>following</em> and <em>behind</em> put one piece after another.",
+    "spoonerism": "Swap the first sounds of two words, as Dr Spooner was said to do: "
+                  "<em>tons of soil</em> for <em>sons of toil</em>.",
+}
+
+
+# How an annotation's type names each indicator type, where not by the type's
+# own name: selection clues are typed "first letter", "alternate letters"...
+TYPE_NAMES = {"selection": ("selection", "letter")}
+
+
+def indicator_key(s):
+    """An indicator as indicators.json keys it: capitals and spaces, no apostrophes."""
+    return " ".join(re.sub(r"[^A-Z ]", "", re.sub(r"['’]", "", s.upper())
+                           .replace("-", " ")).split())
+
+
+def clue_indicators(found, puz, page):
+    """Add one puzzle's annotated indicators to found, {(type, key): candidate},
+    keeping the fullest annotation (then the newest puzzle) for each.
+
+    Only a clue whose annotation names the type counts, so "about" links to a
+    container clue from the container list and not to an anagram that used it.
+    Like clue_blocks(), every candidate is on a page this same run writes.
+    """
+    for e in puz["entries"]:
+        ann = e.get("annotation") or {}
+        kinds = (ann.get("type") or "").lower()
+        if not ann.get("indicators") or f'id="{esc(e["id"])}"' not in page:
+            continue
+        depth = len((ann.get("walkthrough") or "") + (ann.get("definitionFit") or ""))
+        rank = (depth, series_meta.date_ms(puz.get("date")) or 0)
+        for word in ann["indicators"]:
+            key = indicator_key(word)
+            for t in INDICATOR_TYPES:
+                named = any(n in kinds for n in TYPE_NAMES.get(t, (t,)))
+                if named and ((t, key) not in found or found[(t, key)][0] < rank):
+                    found[(t, key)] = (rank, puz["id"], e["id"])
+
+
+def indicator_label(key):
+    """indicators.json's key as a reader would write it."""
+    return re.sub(r"\bspooner(s?)\b", lambda m: "Spooner" + ("’s" if m.group(1) else ""),
+                  key.lower())
+
+
+def indicators_page(found):
+    """Every indicator the corpus has seen, by type, most used first.
+
+    The counts are clues, off the solving blogs and this site's own annotations
+    (tools/letter_facts.py --lexicons). An indicator links to one annotated clue
+    that uses it where the archive has one.
+    """
+    lex = json.loads(INDICATORS.read_text(encoding="utf-8"))
+    types = [t for t in INDICATOR_TYPES if lex.get(t)]
+    unknown = sorted(set(lex) - set(INDICATOR_TYPES))
+    if unknown:
+        raise SystemExit(f"{INDICATORS.relative_to(ROOT)} has indicator types the "
+                         f"/indicators/ page does not explain: {', '.join(unknown)}. "
+                         "Add each to INDICATOR_TYPES in tools/build_seo_pages.py.")
+    total = sum(len(lex[t]) for t in types)
+    linked = sum(1 for t in types for k in lex[t] if (t, k) in found)
+
+    def item(t, k, n):
+        label = esc(indicator_label(k))
+        if (t, k) in found:
+            _, pid, eid = found[(t, k)]
+            label = f'<a href="{BASE}/puzzles/{pid}/#{esc(eid)}">{label}</a>'
+        return f'{label} <span class="muted">{n:,}</span>'
+
+    title = f"Cryptic crossword indicators — {total:,} words, by type"
+    desc = (f"{total:,} cryptic crossword indicators, grouped by what they tell you to do "
+            "(anagram, container, reversal, hidden word, homophone and more) and ranked by "
+            "how many real clues use them.")
+    canonical = f"{BASE}/indicators/"
+    crumbs = [("Cryptic Teacher", "/"), ("How cryptic clues work", "/learn/"),
+              ("Indicators", "")]
+    page_ld = {"@context": "https://schema.org", "@type": "DefinedTermSet",
+               "name": "Cryptic crossword indicators", "url": canonical, "description": desc}
+    body = [
+        masthead(crumbs),
+        '<main class="static-main tutorial-static">',
+        "<h1>Cryptic crossword indicators</h1>",
+        "<p>An indicator is the word in a clue that tells you what to do with the letters. "
+        "In <em>Woman found in Oregon or Maine (5)</em>, the words <em>found in</em> say "
+        "the answer is hidden in the words that follow: oregO<strong>N OR MA</strong>ine "
+        "gives NORMA. Spot the indicator and you know what kind of clue you have.</p>",
+        f"<p>These {total:,} indicators were counted in tens of thousands of solved clues, "
+        "from solving blogs and from this site's own explanations. The number after each "
+        "word is how many clues used it that way. The same word can do more than one job: "
+        "<em>about</em> is a container, but it can also mean an anagram. "
+        f"{linked:,} of the words are links to a real clue that uses them, explained.</p>",
+        "<p>Jump to: " + " &middot; ".join(
+            f'<a href="#{t}">{t}</a>' for t in types) + "</p>",
+    ]
+    for t in types:
+        ranked = sorted(lex[t].items(), key=lambda kv: (-kv[1], kv[0]))
+        top, rest = ranked[:15], ranked[15:]
+        body += [f'<h2 id="{t}">{t.capitalize()} indicators</h2>',
+                 f"<p>{INDICATOR_TYPES[t]}</p>",
+                 "<p><strong>Most used:</strong> "
+                 + " &middot; ".join(item(t, k, n) for k, n in top) + "</p>"]
+        if rest:
+            body += [f"<details><summary>All {len(ranked):,} {t} indicators</summary>",
+                     "<p>" + " &middot; ".join(item(t, k, n) for k, n in rest) + "</p>",
+                     "</details>"]
+    body += [f'<p class="s-cta"><a class="cta" href="{BASE}/learn/">New to cryptics? '
+             f'Learn how the clues work &rarr;</a></p>', "</main>"]
     return head(title, desc, canonical, ld(page_ld) + ld(breadcrumb_ld(crumbs))) \
         + "\n".join(body) + "\n" + FOOTER
 
@@ -1327,6 +1476,7 @@ def sitemap(idx):
             (f"{BASE}/puzzles/", "daily", "0.9", None),
             (f"{BASE}/learn/", "monthly", "0.8", None),
             (f"{BASE}/abbreviations/", "weekly", "0.8", None),
+            (f"{BASE}/indicators/", "weekly", "0.8", None),
             (f"{BASE}/difficulty/", "weekly", "0.6", None)]
     for s, years in listings(idx).items():
         for y in years:
@@ -1372,8 +1522,9 @@ def homepage_nav(idx):
   <p>These are real crosswords from the {papers(idx)}, by the papers' own setters,
      not made-up practice clues. Every puzzle has a page with all its answers, and
      many explain every clue: its definition, its wordplay and how they fit.
-     New to cryptics? Start with <a href="{BASE}/learn/">how cryptic clues work</a>
-     and the <a href="{BASE}/abbreviations/">common abbreviations</a>, read
+     New to cryptics? Start with <a href="{BASE}/learn/">how cryptic clues work</a>,
+     the <a href="{BASE}/abbreviations/">common abbreviations</a> and
+     <a href="{BASE}/indicators/">indicators</a>, read
      <a href="{BASE}/difficulty/">how difficulty is rated</a>, or browse
      <a href="{BASE}/puzzles/">all {len(solved):,} puzzles</a>. The newest:</p>
   <ul>{items}</ul>
@@ -1532,7 +1683,7 @@ def outputs():
     solved = puzzles()
     stubs = [stub for _, stub in solved]
 
-    blocks = {}
+    blocks, found = {}, {}
     for i, (path, stub) in enumerate(solved):
         puz = with_blog_facts(read_puzzle_file(path))
         # The list is newest-first, so "next" is the older neighbour.
@@ -1540,6 +1691,7 @@ def outputs():
         next_p = stubs[i + 1] if i + 1 < len(stubs) else None
         page = puzzle_page(puz, meta.get(puz["id"]), prev_p, next_p)
         clue_blocks(blocks, puz, page)
+        clue_indicators(found, puz, page)
         yield PUZZLE_DIR / puz["id"] / "index.html", relative_links(page, PUZZLE_ROOT)
     yield from legacy_redirects(stubs)
     yield from legacy_ids(stubs)
@@ -1547,6 +1699,8 @@ def outputs():
     yield from listing_pages(idx)
     yield ROOT / "learn" / "index.html", learn_page()
     yield ROOT / "abbreviations" / "index.html", abbreviations_page(blocks)
+    # Relative, like the puzzle pages: nearly four thousand example links.
+    yield ROOT / "indicators" / "index.html", relative_links(indicators_page(found), "../")
     yield ROOT / "difficulty" / "index.html", difficulty_page(idx)
     yield ROOT / "sitemap.xml", sitemap(idx)
     yield home
