@@ -92,7 +92,7 @@ def is_blind(puzzle):
 
 
 # What the annotate run reads the puzzle from: the clues, answers and grid, and
-# nothing that says where the answers came from. solutionSource names the blog
+# nothing that says where the answers came from. solutions.blog names the blog
 # the key was taken from, and a run that can see that URL fetches it before
 # trying a single clue; the blog is disclosed by notes() below, once the run is
 # stuck, and not before. A whitelist, so a new top-level field stays hidden

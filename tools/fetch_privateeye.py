@@ -66,8 +66,8 @@ ANSWERS COME FROM FIFTEENSQUARED.NET INSTEAD. It has blogged Private Eye's
 Cyclops biweekly since December 2006, with a full grid solve in each post —
 see fetch_fifteensquared_post and solve_from_fifteensquared. Those answers
 were never in this feed and are not the publisher's, so entries filled this
-way carry solutionSource (same field apply_solution.py uses for a model's own
-solve) and the site marks them unofficial. A puzzle too new to be blogged yet,
+way carry solutions detail (the same block apply_solution.py fills for a
+model's own solve) and the site marks them unofficial. A puzzle too new to be blogged yet,
 or whose blog post fails verification against the grid, gets solution: None
 instead — same shape the app already uses for a prize puzzle whose answers
 haven't been published (see hasSolutions in fetch_puzzle.reindex).
@@ -96,6 +96,7 @@ import urllib.request
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import provenance  # noqa: E402
 import puzzle_paths  # noqa: E402
 import series as series_meta  # noqa: E402
 from fetch_puzzle import (enumeration_separators, grade_model_fill, http_bytes,  # noqa: E402
@@ -329,7 +330,7 @@ def convert(num, puz):
         "setter": SETTER,
         "date": cover_date(num, puz["title"]),
         "dimensions": {"cols": width, "rows": height},
-        "sourceUrl": INDEX_URL,
+        "source": {"url": INDEX_URL},
         "entries": entries,
     }
 
@@ -1054,24 +1055,25 @@ def fill_answers(puzzle, num, old_puzzle):
     if solutions:
         for entry in puzzle["entries"]:
             entry["solution"] = solutions[entry["id"]]
-        puzzle["solutionSource"] = {
-            "kind": "fifteensquared",
+        puzzle["solutions"] = provenance.with_solution_detail(puzzle, {
+            "blog": "fifteensquared",
             "url": post["link"],
             "date": post["date"][:10],
             "check": f"{len(solutions)} entries verified against the grid "
                      "(lengths, crossings, linked-clue mapping)",
-        }
+        })["solutions"]
         print(f"  filled {len(solutions)} answers from {post['link']}")
         return
 
-    old_source = (old_puzzle or {}).get("solutionSource") or {}
-    if old_source.get("kind") == "fifteensquared":
+    old_detail = provenance.solution_detail(old_puzzle or {})
+    if old_detail.get("blog") == "fifteensquared":
         old_solutions = {e["id"]: e.get("solution") for e in old_puzzle["entries"]}
         if all(old_solutions.get(e["id"]) for e in puzzle["entries"]):
             for entry in puzzle["entries"]:
                 entry["solution"] = old_solutions[entry["id"]]
-            puzzle["solutionSource"] = old_source
-            print(f"  kept the previously-verified fill from {old_source.get('url')}")
+            puzzle["solutions"] = provenance.with_solution_detail(
+                puzzle, old_detail)["solutions"]
+            print(f"  kept the previously-verified fill from {old_detail.get('url')}")
 
 
 def fetch_number(num, out_dir, dry_run=False):
@@ -1100,14 +1102,14 @@ def refresh_unsolved():
 
     "Has real answers" cannot be read off completeness of the solution fields:
     a Cyclops can carry a full grid of letters that are a model's own guess
-    (solutionSource.kind == "model", written by apply_solution.py while the
-    blog stays silent — see daily_update.sh's cold-solve queue), and the .puz
-    feed itself never supplies real ones at all (module docstring). The only
-    fact that means "these are the paper's own words" is
-    solutionSource.kind == "fifteensquared" — fifteensquared is the sole real
-    key this feed ever gets, so once that kind is set the puzzle is done and
-    asking again would only spend a request on an answer that cannot change.
-    Anything else — no solutionSource, or kind == "model" — is pending.
+    (solutions.model set, written by apply_solution.py while the blog stays
+    silent — see daily_update.sh's cold-solve queue), and the .puz feed itself
+    never supplies real ones at all (module docstring). The only fact that
+    means "these are the paper's own words" is solutions.blog ==
+    "fifteensquared" — fifteensquared is the sole real key this feed ever
+    gets, so once that's set the puzzle is done and asking again would only
+    spend a request on an answer that cannot change. Anything else — no
+    solution detail, or a model solve — is pending.
 
     Annotations already on the entries are untouched by construction: unlike
     a re-fetch of the .puz (which rebuilds entries from scratch and needs
@@ -1120,7 +1122,7 @@ def refresh_unsolved():
         p = read_puzzle_file(path)
         if p.get("series") != SERIES:
             continue
-        if (p.get("solutionSource") or {}).get("kind") == "fifteensquared":
+        if provenance.solution_detail(p).get("blog") == "fifteensquared":
             continue
         # A Cyclops old enough is never getting a fifteensquared write-up
         # either — 78 of them, from 2006-2009, were being searched for on
@@ -1134,12 +1136,12 @@ def refresh_unsolved():
     for num in pending:
         path = out_path(puzzle_paths.PUZZLE_DIR, num)
         puzzle = read_puzzle_file(path)
-        was_model = (puzzle.get("solutionSource") or {}).get("kind") == "model"
+        was_model = "model" in provenance.solution_detail(puzzle)
         guessed = ({e["id"]: e.get("solution") for e in puzzle["entries"]}
                    if was_model else None)
         try:
             fill_answers(puzzle, num, puzzle)
-            if (puzzle.get("solutionSource") or {}).get("kind") == "fifteensquared":
+            if provenance.solution_detail(puzzle).get("blog") == "fifteensquared":
                 if guessed is not None:
                     print_grade(puzzle, grade_model_fill(puzzle, guessed))
                 write_puzzle_file(path, puzzle, generator="tools/fetch_privateeye.py")
@@ -1164,7 +1166,7 @@ def stamp_date(path, epoch_ms):
     A line edit, not a re-serialisation, because the only thing being learned
     here is the date: re-emitting the whole file would also quietly restyle
     everything the annotators have written into it. The pattern is anchored to
-    the top-level field's one-space indent, so the deeper `solutionSource.date`
+    the top-level field's one-space indent, so the deeper `solutions.date`
     cannot match. A corpus file moves to the year folder its new date files
     it under.
     """

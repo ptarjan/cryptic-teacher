@@ -62,6 +62,7 @@ import build_abbreviations  # noqa: E402 — one glossary, rendered into every p
 import clue_types  # noqa: E402 — the one list of clue types, their labels and blurbs
 import difficulty  # noqa: E402 — the weights, bands and constants /difficulty/ quotes
 import difficulty_check  # noqa: E402 — the held-out scorecard /difficulty/ quotes
+import provenance  # noqa: E402 — solution_detail(), source_url()
 import series as series_meta  # noqa: E402 — what each series IS; see tools/series.py
 from fetch_puzzle import (  # noqa: E402 — one glob, one reader for every tool
     blog_annotation, has_blog_hints, puzzle_files, read_puzzle_file, with_blog_facts)
@@ -599,8 +600,8 @@ def puzzle_page(puz, meta, prev_p, next_p):
     # prize puzzle solved here before the paper published its key, the answers
     # below are a machine's — right or wrong, and searchable either way, so the
     # claim gets qualified in the page itself rather than only in the data.
-    source = puz.get("solutionSource") or {}
-    if source.get("kind") == "model" and source.get("officialKey") == "never":
+    detail = provenance.solution_detail(puz)
+    if "model" in detail and detail.get("officialKey") == "never":
         # A reprint no job can fetch a key for. Promising official answers "as
         # soon as those appear" would be a promise nothing keeps: the book prints
         # its solutions only as answer-grid images, and it names no puzzle
@@ -611,7 +612,7 @@ def puzzle_page(puz, meta, prev_p, next_p):
             f"an official list of answers. The book that reprinted this {paper} crossword prints "
             "its solutions only as pictures of filled-in grids, with no puzzle number or date to "
             "match them by. Treat these answers as very likely right, not certain.</p>")
-    elif source.get("kind") == "model":
+    elif "model" in detail:
         body.append(
             f'<p class="unofficial-note">This is a {paper} prize crossword: readers send in '
             "their solutions to win a prize, so the paper publishes the answers later. Until it "
@@ -640,13 +641,14 @@ def puzzle_page(puz, meta, prev_p, next_p):
             f'written yet; we add them a few puzzles at a time. <a href="{BASE}/puzzles/">All '
             "puzzles</a> are listed by paper and year, and the ones marked <strong>full "
             "hints</strong> are explained clue by clue.</p>")
-    if puz.get("sourceUrl"):
+    source_url = provenance.source_url(puz)
+    if source_url:
         # Link text is the host we actually fetched from, not a hardcoded
         # "theguardian.com" — the Independent's puzzles come from somewhere else
         # entirely, and crediting the wrong site is worse than not crediting one.
-        host = re.sub(r"^www\.", "", urlparse(puz["sourceUrl"]).netloc)
+        host = re.sub(r"^www\.", "", urlparse(source_url).netloc)
         body.append(f'<p class="muted small-note">Original puzzle: '
-                    f'<a href="{esc(puz["sourceUrl"])}" rel="nofollow">{esc(host)}</a></p>')
+                    f'<a href="{esc(source_url)}" rel="nofollow">{esc(host)}</a></p>')
 
     # A page with none of our own explanations says once that what it shows
     # is the blog's, rather than on each of its thirty clues.

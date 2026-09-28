@@ -1,97 +1,61 @@
 #!/usr/bin/env python3
-"""Where a puzzle came from — and, the part that matters, where its ANSWERS came from.
+"""Where a puzzle came from, whose answers are in its grid, and who wrote its hints.
 
-Every puzzle already carried `sourceUrl`, which is a link, not a provenance
-record. A link says which page the puzzle was printed on. It does not say how
-the file got here, when, whether the grid's geometry was read off a published
-diagram or worked out from the clue list, or — the question this module exists
-for — whether the letters in the grid are the setter's answer key or OUR GUESS.
+Three top-level keys, one question each:
 
-THAT LAST DISTINCTION IS THE WHOLE POINT. A grid the publisher answered is
-ground truth: it can be used to grade a solver, to train on, to say "the answer
-is BANANA" without qualification. A grid this repo cold-solved with a model is a
-hypothesis that happens to be self-consistent. Both are 15x15 of capital
-letters, and until now a file could be one or the other with nothing in it to
-say which. A teaching site that cannot tell those apart eventually teaches a
-guess as a fact, and nobody finds out, because a wrong answer that satisfies
-every crossing looks exactly like a right one.
+    "source": {
+     "publisher": "Private Eye",
+     "url": "https://www.private-eye.co.uk/pictures/crossword/download/757.puz",
+     "retrievedFrom": "publisher",
+     "acquiredBy": "tools/fetch_privateeye.py",
+     "acquiredOn": "2026-09-17",
+     "gridOrigin": "published"
+    },
+    "solutions": {
+     "origin": "writeup",
+     "blog": "fifteensquared",
+     "url": "https://fifteensquared.net/2024/03/01/private-eye-cyclops-757/",
+     "date": "2024-03-01",
+     "check": "28 entries verified against the grid (lengths, crossings)"
+    },
+    "annotatedBy": ["claude-opus-5-5"]
 
-So: one `provenance` object per puzzle, with every value it can take enumerated
-HERE and nowhere else. The schema is documented for humans in README.md under
-"Puzzle file format"; the allowed values are the dicts below, and both the
-validator (tools/puzzle_integrity.py) and the backfill
-(tools/backfill_provenance.py) read them from here rather than restating them.
-The prose in each dict IS the documentation of that value — a value added below
-cannot be added without saying what it means.
+Every enumerated value is defined HERE and nowhere else: the dicts below are
+the documentation of each value, puzzle_schema.py reads its enums from them,
+and README.md's table is generated from them by tools/build_readme.py.
 
-    "provenance": {
-     "publisher": "Guardian",
-     "series": "cryptic",
-     "acquiredBy": "tools/fetch_wayback.py",
-     "acquiredOn": "2026-09-02",
-     "retrievedFrom": "wayback",
-     "gridOrigin": "published",
-     "solutionOrigin": "published"
-    }
+`source` is the puzzle: which paper (`publisher`), the page to cite (`url`;
+absent only on an authored puzzle), the channel the bytes were actually read
+through (`retrievedFrom`, a function of `acquiredBy`, the command that first
+wrote the file), the day this repo first had it (`acquiredOn`), whether the
+black squares are the publisher's or worked out here from the clue list
+(`gridOrigin`), and for a book puzzle which scan and which puzzle in it
+(`book`). Metro puzzles also name their id in the PuzzleMe feed (`feedId`).
 
-THE CANONICAL URL IS NOT COPIED IN HERE. `sourceUrl` stays exactly where it has
-always been, at the top level, meaning exactly what it always meant — the
-puzzle's canonical page, the address a reader would cite — because several
-tools read it expecting that and a second copy is a second thing that can be
-wrong. What provenance adds is the RULE about it (check() refuses a puzzle that
-has provenance and no sourceUrl) and the thing sourceUrl never said: WHERE THE
-BYTES WERE ACTUALLY READ FROM. `retrievedFrom` is that channel.
+`solutions` is the answers, and THAT IS THE DISTINCTION THIS MODULE EXISTS FOR.
+A grid the publisher answered is ground truth; a grid this repo cold-solved is
+a self-consistent guess; both are 15x15 of capital letters. `origin` says which
+(SOLUTION_ORIGINS). Answers not from the publisher carry the detail that backs
+the claim: a write-up names its `blog` and `url`, a model solve its `model`, and
+both the `date` and the crossing `check`. The detail keys imply the origin
+(solution_origin_from_file) and check() holds `origin` to them. A Cyclops
+puzzle is the ordinary mixed case: grid and clues from Private Eye, answers
+from a fifteensquared write-up.
 
-ONE PUZZLE CAN HAVE THREE DIFFERENT ORIGINS, so they are three fields rather
-than one "source". Cyclops is the ordinary case, not an edge case: the grid and
-clues come from Private Eye's own .puz download, and the answers come from a
-fifteensquared write-up, because Private Eye ships the puzzle with the solution
-grid blanked. A book puzzle has three — clues off a book scan, geometry
-reconstructed here from those clues, answers solved here by a model. Read
-`retrievedFrom` for how the puzzle got here, `gridOrigin` for where its
-geometry came from, and `solutionOrigin` for whose the answers are.
+When the publisher later prints the key, the detail goes (drop_solution_detail)
+and `origin` becomes "published". `previousOrigin` keeps the one fact nothing
+else would: this grid was once our guess. It is written only when it differs
+from `origin`.
 
-`solutionSource` IS NOT REPLACED EITHER, for the same reason in reverse. It
-already exists on 443 puzzles and carries detail no enum can hold — which
-fifteensquared write-up, which model, what the crossing check found, whether an
-official key can ever exist at all. It stays the DETAIL record.
-`provenance.solutionOrigin` is the coarse enum, and check() requires the two to
-agree, so they cannot drift apart into two different answers to the same
-question. Read solutionOrigin to branch on; read solutionSource for the story.
+`annotatedBy` says who wrote the hints: exact model ids ("claude-opus-5",
+never the "opus" alias a script passed) or one of ANNOTATORS, in the order the
+runs happened, each once. Present exactly when the puzzle has hints; a puzzle
+annotated from scratch starts the list afresh. tools/apply_annotations.py
+writes it, reading the model off the running session's transcript;
+tools/build_authored_puzzle.py is told with --annotated-by.
 
-BUT solutionSource IS DELIBERATELY TRANSIENT, and that is why provenance needs
-git. fetch_observer.py DELETES it the day the Observer finally publishes the
-key, and fetch_puzzle.py only carries it across a re-fetch while the paper is
-still silent — by design, because once the real answers land the file really is
-the publisher's. The letters become ground truth and the file stops saying it
-was ever anything else. Six grids in this corpus are in exactly that state: we
-guessed them, the paper later confirmed them, and nothing on disk remembers.
-`previousSolutionOrigin` is that memory. It does not weaken the current
-answers — solutionOrigin still says "published", because they ARE the
-publisher's — it records that this grid was once our guess, which is a
-different object from one that was right the first time, and which is the only
-evidence there will ever be about how good the guessing is.
-
-
-`annotatedBy` SAYS WHO WROTE THE HINTS, which is a separate question from
-whose answers they explain. It is a list of exact model ids ("claude-opus-5",
-never the "opus" alias a script passed, because an alias names whichever model
-it points at that week), or one of ANNOTATORS below for hints no model wrote.
-It is a list because one puzzle's hints can come from several runs: a run cut
-off by a usage limit and resumed, or one clue a later run went back and
-finished. Each run adds its model once, in the order they ran. Annotating a
-puzzle that had no hints starts the list afresh, and a puzzle whose hints are
-all removed loses the field, so the list never credits hints that are gone.
-tools/apply_annotations.py writes it, because every annotation run lands its
-hints through that tool; it reads the model off the running Claude Code
-session's own transcript rather than off the script's --model flag.
-tools/build_authored_puzzle.py, the one other writer of hints, is told who
-wrote them with --annotated-by.
-
-
-WHAT IS NOT KNOWABLE IS WRITTEN AS UNKNOWN. Every field below has an "unknown"
-value and the backfill uses it freely. An invented provenance is strictly worse
-than an absent one: absent, someone goes and looks; invented, nobody ever does.
+WHAT IS NOT KNOWABLE IS WRITTEN AS UNKNOWN. An invented provenance is worse
+than an absent one: absent, someone goes and looks; invented, nobody does.
 """
 import datetime
 import re
@@ -167,7 +131,7 @@ def has_hints(puzzle):
 
 
 def credit_annotator(puzzle, who, had_hints):
-    """The puzzle with `who` added to provenance.annotatedBy.
+    """The puzzle with `who` added to annotatedBy.
 
     `had_hints` is whether the file carried any hints BEFORE this write. When
     it did not, this run wrote every hint now in it, so the list restarts
@@ -176,27 +140,24 @@ def credit_annotator(puzzle, who, had_hints):
     if who not in ANNOTATORS and not MODEL_ID.fullmatch(who or ""):
         raise ValueError(f"{who!r} is neither an exact model id (claude-...) "
                          f"nor one of: " + ", ".join(sorted(ANNOTATORS)))
-    prov = dict(puzzle.get("provenance") or {})
-    credits = list(prov.get("annotatedBy") or []) if had_hints else []
+    credits = list(puzzle.get("annotatedBy") or []) if had_hints else []
     if who not in credits:
         credits.append(who)
-    prov["annotatedBy"] = credits
-    return {**puzzle, "provenance": prov}
+    return place({**puzzle, "annotatedBy": credits})
 
 
 # WHERE THE BYTES ACTUALLY CAME FROM — the publisher's own site, or somewhere
-# else. This is the distinction `sourceUrl` cannot make and was never meant to:
-# sourceUrl is the puzzle's CANONICAL page, the address a reader would cite, and
-# several tools read it expecting exactly that. It stays that. But 492 Guardian
+# else. source.url is the puzzle's CANONICAL page, the address a reader would
+# cite, which is not always the address read. 492 Guardian
 # puzzles and 50 of the 52 Metro ones were not read from those addresses at all
 # — the paper had dropped the pages and they were recovered from Wayback
 # captures. On disk that was invisible: a 2009 puzzle recovered from an archive
 # looked identical to one fetched the morning it was published.
 RETRIEVAL_CHANNELS = {
-    "publisher": "read from the publisher's own live site or feed — sourceUrl is "
+    "publisher": "read from the publisher's own live site or feed — source.url is "
                  "both the canonical address and the address actually fetched",
     "wayback": "the publisher no longer serves the page; it was recovered from a "
-               "Wayback Machine capture. sourceUrl is still the original "
+               "Wayback Machine capture. source.url is still the original "
                "address, which now 404s",
     "blog": "read from a third party's write-up rather than the publisher",
     "book": "read off a scanned and OCR'd printed book, not a web page at all",
@@ -267,7 +228,7 @@ ACQUIRED_BY = {
 
 # ------------------------------------------------- what each source can be
 #
-# Keyed by (series, sourceUrl host) because neither alone decides it: the
+# Keyed by (series, source.url host) because neither alone decides it: the
 # Everyman is served BOTH from theguardian.com (by fetch_puzzle.py, and by
 # fetch_wayback.py for the pages the Guardian dropped) and from observer.co.uk
 # (by fetch_observer.py, from no. 4097 on), and theguardian.com serves three
@@ -327,8 +288,8 @@ GRID_ORIGIN_BY_SERIES = {"authored": "authored"}
 #
 # Nothing about the book is kept here: series.py holds it, and this module
 # reads it through series.book_title/scan_identifier/volume_of. Two tables
-# keyed by volume can only drift, and a puzzle whose sourceUrl names one book
-# while its provenance.book names another is exactly what that drift looks
+# keyed by volume can only drift, and a puzzle whose source.url names one book
+# while its source.book names another is exactly what that drift looks
 # like.
 def book_of(series, number):
     """The book block for one book-sourced puzzle, or None.
@@ -358,10 +319,33 @@ def book_of(series, number):
     }
 
 
-REQUIRED = ("publisher", "series", "acquiredBy", "acquiredOn",
-            "retrievedFrom", "gridOrigin", "solutionOrigin")
+# ------------------------------------------------------------ the file shape
+#
+# Top-level key order, and each block's. place() writes them in this order so a
+# person reading a file finds who and where before the few hundred entries.
+KEY_ORDER = ("id", "number", "series", "name", "setter", "date", "preamble",
+             "dimensions", "source", "solutions", "annotatedBy", "entries")
+SOURCE_ORDER = ("publisher", "url", "retrievedFrom", "acquiredBy", "acquiredOn",
+                "gridOrigin", "feedId", "book")
+SOURCE_REQUIRED = ("publisher", "retrievedFrom", "acquiredBy", "acquiredOn",
+                   "gridOrigin")
+#: The keys that back a claim that the answers are not the publisher's.
+SOLUTION_DETAIL = ("blog", "url", "model", "date", "check", "officialKey")
+SOLUTIONS_ORDER = ("origin", "previousOrigin") + SOLUTION_DETAIL
+#: What each non-published origin must carry.
+DETAIL_REQUIRED = {"writeup": ("blog", "url", "date", "check"),
+                   "model": ("model", "date", "check")}
 
 ISO_DATE = re.compile(r"\d{4}-\d{2}-\d{2}")
+
+
+def _ordered(block, order):
+    return {k: block[k] for k in order if k in block} | \
+        {k: v for k, v in block.items() if k not in order}
+
+
+def source_url(puzzle):
+    return (puzzle.get("source") or {}).get("url")
 
 
 def host_of(url):
@@ -392,26 +376,45 @@ def acquired_by(series, url, claimed):
     return candidates[0] if len(candidates) == 1 else "unknown"
 
 
-#: solutionSource.kind for answers taken from a solver's blog write-up.
+#: solutions.blog: the write-up sites answers are taken from.
 WRITEUP_KINDS = ("fifteensquared", "timesforthetimes", "bigdave44")
+
+
+def solution_detail(puzzle):
+    """The keys of `solutions` that back a non-published origin; {} when none."""
+    solutions = puzzle.get("solutions") or {}
+    return {k: solutions[k] for k in SOLUTION_DETAIL if k in solutions}
+
+
+def with_solution_detail(puzzle, detail):
+    """The puzzle with its solution detail replaced by `detail` ({} drops it).
+
+    `origin` and `previousOrigin` are kept for stamp() to re-derive, which is
+    how a grid replaced by the publisher's key remembers it was once a guess.
+    """
+    solutions = {k: v for k, v in (puzzle.get("solutions") or {}).items()
+                 if k not in SOLUTION_DETAIL}
+    return {**puzzle, "solutions": _ordered({**solutions, **detail},
+                                            SOLUTIONS_ORDER)}
+
+
+def drop_solution_detail(puzzle):
+    return with_solution_detail(puzzle, {})
 
 
 def solution_origin_from_file(puzzle):
     """The solution origin the file's OWN contents establish, or None.
 
-    None means the file does not settle it — it holds answers and carries no
-    solutionSource. That is not the same as "published": see the module
-    docstring for the corpus argument that lets the backfill read it that way,
-    and check() below for why an unbacked "model"/"writeup"/"unsolved" claim is
-    refused while "published" and "unknown" are both allowed.
+    None means the file does not settle it — it holds answers and no solution
+    detail, which check() allows to be "published", "unknown" or "authored".
     """
     if not any((e.get("solution") or "").strip() for e in puzzle.get("entries") or []):
         return "unsolved"
-    kind = (puzzle.get("solutionSource") or {}).get("kind")
-    if kind == "model":
-        return "model"
-    if kind in WRITEUP_KINDS:
+    detail = solution_detail(puzzle)
+    if "blog" in detail:
         return "writeup"
+    if "model" in detail:
+        return "model"
     return None
 
 
@@ -424,15 +427,15 @@ def grid_origin(series):
 
 
 def channel_of(tool):
-    """The retrieval channel a tool reads through — never stored twice."""
+    """The retrieval channel a tool reads through."""
     return ACQUIRED_BY.get(tool, ACQUIRED_BY["unknown"])["channel"]
 
 
 def derive(puzzle, claimed, acquired_on, previously=None):
-    """The provenance object for a puzzle, from what is actually knowable.
+    """The `source`, `solutions` and `annotatedBy` for a puzzle, from what is
+    actually knowable.
 
-    `claimed` is the tool the file already names as its acquirer;
-    `acquired_on`
+    `claimed` is the tool the file already names as its acquirer; `acquired_on`
     is the ISO date the file first appeared in git, or None; `previously` is the
     origin this grid's answers had BEFORE the ones in it now — "model" for a
     grid we cold-solved and the paper has since confirmed, which only git
@@ -441,83 +444,71 @@ def derive(puzzle, claimed, acquired_on, previously=None):
     re-run to a fixed point.
     """
     series = series_of_id(puzzle["id"])
-    origin = solution_origin_from_file(puzzle) or "published"
-    tool = acquired_by(series, puzzle.get("sourceUrl"), claimed)
-    prov = {
+    old_source = puzzle.get("source") or {}
+    old_solutions = puzzle.get("solutions") or {}
+    tool = acquired_by(series, old_source.get("url"), claimed)
+    source = {
         "publisher": series_table.publisher(series, puzzle["number"]),
-        "series": series,
+        "url": old_source.get("url"),
+        "retrievedFrom": channel_of(tool),
         "acquiredBy": tool,
         "acquiredOn": acquired_on if acquired_on else "unknown",
-        "retrievedFrom": channel_of(tool),
         "gridOrigin": grid_origin(series),
-        "solutionOrigin": origin,
+        "feedId": old_source.get("feedId"),
     }
-    # Carried across, not re-derived: which grids were once model-solved is
-    # knowable only from git (see backfill_provenance.machine_solved_ever), so
-    # an ordinary write must preserve what the backfill found rather than drop
-    # it. And recorded at the moment it happens: the write that replaces our
-    # model fill with a publisher's or a write-up's answers still carries the
-    # old block saying "model", and is the last thing that knows it. Only worth
-    # saying when it differs from where the answers stand now — recording "was
-    # model, is model" would be noise on every unresolved prize puzzle.
-    existing = puzzle.get("provenance") or {}
-    previously = (previously or existing.get("previousSolutionOrigin")
-                  or (existing.get("solutionOrigin") == "model" and "model"))
-    if previously and previously != origin:
-        prov["previousSolutionOrigin"] = previously
-    # Carried across for the same reason: only the run that wrote the hints
-    # knew its model. Dropped with the hints themselves — a re-fetch that
-    # replaces the answers discards the annotations written off them.
-    annotated_by = (puzzle.get("provenance") or {}).get("annotatedBy")
-    if annotated_by and has_hints(puzzle):
-        prov["annotatedBy"] = annotated_by
-    book =book_of(series, puzzle["number"]) if is_book(series) else None
+    book = book_of(series, puzzle["number"]) if is_book(series) else None
     if book:
         # The book's own number, not the file's: the file's carries the volume
         # (series.py, volume * 1000 + position) and the book prints No 18.
         book["numberInBook"] = position_of(series, puzzle["number"])
-        prov["book"] = book
-    return prov
+        source["book"] = book
+    source = {k: v for k, v in source.items() if v is not None}
+
+    origin = solution_origin_from_file(puzzle) or (
+        old_solutions.get("origin") if old_solutions.get("origin") in
+        ("unknown", "authored") else "published")
+    solutions = {"origin": origin}
+    # Carried across, not re-derived: which grids were once model-solved is
+    # knowable only from git (see backfill_provenance.machine_solved_ever), and
+    # the write that replaces a model fill is the last thing that knows it was
+    # one. Only written when it differs from where the answers stand now.
+    previously = (previously or old_solutions.get("previousOrigin")
+                  or (old_solutions.get("origin") == "model" and "model"))
+    if previously and previously != origin:
+        solutions["previousOrigin"] = previously
+    if origin in DETAIL_REQUIRED:
+        solutions.update(solution_detail(puzzle))
+    # Only the run that wrote the hints knew its model; dropped with the hints.
+    credits = puzzle.get("annotatedBy") if has_hints(puzzle) else None
+    return {"source": source, "solutions": _ordered(solutions, SOLUTIONS_ORDER),
+            "annotatedBy": credits or None}
 
 
-def place(puzzle, prov):
-    """The puzzle with provenance sitting straight after sourceUrl.
-
-    Rebuilt rather than assigned so the block lands where a human reading the
-    file will see it — next to the link it qualifies — instead of after a few
-    hundred entries.
-    """
-    out = {}
-    for key, value in puzzle.items():
-        if key == "provenance":
-            continue
-        out[key] = value
-        if key == "sourceUrl":
-            out["provenance"] = prov
-    if "provenance" not in out:          # an authored puzzle has no sourceUrl
-        out["provenance"] = prov
-    return out
+def place(puzzle, fields=None):
+    """The puzzle with `fields` set, its keys in KEY_ORDER and its blocks in
+    theirs. A field set to None is removed."""
+    merged = {k: v for k, v in {**puzzle, **(fields or {})}.items()
+              if v is not None}
+    if "source" in merged:
+        merged["source"] = _ordered(merged["source"], SOURCE_ORDER)
+    if "solutions" in merged:
+        merged["solutions"] = _ordered(merged["solutions"], SOLUTIONS_ORDER)
+    return _ordered(merged, KEY_ORDER)
 
 
 def stamp(puzzle, tool):
-    """Provenance for a puzzle being written right now, by `tool`.
+    """source/solutions/annotatedBy for a puzzle being written right now, by
+    `tool`.
 
-    Called from fetch_puzzle.write_puzzle_file, which means EVERY write of a
-    puzzle file goes through it and no fetcher can forget to record where its
-    puzzle came from. That is the point: provenance that a tool has to remember
-    to add is provenance that will be missing from whichever tool is written
-    next, and the validator would then fail a puzzle for a bug in a fetcher
-    nobody had touched.
-
-    `acquiredOn` is today only for a file that has never carried provenance
-    before. Anything already on the file is kept — the date a puzzle arrived
-    does not change because something rewrote its annotations, and
-    tools/backfill_provenance.py's git-derived dates must survive every later
-    write.
+    Called from fetch_puzzle.write_puzzle_file, so EVERY write of a puzzle file
+    goes through it and no fetcher can forget to record where its puzzle came
+    from. `acquiredOn` is today only for a file that has never had it:
+    the date a puzzle arrived does not change because something rewrote its
+    annotations, and tools/backfill_provenance.py's git-derived dates must
+    survive every later write.
     """
-    existing = puzzle.get("provenance") or {}
-    return place(puzzle, derive(puzzle, tool,
-                                existing.get("acquiredOn") or today()))
+    acquired = (puzzle.get("source") or {}).get("acquiredOn") or today()
+    return place(puzzle, derive(puzzle, tool, acquired))
 
 
 # ------------------------------------------------------------ the validator
@@ -527,124 +518,123 @@ def stamp(puzzle, tool):
 def check(puzzle):
     findings = []
     pid = puzzle.get("id")
-    prov = puzzle.get("provenance")
-    if not isinstance(prov, dict):
-        return ["no provenance object — where this puzzle and its answers came "
-                "from is unrecorded (tools/backfill_provenance.py writes it)"]
+    source = puzzle.get("source")
+    solutions = puzzle.get("solutions")
+    if not isinstance(source, dict) or not isinstance(solutions, dict):
+        return ["no source or no solutions block — where this puzzle and its "
+                "answers came from is unrecorded (tools/backfill_provenance.py "
+                "writes them)"]
 
-    for key in REQUIRED:
-        if key not in prov:
-            findings.append(f"provenance is missing {key}")
+    for key in SOURCE_REQUIRED:
+        if key not in source:
+            findings.append(f"source is missing {key}")
+    if "origin" not in solutions:
+        findings.append("solutions is missing origin")
 
-    for key, allowed in (("gridOrigin", GRID_ORIGINS),
-                         ("solutionOrigin", SOLUTION_ORIGINS),
-                         ("previousSolutionOrigin", SOLUTION_ORIGINS),
-                         ("retrievedFrom", RETRIEVAL_CHANNELS),
-                         ("acquiredBy", ACQUIRED_BY)):
-        value = prov.get(key)
-        if key in prov and value not in allowed:
+    for block, name, key, allowed in (
+            (source, "source", "gridOrigin", GRID_ORIGINS),
+            (source, "source", "retrievedFrom", RETRIEVAL_CHANNELS),
+            (source, "source", "acquiredBy", ACQUIRED_BY),
+            (solutions, "solutions", "origin", SOLUTION_ORIGINS),
+            (solutions, "solutions", "previousOrigin", SOLUTION_ORIGINS),
+            (solutions, "solutions", "blog", WRITEUP_KINDS)):
+        if key in block and block[key] not in allowed:
             findings.append(
-                f"provenance.{key} is {value!r}, which is not one of: "
+                f"{name}.{key} is {block[key]!r}, which is not one of: "
                 + ", ".join(sorted(allowed)))
 
-    # An optional field that repeats the current origin says nothing and would
-    # let "was model, is model" and "was model, now published" look alike.
-    if "previousSolutionOrigin" in prov \
-            and prov["previousSolutionOrigin"] == prov.get("solutionOrigin"):
+    origin = solutions.get("origin")
+    if "previousOrigin" in solutions and solutions["previousOrigin"] == origin:
         findings.append(
-            f"provenance.previousSolutionOrigin repeats solutionOrigin "
-            f"({prov.get('solutionOrigin')!r}) — it is only written when the "
-            f"answers have since been replaced by ones of a different origin")
+            f"solutions.previousOrigin repeats origin ({origin!r}) — it is only "
+            f"written when the answers have since been replaced by ones of a "
+            f"different origin")
+    detail = solution_detail(puzzle)
+    for key in DETAIL_REQUIRED.get(origin, ()):
+        if key not in detail:
+            findings.append(f"solutions.origin is {origin!r} but solutions has "
+                            f"no {key}")
+    implied = solution_origin_from_file(puzzle)
+    if detail and origin not in DETAIL_REQUIRED and implied is None:
+        findings.append(f"solutions.origin is {origin!r} but solutions carries "
+                        f"{', '.join(detail)}, which only back a writeup or a "
+                        f"model solve")
+    if "blog" in detail and "model" in detail:
+        findings.append("solutions names both a blog and a model")
 
-    credits = prov.get("annotatedBy")
+    credits = puzzle.get("annotatedBy")
     if has_hints(puzzle) and not credits:
-        findings.append("the puzzle has hints but provenance.annotatedBy does "
-                        "not say who wrote them — tools/apply_annotations.py "
-                        "records it when it writes them")
+        findings.append("the puzzle has hints but annotatedBy does not say who "
+                        "wrote them — tools/apply_annotations.py records it "
+                        "when it writes them")
     elif credits is not None and not has_hints(puzzle):
-        findings.append(f"provenance.annotatedBy is {credits!r} but the puzzle "
-                        f"has no hints for anyone to have written")
+        findings.append(f"annotatedBy is {credits!r} but the puzzle has no "
+                        f"hints for anyone to have written")
     if credits is not None and has_hints(puzzle):
         if not isinstance(credits, list) or not credits:
-            findings.append(f"provenance.annotatedBy is {credits!r} — want a "
-                            f"non-empty list")
+            findings.append(f"annotatedBy is {credits!r} — want a non-empty list")
         else:
             for who in credits:
                 if who not in ANNOTATORS and not (isinstance(who, str)
                                                   and MODEL_ID.fullmatch(who)):
                     findings.append(
-                        f"provenance.annotatedBy has {who!r}, which is neither "
-                        f"an exact model id (claude-...) nor one of: "
+                        f"annotatedBy has {who!r}, which is neither an exact "
+                        f"model id (claude-...) nor one of: "
                         + ", ".join(sorted(ANNOTATORS)))
             if len(set(map(str, credits))) != len(credits):
-                findings.append(f"provenance.annotatedBy repeats a name: "
-                                f"{credits!r}")
+                findings.append(f"annotatedBy repeats a name: {credits!r}")
 
     # The channel is a property of the tool, so it cannot be stated freely.
-    expected_channel = channel_of(prov.get("acquiredBy"))
-    if "retrievedFrom" in prov and prov.get("acquiredBy") in ACQUIRED_BY \
-            and prov["retrievedFrom"] != expected_channel:
-        findings.append(f"provenance.retrievedFrom is {prov['retrievedFrom']!r} but "
-                        f"{prov.get('acquiredBy')!r} reads through "
+    expected_channel = channel_of(source.get("acquiredBy"))
+    if "retrievedFrom" in source and source.get("acquiredBy") in ACQUIRED_BY \
+            and source["retrievedFrom"] != expected_channel:
+        findings.append(f"source.retrievedFrom is {source['retrievedFrom']!r} "
+                        f"but {source.get('acquiredBy')!r} reads through "
                         f"{expected_channel!r}")
 
-    # The canonical URL is not copied into provenance, so this is where the rule
-    # about it lives: provenance without a link is provenance that cannot be
-    # checked by a human. An authored puzzle has no source to link to.
+    # A source without a link cannot be checked by a human. An authored puzzle
+    # has no source to link to.
     series = series_of_id(pid)
-    if not puzzle.get("sourceUrl") and expected_channel != "authored":
-        findings.append("provenance without a sourceUrl — nothing to check it against")
+    if not source.get("url") and expected_channel != "authored":
+        findings.append("source has no url — nothing to check it against")
 
     if puzzle.get("series") != series:
         findings.append(f"series is {puzzle.get('series')!r} but the id says "
                         f"{series!r}")
-    if prov.get("series") != series:
-        findings.append(f"provenance.series is {prov.get('series')!r} but the id "
-                        f"says {series!r}")
     expected_publisher = series_table.publisher(series, puzzle["number"])
-    if prov.get("publisher") != expected_publisher:
-        findings.append(f"provenance.publisher is {prov.get('publisher')!r} but "
+    if source.get("publisher") != expected_publisher:
+        findings.append(f"source.publisher is {source.get('publisher')!r} but "
                         f"series.py says {series!r} is published by "
                         f"{expected_publisher!r}")
 
-    acquired_on = prov.get("acquiredOn")
+    acquired_on = source.get("acquiredOn")
     if acquired_on != "unknown" and not (isinstance(acquired_on, str)
                                          and ISO_DATE.fullmatch(acquired_on)):
-        findings.append(f"provenance.acquiredOn is {acquired_on!r} — want an "
-                        f"ISO date or \"unknown\"")
+        findings.append(f"source.acquiredOn is {acquired_on!r} — want an ISO "
+                        f"date or \"unknown\"")
 
     expected_grid = grid_origin(series)
-    if prov.get("gridOrigin") not in (expected_grid, "unknown"):
-        findings.append(f"provenance.gridOrigin is {prov.get('gridOrigin')!r} but "
+    if source.get("gridOrigin") not in (expected_grid, "unknown"):
+        findings.append(f"source.gridOrigin is {source.get('gridOrigin')!r} but "
                         f"{series!r} grids are {expected_grid!r}")
 
-    # The agreement rule that keeps solutionSource and solutionOrigin from
-    # becoming two different answers to the same question.
-    stated = prov.get("solutionOrigin")
-    implied = solution_origin_from_file(puzzle)
-    if implied is not None and stated != implied:
+    if implied is not None and origin != implied:
         findings.append(
-            f"provenance.solutionOrigin is {stated!r} but the file says "
-            f"{implied!r} (" + ("no entry carries an answer"
-                                if implied == "unsolved"
-                                else f"solutionSource.kind is "
-                                     f"{(puzzle.get('solutionSource') or {}).get('kind')!r}")
-            + ")")
-    elif implied is None and stated not in ("published", "unknown", "authored"):
-        # Answers present, no solutionSource backing a claim about them. Saying
-        # "model" or "writeup" here would assert a story the file does not tell,
-        # and "unsolved" would contradict the answers sitting in it.
-        findings.append(f"provenance.solutionOrigin is {stated!r} but the file "
-                        f"carries answers and no solutionSource to back that")
+            f"solutions.origin is {origin!r} but the file says {implied!r} ("
+            + ("no entry carries an answer" if implied == "unsolved"
+               else "from its " + ", ".join(detail)) + ")")
+    elif implied is None and origin not in ("published", "unknown", "authored"):
+        findings.append(f"solutions.origin is {origin!r} but the file carries "
+                        f"answers and no solution detail to back that")
 
     if is_book(series):
-        book = prov.get("book")
+        book = source.get("book")
         if not isinstance(book, dict):
-            findings.append(f"{series} is book-sourced but provenance has no book block")
+            findings.append(f"{series} is book-sourced but source has no book block")
         else:
             for key in ("identifier", "title", "volume", "numberInBook"):
                 if not book.get(key):
-                    findings.append(f"provenance.book is missing {key}")
+                    findings.append(f"source.book is missing {key}")
             # Both halves of the number are checked, because the number IS the
             # pair: a block that agreed on the position while naming another
             # volume would cite the wrong book and read as correct.
@@ -652,14 +642,14 @@ def check(puzzle):
             want_position = position_of(series, puzzle["number"])
             if book.get("volume") != want_volume:
                 findings.append(
-                    f"provenance.book.volume is {book.get('volume')!r} but "
+                    f"source.book.volume is {book.get('volume')!r} but "
                     f"{puzzle.get('id')} is volume {want_volume}")
             if book.get("numberInBook") != want_position:
                 findings.append(
-                    f"provenance.book.numberInBook is {book.get('numberInBook')!r} "
+                    f"source.book.numberInBook is {book.get('numberInBook')!r} "
                     f"but {puzzle.get('id')} is No {want_position} in its book")
-    elif prov.get("book"):
-        findings.append(f"provenance has a book block but {series!r} is not book-sourced")
+    elif source.get("book"):
+        findings.append(f"source has a book block but {series!r} is not book-sourced")
 
     return findings
 
@@ -689,7 +679,7 @@ def staged_annotators():
         shown = subprocess.run(["git", "show", spec], capture_output=True, text=True)
         if shown.returncode:
             return []
-        return (json.loads(shown.stdout).get("provenance") or {}).get("annotatedBy") or []
+        return json.loads(shown.stdout).get("annotatedBy") or []
 
     # A puzzle whose date moved it to another year folder is a rename; its
     # HEAD copy is the one it was renamed from.

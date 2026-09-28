@@ -251,7 +251,7 @@ def enum_sources():
         "gridOrigin": list(provenance.GRID_ORIGINS),
         "solutionOrigin": list(provenance.SOLUTION_ORIGINS),
         "annotator": list(provenance.ANNOTATORS),
-        "solutionKind": [*provenance.WRITEUP_KINDS, "model"],
+        "blog": list(provenance.WRITEUP_KINDS),
     }
 
 

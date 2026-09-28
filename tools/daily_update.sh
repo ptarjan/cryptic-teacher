@@ -398,6 +398,7 @@ annotate_blocked=$(python3 tools/failed_inputs.py skipped annotate)
 { read -r fresh; read -r pending; } < <(python3 - "$ANNOTATE_MAX" "$annotate_blocked" <<'EOF'
 import json, subprocess, sys, time
 sys.path.insert(0, "tools")
+import provenance
 from series import date_ms
 idx = json.load(open("puzzles/index.json"))
 blocked = set(sys.argv[2].split())
@@ -407,7 +408,7 @@ cutoff = time.time() * 1000 - FRESH_MS
 def keyed(text):
     """True when a puzzle file's text carries the paper's complete key."""
     puzzle = json.loads(text)
-    return (not puzzle.get("solutionSource")
+    return (not provenance.solution_detail(puzzle)
             and all(e.get("solution") for e in puzzle.get("entries", [])))
 
 def show(*args):
@@ -453,7 +454,7 @@ record_annotate_failure() {   # id, reason, [--judged]
 # So solve it instead. A model solves the grid cold, and tools/apply_solution.py
 # writes it only if every entry is answered, every length fits and all ~58
 # crossings agree — which is not proof, but is a check no accidental fill
-# passes. The answers go in marked as ours (solutionSource), the site says so,
+# passes. The answers go in marked as ours (solutions.model), the site says so,
 # the fetcher keeps re-checking every night, and when the official key lands the
 # guess is graded against it and any entry we got wrong loses its annotation and
 # gets rewritten. Being wrong is therefore recoverable and visible; the failure
@@ -550,7 +551,7 @@ python3 tools/failed_inputs.py summary
 ANNOTATE_MAX_WEEKLY_PCT="${ANNOTATE_MAX_WEEKLY_PCT:-90}"
 # The annotating model. An alias, so it names whichever model it points at
 # tonight; the exact id that ran is recorded in each puzzle's
-# provenance.annotatedBy, and the commit trailer is read back from there.
+# annotatedBy, and the commit trailer is read back from there.
 ANNOTATE_MODEL="${ANNOTATE_MODEL:-opus}"
 # Explicit, because the CLI default differs per model (medium on Opus 5.5,
 # high elsewhere) and would change silently when the alias moves.
@@ -815,8 +816,8 @@ if [ -n "$pending" ]; then
       # ourselves) is annotated sighted as usual.
       ann_tools="Read,Write,Edit,Bash(python3 *),Bash(node *),WebSearch,WebFetch"
       ann_turns=80
-      # The run reads a copy of the puzzle without solutionSource, which names
-      # the blog the key came from (see annotate_check.py VIEW_KEYS). Blind runs
+      # The run reads a copy of the puzzle without its solutions detail, which
+      # names the blog the key came from (see annotate_check.py VIEW_KEYS). Blind runs
       # have no web and write their answers into the puzzle itself.
       ann_file=$(python3 tools/annotate_check.py --view "$num")
       ann_task="Annotate the cryptic crossword $num in this repo, whose clues and answers are in $ann_file."

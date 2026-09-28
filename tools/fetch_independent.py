@@ -69,7 +69,7 @@ FEED = ("https://ams.cdn.arkadiumhosted.com/assets/gamesfeed/independent/"
         "daily-crossword/c_{ymd}.xml")
 # Where a reader would go to play it. Per-puzzle URLs don't exist — the game
 # always serves "today" — so every puzzle points at the same page. Better than
-# an empty sourceUrl: it still credits the publisher and shows where it's from.
+# an empty source.url: it still credits the publisher and shows where it's from.
 PLAY_URL = "https://puzzles.independent.co.uk/games/cryptic-crossword-independent/"
 NS = "{http://crossword.info/xml/rectangular-puzzle}"
 
@@ -455,7 +455,7 @@ def parse(xml_bytes, ymd):
         # ("Four clues have no definition"). Empty on an ordinary day.
         **({"preamble": pre} if (pre := " ".join(plain_text(
             puz.findtext(f"{NS}metadata/{NS}description") or "").split())) else {}),
-        "sourceUrl": PLAY_URL,
+        "source": {"url": PLAY_URL},
         "entries": entries,
     }
 

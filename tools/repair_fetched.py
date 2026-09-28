@@ -74,7 +74,7 @@ FLAGS
 --from, --to limit to a range of puzzle numbers, either end on its own allowed
 
 Files are read and written through fetch_puzzle's own reader and writer, which
-keeps each file's own provenance.acquiredBy: the tool that ACQUIRED a puzzle is
+keeps each file's own source.acquiredBy: the tool that ACQUIRED a puzzle is
 a fact about where it came from, which repairing it does not change. That is
 write_puzzle_file's default, so nothing here names a generator. A file with
 nothing wrong is never opened for writing, so it cannot be reformatted by being

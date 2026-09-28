@@ -48,6 +48,7 @@ from pathlib import Path
 
 import fetch_puzzle
 import file_penguin_puzzle as filing
+import provenance
 
 from normalise_linked_enumerations import normalise_record, resolve_groups
 
@@ -271,10 +272,11 @@ same("the word break is placed without an answer to place it from",
      built["7-down"].get("separatorLocations"), {",": [4]})
 same("every light is answerless", [e["solution"] for e in puzzle["entries"]], [None, None])
 # hasSolutions in puzzles/index.json is all(e["solution"]), and false is what
-# puts the puzzle in the cold-solve queue. A puzzle carrying a solutionSource
+# puts the puzzle in the cold-solve queue. A puzzle carrying a solutions detail
 # with no solve behind it would also satisfy apply_solution.py's overwrite
 # guard on behalf of a solve that never happened, and turn that queue away.
-same("and nothing claims to have solved it", "solutionSource" in puzzle, False)
+same("and nothing claims to have solved it",
+     bool(provenance.solution_detail(puzzle)), False)
 
 print("and the guard on a SOLVED filing is untouched")
 short = record([light("7-down", 7, "down", 4, "Fellow player makes anagrams", "4"),

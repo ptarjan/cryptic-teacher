@@ -32,7 +32,7 @@ for series in ("times", "timesjumbo", "sundaytimes"):
         p = json.loads(path.read_text(encoding="utf-8"))
         if p.get("date"):
             day = datetime.datetime.fromtimestamp(p["date"] / 1000, datetime.timezone.utc).date()
-            posted = (p.get("solutionSource") or {}).get("date")
+            posted = (p.get("solutions") or {}).get("date")
             rows.append((p["number"], day, posted and datetime.date.fromisoformat(posted)))
     held[series] = sorted(rows)
 

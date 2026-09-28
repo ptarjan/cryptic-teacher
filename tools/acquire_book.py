@@ -386,12 +386,12 @@ def entries_from_grid(grid, across, down):
 def file_unsolved(puzzle_meta, grid, across, down, identifier, out_dir):
     """(path, problems). Reuses tools/file_penguin_puzzle.py's own guard, in
     process, so everything it knows about these books -- the id, the null
-    date, the absent solutionSource, how a linked group is stored -- is
+    date, the absent solution detail, how a linked group is stored -- is
     applied here too instead of being restated and drifting.
 
     `identifier` is the archive.org item THIS RUN read, and it is the ONLY
     thing that names the book: tools/data/books.json turns it into the index
-    the number is built from, the title and the sourceUrl alike. Reading one
+    the number is built from, the title and source.url alike. Reading one
     volume's text while filing under another used to be this route's one
     silent mistake, and every puzzle it filed cited a book it did not come
     from for good. There is no second argument to disagree with now.

@@ -8,7 +8,7 @@
 # an answer, so they were re-fetched (or re-searched on fifteensquared) every
 # night forever. still_worth_refreshing in tools/fetch_puzzle.py is the fix:
 # a puzzle already past REFRESH_WINDOW_DAYS since its own date — or since
-# provenance.acquiredOn, for the handful still missing a date — drops out of
+# source.acquiredOn, for the handful still missing a date — drops out of
 # the queue for good rather than on any kind of retry schedule.
 #
 #     bash tools/test_refresh_window.sh
@@ -46,16 +46,16 @@ print("EDGE_IN", fetcher.still_worth_refreshing({"date": at(90)}, now=NOW))
 print("EDGE_OUT", fetcher.still_worth_refreshing({"date": at(91)}, now=NOW))
 
 # An un-backfilled Cyclops carries no `date` at all. Freshly acquired, it has
-# no reason to be excluded yet, so it falls back to provenance.acquiredOn.
-undated_recent = {"provenance": {"acquiredOn": "2026-09-18"}}
+# no reason to be excluded yet, so it falls back to source.acquiredOn.
+undated_recent = {"source": {"acquiredOn": "2026-09-18"}}
 print("UNDATED_RECENT", fetcher.still_worth_refreshing(undated_recent, now=NOW))
 
 # Acquired long ago and still dateless: the fallback ages out the same way a
 # real date would.
-undated_old = {"provenance": {"acquiredOn": "2020-01-01"}}
+undated_old = {"source": {"acquiredOn": "2020-01-01"}}
 print("UNDATED_OLD", fetcher.still_worth_refreshing(undated_old, now=NOW))
 
-# No date and no provenance at all: nothing anchors this puzzle in time, so
+# No date and no source at all: nothing anchors this puzzle in time, so
 # nothing could ever make it "too old" — excluded outright rather than kept
 # forever by default.
 print("NO_ANCHOR", fetcher.still_worth_refreshing({}, now=NOW))
@@ -76,7 +76,7 @@ echo "an undated puzzle falls back to when this repo acquired it"
 same "acquired 6 days ago" "$(grep '^UNDATED_RECENT ' <<<"$out")" "UNDATED_RECENT True"
 same "acquired years ago" "$(grep '^UNDATED_OLD ' <<<"$out")" "UNDATED_OLD False"
 
-echo "a puzzle with no date and no provenance is never refreshed"
+echo "a puzzle with no date and no source is never refreshed"
 same "no anchor at all" "$(grep '^NO_ANCHOR ' <<<"$out")" "NO_ANCHOR False"
 
 echo "the working tree is untouched"

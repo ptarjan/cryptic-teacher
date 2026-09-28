@@ -10,7 +10,7 @@ and "The Herald Crossword Book" alike. Which book it is, is one row in
 tools/data/books.json: its index, its cover volume, its shelf label, its title
 and the scan it was read out of. --book names that row BY THE ARCHIVE.ORG
 IDENTIFIER, which is also the item whose text was read, so the number, the
-title and the sourceUrl cannot come from three different books.
+title and source.url cannot come from three different books.
 
 These puzzles come from "The New Penguin Book of The Guardian Crosswords",
 scanned and OCR'd (tools/fetch_ia_book.py), parsed into clue lists
@@ -39,14 +39,14 @@ beside a puzzle that never had one.
 NO JOB CAN FETCH THE ANSWER KEY. The book does print one — solved answer grids
 at the back — but as page IMAGES: their OCR text is noise, and archive.org
 serves a loan's page images encrypted for its in-browser reader only. With no
-Guardian number or date there is no other key to look up. So solutionSource
-carries `officialKey: "never"` on top of the usual `kind: "model"`. `kind`
+Guardian number or date there is no other key to look up. So `solutions`
+carries `officialKey: "never"` on top of the usual `model` key. `model`
 keeps every existing model-fill rule working — blind_annotate.py refuses to
 grade the fill against itself, index.json's solutionsUnofficial goes true, the
 crawlable page qualifies the answers it prints — and `officialKey` says no
 scheduled job should wait for a key. The printed grids stay readable by a
 person holding the loan; answers read from them replace the model's and drop
-`kind: "model"`.
+`model`.
 
 CONFIDENCE IS PER ENTRY AND IT SURVIVES. A model solve is not uniformly sure of
 itself: most entries parse completely, and a few are a definition plus enough
@@ -82,12 +82,12 @@ into a silently half-filed puzzle; without the flag a missing answer is still
 the hard error it always was. And --unsolved files NO answers rather than the
 ones it has: a partial fill in a puzzle file is worse than none, because
 tools/apply_solution.py refuses to write over a puzzle that already holds
-answers and no solutionSource, so a half-filled file would turn away the very
+answers and no solution detail, so a half-filled file would turn away the very
 job that is meant to finish it. Keep a partial fill beside the record instead —
 tools/data/penguin_partial_fills/ is where the ones we have are kept.
 
-An unsolved file carries no solutionSource either, for the same reason it
-carries no answers: there is no solve to describe yet, and the field is what
+An unsolved file carries no solution detail either, for the same reason it
+carries no answers: there is no solve to describe yet, and the detail is what
 index.json reads to say the answers on this page are ours rather than the
 paper's. apply_solution.py writes it when the backfill lands, and stamps
 `officialKey` from tools/series.py, so the one permanent fact about these books
@@ -124,7 +124,7 @@ def source_url(series, number):
 
     Read BACK out of the number, never carried through from --book: the number
     was built from the identifier, so reading it back is what proves the two
-    agree. sourceUrl and provenance.book.identifier both come from that one
+    agree. source.url and source.book.identifier both come from that one
     registry row, so they cannot name different books — a free identifier
     beside a free --volume is precisely how they came to.
     """
@@ -291,17 +291,16 @@ def build(record, identifier, model, unsolved=False):
         "setter": record.get("setter") or default_setter(series, number),
         "date": published(series, number),
         "dimensions": src["dimensions"],
-        "sourceUrl": source_url(series, number),
+        "source": {"url": source_url(series, number)},
         "entries": out,
     }
-    # No solve, no solutionSource. The field says whose answers these are, and
+    # No solve, no solution detail. It says whose answers these are, and
     # puzzles/index.json turns it into solutionsUnofficial — claiming a model
     # fill over a grid with no answers in it would mark the puzzle as ours to a
     # reader and, worse, satisfy apply_solution.py's overwrite guard on behalf
     # of a solve that never happened. The backfill writes it when it lands.
     if not unsolved:
-        puzzle["solutionSource"] = {
-            "kind": "model",
+        puzzle["solutions"] = {
             "model": model,
             "date": datetime.date.today().isoformat(),
             # Counts, or an admission. A solve that was stopped before it ran

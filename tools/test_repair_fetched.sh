@@ -79,7 +79,7 @@ def write(series, number, date, entries):
     puzzle = {"id": pid, "number": number, "series": series,
               "name": f"Fixture {number}", "setter": "Nobody", "date": date,
               "dimensions": {"cols": 15, "rows": 15},
-              "sourceUrl": f"https://example.invalid/{pid}", "entries": entries}
+              "source": {"url": f"https://example.invalid/{pid}"}, "entries": entries}
     fetcher.write_puzzle_file(puzzle_paths.PUZZLE_DIR / f"{pid}.json", puzzle)
 
 base = 1_600_000_000_000
