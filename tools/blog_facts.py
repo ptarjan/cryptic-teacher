@@ -707,6 +707,9 @@ def wordplay_heads(expl, answer):
         # "Alternate letters (regularly) of": the gloss after the phrase.
         line = re.sub(r"(?i)\b(letters?|anagram|reversal|reverse|half)\s*(\([^()]*\)|\[[^\[\]]*\])\s+of\b",
                       r"\1 of \2", line)
+        # "An anagram of IM SO inserted into another (fancy) of LACE": a second anagram.
+        line = re.sub(r"(?i)(\banagram\b.*?)\banother\s*(\([^()]*\)|\[[^\[\]]*\])\s+of\b",
+                      r"\1an anagram of \2", line)
         line = re.sub(r"(?i)^insert\s+(.{1,40}?)\s+(in|into|inside|between)\b", r"\1 \2", line)
         line = re.sub(rf"\s*=\s*[{CAP}][{CAP}\s'’\-]*\W*$", "", line)
         # Cut at the first break outside brackets.
@@ -728,8 +731,9 @@ def wordplay_heads(expl, answer):
 
 
 #: Words a blogger puts in front of an operator ("is placed around", "going
-#: outside"); read past only where an operator follows.
-FILLER = re.compile(r"(?i)(?:is|are|being|been|all|then|placed|put|goes|going|which|is then)\s+")
+#: outside", "is then placed"); read past only where an operator follows. In
+#: lower case, since in capitals they are letters: "then IS inside F".
+FILLER = re.compile(r"(?:(?:[Ii]s|[Aa]re|[Bb]eing|[Bb]een|[Aa]ll|[Tt]hen|[Pp]laced|[Pp]ut|[Gg]oes|[Gg]oing|[Ww]hich)\s+)+")
 #: Quoted clue words used as their own letters: "of ‘is’ in NUANCE".
 LITERAL = re.compile(r"['‘\"“](?P<w>[A-Za-z][a-z ]{0,20})['’\"”]")
 
