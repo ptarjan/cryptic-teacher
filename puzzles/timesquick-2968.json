@@ -18,7 +18,10 @@
   "retrievedFrom": "blog",
   "retrievedUrl": null,
   "gridOrigin": "reconstructed",
-  "solutionOrigin": "writeup"
+  "solutionOrigin": "writeup",
+  "annotatedBy": [
+   "claude-opus-5-5"
+  ]
  },
  "solutionSource": {
   "kind": "timesforthetimes",
@@ -37,7 +40,35 @@
    },
    "length": 7,
    "clue": "Aid for speaker in traffic jam, reportedly? (7)",
-   "solution": "AUTOCUE"
+   "solution": "AUTOCUE",
+   "annotation": {
+    "type": "homophone",
+    "answer": "AUTOCUE",
+    "definition": "Aid for speaker",
+    "indicators": [
+     "reportedly"
+    ],
+    "indicatorNotes": {
+     "reportedly": "what is reported is passed on by word of mouth, so the answer is how the phrase sounds when said"
+    },
+    "blocks": [
+     {
+      "clueFragment": "traffic jam",
+      "soundsLike": "AUTO QUEUE",
+      "gives": "AUTOCUE",
+      "note": "a traffic jam is a queue of autos (cars)"
+     }
+    ],
+    "surface": "A speaker stuck in traffic, wondering what could help.",
+    "walkthrough": "An Autocue is the screen that scrolls a presenter's script; the traffic jam is the wordplay, not the scene.",
+    "definitionFit": "A trade name used generically for a teleprompter, the device that feeds a speaker their lines.",
+    "features": {
+     "misdirectedWord": "jam",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "1-down",
@@ -49,7 +80,45 @@
    },
    "length": 3,
    "clue": "Concert gear is a bit wet without lid (3)",
-   "solution": "AMP"
+   "solution": "AMP",
+   "annotation": {
+    "type": "deletion",
+    "answer": "AMP",
+    "definition": "Concert gear",
+    "indicators": [
+     "without lid"
+    ],
+    "indicatorNotes": {
+     "without lid": "in a down entry the lid is the top letter, so the first letter comes off"
+    },
+    "linkWords": [
+     "is"
+    ],
+    "pieces": [
+     "AMP"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a bit wet",
+      "gives": "DAMP",
+      "note": "slightly wet"
+     },
+     {
+      "clueFragment": "without lid",
+      "gives": "AMP",
+      "note": "the top letter D is removed"
+     }
+    ],
+    "surface": "Rain at an outdoor gig has left the equipment damp.",
+    "walkthrough": "'Lid' works because this is a down answer: the first letter sits on top.",
+    "definitionFit": "Short for amplifier, the speaker unit every band plays through, so gear by example.",
+    "features": {
+     "misdirectedWord": "lid",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "2-down",
@@ -61,7 +130,45 @@
    },
    "length": 7,
    "clue": "Pair set off for walk, wearily (7)",
-   "solution": "TRAIPSE"
+   "solution": "TRAIPSE",
+   "annotation": {
+    "type": "anagram",
+    "answer": "TRAIPSE",
+    "definition": "walk, wearily",
+    "indicators": [
+     "off"
+    ],
+    "indicatorNotes": {
+     "off": "off means gone wrong, like milk, so the letters are no longer in order"
+    },
+    "linkWords": [
+     "for"
+    ],
+    "anagram": {
+     "fodder": "PAIRSET"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Pair set",
+      "gives": "PAIRSET",
+      "note": "anagram fodder, 7 letters"
+     },
+     {
+      "clueFragment": "off",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "Two people set off on a long, tiring walk.",
+    "walkthrough": "'Set off' reads as setting out on the walk; only 'off' is the instruction, and 'set' is fodder.",
+    "definitionFit": "The verb carries the weariness in itself: dragging along on foot, tired or reluctant.",
+    "features": {
+     "misdirectedWord": "off",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "3-down",
@@ -73,7 +180,52 @@
    },
    "length": 5,
    "clue": "Prisoner picked up silver for dance (5)",
-   "solution": "CONGA"
+   "solution": "CONGA",
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "CONGA",
+    "definition": "dance",
+    "indicators": [
+     "picked up"
+    ],
+    "indicatorNotes": {
+     "picked up": "in a down entry, picking something up lifts it, so the letters read bottom to top"
+    },
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "CON",
+     "GA"
+    ],
+    "subReversals": [
+     {
+      "from": "AG",
+      "to": "GA"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prisoner",
+      "gives": "CON",
+      "note": "short for convict"
+     },
+     {
+      "clueFragment": "silver",
+      "gives": "AG",
+      "note": "the chemical symbol for silver, turned upward by 'picked up'"
+     }
+    ],
+    "surface": "A convict pockets some silver in exchange for a dance.",
+    "walkthrough": "'Picked up' looks like the prisoner picking up loot, but it only turns AG over.",
+    "definitionFit": "A Latin American line dance, one person holding the hips of the next; a dance by example.",
+    "features": {
+     "misdirectedWord": "picked",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "4-down",
@@ -85,7 +237,37 @@
    },
    "length": 7,
    "clue": "Some stolen gin especially for motors (7)",
-   "solution": "ENGINES"
+   "solution": "ENGINES",
+   "annotation": {
+    "type": "hidden word",
+    "answer": "ENGINES",
+    "definition": "motors",
+    "indicators": [
+     "Some"
+    ],
+    "indicatorNotes": {
+     "Some": "only some of the letters in the words that follow are taken"
+    },
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stolen gin especially",
+      "gives": "ENGINES",
+      "note": "the letters run from the end of the first word across the second into the start of the third"
+     }
+    ],
+    "surface": "Stolen gin turns out to be handy as fuel.",
+    "walkthrough": "stol(EN GIN ES)pecially: the answer spans all three words, with GIN sitting whole in the middle.",
+    "definitionFit": "A plain synonym: a motor and an engine both turn fuel into movement.",
+    "features": {
+     "misdirectedWord": "Some",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "5-across",
@@ -97,7 +279,40 @@
    },
    "length": 4,
    "clue": "Steal from European’s garment (4)",
-   "solution": "ROBE"
+   "solution": "ROBE",
+   "annotation": {
+    "type": "charade",
+    "answer": "ROBE",
+    "definition": "garment",
+    "linkWords": [
+     "’s"
+    ],
+    "pieces": [
+     "ROB",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Steal from",
+      "gives": "ROB",
+      "note": "to take from someone by theft"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "standard abbreviation for European"
+     }
+    ],
+    "surface": "Someone lifting a European's coat.",
+    "walkthrough": "The 's reads as belonging to the European, but it stands for 'is', linking the wordplay to the garment.",
+    "definitionFit": "A long loose outer garment, such as a dressing gown or a judge's gown; a garment by example.",
+    "features": {
+     "misdirectedWord": "European",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "5-down",
@@ -109,7 +324,40 @@
    },
    "length": 5,
    "clue": "Was transported on duck for Wild West show (5)",
-   "solution": "RODEO"
+   "solution": "RODEO",
+   "annotation": {
+    "type": "charade",
+    "answer": "RODEO",
+    "definition": "Wild West show",
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "RODE",
+     "O"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Was transported",
+      "gives": "RODE",
+      "note": "travelled on a horse or as a passenger"
+     },
+     {
+      "clueFragment": "on duck",
+      "gives": "O",
+      "note": "a duck is a zero score in cricket, O; 'on' puts it after"
+     }
+    ],
+    "surface": "Someone riding a duck as a novelty act at a Wild West show.",
+    "walkthrough": "A duck is a batter's score of nothing in cricket, hence the letter O.",
+    "definitionFit": "Cowboys' bronco-riding and roping contests, the display most associated with the American West.",
+    "features": {
+     "misdirectedWord": "duck",
+     "joke": "absurd",
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "6-down",
@@ -121,7 +369,40 @@
    },
    "length": 9,
    "clue": "Pause quickly for meal (9)",
-   "solution": "BREAKFAST"
+   "solution": "BREAKFAST",
+   "annotation": {
+    "type": "charade",
+    "answer": "BREAKFAST",
+    "definition": "meal",
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "BREAK",
+     "FAST"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pause",
+      "gives": "BREAK",
+      "note": "a short stop or interval"
+     },
+     {
+      "clueFragment": "quickly",
+      "gives": "FAST",
+      "note": "at speed"
+     }
+    ],
+    "surface": "A quick stop to grab something to eat.",
+    "walkthrough": "The word literally means breaking the overnight fast, so the parts fit the meal as well as the wordplay.",
+    "definitionFit": "The first meal of the day, so a meal by example.",
+    "features": {
+     "misdirectedWord": null,
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "7-across",
@@ -133,7 +414,46 @@
    },
    "length": 6,
    "clue": "Twist back of shoulder in country (6)",
-   "solution": "SPRAIN"
+   "solution": "SPRAIN",
+   "annotation": {
+    "type": "last letter + container",
+    "answer": "SPRAIN",
+    "definition": "Twist",
+    "indicators": [
+     "back of",
+     "in"
+    ],
+    "indicatorNotes": {
+     "back of": "the back of a word is its end, so its last letter",
+     "in": "the letter is placed within the country"
+    },
+    "pieces": [
+     "SP",
+     "R",
+     "AIN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "back of shoulder",
+      "gives": "R",
+      "note": "last letter of shoulder"
+     },
+     {
+      "clueFragment": "country",
+      "gives": "SPAIN",
+      "note": "a European country, split after its second letter to take R"
+     }
+    ],
+    "surface": "Someone twists the back of their shoulder while abroad.",
+    "walkthrough": "The surface reads as an injury, and the answer is one, but 'back of shoulder' is only a single letter.",
+    "definitionFit": "Twisting a joint so the ligaments are wrenched: the verb sense of twist, as in twisting an ankle.",
+    "features": {
+     "misdirectedWord": "back",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "8-across",
@@ -145,7 +465,51 @@
    },
    "length": 6,
    "clue": "After start of great advert, acquire device (6)",
-   "solution": "GADGET"
+   "solution": "GADGET",
+   "annotation": {
+    "type": "first letter + charade",
+    "answer": "GADGET",
+    "definition": "device",
+    "indicators": [
+     "start of",
+     "After"
+    ],
+    "indicatorNotes": {
+     "start of": "the start of a word is its first letter",
+     "After": "the acquiring word follows what has come before"
+    },
+    "pieces": [
+     "G",
+     "AD",
+     "GET"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "start of great",
+      "gives": "G",
+      "note": "first letter of great"
+     },
+     {
+      "clueFragment": "advert",
+      "gives": "AD",
+      "note": "short for advertisement"
+     },
+     {
+      "clueFragment": "acquire",
+      "gives": "GET",
+      "note": "to obtain"
+     }
+    ],
+    "surface": "Seeing a great advert and buying the thing it sells.",
+    "walkthrough": "'After' tells you the acquire-word comes last, behind the other two pieces.",
+    "definitionFit": "A plain synonym: a small ingenious device or tool.",
+    "features": {
+     "misdirectedWord": null,
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "9-across",
@@ -162,7 +526,42 @@
      7
     ]
    },
-   "solution": "CAPTAINHOOK"
+   "solution": "CAPTAINHOOK",
+   "annotation": {
+    "type": "anagram",
+    "answer": "CAPTAIN HOOK",
+    "definition": "a pirate",
+    "indicators": [
+     "Transform"
+    ],
+    "indicatorNotes": {
+     "Transform": "transforming something changes its shape, so the letters are reshaped"
+    },
+    "anagram": {
+     "fodder": "OKCHAPINTOA"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Transform",
+      "gives": "",
+      "note": "anagram indicator"
+     },
+     {
+      "clueFragment": "OK chap into a",
+      "gives": "OKCHAPINTOA",
+      "note": "anagram fodder, 11 letters"
+     }
+    ],
+    "surface": "Turning an ordinary decent fellow into a pirate.",
+    "walkthrough": "'Into' reads as a link, but its letters are needed in the fodder, so the definition is only 'a pirate'.",
+    "definitionFit": "A pirate by example: the villain of J. M. Barrie's Peter Pan, with a hook for a hand.",
+    "features": {
+     "misdirectedWord": "into",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "9-down",
@@ -179,7 +578,55 @@
      3
     ]
    },
-   "solution": "CANOPENER"
+   "solution": "CANOPENER",
+   "annotation": {
+    "type": "container + first letter + charade",
+    "answer": "CAN OPENER",
+    "definition": "kitchen utensil",
+    "indicators": [
+     "inside",
+     "at first"
+    ],
+    "indicatorNotes": {
+     "inside": "the writer is put within the boat",
+     "at first": "at the start, so only the first letter of the next word"
+    },
+    "linkWords": [
+     "requires"
+    ],
+    "pieces": [
+     "CANO",
+     "PEN",
+     "E",
+     "R"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Writer",
+      "gives": "PEN",
+      "note": "the thing that writes"
+     },
+     {
+      "clueFragment": "boat",
+      "gives": "CANOE",
+      "note": "a light paddled boat, opened before its last letter"
+     },
+     {
+      "clueFragment": "at first",
+      "gives": "R",
+      "note": "first letter of the next word, 'requires'"
+     }
+    ],
+    "surface": "A writer on a boat trip needs something to open the tins.",
+    "walkthrough": "CANO(PEN)E then R. 'At first' belongs with 'requires', whose R is taken, while 'requires' also links to the definition.",
+    "definitionFit": "A kitchen utensil by example: the hand tool for opening tins, called a tin opener in Britain.",
+    "features": {
+     "misdirectedWord": "Writer",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "10-across",
@@ -191,7 +638,46 @@
    },
    "length": 6,
    "clue": "Trainee — they’re regularly entering pub (6)",
-   "solution": "INTERN"
+   "solution": "INTERN",
+   "annotation": {
+    "type": "alternate letters + container",
+    "answer": "INTERN",
+    "definition": "Trainee",
+    "indicators": [
+     "regularly",
+     "entering"
+    ],
+    "indicatorNotes": {
+     "regularly": "at regular intervals, so every other letter",
+     "entering": "the letters go into the pub"
+    },
+    "pieces": [
+     "IN",
+     "TER",
+     "N"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "they’re regularly",
+      "gives": "TER",
+      "note": "first, third and fifth letters of they're"
+     },
+     {
+      "clueFragment": "pub",
+      "gives": "INN",
+      "note": "an old word for a pub, opened after its second letter"
+     }
+    ],
+    "surface": "Trainees filing into the pub after work.",
+    "walkthrough": "IN(TER)N. Take the odd letters of THEYRE, ignoring the apostrophe.",
+    "definitionFit": "A plain synonym: a trainee or junior working to gain experience.",
+    "features": {
+     "misdirectedWord": "regularly",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "11-down",
@@ -203,7 +689,42 @@
    },
    "length": 7,
    "clue": "Broken biro in a city in Africa (7)",
-   "solution": "NAIROBI"
+   "solution": "NAIROBI",
+   "annotation": {
+    "type": "anagram",
+    "answer": "NAIROBI",
+    "definition": "a city in Africa",
+    "indicators": [
+     "Broken"
+    ],
+    "indicatorNotes": {
+     "Broken": "something broken falls apart, and its letters are put back in a new order"
+    },
+    "anagram": {
+     "fodder": "BIROINA"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Broken",
+      "gives": "",
+      "note": "anagram indicator"
+     },
+     {
+      "clueFragment": "biro in a",
+      "gives": "BIROINA",
+      "note": "anagram fodder, 7 letters"
+     }
+    ],
+    "surface": "A pen broke while someone was in an African city.",
+    "walkthrough": "A biro is a ballpoint pen. 'In a' reads as the start of the location, but its letters are part of the fodder.",
+    "definitionFit": "An African city by example: the capital of Kenya.",
+    "features": {
+     "misdirectedWord": "in",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "12-across",
@@ -215,7 +736,37 @@
    },
    "length": 6,
    "clue": "Watch horror film — it has its ups and downs (6)",
-   "solution": "SEESAW"
+   "solution": "SEESAW",
+   "annotation": {
+    "type": "charade",
+    "answer": "SEESAW",
+    "definition": "it has its ups and downs",
+    "pieces": [
+     "SEE",
+     "SAW"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Watch",
+      "gives": "SEE",
+      "note": "to view"
+     },
+     {
+      "clueFragment": "horror film",
+      "gives": "SAW",
+      "note": "title of a 2004 horror film"
+     }
+    ],
+    "surface": "Watching a horror film is an emotional rollercoaster.",
+    "walkthrough": "'Ups and downs' sounds like a figure of speech about the film, but it is meant literally.",
+    "definitionFit": "A cryptic description: a playground plank whose ends rise and fall in turn.",
+    "features": {
+     "misdirectedWord": "ups",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "id": "13-down",
@@ -227,7 +778,34 @@
    },
    "length": 7,
    "clue": "Wear out part of car (7)",
-   "solution": "EXHAUST"
+   "solution": "EXHAUST",
+   "annotation": {
+    "type": "double definition",
+    "answer": "EXHAUST",
+    "definition": "Wear out",
+    "definition2": "part of car",
+    "blocks": [
+     {
+      "clueFragment": "Wear out",
+      "gives": "EXHAUST",
+      "note": "to tire completely, or use up entirely"
+     },
+     {
+      "clueFragment": "part of car",
+      "gives": "EXHAUST",
+      "note": "the pipe carrying fumes away from the engine"
+     }
+    ],
+    "surface": "Some car component has worn out.",
+    "walkthrough": "'Part of' looks like it is asking for hidden letters, but here it just means a component.",
+    "definitionFit": "The verb means to tire out or use up; the noun is the car's fume pipe, which draws the used gases out.",
+    "features": {
+     "misdirectedWord": "part",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "14-across",
@@ -244,7 +822,37 @@
      7
     ]
    },
-   "solution": "PARTINGSHOT"
+   "solution": "PARTINGSHOT",
+   "annotation": {
+    "type": "double definition",
+    "answer": "PARTING SHOT",
+    "definition": "the final insult",
+    "definition2": "Photo of hairstyle",
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Photo of hairstyle",
+      "gives": "PARTINGSHOT",
+      "note": "a picture of the line where hair is divided, read whimsically"
+     },
+     {
+      "clueFragment": "the final insult",
+      "gives": "PARTINGSHOT",
+      "note": "a last cutting remark made on leaving"
+     }
+    ],
+    "surface": "Having a photo taken of your haircut is the last straw.",
+    "walkthrough": "The first half is whimsical: read literally as a shot (photo) of a parting (the line where hair divides).",
+    "definitionFit": "An idiom for a cutting last remark made on the way out, the insult that ends the exchange.",
+    "features": {
+     "misdirectedWord": "hairstyle",
+     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "15-down",
@@ -256,7 +864,42 @@
    },
    "length": 5,
    "clue": "Rule part of Tangiers from the south (5)",
-   "solution": "REIGN"
+   "solution": "REIGN",
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "REIGN",
+    "definition": "Rule",
+    "indicators": [
+     "part of",
+     "from the south"
+    ],
+    "indicatorNotes": {
+     "part of": "only part of the word is used",
+     "from the south": "in a down entry south is the bottom, so the letters read upward"
+    },
+    "subReversals": [
+     {
+      "from": "NGIER",
+      "to": "REIGN"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "part of Tangiers",
+      "gives": "NGIER",
+      "note": "the middle five letters of Tangiers, read upward"
+     }
+    ],
+    "surface": "Governing a district of Tangiers in the south.",
+    "walkthrough": "Tangiers is a port in northern Morocco; 'from the south' sounds like geography but means read upward.",
+    "definitionFit": "A plain synonym: to rule as a monarch does.",
+    "features": {
+     "misdirectedWord": "south",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "16-down",
@@ -268,7 +911,34 @@
    },
    "length": 5,
    "clue": "Shred part of a fireplace (5)",
-   "solution": "GRATE"
+   "solution": "GRATE",
+   "annotation": {
+    "type": "double definition",
+    "answer": "GRATE",
+    "definition": "Shred",
+    "definition2": "part of a fireplace",
+    "blocks": [
+     {
+      "clueFragment": "Shred",
+      "gives": "GRATE",
+      "note": "to rub food against a rough surface into small strips, as with cheese"
+     },
+     {
+      "clueFragment": "part of a fireplace",
+      "gives": "GRATE",
+      "note": "the metal frame that holds the burning fuel"
+     }
+    ],
+    "surface": "Tearing up part of a fireplace.",
+    "walkthrough": "Two unrelated senses: a kitchen verb and a fireside noun.",
+    "definitionFit": "The verb is shredding cheese or vegetables; the noun is the iron frame holding coals in a fireplace.",
+    "features": {
+     "misdirectedWord": "part",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "17-across",
@@ -280,7 +950,54 @@
    },
    "length": 6,
    "clue": "Shade one doing exercises (6)",
-   "solution": "INDIGO"
+   "solution": "INDIGO",
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "INDIGO",
+    "definition": "Shade",
+    "indicators": [
+     "exercises"
+    ],
+    "indicatorNotes": {
+     "exercises": "exercising puts something through its paces, moving the letters about"
+    },
+    "pieces": [
+     "I",
+     "NDIGO"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "DOING",
+      "gives": "NDIGO"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "doing",
+      "gives": "NDIGO",
+      "note": "its letters rearranged"
+     },
+     {
+      "clueFragment": "exercises",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "Someone working out in the shade.",
+    "walkthrough": "'Doing exercises' reads as one phrase, but 'exercises' is a verb acting on DOING.",
+    "definitionFit": "A shade by example: the deep violet-blue between blue and violet in the rainbow.",
+    "features": {
+     "misdirectedWord": "exercises",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "18-across",
@@ -292,7 +1009,48 @@
    },
    "length": 6,
    "clue": "Charm a fish, half-heartedly (6)",
-   "solution": "AMULET"
+   "solution": "AMULET",
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "AMULET",
+    "definition": "Charm",
+    "indicators": [
+     "half-heartedly"
+    ],
+    "indicatorNotes": {
+     "half-heartedly": "the heart of the fish is a double letter; with half of it gone, one of the pair drops out"
+    },
+    "pieces": [
+     "A",
+     "MULET"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article as printed"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "MULLET",
+      "note": "a common food fish"
+     },
+     {
+      "clueFragment": "half-heartedly",
+      "gives": "MULET",
+      "note": "one of the two middle Ls goes"
+     }
+    ],
+    "surface": "Trying, without much effort, to charm a fish.",
+    "walkthrough": "'Charm' looks like a verb here but it is the noun: a lucky charm.",
+    "definitionFit": "The noun sense of charm: a trinket worn to ward off harm.",
+    "features": {
+     "misdirectedWord": "Charm",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "19-down",
@@ -304,7 +1062,39 @@
    },
    "length": 3,
    "clue": "Historical period initially eclipsing Roman age (3)",
-   "solution": "ERA"
+   "solution": "ERA",
+   "annotation": {
+    "type": "first letters",
+    "answer": "ERA",
+    "definition": "Historical period",
+    "indicators": [
+     "initially"
+    ],
+    "indicatorNotes": {
+     "initially": "at the start, so the initial letter of each word"
+    },
+    "pieces": [
+     "E",
+     "R",
+     "A"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "eclipsing Roman age",
+      "gives": "ERA",
+      "note": "the first letter of each of the three words"
+     }
+    ],
+    "surface": "One historical period outshining the Roman age.",
+    "walkthrough": "The wordplay describes itself too: the answer is an age.",
+    "definitionFit": "A plain synonym: a distinct span of history, like the Victorian one.",
+    "features": {
+     "misdirectedWord": "eclipsing",
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "20-across",
@@ -316,7 +1106,45 @@
    },
    "length": 4,
    "clue": "Relative’s piano missing final piece (4)",
-   "solution": "GRAN"
+   "solution": "GRAN",
+   "annotation": {
+    "type": "deletion",
+    "answer": "GRAN",
+    "definition": "Relative",
+    "indicators": [
+     "missing final piece"
+    ],
+    "indicatorNotes": {
+     "missing final piece": "the word is missing its final piece, its last letter, as a jigsaw might lack its last piece"
+    },
+    "linkWords": [
+     "’s"
+    ],
+    "pieces": [
+     "GRAN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "piano",
+      "gives": "GRAND",
+      "note": "short for a large concert piano"
+     },
+     {
+      "clueFragment": "missing final piece",
+      "gives": "GRAN",
+      "note": "the last letter D goes"
+     }
+    ],
+    "surface": "A relative's piano is missing one of its parts.",
+    "walkthrough": "The 's is 'is', not a possessive: the relative is the trimmed piano.",
+    "definitionFit": "An informal word for a grandmother, a relative by example.",
+    "features": {
+     "misdirectedWord": "piece",
+     "joke": null,
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "21-across",
@@ -333,7 +1161,45 @@
      4
     ]
    },
-   "solution": "ICEDTEA"
+   "solution": "ICEDTEA",
+   "annotation": {
+    "type": "anagram",
+    "answer": "ICED TEA",
+    "definition": "Cold drink",
+    "indicators": [
+     "unfortunately"
+    ],
+    "indicatorNotes": {
+     "unfortunately": "things going badly for the letters leave them jumbled"
+    },
+    "linkWords": [
+     "is"
+    ],
+    "anagram": {
+     "fodder": "ADECEIT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "a deceit",
+      "gives": "ADECEIT",
+      "note": "anagram fodder, 7 letters"
+     },
+     {
+      "clueFragment": "unfortunately",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "A drink promised cold turns out to be a disappointing trick.",
+    "walkthrough": "'Is' is a link word; the fodder is just 'a deceit'.",
+    "definitionFit": "A cold drink by example: tea chilled and served over ice.",
+    "features": {
+     "misdirectedWord": null,
+     "joke": null,
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
