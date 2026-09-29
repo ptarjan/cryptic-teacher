@@ -56,6 +56,7 @@ import clue_types  # the closed list of clue types; see tools/clue_types.py
 import puzzle_schema  # noqa: E402 — the file's shape and presence rule; see tools/puzzle_schema.py
 import puzzle_paths  # noqa: E402 — where each file lives; see tools/puzzle_paths.py
 import groups  # noqa: E402 — linked answers; see tools/groups.py
+from groups import entry_id  # noqa: E402
 import definitions  # where each definition sits in its clue; see tools/definitions.py
 import enumeration  # a clue's printed letter counts; see tools/enumeration.py
 from puzzle_paths import (  # noqa: E402, F401 — re-exported for the tools that ask here
@@ -375,7 +376,7 @@ def enumeration_separators(entries):
     separators() does. Anything else (no enumeration, a total that fits
     neither) leaves the entry as it was. An apostrophe starts no new word, so
     only commas and hyphens are breaks."""
-    by_id = {e["id"]: e for e in entries}
+    by_id = {entry_id(e): e for e in entries}
     for e in entries:
         fmt = e["clue"].get("enumeration", "")
         if not CLUE_ENUMERATION.fullmatch(fmt):
@@ -508,7 +509,7 @@ def with_blog_facts(puzzle):
         return puzzle
     out = {**puzzle, "blog": {"name": row["name"], "url": row["url"]}, "entries": []}
     for e in puzzle["entries"]:
-        fact = row["entries"].get(e["id"])
+        fact = row["entries"].get(entry_id(e))
         if fact and not e.get("annotation") and all(
                 definitions.span_ok(d, e["clue"].get("text", "")) for d in fact.get("definitions", [])) and all(
                 w in e["clue"].get("text", "") for w in [i["text"] for i in fact.get("indicators", [])]
@@ -578,7 +579,7 @@ def carrier_note(answer, gives, frag):
 SHIM_DROP = ("source", "solutions", "annotatedBy")
 
 # The fields every entry has, which a packed entry lists by position.
-ENTRY_CORE = ("id", "number", "direction", "position", "length", "clue", "solution")
+ENTRY_CORE = ("number", "direction", "position", "length", "clue", "solution")
 DIRECTIONS = ("across", "down")
 
 # Unpacks a shim's entries back into the objects every reader of
@@ -589,7 +590,7 @@ SHIM_UNPACK = (
     "window.CRYPTIC_PUZZLES=window.CRYPTIC_PUZZLES||{};"
     "(function(p){p.entries=p.entries.map(function(a){"
     "if(!Array.isArray(a))return a;"
-    'var d=["across","down"][a[1]],e={id:a[0]+"-"+d,number:a[0],direction:d,'
+    'var d=["across","down"][a[1]],e={number:a[0],direction:d,'
     "position:{x:a[2],y:a[3]},length:a[4],"
     'clue:typeof a[5]=="string"?{text:a[5]}:Array.isArray(a[5])'
     '?{text:a[5][0],enumeration:a[5][1]}:a[5],solution:a[6]};'
@@ -613,8 +614,7 @@ def pack_entry(e):
     tools/test_shim_format.sh holds the two to it over the whole corpus.
 
     The field names were a third of every shim, repeated on each of a million
-    entries, and the id is the number and direction said again. For the same
-    reason a clue that is only text is packed as the bare string, and one that
+    entries. For the same reason a clue that is only text is packed as the bare string, and one that
     is text and enumeration as [text, enumeration], which SHIM_UNPACK turns
     back into {"text": ...} and {"text": ..., "enumeration": ...}."""
     pos = e.get("position")
@@ -624,8 +624,6 @@ def pack_entry(e):
             and isinstance(e["clue"], dict)):
         return e
     rest = {k: v for k, v in e.items() if k not in ENTRY_CORE}
-    if e["id"] != f"{e['number']}-{e['direction']}":
-        rest["id"] = e["id"]
     packed = [e["number"], DIRECTIONS.index(e["direction"]), pos["x"], pos["y"],
               e["length"], pack_clue(e["clue"]), e["solution"]]
     return packed + [rest] if rest else packed
@@ -882,7 +880,7 @@ def reconcile_groups(entries):
     newcomers are appended in grid reading order, which is a guess — but a
     guess about display order only, after the membership is already right.
     """
-    by_id = {e["id"]: e for e in entries}
+    by_id = {entry_id(e): e for e in entries}
     closure = {}
     for e in entries:
         for eid in e.get("group") or []:
@@ -1056,8 +1054,8 @@ def prune_one_sided_members(entries):
     declined to settle, and every rule after this one — dissolve_false_groups,
     reconstruct_groups — reads a group its members agree about.
     """
-    by_id = {e["id"]: e for e in entries}
-    stated = {e["id"]: list(e["group"]) for e in entries if e.get("group")}
+    by_id = {entry_id(e): e for e in entries}
+    stated = {entry_id(e): list(e["group"]) for e in entries if e.get("group")}
     pruned = []
     for eid, group in sorted(stated.items()):
         if len(group) < 2 or eid not in group:
@@ -1121,7 +1119,7 @@ def dissolve_false_groups(entries, series):
     """
     if series in PER_LIGHT_ENUMERATION:
         return []
-    by_id = {e["id"]: e for e in entries}
+    by_id = {entry_id(e): e for e in entries}
     dissolved, seen = [], set()
     for e in entries:
         members = e.get("group") or []
@@ -1214,7 +1212,7 @@ def _points_at(entry, lead, entries):
     named = [(int(n), SHORT_DIRECTIONS.get(d.lower(), d.lower()) or None)
              for n, d in POINTER.findall(entry["clue"].get("text", ""))]
     named = [(n, d) for n, d in named
-             if any(o["id"] != entry["id"] and o["number"] == n
+             if any(entry_id(o) != entry_id(entry) and o["number"] == n
                     and d in (None, o["direction"]) for o in entries)]
     return not named or any(n == lead["number"] and d in (None, lead["direction"])
                             for n, d in named)
@@ -1246,7 +1244,7 @@ def _spare_light(entry, lead, entries):
     DOG SEE THE RABBIT.
     """
     group = entry.get("group") or []
-    if len(group) > 1 and lead["id"] not in group:
+    if len(group) > 1 and entry_id(lead) not in group:
         return False
     clue = entry["clue"].get("text", "")
     if is_continuation(clue):
@@ -1311,7 +1309,7 @@ def _continues_it(lead, candidates, by_id):
     winners = [extra for extra, r in reach.items() if r == nearest]
     if len(winners) != 1:
         return None
-    print(f"WARNING: {lead['id']}: {len(candidates)} sets of spare lights hold the "
+    print(f"WARNING: {entry_id(lead)}: {len(candidates)} sets of spare lights hold the "
           f"letters it counts; taking {' + '.join(sorted(winners[0]))}, the one "
           "that follows it in the clue list", file=sys.stderr)
     return winners[0]
@@ -1357,7 +1355,7 @@ def reconstruct_groups(entries, series):
     """
     if series in PER_LIGHT_ENUMERATION:
         return []
-    by_id = {e["id"]: e for e in entries}
+    by_id = {entry_id(e): e for e in entries}
     claimed, rebuilt = {}, []
     # Two passes, because a spare light finishes one answer and not two. A lead
     # whose candidate sets the first pass cannot tell apart is asked again with
@@ -1370,25 +1368,25 @@ def reconstruct_groups(entries, series):
     for _pass in (1, 2):
         spent = frozenset(m for _order, extra in claimed.values() for m in extra)
         for lead in entries:
-            if lead["id"] in claimed:
+            if entry_id(lead) in claimed:
                 continue
             if is_continuation(lead["clue"].get("text", "")):
                 continue                    # a pointer counts its own light, not an answer
             counts = enumeration.counts(lead["clue"].get("enumeration"))
             if not counts:
                 continue
-            members = list(lead.get("group") or [lead["id"]])
-            if lead["id"] not in members or not set(members) <= set(by_id):
+            members = list(lead.get("group") or [entry_id(lead)])
+            if entry_id(lead) not in members or not set(members) <= set(by_id):
                 continue
             held = sum(by_id[m].get("length") or 0 for m in members)
             if sum(counts) == held:
                 continue                    # the lights the paper grouped already hold it
-            spare = [e["id"] for e in entries
-                     if e["id"] not in members and e["id"] not in spent
+            spare = [entry_id(e) for e in entries
+                     if entry_id(e) not in members and entry_id(e) not in spent
                      and _spare_light(e, lead, entries)]
             if not spare or len(members) + len(spare) > RECONSTRUCT_LIMIT:
                 continue
-            tail = [m for m in members if m != lead["id"]]
+            tail = [m for m in members if m != entry_id(lead)]
             fits, adds_up = {}, {}
             for size in range(1, len(spare) + 1):
                 for extra in itertools.combinations(spare, size):
@@ -1398,7 +1396,7 @@ def reconstruct_groups(entries, series):
                     adds_up[frozenset(extra)] = arrangements
                     orders = [rest for rest in arrangements
                               if _cuts_into(counts, [by_id[m]["length"]
-                                                     for m in (lead["id"], *rest)])]
+                                                     for m in (entry_id(lead), *rest)])]
                     if orders:
                         fits[frozenset(extra)] = orders
             if fits:
@@ -1424,19 +1422,19 @@ def reconstruct_groups(entries, series):
                     continue
                 arrangements = adds_up[extra]
                 splits = {rest: _word_splits(counts, [by_id[m]["length"]
-                                                      for m in (lead["id"], *rest)])
+                                                      for m in (entry_id(lead), *rest)])
                           for rest in arrangements}
                 fewest = min(splits.values())
                 orders = [rest for rest in arrangements if splits[rest] == fewest]
             else:
                 continue
             if len(orders) == 1:
-                order = [lead["id"], *orders[0]]
+                order = [entry_id(lead), *orders[0]]
             else:
-                order = [lead["id"], *tail,
+                order = [entry_id(lead), *tail,
                          *sorted(extra, key=lambda m: (by_id[m]["position"]["y"],
                                                        by_id[m]["position"]["x"]))]
-            claimed[lead["id"]] = (order, extra)
+            claimed[entry_id(lead)] = (order, extra)
 
     # One light, one answer. Two leading clues whose enumerations both reach the
     # same spare light are the shared-light case again, arrived at from the other
@@ -1650,7 +1648,7 @@ def correct_source_answers(pid, entries):
     An entry carrying no answer at all is not staleness: a prize puzzle is
     published without its key, and there is nothing yet to compare.
     """
-    by_id = {e["id"]: e for e in entries}
+    by_id = {entry_id(e): e for e in entries}
     for (table_pid, eid), (served, corrected, _why) in SOURCE_ANSWER_WRONG.items():
         if table_pid != pid:
             continue
@@ -1761,7 +1759,6 @@ def convert(data):
         text, enum = enumeration.split(line)
         seps = separator_list(e.get("separatorLocations"))
         entries.append({
-            "id": e["id"],
             "number": e["number"],
             "direction": e["direction"],
             "position": e["position"],
@@ -1799,7 +1796,7 @@ def convert(data):
     # Downstream a wordless clue is indistinguishable from a hard one: a cold
     # solve burns inference guessing it off the crossings, and the annotator
     # takes the blame for failing to solve nothing.
-    wordless = [e["id"] for e in entries if e["clue"].get("missing")]
+    wordless = [entry_id(e) for e in entries if e["clue"].get("missing")]
     if wordless and len(wordless) == len(entries):
         # Every clue blank is a different animal from a blank clue: the page is
         # a grid with no puzzle in it, and for the Guardian's 2005-08 prize
@@ -1830,7 +1827,7 @@ def convert(data):
     masked = [e for e in entries if e.get("solution") and not is_bare_letters(e["solution"])]
     if masked:
         print(f"WARNING: {data['id']}: solution masked on "
-              + ", ".join(f"{e['id']} {e['solution']!r}" for e in masked)
+              + ", ".join(f"{entry_id(e)} {e['solution']!r}" for e in masked)
               + f" — storing all {len(entries)} entries UNSOLVED", file=sys.stderr)
         for e in entries:
             e["solution"] = None
@@ -1895,19 +1892,19 @@ def merge_annotations(new_puzzle, old_puzzle):
     # The hand-written note on a blank clue: it has no words for a model to
     # read, so its explanation can only come from a person. Carry it, or a
     # re-fetch silently drops the one sentence that makes that clue make sense.
-    notes = {e["id"]: e["clue"].get("missingNote") for e in old_puzzle.get("entries", [])}
+    notes = {entry_id(e): e["clue"].get("missingNote") for e in old_puzzle.get("entries", [])}
     for e in new_puzzle["entries"]:
-        if notes.get(e["id"]):
-            e["clue"]["missingNote"] = notes[e["id"]]
+        if notes.get(entry_id(e)):
+            e["clue"]["missingNote"] = notes[entry_id(e)]
 
     carry_recovered_clues(new_puzzle, old_puzzle)
 
     # With the recovered clues back, an annotation crosses only to the same
     # words: a clue the paper corrected is re-annotated, not explained by notes
     # quoting the text it replaced.
-    old = {e["id"]: e for e in old_puzzle.get("entries", [])}
+    old = {entry_id(e): e for e in old_puzzle.get("entries", [])}
     for e in new_puzzle["entries"]:
-        held = old.get(e["id"])
+        held = old.get(entry_id(e))
         if (held and held.get("annotation") is not None
                 and clue_words(held["clue"].get("text", "")) == clue_words(e["clue"].get("text", ""))):
             e["annotation"] = held["annotation"]
@@ -1916,12 +1913,12 @@ def merge_annotations(new_puzzle, old_puzzle):
     if not was_model:
         return None
     official = all(e.get("solution") for e in new_puzzle["entries"])
-    guessed = {e["id"]: e.get("solution") for e in old_puzzle.get("entries", [])}
+    guessed = {entry_id(e): e.get("solution") for e in old_puzzle.get("entries", [])}
     if not official:
         # Paper still silent — keep the fill and stay flagged.
         for e in new_puzzle["entries"]:
-            if not e.get("solution") and guessed.get(e["id"]):
-                e["solution"] = guessed[e["id"]]
+            if not e.get("solution") and guessed.get(entry_id(e)):
+                e["solution"] = guessed[entry_id(e)]
         new_puzzle["solutions"] = old_puzzle["solutions"]
         return None
     return grade_model_fill(new_puzzle, guessed)
@@ -1953,9 +1950,9 @@ def carry_recovered_clues(new_puzzle, old_puzzle):
     recovered clue's enumeration counts, and a clue that keeps its count while
     losing its group contradicts itself at the next length check.
     """
-    old = {e["id"]: e for e in old_puzzle.get("entries", [])}
+    old = {entry_id(e): e for e in old_puzzle.get("entries", [])}
     for e in new_puzzle["entries"]:
-        was = old.get(e["id"])
+        was = old.get(entry_id(e))
         if not was or has_words(e["clue"].get("text", "")) or not has_words(was["clue"].get("text", "")):
             continue
         clue = {**{k: v for k, v in e["clue"].items()
@@ -1980,8 +1977,8 @@ def grade_model_fill(puzzle, guessed):
     and merges, Everyman re-reads one hashed field and fills in place. They
     graded differently for as long as they graded separately — Everyman not at
     all — so the marking lives here and both call it."""
-    wrong = [(e["id"], guessed.get(e["id"]), e.get("solution"))
-             for e in puzzle["entries"] if guessed.get(e["id"]) != e.get("solution")]
+    wrong = [(entry_id(e), guessed.get(entry_id(e)), e.get("solution"))
+             for e in puzzle["entries"] if guessed.get(entry_id(e)) != e.get("solution")]
     # An annotation explains how the clue yields the answer, so an annotation
     # written off a wrong answer is wrong all the way through — definition,
     # blocks, walkthrough. Drop it and let the queue write it again against
@@ -1989,7 +1986,7 @@ def grade_model_fill(puzzle, guessed):
     # that was never the answer.
     missed = {eid for eid, _, _ in wrong}
     for e in puzzle["entries"]:
-        if e["id"] in missed:
+        if entry_id(e) in missed:
             e.pop("annotation", None)
     record_misses(puzzle["id"], wrong)
     return wrong
@@ -2051,7 +2048,7 @@ def puzzle_is_annotated(puzzle):
     """
     continuations = groups.leader_of(puzzle["entries"])
     return all("annotation" in e or not has_words(e["clue"].get("text", ""))
-               or e["id"] in continuations
+               or entry_id(e) in continuations
                for e in puzzle["entries"])
 
 

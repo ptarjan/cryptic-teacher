@@ -27,7 +27,7 @@ def page(number, date, published):
     return {"id": f"crosswords/cryptic/{number}", "number": number, "name": "x",
             "date": date, "webPublicationDate": published,
             "creator": {"name": "Setter"}, "dimensions": {"cols": 3, "rows": 1},
-            "entries": [{"id": "1-across", "number": 1, "direction": "across",
+            "entries": [{"number": 1, "direction": "across",
                          "position": {"x": 0, "y": 0}, "length": 3,
                          "clue": "Feline (3)", "solution": "CAT", "group": ["1-across"],
                          "separatorLocations": {}}]}

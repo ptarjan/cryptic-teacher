@@ -48,6 +48,7 @@ import snitch_stage4 as S4
 import snitch_stage10 as S10
 from fetch_puzzle import read_puzzle_file
 import puzzle_paths
+from groups import entry_id
 
 BASE = Path(os.environ.get("STAGE10_ROWS") or Path.home() / ".cache" / "cryptic-stage10-shipped.json")
 CACHE = Path(os.environ.get("STAGE12_ROWS") or Path.home() / ".cache" / "cryptic-stage12-rows.json")
@@ -61,7 +62,7 @@ def letters(s):
 
 
 def cand(puz, facts):
-    ents = {e["id"]: e for e in puz["entries"] if e.get("solution")}
+    ents = {entry_id(e): e for e in puz["entries"] if e.get("solution")}
     if not ents or not facts:
         return None
     ends, blocks, abbr, inds, ratios = [], 0, 0, [], []

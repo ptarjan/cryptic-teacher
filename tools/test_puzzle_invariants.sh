@@ -26,6 +26,7 @@ from pathlib import Path
 import corroborate
 import fetch_puzzle as fetcher
 import puzzle_integrity as pi
+from groups import entry_id
 
 tmp = Path(tempfile.mkdtemp())
 # Offline: no second source fills what a case leaves out, and no ledger is kept.
@@ -55,7 +56,7 @@ def write(name, puzzle, over=None):
 
 
 def entry(p, eid):
-    return next(e for e in p["entries"] if e["id"] == eid)
+    return next(e for e in p["entries"] if entry_id(e) == eid)
 
 
 indy = real("independent-12000")
@@ -100,7 +101,7 @@ write("crossing-conflict", p)
 
 p = copy.deepcopy(indy)
 blank = copy.deepcopy(indy)
-first = entry(blank, p["entries"][0]["id"])
+first = entry(blank, entry_id(p["entries"][0]))
 first["clue"] = {"enumeration": first["clue"]["enumeration"], "missing": True}
 write("refetch-blanks-a-clue", blank, over=p)
 
@@ -115,7 +116,7 @@ p = copy.deepcopy(indy)
 lead, cont = p["entries"][0], p["entries"][1]
 lead["clue"]["enumeration"] = f"{lead['length']},{cont['length']}"
 cont["clue"] = {"text": f"See {lead['number']}"}
-lead["group"] = cont["group"] = [lead["id"], cont["id"]]
+lead["group"] = cont["group"] = [entry_id(lead), entry_id(cont)]
 cont.pop("annotation", None)
 write("continuation-holds-group", p)
 del cont["group"]

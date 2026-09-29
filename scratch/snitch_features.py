@@ -45,6 +45,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 import puzzle_paths  # noqa: E402
 import difficulty as D
+from groups import entry_id
 
 BLOG = ROOT / "tools" / "data" / "blog_facts"
 COMMENTS = ROOT / "tools" / "data" / "blog_comment_difficulty.json"
@@ -100,7 +101,7 @@ def corpus():
             continue
         if not isinstance(p, dict) or "entries" not in p:
             continue
-        out[f.stem] = (p.get("series"), {e.get("id"): letters(e.get("solution")) for e in p["entries"]})
+        out[f.stem] = (p.get("series"), {entry_id(e): letters(e.get("solution")) for e in p["entries"]})
     return out
 
 
@@ -212,7 +213,7 @@ def blog_feats(puz, bf, abbr, lufz, pair_count):
     ents = (bf or {}).get("entries") or {}
     if not ents:
         return {}
-    by_id = {e["id"]: e for e in puz["entries"]}
+    by_id = {entry_id(e): e for e in puz["entries"]}
     typed, parts_n, blocks, blen, short, abbrs, inds = [], [], [], [], [], [], []
     dwords, dshare, dstart, dend, dwhole, dq, drare, dfam, dsplit = [], [], [], [], [], [], [], [], []
     tshare = collections.Counter()

@@ -170,6 +170,7 @@ import sys
 from pathlib import Path
 
 from annotation import whole_anagram  # tools/annotation.py
+from groups import entry_id
 
 ROOT = Path(__file__).resolve().parent.parent
 CORPUS = Path.home() / "cryptic-setter-data" / "georgeho" / "data.db"
@@ -429,7 +430,7 @@ def calibrate(corpus, votes_path):
         path = puzzle_paths.find(pid)
         if not path:
             continue
-        rows = [(e["id"], e["clue"], e["annotation"], e["id"] in fav[pid])
+        rows = [(entry_id(e), e["clue"], e["annotation"], entry_id(e) in fav[pid])
                 for e in json.loads(Path(path).read_text())["entries"]
                 if e.get("annotation") and (e.get("clue") or {}).get("text")]
         held_out |= {corpus_key(c["text"]) for _, c, _, _ in rows}

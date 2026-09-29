@@ -59,6 +59,7 @@ from fetch_puzzle import (  # noqa: E402 — one glob, one reader, one puzzles/ 
     blog_annotation, blog_facts_for, puzzle_files, read_puzzle_file,
     with_blog_facts)
 import puzzle_paths  # noqa: E402
+from groups import entry_id  # noqa: E402
 CARD = REPO / "tools" / "og_card.html"
 # Quiptic 1,393 3D: "Woman found in Oregon or Maine (5)" — five short words, a
 # definition anyone can check, and NORMA sitting across the state line. This is
@@ -321,7 +322,7 @@ def score(entry, p):
 
 
 def pick(number):
-    """The best clue in one puzzle, as (entry_id, plan), or (None, None).
+    """The best clue in one puzzle, as (entry id, plan), or (None, None).
 
     Candidates are tried in score order and the first one that actually draws
     wins. Scoring can't see everything that makes a card impossible — a rung
@@ -333,13 +334,13 @@ def pick(number):
     for entry in load(number)["entries"]:
         p = plan(entry)
         if p:
-            ranked.append(((score(entry, p), entry["id"]), entry, p))
+            ranked.append(((score(entry, p), entry_id(entry)), entry, p))
     for _, entry, p in sorted(ranked, key=lambda r: r[0], reverse=True):
         try:
             compose(entry, p)
         except SystemExit:
             continue
-        return entry["id"], p
+        return entry_id(entry), p
     return None, None
 
 
@@ -610,45 +611,45 @@ def compose(entry, p, number=0):
     size = " small" if len(clue) > 64 else " long" if len(clue) > 36 else ""
     check_no_answer(clue_html, steps, ann["answer"])
     check_prose_stays_in_family(steps, p["family"], ann.get("type"))
-    return f"""<!--CARD-START {number} {entry["id"]}-->
+    return f"""<!--CARD-START {number} {entry_id(entry)}-->
   <div class="clue{size}">{clue_html} <span class="enum">{html.escape(enum)}</span></div>
   <ol class="rungs">{steps}</ol>
   <div class="held"><span class="lbl">Answer</span><span class="dots">{dots}</span></div>
   <!--CARD-END-->"""
 
 
-def build(number, entry_id=None):
+def build(number, wanted=None):
     """One puzzle's card: the clue you named, or the best clue it has."""
     entries = load(number)["entries"]
-    if entry_id is None:
-        entry_id, p = pick(number)
-        if not entry_id:
+    if wanted is None:
+        wanted, p = pick(number)
+        if not wanted:
             raise SystemExit(f"og card: no clue in puzzle {number} can carry a card")
     else:
-        entry = next((e for e in entries if e["id"] == entry_id), None)
+        entry = next((e for e in entries if entry_id(e) == wanted), None)
         if not entry:
-            raise SystemExit(f"og card: puzzle {number} has no entry {entry_id}")
+            raise SystemExit(f"og card: puzzle {number} has no entry {wanted}")
         p = plan(entry)
         if not p:
-            raise SystemExit(f"og card: {number} {entry_id} has no annotation the "
+            raise SystemExit(f"og card: {number} {wanted} has no annotation the "
                              "card can draw — see plan()")
-    return compose(next(e for e in entries if e["id"] == entry_id), p, number)
+    return compose(next(e for e in entries if entry_id(e) == wanted), p, number)
 
 
-def alt_text(number, entry_id=None):
+def alt_text(number, wanted=None):
     """What a screen reader gets. Describes the card, so it is generated beside
     it — an alt text that has drifted from the picture is worse than none."""
-    if entry_id is None:
-        entry_id, p = pick(number)
+    if wanted is None:
+        wanted, p = pick(number)
     else:
-        p = plan(next(e for e in load(number)["entries"] if e["id"] == entry_id))
+        p = plan(next(e for e in load(number)["entries"] if entry_id(e) == wanted))
     if not p:
         return None
     shown = ("the answer's letters underlined where they hide in the clue" if p["hidden"] else
              "the letters to rearrange spelled out" if p["fodder"] else
              "the instruction words highlighted" if len(p["indicators"]) > 1 else
              "the instruction word highlighted")
-    entry = next(e for e in load(number)["entries"] if e["id"] == entry_id)
+    entry = next(e for e in load(number)["entries"] if entry_id(e) == wanted)
     return (f'The cryptic clue "{entry["clue"].get("text", "")}" explained in three steps: the definition '
             f'highlighted, {shown}, and the answer left as empty boxes.')
 
@@ -682,7 +683,7 @@ def card_key(pid, salt):
     could, and not when a file around it is re-spelled or gains a key the card
     never draws.
     """
-    drawn = [{"id": e["id"], "clue": enumeration.printed(e["clue"]),
+    drawn = [{"id": entry_id(e), "clue": enumeration.printed(e["clue"]),
               "annotation": e.get("annotation")}
              for e in load(pid)["entries"]]
     h = salt.copy()
@@ -747,10 +748,10 @@ def record(pid):
     MANIFEST.write_text(json.dumps(have, indent=1, sort_keys=True), encoding="utf-8")
 
 
-def render(number, entry_id, out_path):
+def render(number, wanted, out_path):
     text = CARD.read_text(encoding="utf-8")
     new, n = re.subn(r"<!--CARD-START.*?<!--CARD-END-->",
-                     lambda _: build(number, entry_id), text, flags=re.S)
+                     lambda _: build(number, wanted), text, flags=re.S)
     if n != 1:
         raise SystemExit("og_card.html is missing its <!--CARD-START--> markers")
     Path(out_path).write_text(new, encoding="utf-8")
@@ -783,9 +784,9 @@ def main():
         out = Path(args[i + 1])
         del args[i:i + 2]
     number = args[0] if args else DEFAULT_PUZZLE
-    entry_id = args[1] if len(args) > 1 else (DEFAULT_ENTRY if not args else None)
-    render(number, entry_id, out)
-    chosen = entry_id or pick(number)[0]
+    wanted = args[1] if len(args) > 1 else (DEFAULT_ENTRY if not args else None)
+    render(number, wanted, out)
+    chosen = wanted or pick(number)[0]
     print(f"og card: puzzle {number} {chosen} -> {out}")
     return 0
 

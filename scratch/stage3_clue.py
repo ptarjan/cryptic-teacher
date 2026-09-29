@@ -5,6 +5,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 import puzzle_paths  # noqa: E402
 import difficulty as D
+from groups import entry_id
 ENUM = re.compile(r"\s*\([\d,.\s\-–']+\)\s*$")
 cmt = json.loads((ROOT / "tools/data/blog_comment_difficulty.json").read_text())
 stats = {}
@@ -21,7 +22,7 @@ for pid, v in cmt.items():
     for e in puz["entries"]:
         c = ENUM.sub("", e["clue"].get("text", "")).strip()
         if not c or re.match(r"(?i)^see\b", c): continue
-        m = v["clues"].get(e["id"], [0, 0, 0])
+        m = v["clues"].get(entry_id(e), [0, 0, 0])
         t = (e.get("annotation") or {}).get("type") or []
         add("qmark", c.endswith("?"), m)
         add("excl", c.endswith("!"), m)

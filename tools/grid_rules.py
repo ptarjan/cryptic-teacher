@@ -24,6 +24,7 @@ REPO = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO / "tools"))
 from fetch_puzzle import (  # noqa: E402 — one id resolver, one reader
     read_puzzle_file, resolve_puzzle)
+from groups import entry_id  # noqa: E402
 DEFAULT_PUZZLE = "cryptic-30066"   # Tramp, 15x15, fully annotated
 # One light in accent blue, the way the app highlights the entry you're on.
 # A middle row rather than the top one: against the border, row 1 read as a
@@ -47,7 +48,7 @@ def mask(puz):
         for i in range(e["length"]):
             cx, cy = (x + i, y) if e["direction"] == "across" else (x, y + i)
             white[cy][cx] = True
-            if e["id"] == HIGHLIGHT:
+            if entry_id(e) == HIGHLIGHT:
                 lit.add((cx, cy))
     return white, lit
 

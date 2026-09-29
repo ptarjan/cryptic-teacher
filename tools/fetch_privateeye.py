@@ -104,6 +104,7 @@ from fetch_puzzle import (enumeration_separators, grade_model_fill, has_words,  
                           http_bytes, merge_annotations, print_grade, puzzle_files,
                           puzzle_path, read_puzzle_file, still_worth_refreshing,
                           write_puzzle_file)
+from groups import entry_id  # noqa: E402
 
 INDEX_URL = "https://www.private-eye.co.uk/crossword"
 PUZ_URL = "https://www.private-eye.co.uk/pictures/crossword/download/{num}.puz"
@@ -312,7 +313,6 @@ def convert(num, puz):
         eid = f"{number}-{direction}"
         text = enumeration.split(clue)[0]
         entries.append({
-            "id": eid,
             "number": number,
             "direction": direction,
             "position": {"x": x, "y": y},
@@ -1015,7 +1015,7 @@ def solve_from_fifteensquared(puzzle, post):
                                f"'{cell[pos_key]}' vs '{ch}' from {_clue_id(e['number'], e['direction'])}")
             cell[pos_key] = ch
 
-    return {e["id"]: solutions[(e["number"], e["direction"])] for e in puzzle["entries"]}, None
+    return {entry_id(e): solutions[(e["number"], e["direction"])] for e in puzzle["entries"]}, None
 
 
 # ---------- fetch / walk ----------
@@ -1056,7 +1056,7 @@ def fill_answers(puzzle, num, old_puzzle):
 
     if solutions:
         for entry in puzzle["entries"]:
-            entry["solution"] = solutions[entry["id"]]
+            entry["solution"] = solutions[entry_id(entry)]
         puzzle["solutions"] = provenance.with_solution_detail(puzzle, {
             "blog": "fifteensquared",
             "url": post["link"],
@@ -1069,10 +1069,10 @@ def fill_answers(puzzle, num, old_puzzle):
 
     old_detail = provenance.solution_detail(old_puzzle or {})
     if old_detail.get("blog") == "fifteensquared":
-        old_solutions = {e["id"]: e.get("solution") for e in old_puzzle["entries"]}
-        if all(old_solutions.get(e["id"]) for e in puzzle["entries"]):
+        old_solutions = {entry_id(e): e.get("solution") for e in old_puzzle["entries"]}
+        if all(old_solutions.get(entry_id(e)) for e in puzzle["entries"]):
             for entry in puzzle["entries"]:
-                entry["solution"] = old_solutions[entry["id"]]
+                entry["solution"] = old_solutions[entry_id(entry)]
             puzzle["solutions"] = provenance.with_solution_detail(
                 puzzle, old_detail)["solutions"]
             print(f"  kept the previously-verified fill from {old_detail.get('url')}")
@@ -1139,7 +1139,7 @@ def refresh_unsolved():
         path = out_path(puzzle_paths.PUZZLE_DIR, num)
         puzzle = read_puzzle_file(path)
         was_model = "model" in provenance.solution_detail(puzzle)
-        guessed = ({e["id"]: e.get("solution") for e in puzzle["entries"]}
+        guessed = ({entry_id(e): e.get("solution") for e in puzzle["entries"]}
                    if was_model else None)
         try:
             fill_answers(puzzle, num, puzzle)

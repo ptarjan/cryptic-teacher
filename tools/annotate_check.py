@@ -33,6 +33,7 @@ sys.path.insert(0, str(TOOLS))
 
 import clue_types  # noqa: E402
 import groups  # noqa: E402
+from groups import entry_id  # noqa: E402
 import series  # noqa: E402
 import validate_annotations  # noqa: E402
 from apply_annotations import default_input  # noqa: E402
@@ -80,8 +81,8 @@ def unsolved(puzzle):
     misses = validate_annotations.blind_misses(puzzle["id"])
     continuations = groups.leader_of(puzzle["entries"])
     return [e for e in puzzle["entries"]
-            if not e.get("annotation") and e["id"] not in misses
-            and e["id"] not in continuations
+            if not e.get("annotation") and entry_id(e) not in misses
+            and entry_id(e) not in continuations
             and not validate_annotations.is_blank_clue(e["clue"].get("text", ""))]
 
 
@@ -110,6 +111,8 @@ def write_view(path):
     """Write the annotate run's copy of the puzzle file, current as of now."""
     puzzle = read_puzzle_file(path)
     view = {k: puzzle[k] for k in VIEW_KEYS if k in puzzle}
+    # The run keys its annotations by entry id, so the view spells each one out.
+    view["entries"] = [{"id": entry_id(e), **e} for e in view["entries"]]
     view_path(path).write_text(json.dumps(view, indent=1, ensure_ascii=False) + "\n",
                                encoding="utf-8")
     return view_path(path)
@@ -133,7 +136,7 @@ def notes(puzzle):
     the solve rather than rescuing it.
     """
     out = []
-    cds = [e["id"] for e in puzzle["entries"]
+    cds = [entry_id(e) for e in puzzle["entries"]
            if (e.get("annotation") or {}).get("type") == ["cryptic_definition"]]
     if cds:
         out.append(
@@ -142,7 +145,7 @@ def notes(puzzle):
             f"the charade or container first (\"Periods on horseback where British "
             f"king into himself?\" reads as a whole-clue definition of CHUKKAS and is "
             f"CHAS around UK + K); keep the type only if the clue has no wordplay.")
-    likely = [e["id"] for e in puzzle["entries"]
+    likely = [entry_id(e) for e in puzzle["entries"]
               if e.get("solutionConfidence") == "LIKELY" and e.get("annotation")]
     if likely:
         out.append(
@@ -157,7 +160,7 @@ def notes(puzzle):
             and len(left) <= stuck_allowance(len(puzzle["entries"]))):
         host, words = blog
         out.append(
-            f"Stuck on {', '.join(e['id'] for e in left)}? {host} blogs this puzzle "
+            f"Stuck on {', '.join(entry_id(e) for e in left)}? {host} blogs this puzzle "
             f"clue by clue: WebSearch `{words}`, then WebFetch the post (its comments "
             f"often have what the blogger missed). Take only the mechanism and write "
             f"every field yourself in this file's voice; if the blog does not settle "

@@ -137,6 +137,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import groups  # noqa: E402 — linked answers
+from groups import entry_id  # noqa: E402
 from apply_solution import (check_fill, check_geometry,  # noqa: E402
                             normalise)
 import enumeration  # noqa: E402
@@ -772,7 +773,7 @@ def content_hash(puzzle):
     cells, with the same answers, in a grid of the same size. Entries are sorted so
     that a re-fetch which happens to emit them in another order still matches."""
     entries = sorted(
-        (e.get("id"), e.get("number"), e.get("direction"),
+        (entry_id(e), e.get("number"), e.get("direction"),
          (e.get("position") or {}).get("x"), (e.get("position") or {}).get("y"),
          e.get("length"), enumeration.printed(e["clue"]), e.get("solution"))
         for e in puzzle.get("entries") or []
@@ -840,7 +841,7 @@ def check_shape(puzzle, today, flags):
     from_blog = (puzzle.get("source") or {}).get("retrievedFrom") == "blog"
     seen, checkable = set(), []
     for e in entries:
-        eid = e.get("id")
+        eid = entry_id(e)
         if eid in seen:
             flags.append(("SHAPE", pid, f"entry id {eid} appears twice"))
         seen.add(eid)
@@ -929,10 +930,10 @@ def check_length(puzzle, checkable, flags):
     and it still caught 29,069, whose clue promised 23 letters over a group the
     Guardian's own data had truncated to 15."""
     pid = puzzle["id"]
-    by_id = {e["id"]: e for e in puzzle.get("entries") or []}
+    by_id = {entry_id(e): e for e in puzzle.get("entries") or []}
     group_of = groups.group_of(puzzle.get("entries") or [])
     for e in checkable:
-        eid, solution = e["id"], e["solution"]
+        eid, solution = entry_id(e), e["solution"]
         if len(solution) != e.get("length"):
             flags.append(("LENGTH", pid, (f"{eid}: {solution} is {len(solution)} letters, "
                                           f"grid wants {e.get('length')}")))
@@ -1034,7 +1035,7 @@ def check_cross(puzzle, checkable, flags):
     if not checkable:
         return
     pid = puzzle["id"]
-    fill = {e["id"]: e["solution"] for e in checkable}
+    fill = {entry_id(e): e["solution"] for e in checkable}
     _, _, problems = check_fill({**puzzle, "entries": checkable}, fill)
     for p in problems:
         # The same guard check_grid and check_length carry. A crossing conflict
@@ -1123,11 +1124,11 @@ def check_rewrite(old, new, flags):
     A re-fetch of a page that serves the grid without the text (the Guardian's
     2005-08 prizes) would otherwise undo a recovery; see
     fetch_puzzle.carry_recovered_clues."""
-    was = {e["id"]: e["clue"].get("text", "") for e in old.get("entries") or []}
+    was = {entry_id(e): e["clue"].get("text", "") for e in old.get("entries") or []}
     for e in new.get("entries") or []:
-        if has_words(was.get(e["id"])) and not has_words(e["clue"].get("text", "")):
-            flags.append(("SHAPE", new["id"], f"{e['id']}: would replace the clue "
-                          f"{was[e['id']]!r} with a blank one; carry it across "
+        if has_words(was.get(entry_id(e))) and not has_words(e["clue"].get("text", "")):
+            flags.append(("SHAPE", new["id"], f"{entry_id(e)}: would replace the clue "
+                          f"{was[entry_id(e)]!r} with a blank one; carry it across "
                           f"(fetch_puzzle.merge_annotations)"))
 
 

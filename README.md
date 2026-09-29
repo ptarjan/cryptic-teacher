@@ -121,7 +121,7 @@ Shape:
   "source": {"url": "https://www.theguardian.com/crosswords/cryptic/30066"},
   "entries": [
     {
-      "id": "16-across", "number": 16, "direction": "across",
+      "number": 16, "direction": "across",
       "position": {"x": 0, "y": 8}, "length": 10,
       "clue": {"text": "Destroying climate, sun reaches highest point", "enumeration": "10"},
       "solution": "CULMINATES",
@@ -142,6 +142,11 @@ Shape:
   ]
 }
 ```
+
+An entry has no stored id. Its id is `"<number>-<direction>"` ("16-across"),
+derived where it is needed (`groups.entry_id`, `entryId` in `app.js`); `group`
+and annotation files name entries by it. A puzzle file that stores an entry
+`id` fails the schema, so the write refuses it.
 
 ### Annotation rules
 
@@ -186,12 +191,12 @@ Shape:
   continues two answers ("See 19, 22") is in both leaders' groups.
 
   ```jsonc
-  {"id": "21-across",
+  {"number": 21, "direction": "across",
    "clue": {"text": "‘Army-stopper’ inventor exploded, making a big noise (4,9,6)",
             "separators": [{"at": 4, "mark": ","}]},
    "group": ["21-across", "25-across"], "solution": "VERY",
    "annotation": {"answer": "VERY IMPORTANT PERSON", …}},
-  {"id": "25-across", "clue": {"text": "See 21", "separators": [{"at": 9, "mark": ","}]},
+  {"number": 25, "direction": "across", "clue": {"text": "See 21", "separators": [{"at": 9, "mark": ","}]},
    "solution": "IMPORTANTPERSON"}
   ```
 - `preamble` (puzzle level) is the paper's note above the clues: a themed

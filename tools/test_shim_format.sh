@@ -25,8 +25,8 @@ out = Path(sys.argv[1])
 odd = {"id": "odd-1", "series": "odd", "number": 1, "dimensions": {"cols": 3, "rows": 3},
        "source": {"acquiredBy": "tools/test_shim_format.sh", "url": "x"},
        "entries": [
-           # packed, with extras and an id that is not number-direction
-           {"id": "1-across-2", "number": 1, "direction": "across",
+           # packed, with extras
+           {"number": 1, "direction": "across",
             "position": {"x": 0, "y": 0}, "length": 3,
             "clue": {"text": "A b", "enumeration": "3", "separators": [{"at": 1, "mark": ","}],
                      "italics": [{"at": 2, "length": 1}]},
@@ -35,17 +35,17 @@ odd = {"id": "odd-1", "series": "odd", "number": 1, "dimensions": {"cols": 3, "r
                            "assembly": {"pieces": ["A"], "anagrams": [{"fodder": "CAB", "gives": "ABC"}]},
                            "features": {"joke": None}}},
            # packed, nothing extra, a clue that is only text (packed as the string)
-           {"id": "2-across", "number": 2, "direction": "across",
+           {"number": 2, "direction": "across",
             "position": {"x": 0, "y": 2}, "length": 3, "clue": {"text": "f", "enumeration": "3"}, "solution": "FGH"},
            # packed, a blank clue
-           {"id": "1-down", "number": 1, "direction": "down",
+           {"number": 1, "direction": "down",
             "position": {"x": 0, "y": 0}, "length": 3, "clue": {"missing": True}, "solution": None},
            # not packable: no position, an unknown direction, a string number
-           {"id": "2-down", "number": 2, "direction": "down", "length": 3,
+           {"number": 2, "direction": "down", "length": 3,
             "clue": {"text": "c", "enumeration": "3"}, "solution": "CDE"},
-           {"id": "3-sideways", "number": 3, "direction": "sideways",
+           {"number": 3, "direction": "sideways",
             "position": {"x": 1, "y": 1}, "length": 1, "clue": {"text": "d", "enumeration": "1"}, "solution": "D"},
-           {"id": "4-across", "number": "4", "direction": "across",
+           {"number": "4", "direction": "across",
             "position": {"x": 2, "y": 2}, "length": 1, "clue": {"text": "e", "enumeration": "1"}, "solution": "E"},
        ]}
 cases = [(Path(f"puzzles/{odd['id']}.json"), odd)]

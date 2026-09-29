@@ -57,6 +57,7 @@ from pathlib import Path
 
 import enumeration  # tools/enumeration.py; tools/ is this script's own directory
 from puzzle_paths import puzzle_files
+from groups import entry_id
 
 ROOT = Path(__file__).resolve().parent.parent
 RIVALS_PER_ANSWER = 3
@@ -89,7 +90,7 @@ def published_clues(answers):
             if re.search(r"\b(see|and)\s+\d+\b", text, re.I):
                 continue
             pool[e["solution"]].append({"text": text, "series": p["series"],
-                                        "puzzle": p["id"], "entry": e["id"],
+                                        "puzzle": p["id"], "entry": entry_id(e),
                                         "annotated": bool(e.get("annotation"))})
     return pool
 

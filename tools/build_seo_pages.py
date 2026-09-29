@@ -75,6 +75,7 @@ from stamp_assets import asset_url  # noqa: E402 — content-hashed asset URLs
 from make_og_card import alt_text as card_alt  # noqa: E402
 from make_og_card import DEFAULT_ENTRY, DEFAULT_PUZZLE  # noqa: E402 — the site card's clue
 import page_card  # noqa: E402 — the card of every page that is not a puzzle
+from groups import entry_id  # noqa: E402
 
 # Every page card head() linked this run, for make_og.sh --pages to draw.
 PAGE_CARDS = {}
@@ -394,7 +395,7 @@ def clue_html(e, blog_note=True):
     # Bare elements, one line per clue: style.css styles them by position
     # under .s-list, because this runs once per clue on the site and a class on
     # each piece was the bulk of what the pages weighed.
-    bits = [f'<article id="{esc(e["id"])}">',
+    bits = [f'<article id="{esc(entry_id(e))}">',
             f'<h3><span>{esc(num)}</span> <b>{esc(answer)}</b></h3>',
             f'<p>{clue_html_text(e["clue"])}</p>']
 
@@ -1215,7 +1216,7 @@ def clue_blocks(blocks, puz, page):
     """
     for e in puz["entries"]:
         ann = e.get("annotation") or {}
-        if f'id="{esc(e["id"])}"' not in page:
+        if f'id="{esc(entry_id(e))}"' not in page:
             continue
         prose = ann.get("explanation") or {}
         depth = len((prose.get("walkthrough") or "") + (prose.get("definitionFit") or ""))
@@ -1225,7 +1226,7 @@ def clue_blocks(blocks, puz, page):
             if key and frag:
                 blocks.setdefault(key, []).append(
                     (frag, depth + len(b.get("note") or ""),
-                     (series_meta.puzzle_day(puz) or date.min).toordinal(), puz["id"], e["id"]))
+                     (series_meta.puzzle_day(puz) or date.min).toordinal(), puz["id"], entry_id(e)))
 
 
 def clue_links(senses, blocks):
@@ -1377,7 +1378,7 @@ def clue_indicators(found, puz, page):
     """
     for e in puz["entries"]:
         ann = e.get("annotation") or e.get("blog") or {}
-        if not ann.get("indicators") or f'id="{esc(e["id"])}"' not in page:
+        if not ann.get("indicators") or f'id="{esc(entry_id(e))}"' not in page:
             continue
         ours = bool(e.get("annotation"))
         prose = ann.get("explanation") or {}
@@ -1386,7 +1387,7 @@ def clue_indicators(found, puz, page):
         for (t, key), exact in clue_pairs(indicator_lexicon(), ann["indicators"]).items():
             rank = (ours, exact, depth, day)
             if (t, key) not in found or found[(t, key)][0] < rank:
-                found[(t, key)] = (rank, puz["id"], e["id"])
+                found[(t, key)] = (rank, puz["id"], entry_id(e))
 
 
 def indicator_label(key):

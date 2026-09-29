@@ -64,6 +64,7 @@ from normalise_linked_enumerations import (
     format_parts,
     resolve_groups,
 )
+from groups import entry_id
 
 
 @dataclass(frozen=True)
@@ -316,7 +317,6 @@ def build(rec, row, series, date, setter, typed=None):
     for e in tg.printed({"entries": entries}):
         cells = lights[(e["number"], e["direction"])]
         out.append({
-            "id": f"{e['number']}-{e['direction']}",
             "number": e["number"],
             "direction": e["direction"],
             "position": {"x": cells[0][1], "y": cells[0][0]},
@@ -325,7 +325,7 @@ def build(rec, row, series, date, setter, typed=None):
             "enumeration": e.get("enumeration"),
             "solution": e["answer"],
         })
-    by_id = {e["id"]: e for e in out}
+    by_id = {entry_id(e): e for e in out}
     try:
         groups = resolve_groups(out)
     except SystemExit:
@@ -347,15 +347,15 @@ def build(rec, row, series, date, setter, typed=None):
     recounted, seps_of = [], {}
     for e in out:
         enum = e.pop("enumeration")
-        group = groups.get(e["id"], [e["id"]])
+        group = groups.get(entry_id(e), [entry_id(e)])
         if not enum:
-            if group[0] == e["id"]:
+            if group[0] == entry_id(e):
                 return None, "a clue has no enumeration"
             continue
         count = sum(n for n, _ in enumeration_parts(enum))
         if count == e["length"]:
-            group = [e["id"]]
-        elif group[0] != e["id"]:
+            group = [entry_id(e)]
+        elif group[0] != entry_id(e):
             return None, "an enumeration disagrees with its light"
         try:
             seps_by_light = separators(group, by_id, enum)
@@ -373,10 +373,10 @@ def build(rec, row, series, date, setter, typed=None):
                 return None, "the printed answer's word breaks do not fit its lights"
         seps_of.update(seps_by_light)
     for e in out:
-        seps = seps_of.get(e["id"])
+        seps = seps_of.get(entry_id(e))
         e["clue"] = enumeration.clue(e["clue"], separators=seps)
-        if groups.get(e["id"], [None])[0] == e["id"]:
-            e["group"] = list(groups[e["id"]])
+        if groups.get(entry_id(e), [None])[0] == entry_id(e):
+            e["group"] = list(groups[entry_id(e)])
         e["solution"] = e.pop("solution")  # last, as every other series writes it
 
     number = row["number"]
@@ -413,7 +413,7 @@ def build(rec, row, series, date, setter, typed=None):
 def content(puzzle):
     """What a later run compares: the grid, the clues' words and the answers.
     A clue retyped with other quotes or dashes is the same clue."""
-    return [(e["id"], e["position"], e["length"], clue_words(e["clue"].get("text", "")), e["solution"])
+    return [(entry_id(e), e["position"], e["length"], clue_words(e["clue"].get("text", "")), e["solution"])
             for e in puzzle["entries"]]
 
 

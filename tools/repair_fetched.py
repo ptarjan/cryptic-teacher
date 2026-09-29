@@ -96,6 +96,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import fetch_puzzle as fetcher  # the rules being applied live there
 import groups
+from groups import entry_id
 import series as series_meta
 
 
@@ -107,7 +108,7 @@ def normalise_solutions(puzzle):
         now = fetcher.bare_letters(was)
         if now != was:
             entry["solution"] = now
-            changed.append((entry["id"], was, now))
+            changed.append((entry_id(entry), was, now))
     return changed
 
 
@@ -119,7 +120,7 @@ def unmask_solutions(puzzle):
     does the same to a page stored before it did. Run AFTER normalise_solutions,
     as in convert(), so an accent is not mistaken for a mask.
     """
-    masked = [(e["id"], e["solution"]) for e in puzzle["entries"]
+    masked = [(entry_id(e), e["solution"]) for e in puzzle["entries"]
               if e.get("solution") and not fetcher.is_bare_letters(e["solution"])]
     if not masked:
         return []

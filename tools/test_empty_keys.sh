@@ -22,6 +22,7 @@ import json, tempfile
 from pathlib import Path
 import fetch_puzzle as fetcher
 import puzzle_integrity
+from groups import entry_id
 # Two lights in an empty grid are not a whole puzzle; the write gate has its own test, tools/test_puzzle_invariants.sh.
 puzzle_integrity.refuse_bad_write = lambda puzzle, old=None: None
 
@@ -40,7 +41,7 @@ data = {"id": "crosswords/cryptic/30066", "number": 30066,
         "entries": [guardian_entry("1-across", 1),
                     guardian_entry("2-across", 2, {",": [4]})]}
 puzzle = fetcher.convert(data)
-by = {e["id"]: e for e in puzzle["entries"]}
+by = {entry_id(e): e for e in puzzle["entries"]}
 print("PLAIN", "separators" in by["1-across"]["clue"], "annotation" in by["1-across"])
 print("BREAK", json.dumps(by["2-across"]["clue"].get("separators")))
 # Dropping a key must not shuffle the ones that stay, or the diff over 16,000
@@ -63,7 +64,7 @@ with tempfile.TemporaryDirectory() as d:
 # Its ledger is stubbed: this is a test, and a test must not file a miss
 # against tools/data/blind_misses.json that no solve ever made.
 fetcher.record_misses = lambda *a, **k: None
-entries = [{"id": "1-across", "clue": {"text": "x", "enumeration": "5"}, "solution": "WRONG",
+entries = [{"number": 1, "direction": "across", "clue": {"text": "x", "enumeration": "5"}, "solution": "WRONG",
             "annotation": {"type": ["anagram"]}}]
 fetcher.grade_model_fill({"id": "cryptic-1", "entries": entries},
                          {"1-across": "RIGHT"})
@@ -206,6 +207,18 @@ try:
 except ValueError as err:
     print("GATE", "SCHEMA" in str(err) and "clueCorrupt" in str(err))
 
+# An entry's id is derived from its number and direction, never stored: the
+# write gate refuses one and the validator fails one already on disk.
+stored = copy.deepcopy(real)
+stored["entries"][0] = {"id": "1-across", **stored["entries"][0]}
+try:
+    puzzle_integrity.refuse_bad_write(stored)
+    print("ENTRY_ID wrote it")
+except ValueError as err:
+    print("ENTRY_ID", "SCHEMA" in str(err) and "id" in str(err))
+_, errors, _ = validate_annotations.validate_puzzle(stored)
+print("ENTRY_ID_VALIDATOR", any(x.startswith("schema: $.entries[0]") and "id" in x for x in errors))
+
 # ...and a null that reached disk some other way fails the validator.
 nulled = copy.deepcopy(real)
 nulled["setter"] = None
@@ -243,6 +256,8 @@ same "the write puts every key in the schema's order" "$(grep '^REORDERED ' <<<"
 same "the blog facts writer puts every key in the schema's order" "$(grep '^BLOGORDER ' <<<"$out")" \
   'BLOGORDER "p-1": {"blog": "fifteensquared", "name": "n", "url": "u", "entries": {"1-across": {"type": ["anagram"], "inferred": ["type"]}, "2-down": {"type": ["charade"], "blocks": [{"clueFragment": "a", "gives": "A"}]}}}'
 same "the write gate refuses a key the schema does not have" "$(grep '^GATE ' <<<"$out")" "GATE True"
+same "the write gate refuses a stored entry id" "$(grep '^ENTRY_ID ' <<<"$out")" "ENTRY_ID True"
+same "the validator fails a stored entry id" "$(grep '^ENTRY_ID_VALIDATOR ' <<<"$out")" "ENTRY_ID_VALIDATOR True"
 same "the validator fails a null on disk" "$(grep '^VALIDATOR ' <<<"$out")" "VALIDATOR True"
 same "the schema's enums are their sources' lists" "$(grep '^ENUMS ' <<<"$out")" "ENUMS []"
 same "a real puzzle matches the schema" "$(grep '^CORPUS_SAMPLE ' <<<"$out")" "CORPUS_SAMPLE []"

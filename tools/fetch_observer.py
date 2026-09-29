@@ -86,6 +86,7 @@ from fetch_independent import span  # noqa: E402 — same 1-based "2-7"/"7" span
                                      # for a different paper's crossword
 import provenance  # noqa: E402
 import series as series_meta  # noqa: E402
+from groups import entry_id  # noqa: E402
 
 ARTICLE_URL = "https://observer.co.uk/puzzles/everyman/article/everyman-no-{num}"
 TOPICS_URL = "https://observer.co.uk/topics/everyman"
@@ -230,7 +231,6 @@ def convert(num, manifest, data):
                                       f"which is not a single {length}-cell column")
                 pos = {"x": x1 - 1, "y": y1 - 1}
 
-            eid = f"{c['number']}-{direction}"
             entry = {"position": pos, "length": length, "direction": direction}
             cells = entry_cells(entry)
             for (x, y) in cells:
@@ -249,7 +249,6 @@ def convert(num, manifest, data):
             text, italics = flatten_clue(c["clue"])
             fmt = c.get("format") or str(length)
             entries.append({
-                "id": eid,
                 "number": c["number"],
                 "direction": direction,
                 "position": pos,
@@ -296,17 +295,17 @@ def fill_solutions(entries, solution, rows, cols, num):
         cells = entry_cells(entry)
         letters = "".join(solution[y * cols + x] for x, y in cells)
         if len(letters) != entry["length"]:
-            raise ValueError(f"everyman-no-{num}: {entry['id']} sliced to "
+            raise ValueError(f"everyman-no-{num}: {entry_id(entry)} sliced to "
                               f"{len(letters)} letters {letters!r}, wanted "
                               f"{entry['length']}")
         if not letters.isalpha():
-            raise ValueError(f"everyman-no-{num}: {entry['id']} sliced to {letters!r} — "
+            raise ValueError(f"everyman-no-{num}: {entry_id(entry)} sliced to {letters!r} — "
                               f"a blocked or empty cell inside a live entry")
         for (x, y), ch in zip(cells, letters.upper()):
             prior = cell_letters.get((x, y))
             if prior is not None and prior != ch:
                 raise ValueError(f"everyman-no-{num}: cell ({x},{y}) disagrees between "
-                                  f"crossing entries — {prior!r} then {entry['id']} says "
+                                  f"crossing entries — {prior!r} then {entry_id(entry)} says "
                                   f"{ch!r}")
             cell_letters[(x, y)] = ch
         entry["solution"] = letters.upper()
@@ -442,7 +441,7 @@ def refresh_unsolved():
                 continue
             path = puzzle_path("everyman", num)
             puzzle = read_puzzle_file(path)
-            guessed = ({e["id"]: e.get("solution") for e in puzzle["entries"]}
+            guessed = ({entry_id(e): e.get("solution") for e in puzzle["entries"]}
                        if "model" in provenance.solution_detail(puzzle) else None)
             fill_solutions(puzzle["entries"], solution,
                             puzzle["dimensions"]["rows"], puzzle["dimensions"]["cols"], num)

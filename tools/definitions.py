@@ -18,6 +18,7 @@ A text these leave ambiguous needs `at` written by hand; `place` refuses to
 guess.
 """
 import re
+from groups import entry_id
 
 
 def span_ok(d, clue):
@@ -99,7 +100,7 @@ def place_puzzle(puzzle):
         try:
             ann["definitions"] = place(ann["definitions"], e["clue"].get("text", ""))
         except ValueError as err:
-            raise ValueError(f"{puzzle.get('id')} {e.get('id')}: {err}") from None
+            raise ValueError(f"{puzzle.get('id')} {entry_id(e)}: {err}") from None
     return puzzle
 
 

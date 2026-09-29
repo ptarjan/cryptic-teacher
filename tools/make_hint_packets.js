@@ -39,6 +39,8 @@
 const fs = require("fs");
 const path = require("path");
 const { boot, ROOT } = require("./fake_dom.js");
+// An entry's id, "<number>-<direction>": the puzzle file stores none.
+const entryId = (e) => e.number + "-" + e.direction;
 
 const args = process.argv.slice(2);
 const keyPath = (() => { const i = args.indexOf("--key"); return i >= 0 ? args[i + 1] : null; })();
@@ -78,7 +80,7 @@ let leaked = 0;
 
 for (const e of puz.entries) {
   if (!e.annotation) continue;
-  const row = registry["clue-" + e.id];
+  const row = registry["clue-" + entryId(e)];
   if (!row || !row.listeners.click) continue;
   row.listeners.click[0]();
 
@@ -107,14 +109,14 @@ for (const e of puz.entries) {
 
   packets.push({
     puzzle: puzzleId,
-    id: e.id,
+    id: entryId(e),
     number: e.number,
     direction: e.direction,
     // The line as printed: the words, then the enumeration "(8)".
     clue: (e.clue.text || "") + (e.clue.enumeration ? `${e.clue.text ? " " : ""}(${e.clue.enumeration})` : ""),
     rungs
   });
-  key.push({ puzzle: puzzleId, id: e.id, answer });
+  key.push({ puzzle: puzzleId, id: entryId(e), answer });
 }
 
 if (leaked) {

@@ -42,6 +42,7 @@ echo "every key names a real entry whose stored answer is the corrected one"
 out=$(PYTHONPATH="$REPO/tools" python3 - <<'PY'
 from pathlib import Path
 import fetch_puzzle as fetcher
+from groups import entry_id
 
 table = fetcher.SOURCE_ANSWER_WRONG
 print("SIZE", "some" if table else "none")
@@ -51,7 +52,7 @@ for (pid, eid), (served, corrected, why) in table.items():
     if path is None:
         bad.append(f"{pid}: no such puzzle file")
         continue
-    entry = {e["id"]: e for e in fetcher.read_puzzle_file(path)["entries"]}.get(eid)
+    entry = {entry_id(e): e for e in fetcher.read_puzzle_file(path)["entries"]}.get(eid)
     if entry is None:
         bad.append(f"{pid} {eid}: no such entry")
         continue
@@ -76,10 +77,12 @@ same "every entry checks out against the file on disk" "$(field BAD "$out")" "no
 echo "the correction happens, and only where the table says"
 out2=$(PYTHONPATH="$REPO/tools" python3 - <<'PY'
 import fetch_puzzle as fetcher
+from groups import entry_id
 
 
 def entry(eid, solution):
-    return {"id": eid, "number": 1, "direction": "across",
+    num, _, d = eid.partition("-")
+    return {"number": int(num), "direction": d,
             "position": {"x": 0, "y": 0}, "length": len(solution or "") or 9,
             "clue": {"text": "As the page sends it", "enumeration": "9"}, "solution": solution}
 
@@ -90,7 +93,7 @@ def entry(eid, solution):
 served = [entry("18-across", "GETSTEADY"), entry("15-down", "XETOPHILY"),
           entry("1-across", "GETSTEADY")]
 fetcher.correct_source_answers("cryptic-23053", served)
-by = {e["id"]: e["solution"] for e in served}
+by = {entry_id(e): e["solution"] for e in served}
 print("ACROSS", by["18-across"])
 print("DOWN", by["15-down"])
 print("UNNAMED_LIGHT", by["1-across"])
@@ -124,14 +127,14 @@ import fetch_puzzle as fetcher
 # The day the Guardian fixes its own key, the table has stopped describing the
 # source and must stop acting on it: overriding an answer nobody disputes is how
 # a correction outlives the error it was written for.
-fixed = [{"id": "18-across", "length": 9, "solution": "GETSREADY"},
-         {"id": "15-down", "length": 9, "solution": "XEROPHILY"}]
+fixed = [{"number": 18, "direction": "across", "length": 9, "solution": "GETSREADY"},
+         {"number": 15, "direction": "down", "length": 9, "solution": "XEROPHILY"}]
 fetcher.correct_source_answers("cryptic-23053", fixed)
 print("FIXED", fixed[0]["solution"], fixed[1]["solution"])
 
 # Or the page changes under the table some other way.
-changed = [{"id": "18-across", "length": 9, "solution": "SOMETHING"},
-           {"id": "15-down", "length": 9, "solution": "SOMEOTHER"}]
+changed = [{"number": 18, "direction": "across", "length": 9, "solution": "SOMETHING"},
+           {"number": 15, "direction": "down", "length": 9, "solution": "SOMEOTHER"}]
 fetcher.correct_source_answers("cryptic-23053", changed)
 print("CHANGED", changed[0]["solution"])
 
@@ -155,10 +158,11 @@ import copy
 from datetime import datetime, timezone
 import fetch_puzzle as fetcher
 import puzzle_integrity as pi
+from groups import entry_id
 
 today = datetime.now(timezone.utc).date()
 puzzle = copy.deepcopy(pi.read_puzzle_file(pi.puzzle_paths.find("cryptic-23053")))
-by_id = {e["id"]: e for e in puzzle["entries"]}
+by_id = {entry_id(e): e for e in puzzle["entries"]}
 for (pid, eid), (served, corrected, _) in fetcher.SOURCE_ANSWER_WRONG.items():
     if pid == puzzle["id"]:
         assert by_id[eid]["solution"] == corrected, "fixture assumption broken"

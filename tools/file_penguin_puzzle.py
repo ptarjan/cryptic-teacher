@@ -119,6 +119,7 @@ from normalise_linked_enumerations import (enumeration_parts,  # noqa: E402
 from series import (BOOK_SERIES, book_number, default_setter,  # noqa: E402
                     official_key, published, puzzle_id, puzzle_name,
                     scan_url)
+from groups import entry_id  # noqa: E402
 
 def source_url(series, number):
     """The archive.org item these clues were read out of.
@@ -200,7 +201,7 @@ def coarse_continuations(record):
     corpus scan if these are ever re-derived from the answers.
     """
     entries = [dict(e) for e in record["puzzle"]["entries"]]
-    by_id = {e["id"]: e for e in entries}
+    by_id = {entry_id(e): e for e in entries}
     coarse = []
     for leader, group_ids in sorted(resolve_groups(entries).items()):
         if leader != group_ids[0]:
@@ -230,9 +231,9 @@ def build(record, identifier, model, unsolved=False):
     solved = {} if unsolved else record["entries"]
 
     entries = [dict(e) for e in src["entries"]]
-    by_id = {e["id"]: e for e in entries}
+    by_id = {entry_id(e): e for e in entries}
     if not unsolved:
-        missing = [e["id"] for e in entries if e["id"] not in fill]
+        missing = [entry_id(e) for e in entries if entry_id(e) not in fill]
         if missing:
             raise SystemExit(f"{pid}: no answer for {', '.join(missing)}")
     # A LINKED ANSWER IS STORED ON ITS LEADER. The solve scripts emit a count on
@@ -249,9 +250,9 @@ def build(record, identifier, model, unsolved=False):
     for e in entries:
         if not e.get("enumeration"):
             continue
-        group_ids = groups.get(e["id"], [e["id"]])
-        if group_ids[0] != e["id"]:
-            raise SystemExit(f"{e['id']} carries an enumeration but is a continuation")
+        group_ids = groups.get(entry_id(e), [entry_id(e)])
+        if group_ids[0] != entry_id(e):
+            raise SystemExit(f"{entry_id(e)} carries an enumeration but is a continuation")
         seps.update(separators(group_ids, by_id, e["enumeration"], fill))
 
     out = []
@@ -260,14 +261,14 @@ def build(record, identifier, model, unsolved=False):
         # The clue as the book printed it. A continuation ("See 11") is
         # printed without an enumeration and stays that way.
         line = f"{e['clue']} ({printed})" if printed else e["clue"]
-        e["clue"] = enumeration.clue(line, separators=seps.get(e["id"]),
+        e["clue"] = enumeration.clue(line, separators=seps.get(entry_id(e)),
                                      missing=not has_words(enumeration.split(line)[0]))
-        if groups.get(e["id"], [None])[0] == e["id"]:
-            e["group"] = list(groups[e["id"]])
+        if groups.get(entry_id(e), [None])[0] == entry_id(e):
+            e["group"] = list(groups[entry_id(e)])
         # null, not absent, on an unsolved puzzle: that is how every unsolved
         # puzzle in this corpus spells an unanswered light.
-        e["solution"] = normalise(fill[e["id"]]) if e["id"] in fill else None
-        confidence = (solved.get(e["id"]) or {}).get("confidence", "CONFIDENT")
+        e["solution"] = normalise(fill[entry_id(e)]) if entry_id(e) in fill else None
+        confidence = (solved.get(entry_id(e)) or {}).get("confidence", "CONFIDENT")
         if confidence != "CONFIDENT":
             # Read by the annotator, via tools/annotate_prompt.md. Written only
             # when it is not the default, so its presence is the whole signal.
@@ -350,7 +351,7 @@ def main(argv=None):
             print(f"  {len(coarse)} light(s) the book printed no count over, enumerated "
                   f"as one word of their own length: {', '.join(coarse)}")
         return 0
-    likely = [e["id"] for e in puzzle["entries"] if e.get("solutionConfidence")]
+    likely = [entry_id(e) for e in puzzle["entries"] if e.get("solutionConfidence")]
     print(f"wrote {path} — {len(puzzle['entries'])} entries, dated {puzzle['year']}, model fill, "
           f"no official key will ever exist")
     print(f"  {len(likely)} entr{'y' if len(likely) == 1 else 'ies'} below CONFIDENT: "

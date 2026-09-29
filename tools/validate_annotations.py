@@ -66,6 +66,7 @@ import puzzle_schema  # noqa: E402 — tools/data/puzzle.schema.json
 import definitions  # where each definition sits; tools/definitions.py
 import enumeration  # noqa: E402 — a clue's printed counts; tools/enumeration.py
 import groups  # noqa: E402 — linked answers; tools/groups.py
+from groups import entry_id  # noqa: E402
 from annotation import assembly, explanation, whole_anagram  # tools/annotation.py
 from fetch_puzzle import (  # noqa: E402 — one reader, one exemption
     blog_facts_for, clue_words, leaders_named, read_puzzle_file)
@@ -1570,17 +1571,17 @@ def check_every_clue_is_annotated(entries, errors, warnings, misses=(), corpus=F
         if e.get("annotation"):
             continue
         tag = f"{e['number']}{'A' if e['direction'] == 'across' else 'D'}"
-        if e.get("id") in misses:
+        if entry_id(e) in misses:
             warnings.append(
                 f"{tag}: no annotation — the blind run answered "
-                f"{misses[e['id']]!r} wrongly and the grader dropped its "
+                f"{misses[entry_id(e)]!r} wrongly and the grader dropped its "
                 f"explanation. It ships with answers only until someone annotates it")
             continue
         if is_blank_clue(e["clue"].get("text", "")):
             warnings.append(f"{tag}: no annotation, and no clue to annotate — "
                             f"the setter left this entry blank on purpose")
             continue
-        if e["id"] in continuations:
+        if entry_id(e) in continuations:
             continue                      # annotated on its group's leader
         if corpus:
             warnings.append(f"{tag}: no annotation — queued to be annotated again")
@@ -1717,7 +1718,7 @@ def check_definition_against_blog(puzzle, warnings):
         return (every - LINKING_WORDS) or every
     for e in puzzle["entries"]:
         ann = e.get("annotation") or {}
-        fact = row["entries"].get(e["id"]) or {}
+        fact = row["entries"].get(entry_id(e)) or {}
         # one tools/letter_facts.py read off other write-ups is not this blogger's underline
         theirs = None if "definitions" in fact.get("inferred", ()) else definitions.texts(fact)
         defined = definitions.texts(ann)
@@ -1755,7 +1756,7 @@ def check_blocks_against_blog(puzzle, warnings):
         return all(c in rest for c in g)
     for e in puzzle["entries"]:
         ann = e.get("annotation") or {}
-        theirs = (row["entries"].get(e["id"]) or {}).get("blocks")
+        theirs = (row["entries"].get(entry_id(e)) or {}).get("blocks")
         if not ann.get("blocks") or not theirs:
             continue
         gives = [letters(b.get("gives") or "") for b in ann["blocks"]]
@@ -1798,7 +1799,7 @@ def check_cryptic_definition_against_blog(puzzle, warnings):
         return
     for e in puzzle["entries"]:
         ann = e.get("annotation") or {}
-        fact = row["entries"].get(e["id"]) or {}
+        fact = row["entries"].get(entry_id(e)) or {}
         theirs = fact.get("type") or []
         if "cryptic_definition" not in types_of(ann):
             continue
@@ -2193,35 +2194,35 @@ def check_groups(puzzle, errors):
     fetch_puzzle.leaders_named, which prune_one_sided_members asks too, so the
     fetcher and this check exempt the same clues.
     """
-    by_id = {e["id"]: e for e in puzzle["entries"]}
+    by_id = {entry_id(e): e for e in puzzle["entries"]}
     held_by = {}
     for e in puzzle["entries"]:
         group = e.get("group")
         if group is None:
             continue
         if len(set(group)) < 2:
-            errors.append(f"{e['id']}: group {group} must name two or more "
+            errors.append(f"{entry_id(e)}: group {group} must name two or more "
                           f"different lights. A clue that is its own answer "
                           f"carries no group at all.")
             continue
-        if group[0] != e["id"]:
-            errors.append(f"{e['id']}: group {group} does not start with this "
+        if group[0] != entry_id(e):
+            errors.append(f"{entry_id(e)}: group {group} does not start with this "
                           f"entry. Only the leader carries the group, first in it")
             continue
         for gid in dict.fromkeys(group[1:]):
-            if gid == e["id"]:
+            if gid == entry_id(e):
                 continue                  # an answer that repeats its first light
             other = by_id.get(gid)
             if other is None:
-                errors.append(f"{e['id']}: group names {gid}, which is not in this puzzle")
+                errors.append(f"{entry_id(e)}: group names {gid}, which is not in this puzzle")
                 continue
-            held_by.setdefault(gid, []).append(e["id"])
+            held_by.setdefault(gid, []).append(entry_id(e))
             if other.get("annotation"):
-                errors.append(f"{gid}: continues {e['id']}'s linked answer, so it "
+                errors.append(f"{gid}: continues {entry_id(e)}'s linked answer, so it "
                               f"carries no annotation; the whole answer is "
-                              f"annotated on {e['id']}")
+                              f"annotated on {entry_id(e)}")
             if other.get("group"):
-                errors.append(f"{gid}: continues {e['id']}'s group {group} and "
+                errors.append(f"{gid}: continues {entry_id(e)}'s group {group} and "
                               f"leads its own {other['group']} — a light starts "
                               f"one answer at most, and only as its first light")
     for gid, leads in held_by.items():
@@ -2253,7 +2254,7 @@ def check_no_markup(puzzle, errors):
             ok = (isinstance(at, int) and isinstance(length, int)
                   and at >= 0 and length > 0 and at + length <= len(text))
             if not ok:
-                errors.append(f"{e['id']}: clue.italics range {r!r} is not inside the "
+                errors.append(f"{entry_id(e)}: clue.italics range {r!r} is not inside the "
                               f"{len(text)}-character clue text. The ranges index the clue "
                               f"text, so editing one without the other silently italicises "
                               f"the wrong words.")
@@ -2298,14 +2299,14 @@ def check_clue_unchanged(puzzle, path, errors):
                            capture_output=True, text=True, check=False)
     if shown.returncode:
         return                  # not committed yet: nothing to compare with
-    was = {e["id"]: enumeration.printed(e["clue"])
+    was = {entry_id(e): enumeration.printed(e["clue"])
            for e in json.loads(shown.stdout).get("entries", [])}
     for e in puzzle["entries"]:
         now = enumeration.printed(e["clue"])
-        if (e.get("annotation") is not None and e["id"] in was
-                and clue_words(was[e["id"]]) != clue_words(now)):
+        if (e.get("annotation") is not None and entry_id(e) in was
+                and clue_words(was[entry_id(e)]) != clue_words(now)):
             errors.append(
-                f"{e['id']}: clue changed from {was[e['id']]!r} to {now!r} "
+                f"{entry_id(e)}: clue changed from {was[entry_id(e)]!r} to {now!r} "
                 f"under an annotation. The clue text is the source's, not the "
                 f"annotator's: put it back, or, correcting it, drop this entry's "
                 f"annotation so it is annotated afresh")
@@ -2318,7 +2319,7 @@ def validate_puzzle(puzzle, corpus=False):
     errors.extend(f"schema: {p}" for p in puzzle_schema.validate(puzzle))
     check_no_markup(puzzle, errors)
     check_groups(puzzle, errors)
-    by_id = {e["id"]: e for e in puzzle["entries"]}
+    by_id = {entry_id(e): e for e in puzzle["entries"]}
     annotated = 0
     authored = is_authored(puzzle)
 

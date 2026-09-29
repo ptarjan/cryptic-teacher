@@ -42,7 +42,7 @@ check("both ends is ambiguous", True, "occurs 3 times" in (refused("up and up an
 check("not in the clue", True, "not in the clue" in (refused("Big cat", "dog") or ""))
 
 def errors(defs):
-    puzzle = {"id": "t-1", "entries": [{"id": "1-across", "number": 1, "direction": "across",
+    puzzle = {"id": "t-1", "entries": [{"number": 1, "direction": "across",
               "clue": {"text": "Changes colour", "enumeration": "9"}, "solution": "TURNSTONE",
               "annotation": {"type": ["charade"], "answer": "TURNSTONE", "explanation": {"walkthrough": "w"},
                              "definitions": defs, "assembly": {"pieces": ["TURNS", "TONE"]},

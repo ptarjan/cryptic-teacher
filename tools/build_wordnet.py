@@ -28,6 +28,7 @@ import definitions
 import difficulty as D  # noqa: E402
 from fetch_puzzle import puzzle_files, read_puzzle_file  # noqa: E402
 from nltk.corpus import wordnet as wn  # noqa: E402
+from groups import entry_id  # noqa: E402
 
 
 def vocabulary():
@@ -42,7 +43,7 @@ def vocabulary():
             if ws:
                 words.add("_".join(w.lower() for w in ws))
                 words.update(w.lower() for w in ws)
-            d = bd.get(e.get("id")) or D.definition_key(definitions.texts(e.get("annotation")))
+            d = bd.get(entry_id(e)) or D.definition_key(definitions.texts(e.get("annotation")))
             if d:
                 words.update(d.split())
     return {w for w in words if re.fullmatch(r"[a-z_]+", w)}

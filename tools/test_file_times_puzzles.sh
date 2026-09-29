@@ -22,6 +22,7 @@ import datetime, json, pathlib, tempfile
 import enumeration, fetch_puzzle, provenance, puzzle_paths
 import reconstruct_grid as rg
 import file_times_puzzles as F
+from groups import entry_id
 
 TINY = ("..#..",
         ".....",
@@ -92,7 +93,7 @@ print("OUT_OF_SEQUENCE", skipped["number out of sequence"])
 print("REPRINTED", skipped["globeandmail reprints it"])
 
 p = json.loads(puzzle_paths.find("times-100").read_text())
-by_id = {e["id"]: e for e in p["entries"]}
+by_id = {entry_id(e): e for e in p["entries"]}
 print("CLUE_KEEPS_COUNT", enumeration.printed(by_id["2-down"]["clue"]))
 print("CLEAN", enumeration.printed(by_id["1-down"]["clue"]))
 print("SEPARATORS", json.dumps(by_id["2-down"]["clue"].get("separators")))
@@ -101,7 +102,7 @@ print("DATED", p["date"])
 print("ORIGINS", p["source"]["gridOrigin"], p["solutions"]["origin"])
 print("PROV_CLEAN", provenance.check(p) == [])
 fixed = json.loads(puzzle_paths.find("times-101").read_text())
-print("CORRECTED", {e["id"]: e for e in fixed["entries"]}["1-across"]["solution"] == right)
+print("CORRECTED", {entry_id(e): e for e in fixed["entries"]}["1-across"]["solution"] == right)
 sunday = json.loads(puzzle_paths.find("sundaytimes-4321").read_text())
 print("PRIZE_UNDATED", sunday["date"], json.loads(puzzle_paths.find("times-29000").read_text())["date"])
 
@@ -141,6 +142,7 @@ for key, held in (("PLACEHOLDER", None), ("NAMED", "Someone")):
 # pointer the leader's clue never names stays a group, held on the leader.
 import enumeration
 import file_blog_puzzles as B
+from groups import entry_id
 pointed = rec(10, 105, "2026-01-13")
 for e in pointed["entries"]:
     k = (e["number"], e["direction"])
@@ -151,7 +153,7 @@ for e in pointed["entries"]:
     if k == (3, "down"):
         e["clue"] = "See 2 (5)"
 built, why = B.build(pointed, row(pointed), "times", None, None)
-groups = {e["id"]: e.get("group") for e in built["entries"]}
+groups = {entry_id(e): e.get("group") for e in built["entries"]}
 print("COMPOSITE", groups["5-across"], groups["7-across"], groups["2-down"], groups["3-down"])
 
 # The grid proves the answers, so a count the blog mistyped is recounted from
@@ -165,7 +167,7 @@ for e in typo["entries"]:
     if k == (2, "down"):
         e["clue"], e["enumeration"] = "Zero first (0,5)", "0,5"
 built, why = B.build(typo, row(typo), "times", None, None)
-by_id = {e["id"]: e for e in built["entries"]}
+by_id = {entry_id(e): e for e in built["entries"]}
 print("RECOUNTED", enumeration.printed(by_id["5-across"]["clue"]), "|",
       enumeration.printed(by_id["2-down"]["clue"]), "|",
       built["solutions"]["check"].split("; ")[-1])
