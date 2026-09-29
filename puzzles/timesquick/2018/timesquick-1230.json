@@ -24,6 +24,9 @@
   "date": "2018-11-26",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,43 @@
     "text": "Attractive blonde",
     "enumeration": "4"
    },
-   "solution": "FAIR"
+   "solution": "FAIR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FAIR",
+    "definitions": [
+     {
+      "text": "Attractive",
+      "at": 0
+     },
+     {
+      "text": "blonde",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Attractive",
+      "gives": "FAIR",
+      "note": "an old word for good-looking, as with a maiden in a ballad"
+     },
+     {
+      "clueFragment": "blonde",
+      "gives": "FAIR",
+      "note": "light-coloured hair is described with this word"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Two separate meanings of one word sit side by side with nothing joining them.",
+     "definitionFit": "Both senses are standard dictionary meanings: pleasing in looks, and pale in hair colour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +90,74 @@
     "text": "Enforce changes around Latvian capital, European city",
     "enumeration": "8"
    },
-   "solution": "FLORENCE"
+   "solution": "FLORENCE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "FLORENCE",
+    "definitions": [
+     {
+      "text": "European city",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "capital",
+      "for": "letter_selection",
+      "note": "a capital is the head letter of a word, so 'Latvian capital' means its first letter"
+     },
+     {
+      "text": "changes",
+      "for": "anagram",
+      "note": "'Enforce' undergoes changes, so its letters are rearranged"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "the rearranged 'Enforce' goes around the letter from 'Latvian capital'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Enforce",
+      "gives": "ENFORCE",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "Latvian capital",
+      "gives": "L",
+      "select": "first",
+      "note": "the opening letter of Latvian, not Riga"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "L",
+      "ORENCE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ENFORCE",
+       "gives": "FORENCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A political story: laws being enforced differently in Riga and some other European city.",
+     "walkthrough": "\"Latvian capital\" wants to be Riga; in crosswords it is just the first letter, L, which sits inside a jumble of ENFORCE.",
+     "definitionFit": "Florence is the Tuscan city in Italy, an example of a place in Europe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +171,51 @@
     "text": "Lazy type, terribly riled",
     "enumeration": "5"
    },
-   "solution": "IDLER"
+   "solution": "IDLER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IDLER",
+    "definitions": [
+     {
+      "text": "Lazy type",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "terribly",
+      "for": "anagram",
+      "note": "'riled' is treated terribly, so its letters end up in a bad order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "riled",
+      "gives": "RILED",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RILED",
+       "gives": "IDLER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A layabout who has become badly annoyed.",
+     "walkthrough": "The same five letters as RILED, reordered.",
+     "definitionFit": "An idler is someone who avoids work, which is a slothful kind of person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "terribly"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +229,51 @@
     "text": "Strange score, tie baffling",
     "enumeration": "8"
    },
-   "solution": "ESOTERIC"
+   "solution": "ESOTERIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ESOTERIC",
+    "definitions": [
+     {
+      "text": "Strange",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "baffling",
+      "for": "anagram",
+      "note": "'score, tie' is presented in a baffling order, so its letters must be sorted out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "score, tie",
+      "gives": "SCORETIE",
+      "note": "both words taken as written, to be rearranged together"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SCORETIE",
+       "gives": "ESOTERIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A football result: an odd scoreline in a puzzling cup tie.",
+     "walkthrough": "In the surface a tie is a match; here the word only supplies letters.",
+     "definitionFit": "Esoteric means obscure or understood by few, close in sense to peculiar or unusual."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tie"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +287,67 @@
     "text": "Awful Spanish row about medal for fencing, say?",
     "enumeration": "13"
    },
-   "solution": "SWORDSMANSHIP"
+   "solution": "SWORDSMANSHIP",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SWORDSMANSHIP",
+    "definitions": [
+     {
+      "text": "fencing, say?",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Awful",
+      "for": "anagram",
+      "note": "'Spanish row' in an awful state has its letters jumbled"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "the jumbled 'Spanish row' goes round the 'medal'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spanish row",
+      "gives": "SPANISHROW",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "medal",
+      "gives": "DSM",
+      "note": "the Distinguished Service Medal, a British military award"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SWOR",
+      "DSM",
+      "ANSHIP"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SPANISHROW",
+       "gives": "SWORANSHIP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bitter Spanish quarrel over who gets a medal in the fencing event.",
+     "walkthrough": "The DSM (Distinguished Service Medal) is a British military decoration; the question mark flags fencing as one example of the skill, not a synonym.",
+     "definitionFit": "Fencing is a sport of blade skill, an example of the art of handling a sword."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "row"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +361,67 @@
     "text": "Bone slightly raised, covering one",
     "enumeration": "5"
    },
-   "solution": "TIBIA"
+   "solution": "TIBIA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "TIBIA",
+    "definitions": [
+     {
+      "text": "Bone",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "in a down clue, raising the phrase for 'slightly' makes it read upward"
+     },
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "the upturned 'slightly' covers 'one', holding it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "slightly",
+      "gives": "ABIT",
+      "note": "'a bit' means to a small degree"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for 1"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIB",
+      "I",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "ABIT",
+       "to": "TIBA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bone sticking up a little, with something laid over it.",
+     "walkthrough": "A BIT turned upward gives TIBA, which then wraps round I.",
+     "definitionFit": "The tibia is the shinbone, the larger of the two long bones of the lower leg."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "raised"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +435,54 @@
     "text": "List including old bird",
     "enumeration": "7"
    },
-   "solution": "ROOSTER"
+   "solution": "ROOSTER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ROOSTER",
+    "definitions": [
+     {
+      "text": "bird",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "including",
+      "for": "container",
+      "note": "the 'List' includes 'old', holding it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "List",
+      "gives": "ROSTER",
+      "note": "a rota or list of names"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "standard abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RO",
+      "O",
+      "STER"
+     ]
+    },
+    "explanation": {
+     "surface": "An inventory that happens to feature an elderly bird.",
+     "walkthrough": "A roster is a duty rota; 'old' as O is one of the commonest abbreviations in crosswords.",
+     "definitionFit": "A rooster is a male chicken, the farmyard cockerel, so a kind of fowl."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +496,57 @@
     "text": "Swimmer last in race, might one be broken?",
     "enumeration": "4"
    },
-   "solution": "CODE"
+   "solution": "CODE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CODE",
+    "definitions": [
+     {
+      "text": "might one be broken?",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last in",
+      "for": "letter_selection",
+      "note": "'last in race' asks for the final letter of that word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Swimmer",
+      "gives": "COD",
+      "note": "a fish, and fish swim"
+     },
+     {
+      "clueFragment": "race",
+      "gives": "E",
+      "select": "last",
+      "note": "the closing letter of race"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COD",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A swimmer coming last in a race wonders whether a record might be broken.",
+     "walkthrough": "\"Swimmer\" suggests a person; it is a fish. \"Broken\" suggests a record, but codes are broken by codebreakers.",
+     "definitionFit": "A cipher is something codebreakers crack, so it is a thing that can be broken."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Swimmer"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +560,48 @@
     "text": "Nicks cut at the top — not very far",
     "enumeration": "6"
    },
-   "solution": "INCHES"
+   "solution": "INCHES",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "INCHES",
+    "definitions": [
+     {
+      "text": "not very far",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut at the top",
+      "for": "deletion",
+      "note": "in a down clue the top is the start, so 'Nicks' loses its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nicks",
+      "gives": "PINCHES",
+      "note": "to nick is slang for to steal, as is to pinch"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INCHES"
+     ]
+    },
+    "explanation": {
+     "surface": "Small wounds on the head, which luckily did not go deep.",
+     "walkthrough": "\"Nicks\" reads as small cuts; it is the verb meaning steals. Remove P from PINCHES.",
+     "definitionFit": "Inches are small units of length, so a few inches is only a short distance; the definition is a loose descriptive phrase."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Nicks"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +615,62 @@
     "text": "Florida city, territory in middle of autoroute",
     "enumeration": "7"
    },
-   "solution": "ORLANDO"
+   "solution": "ORLANDO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ORLANDO",
+    "definitions": [
+     {
+      "text": "Florida city",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "middle of",
+      "for": "letter_selection",
+      "note": "'middle of autoroute' takes the central letters of that word"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'territory' goes in the letters taken from 'autoroute'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "middle of autoroute",
+      "gives": "ORO",
+      "select": "middle",
+      "note": "the central three letters of the nine-letter autoroute"
+     },
+     {
+      "clueFragment": "territory",
+      "gives": "LAND",
+      "note": "a region or area"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OR",
+      "LAND",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Directions: an American city and its land lying beside a French motorway.",
+     "walkthrough": "An autoroute is a French motorway, a nod to the surface's travel theme; only its middle letters matter here.",
+     "definitionFit": "Orlando is the city in central Florida known for its theme parks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "autoroute"
+    }
+   }
   },
   {
    "number": 10,
@@ -177,7 +684,43 @@
     "text": "Family think negatively",
     "enumeration": "5"
    },
-   "solution": "BROOD"
+   "solution": "BROOD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BROOD",
+    "definitions": [
+     {
+      "text": "Family",
+      "at": 0
+     },
+     {
+      "text": "think negatively",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Family",
+      "gives": "BROOD",
+      "note": "a set of young, as hatched by a hen, or jokingly one's children"
+     },
+     {
+      "clueFragment": "think negatively",
+      "gives": "BROOD",
+      "note": "to dwell gloomily on something"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "One word as a noun and as a verb.",
+     "definitionFit": "A noun meaning a group of offspring, and a verb meaning to mope or worry at length."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -191,7 +734,55 @@
     "text": "Planet needing change of heart",
     "enumeration": "5"
    },
-   "solution": "EARTH"
+   "solution": "EARTH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EARTH",
+    "definitions": [
+     {
+      "text": "Planet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "change of",
+      "for": "anagram",
+      "note": "a 'change of heart' here literally alters that word's letter order"
+     }
+    ],
+    "linkWords": [
+     "needing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "heart",
+      "gives": "HEART",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HEART",
+       "gives": "EARTH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The world needs to reconsider its attitude, to have a change of heart.",
+     "walkthrough": "\"Change of heart\" is an idiom for a new attitude; here it is taken literally, and moving the H from front to back does it.",
+     "definitionFit": "Earth is the third world from the Sun, the one we live on."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "heart"
+    }
+   }
   },
   {
    "number": 12,
@@ -205,7 +796,62 @@
     "text": "Shortage beginning to rankle in the end",
     "enumeration": "6"
    },
-   "solution": "DEARTH"
+   "solution": "DEARTH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "DEARTH",
+    "definitions": [
+     {
+      "text": "Shortage",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "'beginning to rankle' takes the opening letter of that word"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the letter from 'rankle' goes in 'the end'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the end",
+      "gives": "DEATH",
+      "note": "the end of life"
+     },
+     {
+      "clueFragment": "rankle",
+      "gives": "R",
+      "select": "first",
+      "note": "the opening letter of rankle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEA",
+      "R",
+      "TH"
+     ]
+    },
+    "explanation": {
+     "surface": "A scarcity starts to irritate people and, eventually, to grate.",
+     "walkthrough": "\"In the end\" reads as 'eventually'; it is 'in' as a container signal plus 'the end' meaning DEATH.",
+     "definitionFit": "A dearth is a lack or scarcity of something, a formal synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "end"
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +865,45 @@
     "text": "Prison term that should make sense?",
     "enumeration": "8"
    },
-   "solution": "SENTENCE"
+   "solution": "SENTENCE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SENTENCE",
+    "definitions": [
+     {
+      "text": "Prison term",
+      "at": 0
+     },
+     {
+      "text": "that should make sense?",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prison term",
+      "gives": "SENTENCE",
+      "note": "the period a judge orders someone to serve"
+     },
+     {
+      "clueFragment": "that should make sense?",
+      "gives": "SENTENCE",
+      "note": "a grammatical unit of words expected to convey a complete meaning"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark marks the second half as a playful description rather than a dictionary one.",
+     "definitionFit": "A judge's punishment of jail time, and a string of words forming a complete, meaningful statement."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "term"
+    }
+   }
   },
   {
    "number": 14,
@@ -239,7 +923,40 @@
      }
     ]
    },
-   "solution": "CHRISTMASTREE"
+   "solution": "CHRISTMASTREE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CHRISTMAS TREE",
+    "definitions": [
+     {
+      "text": "A seasonal put-up job?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A seasonal put-up job?",
+      "note": "surface reading: a fraud or setup arranged at some time of year, as 'put-up job' is an idiom for a rigged scheme"
+     },
+     {
+      "clueFragment": "put-up",
+      "note": "setter's reading: something literally put up, erected in the house each December and taken down afterwards"
+     }
+    ],
+    "explanation": {
+     "surface": "A swindle that recurs every year at the same time.",
+     "walkthrough": "A \"put-up job\" is a con arranged in advance; read literally, it is something you put up, and the festive decoration is put up once a year.",
+     "definitionFit": "The decorated fir is erected indoors every December for the holiday, a seasonal thing people install."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "job"
+    }
+   }
   },
   {
    "number": 15,
@@ -253,7 +970,56 @@
     "text": "Bit of a looker grabbing small drink in Greece",
     "enumeration": "7"
    },
-   "solution": "RETSINA"
+   "solution": "RETSINA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RETSINA",
+    "definitions": [
+     {
+      "text": "drink in Greece",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "grabbing",
+      "for": "container",
+      "note": "'Bit of a looker' grabs 'small', holding it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bit of a looker",
+      "gives": "RETINA",
+      "note": "part of an eye, the thing one looks with"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "standard abbreviation for small, as on clothing labels"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RET",
+      "S",
+      "INA"
+     ]
+    },
+    "explanation": {
+     "surface": "A good-looking person in Greece grabs a quick drink.",
+     "walkthrough": "\"Looker\" suggests an attractive person; here it is an eye, and the RETINA is part of it.",
+     "definitionFit": "Retsina is a resin-flavoured white wine traditional in Greece."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "looker"
+    }
+   }
   },
   {
    "number": 16,
@@ -267,7 +1033,68 @@
     "text": "Indication good in snail after treatment",
     "enumeration": "6"
    },
-   "solution": "SIGNAL"
+   "solution": "SIGNAL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SIGNAL",
+    "definitions": [
+     {
+      "text": "Indication",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after treatment",
+      "for": "anagram",
+      "note": "'snail' after treatment has been worked on, so its letters are reordered"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'good' goes in the reworked 'snail'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "snail",
+      "gives": "SNAIL",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "standard abbreviation for good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SI",
+      "G",
+      "NAL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SNAIL",
+       "gives": "SINAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A garden snail shows signs of recovering well after medical treatment.",
+     "walkthrough": "\"Treatment\" suggests medicine; here it is the working over of letters.",
+     "definitionFit": "A signal is a sign or cue that conveys information, a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "treatment"
+    }
+   }
   },
   {
    "number": 17,
@@ -281,7 +1108,50 @@
     "text": "Instal new, Communist leader",
     "enumeration": "6"
    },
-   "solution": "STALIN"
+   "solution": "STALIN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STALIN",
+    "definitions": [
+     {
+      "text": "Communist leader",
+      "at": 12
+     }
+    ],
+    "indicators": [
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "'Instal' made new is remade, so its letters come out in a fresh order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Instal",
+      "gives": "INSTAL",
+      "note": "taken as written; a British spelling of install"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INSTAL",
+       "gives": "STALIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Put in a new Communist leader.",
+     "walkthrough": "\"Instal\" with one L is an accepted British spelling, which makes the letter count work.",
+     "definitionFit": "Joseph Stalin ruled the Soviet Union from the 1920s to 1953 as its Party head."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -295,7 +1165,43 @@
     "text": "English city has the advantage, we hear",
     "enumeration": "5"
    },
-   "solution": "LEEDS"
+   "solution": "LEEDS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "LEEDS",
+    "definitions": [
+     {
+      "text": "English city",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "'we hear' means the words for 'has the advantage' are to be taken by sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "has the advantage",
+      "gives": "LEEDS",
+      "soundsLike": "LEADS",
+      "note": "one who is ahead in a contest is in front"
+     }
+    ],
+    "explanation": {
+     "surface": "A city claims it is out in front, or so people say.",
+     "walkthrough": "Leeds is a large city in Yorkshire, northern England.",
+     "definitionFit": "Leeds is one of the biggest cities in Yorkshire, in the north of England."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -309,7 +1215,49 @@
     "text": "Good little pig producing “oink”",
     "enumeration": "5"
    },
-   "solution": "GRUNT"
+   "solution": "GRUNT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GRUNT",
+    "definitions": [
+     {
+      "text": "“oink”",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "producing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Good",
+      "gives": "G",
+      "note": "standard abbreviation for good"
+     },
+     {
+      "clueFragment": "little pig",
+      "gives": "RUNT",
+      "note": "the smallest animal of a litter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "RUNT"
+     ]
+    },
+    "explanation": {
+     "surface": "A well-behaved piglet making its usual farmyard noise.",
+     "walkthrough": "A runt is the weakest, smallest member of a litter, often a piglet.",
+     "definitionFit": "The noise a pig makes, written as oink, is a short gruff sound, an example of one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 20,
@@ -323,7 +1271,48 @@
     "text": "Lid removed from dairy product, say",
     "enumeration": "5"
    },
-   "solution": "UTTER"
+   "solution": "UTTER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "UTTER",
+    "definitions": [
+     {
+      "text": "say",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Lid removed from",
+      "for": "deletion",
+      "note": "in a down clue the lid is the top letter, so the 'dairy product' loses its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dairy product",
+      "gives": "BUTTER",
+      "note": "a spread churned from cream"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UTTER"
+     ]
+    },
+    "explanation": {
+     "surface": "Taking the lid off a tub of yoghurt or similar.",
+     "walkthrough": "\"Say\" looks like a mark of an example; it is the definition, a verb.",
+     "definitionFit": "To utter is to speak or voice words, a synonym of the verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "say"
+    }
+   }
   },
   {
    "number": 21,
@@ -337,7 +1326,65 @@
     "text": "Skip — nothing massive initially to put on it",
     "enumeration": "4"
    },
-   "solution": "OMIT"
+   "solution": "OMIT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "OMIT",
+    "definitions": [
+     {
+      "text": "Skip",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "'massive initially' takes the first letter of that word"
+     }
+    ],
+    "linkWords": [
+     "to put on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "zero, shaped like the letter"
+     },
+     {
+      "clueFragment": "massive",
+      "gives": "M",
+      "select": "first",
+      "note": "the opening letter of massive"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "M",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "A builder's skip with nothing big to put in it.",
+     "walkthrough": "In the surface a skip is a rubbish container (a dumpster); it is the verb, meaning to leave out.",
+     "definitionFit": "To skip something is to leave it out or pass over it, a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Skip"
+    }
+   }
   },
   {
    "number": 22,
@@ -351,7 +1398,47 @@
     "text": "Chief English state",
     "enumeration": "5"
    },
-   "solution": "MAINE"
+   "solution": "MAINE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MAINE",
+    "definitions": [
+     {
+      "text": "state",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chief",
+      "gives": "MAIN",
+      "note": "principal or foremost"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "standard abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAIN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "The principal English administration or country.",
+     "walkthrough": "\"English state\" reads as one unit; the split is after English, and the state is American.",
+     "definitionFit": "Maine is the north-eastern US state in New England, one of the fifty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "English"
+    }
+   }
   },
   {
    "number": 23,
@@ -365,7 +1452,51 @@
     "text": "Scramble near the lift",
     "enumeration": "7"
    },
-   "solution": "HEARTEN"
+   "solution": "HEARTEN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HEARTEN",
+    "definitions": [
+     {
+      "text": "lift",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Scramble",
+      "for": "anagram",
+      "note": "to scramble 'near the' is to mix it up so its letters come out jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "near the",
+      "gives": "NEARTHE",
+      "note": "both words taken as written, to be rearranged together"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NEARTHE",
+       "gives": "HEARTEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rush for the elevator.",
+     "walkthrough": "\"Lift\" suggests an elevator; it is the verb meaning to raise spirits.",
+     "definitionFit": "To hearten someone is to cheer or encourage them, raising their mood."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lift"
+    }
+   }
   },
   {
    "number": 24,
@@ -379,7 +1510,51 @@
     "text": "Something in a church, part sent to be repaired",
     "enumeration": "8"
    },
-   "solution": "TRANSEPT"
+   "solution": "TRANSEPT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TRANSEPT",
+    "definitions": [
+     {
+      "text": "Something in a church",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be repaired",
+      "for": "anagram",
+      "note": "'part sent' needs to be repaired, so its letters get put back together in another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "part sent",
+      "gives": "PARTSENT",
+      "note": "both words taken as written, to be rearranged together"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PARTSENT",
+       "gives": "TRANSEPT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A piece of a church's fabric has been sent off for mending.",
+     "walkthrough": "\"Part\" looks like the definition; it is fodder.",
+     "definitionFit": "A transept is either arm of a cross-shaped church, crossing the nave, so a feature of such a building."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "part"
+    }
+   }
   },
   {
    "number": 25,
@@ -393,7 +1568,59 @@
     "text": "Genuine regret by Tory leader",
     "enumeration": "4"
    },
-   "solution": "TRUE"
+   "solution": "TRUE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TRUE",
+    "definitions": [
+     {
+      "text": "Genuine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "the leader of 'Tory' is its front letter"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tory",
+      "gives": "T",
+      "select": "first",
+      "note": "the opening letter of Tory"
+     },
+     {
+      "clueFragment": "regret",
+      "gives": "RUE",
+      "note": "to be sorry about"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RUE"
+     ]
+    },
+    "explanation": {
+     "surface": "A Conservative Party leader expresses sincere remorse.",
+     "walkthrough": "\"Tory leader\" suggests a party head; it means the first letter. A Tory is a British Conservative.",
+     "definitionFit": "True means real or authentic, a synonym for the adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   }
  ]
 }
