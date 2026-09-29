@@ -39,6 +39,12 @@ packets are built, so changing which rivals one answer draws shifts every draw
 after it. "Same seed, same packets" is only true if the inputs are byte-identical,
 which is exactly the assumption an edit breaks.
 
+The rival pool drifts too. Annotated rivals are drawn first, and puzzles/ is
+annotated every day, so the same seed a week later draws different rivals for
+some answers. To compare a new clue set against an earlier round's exact field,
+pass --rivals-from <that round's key.json>: each answer then gets the rivals
+that key names, looked up by puzzle and entry, and only the shuffle is redrawn.
+
 So the run id is a hash of the packet contents. Identical inputs land in the
 same run directory; any change at all gets a new one. grading/packets and
 grading/key.json stay as the convenience copy of the newest run, but they are
@@ -56,8 +62,8 @@ import unicodedata
 from pathlib import Path
 
 import enumeration  # tools/enumeration.py; tools/ is this script's own directory
-from puzzle_paths import puzzle_files
 from groups import entry_id
+from puzzle_paths import puzzle_files
 
 ROOT = Path(__file__).resolve().parent.parent
 RIVALS_PER_ANSWER = 3
@@ -87,7 +93,7 @@ def published_clues(answers):
             if e.get("solution") not in pool or not (e.get("clue") or {}).get("text"):
                 continue
             text = clean(enumeration.printed(e["clue"]))
-            if re.search(r"\b(see|and)\s+\d+\b", text, re.I):
+            if re.search(r"\b(see|and)\s+\d+\b", text, re.IGNORECASE):
                 continue
             pool[e["solution"]].append({"text": text, "series": p["series"],
                                         "puzzle": p["id"], "entry": entry_id(e),
@@ -158,7 +164,10 @@ def main():
     ap.add_argument("--clues", default="tools/data/authored_A001_clues.json")
     ap.add_argument("--out", default="tools/data/grading")
     ap.add_argument("--seed", type=int, default=11)
+    ap.add_argument("--rivals-from", default=None,
+                    help="an earlier round's key.json: reuse its rivals, by puzzle and entry")
     args = ap.parse_args()
+    pinned = json.loads((ROOT / args.rivals_from).read_text()) if args.rivals_from else None
 
     ours = json.loads((ROOT / args.clues).read_text())
     rng = random.Random(args.seed)
@@ -177,7 +186,17 @@ def main():
             c for c in spec["annotation"]["answer"].upper() if c.isalpha()
         )
         mine = clean(enumeration.printed(spec["clue"]))
-        rivals = pick_rivals(pool[answer], RIVALS_PER_ANSWER, rng)
+        if pinned is not None:
+            want = [(r["puzzle"], r["entry"]) for _, r in
+                    sorted(pinned.get(answer, {}).get("rivals", {}).items())]
+            found = {(r["puzzle"], r["entry"]): r for r in pool[answer]}
+            missing = [w for w in want if w not in found]
+            if missing:
+                raise SystemExit(f"{answer}: --rivals-from names rivals no longer in "
+                                 f"puzzles/: {missing}")
+            rivals = [found[w] for w in want]
+        else:
+            rivals = pick_rivals(pool[answer], RIVALS_PER_ANSWER, rng)
         if len(rivals) < RIVALS_PER_ANSWER:
             thin.append(f"{answer} ({len(rivals)} rivals)")
         if not rivals:

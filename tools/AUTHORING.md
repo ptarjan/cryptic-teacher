@@ -313,6 +313,44 @@ worker as deputy` and `Agent hates to stand for` carry a joke tag in name
 only. The validator can count `features.joke`; it cannot tell whether the
 joke is there.
 
+**2026-09-29, round three: write five, then pick one, with no quota.**
+`tools/author_trial.py` gave each answer to its own fresh `claude-opus-5-5`
+author, at high effort, with no tools and an empty working directory. The
+prompt was `tools/author_trial_author.md`: the round-one rules, the judges'
+round-two complaints stated in general terms, and a process. The author names
+the obvious split and rejects it, then writes five candidates from different
+decompositions, each with its scene written before its clue. Every candidate
+went through the build-time validator. The author got the errors back, up to
+two repair rounds; all 20 answers needed at least one, and 2 of 100 candidates
+were dropped. A separate fresh run picked one per answer on misdirection and
+penny-drop alone (`tools/author_trial_select.md` plus the rubric). The picks
+faced round two's exact sixty rivals (`tools/grade_clues.py --rivals-from`,
+because the seed alone now draws a different LEADERSHIP field) and three
+serial judges:
+
+| arm | misdir + penny-drop gap | misdirection | penny-drop | wins /20 | spotted |
+| --- | --- | --- | --- | --- | --- |
+| first Opus 5.5 set (control) | -0.24 | -0.33 | -0.14 | 4 | 24% |
+| round two | -0.65 | -0.78 | -0.53 | 2 (both ties) | 39% |
+| round three, five then pick | +0.45 | +0.38 | +0.52 | 11 (1 tie) | 14% |
+
+Best, by misdirection + penny-drop: `The Venus de Milo isn't (5)` = ARMED
+(4.67, a cryptic definition and every judge's favourite), `Spilt ether? Don't
+cry! (5)` = THERE (4.17), `Streep cracked safes (6)` = PETERS and `Chips for
+eleven? (4)` = SIDE (4.00 each). Worst: `Walter lost his head for a change (5)`
+= ALTER (2.00) lost to the published HALTER-minus-H clue, the same mechanism
+with a better scene. `Wise man holds up fingers (5)` = NAMES (2.83) could not
+be parsed. `Chief's joint gives direction (10)` = LEADER'S HIP and `Milan side
+buried in print errors (5)` = INTER (3.00 each) were spotted as bare
+mechanisms.
+
+**Verdict: better than the control, by +0.69 on the headline gap.** Judges
+chose our clue as favourite 31 of 60 times, against 15 by chance. Two things
+flatter it. The selector is the judges' model reading the judges' rubric, so
+the pick step optimises for this grader's taste. And these judges scored the
+same human clues 0.12 lower than round two's did. On our own score alone
+(3.52 against the control's 2.95), the gain is still +0.57.
+
 ## The surface is a sentence, and it carries a joke
 
 The six worst clues were rewritten under the rule above, and the feedback was:
