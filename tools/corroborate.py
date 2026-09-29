@@ -64,6 +64,7 @@ from pathlib import Path
 
 TOOLS = Path(__file__).resolve().parent
 sys.path.insert(0, str(TOOLS))
+import enumeration
 import provenance
 import series as series_meta
 
@@ -703,7 +704,7 @@ def field_disputes(puzzle, records):
             out.append(d)
     for members in units(puzzle).values():
         for m in members:
-            if m["clue"].get("text", "").strip():
+            if m["clue"].get("text", "").strip() or m["clue"].get("enumeration"):
                 continue
             cands, shown = {}, {}
             for rec in records:
@@ -747,7 +748,9 @@ def apply(puzzle, disputes):
             for m in all_units[d.entry]:
                 by_id[m["id"]]["solution"], rest = rest[:m["length"]], rest[m["length"]:]
         elif d.field == "clue":
-            by_id[d.entry]["clue"] = {**by_id[d.entry]["clue"], "text": d.winner}
+            kept = {k: v for k, v in by_id[d.entry]["clue"].items()
+                    if k not in ("text", "enumeration")}
+            by_id[d.entry]["clue"] = enumeration.clue(d.winner, **kept)
         elif d.field == "date":
             puzzle["date"] = d.winner.isoformat()
         else:

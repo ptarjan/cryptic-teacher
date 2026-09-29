@@ -60,6 +60,7 @@ from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import enumeration  # noqa: E402 — a clue's printed counts; tools/enumeration.py
 from fetch_puzzle import (http_bytes, flatten_clue, separators,  # noqa: E402
                           merge_annotations, plain_text, puzzle_files, puzzle_path,
                           read_puzzle_file, reindex, write_puzzle_file)
@@ -422,17 +423,12 @@ def parse(xml_bytes, ymd):
                     "direction": "across" if across else "down",
                     "position": {"x": x1 - 1, "y": y1 - 1},   # 1-based -> 0-based
                     "length": len(cells),
-                    # The enumeration is an attribute here, but the app (and the
-                    # Guardian data it was built for) expects it inside the clue
-                    # text, where a solver reads it. Continuations say "See 10",
-                    # matching the Guardian's own wording for the same thing.
-                    # The enumeration goes on the END, so it cannot disturb any
-                    # italic range; a continuation carries none of either.
-                    "clue": {
-                        "text": f"{text} ({fmt})" if i == 0 else f"See {nums[0]}",
-                        **({"separators": seps[i]} if seps[i] else {}),
-                        **({"italics": italics} if italics and i == 0 else {}),
-                    },
+                    # The enumeration is an attribute here; the leader carries it
+                    # as clue.enumeration. Continuations say "See 10", matching
+                    # the Guardian's own wording, and carry no enumeration.
+                    "clue": (enumeration.clue(f"{text} ({fmt})", separators=seps[i],
+                                              italics=italics) if i == 0 else
+                             enumeration.clue(f"See {nums[0]}", separators=seps[i])),
                     **({"group": group} if len(group) > 1 and i == 0 else {}),
                     "solution": "".join(letters.get(c, "") for c in cells).upper(),
                 })

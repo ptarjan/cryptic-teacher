@@ -340,9 +340,14 @@
    "additionalProperties": false,
    "properties": {
     "text": {
-     "description": "The clue exactly as printed, enumeration included, e.g. \"Moscow politician revolting in style (7)\". The enumeration is not split out: about 9,500 clues print none or print a cross-reference (\"See 5\"), and printed ones vary (\"(1'5)\", \"(6 and 5)\", \"(3/5)\"); `separators` holds the word breaks in structured form. Absent only when the paper printed nothing at all, not even an enumeration (then `missing` is true). Offsets into it (`italics`, annotation `definitions[].at`) count Unicode code points.",
+     "description": "The clue's words exactly as printed, without the enumeration that follows them, e.g. \"Moscow politician revolting in style\". About 9,500 clues print no enumeration, or a cross-reference (\"See 5\") that is text. Absent when the paper printed no words (then `missing` is true). Offsets into it (`italics`, annotation `definitions[].at`) count Unicode code points.",
      "type": "string",
      "minLength": 1
+    },
+    "enumeration": {
+     "description": "The letter counts printed in brackets after the words, without the brackets: \"5,4\", \"2-3,4\", \"4'1\", \"6 and 5\". Marks are unspaced, dashes are \"-\" and apostrophes \"'\"; a lone space between counts is printed as one (\"1 4\"). On a linked answer the leader prints the whole answer's count and continuations usually print none (Private Eye counts each light). Stored, not derived from `separators`: a leader's count spans its group, and some prints (\"6 and 5\") say what separators cannot. Absent when the clue printed none. `text` then ` (enumeration)` is the printed line.",
+     "type": "string",
+     "pattern": "^\\d+(?:(?:[,\\-.;:/']| | and )\\d+)*$"
     },
     "separators": {
      "description": "The marks the enumeration prints inside this light's answer, in answer order: (5,4) is [{\"at\": 5, \"mark\": \",\"}]. `at` counts this entry's own answer letters before the mark (1 to `length`), not clue characters; on a linked answer each light carries the marks inside it, and a mark at `length` falls between this light and the next light of its group. Absent when the answer is one word.",
@@ -392,7 +397,7 @@
      }
     },
     "missing": {
-     "description": "The paper printed no words for this clue (`text`, if present, is only its enumeration). Kept, never filled in: a blank can be the setter's joke (cryptic-30098 12-across).",
+     "description": "The paper printed no words for this clue (`text` is absent; `enumeration` may still be present). Kept, never filled in: a blank can be the setter's joke (cryptic-30098 12-across).",
      "const": true
     },
     "missingNote": {
@@ -440,7 +445,7 @@
      "minLength": 1
     },
     "definitions": {
-     "description": "The clue words that define the answer, in clue order: one, or two for a double definition. `at` is the offset of `text` in the entry's `clue`, in Unicode code points, so clue[at:at+len(text)] == text. Where the text occurs more than once, `at` is the occurrence that (1) stands as whole words, (2) lies before the trailing enumeration, (3) does not overlap another definition, and (4) touches the clue's start or end, since a definition sits at one end of a cryptic clue; a text those rules leave ambiguous has its `at` given by hand (tools/definitions.py).",
+     "description": "The clue words that define the answer, in clue order: one, or two for a double definition. `at` is the offset of `text` in the entry's `clue`, in Unicode code points, so clue[at:at+len(text)] == text. Where the text occurs more than once, `at` is the occurrence that (1) stands as whole words, (2) does not overlap another definition, and (3) touches the clue's start or end, since a definition sits at one end of a cryptic clue; a text those rules leave ambiguous has its `at` given by hand (tools/definitions.py).",
      "type": "array",
      "minItems": 1,
      "items": {

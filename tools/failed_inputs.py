@@ -39,6 +39,7 @@ ROOT = Path(__file__).resolve().parent.parent
 LEDGER = Path(os.environ.get("FAILED_INPUTS_FILE")
               or Path(os.environ.get("CT_MAIN_CHECKOUT") or ROOT) / ".failed_inputs.json")
 sys.path.insert(0, str(ROOT / "tools"))
+import enumeration  # noqa: E402
 import puzzle_paths  # noqa: E402
 
 if os.environ.get("FAILED_INPUTS_PUZZLES"):
@@ -87,8 +88,8 @@ def puzzle_inputs(pid):
     entries = []
     for e in puzzle.get("entries", []):
         row = {k: e.get(k) for k in ENTRY_INPUTS}
-        # The clue's printed words, the one part of it a run reads.
-        row["clue"] = e["clue"].get("text", "")
+        # The clue's printed line, the one part of it a run reads.
+        row["clue"] = enumeration.printed(e["clue"])
         if e.get("id") in key:
             row["solution"] = key[e["id"]]
         entries.append(row)

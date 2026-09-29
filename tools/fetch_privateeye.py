@@ -97,6 +97,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import provenance  # noqa: E402
+import enumeration  # noqa: E402 — a clue's printed counts; tools/enumeration.py
 import puzzle_paths  # noqa: E402
 import series as series_meta  # noqa: E402
 from fetch_puzzle import (enumeration_separators, grade_model_fill, has_words,  # noqa: E402
@@ -303,23 +304,20 @@ def convert(num, puz):
     # built, so the group can go in beside the clue it was read from rather than
     # be bolted on afterwards. See link_groups.
     groups = link_groups({"entries": [
-        {"number": n, "direction": d, "clue": {"text": c.strip()}}
+        {"number": n, "direction": d, "clue": enumeration.clue(c)}
         for (n, d, _x, _y, _len), c in zip(grid_entries, puz["clues"])]})
 
     entries = []
     for (number, direction, x, y, length), clue in zip(grid_entries, puz["clues"]):
         eid = f"{number}-{direction}"
-        text = clue.strip()
+        text = enumeration.split(clue)[0]
         entries.append({
             "id": eid,
             "number": number,
             "direction": direction,
             "position": {"x": x, "y": y},
             "length": length,
-            "clue": {
-                **({"text": text} if text else {}),
-                **({} if has_words(text) else {"missing": True}),
-            },
+            "clue": enumeration.clue(clue, missing=not has_words(text)),
             **({"group": groups[eid]} if groups.get(eid, [None])[0] == eid else {}),
             "solution": None,  # see module docstring — never recoverable from this feed today
         })

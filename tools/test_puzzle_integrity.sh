@@ -255,7 +255,7 @@ def shape(series_key, number, **when):
     flags = []
     pi.check_shape({"id": f"{series_key}-{number}", "series": series_key,
                     "number": number, **when,
-                    "entries": [{"id": "1-across", "clue": {"text": "x (1)"}}]},
+                    "entries": [{"id": "1-across", "clue": {"text": "x", "enumeration": "1"}}]},
                    date(2026, 9, 25), flags)
     return sum(1 for kind, _pid, msg in flags
                if kind == "SHAPE" and ("date" in msg or "year" in msg))

@@ -26,6 +26,7 @@ import os
 from pathlib import Path
 
 import corroborate as c
+import enumeration
 import fetch_puzzle
 import puzzle_paths
 
@@ -39,7 +40,7 @@ puzzle_paths.PUZZLE_DIR.mkdir()
 def light(number, direction, x, y, solution, clue="A clue (3)", group=None):
     e = {"id": f"{number}-{direction}", "number": number, "direction": direction,
          "position": {"x": x, "y": y}, "length": len(solution),
-         "clue": {"text": clue} if clue else {"missing": True}, "solution": solution}
+         "clue": enumeration.clue(clue) if clue else {"missing": True}, "solution": solution}
     if group:
         e["group"] = group
     return e
@@ -111,7 +112,7 @@ filled = c.corroborate(blank, [source("fifteensquared", "fifteensquared",
                                       answers=AGREED_ANSWERS, setter="Tramp",
                                       clues={"1-across": "Motor (3)"})])
 print("FILL_SETTER", filled["setter"])
-print("FILL_CLUE", filled["entries"][-1]["clue"]["text"])
+print("FILL_CLUE", enumeration.printed(filled["entries"][-1]["clue"]))
 
 # enumeration: of two clues offered for a blank, only one counts the light.
 enum = settled(blank, source("a", "fifteensquared", answers=AGREED_ANSWERS,

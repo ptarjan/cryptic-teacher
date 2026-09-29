@@ -110,6 +110,7 @@ from pathlib import Path
 
 TOOLS = Path(__file__).resolve().parent
 sys.path.insert(0, str(TOOLS))
+import enumeration  # noqa: E402 — a clue's printed counts; tools/enumeration.py
 from fetch_puzzle import has_words, puzzle_path, write_puzzle_file  # noqa: E402
 # One rule for linked answers, spelled once. That module owns both halves of it:
 # which lights a "See N" ties together, and what the group's enumeration is.
@@ -255,16 +256,12 @@ def build(record, identifier, model, unsolved=False):
 
     out = []
     for e in entries:
-        enumeration = e.pop("enumeration", None)
-        # The clue as the book printed it: the enumeration belongs in the clue
-        # text, which is where check_length and the app both read it from. A
-        # continuation ("See 11") is printed without one and stays that way.
-        text = f"{e['clue']} ({enumeration})" if enumeration else e["clue"]
-        e["clue"] = {
-            **({"text": text} if text else {}),
-            **({"separators": seps[e["id"]]} if seps.get(e["id"]) else {}),
-            **({} if has_words(text) else {"missing": True}),
-        }
+        printed = e.pop("enumeration", None)
+        # The clue as the book printed it. A continuation ("See 11") is
+        # printed without an enumeration and stays that way.
+        line = f"{e['clue']} ({printed})" if printed else e["clue"]
+        e["clue"] = enumeration.clue(line, separators=seps.get(e["id"]),
+                                     missing=not has_words(enumeration.split(line)[0]))
         if groups.get(e["id"], [None])[0] == e["id"]:
             e["group"] = list(groups[e["id"]])
         # null, not absent, on an unsolved puzzle: that is how every unsolved
