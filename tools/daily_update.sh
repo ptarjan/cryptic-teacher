@@ -248,6 +248,9 @@ echo "blog_facts: rc=$step_rc in $((SECONDS - step_start))s"
 [ $step_rc -eq 0 ] ||
   alert "tools/blog_facts.py failed (rc=$step_rc), so tonight's new puzzles get no blog hints:"$'\n'"\`\`\`"$'\n'"$(tail -12 "$facts_out" | cut -c1-200)"$'\n'"\`\`\`"
 rm -f "$facts_out"
+# The rebuilt lexicons can take a reading past the abbreviation table's floor,
+# and CI fails until the table holds it; add those now, into this commit.
+python3 tools/build_abbreviations.py --fix || alert "tools/build_abbreviations.py --fix refused a reading; CI will stay red until it is added or put in REJECT"
 
 # --- 1e. The SNITCH's ratings of the Times, which the difficulty index is
 # checked against and the Times badges quote a range from. One page, so a
