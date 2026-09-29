@@ -50,8 +50,10 @@ import os
 import random
 import re
 import sys
+import tempfile
 import unicodedata
 from concurrent.futures import ProcessPoolExecutor
+from functools import lru_cache
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -70,6 +72,14 @@ OUT = ROOT / "tools" / "data" / "blog_facts"
 LEADS = DATA / "blog_leads.json"
 #: The digest of every input the files in OUT were written from; see inputs_digest.
 STAMP = OUT / "inputs.sha256"
+#: Each post's join, kept by extract so a run parses only what is new: one
+#: file per join, named by the digest of everything that join is a function of.
+CACHE = DATA / "blog_facts_cache"
+#: What turns a post and its candidate puzzles' entries and clues into
+#: published lines: the parser, and what it places, orders and names with.
+PARSER_FILES = [ROOT / "tools" / f for f in (
+    "blog_facts.py", "clue_types.py", "data/clue_types.json", "definitions.py", "groups.py",
+    "puzzle_schema.py", "data/puzzle.schema.json")]
 
 #: Blog key -> (cache directory, the name a reader is shown). The key is what
 #: the sidecar stores; the name is what the site prints beside the link.
@@ -1736,81 +1746,191 @@ def facts_for_post(blog, entries, post):
 
 
 def _work(args):
-    blog, path, candidates = args
+    blog, path, candidates, keep_facts = args
     post = load_post(path)
     best = None
-    for pid, entries in candidates:
+    for pid, source, _ in candidates:
+        entries = entries_of(source)
         facts = facts_for_post(blog, entries, post)
         score = len(facts) / max(1, len(entries))
         if score >= MIN_ALIGNED and (best is None or score > best[1]):
             best = (pid, score, facts, len(entries))
     if best is None:
         return None
-    return {"blog": blog, "post": post["id"], "url": post["link"], "id": best[0],
-            "score": best[1], "facts": best[2], "clues": best[3]}
+    pid, score, facts, clues = best
+    line, said = published(pid, blog, post["link"], facts)
+    return {"blog": blog, "post": post["id"], "url": post["link"], "id": pid, "score": score,
+            "clues": clues, "line": line, "leads": said, **({"facts": facts} if keep_facts else {})}
+
+
+def published(pid, blog, url, facts):
+    """What `facts`, the join of puzzle `pid` to `url`, ship as: its line of
+    tools/data/blog_facts/<series>.json and its line of the leads file, each
+    None where it has none. bigdave44's stand-in puzzles ship neither."""
+    if pid.startswith("bd:"):
+        return None, None
+    clues = clues_of(pid)
+    entries = {eid: fact_json(publishable(f), clues.get(eid)) for eid, f in sorted(facts.items())}
+    entries = {k: v for k, v in entries.items() if v}
+    line = row_line(pid, {"blog": blog, "name": BLOGS[blog][1], "url": url, "entries": entries}) if entries else None
+    said = {eid: f["leads"] for eid, f in sorted(facts.items()) if f.get("leads")}
+    said = json.dumps(pid, ensure_ascii=False) + ":" + json.dumps(said, ensure_ascii=False, separators=(",", ":")) \
+        if said else None
+    return line, said
 
 
 def load_puzzles(extra=()):
-    """{number: [(id, entries)]} over our puzzles, plus any `extra` records."""
+    """{number: [(id, source, digest)]} over our puzzles, plus any `extra`
+    records, and {id: series}. A source is where entries_of reads the puzzle's
+    entries: the parent holds no clues, since every parse worker it forks would
+    copy them. The digest covers all a join reads of the puzzle: its entries
+    and, for published(), its clues."""
     by_number = collections.defaultdict(list)
     series = {}
     for path in puzzle_files():
         p = read_puzzle_file(path)
         ents = puzzle_entries(p)
         if ents:
-            by_number[p["number"]].append((p["id"], ents))
+            clues = {entry_id(e): e["clue"].get("text", "") for e in p["entries"]}
+            digest = hashlib.sha256(json.dumps([ents, clues]).encode()).hexdigest()
+            by_number[p["number"]].append((p["id"], path, digest))
             series[p["id"]] = p.get("series", "cryptic")
-    for pid, number, ents, s in extra:
-        by_number[number].append((pid, ents))
+    for pid, number, source, digest, s in extra:
+        by_number[number].append((pid, source, digest))
         series[pid] = s
     return by_number, series
 
 
+@lru_cache(maxsize=4096)
+def entries_of(source):
+    """puzzle_entries of a load_puzzles source: a puzzle file, or the byte
+    offset of a record in bigdave44's parsed.jsonl."""
+    if isinstance(source, int):
+        with (BLOGS["bigdave44"][0] / "parsed.jsonl").open("rb") as f:
+            f.seek(source)
+            return bigdave_entries(json.loads(f.readline()))
+    return puzzle_entries(read_puzzle_file(source))
+
+
+def bigdave_entries(r):
+    """puzzle_entries of one record of bigdave44's parsed.jsonl."""
+    return [(entry_id(e), clue_body(e.get("clue")), e.get("answer") or "")
+            for e in r["entries"] if clue_body(e.get("clue"))]
+
+
 def bigdave_records():
     """bigdave44's own parsed light lists, as stand-in puzzles to measure on
-    until the Telegraph puzzles are filed. Ids are prefixed so nothing mistakes
-    them for ours."""
+    until the Telegraph puzzles are filed, each (id, number, byte offset of its
+    record, digest of its record, series). Ids are prefixed so nothing
+    mistakes them for ours."""
     path = BLOGS["bigdave44"][0] / "parsed.jsonl"
     if not path.exists():
         return []
     out = []
-    for line in path.read_text(encoding="utf-8").splitlines():
-        r = json.loads(line)
-        ents = [(entry_id(e), clue_body(e.get("clue")),
-                 e.get("answer") or "") for e in r["entries"] if clue_body(e.get("clue"))]
-        if ents:
-            out.append((f"bd:{r['series']}-{r['number']}", r["number"], ents, "bd:" + r["series"]))
+    with path.open("rb") as f:
+        at = 0
+        for line in f:
+            r = json.loads(line)
+            if bigdave_entries(r):
+                out.append((f"bd:{r['series']}-{r['number']}", r["number"], at,
+                            hashlib.sha256(line).hexdigest(), "bd:" + r["series"]))
+            at += len(line)
     return out
 
 
-def extract(blogs, with_bigdave_records=False, jobs=None):
-    """Every post of `blogs` joined to the puzzle it writes up, with its facts.
-    One record per puzzle: the post whose clues were found most completely."""
+class Spool:
+    """Text parked in a temporary file: put() returns the key get() reads it
+    back by. The joins' published lines wait here, not in the parent's heap,
+    until write() lays them out in id order."""
+
+    def __init__(self):
+        self.f = tempfile.TemporaryFile()  # noqa: SIM115 -- deleted when the Spool is collected
+
+    def put(self, text):
+        if text is None:
+            return None
+        b = text.encode("utf-8")
+        at = self.f.seek(0, os.SEEK_END)
+        self.f.write(b)
+        return at, len(b)
+
+    def get(self, key):
+        self.f.seek(key[0])
+        return self.f.read(key[1]).decode("utf-8")
+
+
+def keep(best, r, spool):
+    """Take `r` as its puzzle's join if no post was found more completely,
+    its published lines parked in `spool`."""
+    if r and (r["id"] not in best or r["score"] > best[r["id"]]["score"]):
+        r["line"], r["leads"] = spool.put(r["line"]), spool.put(r["leads"])
+        best[r["id"]] = r
+
+
+def parser_version():
+    """A digest of the code a join is a function of, besides its inputs."""
+    h = hashlib.sha256(sys.version.encode())
+    for f in PARSER_FILES:
+        h.update(f.name.encode() + b"\0" + f.read_bytes())
+    return h.hexdigest()
+
+
+def extract(blogs, with_bigdave_records=False, jobs=None, keep_facts=False):
+    """Every post of `blogs` joined to the puzzle it writes up: {id: record},
+    one per puzzle, the post whose clues were found most completely, and
+    {id: series}, and the Spool holding each record's published lines.
+
+    A post's join is a function of the parser, the post, and the entries and
+    clues of its candidate puzzles, so it is kept in CACHE under the digest of
+    those, and only a post whose digest is not there is parsed. With
+    `keep_facts` every record carries its raw facts, which the cache does not
+    hold, so every post is parsed."""
     extra = bigdave_records() if with_bigdave_records else ()
     by_number, series = load_puzzles(extra)
+    version = parser_version()
     work = []
     for blog in blogs:
         posts = BLOGS[blog][0] / "posts"
         for path in sorted(posts.glob("*.json")):
+            data = path.read_bytes()
             try:
-                title = rendered(json.loads(path.read_text(encoding="utf-8")).get("title"))
+                title = rendered(json.loads(data.decode("utf-8")).get("title"))
             except ValueError:
                 continue
             cands = [c for n in post_numbers(title) for c in by_number.get(n, ())]
             if cands:
-                work.append((blog, path, cands))
-    best = {}
-    if jobs == 1:
-        results = map(_work, work)
+                key = hashlib.sha256(json.dumps([version, blog, hashlib.sha256(data).hexdigest(),
+                                                 [(pid, digest) for pid, _, digest in cands]]).encode()).hexdigest()
+                cached = None if keep_facts else CACHE / key[:2] / f"{key}.json"
+                work.append(((blog, path, cands, keep_facts), cached if cached and cached.exists() else None, cached))
+    del by_number
+    misses = [w for w, hit, _ in work if not hit]
+    if jobs == 1 or not misses:
+        ex, parsed = None, map(_work, misses)
     else:
         ex = ProcessPoolExecutor(jobs)
-        results = ex.map(_work, work, chunksize=16)
-    for r in results:
-        if r and (r["id"] not in best or r["score"] > best[r["id"]]["score"]):
-            best[r["id"]] = r
-    if jobs != 1:
+        parsed = ex.map(_work, misses, chunksize=16)
+    best, spool = {}, Spool()
+    for _, hit, cached in work:
+        if hit:
+            r = json.loads(hit.read_text(encoding="utf-8"))
+        else:
+            r = next(parsed)
+            if cached:
+                cached.parent.mkdir(parents=True, exist_ok=True)
+                tmp = cached.with_suffix(".tmp")
+                tmp.write_text(json.dumps(r, ensure_ascii=False), encoding="utf-8")
+                tmp.replace(cached)
+        keep(best, r, spool)
+    if ex:
         ex.shutdown()
-    return best, series
+    if not keep_facts and set(blogs) == set(BLOGS):
+        used = {cached.name for _, _, cached in work}
+        for old in CACHE.glob("*/*"):
+            if old.name not in used:
+                old.unlink()
+    print(f"parsed {len(misses)} of {len(work)} posts; the rest were unchanged since a run kept their joins")
+    return best, series, spool
 
 
 def inputs_digest():
@@ -2066,31 +2186,33 @@ def clues_of(pid):
     return {entry_id(e): e["clue"].get("text", "") for e in read_puzzle_file(path)["entries"]} if path else {}
 
 
-def write(best, series):
+def write(best, series, spool):
+    """Lay out the published lines `spool` holds for `best`, extract's joins:
+    tools/data/blog_facts/<series>.json as file_text would, and the leads file."""
     OUT.mkdir(parents=True, exist_ok=True)
-    by_series = collections.defaultdict(dict)
-    for pid, r in best.items():
-        if pid.startswith("bd:"):
-            continue
-        clues = clues_of(pid)
-        entries = {eid: fact_json(publishable(f), clues.get(eid)) for eid, f in sorted(r["facts"].items())}
-        entries = {k: v for k, v in entries.items() if v}
-        if entries:
-            by_series[series[pid]][pid] = {"blog": r["blog"], "name": BLOGS[r["blog"]][1],
-                                           "url": r["url"], "entries": entries}
+    by_series = collections.defaultdict(list)
+    for pid, r in sorted(best.items()):
+        if r["line"]:
+            by_series[series[pid]].append(r["line"])
     for old in OUT.glob("*.json"):
         if old.stem not in by_series:
             old.unlink()
-    said = {pid: {eid: f["leads"] for eid, f in sorted(r["facts"].items()) if f.get("leads")}
-            for pid, r in sorted(best.items()) if not pid.startswith("bd:")}
-    tmp = LEADS.with_suffix(".tmp")
     # One puzzle a line, so letter_facts.Leads can parse a puzzle's only when it is asked for.
-    tmp.write_text("{\n" + ",\n".join(json.dumps(k, ensure_ascii=False) + ":" + json.dumps(v, ensure_ascii=False, separators=(",", ":"))
-                                       for k, v in said.items() if v) + "\n}\n", encoding="utf-8")
-    tmp.replace(LEADS)
-    for s, rows in sorted(by_series.items()):
-        (OUT / f"{s}.json").write_text(file_text(rows), encoding="utf-8")
+    _write_lines(LEADS, (r["leads"] for _, r in sorted(best.items()) if r["leads"]), spool)
+    for s, lines in sorted(by_series.items()):
+        _write_lines(OUT / f"{s}.json", lines, spool)
     return sum(len(v) for v in by_series.values())
+
+
+def _write_lines(path, keys, spool):
+    """Write the spooled lines `keys` to `path` as one JSON object, a line each."""
+    tmp = path.with_suffix(".tmp")
+    with tmp.open("w", encoding="utf-8") as f:
+        f.write("{\n")
+        for i, key in enumerate(keys):
+            f.write((",\n" if i else "") + spool.get(key))
+        f.write("\n}\n")
+    tmp.replace(path)
 
 
 def measure(best, series):
@@ -2142,12 +2264,12 @@ def score(path=GOLD):
     from letter_facts import stated
     rows = [json.loads(l) for l in Path(path).read_text(encoding="utf-8").splitlines() if l.strip()]
     by_number, _ = load_puzzles(bigdave_records())
-    entries = {pid: ents for lst in by_number.values() for pid, ents in lst}
+    sources = {pid: src for lst in by_number.values() for pid, src, _ in lst}
     tally = collections.defaultdict(collections.Counter)
     misses = []
     for r in rows:
         post = load_post(BLOGS[r["blog"]][0] / "posts" / r["post"])
-        got = publishable(facts_for_post(r["blog"], entries[r["puzzle"]], post).get(r["entry"], {}))
+        got = publishable(facts_for_post(r["blog"], entries_of(sources[r["puzzle"]]), post).get(r["entry"], {}))
         got = stated(got)  # what letter_facts.py read off the letters is not the post's
         if got.get("indicators"):
             got["indicators"] = [i["text"] for i in got["indicators"]]
@@ -2204,13 +2326,18 @@ def main():
         return
     if args.from_dump:
         lines = Path(args.from_dump).read_text(encoding="utf-8").splitlines()
-        best = {r["id"]: r for r in map(json.loads, lines)}
+        best, spool = {}, Spool()
+        for r in map(json.loads, lines):
+            r["line"], r["leads"] = published(r["id"], r["blog"], r["url"], r["facts"])
+            keep(best, r, spool)
         series = load_puzzles(bigdave_records())[1]
     else:
-        best, series = extract(args.blog or sorted(BLOGS), with_bigdave_records=True, jobs=args.jobs)
+        best, series, spool = extract(args.blog or sorted(BLOGS), with_bigdave_records=True, jobs=args.jobs,
+                                      keep_facts=bool(args.dump or args.measure or args.sample))
     if args.dump:
         with open(args.dump, "w", encoding="utf-8") as f:
-            f.writelines(json.dumps(r, ensure_ascii=False) + "\n" for r in best.values())
+            f.writelines(json.dumps({k: v for k, v in r.items() if k not in ("line", "leads")}, ensure_ascii=False)
+                         + "\n" for r in best.values())
     if args.measure:
         measure(best, series)
     if args.sample:
@@ -2219,10 +2346,10 @@ def main():
         pool = [p for p in pool if p[2]]
         for r, eid, f in rng.sample(pool, min(args.sample, len(pool))):
             print(json.dumps({"id": r["id"], "entry": eid, "url": r["url"], **f}, ensure_ascii=False))
-    print(f"wrote blog facts for {write(best, series)} puzzles to {OUT.relative_to(ROOT)}")
+    print(f"wrote blog facts for {write(best, series, spool)} puzzles to {OUT.relative_to(ROOT)}")
     # letter_facts reads back what was just written, so the joins it came from
     # are not held under its corpus: both at once were the run's peak memory.
-    del best, series
+    del best, series, spool
     import letter_facts
     said = letter_facts.read_leads(required=True)
     corpus = letter_facts.Packed(letter_facts.rows())
