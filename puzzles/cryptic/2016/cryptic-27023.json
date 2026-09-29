@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,43 @@
     "text": "Support a rugby player",
     "enumeration": "4"
    },
-   "solution": "PROP"
+   "solution": "PROP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PROP",
+    "definitions": [
+     {
+      "text": "Support",
+      "at": 0
+     },
+     {
+      "text": "a rugby player",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Support",
+      "gives": "PROP",
+      "note": "a noun or verb: a thing that holds another up, like a post under a sagging beam"
+     },
+     {
+      "clueFragment": "a rugby player",
+      "gives": "PROP",
+      "note": "one of the two forwards on the outside of the scrum's front row"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Two meanings side by side: to prop is to support, and a prop is a front-row forward in the rugby scrum.",
+     "definitionFit": "A prop holds something up, and the rugby prop props up the scrum."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 2,
@@ -53,7 +92,51 @@
      }
     ]
    },
-   "solution": "SCOTFREE"
+   "solution": "SCOTFREE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SCOT-FREE",
+    "definitions": [
+     {
+      "text": "not having to pay a thing",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Artful",
+      "for": "anagram",
+      "note": "something artful is cunningly arranged, so the letters of 'secret of' are to be cunningly rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "secret of",
+      "gives": "SECRETOF",
+      "note": "anagram fodder, 8 letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SECRETOF",
+       "gives": "SCOTFREE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sly dodger boasts of the knack of never paying for anything.",
+     "walkthrough": "'Artful' reads as an adjective describing the secret, as in the Artful Dodger, but it is the instruction to rearrange 'secret of'.",
+     "definitionFit": "Scot-free originally meant exempt from the scot, a tax, so not having to pay a thing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Artful"
+    }
+   }
   },
   {
    "number": 3,
@@ -67,7 +150,51 @@
     "text": "Small serving of carrots, say, given to a big star",
     "enumeration": "4"
    },
-   "solution": "VEGA"
+   "solution": "VEGA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "VEGA",
+    "definitions": [
+     {
+      "text": "big star",
+      "at": 42
+     }
+    ],
+    "linkWords": [
+     "given to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small serving of carrots, say",
+      "gives": "VEG",
+      "note": "carrots are an example of veg, the short form of vegetables"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as it stands"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VEG",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A dinner lady doles out a small spoonful of carrots to a celebrity guest.",
+     "walkthrough": "'Small' signals the shortened word VEG, and 'say' marks carrots as one example of it. The 'big star' is not a celebrity but a real one.",
+     "definitionFit": "Vega is one of the brightest stars in the northern sky, in the constellation Lyra."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "star"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +208,62 @@
     "text": "Boss sent out those still learning",
     "enumeration": "8"
    },
-   "solution": "STUDENTS"
+   "solution": "STUDENTS",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "STUDENTS",
+    "definitions": [
+     {
+      "text": "those still learning",
+      "at": 14
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "'sent out' puts SENT out of its order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boss",
+      "gives": "STUD",
+      "note": "a boss is a raised stud or knob"
+     },
+     {
+      "clueFragment": "sent",
+      "gives": "ENTS",
+      "note": "SENT rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STUD",
+      "ENTS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SENT",
+       "gives": "ENTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The boss dismisses the trainees from the room.",
+     "walkthrough": "'Boss' pretends to be the manager, but here it is the ornamental knob, a STUD, as on a shield or ceiling.",
+     "definitionFit": "A plain descriptive definition: people enrolled to study are, as a group, those still learning."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Boss"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +277,47 @@
     "text": "At university remain champion",
     "enumeration": "6"
    },
-   "solution": "UPHOLD"
+   "solution": "UPHOLD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UPHOLD",
+    "definitions": [
+     {
+      "text": "champion",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "At university",
+      "gives": "UP",
+      "note": "a student in residence at university is 'up'"
+     },
+     {
+      "clueFragment": "remain",
+      "gives": "HOLD",
+      "note": "to hold is to remain, as in 'the weather held'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UP",
+      "HOLD"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who stays on at university after winning a title.",
+     "walkthrough": "In British usage you go 'up' to Oxford or Cambridge and are 'up' while in residence, so 'at university' is UP.",
+     "definitionFit": "A plain synonym in the verb sense: to champion a principle is to defend and support it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "champion"
+    }
+   }
   },
   {
    "number": 6,
@@ -109,7 +331,51 @@
     "text": "Brain behind smart denim fashion?",
     "enumeration": "10"
    },
-   "solution": "MASTERMIND"
+   "solution": "MASTERMIND",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MASTERMIND",
+    "definitions": [
+     {
+      "text": "Brain behind",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fashion",
+      "for": "anagram",
+      "note": "to fashion something is to shape it anew, so the letters are shaped into a new word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "smart denim",
+      "gives": "SMARTDENIM",
+      "note": "anagram fodder, 10 letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SMARTDENIM",
+       "gives": "MASTERMIND"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Who is the designer behind the stylish jeans trend?",
+     "walkthrough": "'Fashion' reads as a noun in the clothing world, but it is a verb telling you to reshape 'smart denim'.",
+     "definitionFit": "An idiom match: the person who plans and directs a scheme is called its brain, and 'brain behind' names that role."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "fashion"
+    }
+   }
   },
   {
    "number": 7,
@@ -123,7 +389,57 @@
     "text": "Twice Bill and I get together in a gum tree",
     "enumeration": "6"
    },
-   "solution": "ACACIA"
+   "solution": "ACACIA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ACACIA",
+    "definitions": [
+     {
+      "text": "gum tree",
+      "at": 35
+     }
+    ],
+    "linkWords": [
+     "get together in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Twice Bill",
+      "gives": "ACAC",
+      "note": "AC is short for account, a bill; twice gives ACAC"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as it stands"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as it stands"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AC",
+      "AC",
+      "I",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Two friends arrange to meet up in a tree.",
+     "walkthrough": "'Bill' is a name in the surface but an account, abbreviated AC, in the wordplay.",
+     "definitionFit": "Several acacias yield gum arabic, so the acacia is a gum tree."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bill"
+    }
+   }
   },
   {
    "number": 8,
@@ -137,7 +453,46 @@
     "text": "A small piece of wood —  pine?",
     "enumeration": "4"
    },
-   "solution": "FRET"
+   "solution": "FRET",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FRET",
+    "definitions": [
+     {
+      "text": "A small piece of wood",
+      "at": 0
+     },
+     {
+      "text": "pine",
+      "at": 25
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A small piece of wood",
+      "gives": "FRET",
+      "note": "a little strip or ridge, like those across a guitar neck"
+     },
+     {
+      "clueFragment": "pine",
+      "gives": "FRET",
+      "note": "a verb here, not the timber: to long for or worry"
+     }
+    ],
+    "explanation": {
+     "surface": "A woodworker asks whether a little offcut is pine.",
+     "walkthrough": "'Pine' looks like a timber to go with the piece of wood, but it is the verb: to pine is to fret.",
+     "definitionFit": "A fret is a small ridge across a guitar's fingerboard, and to fret is to pine or worry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pine"
+    }
+   }
   },
   {
    "number": 9,
@@ -151,7 +506,38 @@
     "text": "A trimming of lace, one gathered",
     "enumeration": "5"
    },
-   "solution": "RUCHE"
+   "solution": "RUCHE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "RUCHE",
+    "definitions": [
+     {
+      "text": "A trimming of lace, one gathered",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A trimming of lace",
+      "note": "a decorative edging for a dress or collar"
+     },
+     {
+      "clueFragment": "one gathered",
+      "note": "not a person picked up: the lace is gathered into pleats"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'One gathered' could be a person picked up, but it describes the lace: a ruche is a strip gathered into pleats.",
+     "definitionFit": "A ruche is a frill of lace or fabric gathered along one edge, used as trimming."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "gathered"
+    }
+   }
   },
   {
    "number": 10,
@@ -171,7 +557,39 @@
      }
     ]
    },
-   "solution": "TAPDANCER"
+   "solution": "TAPDANCER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "TAP DANCER",
+    "definitions": [
+     {
+      "text": "He trips and hits the floor noisily",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "He trips",
+      "note": "not stumbling: to trip is also to dance with light steps"
+     },
+     {
+      "clueFragment": "hits the floor noisily",
+      "note": "not a fall: the metal taps on the shoes strike the floor on every step"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The clue reads as a clumsy fall, but 'trips' also means dances lightly, and a tap dancer strikes the floor with metal-tipped shoes on purpose.",
+     "definitionFit": "A tap dancer trips (dances) and hits the floor loudly with every step."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "trips"
+    }
+   }
   },
   {
    "number": 11,
@@ -195,7 +613,49 @@
      }
     ]
    },
-   "solution": "PUTPAIDTO"
+   "solution": "PUTPAIDTO",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PUT PAID TO",
+    "definitions": [
+     {
+      "text": "Endorse bill",
+      "at": 0
+     },
+     {
+      "text": "Scotch",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Endorse bill",
+      "gives": "PUTPAIDTO",
+      "note": "read literally: you put the word 'paid' to a settled bill"
+     },
+     {
+      "clueFragment": "Scotch",
+      "gives": "PUTPAIDTO",
+      "note": "a verb here: to scotch a plan is to put an end to it"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone signs off an invoice for a bottle of whisky.",
+     "walkthrough": "Read literally, putting 'paid' to a bill is stamping it settled. 'Scotch' looks like whisky, but it is the verb meaning to stop something dead.",
+     "definitionFit": "To put paid to a plan is to scotch it, ending it for good."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Scotch"
+    }
+   }
   },
   {
    "number": 12,
@@ -209,7 +669,65 @@
     "text": "It's understood Tom came back with it",
     "enumeration": "5"
    },
-   "solution": "TACIT"
+   "solution": "TACIT",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TACIT",
+    "definitions": [
+     {
+      "text": "It's understood",
+      "at": 0,
+      "note": "a clause standing for the adjective 'understood'"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "came back",
+      "for": "reversal",
+      "note": "coming back is returning the way you came, so CAT runs right to left"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tom",
+      "gives": "CAT",
+      "note": "a tom is a male cat"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as it stands"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAC",
+      "IT"
+     ],
+     "reversals": [
+      {
+       "from": "CAT",
+       "to": "TAC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Everyone takes it for granted that Tom returned with the thing.",
+     "walkthrough": "'Tom' reads as a man's name, but it is a male cat.",
+     "definitionFit": "Something tacit is understood without being said."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tom"
+    }
+   }
   },
   {
    "number": 13,
@@ -223,7 +741,39 @@
     "text": "Cross opponent of the Middle Ages",
     "enumeration": "7"
    },
-   "solution": "SARACEN"
+   "solution": "SARACEN",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SARACEN",
+    "definitions": [
+     {
+      "text": "Cross opponent of the Middle Ages",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cross opponent",
+      "note": "not an angry rival: an opponent of the Cross, the Christian symbol"
+     },
+     {
+      "clueFragment": "of the Middle Ages",
+      "note": "places it in the time of the Crusades"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Cross' seems to mean angry, but it is the Christian Cross carried by the Crusaders, whose Muslim opponents were called Saracens.",
+     "definitionFit": "Medieval Christians called the Muslim armies they fought in the Crusades Saracens."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Cross"
+    }
+   }
   },
   {
    "number": 13,
@@ -237,7 +787,54 @@
     "text": "Cuttlefish product very good in salt water",
     "enumeration": "5"
    },
-   "solution": "SEPIA"
+   "solution": "SEPIA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SEPIA",
+    "definitions": [
+     {
+      "text": "Cuttlefish product",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'very good in salt water' puts the very good thing physically inside the water, so its letters go inside SEA"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "salt water",
+      "gives": "SEA",
+      "note": "the sea is salt water"
+     },
+     {
+      "clueFragment": "very good",
+      "gives": "PI",
+      "note": "pi, short for pious, means very good or sanctimonious"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "PI",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A cuttlefish's ink does very well in seawater.",
+     "walkthrough": "PI for 'very good' (pious, goody-goody) is a crossword staple worth learning.",
+     "definitionFit": "Sepia is the brown pigment made from cuttlefish ink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -251,7 +848,61 @@
     "text": "Service chief's hotel at one US city",
     "enumeration": "10"
    },
-   "solution": "CINCINNATI"
+   "solution": "CINCINNATI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CINCINNATI",
+    "definitions": [
+     {
+      "text": "US city",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Service chief",
+      "gives": "CINC",
+      "note": "C-in-C, Commander-in-Chief of an armed service"
+     },
+     {
+      "clueFragment": "hotel",
+      "gives": "INN",
+      "note": "an inn is a small hotel"
+     },
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "taken as it stands"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CINC",
+      "INN",
+      "AT",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A military commander's lodging in an American city.",
+     "walkthrough": "C-in-C, Commander-in-Chief, is a standard abbreviation, and 'one' as I is the Roman numeral.",
+     "definitionFit": "A definition by class: the answer is a large city in Ohio, on the Ohio River."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -265,7 +916,44 @@
     "text": "Possibly asleep, certainly inactive",
     "enumeration": "7"
    },
-   "solution": "DORMANT"
+   "solution": "DORMANT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DORMANT",
+    "definitions": [
+     {
+      "text": "Possibly asleep",
+      "at": 0
+     },
+     {
+      "text": "certainly inactive",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Possibly asleep",
+      "gives": "DORMANT",
+      "note": "like a hibernating animal, which may be sleeping"
+     },
+     {
+      "clueFragment": "certainly inactive",
+      "gives": "DORMANT",
+      "note": "like a quiet volcano or unused bank account"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone may be sleeping, but they are definitely not moving.",
+     "walkthrough": "'Possibly' hedges because dormant only sometimes means literally sleeping (it is French for 'sleeping'); 'inactive' is its sure sense.",
+     "definitionFit": "Both senses come from French dormir, to sleep: the literal one only applies sometimes, hence 'possibly', while the general sense of lying inactive always does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -279,7 +967,60 @@
     "text": "The king trapped one of them",
     "enumeration": "5"
    },
-   "solution": "THEIR"
+   "solution": "THEIR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "THEIR",
+    "definitions": [
+     {
+      "text": "of them",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "trapped",
+      "for": "container",
+      "note": "THE R traps I between its parts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The",
+      "gives": "THE",
+      "note": "taken as it stands"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "R",
+      "note": "R for rex, Latin for king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THE",
+      "I",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "The king caught one of the rebels.",
+     "walkthrough": "'One of them' looks like the thing trapped, but only 'one' is; 'of them' is the definition.",
+     "definitionFit": "Their means belonging to them, 'of them'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "one"
+    }
+   }
   },
   {
    "number": 17,
@@ -293,7 +1034,39 @@
     "text": "Bird's tidy up? No, down!",
     "enumeration": "5"
    },
-   "solution": "PREEN"
+   "solution": "PREEN",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "PREEN",
+    "definitions": [
+     {
+      "text": "Bird's tidy up? No, down!",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bird's tidy up?",
+      "note": "what a bird does to tidy itself"
+     },
+     {
+      "clueFragment": "No, down!",
+      "note": "the joke: it tidies its down, its soft feathers, not 'up'"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The clue plays on 'tidy up' and 'tidy down': a bird preening smooths its down, its soft feathers.",
+     "definitionFit": "To preen is what a bird does when it tidies its feathers with its beak."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "down"
+    }
+   }
   },
   {
    "number": 18,
@@ -307,7 +1080,64 @@
     "text": "Title is backed by right",
     "enumeration": "3"
    },
-   "solution": "SIR"
+   "solution": "SIR",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "SIR",
+    "definitions": [
+     {
+      "text": "Title",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backed",
+      "for": "reversal",
+      "note": "backed means turned back, so IS runs right to left"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as it stands"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SI",
+      "R"
+     ],
+     "reversals": [
+      {
+       "from": "IS",
+       "to": "SI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A claim to a title is supported by legal right.",
+     "walkthrough": "'Backed' reads as 'supported', but it tells you to run IS backwards.",
+     "definitionFit": "A definition by class: the honorific used before a knight's or baronet's first name is one title among many."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "backed"
+    }
+   }
   },
   {
    "number": 19,
@@ -321,7 +1151,75 @@
     "text": "About to start, seas break over ship — so reconsider",
     "enumeration": "8"
    },
-   "solution": "REASSESS"
+   "solution": "REASSESS",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "REASSESS",
+    "definitions": [
+     {
+      "text": "reconsider",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to start",
+      "for": "charade",
+      "note": "'to start' places the word for 'about' at the start of the answer"
+     },
+     {
+      "text": "break",
+      "for": "anagram",
+      "note": "the seas break up, so their letters scatter"
+     }
+    ],
+    "linkWords": [
+     "so"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "About",
+      "gives": "RE",
+      "note": "re = about, concerning; 'to start' puts it first"
+     },
+     {
+      "clueFragment": "seas",
+      "gives": "ASSE",
+      "note": "SEAS rearranged"
+     },
+     {
+      "clueFragment": "ship",
+      "gives": "SS",
+      "note": "SS = steamship"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "ASSE",
+      "SS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SEAS",
+       "gives": "ASSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Just before setting out, waves crash over the boat, so the voyage is rethought.",
+     "walkthrough": "'About to start' reads as 'on the point of starting', but it says RE (about) comes at the start.",
+     "definitionFit": "A plain synonym: both verbs mean to think again about a judgment already made."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "About"
+    }
+   }
   },
   {
    "number": 20,
@@ -335,7 +1233,59 @@
     "text": "Gershwin tune heartless and angry",
     "enumeration": "5"
    },
-   "solution": "IRATE"
+   "solution": "IRATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "IRATE",
+    "definitions": [
+     {
+      "text": "angry",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heartless",
+      "for": "letter_selection",
+      "note": "TUNE with its heart removed keeps only its outer letters"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gershwin",
+      "gives": "IRA",
+      "note": "Ira Gershwin, lyricist brother of George"
+     },
+     {
+      "clueFragment": "tune",
+      "gives": "TE",
+      "select": "outer",
+      "note": "the first and last letters of TUNE"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IRA",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "A Gershwin song that is cold-hearted and furious.",
+     "walkthrough": "'Gershwin tune' reads as one phrase, but it splits: Gershwin is Ira, and tune is the separate word to trim.",
+     "definitionFit": "A plain synonym, from Latin ira, anger: both adjectives describe someone furious."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Gershwin"
+    }
+   }
   },
   {
    "number": 21,
@@ -355,7 +1305,39 @@
      }
     ]
    },
-   "solution": "ARTCLASS"
+   "solution": "ARTCLASS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ART CLASS",
+    "definitions": [
+     {
+      "text": "Pupils who draw on their teacher's guidance",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pupils who draw",
+      "note": "literally drawing, with pencils"
+     },
+     {
+      "clueFragment": "on their teacher's guidance",
+      "note": "'draw on' reads as 'make use of', which hides the literal drawing"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Draw on' looks like 'make use of', but these pupils literally draw, pencil in hand, as their teacher guides them.",
+     "definitionFit": "An art class is a group of pupils learning to draw from a teacher."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "draw"
+    }
+   }
   },
   {
    "number": 22,
@@ -369,7 +1351,54 @@
     "text": "Trade is bad, though up",
     "enumeration": "7"
    },
-   "solution": "ASTRIDE"
+   "solution": "ASTRIDE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ASTRIDE",
+    "definitions": [
+     {
+      "text": "up",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bad",
+      "for": "anagram",
+      "note": "a bad version of 'trade is' is a mangled one"
+     }
+    ],
+    "linkWords": [
+     "though"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trade is",
+      "gives": "TRADEIS",
+      "note": "anagram fodder, 7 letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TRADEIS",
+       "gives": "ASTRIDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Business is poor, even if it seems to be picking up.",
+     "walkthrough": "'Up' reads as trade improving, but it is the riding sense: a jockey who is 'up' sits astride the horse.",
+     "definitionFit": "A rider who is up on a horse sits astride it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 23,
@@ -383,7 +1412,50 @@
     "text": "It may give me this belief in God",
     "enumeration": "6"
    },
-   "solution": "THEISM"
+   "solution": "THEISM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "THEISM",
+    "definitions": [
+     {
+      "text": "belief in God",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "It may give",
+      "for": "anagram",
+      "note": "the letters of 'me this' may give another word once reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "me this",
+      "gives": "METHIS",
+      "note": "anagram fodder, 6 letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "METHIS",
+       "gives": "THEISM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something might grant the speaker religious faith.",
+     "walkthrough": "The indicator is unusually loose: 'it may give' just says the letters of 'me this' can yield the answer.",
+     "definitionFit": "A dictionary definition: the -ism of theos, Greek for god, is the belief that a god exists."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -397,7 +1469,50 @@
     "text": "Property of the Orient Express",
     "enumeration": "6"
    },
-   "solution": "ESTATE"
+   "solution": "ESTATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ESTATE",
+    "definitions": [
+     {
+      "text": "Property",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the Orient",
+      "gives": "E",
+      "note": "the Orient is the East, E"
+     },
+     {
+      "clueFragment": "Express",
+      "gives": "STATE",
+      "note": "to express is to state"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "STATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Something belonging to the famous luxury train.",
+     "walkthrough": "The Orient Express reads as a single name, the train, but it splits into E and STATE.",
+     "definitionFit": "An estate is a piece of property, especially land."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Express"
+    }
+   }
   },
   {
    "number": 25,
@@ -411,7 +1526,39 @@
     "text": "He will be called to account",
     "enumeration": "7"
    },
-   "solution": "AUDITOR"
+   "solution": "AUDITOR",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "AUDITOR",
+    "definitions": [
+     {
+      "text": "He will be called to account",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "He will be called",
+      "note": "summoned, as a professional is called in"
+     },
+     {
+      "clueFragment": "to account",
+      "note": "not to answer for wrongdoing: to examine the accounts"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Called to account' sounds like someone made to answer for misdeeds, but the auditor is literally called in to examine the accounts.",
+     "definitionFit": "An auditor is brought in to check a company's accounts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "account"
+    }
+   }
   },
   {
    "number": 26,
@@ -425,7 +1572,46 @@
     "text": "Grim prospect for yachtsman trying to catch rival",
     "enumeration": "5"
    },
-   "solution": "STERN"
+   "solution": "STERN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STERN",
+    "definitions": [
+     {
+      "text": "Grim",
+      "at": 0
+     },
+     {
+      "text": "prospect for yachtsman trying to catch rival",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Grim",
+      "gives": "STERN",
+      "note": "severe, forbidding"
+     },
+     {
+      "clueFragment": "prospect for yachtsman trying to catch rival",
+      "gives": "STERN",
+      "note": "a chasing sailor's view ahead is the back end of the boat in front"
+     }
+    ],
+    "explanation": {
+     "surface": "A sailor chasing a rival boat faces a bleak outlook.",
+     "walkthrough": "'Grim prospect' looks like one phrase, but it splits: grim is one meaning, and the rear of the boat ahead is what a chasing sailor sees.",
+     "definitionFit": "Stern means grim, and the stern is the back of the rival boat, all a chaser can see."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "prospect"
+    }
+   }
   },
   {
    "number": 26,
@@ -439,7 +1625,49 @@
     "text": "Staff officer with small house in London area",
     "enumeration": "4"
    },
-   "solution": "SOHO"
+   "solution": "SOHO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SOHO",
+    "definitions": [
+     {
+      "text": "London area",
+      "at": 34
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Staff officer",
+      "gives": "SO",
+      "note": "SO is the military abbreviation for staff officer"
+     },
+     {
+      "clueFragment": "small house",
+      "gives": "HO",
+      "note": "'small' signals the abbreviation HO for house"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SO",
+      "HO"
+     ]
+    },
+    "explanation": {
+     "surface": "An army officer owns a little house in a part of London.",
+     "walkthrough": "SO for staff officer and HO for house are standard abbreviations.",
+     "definitionFit": "Soho is a district in London's West End."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -459,7 +1687,39 @@
      }
     ]
    },
-   "solution": "TESTPILOT"
+   "solution": "TESTPILOT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "TEST PILOT",
+    "definitions": [
+     {
+      "text": "One who is often up for trial",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One who is often up",
+      "note": "up in the air, flying"
+     },
+     {
+      "clueFragment": "for trial",
+      "note": "not a court case: a trial flight of a new aircraft"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Up for trial' suggests a defendant in court, but a test pilot is up in the air on trial flights.",
+     "definitionFit": "A test pilot flies new aircraft to try them out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "trial"
+    }
+   }
   },
   {
    "number": 28,
@@ -473,7 +1733,39 @@
     "text": "Service accommodation",
     "enumeration": "4"
    },
-   "solution": "PEWS"
+   "solution": "PEWS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "PEWS",
+    "definitions": [
+     {
+      "text": "Service accommodation",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Service",
+      "note": "not the armed forces: a church service"
+     },
+     {
+      "clueFragment": "accommodation",
+      "note": "seating for the congregation"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Service accommodation' suggests military housing, but the service is a church service and pews are where the congregation sits.",
+     "definitionFit": "Pews are the benches that seat worshippers at a church service."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Service"
+    }
+   }
   },
   {
    "number": 29,
@@ -487,7 +1779,43 @@
     "text": "Call time",
     "enumeration": "4"
    },
-   "solution": "TERM"
+   "solution": "TERM",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TERM",
+    "definitions": [
+     {
+      "text": "Call",
+      "at": 0
+     },
+     {
+      "text": "time",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Call",
+      "gives": "TERM",
+      "note": "a verb: to name or describe something as"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "TERM",
+      "note": "a fixed period, as in a school or prison sentence"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "To term something is to call it by a name, and a term is a period of time.",
+     "definitionFit": "Term means both to name (call) and a fixed period (time)."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 30,
@@ -501,7 +1829,38 @@
     "text": "Gets lost in proverb",
     "enumeration": "9"
    },
-   "solution": "HESITATES"
+   "solution": "HESITATES",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "HESITATES",
+    "definitions": [
+     {
+      "text": "Gets lost in proverb",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gets lost",
+      "note": "the fate of whoever does the answer"
+     },
+     {
+      "clueFragment": "in proverb",
+      "note": "points to a well-known saying about the person who ends up lost"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The proverb is 'he who hesitates is lost': the person who hesitates gets lost.",
+     "definitionFit": "In the saying, the one who hesitates is the one who is lost."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 31,
@@ -515,7 +1874,63 @@
     "text": "More sage is planted in middle of flower bed",
     "enumeration": "5"
    },
-   "solution": "WISER"
+   "solution": "WISER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "WISER",
+    "definitions": [
+     {
+      "text": "More sage",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "middle of",
+      "for": "letter_selection",
+      "note": "only the central letters of FLOWERBED are kept"
+     },
+     {
+      "text": "planted in",
+      "for": "container",
+      "note": "IS is planted inside the kept letters like a seed in soil"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flower bed",
+      "gives": "WER",
+      "select": "middle",
+      "note": "the middle three of FLOWERBED"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as it stands"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "IS",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "More of the herb sage is planted in the centre of the flower bed.",
+     "walkthrough": "'Sage' reads as the herb in a garden, but 'more sage' is the comparative of the adjective, wiser.",
+     "definitionFit": "A plain synonym in comparative form: sage as an adjective means wise, so 'more sage' is the comparative of wise."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sage"
+    }
+   }
   }
  ]
 }
