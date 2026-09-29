@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "id": "1-across",
@@ -34,7 +37,44 @@
     "text": "Resisting whimsical carol we hear",
     "enumeration": "6"
    },
-   "solution": "FACING"
+   "solution": "FACING",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "FACING",
+    "definitions": [
+     {
+      "text": "Resisting",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "'we hear' asks you to judge the words by their sound rather than their spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "whimsical carol",
+      "gives": "FACING",
+      "soundsLike": "FEY SING",
+      "note": "fey = whimsical, sing = carol; run the two words together out loud"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone holding out against a quirky Christmas carol drifting over from next door.",
+     "walkthrough": "Fey is a slightly old-fashioned word for whimsical or otherworldly; said quickly, FEY SING gives the answer.",
+     "definitionFit": "A plain synonym in the sense of confronting: facing down a threat is resisting it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "carol"
+    }
+   }
   },
   {
    "id": "1-down",
@@ -55,7 +95,59 @@
      }
     ]
    },
-   "solution": "FIRSTAID"
+   "solution": "FIRSTAID",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "FIRST AID",
+    "definitions": [
+     {
+      "text": "treatment",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cutting bottom",
+      "for": "deletion",
+      "note": "in a down clue the bottom of a word is its last letter, and cutting it lops that letter off"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hard cutting bottom",
+      "gives": "FIR",
+      "note": "FIRM (hard) with its bottom letter M cut"
+     },
+     {
+      "clueFragment": "sombre",
+      "gives": "STAID",
+      "note": "staid = sombre, sober"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FIR",
+      "STAID"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hurt in a hard fall on their behind, looking glum while being patched up.",
+     "walkthrough": "'Bottom' looks like the injured part of the body; in a down answer it is the last letter of FIRM.",
+     "definitionFit": "A definition by type: the emergency care given on the spot, before a doctor arrives, is one kind of treatment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bottom"
+    }
+   }
   },
   {
    "id": "2-down",
@@ -70,7 +162,44 @@
     "text": "Wind up judge",
     "enumeration": "8"
    },
-   "solution": "CONCLUDE"
+   "solution": "CONCLUDE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CONCLUDE",
+    "definitions": [
+     {
+      "text": "Wind up",
+      "at": 0
+     },
+     {
+      "text": "judge",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wind up",
+      "gives": "CONCLUDE",
+      "note": "to wind up a meeting is to bring it to a close"
+     },
+     {
+      "clueFragment": "judge",
+      "gives": "CONCLUDE",
+      "note": "to judge is to reach a verdict from the evidence"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Wind up' reads as tease, as in winding up a judge; here it means finish.",
+     "definitionFit": "The one verb covers both senses: bringing something to an end, and arriving at a judgement by reasoning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Wind"
+    }
+   }
   },
   {
    "id": "3-down",
@@ -85,7 +214,79 @@
     "text": "Print novel, perhaps, circulating no end of rubbish",
     "enumeration": "9"
    },
-   "solution": "NEWSPAPER"
+   "solution": "NEWSPAPER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "anagram",
+     "charade"
+    ],
+    "answer": "NEWSPAPER",
+    "definitions": [
+     {
+      "text": "Print",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its last letter"
+     },
+     {
+      "text": "no",
+      "for": "deletion",
+      "note": "'no' H means that letter is taken out of PERHAPS"
+     },
+     {
+      "text": "circulating",
+      "for": "anagram",
+      "note": "letters circulating move round into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "novel",
+      "gives": "NEW",
+      "note": "novel = new"
+     },
+     {
+      "clueFragment": "perhaps",
+      "gives": "PERHAPS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "end of rubbish",
+      "gives": "H",
+      "select": "last",
+      "note": "the last letter of rubbish, which is removed from PERHAPS"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEW",
+      "SPAPER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PERAPS",
+       "gives": "SPAPER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A snooty verdict on a book: publish a novel that is doing the rounds, but lose the trash.",
+     "walkthrough": "'Novel, perhaps' reads as one phrase meaning a book; the words split, with 'perhaps' taken literally as letters.",
+     "definitionFit": "A metonym: 'print' stands for the printed press, and a daily paper is the commonest example of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "perhaps"
+    }
+   }
   },
   {
    "id": "4-across",
@@ -106,7 +307,55 @@
      }
     ]
    },
-   "solution": "BUTTERUP"
+   "solution": "BUTTERUP",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "BUTTER UP",
+    "definitions": [
+     {
+      "text": "Flatter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaves",
+      "for": "deletion",
+      "note": "cold leaves: the C goes out of the flower"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flower",
+      "gives": "BUTTERCUP",
+      "note": "the yellow meadow flower"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C = cold, as on a tap; this letter is removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUTTER",
+      "UP"
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener's lament: the flowers get a chill and their leaves drop.",
+     "walkthrough": "'Leaves' looks like the foliage of the flower; it is the verb, the C departing.",
+     "definitionFit": "An idiom: spreading butter on someone is laying on praise to win them over."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "leaves"
+    }
+   }
   },
   {
    "id": "5-down",
@@ -121,7 +370,52 @@
     "text": "Chewing vile blue bean - hard to swallow",
     "enumeration": "12"
    },
-   "solution": "UNBELIEVABLE"
+   "solution": "UNBELIEVABLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "UNBELIEVABLE",
+    "definitions": [
+     {
+      "text": "hard to swallow",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Chewing",
+      "for": "anagram",
+      "note": "chewing mashes the letters up into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vile blue bean",
+      "gives": "VILEBLUEBEAN",
+      "note": "the twelve letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "VILEBLUEBEAN",
+       "gives": "UNBELIEVABLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Chewing on a nasty mouldy bean that is hard to get down.",
+     "walkthrough": "'Hard to swallow' fits the eating picture exactly, which hides that it is the figurative sense.",
+     "definitionFit": "An idiom: to swallow a story is to believe it, so one that sticks in the throat cannot be believed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "swallow"
+    }
+   }
   },
   {
    "id": "6-down",
@@ -136,7 +430,56 @@
     "text": "Trump's source is not corrupt",
     "enumeration": "5"
    },
-   "solution": "TAINT"
+   "solution": "TAINT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TAINT",
+    "definitions": [
+     {
+      "text": "corrupt",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "source",
+      "for": "letter_selection",
+      "note": "a word's source is where it starts, its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trump's source",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter of Trump"
+     },
+     {
+      "clueFragment": "is not",
+      "gives": "AINT",
+      "note": "ain't = is not, colloquially"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "AINT"
+     ]
+    },
+    "explanation": {
+     "surface": "A news line insisting that the President's informant is clean.",
+     "walkthrough": "'Trump's source' sounds like a leaker; it is just his initial T.",
+     "definitionFit": "A plain synonym as verbs: both mean to spoil or contaminate something that was pure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "source"
+    }
+   }
   },
   {
    "id": "7-down",
@@ -151,7 +494,53 @@
     "text": "Infidelity - no time to think rationally",
     "enumeration": "6"
    },
-   "solution": "REASON"
+   "solution": "REASON",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "REASON",
+    "definitions": [
+     {
+      "text": "think rationally",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "no",
+      "for": "deletion",
+      "note": "'no time' means the T for time is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Infidelity",
+      "gives": "TREASON",
+      "note": "treason is infidelity to one's country"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T = time; this letter is removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REASON"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone caught cheating finds they have no time to think straight.",
+     "walkthrough": "Infidelity reads as marital; here it is disloyalty to the state.",
+     "definitionFit": "A plain synonym for the verb: working things out logically is what the verb names."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Infidelity"
+    }
+   }
   },
   {
    "id": "8-down",
@@ -166,7 +555,55 @@
     "text": "Want two bridge players to follow suit",
     "enumeration": "6"
    },
-   "solution": "PLEASE"
+   "solution": "PLEASE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PLEASE",
+    "definitions": [
+     {
+      "text": "Want",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to follow",
+      "for": "charade",
+      "note": "the bridge players come after the suit"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "suit",
+      "gives": "PLEA",
+      "note": "a plea is a suit at law, a legal action or the pleading in one"
+     },
+     {
+      "clueFragment": "two bridge players",
+      "gives": "SE",
+      "note": "the players at bridge are named North, South, East and West; take S and E"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLEA",
+      "SE"
+     ]
+    },
+    "explanation": {
+     "surface": "At the bridge table, a request for the two partners to play the same suit.",
+     "walkthrough": "'Follow suit' is a card-game phrase, but 'suit' here is a lawsuit, and the players come after it.",
+     "definitionFit": "A verb synonym as in 'do as you please': to please is to want or choose to."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "suit"
+    }
+   }
   },
   {
    "id": "9-across",
@@ -181,7 +618,59 @@
     "text": "Bird removing top to have fame",
     "enumeration": "6"
    },
-   "solution": "RENOWN"
+   "solution": "RENOWN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "RENOWN",
+    "definitions": [
+     {
+      "text": "fame",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "removing top",
+      "for": "deletion",
+      "note": "the top of an across word is its first letter, so W is removed"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bird removing top",
+      "gives": "REN",
+      "note": "WREN without its first letter W"
+     },
+     {
+      "clueFragment": "have",
+      "gives": "OWN",
+      "note": "to own = to have"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REN",
+      "OWN"
+     ]
+    },
+    "explanation": {
+     "surface": "A girl ditching her top to become famous.",
+     "walkthrough": "'Bird' in British slang is a young woman, which the surface leans on; here it is the wren.",
+     "definitionFit": "A plain synonym: being widely known and celebrated is having fame."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "top"
+    }
+   }
   },
   {
    "id": "10-across",
@@ -196,7 +685,68 @@
     "text": "Sailor one caught in engagement to surrender",
     "enumeration": "8"
    },
-   "solution": "ABDICATE"
+   "solution": "ABDICATE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ABDICATE",
+    "definitions": [
+     {
+      "text": "surrender",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one and caught go in the date"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sailor",
+      "gives": "AB",
+      "note": "AB = able seaman"
+     },
+     {
+      "clueFragment": "engagement",
+      "gives": "DATE",
+      "note": "a date is an engagement, an appointment"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "c = caught in cricket scoring"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AB",
+      "D",
+      "I",
+      "C",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor, captured in battle, forced to give himself up.",
+     "walkthrough": "'Engagement' suggests a battle; it is a DATE that surrounds I and C.",
+     "definitionFit": "A near synonym: a monarch who gives up the throne formally surrenders it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "engagement"
+    }
+   }
   },
   {
    "id": "11-down",
@@ -211,7 +761,61 @@
     "text": "13 large pets ran off",
     "enumeration": "12"
    },
-   "solution": "GRANDPARENTS"
+   "solution": "GRANDPARENTS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "GRANDPARENTS",
+    "definitions": [
+     {
+      "text": "13",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "the letters run off, out of their order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "large",
+      "gives": "GRAND",
+      "note": "grand = large"
+     },
+     {
+      "clueFragment": "pets ran",
+      "gives": "PETSRAN",
+      "note": "letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRAND",
+      "PARENTS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PETSRAN",
+       "gives": "PARENTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The family's big animals bolted.",
+     "walkthrough": "The definition sits in another clue: 13 across is RELATIONS, which the answer is an example of.",
+     "definitionFit": "A definition by example: your parents' parents are one kind of relations."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "id": "12-across",
@@ -226,7 +830,54 @@
     "text": "Flower border planted by you in Paris",
     "enumeration": "5"
    },
-   "solution": "TULIP"
+   "solution": "TULIP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TULIP",
+    "definitions": [
+     {
+      "text": "Flower",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "planted by",
+      "for": "charade",
+      "note": "the border is set beside the French word, after it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "you in Paris",
+      "gives": "TU",
+      "note": "tu is French for you"
+     },
+     {
+      "clueFragment": "border",
+      "gives": "LIP",
+      "note": "a lip is an edge or border"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TU",
+      "LIP"
+     ]
+    },
+    "explanation": {
+     "surface": "A flower bed edge being planted by someone in Paris.",
+     "walkthrough": "'Planted' belongs in the garden scene, but it is only a placing instruction: the order is French word first.",
+     "definitionFit": "A definition by example: the spring bulb is one flower among many."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "border"
+    }
+   }
   },
   {
    "id": "13-across",
@@ -241,7 +892,45 @@
     "text": "How's your father, mother and sister?",
     "enumeration": "9"
    },
-   "solution": "RELATIONS"
+   "solution": "RELATIONS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RELATIONS",
+    "definitions": [
+     {
+      "text": "How's your father",
+      "at": 0
+     },
+     {
+      "text": "mother and sister",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "How's your father",
+      "gives": "RELATIONS",
+      "note": "jokey British slang for sex"
+     },
+     {
+      "clueFragment": "mother and sister",
+      "gives": "RELATIONS",
+      "note": "family members, kin"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'How's your father' is jokey British slang for sex, so both halves name the same word: the sexual sense and the family sense.",
+     "definitionFit": "Both senses of one word: sexual intercourse (a euphemism) and relatives such as a mother and sister."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "father"
+    }
+   }
   },
   {
    "id": "14-across",
@@ -256,7 +945,67 @@
     "text": "Freelance writer intended novel to be gripping",
     "enumeration": "11"
    },
-   "solution": "INDEPENDENT"
+   "solution": "INDEPENDENT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "INDEPENDENT",
+    "definitions": [
+     {
+      "text": "Freelance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "novel",
+      "for": "anagram",
+      "note": "novel means new, so the letters take a new form"
+     },
+     {
+      "text": "to be gripping",
+      "for": "container",
+      "note": "the rearranged letters grip the writer in their middle"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "intended",
+      "gives": "INTENDED",
+      "note": "letters to rearrange"
+     },
+     {
+      "clueFragment": "writer",
+      "gives": "PEN",
+      "note": "a pen is a writer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INDE",
+      "PEN",
+      "DENT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INTENDED",
+       "gives": "INDEDENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A freelance author meaning the book to be a page-turner.",
+     "walkthrough": "The surface makes 'novel' a book; it is the anagram signal, and 'writer' is a PEN.",
+     "definitionFit": "An adjective synonym: a freelance worker is self-employed, tied to no single employer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "novel"
+    }
+   }
   },
   {
    "id": "15-down",
@@ -271,7 +1020,62 @@
     "text": "Showing fear, starts to tidy room, excluding mother's jewellery",
     "enumeration": "9"
    },
-   "solution": "TREMBLING"
+   "solution": "TREMBLING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TREMBLING",
+    "definitions": [
+     {
+      "text": "Showing fear",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts to",
+      "for": "letter_selection",
+      "note": "the starts of the next three words are their first letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tidy room, excluding",
+      "gives": "TRE",
+      "select": "first",
+      "note": "first letters of tidy, room, excluding"
+     },
+     {
+      "clueFragment": "mother",
+      "gives": "M",
+      "note": "M = mother, as in genealogies"
+     },
+     {
+      "clueFragment": "jewellery",
+      "gives": "BLING",
+      "note": "bling is flashy jewellery"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRE",
+      "M",
+      "BLING"
+     ]
+    },
+    "explanation": {
+     "surface": "A nervous child ordered to tidy up without touching mum's jewels.",
+     "walkthrough": "'Excluding' looks like a deletion instruction, but it only supplies its first letter E.",
+     "definitionFit": "A definition by symptom: shaking is how the body shows fear."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "excluding"
+    }
+   }
   },
   {
    "id": "16-down",
@@ -286,7 +1090,61 @@
     "text": "Different primates picked up speed",
     "enumeration": "8"
    },
-   "solution": "SEPARATE"
+   "solution": "SEPARATE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "SEPARATE",
+    "definitions": [
+     {
+      "text": "Different",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "picked up",
+      "for": "reversal",
+      "note": "in a down clue picking something up lifts it, so it reads bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "primates",
+      "gives": "APES",
+      "note": "apes are primates"
+     },
+     {
+      "clueFragment": "speed",
+      "gives": "RATE",
+      "note": "rate = speed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEPA",
+      "RATE"
+     ],
+     "reversals": [
+      {
+       "from": "APES",
+       "to": "SEPA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some unusual monkeys learning to move faster.",
+     "walkthrough": "'Picked up' tempts you to listen for a sound; in a down clue it lifts APES to read SEPA.",
+     "definitionFit": "An adjective synonym: distinct, not the same thing, as in 'two separate issues'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "picked"
+    }
+   }
   },
   {
    "id": "17-down",
@@ -301,7 +1159,54 @@
     "text": "Turned up at a motorcycle race wrapped up",
     "enumeration": "8"
    },
-   "solution": "ATTENDED"
+   "solution": "ATTENDED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ATTENDED",
+    "definitions": [
+     {
+      "text": "Turned up at",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "motorcycle race",
+      "gives": "TT",
+      "note": "the TT (Tourist Trophy) races on the Isle of Man"
+     },
+     {
+      "clueFragment": "wrapped",
+      "gives": "ENDED",
+      "note": "'it's a wrap' says filming is over: wrapped = finished"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "TT",
+      "ENDED"
+     ]
+    },
+    "explanation": {
+     "surface": "A spectator who arrived at a bike race dressed for the cold.",
+     "walkthrough": "'At' belongs to the definition, not the wordplay; 'wrapped up' reads as warmly dressed, but only 'wrapped' is wordplay.",
+     "definitionFit": "A phrasal synonym: to be present at an event is to turn up at it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "wrapped"
+    }
+   }
   },
   {
    "id": "18-across",
@@ -316,7 +1221,63 @@
     "text": "Substitute's position - behind referee, almost",
     "enumeration": "11"
    },
-   "solution": "REPLACEMENT"
+   "solution": "REPLACEMENT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "REPLACEMENT",
+    "definitions": [
+     {
+      "text": "Substitute",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost the whole word: its last letter goes"
+     },
+     {
+      "text": "behind",
+      "for": "charade",
+      "note": "the position comes behind, after, the referee"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "referee, almost",
+      "gives": "RE",
+      "note": "REF without its last letter"
+     },
+     {
+      "clueFragment": "position",
+      "gives": "PLACEMENT",
+      "note": "a placement is a position"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "PLACEMENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A football sub waiting on the touchline just behind the ref.",
+     "walkthrough": "The 's is 'is', joining definition to wordplay rather than a possessive.",
+     "definitionFit": "A sporting synonym: the player sent on in place of another is a sub."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Substitute's"
+    }
+   }
   },
   {
    "id": "19-down",
@@ -331,7 +1292,47 @@
     "text": "On the other side of a bridge",
     "enumeration": "6"
    },
-   "solution": "ACROSS"
+   "solution": "ACROSS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ACROSS",
+    "definitions": [
+     {
+      "text": "On the other side of",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bridge",
+      "gives": "CROSS",
+      "note": "to bridge a gap is to cross it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "CROSS"
+     ]
+    },
+    "explanation": {
+     "surface": "Directions to a spot on the far bank, over a bridge.",
+     "walkthrough": "The clue reads as one plain phrase; split it and 'a bridge' becomes A plus the verb CROSS.",
+     "definitionFit": "A prepositional synonym, as in 'the shop across the road'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bridge"
+    }
+   }
   },
   {
    "id": "20-down",
@@ -346,7 +1347,74 @@
     "text": "The broadcast is about Conservative morals",
     "enumeration": "6"
    },
-   "solution": "ETHICS"
+   "solution": "ETHICS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "ETHICS",
+    "definitions": [
+     {
+      "text": "morals",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broadcast",
+      "for": "anagram",
+      "note": "broadcast seed is scattered, so the letters are scattered"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "IS goes about, around, the C"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The",
+      "gives": "THE",
+      "note": "letters to rearrange"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C = Conservative"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ETH",
+      "I",
+      "C",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "THE",
+       "gives": "ETH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A TV programme on Tory values.",
+     "walkthrough": "'The broadcast' reads as a noun phrase, a programme; 'broadcast' is a verb acting on THE.",
+     "definitionFit": "A plural-noun synonym: the principles of right and wrong that guide conduct."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "id": "21-across",
@@ -361,7 +1429,72 @@
     "text": "Catholic accepted the medic in front of a large, large church",
     "enumeration": "9"
    },
-   "solution": "CATHEDRAL"
+   "solution": "CATHEDRAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CATHEDRAL",
+    "definitions": [
+     {
+      "text": "large church",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in front of",
+      "for": "charade",
+      "note": "the medic comes before A and L"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Catholic",
+      "gives": "C",
+      "note": "C = Catholic"
+     },
+     {
+      "clueFragment": "accepted",
+      "gives": "A",
+      "note": "a = accepted, an abbreviation used on bills of exchange"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "medic",
+      "gives": "DR",
+      "note": "Dr = doctor"
+     },
+     {
+      "clueFragment": "a large",
+      "gives": "AL",
+      "note": "A as written, then L = large, the clothing size"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "A",
+      "THE",
+      "DR",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A Catholic accepting the doctor's advice before entering a vast church.",
+     "walkthrough": "The repeated 'large' is not a slip: the first is L, the second belongs to the definition.",
+     "definitionFit": "A description rather than a synonym: the principal church of a diocese, the bishop's seat, is typically the largest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "accepted"
+    }
+   }
   },
   {
    "id": "22-down",
@@ -376,7 +1509,43 @@
     "text": "First-class travel - it excludes only some",
     "enumeration": "5"
    },
-   "solution": "ELITE"
+   "solution": "ELITE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ELITE",
+    "definitions": [
+     {
+      "text": "First-class",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "only some",
+      "for": "hidden_word",
+      "note": "only some of the letters of the next words are used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "travel - it excludes",
+      "gives": "ELITE",
+      "note": "travEL IT Excludes"
+     }
+    ],
+    "explanation": {
+     "surface": "A complaint that first-class travel shuts most people out.",
+     "walkthrough": "'Excludes' looks like a deletion signal; it only carries the final E of the answer.",
+     "definitionFit": "An adjective synonym, borrowed from the noun for the best of a group."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "excludes"
+    }
+   }
   },
   {
    "id": "23-across",
@@ -391,7 +1560,50 @@
     "text": "Bachelor party's daring",
     "enumeration": "5"
    },
-   "solution": "BRAVE"
+   "solution": "BRAVE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BRAVE",
+    "definitions": [
+     {
+      "text": "daring",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bachelor",
+      "gives": "B",
+      "note": "B = Bachelor, as in BA"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "RAVE",
+      "note": "a rave is a party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "RAVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A stag do that is on the risky side.",
+     "walkthrough": "'Bachelor party' reads as a stag night; it splits into B and RAVE, with 's meaning 'is'.",
+     "definitionFit": "An adjective synonym: willing to face danger, bold, courageous."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bachelor"
+    }
+   }
   },
   {
    "id": "24-across",
@@ -406,7 +1618,47 @@
     "text": "Slants round wings",
     "enumeration": "8"
    },
-   "solution": "OPINIONS"
+   "solution": "OPINIONS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OPINIONS",
+    "definitions": [
+     {
+      "text": "Slants",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "round",
+      "gives": "O",
+      "note": "O is round"
+     },
+     {
+      "clueFragment": "wings",
+      "gives": "PINIONS",
+      "note": "a pinion is a bird's wing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "PINIONS"
+     ]
+    },
+    "explanation": {
+     "surface": "Wings banking in a turn.",
+     "walkthrough": "'Round' looks like a container signal; it is just O placed before PINIONS.",
+     "definitionFit": "A figurative sense: a slant on a story is a particular point of view."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Slants"
+    }
+   }
   },
   {
    "id": "25-across",
@@ -421,7 +1673,63 @@
     "text": "Blair's dodgy dossier initially offensive",
     "enumeration": "6"
    },
-   "solution": "RIBALD"
+   "solution": "RIBALD",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "RIBALD",
+    "definitions": [
+     {
+      "text": "offensive",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dodgy",
+      "for": "anagram",
+      "note": "a dodgy arrangement is an unreliable one, so the letters are not to be trusted in order"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially takes the first letter of dossier"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Blair",
+      "gives": "BLAIR",
+      "note": "letters to rearrange"
+     },
+     {
+      "clueFragment": "dossier initially",
+      "gives": "D",
+      "select": "first",
+      "note": "first letter of dossier"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BLAIRD",
+       "gives": "RIBALD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tony Blair's 2003 'dodgy dossier' on Iraq, judged offensive from the start.",
+     "walkthrough": "The 'dodgy dossier' was a real, discredited 2003 UK government briefing on Iraq; here 'dodgy' just scrambles BLAIR plus D.",
+     "definitionFit": "A loose synonym: coarse, bawdy humour is the kind that gives offence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dodgy"
+    }
+   }
   },
   {
    "id": "26-across",
@@ -436,7 +1744,65 @@
     "text": "Tension from hearing perhaps about American power",
     "enumeration": "8"
    },
-   "solution": "SUSPENSE"
+   "solution": "SUSPENSE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SUSPENSE",
+    "definitions": [
+     {
+      "text": "Tension",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "the sense goes about, around, the other letters"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hearing perhaps",
+      "gives": "SENSE",
+      "note": "hearing is one of the senses"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US = American"
+     },
+     {
+      "clueFragment": "power",
+      "gives": "P",
+      "note": "P = power in physics"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "US",
+      "P",
+      "ENSE"
+     ]
+    },
+    "explanation": {
+     "surface": "Tension in a courtroom as a US superpower faces a hearing.",
+     "walkthrough": "'Hearing' suggests a trial; with 'perhaps' it is an example of a SENSE.",
+     "definitionFit": "A near synonym: the anxious uncertainty of waiting to learn an outcome."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hearing"
+    }
+   }
   },
   {
    "id": "27-across",
@@ -451,7 +1817,56 @@
     "text": "Admitted Marge regularly cut grass",
     "enumeration": "6"
    },
-   "solution": "AGREED"
+   "solution": "AGREED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "AGREED",
+    "definitions": [
+     {
+      "text": "Admitted",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly takes every other letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Marge regularly",
+      "gives": "AG",
+      "select": "alternate",
+      "note": "the 2nd and 4th letters of MARGE"
+     },
+     {
+      "clueFragment": "cut grass",
+      "gives": "REED",
+      "note": "reed is a grass cut for thatch"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AG",
+      "REED"
+     ]
+    },
+    "explanation": {
+     "surface": "Marge conceding that she mows the lawn every week.",
+     "walkthrough": "Marge reads as a person's name; it is just letters, taken every other one.",
+     "definitionFit": "A verb synonym in the sense of conceding: you admit or grant that a point is true."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Marge"
+    }
+   }
   }
  ]
 }
