@@ -965,9 +965,12 @@ def retry_self_test():
     the caller, and a 401 is still fatal on the first try — retrying an
     authentication failure would only spend the same wrong token again.
     """
-    global access_token
-    real_token, err = access_token, sys.stderr
+    global access_token, _sampled_payload
+    real_token, real_sampled, err = access_token, _sampled_payload, sys.stderr
     access_token = lambda: ("t", None, False)
+    # The cases are about the endpoint, so a fresh sampler row, which
+    # answers before it is asked, is taken off the table.
+    _sampled_payload = lambda: None
     slept, calls = [], []
 
     def _http(code):
@@ -1011,7 +1014,7 @@ def retry_self_test():
             failures.append("a 401 is a verdict, not a throttle; it should be "
                             f"raised on the first call, made {len(calls)}")
     finally:
-        access_token, sys.stderr = real_token, err
+        access_token, _sampled_payload, sys.stderr = real_token, real_sampled, err
     for f in failures:
         print(f"SELF-TEST FAILED — {f}", file=sys.stderr)
     return 1 if failures else 0
