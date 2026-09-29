@@ -144,6 +144,8 @@ Nine first runs in ten fail, nearly always on these five rules. Get them right f
   none with `gives`, and no note or fragment that spells the answer.
 - `features.misdirectedWord` is one word, copied exactly as printed in the clue.
 
+- To change many clues, Write `{"8-down": {"field": value}}` to a file and add
+  `--patch <file>` to the check; a heredoc or fix script is refused.
 - Run it as a single command: no `&&`, `;`, pipes or `rm`. A compound command needs an
   approval this run cannot give, and aborts having run nothing.
 - Don't open `validate_annotations.py`. For a line you cannot act on,

@@ -3,6 +3,12 @@
 
     python3 tools/annotate_check.py cryptic-30098
     python3 tools/annotate_check.py --view cryptic-30098   # the run's input
+    python3 tools/annotate_check.py cryptic-30098 --patch FILE
+
+--patch merges FILE, {"8-down": {"definitionFit": "...", "blocks": [...]}},
+into tools/_ann_<ID>.json first: each named field replaced, null removing it.
+Many clues' fixes are one Write and this one command, not a fix script,
+which these runs cannot get approved.
 
 Applies tools/_ann_<ID>.json, validates, runs both audit tools, syntax-checks
 the file and refreshes the index — and prints one report with a count at the
@@ -168,6 +174,31 @@ def notes(puzzle):
     return out
 
 
+def patch(pending, fix):
+    """Merge `fix`, {entry: {field: value or null}}, into `pending`; what is
+    wrong, or None."""
+    if fix is None or not fix.exists():
+        return f"--patch needs a file of {{entry: {{field: value}}}}; got {fix}"
+    if not pending.exists():
+        return f"no {pending.name} to patch: edit the puzzle file directly"
+    try:
+        ann, changes = json.loads(pending.read_text(encoding="utf-8")), json.loads(fix.read_text(encoding="utf-8"))
+    except ValueError as e:
+        return f"not valid JSON: {e}"
+    unknown = sorted(set(changes) - set(ann))
+    if unknown:
+        return f"{fix.name} names entries {pending.name} lacks: {', '.join(unknown)} (keys look like {next(iter(ann), '1-across')!r})"
+    for eid, fields in changes.items():
+        for k, v in fields.items():
+            if v is None:
+                ann[eid].pop(k, None)
+            else:
+                ann[eid][k] = v
+    pending.write_text(json.dumps(ann, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    fix.unlink()
+    return None
+
+
 def main(argv):
     if not argv or argv[0] in ("-h", "--help"):
         print(__doc__.strip())
@@ -180,6 +211,11 @@ def main(argv):
     shown = path.relative_to(ROOT) if path.is_relative_to(ROOT) else path
     pending = default_input(path)
     issues = []
+    if argv[1:2] == ["--patch"]:
+        err = patch(pending, Path(argv[2]) if len(argv) > 2 else None)
+        if err:
+            print(f"annotate_check {stem}: STOPPED — {err}")
+            return 2
 
     if pending.exists():
         rc, out = run([sys.executable, str(TOOLS / "apply_annotations.py"),
@@ -250,7 +286,9 @@ def main(argv):
         # that is not there is an invitation to go looking for it.
         where = (f"tools/{pending.name}" if pending.exists()
                  else f"{shown}")
-        print(f"Fix ALL of these in one edit of {where}, then run "
+        via = (" (for many clues, Write {entry: {field: value}} to a file and add "
+               "`--patch <file>` to this command)" if pending.exists() else "")
+        print(f"Fix ALL of these in one edit of {where}{via}, then run "
               f"this command again. Re-running to confirm one fix at a time "
               f"costs a turn per warning and tells you nothing this run did not.")
         print("Any line you cannot act on: "
