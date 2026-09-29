@@ -483,10 +483,34 @@ def extract_crossword_data(page_html):
 BLOG_FACTS = ROOT / "tools" / "data" / "blog_facts"
 
 
+class _FactsFile:
+    """A tools/data/blog_facts/<series>.json read one puzzle's line at a time,
+    as blog_facts.file_text writes it: parsed whole, the corpus's facts were
+    most of what a reindex or a page build held."""
+
+    def __init__(self, path):
+        self.path, self.at = path, {}
+        with path.open("rb") as f:
+            pos = 0
+            for line in f:
+                if line.startswith(b'"'):
+                    self.at[line[1:line.index(b'"', 1)].decode()] = pos
+                pos += len(line)
+
+    def get(self, pid, default=None):
+        pos = self.at.get(pid)
+        if pos is None:
+            return default
+        with self.path.open("rb") as f:
+            f.seek(pos)
+            line = f.readline().rstrip(b",\n")
+        return json.loads(line[line.index(b'": ') + 3:])
+
+
 @functools.lru_cache(maxsize=None)
 def _blog_facts(series):
     path = BLOG_FACTS / f"{series}.json"
-    return json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
+    return _FactsFile(path) if path.exists() else {}
 
 
 def blog_facts_for(puzzle):
