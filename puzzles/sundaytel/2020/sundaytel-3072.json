@@ -23,6 +23,9 @@
   "date": "2020-09-16",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,43 @@
     "text": "Elegant tree",
     "enumeration": "6"
    },
-   "solution": "SPRUCE"
+   "solution": "SPRUCE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SPRUCE",
+    "definitions": [
+     {
+      "text": "Elegant",
+      "at": 0
+     },
+     {
+      "text": "tree",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Elegant",
+      "gives": "SPRUCE",
+      "note": "smart and neat in appearance"
+     },
+     {
+      "clueFragment": "tree",
+      "gives": "SPRUCE",
+      "note": "the evergreen conifer"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Two words, two meanings of one word: spruce as an adjective means neat and smart, and as a noun it is the evergreen conifer.",
+     "definitionFit": "Someone spruce is trim and smartly turned out, and the spruce is a common conifer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +89,51 @@
     "text": "Redraft contains official approval",
     "enumeration": "8"
    },
-   "solution": "SANCTION"
+   "solution": "SANCTION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SANCTION",
+    "definitions": [
+     {
+      "text": "official approval",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Redraft",
+      "for": "anagram",
+      "note": "to redraft a text is to rewrite it, so the letters of the next word are set down again in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "contains",
+      "gives": "CONTAINS",
+      "note": "anagram fodder, 8 letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CONTAINS",
+       "gives": "SANCTION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A revised document now carries an official stamp of approval.",
+     "walkthrough": "'Contains' looks like a container indicator linking the parts, but it is the fodder itself, and 'Redraft' works on it.",
+     "definitionFit": "A sanction is formal permission given by an authority."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "contains"
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +147,51 @@
     "text": "Bright, though not at first — wet!",
     "enumeration": "5"
    },
-   "solution": "RAINY"
+   "solution": "RAINY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RAINY",
+    "definitions": [
+     {
+      "text": "wet",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not at first",
+      "for": "deletion",
+      "note": "the word is taken without its opening letter"
+     }
+    ],
+    "linkWords": [
+     "though"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bright",
+      "gives": "BRAINY",
+      "note": "bright = clever = brainy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAINY"
+     ]
+    },
+    "explanation": {
+     "surface": "A weather report: it starts off grey but turns bright, then the rain arrives.",
+     "walkthrough": "'Bright' reads as sunny weather, which makes 'wet' look like a contrast; in fact bright means clever here, and it loses its opening B.",
+     "definitionFit": "A plain synonym: a day of steady rain leaves everything wet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bright"
+    }
+   }
   },
   {
    "number": 3,
@@ -78,7 +205,48 @@
     "text": "Wild animal taking weasel by the ears?",
     "enumeration": "7"
    },
-   "solution": "CHEETAH"
+   "solution": "CHEETAH",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "CHEETAH",
+    "definitions": [
+     {
+      "text": "Wild animal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by the ears",
+      "for": "homophone",
+      "note": "taking something by the ears means going by what is heard, not what is written"
+     }
+    ],
+    "linkWords": [
+     "taking"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "weasel",
+      "gives": "CHEETAH",
+      "soundsLike": "CHEATER",
+      "note": "a weasel is a sly, dishonest person, one who cheats"
+     }
+    ],
+    "explanation": {
+     "surface": "A predator grabs a weasel by its ears.",
+     "walkthrough": "The surface makes weasel an animal to go with the wild one, but it is the person sense. In a British accent that drops the final R, CHEATER and CHEETAH sound the same.",
+     "definitionFit": "The cheetah is a wild big cat of Africa."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "weasel"
+    }
+   }
   },
   {
    "number": 4,
@@ -92,7 +260,56 @@
     "text": "Andean camelid, as primarily seen on mountain?",
     "enumeration": "6"
    },
-   "solution": "ALPACA"
+   "solution": "ALPACA",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ALPACA",
+    "definitions": [
+     {
+      "text": "Andean camelid, as primarily seen on mountain?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means firstly, so each word before it gives its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mountain",
+      "gives": "ALP",
+      "note": "an alp is a high mountain"
+     },
+     {
+      "clueFragment": "Andean camelid, as",
+      "gives": "ACA",
+      "select": "first",
+      "note": "the first letters of Andean, camelid and as"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALP",
+      "ACA"
+     ]
+    },
+    "explanation": {
+     "surface": "A field guide note on where to spot a South American llama-like animal: up a mountain.",
+     "walkthrough": "The whole clue is both the definition and the wordplay: the initials sit on the ALP, 'seen on' placing them after it, and alpacas do graze the high Andes.",
+     "definitionFit": "The alpaca is a domesticated camelid of the Andes, kept for its wool on high mountain pasture."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 5,
@@ -106,7 +323,78 @@
     "text": "Served up shortly, fish sandwiches like a dish from Italy",
     "enumeration": "7"
    },
-   "solution": "LASAGNA"
+   "solution": "LASAGNA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container",
+     "reversal"
+    ],
+    "answer": "LASAGNA",
+    "definitions": [
+     {
+      "text": "dish from Italy",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shortly",
+      "for": "deletion",
+      "note": "shortly means cut short, so the word loses its last letter"
+     },
+     {
+      "text": "sandwiches",
+      "for": "container",
+      "note": "the fish word is the bread with the other letters as its filling"
+     },
+     {
+      "text": "Served up",
+      "for": "reversal",
+      "note": "in a down clue, served up means the letters are sent upwards, read bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fish",
+      "gives": "ANGL",
+      "note": "to fish is to ANGLE, cut short to ANGL"
+     },
+     {
+      "clueFragment": "like",
+      "gives": "AS",
+      "note": "like = as"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "used as it stands"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "ASA",
+      "GNA"
+     ],
+     "reversals": [
+      {
+       "from": "ANGASAL",
+       "to": "LASAGNA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A waiter hurries out a fish course that comes stacked like an Italian dish.",
+     "walkthrough": "'A' looks like part of the definition but belongs to the wordplay, paired with 'like'. 'Fish' is the verb, and the whole assembled string is then read from the bottom of the light upwards.",
+     "definitionFit": "Lasagna is the layered Italian pasta bake."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sandwiches"
+    }
+   }
   },
   {
    "number": 6,
@@ -120,7 +408,69 @@
     "text": "Flat bit crew installed in middle of location",
     "enumeration": "9"
    },
-   "solution": "APARTMENT"
+   "solution": "APARTMENT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "APARTMENT",
+    "definitions": [
+     {
+      "text": "Flat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "middle of",
+      "for": "letter_selection",
+      "note": "the middle two letters of the eight-letter word are kept"
+     },
+     {
+      "text": "installed in",
+      "for": "container",
+      "note": "the parts are fitted inside the kept letters, as fittings are installed in a building"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "location",
+      "gives": "AT",
+      "select": "middle",
+      "note": "LOCATION has eight letters, and its central two are A and T"
+     },
+     {
+      "clueFragment": "bit",
+      "gives": "PART",
+      "note": "a bit = a part"
+     },
+     {
+      "clueFragment": "crew",
+      "gives": "MEN",
+      "note": "a crew is a body of men"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "PART",
+      "MEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A flat has been kitted out with fittings put in by workmen right at the heart of the site.",
+     "walkthrough": "'Location' tempts you toward SITE or PLACE, but only its middle letters are used, and PARTMEN splits them.",
+     "definitionFit": "An apartment is a flat, the American word for a set of rooms on one floor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Flat"
+    }
+   }
   },
   {
    "number": 7,
@@ -134,7 +484,45 @@
     "text": "Passion more difficult, it’s commonly said?",
     "enumeration": "6"
    },
-   "solution": "ARDOUR"
+   "solution": "ARDOUR",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "ARDOUR",
+    "definitions": [
+     {
+      "text": "Passion",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "it’s commonly said",
+      "for": "homophone",
+      "note": "commonly said means spoken in a casual accent, so the word is judged by its sound with the H dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "more difficult",
+      "gives": "ARDOUR",
+      "soundsLike": "'ARDER",
+      "note": "more difficult = HARDER, said without its H"
+     }
+    ],
+    "explanation": {
+     "surface": "A wry remark that love gets tougher, as people say.",
+     "walkthrough": "'Commonly' signals a dropped H, the classic marker of Cockney or casual London speech; in a British accent the final R is silent too, so 'ARDER and ARDOUR match.",
+     "definitionFit": "Ardour is intense feeling or enthusiasm, a word for passion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "commonly"
+    }
+   }
   },
   {
    "number": 8,
@@ -148,7 +536,56 @@
     "text": "Destitute, one tending to wander",
     "enumeration": "8"
    },
-   "solution": "INDIGENT"
+   "solution": "INDIGENT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INDIGENT",
+    "definitions": [
+     {
+      "text": "Destitute",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to wander",
+      "for": "anagram",
+      "note": "letters that wander stray from their places"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "one = I, the Roman numeral"
+     },
+     {
+      "clueFragment": "tending",
+      "gives": "TENDING",
+      "note": "anagram fodder, 7 letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ITENDING",
+       "gives": "INDIGENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A penniless drifter, the kind of person who tends to roam.",
+     "walkthrough": "'One tending to wander' reads as a description of a vagrant that defines 'Destitute'; really it is I plus TENDING, rearranged.",
+     "definitionFit": "Indigent means poor to the point of lacking necessities, which is destitute."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tending"
+    }
+   }
   },
   {
    "number": 9,
@@ -168,7 +605,68 @@
      }
     ]
    },
-   "solution": "TROUSERCLIP"
+   "solution": "TROUSERCLIP",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TROUSER CLIP",
+    "definitions": [
+     {
+      "text": "This cyclist might need",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crashing",
+      "for": "anagram",
+      "note": "a crash scatters the word's letters"
+     },
+     {
+      "text": "during",
+      "for": "container",
+      "note": "the scrambled word happens during the journey, so it sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "closure",
+      "gives": "OUSERCL",
+      "note": "CLOSURE rearranged"
+     },
+     {
+      "clueFragment": "journey",
+      "gives": "TRIP",
+      "note": "a journey = a trip"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TR",
+      "OUSERCL",
+      "IP"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CLOSURE",
+       "gives": "OUSERCL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cyclist who has crashed on a ride might need some emotional closure.",
+     "walkthrough": "'Closure' suggests an emotional ending after an accident; here it is only letters, scrambled and put inside TRIP. The definition is a description, not a synonym.",
+     "definitionFit": "A trouser clip holds a trouser leg tight at the ankle so it does not catch in a bicycle chain, a closure a cyclist needs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "closure"
+    }
+   }
   },
   {
    "number": 10,
@@ -182,7 +680,56 @@
     "text": "Drink back in pubs close by",
     "enumeration": "6"
    },
-   "solution": "SHANDY"
+   "solution": "SHANDY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SHANDY",
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back in",
+      "for": "letter_selection",
+      "note": "the back of the word is its last letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pubs",
+      "gives": "S",
+      "select": "last",
+      "note": "the last letter of pubs"
+     },
+     {
+      "clueFragment": "close by",
+      "gives": "HANDY",
+      "note": "something handy is close by, near to hand"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "HANDY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone orders a drink back at the local pubs nearby.",
+     "walkthrough": "'Drink back' looks like a reversal of a drink word; 'back' belongs to 'pubs' instead. A shandy is beer mixed with lemonade, a British pub staple.",
+     "definitionFit": "Shandy is a drink of beer mixed with lemonade or ginger beer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 11,
@@ -196,7 +743,42 @@
     "text": "Wait, in just a year",
     "enumeration": "4"
    },
-   "solution": "STAY"
+   "solution": "STAY",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "STAY",
+    "definitions": [
+     {
+      "text": "Wait",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the answer is literally in the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "just a year",
+      "gives": "STAY",
+      "note": "juST A Year"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is asked to be patient: it will only be a year.",
+     "walkthrough": "The answer runs across the word breaks in the last three words.",
+     "definitionFit": "A plain synonym: both verbs mean remaining where you are until something happens."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -216,7 +798,47 @@
      }
     ]
    },
-   "solution": "THOUGHTOUT"
+   "solution": "THOUGHTOUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "THOUGHT OUT",
+    "definitions": [
+     {
+      "text": "Carefully considered",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "still",
+      "gives": "THOUGH",
+      "note": "still = though, as in 'still, it was worth it'"
+     },
+     {
+      "clueFragment": "sell",
+      "gives": "TOUT",
+      "note": "to tout is to sell or push goods"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THOUGH",
+      "TOUT"
+     ]
+    },
+    "explanation": {
+     "surface": "A merchant who has weighed things up decides to go on selling.",
+     "walkthrough": "The wordplay cuts the letters at a different point from the enumeration, so the T of the first word travels over to begin the second.",
+     "definitionFit": "A phrasal-verb participle: a plan worked through in the mind in detail has been carefully considered."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "still"
+    }
+   }
   },
   {
    "number": 13,
@@ -236,7 +858,56 @@
      }
     ]
    },
-   "solution": "FOURTHESTATE"
+   "solution": "FOURTHESTATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FOURTH ESTATE",
+    "definitions": [
+     {
+      "text": "journalists",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "written by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "square",
+      "gives": "FOUR",
+      "note": "four is a square number, two times two"
+     },
+     {
+      "clueFragment": "Article",
+      "gives": "THE",
+      "note": "the definite article"
+     },
+     {
+      "clueFragment": "say",
+      "gives": "STATE",
+      "note": "to say is to state"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOUR",
+      "THE",
+      "STATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper feature written by some rather old-fashioned reporters.",
+     "walkthrough": "'Written by' means placed beside, so the article-and-say pair follows the number. 'Square' reads as the slang for stuffy, but it is the number.",
+     "definitionFit": "The Fourth Estate is the press, journalists seen as a power alongside the traditional estates of the realm."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "square"
+    }
+   }
   },
   {
    "number": 14,
@@ -250,7 +921,47 @@
     "text": "Circuit people follow",
     "enumeration": "9"
    },
-   "solution": "RACETRACK"
+   "solution": "RACETRACK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RACETRACK",
+    "definitions": [
+     {
+      "text": "Circuit",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "people",
+      "gives": "RACE",
+      "note": "a race is a people or nation"
+     },
+     {
+      "clueFragment": "follow",
+      "gives": "TRACK",
+      "note": "to track is to follow"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RACE",
+      "TRACK"
+     ]
+    },
+    "explanation": {
+     "surface": "Spectators follow the laps around a course.",
+     "walkthrough": "The clue reads as a statement about fans; really it is two simple synonyms placed one after the other.",
+     "definitionFit": "A circuit is a motor-racing course, a racetrack."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "people"
+    }
+   }
   },
   {
    "number": 15,
@@ -264,7 +975,55 @@
     "text": "Bishop, say, into fruit — bon vivant",
     "enumeration": "8"
    },
-   "solution": "GOURMAND"
+   "solution": "GOURMAND",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GOURMAND",
+    "definitions": [
+     {
+      "text": "bon vivant",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "the piece goes into the fruit word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bishop, say",
+      "gives": "MAN",
+      "note": "a bishop is one of the chess pieces, which are also called men"
+     },
+     {
+      "clueFragment": "fruit",
+      "gives": "GOURD",
+      "note": "a gourd is a hard-skinned fruit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GOUR",
+      "MAN",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A clergyman with a fondness for fruit turns out to be a lover of the good life.",
+     "walkthrough": "'Say' signals an example: a bishop is one kind of chessman, so MAN; it is not the clergyman or a B.",
+     "definitionFit": "A gourmand is someone who loves good food and drink, a bon vivant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bishop"
+    }
+   }
   },
   {
    "number": 16,
@@ -278,7 +1037,54 @@
     "text": "Flock in ignorance got lost",
     "enumeration": "12"
    },
-   "solution": "CONGREGATION"
+   "solution": "CONGREGATION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CONGREGATION",
+    "definitions": [
+     {
+      "text": "Flock",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "got lost",
+      "for": "anagram",
+      "note": "letters that get lost wander out of their order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ignorance got",
+      "gives": "IGNORANCEGOT",
+      "note": "anagram fodder, 12 letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IGNORANCEGOT",
+       "gives": "CONGREGATION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A flock of sheep, knowing no better, wandered off.",
+     "walkthrough": "'Got' does double work in the surface as part of 'got lost', but its letters are fodder and only 'lost' is really needed as the signal.",
+     "definitionFit": "A church congregation is the flock a pastor tends."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Flock"
+    }
+   }
   },
   {
    "number": 17,
@@ -292,7 +1098,54 @@
     "text": "On edge seeing Venus, or agitated",
     "enumeration": "7"
    },
-   "solution": "NERVOUS"
+   "solution": "NERVOUS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NERVOUS",
+    "definitions": [
+     {
+      "text": "On edge",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "agitated",
+      "for": "anagram",
+      "note": "agitated letters are shaken up into a new order"
+     }
+    ],
+    "linkWords": [
+     "seeing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Venus, or",
+      "gives": "VENUSOR",
+      "note": "anagram fodder, 7 letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "VENUSOR",
+       "gives": "NERVOUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone jumpy about spotting Venus in the sky, or simply unsettled.",
+     "walkthrough": "The surface lists two possible states, but 'or' is just letters in the fodder.",
+     "definitionFit": "A plain synonym: 'on edge' is the idiom for the jittery, anxious state."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "or"
+    }
+   }
   },
   {
    "number": 18,
@@ -306,7 +1159,62 @@
     "text": "Worrier upset and hurt: sweet, saucy thing",
     "enumeration": "7"
    },
-   "solution": "GANACHE"
+   "solution": "GANACHE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "GANACHE",
+    "definitions": [
+     {
+      "text": "sweet, saucy thing",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down clue, upset turns the word upside down so it reads bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Worrier",
+      "gives": "NAG",
+      "note": "a nag worries at people"
+     },
+     {
+      "clueFragment": "hurt",
+      "gives": "ACHE",
+      "note": "to hurt is to ache"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GAN",
+      "ACHE"
+     ],
+     "reversals": [
+      {
+       "from": "NAG",
+       "to": "GAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fretful person, upset and wounded, consoles themselves with something sweet and cheeky.",
+     "walkthrough": "'Saucy' suggests cheekiness, but it is literal: ganache is a sauce-like mixture.",
+     "definitionFit": "Ganache is a smooth mixture of chocolate and cream, used as a sweet sauce, filling or icing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "saucy"
+    }
+   }
   },
   {
    "number": 19,
@@ -320,7 +1228,62 @@
     "text": "Calling nurse, medicine finally swallowed",
     "enumeration": "6"
    },
-   "solution": "CAREER"
+   "solution": "CAREER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CAREER",
+    "definitions": [
+     {
+      "text": "Calling",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally means the last letter of the word"
+     },
+     {
+      "text": "swallowed",
+      "for": "container",
+      "note": "the letter is swallowed by the nurse word, ending up inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "medicine",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of medicine"
+     },
+     {
+      "clueFragment": "nurse",
+      "gives": "CARER",
+      "note": "a carer looks after the sick, as a nurse does"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CARE",
+      "E",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A nurse is called over once the patient has finally taken the medicine.",
+     "walkthrough": "'Calling' suggests summoning the nurse; it is the definition, meaning vocation.",
+     "definitionFit": "A plain synonym in the sense of vocation: the work a person feels drawn to and follows through life."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Calling"
+    }
+   }
   },
   {
    "number": 20,
@@ -340,7 +1303,53 @@
      }
     ]
    },
-   "solution": "MASTERPLAN"
+   "solution": "MASTERPLAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MASTER PLAN",
+    "definitions": [
+     {
+      "text": "Brilliant strategy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reinterpretation of",
+      "for": "anagram",
+      "note": "to reinterpret the letters is to read them another way"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "maps learnt",
+      "gives": "MAPSLEARNT",
+      "note": "anagram fodder, 10 letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MAPSLEARNT",
+       "gives": "MASTERPLAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A general devises a clever strategy by reading the maps he has studied in a new way.",
+     "walkthrough": "The military picture of maps and strategy hides a straight rearrangement of the ten letters.",
+     "definitionFit": "A plain synonym: the phrase names a clever overall scheme, often said admiringly or ironically."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -354,7 +1363,50 @@
     "text": "After conflict, little time for growth",
     "enumeration": "4"
    },
-   "solution": "WART"
+   "solution": "WART",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WART",
+    "definitions": [
+     {
+      "text": "growth",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "conflict",
+      "gives": "WAR",
+      "note": "a conflict = a war"
+     },
+     {
+      "clueFragment": "little time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WAR",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "After a war, a short pause allows a country to grow again.",
+     "walkthrough": "'After conflict' places T after WAR. 'Growth' looks like economic recovery but is a lump on the skin.",
+     "definitionFit": "A definition by kind: the answer is one sort of growth, a small hard lump on the skin caused by a virus."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "growth"
+    }
+   }
   },
   {
    "number": 21,
@@ -368,7 +1420,43 @@
     "text": "Reportedly untamed author",
     "enumeration": "5"
    },
-   "solution": "WILDE"
+   "solution": "WILDE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "WILDE",
+    "definitions": [
+     {
+      "text": "author",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reportedly",
+      "for": "homophone",
+      "note": "what is reported is heard, so the sound is what counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "untamed",
+      "gives": "WILDE",
+      "soundsLike": "WILD",
+      "note": "untamed = wild, which sounds the same as the surname"
+     }
+    ],
+    "explanation": {
+     "surface": "Gossip says a certain writer is quite unruly.",
+     "walkthrough": "Oscar Wilde, the Irish playwright and wit, fits the surface of a writer with a wild reputation.",
+     "definitionFit": "Oscar Wilde was an author of plays, stories and one novel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -382,7 +1470,67 @@
     "text": "Story read backwards during journey, sweet",
     "enumeration": "6"
    },
-   "solution": "GELATO"
+   "solution": "GELATO",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "GELATO",
+    "definitions": [
+     {
+      "text": "sweet",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "read backwards",
+      "for": "reversal",
+      "note": "the word is read from its last letter to its first"
+     },
+     {
+      "text": "during",
+      "for": "container",
+      "note": "the reversed word sits within the journey word, as something happens during a trip"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Story",
+      "gives": "TALE",
+      "note": "a story = a tale"
+     },
+     {
+      "clueFragment": "journey",
+      "gives": "GO",
+      "note": "a go is a turn or trip, as in 'have a go'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "ELAT",
+      "O"
+     ],
+     "reversals": [
+      {
+       "from": "TALE",
+       "to": "ELAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A child hears a story read aloud on a journey and gets a treat.",
+     "walkthrough": "'Read' suggests a bedtime story, but it only tells you which way to take the letters. 'Sweet' is the British word for a dessert course, not a candy.",
+     "definitionFit": "Gelato is Italian ice cream, a sweet in the British sense of dessert."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "read"
+    }
+   }
   },
   {
    "number": 23,
@@ -396,7 +1544,43 @@
     "text": "Curious individual",
     "enumeration": "8"
    },
-   "solution": "PECULIAR"
+   "solution": "PECULIAR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PECULIAR",
+    "definitions": [
+     {
+      "text": "Curious",
+      "at": 0
+     },
+     {
+      "text": "individual",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Curious",
+      "gives": "PECULIAR",
+      "note": "odd, strange"
+     },
+     {
+      "clueFragment": "individual",
+      "gives": "PECULIAR",
+      "note": "belonging to one person or thing alone, particular"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Peculiar means both odd and belonging to one person alone, as in 'a custom peculiar to him'.",
+     "definitionFit": "Something curious is peculiar, and something individual or particular is peculiar to its owner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -410,7 +1594,62 @@
     "text": "Dashing, hurried to collect skirts in Kigali",
     "enumeration": "6"
    },
-   "solution": "RAKISH"
+   "solution": "RAKISH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "RAKISH",
+    "definitions": [
+     {
+      "text": "Dashing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "skirts in",
+      "for": "letter_selection",
+      "note": "the skirts of a word are its outer edges"
+     },
+     {
+      "text": "to collect",
+      "for": "container",
+      "note": "the hurried word collects the letters, taking them inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Kigali",
+      "gives": "KI",
+      "select": "outer",
+      "note": "the first and last letters of Kigali"
+     },
+     {
+      "clueFragment": "hurried",
+      "gives": "RASH",
+      "note": "a rash decision is a hurried one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RA",
+      "KI",
+      "SH"
+     ]
+    },
+    "explanation": {
+     "surface": "A dashing traveller rushes round the Rwandan capital to pick up some skirts.",
+     "walkthrough": "'Skirts' reads as clothing to collect, but it means the edges of Kigali. Kigali is the capital of Rwanda.",
+     "definitionFit": "Rakish means dashingly jaunty and a little disreputable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "skirts"
+    }
+   }
   },
   {
    "number": 25,
@@ -424,7 +1663,45 @@
     "text": "A great foot perhaps?",
     "enumeration": "6"
    },
-   "solution": "LEGEND"
+   "solution": "LEGEND",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LEGEND",
+    "definitions": [
+     {
+      "text": "A great",
+      "at": 0
+     },
+     {
+      "text": "foot perhaps",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A great",
+      "gives": "LEGEND",
+      "note": "a great as a noun: one of the famous figures in a field"
+     },
+     {
+      "clueFragment": "foot perhaps",
+      "gives": "LEGEND",
+      "note": "the foot is the part at the bottom of a limb; 'perhaps' marks it as one example"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second meaning is a split reading: a foot is one example of a LEG END, the end of a leg, with 'perhaps' flagging the example.",
+     "definitionFit": "A legend is one of the greats, a famous figure, and the foot sits at a leg's end."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "foot"
+    }
+   }
   }
  ]
 }
