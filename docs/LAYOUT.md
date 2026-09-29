@@ -659,6 +659,13 @@ tools/suggest_demand.py                      asks Google autocomplete which puzz
 tools/turn_cost.py                           how many turns an annotation session takes, from
                                              the transcripts — logged nightly so the figure
                                              can’t go stale unnoticed
+tools/annotate_audit.py                      ranks what annotation runs spend turns on —
+                                             first-check failures by check, refused tool calls,
+                                             cost and turn trend — from the transcripts; daily,
+                                             and wakes the room only on a new or worse top item
+tools/test_annotate_audit.sh                 tests tools/annotate_audit.py: rule naming from
+                                             the validator's AST, and that an unchanged finding
+                                             never wakes the room twice
 tools/make_hint_packets.js                   blind solve-packets, to grade a hint by whether it
                                              gets a solver unstuck
 tools/grade_clues.py                         blind A/B/C/D packets of our clues against real
