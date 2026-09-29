@@ -23,6 +23,9 @@
   "date": "2019-04-25",
   "check": "grid rebuilt from the blog's light list (unique, enumeration length); every answer written into it with each crossing agreeing; the grid proves the blog's answer wrong at 9 across, 11 down, corrected here"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "id": "1-across",
@@ -37,7 +40,55 @@
     "text": "Medicine administered, drop fed to beastly female",
     "enumeration": "6"
    },
-   "solution": "DOSAGE"
+   "solution": "DOSAGE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DOSAGE",
+    "definitions": [
+     {
+      "text": "Medicine administered",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fed to",
+      "for": "container",
+      "note": "food fed to an animal ends up inside it, so SAG goes inside DOE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beastly female",
+      "gives": "DOE",
+      "note": "a doe is a female deer or rabbit"
+     },
+     {
+      "clueFragment": "drop",
+      "gives": "SAG",
+      "note": "to sag is to drop"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "SAG",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A vet drips medicine into an animal's feed.",
+     "walkthrough": "'Beastly female' sounds like an insult but just means a female beast.",
+     "definitionFit": "The word names the measured amount of a medicine that is given, so it is the medicine as administered."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "beastly"
+    }
+   }
   },
   {
    "id": "1-down",
@@ -52,7 +103,51 @@
     "text": "Illustrate manufacture of rice beds",
     "enumeration": "8"
    },
-   "solution": "DESCRIBE"
+   "solution": "DESCRIBE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DESCRIBE",
+    "definitions": [
+     {
+      "text": "Illustrate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "manufacture of",
+      "for": "anagram",
+      "note": "manufacturing reshapes raw material, so the letters of RICE BEDS are made into something new"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rice beds",
+      "gives": "RICEBEDS",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RICEBEDS",
+       "gives": "DESCRIBE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone explains how rice paddies are made.",
+     "walkthrough": "'Illustrate' suggests pictures, but here it means explain in words.",
+     "definitionFit": "A plain synonym: to illustrate a point is to depict or explain it in words."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "beds"
+    }
+   }
   },
   {
    "id": "2-down",
@@ -67,7 +162,45 @@
     "text": "Writing piece, time passed",
     "enumeration": "8"
    },
-   "solution": "SENTENCE"
+   "solution": "SENTENCE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SENTENCE",
+    "definitions": [
+     {
+      "text": "Writing piece",
+      "at": 0
+     },
+     {
+      "text": "time passed",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Writing piece",
+      "gives": "SENTENCE",
+      "note": "a unit of written language, subject plus verb"
+     },
+     {
+      "clueFragment": "time passed",
+      "gives": "SENTENCE",
+      "note": "the prison term a judge passes on a convict"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Time passed' looks like time elapsing; it is time in prison, which a judge passes.",
+     "definitionFit": "The word covers both a grammatical unit of writing and the punishment a court hands down."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "passed"
+    }
+   }
   },
   {
    "id": "3-down",
@@ -82,7 +215,48 @@
     "text": "Travel towards nanny, for example",
     "enumeration": "4"
    },
-   "solution": "GOAT"
+   "solution": "GOAT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GOAT",
+    "definitions": [
+     {
+      "text": "nanny, for example",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Travel",
+      "gives": "GO",
+      "note": "to travel is to go"
+     },
+     {
+      "clueFragment": "towards",
+      "gives": "AT",
+      "note": "the preposition of direction, as in 'aim at'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GO",
+      "AT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone heads off to visit the children's nanny.",
+     "walkthrough": "'Nanny' wants to be a childminder; here it is a female farm animal.",
+     "definitionFit": "A definition by example: a nanny is the female of this animal, a billy the male."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "nanny"
+    }
+   }
   },
   {
    "id": "4-across",
@@ -97,7 +271,54 @@
     "text": "A card she played in party game",
     "enumeration": "8"
    },
-   "solution": "CHARADES"
+   "solution": "CHARADES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CHARADES",
+    "definitions": [
+     {
+      "text": "party game",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "played",
+      "for": "anagram",
+      "note": "a card that is played is moved around, so the letters of A CARD SHE are shifted"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A card she",
+      "gives": "ACARDSHE",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ACARDSHE",
+       "gives": "CHARADES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman plays a card during a party game.",
+     "walkthrough": "The card game picture hides that the answer is a different party game altogether.",
+     "definitionFit": "The miming game of guessing titles is a classic parlour and party game."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "card"
+    }
+   }
   },
   {
    "id": "5-down",
@@ -118,7 +339,63 @@
      }
     ]
    },
-   "solution": "HOUSESPARROW"
+   "solution": "HOUSESPARROW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HOUSE SPARROW",
+    "definitions": [
+     {
+      "text": "one chirpy",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "completing",
+      "for": "charade",
+      "note": "a piece that completes another comes at its end, so the box word follows the bingo word"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bingo",
+      "gives": "HOUSE",
+      "note": "the winning shout in British bingo when a card is full"
+     },
+     {
+      "clueFragment": "Box",
+      "gives": "SPAR",
+      "note": "to box in practice"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "ROW",
+      "note": "a line of things side by side"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOUSE",
+      "SPAR",
+      "ROW"
+     ]
+    },
+    "explanation": {
+     "surface": "A bingo player filling the last box on a line asks if anyone else is cheerful.",
+     "walkthrough": "The surface makes 'Box' a square on a bingo card; it is the verb, to fight with fists.",
+     "definitionFit": "The common small brown bird of towns is known for its constant chirping."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Box"
+    }
+   }
   },
   {
    "id": "6-down",
@@ -133,7 +410,48 @@
     "text": "Dirty cap removed from oil",
     "enumeration": "4"
    },
-   "solution": "RUDE"
+   "solution": "RUDE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RUDE",
+    "definitions": [
+     {
+      "text": "Dirty",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cap removed from",
+      "for": "deletion",
+      "note": "the cap of a down word is its top letter, so C comes off"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "oil",
+      "gives": "CRUDE",
+      "note": "unrefined oil"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RUDE"
+     ]
+    },
+    "explanation": {
+     "surface": "Taking the cap off an oil can makes a mess.",
+     "walkthrough": "In a down clue the cap is the first letter, C.",
+     "definitionFit": "A plain synonym in the sense of smutty, as in a dirty joke."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cap"
+    }
+   }
   },
   {
    "id": "7-down",
@@ -148,7 +466,62 @@
     "text": "Club — one going down around start of recession",
     "enumeration": "6"
    },
-   "solution": "DRIVER"
+   "solution": "DRIVER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "DRIVER",
+    "definitions": [
+     {
+      "text": "Club",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "start of",
+      "for": "letter_selection",
+      "note": "the start of 'recession' is its first letter"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "DIVER goes around R, holding it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one going down",
+      "gives": "DIVER",
+      "note": "someone who plunges into water"
+     },
+     {
+      "clueFragment": "recession",
+      "gives": "R",
+      "select": "first",
+      "note": "first letter of recession"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "R",
+      "IVER"
+     ]
+    },
+    "explanation": {
+     "surface": "A club's fortunes sink as a recession begins.",
+     "walkthrough": "'Club' looks like a society; it is a golf club.",
+     "definitionFit": "A definition by example: this is the golf club used for long tee shots."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Club"
+    }
+   }
   },
   {
    "id": "8-down",
@@ -163,7 +536,54 @@
     "text": "Bird family inferior to relative",
     "enumeration": "6"
    },
-   "solution": "SISKIN"
+   "solution": "SISKIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SISKIN",
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inferior to",
+      "for": "charade",
+      "note": "in a down answer, what is inferior sits below, so the family word comes under the relative"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "relative",
+      "gives": "SIS",
+      "note": "short for sister"
+     },
+     {
+      "clueFragment": "family",
+      "gives": "KIN",
+      "note": "one's relations"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SIS",
+      "KIN"
+     ]
+    },
+    "explanation": {
+     "surface": "One branch of a family thinks itself beneath another relative.",
+     "walkthrough": "'Inferior' sounds like a judgement of worth, but in a down clue it simply means lower in the grid.",
+     "definitionFit": "A definition by example: this is a small yellow-green finch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "inferior"
+    }
+   }
   },
   {
    "id": "9-across",
@@ -178,7 +598,42 @@
     "text": "Footwear in moccasins and a loafer",
     "enumeration": "6"
    },
-   "solution": "SANDAL"
+   "solution": "SANDAL",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SANDAL",
+    "definitions": [
+     {
+      "text": "Footwear",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the answer is inside the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "moccasins and a loafer",
+      "gives": "SANDAL",
+      "note": "moccasinS AND A Loafer"
+     }
+    ],
+    "explanation": {
+     "surface": "A list of shoes, one of them among the moccasins and loafers.",
+     "walkthrough": "The answer sits across three words, starting with the last letter of 'moccasins'.",
+     "definitionFit": "A definition by example: an open strapped shoe is one kind of footwear."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "10-across",
@@ -193,7 +648,51 @@
     "text": "After embroidery, I undress various things",
     "enumeration": "8"
    },
-   "solution": "SUNDRIES"
+   "solution": "SUNDRIES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SUNDRIES",
+    "definitions": [
+     {
+      "text": "various things",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "After embroidery",
+      "for": "anagram",
+      "note": "embroidery works threads into a new pattern, so the letters of I UNDRESS are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I undress",
+      "gives": "IUNDRESS",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IUNDRESS",
+       "gives": "SUNDRIES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "After a day of sewing someone gets undressed.",
+     "walkthrough": "'After' reads as a time word, but 'After embroidery' tells you to work the letters over.",
+     "definitionFit": "A plain synonym: miscellaneous small items not worth listing separately."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "embroidery"
+    }
+   }
   },
   {
    "id": "11-down",
@@ -208,7 +707,50 @@
     "text": "Ludicrous plan mattered in section of business",
     "enumeration": "12"
    },
-   "solution": "DEPARTMENTAL"
+   "solution": "DEPARTMENTAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DEPARTMENTAL",
+    "definitions": [
+     {
+      "text": "in section of business",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Ludicrous",
+      "for": "anagram",
+      "note": "something ludicrous is absurdly disordered, so the letters of PLAN MATTERED are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "plan mattered",
+      "gives": "PLANMATTERED",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PLANMATTERED",
+       "gives": "DEPARTMENTAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A silly plan was taken seriously in one part of a company.",
+     "walkthrough": "The definition is an adjectival phrase, so read it as 'belonging to one part of a firm'.",
+     "definitionFit": "The adjective describes what belongs to or happens within one department of an organisation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "12-across",
@@ -223,7 +765,44 @@
     "text": "Dance anything but a dream, did you say?",
     "enumeration": "4"
    },
-   "solution": "REEL"
+   "solution": "REEL",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "REEL",
+    "definitions": [
+     {
+      "text": "Dance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "did you say?",
+      "for": "homophone",
+      "note": "asking what was said points to the sound, not the spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "anything but a dream",
+      "gives": "REEL",
+      "soundsLike": "REAL",
+      "note": "what actually exists is not a dream"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone asks whether a dance was a dream or really happened.",
+     "walkthrough": "The dance word is spelt differently from the word for 'not imaginary' but said the same.",
+     "definitionFit": "A definition by example: a lively Scottish or Irish folk dance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dream"
+    }
+   }
   },
   {
    "id": "13-across",
@@ -238,7 +817,54 @@
     "text": "Country folk behind you",
     "enumeration": "5"
    },
-   "solution": "YEMEN"
+   "solution": "YEMEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "YEMEN",
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "behind",
+      "for": "charade",
+      "note": "the folk come behind you, so they follow it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "you",
+      "gives": "YE",
+      "note": "old form of you"
+     },
+     {
+      "clueFragment": "folk",
+      "gives": "MEN",
+      "note": "people"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YE",
+      "MEN"
+     ]
+    },
+    "explanation": {
+     "surface": "Rural people are standing right behind you.",
+     "walkthrough": "'Country folk' looks like one phrase meaning rustics; split it after 'Country'.",
+     "definitionFit": "A definition by example: a nation at the south-west tip of Arabia."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Country"
+    }
+   }
   },
   {
    "id": "14-across",
@@ -253,7 +879,54 @@
     "text": "Shop that was run by me, turned over",
     "enumeration": "4"
    },
-   "solution": "DELI"
+   "solution": "DELI",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "DELI",
+    "definitions": [
+     {
+      "text": "Shop",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned over",
+      "for": "reversal",
+      "note": "turning something over puts its letters back to front"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that was run by me",
+      "gives": "ILED",
+      "note": "I LED: what I led was run by me"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DELI"
+     ],
+     "reversals": [
+      {
+       "from": "ILED",
+       "to": "DELI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A former shopkeeper says the shop they ran has changed hands.",
+     "walkthrough": "'Turned over' suggests takings or a sale, but it is the instruction to write the phrase backwards.",
+     "definitionFit": "A definition by example: a delicatessen, a shop selling cooked meats and cheeses."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turned"
+    }
+   }
   },
   {
    "id": "15-down",
@@ -268,7 +941,50 @@
     "text": "Carrier in the morning brings tea",
     "enumeration": "5"
    },
-   "solution": "ASSAM"
+   "solution": "ASSAM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASSAM",
+    "definitions": [
+     {
+      "text": "tea",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "brings"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Carrier",
+      "gives": "ASS",
+      "note": "a donkey carries loads"
+     },
+     {
+      "clueFragment": "in the morning",
+      "gives": "AM",
+      "note": "a.m., ante meridiem"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASS",
+      "AM"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone delivers the morning cup of tea.",
+     "walkthrough": "'Carrier' suggests a person or airline; it is a beast of burden.",
+     "definitionFit": "A definition by example: a strong black tea from north-east India."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Carrier"
+    }
+   }
   },
   {
    "id": "16-down",
@@ -283,7 +999,61 @@
     "text": "Potential weapon provided in joint, sawn off",
     "enumeration": "5"
    },
-   "solution": "KNIFE"
+   "solution": "KNIFE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "KNIFE",
+    "definitions": [
+     {
+      "text": "Potential weapon",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sawn off",
+      "for": "deletion",
+      "note": "sawing off the end of the joint cuts its last letter"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the word for 'provided' goes in the shortened joint"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "joint",
+      "gives": "KNEE",
+      "note": "the joint in the leg"
+     },
+     {
+      "clueFragment": "provided",
+      "gives": "IF",
+      "note": "as in 'provided that'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KN",
+      "IF",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A sawn-off shotgun hidden in a joint of meat.",
+     "walkthrough": "'Sawn off' conjures a shotgun, but it only trims the end of the joint before the insertion.",
+     "definitionFit": "A kitchen tool that can be used to wound, so it is only potentially a weapon."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "joint"
+    }
+   }
   },
   {
    "id": "17-across",
@@ -298,7 +1068,47 @@
     "text": "Demonstratively cheery rugby players drinking",
     "enumeration": "12"
    },
-   "solution": "BACKSLAPPING"
+   "solution": "BACKSLAPPING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BACKSLAPPING",
+    "definitions": [
+     {
+      "text": "Demonstratively cheery",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rugby players",
+      "gives": "BACKS",
+      "note": "the players who line up behind the forwards"
+     },
+     {
+      "clueFragment": "drinking",
+      "gives": "LAPPING",
+      "note": "drinking with the tongue, as a cat does"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BACKS",
+      "LAPPING"
+     ]
+    },
+    "explanation": {
+     "surface": "Rugby players get noisy and jolly over drinks.",
+     "walkthrough": "In rugby the forwards form the scrum and the faster players behind them are named for their position.",
+     "definitionFit": "The word pictures slapping people on the back, a showy display of good cheer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drinking"
+    }
+   }
   },
   {
    "id": "18-down",
@@ -313,7 +1123,48 @@
     "text": "Support worker shot, sportingly?",
     "enumeration": "8"
    },
-   "solution": "BACKHAND"
+   "solution": "BACKHAND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BACKHAND",
+    "definitions": [
+     {
+      "text": "shot, sportingly?",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Support",
+      "gives": "BACK",
+      "note": "to support a cause"
+     },
+     {
+      "clueFragment": "worker",
+      "gives": "HAND",
+      "note": "a labourer, as in farmhand"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BACK",
+      "HAND"
+     ]
+    },
+    "explanation": {
+     "surface": "A support worker has been shot, and the clue asks if it was sporting.",
+     "walkthrough": "'Shot' reads as wounded; the question mark and 'sportingly' make it a tennis stroke.",
+     "definitionFit": "A definition by example: a tennis stroke played with the back of the hand facing the ball."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "shot"
+    }
+   }
   },
   {
    "id": "19-down",
@@ -328,7 +1179,61 @@
     "text": "Greek articles around Northern Ireland",
     "enumeration": "8"
    },
-   "solution": "ATHENIAN"
+   "solution": "ATHENIAN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ATHENIAN",
+    "definitions": [
+     {
+      "text": "Greek",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "the articles sit around the abbreviation, holding it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "articles",
+      "gives": "ATHE",
+      "note": "the indefinite and definite articles"
+     },
+     {
+      "clueFragment": "Northern Ireland",
+      "gives": "NI",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "articles",
+      "gives": "AN",
+      "note": "the other form of the indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "THE",
+      "NI",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "Greek newspapers write about Northern Ireland.",
+     "walkthrough": "'Articles' suggests newspaper pieces; it is grammar, and here it covers three little words, not one.",
+     "definitionFit": "A definition by example: someone from the Greek capital is one kind of Greek."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "articles"
+    }
+   }
   },
   {
    "id": "20-across",
@@ -353,7 +1258,53 @@
      }
     ]
    },
-   "solution": "MATTEROFFACT"
+   "solution": "MATTEROFFACT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MATTER-OF-FACT",
+    "definitions": [
+     {
+      "text": "Commonplace",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "affair",
+      "gives": "MATTER",
+      "note": "an affair in the sense of a business or concern"
+     },
+     {
+      "clueFragment": "rotten",
+      "gives": "OFF",
+      "note": "food that has gone bad"
+     },
+     {
+      "clueFragment": "deed",
+      "gives": "ACT",
+      "note": "something done"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MATTER",
+      "OFF",
+      "ACT"
+     ]
+    },
+    "explanation": {
+     "surface": "A cheating affair is shrugged off as ordinary despite being a rotten thing to do.",
+     "walkthrough": "'Affair' suggests romance, but here it is just a business or concern.",
+     "definitionFit": "A plain synonym: prosaic and unimaginative, stating things without emotion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "affair"
+    }
+   }
   },
   {
    "id": "21-down",
@@ -368,7 +1319,47 @@
     "text": "African plant for afternoon meal",
     "enumeration": "6"
    },
-   "solution": "PROTEA"
+   "solution": "PROTEA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PROTEA",
+    "definitions": [
+     {
+      "text": "African plant",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for",
+      "gives": "PRO",
+      "note": "in favour of"
+     },
+     {
+      "clueFragment": "afternoon meal",
+      "gives": "TEA",
+      "note": "a light afternoon meal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRO",
+      "TEA"
+     ]
+    },
+    "explanation": {
+     "surface": "An African plant is served up for afternoon tea.",
+     "walkthrough": "'For' looks like a link word but supplies letters.",
+     "definitionFit": "A definition by example: a South African flowering shrub, the country's national flower."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "for"
+    }
+   }
   },
   {
    "id": "22-down",
@@ -383,7 +1374,57 @@
     "text": "Subdued complaint as alcoholic double upended",
     "enumeration": "6"
    },
-   "solution": "MURMUR"
+   "solution": "MURMUR",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "MURMUR",
+    "definitions": [
+     {
+      "text": "Subdued complaint",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upended",
+      "for": "reversal",
+      "note": "in a down clue, upending turns the word bottom to top"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "alcoholic double",
+      "gives": "RUMRUM",
+      "note": "a spirit written twice"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MURMUR"
+     ],
+     "reversals": [
+      {
+       "from": "RUMRUM",
+       "to": "MURMUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone quietly grumbles after a double spirit is knocked over.",
+     "walkthrough": "'Double' reads as a double measure; it means the drink is written twice.",
+     "definitionFit": "A plain synonym: a low, half-voiced grumble."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "double"
+    }
+   }
   },
   {
    "id": "23-across",
@@ -398,7 +1439,50 @@
     "text": "Run away in defeat",
     "enumeration": "4"
    },
-   "solution": "ROUT"
+   "solution": "ROUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ROUT",
+    "definitions": [
+     {
+      "text": "defeat",
+      "at": 12
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Run",
+      "gives": "R",
+      "note": "the cricket abbreviation for a run"
+     },
+     {
+      "clueFragment": "away",
+      "gives": "OUT",
+      "note": "not at home"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "OUT"
+     ]
+    },
+    "explanation": {
+     "surface": "A beaten army runs away.",
+     "walkthrough": "'Run away' looks like the definition of flight; it splits into two pieces.",
+     "definitionFit": "A plain synonym: a crushing defeat that sends the losers fleeing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Run"
+    }
+   }
   },
   {
    "id": "24-across",
@@ -413,7 +1497,50 @@
     "text": "Biblical king, that man getting stick",
     "enumeration": "5"
    },
-   "solution": "HEROD"
+   "solution": "HEROD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HEROD",
+    "definitions": [
+     {
+      "text": "Biblical king",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that man",
+      "gives": "HE",
+      "note": "the pronoun for that man"
+     },
+     {
+      "clueFragment": "stick",
+      "gives": "ROD",
+      "note": "a stick or cane"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HE",
+      "ROD"
+     ]
+    },
+    "explanation": {
+     "surface": "A biblical king gets beaten with a stick.",
+     "walkthrough": "'Getting stick' suggests punishment or criticism, but 'getting' only joins the pieces.",
+     "definitionFit": "A definition by example: the king of Judea in the Gospels, who ordered the massacre of the innocents."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stick"
+    }
+   }
   },
   {
    "id": "25-across",
@@ -428,7 +1555,59 @@
     "text": "Blue whale’s tail seen somewhere off Scotland’s west coast",
     "enumeration": "4"
    },
-   "solution": "SKYE"
+   "solution": "SKYE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SKYE",
+    "definitions": [
+     {
+      "text": "somewhere off Scotland’s west coast",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tail",
+      "for": "letter_selection",
+      "note": "a word's tail is its last letter"
+     }
+    ],
+    "linkWords": [
+     "seen"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Blue",
+      "gives": "SKY",
+      "note": "'the blue' is the sky"
+     },
+     {
+      "clueFragment": "whale’s",
+      "gives": "E",
+      "select": "last",
+      "note": "last letter of whale"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SKY",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A blue whale's tail breaks the surface off the Scottish coast.",
+     "walkthrough": "'Blue whale' is one animal in the surface; split it, and 'blue' becomes the heavens.",
+     "definitionFit": "A definition by example: an island of the Inner Hebrides, off Scotland's west coast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Blue"
+    }
+   }
   },
   {
    "id": "26-down",
@@ -443,7 +1622,57 @@
     "text": "Odd pieces in pile, old coppers?",
     "enumeration": "4"
    },
-   "solution": "PLOD"
+   "solution": "PLOD",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "PLOD",
+    "definitions": [
+     {
+      "text": "coppers",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Odd pieces in",
+      "for": "letter_selection",
+      "note": "the odd-numbered letters, first and third, are taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pile",
+      "gives": "PL",
+      "select": "alternate",
+      "note": "first and third letters of pile"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "OD",
+      "select": "alternate",
+      "note": "first and third letters of old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PL",
+      "OD"
+     ]
+    },
+    "explanation": {
+     "surface": "A pile of old copper coins.",
+     "walkthrough": "'Old coppers' suggests pennies; the answer is British slang for the police, after Mr Plod in the Noddy books.",
+     "definitionFit": "A British slang term for police officers collectively, who are also called coppers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "coppers"
+    }
+   }
   },
   {
    "id": "27-down",
@@ -458,7 +1687,45 @@
     "text": "Engine with a screw loose?",
     "enumeration": "4"
    },
-   "solution": "LOCO"
+   "solution": "LOCO",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LOCO",
+    "definitions": [
+     {
+      "text": "Engine",
+      "at": 0
+     },
+     {
+      "text": "with a screw loose",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Engine",
+      "gives": "LOCO",
+      "note": "short for locomotive"
+     },
+     {
+      "clueFragment": "with a screw loose",
+      "gives": "LOCO",
+      "note": "slang for crazy, from Spanish"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface asks whether an engine is faulty; the question mark flags the second sense, madness.",
+     "definitionFit": "The word is both a clipped form of locomotive and slang for mad, as having a screw loose is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "screw"
+    }
+   }
   },
   {
    "id": "28-across",
@@ -473,7 +1740,47 @@
     "text": "Part-timer behind original design",
     "enumeration": "8"
    },
-   "solution": "TEMPLATE"
+   "solution": "TEMPLATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TEMPLATE",
+    "definitions": [
+     {
+      "text": "original design",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Part-timer",
+      "gives": "TEMP",
+      "note": "a temporary worker"
+     },
+     {
+      "clueFragment": "behind",
+      "gives": "LATE",
+      "note": "behind schedule"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEMP",
+      "LATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A part-time worker is behind an original design.",
+     "walkthrough": "'Behind' looks like a position word placing one piece after another, but it supplies letters.",
+     "definitionFit": "A plain synonym: the master pattern that copies are made from."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "behind"
+    }
+   }
   },
   {
    "id": "29-across",
@@ -488,7 +1795,54 @@
     "text": "African country like that leads",
     "enumeration": "6"
    },
-   "solution": "SOMALI"
+   "solution": "SOMALI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SOMALI",
+    "definitions": [
+     {
+      "text": "African",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leads",
+      "for": "charade",
+      "note": "the phrase for 'like that' leads, so it comes first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "like that",
+      "gives": "SO",
+      "note": "in that way"
+     },
+     {
+      "clueFragment": "country",
+      "gives": "MALI",
+      "note": "a West African country"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SO",
+      "MALI"
+     ]
+    },
+    "explanation": {
+     "surface": "An African country thinks it is ahead of the rest.",
+     "walkthrough": "'African country' looks like the definition, but the answer names a person; the definition is just 'African'.",
+     "definitionFit": "A definition by example: a person from Somalia is an African."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "country"
+    }
+   }
   },
   {
    "id": "30-across",
@@ -503,7 +1857,56 @@
     "text": "Perfect cherry drink for dog",
     "enumeration": "8"
    },
-   "solution": "AIREDALE"
+   "solution": "AIREDALE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AIREDALE",
+    "definitions": [
+     {
+      "text": "dog",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Perfect",
+      "gives": "AI",
+      "note": "A1 means first-rate, written with I for 1"
+     },
+     {
+      "clueFragment": "cherry",
+      "gives": "RED",
+      "note": "the colour"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "ALE",
+      "note": "a beer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AI",
+      "RED",
+      "ALE"
+     ]
+    },
+    "explanation": {
+     "surface": "A perfect cherry drink is served for a dog.",
+     "walkthrough": "'Cherry drink' reads as one thing; split it into a colour and a beer.",
+     "definitionFit": "A definition by example: a large terrier bred in Yorkshire's Aire valley."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cherry"
+    }
+   }
   },
   {
    "id": "31-across",
@@ -518,7 +1921,50 @@
     "text": "Court and office acting badly",
     "enumeration": "6"
    },
-   "solution": "WOODEN"
+   "solution": "WOODEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WOODEN",
+    "definitions": [
+     {
+      "text": "acting badly",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Court",
+      "gives": "WOO",
+      "note": "to court someone romantically"
+     },
+     {
+      "clueFragment": "office",
+      "gives": "DEN",
+      "note": "a study or private room"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WOO",
+      "DEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A lawyer's performance in court and chambers is poor.",
+     "walkthrough": "'Court' looks like a law court; it is the verb meaning to pursue romantically.",
+     "definitionFit": "A plain synonym for stiff, expressionless acting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Court"
+    }
+   }
   }
  ]
 }
