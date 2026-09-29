@@ -15,8 +15,9 @@ Reports, in order of how much they should change our behaviour:
     than it looks. This number is reported whether or not it flatters us.
   * inter-judge agreement, so a lopsided result from one harsh judge is visible
 
+  tools/grade_clues_judge.sh tools/data/grading/runs/<runid>
   python3 tools/score_grading.py --grading tools/data/grading \
-      --packets tools/data/grading/packets --scores /tmp/clue-judging/scores
+      --packets tools/data/grading/runs/<runid>/packets
 
 The key is resolved through the packets the judges actually saw, never through
 whatever key.json happens to be sitting in grading/ today. That distinction cost
@@ -104,14 +105,16 @@ def main():
     ap.add_argument("--grading", default="tools/data/grading")
     ap.add_argument("--packets", default=None,
                     help="the packets the judges saw (default <grading>/packets)")
-    ap.add_argument("--scores", default="/tmp/clue-judging/scores")
+    ap.add_argument("--scores", default=None,
+                    help="judge*.json directory (default <packets>/../scores, "
+                         "where tools/grade_clues_judge.sh writes them)")
     ap.add_argument("--json-out", default=None)
     args = ap.parse_args()
 
     grading = ROOT / args.grading
     packets_dir = Path(args.packets) if args.packets else grading / "packets"
     rid, key = load_key(grading, packets_dir)
-    judges = load_scores(args.scores)
+    judges = load_scores(args.scores or packets_dir.parent / "scores")
     print(f"run {rid}: key from {grading / 'runs' / rid / 'key.json'}")
 
     # rows: (judge, answer, label, is_ours, {axis: score})
