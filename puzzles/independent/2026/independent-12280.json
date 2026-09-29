@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,58 @@
     "text": "Prisoner's label tucked into socks",
     "enumeration": "7"
    },
-   "solution": "HOSTAGE"
+   "solution": "HOSTAGE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HOSTAGE",
+    "definitions": [
+     {
+      "text": "Prisoner",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tucked into",
+      "for": "container",
+      "note": "something tucked into a garment sits inside it, so 'label' goes inside 'socks'"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "socks",
+      "gives": "HOSE",
+      "note": "hose is an old word for stockings or socks"
+     },
+     {
+      "clueFragment": "label",
+      "gives": "TAG",
+      "note": "a tag is a label, as on luggage or clothing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOS",
+      "TAG",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A convict's name tag stuffed inside a pair of socks.",
+     "walkthrough": "The 's reads as a possessive but is really 'is', joining definition to wordplay.",
+     "definitionFit": "Someone held captive as security for a demand is a kind of captive or detainee, hence a prisoner."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "socks"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +101,69 @@
     "text": "Maybe Bob Harris's debut transformed radio?",
     "enumeration": "6"
    },
-   "solution": "HAIRDO"
+   "solution": "HAIRDO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "HAIRDO",
+    "definitions": [
+     {
+      "text": "Maybe Bob",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "debut",
+      "for": "letter_selection",
+      "note": "a debut is a first appearance, so we keep only the opening letter of 'Harris'"
+     },
+     {
+      "text": "transformed",
+      "for": "anagram",
+      "note": "whatever is transformed changes its form, so the letters of 'radio' are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Harris's debut",
+      "gives": "H",
+      "select": "first",
+      "note": "the first letter of Harris"
+     },
+     {
+      "clueFragment": "radio",
+      "gives": "RADIO",
+      "note": "anagram fodder, five letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "AIRDO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RADIO",
+       "gives": "AIRDO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wondering whether the broadcaster Bob Harris's first show changed radio for ever.",
+     "walkthrough": "Bob Harris is a veteran BBC radio DJ, so 'Bob' looks like a first name; it is the haircut, and 'Maybe' flags it as an example.",
+     "definitionFit": "A bob is one particular short haircut style, so it is an example of a styled head of hair."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bob"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +177,56 @@
     "text": "Threadbare throw worn by abbess",
     "enumeration": "6"
    },
-   "solution": "SHABBY"
+   "solution": "SHABBY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SHABBY",
+    "definitions": [
+     {
+      "text": "Threadbare",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "worn by",
+      "for": "container",
+      "note": "a garment worn by someone wraps around them, so 'throw' goes around 'abbess'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "throw",
+      "gives": "SHY",
+      "note": "to shy is to throw, as at a coconut shy"
+     },
+     {
+      "clueFragment": "abbess",
+      "gives": "ABB",
+      "note": "abbess cut to its first three letters, the dictionary abbreviation Abb."
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SH",
+      "ABB",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A nun in charge wearing a worn-out shawl.",
+     "walkthrough": "'Throw' looks like a blanket or shawl, which suits the picture; it is the verb, as at a fairground coconut shy.",
+     "definitionFit": "Cloth that is worn thin through long use looks scruffy and shabby; the two words are synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "throw"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +240,55 @@
     "text": "Skilfully coats item in liquid with 100% effectiveness",
     "enumeration": "10"
    },
-   "solution": "ABSOLUTELY"
+   "solution": "ABSOLUTELY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ABSOLUTELY",
+    "definitions": [
+     {
+      "text": "with 100% effectiveness",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coats",
+      "for": "container",
+      "note": "a layer that coats something surrounds it, so 'Skilfully' wraps 'item in liquid'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Skilfully",
+      "gives": "ABLY",
+      "note": "ably means with skill"
+     },
+     {
+      "clueFragment": "item in liquid",
+      "gives": "SOLUTE",
+      "note": "a solute is the substance dissolved in a liquid solvent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AB",
+      "SOLUTE",
+      "LY"
+     ]
+    },
+    "explanation": {
+     "surface": "A chemistry demonstration: something expertly coated so it works perfectly in a fluid.",
+     "walkthrough": "'Item in liquid' is a chemistry definition for the dissolved substance, not a physical object floating there.",
+     "definitionFit": "Doing something totally, completely and without any reservation is the same as doing it fully or entirely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "coats"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +302,61 @@
     "text": "John almost upended George",
     "enumeration": "5"
    },
-   "solution": "ELIOT"
+   "solution": "ELIOT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "ELIOT",
+    "definitions": [
+     {
+      "text": "George",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost all of something means stopping just short, so the last letter of 'John' is dropped"
+     },
+     {
+      "text": "upended",
+      "for": "reversal",
+      "note": "turning something upside down in a down clue runs it bottom to top, reversing the letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "John almost",
+      "gives": "TOILE",
+      "note": "john is American slang for a lavatory, TOILET, with its last letter removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELIOT"
+     ],
+     "reversals": [
+      {
+       "from": "TOILE",
+       "to": "ELIOT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Two Beatles, John and George, one nearly toppling the other.",
+     "walkthrough": "John and George look like Beatles; John is really a toilet and George is the Victorian novelist George Eliot, author of Middlemarch.",
+     "definitionFit": "George Eliot was the pen name of Mary Ann Evans, the novelist, so the first name leads to the surname."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "John"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +370,39 @@
     "text": "One sometimes working to restore mobile bars?",
     "enumeration": "7"
    },
-   "solution": "CHARGER"
+   "solution": "CHARGER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CHARGER",
+    "definitions": [
+     {
+      "text": "One sometimes working to restore mobile bars?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "restore mobile bars",
+      "note": "surface reading: someone who repairs pubs or snack counters on wheels"
+     },
+     {
+      "clueFragment": "mobile bars",
+      "note": "setter's reading: the signal or battery bars on a mobile phone screen, filled up again by a plug-in device"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Mobile bars' suggests travelling pubs; on a phone the bars are the battery level, and 'sometimes working' is a nod to how temperamental such cables are.",
+     "definitionFit": "A plug-in device that refills a phone battery is exactly what this word names in everyday use."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bars"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +416,67 @@
     "text": "California holiday? Look up somewhere to eat",
     "enumeration": "9"
    },
-   "solution": "CAFETERIA"
+   "solution": "CAFETERIA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "CAFETERIA",
+    "definitions": [
+     {
+      "text": "somewhere to eat",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue 'up' means reading from bottom to top, so 'Look' runs backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "California",
+      "gives": "CA",
+      "note": "CA is the postal abbreviation for California"
+     },
+     {
+      "clueFragment": "holiday",
+      "gives": "FETE",
+      "note": "a fête is a festival or holiday"
+     },
+     {
+      "clueFragment": "Look",
+      "gives": "AIR",
+      "note": "an air is a look or manner, as in 'an air of confidence'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "FETE",
+      "RIA"
+     ],
+     "reversals": [
+      {
+       "from": "AIR",
+       "to": "RIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Planning a Californian holiday and looking up places to eat.",
+     "walkthrough": "'Look up' reads as a single phrasal verb, research; split it, and 'Look' is a noun for an appearance while 'up' reverses it.",
+     "definitionFit": "A self-service restaurant, typically in a workplace or school, is a place where people go for meals."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +490,48 @@
     "text": "A measure of port",
     "enumeration": "4"
    },
-   "solution": "ACRE"
+   "solution": "ACRE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ACRE",
+    "definitions": [
+     {
+      "text": "A measure",
+      "at": 0
+     },
+     {
+      "text": "port",
+      "at": 13
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A measure",
+      "gives": "ACRE",
+      "note": "a unit of land area"
+     },
+     {
+      "clueFragment": "port",
+      "gives": "ACRE",
+      "note": "an ancient harbour city on the coast of northern Israel"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface is a drinks order, a measure of the fortified wine; split it after 'measure', and port is a harbour town, Acre in Israel.",
+     "definitionFit": "An acre is a unit of land area, and Acre is also the name of a historic Mediterranean harbour city."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "port"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +551,80 @@
      }
     ]
    },
-   "solution": "GUARDDOG"
+   "solution": "GUARDDOG",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "letter_selection"
+    ],
+    "answer": "GUARD DOG",
+    "definitions": [
+     {
+      "text": "Security measure",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down clue upset means turned upside down, so 'travel' reads from the bottom up"
+     },
+     {
+      "text": "following evacuation",
+      "for": "letter_selection",
+      "note": "evacuating a word empties out its middle, so only the outer letters of 'Driffield' stay"
+     },
+     {
+      "text": "beyond",
+      "for": "charade",
+      "note": "one thing beyond another comes after it, so 'travel' is placed after 'Driffield'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gum",
+      "gives": "GUAR",
+      "note": "guar gum is a thickener made from guar beans"
+     },
+     {
+      "clueFragment": "Driffield following evacuation",
+      "gives": "DD",
+      "select": "outer",
+      "note": "Driffield with all its inside letters removed"
+     },
+     {
+      "clueFragment": "travel",
+      "gives": "GO",
+      "note": "to go is to travel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GUAR",
+      "DD",
+      "OG"
+     ],
+     "reversals": [
+      {
+       "from": "GO",
+       "to": "OG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Yorkshire traveller upset about a security precaution, exclaiming 'By gum!' in local fashion.",
+     "walkthrough": "'By gum!' is a mild Northern English exclamation and Driffield is a Yorkshire market town; here 'by' just means next to, placing the gum first.",
+     "definitionFit": "A dog kept to protect a property from intruders is one way of keeping it safe, a protective measure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "gum"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +638,68 @@
     "text": "Perhaps Queen fan is inspired by improvisation of Taylor",
     "enumeration": "8"
    },
-   "solution": "ROYALIST"
+   "solution": "ROYALIST",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ROYALIST",
+    "definitions": [
+     {
+      "text": "Perhaps Queen fan",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "improvisation of",
+      "for": "anagram",
+      "note": "an improvisation makes something up on the spot, so the letters of 'Taylor' are freely rearranged"
+     },
+     {
+      "text": "inspired by",
+      "for": "container",
+      "note": "to be inspired is to be breathed in, so 'is' is taken inside the other letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Taylor",
+      "gives": "TAYLOR",
+      "note": "anagram fodder, six letters"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "used as it stands"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROYAL",
+      "IS",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TAYLOR",
+       "gives": "ROYALT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fan of the band Queen thrilled by drummer Roger Taylor's improvised playing.",
+     "walkthrough": "Roger Taylor is Queen's drummer, so the rock band reading is strong; the queen meant is a monarch, and 'Perhaps' marks the example.",
+     "definitionFit": "A supporter of the monarchy, such as an admirer of the reigning sovereign, is called by this word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Queen"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +713,57 @@
     "text": "Is surrounding old lady with religious leaders",
     "enumeration": "5"
    },
-   "solution": "IMAMS"
+   "solution": "IMAMS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "IMAMS",
+    "definitions": [
+     {
+      "text": "religious leaders",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surrounding",
+      "for": "container",
+      "note": "'Is' is split to go all round 'old lady', which sits in the middle"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Is",
+      "gives": "IS",
+      "note": "used as it stands"
+     },
+     {
+      "clueFragment": "old lady",
+      "gives": "MAM",
+      "note": "one's old lady is informally one's mother, a mam"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "MAM",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly woman encircled by clergy.",
+     "walkthrough": "'Old lady' is slang for mother, and mam is the Northern and Welsh form.",
+     "definitionFit": "These are the men who lead prayers in a mosque, and so are Islamic religious figures."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +777,65 @@
     "text": "Trendy set fairly regularly coming to place for treatments",
     "enumeration": "9"
    },
-   "solution": "INFIRMARY"
+   "solution": "INFIRMARY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "INFIRMARY",
+    "definitions": [
+     {
+      "text": "place for treatments",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "taking letters at regular intervals from 'fairly' keeps every second one"
+     }
+    ],
+    "linkWords": [
+     "coming to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trendy",
+      "gives": "IN",
+      "note": "in means fashionable"
+     },
+     {
+      "clueFragment": "set",
+      "gives": "FIRM",
+      "note": "set means firm, as a jelly sets"
+     },
+     {
+      "clueFragment": "fairly regularly",
+      "gives": "ARY",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters of fairly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "FIRM",
+      "ARY"
+     ]
+    },
+    "explanation": {
+     "surface": "A fashionable crowd drifting fairly often to a spa for beauty treatments.",
+     "walkthrough": "'Trendy set' reads as one noun phrase, a fashionable crowd; it is two separate pieces, an adjective and then a verb.",
+     "definitionFit": "A hospital, or a sick bay in a school or institution, is where patients receive medical care."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "set"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +849,61 @@
     "text": "Make weak argument defending current literature",
     "enumeration": "10"
    },
-   "solution": "DEBILITATE"
+   "solution": "DEBILITATE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DEBILITATE",
+    "definitions": [
+     {
+      "text": "Make weak",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "defending",
+      "for": "container",
+      "note": "to defend something is to put a guard around it, so 'argument' surrounds the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "argument",
+      "gives": "DEBATE",
+      "note": "a debate is a formal argument"
+     },
+     {
+      "clueFragment": "current",
+      "gives": "I",
+      "note": "I is the symbol for electric current"
+     },
+     {
+      "clueFragment": "literature",
+      "gives": "LIT",
+      "note": "lit is the common short form of literature"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEB",
+      "I",
+      "LIT",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A feeble case made in support of contemporary books.",
+     "walkthrough": "'Make weak argument' reads as a verb phrase about arguing badly; the definition stops after 'Make weak'.",
+     "definitionFit": "To sap someone's strength or enfeeble them is to reduce their vigour, the plain meaning here."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "current"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +917,54 @@
     "text": "Object of love left after part of wedding service?",
     "enumeration": "4"
    },
-   "solution": "IDOL"
+   "solution": "IDOL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IDOL",
+    "definitions": [
+     {
+      "text": "Object of love",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "'left' is placed after the wedding words, so it comes at the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "part of wedding service",
+      "gives": "IDO",
+      "note": "the vow 'I do' spoken at a wedding"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the standard abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IDO",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A jilted lover left alone after the vows.",
+     "walkthrough": "'Left' looks like jilted or abandoned; it is simply the letter.",
+     "definitionFit": "Someone adored or worshipped, such as a pop star or film hero, is the target of devotion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 13,
@@ -241,7 +984,67 @@
      }
     ]
    },
-   "solution": "FIREESCAPE"
+   "solution": "FIREESCAPE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "FIRE ESCAPE",
+    "definitions": [
+     {
+      "text": "apparatus for emergency use",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Mushy",
+      "for": "anagram",
+      "note": "mushy food has lost its shape, so 'peas and rice' are mashed into a new order"
+     },
+     {
+      "text": "stored in",
+      "for": "container",
+      "note": "goods stored in a container sit inside it, so the mashed letters go inside 'iron'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "iron",
+      "gives": "FE",
+      "note": "Fe is the chemical symbol for iron"
+     },
+     {
+      "clueFragment": "peas and rice",
+      "gives": "PEASRICE",
+      "note": "anagram fodder, eight letters; 'and' just joins them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "IREESCAP",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PEASRICE",
+       "gives": "IREESCAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Emergency rations of mushy peas and rice kept in an iron pot.",
+     "walkthrough": "Mushy peas are a British side dish of mashed marrowfat peas, which makes the food picture convincing.",
+     "definitionFit": "An external staircase or ladder lets people leave a burning building, so it is equipment kept for such crises."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mushy"
+    }
+   }
   },
   {
    "number": 14,
@@ -261,7 +1064,51 @@
      }
     ]
    },
-   "solution": "THETRAITORS"
+   "solution": "THETRAITORS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "THE TRAITORS",
+    "definitions": [
+     {
+      "text": "TV show",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "condemned",
+      "for": "anagram",
+      "note": "a condemned building is wrecked, so 'that rioters' is knocked into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that rioters",
+      "gives": "THATRIOTERS",
+      "note": "anagram fodder, eleven letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THATRIOTERS",
+       "gives": "THETRAITORS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A television programme that rioters have denounced.",
+     "walkthrough": "The Traitors is a hit BBC reality game show in which players try to unmask hidden traitors; the surface fits, since traitors too are condemned.",
+     "definitionFit": "It is a reality television programme, a popular BBC game series, so the whole title is one broadcast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "condemned"
+    }
+   }
   },
   {
    "number": 15,
@@ -275,7 +1122,80 @@
     "text": "Discovered one of crew coming round queasy - quiet below deck!",
     "enumeration": "9"
    },
-   "solution": "EMBELLISH"
+   "solution": "EMBELLISH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "charade"
+    ],
+    "answer": "EMBELLISH",
+    "definitions": [
+     {
+      "text": "deck",
+      "at": 57
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Discovered",
+      "for": "letter_selection",
+      "note": "dis-covered means with its cover taken off, so 'one of crew' loses its outer letters"
+     },
+     {
+      "text": "coming round",
+      "for": "reversal",
+      "note": "to come round is to turn about, so 'queasy' runs backwards"
+     },
+     {
+      "text": "below",
+      "for": "charade",
+      "note": "in a down clue what sits below comes after, so 'quiet' goes above the definition, at the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Discovered one of crew",
+      "gives": "EMBE",
+      "select": "middle",
+      "note": "a member of a crew, with its first and last letters stripped away"
+     },
+     {
+      "clueFragment": "queasy",
+      "gives": "ILL",
+      "note": "feeling ill, sick"
+     },
+     {
+      "clueFragment": "quiet",
+      "gives": "SH",
+      "note": "sh is the call for silence"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMBE",
+      "LLI",
+      "SH"
+     ],
+     "reversals": [
+      {
+       "from": "ILL",
+       "to": "LLI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor found coming round seasick, told to be quiet below decks.",
+     "walkthrough": "'Below deck' reads as a nautical phrase, which is the misdirection; 'deck' is the definition, a verb meaning adorn, and 'Discovered' means stripped of its covering.",
+     "definitionFit": "To deck something, as in decking the halls, is to adorn or decorate it, so the verbs are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "deck"
+    }
+   }
   },
   {
    "number": 16,
@@ -289,7 +1209,52 @@
     "text": "Parisian curls first tee shot",
     "enumeration": "8"
    },
-   "solution": "FRISETTE"
+   "solution": "FRISETTE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FRISETTE",
+    "definitions": [
+     {
+      "text": "Parisian curls",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shot",
+      "for": "anagram",
+      "note": "something shot is broken or ruined, so 'first tee' is scattered into new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "first tee",
+      "gives": "FIRSTTEE",
+      "note": "anagram fodder, eight letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FIRSTTEE",
+       "gives": "FRISETTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A golfer in Paris whose opening drive curls off the tee.",
+     "walkthrough": "'First tee shot' is golfing language, and 'curls' reads as the ball swerving; the definition is the hairstyle, French in origin.",
+     "definitionFit": "The word, borrowed from French, names a fringe of small curled locks worn across the forehead."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "curls"
+    }
+   }
   },
   {
    "number": 17,
@@ -303,7 +1268,55 @@
     "text": "Grazing rat gets hold of rubbish",
     "enumeration": "8"
    },
-   "solution": "SCRAPING"
+   "solution": "SCRAPING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SCRAPING",
+    "definitions": [
+     {
+      "text": "Grazing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gets hold of",
+      "for": "container",
+      "note": "to get hold of something is to grip it, so 'rat' wraps around 'rubbish'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rat",
+      "gives": "SING",
+      "note": "to rat on someone is to inform, or sing to the police"
+     },
+     {
+      "clueFragment": "rubbish",
+      "gives": "CRAP",
+      "note": "crap is slang for rubbish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CRAP",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "A rat feeding on a heap of refuse.",
+     "walkthrough": "'Grazing' looks like feeding and 'rat' like the animal, which suits the scavenging picture; both are verbs of another sort.",
+     "definitionFit": "Grazing the skin means rubbing it roughly against a surface, abrading it, which is what this word also describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rat"
+    }
+   }
   },
   {
    "number": 18,
@@ -317,7 +1330,76 @@
     "text": "Flustered caterer missing last pound stops to double-check the scales",
     "enumeration": "11"
    },
-   "solution": "RECALIBRATE"
+   "solution": "RECALIBRATE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "container"
+    ],
+    "answer": "RECALIBRATE",
+    "definitions": [
+     {
+      "text": "double-check the scales",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "missing last",
+      "for": "deletion",
+      "note": "'caterer' missing its last letter loses the final one of its seven"
+     },
+     {
+      "text": "Flustered",
+      "for": "anagram",
+      "note": "someone flustered is thrown into confusion, so the shortened 'caterer' is jumbled"
+     },
+     {
+      "text": "stops",
+      "for": "container",
+      "note": "a stopper plugs the middle of something, so 'pound' is placed inside the jumble"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "caterer missing last",
+      "gives": "CATERE",
+      "note": "caterer without its final letter"
+     },
+     {
+      "clueFragment": "pound",
+      "gives": "LIBRA",
+      "note": "libra is the Roman pound, source of the abbreviation lb"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RECA",
+      "LIBRA",
+      "TE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CATERE",
+       "gives": "RECATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A flustered cook, a pound short, halts to recheck the kitchen weighing scales.",
+     "walkthrough": "The Roman libra gives the lb abbreviation and is also the zodiac sign of the scales, which ties it neatly to the definition.",
+     "definitionFit": "To reset a measuring instrument so its readings are accurate again is to check and adjust it once more."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "pound"
+    }
+   }
   },
   {
    "number": 19,
@@ -331,7 +1413,66 @@
     "text": "After first day off insensitive student body withdraws ice cream",
     "enumeration": "6"
    },
-   "solution": "SUNDAE"
+   "solution": "SUNDAE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "reversal"
+    ],
+    "answer": "SUNDAE",
+    "definitions": [
+     {
+      "text": "ice cream",
+      "at": 55
+     }
+    ],
+    "indicators": [
+     {
+      "text": "After first day off",
+      "for": "deletion",
+      "note": "taking away the first 'day' abbreviation from 'insensitive' removes its opening letter"
+     },
+     {
+      "text": "withdraws",
+      "for": "reversal",
+      "note": "to withdraw is to draw back, so the whole string runs backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "first day off insensitive",
+      "gives": "EAD",
+      "note": "insensitive is DEAD, as a numb limb, and the first D (day) is removed"
+     },
+     {
+      "clueFragment": "student body",
+      "gives": "NUS",
+      "note": "the NUS is the National Union of Students"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUNDAE"
+     ],
+     "reversals": [
+      {
+       "from": "EADNUS",
+       "to": "SUNDAE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "After a day off, a thick-skinned student union pulls its ice cream from sale.",
+     "walkthrough": "The NUS is the UK's National Union of Students; 'withdraws' looks like pulling something from sale but reverses everything before it.",
+     "definitionFit": "A dessert of scoops topped with syrup, nuts or fruit is a classic served dish of frozen dairy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "withdraws"
+    }
+   }
   },
   {
    "number": 20,
@@ -345,7 +1486,64 @@
     "text": "Essentially, Canadian shivered into the period before Christmas",
     "enumeration": "6"
    },
-   "solution": "ADVENT"
+   "solution": "ADVENT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ADVENT",
+    "definitions": [
+     {
+      "text": "the period before Christmas",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Essentially",
+      "for": "letter_selection",
+      "note": "the essence of a word is its core, so the middle two letters are taken from each of the next three words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Canadian",
+      "gives": "AD",
+      "select": "middle",
+      "note": "the central pair of letters of Canadian"
+     },
+     {
+      "clueFragment": "shivered",
+      "gives": "VE",
+      "select": "middle",
+      "note": "the central pair of letters of shivered"
+     },
+     {
+      "clueFragment": "into",
+      "gives": "NT",
+      "select": "middle",
+      "note": "the central pair of letters of into"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "VE",
+      "NT"
+     ]
+    },
+    "explanation": {
+     "surface": "A Canadian shivering through the cold weeks leading up to Christmas.",
+     "walkthrough": "'Into' looks like a link word but it is fodder too; all three words give their middle pair.",
+     "definitionFit": "The church season of four weeks leading up to the Nativity feast is the time of preparation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "into"
+    }
+   }
   },
   {
    "number": 21,
@@ -359,7 +1557,57 @@
     "text": "Take a picture as camera tracks along from right to left",
     "enumeration": "4"
    },
-   "solution": "SNAP"
+   "solution": "SNAP",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "SNAP",
+    "definitions": [
+     {
+      "text": "Take a picture",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from right to left",
+      "for": "reversal",
+      "note": "reading from right to left runs an across entry backwards, so 'camera tracks along' is read in reverse"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "camera tracks along",
+      "gives": "PANS",
+      "note": "a camera pans when it swings horizontally to follow a subject"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SNAP"
+     ],
+     "reversals": [
+      {
+       "from": "PANS",
+       "to": "SNAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A photographer shooting as the camera sweeps sideways across a scene.",
+     "walkthrough": "The whole clue sounds like film-making, and the reversal indicator reads as the camera's direction of travel.",
+     "definitionFit": "To take a quick photograph is informally described with this verb, as in a holiday photo."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tracks"
+    }
+   }
   },
   {
    "number": 22,
@@ -373,7 +1621,46 @@
     "text": "Extremely safe scan",
     "enumeration": "10"
    },
-   "solution": "ULTRASOUND"
+   "solution": "ULTRASOUND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ULTRASOUND",
+    "definitions": [
+     {
+      "text": "scan",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Extremely",
+      "gives": "ULTRA",
+      "note": "ultra means extremely, as in ultra-modern"
+     },
+     {
+      "clueFragment": "safe",
+      "gives": "SOUND",
+      "note": "sound means safe and secure, as in safe and sound"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ULTRA",
+      "SOUND"
+     ]
+    },
+    "explanation": {
+     "surface": "Reassurance that a medical scan carries no risk at all.",
+     "walkthrough": "The surface reads naturally, since this kind of scan is famously harmless; the adjectives split cleanly into two pieces.",
+     "definitionFit": "Medical imaging using high-frequency waves, used for example during pregnancy, is a common type of examination."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -387,7 +1674,45 @@
     "text": "Correct change of direction in Sun?",
     "enumeration": "5"
    },
-   "solution": "RIGHT"
+   "solution": "RIGHT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RIGHT",
+    "definitions": [
+     {
+      "text": "Correct",
+      "at": 0
+     },
+     {
+      "text": "change of direction in Sun?",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Correct",
+      "gives": "RIGHT",
+      "note": "correct means accurate, true"
+     },
+     {
+      "clueFragment": "change of direction in Sun?",
+      "gives": "RIGHT",
+      "note": "a turn is a change of direction, and the Sun newspaper leans to one political side"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The Sun is a British tabloid newspaper with a conservative political slant; its direction is the political wing, and a turn that way is a change of direction.",
+     "definitionFit": "Accurate and true is one sense; the other is the side of the political spectrum, a conservative leaning, or a turn."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Sun"
+    }
+   }
   },
   {
    "number": 24,
@@ -401,7 +1726,61 @@
     "text": "Climbing, sex or bread?",
     "enumeration": "4"
    },
-   "solution": "ROTI"
+   "solution": "ROTI",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ROTI",
+    "definitions": [
+     {
+      "text": "bread",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Climbing",
+      "for": "reversal",
+      "note": "climbing in a down clue goes from bottom to top, so 'sex or' reads upwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sex",
+      "gives": "IT",
+      "note": "it is a coy word for sex"
+     },
+     {
+      "clueFragment": "or",
+      "gives": "OR",
+      "note": "used as it stands"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROTI"
+     ],
+     "reversals": [
+      {
+       "from": "ITOR",
+       "to": "ROTI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A choice between rock climbing, sex or a sandwich.",
+     "walkthrough": "'Or' looks like a link offering alternatives; it is part of the fodder, reading upwards with 'it'.",
+     "definitionFit": "It is an unleavened flatbread from South Asia, cooked on a griddle and eaten with curries."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "or"
+    }
+   }
   },
   {
    "number": 25,
@@ -415,7 +1794,48 @@
     "text": "Trimming rear seal",
     "enumeration": "9"
    },
-   "solution": "TAILORING"
+   "solution": "TAILORING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TAILORING",
+    "definitions": [
+     {
+      "text": "Trimming",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rear",
+      "gives": "TAIL",
+      "note": "the tail is the rear end"
+     },
+     {
+      "clueFragment": "seal",
+      "gives": "ORING",
+      "note": "an O-ring is a rubber loop used as a seal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAIL",
+      "ORING"
+     ]
+    },
+    "explanation": {
+     "surface": "Clipping the back end of a seal, perhaps at a zoo grooming session.",
+     "walkthrough": "'Seal' looks like the animal and 'rear' like its hindquarters; it is an engineering part, the ring-shaped gasket.",
+     "definitionFit": "Adapting and cutting cloth to fit, or adjusting anything to suit, involves cutting down and shaping, hence trimming."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "seal"
+    }
+   }
   },
   {
    "number": 26,
@@ -429,7 +1849,57 @@
     "text": "Become confused retracting upheld damage claims",
     "enumeration": "5"
    },
-   "solution": "ADDLE"
+   "solution": "ADDLE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "ADDLE",
+    "definitions": [
+     {
+      "text": "Become confused",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "claims",
+      "for": "hidden_word",
+      "note": "the phrase 'upheld damage' lays claim to the letters, holding them inside it"
+     },
+     {
+      "text": "retracting",
+      "for": "reversal",
+      "note": "retracting draws something back, so the held letters are read in reverse"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "upheld damage",
+      "gives": "ELDDA",
+      "note": "letters running across the join of the two words"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "ELDDA",
+       "to": "ADDLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An insurer getting muddled as it withdraws damage claims it had previously accepted.",
+     "walkthrough": "'Damage claims' reads as an insurance phrase, but 'claims' is the indicator and the letters straddle 'upheld' and 'damage'.",
+     "definitionFit": "When the mind becomes muddled or befuddled, this verb describes that state, like an egg going off."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "claims"
+    }
+   }
   },
   {
    "number": 27,
@@ -443,7 +1913,51 @@
     "text": "Exploited shingle originally from Brighton?",
     "enumeration": "7"
    },
-   "solution": "ENGLISH"
+   "solution": "ENGLISH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ENGLISH",
+    "definitions": [
+     {
+      "text": "originally from Brighton?",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Exploited",
+      "for": "anagram",
+      "note": "something exploited is worked over and used up, so the letters of 'shingle' are worked into new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shingle",
+      "gives": "SHINGLE",
+      "note": "anagram fodder, seven letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SHINGLE",
+       "gives": "ENGLISH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pebbles taken from the beach at Brighton, a seaside town on England's south coast famous for its stony shore.",
+     "walkthrough": "'Originally' looks like a first-letters indicator; it belongs to the definition, someone born in Brighton, and the question mark flags that this is only one example.",
+     "definitionFit": "Anyone born in Brighton is by birth a native of England, so their nationality is given by this adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "originally"
+    }
+   }
   },
   {
    "number": 28,
@@ -457,7 +1971,43 @@
     "text": "Get her eating nibbles on that account",
     "enumeration": "7"
    },
-   "solution": "THEREAT"
+   "solution": "THEREAT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "THEREAT",
+    "definitions": [
+     {
+      "text": "on that account",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nibbles",
+      "for": "hidden_word",
+      "note": "a nibble takes a small bite out of something, so the answer is a small bite of 'Get her eating'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Get her eating",
+      "gives": "THEREAT",
+      "note": "letters running across all three words"
+     }
+    ],
+    "explanation": {
+     "surface": "Urging someone to get her snacking on a few nibbles.",
+     "walkthrough": "'Nibbles' looks like party snacks; it is the verb, taking a bite out of the phrase before it.",
+     "definitionFit": "This archaic adverb means for that reason or because of that, so it is an old synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nibbles"
+    }
+   }
   }
  ]
 }
