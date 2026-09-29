@@ -992,6 +992,8 @@ print(" ".join(n for n,_ in sorted(d.items(), key=lambda kv: kv[1])))' "$field")
     *) what="the field as tools/annotate_prompt.md describes it" ;;
   esac
   prompt="In this repo, add the missing $name to every annotated clue in @PATH@ that lacks one. It is $what. Read tools/annotate_prompt.md and STYLE.md for the voice, and read an existing puzzle that already has the field so yours match. This is ADDITIVE: change nothing else, do not rewrite existing hints, types, indicator texts or assembly. Run python3 tools/annotate_check.py @ until it reports clean. Do not commit — the calling script commits."
+  # Not a missing field: notes that exist and say too much.
+  [ "$field" = indicators.noteLetters ] && prompt="In this repo, python3 tools/annotate_check.py @ warns that some indicator notes in @PATH@ write a block's letters, which the indicator rung shows before the blocks. Rewrite ONLY those notes so they describe the piece in words (\"so the exclamation is read backwards\", not \"so EH is read backwards\"), keeping each note's reason. Change nothing else. Run python3 tools/annotate_check.py @ until it reports clean. Do not commit — the calling script commits."
   queue=($nums)
   at=0
   while [ "$at" -lt "${#queue[@]}" ]; do

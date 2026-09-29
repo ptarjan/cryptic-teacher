@@ -29,6 +29,7 @@ And checks that apply only to puzzles we WROTE (see is_authored):
   - and does not secretly order the wordplay (check_link_word_is_not_an_order)
   - an anagram indicator touches its fodder (check_indicator_adjacency)
   - and is not made of the fodder's own letters (check_indicator_outside_fodder)
+  - no indicator runs across a definition's edge (check_indicator_does_not_straddle_a_definition)
   - a reversal indicator points the way the entry runs (check_reversal_direction)
 
 And checks that need the whole puzzle in hand:
@@ -49,6 +50,7 @@ fails.
 """
 
 import ast
+import collections
 import functools
 import json
 import re
@@ -60,16 +62,23 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import clue_types  # noqa: E402
-import puzzle_schema  # noqa: E402 — tools/data/puzzle.schema.json
 import definitions  # where each definition sits; tools/definitions.py
 import enumeration  # noqa: E402 — a clue's printed counts; tools/enumeration.py
 import groups  # noqa: E402 — linked answers; tools/groups.py
-from groups import entry_id  # noqa: E402
+import puzzle_schema  # noqa: E402 — tools/data/puzzle.schema.json
 from annotation import assembly, explanation, whole_anagram  # tools/annotation.py
 from fetch_puzzle import (  # noqa: E402 — one reader, one exemption
-    blog_facts_for, clue_words, leaders_named, read_puzzle_file)
-from puzzle_paths import puzzle_files, resolve_puzzle  # noqa: E402 — one glob, one id resolver
+    blog_facts_for,
+    clue_words,
+    leaders_named,
+    read_puzzle_file,
+)
 from find_answer_leaks import says  # noqa: E402 — one matcher, shared with the finder
+from groups import entry_id  # noqa: E402
+from puzzle_paths import (  # noqa: E402 — one glob, one id resolver
+    puzzle_files,
+    resolve_puzzle,
+)
 
 # The controlled vocabulary for `type`: an array of names from
 # tools/data/clue_types.json, naming EVERY mechanism the wordplay uses in the
@@ -446,6 +455,30 @@ def check_link_word_is_not_inside_an_indicator(tag, ann, clue, errors):
                 f"indicator or a link word; drop it from one list")
 
 
+def check_indicator_does_not_straddle_a_definition(tag, ann, clue, errors):
+    """An indicator may not straddle a definition's edge.
+
+    Inside a definition is an &lit, and app.js nests the marks. Across its edge
+    the marks collide, one of them cannot be shown, and a hint the solver bought
+    leaves the screen: independent-12233 3D filed "in the
+    middle of" as the indicator and "of the sea" as the definition.
+    tools/smoke_test.js rejects the render; this rejects the annotation first.
+    """
+    spans = []
+    for d in ann.get("definitions") or []:
+        t = d.get("text") or ""
+        at = d.get("at", clue.find(t))
+        if t and at is not None and at >= 0:
+            spans.append((at, at + len(t)))
+    for ind in indicator_texts(ann):
+        hits = [m.start() for m in re.finditer(re.escape(ind), clue)] if ind else []
+        if hits and all(any(i < e and i + len(ind) > s and not s <= i < i + len(ind) <= e
+                                for s, e in spans) for i in hits):
+            errors.append(
+                f"{tag}: indicator {ind!r} runs across the edge of the definition, so the "
+                f"two cannot both be marked. Take the shared words off one of them")
+
+
 def check_link_word_is_not_an_order(tag, ann, clue, warnings):
     """A link word that put the pieces in that order is an indicator.
 
@@ -609,6 +642,40 @@ def check_indicator_adjacency(tag, ann, clue, errors, warnings):
         f"{', '.join(best[1])} — an indicator only operates on what it stands next to. "
         f"Move it against the fodder, or cut the words in between (AUTHORING.md, "
         f"'An indicator operates on what it touches')")
+
+
+def check_anagram_fodder_from_clue(tag, ann, clue, authored, errors, warnings):
+    """Every anagram's fodder has to come from the clue: its letters are
+    drawn from the wordplay's words (the clue less its definition, unless
+    the definition is the whole clue) and the letters its blocks give.
+    Recording GROAN as the fodder of a clue that says "grain" passed every
+    other check. For a clue we wrote, the fodder must also be found whole,
+    in order or from its blocks (_fodder_spans), since we chose the words.
+
+    CALIBRATION (2026-09-29, 14,898 anagram steps in published puzzles):
+    11 flagged, each a definition sharing words with the fodder (semi-&lit
+    typed as a plain anagram), so published clues get a warning."""
+    text = clue
+    if "and_lit" not in types_of(ann):
+        for d in definitions.texts(ann):
+            if d and d in text and letters(d) != letters(text):
+                text = text.replace(d, " ", 1)
+    pool = collections.Counter(letters(text))
+    for b in ann.get("blocks") or []:
+        if letters(b.get("gives")) != letters(b.get("clueFragment")):
+            pool += collections.Counter(letters(b.get("gives")))
+    for step in (ann.get("assembly") or {}).get("anagrams") or []:
+        fodder = step.get("fodder") or ""
+        extra = collections.Counter(letters(fodder)) - pool
+        if extra:
+            (errors if authored else warnings).append(
+                f"{tag}: anagram fodder {fodder!r} has {''.join(sorted(extra.elements()))} "
+                f"that neither the wordplay's words nor its blocks supply. The fodder is "
+                f"the clue's own letters: copy them from the words the indicator works on")
+        elif authored and not _fodder_spans(clue, fodder, ann.get("blocks", [])):
+            errors.append(f"{tag}: anagram fodder {fodder!r} is not in the clue in order, nor made "
+                          f"of its blocks. In a clue we wrote the fodder is words we chose: "
+                          f"print them")
 
 
 def check_indicator_outside_fodder(tag, ann, clue, errors):
@@ -962,6 +1029,25 @@ def check_block_notes_dont_name_the_answer(tag, ann, errors, warnings):
                 f"the blocks are the rung before the walkthrough. Write the note "
                 f"about the fragment — what it means, where its letters sit, "
                 f"which convention is in play — and let the walkthrough spell it.")
+
+
+def check_indicator_notes_dont_give_blocks(tag, ann, warnings):
+    """The indicator rung comes before the building blocks, so a note that
+    writes a block's letters ("so EH is read backwards") sells that block for
+    the price of the indicator. Say what the indicator does to the piece in
+    words ("so the exclamation is read backwards"); the blocks rung spells it.
+    Grandfathered per puzzle through BACKLOG_MARKERS, since most notes written
+    before this rule do it."""
+    answer = re.sub(r"[^A-Z]", "", str(ann.get("answer") or "").upper())
+    gives = {g for b in ann.get("blocks") or []
+             if len(g := re.sub(r"[^A-Z]", "", str(b.get("gives") or "").upper())) >= 2 and g != answer}
+    for ind in ann.get("indicators") or []:
+        note = str(ind.get("note") or "")
+        hit = sorted(g for g in gives if re.search(rf"(?<![A-Za-z]){g}(?![A-Za-z])", note))
+        if hit:
+            warnings.append(f"{tag}: indicator note on {ind.get('text')!r} writes a block's letters "
+                            f"({', '.join(hit)}), and the indicator rung comes before the blocks. "
+                            f"Describe the piece in words; the blocks rung spells it")
 
 
 # An indicator rung that names the words and not the reason is the rung solvers
@@ -2477,6 +2563,7 @@ def validate_puzzle(puzzle, corpus=False):
         check_indicators(tag, ann, clue, errors, warnings)
         check_no_answer_in_early_rungs(tag, ann, errors, warnings)
         check_block_notes_dont_name_the_answer(tag, ann, errors, warnings)
+        check_indicator_notes_dont_give_blocks(tag, ann, warnings)
         check_cryptic_definition_blocks(tag, ann, errors, warnings)
 
         check_coverage(tag, ann, clue, warnings)
@@ -2493,6 +2580,8 @@ def validate_puzzle(puzzle, corpus=False):
         # somebody else's grid.
         check_link_word_is_not_an_order(tag, ann, clue, warnings)
         check_link_word_is_not_inside_an_indicator(tag, ann, clue, errors)
+        check_indicator_does_not_straddle_a_definition(tag, ann, clue, errors)
+        check_anagram_fodder_from_clue(tag, ann, clue, authored, errors, warnings)
         if authored:
             check_authored_surface(tag, ann, clue, errors)
             check_two_pieces(tag, ann, errors)
@@ -2588,14 +2677,17 @@ BACKLOG_MARKERS = {
     "indicators.for": ("lack `for`",),
     "features": ("no features",),
     "explanation.surface": ("no explanation.surface",),
+    "indicators.noteLetters": ("writes a block's letters",),
 }
 
 
 def load_backlog():
+    """{field: {puzzle: allowance}}. A field the file has no list for yet is left
+    out, and is not enforced until the --tighten that writes its list."""
     if not BACKLOG_PATH.exists():
-        return {}
+        return {f: {} for f in BACKLOG_MARKERS}
     data = json.loads(BACKLOG_PATH.read_text())
-    return {f: data.get(f, {}) for f in BACKLOG_MARKERS}
+    return {f: data[f] for f in BACKLOG_MARKERS if f in data}
 
 
 def count_backlog(warnings):
@@ -2730,10 +2822,12 @@ def main(argv):
         counts = count_backlog(warnings)
         observed[path.stem] = counts
         for field, n in counts.items():
-            cap = allowed.get(field, {}).get(path.stem, 0)
+            if field not in allowed:
+                continue
+            cap = allowed[field].get(path.stem, 0)
             if n > cap:
                 errors.append(
-                    f"{n} clue(s) with no {field}, and this puzzle is allowed {cap} — "
+                    f"{n} warning(s) for {field}, and this puzzle is allowed {cap} — "
                     f"{field} is required on everything annotated since it was added. "
                     f"The warnings above name them and say what to write.")
         status = "OK" if not errors else "FAIL"
@@ -2769,8 +2863,9 @@ def main(argv):
         elif tighten:
             write_backlog(observed, allowed)
             print("wrote tools/annotation_backlog.json: "
-                  + ", ".join(f"{f} -{n}" if n >= 0 else f"{f} unchanged (observed {abs(n)} more, "
-                              f"kept the tighter cap)" for f, n in moved.items()))
+                  + ", ".join(f"{f} recorded" if f not in allowed else f"{f} -{n}" if n >= 0
+                              else f"{f} unchanged (observed {abs(n)} more, kept the tighter cap)"
+                              for f, n in moved.items()))
         elif any(v > 0 for v in moved.values()):
             print("backlog shrank (" + ", ".join(f"{f} -{n}" for f, n in moved.items() if n > 0)
                   + ") — run `python3 tools/validate_annotations.py --tighten` to record it, "
