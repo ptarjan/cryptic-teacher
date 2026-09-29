@@ -651,6 +651,13 @@ tools/make_hint_packets.js                   blind solve-packets, to grade a hin
                                              gets a solver unstuck
 tools/grade_clues.py                         blind A/B/C/D packets of our clues against real
                                              setters’ for the same answers
+tools/author_trial.py                        clue-writing trial: an isolated author writes five
+                                             candidates per answer, a separate run picks one,
+                                             grade_clues.py judges the picks
+tools/author_trial_author.md                 author_trial.py's author prompt: five candidate
+                                             clues for one answer
+tools/author_trial_select.md                 author_trial.py's selector prompt: pick one clue
+                                             per answer
 tools/grade_clues_judge.sh                   runs the blind judges over one round of
                                              grade_clues.py packets
 tools/grade_clues_judge.md                   the judge prompt grade_clues_judge.sh sends:

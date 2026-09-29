@@ -1390,7 +1390,7 @@ def check_features(tag, ann, clue, errors, warnings):
         elif len(word.split()) > 1:
             errors.append(f"{tag}: features.misdirectedWord {word!r} is more than "
                           f"one word — name the single word that misleads")
-        elif not re.search(r"(?<![\w'])" + re.escape(plain(word.strip())) + r"(?![\w'])", plain(clue or "")):
+        elif not re.search(r"(?<!\w)" + re.escape(plain(word.strip())) + r"(?!\w)", plain(clue or "")):
             errors.append(f"{tag}: features.misdirectedWord {word!r} does not occur "
                           f"in the clue {clue!r}")
 
