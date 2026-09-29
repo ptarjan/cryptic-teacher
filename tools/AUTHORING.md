@@ -41,12 +41,12 @@ orphan lights, a disconnected region), and the checker caught all three.
 | --- | --- | --- |
 | `check_shape` | square, odd side | universal in British blocked grids; an odd side gives a true centre for the symmetry |
 | `check_symmetry` | 180-degree rotational symmetry | universal; a Guardian grid looks the same upside down |
-| `check_min_entry_length` | every entry at least 4 letters | Exet. Nine of the twelve Guardian grids in `puzzles/` agree; three go down to 3, so `--min-entry 3` allows it |
+| `check_min_entry_length` | every entry at least 4 letters | Exet. 86.9% of 8,416 Guardian grids in `puzzles/` agree, and 78.5% of all 35,457; the Times (63%) and Times Quick (32%) often go down to 3, so `--min-entry 3` allows it |
 | `check_every_light_is_used` | every light is in at least one entry | a light in no entry can never be filled. A light in exactly ONE entry is fine: that is an unchecked letter, which British grids have and American ones do not |
-| `check_unchecked_runs` | no two adjacent unchecked letters | Exet's strict reading, and what all twelve measured Guardian grids do. `--relax-unches` allows the looser published convention (two in the middle of an entry, never at an end) |
+| `check_unchecked_runs` | no two adjacent unchecked letters | Exet's strict reading, and what 99.7% of Guardian grids do. The Times, Telegraph and Toughie have a mid-entry pair in about one grid in nine, which `--relax-unches` allows (two in the middle of an entry, never at an end) |
 | `check_entry_checking` | no entry has more unchecked than checked letters; entries of 9+ may have one more | Exet. Stricter than "at least half, rounded down": a 5-letter entry needs 3 checked, not 2 |
 | `check_connectivity` | all lights form one connected region | a detached corner is a second crossword |
-| `check_checked_ratio` | 28-52% of all letters checked | measured: the twelve Guardian grids in `puzzles/` sit at 31-40% |
+| `check_checked_ratio` | 28-52% of all letters checked | measured: 98% of the 35,457 grids in `puzzles/` sit at 31.5-40%, median 36% |
 | `check_through_cut` | at least 3 lights cross every cut line | Exet recommends 4 on a 15x15; scaled by side length. A solver stuck in one region needs several ways to carry letters into the next |
 
 Sources: [Exet](https://github.com/viresh-ratnakar/exet), Viresh Ratnakar's
@@ -199,10 +199,15 @@ fills and keeps the best.
 If a grid will not fill, try these in order: `--seed`, `--fills`, `--restarts`,
 then a lower `--min-clue`. If you keep lowering the floor, the template is the
 problem, not the budget. A grid full of maximum-length entries is hard to fill:
-the first 13x13 template had full-width 13-letter entries, and only ~200
-clueable 13-letter words exist above the floor, two of which then had to
-interlock with 12s. The current 13x13 has a longest entry of 7 and fills
-instantly.
+at the default floors only 38 of the 1,252 thirteen-letter words in the cache
+qualify. The current 13x13 has a longest entry of 7 and fills instantly.
+
+The default floors (`--min-clue 40 --min-familiarity 25`) were set by hand
+and do not vary with length. Published setters' answers fail them: 37% of
+the 4-letter answers in annotated puzzles pass, and 5% of the 13-letter
+ones. The median familiarity of a published answer is 14-21 at every length,
+below the floor of 25. Treat the floors as a style choice, not as what
+setters do.
 
 ## What blind grading found
 
@@ -224,7 +229,12 @@ Our clue beat the best human clue for the same answer on 1 of 20. Judges asked
 to spot the machine-written clue were right 50% of the time, against 25% chance.
 
 Read the table as a diagnosis. **Soundness is solved; it is not what is
-missing.** The +0.72 on fairness comes from `tools/validate_annotations.py`. The
+missing.** Nor is it a lead. `tools/favourite_grading.py` scored 700 pairs of
+a solver-named favourite and a clue from the same puzzle on these five axes.
+Misdirection (58% of pairs, p=0.001) and penny-drop (57%, p=0.003) favour the
+named clue. Surface is flat (52%). Fairness runs the other way: the favourite
+scored as *less* fair in 60% of pairs. The unweighted OVERALL predicts
+nothing (51%). The +0.72 on fairness comes from `tools/validate_annotations.py`. The
 human field included an anagram with no anagram indicator, a hidden word with
 no hidden indicator, and one clue with no derivation at all, and every judge
 noticed. Our clues never fail that way.
@@ -309,11 +319,40 @@ that finally worked changed clue type entirely. Three are in A001: CHEAP went
 from charade to anagram, SIDE from container to hidden word, ALTER from anagram
 to homophone. The sentence came first, and the mechanism was found inside it.
 
-`tools/clue_quality.py` flags `not-a-sentence`, `imperative-opening` and
-`unattested-phrasing` for this, but read its calibration table before trusting
-them. The first fires on nearly half of all published Times clues, and the third
-has never fired on one of ours. Lacking a verb is not the problem, and odd
-phrasing is not the problem. Both tests above remain judgements, made aloud.
+### The validator holds you to it
+
+The rule above was on the page during the September trial, and the clues
+still came out as standard Times clues: level with a typical published clue,
+beaten by the best on 13 of 20, with a joke on 8 of 20. Prose alone did not
+hold. So two parts of it are now ERRORs on every puzzle we set, and
+`tools/build_authored_puzzle.py` will not write a puzzle that has one:
+
+* **Every clue states its scene in `explanation.surface`.** Write this first:
+  one sentence, in the world's words, of what the clue is about. Then find the
+  mechanism inside it. The surface may not use crossword vocabulary (`anagram`,
+  `letters`, `hidden`, `definition`...) and may not name the answer. Only 1.6%
+  of published surfaces use that vocabulary, so a surface that needs it is
+  describing the machinery. (`check_authored_surface`)
+* **Half the clues in the puzzle carry a joke** (`features.joke`: `pun` or
+  `absurd`), and a pun names its word in `features.misdirectedWord`. Half is
+  measured from fifteensquared favourite votes: a joke is on 25.7% of clues
+  nobody named, 38.4% of clues named once, 48.8% named twice and 51.3% named
+  three or more times. (`check_authored_jokes`, `MIN_JOKE_SHARE`)
+
+The favourites' own surfaces show what the field is for. Everyman 4087's
+`Business listing two things enjoyed by Victorian conwoman? (6,3,6)` =
+HUSTLE AND BUSTLE has the surface "A trade directory of everything a
+Victorian swindler could want", with its pun on `Business`. Guardian 29952's
+`Seriously funny minute where head blown off in which Groucho's prop
+backfires? (10)` = TRAGICOMIC has "A gag in which the cigar goes off in
+Groucho Marx's face", with its pun on `minute`. Each is a scene
+you could tell someone about, and the mechanism was found inside it.
+
+`tools/clue_quality.py` also flags `not-a-sentence`, `imperative-opening` and
+`unattested-phrasing`, but read its vote table before trusting them. Against
+2,082 solver favourites, `not-a-sentence` has no signal (odds 0.94; it fires
+on half of published clues). The other two point the right way but are too
+rare to establish. The two tests above remain judgements, made aloud.
 
 ## The standard is a pub joke, not a rubric score
 
@@ -366,12 +405,17 @@ The rules applied to all twenty A001 clues in that pass:
 
 1. **A complete English sentence.** Subject and finite verb, or an idiom people
    actually say. Imperatives are fine (`Die of cold`).
-2. **Banned furniture:** a definition glossed off behind a colon or comma; clues
-   opening `Concerning` / `About` / `Regarding`; `Sounds like`; any clue that is
-   a bare noun phrase listing wordplay and then meaning.
+2. **Banned furniture:** any clue that is a bare noun phrase listing wordplay
+   and then meaning. A definition may stand behind a comma or colon.
+   Favourites do that more often than the other clues in their puzzle (odds
+   1.5x over 2,082 favourites), so the fault is the parts list, not the
+   punctuation. The votes cannot judge `Concerning` / `About` openings (15
+   clues) or `Sounds like` (72 clues, no penalty).
 3. **The pun must be nameable and cute.** The reader should smile. If the only
    pleasure is that the mechanism works, the clue fails, however sound it is.
-4. **Shorter is better.** The target clues run 3-6 words.
+4. **Length is not the lever.** Published clues run a median of 7 words.
+   Among the clues in one puzzle, 9+ words is favoured (odds 1.45x) and 4-6
+   words disfavoured (0.77x). Cut padding, not length.
 5. **Choose the mechanism last**, from material the sentence already contains.
    If nothing fits, find a different sentence. Never repair it by narrating the
    wordplay.
@@ -406,8 +450,11 @@ funny mechanism, and the mechanism is the part that will not bend. So chasing
 the pub-joke standard constantly pushes you to drop the mechanism. Each of those
 six clues was defensible on its own; the damage only showed when they were
 counted. Hence a whole-puzzle check, not a per-clue one. The limit of 2 is
-measured: when it was set, 30039 was the only annotated puzzle in `puzzles/`
-with any cryptic definitions, and it had exactly two.
+measured: 95.8% of 2,437 annotated published puzzles have two or fewer (the
+Times Jumbo goes over in 23%, daily cryptics in 0.5-2%). It is a balance
+rule, not a quality one. Solvers favour cryptic definitions over every type
+but the spoonerism (odds 3.1x), which is exactly why a setter chasing favour
+overspends them.
 
 **A narrated mechanism is not a hidden one.** Two A001 clues had a real
 mechanism and still failed, because the indicator was an instruction dressed as
@@ -620,9 +667,9 @@ The rule, what a walkthrough should keep, and `check_walkthrough_budget()` are i
 `STYLE.md`, "The blocks already told them". The evidence behind it: all twenty
 A001 walkthroughs ran 44-63 words (median 54), and every one restated its own
 blocks, just when the learner no longer needed it. Trimmed to what the blocks
-cannot show, they run 19-42 words, median 32. That is also the median of the 231
-published-puzzle walkthroughs in `puzzles/` at the time, and their 90th
-percentile, 42, is why the budget warns above 45.
+cannot show, they run 19-42 words, median 32. The budget warns above 45, which
+sits above the 99th percentile (40) of 74,474 published walkthroughs with
+blocks (median 19). It catches outliers, not style.
 
 Before changing this, know two things:
 
@@ -666,58 +713,52 @@ that are already working. **So a smooth surface is not evidence of soundness;
 often it is evidence against it**, because the easiest route to a smooth surface
 is to stop paying for it.
 
-A third fault of the same kind turned up while auditing for the first two, and
-it survived calibration:
+A third fault of the same kind turned up while auditing for the first two. It
+survived calibration in one direction only:
 
 > **A reversal indicator must point the way the entry runs.** `Back at the pool
-> for another circuit (4)` = LOOP was **14-DOWN**. There is no "backwards" on a
-> vertical axis.
+> for another circuit (4)` = LOOP was **14-DOWN**. `Up` is the fix, because an
+> upward word binds to down entries. Published setters do use `back` on down
+> entries (15% of its uses), so the validator treats it as neutral.
 
 ### The rules
 
 | rule | check | what it allows |
 | --- | --- | --- |
-| Link words are an equals sign | `check_link_words_are_equivalences` | equivalence (`is`, `'s`), derivation (`gives`, `makes`, `becomes`, `yields`, `means`, `leads to`, `indicating`, `to locate`), prepositional joining (`for`, `from`, `of`, `in`, `with`, `after`), and grammatical glue. Nothing else: `EQUIVALENCE_LINKS` is the whole rule |
-| An indicator operates on what it touches | `check_indicator_adjacency` | only `FODDER_GLUE` words (for example `was`, `is`, `a`, `the`, `of`, `in`, `with`) between an anagram indicator and its fodder, plus the definition, which sometimes sits in the gap |
+| Link words are an equals sign | `check_link_words_are_equivalences` | equivalence (`is`, `'s`), derivation (`gives`, `makes`, `becomes`, `yields`, `means`, `leads to`, `indicating`, `to locate`), prepositional joining (`for`, `from`, `of`, `in`, `with`, `after`), and grammatical glue: `CORE_LINKS`. Plus every word published clues declare as a link word 10+ times across 5+ setters (`then`, `but`, `seen`, `using`), measured into `tools/data/clue_joints.json` |
+| An indicator operates on what it touches | `check_indicator_adjacency` | only link words between an anagram indicator and its fodder, plus the definition, which sometimes sits in the gap |
 | An indicator is not its own fodder | `check_indicator_outside_fodder` | nothing: a word whose letters are being shuffled cannot also be the instruction to shuffle them, so the indicator must sit outside every locatable reading of the fodder. The adjacency check cannot see this, because an indicator inside the fodder has no gap to measure and scores as perfectly placed |
-| A reversal runs along the entry | `check_reversal_direction` | across: `back`, `returning`, `retreating`, `west`. Down: `up`, `rising`, `climbing`, `lifted`, `raised`, `from below`. Neutral words (`turning`, `about`, `overturned`, `revolutionary`, `reversal`) are always allowed |
+| A reversal runs along the entry | `check_reversal_direction` | across only: `west`, `east`, `aback`. Down only: `up`, `rising`, `raised`, `climbing`, `lifted`, `north` and the rest of `tools/data/clue_joints.json`. Everything else is neutral, including `back` and `returning`, which published setters use on down entries in 15-24% of cases |
 
 All four are ERRORs, scoped by `is_authored()` like the two-pieces rule.
 
 ### Calibration
 
-The standing rule: **a check that flags Araucaria is a broken check.** Before
-trusting any authoring rule, run it across the eight annotated Guardian puzzles
-and record the count:
-
-```bash
-python3 tools/validate_annotations.py --unscoped 30039 30040 30041 30042 30043 30044 30066 30067
-```
-
-`--unscoped` exists only for this; never ship in that mode. Results:
+The standing rule: **a check that flags Araucaria is a broken check.** The
+word lists are measured from published annotations by
+`tools/build_clue_joints.py`, and `--check` fails CI when the corpus has
+moved past them. `python3 tools/validate_annotations.py --unscoped <ids>` runs
+the rules on published grids. Results over the whole annotated corpus
+(2026-09-28, 74,474 clues):
 
 | check | published sample | hits |
 | --- | --- | --- |
-| link words are equivalences | 2 declared link words, plus 105 unclaimed joinery-position words as a proxy | 0 (after adding `after` and `having`, the only misses) |
-| indicator adjacency | 42 anagram clues, 39 with a locatable fodder span | 0 |
-| reversal direction | 19 reversal clues | 0 |
+| link words are equivalences | 24,755 declared link-word phrases | 3.9% of tokens outside the vocabulary, none of them used more than nine times |
+| indicator adjacency | 9,914 anagram clues with a locatable fodder | 24 (0.24%), each apparently an annotation slip |
+| reversal direction | 2,087 reversals using an axis word | 25 (1.2%) |
 
-Two of these numbers deserve a closer look.
+The July calibration used eight Guardian puzzles and got every one of these
+wrong in a way the small sample could not show. Its link list missed 9.8% of
+published link-word tokens, and its adjacency glue flagged 95 published
+anagrams. Its reversal lists bound `back` and `returning` to across entries,
+which flagged 250 published reversals. **Reversal direction is lopsided:** an
+upward word almost never reverses an across entry (`up` does it 2 times in
+168). But `back` reverses a down entry in 25 of 170 uses. When a sample is
+too small to calibrate against, wait for the corpus; do not ship on 19 data
+points.
 
-* **The link-word sample is thin: two declared link words in 234 entries.** So
-  the allow list could not be calibrated directly, and a second measurement was
-  built. Every clue word the annotation claims for nothing is a word in the
-  joinery position, and there are 105 of those. Four fell outside the allow
-  list, all grammatical (`after` x3, `having`), and the list was widened. When a
-  sample is too small to calibrate against, find a proxy with a bigger sample;
-  do not ship on two data points.
-* **Reversal direction is not just unviolated; it is actively followed.** Ten
-  down entries use a vertical indicator, four across entries a horizontal one,
-  and five use neutral words. None crosses over. That is what a real convention
-  looks like in data.
-
-Two published clues fall inside the adjacency check's allowances, and those
-allowances were added because of them: 30043 1A (`Bans recitals – where this is
+Two of the original eight puzzles' clues fall inside the adjacency check's
+allowances, and those allowances were added because of them: 30043 1A (`Bans recitals – where this is
 played?`) puts its definition between fodder and indicator, and 30067 20D
 (`Bertie develops from bad to worse`) puts annotated padding there. Three more
 (30040 8A, 30040 11A, 30041 20A) build their fodder by deleting letters, so no

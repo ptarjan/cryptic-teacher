@@ -18,6 +18,10 @@ Checks, for every annotated entry:
     other lights carry no annotation (check_groups)
 
 And checks that apply only to puzzles we WROTE (see is_authored):
+  - every clue states its scene in explanation.surface, without crossword
+    vocabulary or the answer (check_authored_surface)
+  - at least MIN_JOKE_SHARE of the clues carry features.joke, and a pun names
+    its word (check_authored_jokes)
   - no block may have an empty `gives`: every word of an authored clue is
     definition, wordplay or joinery, never surface padding (check_two_pieces)
   - the walkthrough stays inside MAX_WALKTHROUGH_WORDS when the blocks already
@@ -48,6 +52,7 @@ fails.
 import ast
 import functools
 import json
+import math
 import re
 import subprocess
 import sys
@@ -756,6 +761,71 @@ def check_surface(tag, ann, clue, warnings):
         warnings.append(f"{tag}: no explanation.surface — say in one sentence (25 words max) what "
                         f"the clue pretends to be about; a clue of {len(words)} words "
                         f"paints a picture")
+
+# A clue we set starts from its scene, so `surface` is where the scene is
+# stated, in the world's words, before any mechanism exists. Published
+# surfaces use crossword vocabulary in 1.6% of 11,695 clues, so a surface that
+# needs it is describing the machinery, not the picture.
+SURFACE_MECHANISM = re.compile(
+    r"(?i)\b(anagram|indicator|fodder|letters?|revers|hidden|charade|container|"
+    r"wordplay|definition|homophone|deletion|abbreviation|clue|answer|setter|solver)\w*")
+
+
+def check_authored_surface(tag, ann, clue, errors):
+    """Every clue we set states its scene in `surface`, and the scene is not the
+    mechanism. No word-count or type exemption: a cryptic definition's scene is
+    its joke, and a four-word clue still pretends to say something."""
+    surface = (explanation(ann).get("surface") or "").strip()
+    if not surface:
+        errors.append(f"{tag}: no explanation.surface — a clue we set starts from its scene: "
+                      f"say in one sentence what the clue is about, with no crossword in "
+                      f"mind, before choosing the mechanism (AUTHORING.md, 'The surface is "
+                      f"a sentence, and it carries a joke')")
+        return
+    hit = SURFACE_MECHANISM.search(surface)
+    if hit:
+        errors.append(f"{tag}: surface {surface!r} says {hit.group(0)!r} — that is the "
+                      f"mechanism, not the scene. State what the sentence is about as a "
+                      f"reader with no crossword in mind would")
+    answer = re.sub(r"[^a-z]", "", (ann.get("answer") or "").lower())
+    if len(answer) > 2 and answer in re.sub(r"[^a-z ]", "", surface.lower()).split():
+        errors.append(f"{tag}: surface {surface!r} names the answer; the scene is what the "
+                      f"clue pretends to say, and the answer is what it hides")
+
+
+# How often a puzzle we set must carry a joke (`features.joke`: pun or absurd).
+# Measured against fifteensquared favourite votes on published clues
+# (2026-09-28): a joke is on 25.7% of clues nobody named, 38.4% named once,
+# 48.8% named twice and 51.3% named three or more times. Half is the rate of
+# the clues solvers name more than once.
+MIN_JOKE_SHARE = 0.5
+
+
+def check_authored_jokes(entries, errors):
+    """Half the clues in a puzzle we set carry a joke, and a pun names its word.
+
+    Whole-puzzle, like the cryptic-definition cap: each clue without a joke is
+    defensible, and the fault only shows when they are counted. A `pun` lives in
+    one word's second sense, so it must name that word in
+    `features.misdirectedWord`; a pun nobody can point at is not one."""
+    anns = [(e, e["annotation"]) for e in entries if e.get("annotation")]
+    jokes = 0
+    for e, ann in anns:
+        feats = ann.get("features") or {}
+        joke = feats.get("joke")
+        if joke in ("pun", "absurd"):
+            jokes += 1
+        if joke == "pun" and not feats.get("misdirectedWord"):
+            tag = f"{e['number']}{'A' if e['direction'] == 'across' else 'D'}"
+            errors.append(f"{tag}: features.joke is pun but no misdirectedWord — name the "
+                          f"word whose second sense carries the pun")
+    need = math.ceil(MIN_JOKE_SHARE * len(anns))
+    if jokes < need:
+        errors.append(f"puzzle: {jokes} of {len(anns)} clues carry a joke (features.joke); "
+                      f"a puzzle we set needs {need}. Solvers' most-named clues carry one "
+                      f"half the time, their unnamed ones a quarter. Rewrite from a scene "
+                      f"with a pun or an absurdity in it, and choose the mechanism last")
+
 
 # `definitionFit` — one sentence on why the ANSWER means the DEFINITION — became
 # required on 2026-08-01 (feedback: "in the full walkthrough explain why the
@@ -2393,6 +2463,7 @@ def validate_puzzle(puzzle, corpus=False):
         check_link_word_is_not_an_order(tag, ann, clue, warnings)
         check_link_word_is_not_inside_an_indicator(tag, ann, clue, errors)
         if authored:
+            check_authored_surface(tag, ann, clue, errors)
             check_two_pieces(tag, ann, errors)
             check_walkthrough_budget(tag, ann, warnings)
             check_link_words_are_equivalences(tag, ann, errors)
@@ -2440,6 +2511,8 @@ def validate_puzzle(puzzle, corpus=False):
                                       blind_misses(puzzle["id"]), corpus=corpus)
         check_cryptic_definition_cap(puzzle["entries"], errors, warnings,
                                      authored=authored)
+        if authored:
+            check_authored_jokes(puzzle["entries"], errors)
         check_definition_not_fodder(puzzle["entries"], errors, warnings)
         if not corpus:
             check_definition_against_blog(puzzle, warnings)
