@@ -88,7 +88,9 @@ printed; `for` is the one name from this clue's own `type` whose operation they 
 (`{"text": "almost", "for": "deletion"}`); `note` is one sentence on why these words
 signal that operation in this clue (`"'stable? No' means unstable, and something
 unstable will not stay in the order it is given"`), never the general sentence about
-what the device does. An indicator gives no letters, so it gets no block.
+what the device does. An indicator gives no letters, so it gets no block. Its rung comes
+before the blocks, so its note names pieces by their clue words, never their letters:
+`"to grip is to hold, so 'beginning' holds 'learner'"`, not `"STARTING grips the L"`.
 
 ## Taste
 

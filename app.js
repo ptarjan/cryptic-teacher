@@ -2834,6 +2834,24 @@
     return String(text || "").replace(new RegExp(`\\b(?:${alts.join("|")})\\b`, "gi"), "\u2026");
   }
 
+  // An indicator's note with the building blocks' letters blanked out. The
+  // indicators rung is a tier below the blocks, and a note written as the
+  // operation happens names both pieces: "STARTING grips, holds, the L" handed
+  // over every block of telegraph-31356 11A on the rung bought to find the
+  // word "grip" ("It gives away the blocks in the indicator"). One note in six
+  // in the corpus spelled a block this way (12,744 of 76,772). A capitalised word is how an
+  // annotation writes letters, so a capitalised word that is a block's `gives`
+  // is blanked, unless that block's letters are just its clue words, which are
+  // on screen anyway. A lone A or I is left: it is far likelier the English word.
+  function maskBlockLetters(text, ann) {
+    const bare = (s) => String(s || "").replace(/[^A-Za-z]/g, "").toUpperCase();
+    const hidden = new Set((ann.blocks || [])
+      .filter((b) => bare(b.gives) && bare(b.gives) !== bare(b.clueFragment))
+      .map((b) => bare(b.gives)));
+    return String(text || "").replace(/\b[A-Z]+\b/g, (w) =>
+      hidden.has(w) && w !== "A" && w !== "I" ? "\u2026" : w);
+  }
+
   // The letters a block may show, "" when it may show none.
   //
   // A cryptic definition has no building blocks — having none is what makes it
@@ -3586,7 +3604,7 @@
       // cannot be.
       const said = (i) => {
         const op = INDICATOR_OPS.find(([o]) => o === i.for);
-        return i.note || (op ? `tells you to ${op[1]}` : "");
+        return i.note ? maskBlockLetters(i.note, ann) : (op ? `tells you to ${op[1]}` : "");
       };
       const written = inds.filter(said);
       const noteList = `<ul class="ind-notes">${written.map((i) =>
