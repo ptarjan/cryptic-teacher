@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,54 @@
     "text": "Lunatic presided over trial, having rejected coroner's conclusion",
     "enumeration": "8"
    },
-   "solution": "HEADCASE"
+   "solution": "HEADCASE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "HEADCASE",
+    "definitions": [
+     {
+      "text": "Lunatic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "having rejected",
+      "for": "deletion",
+      "note": "what is rejected is thrown out, so the R leaves the phrase"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "presided over trial",
+      "gives": "HEARDCASE",
+      "note": "a judge who presided over a trial heard the case"
+     },
+     {
+      "clueFragment": "coroner's conclusion",
+      "gives": "R",
+      "note": "the last letter of coroneR, the letter removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HEA",
+      "DCASE"
+     ]
+    },
+    "explanation": {
+     "surface": "A deranged judge sits on a case after overruling the coroner's verdict.",
+     "walkthrough": "'Presided over trial' is the courtroom phrase HEARD CASE; take out its R and the judge becomes the madman.",
+     "definitionFit": "A headcase is British slang for a crazy or unstable person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "conclusion"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +97,55 @@
     "text": "Rushes around married women's lodgings in Brunei",
     "enumeration": "6"
    },
-   "solution": "HAREMS"
+   "solution": "HAREMS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HAREMS",
+    "definitions": [
+     {
+      "text": "women's lodgings in Brunei",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "HARES goes around the M, which ends up inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rushes",
+      "gives": "HARES",
+      "note": "to hare is to rush"
+     },
+     {
+      "clueFragment": "married",
+      "gives": "M",
+      "note": "M = married, as in genealogies"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HARE",
+      "M",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hurries round the accommodation of wives in a Sultan's state.",
+     "walkthrough": "'Rushes' looks like the reeds; it is the verb, to hare.",
+     "definitionFit": "A harem is the women's quarters of a Muslim household, of the kind a Sultan of Brunei might keep."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Rushes"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +159,55 @@
     "text": "Gunners indisposed to block supply route",
     "enumeration": "9"
    },
-   "solution": "ARTILLERY"
+   "solution": "ARTILLERY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ARTILLERY",
+    "definitions": [
+     {
+      "text": "Gunners",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to block",
+      "for": "container",
+      "note": "something blocking a route sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "supply route",
+      "gives": "ARTERY",
+      "note": "an artery is a main road or supply route"
+     },
+     {
+      "clueFragment": "indisposed",
+      "gives": "ILL",
+      "note": "indisposed = ill"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ART",
+      "ILL",
+      "ERY"
+     ]
+    },
+    "explanation": {
+     "surface": "Sick soldiers are posted to cut off the enemy's supply line.",
+     "walkthrough": "The surface reads as a military manoeuvre, which keeps 'supply route' looking literal rather than as a word for a main road.",
+     "definitionFit": "The artillery is the arm of an army made up of gunners, as the Royal Artillery's men are called."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "block"
+    }
+   }
   },
   {
    "number": 3,
@@ -85,7 +231,62 @@
      }
     ]
    },
-   "solution": "CLOUDCUCKOOLAND"
+   "solution": "CLOUDCUCKOOLAND",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "CLOUD-CUCKOO-LAND",
+    "definitions": [
+     {
+      "text": "a utopian realm",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "incomplete",
+      "for": "deletion",
+      "note": "an incomplete word has lost its last letter, so CODE becomes COD"
+     },
+     {
+      "text": "Deciphering",
+      "for": "anagram",
+      "note": "deciphering rearranges a coded text into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "incomplete code",
+      "gives": "COD",
+      "note": "CODE without its final E"
+     },
+     {
+      "clueFragment": "could unlock a",
+      "gives": "COULDUNLOCKA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CODCOULDUNLOCKA",
+       "gives": "CLOUDCUCKOOLAND"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Cracking a partial code might open the way to a paradise.",
+     "walkthrough": "'Could unlock a' reads as the sentence's verb phrase, but every letter of it is fodder alongside COD.",
+     "definitionFit": "Cloud-cuckoo-land, from Aristophanes' Birds, is an imaginary ideal realm of fanciful dreamers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Deciphering"
+    }
+   }
   },
   {
    "number": 4,
@@ -99,7 +300,62 @@
     "text": "Clergymen discovered hiding in ship's quarters",
     "enumeration": "7"
    },
-   "solution": "SECTORS"
+   "solution": "SECTORS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "SECTORS",
+    "definitions": [
+     {
+      "text": "quarters",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "discovered",
+      "for": "deletion",
+      "note": "dis-covered means with the cover off, so the outer letters go"
+     },
+     {
+      "text": "hiding in",
+      "for": "container",
+      "note": "what is hiding in something sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ship's",
+      "gives": "SS",
+      "note": "SS = steamship"
+     },
+     {
+      "clueFragment": "Clergymen discovered",
+      "gives": "ECTOR",
+      "note": "RECTORS with the cover (first and last letters) taken off"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ECTOR",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Stowaway priests are found lurking in the crew's cabins.",
+     "walkthrough": "'Discovered' reads as found out; split it as dis-covered, uncovered. 'Quarters' is not cabins but divisions.",
+     "definitionFit": "A plain synonym: a city's districts are its quarters, and the same parts of an area can be called its sectors."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "discovered"
+    }
+   }
   },
   {
    "number": 5,
@@ -113,7 +369,54 @@
     "text": "Dormant snake seen outside shelter",
     "enumeration": "6"
    },
-   "solution": "ASLEEP"
+   "solution": "ASLEEP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ASLEEP",
+    "definitions": [
+     {
+      "text": "Dormant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "seen outside",
+      "for": "container",
+      "note": "the snake is on the outside, so ASP wraps round LEE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "snake",
+      "gives": "ASP",
+      "note": "an asp is a snake"
+     },
+     {
+      "clueFragment": "shelter",
+      "gives": "LEE",
+      "note": "the lee is the sheltered side"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AS",
+      "LEE",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "A hibernating snake is spotted lying outside its den.",
+     "walkthrough": "The lee is the side sheltered from the wind, a sailing word.",
+     "definitionFit": "Dormant and asleep both mean inactive, at rest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -141,7 +444,51 @@
      }
     ]
    },
-   "solution": "SPEAKOFTHEDEVIL"
+   "solution": "SPEAKOFTHEDEVIL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SPEAK OF THE DEVIL",
+    "definitions": [
+     {
+      "text": "reaction to someone's appearance",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Arbitrarily",
+      "for": "anagram",
+      "note": "arranged arbitrarily means in no set order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "develop this fake",
+      "gives": "DEVELOPTHISFAKE",
+      "note": "fifteen letters, taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DEVELOPTHISFAKE",
+       "gives": "SPEAKOFTHEDEVIL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is told to put on a false response when a person shows up.",
+     "walkthrough": "'Appearance' sounds like looks, but it means arriving: the phrase is what you say when the person you were discussing walks in.",
+     "definitionFit": "'Speak of the devil' is the remark made when someone just mentioned turns up."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "appearance"
+    }
+   }
   },
   {
    "number": 7,
@@ -155,7 +502,43 @@
     "text": "Run from sex trafficker",
     "enumeration": "5"
    },
-   "solution": "EXTRA"
+   "solution": "EXTRA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EXTRA",
+    "definitions": [
+     {
+      "text": "Run",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from",
+      "for": "hidden_word",
+      "note": "the answer is taken from inside the letters that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sex trafficker",
+      "gives": "EXTRA",
+      "note": "the letters run from the second of 'sex' to the second of 'trafficker'"
+     }
+    ],
+    "explanation": {
+     "surface": "An order to escape a sex trafficker.",
+     "walkthrough": "In cricket an extra is a run not scored off the bat, such as a bye or wide.",
+     "definitionFit": "An extra is a run credited to the batting side without the batter hitting it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Run"
+    }
+   }
   },
   {
    "number": 8,
@@ -169,7 +552,68 @@
     "text": "Forecasts result in flipping bad mood",
     "enumeration": "8"
    },
-   "solution": "PORTENDS"
+   "solution": "PORTENDS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "PORTENDS",
+    "definitions": [
+     {
+      "text": "Forecasts",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flipping",
+      "for": "reversal",
+      "note": "flipped over, STROP runs the other way"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the result sits in the flipped mood, END inside PORTS"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bad mood",
+      "gives": "STROP",
+      "note": "a strop is a sulk, British slang"
+     },
+     {
+      "clueFragment": "result",
+      "gives": "END",
+      "note": "an end is a result, an outcome"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PORT",
+      "END",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "STROP",
+       "to": "PORTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Predictions end up putting someone in a foul temper.",
+     "walkthrough": "'Flipping' reads as a mild British swear word qualifying 'bad mood'; it is the reversal. A strop is a fit of sulky temper.",
+     "definitionFit": "A plain synonym: both verbs mean to signal in advance what is coming, though portends usually carries a sense of omen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "flipping"
+    }
+   }
   },
   {
    "number": 9,
@@ -183,7 +627,54 @@
     "text": "Large hole right below chest",
     "enumeration": "6"
    },
-   "solution": "CRATER"
+   "solution": "CRATER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CRATER",
+    "definitions": [
+     {
+      "text": "Large hole",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "below",
+      "for": "charade",
+      "note": "in a down entry, below means coming after"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chest",
+      "gives": "CRATE",
+      "note": "a crate is a chest"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R = right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRATE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A wound sits just beneath someone's ribcage.",
+     "walkthrough": "'Chest' invites anatomy; it is a box.",
+     "definitionFit": "A straight description: the pit a bomb or meteor blasts into the ground."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "chest"
+    }
+   }
   },
   {
    "number": 10,
@@ -197,7 +688,62 @@
     "text": "Relative value of empty apartment in city",
     "enumeration": "5"
    },
-   "solution": "RATIO"
+   "solution": "RATIO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "RATIO",
+    "definitions": [
+     {
+      "text": "Relative value",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "empty",
+      "for": "letter_selection",
+      "note": "emptied, the word keeps only its outer letters"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the flat is in the city, so AT goes inside RIO"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "city",
+      "gives": "RIO",
+      "note": "Rio de Janeiro"
+     },
+     {
+      "clueFragment": "empty apartment",
+      "gives": "AT",
+      "select": "outer",
+      "note": "A and T, the outside of ApartmenT"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "AT",
+      "IO"
+     ]
+    },
+    "explanation": {
+     "surface": "An estate agent weighs up what an unoccupied flat in town is worth.",
+     "walkthrough": "'Relative value' sounds like property prices; it is the mathematical sense.",
+     "definitionFit": "A mathematical sense: one quantity measured against another, as three to one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "value"
+    }
+   }
   },
   {
    "number": 11,
@@ -211,7 +757,68 @@
     "text": "Workman caught a tenant embracing Penny",
     "enumeration": "9"
    },
-   "solution": "CARPENTER"
+   "solution": "CARPENTER",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CARPENTER",
+    "definitions": [
+     {
+      "text": "Workman",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "embracing",
+      "for": "container",
+      "note": "the tenant holds Penny in its arms, P inside RENTER"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "c = caught, in cricket scoring"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "used as written"
+     },
+     {
+      "clueFragment": "tenant",
+      "gives": "RENTER",
+      "note": "a tenant is a renter"
+     },
+     {
+      "clueFragment": "Penny",
+      "gives": "P",
+      "note": "p = penny"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "A",
+      "R",
+      "P",
+      "ENTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A builder is caught in a clinch with a lodger called Penny.",
+     "walkthrough": "The capital on 'Penny' dresses the coin as a woman's name.",
+     "definitionFit": "A definition by example: a tradesman who works in wood is one kind of workman."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Penny"
+    }
+   }
   },
   {
    "number": 12,
@@ -225,7 +832,72 @@
     "text": "Awkward line in drama about ordinary company department",
     "enumeration": "9"
    },
-   "solution": "MALADROIT"
+   "solution": "MALADROIT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "MALADROIT",
+    "definitions": [
+     {
+      "text": "Awkward",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "turned about, the letters of DRAMA and the L inside it are moved around"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L = line"
+     },
+     {
+      "clueFragment": "drama",
+      "gives": "DRAMA",
+      "note": "taken as written, with the L put in it"
+     },
+     {
+      "clueFragment": "ordinary",
+      "gives": "O",
+      "note": "O = ordinary, as in O level"
+     },
+     {
+      "clueFragment": "company department",
+      "gives": "IT",
+      "note": "the IT department of a company"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MALADR",
+      "O",
+      "IT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DRAMAL",
+       "gives": "MALADR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An actor fluffs a clumsy line in a play set in an office.",
+     "walkthrough": "O for ordinary comes from the old British O level exam.",
+     "definitionFit": "A plain synonym, from French mal adroit, badly skilful: clumsy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "line"
+    }
+   }
   },
   {
    "number": 13,
@@ -239,7 +911,68 @@
     "text": "King starts to notice an extremely versatile villain",
     "enumeration": "5"
    },
-   "solution": "KNAVE"
+   "solution": "KNAVE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "KNAVE",
+    "definitions": [
+     {
+      "text": "villain",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts to",
+      "for": "letter_selection",
+      "note": "the starts of the next two words are their first letters"
+     },
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its first and last letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "King",
+      "gives": "K",
+      "note": "K = king, in chess"
+     },
+     {
+      "clueFragment": "starts to notice an",
+      "gives": "NA",
+      "select": "first",
+      "note": "the first letters of Notice An"
+     },
+     {
+      "clueFragment": "extremely versatile",
+      "gives": "VE",
+      "select": "outer",
+      "note": "the ends of VersatilE"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "NA",
+      "VE"
+     ]
+    },
+    "explanation": {
+     "surface": "A monarch begins to see that a rogue can play any part.",
+     "walkthrough": "The surface knowingly nods at playing cards, where the knave sits next to the king.",
+     "definitionFit": "A plain synonym, old-fashioned: the word for a scoundrel before it became the jack in a pack of cards."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "starts"
+    }
+   }
   },
   {
    "number": 14,
@@ -253,7 +986,67 @@
     "text": "French article about strange, retiring creatures",
     "enumeration": "6"
    },
-   "solution": "LEMURS"
+   "solution": "LEMURS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "LEMURS",
+    "definitions": [
+     {
+      "text": "creatures",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retiring",
+      "for": "reversal",
+      "note": "retiring means going back, so RUM runs backwards"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "the article goes about, round, the reversed RUM"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "French article",
+      "gives": "LES",
+      "note": "les = the, in French plural"
+     },
+     {
+      "clueFragment": "strange",
+      "gives": "RUM",
+      "note": "rum = odd, strange (British)"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LE",
+      "MUR",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "RUM",
+       "to": "MUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A piece in a French paper about odd, shy animals.",
+     "walkthrough": "'Article' is the grammar kind, not a piece of writing. Rum is British for strange.",
+     "definitionFit": "Lemurs are primates of Madagascar, retiring nocturnal creatures."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 15,
@@ -267,7 +1060,61 @@
     "text": "Agitated rugby fan initially ran away",
     "enumeration": "7"
    },
-   "solution": "RUFFLED"
+   "solution": "RUFFLED",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "RUFFLED",
+    "definitions": [
+     {
+      "text": "Agitated",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "the fan's initial is its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rugby",
+      "gives": "RU",
+      "note": "RU = Rugby Union"
+     },
+     {
+      "clueFragment": "fan initially",
+      "gives": "F",
+      "select": "first",
+      "note": "the first letter of Fan"
+     },
+     {
+      "clueFragment": "ran away",
+      "gives": "FLED",
+      "note": "fled = ran away"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RU",
+      "F",
+      "FLED"
+     ]
+    },
+    "explanation": {
+     "surface": "An upset rugby supporter took off.",
+     "walkthrough": "RU for Rugby Union is a standard abbreviation.",
+     "definitionFit": "A plain synonym, from feathers or water disturbed out of their smooth state into a flustered one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -281,7 +1128,61 @@
     "text": "Proprietor of farm, say, left warden no alternative",
     "enumeration": "9"
    },
-   "solution": "LANDOWNER"
+   "solution": "LANDOWNER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "LANDOWNER",
+    "definitions": [
+     {
+      "text": "Proprietor of farm, say",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "alternative",
+      "for": "anagram",
+      "note": "an alternative version of the letters is a new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L = left"
+     },
+     {
+      "clueFragment": "warden no",
+      "gives": "WARDENNO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "ANDOWNER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "WARDENNO",
+       "gives": "ANDOWNER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A farm owner left the gamekeeper without any choice.",
+     "walkthrough": "'No alternative' reads as no choice; 'alternative' alone is the anagram signal, and 'no' is fodder.",
+     "definitionFit": "The owner of a farm is one example of a landowner, hence 'say'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "alternative"
+    }
+   }
   },
   {
    "number": 17,
@@ -295,7 +1196,60 @@
     "text": "Thoughtful type has drink in a theatre",
     "enumeration": "8"
    },
-   "solution": "RUMINANT"
+   "solution": "RUMINANT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RUMINANT",
+    "definitions": [
+     {
+      "text": "Thoughtful type",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drink",
+      "gives": "RUM",
+      "note": "rum is a drink"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "used as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "used as written"
+     },
+     {
+      "clueFragment": "theatre",
+      "gives": "NT",
+      "note": "NT = the National Theatre in London"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RUM",
+      "IN",
+      "A",
+      "NT"
+     ]
+    },
+    "explanation": {
+     "surface": "A pensive person takes a drink at the theatre bar.",
+     "walkthrough": "'Has' only joins the pieces. The definition is a pun: ruminate means to ponder, and a ruminant, like a cow, chews the cud.",
+     "definitionFit": "A ruminant chews the cud, and ruminating is thinking hard, so it is a 'thoughtful type' in jest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Thoughtful"
+    }
+   }
   },
   {
    "number": 18,
@@ -309,7 +1263,59 @@
     "text": "Liberated Union State with adequate education",
     "enumeration": "7"
    },
-   "solution": "UNYOKED"
+   "solution": "UNYOKED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNYOKED",
+    "definitions": [
+     {
+      "text": "Liberated",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Union",
+      "gives": "U",
+      "note": "U = union"
+     },
+     {
+      "clueFragment": "State",
+      "gives": "NY",
+      "note": "NY = New York State"
+     },
+     {
+      "clueFragment": "adequate",
+      "gives": "OK",
+      "note": "OK = all right, adequate"
+     },
+     {
+      "clueFragment": "education",
+      "gives": "ED",
+      "note": "ed = education"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "NY",
+      "OK",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A newly freed state of the American Union has a decent school system.",
+     "walkthrough": "'Union State' reads as one American state; it splits into U and NY.",
+     "definitionFit": "Unyoked means freed from a yoke, liberated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Union"
+    }
+   }
   },
   {
    "number": 19,
@@ -323,7 +1329,59 @@
     "text": "Ruins two upstanding teachers",
     "enumeration": "6"
    },
-   "solution": "DEBRIS"
+   "solution": "DEBRIS",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "DEBRIS",
+    "definitions": [
+     {
+      "text": "Ruins",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upstanding",
+      "for": "reversal",
+      "note": "in a down entry, standing up means reading from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "two",
+      "note": "says how many teachers to find; it gives no letters"
+     },
+     {
+      "clueFragment": "teachers",
+      "gives": "SIRBED",
+      "note": "SIR, how pupils address a teacher, and BED, a Bachelor of Education"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEBRIS"
+     ],
+     "reversals": [
+      {
+       "from": "SIRBED",
+       "to": "DEBRIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pair of honest teachers spoils something.",
+     "walkthrough": "'Upstanding' reads as honourable; in a down clue it turns the letters upward. 'Ruins' is a noun, not the verb the surface wants.",
+     "definitionFit": "Debris is the scattered remains, the ruins, of something destroyed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "upstanding"
+    }
+   }
   },
   {
    "number": 20,
@@ -337,7 +1395,52 @@
     "text": "His Excellency leaves infidels' capital",
     "enumeration": "6"
    },
-   "solution": "ATHENS"
+   "solution": "ATHENS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ATHENS",
+    "definitions": [
+     {
+      "text": "capital",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaves",
+      "for": "deletion",
+      "note": "His Excellency leaves, departs from, the word, so HE drops out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "infidels'",
+      "gives": "ATHENS",
+      "note": "HEATHENS, infidels, once HE departs"
+     },
+     {
+      "clueFragment": "His Excellency",
+      "gives": "HE",
+      "note": "HE = His Excellency, the letters removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ATHENS"
+     ]
+    },
+    "explanation": {
+     "surface": "An ambassador departs a city of unbelievers.",
+     "walkthrough": "'Leaves' is the verb depart, not foliage.",
+     "definitionFit": "A definition by example: the Greek seat of government is one capital city among many."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -357,7 +1460,45 @@
      }
     ]
    },
-   "solution": "ATISSUE"
+   "solution": "ATISSUE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "AT ISSUE",
+    "definitions": [
+     {
+      "text": "in question",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is audible",
+      "for": "homophone",
+      "note": "what is audible is heard, so the sound, not the spelling, counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nasal sound",
+      "gives": "ATISSUE",
+      "soundsLike": "ATISHOO",
+      "note": "atishoo is the sound of a sneeze"
+     }
+    ],
+    "explanation": {
+     "surface": "A snuffle can be heard during questioning.",
+     "walkthrough": "Atishoo is the British spelling of a sneeze, the American achoo.",
+     "definitionFit": "An idiom: both phrases describe the matter currently being disputed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "question"
+    }
+   }
   },
   {
    "number": 21,
@@ -371,7 +1512,78 @@
     "text": "Twisted attorney suppressing perverse lust for 18-year-olds?",
     "enumeration": "6"
    },
-   "solution": "ADULTS"
+   "solution": "ADULTS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "charade"
+    ],
+    "answer": "ADULTS",
+    "definitions": [
+     {
+      "text": "18-year-olds?",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Twisted",
+      "for": "reversal",
+      "note": "twisted round, DA faces the other way"
+     },
+     {
+      "text": "perverse",
+      "for": "anagram",
+      "note": "perverse means turned awry, so the letters are turned too"
+     },
+     {
+      "text": "suppressing",
+      "for": "charade",
+      "note": "in a down entry, pressing down on something means sitting above it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "attorney",
+      "gives": "DA",
+      "note": "DA = district attorney"
+     },
+     {
+      "clueFragment": "lust",
+      "gives": "LUST",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "ULTS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LUST",
+       "gives": "ULTS"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "DA",
+       "to": "AD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A corrupt lawyer covers up his own twisted desires for teenagers.",
+     "walkthrough": "The question mark flags a definition by example: at 18 you are legally an adult.",
+     "definitionFit": "Eighteen-year-olds are adults in law, one example of the class."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "suppressing"
+    }
+   }
   },
   {
    "number": 22,
@@ -385,7 +1597,63 @@
     "text": "Illustration detailed embryo's last stage of development",
     "enumeration": "5"
    },
-   "solution": "IMAGO"
+   "solution": "IMAGO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "IMAGO",
+    "definitions": [
+     {
+      "text": "stage of development",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "detailed",
+      "for": "deletion",
+      "note": "de-tailed means with its tail cut off"
+     },
+     {
+      "text": "last",
+      "for": "letter_selection",
+      "note": "the embryo's last is its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Illustration detailed",
+      "gives": "IMAG",
+      "note": "IMAGE without its tail"
+     },
+     {
+      "clueFragment": "embryo's last",
+      "gives": "O",
+      "select": "last",
+      "note": "the last letter of embryO"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IMAG",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A textbook diagram shows an embryo at its final phase of growth.",
+     "walkthrough": "'Detailed' looks like 'in detail'; read it as de-tailed.",
+     "definitionFit": "The imago is the final, adult stage in an insect's development."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "detailed"
+    }
+   }
   },
   {
    "number": 23,
@@ -399,7 +1667,44 @@
     "text": "Make reparations in agreement",
     "enumeration": "5"
    },
-   "solution": "ATONE"
+   "solution": "ATONE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ATONE",
+    "definitions": [
+     {
+      "text": "Make reparations",
+      "at": 0
+     },
+     {
+      "text": "in agreement",
+      "at": 17,
+      "note": "read as AT ONE, two words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Make reparations",
+      "gives": "ATONE",
+      "note": "a verb for making amends for a wrong"
+     },
+     {
+      "clueFragment": "in agreement",
+      "gives": "ATONE",
+      "note": "a two-word idiom for agreeing, run together"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second sense needs the answer split in two: AT ONE.",
+     "definitionFit": "The first sense is a plain synonym for making amends; the second is the idiom for two parties who agree, read as two words."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -413,7 +1718,54 @@
     "text": "Dazzle female with vintage eyewear",
     "enumeration": "9"
    },
-   "solution": "BLINDFOLD"
+   "solution": "BLINDFOLD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BLINDFOLD",
+    "definitions": [
+     {
+      "text": "eyewear",
+      "at": 27
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dazzle",
+      "gives": "BLIND",
+      "note": "to dazzle is to blind"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "F = female"
+     },
+     {
+      "clueFragment": "vintage",
+      "gives": "OLD",
+      "note": "vintage = old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BLIND",
+      "F",
+      "OLD"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wows a woman wearing retro glasses.",
+     "walkthrough": "'Eyewear' calls up spectacles; a blindfold is worn over the eyes too.",
+     "definitionFit": "A blindfold is worn over the eyes, so it counts as eyewear, if a playful kind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "vintage"
+    }
+   }
   },
   {
    "number": 25,
@@ -427,7 +1779,67 @@
     "text": "Earl captivated by original Mona Lisa's enigmatic features",
     "enumeration": "9"
    },
-   "solution": "ANOMALIES"
+   "solution": "ANOMALIES",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ANOMALIES",
+    "definitions": [
+     {
+      "text": "enigmatic features",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "original",
+      "for": "anagram",
+      "note": "an original version is a newly made one, so the letters are made anew"
+     },
+     {
+      "text": "captivated by",
+      "for": "container",
+      "note": "a captive is held inside, so the earl's E is held within the rearranged letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mona Lisa",
+      "gives": "MONALISA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Earl",
+      "gives": "E",
+      "note": "E = earl"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANOMALI",
+      "E",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MONALISA",
+       "gives": "ANOMALIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nobleman is spellbound by the genuine Mona Lisa's mysterious face.",
+     "walkthrough": "'Features' pulls toward the famous smile, and 'original' toward the real painting.",
+     "definitionFit": "Anomalies are puzzling irregularities, features that cannot be explained."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "original"
+    }
+   }
   },
   {
    "number": 26,
@@ -441,7 +1853,59 @@
     "text": "Records of victory in year fifty",
     "enumeration": "5"
    },
-   "solution": "VINYL"
+   "solution": "VINYL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "VINYL",
+    "definitions": [
+     {
+      "text": "Records",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "victory",
+      "gives": "V",
+      "note": "V = victory"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "used as written"
+     },
+     {
+      "clueFragment": "year",
+      "gives": "Y",
+      "note": "Y = year"
+     },
+     {
+      "clueFragment": "fifty",
+      "gives": "L",
+      "note": "L = 50 in Roman numerals"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "IN",
+      "Y",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "Accounts of a win in the year fifty.",
+     "walkthrough": "'Records' reads as written accounts; it is the records you play.",
+     "definitionFit": "Vinyl is a collective word for records, pressed from that plastic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Records"
+    }
+   }
   },
   {
    "number": 27,
@@ -455,7 +1919,56 @@
     "text": "Endeavour to squeeze butt in",
     "enumeration": "6"
    },
-   "solution": "TRENDY"
+   "solution": "TRENDY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TRENDY",
+    "definitions": [
+     {
+      "text": "in",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to squeeze",
+      "for": "container",
+      "note": "TRY squeezes, grips from both sides, the END"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Endeavour",
+      "gives": "TRY",
+      "note": "to endeavour is to try"
+     },
+     {
+      "clueFragment": "butt",
+      "gives": "END",
+      "note": "a butt is an end, as of a cigarette"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TR",
+      "END",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone struggles to push their backside through a narrow gap.",
+     "walkthrough": "The last word, 'in', looks like the end of the instruction; it is the definition, meaning fashionable.",
+     "definitionFit": "An informal sense: what is 'in' is currently in fashion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 28,
@@ -469,7 +1982,68 @@
     "text": "Condemns European resistance movement about obstructing detective",
     "enumeration": "8"
    },
-   "solution": "DEPLORES"
+   "solution": "DEPLORES",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "DEPLORES",
+    "definitions": [
+     {
+      "text": "Condemns",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "obstructing",
+      "for": "container",
+      "note": "what obstructs something stands in the middle of it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "detective",
+      "gives": "DS",
+      "note": "DS = detective sergeant"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E = European"
+     },
+     {
+      "clueFragment": "resistance movement",
+      "gives": "PLO",
+      "note": "the Palestine Liberation Organization"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re = about, concerning"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "E",
+      "PLO",
+      "RE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A wartime underground group in Europe denounces the police officer standing in its way.",
+     "walkthrough": "'European resistance movement' reads as one wartime group; E is European, and the PLO is the resistance movement.",
+     "definitionFit": "To deplore is to condemn strongly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "movement"
+    }
+   }
   }
  ]
 }
