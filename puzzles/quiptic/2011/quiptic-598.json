@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "id": "1-down",
@@ -34,7 +37,65 @@
     "text": "You are said to be taken in by drug addict and moneylender",
     "enumeration": "6"
    },
-   "solution": "USURER"
+   "solution": "USURER",
+   "annotation": {
+    "type": [
+     "homophone",
+     "container"
+    ],
+    "answer": "USURER",
+    "definitions": [
+     {
+      "text": "moneylender",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "said",
+      "for": "homophone",
+      "note": "'said' tells you to hear 'you are' spoken, which comes out as the letters U and R"
+     },
+     {
+      "text": "taken in by",
+      "for": "container",
+      "note": "the sound-alike is taken inside the word for the drug addict"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drug addict",
+      "gives": "USER",
+      "note": "a user takes drugs"
+     },
+     {
+      "clueFragment": "You are said",
+      "gives": "UR",
+      "soundsLike": "YOU ARE",
+      "note": "text-speak spelling of what you say"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "US",
+      "UR",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone in debt to a loan shark who is also their dealer.",
+     "walkthrough": "Letters can stand for their own sounds: say U and R aloud and you hear 'you are', the trick behind text-speak.",
+     "definitionFit": "A plain synonym: a usurer is someone who lends money at extortionate interest, the old word for a loan shark."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "taken"
+    }
+   }
   },
   {
    "id": "2-down",
@@ -59,7 +120,51 @@
    "group": [
     "2-down",
     "19-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MANCHESTER UNITED",
+    "definitions": [
+     {
+      "text": "Football team",
+      "at": 1
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in lively fashion",
+      "for": "anagram",
+      "note": "letters moving about in a lively way get jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "entertained chums",
+      "gives": "ENTERTAINEDCHUMS",
+      "note": "the sixteen letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ENTERTAINEDCHUMS",
+       "gives": "MANCHESTERUNITED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A football team showing its friends a good time.",
+     "walkthrough": "All sixteen letters of 'entertained chums' are used exactly once.",
+     "definitionFit": "A definition by example: the answer is one particular English Premier League club."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "entertained"
+    }
+   }
   },
   {
    "id": "3-down",
@@ -74,7 +179,51 @@
     "text": "It is widespread at weddings etc, if not controlled",
     "enumeration": "8"
    },
-   "solution": "CONFETTI"
+   "solution": "CONFETTI",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CONFETTI",
+    "definitions": [
+     {
+      "text": "It is widespread at weddings",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "controlled",
+      "for": "anagram",
+      "note": "the letters are taken in hand and put into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "etc, if not",
+      "gives": "ETCIFNOT",
+      "note": "the eight letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ETCIFNOT",
+       "gives": "CONFETTI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something that gets everywhere at weddings and the like unless someone keeps it in check.",
+     "walkthrough": "'if not controlled' reads as a warning, but 'not' is part of the letters; only 'controlled' is the signal.",
+     "definitionFit": "A descriptive definition: the paper scraps thrown over a newly married couple end up scattered all over the church steps."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "not"
+    }
+   }
   },
   {
    "id": "4-across",
@@ -89,7 +238,62 @@
     "text": "Buttonhole head of Asda about price",
     "enumeration": "6"
    },
-   "solution": "ACCOST"
+   "solution": "ACCOST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ACCOST",
+    "definitions": [
+     {
+      "text": "Buttonhole",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "the head of a word is its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Asda",
+      "gives": "A",
+      "select": "first",
+      "note": "first letter of Asda"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "C for circa, 'about'"
+     },
+     {
+      "clueFragment": "price",
+      "gives": "COST",
+      "note": "a price is what something costs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "C",
+      "COST"
+     ]
+    },
+    "explanation": {
+     "surface": "A shopper collaring the manager of a supermarket about what something costs.",
+     "walkthrough": "Asda is a British supermarket chain. 'Buttonhole' is a verb here, not the flower in a lapel.",
+     "definitionFit": "A plain synonym: to buttonhole someone is to stop and detain them for a talk, holding them as if by the lapel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Buttonhole"
+    }
+   }
   },
   {
    "id": "4-down",
@@ -104,7 +308,49 @@
     "text": "She murders two fools at home",
     "enumeration": "8"
    },
-   "solution": "ASSASSIN"
+   "solution": "ASSASSIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASSASSIN",
+    "definitions": [
+     {
+      "text": "She murders",
+      "at": 0,
+      "note": "a verb phrase standing for the noun: 'she (who) murders'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "two fools",
+      "gives": "ASSASS",
+      "note": "two asses"
+     },
+     {
+      "clueFragment": "at home",
+      "gives": "IN",
+      "note": "to be at home is to be in"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASS",
+      "ASS",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman who kills a pair of idiots in her own house.",
+     "walkthrough": "'She' is read as 'one who', so 'She murders' describes the person rather than an action.",
+     "definitionFit": "A description of the person by what she does: a professional killer, here imagined as a woman."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "She"
+    }
+   }
   },
   {
    "id": "5-down",
@@ -119,7 +365,50 @@
     "text": "Stroke Heather having sex",
     "enumeration": "8"
    },
-   "solution": "COUPLING"
+   "solution": "COUPLING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COUPLING",
+    "definitions": [
+     {
+      "text": "sex",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stroke",
+      "gives": "COUP",
+      "note": "a stroke, as in a masterstroke or clever move"
+     },
+     {
+      "clueFragment": "Heather",
+      "gives": "LING",
+      "note": "ling is common heather"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COUP",
+      "LING"
+     ]
+    },
+    "explanation": {
+     "surface": "Heather, capitalised as a woman's name, being caressed during sex.",
+     "walkthrough": "The capital H makes Heather look like a person; it is the plant, ling.",
+     "definitionFit": "A euphemism: pairing off in bed is a coy way of saying intercourse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Heather"
+    }
+   }
   },
   {
    "id": "6-across",
@@ -140,7 +429,55 @@
      }
     ]
    },
-   "solution": "CANONLAW"
+   "solution": "CANONLAW",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CANON LAW",
+    "definitions": [
+     {
+      "text": "church rules",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "grasped",
+      "for": "container",
+      "note": "the nipper's claw holds the other word inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nipper",
+      "gives": "CLAW",
+      "note": "a crab's claw nips"
+     },
+     {
+      "clueFragment": "soon",
+      "gives": "ANON",
+      "note": "anon is an old word for soon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ANON",
+      "LAW"
+     ]
+    },
+    "explanation": {
+     "surface": "A child quickly picking up the rules of the church.",
+     "walkthrough": "'Nipper' wants to be a small child; it is something that nips, a claw.",
+     "definitionFit": "A plain description: the canons are the laws made by a church's own authorities, such as the Catholic code."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Nipper"
+    }
+   }
   },
   {
    "id": "7-down",
@@ -155,7 +492,47 @@
     "text": "John's grand manner",
     "enumeration": "4"
    },
-   "solution": "LOOK"
+   "solution": "LOOK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LOOK",
+    "definitions": [
+     {
+      "text": "manner",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "John's",
+      "gives": "LOO",
+      "note": "a john is a toilet, a loo; the 's reads as 'has'"
+     },
+     {
+      "clueFragment": "grand",
+      "gives": "K",
+      "note": "a grand is a thousand, K"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOO",
+      "K"
+     ]
+    },
+    "explanation": {
+     "surface": "Describing a man named John as having an impressive bearing.",
+     "walkthrough": "Loo is British for toilet, and john American. 'John's grand' reads as 'the toilet has a thousand', the K following.",
+     "definitionFit": "A loose synonym: the way someone appears, their air or bearing, is their manner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "John's"
+    }
+   }
   },
   {
    "id": "8-down",
@@ -170,7 +547,52 @@
     "text": "We and he regularly walk through water",
     "enumeration": "4"
    },
-   "solution": "WADE"
+   "solution": "WADE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "WADE",
+    "definitions": [
+     {
+      "text": "walk through water",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "taking letters at regular intervals means every other one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "We and he",
+      "gives": "WADE",
+      "select": "alternate",
+      "note": "the odd-numbered letters, ignoring the spaces"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "A",
+      "D",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Two people who often splash through water together.",
+     "walkthrough": "Ignore spaces and read W-e-a-n-d-h-e, keeping every other letter.",
+     "definitionFit": "A plain paraphrase: moving on foot through shallow water, pushed back by it at each step."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "regularly"
+    }
+   }
   },
   {
    "id": "9-across",
@@ -185,7 +607,46 @@
     "text": "Four, for example, is even",
     "enumeration": "6"
    },
-   "solution": "SQUARE"
+   "solution": "SQUARE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SQUARE",
+    "definitions": [
+     {
+      "text": "Four, for example",
+      "at": 0
+     },
+     {
+      "text": "even",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Four, for example",
+      "note": "four is two times two, a number of that kind"
+     },
+     {
+      "clueFragment": "even",
+      "note": "level, with nothing owed either way"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'even' looks like the number sense after 'Four'; it means level, as in 'all square'.",
+     "definitionFit": "Four is a perfect square, an example of the class; and a match that is all square is even."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "even"
+    }
+   }
   },
   {
    "id": "10-across",
@@ -200,7 +661,56 @@
     "text": "Small, informal eaterie next to former place of execution",
     "enumeration": "8"
    },
-   "solution": "SCAFFOLD"
+   "solution": "SCAFFOLD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SCAFFOLD",
+    "definitions": [
+     {
+      "text": "place of execution",
+      "at": 39
+     }
+    ],
+    "linkWords": [
+     "next to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "S is the size abbreviation for small"
+     },
+     {
+      "clueFragment": "informal eaterie",
+      "gives": "CAFF",
+      "note": "a caff is British slang for a cheap café"
+     },
+     {
+      "clueFragment": "former",
+      "gives": "OLD",
+      "note": "former, as in old times"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CAFF",
+      "OLD"
+     ]
+    },
+    "explanation": {
+     "surface": "A little greasy spoon built beside where people used to be hanged.",
+     "walkthrough": "'former' seems to belong with 'place of execution'; it is its own piece of wordplay.",
+     "definitionFit": "A plain description: the raised platform on which people were hanged or beheaded."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "former"
+    }
+   }
   },
   {
    "id": "11-across",
@@ -221,7 +731,39 @@
      }
     ]
    },
-   "solution": "SELFRESPECT"
+   "solution": "SELFRESPECT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SELF-RESPECT",
+    "definitions": [
+     {
+      "text": "amour propre",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Novelist Will's",
+      "note": "Will Self is a British novelist, so this is the regard belonging to him"
+     },
+     {
+      "clueFragment": "amour propre",
+      "note": "French for regard for oneself"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Will Self is a British novelist, so the respect belonging to him is Self's respect.",
+     "definitionFit": "A borrowed phrase: amour propre is French for love of oneself, a sense of one's own worth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Will's"
+    }
+   }
   },
   {
    "id": "12-down",
@@ -236,7 +778,62 @@
     "text": "Lover's little, but has the knack!",
     "enumeration": "10"
    },
-   "solution": "SWEETHEART"
+   "solution": "SWEETHEART",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SWEETHEART",
+    "definitions": [
+     {
+      "text": "Lover",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "but has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "'s",
+      "gives": "S",
+      "note": "the S of the possessive"
+     },
+     {
+      "clueFragment": "little",
+      "gives": "WEE",
+      "note": "wee is Scottish for little"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "used as it stands"
+     },
+     {
+      "clueFragment": "knack",
+      "gives": "ART",
+      "note": "a knack is an art"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "WEE",
+      "THE",
+      "ART"
+     ]
+    },
+    "explanation": {
+     "surface": "A partner who may be small but is very skilled.",
+     "walkthrough": "The possessive 's is not grammar here; it supplies the letter S.",
+     "definitionFit": "A plain synonym: the person you are romantically attached to, a term also used as an endearment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Lover's"
+    }
+   }
   },
   {
    "id": "13-down",
@@ -251,7 +848,43 @@
     "text": "Move Althorp once?",
     "enumeration": "8"
    },
-   "solution": "DISPLACE"
+   "solution": "DISPLACE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DISPLACE",
+    "definitions": [
+     {
+      "text": "Move",
+      "at": 0
+     },
+     {
+      "text": "Althorp once",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Move",
+      "note": "to shift something from where it was"
+     },
+     {
+      "clueFragment": "Althorp once",
+      "note": "the Spencer family estate where Princess Diana grew up; read the answer as three words"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Althorp, a stately home in Northamptonshire, was Princess Diana's family seat, so it was once DI'S PLACE.",
+     "definitionFit": "Shifting something from its position is a plain synonym; the pun splits the same letters into Di's place."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Althorp"
+    }
+   }
   },
   {
    "id": "14-down",
@@ -266,7 +899,51 @@
     "text": "Pity male bullied when others are having fun",
     "enumeration": "8"
    },
-   "solution": "PLAYTIME"
+   "solution": "PLAYTIME",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PLAYTIME",
+    "definitions": [
+     {
+      "text": "when others are having fun",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bullied",
+      "for": "anagram",
+      "note": "the letters are pushed around into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pity male",
+      "gives": "PITYMALE",
+      "note": "the eight letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PITYMALE",
+       "gives": "PLAYTIME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Feeling sorry for a boy picked on in the school playground while everyone else enjoys themselves.",
+     "walkthrough": "The definition reads as a time clause, 'when ...', which fits a noun naming a period.",
+     "definitionFit": "A descriptive definition: the school break, the period when children run out to the playground to enjoy themselves."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "bullied"
+    }
+   }
   },
   {
    "id": "15-across",
@@ -281,7 +958,62 @@
     "text": "Despicable rogue elbowing wife out of the way?",
     "enumeration": "7"
    },
-   "solution": "IGNOBLE"
+   "solution": "IGNOBLE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "IGNOBLE",
+    "definitions": [
+     {
+      "text": "Despicable",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out of the way",
+      "for": "deletion",
+      "note": "the wife is pushed out of the word, so W goes"
+     },
+     {
+      "text": "rogue",
+      "for": "anagram",
+      "note": "rogue letters stray from their proper order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "elbowing",
+      "gives": "ELBOWING",
+      "note": "used as it stands"
+     },
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "W is the standard abbreviation for wife"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ELBOING",
+       "gives": "IGNOBLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A scoundrel shoving his wife aside to get past.",
+     "walkthrough": "'rogue' looks like the person doing the elbowing; it is the signal to rearrange ELBOING.",
+     "definitionFit": "A plain synonym: literally 'not noble', so base and contemptible in character."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rogue"
+    }
+   }
   },
   {
    "id": "16-down",
@@ -296,7 +1028,57 @@
     "text": "Leading brands offered with special price reductions in the Spar",
     "enumeration": "8"
    },
-   "solution": "BOWSPRIT"
+   "solution": "BOWSPRIT",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "BOWSPRIT",
+    "definitions": [
+     {
+      "text": "Spar",
+      "at": 60
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Leading",
+      "for": "letter_selection",
+      "note": "the leading letter of each word is its first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brands offered with special price reductions in the",
+      "gives": "BOWSPRIT",
+      "select": "first",
+      "note": "first letters of the eight words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "O",
+      "W",
+      "S",
+      "P",
+      "R",
+      "I",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Top brands on special offer at the Spar, a British convenience-store chain.",
+     "walkthrough": "The capital S makes Spar look like the shop; it is a pole on a ship.",
+     "definitionFit": "A definition by example: the pole jutting forward from a sailing ship's bow is one kind of spar."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Spar"
+    }
+   }
   },
   {
    "id": "17-across",
@@ -311,7 +1093,55 @@
     "text": "Minor court case enthrals little girl",
     "enumeration": "7"
    },
-   "solution": "TRIVIAL"
+   "solution": "TRIVIAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TRIVIAL",
+    "definitions": [
+     {
+      "text": "Minor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "enthrals",
+      "for": "container",
+      "note": "to enthral is to hold captive, so the trial holds the girl inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "court case",
+      "gives": "TRIAL",
+      "note": "a case heard in court"
+     },
+     {
+      "clueFragment": "little girl",
+      "gives": "VI",
+      "note": "Vi is short for Violet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRI",
+      "VI",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A small legal case that captivates a young girl.",
+     "walkthrough": "'Minor' wants to pair with 'court case' as a petty trial; it stands alone as the definition.",
+     "definitionFit": "A plain synonym: of little importance, not worth fussing over."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "little"
+    }
+   }
   },
   {
    "id": "18-across",
@@ -332,7 +1162,51 @@
      }
     ]
    },
-   "solution": "WATERSUPPLY"
+   "solution": "WATERSUPPLY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "WATER SUPPLY",
+    "definitions": [
+     {
+      "text": "source of liquid",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pathetic",
+      "for": "anagram",
+      "note": "the letters are in a sorry state and must be put right"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "We sup paltry",
+      "gives": "WESUPPALTRY",
+      "note": "the eleven letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WESUPPALTRY",
+       "gives": "WATERSUPPLY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Complaining about drinking from a meagre, miserable trickle.",
+     "walkthrough": "'paltry' looks like a second anagram signal but is part of the fodder; 'pathetic' does the work.",
+     "definitionFit": "A general description: the mains or reservoir that provides a household's drinking water."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "paltry"
+    }
+   }
   },
   {
    "id": "19-down",
@@ -361,7 +1235,36 @@
     "text": "Suss Cameron's wicked scheme",
     "enumeration": "4"
    },
-   "solution": "SCAM"
+   "solution": "SCAM",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SCAM",
+    "definitions": [
+     {
+      "text": "wicked scheme",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Suss Cameron",
+      "gives": "SCAM",
+      "note": "suS CAMeron"
+     }
+    ],
+    "explanation": {
+     "surface": "Seeing through a former Prime Minister's dodgy plan.",
+     "walkthrough": "There is no signal word; the answer simply runs across 'Suss Cameron', and the 's is a link. Suss is British slang for work out.",
+     "definitionFit": "A plain synonym: a fraudulent trick to cheat people, informally."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Suss"
+    }
+   }
   },
   {
    "id": "21-down",
@@ -376,7 +1279,54 @@
     "text": "Perhaps saw money being raised",
     "enumeration": "4"
    },
-   "solution": "TOOL"
+   "solution": "TOOL",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "TOOL",
+    "definitions": [
+     {
+      "text": "Perhaps saw",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being raised",
+      "for": "reversal",
+      "note": "in a down clue, raising the word reads it bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "money",
+      "gives": "LOOT",
+      "note": "loot is slang for money"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOOL"
+     ],
+     "reversals": [
+      {
+       "from": "LOOT",
+       "to": "TOOL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Maybe someone watched cash being collected.",
+     "walkthrough": "'saw' looks like the past of 'see'; it is the noun, the cutting blade.",
+     "definitionFit": "A definition by example, flagged by 'Perhaps': a saw is one instance of the category."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "saw"
+    }
+   }
   },
   {
    "id": "22-across",
@@ -391,7 +1341,51 @@
     "text": "Dealer manipulating our price",
     "enumeration": "8"
    },
-   "solution": "CROUPIER"
+   "solution": "CROUPIER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CROUPIER",
+    "definitions": [
+     {
+      "text": "Dealer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "manipulating",
+      "for": "anagram",
+      "note": "the letters are worked into a different arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "our price",
+      "gives": "OURPRICE",
+      "note": "the eight letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OURPRICE",
+       "gives": "CROUPIER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crooked trader fixing what we pay.",
+     "walkthrough": "'Dealer' suggests a merchant; it is the casino sort.",
+     "definitionFit": "A specific sense: the casino employee who hands out the cards or spins the roulette wheel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Dealer"
+    }
+   }
   },
   {
    "id": "23-across",
@@ -406,7 +1400,71 @@
     "text": "Policeman retrospectively applied law to international festival",
     "enumeration": "6"
    },
-   "solution": "DIWALI"
+   "solution": "DIWALI",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "DIWALI",
+    "definitions": [
+     {
+      "text": "festival",
+      "at": 55
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retrospectively",
+      "for": "reversal",
+      "note": "looking back means reading the word backwards"
+     }
+    ],
+    "linkWords": [
+     "applied",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Policeman",
+      "gives": "DI",
+      "note": "Detective Inspector"
+     },
+     {
+      "clueFragment": "law",
+      "gives": "LAW",
+      "note": "used as it stands, then reversed"
+     },
+     {
+      "clueFragment": "international",
+      "gives": "I",
+      "note": "I is the abbreviation for international"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "WAL",
+      "I"
+     ],
+     "reversals": [
+      {
+       "from": "LAW",
+       "to": "WAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An officer enforcing a law after the fact on a global celebration.",
+     "walkthrough": "'international' looks like it describes the festival, but it just gives the final letter.",
+     "definitionFit": "A definition by example: the Hindu festival of lights, celebrated each autumn."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "international"
+    }
+   }
   },
   {
    "id": "24-across",
@@ -421,7 +1479,65 @@
     "text": "1000 + 49 + 51, a way big number!",
     "enumeration": "8"
    },
-   "solution": "MILLIARD"
+   "solution": "MILLIARD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MILLIARD",
+    "definitions": [
+     {
+      "text": "big number",
+      "at": 22
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "1000",
+      "gives": "M",
+      "note": "M is 1000 in Roman numerals"
+     },
+     {
+      "clueFragment": "49",
+      "gives": "IL",
+      "note": "IL is 49 in Roman numerals"
+     },
+     {
+      "clueFragment": "51",
+      "gives": "LI",
+      "note": "LI is 51 in Roman numerals"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "used as it stands"
+     },
+     {
+      "clueFragment": "way",
+      "gives": "RD",
+      "note": "RD is the abbreviation for road"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "IL",
+      "LI",
+      "A",
+      "RD"
+     ]
+    },
+    "explanation": {
+     "surface": "A sum that adds up to a very large figure.",
+     "walkthrough": "The numbers are Roman numerals, not arithmetic; strictly IL is not a valid numeral, but crosswords allow it.",
+     "definitionFit": "An old British term for a thousand million, now usually called a billion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "1000"
+    }
+   }
   },
   {
    "id": "25-across",
@@ -436,7 +1552,43 @@
     "text": "Forever embrace, protecting honour",
     "enumeration": "6"
    },
-   "solution": "REVERE"
+   "solution": "REVERE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "REVERE",
+    "definitions": [
+     {
+      "text": "honour",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "protecting",
+      "for": "hidden_word",
+      "note": "the words shield the answer inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Forever embrace",
+      "gives": "REVERE",
+      "note": "foREVER Embrace"
+     }
+    ],
+    "explanation": {
+     "surface": "A promise of an everlasting hug that keeps someone's good name safe.",
+     "walkthrough": "The answer runs across the gap between 'Forever' and 'embrace'.",
+     "definitionFit": "A plain synonym as a verb: to hold someone in deep respect and esteem."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "embrace"
+    }
+   }
   }
  ]
 }
