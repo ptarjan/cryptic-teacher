@@ -32,3 +32,11 @@ session_exists() {
   [ -n "$(find "${CLAUDE_CONFIG_DIR:-$HOME/.claude}/projects" -maxdepth 2 \
             -name "$1.jsonl" 2>/dev/null | head -1)" ]
 }
+
+# Headless runs read the repo's settings alone: no user plugins, MCP servers or
+# auto-memory, which put ~8k tokens in every turn and drew a third of sessions
+# into the memory directory. The 5-minute cache, because nine turn gaps in ten
+# are under 90s and a 1-hour cache write is billed at the higher rate.
+export CLAUDE_CODE_DISABLE_AUTO_MEMORY=1 CLAUDE_CODE_PROMPT_CACHE_TTL=5m
+# shellcheck disable=SC2034  # used by the scripts that source this
+CLAUDE_HEADLESS=(--strict-mcp-config --setting-sources project)

@@ -132,6 +132,18 @@ It applies the file, validates it, audits it, and prints everything wrong in one
 each line saying what to do. Fix everything it lists in one edit, run it again, and stop
 when it says `clean`. What it prints under "worth knowing now" is advice, not a failure.
 
+Nine first runs in ten fail, nearly always on these five rules. Get them right first time:
+
+- `definitionFit` needs 25+ characters and 3+ content words that are in neither the
+  definition nor the answer. Name the relation (synonym, example, crossword-only
+  sense, idiom); don't read the definition back with the answer in it.
+- An indicator `note` needs 25+ characters and words beyond the indicator's own.
+- No block `note` may contain the answer. Write about the fragment; the walkthrough
+  spells the answer.
+- A `cryptic_definition` has 2+ blocks (the surface reading, the setter's reading),
+  none with `gives`, and no note or fragment that spells the answer.
+- `features.misdirectedWord` is one word, copied exactly as printed in the clue.
+
 - Run it as a single command: no `&&`, `;`, pipes or `rm`. A compound command needs an
   approval this run cannot give, and aborts having run nothing.
 - Don't open `validate_annotations.py`. For a line you cannot act on,

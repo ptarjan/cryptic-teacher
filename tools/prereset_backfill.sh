@@ -476,7 +476,7 @@ run_claude() {
   # that names the blog, which annotate_check.py discloses only once the run is stuck.
   python3 tools/annotate_check.py --view "$tag" >/dev/null
   # Niced, with everything it runs: a wave shares this machine with the bridge.
-  nice -n 19 claude -p "$prompt" "${sess[@]}" \
+  nice -n 19 claude -p "$prompt" "${sess[@]}" "${CLAUDE_HEADLESS[@]}" \
     --model "$MODEL" \
     --effort "$ANNOTATE_EFFORT" \
     --allowedTools "Read,Write,Edit,Bash(python3 *),Bash(node *),WebSearch,WebFetch" \
