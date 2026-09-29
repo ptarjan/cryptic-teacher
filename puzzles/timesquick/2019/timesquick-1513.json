@@ -24,6 +24,9 @@
   "date": "2019-12-26",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,45 @@
     "text": "Body politic, say",
     "enumeration": "5"
    },
-   "solution": "STATE"
+   "solution": "STATE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STATE",
+    "definitions": [
+     {
+      "text": "Body politic",
+      "at": 0
+     },
+     {
+      "text": "say",
+      "at": 14,
+      "note": "a verb, while the other definition is a noun"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Body politic",
+      "gives": "STATE",
+      "note": "a nation considered as one organised political body"
+     },
+     {
+      "clueFragment": "say",
+      "gives": "STATE",
+      "note": "to say something formally is to declare it"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Say' looks like the usual crossword signal for an example, but here it is a second definition: to STATE is to say.",
+     "definitionFit": "A nation or commonwealth is the organised political community, and to declare something plainly is the verb sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "say"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +92,61 @@
     "text": "Fat woman on top of tram",
     "enumeration": "4"
    },
-   "solution": "SUET"
+   "solution": "SUET",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SUET",
+    "definitions": [
+     {
+      "text": "Fat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on top of",
+      "for": "charade",
+      "note": "in a down clue, 'on top of' places the woman's name above the letter taken from the vehicle"
+     },
+     {
+      "text": "top of",
+      "for": "letter_selection",
+      "note": "the top of a word written downwards is its opening letter, so only the tram's first letter is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "woman",
+      "gives": "SUE",
+      "note": "a common girl's name standing for any woman"
+     },
+     {
+      "clueFragment": "tram",
+      "gives": "T",
+      "select": "first",
+      "note": "the opening letter of the vehicle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "An unkind picture of a large woman riding on the upper deck of a tram.",
+     "walkthrough": "'Fat' reads as an adjective describing the woman, but it is the noun definition standing apart from the wordplay.",
+     "definitionFit": "Suet is the hard animal fat from around the kidneys, used in British puddings and pastry."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fat"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +160,49 @@
     "text": "A mother? He didn’t have one!",
     "enumeration": "4"
    },
-   "solution": "ADAM"
+   "solution": "ADAM",
+   "annotation": {
+    "type": [
+     "charade",
+     "and_lit"
+    ],
+    "answer": "ADAM",
+    "definitions": [
+     {
+      "text": "A mother? He didn’t have one!",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "the article used as it stands"
+     },
+     {
+      "clueFragment": "mother",
+      "gives": "DAM",
+      "note": "the word breeders use for the female parent of a foal or calf"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "DAM"
+     ]
+    },
+    "explanation": {
+     "surface": "A quizzical exchange about someone who never had a mother at all.",
+     "walkthrough": "The whole clue is both wordplay and definition: in Genesis the first man was made from dust, so he was the one person with no mother.",
+     "definitionFit": "In the Bible story the first man was created directly by God, so he alone was never born to anyone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "mother"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +216,54 @@
     "text": "Pet reason for developing an artificial language",
     "enumeration": "9"
    },
-   "solution": "ESPERANTO"
+   "solution": "ESPERANTO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ESPERANTO",
+    "definitions": [
+     {
+      "text": "an artificial language",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "developing",
+      "for": "anagram",
+      "note": "something developing changes its form, so the letters of the first two words are rearranged"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pet reason",
+      "gives": "PETREASON",
+      "note": "anagram fodder, nine letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PET REASON",
+       "gives": "ESPERANTO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's favourite motive for inventing a new language of their own.",
+     "walkthrough": "'Pet' looks like an adjective meaning favourite, but both words are simply letters to rearrange.",
+     "definitionFit": "Esperanto was invented by Zamenhof in the 1880s as a constructed international tongue, the best-known one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Pet"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +277,62 @@
     "text": "Wine greeting worker in Channel Islands",
     "enumeration": "7"
    },
-   "solution": "CHIANTI"
+   "solution": "CHIANTI",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CHIANTI",
+    "definitions": [
+     {
+      "text": "Wine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "things put in the islands sit between their two abbreviated letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Channel Islands",
+      "gives": "CI",
+      "note": "the standard abbreviation for the islands, split to hold the rest"
+     },
+     {
+      "clueFragment": "greeting",
+      "gives": "HI",
+      "note": "an informal hello"
+     },
+     {
+      "clueFragment": "worker",
+      "gives": "ANT",
+      "note": "the worker ant is the usual crossword worker"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HI",
+      "ANT",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A wine served as a welcome to someone who works on Jersey or Guernsey.",
+     "walkthrough": "The Channel Islands (Jersey, Guernsey and their neighbours) abbreviate to CI; the hello and the ant go between those two letters.",
+     "definitionFit": "Chianti is the famous red from Tuscany, traditionally sold in straw-covered bottles."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "worker"
+    }
+   }
   },
   {
    "number": 4,
@@ -107,7 +346,55 @@
     "text": "Inexpensive old banger impounded by commanding officer",
     "enumeration": "6"
    },
-   "solution": "CHEAPO"
+   "solution": "CHEAPO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CHEAPO",
+    "definitions": [
+     {
+      "text": "Inexpensive",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "impounded by",
+      "for": "container",
+      "note": "a car impounded is locked inside, so the old banger goes inside the officer's letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "commanding officer",
+      "gives": "CO",
+      "note": "the usual abbreviation for a commanding officer"
+     },
+     {
+      "clueFragment": "old banger",
+      "gives": "HEAP",
+      "note": "a banger is British slang for a battered old car, and so is a heap"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HEAP",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "The commanding officer confiscates a cheap wreck of a car.",
+     "walkthrough": "In Britain a banger is a sausage but also a clapped-out car; a heap is another word for that car.",
+     "definitionFit": "Cheapo is informal slang for something low-priced and of poor quality, costing little money."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "impounded"
+    }
+   }
   },
   {
    "number": 5,
@@ -121,7 +408,51 @@
     "text": "Unspecified doctrine originally inspiring so many",
     "enumeration": "3"
    },
-   "solution": "ISM"
+   "solution": "ISM",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ISM",
+    "definitions": [
+     {
+      "text": "Unspecified doctrine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "what comes originally is at the start, so each of the following words gives its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "inspiring so many",
+      "gives": "ISM",
+      "select": "first",
+      "note": "the opening letters of the three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "S",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "A vague belief that once inspired a great many followers.",
+     "walkthrough": "'Unspecified' is fair because the answer is the suffix used on its own for any doctrine not named.",
+     "definitionFit": "An ism is informally any belief system or ideology, the suffix of communism, socialism and the rest used alone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "originally"
+    }
+   }
   },
   {
    "number": 6,
@@ -135,7 +466,55 @@
     "text": "Idea about army musicians method of writing",
     "enumeration": "8"
    },
-   "solution": "NOTATION"
+   "solution": "NOTATION",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NOTATION",
+    "definitions": [
+     {
+      "text": "musicians method of writing",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "the idea goes round, or about, the army's abbreviation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Idea",
+      "gives": "NOTION",
+      "note": "a notion is an idea"
+     },
+     {
+      "clueFragment": "army",
+      "gives": "TA",
+      "note": "the Territorial Army, Britain's volunteer reserve"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "TA",
+      "TION"
+     ]
+    },
+    "explanation": {
+     "surface": "Thoughts about military bandsmen and how they write things down.",
+     "walkthrough": "'Army musicians' reads as a single phrase, a military band, but the split falls between them: 'army' is wordplay and 'musicians' begins the definition.",
+     "definitionFit": "Musical notation is the system of staves, clefs and symbols in which players record and read music."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "army"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +528,55 @@
     "text": "Relaxed boy attending class first",
     "enumeration": "8"
    },
-   "solution": "INFORMAL"
+   "solution": "INFORMAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INFORMAL",
+    "definitions": [
+     {
+      "text": "Relaxed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "charade",
+      "note": "'first' puts the phrase for attending class ahead of the boy's name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "attending class",
+      "gives": "INFORM",
+      "note": "a pupil attending class is in their form, the British word for a school class"
+     },
+     {
+      "clueFragment": "boy",
+      "gives": "AL",
+      "note": "a short boy's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "FORM",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A laid-back boy who has turned up to lessons early.",
+     "walkthrough": "In British schools a form is a class or year group, so attending class is being in form.",
+     "definitionFit": "Casual and unofficial manners or dress are relaxed, without ceremony or strict rules."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "class"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +590,62 @@
     "text": "Instance of former politician overwhelmed by drink",
     "enumeration": "7"
    },
-   "solution": "EXAMPLE"
+   "solution": "EXAMPLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "EXAMPLE",
+    "definitions": [
+     {
+      "text": "Instance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overwhelmed by",
+      "for": "container",
+      "note": "something overwhelmed by drink is swamped, surrounded by it, so the politician sits inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "former",
+      "gives": "EX",
+      "note": "an ex is a former one"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "ALE",
+      "note": "beer, split around the politician"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "MP",
+      "note": "a Member of Parliament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "A",
+      "MP",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A case of an ex-politician who has had far too much to drink.",
+     "walkthrough": "'Former politician' reads as one person, but 'former' supplies its own chunk at the front while the politician goes into the ale.",
+     "definitionFit": "An example is a single case or specimen illustrating a general rule, which is what an instance is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "former"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +659,61 @@
     "text": "Doctor rejected attack – a distinctive idea",
     "enumeration": "5"
    },
-   "solution": "MOTIF"
+   "solution": "MOTIF",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "MOTIF",
+    "definitions": [
+     {
+      "text": "a distinctive idea",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rejected",
+      "for": "reversal",
+      "note": "something rejected is sent back, so the word for attack is written backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Doctor",
+      "gives": "MO",
+      "note": "a medical officer"
+     },
+     {
+      "clueFragment": "attack",
+      "gives": "FIT",
+      "note": "a fit of coughing or temper is an attack"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "TIF"
+     ],
+     "reversals": [
+      {
+       "from": "FIT",
+       "to": "TIF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A medic turns down an assault, with a pointed comment about a distinctive idea.",
+     "walkthrough": "'Attack' suggests violence, but here it is an attack of illness, a fit.",
+     "definitionFit": "A motif is a recurring theme or design element in art, music or literature, a characteristic idea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "attack"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +727,45 @@
     "text": "Appropriate legwear, reportedly, for one spreading the message?",
     "enumeration": "10"
    },
-   "solution": "PROPAGATOR"
+   "solution": "PROPAGATOR",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "PROPAGATOR",
+    "definitions": [
+     {
+      "text": "one spreading the message",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "what is reported is heard rather than seen, so the two words are said out loud"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Appropriate legwear",
+      "gives": "PROPAGATOR",
+      "soundsLike": "PROPER GAITER",
+      "note": "proper means appropriate, and a gaiter is a covering for the lower leg"
+     }
+    ],
+    "explanation": {
+     "surface": "Asks what the correct trousers or leggings would be for someone evangelising.",
+     "walkthrough": "A gaiter is a cloth or leather covering for the ankle and shin; 'proper gaiter' said quickly gives PROPAGATOR.",
+     "definitionFit": "To propagate a belief or idea is to spread it widely, so a propagator broadcasts the word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "legwear"
+    }
+   }
   },
   {
    "number": 11,
@@ -211,7 +785,68 @@
      }
     ]
    },
-   "solution": "GREATAUNT"
+   "solution": "GREATAUNT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "GREAT-AUNT",
+    "definitions": [
+     {
+      "text": "Senior relative",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "what comes finally is at the end, so only the closing letter of the next word is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fuming",
+      "gives": "G",
+      "select": "last",
+      "note": "the closing letter of the angry word"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article used as it stands"
+     },
+     {
+      "clueFragment": "gibe",
+      "gives": "TAUNT",
+      "note": "a jeering remark"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "RE",
+      "A",
+      "TAUNT"
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly relative seething over some insult.",
+     "walkthrough": "'About' looks like a container indicator, but here it is simply RE, as in a memo heading.",
+     "definitionFit": "A great-aunt is the sister of a grandparent, a family member from an older generation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 12,
@@ -225,7 +860,56 @@
     "text": "Information secured by factory – it makes us mournful",
     "enumeration": "8"
    },
-   "solution": "PLANGENT"
+   "solution": "PLANGENT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PLANGENT",
+    "definitions": [
+     {
+      "text": "it makes us mournful",
+      "at": 33,
+      "note": "a phrase describing a sound; the answer is an adjective"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "secured by",
+      "for": "container",
+      "note": "what is secured by the factory is held within it, so the information goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "factory",
+      "gives": "PLANT",
+      "note": "a manufacturing plant"
+     },
+     {
+      "clueFragment": "Information",
+      "gives": "GEN",
+      "note": "gen is British slang for information"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLAN",
+      "GEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Secret data locked up at a works, and something sad about it.",
+     "walkthrough": "Gen is informal British for information, as in 'get the gen'. The definition is loose: a plangent sound is one that makes the listener sad.",
+     "definitionFit": "Plangent describes a loud, resonant sound with a melancholy, plaintive quality, such as a tolling bell."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "secured"
+    }
+   }
   },
   {
    "number": 13,
@@ -239,7 +923,47 @@
     "text": "Distant object, something of negligible value once",
     "enumeration": "8"
    },
-   "solution": "FARTHING"
+   "solution": "FARTHING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FARTHING",
+    "definitions": [
+     {
+      "text": "something of negligible value once",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Distant",
+      "gives": "FAR",
+      "note": "far away"
+     },
+     {
+      "clueFragment": "object",
+      "gives": "THING",
+      "note": "an object is a thing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FAR",
+      "THING"
+     ]
+    },
+    "explanation": {
+     "surface": "A faraway object, perhaps a star, that once seemed worthless.",
+     "walkthrough": "A farthing was an old British coin worth a quarter of a penny, withdrawn in 1961; 'once' flags that it no longer exists.",
+     "definitionFit": "The coin was the smallest British denomination, so 'not worth a farthing' meant nearly worthless."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "object"
+    }
+   }
   },
   {
    "number": 14,
@@ -253,7 +977,61 @@
     "text": "Studied art mostly in period of abstinence",
     "enumeration": "6"
    },
-   "solution": "LEARNT"
+   "solution": "LEARNT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "LEARNT",
+    "definitions": [
+     {
+      "text": "Studied",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "'mostly' keeps most of the word for art and drops its final letter"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the shortened art is placed in the period of abstinence"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "period of abstinence",
+      "gives": "LENT",
+      "note": "the forty days before Easter when Christians give things up"
+     },
+     {
+      "clueFragment": "art mostly",
+      "gives": "AR",
+      "note": "art without its last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LE",
+      "AR",
+      "NT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone did most of their art studies while giving things up for Lent.",
+     "walkthrough": "The spelling with -t is the usual British past tense, where Americans write learned.",
+     "definitionFit": "Having studied something means having acquired knowledge of it, the past tense of the verb learn."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "abstinence"
+    }
+   }
   },
   {
    "number": 15,
@@ -267,7 +1045,50 @@
     "text": "Iron Lady’s felt hat",
     "enumeration": "6"
    },
-   "solution": "FEDORA"
+   "solution": "FEDORA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FEDORA",
+    "definitions": [
+     {
+      "text": "felt hat",
+      "at": 12
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Iron",
+      "gives": "FE",
+      "note": "the chemical symbol for iron"
+     },
+     {
+      "clueFragment": "Lady",
+      "gives": "DORA",
+      "note": "a woman's name standing for any lady"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FE",
+      "DORA"
+     ]
+    },
+    "explanation": {
+     "surface": "Margaret Thatcher, nicknamed the Iron Lady, and her felt hat.",
+     "walkthrough": "'Iron Lady' reads as Thatcher's nickname, but it splits into the symbol for iron and a woman's name; 'felt' is the fabric, not the past tense of feel.",
+     "definitionFit": "A fedora is a soft brimmed hat with a creased crown, traditionally made of felt."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Iron"
+    }
+   }
   },
   {
    "number": 16,
@@ -281,7 +1102,62 @@
     "text": "Line up outside initially under coercion",
     "enumeration": "6"
    },
-   "solution": "DURESS"
+   "solution": "DURESS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "DURESS",
+    "definitions": [
+     {
+      "text": "coercion",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "the word for line up sits outside, wrapping round the letter taken from the next word"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "what comes initially is at the start, so only the opening letter of 'under' is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Line up",
+      "gives": "DRESS",
+      "note": "soldiers dress ranks when they line up straight"
+     },
+     {
+      "clueFragment": "under",
+      "gives": "U",
+      "select": "first",
+      "note": "the opening letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "U",
+      "RESS"
+     ]
+    },
+    "explanation": {
+     "surface": "People forced to queue outside under threat.",
+     "walkthrough": "'Under coercion' reads as one phrase, but 'under' is wordplay and 'coercion' alone is the definition. To dress is a military term for lining troops up.",
+     "definitionFit": "Duress is compulsion by threats or force, pressure making someone act against their will."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "under"
+    }
+   }
   },
   {
    "number": 17,
@@ -305,7 +1181,51 @@
      }
     ]
    },
-   "solution": "NOTSODUSTY"
+   "solution": "NOTSODUSTY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NOT SO DUSTY",
+    "definitions": [
+     {
+      "text": "fairly good",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being flogged",
+      "for": "anagram",
+      "note": "things being flogged are beaten about, so the letters of the toys and donuts are knocked into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Toys, donuts",
+      "gives": "TOYSDONUTS",
+      "note": "anagram fodder, ten letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TOYS DONUTS",
+       "gives": "NOTSODUSTY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Toys and doughnuts on sale, and someone reckons that is a decent deal.",
+     "walkthrough": "'Flogged' is British slang for sold as well as beaten, which is what makes the surface read naturally. 'Not so dusty' is a British idiom.",
+     "definitionFit": "The British idiom means reasonably good or not bad at all, a mild understated compliment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flogged"
+    }
+   }
   },
   {
    "number": 18,
@@ -319,7 +1239,47 @@
     "text": "Mediocre journalist’s horse",
     "enumeration": "4"
    },
-   "solution": "HACK"
+   "solution": "HACK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HACK",
+    "definitions": [
+     {
+      "text": "Mediocre journalist",
+      "at": 0
+     },
+     {
+      "text": "horse",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mediocre journalist",
+      "gives": "HACK",
+      "note": "a writer churning out dull copy for pay"
+     },
+     {
+      "clueFragment": "horse",
+      "gives": "HACK",
+      "note": "a horse for ordinary riding, or one hired out"
+     }
+    ],
+    "explanation": {
+     "surface": "The horse belonging to an undistinguished reporter.",
+     "walkthrough": "The possessive makes it look like one thing owned by the other, but it only joins two separate meanings of one word.",
+     "definitionFit": "Both senses come from hackney, a hired riding horse, and hence a writer hired to do drudge work."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -333,7 +1293,54 @@
     "text": "River to north of Cambs city bank?",
     "enumeration": "4"
    },
-   "solution": "RELY"
+   "solution": "RELY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RELY",
+    "definitions": [
+     {
+      "text": "bank",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to north of",
+      "for": "charade",
+      "note": "in a down clue the northern piece is written above, so the river's letter comes before the city"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "River",
+      "gives": "R",
+      "note": "the map abbreviation for river"
+     },
+     {
+      "clueFragment": "Cambs city",
+      "gives": "ELY",
+      "note": "the cathedral city in Cambridgeshire (Cambs)"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ELY"
+     ]
+    },
+    "explanation": {
+     "surface": "Points to a riverbank just north of a city in Cambridgeshire.",
+     "walkthrough": "'Bank' wants to be a river bank, fitting the surface, but it is the verb, as in bank on someone.",
+     "definitionFit": "To bank on someone is to depend on or trust them, the same as relying."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "bank"
+    }
+   }
   },
   {
    "number": 20,
@@ -347,7 +1354,53 @@
     "text": "Musical entertainment viewed in the Adelphi originally?",
     "enumeration": "5"
    },
-   "solution": "EVITA"
+   "solution": "EVITA",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "EVITA",
+    "definitions": [
+     {
+      "text": "Musical",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "what comes originally is at the start, so the words before it give their opening letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "entertainment viewed in the Adelphi",
+      "gives": "EVITA",
+      "select": "first",
+      "note": "the opening letters of the five words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "V",
+      "I",
+      "T",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A musical show seen at the Adelphi, a theatre in London's West End.",
+     "walkthrough": "'Musical entertainment' reads as the definition, but 'entertainment' starts the letter run. The question mark admits the show did not in fact open at the Adelphi.",
+     "definitionFit": "Evita is the Lloyd Webber and Rice stage show about Eva Perón, wife of Argentina's president."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "entertainment"
+    }
+   }
   },
   {
    "number": 21,
@@ -361,7 +1414,50 @@
     "text": "A couple of points engendering reverential fear",
     "enumeration": "3"
    },
-   "solution": "AWE"
+   "solution": "AWE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AWE",
+    "definitions": [
+     {
+      "text": "reverential fear",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "engendering"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "the article used as it stands"
+     },
+     {
+      "clueFragment": "couple of points",
+      "gives": "WE",
+      "note": "two compass points, west and east"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "WE"
+     ]
+    },
+    "explanation": {
+     "surface": "Two remarks that leave listeners in wonder.",
+     "walkthrough": "Points in crosswords are usually compass points; here two of them sit side by side after the A.",
+     "definitionFit": "Awe is wonder mixed with dread or respect, as felt before something vast or holy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "points"
+    }
+   }
   },
   {
    "number": 22,
@@ -375,7 +1471,47 @@
     "text": "Copy flightless bird no longer living",
     "enumeration": "7"
    },
-   "solution": "EMULATE"
+   "solution": "EMULATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EMULATE",
+    "definitions": [
+     {
+      "text": "Copy",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flightless bird",
+      "gives": "EMU",
+      "note": "the large Australian bird that cannot fly"
+     },
+     {
+      "clueFragment": "no longer living",
+      "gives": "LATE",
+      "note": "the late someone is dead"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMU",
+      "LATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Imitating a flightless bird that has gone extinct, like the dodo.",
+     "walkthrough": "The surface points to the dodo, but the bird is the crossword's favourite three-letter one.",
+     "definitionFit": "To emulate someone is to imitate them, trying to match or equal their achievements."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Copy"
+    }
+   }
   },
   {
    "number": 23,
@@ -389,7 +1525,68 @@
     "text": "Worried sister nursing head of 11’s big cat",
     "enumeration": "7"
    },
-   "solution": "TIGRESS"
+   "solution": "TIGRESS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "TIGRESS",
+    "definitions": [
+     {
+      "text": "big cat",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Worried",
+      "for": "anagram",
+      "note": "something worried is agitated, so the letters of the sister are stirred up with the added one"
+     },
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "the head of a word is its first letter, so only the start of 11 down is used"
+     },
+     {
+      "text": "nursing",
+      "for": "anagram",
+      "note": "to nurse is to hold close, so the sister takes in the extra letter before being mixed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sister",
+      "gives": "SISTER",
+      "note": "anagram fodder, six letters"
+     },
+     {
+      "clueFragment": "11",
+      "gives": "G",
+      "select": "first",
+      "note": "the first letter of the answer to 11 down"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SISTER G",
+       "gives": "TIGRESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An anxious sister caring for a relative's big cat.",
+     "walkthrough": "The sister is used letter for letter, not as SIS or NUN; with the first letter of GREAT-AUNT added, the seven letters are rearranged.",
+     "definitionFit": "A tigress is a female tiger, one of the large wild felines."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sister"
+    }
+   }
   },
   {
    "number": 24,
@@ -403,7 +1600,56 @@
     "text": "Wine from Hungary, ultimately just right",
     "enumeration": "5"
    },
-   "solution": "TOKAY"
+   "solution": "TOKAY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TOKAY",
+    "definitions": [
+     {
+      "text": "Wine from Hungary",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "what comes ultimately is at the end, so only the closing letter of 'just' is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "just",
+      "gives": "T",
+      "select": "last",
+      "note": "the closing letter of the word"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "OKAY",
+      "note": "right as in all right or fine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "OKAY"
+     ]
+    },
+    "explanation": {
+     "surface": "A Hungarian wine that is, in the end, just right.",
+     "walkthrough": "'Ultimately' looks as if it belongs to Hungary, but it acts on the word after it: the last letter of 'just'.",
+     "definitionFit": "Tokay, or Tokaji, is the sweet dessert wine from the Tokaj region of northeastern Hungary."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ultimately"
+    }
+   }
   }
  ]
 }
