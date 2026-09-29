@@ -10,7 +10,7 @@ point of the site.
 
 The annotation rules themselves are in `STYLE.md`. This file records how the
 clue-writing rules were found and measured, using our first authored puzzle,
-A001 (twenty clues, built from `tools/data/sample_fill_11.json` and
+A001 (id `authored-1`; twenty clues, built from `tools/data/sample_fill_11.json` and
 `tools/data/authored_A001_clues.json`).
 
 ## Quick start
@@ -502,30 +502,29 @@ with no clue text.
 
 ### Rebuilding and validating an authored puzzle
 
-The daily sweep globs `puzzles/*/*/*-[0-9]*.json`, the shape of a fetched puzzle's id
-(`<series>-<number>`). An authored id such as A001 has no hyphen before its
-digits, so the sweep never sees it. After editing a
-`tools/data/authored_*_clues.json` file, you MUST rebuild and validate the
-puzzle **by id**:
+An authored puzzle's id is `authored-<number>`, the same `<series>-<number>`
+shape as every fetched puzzle, so the schema, `tools/puzzle_integrity.py` and
+`tools/validate_annotations.py` treat it like any other. Its source names us as
+publisher and has no url: it was set here, not fetched from anywhere. After
+editing a `tools/data/authored_*_clues.json` file, you MUST rebuild the puzzle
+and validate it by id:
 
 ```bash
 python3 tools/build_authored_puzzle.py --clues tools/data/authored_A001_clues.json \
-    --id A001 --name "Cryptic Teacher No 1" --setter "Cryptic Teacher" --date 2026-07-29 \
+    --number 1 --name "Cryptic Teacher No 1" --setter "Cryptic Teacher" --date 2026-07-29 \
     --annotated-by human
-python3 tools/validate_annotations.py A001
-rm puzzles/authored/*/A001.json
+python3 tools/validate_annotations.py authored-1
+python3 tools/puzzle_integrity.py authored-1
+rm puzzles/authored/*/authored-1.json
 ```
 
-`tools/build_authored_puzzle.py` writes `puzzles/authored/<year>/A001.json`, the
-year of `--date` (it uses the grid in
-`tools/data/sample_fill_11.json` unless `--fill` says otherwise). Delete it when
-you are done. It is never committed: A001 is served to no one, and the clues
-JSON is the source. While it exists, `tools/smoke_test.js` fails, because every
-puzzle file must be named `<series>-<number>.json`.
+`tools/build_authored_puzzle.py` writes `puzzles/authored/<year>/authored-1.json`,
+the year of `--date` (it uses the grid in `tools/data/sample_fill_11.json` unless
+`--fill` says otherwise), and refuses to write a file that fails the schema or
+the integrity checks. Delete the file when you are done: A001 is not published,
+and the clues JSON is the source.
 
-A clean validate ends with no ERROR lines. A001 itself does not pass today. Among its ERRORs: it
-predates the required `explanation.definitionFit` field and indicator `for` and `note`, and its 18A
-block note names the answer. Fix those in the clues JSON before relying on it.
+A clean validate ends with no ERROR lines.
 
 ### Why filler is banned, and the nine fixes
 

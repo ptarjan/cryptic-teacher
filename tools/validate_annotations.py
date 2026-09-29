@@ -232,7 +232,13 @@ def check_two_pieces(tag, ann, errors):
 
     The deeper point, from AUTHORING.md: a funny sentence is easy if you are
     allowed filler. Banning filler is what separates a clue from a joke that
-    happens to contain the answer."""
+    happens to contain the answer.
+
+    A pure cryptic definition is exempt: the whole clue is its definition, so no
+    word is padding, and its blocks are the two readings with no `gives` at all
+    (check_cryptic_definition_blocks forbids one)."""
+    if types_of(ann) == ["cryptic_definition"]:
+        return
     for b in ann.get("blocks", []):
         if not str(b.get("gives") or "").strip():
             frag = b.get("clueFragment") or "(no fragment)"
