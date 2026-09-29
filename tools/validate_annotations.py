@@ -46,6 +46,7 @@ fails.
 """
 
 import ast
+import functools
 import json
 import re
 import subprocess
@@ -332,18 +333,17 @@ def check_walkthrough_budget(tag, ann, warnings):
             f"keep only what they cannot show (STYLE.md, 'the blocks already told them')")
 
 
-# A link word stands in for an equals sign. It may assert equivalence (is, are,
-# 's), derivation (gives, makes, becomes, yields, produces, leads to, means,
-# spells, indicates, reveals, to locate) or plain prepositional joining (for,
-# from, of, in, with, by, as, after) — and it may be grammatical glue holding
-# those together (articles, determiners, pronouns, relative pronouns). Anything
-# else is a content word doing surface work, i.e. padding wearing a link word's
-# coat, and it makes the clue a THREE-piece clue.
+# A link word stands in for an equals sign. CORE_LINKS states the rule: it may
+# assert equivalence (is, are, 's), derivation (gives, makes, becomes, yields,
+# leads to, means, indicates, to locate), plain prepositional joining (for,
+# from, of, in, with, by, as, after) or be grammatical glue holding those
+# together. Anything else is a content word doing surface work, i.e. padding
+# wearing a link word's coat, and it makes the clue a THREE-piece clue.
 #
-# Built from the standard link-word vocabulary, then widened by measurement:
-# `after` (x3) and `having` (x1) were added because published clues use them in
-# the joinery position. See check_link_words_are_equivalences for the counts.
-EQUIVALENCE_LINKS = {
+# What real setters use beyond the core is measured, not typed:
+# tools/build_clue_joints.py adds every word published clues declare as a link
+# word often enough (tools/data/clue_joints.json), and CI keeps it current.
+CORE_LINKS = frozenset({
     # equivalence
     "is", "are", "was", "were", "be", "been", "being", "am", "s",
     # derivation: the wordplay turns into / hands you the answer
@@ -364,7 +364,20 @@ EQUIVALENCE_LINKS = {
     "his", "her", "its", "their", "our", "your", "my",
     "what", "who", "whom", "which", "where", "when", "there", "here",
     "it", "he", "she", "they", "you", "we", "i", "not", "no", "all",
-}
+})
+
+JOINTS_FILE = Path(__file__).resolve().parent / "data" / "clue_joints.json"
+
+
+@functools.cache
+def joints():
+    """tools/data/clue_joints.json, read on first use so its builder can import this."""
+    return json.loads(JOINTS_FILE.read_text())
+
+
+def link_vocabulary():
+    """Every word that may stand for an equals sign: the core plus measured use."""
+    return CORE_LINKS | set(joints()["linkWords"])
 
 
 def check_link_words_are_equivalences(tag, ann, errors):
@@ -377,31 +390,27 @@ def check_link_words_are_equivalences(tag, ann, errors):
     catches when the annotator is honest enough to file it as a block with an
     empty `gives`; this check closes the other door.
 
-    CALIBRATION (unscoped, the eight annotated Guardian puzzles): the corpus
-    declares only TWO link words in 234 entries — `indicating` (30039 18D) and
-    `to locate` (30040 14D) — and both pass. Two data points is thin, so the
-    whitelist was also measured against a proxy with 50x the sample: every clue
-    word in the corpus that the annotation claims for nothing (definition,
-    indicator, block, link) is a word sitting in the joinery position. There are
-    105 such occurrences over 28 distinct words; 101 were already whitelisted
-    and the four misses were `after` (x3) and `having` (x1), both plainly
-    grammatical, both since added. Hit rate on published work: 0/105.
+    CALIBRATION (unscoped, 74,474 annotated published clues, 2026-09-28):
+    published annotations declare 24,755 link-word phrases. The core plus the
+    measured words from tools/build_clue_joints.py cover 96.1% of their tokens;
+    the rest is a long tail, no word in it used more than nine times.
 
     The rule bites on our own clues, where it caught three of twenty: `would be
     better spent` (THERE), `mistake it for` (LEADERSHIP), `lives on` (STOREY).
-    If it ever fires on a link word a real setter would use, WIDEN THE LIST —
-    the whitelist is the rule, and a false positive here means the vocabulary is
-    short, not that the setter is wrong."""
+    None of `lives`, `mistake`, `spent` or `better` is ever declared a link word
+    in a published clue. A word published setters do use gets in by measurement,
+    not by hand."""
     for lw in ann.get("linkWords", []):
-        bad = [t for t in words_of(lw) if t not in EQUIVALENCE_LINKS]
+        vocab = link_vocabulary()
+        bad = [t for t in words_of(lw) if t not in vocab]
         if bad:
             errors.append(
                 f"{tag}: linkWord {lw!r} is not a link word — {', '.join(bad)} asserts no "
                 f"equivalence between wordplay and definition. A link word stands in for an "
                 f"equals sign (is/gives/makes/for/from/'s); anything else is padding, and a "
                 f"clue with padding is in three pieces, not two (AUTHORING.md, 'Link words "
-                f"are an equals sign'). Rewrite the clue, or widen EQUIVALENCE_LINKS if a "
-                f"real setter would use this")
+                f"are an equals sign'). Rewrite the clue; tools/build_clue_joints.py adds a word once "
+                f"published setters use it")
 
 
 POSITIONAL_JOINERS = {"on", "after", "behind", "below", "beneath", "under",
@@ -489,15 +498,9 @@ def check_link_word_is_not_an_order(tag, ann, clue, warnings):
             return
 
 
-# What may stand between an anagram indicator and its fodder: grammatical glue
-# binding the one to the other, and nothing else. `Naples WAS flattened`, `A grub
-# seen wriggling`, `Latin song IN parts swapped` are all fine.
-FODDER_GLUE = {
-    "a", "an", "the", "this", "that", "these", "those", "another",
-    "is", "are", "was", "were", "be", "been", "being", "s",
-    "with", "of", "in", "and", "to", "for", "from", "by", "as", "at", "on",
-    "its", "his", "her", "their",
-}
+# What may stand between an anagram indicator and its fodder is the link-word
+# vocabulary: `Naples WAS flattened`, `A grub seen wriggling`, `Latin song IN
+# parts swapped`, `lie WHEN disturbed`. A content word between them is not.
 
 
 def _letter_offsets(clue):
@@ -549,7 +552,7 @@ def check_indicator_adjacency(tag, ann, clue, errors, warnings):
     """An anagram indicator has to be next to the fodder it operates on.
 
     `ground` cannot reach back over `lives on the` to shuffle `The oyster`. Only
-    grammatical glue may stand between the two (FODDER_GLUE) — plus the
+    link words may stand between the two (link_vocabulary()) — plus the
     definition, which really does sometimes sit in the gap, and any span the
     annotation has already confessed to as padding (a block with an empty
     `gives`, itself an ERROR in an authored puzzle).
@@ -560,14 +563,14 @@ def check_indicator_adjacency(tag, ann, clue, errors, warnings):
     do exactly that). This says the opposite thing about a different subject: it
     is a soundness rule, and the measurement supports it.
 
-    CALIBRATION (unscoped, the eight annotated Guardian puzzles): 42 anagram
-    clues, 39 with a locatable fodder span, 0 flagged. The three unlocatable
-    ones (30040 8A, 30040 11A, 30041 20A) all build their fodder by deleting
-    letters, so no span in the clue holds it; they are skipped, and an authored
-    clue in that shape gets a warning rather than a false ERROR. The two
-    allowances above are each carrying exactly one published clue: 30043 1A
-    (`Bans recitals - where this is played?`, definition in the gap) and 30067
-    20D (`Bertie develops from bad to worse`, annotated padding in the gap)."""
+    CALIBRATION (unscoped, 74,474 annotated published clues, 2026-09-28):
+    10,201 anagram clues with an indicator; 9,914 have a locatable fodder span
+    and 24 of those are flagged (0.24%), each with a content word in the gap
+    that reads as an annotation slip (`ecstasy`, `oxygen`, `daughter`). With
+    the old hand list of articles and short prepositions there were 95, and
+    the extra 71 had link words in the gap (`when` 15, `after` 14, `get` 7).
+    287 are unlocatable because their fodder is built by deleting letters;
+    they are skipped, with a warning when the clue is ours."""
     fodder = whole_anagram(ann)
     if not fodder:
         return
@@ -582,7 +585,7 @@ def check_indicator_adjacency(tag, ann, clue, errors, warnings):
             f"unchecked — normal when letters are deleted to build the fodder, but in a "
             f"clue we wrote, check by eye that the indicator touches it")
         return
-    allowed = set(FODDER_GLUE)
+    allowed = set(link_vocabulary())
     for src in definitions.texts(ann):
         allowed |= set(words_of(src))
     for b in ann.get("blocks", []):
@@ -645,59 +648,45 @@ def check_indicator_outside_fodder(tag, ann, clue, errors):
 
 
 # A reversal runs along the entry, so the indicator has to name the entry's own
-# direction. Words that name a horizontal reversal (fine in an across entry,
-# wrong in a down one) and a vertical one (the mirror). Anything not listed —
-# turning, revolutionary, overturned, about, over, regressed, withdraw, tipped,
-# given a twirl, reversal — is direction-neutral and always fair.
-HORIZONTAL_REVERSAL = {
-    "back", "backs", "backed", "backing", "backward", "backwards",
-    "returning", "returned", "returns", "retreating", "retreats", "retreat",
-    "west", "westward", "westwards", "westerly", "left", "leftward", "leftwards",
-}
-VERTICAL_REVERSAL = {
-    "up", "upward", "upwards", "uphill", "rising", "rises", "risen", "rise",
-    "climbing", "climbs", "climb", "ascending", "ascends", "ascent", "ascend",
-    "lifted", "lifting", "lifts", "lift", "raised", "raises", "raising",
-    "elevated", "elevating", "elevates", "erected", "hoisted", "mounting",
-    "north", "northward", "northwards", "northerly", "below", "underneath",
-}
+# direction. Which words name an axis is measured: tools/build_clue_joints.py
+# binds a word to one when published reversal clues almost never use it on the
+# other (`west` across, `up` down). Every other word is direction-neutral.
 
 
 def check_reversal_direction(tag, ann, direction, errors):
     """A reversal indicator must point the way the entry runs.
 
-    An across answer reads right to left when it is reversed, so it comes
-    `back`, `returning`, `west`. A down answer reads bottom to top, so it comes
-    `up`, `rising`, `climbing`, `from below`. `Back at the pool` cannot reverse
-    a DOWN entry: there is no backwards on a vertical axis.
+    An across answer reads right to left when it is reversed, so `west`,
+    `east` or `aback` fit it. A down answer reads bottom to top, so `up`,
+    `rising`, `raised`, `climbing` or `north` fit it. Which words bind to an
+    axis is measured by tools/build_clue_joints.py.
 
-    CALIBRATION (unscoped, the eight annotated Guardian puzzles): 19 reversal
-    clues, 0 flagged, and the convention is not merely un-violated but actively
-    observed — of the 19, ten down entries use a vertical indicator (`pulled
-    up`, `up`, `from below`, `elevating`, `set up`, `to climb`) and four across
-    entries a horizontal one (`backing`, `Turning left`, `Looking west`,
-    `regressed`), with no crossover in either direction. The remaining five use
-    direction-neutral indicators (`turning`, `Revolutionary`, `given a twirl`,
-    `reversal`, `Withdraw`), which is the escape hatch when the surface wants a
-    word the axis will not license.
+    CALIBRATION (published annotations, 2026-09-28): the convention is
+    lopsided. Vertical words almost never reverse an across entry (`up` 2 of
+    168 single-word uses). Horizontal words reverse down entries all the time:
+    `back` sits on a down entry in 25 of 170 single-word uses and `returning`
+    in 17 of 72. So `back` is neutral, not horizontal. With the measured lists,
+    25 of 2,087 axis-word reversals cross over (1.2%), against 250 of 3,237 (7.7%) with
+    the July hand lists, which bound `back` and `returning` to across.
 
     Only declared indicators are examined, and only on clues whose type or
     assembly.reversals say a reversal happens, so an ordinary `up` elsewhere in the
     surface is not the check's business (30039 11A reverses UP itself)."""
     if "reversal" not in types_of(ann) and not assembly(ann).get("reversals"):
         return
-    wrong = VERTICAL_REVERSAL if direction == "across" else HORIZONTAL_REVERSAL
+    wrong = set(joints()["vertical" if direction == "across" else "horizontal"])
     axis = ("an across entry reads right to left when reversed, so it wants "
-            "back / returning / west"
+            "west / east / aback"
             if direction == "across" else
             "a down entry reads bottom to top, so it wants up / rising / "
-            "climbing / lifted / from below")
+            "raised / climbing / north")
     for ind in indicator_texts(ann, "reversal"):
         hits = [w for w in words_of(ind) if w in wrong]
         if hits:
             errors.append(
                 f"{tag}: reversal indicator {ind!r} points the wrong way for a "
-                f"{direction} entry ({', '.join(hits)}) — {axis} (AUTHORING.md, "
+                f"{direction} entry ({', '.join(hits)}) — {axis}, or a neutral word "
+                f"such as turning, about or over (AUTHORING.md, "
                 f"'A reversal runs along the entry')")
 
 
