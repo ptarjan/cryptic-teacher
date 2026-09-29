@@ -304,7 +304,10 @@ def is_continuation(clue):
 # prune_one_sided_members below and by tools/validate_annotations.py
 # check_groups, which must agree about which disagreements are the
 # paper's doing rather than a fetch's.
-LEADERS_NAMED = re.compile(r"\s*See\s+([\d,\s and]+?)\.?\s*", re.IGNORECASE)
+_LEADER_REF = r"\d+\s*(?:across|down|ac|dn)?\.?"
+LEADERS_NAMED = re.compile(
+    rf"\s*See\s*({_LEADER_REF}(?:\s*(?:,|&|and)?\s*{_LEADER_REF})*)"
+    r"\s*(?:\(\d+(?:[,-]\d+)*\))?\.?\s*", re.IGNORECASE)
 
 
 def leaders_named(clue):
@@ -312,15 +315,16 @@ def leaders_named(clue):
 
     A light can end MORE THAN ONE answer. Cryptic 28,687's 1-down is CLUB, the
     second word of both GOLDFISH CLUB (8,4) at 19-down and MONDAY CLUB (6,4) at
-    22-down, and its clue reads "See 19, 22" — it names both. `group` is one
-    list, so whichever answer it records the other leading clue disagrees with
-    it and always will, and that disagreement is the paper's and not a fetch's.
+    22-down, and its clue reads "See 19, 22" — it names both, so it sits in
+    both leaders' groups.
 
-    Zero for a clue with words of its own, which is not a continuation, and zero
-    for a pointer that says anything beyond the numbers it names — a count, a
-    direction, "or". That narrowness is the point: a continuation naming ONE
-    leader is an ordinary leg and stays held to its group, which is what keeps
-    the rules downstream worth anything.
+    A number may carry its direction ("See 1 across and 22", "See 22 and
+    21down") and the pointer may end on the leg's own count ("See 2 and 24
+    across (4)"). Zero for a clue with words of its own, which is not a
+    continuation, and zero for a pointer that says anything else, "or" above
+    all. That narrowness is the point: a continuation naming ONE leader is an
+    ordinary leg and stays held to its group, which is what keeps the rules
+    downstream worth anything.
     """
     m = LEADERS_NAMED.fullmatch(clue or "")
     return len(re.findall(r"\d+", m.group(1))) if m else 0
@@ -928,9 +932,9 @@ def reconcile_groups(entries):
                 # Every claim adds up, so they are all true and the light they
                 # share is in more than one answer — cryptic 28,687's 1-down CLUB
                 # ends both GOLDFISH CLUB (8,4) and MONDAY CLUB (6,4), and its own
-                # clue says "See 19, 22". `group` holds one list, so it cannot say
-                # that; each leading clue keeps its own reading, which is the most
-                # the field can carry and is what the paper published.
+                # clue says "See 19, 22". Each leading clue keeps its own group,
+                # so once collapse() runs the shared light sits in both, which is
+                # what the paper published.
                 print(f"WARNING: {'/'.join(sorted(members))}: "
                       + ("a light shared by several answers — left as published"
                          if winners else "no claim on this group adds up — left alone"),
@@ -1239,10 +1243,11 @@ def _spare_light(entry, lead, entries):
     own cell count printed beside the pointer, not a claim to be a whole answer.
 
     A light the paper has already put in somebody else's group is not spare
-    either. One `group` field cannot say that a light ends two answers —
-    cryptic-24951's 24-across THE is in both SET THE CAT AMONG THE PIGEONS and
-    LET THE DOG SEE THE RABBIT — so taking it would be quietly deciding which
-    answer loses it.
+    either. It may end a second answer only when its own clue names both
+    leaders (leaders_named), and then the paper already grouped it; otherwise
+    taking it would be quietly deciding which answer loses it —
+    cryptic-24951's 24-across THE reads "See 16" yet sits in 18-down's LET THE
+    DOG SEE THE RABBIT.
     """
     group = entry.get("group") or []
     if len(group) > 1 and lead["id"] not in group:
