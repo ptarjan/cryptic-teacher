@@ -32,8 +32,10 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import definitions  # noqa: E402
 import provenance  # noqa: E402
 import puzzle_paths  # noqa: E402
+import puzzle_schema  # noqa: E402
 import series  # noqa: E402
 import validate_annotations  # noqa: E402
 from fetch_puzzle import write_puzzle_file  # noqa: E402
@@ -92,6 +94,19 @@ def build(fill_path, clues_path, number, name, setter, day):
     }
 
 
+def finish(puzzle, annotated_by):
+    """The built puzzle as write_puzzle_file will write it, and its validator
+    ERRORs. The refusal must judge the written form: the schema requires the
+    `source`, `solutions` and definition offsets that the write path adds.
+    Raises ValueError for an --annotated-by that provenance does not accept."""
+    if provenance.has_hints(puzzle):
+        puzzle = provenance.credit_annotator(puzzle, annotated_by, had_hints=False)
+    puzzle = provenance.stamp(puzzle, "tools/build_authored_puzzle.py")
+    puzzle = puzzle_schema.order(definitions.place_puzzle(puzzle_schema.prune(puzzle)))
+    _, errors, _ = validate_annotations.validate_puzzle(puzzle)
+    return puzzle, errors
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--fill", default="tools/data/sample_fill_11.json")
@@ -107,13 +122,10 @@ def main():
     args = ap.parse_args()
 
     puzzle = build(args.fill, args.clues, args.number, args.name, args.setter, args.date)
-    if provenance.has_hints(puzzle):
-        try:
-            puzzle = provenance.credit_annotator(puzzle, args.annotated_by,
-                                                 had_hints=False)
-        except ValueError as err:
-            sys.exit(f"--annotated-by: {err}")
-    _, errors, _ = validate_annotations.validate_puzzle(puzzle)
+    try:
+        puzzle, errors = finish(puzzle, args.annotated_by)
+    except ValueError as err:
+        sys.exit(f"--annotated-by: {err}")
     if errors:
         sys.exit("refusing to write: tools/validate_annotations.py has "
                  f"{len(errors)} ERROR(s)\n  " + "\n  ".join(errors))

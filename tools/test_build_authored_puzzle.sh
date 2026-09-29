@@ -33,7 +33,10 @@ with tempfile.TemporaryDirectory() as scratch:
                            "tools/data/authored_A001_clues.json", 1,
                            "Cryptic Teacher No 1", "Cryptic Teacher",
                            datetime.date(2026, 7, 29))
-    puzzle = provenance.credit_annotator(puzzle, "human", had_hints=False)
+    # finish() is the builder's own pre-write step, refusal included.
+    puzzle, errors = builder.finish(puzzle, "human")
+    if errors:
+        sys.exit("  FAIL: the builder refuses its own puzzle:\n    " + "\n    ".join(errors))
     try:
         out = write_puzzle_file(puzzle_paths.file_for(puzzle), puzzle,
                                 generator="tools/build_authored_puzzle.py")
