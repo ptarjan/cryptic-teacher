@@ -1492,8 +1492,12 @@ const pickerSearchFor = (id) => typeInPicker(numberIn(id) + " " + seriesOf(id));
 const pickerRowFor = (id) => {
   pickerSearchFor(id);
   const rows = drainPicker();
+  // The series chip too: a number and a series word can name two puzzles,
+  // since "218 toughie" finds both toughie-218 and sundaytough-218.
+  const chip = (appSrc.match(new RegExp("^\\s{4}" + seriesOf(id) + ': \\["([^"]+)"', "m")) || [])[1];
   const byNumber = rows.find((li) => li.children[0]
-    && rowHasNumber(li.children[0].innerHTML, numberIn(id)));
+    && rowHasNumber(li.children[0].innerHTML, numberIn(id))
+    && li.children[0].innerHTML.includes(`>${chip}</span>`));
   // A row prints the number a READER reads, and a book's is "Penguin book 2
   // No 52" — the stored 1052 is nowhere in its markup, because one chip covers
   // thirty books and the shelf label is the only thing on the row that says
