@@ -26,72 +26,36 @@ published setter has ever written (`unattested-phrasing`).
 Every warning here is a smell, not an error. Exit status is 0 either way — this
 informs the setter, it does not block the build.
 
-How well each check actually predicts a judge's score, measured on the 20 clues
-of A001 (mean judge score when the check fires, minus when it does not):
+What each check says about quality, measured against solvers rather than our
+own judges. Commenters at fifteensquared name their favourite clues, and
+tools/favourites_survey.py resolves those names to our annotations of the same
+puzzles: 404 puzzles, 11,695 annotated clues, 2,082 favourites. Each check runs
+on those clues exactly as on ours, annotation included, and is compared inside
+each puzzle, favourite against puzzle-mate
+(`python3 tools/clue_quality.py --calibrate VOTES`, 2026-09-28):
 
-    copula-definition        -0.46   (fired on 2)
-    indicator-abuts-fodder   -0.45   (fired on 4)
-    terse                    -0.27   (fired on 10)
-    fenced-definition        +0.16   (fired on 3)
-    stock-indicator          +1.22   (fired on 1)
+    check                    fires   odds ratio      z    July (A001, 3 judges)
+    copula-definition         1.6%        0.74   -1.35    -0.46 on 2 clues
+    fenced-definition         9.1%        1.53   +5.07    +0.16 on 3
+    indicator-abuts-fodder    5.9%        0.68   -3.14    -0.45 on 4
+    stock-indicator          16.6%        0.95   -0.75    +1.22 on 1
+    terse                    18.7%        0.82   -2.91    -0.27 on 10
+    not-a-sentence           47.8%        0.94   -1.27
+    imperative-opening        1.7%        0.71   -1.60
+    unattested-phrasing       7.6%        0.88   -1.23
 
-Only the first three point the way they were designed to, and n=20 clues judged
-by 3 judges is far too small to call any of them established. The last two are
-currently evidence *against* themselves — `stock-indicator` fired once, on our
-single best clue. They are kept because the reasoning behind them is sound and
-one clue cannot refute it, but do not treat them as authority. Re-run this table
-after the next graded puzzle; a check that keeps pointing the wrong way should be
-deleted, not defended.
+An odds ratio under 1 means solvers favour the clue less when the check fires;
+|z| under 2 is no evidence either way. Two checks are established the way they
+were designed: `indicator-abuts-fodder` and `terse`. `fenced-definition` is
+established the OTHER way: a definition standing alone behind a comma or colon
+makes a clue half as likely again to be a favourite. `stock-indicator` and
+`not-a-sentence` fire on a sixth and on half of all published clues and carry
+no signal at all. `copula-definition`, `imperative-opening` and
+`unattested-phrasing` point the right way but are too rare to establish.
 
-How often each check fires on clues nobody thinks are broken — 1000 clues drawn
-at random from times_xwd_times, fifteensquared and bigdave44, held out of the
-corpus tables so `unattested-phrasing` cannot find its own input attested
-(`python3 tools/clue_quality.py --calibrate`). Beside it, the same checks on our
-20, both as they were graded and as they stand after rewriting:
-
-    check                    published   A001 graded   A001 rewritten
-    copula-definition             1.1%          10%            5%
-    fenced-definition             5.9%          15%           10%
-    indicator-abuts-fodder         n/a          20%           20%
-    stock-indicator                n/a           5%            5%
-    terse                        20.0%          50%           30%
-    not-a-sentence               48.3%          60%           45%
-    imperative-opening            1.5%           0%            0%
-    unattested-phrasing           5.7%           0%            0%
-
-    n/a: reads an annotation the corpus does not carry, so it cannot be run on
-    published clues at all. Those two rates are not evidence of anything.
-
-A second draw (`--calibrate --sample 800 --seed 5`) gives 48.0%, 2.2% and 3.5%
-for the three new checks, so the published column is not an artefact of one
-sample.
-
-Read that table before trusting any of these, because two of the three new checks
-fire on MORE published clues than on ours, and a check that flags Araucaria is a
-broken check:
-
-  * `not-a-sentence` flags nearly half the Times. Published setters write
-    verbless clues constantly — `Bird — large one in sort of American pie`,
-    `Old man in sham woolly shawl` — and they are fine, because a noun phrase can
-    still be a thing a person would say. The check does point the right way at
-    the margin (60% on the 20 as graded, 45% on the same 20 after rewriting,
-    against 48% published), but a 12-point gap on n=20 is a nudge in aggregate
-    and nothing at all on a single clue. Do not rewrite a clue because this
-    fired — reread it aloud, and decide for yourself.
-  * `unattested-phrasing` fires on 5.7% of published clues and on none of ours,
-    at any threshold that keeps the published rate under 10%. The reason is
-    measurable: our clues' unattested content-bigram fraction averages 0.39 and
-    the published median is 0.38. Our phrasing is as attested as the Times'. So
-    whatever is wrong with `That Conservative lot, and mean with it`, it is not
-    that the word pairs are strange — it is that the pairs are ordinary and the
-    sentence they make is not one anybody needed to say. The check earns nothing
-    today; it is kept as a guard against letter-driven word salad, which is a
-    failure we have not made yet.
-  * `imperative-opening` also fires more on published (1.5%) than on ours (0%),
-    but all 15 published firings are real solver-instructions (`Cut complaints
-    associated with take-out`, `Get rid of endless booty…`), so the check is
-    doing what it says; the shape is simply rare everywhere. It is a guard, not a
-    diagnosis.
+Two cautions. The votes are fifteensquared's: Guardian, Independent, Everyman
+and Quiptic solvers. And they measure what solvers enjoy, which is not the same
+question as whether a clue is sound; tools/validate_annotations.py owns that.
 
 The concealment complaint, and why no check came out of it
 ---------------------------------------------------------
@@ -192,12 +156,12 @@ graded puzzle before believing any of it; n=13 refutes nothing on its own, it
 only fails to establish.
 
   python3 tools/clue_quality.py tools/data/authored_A001_clues.json
-  python3 tools/clue_quality.py --calibrate --sample 1000
+  python3 tools/favourites_survey.py --json /tmp/votes.json
+  python3 tools/clue_quality.py --calibrate /tmp/votes.json
 """
 
 import argparse
 import json
-import random
 import re
 import sqlite3
 import statistics
@@ -390,7 +354,7 @@ def load_corpus_norms(path, exclude=None):
             n = len("".join(c for c in ans if c.isalpha()))
             if 3 <= n <= 12:
                 lengths.setdefault(n, []).append(len(words(strip_enum(clue))))
-        if clue.strip() not in exclude:
+        if corpus_key(clue) not in exclude:
             for bg in bigrams(toks):
                 seen_bigrams.add(bg)
         for i, w in enumerate(toks):
@@ -570,68 +534,71 @@ CODES = ["copula-definition", "fenced-definition", "indicator-abuts-fodder",
          "stock-indicator", "terse", "not-a-sentence", "imperative-opening",
          "unattested-phrasing"]
 
-CALIBRATION_SOURCES = ("times_xwd_times", "fifteensquared", "bigdave44")
+def calibrate(corpus, votes_path):
+    """Each check against solvers' favourite-clue votes, on published clues.
 
-
-def calibrate(corpus, n, seed):
-    """Firing rate of every check on published broadsheet clues.
-
-    A check that fires often on the Times is not measuring our problem, it is
-    measuring English. The published clues are held out of the bigram table so
-    `unattested-phrasing` cannot trivially find its own input attested.
+    The clues are our own annotations of published puzzles, so every check runs
+    exactly as it does on ours, indicator checks included. A clue is a
+    favourite if a fifteensquared commenter named it (tools/favourites_survey.py
+    --json writes the votes). Only puzzles with both a favourite and a
+    non-favourite count, and the comparison is made inside each puzzle
+    (Mantel-Haenszel), because the share of clues named follows the size of the
+    comment thread, not the clues. Every clue in those puzzles is held out of
+    the bigram table so `unattested-phrasing` cannot find its own input.
     """
-    db = sqlite3.connect(corpus)
-    marks = ",".join("?" * len(CALIBRATION_SOURCES))
-    rows = [(c, a, d) for c, a, d in db.execute(
-        f"select clue, answer, definition from clues where source in ({marks}) "
-        f"and clue is not null and answer is not null", CALIBRATION_SOURCES)]
-    random.Random(seed).shuffle(rows)
-    sample = rows[:n]
-    print(f"sampling {len(sample)} clues from "
-          f"{', '.join(CALIBRATION_SOURCES)} (seed {seed})")
+    import collections
+    import math
 
-    held_out = {c.strip() for c, _, _ in sample}
-    print("building corpus norms with those clues held out...")
+    import puzzle_paths
+    fav = collections.defaultdict(set)
+    for v in json.loads(Path(votes_path).read_text()):
+        fav[v["puzzle"]].add(v["entry"])
+    strata, held_out = [], set()
+    for pid in sorted(fav):
+        path = puzzle_paths.find(pid)
+        if not path:
+            continue
+        rows = [(e["id"], e["clue"], e["annotation"], e["id"] in fav[pid])
+                for e in json.loads(Path(path).read_text())["entries"]
+                if e.get("annotation") and (e.get("clue") or {}).get("text")]
+        held_out |= {corpus_key(c["text"]) for _, c, _, _ in rows}
+        if any(r[3] for r in rows) and not all(r[3] for r in rows):
+            strata.append(rows)
     norms = load_corpus_norms(corpus, exclude=held_out)
-    print(f"{norms['n_rows']:,} corpus clues, {len(norms['bigrams']):,} bigrams, "
-          f"{len(norms['verby_s']):,} present-tense verb forms, "
-          f"{len(norms['base_verbs']):,} base forms")
+    n = sum(map(len, strata))
+    print(f"{len(strata)} puzzles, {n} annotated clues, "
+          f"{sum(r[3] for s in strata for r in s)} favourites; "
+          f"{norms['n_rows']:,} corpus clues for the norms")
+    tables = {c: [] for c in CODES}
+    for rows in strata:
+        t = {c: [0, 0, 0, 0] for c in CODES}  # fav+fires, other+fires, fav, other
+        for eid, clue, ann, f in rows:
+            got = {code for code, _ in check(eid, {"clue": clue, "annotation": ann}, norms)}
+            for c in CODES:
+                t[c][(0 if c in got else 2) + (0 if f else 1)] += 1
+        for c in CODES:
+            tables[c].append(t[c])
+    print(f"\n{'check':24} {'fires':>6} {'odds ratio':>10} {'z':>6}")
+    for c in CODES:
+        fires = num = den = obs = exp = var = 0
+        for a, b, cc, d in tables[c]:
+            m = a + b + cc + d
+            fires += a + b
+            num += a * d / m
+            den += b * cc / m
+            obs += a
+            exp += (a + cc) * (a + b) / m
+            var += (a + cc) * (b + d) * (a + b) * (cc + d) / (m * m * (m - 1))
+        ratio = num / den if den else float("nan")
+        z = (obs - exp) / math.sqrt(var) if var else 0.0
+        print(f"{c:24} {fires / n:6.1%} {ratio:10.2f} {z:6.2f}")
+    print("\nodds ratio < 1: a clue the check fires on is less likely to be a "
+          "favourite than its puzzle-mates. |z| < 2 is no evidence either way.")
 
-    # The published clues carry no annotation, so the three checks that read one
-    # (copula-definition, fenced-definition, indicator-abuts-fodder) get the
-    # corpus `definition` column and nothing else; stock-indicator and
-    # indicator-abuts-fodder cannot run at all and are reported as n/a.
-    counts = {c: 0 for c in CODES}
-    fracs = []
-    for clue, answer, definition in sample:
-        spec = {"clue": {"text": clue}, "annotation": {
-            "answer": answer, **({"definitions": [{"text": definition}]} if definition else {})}}
-        for code, _ in check("pub", spec, norms):
-            counts[code] += 1
-        toks = tokens(strip_enum(clue))
-        content = [(a, b) for a, b in bigrams(toks)
-                   if a not in FUNCTION_WORDS or b not in FUNCTION_WORDS]
-        if len(content) >= UNATTESTED_MIN_BIGRAMS:
-            fracs.append(sum(bg not in norms["bigrams"] for bg in content)
-                         / len(content))
 
-    print("\nfiring rate on published clues:")
-    for code in CODES:
-        note = ""
-        if code in ("stock-indicator", "indicator-abuts-fodder"):
-            note = "  (needs an annotation; not comparable)"
-        print(f"  {code:24} {counts[code] / len(sample):6.1%}{note}")
-
-    fracs.sort()
-    print(f"\nunattested content-bigram fraction, published clues "
-          f"(n={len(fracs)} of {len(sample)} have >= {UNATTESTED_MIN_BIGRAMS} "
-          f"content pairs; the rest can never fire):")
-    for pct in (50, 75, 90, 95, 98, 99):
-        print(f"  p{pct:<3} {fracs[int(len(fracs) * pct / 100)]:.2f}")
-    for thresh in (0.4, 0.5, 0.6, 0.667, 0.75, 0.8, 1.0):
-        rate = sum(f >= thresh for f in fracs) / len(sample)
-        print(f"  threshold {thresh:.3f} would fire on {rate:6.2%} of the "
-              f"{len(sample)} sampled clues")
+def corpus_key(clue):
+    """How a clue is matched against the corpus: enumeration and case dropped."""
+    return strip_enum(clue).strip().lower()
 
 
 def main():
@@ -639,14 +606,13 @@ def main():
     ap.add_argument("clues", nargs="?",
                     default="tools/data/authored_A001_clues.json")
     ap.add_argument("--corpus", default=str(CORPUS))
-    ap.add_argument("--calibrate", action="store_true",
-                    help="report each check's firing rate on published clues")
-    ap.add_argument("--sample", type=int, default=1000)
-    ap.add_argument("--seed", type=int, default=17)
+    ap.add_argument("--calibrate", metavar="VOTES",
+                    help="test every check against favourite votes: the file "
+                         "tools/favourites_survey.py --json writes")
     args = ap.parse_args()
 
     if args.calibrate:
-        calibrate(args.corpus, args.sample, args.seed)
+        calibrate(args.corpus, args.calibrate)
         return
 
     path = Path(args.clues)
