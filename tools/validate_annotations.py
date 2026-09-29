@@ -1390,9 +1390,15 @@ def check_features(tag, ann, clue, errors, warnings):
         elif len(word.split()) > 1:
             errors.append(f"{tag}: features.misdirectedWord {word!r} is more than "
                           f"one word — name the single word that misleads")
-        elif word.strip().lower() not in [w.lower() for w in re.findall(r"[\w'-]+", clue or "")]:
+        elif not re.search(r"(?<![\w'])" + re.escape(plain(word.strip())) + r"(?![\w'])", plain(clue or "")):
             errors.append(f"{tag}: features.misdirectedWord {word!r} does not occur "
                           f"in the clue {clue!r}")
+
+
+def plain(text):
+    """`text` lowercased with curly apostrophes straightened, for matching a
+    word the annotation names against the clue it came from."""
+    return text.lower().replace("\u2019", "'").replace("\u2018", "'")
 
 
 def check_part_of_speech(tag, ann, warnings):

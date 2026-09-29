@@ -57,7 +57,9 @@ def file_for(puzzle):
 
 def find(pid):
     """The file holding puzzle `pid`, or None if it is not held."""
-    hits = sorted((PUZZLE_DIR / series_folder(pid)).glob(f"*/{pid}.json"))
+    folder = PUZZLE_DIR / series_folder(pid)
+    # A stat per year folder: a glob would list every file in every one.
+    hits = sorted(p for d in folder.iterdir() if (p := d / f"{pid}.json").is_file()) if folder.is_dir() else []
     if len(hits) > 1:
         raise SystemExit(f"{pid} is filed twice: " + ", ".join(map(str, hits)))
     return hits[0] if hits else None
