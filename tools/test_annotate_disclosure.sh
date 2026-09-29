@@ -24,7 +24,7 @@ import validate_annotations as V
 
 def entry(eid, clue="Some words here (4)", sol="ABCD", group=None, **kw):
     num, _, d = eid.partition("-")
-    e = {"id": eid, "number": int(num), "direction": d, "clue": {"text": clue},
+    e = {"number": int(num), "direction": d, "clue": {"text": clue},
          "solution": sol, **kw}
     if group:
         e["group"] = group
@@ -97,12 +97,13 @@ say("hole_queued_in_corpus", not errs and any("queued" in w for w in warns))
 # committed file's fails; one retyped with other punctuation does not.
 import fetch_puzzle
 import puzzle_paths
+from groups import entry_id
 committed = puzzle_paths.find("sundaytimes-5067")
 held = fetch_puzzle.read_puzzle_file(committed)
 lead = next(e for e in held["entries"] if e.get("annotation"))
 reworded, retyped = copy.deepcopy(held), copy.deepcopy(held)
-next(e for e in reworded["entries"] if e["id"] == lead["id"])["clue"]["text"] = "Invented " + lead["clue"]["text"]
-next(e for e in retyped["entries"] if e["id"] == lead["id"])["clue"]["text"] = lead["clue"]["text"].replace(" ", "  ") + "!"
+next(e for e in reworded["entries"] if entry_id(e) == entry_id(lead))["clue"]["text"] = "Invented " + lead["clue"]["text"]
+next(e for e in retyped["entries"] if entry_id(e) == entry_id(lead))["clue"]["text"] = lead["clue"]["text"].replace(" ", "  ") + "!"
 errs = []
 V.check_clue_unchanged(reworded, committed, errs)
 say("reworded_clue_fails", len(errs) == 1 and "drop this entry's annotation" in errs[0])
@@ -175,6 +176,7 @@ import json, tempfile
 from pathlib import Path
 import apply_annotations
 import puzzle_integrity
+from groups import entry_id
 # Thirty unplaced lights are not a whole puzzle; the write gate has its own test, tools/test_puzzle_invariants.sh.
 puzzle_integrity.refuse_bad_write = lambda puzzle, old=None: None
 blog = "https://fifteensquared.net/2025/08/02/cyclops-99998-x/"
@@ -192,7 +194,7 @@ try:
         [e["solution"] for e in json.loads(text)["entries"]] == ["ABCD"] * 30)
 finally:
     view.unlink()
-apply_annotations.apply(path, {e["id"]: {"type": ["charade"]} for e in real["entries"]},
+apply_annotations.apply(path, {entry_id(e): {"type": ["charade"]} for e in real["entries"]},
                         by="human")
 say("apply_keeps_solutions_detail",
     json.loads(path.read_text()).get("solutions", {}).get("url") == blog)

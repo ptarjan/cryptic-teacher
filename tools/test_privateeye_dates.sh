@@ -50,7 +50,7 @@ print("UNTAGGED", *(f"{k}={v}" for k, _, v in rows))
 
 # A blog row numbered for no light of its length takes the one light left open.
 def light(n, d, x, y, size):
-    return {"id": f"{n}-{d}", "number": n, "direction": d, "position": {"x": x, "y": y},
+    return {"number": n, "direction": d, "position": {"x": x, "y": y},
             "length": size, "clue": {"text": "Clue (%d)" % size}, "solution": None}
 grid = {"entries": [light(1, "across", 0, 0, 3), light(1, "down", 0, 0, 3),
                     light(2, "down", 2, 0, 3), light(3, "across", 0, 2, 3)]}

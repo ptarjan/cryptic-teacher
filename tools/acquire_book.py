@@ -375,7 +375,7 @@ def entries_from_grid(grid, across, down):
                 problems.append(
                     f"{num}-{direction} is {run} cells in the grid but its "
                     f"enumeration reads {light[1]}")
-            entries.append({"id": f"{num}-{direction}", "number": num,
+            entries.append({"number": num,
                             "direction": direction, "position": {"x": x, "y": y},
                             "length": run, "clue": clue,
                             "enumeration": (printed or {}).get("enumeration")})

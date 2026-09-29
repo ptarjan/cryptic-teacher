@@ -29,6 +29,7 @@ import corroborate as c
 import enumeration
 import fetch_puzzle
 import puzzle_paths
+from groups import entry_id
 
 tmp = Path(os.environ["TMP"])
 c.LEDGER = tmp / "ledger.json"
@@ -38,7 +39,7 @@ puzzle_paths.PUZZLE_DIR.mkdir()
 
 
 def light(number, direction, x, y, solution, clue="A clue (3)", group=None):
-    e = {"id": f"{number}-{direction}", "number": number, "direction": direction,
+    e = {"number": number, "direction": direction,
          "position": {"x": x, "y": y}, "length": len(solution),
          "clue": enumeration.clue(clue) if clue else {"missing": True}, "solution": solution}
     if group:
@@ -85,7 +86,7 @@ r = settled(grid, blog)
 print("GRID", *r[("answer", "1-across")])
 print("JOINT", *r[("answer", "1-down")])
 fixed = c.corroborate(grid, [blog])
-print("WRITTEN", {e["id"]: e["solution"] for e in fixed["entries"]}["1-across"])
+print("WRITTEN", {entry_id(e): e["solution"] for e in fixed["entries"]}["1-across"])
 
 # votes, and copies of one origin counting once: the differing cell of PEIR is
 # unchecked, so the grid cannot help.
@@ -138,7 +139,7 @@ times = puzzle("timesquick-700", AGREED + [light(18, "across", 0, 12, "SAWS")],
 same_origin = source("georgeho:times_xwd_times", "timesforthetimes",
                      answers={**AGREED_ANSWERS, "18-across": "SOWN"})
 kept = c.corroborate(times, [same_origin])
-print("UNRESOLVED", {e["id"]: e["solution"] for e in kept["entries"]}["18-across"])
+print("UNRESOLVED", {entry_id(e): e["solution"] for e in kept["entries"]}["18-across"])
 
 # but not from the primary's own origin, which it has already read: the Times
 # filer writes the daily with no setter because the blog names none.
@@ -195,7 +196,7 @@ print("LEDGER", ledger["cryptic-500 answer 1-across"]["rule"],
 real = fetch_puzzle.read_puzzle_file(
     next((Path(os.environ["REPO"]) / "puzzles").glob("cryptic/*/cryptic-24104.json")))
 c.SOURCES = (source("fifteensquared", "fifteensquared", setter="Tramp",
-                    answers={e["id"]: e["solution"] for e in real["entries"]}),)
+                    answers={entry_id(e): e["solution"] for e in real["entries"]}),)
 path = fetch_puzzle.puzzle_path("cryptic", 24104)
 path = fetch_puzzle.write_puzzle_file(path, {**real, "setter": None}, generator="tools/fetch_puzzle.py")
 print("WRITE_PATH", fetch_puzzle.read_puzzle_file(path)["setter"])
@@ -224,7 +225,7 @@ print("COLD_MISPARSE", len(apply_solution.check_sources(
 
 # and a puzzle with no grid is not read against anything
 gridless = {"id": "cryptic-502", "series": "cryptic", "number": 502, "setter": "",
-            "entries": [{"id": "1-across", "number": 1, "direction": "across", "solution": "CAR"}]}
+            "entries": [{"number": 1, "direction": "across", "solution": "CAR"}]}
 print("GRIDLESS", c.corroborate(gridless, [source("f", "fifteensquared", setter="Tramp")]) is gridless)
 PY
 )

@@ -37,6 +37,7 @@ import puzzle_paths  # noqa: E402
 import series  # noqa: E402
 import validate_annotations  # noqa: E402
 from fetch_puzzle import write_puzzle_file  # noqa: E402
+from groups import entry_id  # noqa: E402
 
 
 def build(fill_path, clues_path, number, name, setter, day):
@@ -46,7 +47,7 @@ def build(fill_path, clues_path, number, name, setter, day):
     entries = []
     missing = []
     for e in fill["entries"]:
-        eid = e["id"]
+        eid = entry_id(e)
         spec = clues.get(eid)
         if not spec:
             missing.append(eid)
@@ -61,7 +62,6 @@ def build(fill_path, clues_path, number, name, setter, day):
                 f"but the grid holds {e['solution']}"
             )
         entries.append({
-            "id": eid,
             "number": e["number"],
             "direction": e["direction"],
             "position": e["position"],
@@ -74,7 +74,7 @@ def build(fill_path, clues_path, number, name, setter, day):
     if missing:
         sys.exit("no clue written for: " + ", ".join(missing))
 
-    extra = set(k for k in clues if not k.startswith("_")) - {e["id"] for e in entries}
+    extra = set(k for k in clues if not k.startswith("_")) - {entry_id(e) for e in entries}
     if extra:
         sys.exit("clues written for entries not in the fill: " + ", ".join(sorted(extra)))
 

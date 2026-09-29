@@ -211,6 +211,7 @@ from fetch_puzzle import (  # noqa: E402 — one glob, one reader for every tool
     puzzle_files, puzzle_is_annotated, read_puzzle_file)
 import definitions
 import series as series_meta
+from groups import entry_id
 LEXICON = ROOT / "tools" / "data" / "lexicon.tsv"
 BASELINE = ROOT / "tools" / "data" / "difficulty_baseline.json"
 BLOG_FACTS = ROOT / "tools" / "data" / "blog_facts"
@@ -621,7 +622,7 @@ def definition_unrelated(puz):
     bd = blog_definitions().get(puz["id"], {})
     judged = []
     for e in puz["entries"]:
-        d = bd.get(e.get("id")) or definition_key(definitions.texts(e.get("annotation")))
+        d = bd.get(entry_id(e)) or definition_key(definitions.texts(e.get("annotation")))
         if not d or not e.get("solution"):
             continue
         clue = e["clue"].get("text", "").strip()
@@ -688,7 +689,7 @@ def history():
             if not sol or e["clue"].get("separators"):
                 continue
             sols.add(sol)
-            d = bd.get(e.get("id")) or definition_key(definitions.texts(e.get("annotation")))
+            d = bd.get(entry_id(e)) or definition_key(definitions.texts(e.get("annotation")))
             if d:
                 pairs.add((sol, definition_head(d)))
         rows.append((day, puz["id"], sols, pairs))

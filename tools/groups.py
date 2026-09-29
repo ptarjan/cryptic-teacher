@@ -9,9 +9,15 @@ ONE and 13-across's THOUSAND AND ONE, so it is in both leaders' groups.
 """
 
 
+def entry_id(e):
+    """An entry's id, "<number>-<direction>" ("21-across"): what `group` lists
+    and annotations are keyed by. Derived, never stored."""
+    return f"{e['number']}-{e['direction']}"
+
+
 def leaders(entries):
     """{leader id: its group} for every group in the puzzle."""
-    return {e["id"]: e["group"] for e in entries if e.get("group")}
+    return {entry_id(e): e["group"] for e in entries if e.get("group")}
 
 
 def group_of(entries):
@@ -41,14 +47,14 @@ def spread(entries):
     by collapse() before the puzzle is written."""
     claims = group_of(entries)
     for e in entries:
-        if e["id"] in claims:
-            e["group"] = list(claims[e["id"]])
+        if entry_id(e) in claims:
+            e["group"] = list(claims[entry_id(e)])
     return entries
 
 
 def collapse(entries):
     """Drop `group` from every light that does not lead it, in place."""
     for e in entries:
-        if e.get("group") and e["group"][0] != e["id"]:
+        if e.get("group") and e["group"][0] != entry_id(e):
             del e["group"]
     return entries

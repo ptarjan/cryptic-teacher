@@ -41,6 +41,7 @@ LEDGER = Path(os.environ.get("FAILED_INPUTS_FILE")
 sys.path.insert(0, str(ROOT / "tools"))
 import enumeration  # noqa: E402
 import puzzle_paths  # noqa: E402
+from groups import entry_id  # noqa: E402
 
 if os.environ.get("FAILED_INPUTS_PUZZLES"):
     puzzle_paths.PUZZLE_DIR = Path(os.environ["FAILED_INPUTS_PUZZLES"])
@@ -62,9 +63,9 @@ TRANSIENT = re.compile(
     r"Request timed out|network", re.IGNORECASE)
 
 
-# Entry fields that are the puzzle and not our work on it. Annotations are left
-# out because a failed run can leave half of one on disk.
-ENTRY_INPUTS = ("id", "clue", "solution", "length", "position", "direction")
+# Entry fields that are the puzzle and not our work on it, after the entry's id.
+# Annotations are left out because a failed run can leave half of one on disk.
+ENTRY_INPUTS = ("clue", "solution", "length", "position", "direction")
 
 
 def puzzle_inputs(pid):
@@ -87,11 +88,11 @@ def puzzle_inputs(pid):
         key = json.loads(stash.read_text(encoding="utf-8"))
     entries = []
     for e in puzzle.get("entries", []):
-        row = {k: e.get(k) for k in ENTRY_INPUTS}
+        row = {"id": entry_id(e), **{k: e.get(k) for k in ENTRY_INPUTS}}
         # The clue's printed line, the one part of it a run reads.
         row["clue"] = enumeration.printed(e["clue"])
-        if e.get("id") in key:
-            row["solution"] = key[e["id"]]
+        if entry_id(e) in key:
+            row["solution"] = key[entry_id(e)]
         entries.append(row)
     return {"dimensions": puzzle.get("dimensions"), "entries": entries}
 

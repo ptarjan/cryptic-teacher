@@ -51,6 +51,7 @@ import file_penguin_puzzle as filing
 import provenance
 
 from normalise_linked_enumerations import normalise_record, resolve_groups
+from groups import entry_id
 
 fails = []
 
@@ -84,7 +85,7 @@ def refuses(name, record, wanted):
 
 
 def light(eid, number, direction, length, clue, enumeration, x=0, y=0):
-    return {"id": eid, "number": number, "direction": direction,
+    return {"number": number, "direction": direction,
             "position": {"x": x, "y": y}, "length": length,
             "clue": clue, "enumeration": enumeration}
 
@@ -101,7 +102,7 @@ def enum_of(entry):
 
 
 def by_id(rec):
-    return {e["id"]: e for e in rec["puzzle"]["entries"]}
+    return {entry_id(e): e for e in rec["puzzle"]["entries"]}
 
 
 # Book 18's shape: TEAM + MATE, a per-light "4" printed on each half.
@@ -167,9 +168,9 @@ same("groups are leader-first", resolve_groups(rec["puzzle"]["entries"])["20-dow
      ["19-down", "20-down"])
 
 print('"See 17 Across" names its leader\'s direction, over the same-direction default')
-named = [{"id": "17-across", "number": 17, "direction": "across", "clue": "Path to 6 (6,5,4)"},
-         {"id": "17-down", "number": 17, "direction": "down", "clue": "Annual review (8)"},
-         {"id": "6-down", "number": 6, "direction": "down", "clue": "See 17 Across (6)"}]
+named = [{"number": 17, "direction": "across", "clue": "Path to 6 (6,5,4)"},
+         {"number": 17, "direction": "down", "clue": "Annual review (8)"},
+         {"number": 6, "direction": "down", "clue": "See 17 Across (6)"}]
 same("6-down hangs off 17-across", resolve_groups(named)["6-down"], ["17-across", "6-down"])
 
 print("it refuses rather than guesses")
@@ -196,7 +197,7 @@ refuses("a loop of pointers, which has no leader",
 
 print("the split shape cannot be FILED, not merely rejected")
 puzzle = filing.build(copy.deepcopy(SPLIT), "newpenguinbkguar0000perk", "opus")
-built = {e["id"]: e for e in puzzle["entries"]}
+built = {entry_id(e): e for e in puzzle["entries"]}
 same("the leader's clue prints the whole answer's count",
      built["7-down"]["clue"].get("enumeration"), "4,4")
 same("the continuation's clue prints no count at all", built["8-down"]["clue"], {"text": "See 7"})
@@ -264,7 +265,7 @@ refuses("a printed count that does not fit its own light",
 
 print("an unsolved puzzle files with the same counts and no answers")
 puzzle = filing.build(copy.deepcopy(SPLIT_UNSOLVED), "isbn_9780140248098", "opus", unsolved=True)
-built = {e["id"]: e for e in puzzle["entries"]}
+built = {entry_id(e): e for e in puzzle["entries"]}
 same("the leader's clue prints the whole answer's count",
      built["7-down"]["clue"].get("enumeration"), "4,4")
 same("the continuation's clue prints no count", built["8-down"]["clue"], {"text": "See 7"})
@@ -295,7 +296,7 @@ print("every linked answer in the book series on disk still reads leader form")
 groups_seen = 0
 for path in sorted(Path("puzzles/book").glob("*/book-*.json")):
     puzzle = fetch_puzzle.read_puzzle_file(path)
-    entries = {e["id"]: e for e in puzzle["entries"]}
+    entries = {entry_id(e): e for e in puzzle["entries"]}
     for eid, entry in entries.items():
         group = entry.get("group") or []
         if len(group) < 2 or group[0] != eid:

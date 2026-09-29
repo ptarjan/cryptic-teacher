@@ -58,6 +58,7 @@ from fetch_puzzle import (enumeration_separators, flatten_clue, http_bytes, has_
                           puzzle_path, reindex, write_puzzle_file)
 from fetch_wayback import maybe_gunzip, SLEEP_SECONDS  # noqa: E402 — shared Wayback plumbing
 import series as series_meta  # noqa: E402 — for puzzle_id()/default_setter() only
+from groups import entry_id  # noqa: E402
 
 URL = "https://metro.co.uk/puzzles/cryptic-crossword/"
 SERIES = "metro"
@@ -212,7 +213,6 @@ def convert(data):
         # here stores and what the annotation offsets are measured against.
         line, italics = flatten_clue(item["clue"].strip())
         entries.append({
-            "id": f"{item['num']}-{direction}",
             "number": item["num"],
             "direction": direction,
             "position": {"x": col, "y": row},
@@ -235,7 +235,7 @@ def convert(data):
         raise SystemExit(f"grid reconstruction mismatch — missing cells {missing[:10]}, "
                           f"unexpected filled cells {extra[:10]}")
 
-    wordless = [e["id"] for e in entries if e["clue"].get("missing")]
+    wordless = [entry_id(e) for e in entries if e["clue"].get("missing")]
     if wordless:
         print("WARNING: published with no clue text: " + ", ".join(wordless), file=sys.stderr)
 

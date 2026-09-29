@@ -47,8 +47,8 @@ puzzle() {  # id answer [annotation-type] — one-entry, undated puzzle file
 import json, os, sys
 path, answer, ann = sys.argv[1:]
 os.makedirs(os.path.dirname(path), exist_ok=True)
-e = {"id": "1-across", "clue": {"text": "Test", "enumeration": "3"}, "solution": answer, "length": 3,
-     "position": {"x": 0, "y": 0}, "direction": "across"}
+e = {"number": 1, "direction": "across", "clue": {"text": "Test", "enumeration": "3"}, "solution": answer, "length": 3,
+     "position": {"x": 0, "y": 0}}
 if ann:
     e["annotation"] = {"type": [ann]}
 json.dump({"id": path.rsplit("/", 1)[1][:-5], "dimensions": {"rows": 3, "cols": 3},

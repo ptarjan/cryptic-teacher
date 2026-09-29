@@ -20,6 +20,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from fetch_puzzle import read_puzzle_file, resolve_puzzle  # noqa: E402
+from groups import entry_id  # noqa: E402
 
 
 def crossing_map(entries):
@@ -29,7 +30,7 @@ def crossing_map(entries):
         x, y = e["position"]["x"], e["position"]["y"]
         for i in range(e["length"]):
             cell = (x + i, y) if e["direction"] == "across" else (x, y + i)
-            cells.setdefault(cell, []).append((e["id"], i))
+            cells.setdefault(cell, []).append((entry_id(e), i))
     cross = {}
     for occupants in cells.values():
         if len(occupants) < 2:
@@ -53,11 +54,11 @@ def packet(puzzle):
         "",
     ]
     cross = crossing_map(puzzle["entries"])
-    by_id = {e["id"]: e for e in puzzle["entries"]}
+    by_id = {entry_id(e): e for e in puzzle["entries"]}
     for e in sorted(puzzle["entries"],
                     key=lambda e: (e["direction"], e["number"])):
-        lines.append(f"{e['id']}  {label(e)} ({e['length']}) {e['clue'].get('text', '')}")
-        pairs = sorted(cross.get(e["id"], []))
+        lines.append(f"{entry_id(e)}  {label(e)} ({e['length']}) {e['clue'].get('text', '')}")
+        pairs = sorted(cross.get(entry_id(e), []))
         if pairs:
             lines.append("    crossings: " + "; ".join(
                 f"pos{i}={label(by_id[other])}pos{j}" for i, other, j in pairs))

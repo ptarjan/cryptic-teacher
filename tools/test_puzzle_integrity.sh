@@ -139,11 +139,12 @@ out3=$(PYTHONPATH="$REPO/tools" python3 - <<'PY'
 import copy
 from datetime import datetime, timezone
 import puzzle_integrity as pi
+from groups import entry_id
 
 today = datetime.now(timezone.utc).date()
 path = pi.puzzle_paths.find("cryptic-24104")
 puzzle = copy.deepcopy(pi.read_puzzle_file(path))
-by_id = {e["id"]: e for e in puzzle["entries"]}
+by_id = {entry_id(e): e for e in puzzle["entries"]}
 target = by_id["1-across"]
 assert target.get("solution"), "fixture assumption broken: 1-across has no solution"
 # A grid-length mismatch is checked and flagged before either exception table
@@ -208,6 +209,7 @@ out5=$(PYTHONPATH="$REPO/tools" python3 - <<'XPY'
 import copy
 import puzzle_integrity as pi
 from apply_solution import check_geometry
+from groups import entry_id
 
 # A real 15x15, so the fixture cannot drift out of the shape the checker reads.
 puzzle = pi.read_puzzle_file(pi.puzzle_paths.find("cryptic-24104"))
@@ -216,7 +218,7 @@ print("PRISTINE", len(check_geometry(puzzle)))
 # 1-across is 15 cells of a 15-wide grid. Shifted one column right it is the
 # same light, still crossing everything, and no longer on the board.
 off = copy.deepcopy(puzzle)
-by_id = {e["id"]: e for e in off["entries"]}
+by_id = {entry_id(e): e for e in off["entries"]}
 assert by_id["1-across"]["length"] == off["dimensions"]["cols"], "fixture assumption broken"
 by_id["1-across"]["position"]["x"] = 1
 found = check_geometry(off)
@@ -227,13 +229,13 @@ print("OFFBOARD_SAYS", found == ["1-across: 15 cells across from (1,0) runs off 
 # mis-templated grid takes when a light is split or a block lands in the wrong
 # square. Numbered like 1-across so that only the overlap rule can speak.
 over = copy.deepcopy(puzzle)
-twin = copy.deepcopy({e["id"]: e for e in over["entries"]}["1-across"])
-twin["id"], twin["length"] = "1-across-twin", 4
+twin = copy.deepcopy({entry_id(e): e for e in over["entries"]}["1-across"])
+twin["length"] = 4
 over["entries"].append(twin)
 found = check_geometry(over)
 print("OVERLAP", len(found))
 print("OVERLAP_SAYS", all(f == f"cell ({x}, 0): 2 across lights share it — "
-                          "1-across, 1-across-twin" for x, f in enumerate(found)))
+                          "1-across, 1-across" for x, f in enumerate(found)))
 XPY
 )
 same "the puzzle as published is a coherent grid" "$(field PRISTINE "$out5")" "0"
@@ -255,7 +257,7 @@ def shape(series_key, number, **when):
     flags = []
     pi.check_shape({"id": f"{series_key}-{number}", "series": series_key,
                     "number": number, **when,
-                    "entries": [{"id": "1-across", "clue": {"text": "x", "enumeration": "1"}}]},
+                    "entries": [{"number": 1, "direction": "across", "clue": {"text": "x", "enumeration": "1"}}]},
                    date(2026, 9, 25), flags)
     return sum(1 for kind, _pid, msg in flags
                if kind == "SHAPE" and ("date" in msg or "year" in msg))

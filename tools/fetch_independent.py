@@ -418,7 +418,6 @@ def parse(xml_bytes, ymd):
             text, italics = flatten_clue(inner_xml(clue).strip())
             for i, (eid, num, across, x1, y1, cells) in enumerate(built):
                 entries.append({
-                    "id": eid,
                     "number": num,
                     "direction": "across" if across else "down",
                     "position": {"x": x1 - 1, "y": y1 - 1},   # 1-based -> 0-based

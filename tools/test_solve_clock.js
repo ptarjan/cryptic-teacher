@@ -34,6 +34,8 @@
       only ever checks "not counted" can't tell "correctly excluded" from
       "never reached the counting code at all". */
 "use strict";
+// An entry's id, "<number>-<direction>": the puzzle file stores none.
+const entryId = (e) => e.number + "-" + e.direction;
 
 let failures = 0;
 const check = (ok, msg) => {
@@ -54,7 +56,7 @@ function freshPuzzle() {
   const key = (k) => kd({ key: k, preventDefault() {}, shiftKey: false, target: d.registry["kbd"] });
   const puz = (global.window.CRYPTIC_PUZZLES || {})["cryptic-30066"];
   const entry = (puz.entries || []).find((e) => e.solution && e.length >= 5);
-  d.registry["clue-" + entry.id].listeners.click[0]();
+  d.registry["clue-" + entryId(entry)].listeners.click[0]();
   const blur = () => d.winListeners["blur"].forEach((f) => f());
   const focus = () => d.winListeners["focus"].forEach((f) => f());
   const typeOneLetter = () => key(entry.solution[0]);

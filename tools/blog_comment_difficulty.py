@@ -30,6 +30,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 from blog_facts import DATA  # noqa: E402
 from fetch_puzzle import read_puzzle_file  # noqa: E402
 import puzzle_paths  # noqa: E402
+from groups import entry_id  # noqa: E402
 
 BLOG = DATA / "timesforthetimes"
 OUT = ROOT / "tools/data/blog_comment_difficulty.json"
@@ -83,7 +84,7 @@ def post_ids():
 
 
 def score(puz, comments):
-    answers = [(e["id"], answer_regex(e["solution"])) for e in puz["entries"]
+    answers = [(entry_id(e), answer_regex(e["solution"])) for e in puz["entries"]
                if sum(c.isalpha() for c in e.get("solution") or "") >= 3]
     clues, times, dnf = {}, [], 0
     lower = {eid: re.compile(rx.pattern, re.I) for eid, rx in answers}
@@ -219,7 +220,7 @@ def per_clue(table):
             cost, ops = D.clue_cost(e), D.clue_machinery(e)
             words = (e.get("solution") or "").upper().split() or [""]
             rare = math.log10(max(max(rank.get(w, D.MISSING_RANK) for w in words), 10))
-            n = v["clues"].get(e["id"], [0, 0, 0])
+            n = v["clues"].get(entry_id(e), [0, 0, 0])
             if cost is not None:
                 rows.append((cost, ops, rare, e["length"], n[1], n[2]))
         if len(rows) < 10:

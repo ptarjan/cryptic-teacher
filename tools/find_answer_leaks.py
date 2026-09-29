@@ -32,6 +32,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).parent))
 import clue_types  # noqa: E402
 from fetch_puzzle import (  # noqa: E402 — one glob, one reader, one id resolver
     puzzle_files, read_puzzle_file, resolve_puzzle)
+from groups import entry_id  # noqa: E402
 
 # An inflection the same word can carry without becoming a different word. Longer
 # tails are a different word and not a leak: "cutter" does not give away CUT.
@@ -72,7 +73,7 @@ def leaks(only=()):
             if bad:
                 yield {
                     "file": path.name,
-                    "entry": entry.get("id"),
+                    "entry": entry_id(entry),
                     "clue": entry["clue"].get("text"),
                     "type": ann.get("type"),
                     "answer": answer,

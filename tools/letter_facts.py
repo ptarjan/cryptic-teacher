@@ -82,6 +82,7 @@ from indicator_keys import WORD, letters
 from indicator_keys import indicator_words as _key
 from puzzle_paths import find as find_puzzle
 from puzzle_paths import puzzle_files
+from groups import entry_id
 
 #: A hidden answer shorter than this turns up by chance in too many clues.
 MIN_HIDDEN = 4
@@ -1505,7 +1506,7 @@ def rows(said=None, as_written=False):
             path = find_puzzle(pid)
             if path is None:
                 continue
-            ents = {e["id"]: e for e in json.loads(path.read_text(encoding="utf-8"))["entries"]}
+            ents = {entry_id(e): e for e in json.loads(path.read_text(encoding="utf-8"))["entries"]}
             got = (said or {}).get(pid, {})
             for eid, e in ents.items():
                 if e.get("solution") and e["clue"].get("text"):
@@ -1530,7 +1531,7 @@ def annotation_rows():
                                 if b.get("gives") and b.get("clueFragment")]}
             if a.get("indicators"):
                 facts["indicators"] = list(a["indicators"])
-            yield p["id"], e["id"], enumeration.printed(e["clue"]), e["solution"], facts
+            yield p["id"], entry_id(e), enumeration.printed(e["clue"]), e["solution"], facts
 
 
 def read_leads(required=False):
@@ -1965,7 +1966,7 @@ def measure_blocks(corpus, n=0, show=30, seed=1):
     annotated = {}
     for path in puzzle_files():
         p = json.loads(path.read_text(encoding="utf-8"))
-        ann = {e["id"]: e["annotation"] for e in p.get("entries", []) if (e.get("annotation") or {}).get("blocks")}
+        ann = {entry_id(e): e["annotation"] for e in p.get("entries", []) if (e.get("annotation") or {}).get("blocks")}
         if ann:
             annotated[p["id"]] = ann
     test = {pid for pid, *_ in corpus if in_slice(pid, n)}
@@ -2047,7 +2048,7 @@ def measure_fuzzy_blocks(corpus, votes, n=2, show=30, seed=1):
     annotated = {}
     for path in puzzle_files():
         p = json.loads(path.read_text(encoding="utf-8"))
-        ann = {e["id"]: e["annotation"] for e in p.get("entries", []) if (e.get("annotation") or {}).get("blocks")}
+        ann = {entry_id(e): e["annotation"] for e in p.get("entries", []) if (e.get("annotation") or {}).get("blocks")}
         if ann:
             annotated[p["id"]] = ann
     test = {pid for pid, *_ in corpus if in_slice(pid, n)}
@@ -2170,7 +2171,7 @@ def measure_blockless(corpus, votes, n=4, show=30, seed=1):
         p = json.loads(path.read_text(encoding="utf-8"))
         for e in p.get("entries", []):
             if (e.get("annotation") or {}).get("blocks"):
-                ann[p["id"], e["id"]] = e["annotation"]
+                ann[p["id"], entry_id(e)] = e["annotation"]
     test = {pid for pid, *_ in corpus if in_slice(pid, n)}
     ilex = Indicators(corpus, skip=test, extra=annotation_rows())
     rng = random.Random(seed)

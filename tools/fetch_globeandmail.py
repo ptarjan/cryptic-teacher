@@ -356,7 +356,6 @@ def convert(data, ymd):
             seps.append({"at": cum, "mark": ","})
         num = int(pw["clueNum"])
         entries.append({
-            "id": f"{num}-{direction}",
             "number": num,
             "direction": direction,
             "position": {"x": x0, "y": y0},
