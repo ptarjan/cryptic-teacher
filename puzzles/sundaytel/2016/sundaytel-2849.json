@@ -23,6 +23,9 @@
   "date": "2016-06-02",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,74 @@
     "text": "It serves food boy’s first cutting on plate so badly",
     "enumeration": "10"
    },
-   "solution": "TABLESPOON"
+   "solution": "TABLESPOON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "TABLESPOON",
+    "definitions": [
+     {
+      "text": "It serves food",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "the first letter of 'boy' is the only one of that word we keep"
+     },
+     {
+      "text": "so badly",
+      "for": "anagram",
+      "note": "'on plate so' arranged badly means those letters are jumbled into a new order"
+     },
+     {
+      "text": "cutting",
+      "for": "container",
+      "note": "the boy's initial cuts into the jumbled letters, sitting inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on plate so",
+      "gives": "ONPLATESO",
+      "note": "the letters to be jumbled"
+     },
+     {
+      "clueFragment": "boy’s",
+      "gives": "B",
+      "select": "first",
+      "note": "the opening letter of boy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TA",
+      "B",
+      "LESPOON"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ONPLATESO",
+       "gives": "TALESPOON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A waiter blames a clumsy boy for hacking at the food on a plate.",
+     "walkthrough": "Jumble ON PLATE SO into TALESPOON, then cut B in after TA to get TABLESPOON.",
+     "definitionFit": "A tablespoon is a large spoon used for dishing up portions at the table, so it literally serves meals."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "cutting"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +120,57 @@
     "text": "One of the letters repeatedly needed by tenant for rent",
     "enumeration": "4"
    },
-   "solution": "TORN"
+   "solution": "TORN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TORN",
+    "definitions": [
+     {
+      "text": "rent",
+      "at": 51
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "letters repeatedly needed by tenant",
+      "gives": "T",
+      "note": "tenant uses two letters more than once; this is the first of them"
+     },
+     {
+      "clueFragment": "One of the",
+      "gives": "OR",
+      "note": "one of two things is this one or that one, so the choice word sits between the two letters"
+     },
+     {
+      "clueFragment": "letters repeatedly needed by tenant",
+      "gives": "N",
+      "note": "the other letter tenant repeats"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "OR",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A landlord's letter to a tenant keeps demanding the rent.",
+     "walkthrough": "Tenant repeats T and N; 'one of' them is T OR N, written straight as one word. Rent here is the past participle of rend, not money for a flat.",
+     "definitionFit": "Rent is the old past participle of rend, meaning ripped apart, exactly as torn is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rent"
+    }
+   }
   },
   {
    "number": 2,
@@ -70,7 +190,51 @@
      }
     ]
    },
-   "solution": "BABYSAT"
+   "solution": "BABYSAT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BABY-SAT",
+    "definitions": [
+     {
+      "text": "Took care of offspring",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abandoned",
+      "for": "anagram",
+      "note": "letters abandoned are let loose to run wild, so 'a tabby's' falls into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a tabby’s",
+      "gives": "ATABBYS",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ATABBYS",
+       "gives": "BABYSAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone looked after a cat's kittens after the mother cat walked out on them.",
+     "walkthrough": "The tabby's kittens are a red herring: the offspring are a person's children.",
+     "definitionFit": "To babysit is to mind somebody's young children while the parents are away; took care of is its past tense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "abandoned"
+    }
+   }
   },
   {
    "number": 3,
@@ -84,7 +248,54 @@
     "text": "Men agree on cut in exchange for incentive",
     "enumeration": "13"
    },
-   "solution": "ENCOURAGEMENT"
+   "solution": "ENCOURAGEMENT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ENCOURAGEMENT",
+    "definitions": [
+     {
+      "text": "incentive",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in exchange",
+      "for": "anagram",
+      "note": "letters that are exchanged swap places with one another, so the phrase before it gets rearranged"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Men agree on cut",
+      "gives": "MENAGREEONCUT",
+      "note": "thirteen letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MENAGREEONCUT",
+       "gives": "ENCOURAGEMENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Workers accept a pay cut in return for a bonus scheme.",
+     "walkthrough": "The surface reads like a wage deal; 'in exchange for' splits into the anagram signal and a link word.",
+     "definitionFit": "An incentive is something that spurs a person on, the same idea as a boost or spur to act."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "exchange"
+    }
+   }
   },
   {
    "number": 4,
@@ -98,7 +309,58 @@
     "text": "Fine, for example, having press against covering part of UK",
     "enumeration": "6"
    },
-   "solution": "PUNISH"
+   "solution": "PUNISH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PUNISH",
+    "definitions": [
+     {
+      "text": "Fine, for example",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "one piece covering another wraps around it, so the press goes outside the part of the UK"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "press against",
+      "gives": "PUSH",
+      "note": "to press against something is to push it"
+     },
+     {
+      "clueFragment": "part of UK",
+      "gives": "NI",
+      "note": "Northern Ireland, standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PU",
+      "NI",
+      "SH"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper campaign sounds fine, with the press pushing against a region.",
+     "walkthrough": "'Fine' looks like an adjective meaning OK; with 'for example' it is the verb, one way to penalise. NI is Northern Ireland.",
+     "definitionFit": "Fining someone is one kind of penalty, so a fine is an example of how to discipline an offender."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Fine"
+    }
+   }
   },
   {
    "number": 5,
@@ -112,7 +374,47 @@
     "text": "Spectator as weekly publication",
     "enumeration": "8"
    },
-   "solution": "OBSERVER"
+   "solution": "OBSERVER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OBSERVER",
+    "definitions": [
+     {
+      "text": "Spectator",
+      "at": 0
+     },
+     {
+      "text": "weekly publication",
+      "at": 13
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spectator",
+      "note": "someone who watches"
+     },
+     {
+      "clueFragment": "weekly publication",
+      "note": "a British newspaper that comes out on Sundays"
+     }
+    ],
+    "explanation": {
+     "surface": "The Spectator is described as a weekly magazine.",
+     "walkthrough": "The Spectator really is a British weekly magazine, so the surface points there; but the answer is the Observer, a Sunday newspaper, and a spectator is simply a watcher.",
+     "definitionFit": "A spectator is a person who watches events, and The Observer is a British paper printed once each week."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Spectator"
+    }
+   }
   },
   {
    "number": 6,
@@ -126,7 +428,50 @@
     "text": "A large number of Romans aim to get better",
     "enumeration": "4"
    },
-   "solution": "MEND"
+   "solution": "MEND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MEND",
+    "definitions": [
+     {
+      "text": "get better",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A large number of Romans",
+      "gives": "M",
+      "note": "M is the Roman numeral for a thousand"
+     },
+     {
+      "clueFragment": "aim",
+      "gives": "END",
+      "note": "an aim or goal, as in 'the end justifies the means'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "END"
+     ]
+    },
+    "explanation": {
+     "surface": "Many ancient Romans hoped to improve themselves.",
+     "walkthrough": "'A large number of Romans' reads as a crowd, but it is one Roman numeral.",
+     "definitionFit": "To mend is to heal or recover, as when a broken bone slowly repairs itself."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Romans"
+    }
+   }
   },
   {
    "number": 7,
@@ -140,7 +485,58 @@
     "text": "I had to enter competition, it’s clear",
     "enumeration": "7"
    },
-   "solution": "EVIDENT"
+   "solution": "EVIDENT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EVIDENT",
+    "definitions": [
+     {
+      "text": "clear",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to enter",
+      "for": "container",
+      "note": "whatever enters goes inside, so 'I had' goes into the competition"
+     }
+    ],
+    "linkWords": [
+     "it’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "competition",
+      "gives": "EVENT",
+      "note": "a sporting contest"
+     },
+     {
+      "clueFragment": "I had",
+      "gives": "ID",
+      "note": "I'd, the contraction of I had"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EV",
+      "ID",
+      "ENT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone concludes it was obvious they had to sign up for a contest.",
+     "walkthrough": "I had shortens to I'd, which goes inside EVENT.",
+     "definitionFit": "Evident means plain to see or obvious, which is one sense of clear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "competition"
+    }
+   }
   },
   {
    "number": 8,
@@ -160,7 +556,60 @@
      }
     ]
    },
-   "solution": "DAMASKROSE"
+   "solution": "DAMASKROSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DAMASK ROSE",
+    "definitions": [
+     {
+      "text": "Fragrant flower",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "under",
+      "for": "charade",
+      "note": "in a down entry, the piece written under another follows it, so the growing comes after the screen"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "a screen",
+      "gives": "AMASK",
+      "note": "a mask screens the face"
+     },
+     {
+      "clueFragment": "grew",
+      "gives": "ROSE",
+      "note": "rose, past tense of rise"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "AMASK",
+      "ROSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A daughter's scented flower grew behind a garden screen.",
+     "walkthrough": "'Flower' and 'grew' push towards gardening, and ROSE is indeed the grew part, placed under D A MASK in the down grid.",
+     "definitionFit": "The damask rose is an old, strongly scented rose variety grown for attar and perfume."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "grew"
+    }
+   }
   },
   {
    "number": 9,
@@ -174,7 +623,39 @@
     "text": "Bridges are burnt once you’ve crossed this river",
     "enumeration": "7"
    },
-   "solution": "RUBICON"
+   "solution": "RUBICON",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "RUBICON",
+    "definitions": [
+     {
+      "text": "Bridges are burnt once you’ve crossed this river",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bridges are burnt",
+      "note": "reads as ordinary bridges set on fire behind an army"
+     },
+     {
+      "clueFragment": "crossed this river",
+      "note": "the river whose crossing by Caesar in 49 BC became the phrase for a step with no way back"
+     }
+    ],
+    "explanation": {
+     "surface": "An army torches its bridges after fording a river.",
+     "walkthrough": "Burning your bridges and crossing the Rubicon are both idioms for a point of no return; Caesar crossed this Italian river with his army and started a civil war.",
+     "definitionFit": "Julius Caesar crossed the Rubicon in 49 BC, an irrevocable act, so the stream now names any decisive commitment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Bridges"
+    }
+   }
   },
   {
    "number": 10,
@@ -188,7 +669,65 @@
     "text": "Small amount I invested in total for arena",
     "enumeration": "7"
    },
-   "solution": "STADIUM"
+   "solution": "STADIUM",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "STADIUM",
+    "definitions": [
+     {
+      "text": "arena",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "invested in",
+      "for": "container",
+      "note": "money invested in a fund goes into it, so the small amount and 'I' go inside the total"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "total",
+      "gives": "SUM",
+      "note": "the sum of figures is their total"
+     },
+     {
+      "clueFragment": "Small amount",
+      "gives": "TAD",
+      "note": "a little bit"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "used as it stands"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TAD",
+      "I",
+      "UM"
+     ]
+    },
+    "explanation": {
+     "surface": "A modest sum was put into a fund to build a sports ground.",
+     "walkthrough": "'Invested' in the surface is financial, fitting 'small amount' and 'total'; in the wordplay it simply means put inside.",
+     "definitionFit": "An arena is a large venue for sport or shows, as a stadium is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "invested"
+    }
+   }
   },
   {
    "number": 11,
@@ -202,7 +741,74 @@
     "text": "Official authorising unusually direct note in suit",
     "enumeration": "13"
    },
-   "solution": "ACCREDITATION"
+   "solution": "ACCREDITATION",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade",
+     "container"
+    ],
+    "answer": "ACCREDITATION",
+    "definitions": [
+     {
+      "text": "Official authorising",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unusually",
+      "for": "anagram",
+      "note": "'direct' arranged unusually is put in an unusual order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the jumbled word and note go in the suit, wrapped by it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "suit",
+      "gives": "ACTION",
+      "note": "a lawsuit is a legal action"
+     },
+     {
+      "clueFragment": "direct",
+      "gives": "DIRECT",
+      "note": "the letters to rearrange"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "A",
+      "note": "one of the musical notes A to G"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AC",
+      "CREDIT",
+      "A",
+      "TION"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DIRECT",
+       "gives": "CREDIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bureaucrat oddly approves direct placement of a note in a legal case.",
+     "walkthrough": "'Suit' is a lawsuit, not clothing or cards. 'Official' is an adjective here, not a person, and 'authorising' a noun.",
+     "definitionFit": "Accreditation is formal approval by a recognised body, the act of officially authorising someone or something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "suit"
+    }
+   }
   },
   {
    "number": 12,
@@ -222,7 +828,51 @@
      }
     ]
    },
-   "solution": "SQUASHRACKETS"
+   "solution": "SQUASHRACKETS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SQUASH RACKETS",
+    "definitions": [
+     {
+      "text": "Activity in court",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "suppress",
+      "gives": "SQUASH",
+      "note": "to crush or put down"
+     },
+     {
+      "clueFragment": "fraudulent operations",
+      "gives": "RACKETS",
+      "note": "a racket is a dishonest money-making scheme"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SQUASH",
+      "RACKETS"
+     ]
+    },
+    "explanation": {
+     "surface": "A court case aims to shut down scams.",
+     "walkthrough": "'Court' suggests a law court, but it is a squash court. Squash rackets is the formal name of the game of squash.",
+     "definitionFit": "Squash rackets is a sport played on an enclosed indoor court, the full formal name of squash."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "court"
+    }
+   }
   },
   {
    "number": 13,
@@ -242,7 +892,74 @@
      }
     ]
    },
-   "solution": "WISHYWASHY"
+   "solution": "WISHYWASHY",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "WISHY-WASHY",
+    "definitions": [
+     {
+      "text": "feeble",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Within",
+      "for": "container",
+      "note": "'is' goes within 'reason', and 'as' likewise inside a second copy"
+     },
+     {
+      "text": "subsequently",
+      "for": "charade",
+      "note": "subsequently means afterwards, so the second part follows the first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "reason",
+      "gives": "WHY",
+      "note": "the reason for something is the why"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "used as it stands, inside the first WHY"
+     },
+     {
+      "clueFragment": "reason",
+      "gives": "WHY",
+      "note": "the same word is used a second time"
+     },
+     {
+      "clueFragment": "as",
+      "gives": "AS",
+      "note": "used as it stands, inside the second WHY"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "IS",
+      "HY",
+      "W",
+      "AS",
+      "HY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone argues that a thing, within reason, later becomes weak.",
+     "walkthrough": "'Reason' is used twice: W(IS)HY, then W(AS)HY, the second tied on by 'subsequently'.",
+     "definitionFit": "Wishy-washy describes something weak, insipid or lacking in resolve, just as feeble does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reason"
+    }
+   }
   },
   {
    "number": 14,
@@ -262,7 +979,65 @@
      }
     ]
    },
-   "solution": "INTRAY"
+   "solution": "INTRAY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "IN-TRAY",
+    "definitions": [
+     {
+      "text": "holder of post, initially",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the answer goes in the test, surrounded by it"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Popular",
+      "gives": "IN",
+      "note": "fashionable, in vogue"
+     },
+     {
+      "clueFragment": "test",
+      "gives": "TRY",
+      "note": "to try something is to test it"
+     },
+     {
+      "clueFragment": "answer",
+      "gives": "A",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "TR",
+      "A",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A candidate hopes to get a well-liked answer into a job exam.",
+     "walkthrough": "'Initially' looks like a first-letter instruction but belongs to the definition: incoming mail lands in the in-tray first.",
+     "definitionFit": "An in-tray is a desk tray where incoming letters sit before being dealt with, the first stop for mail."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "initially"
+    }
+   }
   },
   {
    "number": 15,
@@ -276,7 +1051,55 @@
     "text": "One who chooses Spanish or French article, in part",
     "enumeration": "8"
    },
-   "solution": "SELECTOR"
+   "solution": "SELECTOR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SELECTOR",
+    "definitions": [
+     {
+      "text": "One who chooses",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the article goes in the part, sitting inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "part",
+      "gives": "SECTOR",
+      "note": "a sector is a part of something"
+     },
+     {
+      "clueFragment": "Spanish or French article",
+      "gives": "EL",
+      "note": "el is Spanish for the; French le works equally well"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "EL",
+      "ECTOR"
+     ]
+    },
+    "explanation": {
+     "surface": "A person picks between Spanish or French, in part.",
+     "walkthrough": "Either article fits: S+EL+ECTOR or SE+LE+CTOR give the same letters.",
+     "definitionFit": "A selector is a person who picks members of a team, a chooser."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "part"
+    }
+   }
   },
   {
    "number": 16,
@@ -290,7 +1113,51 @@
     "text": "Standard cut in theatre, in a manner of speaking",
     "enumeration": "8"
    },
-   "solution": "PARLANCE"
+   "solution": "PARLANCE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PARLANCE",
+    "definitions": [
+     {
+      "text": "manner of speaking",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "in a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Standard",
+      "gives": "PAR",
+      "note": "par is the standard or normal level"
+     },
+     {
+      "clueFragment": "cut in theatre",
+      "gives": "LANCE",
+      "note": "a surgeon lances in an operating theatre"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAR",
+      "LANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A routine cut in a stage show, so to speak.",
+     "walkthrough": "The theatre is the operating theatre, where a surgeon lances, not a stage.",
+     "definitionFit": "Parlance is a particular way of using words, an idiom or jargon, as in 'legal parlance'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "theatre"
+    }
+   }
   },
   {
    "number": 17,
@@ -304,7 +1171,55 @@
     "text": "Poet’s written about English doctor",
     "enumeration": "8"
    },
-   "solution": "HOUSEMAN"
+   "solution": "HOUSEMAN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HOUSEMAN",
+    "definitions": [
+     {
+      "text": "doctor",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "written about",
+      "for": "container",
+      "note": "the poet's name is written around the letter for English, enclosing it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Poet’s",
+      "gives": "HOUSMAN",
+      "note": "A. E. Housman, author of A Shropshire Lad"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOUS",
+      "E",
+      "MAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A poet has composed verse about an English physician.",
+     "walkthrough": "The poet is A. E. Housman; E goes inside his name. 'Written about' reads as a subject, but here it means around.",
+     "definitionFit": "In Britain a houseman was a junior hospital doctor in the first year after qualifying."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 18,
@@ -318,7 +1233,59 @@
     "text": "Fabulous creature in tunic, worn unopened in each case",
     "enumeration": "7"
    },
-   "solution": "UNICORN"
+   "solution": "UNICORN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "UNICORN",
+    "definitions": [
+     {
+      "text": "Fabulous creature",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unopened in each case",
+      "for": "deletion",
+      "note": "each word loses its opening letter, so neither is opened"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tunic",
+      "gives": "UNIC",
+      "note": "tunic without its first letter"
+     },
+     {
+      "clueFragment": "worn",
+      "gives": "ORN",
+      "note": "worn without its first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNIC",
+      "ORN"
+     ]
+    },
+    "explanation": {
+     "surface": "A mythical beast wears a tunic still in its wrapping.",
+     "walkthrough": "'Unopened' sounds like a parcel; it strips the first letter from both tunic and worn.",
+     "definitionFit": "The unicorn is a mythical horse with a single horn, a creature of fable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "unopened"
+    }
+   }
   },
   {
    "number": 19,
@@ -332,7 +1299,48 @@
     "text": "Inconclusive debate, event not on track",
     "enumeration": "6"
    },
-   "solution": "DISCUS"
+   "solution": "DISCUS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "DISCUS",
+    "definitions": [
+     {
+      "text": "event not on track",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Inconclusive",
+      "for": "deletion",
+      "note": "without a conclusion the word lacks its ending, so its last letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "debate",
+      "gives": "DISCUS",
+      "note": "a verb for debate, with its final S dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DISCUS"
+     ]
+    },
+    "explanation": {
+     "surface": "An argument that went nowhere, a sidetracked occasion.",
+     "walkthrough": "To debate is to discuss; lose the last S. 'Not on track' means a field event rather than a running race.",
+     "definitionFit": "The discus throw is an athletics field event, held away from the running lanes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "track"
+    }
+   }
   },
   {
    "number": 20,
@@ -346,7 +1354,62 @@
     "text": "Derisive noise from audience upset performance in ring",
     "enumeration": "7"
    },
-   "solution": "CATCALL"
+   "solution": "CATCALL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "CATCALL",
+    "definitions": [
+     {
+      "text": "Derisive noise from audience",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "a performance that is upset is knocked out of order, so its letters get rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "performance",
+      "gives": "ACT",
+      "note": "a turn on stage"
+     },
+     {
+      "clueFragment": "in ring",
+      "gives": "CALL",
+      "note": "to ring someone is to call them on the phone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAT",
+      "CALL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ACT",
+       "gives": "CAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A circus crowd jeers at a botched turn in the ring.",
+     "walkthrough": "The ring looks like a circus ring, but it is a phone ring. Upset in a down clue could hint at reversal, but that gives TCA; here it jumbles.",
+     "definitionFit": "A catcall is a shrill whistle or jeer from a crowd showing disapproval."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "ring"
+    }
+   }
   },
   {
    "number": 21,
@@ -360,7 +1423,50 @@
     "text": "Small steps for intervening distances",
     "enumeration": "6"
    },
-   "solution": "SPACES"
+   "solution": "SPACES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SPACES",
+    "definitions": [
+     {
+      "text": "intervening distances",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "standard abbreviation, as on clothing labels"
+     },
+     {
+      "clueFragment": "steps",
+      "gives": "PACES",
+      "note": "a pace is a single step"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PACES"
+     ]
+    },
+    "explanation": {
+     "surface": "Taking short strides to cover the gaps between places.",
+     "walkthrough": "Small steps look like one idea, but split into S and PACES.",
+     "definitionFit": "Spaces are gaps or intervals between things, the room lying between two points."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Small"
+    }
+   }
   },
   {
    "number": 22,
@@ -380,7 +1486,55 @@
      }
     ]
    },
-   "solution": "WHITEELEPHANT"
+   "solution": "WHITEELEPHANT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WHITE ELEPHANT",
+    "definitions": [
+     {
+      "text": "It’s more trouble than it’s worth",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found before",
+      "for": "charade",
+      "note": "one piece found before another comes first, so the chess player leads"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chess player",
+      "gives": "WHITE",
+      "note": "one of the two sides in chess"
+     },
+     {
+      "clueFragment": "big game",
+      "gives": "ELEPHANT",
+      "note": "big game are large wild animals hunted for sport"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WHITE",
+      "ELEPHANT"
+     ]
+    },
+    "explanation": {
+     "surface": "A chess player complains a match is not worth the bother, before a big match.",
+     "walkthrough": "'Big game' reads as a major match, but it means large hunted animals.",
+     "definitionFit": "A white elephant is a costly possession whose upkeep outweighs its usefulness, a burden disguised as a gift."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "game"
+    }
+   }
   },
   {
    "number": 23,
@@ -394,7 +1548,68 @@
     "text": "Brave editor stood up, finally, being extremely selective",
     "enumeration": "4"
    },
-   "solution": "DEFY"
+   "solution": "DEFY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DEFY",
+    "definitions": [
+     {
+      "text": "Brave",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stood up",
+      "for": "reversal",
+      "note": "in a down entry, standing up means reading from the bottom, turning the editor over"
+     },
+     {
+      "text": "being extremely selective",
+      "for": "letter_selection",
+      "note": "only the extreme ends of 'finally' are selected"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "editor",
+      "gives": "ED",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "finally",
+      "gives": "FY",
+      "select": "outer",
+      "note": "first and last letters of finally"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "FY"
+     ],
+     "reversals": [
+      {
+       "from": "ED",
+       "to": "DE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A courageous editor finally stood up and got choosy.",
+     "walkthrough": "'Finally' looks like a last-letter instruction, but it is the fodder whose ends are kept.",
+     "definitionFit": "To brave something is to face it boldly in open resistance, the verb sense rather than the adjective."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "finally"
+    }
+   }
   },
   {
    "number": 24,
@@ -408,7 +1623,59 @@
     "text": "Others misspelled name in contract",
     "enumeration": "7"
    },
-   "solution": "SHORTEN"
+   "solution": "SHORTEN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SHORTEN",
+    "definitions": [
+     {
+      "text": "contract",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "misspelled",
+      "for": "anagram",
+      "note": "a misspelled word has its letters in the wrong order, so 'others' plus the name letter get rearranged"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Others",
+      "gives": "OTHERS",
+      "note": "the letters to rearrange"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OTHERSN",
+       "gives": "SHORTEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Other people got a name wrong in a legal agreement.",
+     "walkthrough": "'Contract' looks like a noun for a legal document, but it is the verb, to become smaller.",
+     "definitionFit": "To contract is to become smaller or reduce in length, the verb sense rather than an agreement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "contract"
+    }
+   }
   },
   {
    "number": 25,
@@ -422,7 +1689,43 @@
     "text": "Tricky part of course from which I can exit",
     "enumeration": "7"
    },
-   "solution": "CHICANE"
+   "solution": "CHICANE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "CHICANE",
+    "definitions": [
+     {
+      "text": "Tricky part of course",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from",
+      "for": "hidden_word",
+      "note": "the letters come from within the words that follow, taken straight out of them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "which I can exit",
+      "gives": "CHICANE",
+      "note": "runs from the end of which through to the first letter of exit"
+     }
+    ],
+    "explanation": {
+     "surface": "A driver describes a hard section of a racetrack that they can get out of.",
+     "walkthrough": "'Tricky part of course' reads as a whole-clue description, and 'I can exit' sounds like the driver speaking; the answer is sitting inside those words.",
+     "definitionFit": "A chicane is an artificial S-bend on a motor-racing circuit, placed to slow the cars and test drivers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "from"
+    }
+   }
   },
   {
    "number": 26,
@@ -436,7 +1739,69 @@
     "text": "Citizen of republic giving no backing to king",
     "enumeration": "4"
    },
-   "solution": "YANK"
+   "solution": "YANK",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "YANK",
+    "definitions": [
+     {
+      "text": "Citizen of republic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backing",
+      "for": "reversal",
+      "note": "a word going backing runs backwards, from its end to its start"
+     },
+     {
+      "text": "to",
+      "for": "charade",
+      "note": "the refusal is put next to the king, so the two join up"
+     }
+    ],
+    "linkWords": [
+     "giving"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "no",
+      "gives": "NAY",
+      "note": "an old word for no"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "K",
+      "note": "chess abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YAN",
+      "K"
+     ],
+     "reversals": [
+      {
+       "from": "NAY",
+       "to": "YAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A republican refuses to support the monarch.",
+     "walkthrough": "The surface is about republicanism; the republic is the USA, whose people are nicknamed Yanks.",
+     "definitionFit": "Yank is informal slang for an American, and the United States is a republic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "backing"
+    }
+   }
   },
   {
    "number": 27,
@@ -450,7 +1815,56 @@
     "text": "Plays role differently, with new insertion for my part",
     "enumeration": "10"
    },
-   "solution": "PERSONALLY"
+   "solution": "PERSONALLY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PERSONALLY",
+    "definitions": [
+     {
+      "text": "for my part",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "differently",
+      "for": "anagram",
+      "note": "'plays role' set out differently has its letters placed in another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Plays role",
+      "gives": "PLAYSROLE",
+      "note": "the letters to rearrange"
+     },
+     {
+      "clueFragment": "new insertion",
+      "gives": "N",
+      "note": "N for new, inserted among the letters before they are mixed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PLAYSROLEN",
+       "gives": "PERSONALLY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An actor takes a part in a new way, with a fresh scene added, speaking for themselves.",
+     "walkthrough": "'With new insertion' tells you to add N to the letters before rearranging them.",
+     "definitionFit": "Personally is used to mean speaking for oneself, as in stating one's own opinion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "role"
+    }
+   }
   }
  ]
 }
