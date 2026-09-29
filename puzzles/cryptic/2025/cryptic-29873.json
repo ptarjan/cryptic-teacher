@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -39,7 +42,48 @@
      }
     ]
    },
-   "solution": "COPSHOPS"
+   "solution": "COPSHOPS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COP SHOPS",
+    "definitions": [
+     {
+      "text": "Where you’ll see officers",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in the vicinity of",
+      "gives": "C",
+      "note": "c. = circa, 'about' or 'around', as in dates"
+     },
+     {
+      "clueFragment": "Melbourne’s charity outlets",
+      "gives": "OPSHOPS",
+      "note": "in Australia a charity shop is an op shop, short for opportunity shop"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "OPSHOPS"
+     ]
+    },
+    "explanation": {
+     "surface": "A visitor to Melbourne notices police officers hanging around the local charity shops.",
+     "walkthrough": "'In the vicinity of' looks like part of the scene but is the letter C (circa); Melbourne is there to make you think of the Australian op shop.",
+     "definitionFit": "A cop shop is slang for a police station, where officers are to be found."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "vicinity"
+    }
+   }
   },
   {
    "number": 2,
@@ -53,7 +97,60 @@
     "text": "Well-ventilated farm building without windows in the middle",
     "enumeration": "4"
    },
-   "solution": "AIRY"
+   "solution": "AIRY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection"
+    ],
+    "answer": "AIRY",
+    "definitions": [
+     {
+      "text": "Well-ventilated",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "'without' tells you the farm building must go without the letter that follows"
+     },
+     {
+      "text": "in the middle",
+      "for": "letter_selection",
+      "note": "only the central letter of 'windows' is wanted"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "farm building",
+      "gives": "DAIRY",
+      "note": "a dairy is where milk is processed on a farm"
+     },
+     {
+      "clueFragment": "windows",
+      "gives": "D",
+      "select": "middle",
+      "note": "the fourth of seven letters in WINDOWS"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AIRY"
+     ]
+    },
+    "explanation": {
+     "surface": "A draughty barn with no glass in its central windows.",
+     "walkthrough": "Windows sounds like the cause of the ventilation, but it only supplies the D to be taken out of DAIRY.",
+     "definitionFit": "A plain synonym: a room with plenty of fresh air moving through it is described with this adjective."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "windows"
+    }
+   }
   },
   {
    "number": 3,
@@ -67,7 +164,61 @@
     "text": "Gritty film genre led by extremely reputable artist",
     "enumeration": "6"
    },
-   "solution": "RENOIR"
+   "solution": "RENOIR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "RENOIR",
+    "definitions": [
+     {
+      "text": "artist",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "'extremely' asks for the extremes, the first and last letters, of 'reputable'"
+     },
+     {
+      "text": "led by",
+      "for": "charade",
+      "note": "the genre is led by, so comes after, the letters from 'reputable'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "reputable",
+      "gives": "RE",
+      "select": "outer",
+      "note": "the first and last letters of REPUTABLE"
+     },
+     {
+      "clueFragment": "Gritty film genre",
+      "gives": "NOIR",
+      "note": "film noir, the dark crime genre"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "NOIR"
+     ]
+    },
+    "explanation": {
+     "surface": "A respected artist turns to making dark, gritty films.",
+     "walkthrough": "The genre comes first in the clue but second in the answer, because 'led by' puts the RE in front.",
+     "definitionFit": "Pierre-Auguste Renoir was a French Impressionist painter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "led"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +232,56 @@
     "text": "Important delivery definitely happening around 13:25, say",
     "enumeration": "7"
    },
-   "solution": "ORATION"
+   "solution": "ORATION",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ORATION",
+    "definitions": [
+     {
+      "text": "Important delivery",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "ON is placed around the ratio"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "definitely happening",
+      "gives": "ON",
+      "note": "an event that is definitely happening is 'on'"
+     },
+     {
+      "clueFragment": "13:25, say",
+      "gives": "RATIO",
+      "note": "13:25 is written as a ratio; 'say' marks it as an example"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "RATIO",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A vital parcel is promised for about twenty-five past one in the afternoon.",
+     "walkthrough": "13:25 reads as a time on a delivery slip, but the colon is the ratio sign, not a clock's.",
+     "definitionFit": "An oration is a formal speech, delivered on an important occasion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "delivery"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +295,57 @@
     "text": "Top component from system carefully lifted up",
     "enumeration": "4"
    },
-   "solution": "ACME"
+   "solution": "ACME",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "ACME",
+    "definitions": [
+     {
+      "text": "Top",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "component from",
+      "for": "hidden_word",
+      "note": "the answer is a component taken from the words that follow"
+     },
+     {
+      "text": "lifted up",
+      "for": "reversal",
+      "note": "in a down clue, lifting the letters up reads them bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "system carefully",
+      "gives": "EMCA",
+      "note": "the letters run across systEM CArefully"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "EMCA",
+       "to": "ACME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mechanic gently lifts the top part out of a machine.",
+     "walkthrough": "'Lifted up' is a down-clue reversal: read the hidden letters from bottom to top.",
+     "definitionFit": "The acme is the top, the highest point of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lifted"
+    }
+   }
   },
   {
    "number": 6,
@@ -115,7 +365,54 @@
      }
     ]
    },
-   "solution": "SCRAPMETAL"
+   "solution": "SCRAPMETAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SCRAP METAL",
+    "definitions": [
+     {
+      "text": "industrial waste",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "recycling",
+      "for": "anagram",
+      "note": "recycled material is broken down and remade, as these letters are"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Smart place",
+      "gives": "SMARTPLACE",
+      "note": "anagram fodder, 10 letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SMART PLACE",
+       "gives": "SCRAPMETAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clever facility for recycling the waste from factories.",
+     "walkthrough": "'Recycling' fits the surface so well that it hardly looks like an indicator, yet it is the one that tells you to rearrange 'smart place'.",
+     "definitionFit": "Scrap metal is the waste metal left from industry, collected for recycling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "recycling"
+    }
+   }
   },
   {
    "number": 7,
@@ -129,7 +426,44 @@
     "text": "Good location to store wine, merchant declared",
     "enumeration": "6"
    },
-   "solution": "CELLAR"
+   "solution": "CELLAR",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "CELLAR",
+    "definitions": [
+     {
+      "text": "Good location to store wine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "declared",
+      "for": "homophone",
+      "note": "something declared is said out loud, so we hear the word rather than read it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "merchant",
+      "gives": "CELLAR",
+      "soundsLike": "SELLER",
+      "note": "a merchant is a seller"
+     }
+    ],
+    "explanation": {
+     "surface": "A wine merchant announces where the bottles should be kept.",
+     "walkthrough": "The merchant looks like the wine merchant of the surface, but it is just a seller, which sounds like cellar.",
+     "definitionFit": "A cellar is cool and dark, the traditional place to store wine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "merchant"
+    }
+   }
   },
   {
    "number": 8,
@@ -143,7 +477,56 @@
     "text": "Individual who’s busy protecting pit boss",
     "enumeration": "8"
    },
-   "solution": "DOMINEER"
+   "solution": "DOMINEER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DOMINEER",
+    "definitions": [
+     {
+      "text": "boss",
+      "at": 37,
+      "note": "verb: to boss people about"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "protecting",
+      "for": "container",
+      "note": "the busy individual wraps around the pit to protect it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Individual who’s busy",
+      "gives": "DOER",
+      "note": "someone busy doing things is a doer"
+     },
+     {
+      "clueFragment": "pit",
+      "gives": "MINE",
+      "note": "a coal pit is a mine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "MINE",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A busy person guards the colliery manager.",
+     "walkthrough": "'Pit boss' reads as one phrase, a manager at a mine or casino; the clue splits it, so 'pit' is wordplay and 'boss' is the definition.",
+     "definitionFit": "A plain synonym, both verbs: to order people around overbearingly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pit"
+    }
+   }
   },
   {
    "number": 9,
@@ -157,7 +540,48 @@
     "text": "Hoard of money for the auditor",
     "enumeration": "5"
    },
-   "solution": "CACHE"
+   "solution": "CACHE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "CACHE",
+    "definitions": [
+     {
+      "text": "Hoard",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the auditor",
+      "for": "homophone",
+      "note": "an auditor is literally a listener, so this is what the listener hears"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "money",
+      "gives": "CACHE",
+      "soundsLike": "CASH",
+      "note": "cash is money"
+     }
+    ],
+    "explanation": {
+     "surface": "A stash of money that the accountant checking the books would want to find.",
+     "walkthrough": "'Auditor' looks like an accountant, but here it means a hearer: cash sounds like cache.",
+     "definitionFit": "A plain synonym: both name a hidden store of valuables, borrowed from the French cacher, to hide."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "auditor"
+    }
+   }
   },
   {
    "number": 10,
@@ -177,7 +601,57 @@
      }
     ]
    },
-   "solution": "ISAY"
+   "solution": "ISAY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "I SAY",
+    "definitions": [
+     {
+      "text": "Blimey",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "devoid of content",
+      "for": "letter_selection",
+      "note": "emptying each word of its content leaves only its outer letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "it’s",
+      "gives": "IS",
+      "select": "outer",
+      "note": "I and S are the ends of IT’S"
+     },
+     {
+      "clueFragment": "actually",
+      "gives": "AY",
+      "select": "outer",
+      "note": "A and Y are the ends of ACTUALLY"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IS",
+      "AY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone exclaims in surprise that a container is in fact empty.",
+     "walkthrough": "'Devoid of content' sounds like a remark about the scene, but it works on both words before it, stripping each to its first and last letters.",
+     "definitionFit": "'I say!' is a dated British exclamation of surprise, like 'Blimey!'"
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "content"
+    }
+   }
   },
   {
    "number": 11,
@@ -201,7 +675,41 @@
      }
     ]
    },
-   "solution": "ONTHETABLE"
+   "solution": "ONTHETABLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ON THE TABLE",
+    "definitions": [
+     {
+      "text": "Place for playing poker maybe",
+      "at": 0
+     },
+     {
+      "text": "up for discussion",
+      "at": 30
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Place for playing poker maybe",
+      "note": "the literal sense: where cards and chips go during a game"
+     },
+     {
+      "clueFragment": "up for discussion",
+      "note": "the figurative sense: an offer or idea open to debate"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Cards in poker are played on the table; a proposal on the table is open to be discussed.",
+     "definitionFit": "Both senses are the same phrase, one literal and one figurative."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -215,7 +723,55 @@
     "text": "More rum accompanying fine food",
     "enumeration": "6"
    },
-   "solution": "FODDER"
+   "solution": "FODDER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FODDER",
+    "definitions": [
+     {
+      "text": "food",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accompanying",
+      "for": "charade",
+      "note": "the two pieces go together, side by side"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fine",
+      "gives": "F",
+      "note": "F = fine, as on pencil grades"
+     },
+     {
+      "clueFragment": "More rum",
+      "gives": "ODDER",
+      "note": "rum is British slang for odd, so more rum is odder"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "ODDER"
+     ]
+    },
+    "explanation": {
+     "surface": "A second glass of rum served with a good meal.",
+     "walkthrough": "'Rum' looks like the drink, but it is the British adjective meaning odd or strange.",
+     "definitionFit": "A synonym with a narrower use: the word usually means feed for livestock, such as hay."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "rum"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +791,56 @@
      }
     ]
    },
-   "solution": "DONERKEBAB"
+   "solution": "DONERKEBAB",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DONER KEBAB",
+    "definitions": [
+     {
+      "text": "takeaway food",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "terribly",
+      "for": "anagram",
+      "note": "something done terribly is botched and jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "OK beer and",
+      "gives": "OKBEERAND",
+      "note": "anagram fodder, 9 letters"
+     },
+     {
+      "clueFragment": "second-rate",
+      "gives": "B",
+      "note": "B grade is second-rate"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OKBEERAND B",
+       "gives": "DONERKEBAB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A night out of passable beer followed by a poor-quality takeaway.",
+     "walkthrough": "'Terribly second-rate' reads as one phrase, but 'terribly' works on 'OK beer and', and 'second-rate' is just the letter B joining the mix.",
+     "definitionFit": "A doner kebab, spiced meat shaved from a rotating spit, is a staple late-night takeaway in Britain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "terribly"
+    }
+   }
   },
   {
    "number": 14,
@@ -255,7 +860,51 @@
      }
     ]
    },
-   "solution": "ONCAMERA"
+   "solution": "ONCAMERA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ON CAMERA",
+    "definitions": [
+     {
+      "text": "captured, in a way",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "possibly",
+      "for": "anagram",
+      "note": "'possibly' offers a possible rearrangement of the letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ace Roman",
+      "gives": "ACEROMAN",
+      "note": "anagram fodder, 8 letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ACE ROMAN",
+       "gives": "ONCAMERA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A top Roman soldier has perhaps been taken prisoner.",
+     "walkthrough": "'Captured' suggests a prisoner of war; 'in a way' warns that it means captured on film.",
+     "definitionFit": "Something caught on camera has been captured, in the photographic sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "captured"
+    }
+   }
   },
   {
    "number": 15,
@@ -269,7 +918,42 @@
     "text": "Drink some horchata",
     "enumeration": "3"
    },
-   "solution": "CHA"
+   "solution": "CHA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "CHA",
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "only some of the word is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "horchata",
+      "gives": "CHA",
+      "note": "the letters sit inside horCHAta"
+     }
+    ],
+    "explanation": {
+     "surface": "An invitation to try a little of the Spanish rice-milk drink.",
+     "walkthrough": "Cha is British slang for tea, so the drink hides inside another drink.",
+     "definitionFit": "Cha, or char, is informal British for tea."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -283,7 +967,51 @@
     "text": "In pieces, and sure to be rebuilt",
     "enumeration": "7"
    },
-   "solution": "ASUNDER"
+   "solution": "ASUNDER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ASUNDER",
+    "definitions": [
+     {
+      "text": "In pieces",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be rebuilt",
+      "for": "anagram",
+      "note": "rebuilding the letters puts them together in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "and sure",
+      "gives": "ANDSURE",
+      "note": "anagram fodder, 7 letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AND SURE",
+       "gives": "ASUNDER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something smashed, and certain to be put back together.",
+     "walkthrough": "'And' looks like a joining word, but it is part of the fodder.",
+     "definitionFit": "Torn asunder means broken into pieces."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "and"
+    }
+   }
   },
   {
    "number": 17,
@@ -297,7 +1025,56 @@
     "text": "Have energy and tenacity at the outset",
     "enumeration": "3"
    },
-   "solution": "EAT"
+   "solution": "EAT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "EAT",
+    "definitions": [
+     {
+      "text": "Have",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the outset",
+      "for": "letter_selection",
+      "note": "the outset of each word is its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the physics symbol for energy"
+     },
+     {
+      "clueFragment": "and tenacity",
+      "gives": "AT",
+      "select": "first",
+      "note": "the first letters of AND and TENACITY"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "AT"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to start a task with energy and determination.",
+     "walkthrough": "'And' looks like a link between energy and tenacity, but it supplies the A.",
+     "definitionFit": "A plain synonym in one sense of 'have': having breakfast means consuming it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Have"
+    }
+   }
   },
   {
    "number": 18,
@@ -311,7 +1088,54 @@
     "text": "Track distance with the best computers",
     "enumeration": "7"
    },
-   "solution": "LAPTOPS"
+   "solution": "LAPTOPS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LAPTOPS",
+    "definitions": [
+     {
+      "text": "computers",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with",
+      "for": "charade",
+      "note": "the first piece comes with the second, alongside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Track distance",
+      "gives": "LAP",
+      "note": "one lap is one circuit of a running track"
+     },
+     {
+      "clueFragment": "the best",
+      "gives": "TOPS",
+      "note": "the tops is informal for the very best"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAP",
+      "TOPS"
+     ]
+    },
+    "explanation": {
+     "surface": "Using high-end computers to record how far runners go.",
+     "walkthrough": "'Track' reads as a verb, to track distance; it is the noun, a running track.",
+     "definitionFit": "Definition by kind: the answer names one type of computer, the portable fold-up sort."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Track"
+    }
+   }
   },
   {
    "number": 19,
@@ -325,7 +1149,55 @@
     "text": "God features in prayer a lot",
     "enumeration": "8"
    },
-   "solution": "PLETHORA"
+   "solution": "PLETHORA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PLETHORA",
+    "definitions": [
+     {
+      "text": "a lot",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "features in",
+      "for": "container",
+      "note": "the god features in, so is placed inside, the prayer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prayer",
+      "gives": "PLEA",
+      "note": "a prayer is a plea"
+     },
+     {
+      "clueFragment": "God",
+      "gives": "THOR",
+      "note": "Thor is the Norse god of thunder"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLE",
+      "THOR",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "God comes up often in prayers.",
+     "walkthrough": "'A lot' seems to finish the surface sentence, but it is the definition.",
+     "definitionFit": "A plain synonym, both nouns for an excess: 'a plethora of options' is 'a lot of options'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lot"
+    }
+   }
   },
   {
    "number": 20,
@@ -339,7 +1211,47 @@
     "text": "Preserve later Bach choral piece?",
     "enumeration": "7"
    },
-   "solution": "CANTATA"
+   "solution": "CANTATA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CANTATA",
+    "definitions": [
+     {
+      "text": "Bach choral piece?",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Preserve",
+      "gives": "CAN",
+      "note": "to can food is to preserve it"
+     },
+     {
+      "clueFragment": "later",
+      "gives": "TATA",
+      "note": "'later!' and 'ta-ta!' are both casual goodbyes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAN",
+      "TATA"
+     ]
+    },
+    "explanation": {
+     "surface": "Save a Bach choral work for another day.",
+     "walkthrough": "'Later' looks like a time word, but it is the casual farewell; ta-ta is British for goodbye. The question mark marks Bach's as one example.",
+     "definitionFit": "Bach wrote over two hundred cantatas, choral works for church services."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "later"
+    }
+   }
   },
   {
    "number": 21,
@@ -353,7 +1265,61 @@
     "text": "Old jazz legend James covering a G&S work?",
     "enumeration": "8"
    },
-   "solution": "OPERETTA"
+   "solution": "OPERETTA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "OPERETTA",
+    "definitions": [
+     {
+      "text": "G&S work?",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "O and ETTA cover, so surround, the word for 'a'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old",
+      "gives": "O",
+      "note": "O = old, as in OT for Old Testament"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "PER",
+      "note": "'a' as in 'ten pounds a head' means per"
+     },
+     {
+      "clueFragment": "jazz legend James",
+      "gives": "ETTA",
+      "note": "Etta James, the blues and jazz singer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "PER",
+      "ETTA"
+     ]
+    },
+    "explanation": {
+     "surface": "A classic jazz singer records a cover version of a Gilbert and Sullivan piece.",
+     "walkthrough": "'Covering' suggests a cover version in music; here it means going around. The small word 'a' is easy to skip, but it gives PER.",
+     "definitionFit": "Gilbert and Sullivan wrote comic operettas such as The Mikado; the question mark marks theirs as one example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "covering"
+    }
+   }
   },
   {
    "number": 22,
@@ -367,7 +1333,60 @@
     "text": "Wage increase follows partner’s first commendation",
     "enumeration": "6"
    },
-   "solution": "PRAISE"
+   "solution": "PRAISE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PRAISE",
+    "definitions": [
+     {
+      "text": "commendation",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "only the first letter of 'partner’s' is used"
+     },
+     {
+      "text": "follows",
+      "for": "charade",
+      "note": "the raise comes after the P"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "partner’s",
+      "gives": "P",
+      "select": "first",
+      "note": "P begins PARTNER"
+     },
+     {
+      "clueFragment": "Wage increase",
+      "gives": "RAISE",
+      "note": "a raise is a pay rise"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "RAISE"
+     ]
+    },
+    "explanation": {
+     "surface": "An employee gets a pay rise right after the partner's first word of approval.",
+     "walkthrough": "The raise comes first in the clue but second in the answer, because it follows the P.",
+     "definitionFit": "A plain synonym, both nouns for words of approval given for something done well."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -381,7 +1400,61 @@
     "text": "Club owner about to strike back",
     "enumeration": "6"
    },
-   "solution": "GOLFER"
+   "solution": "GOLFER",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "GOLFER",
+    "definitions": [
+     {
+      "text": "Club owner",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "the whole of 'about to strike' is written backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re = about, as in email subject lines"
+     },
+     {
+      "clueFragment": "to strike",
+      "gives": "FLOG",
+      "note": "to flog is to beat or strike"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GOLFER"
+     ],
+     "reversals": [
+      {
+       "from": "REFLOG",
+       "to": "GOLFER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The owner of a nightclub is about to retaliate.",
+     "walkthrough": "'Club owner' makes you picture a nightclub owner; the club is a golf club, and its owner a golfer.",
+     "definitionFit": "A golfer owns golf clubs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Club"
+    }
+   }
   },
   {
    "number": 23,
@@ -395,7 +1468,61 @@
     "text": "Grey rabbit regularly pursued by large rodent",
     "enumeration": "6"
    },
-   "solution": "GERBIL"
+   "solution": "GERBIL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "GERBIL",
+    "definitions": [
+     {
+      "text": "rodent",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "take letters at regular intervals, every other one"
+     },
+     {
+      "text": "pursued by",
+      "for": "charade",
+      "note": "the L comes behind, chasing the other letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Grey rabbit",
+      "gives": "GERBI",
+      "select": "alternate",
+      "note": "G-r-E-y-R-a-B-b-I-t"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L = large, on clothing labels"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GERBI",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A grey rabbit is chased by a big rodent.",
+     "walkthrough": "'Large rodent' reads as a phrase, but 'large' is just L, and the gerbil is small.",
+     "definitionFit": "A gerbil is a small rodent kept as a pet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "large"
+    }
+   }
   },
   {
    "number": 24,
@@ -409,7 +1536,54 @@
     "text": "Delinquent fella with influence",
     "enumeration": "10"
    },
-   "solution": "MALEFACTOR"
+   "solution": "MALEFACTOR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MALEFACTOR",
+    "definitions": [
+     {
+      "text": "Delinquent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with",
+      "for": "charade",
+      "note": "one piece comes with the other, alongside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fella",
+      "gives": "MALE",
+      "note": "a fella is a man, a male"
+     },
+     {
+      "clueFragment": "influence",
+      "gives": "FACTOR",
+      "note": "an influence on an outcome is a factor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MALE",
+      "FACTOR"
+     ]
+    },
+    "explanation": {
+     "surface": "A young offender who has friends in high places.",
+     "walkthrough": "'Delinquent' could be an adjective; here it is a noun, a wrongdoer.",
+     "definitionFit": "A plain synonym, both nouns: from Latin male, badly, and factor, doer, so one who does wrong."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "influence"
+    }
+   }
   },
   {
    "number": 25,
@@ -423,7 +1597,54 @@
     "text": "Tree – one alongside river",
     "enumeration": "4"
    },
-   "solution": "ACER"
+   "solution": "ACER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ACER",
+    "definitions": [
+     {
+      "text": "Tree",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "alongside",
+      "for": "charade",
+      "note": "the river letter sits alongside, next to, the one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "ACE",
+      "note": "an ace is a one in cards"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R = river, on maps"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ACE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A lone tree growing beside a river.",
+     "walkthrough": "'One' wants to be I or A, but here it is the ace, the one in a pack of cards.",
+     "definitionFit": "Acer is the maple genus of trees."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "one"
+    }
+   }
   },
   {
    "number": 26,
@@ -437,7 +1658,54 @@
     "text": "House in very central London neighbourhood",
     "enumeration": "4"
    },
-   "solution": "SOHO"
+   "solution": "SOHO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SOHO",
+    "definitions": [
+     {
+      "text": "central London neighbourhood",
+      "at": 14
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "charade",
+      "note": "HO is put in next to SO, after it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "very",
+      "gives": "SO",
+      "note": "so = very, as in 'so tired'"
+     },
+     {
+      "clueFragment": "House",
+      "gives": "HO",
+      "note": "HO is the abbreviation for house"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SO",
+      "HO"
+     ]
+    },
+    "explanation": {
+     "surface": "A home in the very heart of London.",
+     "walkthrough": "'In' looks like a container instruction, but putting the house inside very gives SHOO; read loosely, it just places the two side by side.",
+     "definitionFit": "Soho is a lively district in London's West End."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "very"
+    }
+   }
   },
   {
    "number": 26,
@@ -451,7 +1719,49 @@
     "text": "Forecaster ultimately predicts the same weather",
     "enumeration": "4"
    },
-   "solution": "SEER"
+   "solution": "SEER",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "SEER",
+    "definitions": [
+     {
+      "text": "Forecaster",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "'ultimately' asks for the final letter of each word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "predicts the same weather",
+      "gives": "SEER",
+      "select": "last",
+      "note": "predictS thE samE weatheR"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEER"
+     ]
+    },
+    "explanation": {
+     "surface": "A weather forecaster, in the end, predicts the same conditions every day.",
+     "walkthrough": "'Ultimately' seems to mean 'in the end' for the forecaster, but it applies to each of the next four words.",
+     "definitionFit": "A plain synonym: literally 'one who sees' what is coming, a prophet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ultimately"
+    }
+   }
   },
   {
    "number": 27,
@@ -465,7 +1775,41 @@
     "text": "Criticise list of potential candidates",
     "enumeration": "5"
    },
-   "solution": "SLATE"
+   "solution": "SLATE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SLATE",
+    "definitions": [
+     {
+      "text": "Criticise",
+      "at": 0
+     },
+     {
+      "text": "list of potential candidates",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Criticise",
+      "note": "a verb: British informal for attacking harshly, as reviewers do a bad play"
+     },
+     {
+      "clueFragment": "list of potential candidates",
+      "note": "a noun: a party's set of nominees for election, mainly American usage"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "One word is a verb and the other a noun; the surface reads as attacking a shortlist.",
+     "definitionFit": "To slate is British for to criticise harshly; a slate is a list of candidates for election."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 28,
@@ -479,7 +1823,50 @@
     "text": "Facecloth perhaps made from thin cotton sample",
     "enumeration": "8"
    },
-   "solution": "TOILETRY"
+   "solution": "TOILETRY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TOILETRY",
+    "definitions": [
+     {
+      "text": "Facecloth perhaps",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "made from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "thin cotton",
+      "gives": "TOILE",
+      "note": "toile is a thin cotton or linen fabric"
+     },
+     {
+      "clueFragment": "sample",
+      "gives": "TRY",
+      "note": "to sample something is to try it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOILE",
+      "TRY"
+     ]
+    },
+    "explanation": {
+     "surface": "A facecloth made from a small swatch of thin cotton.",
+     "walkthrough": "'Sample' reads as a fabric swatch, but it is the verb try.",
+     "definitionFit": "A facecloth is one of the toiletries used for washing; 'perhaps' marks it as an example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sample"
+    }
+   }
   }
  ]
 }
