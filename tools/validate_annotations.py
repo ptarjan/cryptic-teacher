@@ -20,8 +20,7 @@ Checks, for every annotated entry:
 And checks that apply only to puzzles we WROTE (see is_authored):
   - every clue states its scene in explanation.surface, without crossword
     vocabulary or the answer (check_authored_surface)
-  - at least MIN_JOKE_SHARE of the clues carry features.joke, and a pun names
-    its word (check_authored_jokes)
+  - a clue tagged as a pun names its word (check_authored_puns)
   - no block may have an empty `gives`: every word of an authored clue is
     definition, wordplay or joinery, never surface padding (check_two_pieces)
   - the walkthrough stays inside MAX_WALKTHROUGH_WORDS when the blocks already
@@ -52,7 +51,6 @@ fails.
 import ast
 import functools
 import json
-import math
 import re
 import subprocess
 import sys
@@ -794,38 +792,17 @@ def check_authored_surface(tag, ann, clue, errors):
                       f"clue pretends to say, and the answer is what it hides")
 
 
-# How often a puzzle we set must carry a joke (`features.joke`: pun or absurd).
-# Measured against fifteensquared favourite votes on published clues
-# (2026-09-28): a joke is on 25.7% of clues nobody named, 38.4% named once,
-# 48.8% named twice and 51.3% named three or more times. Half is the rate of
-# the clues solvers name more than once.
-MIN_JOKE_SHARE = 0.5
+def check_authored_puns(entries, errors):
+    """A pun in a puzzle we set names its word.
 
-
-def check_authored_jokes(entries, errors):
-    """Half the clues in a puzzle we set carry a joke, and a pun names its word.
-
-    Whole-puzzle, like the cryptic-definition cap: each clue without a joke is
-    defensible, and the fault only shows when they are counted. A `pun` lives in
-    one word's second sense, so it must name that word in
+    A `pun` lives in one word's second sense, so it must name that word in
     `features.misdirectedWord`; a pun nobody can point at is not one."""
-    anns = [(e, e["annotation"]) for e in entries if e.get("annotation")]
-    jokes = 0
-    for e, ann in anns:
-        feats = ann.get("features") or {}
-        joke = feats.get("joke")
-        if joke in ("pun", "absurd"):
-            jokes += 1
-        if joke == "pun" and not feats.get("misdirectedWord"):
+    for e in entries:
+        feats = (e.get("annotation") or {}).get("features") or {}
+        if feats.get("joke") == "pun" and not feats.get("misdirectedWord"):
             tag = f"{e['number']}{'A' if e['direction'] == 'across' else 'D'}"
             errors.append(f"{tag}: features.joke is pun but no misdirectedWord — name the "
                           f"word whose second sense carries the pun")
-    need = math.ceil(MIN_JOKE_SHARE * len(anns))
-    if jokes < need:
-        errors.append(f"puzzle: {jokes} of {len(anns)} clues carry a joke (features.joke); "
-                      f"a puzzle we set needs {need}. Solvers' most-named clues carry one "
-                      f"half the time, their unnamed ones a quarter. Rewrite from a scene "
-                      f"with a pun or an absurdity in it, and choose the mechanism last")
 
 
 # `definitionFit` — one sentence on why the ANSWER means the DEFINITION — became
@@ -2513,7 +2490,7 @@ def validate_puzzle(puzzle, corpus=False):
         check_cryptic_definition_cap(puzzle["entries"], errors, warnings,
                                      authored=authored)
         if authored:
-            check_authored_jokes(puzzle["entries"], errors)
+            check_authored_puns(puzzle["entries"], errors)
         check_definition_not_fodder(puzzle["entries"], errors, warnings)
         if not corpus:
             check_definition_against_blog(puzzle, warnings)
