@@ -753,8 +753,7 @@ All four are ERRORs, scoped by `is_authored()` like the two-pieces rule.
 
 The standing rule: **a check that flags Araucaria is a broken check.** The
 word lists are measured from published annotations by
-`tools/build_clue_joints.py`, and `--check` fails CI when the corpus has
-moved past them. `python3 tools/validate_annotations.py --unscoped <ids>` runs
+`tools/build_clue_joints.py`, which the nightly reruns. `python3 tools/validate_annotations.py --unscoped <ids>` runs
 the rules on published grids. Results over the whole annotated corpus
 (2026-09-28, 74,474 clues):
 

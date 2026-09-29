@@ -268,6 +268,10 @@ python3 tools/snitch_report.py --write >/dev/null || echo "snitch_report failed 
 # The held-out scorecard /difficulty/ quotes. The page drops the numbers rather
 # than quote ones measured under other weights, so a missed night shows there.
 python3 tools/difficulty_check.py --write >/dev/null || echo "difficulty_check failed (rc=$?); /difficulty/ quotes tools/data/difficulty_check.json from last night"
+# The authoring checks' link and reversal-axis words, re-measured over the day's
+# annotations. Every annotated clue can move them, so they are refreshed here
+# rather than checked on each push.
+python3 tools/build_clue_joints.py >/dev/null || echo "build_clue_joints failed (rc=$?); the authoring checks use last night's tools/data/clue_joints.json"
 
 # What we hold of every series, printed every night whether or not anything is
 # wrong, because the two ways a series dies are both silent: a fetcher that can

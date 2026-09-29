@@ -455,8 +455,7 @@ building and checking the site
 tools/build_seo_pages.py                     one static page per puzzle, for search engines and
                                              unfurls
 tools/build_clue_joints.py                   measures clue_joints.json from published
-                                             annotations; --check fails CI when the corpus has
-                                             moved past it
+                                             annotations; the nightly reruns it
 tools/build_abbreviations.py                 publishes the abbreviations table to the browser
                                              as abbreviations.js, so the solver’s glossary
                                              can’t drift from the clue-writer’s
