@@ -1,5 +1,5 @@
 #!/bin/bash
-# Does tools/build_authored_puzzle.py still write A001, and does what it writes
+# Does tools/build_authored_puzzle.py still write A001 (id authored-1), and does what it writes
 # pass everything a fetched puzzle must?
 #
 #     bash tools/test_build_authored_puzzle.sh
