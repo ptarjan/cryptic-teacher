@@ -40,6 +40,17 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 AXES = ["surface", "misdirection", "pennydrop", "economy", "fairness"]
+# The two axes that predict what solvers pick. tools/favourite_grading.py
+# scored 700 pairs of a fifteensquared favourite and a clue from the same
+# puzzle: misdirection favoured the voted clue in 58% of pairs (p=0.001) and
+# penny-drop in 57% (p=0.003). Surface was flat (52%), fairness ran backwards
+# (40%), and the five-axis mean predicted nothing (51%). So the headline, and
+# the per-answer verdict, is the mean of these two.
+HEADLINE = ("misdirection", "pennydrop")
+
+
+def headline(scores):
+    return statistics.mean(scores[a] for a in HEADLINE)
 
 
 def load_key(grading, packets_dir):
@@ -157,20 +168,25 @@ def main():
         print(f"{a:<14}{m:>7.2f}{h:>8.2f}{m - h:>+8.2f}")
     om = mean([statistics.mean(r[4].values()) for r in mine])
     hm = mean([statistics.mean(r[4].values()) for r in theirs])
-    print(f"{'OVERALL':<14}{om:>7.2f}{hm:>8.2f}{om - hm:>+8.2f}\n")
+    print(f"{'OVERALL':<14}{om:>7.2f}{hm:>8.2f}{om - hm:>+8.2f}"
+          "   (five-axis mean: does not predict solver favourites)")
+    oh = mean([headline(r[4]) for r in mine])
+    hh = mean([headline(r[4]) for r in theirs])
+    print(f"{'HEADLINE':<14}{oh:>7.2f}{hh:>8.2f}{oh - hh:>+8.2f}"
+          "   (misdirection + penny-drop: the axes solver votes follow)\n")
 
-    # Per answer: our mean against the best human clue for the same word. Beating
+    # Per answer: our HEADLINE against the best human clue for the same word. Beating
     # the average human clue is easy; beating the best one is the real bar, since
     # a setter only publishes their best attempt at a word.
     print(f"{'answer':<12}{'ours':>6}{'best human':>12}  verdict")
     wins = 0
     per_answer = {}
     for ans in sorted(key):
-        o = [statistics.mean(r[4].values()) for r in rows if r[1] == ans and r[3]]
+        o = [headline(r[4]) for r in rows if r[1] == ans and r[3]]
         by_label = {}
         for r in rows:
             if r[1] == ans and not r[3]:
-                by_label.setdefault(r[2], []).append(statistics.mean(r[4].values()))
+                by_label.setdefault(r[2], []).append(headline(r[4]))
         if not o or not by_label:
             continue
         om_a = mean(o)
@@ -206,6 +222,8 @@ def main():
             "axis_means_ours": {a: round(mean([r[4][a] for r in mine]), 3) for a in AXES},
             "axis_means_human": {a: round(mean([r[4][a] for r in theirs]), 3) for a in AXES},
             "axis_gap": {a: round(v, 3) for a, v in axis_gap.items()},
+            "headline_ours": round(oh, 3),
+            "headline_human": round(hh, 3),
             "overall_ours": round(om, 3),
             "overall_human": round(hm, 3),
             "per_answer": per_answer,

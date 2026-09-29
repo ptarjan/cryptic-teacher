@@ -80,3 +80,14 @@ Reserve 1–2 for clues that are actually broken.
   gave it away. Say "none" if nothing stands out. This is a check on whether the
   comparison was genuinely blind — a judge who can pick the machine every time is
   telling us something the five axes are not.
+
+## Which axes matter
+
+Score all five, as above. Know that solvers weigh them differently. On 700
+pairs of a solver-named favourite and another clue from the same puzzle
+(`tools/favourite_grading.py`), the favourite scored higher on
+**misdirection** 58% of the time and on **penny-drop** 57%. Surface and economy
+were a coin toss. Fairness went the other way: the favourite scored lower 60%
+of the time. A fair, economical clue with no misdirection is the clue solvers
+pass over. `tools/score_grading.py` leads with misdirection + penny-drop for
+that reason.
