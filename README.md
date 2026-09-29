@@ -123,7 +123,7 @@ Shape:
     {
       "id": "16-across", "number": 16, "direction": "across",
       "position": {"x": 0, "y": 8}, "length": 10,
-      "clue": {"text": "Destroying climate, sun reaches highest point (10)"},
+      "clue": {"text": "Destroying climate, sun reaches highest point", "enumeration": "10"},
       "solution": "CULMINATES",
       "annotation": {
         "type": ["anagram"],
