@@ -83,6 +83,8 @@ jobs:
           python3 tools/puzzle_schema.py || fails+=("a puzzle breaks tools/data/puzzle.schema.json")
           python3 tools/build_abbreviations.py --check \
             || fails+=("abbreviations.json lacks a frequent reading: run the commands above")
+          python3 tools/build_clue_joints.py --check \
+            || fails+=("clue_joints.json is behind the corpus: run python3 tools/build_clue_joints.py")
           python3 tools/build_annotate_prompt.py >/dev/null
           git diff --exit-code tools/annotate_prompt.md \
             || fails+=("annotate_prompt.md reference section: run tools/build_annotate_prompt.py")

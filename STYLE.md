@@ -226,36 +226,37 @@ is what separates a clue from a joke that happens to contain the answer. See
 
 ### The joints: link words, adjacency, direction
 Three rules about how the pieces of a clue attach to each other. All three are
-ERRORs in the validator, all three are scoped by `is_authored()`, and all three
-had **zero hits** across the eight annotated Guardian puzzles before they
-shipped. `--unscoped` runs them on published grids. The counts and reasoning are
-in `tools/AUTHORING.md`, "The joints".
+ERRORs in the validator and all three are scoped by `is_authored()`. Their word
+lists are measured from published annotations by `tools/build_clue_joints.py`
+(`tools/data/clue_joints.json`), and CI fails when the file falls behind the
+corpus. `--unscoped` runs them on published grids.
 
 1. **A link word stands in for an equals sign.** Paul: "link words have to stand
    in for an equals sign." A link word may state equivalence (`is`, `'s`),
    derivation (`gives`, `makes`, `becomes`, `yields`, `means`, `leads to`,
    `indicating`, `to locate`) or plain prepositional joining (`for`, `from`,
    `of`, `in`, `with`, `after`), plus the grammatical glue that holds those
-   together. Anything else is a content word doing surface work: `lives on`,
-   `would be better spent`, `mistake it for`. Putting padding in `linkWords` is
-   how a clue dodges the two-pieces rule: the annotation looks sound while the
-   clue is in three pieces. So `EQUIVALENCE_LINKS` in the validator is an allow
-   list, not a block list. Widen it when a real setter's link word fails; never
-   widen it for one of ours.
+   together. That core is `CORE_LINKS` in the validator. To it the builder adds
+   every word that published clues declare as a link word at least 10 times,
+   across at least 5 setters (`then`, `but`, `seen`, `using`, `needing`).
+   Anything else is a content word doing surface work: `lives on`, `would be
+   better spent`, `mistake it for`. No published clue declares `lives`,
+   `mistake` or `spent` as a link word. Putting padding in `linkWords` is how a
+   clue dodges the two-pieces rule: the annotation looks sound while the clue is
+   in three pieces.
 2. **An indicator operates on what it touches.** An anagram indicator must be
-   next to its fodder, with only grammatical glue between them (`FODDER_GLUE`
-   in the validator: articles, forms of *be*, and short joining words such as
-   `of`, `in`, `with`). `Naples was flattened by aircraft` is fine. `The oyster
-   lives on the ground floor` is not: `ground` cannot reach back over three
-   words to shuffle `The oyster`. The check measures character offsets in the
-   clue, so it is arithmetic, not taste.
-3. **A reversal runs along the entry.** A reversed across answer reads right to
-   left, so it needs `back`, `returning`, `retreating` or `west`. A reversed
-   down answer reads bottom to top, so it needs `up`, `rising`, `climbing`,
-   `lifted` or `from below`. There is no "backwards" on a vertical axis. Neutral
-   words (`turning`, `about`, `overturned`, `revolutionary`, `reversal`) are
-   always safe; use them when the surface wants a word the direction does not
-   allow. The eight Guardian puzzles follow this in 19 of 19 reversals.
+   next to its fodder, with only link words between them. `Naples was
+   flattened by aircraft` is fine. `The oyster lives on the ground floor` is
+   not: `ground` cannot reach back over `lives` to shuffle `The oyster`. The
+   check measures character offsets in the clue, so it is arithmetic, not
+   taste. It flags 24 of 9,914 published anagram clues.
+3. **A reversal runs along the entry.** A reversed down answer reads bottom to
+   top, so a word meaning upward (`up`, `rising`, `raised`, `climbing`,
+   `north`) can only reverse a down entry. Published setters hold to that: `up`
+   reverses an across entry in 2 of 168 uses. The other direction is looser than
+   it sounds. `back` and `returning` reverse down entries in 15-24% of their
+   uses, so they are neutral. Only compass words (`west`, `east`) and `aback`
+   are bound to across entries.
 
 A smooth surface is not evidence that a clue is sound. STOREY felt like the best
 clue in its set because the padding made the surface smooth.
@@ -274,7 +275,7 @@ could have done it, the joiner did. Move the word to `indicators` as an object w
 `note` says which piece it sends second.
 `check_link_word_is_not_an_order()` warns, on every puzzle including published
 ones, because the parse is ours even when the clue is the Guardian's. `on` and
-`after` stay in `EQUIVALENCE_LINKS`, because usually they only join: of 65
+`after` stay in `CORE_LINKS`, because usually they only join: of 65
 corpus entries that declared a positional joiner as a link word, only three were
 ordering anything.
 
