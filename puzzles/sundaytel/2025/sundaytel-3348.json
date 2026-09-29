@@ -23,6 +23,9 @@
   "date": "2025-12-31",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -42,7 +45,44 @@
      }
     ]
    },
-   "solution": "ANYTHINGGOES"
+   "solution": "ANYTHINGGOES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ANYTHING GOES",
+    "definitions": [
+     {
+      "text": "All That Jazz passes",
+      "at": 0
+     },
+     {
+      "text": "musical song",
+      "at": 25
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "All That Jazz passes",
+      "note": "not the show title here: 'all that jazz' is loose talk for everything of the kind, and every bit of it is allowed through"
+     },
+     {
+      "clueFragment": "musical song",
+      "note": "a 1934 Cole Porter show whose title number is its best-known song"
+     }
+    ],
+    "explanation": {
+     "surface": "A theatre-goer's note swapping one hit show's number for another's.",
+     "walkthrough": "The capitals on All That Jazz point at the Kander and Ebb musical, but the phrase means 'everything of that sort', and if all of it passes, anything goes. The second half is Cole Porter's musical and its title song.",
+     "definitionFit": "The phrase is an idiom for permissiveness, so 'all that jazz passes' paraphrases it; and it names a Porter musical plus the song it is named after."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Jazz"
+    }
+   }
   },
   {
    "number": 1,
@@ -56,7 +96,70 @@
     "text": "Plaintiff seeing races fixed, copper brought in",
     "enumeration": "7"
    },
-   "solution": "ACCUSER"
+   "solution": "ACCUSER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ACCUSER",
+    "definitions": [
+     {
+      "text": "Plaintiff",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fixed",
+      "for": "anagram",
+      "note": "races that are fixed have been rigged, so their letters are not in honest order"
+     },
+     {
+      "text": "brought in",
+      "for": "container",
+      "note": "copper brought in is taken inside the rearranged letters"
+     }
+    ],
+    "linkWords": [
+     "seeing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "races",
+      "gives": "ACSER",
+      "note": "RACES rearranged"
+     },
+     {
+      "clueFragment": "copper",
+      "gives": "CU",
+      "note": "Cu is the chemical symbol for copper"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AC",
+      "CU",
+      "SER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RACES",
+       "gives": "ACSER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone taking a race-fixing scandal to court just as the police are called in.",
+     "walkthrough": "Copper looks like a policeman in this story, but it is the metal, and its symbol CU goes into the reordered RACES.",
+     "definitionFit": "A plaintiff brings a charge against someone in court, which is the legal role of the one making the accusation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "copper"
+    }
+   }
   },
   {
    "number": 2,
@@ -70,7 +173,69 @@
     "text": "End of tale, incomplete story’s wrapped up – period!",
     "enumeration": "4"
    },
-   "solution": "YEAR"
+   "solution": "YEAR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "container"
+    ],
+    "answer": "YEAR",
+    "definitions": [
+     {
+      "text": "period",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "End of",
+      "for": "letter_selection",
+      "note": "the end of tale is its final letter"
+     },
+     {
+      "text": "incomplete",
+      "for": "deletion",
+      "note": "an incomplete story lacks its last letter"
+     },
+     {
+      "text": "wrapped up",
+      "for": "container",
+      "note": "the shortened story is wrapped round the E"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "incomplete story",
+      "gives": "YAR",
+      "note": "a story is a yarn; incomplete, it loses the N"
+     },
+     {
+      "clueFragment": "End of tale",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of talE"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "Y",
+      "E",
+      "AR"
+     ]
+    },
+    "explanation": {
+     "surface": "A storyteller who stops before the ending and just declares the thing finished, full stop.",
+     "walkthrough": "The dash and exclamation mark make 'period!' look like an exasperated full stop; it is the definition, a length of time.",
+     "definitionFit": "Definition by class: twelve months is one particular period of time among many."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "period"
+    }
+   }
   },
   {
    "number": 3,
@@ -84,7 +249,56 @@
     "text": "Count tucked into white fish",
     "enumeration": "7"
    },
-   "solution": "HADDOCK"
+   "solution": "HADDOCK",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HADDOCK",
+    "definitions": [
+     {
+      "text": "fish",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tucked into",
+      "for": "container",
+      "note": "the count is tucked inside the wine"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "white",
+      "gives": "HOCK",
+      "note": "hock is a white wine from the Rhine"
+     },
+     {
+      "clueFragment": "Count",
+      "gives": "ADD",
+      "note": "to count up is to add"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "ADD",
+      "OCK"
+     ]
+    },
+    "explanation": {
+     "surface": "A nobleman sitting down to a plate of white fish.",
+     "walkthrough": "'White fish' reads as one phrase, and the answer really is a white fish, but 'white' is the wine: HOCK, the old British name for German Rhine wine.",
+     "definitionFit": "Definition by class: the answer is a North Atlantic cod-family species, a staple of British fish and chips."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Count"
+    }
+   }
   },
   {
    "number": 4,
@@ -98,7 +312,69 @@
     "text": "With daddy initially forgotten, teen told to amend card",
     "enumeration": "7"
    },
-   "solution": "NOTELET"
+   "solution": "NOTELET",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "anagram"
+    ],
+    "answer": "NOTELET",
+    "definitions": [
+     {
+      "text": "card",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points at the first letter of daddy"
+     },
+     {
+      "text": "forgotten",
+      "for": "deletion",
+      "note": "the D is forgotten, left out of the letters"
+     },
+     {
+      "text": "to amend",
+      "for": "anagram",
+      "note": "the letters are amended into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "daddy initially",
+      "gives": "D",
+      "select": "first",
+      "note": "the first letter of Daddy, which is removed"
+     },
+     {
+      "clueFragment": "teen told",
+      "gives": "TEENTOL",
+      "note": "TEEN TOLD without its D"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TEENTOL",
+       "gives": "NOTELET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A teenager told to rewrite the greeting card now that Dad's been left off it.",
+     "walkthrough": "The D comes from 'daddy initially' and is then struck out of TEEN TOLD before the remaining seven letters are rearranged.",
+     "definitionFit": "A plain synonym in British stationery: a small folded card with a picture on the front, used for short notes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "forgotten"
+    }
+   }
   },
   {
    "number": 5,
@@ -112,7 +388,48 @@
     "text": "Old actress’s short dress",
     "enumeration": "4"
    },
-   "solution": "GARB"
+   "solution": "GARB",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "GARB",
+    "definitions": [
+     {
+      "text": "dress",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "the actress's name cut short loses its last letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old actress’s short",
+      "gives": "GARB",
+      "note": "Greta GARBO, cut short"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GARB"
+     ]
+    },
+    "explanation": {
+     "surface": "A dressmaker's note that the veteran star's frock is too short.",
+     "walkthrough": "Greta Garbo is the old actress; 'short' reads as describing the dress, but it trims her name.",
+     "definitionFit": "Dress in its general sense of clothing, not a frock: the answer is a word for what someone wears, often distinctive attire."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "short"
+    }
+   }
   },
   {
    "number": 6,
@@ -126,7 +443,49 @@
     "text": "Joy, aunt for example scratching head",
     "enumeration": "7"
    },
-   "solution": "ELATION"
+   "solution": "ELATION",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ELATION",
+    "definitions": [
+     {
+      "text": "Joy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "scratching head",
+      "for": "deletion",
+      "note": "scratching out the head of the word removes its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "aunt for example scratching head",
+      "gives": "ELATION",
+      "note": "an aunt is a RELATION, which loses its R"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELATION"
+     ]
+    },
+    "explanation": {
+     "surface": "An aunt called Joy, puzzled and scratching her head.",
+     "walkthrough": "Joy looks like the aunt's name, which is what makes the capital work; it is the definition, and the aunt stands for any relative.",
+     "definitionFit": "A near synonym: both words name a high, exultant happiness, the answer leaning toward pride or triumph."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Joy"
+    }
+   }
   },
   {
    "number": 7,
@@ -146,7 +505,51 @@
      }
     ]
    },
-   "solution": "MOUTHWATERING"
+   "solution": "MOUTHWATERING",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MOUTH-WATERING",
+    "definitions": [
+     {
+      "text": "Tempting to eat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stews",
+      "for": "anagram",
+      "note": "the letters are stewed, cooked into a new mix"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "without German",
+      "gives": "WITHOUTGERMAN",
+      "note": "thirteen letters of fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WITHOUT GERMAN",
+       "gives": "MOUTHWATERING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Stews so appetising you'd eat them even without any German cooking on the table.",
+     "walkthrough": "'Without' looks like an instruction to leave something out, and 'German' like the abbreviation G; both are simply letters to be stewed.",
+     "definitionFit": "The answer is the physical reaction to good food, saliva flowing, used as an adjective for anything that looks delicious."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 8,
@@ -170,7 +573,38 @@
      }
     ]
    },
-   "solution": "SOONERORLATER"
+   "solution": "SOONERORLATER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SOONER OR LATER",
+    "definitions": [
+     {
+      "text": "One fine day – but not now?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One fine day",
+      "note": "not a sunny afternoon but some unspecified day to come"
+     },
+     {
+      "clueFragment": "but not now?",
+      "note": "rules out the present, leaving an indefinite future time"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'One fine day' sounds like weather or a song title, but it means some day in the future; 'but not now' confirms the answer is a vague time other than the present.",
+     "definitionFit": "An idiom for 'eventually, at some unspecified time', which is exactly what 'one fine day' promises, and never the present."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "fine"
+    }
+   }
   },
   {
    "number": 9,
@@ -184,7 +618,47 @@
     "text": "Where apples might grow, or Swiss vegetable?",
     "enumeration": "7"
    },
-   "solution": "ORCHARD"
+   "solution": "ORCHARD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ORCHARD",
+    "definitions": [
+     {
+      "text": "Where apples might grow",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "or",
+      "gives": "OR",
+      "note": "used as printed"
+     },
+     {
+      "clueFragment": "Swiss vegetable",
+      "gives": "CHARD",
+      "note": "Swiss chard is a leafy vegetable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OR",
+      "CHARD"
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener wondering whether to plant fruit trees or greens.",
+     "walkthrough": "'Or' looks like it is offering a choice between two definitions; it is simply the first two letters.",
+     "definitionFit": "A descriptive definition: the answer is a planting of fruit trees, and apples are the classic example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "or"
+    }
+   }
   },
   {
    "number": 10,
@@ -198,7 +672,53 @@
     "text": "Storm ruined a fleece",
     "enumeration": "7"
    },
-   "solution": "TORNADO"
+   "solution": "TORNADO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TORNADO",
+    "definitions": [
+     {
+      "text": "Storm",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ruined",
+      "gives": "TORN",
+      "note": "torn = ruined, ripped"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "used as printed"
+     },
+     {
+      "clueFragment": "fleece",
+      "gives": "DO",
+      "note": "to fleece someone is to do them, to swindle them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TORN",
+      "A",
+      "DO"
+     ]
+    },
+    "explanation": {
+     "surface": "A storm that has wrecked a sheepskin.",
+     "walkthrough": "Fleece looks like wool, but it is the verb: to fleece is to cheat, and in British slang to 'do' someone means the same.",
+     "definitionFit": "Definition by class: the answer is one kind of storm, a whirling funnel of wind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fleece"
+    }
+   }
   },
   {
    "number": 11,
@@ -212,7 +732,54 @@
     "text": "Tripe, or senseless hogwash, for starters?",
     "enumeration": "4"
    },
-   "solution": "TOSH"
+   "solution": "TOSH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "and_lit"
+    ],
+    "answer": "TOSH",
+    "definitions": [
+     {
+      "text": "Tripe, or senseless hogwash, for starters?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for starters",
+      "for": "letter_selection",
+      "note": "the starters of the words are their opening letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tripe, or senseless hogwash",
+      "gives": "TOSH",
+      "select": "first",
+      "note": "the first letters of Tripe Or Senseless Hogwash"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "O",
+      "S",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "A diner rejecting the menu's first courses as offal and pigswill.",
+     "walkthrough": "Tripe and hogwash both sound like food on a menu, and 'starters' plays along; the opening letters spell the answer, and the whole clue also describes it.",
+     "definitionFit": "Read straight, the clue lists synonyms for nonsense, and British slang for nonsense is exactly what its first letters spell."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "starters"
+    }
+   }
   },
   {
    "number": 12,
@@ -226,7 +793,41 @@
     "text": "Extremely merry",
     "enumeration": "5"
    },
-   "solution": "JOLLY"
+   "solution": "JOLLY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "JOLLY",
+    "definitions": [
+     {
+      "text": "Extremely",
+      "at": 0
+     },
+     {
+      "text": "merry",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Extremely",
+      "note": "an adverb here, the British informal intensifier meaning 'very'"
+     },
+     {
+      "clueFragment": "merry",
+      "note": "cheerful, the ordinary adjective"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The adverb sense is British informal, as in 'jolly good show'.",
+     "definitionFit": "British English uses the word as an intensifier meaning very, and as an everyday adjective for cheerful and festive."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -240,7 +841,43 @@
     "text": "Hint in crosswords ignored",
     "enumeration": "4"
    },
-   "solution": "SIGN"
+   "solution": "SIGN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SIGN",
+    "definitions": [
+     {
+      "text": "Hint",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the answer sits inside the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crosswords ignored",
+      "gives": "SIGN",
+      "note": "crosswordS IGNored"
+     }
+    ],
+    "explanation": {
+     "surface": "A solver complaining that the hint in the puzzle was overlooked.",
+     "walkthrough": "The surface is about crossword hints, which makes the hidden answer easy to walk past.",
+     "definitionFit": "A plain synonym: an indication or clue that something is so."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ignored"
+    }
+   }
   },
   {
    "number": 14,
@@ -254,7 +891,55 @@
     "text": "Bovine animal thus in dump",
     "enumeration": "5"
    },
-   "solution": "BISON"
+   "solution": "BISON",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BISON",
+    "definitions": [
+     {
+      "text": "Bovine animal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'in' is read literally as placement: the word for thus is put inside the word for dump"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dump",
+      "gives": "BIN",
+      "note": "to bin something is to dump it"
+     },
+     {
+      "clueFragment": "thus",
+      "gives": "SO",
+      "note": "so = thus"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BI",
+      "SO",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A cow-like creature found wandering around a rubbish tip.",
+     "walkthrough": "'Dump' reads as a place, and the rubbish bin is a place too, so either reading gets you there.",
+     "definitionFit": "Definition by class: the American buffalo and its European cousin are wild members of the cattle family, which is what bovine means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd"
+    }
+   }
   },
   {
    "number": 15,
@@ -268,7 +953,56 @@
     "text": "Irish county leader in Roscommon, civic dignitary",
     "enumeration": "5"
    },
-   "solution": "MAYOR"
+   "solution": "MAYOR",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "MAYOR",
+    "definitions": [
+     {
+      "text": "civic dignitary",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader in",
+      "for": "letter_selection",
+      "note": "the leader in Roscommon is its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Irish county",
+      "gives": "MAYO",
+      "note": "Mayo is a county in the west of Ireland"
+     },
+     {
+      "clueFragment": "leader in Roscommon",
+      "gives": "R",
+      "select": "first",
+      "note": "the first letter of Roscommon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAYO",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A council leader in Roscommon, another Irish county, being introduced.",
+     "walkthrough": "Roscommon is a real Irish county too, which tempts you to use the whole name; only its first letter is wanted.",
+     "definitionFit": "In Britain and Ireland the post is often ceremonial, chains of office and all, which is why 'dignitary' fits."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Roscommon"
+    }
+   }
   },
   {
    "number": 16,
@@ -282,7 +1016,51 @@
     "text": "What might ignite conflict in town near Coventry?",
     "enumeration": "7"
    },
-   "solution": "WARWICK"
+   "solution": "WARWICK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WARWICK",
+    "definitions": [
+     {
+      "text": "town near Coventry",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "conflict",
+      "gives": "WAR",
+      "note": "war = conflict"
+     },
+     {
+      "clueFragment": "What might ignite",
+      "gives": "WICK",
+      "note": "the string you light on a candle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WAR",
+      "WICK"
+     ]
+    },
+    "explanation": {
+     "surface": "A spark that might set off a war in a Midlands town.",
+     "walkthrough": "Read the town's name as two words and it describes itself: the thing that would ignite a war.",
+     "definitionFit": "Definition by location: the county town of Warwickshire, with its castle, lies a few miles south of Coventry in the English Midlands."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "ignite"
+    }
+   }
   },
   {
    "number": 17,
@@ -296,7 +1074,62 @@
     "text": "Coach shower in winless season?",
     "enumeration": "7"
    },
-   "solution": "TRAINER"
+   "solution": "TRAINER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "TRAINER",
+    "definitions": [
+     {
+      "text": "Coach",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "winless",
+      "for": "deletion",
+      "note": "winless means with WIN taken away"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the shower goes in what is left of the season"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "winless season",
+      "gives": "TER",
+      "note": "WINTER without WIN"
+     },
+     {
+      "clueFragment": "shower",
+      "gives": "RAIN",
+      "note": "a shower is a fall of rain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RAIN",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A football coach having a shower after a season without a single win.",
+     "walkthrough": "The sporting picture makes 'winless' look like a losing record; it is an instruction to take WIN out of WINTER.",
+     "definitionFit": "A plain synonym in sport: the person who prepares athletes or a team, as a coach does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "winless"
+    }
+   }
   },
   {
    "number": 18,
@@ -310,7 +1143,54 @@
     "text": "Rewrite is due to being prosaic",
     "enumeration": "7"
    },
-   "solution": "TEDIOUS"
+   "solution": "TEDIOUS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TEDIOUS",
+    "definitions": [
+     {
+      "text": "prosaic",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Rewrite",
+      "for": "anagram",
+      "note": "the words are to be rewritten in a new order"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is due to",
+      "gives": "ISDUETO",
+      "note": "seven letters of fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IS DUE TO",
+       "gives": "TEDIOUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An editor explaining that a piece needs rewriting because it is dull.",
+     "walkthrough": "The surface reads as a reason given, so 'is due to' passes for grammar rather than letters.",
+     "definitionFit": "Prosaic in its figurative sense, like prose rather than poetry: flat and lacking imagination, and so dull and wearisome."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "due"
+    }
+   }
   },
   {
    "number": 19,
@@ -324,7 +1204,69 @@
     "text": "Argument is situated in extremes of debate",
     "enumeration": "7"
    },
-   "solution": "DISPUTE"
+   "solution": "DISPUTE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "DISPUTE",
+    "definitions": [
+     {
+      "text": "Argument",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "is situated goes in between the ends of debate"
+     },
+     {
+      "text": "extremes of",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its first and last letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "extremes of debate",
+      "gives": "DE",
+      "select": "outer",
+      "note": "the outer letters of DebatE"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "used as printed"
+     },
+     {
+      "clueFragment": "situated",
+      "gives": "PUT",
+      "note": "put = placed, situated"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "IS",
+      "PUT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "An argument taking place at the far ends of a debate.",
+     "walkthrough": "'Situated' is doing double work in the surface as a place word; here it just means placed.",
+     "definitionFit": "A plain synonym: a disagreement or quarrel, the sense of argument that is a row rather than a line of reasoning."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "situated"
+    }
+   }
   },
   {
    "number": 20,
@@ -338,7 +1280,43 @@
     "text": "Take down flier",
     "enumeration": "7"
    },
-   "solution": "SWALLOW"
+   "solution": "SWALLOW",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SWALLOW",
+    "definitions": [
+     {
+      "text": "Take down",
+      "at": 0
+     },
+     {
+      "text": "flier",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Take down",
+      "note": "to get food down your throat"
+     },
+     {
+      "clueFragment": "flier",
+      "note": "the fork-tailed summer bird"
+     }
+    ],
+    "explanation": {
+     "surface": "An order to shoot down an aircraft.",
+     "walkthrough": "The surface suggests shooting down a plane; 'take down' is getting food down your throat, and the flier is the bird.",
+     "definitionFit": "The verb is to take food or drink down the throat; the noun is a migratory bird, a flier by definition."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "flier"
+    }
+   }
   },
   {
    "number": 21,
@@ -352,7 +1330,43 @@
     "text": "Bread or perhaps …",
     "enumeration": "7"
    },
-   "solution": "BLOOMER"
+   "solution": "BLOOMER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BLOOMER",
+    "definitions": [
+     {
+      "text": "Bread",
+      "at": 0
+     },
+     {
+      "text": "perhaps …",
+      "at": 9,
+      "note": "the ellipsis runs on to 'flower' at the start of 23 across: a flower is something that blooms"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bread",
+      "note": "a British loaf with a rounded top slashed across"
+     },
+     {
+      "clueFragment": "perhaps …",
+      "note": "runs on into 23's 'flower', one example of a thing that blooms"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The clue carries on into 23 across, so read it as 'Bread or perhaps flower'. The loaf is British, a long rounded one slashed across the top.",
+     "definitionFit": "The loaf sense is a British bakery name; the flower sense is literal, since a flower is something that blooms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 21,
@@ -366,7 +1380,56 @@
     "text": "Boy meeting girl, one from Asian region",
     "enumeration": "7"
    },
-   "solution": "BENGALI"
+   "solution": "BENGALI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BENGALI",
+    "definitions": [
+     {
+      "text": "from Asian region",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "meeting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boy",
+      "gives": "BEN",
+      "note": "Ben is a boy's name"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "GAL",
+      "note": "gal = girl"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEN",
+      "GAL",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A boy meeting a girl who comes from somewhere in Asia.",
+     "walkthrough": "The surface pairs 'one' with the girl as the person from Asia; it is the numeral I, and the definition is the adjectival phrase after it.",
+     "definitionFit": "As an adjective the answer means of or from Bengal, a region split between India and Bangladesh."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "one"
+    }
+   }
   },
   {
    "number": 22,
@@ -380,7 +1443,50 @@
     "text": "Stain on morsel in cooking pot",
     "enumeration": "7"
    },
-   "solution": "MARMITE"
+   "solution": "MARMITE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MARMITE",
+    "definitions": [
+     {
+      "text": "cooking pot",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stain",
+      "gives": "MAR",
+      "note": "to mar is to spoil or stain"
+     },
+     {
+      "clueFragment": "morsel",
+      "gives": "MITE",
+      "note": "a mite is a tiny bit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAR",
+      "MITE"
+     ]
+    },
+    "explanation": {
+     "surface": "A splash of food left on the side of a stewpot.",
+     "walkthrough": "In a down clue 'on' puts the first piece above the second. A British reader thinks of the yeast spread; the definition is the French earthenware pot pictured on its jar.",
+     "definitionFit": "A French loan word: the lidded earthenware stockpot, the original meaning before the British spread borrowed the name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Stain"
+    }
+   }
   },
   {
    "number": 23,
@@ -394,7 +1500,41 @@
     "text": "… flower got off the ground",
     "enumeration": "4"
    },
-   "solution": "ROSE"
+   "solution": "ROSE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ROSE",
+    "definitions": [
+     {
+      "text": "flower",
+      "at": 2
+     },
+     {
+      "text": "got off the ground",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flower",
+      "note": "the garden bloom"
+     },
+     {
+      "clueFragment": "got off the ground",
+      "note": "past tense of a verb for going up"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The leading ellipsis joins this to 21 across, where 'flower' also completes that clue.",
+     "definitionFit": "One sense is a flower by example, the best-known garden bloom; the other is the past tense of rise, to go up from the ground."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -408,7 +1548,65 @@
     "text": "State in Armenia misplaced to the west",
     "enumeration": "5"
    },
-   "solution": "MAINE"
+   "solution": "MAINE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "deletion"
+    ],
+    "answer": "MAINE",
+    "definitions": [
+     {
+      "text": "State",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "misplaced",
+      "for": "anagram",
+      "note": "the country's letters are misplaced, put in a new order"
+     },
+     {
+      "text": "in",
+      "for": "deletion",
+      "note": "only the state sitting in the jumble is kept"
+     },
+     {
+      "text": "to the west",
+      "for": "deletion",
+      "note": "the spare letters sit to the west of the state and are dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Armenia",
+      "gives": "ARMENIA",
+      "note": "seven letters of fodder, two more than needed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAINE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ARMENIA",
+       "gives": "RAMAINE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A US state turning up in the wrong place, somewhere west of Armenia.",
+     "walkthrough": "State looks like it might be Armenia itself, a former Soviet state; it is a US state, found in a jumble of Armenia's letters with RA left over at the west end.",
+     "definitionFit": "Definition by class: the answer is the north-easternmost of the United States."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "State"
+    }
+   }
   },
   {
    "number": 25,
@@ -422,7 +1620,58 @@
     "text": "Three-quarters of rump added to a quarter",
     "enumeration": "4"
    },
-   "solution": "AREA"
+   "solution": "AREA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "AREA",
+    "definitions": [
+     {
+      "text": "quarter",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Three-quarters of",
+      "for": "deletion",
+      "note": "keeping three quarters of a four-letter word drops one letter"
+     }
+    ],
+    "linkWords": [
+     "added to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "used as printed"
+     },
+     {
+      "clueFragment": "Three-quarters of rump",
+      "gives": "REA",
+      "note": "rump = REAR, with its last letter dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "REA"
+     ]
+    },
+    "explanation": {
+     "surface": "A butcher's cut of beef in which most of the rump is attached to a quarter.",
+     "walkthrough": "'Quarter' appears right after 'three-quarters', so it looks like more arithmetic; it is the definition, as in a city's Latin Quarter.",
+     "definitionFit": "A quarter of a city is a district, like the Latin Quarter of Paris, and the answer is the general word for such a zone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "quarter"
+    }
+   }
   },
   {
    "number": 26,
@@ -436,7 +1685,55 @@
     "text": "Country Khomeini ultimately reigned over",
     "enumeration": "4"
    },
-   "solution": "IRAN"
+   "solution": "IRAN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "IRAN",
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately points at the last letter of Khomeini"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Khomeini ultimately",
+      "gives": "I",
+      "select": "last",
+      "note": "the last letter of KhomeinI"
+     },
+     {
+      "clueFragment": "reigned over",
+      "gives": "RAN",
+      "note": "to run a country is to reign over it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "RAN"
+     ]
+    },
+    "explanation": {
+     "surface": "The country that Ayatollah Khomeini came to rule.",
+     "walkthrough": "The surface is simply true, which is the trick: Khomeini did rule this country, so it is easy to write the answer without seeing the wordplay.",
+     "definitionFit": "Definition by class, made apt by the surface: the Islamic Republic that Khomeini led after the 1979 revolution."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -450,7 +1747,55 @@
     "text": "Hand is crushed by feet",
     "enumeration": "4"
    },
-   "solution": "FIST"
+   "solution": "FIST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FIST",
+    "definitions": [
+     {
+      "text": "Hand",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is crushed by",
+      "for": "container",
+      "note": "IS is crushed between the letters of feet"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "feet",
+      "gives": "FT",
+      "note": "ft is the abbreviation for feet"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "used as printed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "IS",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's hand being trodden on.",
+     "walkthrough": "The surface is a painful image of a hand under someone's feet; the feet are only an abbreviation.",
+     "definitionFit": "A particular state of the hand, fingers curled tight into the palm, standing for the hand as a whole."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crushed"
+    }
+   }
   },
   {
    "number": 28,
@@ -464,7 +1809,52 @@
     "text": "After working out, late run unremarkable",
     "enumeration": "7"
    },
-   "solution": "NEUTRAL"
+   "solution": "NEUTRAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NEUTRAL",
+    "definitions": [
+     {
+      "text": "unremarkable",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "After working out",
+      "for": "anagram",
+      "note": "the letters are worked out into a new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "late run",
+      "gives": "LATERUN",
+      "note": "seven letters of fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LATE RUN",
+       "gives": "NEUTRAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A jogger's verdict on an evening run after the gym: nothing special.",
+     "walkthrough": "'Working out' fits the running picture as exercise; here it is the anagram signal.",
+     "definitionFit": "Used of colours, tastes or tones, the answer means having no strong character, and so nothing to remark on."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 29,
@@ -478,7 +1868,60 @@
     "text": "Brainless I figure, while having come first",
     "enumeration": "7"
    },
-   "solution": "ASININE"
+   "solution": "ASININE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASININE",
+    "definitions": [
+     {
+      "text": "Brainless",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "having come first",
+      "for": "charade",
+      "note": "the word for while is moved to the front of the other pieces"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "while",
+      "gives": "AS",
+      "note": "as = while"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "used as printed"
+     },
+     {
+      "clueFragment": "figure",
+      "gives": "NINE",
+      "note": "nine is a figure, a number"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AS",
+      "I",
+      "NINE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone admitting to a silly calculation.",
+     "walkthrough": "The clue lists its pieces out of order: the last one named is told to come first, so read 'while' before 'I' and 'figure'.",
+     "definitionFit": "From the Latin for ass: the answer means as stupid as a donkey, and so brainless."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "figure"
+    }
+   }
   },
   {
    "number": 30,
@@ -498,7 +1941,62 @@
      }
     ]
    },
-   "solution": "PENNYWHISTLE"
+   "solution": "PENNYWHISTLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "PENNY WHISTLE",
+    "definitions": [
+     {
+      "text": "One’s played",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "but no heart",
+      "for": "deletion",
+      "note": "with no heart, love loses its middle letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "money",
+      "gives": "PENNY",
+      "note": "a penny is a coin"
+     },
+     {
+      "clueFragment": "game",
+      "gives": "WHIST",
+      "note": "whist is a card game"
+     },
+     {
+      "clueFragment": "love, but no heart",
+      "gives": "LE",
+      "note": "LOVE without its centre OV"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PENNY",
+      "WHIST",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A heartless card player who plays a money game and cares nothing for love.",
+     "walkthrough": "'One's played' looks like a gambler talking; it is the definition, one being something that is played, a musical instrument.",
+     "definitionFit": "A cryptic hint by function: the answer is a cheap tin flute, and an instrument is a thing that is played."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "played"
+    }
+   }
   }
  ]
 }
