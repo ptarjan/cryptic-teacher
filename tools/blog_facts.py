@@ -2006,11 +2006,44 @@ def fact_json(fact, clue):
 def file_text(rows):
     """A tools/data/blog_facts/<series>.json file: one puzzle per line in id
     order, its clues in id order, every object's keys in the schema's order."""
-    return "{\n" + ",\n".join(
-        json.dumps(pid) + ": " + json.dumps(
-            order({**row, "entries": dict(sorted(row["entries"].items()))}, "#/$defs/blogFacts"),
-            ensure_ascii=False)
-        for pid, row in sorted(rows.items())) + "\n}\n"
+    return "{\n" + ",\n".join(row_line(pid, row) for pid, row in sorted(rows.items())) + "\n}\n"
+
+
+def row_line(pid, row):
+    """One puzzle's line of file_text, without its separating comma."""
+    return json.dumps(pid) + ": " + json.dumps(
+        order({**row, "entries": dict(sorted(row["entries"].items()))}, "#/$defs/blogFacts"),
+        ensure_ascii=False)
+
+
+def file_rows(path):
+    """(puzzle id, row) off a file_text file, one line at a time, in its order."""
+    dec = json.JSONDecoder()
+    with path.open(encoding="utf-8") as f:
+        for line in f:
+            line = line.rstrip("\n").rstrip(",")
+            if line in ("{", "}", ""):
+                continue
+            pid, end = dec.raw_decode(line)
+            if line[end:end + 2] != ": ":
+                sys.exit(f"{path} is not one puzzle a line: rerun tools/blog_facts.py, which writes it so")
+            yield pid, json.loads(line[end + 2:])
+
+
+def rewrite_rows(path, rows):
+    """Write `rows`, (puzzle id, row) in id order, to `path` as file_text lays
+    it out, one line at a time; `rows` may read the file it replaces."""
+    tmp = path.with_suffix(".tmp")
+    with tmp.open("w", encoding="utf-8") as f:
+        f.write("{\n")
+        last = None
+        for pid, row in rows:
+            if last is not None and pid <= last:
+                sys.exit(f"{path}: {pid} follows {last}; file_text writes puzzles in id order")
+            f.write((",\n" if last is not None else "") + row_line(pid, row))
+            last = pid
+        f.write("\n}\n")
+    tmp.replace(path)
 
 
 def fact_from_json(entry):
