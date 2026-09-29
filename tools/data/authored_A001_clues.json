@@ -1,5 +1,5 @@
 {
- "_comment": "Clues and annotations authored for the grid in sample_fill_11.json. Keyed by entry id. Consumed by tools/build_authored_puzzle.py, which merges these with the fill geometry and writes puzzles/authored/<year>/A001.json through fetch_puzzle.write_puzzle_file. Each entry is the puzzle entry's `clue` and `annotation`, in tools/data/puzzle.schema.json's shapes (definition `at` is placed on write). Every word of every clue must be definition, wordplay or joinery — a block with an empty `gives` is a validator ERROR here (see tools/AUTHORING.md, 'Exactly two pieces').",
+ "_comment": "Clues and annotations authored for the grid in sample_fill_11.json. Keyed by entry id. Consumed by tools/build_authored_puzzle.py, which merges these with the fill geometry and writes puzzles/authored/<year>/authored-1.json through fetch_puzzle.write_puzzle_file. Each entry is the puzzle entry's `clue` and `annotation`, in tools/data/puzzle.schema.json's shapes (definition `at` is placed on write). Every word of every clue must be definition, wordplay or joinery — a block with an empty `gives` is a validator ERROR here, except in a pure cryptic definition, whose blocks are its two readings (see tools/AUTHORING.md, 'Exactly two pieces').",
  "1-across": {
   "clue": {
    "text": "Expectant fathers do it up and down (4)"
@@ -16,13 +16,24 @@
    ],
    "blocks": [
     {
-     "clueFragment": "Expectant fathers do it up and down",
-     "gives": "PACE",
-     "note": "what a man does in a hospital corridor: he paces"
+     "clueFragment": "Expectant fathers",
+     "note": "the surface sense: men waiting outside a maternity ward"
+    },
+    {
+     "clueFragment": "do it up and down",
+     "note": "the setter's sense: walking the same stretch of floor to and fro, over and over"
     }
    ],
    "explanation": {
-    "walkthrough": "No indicator, no fodder, nothing to take apart: when a short clue offers none of those, read it as one plain statement and hunt for the single word it describes sideways."
+    "surface": "A waiting-room scene: fathers-to-be wearing a track in the maternity corridor.",
+    "walkthrough": "No indicator, no fodder, nothing to take apart: when a short clue offers none of those, read it as one plain statement and hunt for the single word it describes sideways.",
+    "definitionFit": "Expectant fathers do it up and down → PACE: to pace is to walk to and fro over the same ground, the classic picture of a nervous wait."
+   },
+   "features": {
+    "answerInScene": true,
+    "aptDefinition": true,
+    "joke": "pun",
+    "misdirectedWord": "Expectant"
    }
   }
  },
@@ -43,7 +54,8 @@
    "indicators": [
     {
      "text": "flattened",
-     "for": "anagram"
+     "for": "anagram",
+     "note": "Something flattened has had its shape knocked out of it, so the letters of the word beside it lose their order too."
     }
    ],
    "blocks": [
@@ -62,7 +74,15 @@
     ]
    },
    "explanation": {
-    "walkthrough": "'Flattened' is doing two jobs at once: it is the history — Naples was bombed flat in 1943 — and it is the instruction. The aircraft come out of the city's own name, and that is the whole joke."
+    "surface": "A war history note: the Italian port was bombed flat from the air.",
+    "walkthrough": "'Flattened' is doing two jobs at once: it is the history — Naples was bombed flat in 1943 — and it is the instruction. The aircraft come out of the city's own name, and that is the whole joke.",
+    "definitionFit": "aircraft → PLANES: a plain synonym, planes being the everyday short word for aeroplanes of any kind."
+   },
+   "features": {
+    "answerInScene": true,
+    "aptDefinition": false,
+    "joke": "pun",
+    "misdirectedWord": "flattened"
    }
   }
  },
@@ -102,7 +122,14 @@
     ]
    },
    "explanation": {
-    "walkthrough": "T is the standard abbreviation for time and 'here' is lifted whole, so the charade needs no instruction word. The joke is the sentence's own: our time here leads to the hereafter."
+    "surface": "A solemn thought: our time on earth is only the way to somewhere beyond.",
+    "walkthrough": "T is the standard abbreviation for time and 'here' is lifted whole, so the charade needs no instruction word. The joke is the sentence's own: our time here leads to the hereafter.",
+    "definitionFit": "yonder → THERE: both point at a place away from the speaker; yonder is the old word for over there."
+   },
+   "features": {
+    "answerInScene": false,
+    "aptDefinition": false,
+    "misdirectedWord": "here"
    }
   }
  },
@@ -122,13 +149,24 @@
    ],
    "blocks": [
     {
+     "clueFragment": "Venus de Milo",
+     "note": "the surface sense: the Louvre's famous statue, which lost both its limbs"
+    },
+    {
      "clueFragment": "What the Venus de Milo isn't",
-     "gives": "ARMED",
-     "note": "the statue lost both arms, so this is the one thing she cannot be"
+     "note": "the setter's sense: a word for carrying weapons that, read literally, also means having limbs"
     }
    ],
    "explanation": {
-    "walkthrough": "Definition by denial — the answer is the thing the sentence says is missing. The pleasure is the second sense sitting inside it: armed means carrying a weapon, and it also just means having arms."
+    "surface": "A museum quip about the famous statue's missing limbs.",
+    "walkthrough": "Definition by denial — the answer is the thing the sentence says is missing. The pleasure is the second sense sitting inside it: armed means carrying a weapon, and it also just means having arms.",
+    "definitionFit": "What the Venus de Milo isn't → ARMED: the adjective means bearing weapons, and read literally it means having arms, which the statue lost."
+   },
+   "features": {
+    "answerInScene": true,
+    "aptDefinition": true,
+    "joke": "pun",
+    "misdirectedWord": "isn't"
    }
   }
  },
@@ -149,7 +187,8 @@
    "indicators": [
     {
      "text": "riddled",
-     "for": "anagram"
+     "for": "anagram",
+     "note": "A riddle is a coarse sieve, and grain riddled through one is shaken about until nothing stays where it started."
     }
    ],
    "blocks": [
@@ -168,7 +207,15 @@
     ]
    },
    "explanation": {
-    "walkthrough": "A riddle is a coarse sieve, so 'riddled' really does mean shaken up rather than merely infested. The joke is that the newspapermen and their favourite mistakes are the same nine letters."
+    "surface": "A media complaint: journalists are full of their favourite mistakes.",
+    "walkthrough": "A riddle is a coarse sieve, so 'riddled' really does mean shaken up rather than merely infested. The joke is that the newspapermen and their favourite mistakes are the same nine letters.",
+    "definitionFit": "The press → REPORTERS: 'the press' is the collective name for journalists, and reporters are the ones who gather the news."
+   },
+   "features": {
+    "answerInScene": true,
+    "aptDefinition": false,
+    "joke": "pun",
+    "misdirectedWord": "riddled"
    }
   }
  },
@@ -206,7 +253,15 @@
     ]
    },
    "explanation": {
-    "walkthrough": "The sentence you took the pieces out of is also the definition, and the anthill pays for both at once: a queen's helper really would be an ant."
+    "surface": "Life in an anthill: the queen is looked after by her workers.",
+    "walkthrough": "The sentence you took the pieces out of is also the definition, and the anthill pays for both at once: a queen's helper really would be an ant.",
+    "definitionFit": "The queen's help comes from a worker → ASSISTANT: an assistant is a helper, and in a colony the queen's helper is literally a worker ant."
+   },
+   "features": {
+    "answerInScene": true,
+    "aptDefinition": true,
+    "joke": "pun",
+    "misdirectedWord": "queen's"
    }
   }
  },
@@ -227,7 +282,8 @@
    "indicators": [
     {
      "text": "dreadful",
-     "for": "anagram"
+     "for": "anagram",
+     "note": "Something dreadful is in a terrible state, so the letters beside it arrive in terrible disorder."
     }
    ],
    "linkWords": [
@@ -249,7 +305,15 @@
     ]
    },
    "explanation": {
-    "walkthrough": "'Dreadful' describes the noise and instructs you to shake the letters, which is why it does not sound like an order. The joke is that the instrument's own groan is the instrument."
+    "surface": "A concert-hall complaint: the organ produces an awful moaning sound.",
+    "walkthrough": "'Dreadful' describes the noise and instructs you to shake the letters, which is why it does not sound like an order. The joke is that the instrument's own groan is the instrument.",
+    "definitionFit": "The instrument → ORGAN: definition by category, an organ being one kind of musical instrument."
+   },
+   "features": {
+    "answerInScene": true,
+    "aptDefinition": false,
+    "joke": "pun",
+    "misdirectedWord": "groan"
    }
   }
  },
@@ -270,18 +334,27 @@
    "indicators": [
     {
      "text": "buried in",
-     "for": "hidden_word"
+     "for": "hidden_word",
+     "note": "To bury something is to hide it inside something else, so the answer lies hidden inside the next word."
     }
    ],
    "blocks": [
     {
      "clueFragment": "winter",
      "gives": "INTER",
-     "note": "the answer is buried in w-INTER"
+     "note": "all of 'winter' but its first letter"
     }
    ],
    "explanation": {
-    "walkthrough": "'Buried in' is the back-page verb and the only instruction you get. The second gag is that to inter IS to bury, so the answer means exactly what the clue does to it."
+    "surface": "A football headline: the Italian side went out in the cold months.",
+    "walkthrough": "'Buried in' is the back-page verb and the only instruction you get. The second gag is that to inter IS to bury, so the answer means exactly what the clue does to it.",
+    "definitionFit": "Milan club → INTER: Internazionale, the Milan football club known everywhere by its short name."
+   },
+   "features": {
+    "answerInScene": false,
+    "aptDefinition": true,
+    "joke": "pun",
+    "misdirectedWord": "buried"
    }
   }
  },
@@ -309,7 +382,7 @@
     {
      "clueFragment": "Delight",
      "gives": "PLEASE",
-     "note": "to please is to delight"
+     "note": "to delight someone is to make them glad"
     },
     {
      "clueFragment": "the magic word",
@@ -318,7 +391,15 @@
     }
    ],
    "explanation": {
-    "walkthrough": "The seam hides inside an idiom: 'delight in' looks like one verb, so nobody notices that 'Delight' has already finished its job before the second definition starts."
+    "surface": "Advice on manners: take joy in saying the polite request word.",
+    "walkthrough": "The seam hides inside an idiom: 'delight in' looks like one verb, so nobody notices that 'Delight' has already finished its job before the second definition starts.",
+    "definitionFit": "Delight → PLEASE, and the magic word → PLEASE: to delight someone is to give them pleasure, and 'the magic word' is what children are taught to add to requests."
+   },
+   "features": {
+    "answerInScene": true,
+    "aptDefinition": true,
+    "joke": "pun",
+    "misdirectedWord": "in"
    }
   }
  },
@@ -339,18 +420,28 @@
    "indicators": [
     {
      "text": "is heard to",
-     "for": "homophone"
+     "for": "homophone",
+     "note": "What is heard is a sound rather than a spelling, so the next word is replaced by one that sounds the same."
     }
    ],
    "blocks": [
     {
-     "clueFragment": "pray",
-     "gives": "PRAY",
-     "note": "said aloud, PRAY is PREY"
+     "clueFragment": "is heard to pray",
+     "gives": "PREY",
+     "soundsLike": "PRAY",
+     "note": "'pray' spoken aloud sounds like a word for a hunted animal"
     }
    ],
    "explanation": {
-    "walkthrough": "The joke needs no unpacking once you picture it: the creature with the best reason to pray is the one about to be eaten."
+    "surface": "A fable image: the wolf's supper is overheard saying its prayers.",
+    "walkthrough": "The joke needs no unpacking once you picture it: the creature with the best reason to pray is the one about to be eaten.",
+    "definitionFit": "The wolf's dinner → PREY: prey is the animal a predator hunts and eats, so a wolf's dinner is its prey."
+   },
+   "features": {
+    "answerInScene": true,
+    "aptDefinition": true,
+    "joke": "pun",
+    "misdirectedWord": "pray"
    }
   }
  },
@@ -372,7 +463,8 @@
    "indicators": [
     {
      "text": "Surrounded by",
-     "for": "container"
+     "for": "container",
+     "note": "Something surrounded by other things sits in their middle, so the Queen's letters go inside the pets."
     }
    ],
    "blocks": [
@@ -395,7 +487,14 @@
     ]
    },
    "explanation": {
-    "walkthrough": "The corgis are the misdirection: it is an ordinary sentence about a royal photocall, and while you picture it the monarch quietly climbs inside another word."
+    "surface": "A royal photocall: the monarch among her corgis, fading from view.",
+    "walkthrough": "The corgis are the misdirection: it is an ordinary sentence about a royal photocall, and while you picture it the monarch quietly climbs inside another word.",
+    "definitionFit": "dwindles → PETERS: the verb survives mainly in 'peters out', meaning to fade away gradually."
+   },
+   "features": {
+    "answerInScene": true,
+    "aptDefinition": false,
+    "misdirectedWord": "pets"
    }
   }
  },
@@ -416,7 +515,8 @@
    "indicators": [
     {
      "text": "Bruised",
-     "for": "anagram"
+     "for": "anagram",
+     "note": "A bruised peach has been knocked about, and letters knocked about lose their order."
     }
    ],
    "blocks": [
@@ -435,7 +535,14 @@
     ]
    },
    "explanation": {
-    "walkthrough": "Bruising is exactly why fruit ends up in the reduced box, so the word that scrambles the letters is also the reason the price fell. And a peach, in the other sense, is a beauty."
+    "surface": "A market-stall scene: damaged fruit being sold off for almost nothing.",
+    "walkthrough": "Bruising is exactly why fruit ends up in the reduced box, so the word that scrambles the letters is also the reason the price fell. And a peach, in the other sense, is a beauty.",
+    "definitionFit": "goes for next to nothing → CHEAP: something that sells for very little is cheap, the phrase describing its price."
+   },
+   "features": {
+    "answerInScene": true,
+    "aptDefinition": true,
+    "misdirectedWord": "peach"
    }
   }
  },
@@ -476,7 +583,15 @@
     ]
    },
    "explanation": {
-    "walkthrough": "A charade needs no instruction word at all — the pieces just stand in the order the clue prints them. The joke is the minister who buys a skateboard and files it under strategy."
+    "surface": "Management satire: bosses try to look fashionable and call that strategy.",
+    "walkthrough": "A charade needs no instruction word at all — the pieces just stand in the order the clue prints them. The joke is the minister who buys a skateboard and files it under strategy.",
+    "definitionFit": "direction → LEADERSHIP: direction in the sense of guiding people, the job of whoever is in charge."
+   },
+   "features": {
+    "answerInScene": true,
+    "aptDefinition": true,
+    "joke": "absurd",
+    "misdirectedWord": "hip"
    }
   }
  },
@@ -501,16 +616,24 @@
     {
      "clueFragment": "Call them what you like",
      "gives": "NAMES",
-     "note": "what you call someone is their names"
+     "note": "what you call a person is the label they go by"
     },
     {
      "clueFragment": "they're still stars",
      "gives": "NAMES",
-     "note": "the famous are big names"
+     "note": "stars are the famous, known by labels everyone recognises"
     }
    ],
    "explanation": {
-    "walkthrough": "The comma hides the seam, and the pleasure is watching 'call' quietly change job as the second half lands."
+    "surface": "A shrug about celebrities: whatever label you give them, they remain stars.",
+    "walkthrough": "The comma hides the seam, and the pleasure is watching 'call' quietly change job as the second half lands.",
+    "definitionFit": "Call them what you like → NAMES, and they're still stars → NAMES: a name is what you call someone, and the famous are 'big names'."
+   },
+   "features": {
+    "answerInScene": true,
+    "aptDefinition": true,
+    "joke": "pun",
+    "misdirectedWord": "Call"
    }
   }
  },
@@ -531,18 +654,26 @@
    "indicators": [
     {
      "text": "There's a mole in",
-     "for": "hidden_word"
+     "for": "hidden_word",
+     "note": "A mole is a spy concealed inside an organisation, so something is concealed inside the words that follow."
     }
    ],
    "blocks": [
     {
      "clueFragment": "the president's",
      "gives": "SIDE",
-     "note": "hiding in pre-SIDE-nt"
+     "note": "four letters in the middle of 'president's', after its first three"
     }
    ],
    "explanation": {
-    "walkthrough": "A mole is a thing concealed inside an organisation, so the sentence is the hiding instruction without ever sounding like one — and the mole really is buried in the longest word, doing exactly what a mole does."
+    "surface": "A political spy story: an infiltrator inside the president's inner circle.",
+    "walkthrough": "A mole is a thing concealed inside an organisation, so the sentence is the hiding instruction without ever sounding like one — and the mole really is buried in the longest word, doing exactly what a mole does.",
+    "definitionFit": "team → SIDE: a side is a team in sport, and more loosely any group on one side of a contest."
+   },
+   "features": {
+    "answerInScene": true,
+    "aptDefinition": false,
+    "misdirectedWord": "mole"
    }
   }
  },
@@ -582,7 +713,15 @@
     ]
    },
    "explanation": {
-    "walkthrough": "Say it aloud and the false word-division does all the work: the rep who resents is, letter for letter, the man who represents."
+    "surface": "A union rep who resents what he is supposed to stand for.",
+    "walkthrough": "Say it aloud and the false word-division does all the work: the rep who resents is, letter for letter, the man who represents.",
+    "definitionFit": "stands for → REPRESENTS: to stand for something is to represent it, as a symbol or as a delegate."
+   },
+   "features": {
+    "answerInScene": true,
+    "aptDefinition": true,
+    "joke": "pun",
+    "misdirectedWord": "resents"
    }
   }
  },
@@ -603,7 +742,8 @@
    "indicators": [
     {
      "text": "Ground",
-     "for": "anagram"
+     "for": "anagram",
+     "note": "Ground grain is crushed to pieces, so the letters beside it are broken up and remixed."
     }
    ],
    "linkWords": [
@@ -625,7 +765,15 @@
     ]
    },
    "explanation": {
-    "walkthrough": "Crushed oyster shell really is laid as flooring, so 'Ground' describes the stuff and shuffles it in the same breath. The joke is which floor you get: not the surface underfoot but a whole storey of the building."
+    "surface": "A builder's note: crushed oyster shell laid down as a floor.",
+    "walkthrough": "Crushed oyster shell really is laid as flooring, so 'Ground' describes the stuff and shuffles it in the same breath. The joke is which floor you get: not the surface underfoot but a whole storey of the building.",
+    "definitionFit": "floor → STOREY: a floor of a building, one level of it, not the surface underfoot."
+   },
+   "features": {
+    "answerInScene": true,
+    "aptDefinition": true,
+    "joke": "pun",
+    "misdirectedWord": "floor"
    }
   }
  },
@@ -646,7 +794,8 @@
    "indicators": [
     {
      "text": "among",
-     "for": "hidden_word"
+     "for": "hidden_word",
+     "note": "Something among a crowd is somewhere inside it, so the answer lies within the words that follow."
     }
    ],
    "linkWords": [
@@ -656,11 +805,18 @@
     {
      "clueFragment": "the star guests",
      "gives": "ARGUE",
-     "note": "hidden inside st-ARGUE-sts"
+     "note": "starting at the third letter of 'star' and running into 'guests'"
     }
    ],
    "explanation": {
-    "walkthrough": "'Row' here rhymes with cow, not with toe — that switch of sense is the whole misdirection. And the row really is inside the star guests, exactly where the caption says it is."
+    "surface": "A gossip-column line: the celebrity guests have fallen out.",
+    "walkthrough": "'Row' here rhymes with cow, not with toe — that switch of sense is the whole misdirection. And the row really is inside the star guests, exactly where the caption says it is.",
+    "definitionFit": "row → ARGUE: a row, rhyming with cow, is a quarrel, and to argue is to have one."
+   },
+   "features": {
+    "answerInScene": true,
+    "aptDefinition": false,
+    "misdirectedWord": "row"
    }
   }
  },
@@ -681,7 +837,8 @@
    "indicators": [
     {
      "text": "slips out of",
-     "for": "deletion"
+     "for": "deletion",
+     "note": "Something that slips out of a harness leaves it behind, so that letter comes out of the word that follows."
     }
    ],
    "blocks": [
@@ -693,7 +850,7 @@
     {
      "clueFragment": "the halter",
      "gives": "HALTER",
-     "note": "take the H out of HALTER and ALTER is left"
+     "note": "a horse's head-rope, which loses its first letter when the husband goes"
     }
    ],
    "assembly": {
@@ -702,7 +859,15 @@
     ]
    },
    "explanation": {
-    "walkthrough": "H = husband is shorthand worth memorising, and slipping out of a halter is a real thing to do, so nothing sounds like an instruction. The joke is that a horse wears a halter — and so, apparently, does a married man."
+    "surface": "A farmyard image: a married man wriggling free of a horse's halter to change.",
+    "walkthrough": "H = husband is shorthand worth memorising, and slipping out of a halter is a real thing to do, so nothing sounds like an instruction. The joke is that a horse wears a halter — and so, apparently, does a married man.",
+    "definitionFit": "change → ALTER: a plain synonym; to alter something is to change it."
+   },
+   "features": {
+    "answerInScene": false,
+    "aptDefinition": false,
+    "joke": "absurd",
+    "misdirectedWord": "halter"
    }
   }
  },
@@ -723,7 +888,8 @@
    "indicators": [
     {
      "text": "Up",
-     "for": "reversal"
+     "for": "reversal",
+     "note": "In a down entry, up means read from the bottom, so the word is written in reverse order."
     }
    ],
    "linkWords": [
@@ -748,7 +914,14 @@
     ]
    },
    "explanation": {
-    "walkthrough": "A down entry has no 'backwards': its reversal runs upward, which is why 'Up' and never 'Back' can do this job here. And a swimmer going up the pool really is on another circuit."
+    "surface": "A swimmer heads up the pool to start another length.",
+    "walkthrough": "A down entry has no 'backwards': its reversal runs upward, which is why 'Up' and never 'Back' can do this job here. And a swimmer going up the pool really is on another circuit.",
+    "definitionFit": "circuit → LOOP: a loop is a route that brings you back to where you started, like a circuit."
+   },
+   "features": {
+    "answerInScene": true,
+    "aptDefinition": false,
+    "misdirectedWord": "pool"
    }
   }
  }

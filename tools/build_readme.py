@@ -162,6 +162,7 @@ LAYOUT = [
     ("setting our own puzzles", "tools/clueability.py", "scores how easy a fair cryptic clue for a word would be"),
     ("setting our own puzzles", "tools/build_lexicon.js", "extracts the fillable word list (rank, region, family, phonetics) from the lexicon"),
     ("setting our own puzzles", "tools/build_authored_puzzle.py", "merges a fill and its hand-written clues into a publishable puzzle file"),
+    ("setting our own puzzles", "tools/test_build_authored_puzzle.sh", "builds A001 through the real write path into a scratch tree and holds it to the schema, the integrity checks and the annotation rules, since no corpus sweep ever sees it"),
 
     ("solving the puzzles whose answers aren’t published yet",
      "tools/solve_packet.py", "the clues and the grid’s crossing map, for a cold solve"),

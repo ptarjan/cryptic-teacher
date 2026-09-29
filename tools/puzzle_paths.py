@@ -73,7 +73,7 @@ def puzzle_path(series, number):
 
 def puzzle_files():
     """Every published puzzle file: <series>-<number>.json one level under a
-    year folder. Not an authored draft (A001.json), not generated output."""
+    year folder. Not generated output."""
     return sorted(PUZZLE_DIR.glob("*/*/*-[0-9]*.json"))
 
 
@@ -83,9 +83,7 @@ def resolve_puzzle(arg):
 
     A bare number resolves only while it names exactly one puzzle; an ambiguous
     one is an error naming the candidates, never a guess — guessing would
-    annotate one paper's grid from another paper's clues. An authored draft
-    ("A001") resolves here although puzzle_files() skips it, because naming one
-    by hand is how it gets validated.
+    annotate one paper's grid from another paper's clues.
     """
     arg = str(arg)
     series, _ = series_meta.parse_id(arg)
