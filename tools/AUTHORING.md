@@ -209,8 +209,8 @@ instantly.
 A001's twenty clues were scored against 60 published clues for the same
 answers, taken from the Times, Guardian, FT and Independent blogs. Three judges
 scored them on five axes from `tools/data/grading_rubric.md`, without being told
-which clues were ours. Build the packets with `tools/grade_clues.py`; score them
-with `tools/score_grading.py`.
+which clues were ours. Build the packets with `tools/grade_clues.py`, judge them
+with `tools/grade_clues_judge.sh` and score them with `tools/score_grading.py`.
 
                   ours   human    gap
     surface       3.10    3.73   -0.63
@@ -260,6 +260,31 @@ Two habits to break. `tools/clue_quality.py` flags both.
 Do not over-correct: **economy was already fine** (+0.15), so the answer is not
 longer clues. The `terse` flag fires on ten of the twenty, including the best
 ones. Extra words help only if they buy a surface idea.
+
+### 2026-09-29: Opus 5.5, same twenty answers, same sixty human clues
+
+`claude-opus-5-5` wrote twenty fresh clues without seeing any earlier A001 clue
+or any published clue for these answers. It got these rules with the A001
+examples removed, and all twenty passed `tools/validate_annotations.py`. Judges
+are now `tools/grade_clues_judge.sh`: three fresh `claude-opus-5-5` runs at
+medium effort per arm. July recorded neither the judges' model nor their prompt,
+so a control arm re-judged July's round-two packets byte for byte.
+
+| arm | ours | human | gap | wins /20 | spotted |
+| --- | --- | --- | --- | --- | --- |
+| round two, July judges | 3.56 | 3.76 | -0.20 | 5 | 36% |
+| round two, new judges (control) | 3.51 | 3.46 | +0.05 | 5 | 33% |
+| current A001, new judges | 3.60 | 3.35 | +0.25 | 8 | 25% |
+| Opus 5.5 fresh, new judges | 3.78 | 3.29 | +0.48 | 7 | 14% |
+
+**Compare arms against the control row, not against July.** The new judges
+score the same human clues about 0.3 lower. That moves every gap about +0.25
+before any clue changes. With that subtracted, the rewrite is worth about +0.2
+and the model about +0.2 more. Most of the fresh set's lead is economy (+1.16)
+and fairness (+0.89). Misdirection is still behind (-0.14). The fresh clues are
+conventional Times-style (`Step softly, champion`, `Hacks on the beers`), not
+pub jokes. The judges are the same model as the author, and that may be part of
+why they like them.
 
 ## The surface is a sentence, and it carries a joke
 
