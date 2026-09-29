@@ -1,10 +1,18 @@
 #!/usr/bin/env python3
 """Build blind head-to-head packets: our clues against human ones, same answers.
 
-The georgeho corpus holds 660k published clues with their answers, so for every
-word we have set, real setters have set it too — often a dozen times. That makes
-a controlled comparison possible: same answer, same enumeration, different
-setter. The only variable left is the writing.
+puzzles/ holds a million published clues with their answers, in the
+publishers' own text, so for every word we have set, real setters have set it
+too, often dozens of times. That makes a controlled comparison possible: same
+answer, same enumeration, different setter. The only variable left is the
+writing.
+
+The rivals used to come from a blog scrape (georgeho), and the scrape showed:
+A001's field held an anagram with no indicator, a hidden word with no
+indicator and a clue with no derivation. Now they are drawn from tracked
+puzzles, annotated ones first because the validator has proved them sound,
+and at most one per series until the pool runs out, so no one paper's house
+style is the whole field. key.json records each rival's puzzle and entry.
 
 Blindness matters more than it looks. We cannot judge our own clues; we know
 which are ours, and knowing is enough to bias the score. So this script strips
@@ -44,20 +52,13 @@ import json
 import random
 import re
 import shutil
-import sqlite3
 import unicodedata
 from pathlib import Path
 
 import enumeration  # tools/enumeration.py; tools/ is this script's own directory
+from puzzle_paths import puzzle_files
 
 ROOT = Path(__file__).resolve().parent.parent
-CORPUS = Path.home() / "cryptic-setter-data" / "georgeho" / "data.db"
-
-# Blogs of the broadsheet dailies. Restricting to these keeps the comparison
-# honest: we are measuring ourselves against professionally edited clues, not
-# against the weakest thing in a 660k-row scrape.
-GOOD_SOURCES = ("times_xwd_times", "fifteensquared", "bigdave44")
-
 RIVALS_PER_ANSWER = 3
 
 
@@ -70,56 +71,47 @@ def clean(text):
     return re.sub(r"\s+", " ", text).strip()
 
 
-def printed_enumeration(clue):
-    m = re.search(r"\(([\d,\-\s]+)\)\s*$", clue)
-    return m.group(1) if m else None
+def published_clues(answers):
+    """Every published clue in puzzles/ for these answers: {answer: [rival]}.
 
-
-def usable(clue, answer):
-    """Reject corpus rows that would make the packet unfair or unreadable."""
-    if not clue or len(clue) < 12:
-        return False
-    enum = printed_enumeration(clue)
-    if enum is None:
-        return False
-    # The enumeration must add up to the answer we are comparing against. The
-    # corpus stores multi-word answers unspaced, so a (4,6) PACESETTER clue is
-    # filed under an answer that starts with PACE and sails through a naive
-    # answer match — then a judge sees a ten-letter clue in a four-letter
-    # packet, scores it as broken, and the comparison for that word is junk.
-    parts = [int(n) for n in re.findall(r"\d+", enum)]
-    if sum(parts) != len(answer):
-        return False
-    # Some rows carry the answer inline, or blog annotation in braces.
-    if re.search(rf"\b{re.escape(answer)}\b", clue, re.I):
-        return False
-    if any(ch in clue for ch in "{}[]<>"):
-        return False
-    # Cross-referenced clues ("see 4 down") cannot be solved standalone.
-    if re.search(r"\b(see|and)\s+\d+\b", clue, re.I):
-        return False
-    return True
-
-
-def fetch_rivals(db, answer, want, rng):
-    rows = db.execute(
-        "select clue from clues where upper(answer)=? and source in ({})".format(
-            ",".join("?" * len(GOOD_SOURCES))
-        ),
-        (answer, *GOOD_SOURCES),
-    ).fetchall()
-    seen, pool = set(), []
-    for (clue,) in rows:
-        c = clean(clue)
-        if not usable(c, answer):
+    A rival is its printed text plus where it came from. Cross-references ("See
+    4 down") and the non-leading lights of a linked answer are left out: they
+    cannot be solved standalone."""
+    pool = {a: [] for a in answers}
+    for path in puzzle_files():
+        p = json.loads(Path(path).read_text())
+        if p.get("series") == "authored":
             continue
-        k = c.lower()
-        if k in seen:
-            continue
-        seen.add(k)
-        pool.append(c)
-    rng.shuffle(pool)
-    return pool[:want]
+        for e in p.get("entries") or []:
+            if e.get("solution") not in pool or not (e.get("clue") or {}).get("text"):
+                continue
+            text = clean(enumeration.printed(e["clue"]))
+            if re.search(r"\b(see|and)\s+\d+\b", text, re.I):
+                continue
+            pool[e["solution"]].append({"text": text, "series": p["series"],
+                                        "puzzle": p["id"], "entry": e["id"],
+                                        "annotated": bool(e.get("annotation"))})
+    return pool
+
+
+def pick_rivals(pool, want, rng):
+    """Annotated before unannotated, one per series before a second from any."""
+    seen, rivals = set(), []
+    for r in pool:
+        if r["text"].lower() not in seen:
+            seen.add(r["text"].lower())
+            rivals.append(r)
+    rng.shuffle(rivals)
+    rivals.sort(key=lambda r: not r["annotated"])
+    picked, series_used = [], set()
+    for r in rivals:
+        if len(picked) < want and r["series"] not in series_used:
+            picked.append(r)
+            series_used.add(r["series"])
+    for r in rivals:
+        if len(picked) < want and r not in picked:
+            picked.append(r)
+    return picked
 
 
 def run_id(packets):
@@ -164,15 +156,17 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--clues", default="tools/data/authored_A001_clues.json")
     ap.add_argument("--out", default="tools/data/grading")
-    ap.add_argument("--corpus", default=str(CORPUS))
     ap.add_argument("--seed", type=int, default=11)
     args = ap.parse_args()
 
     ours = json.loads((ROOT / args.clues).read_text())
-    db = sqlite3.connect(args.corpus)
     rng = random.Random(args.seed)
 
     out = ROOT / args.out
+
+    answers = {"".join(c for c in spec["annotation"]["answer"].upper() if c.isalpha())
+               for eid, spec in ours.items() if not eid.startswith("_")}
+    pool = published_clues(answers)
 
     key, thin, packets = {}, [], []
     for eid, spec in sorted(ours.items()):
@@ -182,20 +176,20 @@ def main():
             c for c in spec["annotation"]["answer"].upper() if c.isalpha()
         )
         mine = clean(enumeration.printed(spec["clue"]))
-        rivals = fetch_rivals(db, answer, RIVALS_PER_ANSWER, rng)
+        rivals = pick_rivals(pool[answer], RIVALS_PER_ANSWER, rng)
         if len(rivals) < RIVALS_PER_ANSWER:
             thin.append(f"{answer} ({len(rivals)} rivals)")
         if not rivals:
             continue
 
         clues = [{"text": mine, "_ours": True}] + [
-            {"text": r, "_ours": False} for r in rivals
+            {"text": r["text"], "_ours": False, "_from": r} for r in rivals
         ]
         rng.shuffle(clues)
         labels = "ABCDEFGH"
         packet = {
             "answer": answer,
-            "enumeration": printed_enumeration(mine),
+            "enumeration": spec["clue"].get("enumeration"),
             "clues": [
                 {"label": labels[i], "clue": c["text"]} for i, c in enumerate(clues)
             ],
@@ -203,6 +197,8 @@ def main():
         key[answer] = {
             "ours": next(labels[i] for i, c in enumerate(clues) if c["_ours"]),
             "entry": eid,
+            "rivals": {labels[i]: {k: c["_from"][k] for k in ("puzzle", "entry", "annotated")}
+                       for i, c in enumerate(clues) if not c["_ours"]},
         }
         packets.append(packet)
 
