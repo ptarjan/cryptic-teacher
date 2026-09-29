@@ -2996,12 +2996,25 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
   // that is only true of this clue, so it has to be on the screen the moment it
   // exists in the file; a field that is written and never rendered is worse than
   // no field, because the backlog says the work is done.
+  //
+  // A note that spells a block's letters reaches the rung with those letters
+  // blanked (maskBlockLetters), so it cannot be matched verbatim; the check
+  // after this one drives those.
+  const bareUp = (s) => String(s || "").replace(/[^A-Za-z]/g, "").toUpperCase();
+  const blockLettersIn = (note, a) => {
+    const hidden = new Set((a.blocks || [])
+      .filter((b) => bareUp(b.gives) && bareUp(b.gives) !== bareUp(b.clueFragment))
+      .map((b) => bareUp(b.gives)));
+    return (String(note).match(/\b[A-Z]+\b/g) || [])
+      .filter((w) => hidden.has(w) && w !== "A" && w !== "I");
+  };
   {
     const noted = [];
     for (const id of Object.keys(puzzles).sort()) {
       for (const e of puzzles[id].entries || []) {
-        const n = (((e.annotation || {}).indicators) || []).filter((i) => i.note);
-        if (n.length) noted.push({ id, e, n });
+        const a = e.annotation || {};
+        const n = (a.indicators || []).filter((i) => i.note);
+        if (n.length && n.every((i) => !blockLettersIn(i.note, a).length)) noted.push({ id, e, n });
       }
     }
     assert(noted.length, "some clue in the corpus explains its indicators");
@@ -3035,6 +3048,35 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
         assert(!rest, `${s.id} ${entryId(s.e)}: every indicator has a note, so the rung ` +
           `should be those notes and nothing else — also found: ` + rest);
       }
+    }
+  }
+
+  // --- the indicator rung does not spell the building blocks ---
+  // telegraph-31356 11A's indicator note read "STARTING grips, holds, the L":
+  // every block of the clue, on a rung a tier below the blocks ("It gives away
+  // the blocks in the indicator"). app.js blanks a block's letters out of the
+  // note; this drives the real rung on clues whose notes spell them.
+  {
+    const leaky = [];
+    for (const id of Object.keys(puzzles).sort()) {
+      for (const e of puzzles[id].entries || []) {
+        const a = e.annotation || {};
+        const words = (a.indicators || []).flatMap((i) => i.note ? blockLettersIn(i.note, a) : []);
+        if (words.length) leaky.push({ id, e, words });
+      }
+    }
+    assert(leaky.length || !FULL, "the corpus still has an indicator note that spells a block");
+    for (const s of leaky.slice(0, 25)) {
+      openClue(s);
+      const btn = registry["hint-next"].children.find(
+        (b) => b.onclick && /indicator/i.test(b.textContent) && !b.disabled);
+      if (!btn) continue;
+      takeRung(btn);
+      const notes = (registry["hint-body"].innerHTML.match(/<ul class="ind-notes">[\s\S]*?<\/ul>/) || [""])[0]
+        .replace(/<[^>]*>/g, " ");
+      const spelled = s.words.filter((w) => new RegExp(`\\b${w}\\b`).test(notes));
+      assert(!spelled.length, `${s.id} ${entryId(s.e)}: the indicators rung spells the ` +
+        `block letters ${spelled.join(", ")} — ${notes}`);
     }
   }
 

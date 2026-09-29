@@ -2267,6 +2267,19 @@ def check_no_markup(puzzle, errors):
     walk(puzzle, "")
 
 
+def committed_entries(path):
+    """{entry id: entry} as HEAD has this puzzle, or None when it is not committed."""
+    try:
+        rel = path.resolve().relative_to(ROOT)
+    except ValueError:
+        return None
+    shown = subprocess.run(["git", "show", f"HEAD:{rel.as_posix()}"], cwd=ROOT,
+                           capture_output=True, text=True, check=False)
+    if shown.returncode:
+        return None
+    return {entry_id(e): e for e in json.loads(shown.stdout).get("entries", [])}
+
+
 def check_clue_unchanged(puzzle, path, errors):
     """An annotation explains the clue it was written against. An annotated
     entry whose clue's words differ from the committed file's is either a run
@@ -2274,16 +2287,10 @@ def check_clue_unchanged(puzzle, path, errors):
     the text it replaced. Either way the annotation goes: a corrected clue is
     committed without one and the queue annotates it afresh. Typography
     (quotes, dashes, accents, spacing) is not a different clue."""
-    try:
-        rel = path.resolve().relative_to(ROOT)
-    except ValueError:
-        return
-    shown = subprocess.run(["git", "show", f"HEAD:{rel.as_posix()}"], cwd=ROOT,
-                           capture_output=True, text=True, check=False)
-    if shown.returncode:
+    committed = committed_entries(path)
+    if committed is None:
         return                  # not committed yet: nothing to compare with
-    was = {entry_id(e): enumeration.printed(e["clue"])
-           for e in json.loads(shown.stdout).get("entries", [])}
+    was = {i: enumeration.printed(e["clue"]) for i, e in committed.items()}
     for e in puzzle["entries"]:
         now = enumeration.printed(e["clue"])
         if (e.get("annotation") is not None and entry_id(e) in was
@@ -2293,6 +2300,46 @@ def check_clue_unchanged(puzzle, path, errors):
                 f"under an annotation. The clue text is the source's, not the "
                 f"annotator's: put it back, or, correcting it, drop this entry's "
                 f"annotation so it is annotated afresh")
+
+
+# The indicators rung is a tier below the building blocks, and a note written as
+# the operation happens spells the blocks out: telegraph-31356 11A's "to grip"
+# read "STARTING grips, holds, the L", every piece of the clue on the rung bought
+# to find one word ("It gives away the blocks in the indicator", 2026-09-29).
+# 12,744 of 76,772 committed notes did it. app.js blanks those letters on the
+# page (maskBlockLetters, the same rule as below), which leaves a sentence of
+# ellipses, so a note written from now on says what the word means and names
+# the pieces by their clue words instead. Checked on the entries a run wrote,
+# the way check_clue_unchanged is, so the committed corpus stays the mask's job.
+def block_letters_in(note, ann):
+    """The capitalised words of `note` that spell a block's letters, where
+    those letters are not just the block's own clue words."""
+    bare = lambda s: re.sub(r"[^A-Za-z]", "", str(s or "")).upper()
+    hidden = {bare(b.get("gives")) for b in ann.get("blocks") or []
+              if bare(b.get("gives")) and bare(b.get("gives")) != bare(b.get("clueFragment"))}
+    return [w for w in re.findall(r"\b[A-Z]+\b", str(note or ""))
+            if w in hidden and w not in ("A", "I")]
+
+
+def check_indicator_notes_hide_blocks(puzzle, path, errors):
+    """A new or changed annotation's indicator notes spell no block's letters."""
+    committed = committed_entries(path) or {}
+    for e in puzzle["entries"]:
+        ann = e.get("annotation")
+        if not isinstance(ann, dict) or ann == (committed.get(entry_id(e)) or {}).get("annotation"):
+            continue
+        for ind in ann.get("indicators") or []:
+            if not isinstance(ind, dict):
+                continue
+            spelled = block_letters_in(ind.get("note"), ann)
+            if spelled:
+                errors.append(
+                    f"{entry_id(e)}: note on indicator {ind.get('text')!r} spells the "
+                    f"block letters {', '.join(dict.fromkeys(spelled))} — "
+                    f"{ind.get('note')!r}. The indicators rung comes before the "
+                    f"blocks, so say what the word does to the pieces and name them by "
+                    f"their clue words: \"to grip is to hold, so 'beginning' holds "
+                    f"'learner'\", not \"STARTING grips the L\"")
 
 
 def validate_puzzle(puzzle, corpus=False):
@@ -2665,6 +2712,7 @@ def main(argv):
         annotated, errors, warnings = validate_puzzle(puzzle, corpus=full_run)
         if not full_run:        # a run's own puzzles; the corpus is HEAD already
             check_clue_unchanged(puzzle, path, errors)
+            check_indicator_notes_hide_blocks(puzzle, path, errors)
         total = len(puzzle["entries"])
         if annotated == 0 and not argv:
             # Nothing to check about annotations that do not exist yet — but
