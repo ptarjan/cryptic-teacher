@@ -23,6 +23,9 @@
   "date": "2019-10-10",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "id": "1-across",
@@ -37,7 +40,60 @@
     "text": "Volume better to the west of a large town",
     "enumeration": "8"
    },
-   "solution": "CAPACITY"
+   "solution": "CAPACITY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CAPACITY",
+    "definitions": [
+     {
+      "text": "Volume",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to the west of",
+      "for": "charade",
+      "note": "in an across answer west is left, so CAP is written before A CITY"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "better",
+      "gives": "CAP",
+      "note": "to cap is to better or outdo"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "as printed"
+     },
+     {
+      "clueFragment": "large town",
+      "gives": "CITY",
+      "note": "a city is a large town"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAP",
+      "A",
+      "CITY"
+     ]
+    },
+    "explanation": {
+     "surface": "A comparison of sound levels, one louder than another somewhere west of a big town.",
+     "walkthrough": "'Better' reads as an adjective but works as the verb 'to cap', meaning to outdo.",
+     "definitionFit": "A plain synonym: the volume of a tank or hall is how much it can hold."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "better"
+    }
+   }
   },
   {
    "id": "1-down",
@@ -52,7 +108,46 @@
     "text": "Note bird talking",
     "enumeration": "8"
    },
-   "solution": "CHITCHAT"
+   "solution": "CHITCHAT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHITCHAT",
+    "definitions": [
+     {
+      "text": "talking",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Note",
+      "gives": "CHIT",
+      "note": "a chit is a short note"
+     },
+     {
+      "clueFragment": "bird",
+      "gives": "CHAT",
+      "note": "the chat is a small songbird, as in stonechat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHIT",
+      "CHAT"
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'Note' tempts a musical letter such as C, and that does start the answer, but the whole of CHIT is needed.",
+     "definitionFit": "Chitchat is light talking, and 'talking' works as a noun here."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Note"
+    }
+   }
   },
   {
    "id": "2-down",
@@ -67,7 +162,69 @@
     "text": "Last to sleep, slow to get up — bit of a bloomer?",
     "enumeration": "5"
    },
-   "solution": "PETAL"
+   "solution": "PETAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "charade"
+    ],
+    "answer": "PETAL",
+    "definitions": [
+     {
+      "text": "bit of a bloomer?",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Last to",
+      "for": "letter_selection",
+      "note": "'last to sleep' asks for the final letter of sleep"
+     },
+     {
+      "text": "to get up",
+      "for": "reversal",
+      "note": "in a down answer, getting up means reading the word from the bottom"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sleep",
+      "gives": "P",
+      "select": "last",
+      "note": "the last letter of sleeP"
+     },
+     {
+      "clueFragment": "slow",
+      "gives": "LATE",
+      "note": "slow to arrive is late"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ETAL"
+     ],
+     "reversals": [
+      {
+       "from": "LATE",
+       "to": "ETAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone last to bed and slow to rise, with a hint that they are prone to blunders.",
+     "walkthrough": "A bloomer here is a flowering plant, not a mistake; the question mark flags the pun.",
+     "definitionFit": "A petal is one small part of a flower, so a bit of something that blooms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bloomer"
+    }
+   }
   },
   {
    "id": "3-down",
@@ -82,7 +239,43 @@
     "text": "Female garment requiring some fabric, hem is extended",
     "enumeration": "7"
    },
-   "solution": "CHEMISE"
+   "solution": "CHEMISE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "CHEMISE",
+    "definitions": [
+     {
+      "text": "Female garment",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "requiring some",
+      "for": "hidden_word",
+      "note": "only 'some' of the following words is needed, so the answer sits inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fabric, hem is extended",
+      "gives": "CHEMISE",
+      "note": "fabriC HEM IS Extended"
+     }
+    ],
+    "explanation": {
+     "surface": "A dressmaker lengthening a woman's garment by letting down the hem.",
+     "walkthrough": "The sewing words fabric and hem make the letters look like part of the story, not a string to read across.",
+     "definitionFit": "A chemise is a loose shift or undergarment worn by women."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hem"
+    }
+   }
   },
   {
    "id": "4-down",
@@ -97,7 +290,54 @@
     "text": "Net, section drawn up",
     "enumeration": "4"
    },
-   "solution": "TRAP"
+   "solution": "TRAP",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "TRAP",
+    "definitions": [
+     {
+      "text": "Net",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drawn up",
+      "for": "reversal",
+      "note": "in a down answer, drawing a word up turns it bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "section",
+      "gives": "PART",
+      "note": "a part is a section"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRAP"
+     ],
+     "reversals": [
+      {
+       "from": "PART",
+       "to": "TRAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fishing net, one section hauled up from the water.",
+     "walkthrough": "'Net' is a verb here, to catch, and it fits the fishing picture of hauling.",
+     "definitionFit": "A plain synonym, both verbs: to net a fish or a criminal is to catch it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Net"
+    }
+   }
   },
   {
    "id": "5-across",
@@ -112,7 +352,71 @@
     "text": "Grow thinner when knocked back, eating nothing",
     "enumeration": "6"
    },
-   "solution": "SPROUT"
+   "solution": "SPROUT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "SPROUT",
+    "definitions": [
+     {
+      "text": "Grow",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "knocked back",
+      "for": "reversal",
+      "note": "knocking something back sends it the other way, so TURPS runs right to left"
+     },
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "the reversed word swallows the O"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "thinner",
+      "gives": "TURPS",
+      "note": "turps (turpentine) is a paint thinner"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "zero, nothing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPR",
+      "O",
+      "UT"
+     ],
+     "reversals": [
+      {
+       "from": "TURPS",
+       "to": "SPRUT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dieter who gets slimmer by drinking and eating nothing.",
+     "walkthrough": "'Thinner' pretends to be a comparative adjective about weight, but it is a noun: the solvent turps.",
+     "definitionFit": "A plain synonym in the botanical sense: seeds and shoots grow by putting out new growth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "thinner"
+    }
+   }
   },
   {
    "id": "6-down",
@@ -127,7 +431,61 @@
     "text": "Tongue injection, one beyond a joke",
     "enumeration": "7"
    },
-   "solution": "PUNJABI"
+   "solution": "PUNJABI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PUNJABI",
+    "definitions": [
+     {
+      "text": "Tongue",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beyond",
+      "for": "charade",
+      "note": "in a down answer, the pun comes first and the rest follows beyond it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a joke",
+      "gives": "PUN",
+      "note": "a pun is a joke"
+     },
+     {
+      "clueFragment": "injection",
+      "gives": "JAB",
+      "note": "a jab is an injection"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PUN",
+      "JAB",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor's needle in the tongue, surely a step too far for a joke.",
+     "walkthrough": "'Tongue' looks like part of the mouth, but it means a language.",
+     "definitionFit": "Punjabi is a language spoken in Pakistan and northern India."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Tongue"
+    }
+   }
   },
   {
    "id": "7-down",
@@ -152,7 +510,69 @@
      }
     ]
    },
-   "solution": "ONTHEMEND"
+   "solution": "ONTHEMEND",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "ON THE MEND",
+    "definitions": [
+     {
+      "text": "recovering",
+      "at": 54
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of 'move' is its first letter"
+     },
+     {
+      "text": "into",
+      "for": "container",
+      "note": "a letter that moves into something ends up inside it, so M sits within THE END"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cricket side",
+      "gives": "ON",
+      "note": "the on side is the leg side of a cricket field"
+     },
+     {
+      "clueFragment": "the final stages",
+      "gives": "THEEND",
+      "note": "the final stages are the end"
+     },
+     {
+      "clueFragment": "move",
+      "gives": "M",
+      "select": "first",
+      "note": "the first letter of Move"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ON",
+      "THE",
+      "M",
+      "END"
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket team starting to make headway late in the match and fighting back.",
+     "walkthrough": "In cricket the field is split into the off side and the on (leg) side, so ON is a standard 'side'.",
+     "definitionFit": "An idiom: a patient getting better after illness or injury is said to be mending."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "recovering"
+    }
+   }
   },
   {
    "id": "8-down",
@@ -167,7 +587,45 @@
     "text": "Banking official, one narrating story?",
     "enumeration": "6"
    },
-   "solution": "TELLER"
+   "solution": "TELLER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TELLER",
+    "definitions": [
+     {
+      "text": "Banking official",
+      "at": 0
+     },
+     {
+      "text": "one narrating story?",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Banking official",
+      "gives": "TELLER",
+      "note": "the clerk who serves customers at a bank counter"
+     },
+     {
+      "clueFragment": "one narrating story?",
+      "gives": "TELLER",
+      "note": "one who tells a tale"
+     }
+    ],
+    "explanation": {
+     "surface": "A bank clerk with a sideline in spinning yarns.",
+     "walkthrough": "The second meaning is the plain sense of the word, one who tells; the question mark admits it is barely a stretch.",
+     "definitionFit": "A teller serves customers at a bank counter, and a teller of tales narrates a story."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "id": "9-across",
@@ -192,7 +650,45 @@
      }
     ]
    },
-   "solution": "INTHEMAIN"
+   "solution": "INTHEMAIN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "IN THE MAIN",
+    "definitions": [
+     {
+      "text": "Mostly",
+      "at": 0
+     },
+     {
+      "text": "offshore?",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mostly",
+      "gives": "INTHEMAIN",
+      "note": "mostly = for the most part, generally"
+     },
+     {
+      "clueFragment": "offshore?",
+      "gives": "INTHEMAIN",
+      "note": "the main is the open sea"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The main is an old word for the open sea, so a ship in the main is offshore; the question mark flags that joke.",
+     "definitionFit": "'In the main' means for the most part, mostly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "offshore"
+    }
+   }
   },
   {
    "id": "10-down",
@@ -207,7 +703,63 @@
     "text": "Sweet thing the writer put in message",
     "enumeration": "8"
    },
-   "solution": "NOISETTE"
+   "solution": "NOISETTE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "NOISETTE",
+    "definitions": [
+     {
+      "text": "Sweet thing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put in",
+      "for": "container",
+      "note": "I SET is placed inside the message"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "message",
+      "gives": "NOTE",
+      "note": "a note is a short message"
+     },
+     {
+      "clueFragment": "the writer",
+      "gives": "I",
+      "note": "the writer of the clue is 'I'"
+     },
+     {
+      "clueFragment": "put",
+      "gives": "SET",
+      "note": "to put is to set"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "I",
+      "SET",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "A love note in which the writer tucks in a term of endearment.",
+     "walkthrough": "'Sweet thing' reads as an endearment in a love letter; it is a confection. 'The writer' is the setter, who in crosswords is often 'I' or 'me'.",
+     "definitionFit": "Definition by example: a chocolate made with hazelnuts is one kind of sweet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Sweet"
+    }
+   }
   },
   {
    "id": "11-across",
@@ -222,7 +774,57 @@
     "text": "North American lecture slightly short on delivery",
     "enumeration": "5"
    },
-   "solution": "NATAL"
+   "solution": "NATAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "NATAL",
+    "definitions": [
+     {
+      "text": "on delivery",
+      "at": 38,
+      "note": "an adjectival phrase: of or at birth"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "slightly short",
+      "for": "deletion",
+      "note": "the lecture is cut short by its last letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "North American",
+      "gives": "NA",
+      "note": "NA is the standard abbreviation for North American"
+     },
+     {
+      "clueFragment": "lecture slightly short",
+      "gives": "TAL",
+      "note": "TALK loses its final K"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NA",
+      "TAL"
+     ]
+    },
+    "explanation": {
+     "surface": "An American speaker whose talk falls a little flat in how it is delivered.",
+     "walkthrough": "'Delivery' reads as the way a speech is given, but here it is the delivery of a baby.",
+     "definitionFit": "Natal means relating to birth, so the phrase 'on delivery' stands in for it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "delivery"
+    }
+   }
   },
   {
    "id": "12-across",
@@ -237,7 +839,62 @@
     "text": "French port cold I’m afraid to say: one wrapped up",
     "enumeration": "6"
    },
-   "solution": "CALAIS"
+   "solution": "CALAIS",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "CALAIS",
+    "definitions": [
+     {
+      "text": "French port",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrapped up",
+      "for": "container",
+      "note": "the I is wrapped up inside ALAS"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C = cold, as on a tap"
+     },
+     {
+      "clueFragment": "I’m afraid to say",
+      "gives": "ALAS",
+      "note": "alas expresses regret, 'I'm afraid to say'"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ALA",
+      "I",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller warning that the French port is chilly, so bundle up.",
+     "walkthrough": "'One wrapped up' sounds like advice to a person, but it is the letter I placed inside ALAS.",
+     "definitionFit": "Calais is the French ferry port facing Dover."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wrapped"
+    }
+   }
   },
   {
    "id": "13-across",
@@ -252,7 +909,51 @@
     "text": "Italian name lies in tatters",
     "enumeration": "8"
    },
-   "solution": "MILANESE"
+   "solution": "MILANESE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MILANESE",
+    "definitions": [
+     {
+      "text": "Italian",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in tatters",
+      "for": "anagram",
+      "note": "something in tatters is torn apart, so its letters are scattered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "name lies",
+      "gives": "NAMELIES",
+      "note": "anagram fodder, 8 letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NAMELIES",
+       "gives": "MILANESE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Italian's good name ruined by lies.",
+     "walkthrough": "'Italian' is the definition and it is broad: the answer is one particular kind of Italian.",
+     "definitionFit": "Definition by example: someone or something from Milan is one sort of Italian."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "name"
+    }
+   }
   },
   {
    "id": "14-down",
@@ -267,7 +968,74 @@
     "text": "Brandy very appealing initially, as cold unfortunately outside",
     "enumeration": "8"
    },
-   "solution": "CALVADOS"
+   "solution": "CALVADOS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "CALVADOS",
+    "definitions": [
+     {
+      "text": "Brandy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "the first letters of 'very appealing'"
+     },
+     {
+      "text": "unfortunately",
+      "for": "anagram",
+      "note": "things going unfortunately go awry, so AS COLD is jumbled"
+     },
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "the jumbled letters sit outside VA"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "as cold",
+      "gives": "ASCOLD",
+      "note": "anagram fodder"
+     },
+     {
+      "clueFragment": "very appealing initially",
+      "gives": "VA",
+      "select": "first",
+      "note": "the first letters of Very Appealing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAL",
+      "VA",
+      "DOS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ASCOLD",
+       "gives": "CALDOS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A brandy that is very tempting when you are stuck out in the cold.",
+     "walkthrough": "The surface reads as a warming drink on a cold day, with 'outside' as a place rather than an instruction.",
+     "definitionFit": "Definition by example: the apple brandy of Normandy is one kind of brandy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "outside"
+    }
+   }
   },
   {
    "id": "15-across",
@@ -296,7 +1064,44 @@
      }
     ]
    },
-   "solution": "ATTHESAMETIME"
+   "solution": "ATTHESAMETIME",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "AT THE SAME TIME",
+    "definitions": [
+     {
+      "text": "Together",
+      "at": 0
+     },
+     {
+      "text": "still",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Together",
+      "gives": "ATTHESAMETIME",
+      "note": "simultaneously"
+     },
+     {
+      "clueFragment": "still",
+      "gives": "ATTHESAMETIME",
+      "note": "nevertheless, all the same"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Still' is used in its concessive sense, as in 'at the same time, I see your point', not meaning motionless.",
+     "definitionFit": "At the same time means together (simultaneously) and also nevertheless, still."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "still"
+    }
+   }
   },
   {
    "id": "16-down",
@@ -317,7 +1122,54 @@
      }
     ]
    },
-   "solution": "TESTPILOT"
+   "solution": "TESTPILOT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TEST PILOT",
+    "definitions": [
+     {
+      "text": "First flier",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rewritten",
+      "for": "anagram",
+      "note": "rewriting the titles puts their letters in a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "top titles",
+      "gives": "TOPTITLES",
+      "note": "anagram fodder, 9 letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TOPTITLES",
+       "gives": "TESTPILOT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pioneering airman whose headline billing has been revised.",
+     "walkthrough": "'First flier' is fair because a test pilot is the first to fly a new aircraft.",
+     "definitionFit": "A test pilot flies a new aircraft before anyone else."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "titles"
+    }
+   }
   },
   {
    "id": "17-down",
@@ -332,7 +1184,79 @@
     "text": "Hundred cuts say distributed over extra wood",
     "enumeration": "8"
    },
-   "solution": "SYCAMORE"
+   "solution": "SYCAMORE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "SYCAMORE",
+    "definitions": [
+     {
+      "text": "wood",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "distributed",
+      "for": "anagram",
+      "note": "distributing letters spreads them into a new order"
+     },
+     {
+      "text": "cuts",
+      "for": "container",
+      "note": "the C cuts into the jumbled SAY"
+     },
+     {
+      "text": "over",
+      "for": "charade",
+      "note": "in a down answer, the first part sits over the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "say",
+      "gives": "SAY",
+      "note": "anagram fodder"
+     },
+     {
+      "clueFragment": "Hundred",
+      "gives": "C",
+      "note": "C is the Roman numeral 100"
+     },
+     {
+      "clueFragment": "extra",
+      "gives": "MORE",
+      "note": "more is extra"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SY",
+      "C",
+      "A",
+      "MORE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SAY",
+       "gives": "SYA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hundred budget cuts shared out on top of extra timber orders.",
+     "walkthrough": "'Say' is fodder, not the usual 'for example' signal, which is the trap here.",
+     "definitionFit": "Definition by example: the maple-family tree gives a pale timber, one kind of wood."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "say"
+    }
+   }
   },
   {
    "id": "18-across",
@@ -353,7 +1277,57 @@
      }
     ]
    },
-   "solution": "SHROVETUESDAY"
+   "solution": "SHROVETUESDAY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SHROVE TUESDAY",
+    "definitions": [
+     {
+      "text": "time to get fat?",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Struggling",
+      "for": "anagram",
+      "note": "the struggling letters are thrown out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "you",
+      "gives": "YOU",
+      "note": "anagram fodder"
+     },
+     {
+      "clueFragment": "she starved",
+      "gives": "SHESTARVED",
+      "note": "anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "YOU SHE STARVED",
+       "gives": "SHROVETUESDAY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Two hungry dieters wondering if it is finally time to fatten up.",
+     "walkthrough": "The 'and' simply joins the two parts of the fodder. The definition is cryptic: Shrove Tuesday is also called Mardi Gras, French for 'fat Tuesday'.",
+     "definitionFit": "Shrove Tuesday is the pancake-eating feast before Lent's fast, a time to fatten up."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fat"
+    }
+   }
   },
   {
    "id": "19-down",
@@ -374,7 +1348,46 @@
      }
     ]
    },
-   "solution": "RUNDOWN"
+   "solution": "RUNDOWN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RUN-DOWN",
+    "definitions": [
+     {
+      "text": "Exhausted",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "exercise",
+      "gives": "RUN",
+      "note": "a run is a form of exercise"
+     },
+     {
+      "clueFragment": "not working",
+      "gives": "DOWN",
+      "note": "a system that is down is not working"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RUN",
+      "DOWN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone worn out, too tired to keep up their workouts.",
+     "walkthrough": "The surface reads as cause and effect, but the two halves simply give RUN and DOWN.",
+     "definitionFit": "A plain synonym: worn out and in poor health, like a battery that has lost its charge."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "20-down",
@@ -389,7 +1402,51 @@
     "text": "Those people briefly, I reckon, in Muslim kingdom",
     "enumeration": "7"
    },
-   "solution": "EMIRATE"
+   "solution": "EMIRATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EMIRATE",
+    "definitions": [
+     {
+      "text": "Muslim kingdom",
+      "at": 35
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Those people briefly",
+      "gives": "EM",
+      "note": "'em, short for them"
+     },
+     {
+      "clueFragment": "I reckon",
+      "gives": "IRATE",
+      "note": "I rate = I reckon, I judge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EM",
+      "I",
+      "RATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A speaker judging a group of people in some Islamic state.",
+     "walkthrough": "'Briefly' shortens 'them' to 'em, a colloquial contraction.",
+     "definitionFit": "An emirate is a state ruled by an emir, as in the Gulf."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reckon"
+    }
+   }
   },
   {
    "id": "21-down",
@@ -404,7 +1461,59 @@
     "text": "Crush spirit — it’s over",
     "enumeration": "6"
    },
-   "solution": "STIFLE"
+   "solution": "STIFLE",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "STIFLE",
+    "definitions": [
+     {
+      "text": "Crush",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "turning words over reverses them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spirit",
+      "gives": "ELF",
+      "note": "an elf is a spirit or sprite"
+     },
+     {
+      "clueFragment": "it’s",
+      "gives": "ITS",
+      "note": "as printed, without the apostrophe"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STIFLE"
+     ],
+     "reversals": [
+      {
+       "from": "ELFITS",
+       "to": "STIFLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A defeated cry that one's spirit is crushed and it is all over.",
+     "walkthrough": "'It's over' reads as a lament but supplies the ITS and the turnaround instruction.",
+     "definitionFit": "A plain synonym, both verbs: to crush a rebellion or a yawn is to suppress it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spirit"
+    }
+   }
   },
   {
    "id": "22-across",
@@ -419,7 +1528,78 @@
     "text": "Spread European butter the wrong way on end of baguette",
     "enumeration": "8"
    },
-   "solution": "TAPENADE"
+   "solution": "TAPENADE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TAPENADE",
+    "definitions": [
+     {
+      "text": "Spread",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the wrong way",
+      "for": "reversal",
+      "note": "going the wrong way means running right to left"
+     },
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of baguette is its last letter"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across answer, the reversed part comes first and the E sits on the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European",
+      "gives": "DANE",
+      "note": "a Dane is a European"
+     },
+     {
+      "clueFragment": "butter",
+      "gives": "PAT",
+      "note": "a pat of butter"
+     },
+     {
+      "clueFragment": "baguette",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of baguettE"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAPENAD",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "DANEPAT",
+       "to": "TAPENAD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone spreading Continental butter on a baguette the wrong way round.",
+     "walkthrough": "'Spread' sounds like the act of buttering, but it is a noun, the answer itself.",
+     "definitionFit": "Tapenade is a Provençal olive paste spread on bread."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Spread"
+    }
+   }
   },
   {
    "id": "23-across",
@@ -434,7 +1614,75 @@
     "text": "Supplier of punch packed with booze finally joining a party",
     "enumeration": "6"
    },
-   "solution": "FIESTA"
+   "solution": "FIESTA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "FIESTA",
+    "definitions": [
+     {
+      "text": "party",
+      "at": 54
+     }
+    ],
+    "indicators": [
+     {
+      "text": "packed with",
+      "for": "container",
+      "note": "the fist is packed with the E"
+     },
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "the final letter of booze"
+     },
+     {
+      "text": "joining",
+      "for": "charade",
+      "note": "the A joins on after the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Supplier of punch",
+      "gives": "FIST",
+      "note": "a fist delivers a punch"
+     },
+     {
+      "clueFragment": "booze",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of boozE"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "as printed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FI",
+      "E",
+      "ST",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone bringing a boozy punch bowl along to a party.",
+     "walkthrough": "'Supplier of punch' suggests a drinks host, but the punch is a blow, supplied by a fist.",
+     "definitionFit": "A plain synonym borrowed from Spanish: a festival or celebration, often religious."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "punch"
+    }
+   }
   },
   {
    "id": "24-down",
@@ -449,7 +1697,43 @@
     "text": "Quick writer",
     "enumeration": "5"
    },
-   "solution": "SWIFT"
+   "solution": "SWIFT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SWIFT",
+    "definitions": [
+     {
+      "text": "Quick",
+      "at": 0
+     },
+     {
+      "text": "writer",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quick",
+      "gives": "SWIFT",
+      "note": "quick = fast, speedy"
+     },
+     {
+      "clueFragment": "writer",
+      "gives": "SWIFT",
+      "note": "the Irish satirist who wrote Gulliver's Travels"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The writer is Jonathan Swift, author of Gulliver's Travels.",
+     "definitionFit": "Swift means quick, and Swift is a famous satirist."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "25-down",
@@ -470,7 +1754,70 @@
      }
     ]
    },
-   "solution": "INON"
+   "solution": "INON",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "IN ON",
+    "definitions": [
+     {
+      "text": "Privy to",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "take the initial letter of each of the preceding words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "information",
+      "gives": "I",
+      "select": "first",
+      "note": "the first letter of Information"
+     },
+     {
+      "clueFragment": "nobody",
+      "gives": "N",
+      "select": "first",
+      "note": "the first letter of Nobody"
+     },
+     {
+      "clueFragment": "of",
+      "gives": "O",
+      "select": "first",
+      "note": "the first letter of Of"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "N",
+      "select": "first",
+      "note": "the first letter of Note"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "N",
+      "O",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone let in on a secret, though nobody important.",
+     "walkthrough": "'Information' looks like part of the definition, but it supplies the first letter.",
+     "definitionFit": "An idiom: someone who shares a secret or a plan is party to it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "information"
+    }
+   }
   },
   {
    "id": "26-across",
@@ -485,7 +1832,59 @@
     "text": "Painting of reversible sheet",
     "enumeration": "5"
    },
-   "solution": "FOLIO"
+   "solution": "FOLIO",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "FOLIO",
+    "definitions": [
+     {
+      "text": "sheet",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reversible",
+      "for": "reversal",
+      "note": "reversible words are to be turned around"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Painting",
+      "gives": "OIL",
+      "note": "an oil is a painting"
+     },
+     {
+      "clueFragment": "of",
+      "gives": "OF",
+      "note": "as printed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOLIO"
+     ],
+     "reversals": [
+      {
+       "from": "OILOF",
+       "to": "FOLIO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An artwork done on a reversible sheet, painted on both sides.",
+     "walkthrough": "'Reversible' seems to describe the sheet, but it applies to 'painting of', which reads backwards as FOLIO.",
+     "definitionFit": "A folio is a sheet of paper folded once, or a leaf of a book."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reversible"
+    }
+   }
   },
   {
    "id": "27-across",
@@ -506,7 +1905,54 @@
      }
     ]
    },
-   "solution": "SANMARINO"
+   "solution": "SANMARINO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SAN MARINO",
+    "definitions": [
+     {
+      "text": "small country",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Nomadic",
+      "for": "anagram",
+      "note": "nomads wander, so the letters wander out of order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Romanians",
+      "gives": "ROMANIANS",
+      "note": "anagram fodder, 9 letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ROMANIANS",
+       "gives": "SANMARINO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Travelling Romanians turning up in a tiny European state.",
+     "walkthrough": "The nationality points to Eastern Europe, while the answer is an enclave inside Italy.",
+     "definitionFit": "San Marino is one of the smallest countries in the world."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Romanians"
+    }
+   }
   },
   {
    "id": "28-across",
@@ -521,7 +1967,62 @@
     "text": "Amount multiplied by ten invested in film",
     "enumeration": "6"
    },
-   "solution": "EXTENT"
+   "solution": "EXTENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "EXTENT",
+    "definitions": [
+     {
+      "text": "Amount",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "invested in",
+      "for": "container",
+      "note": "X TEN is placed inside the film"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "film",
+      "gives": "ET",
+      "note": "E.T. is the Spielberg film"
+     },
+     {
+      "clueFragment": "multiplied by",
+      "gives": "X",
+      "note": "x is the multiplication sign"
+     },
+     {
+      "clueFragment": "ten",
+      "gives": "TEN",
+      "note": "as printed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "X",
+      "TEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A sum ten times larger put into making a movie.",
+     "walkthrough": "'Invested' belongs to the money picture, but here it only means placed inside.",
+     "definitionFit": "A plain synonym: the size or degree of something, as in the amount of the damage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "invested"
+    }
+   }
   },
   {
    "id": "29-across",
@@ -536,7 +2037,54 @@
     "text": "Trouble in North Yorkshire town, peacekeepers sent ahead",
     "enumeration": "8"
    },
-   "solution": "UNSETTLE"
+   "solution": "UNSETTLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNSETTLE",
+    "definitions": [
+     {
+      "text": "Trouble",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sent ahead",
+      "for": "charade",
+      "note": "the peacekeepers go in front of the town"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "peacekeepers",
+      "gives": "UN",
+      "note": "the UN, United Nations, sends peacekeepers"
+     },
+     {
+      "clueFragment": "North Yorkshire town",
+      "gives": "SETTLE",
+      "note": "Settle is a market town in North Yorkshire, England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "SETTLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Unrest in a Yorkshire town calls for peacekeepers to be sent in first.",
+     "walkthrough": "'Trouble' reads as a noun for unrest, but it is a verb, to disturb.",
+     "definitionFit": "A plain synonym, both verbs: to trouble someone is to disturb their calm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Trouble"
+    }
+   }
   }
  ]
 }
