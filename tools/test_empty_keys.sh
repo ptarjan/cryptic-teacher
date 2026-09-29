@@ -76,7 +76,7 @@ same "no separators and no annotation on a plain entry" \
 same "but a real word break is still written" \
   "$(grep '^BREAK ' <<<"$out")" 'BREAK [{"at": 4, "mark": ","}]'
 same "and the surviving keys keep their order" "$(grep '^ORDER ' <<<"$out")" \
-  "ORDER id,number,direction,position,length,clue,solution text,enumeration,separators"
+  "ORDER number,direction,position,length,clue,solution text,enumeration,separators"
 same "a puzzle written without the keys round-trips off disk" \
   "$(grep '^TRIP ' <<<"$out")" "TRIP True"
 same "and the bytes on disk hold neither empty form" \
