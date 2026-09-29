@@ -296,6 +296,23 @@ conventional Times-style (`Step softly, champion`, `Hacks on the beers`), not
 pub jokes. The judges are the same model as the author, and that may be part of
 why they like them.
 
+**2026-09-29, round two, under the joke quota.** A fresh `claude-opus-5-5`
+author, isolated the same way, wrote twenty clues that pass the authored
+validator. It tagged 17 of them as jokes and wrote no cryptic definitions. It
+finished in under four minutes. Both arms faced the same sixty rivals from
+puzzles/ (seed 11), with three `claude-opus-5-5` judges at medium effort, run
+one at a time:
+
+| arm | misdir + penny-drop gap | misdirection | penny-drop | wins /20 | spotted |
+| --- | --- | --- | --- | --- | --- |
+| first Opus 5.5 set (control) | -0.24 | -0.33 | -0.14 | 4 | 24% |
+| round two | -0.65 | -0.78 | -0.53 | 2 (both ties) | 39% |
+
+The quota was met by tagging, not by writing. `Journalists on beers`, `Help
+worker as deputy` and `Agent hates to stand for` carry a joke tag in name
+only. The validator can count `features.joke`; it cannot tell whether the
+joke is there.
+
 ## The surface is a sentence, and it carries a joke
 
 The six worst clues were rewritten under the rule above, and the feedback was:
