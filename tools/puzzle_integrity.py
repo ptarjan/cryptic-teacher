@@ -1132,16 +1132,24 @@ def check_rewrite(old, new, flags):
                           f"(fetch_puzzle.merge_annotations)"))
 
 
+class RefusedWrite(ValueError):
+    """A write refused; `.flags` is the structured [(kind, puzzle id, text)]."""
+
+    def __init__(self, message, flags):
+        super().__init__(message)
+        self.flags = flags
+
+
 def refuse_bad_write(puzzle, old=None):
-    """Raise ValueError naming every finding `puzzle` would bring to disk."""
+    """Raise RefusedWrite (a ValueError) naming every finding `puzzle` would bring to disk."""
     flags = []
     check_puzzle(puzzle, datetime.now(timezone.utc).date(), flags)
     flags += [("SCHEMA", puzzle.get("id"), p) for p in puzzle_schema.validate(puzzle)]
     if old is not None:
         check_rewrite(old, puzzle, flags)
     if flags:
-        raise ValueError(f"refusing to write {puzzle['id']}: "
-                         + "; ".join(f"{flag} {what}" for flag, _, what in flags))
+        raise RefusedWrite(f"refusing to write {puzzle['id']}: "
+                           + "; ".join(f"{flag} {what}" for flag, _, what in flags), flags)
 
 
 ISO_DAY = re.compile(r"\d{4}-\d{2}-\d{2}")
