@@ -377,6 +377,9 @@ BACKFILLS.md                                 the sweeps over already-published c
                                              doing only with inference to spare; every item is
                                              already handled going forward, so none of it
                                              blocks a puzzle
+tools/blog_post.py                           prints the cached blog post and comments that
+                                             explain a puzzle, for an annotation run stuck on a
+                                             clue
 tools/annotate_check.py                      the one command an annotation run needs after
                                              every edit: applies, validates, audits, reindexes,
                                              and says everything wrong at once

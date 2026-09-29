@@ -139,6 +139,7 @@ LAYOUT = [
     ("annotating", "STYLE.md", "the standing style rules, read whole by every annotating run"),
     ("annotating", "APP.md", "how the app presents an annotation and how it ships — separate from style"),
     ("annotating", "BACKFILLS.md", "the sweeps over already-published clues, worth doing only with inference to spare; every item is already handled going forward, so none of it blocks a puzzle"),
+    ("annotating", "tools/blog_post.py", "prints the cached blog post and comments that explain a puzzle, for an annotation run stuck on a clue"),
     ("annotating", "tools/annotate_check.py", "the one command an annotation run needs after every edit: applies, validates, audits, reindexes, and says everything wrong at once"),
     ("annotating", "tools/test_annotate_disclosure.sh", "proves each rule cut from the annotation prompt still arrives through its check, and that the blog lookup is disclosed only once the last few clues are null — never earlier, never blind"),
     ("annotating", "tools/validate_annotations.py", "proves every annotation actually spells its answer, plus the other rules about what a rung may and may not say"),
