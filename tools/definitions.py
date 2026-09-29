@@ -1,25 +1,23 @@
 """Where each of an annotation's definitions sits in its clue.
 
 An annotation's `definitions` is a list of {text, at, note}: `text` the clue
-words verbatim, `at` their offset in the clue in Unicode code points, so that
+words verbatim, `at` their offset in the clue's `text` (its words; the
+enumeration is kept apart) in Unicode code points, so that
 clue[at:at + len(text)] == text. Writers give `text`; `place` fills `at`.
 
 Most definitions occur once in their clue. When one occurs more than once,
 `at` is the occurrence that, in order:
 
   1. stands as whole words (the "art" of "man's art", not of "Part"),
-  2. lies before the trailing enumeration ("4, whichever way (4)"),
-  3. does not overlap another definition of the same clue (a double
+  2. does not overlap another definition of the same clue (a double
      definition's "Down" is not the one inside "as in Watership Down?"),
-  4. touches the clue's start or end, with only spaces and punctuation
+  3. touches the clue's start or end, with only spaces and punctuation
      between, since a definition sits at one end of a cryptic clue.
 
 A text these leave ambiguous needs `at` written by hand; `place` refuses to
 guess.
 """
 import re
-
-ENUMERATION = re.compile(r"\s*\([^()]*\)\s*$")
 
 
 def span_ok(d, clue):
@@ -37,11 +35,8 @@ def _found(text, hay):
 
 
 def candidates(text, clue):
-    """Offsets of `text` in `clue`, narrowed by rules 1 and 2 where that
-    leaves any."""
-    m = ENUMERATION.search(clue)
-    body = clue[:m.start()] if m else clue
-    found = _found(text, body) or _found(text, clue)
+    """Offsets of `text` in `clue`, narrowed by rule 1 where that leaves any."""
+    found = _found(text, clue)
 
     def whole(i):
         j = i + len(text)
@@ -51,9 +46,7 @@ def candidates(text, clue):
 
 
 def _at_an_end(clue, i, n):
-    m = ENUMERATION.search(clue)
-    body = clue[:m.start()] if m else clue
-    return not re.search(r"\w", body[:i]) or not re.search(r"\w", body[i + n:])
+    return not re.search(r"\w", clue[:i]) or not re.search(r"\w", clue[i + n:])
 
 
 def place(definitions, clue):

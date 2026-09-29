@@ -99,7 +99,8 @@ check("a second copy appended after the root is ignored",
 
 # The name is not all we want back: the fallback must not cost the puzzle.
 p = fi.parse(doc("", "<b>Quixote-8958...Across</b>"), "150701")
-check("the clue keeps its enumeration", p["entries"][0]["clue"]["text"], "Work out this one (5)")
+check("the clue keeps its enumeration", p["entries"][0]["clue"],
+      {"text": "Work out this one", "enumeration": "5"})
 check("the solution is read off the grid", p["entries"][0]["solution"], "SOLVE")
 check("the daily is named as the Independent", p["name"],
       "Independent cryptic crossword No 8,958")

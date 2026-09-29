@@ -139,7 +139,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import groups  # noqa: E402 — linked answers
 from apply_solution import (check_fill, check_geometry,  # noqa: E402
                             normalise)
-from fetch_puzzle import (ENUMERATION, PER_LIGHT_ENUMERATION,  # noqa: E402
+import enumeration  # noqa: E402
+from fetch_puzzle import (PER_LIGHT_ENUMERATION,  # noqa: E402
                           has_words, is_bare_letters, is_continuation,
                           prints_own_count, read_puzzle_file, reindex)
 import puzzle_schema  # noqa: E402
@@ -773,7 +774,7 @@ def content_hash(puzzle):
     entries = sorted(
         (e.get("id"), e.get("number"), e.get("direction"),
          (e.get("position") or {}).get("x"), (e.get("position") or {}).get("y"),
-         e.get("length"), e["clue"].get("text", ""), e.get("solution"))
+         e.get("length"), enumeration.printed(e["clue"]), e.get("solution"))
         for e in puzzle.get("entries") or []
     )
     dims = puzzle.get("dimensions") or {}
@@ -868,6 +869,11 @@ def check_shape(puzzle, today, flags):
         missing = e["clue"].get("missing", False)
         if not missing and not has_words(clue):
             flags.append(("SHAPE", pid, f"{eid}: clue is blank"))
+        # The enumeration has its own key; a writer that left it on the words
+        # did not build its clue with enumeration.clue().
+        if enumeration.unsplit(e["clue"]):
+            flags.append(("SHAPE", pid, f"{eid}: clue text {clue!r} ends in its "
+                          f"enumeration; enumeration.split() it into clue.enumeration"))
         # Braces are a blogger's markup for a deletion or a hidden word, and no
         # paper prints one in a clue.
         if "{" in clue or "}" in clue:
@@ -878,7 +884,7 @@ def check_shape(puzzle, today, flags):
         # then the answer's word lengths. A paper's own feed prints what it
         # printed, so only a transcribed clue is held to this.
         if (from_blog and has_words(clue) and not missing
-                and not is_continuation(clue) and not ENUMERATION.search(clue)):
+                and not is_continuation(clue) and "enumeration" not in e["clue"]):
             flags.append(("SHAPE", pid, f"{eid}: clue {clue!r}, transcribed from "
                           f"a blog, has no enumeration"))
 
@@ -932,12 +938,9 @@ def check_length(puzzle, checkable, flags):
                                           f"grid wants {e.get('length')}")))
             continue
 
-        m = ENUMERATION.search(e["clue"].get("text", ""))
-        if not m:
-            # A continuation leg ("See 23") carries no count of its own; its length
-            # is stated once, on the leg that holds the clue.
-            continue
-        counts = [int(n) for n in re.findall(r"\d+", m.group(1))]
+        # A continuation leg ("See 23") carries no count of its own; its length
+        # is stated once, on the leg that holds the clue.
+        counts = enumeration.counts(e["clue"].get("enumeration"))
         if not counts:
             continue
         group = group_of.get(eid) or [eid]
@@ -970,7 +973,7 @@ def check_length(puzzle, checkable, flags):
             continue
         where = eid if len(group) == 1 else " + ".join(group)
         holds = f"{held}" if len(group) == 1 else f"{len(solution)} alone or {held} linked"
-        finding = (f"{where}: clue says ({m.group(1)}) = "
+        finding = (f"{where}: clue says ({e['clue']['enumeration']}) = "
                    f"{sum(counts)}, answer holds {holds}")
         if (pid, finding) in PUBLISHED_WRONG or (pid, finding) in UNLINKED_IN_SOURCE:
             continue

@@ -48,6 +48,8 @@ import sqlite3
 import unicodedata
 from pathlib import Path
 
+import enumeration  # tools/enumeration.py; tools/ is this script's own directory
+
 ROOT = Path(__file__).resolve().parent.parent
 CORPUS = Path.home() / "cryptic-setter-data" / "georgeho" / "data.db"
 
@@ -68,7 +70,7 @@ def clean(text):
     return re.sub(r"\s+", " ", text).strip()
 
 
-def enumeration(clue):
+def printed_enumeration(clue):
     m = re.search(r"\(([\d,\-\s]+)\)\s*$", clue)
     return m.group(1) if m else None
 
@@ -77,7 +79,7 @@ def usable(clue, answer):
     """Reject corpus rows that would make the packet unfair or unreadable."""
     if not clue or len(clue) < 12:
         return False
-    enum = enumeration(clue)
+    enum = printed_enumeration(clue)
     if enum is None:
         return False
     # The enumeration must add up to the answer we are comparing against. The
@@ -179,7 +181,7 @@ def main():
         answer = "".join(
             c for c in spec["annotation"]["answer"].upper() if c.isalpha()
         )
-        mine = clean(spec["clue"]["text"])
+        mine = clean(enumeration.printed(spec["clue"]))
         rivals = fetch_rivals(db, answer, RIVALS_PER_ANSWER, rng)
         if len(rivals) < RIVALS_PER_ANSWER:
             thin.append(f"{answer} ({len(rivals)} rivals)")
@@ -193,7 +195,7 @@ def main():
         labels = "ABCDEFGH"
         packet = {
             "answer": answer,
-            "enumeration": enumeration(mine),
+            "enumeration": printed_enumeration(mine),
             "clues": [
                 {"label": labels[i], "clue": c["text"]} for i, c in enumerate(clues)
             ],

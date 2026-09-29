@@ -51,6 +51,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 
 from fetch_puzzle import read_puzzle_file  # noqa: E402 — one reader
 import puzzle_paths  # noqa: E402 — one puzzles/
+import enumeration  # noqa: E402 — the printed line a judge reads
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 AXES = ["surface", "misdirection", "pennydrop", "economy", "fairness"]
@@ -182,7 +183,7 @@ def extend(args):
 
 
 def clue_row(pid, entry, label):
-    return {"label": label, "clue": entry["clue"]["text"],
+    return {"label": label, "clue": enumeration.printed(entry["clue"]),
             "solution": entry["solution"], "_puzzle": pid, "_entry": entry["id"]}
 
 

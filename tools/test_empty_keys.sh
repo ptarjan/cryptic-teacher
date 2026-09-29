@@ -63,7 +63,7 @@ with tempfile.TemporaryDirectory() as d:
 # Its ledger is stubbed: this is a test, and a test must not file a miss
 # against tools/data/blind_misses.json that no solve ever made.
 fetcher.record_misses = lambda *a, **k: None
-entries = [{"id": "1-across", "clue": {"text": "x (5)"}, "solution": "WRONG",
+entries = [{"id": "1-across", "clue": {"text": "x", "enumeration": "5"}, "solution": "WRONG",
             "annotation": {"type": ["anagram"]}}]
 fetcher.grade_model_fill({"id": "cryptic-1", "entries": entries},
                          {"1-across": "RIGHT"})
@@ -75,7 +75,7 @@ same "no separators and no annotation on a plain entry" \
 same "but a real word break is still written" \
   "$(grep '^BREAK ' <<<"$out")" 'BREAK [{"at": 4, "mark": ","}]'
 same "and the surviving keys keep their order" "$(grep '^ORDER ' <<<"$out")" \
-  "ORDER id,number,direction,position,length,clue,solution text,separators"
+  "ORDER id,number,direction,position,length,clue,solution text,enumeration,separators"
 same "a puzzle written without the keys round-trips off disk" \
   "$(grep '^TRIP ' <<<"$out")" "TRIP True"
 same "and the bytes on disk hold neither empty form" \

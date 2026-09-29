@@ -23,13 +23,14 @@ same() { if [ "$2" = "$3" ]; then echo "  ok: $1"; else
 
 out=$(PYTHONPATH=tools python3 - <<'PY'
 import json
+import enumeration
 import fetch_puzzle as fetcher
 
 
 def entry(eid, clue, **kw):
     e = {"id": eid, "number": 1, "direction": "across",
          "position": {"x": 0, "y": 0}, "length": 5,
-         "clue": {"text": clue, **({} if fetcher.has_words(clue) else {"missing": True})},
+         "clue": enumeration.clue(clue, missing=not fetcher.has_words(enumeration.split(clue)[0])),
          "solution": "ABCDE"}
     e.update(kw)
     return e
@@ -50,7 +51,7 @@ stored = {"id": "cryptic-23370", "entries": [
 ]}
 fetcher.carry_recovered_clues(fetched, stored)
 by = {e["id"]: e for e in fetched["entries"]}
-print("KEPT", by["1-across"]["clue"]["text"])
+print("KEPT", enumeration.printed(by["1-across"]["clue"]))
 print("FLAG", by["1-across"]["clue"].get("missing"))
 print("GROUP", json.dumps(by["2-down"].get("group")), json.dumps(by["3-down"].get("group")))
 
@@ -66,8 +67,8 @@ stored = {"id": "cryptic-1", "entries": [
 ]}
 fetcher.carry_recovered_clues(fetched, stored)
 by = {e["id"]: e for e in fetched["entries"]}
-print("PAPER", by["1-across"]["clue"]["text"])
-print("BLANK", by["2-down"]["clue"]["text"].strip(), by["2-down"]["clue"].get("missing"))
+print("PAPER", enumeration.printed(by["1-across"]["clue"]))
+print("BLANK", enumeration.printed(by["2-down"]["clue"]), by["2-down"]["clue"].get("missing"))
 
 # An annotation crosses a re-fetch only to the same words. Typography may
 # differ; a corrected clue is re-annotated rather than keeping notes on the
@@ -109,7 +110,7 @@ same "a clue the paper prints replaces the stored one" \
 same "a reworded clue loses its annotation" "$(grep '^REWORDED ' <<<"$out")" "REWORDED None"
 same "a retyped clue keeps it" "$(grep '^RETYPED ' <<<"$out")" "RETYPED True"
 same "a blank clue's note survives a re-fetch" "$(grep '^NOTE ' <<<"$out")" \
-  'NOTE {"text": " (5)", "missing": true, "missingNote": "Printed blank on purpose."}'
+  'NOTE {"enumeration": "5", "missing": true, "missingNote": "Printed blank on purpose."}'
 same "blank over blank stays blank" "$(grep '^BLANK ' <<<"$out")" "BLANK (5) True"
 
 # The other half of the guarantee, on the real files. Named one by one rather
@@ -118,6 +119,7 @@ same "blank over blank stays blank" "$(grep '^BLANK ' <<<"$out")" "BLANK (5) Tru
 # puzzle_integrity to report, not a red build. What must never come back is a
 # puzzle that was recovered and then emptied again.
 empty=$(PYTHONPATH=tools python3 - <<'PY'
+import enumeration
 import fetch_puzzle as fetcher
 import puzzle_paths
 bad = []

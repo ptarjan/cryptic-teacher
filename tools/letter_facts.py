@@ -63,6 +63,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
+import enumeration  # noqa: E402 -- the clue rows below are printed lines, count included
 from blog_facts import (
     ABBR,
     ENUM_TAIL,
@@ -1510,7 +1511,8 @@ def rows(said=None, as_written=False):
                 if e.get("solution") and e["clue"].get("text"):
                     facts = fact_from_json(rec["entries"].get(eid, {}))
                     facts = facts if as_written else stated(facts)
-                    yield pid, eid, e["clue"]["text"], e["solution"], {**facts, "leads": got[eid]} if eid in got else facts
+                    yield (pid, eid, enumeration.printed(e["clue"]), e["solution"],
+                           {**facts, "leads": got[eid]} if eid in got else facts)
 
 
 def annotation_rows():
@@ -1528,7 +1530,7 @@ def annotation_rows():
                                 if b.get("gives") and b.get("clueFragment")]}
             if a.get("indicators"):
                 facts["indicators"] = list(a["indicators"])
-            yield p["id"], e["id"], e["clue"]["text"], e["solution"], facts
+            yield p["id"], e["id"], enumeration.printed(e["clue"]), e["solution"], facts
 
 
 def read_leads(required=False):
@@ -1747,7 +1749,9 @@ def write(corpus, votes):
     lex, ilex, dlex = Lexicon(corpus), Indicators(corpus, extra=ours), Definitions(corpus)
     by_pid = collections.defaultdict(dict)
     for pid, eid, clue, answer, facts in corpus:
-        new = fact_json(inferred(clue, answer, facts, votes, lex, ilex, dlex), clue)
+        # Definitions are placed in the clue's words, as the puzzle stores them.
+        new = fact_json(inferred(clue, answer, facts, votes, lex, ilex, dlex),
+                        enumeration.split(clue)[0])
         if new:
             by_pid[pid][eid] = new
     n = collections.Counter()

@@ -624,7 +624,7 @@ def definition_unrelated(puz):
         d = bd.get(e.get("id")) or definition_key(definitions.texts(e.get("annotation")))
         if not d or not e.get("solution"):
             continue
-        clue = ENUMERATION.sub("", e["clue"].get("text", "")).strip()
+        clue = e["clue"].get("text", "").strip()
         if not clue or re.match(r"(?i)see\b", clue):
             continue
         _, ws = answer_words(e)
@@ -773,11 +773,6 @@ def device(puz):
     return sum(costs) / len(costs)
 
 
-#: A clue's trailing enumeration, "(5)" or "(2,3-4)", stripped before its last
-#: character is read.
-ENUMERATION = re.compile(r"\s*\([\d,.\s\-–']+\)\s*$")
-
-
 def acrostic(answer, clue):
     """Whether the answer is the first letters of consecutive clue words."""
     initials = "".join(w[0] for w in (letters(x) for x in clue.split()) if w)
@@ -794,7 +789,7 @@ def question_marks(puz):
     clue and is left out."""
     ends = []
     for e in puz["entries"]:
-        clue = ENUMERATION.sub("", e["clue"].get("text", "")).strip().rstrip("\"'”’)")
+        clue = e["clue"].get("text", "").strip().rstrip("\"'”’)")
         if clue and not re.match(r"(?i)see\b", clue):
             ends.append(clue.endswith("?") and not acrostic(letters(e.get("solution")), clue))
     return sum(ends) / len(ends) if ends else None
@@ -804,7 +799,7 @@ def clue_count(puz):
     """The number of clues with an answer, cross-references ("See 5") left
     out. None when the puzzle carries no answers."""
     n = sum(1 for e in puz["entries"] if e.get("solution")
-            and (c := ENUMERATION.sub("", e["clue"].get("text", "")).strip())
+            and (c := e["clue"].get("text", "").strip())
             and not re.match(r"(?i)see\b", c))
     return n or None
 

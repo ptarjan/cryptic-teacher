@@ -1841,9 +1841,12 @@
     const at = cpToIdx(clueText(e), r.at);
     return { at, length: cpToIdx(clueText(e), r.at + r.length) - at };
   });
-  // The printed clue, enumeration included; "" where the paper printed nothing.
+  // The clue's words, without its enumeration; "" where the paper printed none.
   function clueText(e) { return e.clue.text || ""; }
-  const plainClueHTML = (e) => markUp(clueText(e), [], italicsOf(e));
+  // The enumeration printed after the words, as the paper prints it: " (5,4)".
+  const enumHTML = (e) => (e.clue.enumeration
+    ? `<span class="clue-enum">${clueText(e) ? " " : ""}(${esc(e.clue.enumeration)})</span>` : "");
+  const plainClueHTML = (e) => markUp(clueText(e), [], italicsOf(e)) + enumHTML(e);
 
   // Where a fragment goes is a placement, not a search. indexOf() takes the
     // first substring that matches and two things went wrong with that, both
@@ -1965,7 +1968,7 @@
     return merged;
   }
 
-  const clueHTML = (e) => markUp(clueText(e), clueMarks(e), italicsOf(e));
+  const clueHTML = (e) => markUp(clueText(e), clueMarks(e), italicsOf(e)) + enumHTML(e);
 
   // A CHECKING letter is the crossword term for a square this entry shares with
   // one crossing the other way — the letters another answer hands you for free.
@@ -3784,11 +3787,11 @@
   // is a ladder that answers one of its own questions.
   const GUESSABLE = { type: 1, definition: 1, indicators: 1, blocks: 1 };
 
-  // The clue split into things you can put a finger on. Whitespace-delimited, so
-  // the punctuation welded to a word rides along with it, and the enumeration is
-  // dropped because "(4,3)" is not a word anyone can be right or wrong about.
+  // The clue's words split into things you can put a finger on.
+  // Whitespace-delimited, so the punctuation welded to a word rides along with
+  // it. The enumeration is not in the text, so it is never a pickable word.
   function clueTokens(clue) {
-    const body = String(clue || "").replace(/\s*\([^()]*\)\s*$/, "");
+    const body = String(clue || "");
     const out = [];
     const re = /\S+/g;
     let m;
@@ -4125,8 +4128,8 @@
   //
   // Marks are ranges over the clue string and words are ranges over that same
   // string, so each word is marked up from its own slice and the gaps between
-  // them — the spaces, and the enumeration clueTokens leaves off the end — are
-  // marked up as themselves. Every mark already bought therefore stays lit,
+  // them — the spaces and trailing punctuation — are marked up as themselves,
+  // and the enumeration follows the words. Every mark already bought therefore stays lit,
   // inside the word you are pointing at.
   //
   // One mark therefore arrives as a piece per word and a piece per space, and
@@ -4165,7 +4168,7 @@
       at = t.i + t.text.length;
     });
     return `<span class="guess-clue ${ask ? "ask" : "still"} pick-${rung || "indicators"}">${
-      out + slice(at, clueText(e).length)}</span>`;
+      out + slice(at, clueText(e).length) + enumHTML(e)}</span>`;
   }
 
   // ---------- dragging a run of words ----------
@@ -4521,7 +4524,7 @@
   }
 
   // Where the answer's words break, read straight off the clue's own
-  // enumeration: (3,6) is three boxes, a gap, then six. The grid cannot show
+  // `enumeration`: 3,6 is three boxes, a gap, then six. The grid cannot show
   // this — its squares run on regardless — so the strip is the only place a
   // solver can see that they are looking for two words rather than a nine-letter
   // one, which rules out most of what they were considering.
@@ -4533,12 +4536,11 @@
   // separators ("(two words)" and friends). "." is a separator because feeds do
   // print (6.6) where they mean (6,6) — 30079 18-across and 30080 10-across.
   const ENUM_SEPS = { ",": " ", " ": " ", "-": "-", "–": "-", "—": "-", "'": "’", "’": "’", ".": " " };
-  function enumBreaks(clue, cells) {
-    const m = /\(([^()]+)\)\s*$/.exec(clue || "");
-    if (!m) return null;
+  function enumBreaks(enumeration, cells) {
+    if (!enumeration) return null;
     const breaks = {};
     let n = 0;
-    for (const tok of m[1].match(/\d+|\S/g) || []) {
+    for (const tok of enumeration.match(/\d+|\S/g) || []) {
       if (/^\d+$/.test(tok)) { n += Number(tok); continue; }
       // A separator before any letters, or two in a row, is not an enumeration
       // this code understands — and a half-understood one draws a wrong gap.
@@ -4557,7 +4559,7 @@
     // The walk's last instruction points at this strip, so the strip is what
     // wears the pulse — same mark the grid's own empty squares take.
     const typeIt = nuxTypeIt(e);
-    const breaks = enumBreaks(clueText(e), cs.length);
+    const breaks = enumBreaks(e.clue.enumeration, cs.length);
     let filled = 0, checked = 0;
     const boxes = cs.map((c, idx) => {
       if (!c) return "";

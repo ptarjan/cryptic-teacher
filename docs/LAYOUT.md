@@ -112,11 +112,14 @@ tools/puzzle_schema.py                       checks every puzzle file against
                                              tools/data/puzzle.schema.json, and prunes null and
                                              empty values on every write: an absent key means
                                              empty
+tools/enumeration.py                         a clue's printed enumeration: split() cuts a
+                                             printed line into the clue's `text` and
+                                             `enumeration` for every writer, printed() joins
+                                             them back
 tools/definitions.py                         where each of an annotation's definitions sits in
                                              its clue: fills `at` from the text on every write,
-                                             by the whole-word, before-the-enumeration,
-                                             no-overlap, clue-end rules, and refuses to guess
-                                             past them
+                                             by the whole-word, no-overlap, clue-end rules, and
+                                             refuses to guess past them
 tools/annotation.py                          an annotation's two groups, read one way by every
                                              tool: `explanation` (the prose rung) and
                                              `assembly` (the machine-checkable rebuild), and

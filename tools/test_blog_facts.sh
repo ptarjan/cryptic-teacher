@@ -299,7 +299,7 @@ import json, os, sys
 sys.path.insert(0, os.path.join(os.environ["REPO"], "tools"))
 import blog_facts as bf, fetch_puzzle as fp, validate_annotations as va
 blocks = [["CAP", "hat"], ["OUCH", "one", "inferred"]]
-e = {"id": "1-across", "number": 1, "direction": "across", "clue": {"text": "Polar covering: one hat (6)"}, "solution": "ICECAP",
+e = {"id": "1-across", "number": 1, "direction": "across", "clue": {"text": "Polar covering: one hat", "enumeration": "6"}, "solution": "ICECAP",
      "annotation": {"blocks": [{"clueFragment": "hat", "gives": "CAP"}]}}
 va.blog_facts_for = lambda p: {"name": "Blog", "url": "u", "entries": {"1-across": bf.fact_json({"blocks": blocks}, e["clue"]["text"])}}
 w = []
@@ -365,7 +365,7 @@ sys.path.insert(0, os.path.join(os.environ["REPO"], "tools"))
 import blog_facts as bf
 f = {"definition": ["Advocate"], "type": ["charade"], "inferred": ["blocks", "definition"],
      "blocks": [["SOB", "Cry", "inferred"], ["AB", "ab", "anagrammed"], ["TON", "beer cask", "inferred", {"soundsLike": "TUN"}]]}
-j = bf.fact_json({**f, "leads": {"caps": []}}, "Advocate: cry ab beer cask (8)")
+j = bf.fact_json({**f, "leads": {"caps": []}}, "Advocate: cry ab beer cask")
 print(json.dumps(j, sort_keys=True), bf.fact_from_json(j) == f)')"
 check "a definition tools/definitions.py cannot place is left out, and so is its inferred mark" \
   '{"type": ["charade"]}' \
@@ -374,6 +374,6 @@ import json, os, sys
 sys.path.insert(0, os.path.join(os.environ["REPO"], "tools"))
 import blog_facts as bf
 print(json.dumps(bf.fact_json({"definition": ["King"], "inferred": ["definition"], "type": ["charade"]},
-                              "King, nearly everybody scoffed about King (6)"), sort_keys=True))')"
+                              "King, nearly everybody scoffed about King"), sort_keys=True))')"
 
 [ "$fails" -eq 0 ] && echo "all blog_facts checks passed" || { echo "$fails failed"; exit 1; }

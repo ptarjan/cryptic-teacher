@@ -77,6 +77,7 @@ from zoneinfo import ZoneInfo
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import enumeration  # noqa: E402 — a clue's printed counts; tools/enumeration.py
 from fetch_puzzle import (http_bytes, flatten_clue, grade_model_fill,  # noqa: E402
                           merge_annotations, print_grade, puzzle_files, puzzle_path,
                           read_puzzle_file, reindex, still_worth_refreshing,
@@ -253,11 +254,9 @@ def convert(num, manifest, data):
                 "direction": direction,
                 "position": pos,
                 "length": length,
-                "clue": {
-                    "text": f"{text} ({fmt})",
-                    **({"separators": s} if (s := clue_separators(fmt, length)) else {}),
-                    **({"italics": italics} if italics else {}),
-                },
+                "clue": enumeration.clue(f"{text} ({fmt})",
+                                         separators=clue_separators(fmt, length),
+                                         italics=italics),
                 "solution": None,
             })
 

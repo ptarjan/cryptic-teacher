@@ -57,6 +57,7 @@ import puzzle_schema  # noqa: E402 — the file's shape and presence rule; see t
 import puzzle_paths  # noqa: E402 — where each file lives; see tools/puzzle_paths.py
 import groups  # noqa: E402 — linked answers; see tools/groups.py
 import definitions  # where each definition sits in its clue; see tools/definitions.py
+import enumeration  # a clue's printed letter counts; see tools/enumeration.py
 from puzzle_paths import (  # noqa: E402, F401 — re-exported for the tools that ask here
     puzzle_path, puzzle_files, resolve_puzzle, shim_path)
 
@@ -158,13 +159,6 @@ PUZZLE_URLS = [
     "https://www.theguardian.com/crosswords/everyman/{num}",
 ]
 
-# The enumeration, and nothing else: the last parenthesised run at the end of a
-# clue. Anchored to the end because cryptics put bracketed asides mid-clue, and
-# Private Eye opens a linked clue with "(& 27ac.)" — the count is always last.
-# Lives here rather than in tools/puzzle_integrity.py, which imports it, so the
-# fetcher that writes the clue and the check that weighs it read the same rule.
-ENUMERATION = re.compile(r"\(([^()]*)\)\s*$")
-
 # Series whose LINKED clues are enumerated one light at a time, so a leg's count
 # is its own and not the answer's — `perLightEnumeration` in tools/series.py.
 # Private Eye does this: Cyclops 401's 2-down reads "(& 22dn.) … (4-6)" for its
@@ -242,8 +236,8 @@ def clue_words(clue):
 
 
 def has_words(clue):
-    """A clue is content plus an enumeration. Strip the enumeration and there
-    has to be something left, or the paper published nothing to solve.
+    """A clue's text (its enumeration is kept apart, in `enumeration`) has to
+    hold something, or the paper published nothing to solve.
 
     Something, not a letter, and not even a digit. A bare cross-reference is a
     whole clue — "␣␣␣␣␣ 9 (5)" is cryptic-30059 14-down, where the printed gap IS
@@ -257,7 +251,7 @@ def has_words(clue):
     clue built out of zero-width spaces is the empty string here, and still reads
     as blank rather than as punctuation the setter chose.
     """
-    return bool(re.sub(r"\([\d,\-. ]*\)", "", clue).strip())
+    return bool((clue or "").strip())
 
 
 # What a continuation leg's clue is made of once its enumeration is off: the
@@ -296,8 +290,7 @@ def is_continuation(clue):
     # its first two words. Leading dots only ever join a clue to its neighbour;
     # anything else in front of "see" still refuses, which is what keeps
     # "Follow, see 12 across" wordplay.
-    return bool(CONTINUATION.match(
-        ENUMERATION.sub("", clue or "").strip(" .…\t\n")))
+    return bool(CONTINUATION.match((clue or "").strip(" .…\t\n")))
 
 
 # The exemption every rule about linked groups needs, stated once. Read by
@@ -366,15 +359,15 @@ def separator_list(locations):
 
 
 #: The keys of an entry's `clue`, in the order every writer spells them.
-CLUE_KEYS = ("text", "separators", "italics", "missing", "missingNote")
+CLUE_KEYS = ("text", "enumeration", "separators", "italics", "missing", "missingNote")
 
-#: A clue's printed enumeration at its end: "(5,4)", "(2-3,4)", "(4'1)".
-CLUE_ENUMERATION = re.compile(r"\(\s*(\d+(?:\s*[,\-'\u2019]\s*\d+)*)\s*\)\s*$")
+#: An enumeration separators() can read: counts joined by "," "-" or "'".
+CLUE_ENUMERATION = re.compile(r"\d+(?:[,\-']\d+)*")
 
 
 def enumeration_separators(entries):
-    """Set clue.separators on entries from the enumeration printed at the
-    end of each clue's text, for sources that ship the clue text but no word
+    """Set clue.separators on entries from each clue's printed
+    `enumeration`, for sources that ship the clue text but no word
     breaks.
 
     The enumeration must add up to the entry's own length, or to its linked
@@ -384,12 +377,11 @@ def enumeration_separators(entries):
     only commas and hyphens are breaks."""
     by_id = {e["id"]: e for e in entries}
     for e in entries:
-        m = CLUE_ENUMERATION.search(e["clue"].get("text", ""))
-        if not m:
+        fmt = e["clue"].get("enumeration", "")
+        if not CLUE_ENUMERATION.fullmatch(fmt):
             continue
-        fmt = re.sub(r"\s+", "", m.group(1))
-        total = sum(int(n) for n in re.findall(r"\d+", fmt))
-        fmt = re.sub(r"(\d+)['\u2019](\d+)", lambda g: str(int(g[1]) + int(g[2])), fmt)
+        total = sum(enumeration.counts(fmt))
+        fmt = re.sub(r"(\d+)'(\d+)", lambda g: str(int(g[1]) + int(g[2])), fmt)
         group = [by_id[g] for g in e.get("group") or [] if g in by_id]
         if total == e["length"]:
             targets = [e]
@@ -599,9 +591,19 @@ SHIM_UNPACK = (
     "if(!Array.isArray(a))return a;"
     'var d=["across","down"][a[1]],e={id:a[0]+"-"+d,number:a[0],direction:d,'
     "position:{x:a[2],y:a[3]},length:a[4],"
-    'clue:typeof a[5]=="string"?{text:a[5]}:a[5],solution:a[6]};'
+    'clue:typeof a[5]=="string"?{text:a[5]}:Array.isArray(a[5])'
+    '?{text:a[5][0],enumeration:a[5][1]}:a[5],solution:a[6]};'
     "for(var k in a[7])e[k]=a[7][k];return e});"
     "window.CRYPTIC_PUZZLES[p.id]=p})")
+
+
+def pack_clue(clue):
+    """A clue as a shim spells it; see pack_entry."""
+    if set(clue) == {"text"}:
+        return clue["text"]
+    if set(clue) == {"text", "enumeration"}:
+        return [clue["text"], clue["enumeration"]]
+    return clue
 
 
 def pack_entry(e):
@@ -612,8 +614,9 @@ def pack_entry(e):
 
     The field names were a third of every shim, repeated on each of a million
     entries, and the id is the number and direction said again. For the same
-    reason a clue that is only text is packed as the bare string, which
-    SHIM_UNPACK turns back into {"text": ...}."""
+    reason a clue that is only text is packed as the bare string, and one that
+    is text and enumeration as [text, enumeration], which SHIM_UNPACK turns
+    back into {"text": ...} and {"text": ..., "enumeration": ...}."""
     pos = e.get("position")
     if not (all(k in e for k in ENTRY_CORE)
             and e["direction"] in DIRECTIONS and type(e["number"]) is int
@@ -624,8 +627,7 @@ def pack_entry(e):
     if e["id"] != f"{e['number']}-{e['direction']}":
         rest["id"] = e["id"]
     packed = [e["number"], DIRECTIONS.index(e["direction"]), pos["x"], pos["y"],
-              e["length"], e["clue"]["text"] if set(e["clue"]) == {"text"} else e["clue"],
-              e["solution"]]
+              e["length"], pack_clue(e["clue"]), e["solution"]]
     return packed + [rest] if rest else packed
 
 
@@ -922,11 +924,10 @@ def reconcile_groups(entries):
         # removed and goes back to being its own answer.
         if len(leads) > 1:
             def adds_up(claim):
-                said = ENUMERATION.search(by_id[claim]["clue"].get("text", ""))
+                said = by_id[claim]["clue"].get("enumeration")
                 own = [m for m in by_id[claim].get("group") or []]
                 return bool(said) and _cuts_into(
-                    [int(n) for n in re.findall(r"\d+", said.group(1))],
-                    [by_id[m]["length"] for m in own])
+                    enumeration.counts(said), [by_id[m]["length"] for m in own])
             winners = [c for c in sorted(leads) if adds_up(c)]
             if len(winners) != 1:
                 # Every claim adds up, so they are all true and the light they
@@ -954,8 +955,7 @@ def reconcile_groups(entries):
         if not leads:
             continue
         lead = leads.pop()
-        said = ENUMERATION.search(by_id[lead]["clue"].get("text", ""))
-        counts = [int(n) for n in re.findall(r"\d+", said.group(1))] if said else []
+        counts = enumeration.counts(by_id[lead]["clue"].get("enumeration"))
         fits = [tail for tail in itertools.permutations(rest)
                 if _cuts_into(counts, [by_id[m]["length"] for m in (lead, *tail)])]
         freed = []
@@ -980,10 +980,7 @@ def reconcile_groups(entries):
 
 def _own_count(entry):
     """What an entry's own clue says its answer counts, or None if it says nothing."""
-    said = ENUMERATION.search(entry["clue"].get("text", ""))
-    if not said:
-        return None
-    counts = [int(n) for n in re.findall(r"\d+", said.group(1))]
+    counts = enumeration.counts(entry["clue"].get("enumeration"))
     return sum(counts) if counts else None
 
 
@@ -1008,11 +1005,10 @@ def prints_own_count(entry):
     clue = entry["clue"].get("text", "")
     if is_continuation(clue):
         return True
-    said = ENUMERATION.search(clue)
-    if not said or ENUMERATION.sub("", clue).strip():
+    said = entry["clue"].get("enumeration")
+    if not said or clue.strip():
         return False
-    return (_own_count(entry) == entry.get("length")
-            and len(said.group(1).strip().split(",")) == 1)
+    return _own_count(entry) == entry.get("length") and "," not in said
 
 
 def prune_one_sided_members(entries):
@@ -1216,7 +1212,7 @@ def _points_at(entry, lead, entries):
     nothing does.
     """
     named = [(int(n), SHORT_DIRECTIONS.get(d.lower(), d.lower()) or None)
-             for n, d in POINTER.findall(ENUMERATION.sub("", entry["clue"].get("text", "")))]
+             for n, d in POINTER.findall(entry["clue"].get("text", ""))]
     named = [(n, d) for n, d in named
              if any(o["id"] != entry["id"] and o["number"] == n
                     and d in (None, o["direction"]) for o in entries)]
@@ -1255,7 +1251,7 @@ def _spare_light(entry, lead, entries):
     clue = entry["clue"].get("text", "")
     if is_continuation(clue):
         return _points_at(entry, lead, entries)
-    if ENUMERATION.sub("", clue).strip():
+    if clue.strip():
         return False
     # Wordless, so the only question is what the count beside it counts. One
     # number equal to this light's own cells is the leg's cell count, printed
@@ -1378,8 +1374,7 @@ def reconstruct_groups(entries, series):
                 continue
             if is_continuation(lead["clue"].get("text", "")):
                 continue                    # a pointer counts its own light, not an answer
-            said = ENUMERATION.search(lead["clue"].get("text", ""))
-            counts = [int(n) for n in re.findall(r"\d+", said.group(1))] if said else []
+            counts = enumeration.counts(lead["clue"].get("enumeration"))
             if not counts:
                 continue
             members = list(lead.get("group") or [lead["id"]])
@@ -1762,7 +1757,8 @@ def convert(data):
     pid = series_meta.puzzle_id(series, data["number"])
     entries = []
     for e in sorted(data["entries"], key=lambda e: (e["position"]["y"], e["position"]["x"], e["direction"])):
-        text, italics = flatten_clue(e["clue"])
+        line, italics = flatten_clue(e["clue"])
+        text, enum = enumeration.split(line)
         seps = separator_list(e.get("separatorLocations"))
         entries.append({
             "id": e["id"],
@@ -1777,6 +1773,7 @@ def convert(data):
             # second rule in app.js that could drift from this one.
             "clue": {
                 **({"text": text} if text else {}),
+                **({"enumeration": enum} if enum else {}),
                 **({"separators": seps} if seps else {}),
                 **({"italics": italics} if italics else {}),
                 **({} if has_words(text) else {"missing": True}),
@@ -1961,8 +1958,9 @@ def carry_recovered_clues(new_puzzle, old_puzzle):
         was = old.get(e["id"])
         if not was or has_words(e["clue"].get("text", "")) or not has_words(was["clue"].get("text", "")):
             continue
-        clue = {**{k: v for k, v in e["clue"].items() if k not in ("text", "italics", "missing")},
-                **{k: v for k, v in was["clue"].items() if k in ("text", "italics")}}
+        clue = {**{k: v for k, v in e["clue"].items()
+                   if k not in ("text", "enumeration", "italics", "missing")},
+                **{k: v for k, v in was["clue"].items() if k in ("text", "enumeration", "italics")}}
         e["clue"] = {k: clue[k] for k in CLUE_KEYS if k in clue}
         e.pop("group", None)
         if was.get("group"):

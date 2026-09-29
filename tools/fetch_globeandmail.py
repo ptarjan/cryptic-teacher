@@ -113,6 +113,7 @@ from datetime import date, datetime, timedelta
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import enumeration  # noqa: E402 — a clue's printed counts; tools/enumeration.py
 import puzzle_paths  # noqa: E402
 from fetch_puzzle import (flatten_clue, http_bytes,  # noqa: E402
                           merge_annotations, puzzle_files, puzzle_path,
@@ -360,11 +361,7 @@ def convert(data, ymd):
             "direction": direction,
             "position": {"x": x0, "y": y0},
             "length": length,
-            "clue": {
-                "text": full_clue,
-                **({"separators": seps} if seps else {}),
-                **({"italics": italics} if italics else {}),
-            },
+            "clue": enumeration.clue(full_clue, separators=seps, italics=italics),
             "solution": solution_letters(box, cells),
         })
     entries.sort(key=lambda e: (e["position"]["y"], e["position"]["x"], e["direction"]))
