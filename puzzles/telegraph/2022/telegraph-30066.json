@@ -23,6 +23,9 @@
   "date": "2022-08-15",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "id": "1-across",
@@ -37,7 +40,44 @@
     "text": "Vessel, cooking vessel",
     "enumeration": "7"
    },
-   "solution": "STEAMER"
+   "solution": "STEAMER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STEAMER",
+    "definitions": [
+     {
+      "text": "Vessel",
+      "at": 0
+     },
+     {
+      "text": "cooking vessel",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vessel",
+      "gives": "STEAMER",
+      "note": "a vessel here is a ship, one driven by steam"
+     },
+     {
+      "clueFragment": "cooking vessel",
+      "gives": "STEAMER",
+      "note": "a cooking pan with holes, set over boiling water"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The same word twice, once for a ship and once for a pan with holes in it; the repetition of 'vessel' is the hint that two senses are in play.",
+     "definitionFit": "A steamer is both a steam-driven ship and a pot for steaming vegetables."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "id": "1-down",
@@ -52,7 +92,48 @@
     "text": "Short Greek island sausage",
     "enumeration": "6"
    },
-   "solution": "SALAMI"
+   "solution": "SALAMI",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SALAMI",
+    "definitions": [
+     {
+      "text": "sausage",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Short",
+      "for": "deletion",
+      "note": "something short is missing a bit, so the island loses its last letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Greek island",
+      "gives": "SALAMIS",
+      "note": "the island off Athens where the Greek fleet beat the Persians"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SALAMI"
+     ]
+    },
+    "explanation": {
+     "surface": "A little Greek island sausage, the sort of thing you might buy on holiday.",
+     "walkthrough": "'Short' cuts the last letter off SALAMIS, the island famous for the sea battle of 480 BC.",
+     "definitionFit": "A definition by category: salami is one kind of cured Italian sausage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Short"
+    }
+   }
   },
   {
    "id": "2-down",
@@ -67,7 +148,51 @@
     "text": "Stoat in mere swimming",
     "enumeration": "6"
    },
-   "solution": "ERMINE"
+   "solution": "ERMINE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ERMINE",
+    "definitions": [
+     {
+      "text": "Stoat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swimming",
+      "for": "anagram",
+      "note": "letters that are swimming move about freely, so IN MERE rearranges"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in mere",
+      "gives": "INMERE",
+      "note": "anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IN MERE",
+       "gives": "ERMINE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stoat paddling across a lake.",
+     "walkthrough": "'In' looks like a link word placing the stoat in the water, but it is part of the fodder. A mere is a small lake.",
+     "definitionFit": "Ermine is the stoat, especially in its white winter coat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "id": "3-down",
@@ -88,7 +213,54 @@
      }
     ]
    },
-   "solution": "MONTECARLO"
+   "solution": "MONTECARLO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MONTE CARLO",
+    "definitions": [
+     {
+      "text": "Rally round here",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "muddy",
+      "for": "anagram",
+      "note": "a muddy motor is messed up, so the letters of CLEAN MOTOR are disordered"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clean motor",
+      "gives": "CLEANMOTOR",
+      "note": "anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CLEAN MOTOR",
+       "gives": "MONTECARLO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rally driver told to wash a car that is covered in mud.",
+     "walkthrough": "'Clean' and 'muddy' contradict each other on the surface; one is fodder and the other the instruction. The Monte Carlo Rally is a famous motor race held around Monaco.",
+     "definitionFit": "The Monte Carlo Rally is run round there, so Monte Carlo is where the rally goes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "clean"
+    }
+   }
   },
   {
    "id": "4-down",
@@ -103,7 +275,54 @@
     "text": "Plunderer overlooking a person on horseback",
     "enumeration": "5"
    },
-   "solution": "RIDER"
+   "solution": "RIDER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RIDER",
+    "definitions": [
+     {
+      "text": "person on horseback",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overlooking",
+      "for": "deletion",
+      "note": "to overlook is to leave out, so the A is left out of RAIDER"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Plunderer",
+      "gives": "RAIDER",
+      "note": "a raider plunders"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "used literally, and removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "IDER"
+     ]
+    },
+    "explanation": {
+     "surface": "A mounted bandit surveying his next target from on high.",
+     "walkthrough": "'Overlooking' reads as looking down from the saddle, but it means ignoring: RAIDER ignores its A.",
+     "definitionFit": "A plain synonym: the one on horseback is the rider, where the raider was the one plundering."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "overlooking"
+    }
+   }
   },
   {
    "id": "5-across",
@@ -118,7 +337,46 @@
     "text": "Extra expected, late arriving",
     "enumeration": "7"
    },
-   "solution": "OVERDUE"
+   "solution": "OVERDUE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OVERDUE",
+    "definitions": [
+     {
+      "text": "late arriving",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Extra",
+      "gives": "OVER",
+      "note": "over = extra, left over"
+     },
+     {
+      "clueFragment": "expected",
+      "gives": "DUE",
+      "note": "due = expected"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "DUE"
+     ]
+    },
+    "explanation": {
+     "surface": "A train or guest expected but running late.",
+     "walkthrough": "The surface reads as one phrase about delay; split it after 'expected' and each word supplies half.",
+     "definitionFit": "Something overdue has not arrived by the time it was due."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "5-down",
@@ -139,7 +397,54 @@
      }
     ]
    },
-   "solution": "OYSTERBAR"
+   "solution": "OYSTERBAR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OYSTER BAR",
+    "definitions": [
+     {
+      "text": "Specialist restaurant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abroad",
+      "for": "anagram",
+      "note": "abroad also means astray or widely scattered, so the letters go wandering"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bay resort",
+      "gives": "BAYRESORT",
+      "note": "anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BAY RESORT",
+       "gives": "OYSTERBAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A seafood restaurant in a seaside town overseas.",
+     "walkthrough": "'Abroad' seems to place the resort in another country; its older sense of scattered is the instruction.",
+     "definitionFit": "An oyster bar specialises in oysters and other shellfish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "abroad"
+    }
+   }
   },
   {
    "id": "6-down",
@@ -154,7 +459,48 @@
     "text": "Earthenware container, not as old, missing lid",
     "enumeration": "4"
    },
-   "solution": "EWER"
+   "solution": "EWER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EWER",
+    "definitions": [
+     {
+      "text": "Earthenware container",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "missing lid",
+      "for": "deletion",
+      "note": "the lid of a down word is its top letter, so NEWER loses N"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not as old",
+      "gives": "NEWER",
+      "note": "newer = not as old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EWER"
+     ]
+    },
+    "explanation": {
+     "surface": "An old clay pot with its lid lost.",
+     "walkthrough": "'Missing lid' fits a pot so well that it reads as description, but it removes the first letter of NEWER.",
+     "definitionFit": "A ewer is a large jug, often of earthenware."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lid"
+    }
+   }
   },
   {
    "id": "7-down",
@@ -169,7 +515,59 @@
     "text": "Perhaps first secretary‘s graduation certificate, first of three",
     "enumeration": "8"
    },
-   "solution": "DIPLOMAT"
+   "solution": "DIPLOMAT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "DIPLOMAT",
+    "definitions": [
+     {
+      "text": "Perhaps first secretary",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first of",
+      "for": "letter_selection",
+      "note": "'first of' asks for the opening letter of the next word"
+     }
+    ],
+    "linkWords": [
+     "‘s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "graduation certificate",
+      "gives": "DIPLOMA",
+      "note": "a diploma is awarded on graduation"
+     },
+     {
+      "clueFragment": "three",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter of Three"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIPLOMA",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "An office secretary proudly showing off a certificate.",
+     "walkthrough": "'First secretary' is an embassy rank, not an office job; 'perhaps' marks it as one example of a diplomat.",
+     "definitionFit": "A first secretary is a rank in a diplomatic mission, so is an example of a diplomat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "secretary"
+    }
+   }
   },
   {
    "id": "8-down",
@@ -184,7 +582,73 @@
     "text": "English celebrity describing our fantastic rail service",
     "enumeration": "8"
    },
-   "solution": "EUROSTAR"
+   "solution": "EUROSTAR",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram",
+     "container"
+    ],
+    "answer": "EUROSTAR",
+    "definitions": [
+     {
+      "text": "rail service",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fantastic",
+      "for": "anagram",
+      "note": "something fantastic is fanciful and unreal, so OUR is reshaped"
+     },
+     {
+      "text": "describing",
+      "for": "container",
+      "note": "to describe a figure is to draw round it, so E STAR goes round URO"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "our",
+      "gives": "URO",
+      "note": "OUR rearranged"
+     },
+     {
+      "clueFragment": "celebrity",
+      "gives": "STAR",
+      "note": "a star is a celebrity"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "URO",
+      "STAR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OUR",
+       "gives": "URO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A famous English person praising the train service.",
+     "walkthrough": "'Describing' reads as talking about, but in geometry to describe a figure is to draw round it, so the celebrity phrase wraps round the fodder.",
+     "definitionFit": "Eurostar is the passenger train service through the Channel Tunnel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "describing"
+    }
+   }
   },
   {
    "id": "9-across",
@@ -199,7 +663,43 @@
     "text": "Citrus fruit found in Jerusalem once",
     "enumeration": "5"
    },
-   "solution": "LEMON"
+   "solution": "LEMON",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "LEMON",
+    "definitions": [
+     {
+      "text": "Citrus fruit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found in",
+      "for": "hidden_word",
+      "note": "the fruit is found inside the letters of the next words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jerusalem once",
+      "gives": "LEMON",
+      "note": "jerusaLEM ONce"
+     }
+    ],
+    "explanation": {
+     "surface": "A historian noting that lemons grew in ancient Jerusalem.",
+     "walkthrough": "'Once' seems to set the scene in the past, but it only supplies the last two letters.",
+     "definitionFit": "A definition by category: the lemon is one member of the citrus family, alongside limes and oranges."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "once"
+    }
+   }
   },
   {
    "id": "10-across",
@@ -214,7 +714,56 @@
     "text": "One’s mood after daughter gets viral disease",
     "enumeration": "9"
    },
-   "solution": "DISTEMPER"
+   "solution": "DISTEMPER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DISTEMPER",
+    "definitions": [
+     {
+      "text": "viral disease",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "One’s",
+      "gives": "IS",
+      "note": "one's = I'S, I being one"
+     },
+     {
+      "clueFragment": "mood",
+      "gives": "TEMPER",
+      "note": "a temper is a mood"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "IS",
+      "TEMPER"
+     ]
+    },
+    "explanation": {
+     "surface": "A parent whose mood sours after their daughter falls ill.",
+     "walkthrough": "'After' means ISTEMPER follows D, so the clue is read from the middle outwards.",
+     "definitionFit": "Distemper is a viral disease of dogs and other animals."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mood"
+    }
+   }
   },
   {
    "id": "11-across",
@@ -229,7 +778,63 @@
     "text": "Male on stage, name responsible for misheard lyrics?",
     "enumeration": "10"
    },
-   "solution": "MONDEGREEN"
+   "solution": "MONDEGREEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MONDEGREEN",
+    "definitions": [
+     {
+      "text": "misheard lyrics?",
+      "at": 36,
+      "note": "plural, while the answer is one misheard phrase"
+     }
+    ],
+    "linkWords": [
+     "responsible for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Male",
+      "gives": "M",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "used literally"
+     },
+     {
+      "clueFragment": "stage",
+      "gives": "DEGREE",
+      "note": "a degree is a stage, as in 'by degrees'"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ON",
+      "DEGREE",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A male singer on stage blamed for lyrics the audience got wrong.",
+     "walkthrough": "'Stage' pulls toward theatre, but here it means a step. The question mark flags that a mondegreen is the misheard phrase itself, not a lyric.",
+     "definitionFit": "A mondegreen is a misheard phrase, typically a song lyric."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "stage"
+    }
+   }
   },
   {
    "id": "12-across",
@@ -244,7 +849,45 @@
     "text": "Stud manager",
     "enumeration": "4"
    },
-   "solution": "BOSS"
+   "solution": "BOSS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BOSS",
+    "definitions": [
+     {
+      "text": "Stud",
+      "at": 0
+     },
+     {
+      "text": "manager",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stud",
+      "gives": "BOSS",
+      "note": "a stud in the sense of a raised knob on a shield or ceiling"
+     },
+     {
+      "clueFragment": "manager",
+      "gives": "BOSS",
+      "note": "the person in charge, in informal speech"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Stud manager' suggests someone running a horse farm; it is two separate definitions.",
+     "definitionFit": "A boss is both an ornamental stud and the person in charge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Stud"
+    }
+   }
   },
   {
    "id": "13-down",
@@ -265,7 +908,50 @@
      }
     ]
    },
-   "solution": "DRAWSTUMPS"
+   "solution": "DRAWSTUMPS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DRAW STUMPS",
+    "definitions": [
+     {
+      "text": "close play",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "so"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sketch",
+      "gives": "DRAW",
+      "note": "to sketch is to draw"
+     },
+     {
+      "clueFragment": "is baffling",
+      "gives": "STUMPS",
+      "note": "something that stumps you baffles you"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DRAW",
+      "STUMPS"
+     ]
+    },
+    "explanation": {
+     "surface": "A theatre sketch so confusing it closes early.",
+     "walkthrough": "'Play' looks like drama, but it is cricket: to draw stumps is to pull them from the ground at the end of a day's play.",
+     "definitionFit": "Drawing stumps ends the day's play in cricket."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "play"
+    }
+   }
   },
   {
    "id": "14-across",
@@ -286,7 +972,73 @@
      }
     ]
    },
-   "solution": "MAJORBARBARA"
+   "solution": "MAJORBARBARA",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "reversal"
+    ],
+    "answer": "MAJOR BARBARA",
+    "definitions": [
+     {
+      "text": "play",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost BARE is BARE short of its last letter"
+     },
+     {
+      "text": "backing",
+      "for": "reversal",
+      "note": "backing an across word runs its letters the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Important",
+      "gives": "MAJOR",
+      "note": "major = important"
+     },
+     {
+      "clueFragment": "almost bald",
+      "gives": "BAR",
+      "note": "BARE, bald, without its last letter"
+     },
+     {
+      "clueFragment": "Arab",
+      "gives": "ARAB",
+      "note": "used literally"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAJOR",
+      "BAR",
+      "BARA"
+     ],
+     "reversals": [
+      {
+       "from": "ARAB",
+       "to": "BARA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A balding Arab financier putting money into a significant stage production.",
+     "walkthrough": "'Backing' reads as financing the play, but it is the reversal. Major Barbara is a 1905 play by George Bernard Shaw.",
+     "definitionFit": "Major Barbara is a play by Shaw about a Salvation Army officer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "backing"
+    }
+   }
   },
   {
    "id": "15-down",
@@ -307,7 +1059,67 @@
      }
     ]
    },
-   "solution": "OPENHOUSE"
+   "solution": "OPENHOUSE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "OPEN HOUSE",
+    "definitions": [
+     {
+      "text": "hospitality to all comers",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mobile",
+      "for": "anagram",
+      "note": "mobile means movable, so the letters of PHONE move about"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ring",
+      "gives": "O",
+      "note": "a ring is O-shaped"
+     },
+     {
+      "clueFragment": "phone",
+      "gives": "PENHO",
+      "note": "PHONE rearranged"
+     },
+     {
+      "clueFragment": "to take advantage of",
+      "gives": "USE",
+      "note": "to use someone is to take advantage of them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "PENHO",
+      "USE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PHONE",
+       "gives": "PENHO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A guest who rings around on a mobile to exploit someone's generosity.",
+     "walkthrough": "'Mobile phone' is one object on the surface; 'mobile' is the instruction and only 'phone' is fodder.",
+     "definitionFit": "To keep open house is to offer hospitality to all visitors."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mobile"
+    }
+   }
   },
   {
    "id": "16-down",
@@ -322,7 +1134,62 @@
     "text": "Puzzle‘s answer about potato dish, cold",
     "enumeration": "8"
    },
-   "solution": "ACROSTIC"
+   "solution": "ACROSTIC",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ACROSTIC",
+    "definitions": [
+     {
+      "text": "Puzzle",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "‘s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "answer",
+      "gives": "A",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "c = circa, about"
+     },
+     {
+      "clueFragment": "potato dish",
+      "gives": "ROSTI",
+      "note": "rösti is a Swiss fried potato dish"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "standard abbreviation, as on a tap"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "C",
+      "ROSTI",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzle whose solution is a cold potato dish.",
+     "walkthrough": "'About' looks like a container instruction but is simply C for circa.",
+     "definitionFit": "An acrostic is a word puzzle in which initial letters spell a word."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "id": "17-down",
@@ -337,7 +1204,39 @@
     "text": "On which to hang pictures?",
     "enumeration": "8"
    },
-   "solution": "HATSTAND"
+   "solution": "HATSTAND",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "HATSTAND",
+    "definitions": [
+     {
+      "text": "On which to hang pictures?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hang pictures",
+      "note": "the surface pushes framed paintings hung on a wall or picture rail"
+     },
+     {
+      "clueFragment": "pictures?",
+      "note": "the setter means picture hats, broad-brimmed hats of the sort seen in old portraits, hung on hooks"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The clue suggests a picture rail or wall. The pictures here are picture hats, the broad-brimmed kind, and they hang on a hatstand.",
+     "definitionFit": "A hatstand is a post with hooks on which to hang hats."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pictures"
+    }
+   }
   },
   {
    "id": "18-across",
@@ -358,7 +1257,59 @@
      }
     ]
    },
-   "solution": "CHARLIEBROWN"
+   "solution": "CHARLIEBROWN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CHARLIE BROWN",
+    "definitions": [
+     {
+      "text": "Comic strip character",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "blown off course",
+      "for": "anagram",
+      "note": "a thing blown off course ends up out of place, so the letters are scattered"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hire car",
+      "gives": "HIRECAR",
+      "note": "anagram fodder"
+     },
+     {
+      "clueFragment": "blown",
+      "gives": "BLOWN",
+      "note": "anagram fodder too"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HIRE CAR BLOWN",
+       "gives": "CHARLIEBROWN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cartoon character driving a rental car that the wind pushes off the road.",
+     "walkthrough": "'Blown' does double work on the surface, but in the parse it is fodder and only 'off course' is the instruction.",
+     "definitionFit": "A definition by example: the round-headed boy is the best-known character in Peanuts, the strip by Charles Schulz."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "blown"
+    }
+   }
   },
   {
    "id": "19-down",
@@ -373,7 +1324,61 @@
     "text": "Flag of British monarch beginning to reign",
     "enumeration": "6"
    },
-   "solution": "BANNER"
+   "solution": "BANNER",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "BANNER",
+    "definitions": [
+     {
+      "text": "Flag",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "monarch",
+      "gives": "ANNE",
+      "note": "Queen Anne, British monarch 1702-1714"
+     },
+     {
+      "clueFragment": "beginning to reign",
+      "gives": "R",
+      "select": "first",
+      "note": "the first letter of Reign"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ANNE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "The royal standard raised as a new British monarch begins to reign.",
+     "walkthrough": "The monarch is not the current one: setters often use ANNE, the queen of the early 1700s.",
+     "definitionFit": "A plain synonym: a banner is a flag, especially one carried on a pole in a procession."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "20-down",
@@ -388,7 +1393,64 @@
     "text": "Deceitful and silly U-turn over Ecstasy",
     "enumeration": "6"
    },
-   "solution": "UNTRUE"
+   "solution": "UNTRUE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "UNTRUE",
+    "definitions": [
+     {
+      "text": "Deceitful",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "silly",
+      "for": "anagram",
+      "note": "silly means foolish or disordered, so U-TURN is jumbled"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "U-turn",
+      "gives": "UNTRU",
+      "note": "UTURN rearranged"
+     },
+     {
+      "clueFragment": "Ecstasy",
+      "gives": "E",
+      "note": "E = the drug ecstasy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNTRU",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "UTURN",
+       "gives": "UNTRU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A politician's cynical U-turn on drugs policy.",
+     "walkthrough": "In a down clue 'over' means placed on top of, so UNTRU sits above E.",
+     "definitionFit": "Untrue can mean false or disloyal, as in deceitful."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "id": "21-across",
@@ -403,7 +1465,43 @@
     "text": "Remove some deciduous trees",
     "enumeration": "4"
    },
-   "solution": "OUST"
+   "solution": "OUST",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "OUST",
+    "definitions": [
+     {
+      "text": "Remove",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "only some of the letters of the next words are taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "deciduous trees",
+      "gives": "OUST",
+      "note": "deciduOUS Trees"
+     }
+    ],
+    "explanation": {
+     "surface": "A gardener clearing a few leaf-shedding trees.",
+     "walkthrough": "'Some' seems to count the trees, but it counts letters.",
+     "definitionFit": "A plain synonym: to oust someone is to remove them from a post or place, usually by force."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "some"
+    }
+   }
   },
   {
    "id": "22-across",
@@ -424,7 +1522,51 @@
      }
     ]
    },
-   "solution": "GHOSTTRAIN"
+   "solution": "GHOSTTRAIN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GHOST TRAIN",
+    "definitions": [
+     {
+      "text": "fairground ride",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bumpy",
+      "for": "anagram",
+      "note": "a bumpy ride jolts things out of place, so the letters are jostled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sort hating",
+      "gives": "SORTHATING",
+      "note": "anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SORT HATING",
+       "gives": "GHOSTTRAIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A type of person who hates bumpy fairground rides.",
+     "walkthrough": "'Bumpy' seems to describe the ride, but it belongs with the fodder before it.",
+     "definitionFit": "A ghost train is a fairground ride through a dark, spooky tunnel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bumpy"
+    }
+   }
   },
   {
    "id": "23-down",
@@ -439,7 +1581,64 @@
     "text": "Model and artist turned up for instrument",
     "enumeration": "5"
    },
-   "solution": "SITAR"
+   "solution": "SITAR",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "SITAR",
+    "definitions": [
+     {
+      "text": "instrument",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned up",
+      "for": "reversal",
+      "note": "in a down entry, turned up means read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Model",
+      "gives": "SIT",
+      "note": "to model for a painter is to sit"
+     },
+     {
+      "clueFragment": "artist",
+      "gives": "RA",
+      "note": "RA = Royal Academician"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SIT",
+      "AR"
+     ],
+     "reversals": [
+      {
+       "from": "RA",
+       "to": "AR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A model and a painter arriving together to play music.",
+     "walkthrough": "'Model' is a verb here: models sit for artists, which also ties the surface together.",
+     "definitionFit": "A definition by category: the long-necked Indian lute is one kind of musical instrument."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Model"
+    }
+   }
   },
   {
    "id": "24-down",
@@ -454,7 +1653,61 @@
     "text": "Hide family under Samaritan’s roof",
     "enumeration": "4"
    },
-   "solution": "SKIN"
+   "solution": "SKIN",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SKIN",
+    "definitions": [
+     {
+      "text": "Hide",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "under",
+      "for": "charade",
+      "note": "in a down clue, under places KIN below S"
+     },
+     {
+      "text": "roof",
+      "for": "letter_selection",
+      "note": "the roof of a down word is its top letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Samaritan’s roof",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of Samaritan"
+     },
+     {
+      "clueFragment": "family",
+      "gives": "KIN",
+      "note": "kin = family"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "KIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A family sheltering under a Good Samaritan's roof.",
+     "walkthrough": "'Hide' reads as a verb about sheltering, but it is the noun: an animal's skin.",
+     "definitionFit": "A plain synonym in the tanner's sense: an animal's hide is its skin, the noun and not the verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Hide"
+    }
+   }
   },
   {
    "id": "25-across",
@@ -469,7 +1722,50 @@
     "text": "What an athlete may wear to follow match",
     "enumeration": "9"
    },
-   "solution": "TRACKSUIT"
+   "solution": "TRACKSUIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TRACKSUIT",
+    "definitions": [
+     {
+      "text": "What an athlete may wear",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "follow",
+      "gives": "TRACK",
+      "note": "to track is to follow"
+     },
+     {
+      "clueFragment": "match",
+      "gives": "SUIT",
+      "note": "to suit is to match, as colours suit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRACK",
+      "SUIT"
+     ]
+    },
+    "explanation": {
+     "surface": "An athlete choosing an outfit to wear after the match.",
+     "walkthrough": "'Follow match' looks like watching a game; both words are verbs giving the two halves.",
+     "definitionFit": "A tracksuit is the warm outfit athletes wear before and after competing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "match"
+    }
+   }
   },
   {
    "id": "26-across",
@@ -484,7 +1780,47 @@
     "text": "Method picked up in country house",
     "enumeration": "5"
    },
-   "solution": "MANOR"
+   "solution": "MANOR",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "MANOR",
+    "definitions": [
+     {
+      "text": "country house",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "picked up",
+      "for": "homophone",
+      "note": "picked up means heard, so the word for method is taken by ear"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Method",
+      "gives": "MANOR",
+      "soundsLike": "MANNER",
+      "note": "a manner is a method or way"
+     }
+    ],
+    "explanation": {
+     "surface": "A technique learnt while staying at a country estate.",
+     "walkthrough": "MANNER and MANOR sound alike in a non-rhotic British accent.",
+     "definitionFit": "A plain synonym: the manor house is the main house of a country estate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "picked"
+    }
+   }
   },
   {
    "id": "27-across",
@@ -499,7 +1835,70 @@
     "text": "Rhythm of new dance in church",
     "enumeration": "7"
    },
-   "solution": "CADENCE"
+   "solution": "CADENCE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "CADENCE",
+    "definitions": [
+     {
+      "text": "Rhythm",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "a new version of DANCE is a reworked one"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the rearranged dance goes in CE"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "new dance",
+      "gives": "ADENC",
+      "note": "DANCE rearranged"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE = Church of England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ADENC",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DANCE",
+       "gives": "ADENC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The beat of a fresh dance performed in a church.",
+     "walkthrough": "CE, the Church of England, is the usual crossword church.",
+     "definitionFit": "Cadence is rhythm, the rise and fall of sound."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "new"
+    }
+   }
   },
   {
    "id": "28-across",
@@ -514,7 +1913,44 @@
     "text": "Book substitute",
     "enumeration": "7"
    },
-   "solution": "RESERVE"
+   "solution": "RESERVE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RESERVE",
+    "definitions": [
+     {
+      "text": "Book",
+      "at": 0
+     },
+     {
+      "text": "substitute",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Book",
+      "gives": "RESERVE",
+      "note": "book as a verb, to secure a table or seat in advance"
+     },
+     {
+      "clueFragment": "substitute",
+      "gives": "RESERVE",
+      "note": "a substitute player waiting on the bench"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Book' is a verb and 'substitute' a noun, though both read as nouns side by side.",
+     "definitionFit": "A double definition: the verb means to secure in advance, and the noun is a player held back in case needed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Book"
+    }
+   }
   }
  ]
 }
