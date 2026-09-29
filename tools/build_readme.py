@@ -257,6 +257,8 @@ LAYOUT = [
     ("finding out whether any of it is working", "tools/turn_cost.py", "how many turns an annotation session takes, from the transcripts — logged nightly so the figure can’t go stale unnoticed"),
     ("finding out whether any of it is working", "tools/make_hint_packets.js", "blind solve-packets, to grade a hint by whether it gets a solver unstuck"),
     ("finding out whether any of it is working", "tools/grade_clues.py", "blind A/B/C/D packets of our clues against real setters’ for the same answers"),
+    ("finding out whether any of it is working", "tools/grade_clues_judge.sh", "runs the blind judges over one round of grade_clues.py packets"),
+    ("finding out whether any of it is working", "tools/grade_clues_judge.md", "the judge prompt grade_clues_judge.sh sends: rubric, then packets"),
     ("finding out whether any of it is working", "tools/score_grading.py", "joins the blind scores back to provenance: the ours-vs-human head-to-head"),
     ("finding out whether any of it is working", "tools/favourite_grading.py", "blind matched pairs of a clue commenters named as a favourite against one from the same puzzle they did not, scored on the five rubric axes; the run finished null, so nothing downstream reads the scores"),
     ("finding out whether any of it is working", "tools/favourite_grading.sh", "grades those packets one claude -p per batch, skipping any batch whose score file already parses"),

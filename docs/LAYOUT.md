@@ -454,6 +454,9 @@ tools/apply_solution.py                      writes a blind solve in only if eve
 building and checking the site
 tools/build_seo_pages.py                     one static page per puzzle, for search engines and
                                              unfurls
+tools/build_clue_joints.py                   measures clue_joints.json from published
+                                             annotations; --check fails CI when the corpus has
+                                             moved past it
 tools/build_abbreviations.py                 publishes the abbreviations table to the browser
                                              as abbreviations.js, so the solver’s glossary
                                              can’t drift from the clue-writer’s
@@ -649,6 +652,10 @@ tools/make_hint_packets.js                   blind solve-packets, to grade a hin
                                              gets a solver unstuck
 tools/grade_clues.py                         blind A/B/C/D packets of our clues against real
                                              setters’ for the same answers
+tools/grade_clues_judge.sh                   runs the blind judges over one round of
+                                             grade_clues.py packets
+tools/grade_clues_judge.md                   the judge prompt grade_clues_judge.sh sends:
+                                             rubric, then packets
 tools/score_grading.py                       joins the blind scores back to provenance: the
                                              ours-vs-human head-to-head
 tools/favourite_grading.py                   blind matched pairs of a clue commenters named as
@@ -676,6 +683,9 @@ docs/LAYOUT.md                               this page: every tracked file and w
 tables everything else reads
 tools/data/README.md                         what in tools/data is committed, what is fetched,
                                              and under what licence
+tools/data/clue_joints.json                  link words and reversal-axis words published clues
+                                             use, measured by build_clue_joints.py and read by
+                                             the authoring checks in validate_annotations.py
 tools/data/abbreviations.json                standard abbreviations: every reading ten or more
                                              clues use, checked by build_abbreviations.py
                                              --check
