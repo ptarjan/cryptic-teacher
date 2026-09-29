@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -39,7 +42,39 @@
      }
     ]
    },
-   "solution": "LINEJUDGE"
+   "solution": "LINEJUDGE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "LINE JUDGE",
+    "definitions": [
+     {
+      "text": "Person calling out during court proceedings?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Person calling out during court proceedings",
+      "note": "The surface reading suggests someone shouting in a court of law, perhaps a heckler or a clerk"
+     },
+     {
+      "clueFragment": "calling out during court proceedings",
+      "note": "The setter's reading: the court is a tennis court, and calling 'out' is signalling that a ball landed beyond the lines"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags the pun: the LINE JUDGE at tennis calls 'Out!' when a ball misses the court.",
+     "definitionFit": "A tennis official stationed along the boundary whose job is shouting when shots land wide or long."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "court"
+    }
+   }
   },
   {
    "number": 1,
@@ -53,7 +88,61 @@
     "text": "Fat city doctor heading north",
     "enumeration": "4"
    },
-   "solution": "LARD"
+   "solution": "LARD",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "LARD",
+    "definitions": [
+     {
+      "text": "Fat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heading north",
+      "for": "reversal",
+      "note": "In a down clue, heading north means reading upward, so the doctor's abbreviation runs backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "city",
+      "gives": "LA",
+      "note": "Los Angeles, the usual two-letter city"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "DR",
+      "note": "Standard abbreviation for doctor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LA",
+      "RD"
+     ],
+     "reversals": [
+      {
+       "from": "DR",
+       "to": "RD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An overweight urban physician goes on a trip up north.",
+     "walkthrough": "'Fat city' looks like a phrase, but the definition stops at 'Fat'.",
+     "definitionFit": "Rendered pig fat used in cooking and baking is a common kind of solid grease."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fat"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +156,64 @@
     "text": "Increasingly awful wine that geek almost drinks",
     "enumeration": "7"
    },
-   "solution": "NASTIER"
+   "solution": "NASTIER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "NASTIER",
+    "definitions": [
+     {
+      "text": "Increasingly awful",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "Almost the whole of the geek word means dropping its final letter"
+     },
+     {
+      "text": "drinks",
+      "for": "container",
+      "note": "To drink something is to take it inside, so the shortened geek holds the wine"
+     }
+    ],
+    "linkWords": [
+     "that"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "geek almost",
+      "gives": "NER",
+      "note": "NERD, a geek, without its last letter"
+     },
+     {
+      "clueFragment": "wine",
+      "gives": "ASTI",
+      "note": "Asti is an Italian sparkling wine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "ASTI",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A wine so bad it keeps getting worse, yet a nerd still nearly finishes it.",
+     "walkthrough": "Asti is a sparkling wine from Piedmont in Italy; 'drinks' fits the surface but here means holds inside.",
+     "definitionFit": "The comparative form of an adjective for something unpleasant, meaning more horrible or worse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drinks"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +227,48 @@
     "text": "Open, taking lid off something containing marmalade?",
     "enumeration": "3"
    },
-   "solution": "JAR"
+   "solution": "JAR",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "JAR",
+    "definitions": [
+     {
+      "text": "something containing marmalade?",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking lid off",
+      "for": "deletion",
+      "note": "A lid sits on top, and in a down clue the top is the first letter, which is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Open",
+      "gives": "AJAR",
+      "note": "A door slightly open is ajar"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JAR"
+     ]
+    },
+    "explanation": {
+     "surface": "Twisting the lid off a pot of marmalade to open it.",
+     "walkthrough": "Removing the first letter of AJAR leaves JAR; the question mark admits the definition is by example.",
+     "definitionFit": "Marmalade is sold and kept in a glass pot with a screw top, so this vessel fits."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "lid"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +282,43 @@
     "text": "Some deride Mandelson claim",
     "enumeration": "6"
    },
-   "solution": "DEMAND"
+   "solution": "DEMAND",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "DEMAND",
+    "definitions": [
+     {
+      "text": "claim",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "Only some of the letters of the neighbouring words are used, a run spanning two of them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "deride Mandelson",
+      "gives": "DEMAND",
+      "note": "The run straddles the end of the first word and the start of the surname"
+     }
+    ],
+    "explanation": {
+     "surface": "Some people mock a claim made by Peter Mandelson, the British Labour politician.",
+     "walkthrough": "Peter Mandelson is a British Labour politician; the name just supplies letters.",
+     "definitionFit": "Both nouns and verbs here mean an insistent request for something as a right."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mandelson"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +332,51 @@
     "text": "Complicated tale a bore cooked up",
     "enumeration": "9"
    },
-   "solution": "ELABORATE"
+   "solution": "ELABORATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ELABORATE",
+    "definitions": [
+     {
+      "text": "Complicated",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cooked up",
+      "for": "anagram",
+      "note": "A story cooked up is invented and mixed together, so the letters get rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tale a bore",
+      "gives": "TALEABORE",
+      "note": "The fodder: nine letters from three words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TALEABORE",
+       "gives": "ELABORATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tedious person has invented a convoluted story.",
+     "walkthrough": "The fodder is spelled out plainly in the clue; 'cooked up' also fits the surface of a made-up tale.",
+     "definitionFit": "An adjective for something intricate, detailed and involving many carefully arranged parts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cooked"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +390,48 @@
     "text": "Family member in Secret Intelligence Service",
     "enumeration": "3"
    },
-   "solution": "SIS"
+   "solution": "SIS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SIS",
+    "definitions": [
+     {
+      "text": "Family member",
+      "at": 0
+     },
+     {
+      "text": "Secret Intelligence Service",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Family member",
+      "gives": "SIS",
+      "note": "Informal short form of sister"
+     },
+     {
+      "clueFragment": "Secret Intelligence Service",
+      "gives": "SIS",
+      "note": "The initials of Britain's foreign spy agency, better known as MI6"
+     }
+    ],
+    "explanation": {
+     "surface": "A relative is secretly working for British intelligence.",
+     "walkthrough": "The Secret Intelligence Service is Britain's foreign intelligence agency, MI6; its initials match the casual word for a sister.",
+     "definitionFit": "Casual shortening for a sister, a sibling in one's household, and the initials of MI6."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 6,
@@ -137,7 +445,39 @@
     "text": "Saucy dance?",
     "enumeration": "5"
    },
-   "solution": "SALSA"
+   "solution": "SALSA",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SALSA",
+    "definitions": [
+     {
+      "text": "Saucy dance?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Saucy dance",
+      "note": "The surface reading: a cheeky, risqué bit of dancing"
+     },
+     {
+      "clueFragment": "Saucy",
+      "note": "The setter's reading: a dance whose name is also a sauce, literally a sauce-like dance"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Saucy' usually means cheeky; here it means 'of sauce', since the Latin dance shares its name with a spicy tomato dip.",
+     "definitionFit": "A lively Latin American partner dance which is also named after a Mexican tomato condiment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Saucy"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +491,44 @@
     "text": "Have a feeling he might be arrested?",
     "enumeration": "7"
    },
-   "solution": "SUSPECT"
+   "solution": "SUSPECT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SUSPECT",
+    "definitions": [
+     {
+      "text": "Have a feeling",
+      "at": 0
+     },
+     {
+      "text": "he might be arrested",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Have a feeling",
+      "gives": "SUSPECT",
+      "note": "A verb: to sense or guess something without proof"
+     },
+     {
+      "clueFragment": "he might be arrested",
+      "gives": "SUSPECT",
+      "note": "A noun: the person police think committed a crime"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone senses the police may be about to come for them.",
+     "walkthrough": "The verb and the noun are spelled the same but stressed differently.",
+     "definitionFit": "As a verb it means intuit without evidence; as a noun it names a person police believe guilty."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +542,61 @@
     "text": "From which one may speak or, turning back, play guitar?",
     "enumeration": "7"
    },
-   "solution": "ROSTRUM"
+   "solution": "ROSTRUM",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ROSTRUM",
+    "definitions": [
+     {
+      "text": "From which one may speak",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning back",
+      "for": "reversal",
+      "note": "Turning back means facing the other way, so the little word 'or' is read from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "or",
+      "gives": "OR",
+      "note": "Taken straight from the clue"
+     },
+     {
+      "clueFragment": "play guitar",
+      "gives": "STRUM",
+      "note": "To strum is to sweep fingers across guitar strings"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RO",
+      "STRUM"
+     ],
+     "reversals": [
+      {
+       "from": "OR",
+       "to": "RO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A performer who can either give a speech or turn round and strum a guitar.",
+     "walkthrough": "'or' looks like a connecting word but is the fodder for the reversal.",
+     "definitionFit": "A raised platform on which a lecturer, conductor or orator stands to address an audience."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "or"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +610,62 @@
     "text": "Book unfortunately defending introduction of tariffs",
     "enumeration": "5"
    },
-   "solution": "ATLAS"
+   "solution": "ATLAS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ATLAS",
+    "definitions": [
+     {
+      "text": "Book",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "introduction of",
+      "for": "letter_selection",
+      "note": "An introduction comes first, so only the opening letter of the trade word is used"
+     },
+     {
+      "text": "defending",
+      "for": "container",
+      "note": "To defend is to surround and protect, so the regretful word wraps round the selected letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unfortunately",
+      "gives": "ALAS",
+      "note": "An exclamation of regret"
+     },
+     {
+      "clueFragment": "tariffs",
+      "gives": "T",
+      "select": "first",
+      "note": "First letter of tariffs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "T",
+      "LAS"
+     ]
+    },
+    "explanation": {
+     "surface": "A book that, sadly, argues in favour of bringing in import duties.",
+     "walkthrough": "T goes between the A and LAS of the exclamation of regret.",
+     "definitionFit": "A bound volume of maps is a specific kind of reference publication."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "defending"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +679,51 @@
     "text": "Unhappy old canoeists set adrift",
     "enumeration": "12"
    },
-   "solution": "DISCONSOLATE"
+   "solution": "DISCONSOLATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DISCONSOLATE",
+    "definitions": [
+     {
+      "text": "Unhappy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "set adrift",
+      "for": "anagram",
+      "note": "A canoe set adrift floats about aimlessly, so the letters of the paddlers wander into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old canoeists",
+      "gives": "OLDCANOEISTS",
+      "note": "The fodder: twelve letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OLDCANOEISTS",
+       "gives": "DISCONSOLATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Elderly paddlers are miserable after being cast off without oars.",
+     "walkthrough": "'old' is part of the fodder, not a hint at O for old.",
+     "definitionFit": "A formal adjective for being deeply sad, dejected and beyond comfort."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "adrift"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +737,55 @@
     "text": "Very many left inspired by noblewoman",
     "enumeration": "9"
    },
-   "solution": "COUNTLESS"
+   "solution": "COUNTLESS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "COUNTLESS",
+    "definitions": [
+     {
+      "text": "Very many",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inspired by",
+      "for": "container",
+      "note": "To be inspired is to be breathed in, so the noblewoman takes the left letter inside her"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "noblewoman",
+      "gives": "COUNTESS",
+      "note": "Wife of an earl or count"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "Standard abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COUNT",
+      "L",
+      "ESS"
+     ]
+    },
+    "explanation": {
+     "surface": "Crowds of people drawn along by an aristocratic lady.",
+     "walkthrough": "'inspired' is used in its literal sense of breathed in, so the noblewoman takes the letter inside.",
+     "definitionFit": "Too numerous to be tallied, so the adjective describes an enormous number of things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "inspired"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +799,53 @@
     "text": "Lengthy rebuke frightened female avoids",
     "enumeration": "6"
    },
-   "solution": "EARFUL"
+   "solution": "EARFUL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EARFUL",
+    "definitions": [
+     {
+      "text": "Lengthy rebuke",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "avoids",
+      "for": "deletion",
+      "note": "What the frightened word avoids is kept out of it, so the letter for female goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "frightened",
+      "gives": "FEARFUL",
+      "note": "Afraid"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "Standard abbreviation for female"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EARFUL"
+     ]
+    },
+    "explanation": {
+     "surface": "A scared woman dodges a long telling-off.",
+     "walkthrough": "The first F of FEARFUL is dropped; the second must stay.",
+     "definitionFit": "An informal word for a prolonged scolding that one has to sit and listen to."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "avoids"
+    }
+   }
   },
   {
    "number": 12,
@@ -235,7 +859,47 @@
     "text": "Hyped-up ex summoned to appear in court",
     "enumeration": "7"
    },
-   "solution": "EXCITED"
+   "solution": "EXCITED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXCITED",
+    "definitions": [
+     {
+      "text": "Hyped-up",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ex",
+      "gives": "EX",
+      "note": "Taken straight from the clue"
+     },
+     {
+      "clueFragment": "summoned to appear in court",
+      "gives": "CITED",
+      "note": "To cite is to summon someone before a court"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "CITED"
+     ]
+    },
+    "explanation": {
+     "surface": "A worked-up former partner is ordered to turn up at court.",
+     "walkthrough": "'summoned to appear in court' is one long block for a single legal verb.",
+     "definitionFit": "Both adjectives describe someone thrilled, agitated and full of nervous energy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ex"
+    }
+   }
   },
   {
    "number": 13,
@@ -249,7 +913,62 @@
     "text": "What might encourage a couple of Romeos to get into bed?",
     "enumeration": "6"
    },
-   "solution": "CARROT"
+   "solution": "CARROT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CARROT",
+    "definitions": [
+     {
+      "text": "What might encourage",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to get into",
+      "for": "container",
+      "note": "The article and the pair of Romeos get into the bed, so they go inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "Taken straight from the clue"
+     },
+     {
+      "clueFragment": "couple of Romeos",
+      "gives": "RR",
+      "note": "Romeo is R in the NATO phonetic alphabet; a couple means two"
+     },
+     {
+      "clueFragment": "bed",
+      "gives": "COT",
+      "note": "A small bed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "A",
+      "RR",
+      "OT"
+     ]
+    },
+    "explanation": {
+     "surface": "A cheeky question about what might tempt two lovers into bed together.",
+     "walkthrough": "Romeos suggests lovers, but it is the radio code word for R.",
+     "definitionFit": "In the idiom of carrot and stick, the dangled vegetable is an incentive or inducement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Romeos"
+    }
+   }
   },
   {
    "number": 14,
@@ -263,7 +982,43 @@
     "text": "A bit of Kashmiri cottage cheese?",
     "enumeration": "7"
    },
-   "solution": "RICOTTA"
+   "solution": "RICOTTA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "RICOTTA",
+    "definitions": [
+     {
+      "text": "cheese",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "A bit of",
+      "for": "hidden_word",
+      "note": "Only a bit of the two following words is taken, a run of consecutive letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Kashmiri cottage",
+      "gives": "RICOTTA",
+      "note": "The run straddles the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A little piece of cottage cheese from Kashmir.",
+     "walkthrough": "'cottage cheese' is a phrase the eye reads together, but 'cottage' is fodder and 'cheese' alone defines.",
+     "definitionFit": "A soft, fresh Italian whey product used in lasagne and cannoli."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cottage"
+    }
+   }
   },
   {
    "number": 15,
@@ -277,7 +1032,55 @@
     "text": "Shame about Republican tax",
     "enumeration": "6"
    },
-   "solution": "STRAIN"
+   "solution": "STRAIN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STRAIN",
+    "definitions": [
+     {
+      "text": "tax",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "About means around, so the shame word goes around the party letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shame",
+      "gives": "STAIN",
+      "note": "A stain on one's reputation is a disgrace"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "Standard abbreviation for Republican"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "R",
+      "AIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A political complaint that a Republican levy is disgraceful.",
+     "walkthrough": "'tax' reads as a noun, but it is the verb: to tax someone's patience.",
+     "definitionFit": "As verbs, both mean to put heavy demands on something, stretching it to its limit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tax"
+    }
+   }
   },
   {
    "number": 16,
@@ -291,7 +1094,50 @@
     "text": "Area MP represents could become nicest county",
     "enumeration": "12"
    },
-   "solution": "CONSTITUENCY"
+   "solution": "CONSTITUENCY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CONSTITUENCY",
+    "definitions": [
+     {
+      "text": "Area MP represents",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "could become",
+      "for": "anagram",
+      "note": "Could become signals that the words may be turned into something else, by rearranging letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nicest county",
+      "gives": "NICESTCOUNTY",
+      "note": "The fodder: twelve letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NICESTCOUNTY",
+       "gives": "CONSTITUENCY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A politician's patch might end up as the loveliest shire around.",
+     "walkthrough": "An MP is a Member of Parliament, elected for one district.",
+     "definitionFit": "The electoral district whose voters choose a single parliamentary member to sit for them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -305,7 +1151,55 @@
     "text": "Sound of hooter absorbing one",
     "enumeration": "5"
    },
-   "solution": "NOISE"
+   "solution": "NOISE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NOISE",
+    "definitions": [
+     {
+      "text": "Sound",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "absorbing",
+      "for": "container",
+      "note": "To absorb is to soak up and hold within, so the hooter takes the one inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hooter",
+      "gives": "NOSE",
+      "note": "Hooter is slang for the nose"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "I",
+      "SE"
+     ]
+    },
+    "explanation": {
+     "surface": "The honk of a horn taking in a single thing.",
+     "walkthrough": "'Sound of hooter' looks like one phrase for a honk; 'Sound' alone is the definition, and hooter is slang for a nose.",
+     "definitionFit": "Any audible racket or din counts as something heard."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hooter"
+    }
+   }
   },
   {
    "number": 18,
@@ -319,7 +1213,44 @@
     "text": "Heard victim beg",
     "enumeration": "4"
    },
-   "solution": "PRAY"
+   "solution": "PRAY",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "PRAY",
+    "definitions": [
+     {
+      "text": "beg",
+      "at": 13
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Heard",
+      "for": "homophone",
+      "note": "Heard means the word is judged by its sound rather than its spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "victim",
+      "gives": "PRAY",
+      "soundsLike": "PREY",
+      "note": "A victim is prey, which sounds the same as the answer"
+     }
+    ],
+    "explanation": {
+     "surface": "A victim is overheard pleading for mercy.",
+     "walkthrough": "PREY and PRAY sound identical.",
+     "definitionFit": "Old-fashioned usage treats this verb as meaning to earnestly request or implore."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Heard"
+    }
+   }
   },
   {
    "number": 19,
@@ -333,7 +1264,45 @@
     "text": "Some people eat this rubbish",
     "enumeration": "5"
    },
-   "solution": "TRIPE"
+   "solution": "TRIPE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TRIPE",
+    "definitions": [
+     {
+      "text": "Some people eat this",
+      "at": 0
+     },
+     {
+      "text": "rubbish",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Some people eat this",
+      "gives": "TRIPE",
+      "note": "Cow's stomach lining, eaten by some but not others"
+     },
+     {
+      "clueFragment": "rubbish",
+      "gives": "TRIPE",
+      "note": "Informal word for nonsense"
+     }
+    ],
+    "explanation": {
+     "surface": "A dismissive remark that certain folk will eat any old garbage.",
+     "walkthrough": "The first definition is vague on purpose: only some people eat stomach lining.",
+     "definitionFit": "Edible cow stomach lining is an acquired taste, and the same word means worthless nonsense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "rubbish"
+    }
+   }
   },
   {
    "number": 20,
@@ -347,7 +1316,50 @@
     "text": "Person coming to check the books, I hear",
     "enumeration": "7"
    },
-   "solution": "AUDITOR"
+   "solution": "AUDITOR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "AUDITOR",
+    "definitions": [
+     {
+      "text": "Person coming to check the books",
+      "at": 0
+     },
+     {
+      "text": "I hear",
+      "at": 34,
+      "note": "a sentence the answer would say, not a noun"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Person coming to check the books",
+      "gives": "AUDITOR",
+      "note": "An accountant who examines a firm's financial records"
+     },
+     {
+      "clueFragment": "I hear",
+      "gives": "AUDITOR",
+      "note": "The word also means a listener, from Latin audire, to hear, so this is what such a person says"
+     }
+    ],
+    "explanation": {
+     "surface": "Gossip that an inspector is on the way to go through the accounts.",
+     "walkthrough": "'I hear' looks like a sound-alike signal, but no homophone is involved: it is what a listener, the word's other sense, would say.",
+     "definitionFit": "An accountant who inspects financial records; also a formal word for a listener or hearer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hear"
+    }
+   }
   },
   {
    "number": 21,
@@ -361,7 +1373,39 @@
     "text": "I could have one, if not alone",
     "enumeration": "3"
    },
-   "solution": "DOT"
+   "solution": "DOT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "DOT",
+    "definitions": [
+     {
+      "text": "I could have one, if not alone",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I could have one, if not alone",
+      "note": "The surface reading: someone saying they might take one thing if they had company"
+     },
+     {
+      "clueFragment": "I",
+      "note": "The setter's reading: the letter i, which as a lone capital pronoun has no mark above it but in lower case inside a word has one"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'I' is the letter, not the speaker: standing alone it is a capital with nothing on top, but within other letters it is lower case and gains its tittle.",
+     "definitionFit": "The small round mark printed above a lower-case i, also called a tittle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "I"
+    }
+   }
   },
   {
    "number": 22,
@@ -375,7 +1419,62 @@
     "text": "Outstanding university in middle of Bordeaux",
     "enumeration": "3"
    },
-   "solution": "DUE"
+   "solution": "DUE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "DUE",
+    "definitions": [
+     {
+      "text": "Outstanding",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "middle of",
+      "for": "letter_selection",
+      "note": "Only the central pair of letters of the French city is kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "The university letter is placed in the selected pair"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bordeaux",
+      "gives": "DE",
+      "select": "middle",
+      "note": "The two central letters of the eight-letter city"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "Standard abbreviation for university"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "U",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "An excellent university in the heart of a French wine city.",
+     "walkthrough": "'Outstanding' means excellent on the surface, but unpaid in the answer.",
+     "definitionFit": "An unpaid debt or bill still owed is overdue or payable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Outstanding"
+    }
+   }
   },
   {
    "number": 23,
@@ -389,7 +1488,54 @@
     "text": "Place that’s safe from horribly scary aunt",
     "enumeration": "9"
    },
-   "solution": "SANCTUARY"
+   "solution": "SANCTUARY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SANCTUARY",
+    "definitions": [
+     {
+      "text": "Place that’s safe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "horribly",
+      "for": "anagram",
+      "note": "Something done horribly is botched and messed up, so the letters come out disordered"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "scary aunt",
+      "gives": "SCARYAUNT",
+      "note": "The fodder: nine letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SCARYAUNT",
+       "gives": "SANCTUARY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hiding place where one can escape a frightening relative.",
+     "walkthrough": "'from' links definition to wordplay, but also fits the surface of shelter from someone.",
+     "definitionFit": "A refuge or haven offering protection to people fleeing danger or pursuit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "aunt"
+    }
+   }
   }
  ]
 }
