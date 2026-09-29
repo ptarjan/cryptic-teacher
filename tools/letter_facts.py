@@ -56,6 +56,7 @@ import hashlib
 import itertools
 import json
 import os
+import pickle
 import random
 import re
 import sys
@@ -63,7 +64,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
-import enumeration  # noqa: E402 -- the clue rows below are printed lines, count included
+import enumeration
 from blog_facts import (
     ABBR,
     ENUM_TAIL,
@@ -78,11 +79,11 @@ from blog_facts import (
     file_text,
     heard_blocks,
 )
+from groups import entry_id
 from indicator_keys import WORD, letters
 from indicator_keys import indicator_words as _key
 from puzzle_paths import find as find_puzzle
 from puzzle_paths import puzzle_files
-from groups import entry_id
 
 #: A hidden answer shorter than this turns up by chance in too many clues.
 MIN_HIDDEN = 4
@@ -1535,14 +1536,36 @@ def annotation_rows():
 
 
 def read_leads(required=False):
-    """blog_facts.py's leads, {puzzle id: {entry id: leads}}; {} where it has
-    written none, or, `required`, an exit saying how to get them."""
+    """blog_facts.py's leads, {puzzle id: {entry id: leads}} (Leads); {} where
+    it has written none, or, `required`, an exit saying how to get them."""
     if LEADS.exists():
-        return json.loads(LEADS.read_text(encoding="utf-8"))
+        return Leads(LEADS)
     if required:
         sys.exit(f"{LEADS} is missing: tools/blog_facts.py writes it from the blog caches, and this"
                  " reads the blocks write-ups give in prose off it; run that, which runs this after")
     return {}
+
+
+class Leads:
+    """The leads file, one puzzle a line as blog_facts writes it, with a
+    puzzle's parsed only when get() asks: parsed whole, it outweighed the file
+    tenfold and was held the whole run."""
+
+    def __init__(self, path):
+        self._text, dec = {}, json.JSONDecoder()
+        with path.open(encoding="utf-8") as f:
+            for line in f:
+                line = line.rstrip("\n").rstrip(",")
+                if line in ("{", "}"):
+                    continue
+                pid, end = dec.raw_decode(line)
+                if line[end:end + 1] != ":":
+                    sys.exit(f"{path} is not one puzzle a line: rerun tools/blog_facts.py, which writes it so")
+                self._text[pid] = line[end + 1:]
+
+    def get(self, pid, default=None):
+        text = self._text.get(pid)
+        return default if text is None else json.loads(text)
 
 
 def stated(facts):
@@ -1743,28 +1766,54 @@ def with_all_blocks(clue, answer, facts, lex, dlex, fuzzy=True):
     return with_blocks(facts, new) if new else facts
 
 
-def write(corpus, votes):
+def write(corpus, votes, said=None):
     """Rewrite tools/data/blog_facts/ with the inferred fields in, as
-    blog_facts.write lays it out. {field: clues it was inferred in}."""
+    blog_facts.write lays it out, one file at a time. `corpus` is rows() in
+    their order, iterable more than once (Packed); `said`, read_leads, joined
+    in here where the rows lack their leads. {field: clues it was inferred in}."""
     ours = list(annotation_rows())
-    lex, ilex, dlex = Lexicon(corpus), Indicators(corpus, extra=ours), Definitions(corpus)
-    by_pid = collections.defaultdict(dict)
-    for pid, eid, clue, answer, facts in corpus:
-        # Definitions are placed in the clue's words, as the puzzle stores them.
-        new = fact_json(inferred(clue, answer, facts, votes, lex, ilex, dlex),
-                        enumeration.split(clue)[0])
-        if new:
-            by_pid[pid][eid] = new
-    n = collections.Counter()
+    ilex = Indicators(corpus, extra=ours)
+    n = collections.Counter(export_lexicons(Lexicon(corpus, extra=ours), ilex))
+    del ours
+    lex, dlex = Lexicon(corpus), Definitions(corpus)
+    puzzles = itertools.groupby(corpus, key=lambda r: r[0])
+    head = next(puzzles, None)
     for f in sorted(OUT.glob("*.json")):
         rows_ = json.loads(f.read_text(encoding="utf-8"))
         for pid, rec in rows_.items():
-            if pid in by_pid:
-                n.update(k for v in by_pid[pid].values() for k in v.get("inferred", ()))
-                rec["entries"] = dict(sorted(by_pid[pid].items()))
+            if head is None or head[0] != pid:
+                continue
+            got, new = (said or {}).get(pid, {}), {}
+            for _, eid, clue, answer, facts in head[1]:
+                facts = {**facts, "leads": got[eid]} if eid in got else facts
+                # Definitions are placed in the clue's words, as the puzzle stores them.
+                found = fact_json(inferred(clue, answer, facts, votes, lex, ilex, dlex),
+                                  enumeration.split(clue)[0])
+                if found:
+                    new[eid] = found
+            head = next(puzzles, None)
+            if new:
+                n.update(k for v in new.values() for k in v.get("inferred", ()))
+                rec["entries"] = dict(sorted(new.items()))
         f.write_text(file_text(rows_), encoding="utf-8")
-    n.update(export_lexicons(Lexicon(corpus, extra=ours), ilex))
+    if head is not None:
+        sys.exit(f"letter_facts.write: {head[0]} is out of step with {OUT.relative_to(ROOT)}: corpus must be rows() in order")
     return n
+
+
+class Packed:
+    """Rows kept pickled, one bytes object each, and unpickled on every pass:
+    write() takes several passes, and the clue rows held as dicts were the
+    largest thing in the run."""
+
+    def __init__(self, rows_):
+        self._rows = [pickle.dumps(r, pickle.HIGHEST_PROTOCOL) for r in rows_]
+
+    def __iter__(self):
+        return map(pickle.loads, self._rows)
+
+    def __len__(self):
+        return len(self._rows)
 
 
 #: The combined lexicons as write() leaves them, for the site: clue words
@@ -2356,7 +2405,13 @@ def main():
     if args.coverage:
         report_coverage(read_leads(required=True))
         return
-    corpus = list(rows(read_leads(required=args.write or args.measure_fuzzy_blocks is not None)))
+    said = read_leads(required=args.write or args.measure_fuzzy_blocks is not None)
+    # --write alone runs as blog_facts.py runs it: the rows packed and without
+    # their leads, which write() joins in; the measures want them in the rows.
+    alone = args.write and not (args.gold or args.measure or args.fill or args.lexicons) and all(
+        v is None for v in (args.measure_blocks, args.measure_indicators, args.measure_definitions,
+                            args.measure_fuzzy_blocks, args.measure_blockless))
+    corpus = Packed(rows()) if alone else list(rows(said))
     votes = indicator_votes(corpus)
     if args.gold:
         score_gold(votes)
@@ -2379,7 +2434,7 @@ def main():
         ours = list(annotation_rows())
         print(export_lexicons(Lexicon(corpus, extra=ours), Indicators(corpus, extra=ours)))
     if args.write:
-        n = write(corpus, votes)
+        n = write(corpus, votes, said if alone else None)
         print(f"inferred a type for {n['type']} clues, blocks for {n['blocks']}, a definition for "
               f"{n['definition']} and indicators for {n['indicators']} in {OUT.relative_to(ROOT)}; "
               f"{n['blocks.json']} block and {n['indicators.json']} indicator readings in {LEXICON_OUT.relative_to(ROOT)}")

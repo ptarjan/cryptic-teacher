@@ -59,8 +59,8 @@ sys.path.insert(0, str(ROOT / "tools"))
 from clue_types import NAMES
 from definitions import place
 from fetch_puzzle import puzzle_files, read_puzzle_file
-from puzzle_schema import order
 from groups import entry_id
+from puzzle_schema import order
 
 DATA = Path.home() / "cryptic-setter-data"
 OUT = ROOT / "tools" / "data" / "blog_facts"
@@ -2051,8 +2051,9 @@ def write(best, series):
     said = {pid: {eid: f["leads"] for eid, f in sorted(r["facts"].items()) if f.get("leads")}
             for pid, r in sorted(best.items()) if not pid.startswith("bd:")}
     tmp = LEADS.with_suffix(".tmp")
-    tmp.write_text(json.dumps({k: v for k, v in said.items() if v}, ensure_ascii=False, separators=(",", ":")),
-                   encoding="utf-8")
+    # One puzzle a line, so letter_facts.Leads can parse a puzzle's only when it is asked for.
+    tmp.write_text("{\n" + ",\n".join(json.dumps(k, ensure_ascii=False) + ":" + json.dumps(v, ensure_ascii=False, separators=(",", ":"))
+                                       for k, v in said.items() if v) + "\n}\n", encoding="utf-8")
     tmp.replace(LEADS)
     for s, rows in sorted(by_series.items()):
         (OUT / f"{s}.json").write_text(file_text(rows), encoding="utf-8")
@@ -2190,8 +2191,9 @@ def main():
     # are not held under its corpus: both at once were the run's peak memory.
     del best, series
     import letter_facts
-    corpus = list(letter_facts.rows(letter_facts.read_leads(required=True)))
-    n = letter_facts.write(corpus, letter_facts.indicator_votes(corpus))
+    said = letter_facts.read_leads(required=True)
+    corpus = letter_facts.Packed(letter_facts.rows())
+    n = letter_facts.write(corpus, letter_facts.indicator_votes(corpus), said)
     print(f"and read off the letters (tools/letter_facts.py): a type for {n['type']} clues the blogs "
           f"left untyped, blocks for {n['blocks']} whose blocks they left out, a definition for "
           f"{n['definition']} with none underlined, indicators for {n['indicators']} whose indicators they left out")
