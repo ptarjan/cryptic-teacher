@@ -255,6 +255,8 @@ ACQUISITION_BY_SOURCE = {
     ("globeandmail", "www.theglobeandmail.com"): ("tools/fetch_globeandmail.py",),
     ("metro", "metro.co.uk"): ("tools/fetch_metro.py",
                                "tools/fetch_metro.py --wayback"),
+    # Ours: set in this repo and never fetched, so there is no url and no host.
+    ("authored", ""): ("tools/build_authored_puzzle.py",),
 }
 #: The tool that files a blog series' puzzles, by the blog it reads. A series
 #: naming a blog missing here fails at import.
@@ -454,6 +456,7 @@ def derive(puzzle, claimed, acquired_on, previously=None):
     source = {k: v for k, v in source.items() if v is not None}
 
     origin = solution_origin_from_file(puzzle) or (
+        "authored" if series == "authored" else
         old_solutions.get("origin") if old_solutions.get("origin") in
         ("unknown", "authored") else "published")
     solutions = {"origin": origin}
