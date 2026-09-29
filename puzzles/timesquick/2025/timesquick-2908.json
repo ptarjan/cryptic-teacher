@@ -24,6 +24,9 @@
   "date": "2025-02-10",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,60 @@
     "text": "Lack transport in South London?",
     "enumeration": "8"
    },
-   "solution": "SCARCITY"
+   "solution": "SCARCITY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SCARCITY",
+    "definitions": [
+     {
+      "text": "Lack",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the transport sits in the middle of the South London pair"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "South",
+      "gives": "S",
+      "note": "S is the compass abbreviation for South"
+     },
+     {
+      "clueFragment": "transport",
+      "gives": "CAR",
+      "note": "a car is personal transport"
+     },
+     {
+      "clueFragment": "London",
+      "gives": "CITY",
+      "note": "London is the City, strictly its financial square mile"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CAR",
+      "CITY"
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that South London has poor public transport.",
+     "walkthrough": "The question mark admits that 'London' has to become CITY, and that 'South' is a single letter rather than a district.",
+     "definitionFit": "A plain synonym: a shortage of something and a lack of it are the same thing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "South"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +107,58 @@
     "text": "Open watering hole with a lot of insects",
     "enumeration": "6"
    },
-   "solution": "PUBLIC"
+   "solution": "PUBLIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "PUBLIC",
+    "definitions": [
+     {
+      "text": "Open",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a lot of",
+      "for": "deletion",
+      "note": "a lot of the word, not all of it, so its last letter goes"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "watering hole",
+      "gives": "PUB",
+      "note": "a watering hole is a pub"
+     },
+     {
+      "clueFragment": "a lot of insects",
+      "gives": "LIC",
+      "note": "LICE with its last letter dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PUB",
+      "LIC"
+     ]
+    },
+    "explanation": {
+     "surface": "An outdoor drinking spot plagued by swarms of bugs.",
+     "walkthrough": "'Open' reads as an adjective describing the watering hole, but it stands alone as the definition.",
+     "definitionFit": "A plain synonym in the adjective sense: a public meeting is one that anyone may attend."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Open"
+    }
+   }
   },
   {
    "number": 3,
@@ -65,7 +172,54 @@
     "text": "Female deity lives repeatedly",
     "enumeration": "4"
    },
-   "solution": "ISIS"
+   "solution": "ISIS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ISIS",
+    "definitions": [
+     {
+      "text": "Female deity",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "repeatedly",
+      "for": "charade",
+      "note": "the word for 'lives' is written twice, one copy after the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lives",
+      "gives": "IS",
+      "note": "'lives' as in exists: he is, he lives"
+     },
+     {
+      "clueFragment": "repeatedly",
+      "gives": "IS",
+      "note": "the same IS again"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IS",
+      "IS"
+     ]
+    },
+    "explanation": {
+     "surface": "A goddess who keeps coming back to life.",
+     "walkthrough": "'Lives' looks like the plural noun, but it is the verb, giving IS.",
+     "definitionFit": "A definition by example: the Egyptian mother goddess."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lives"
+    }
+   }
   },
   {
    "number": 4,
@@ -79,7 +233,66 @@
     "text": "Gutted criminal with a purpose for part of sentence",
     "enumeration": "6"
    },
-   "solution": "CLAUSE"
+   "solution": "CLAUSE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CLAUSE",
+    "definitions": [
+     {
+      "text": "part of sentence",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Gutted",
+      "for": "letter_selection",
+      "note": "a gutted word has its insides removed, keeping only the outer letters"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gutted criminal",
+      "gives": "CL",
+      "select": "outer",
+      "note": "the outer letters of CriminaL"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "used as it stands"
+     },
+     {
+      "clueFragment": "purpose",
+      "gives": "USE",
+      "note": "a use is a purpose"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CL",
+      "A",
+      "USE"
+     ]
+    },
+    "explanation": {
+     "surface": "A villain disembowelled for a reason, which the sentence mentions.",
+     "walkthrough": "'Sentence' tempts toward a prison term to match the criminal, but here it is grammar.",
+     "definitionFit": "A grammar term: sentences are built from one or more of these units, each with its own verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sentence"
+    }
+   }
   },
   {
    "number": 5,
@@ -99,7 +312,67 @@
      }
     ]
    },
-   "solution": "WATERSKI"
+   "solution": "WATERSKI",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "WATER-SKI",
+    "definitions": [
+     {
+      "text": "Glide behind a boat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "the words go about the letter for right, holding it inside"
+     },
+     {
+      "text": "oddly",
+      "for": "anagram",
+      "note": "the letters are arranged in an odd way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wake",
+      "gives": "WAKE",
+      "note": "anagram fodder"
+     },
+     {
+      "clueFragment": "It’s",
+      "gives": "ITS",
+      "note": "anagram fodder"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the usual abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WAKE ITS R",
+       "gives": "WATERSKI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about skimming along in the wake behind a boat.",
+     "walkthrough": "The definition runs on into 'a boat’s wake', so 'wake' looks like part of the picture; it is anagram fodder.",
+     "definitionFit": "The verb names the sport of being towed on skis across water by a motorboat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "oddly"
+    }
+   }
   },
   {
    "number": 6,
@@ -119,7 +392,49 @@
      }
     ]
    },
-   "solution": "LETRIP"
+   "solution": "LETRIP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LET RIP",
+    "definitions": [
+     {
+      "text": "don’t hold back",
+      "at": 52
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The French",
+      "gives": "LE",
+      "note": "LE is French for 'the'"
+     },
+     {
+      "clueFragment": "feel effects of hallucinogenic drugs",
+      "gives": "TRIP",
+      "note": "to trip is to be under the influence of LSD and the like"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LE",
+      "TRIP"
+     ]
+    },
+    "explanation": {
+     "surface": "French people get high and let themselves go.",
+     "walkthrough": "The whole long middle phrase gives only TRIP.",
+     "definitionFit": "An idiom: to act or speak without any restraint."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -133,7 +448,49 @@
     "text": "Conclusions of treaty saddle China with informal agreement",
     "enumeration": "4"
    },
-   "solution": "YEAH"
+   "solution": "YEAH",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "YEAH",
+    "definitions": [
+     {
+      "text": "informal agreement",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Conclusions of",
+      "for": "letter_selection",
+      "note": "the conclusion of each word is its last letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "treaty saddle China with",
+      "gives": "YEAH",
+      "select": "last",
+      "note": "last letters of treatY, saddlE, ChinA, witH"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YEAH"
+     ]
+    },
+    "explanation": {
+     "surface": "A treaty's closing terms burden China with an informal deal.",
+     "walkthrough": "'Saddle' and 'China' read as a verb and a country, and 'China' in cryptics is often a mate; here each only lends its last letter.",
+     "definitionFit": "A slangy spelling of yes, so the definition flags the casual register."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "saddle"
+    }
+   }
   },
   {
    "number": 8,
@@ -147,7 +504,51 @@
     "text": "Advice on clues in cryptic form",
     "enumeration": "7"
    },
-   "solution": "COUNSEL"
+   "solution": "COUNSEL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "COUNSEL",
+    "definitions": [
+     {
+      "text": "Advice",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in cryptic form",
+      "for": "anagram",
+      "note": "the letters are put in a disguised, cryptic arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on clues",
+      "gives": "ONCLUES",
+      "note": "anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ON CLUES",
+       "gives": "COUNSEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tips on how to write clues in a cryptic style.",
+     "walkthrough": "The clue talks about itself, which makes 'Advice on clues' look like one phrase to define.",
+     "definitionFit": "A plain synonym, slightly formal: to take counsel from someone is to take their advice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cryptic"
+    }
+   }
   },
   {
    "number": 9,
@@ -161,7 +562,65 @@
     "text": "A key change ultimately for female pop singer",
     "enumeration": "5"
    },
-   "solution": "ADELE"
+   "solution": "ADELE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ADELE",
+    "definitions": [
+     {
+      "text": "female pop singer",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means at the end, so the last letter"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "used as it stands"
+     },
+     {
+      "clueFragment": "key",
+      "gives": "DEL",
+      "note": "the Delete key on a keyboard"
+     },
+     {
+      "clueFragment": "change ultimately",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of changE"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "DEL",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A singer modulating to a new key at the end of a song.",
+     "walkthrough": "'Key change' is a musical phrase that fits the pop singer, but 'key' is a keyboard key.",
+     "definitionFit": "A definition by example: the London-born singer of Hello and Someone Like You."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "key"
+    }
+   }
   },
   {
    "number": 10,
@@ -175,7 +634,44 @@
     "text": "Expensive vehicle parts picked up",
     "enumeration": "5"
    },
-   "solution": "ROLLS"
+   "solution": "ROLLS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "ROLLS",
+    "definitions": [
+     {
+      "text": "Expensive vehicle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "picked up",
+      "for": "homophone",
+      "note": "picked up as in heard, caught by the ear"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "parts",
+      "gives": "ROLLS",
+      "soundsLike": "ROLES",
+      "note": "roles are parts in a play"
+     }
+    ],
+    "explanation": {
+     "surface": "Components of a pricey car being collected.",
+     "walkthrough": "'Vehicle parts' looks like one phrase, but the definition stops at 'vehicle'.",
+     "definitionFit": "A clipping: the luxury car maker Rolls-Royce is often shortened this way."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "parts"
+    }
+   }
   },
   {
    "number": 11,
@@ -189,7 +685,67 @@
     "text": "Discover hunter moving around area",
     "enumeration": "7"
    },
-   "solution": "UNEARTH"
+   "solution": "UNEARTH",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "UNEARTH",
+    "definitions": [
+     {
+      "text": "Discover",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "moving",
+      "for": "anagram",
+      "note": "the hunter's letters are on the move"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "the rearranged letters go around the A"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hunter",
+      "gives": "UNERTH",
+      "note": "HUNTER rearranged"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "A is the abbreviation for area"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNE",
+      "A",
+      "RTH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HUNTER",
+       "gives": "UNERTH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hunter roaming a region to find something.",
+     "walkthrough": "The hunter really does move around an area in the surface; both words are instructions.",
+     "definitionFit": "A plain synonym, with a hint of digging something out of the ground to find it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "moving"
+    }
+   }
   },
   {
    "number": 12,
@@ -203,7 +759,43 @@
     "text": "Quidditch, in essence, involves some irritation",
     "enumeration": "9"
    },
-   "solution": "ITCHINESS"
+   "solution": "ITCHINESS",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ITCHINESS",
+    "definitions": [
+     {
+      "text": "some irritation",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involves",
+      "for": "hidden_word",
+      "note": "the phrase before it involves, or holds, the answer inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quidditch, in essence",
+      "gives": "ITCHINESS",
+      "note": "quiddITCH IN ESSence"
+     }
+    ],
+    "explanation": {
+     "surface": "The wizarding sport Quidditch, at heart, is a bit annoying.",
+     "walkthrough": "'In essence' sounds like an instruction to take the middle letter; it is only the tail of the phrase that holds the answer.",
+     "definitionFit": "The skin sense: a mild, scratchy annoyance, the urge to scratch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "essence"
+    }
+   }
   },
   {
    "number": 13,
@@ -217,7 +809,58 @@
     "text": "Timothy wanting time on phone still",
     "enumeration": "8"
    },
-   "solution": "IMMOBILE"
+   "solution": "IMMOBILE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "IMMOBILE",
+    "definitions": [
+     {
+      "text": "still",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wanting",
+      "for": "deletion",
+      "note": "wanting means lacking, so the T is missing"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Timothy wanting time",
+      "gives": "IM",
+      "note": "TIM, short for Timothy, without T for time"
+     },
+     {
+      "clueFragment": "phone",
+      "gives": "MOBILE",
+      "note": "a mobile is a mobile phone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IM",
+      "MOBILE"
+     ]
+    },
+    "explanation": {
+     "surface": "Timothy wants some phone time, still.",
+     "walkthrough": "Timothy has to be shortened to TIM before T comes off. 'Still' looks like an adverb meaning yet; it is the adjective.",
+     "definitionFit": "A plain synonym for the adjective: not moving at all."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "still"
+    }
+   }
   },
   {
    "number": 14,
@@ -231,7 +874,58 @@
     "text": "Hint written the wrong way is mine",
     "enumeration": "3"
    },
-   "solution": "PIT"
+   "solution": "PIT",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "PIT",
+    "definitions": [
+     {
+      "text": "mine",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "written the wrong way",
+      "for": "reversal",
+      "note": "written in the wrong direction, from right to left"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hint",
+      "gives": "TIP",
+      "note": "a tip is a hint"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIT"
+     ],
+     "reversals": [
+      {
+       "from": "TIP",
+       "to": "PIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone claims a badly written hint as their own.",
+     "walkthrough": "'Mine' reads as the possessive, 'belongs to me'; it is the noun, a coal mine.",
+     "definitionFit": "A plain synonym: miners speak of going down the pit, meaning the colliery."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "mine"
+    }
+   }
   },
   {
    "number": 15,
@@ -245,7 +939,58 @@
     "text": "Object about argument, which is disconcerting",
     "enumeration": "8"
    },
-   "solution": "THROWING"
+   "solution": "THROWING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "THROWING",
+    "definitions": [
+     {
+      "text": "disconcerting",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "the object goes about the argument, surrounding it"
+     }
+    ],
+    "linkWords": [
+     "which is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Object",
+      "gives": "THING",
+      "note": "an object is a thing"
+     },
+     {
+      "clueFragment": "argument",
+      "gives": "ROW",
+      "note": "a row is a quarrel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TH",
+      "ROW",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone protests at a row, finding it unsettling.",
+     "walkthrough": "'Object' reads as a verb, to protest; it is the noun. ROW rhymes with cow here.",
+     "definitionFit": "The participle as adjective: a question that throws you is one that unsettles you."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Object"
+    }
+   }
   },
   {
    "number": 16,
@@ -259,7 +1004,54 @@
     "text": "Tuber, in spring time, coming from the east",
     "enumeration": "3"
    },
-   "solution": "YAM"
+   "solution": "YAM",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "YAM",
+    "definitions": [
+     {
+      "text": "Tuber",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coming from the east",
+      "for": "reversal",
+      "note": "in an across answer, coming from the east means read right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spring time",
+      "gives": "MAY",
+      "note": "May is a spring month"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YAM"
+     ],
+     "reversals": [
+      {
+       "from": "MAY",
+       "to": "YAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A root vegetable, in season in spring, imported from the east.",
+     "walkthrough": "'In' looks like it wants a container, but it is just the joining word.",
+     "definitionFit": "A definition by example: the starchy root crop grown across the tropics."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "east"
+    }
+   }
   },
   {
    "number": 17,
@@ -273,7 +1065,55 @@
     "text": "Creamy confection in seconds consumed by timid person",
     "enumeration": "6"
    },
-   "solution": "MOUSSE"
+   "solution": "MOUSSE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MOUSSE",
+    "definitions": [
+     {
+      "text": "Creamy confection",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "consumed by",
+      "for": "container",
+      "note": "the seconds are eaten, taken inside the timid person"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "timid person",
+      "gives": "MOUSE",
+      "note": "a mouse is a timid person"
+     },
+     {
+      "clueFragment": "seconds",
+      "gives": "S",
+      "note": "s is the abbreviation for second, and serves for seconds too"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOUS",
+      "S",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A shy person eats a creamy dessert in seconds.",
+     "walkthrough": "'In seconds' reads as 'very quickly'; it is only an S that goes in.",
+     "definitionFit": "A definition by example: a light, whipped dessert set with cream or egg white."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "seconds"
+    }
+   }
   },
   {
    "number": 18,
@@ -287,7 +1127,52 @@
     "text": "I’m fearing shaking device which blows things up",
     "enumeration": "9"
    },
-   "solution": "MAGNIFIER"
+   "solution": "MAGNIFIER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MAGNIFIER",
+    "definitions": [
+     {
+      "text": "device which blows things up",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shaking",
+      "for": "anagram",
+      "note": "the letters are shaken up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I’m fearing",
+      "gives": "IMFEARING",
+      "note": "anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IM FEARING",
+       "gives": "MAGNIFIER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone trembles in fear of a bomb.",
+     "walkthrough": "'Blows things up' suggests explosives; it means enlarges.",
+     "definitionFit": "A cryptic-leaning description: a lens that enlarges, or blows up, the image."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "blows"
+    }
+   }
   },
   {
    "number": 19,
@@ -301,7 +1186,54 @@
     "text": "Billions lost from rubbish repair shop",
     "enumeration": "6"
    },
-   "solution": "GARAGE"
+   "solution": "GARAGE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "GARAGE",
+    "definitions": [
+     {
+      "text": "repair shop",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lost from",
+      "for": "deletion",
+      "note": "the B goes missing from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Billions",
+      "gives": "B",
+      "note": "B is the abbreviation for billions"
+     },
+     {
+      "clueFragment": "rubbish",
+      "gives": "GARBAGE",
+      "note": "garbage is rubbish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GAR",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A fortune squandered on a useless repair shop.",
+     "walkthrough": "'Rubbish' looks like an adjective describing the shop; it is the noun GARBAGE.",
+     "definitionFit": "A plain synonym: the place where cars are mended."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rubbish"
+    }
+   }
   },
   {
    "number": 20,
@@ -315,7 +1247,69 @@
     "text": "Setter’s new diet regularly ignored after opening of picnic hamper",
     "enumeration": "6"
    },
-   "solution": "IMPEDE"
+   "solution": "IMPEDE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "IMPEDE",
+    "definitions": [
+     {
+      "text": "hamper",
+      "at": 60
+     }
+    ],
+    "indicators": [
+     {
+      "text": "opening of",
+      "for": "letter_selection",
+      "note": "the opening of a word is its first letter"
+     },
+     {
+      "text": "regularly ignored",
+      "for": "letter_selection",
+      "note": "every other letter is ignored, keeping the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Setter’s",
+      "gives": "IM",
+      "note": "the setter is 'I', so setter's is I'M"
+     },
+     {
+      "clueFragment": "opening of picnic",
+      "gives": "P",
+      "select": "first",
+      "note": "the first letter of Picnic"
+     },
+     {
+      "clueFragment": "new diet regularly ignored",
+      "gives": "EDE",
+      "select": "alternate",
+      "note": "the even letters of nEw DiEt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IM",
+      "P",
+      "EDE"
+     ]
+    },
+    "explanation": {
+     "surface": "The setter abandons a diet on seeing a picnic basket.",
+     "walkthrough": "'Hamper' looks like the picnic basket; it is the verb. EDE comes after P, as 'after' says.",
+     "definitionFit": "A plain synonym for the verb: both mean to hold back progress."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hamper"
+    }
+   }
   },
   {
    "number": 21,
@@ -329,7 +1323,50 @@
     "text": "Someone who might instal pipes or soft timber",
     "enumeration": "7"
    },
-   "solution": "PLUMBER"
+   "solution": "PLUMBER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PLUMBER",
+    "definitions": [
+     {
+      "text": "Someone who might instal pipes",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soft",
+      "gives": "P",
+      "note": "p, piano, is soft in music"
+     },
+     {
+      "clueFragment": "timber",
+      "gives": "LUMBER",
+      "note": "lumber is sawn timber"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "LUMBER"
+     ]
+    },
+    "explanation": {
+     "surface": "A choice of trades: pipe-fitting or supplying softwood.",
+     "walkthrough": "'Soft timber' reads as softwood, a single phrase; it splits into P and LUMBER.",
+     "definitionFit": "A description of the trade: the person called in to fit water pipes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "soft"
+    }
+   }
   },
   {
    "number": 21,
@@ -343,7 +1380,57 @@
     "text": "Tweet cover of Prince record",
     "enumeration": "4"
    },
-   "solution": "PEEP"
+   "solution": "PEEP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PEEP",
+    "definitions": [
+     {
+      "text": "Tweet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cover of",
+      "for": "letter_selection",
+      "note": "a word's cover is its outside, the first and last letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cover of Prince",
+      "gives": "PE",
+      "select": "outer",
+      "note": "the outer letters of PrincE"
+     },
+     {
+      "clueFragment": "record",
+      "gives": "EP",
+      "note": "an EP is an extended-play record"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PE",
+      "EP"
+     ]
+    },
+    "explanation": {
+     "surface": "A social-media post about a cover version of a Prince song.",
+     "walkthrough": "'Cover' tempts toward a cover version of a song; it is the outside of the word.",
+     "definitionFit": "A plain synonym: the small high cry of a young bird."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Tweet"
+    }
+   }
   },
   {
    "number": 22,
@@ -357,7 +1444,54 @@
     "text": "Tropical fruit parent’s held in hand",
     "enumeration": "5"
    },
-   "solution": "PAPAW"
+   "solution": "PAPAW",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PAPAW",
+    "definitions": [
+     {
+      "text": "Tropical fruit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "held in",
+      "for": "container",
+      "note": "the parent is held inside the hand"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hand",
+      "gives": "PAW",
+      "note": "paw is informal for a hand"
+     },
+     {
+      "clueFragment": "parent",
+      "gives": "PA",
+      "note": "pa is a father"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "PA",
+      "W"
+     ]
+    },
+    "explanation": {
+     "surface": "Dad holding a piece of exotic fruit.",
+     "walkthrough": "The apostrophe-s stands for 'is': parent is held in hand.",
+     "definitionFit": "A definition by example: another name for the papaya."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -371,7 +1505,65 @@
     "text": "Drama created by Labour’s leader blocking workers’ reward",
     "enumeration": "4"
    },
-   "solution": "PLAY"
+   "solution": "PLAY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PLAY",
+    "definitions": [
+     {
+      "text": "Drama",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "a word's leader is its first letter"
+     },
+     {
+      "text": "blocking",
+      "for": "container",
+      "note": "the L stands in the middle of the pay, blocking it"
+     }
+    ],
+    "linkWords": [
+     "created by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "workers’ reward",
+      "gives": "PAY",
+      "note": "pay is what workers earn"
+     },
+     {
+      "clueFragment": "Labour’s leader",
+      "gives": "L",
+      "select": "first",
+      "note": "the first letter of Labour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "L",
+      "AY"
+     ]
+    },
+    "explanation": {
+     "surface": "A political row as Labour's leader resists a pay deal.",
+     "walkthrough": "Labour is the UK's main left-of-centre party, which makes 'Labour's leader' look like a politician; it is only an L.",
+     "definitionFit": "A plain synonym: any stage work can be called a drama."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Labour"
+    }
+   }
   },
   {
    "number": 23,
@@ -385,7 +1577,50 @@
     "text": "Stand in atelier or move gently left",
     "enumeration": "5"
    },
-   "solution": "EASEL"
+   "solution": "EASEL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EASEL",
+    "definitions": [
+     {
+      "text": "Stand in atelier",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "move gently",
+      "gives": "EASE",
+      "note": "to ease something is to move it gently"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EASE",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "An artist's studio choice: stay standing or sidle off to the left.",
+     "walkthrough": "An atelier is an artist's studio, which is what pins down which kind of stand.",
+     "definitionFit": "A definition by context: the frame a painter props a canvas on in the studio."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Stand"
+    }
+   }
   },
   {
    "number": 24,
@@ -399,7 +1634,43 @@
     "text": "Deserving lad denied entertaining delight",
     "enumeration": "7"
    },
-   "solution": "GLADDEN"
+   "solution": "GLADDEN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "GLADDEN",
+    "definitions": [
+     {
+      "text": "delight",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entertaining",
+      "for": "hidden_word",
+      "note": "the words entertain the answer, holding it within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Deserving lad denied",
+      "gives": "GLADDEN",
+      "note": "deservinG LAD DENied"
+     }
+    ],
+    "explanation": {
+     "surface": "A worthy boy refused something fun.",
+     "walkthrough": "'Entertaining delight' reads as fun that was denied; 'entertaining' is the instruction.",
+     "definitionFit": "A plain synonym for the verb: to make someone happy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "entertaining"
+    }
+   }
   }
  ]
 }
