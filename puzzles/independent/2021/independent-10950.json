@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "id": "1-down",
@@ -39,7 +42,56 @@
      }
     ]
    },
-   "solution": "CALLSIGN"
+   "solution": "CALLSIGN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CALL SIGN",
+    "definitions": [
+     {
+      "text": "Air Force One for example",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the key is put in the middle of the visits"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "visits",
+      "gives": "CALLSIN",
+      "note": "calls in = visits, pays a call on"
+     },
+     {
+      "clueFragment": "key",
+      "gives": "G",
+      "note": "G is a musical key"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CALLS",
+      "I",
+      "G",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone boarding the presidential plane has to punch a key into a keypad on each visit.",
+     "walkthrough": "'Key in' reads as one phrasal verb, typing something; split it and 'in' becomes a container instruction, so the key sits within the second word of the visits.",
+     "definitionFit": "Air Force One is the call sign used by whatever aircraft carries the US president."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "key"
+    }
+   }
   },
   {
    "id": "2-down",
@@ -53,7 +105,55 @@
    "clue": {
     "text": "Dispute on chairs around piano (4)"
    },
-   "solution": "SPAT"
+   "solution": "SPAT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SPAT",
+    "definitions": [
+     {
+      "text": "Dispute",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "the letters for 'on chairs' go around the piano"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on chairs",
+      "gives": "SAT",
+      "note": "people on chairs sat"
+     },
+     {
+      "clueFragment": "piano",
+      "gives": "P",
+      "note": "p = piano, quietly in music"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "P",
+      "AT"
+     ]
+    },
+    "explanation": {
+     "surface": "An argument breaks out over who gets the chairs arranged round the piano.",
+     "walkthrough": "'On chairs' is a description of sitting, so it gives SAT, which then wraps P.",
+     "definitionFit": "A plain synonym: a spat is a small, short-lived quarrel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "piano"
+    }
+   }
   },
   {
    "id": "3-down",
@@ -67,7 +167,55 @@
    "clue": {
     "text": "Proust reinterpreted produces mental dullness (6)"
    },
-   "solution": "STUPOR"
+   "solution": "STUPOR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STUPOR",
+    "definitions": [
+     {
+      "text": "mental dullness",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reinterpreted",
+      "for": "anagram",
+      "note": "reinterpreting Proust recasts his letters in a new order"
+     }
+    ],
+    "linkWords": [
+     "produces"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Proust",
+      "gives": "PROUST",
+      "note": "anagram fodder, 6 letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PROUST",
+       "gives": "STUPOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A new reading of Proust's long novel leaves the reader numb with boredom.",
+     "walkthrough": "The joke is that Proust's famously long novel could send anyone into a daze.",
+     "definitionFit": "A stupor is a state of dulled or near-absent mental awareness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "reinterpreted"
+    }
+   }
   },
   {
    "id": "4-down",
@@ -81,7 +229,67 @@
    "clue": {
     "text": "American doctor on course read up about certain glands (7)"
    },
-   "solution": "ADRENAL"
+   "solution": "ADRENAL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ADRENAL",
+    "definitions": [
+     {
+      "text": "about certain glands",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "read up",
+      "for": "reversal",
+      "note": "in a down clue, reading upwards runs the word backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A = American"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "DR",
+      "note": "Dr = doctor"
+     },
+     {
+      "clueFragment": "course",
+      "gives": "LANE",
+      "note": "a lane is a course, as on a running track"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "DR",
+      "ENAL"
+     ],
+     "reversals": [
+      {
+       "from": "LANE",
+       "to": "ENAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A US physician on a medical course is reading up on the endocrine system.",
+     "walkthrough": "'On course' looks like 'studying'; here 'on' only places A DR before the course, which is then turned upwards.",
+     "definitionFit": "Adrenal is an adjective meaning relating to the adrenal glands, which sit above the kidneys."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "course"
+    }
+   }
   },
   {
    "id": "5-down",
@@ -101,7 +309,57 @@
      }
     ]
    },
-   "solution": "CSECTION"
+   "solution": "CSECTION",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "C-SECTION",
+    "definitions": [
+     {
+      "text": "Delivery option",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "top",
+      "for": "letter_selection",
+      "note": "the top of a word in a down clue is its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Carson's",
+      "gives": "C",
+      "select": "first",
+      "note": "the first letter of Carson, its top in a down clue"
+     },
+     {
+      "clueFragment": "department",
+      "gives": "SECTION",
+      "note": "a section is a department"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "SECTION"
+     ]
+    },
+    "explanation": {
+     "surface": "A shopper picks a home-delivery option in the best department of Carson's store.",
+     "walkthrough": "'Delivery' is a shopping word on the surface but a childbirth word in the answer.",
+     "definitionFit": "A C-section, or caesarean, is one way a baby can be delivered."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Delivery"
+    }
+   }
   },
   {
    "id": "6-down",
@@ -115,7 +373,62 @@
    "clue": {
     "text": "Sausage not entirely uniform sounded most unsatisfactory (10)"
    },
-   "solution": "LIVERWURST"
+   "solution": "LIVERWURST",
+   "annotation": {
+    "type": [
+     "deletion",
+     "homophone",
+     "charade"
+    ],
+    "answer": "LIVERWURST",
+    "definitions": [
+     {
+      "text": "Sausage",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not entirely",
+      "for": "deletion",
+      "note": "not all of 'livery' is used, so its last letter goes"
+     },
+     {
+      "text": "sounded",
+      "for": "homophone",
+      "note": "the word is only said, so the answer takes its sound, not its spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not entirely uniform",
+      "gives": "LIVER",
+      "note": "livery = uniform, cut short"
+     },
+     {
+      "clueFragment": "sounded most unsatisfactory",
+      "gives": "WURST",
+      "soundsLike": "WORST",
+      "note": "most unsatisfactory = worst, said in a way that is spelt WURST"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIVER",
+      "WURST"
+     ]
+    },
+    "explanation": {
+     "surface": "A sausage served with a uniform made the worst impression.",
+     "walkthrough": "Livery is the uniform worn by servants of a great house or company.",
+     "definitionFit": "Definition by class: liverwurst is one German kind of sausage, made from liver."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "uniform"
+    }
+   }
   },
   {
    "id": "7-down",
@@ -129,7 +442,55 @@
    "clue": {
     "text": "First person ousted by more cheeky supporter taking cup (6)"
    },
-   "solution": "SAUCER"
+   "solution": "SAUCER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SAUCER",
+    "definitions": [
+     {
+      "text": "supporter taking cup",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ousted by",
+      "for": "deletion",
+      "note": "the first person is thrown out of the longer word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "First person",
+      "gives": "I",
+      "note": "I is the first person pronoun"
+     },
+     {
+      "clueFragment": "more cheeky",
+      "gives": "SAUCIER",
+      "note": "saucy = cheeky, so more cheeky = saucier"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAUC",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "The leader is pushed out by a bolder backer who grabs the trophy.",
+     "walkthrough": "'Supporter taking cup' sounds like a football fan with a trophy; the cup is a teacup.",
+     "definitionFit": "A cryptic description: the saucer holds the cup up, so it is the supporter that takes a cup."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cup"
+    }
+   }
   },
   {
    "id": "8-across",
@@ -143,7 +504,62 @@
    "clue": {
     "text": "Rugged comedian swallowing favourite drug (8)"
    },
-   "solution": "CARPETED"
+   "solution": "CARPETED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CARPETED",
+    "definitions": [
+     {
+      "text": "Rugged",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swallowing",
+      "for": "container",
+      "note": "the comedian takes the other letters inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "comedian",
+      "gives": "CARD",
+      "note": "a card is a joker, a funny person"
+     },
+     {
+      "clueFragment": "favourite",
+      "gives": "PET",
+      "note": "a pet is a favourite, as in teacher's pet"
+     },
+     {
+      "clueFragment": "drug",
+      "gives": "E",
+      "note": "E = ecstasy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAR",
+      "PET",
+      "E",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A craggy comic takes his favourite drug.",
+     "walkthrough": "'Rugged' reads as rough-featured; here it means covered with rugs.",
+     "definitionFit": "'Rugged' is read literally as 'fitted with rugs', a sense the everyday word never has."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Rugged"
+    }
+   }
   },
   {
    "id": "9-across",
@@ -157,7 +573,65 @@
    "clue": {
     "text": "In recession the Parisian rents increase continually (6)"
    },
-   "solution": "SPIRAL"
+   "solution": "SPIRAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "SPIRAL",
+    "definitions": [
+     {
+      "text": "increase continually",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In recession",
+      "for": "reversal",
+      "note": "receding means going back, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the Parisian",
+      "gives": "LA",
+      "note": "la is French for 'the'"
+     },
+     {
+      "clueFragment": "rents",
+      "gives": "RIPS",
+      "note": "a rent is a tear, a rip"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPIR",
+      "AL"
+     ],
+     "reversals": [
+      {
+       "from": "LA",
+       "to": "AL"
+      },
+      {
+       "from": "RIPS",
+       "to": "SPIR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Even in an economic downturn, Paris rents keep going up.",
+     "walkthrough": "'Rents' looks like money paid for housing but is the noun for tears.",
+     "definitionFit": "To spiral is to rise steadily and uncontrollably, as prices do."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rents"
+    }
+   }
   },
   {
    "id": "10-across",
@@ -171,7 +645,54 @@
    "clue": {
     "text": "Brahms not having to defect? (4)"
    },
-   "solution": "BLOT"
+   "solution": "BLOT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "BLOT",
+    "definitions": [
+     {
+      "text": "defect",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not having",
+      "for": "deletion",
+      "note": "'not having' means lacking, so the word goes without the TO"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brahms",
+      "gives": "BLOTTO",
+      "note": "Brahms (and Liszt) is rhyming slang for pissed, drunk, so blotto"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken away"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BLOT"
+     ]
+    },
+    "explanation": {
+     "surface": "Must Brahms be free of the obligation to switch sides?",
+     "walkthrough": "Brahms and Liszt is Cockney rhyming slang for 'pissed', meaning drunk, which is BLOTTO; 'to defect' reads as a verb but 'defect' is the noun.",
+     "definitionFit": "A plain synonym: a blot, like a defect, is a flaw that spoils something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "defect"
+    }
+   }
   },
   {
    "id": "11-across",
@@ -185,7 +706,64 @@
    "clue": {
     "text": "Aura surrounds Conservative, one showing foreknowledge (10)"
    },
-   "solution": "PRESCIENCE"
+   "solution": "PRESCIENCE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PRESCIENCE",
+    "definitions": [
+     {
+      "text": "foreknowledge",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surrounds",
+      "for": "container",
+      "note": "the aura goes round the other letters"
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Aura",
+      "gives": "PRESENCE",
+      "note": "presence is an aura, an impressive bearing"
+     },
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C = Conservative"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I = one, the Roman numeral"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRES",
+      "C",
+      "I",
+      "ENCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A Tory politician has an air about him, as if he can see the future.",
+     "walkthrough": "'One showing foreknowledge' looks like a person with foresight; 'one' is I, and 'showing' links to the definition.",
+     "definitionFit": "Prescience is knowledge of events before they happen."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "one"
+    }
+   }
   },
   {
    "id": "12-across",
@@ -199,7 +777,72 @@
    "clue": {
     "text": "Famous horse corrected evil in small rook (6)"
    },
-   "solution": "SILVER"
+   "solution": "SILVER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SILVER",
+    "definitions": [
+     {
+      "text": "Famous horse",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "corrected",
+      "for": "anagram",
+      "note": "correcting the word puts its letters into a different order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the rearranged letters go inside S and R"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S = small"
+     },
+     {
+      "clueFragment": "evil",
+      "gives": "EVIL",
+      "note": "anagram fodder, 4 letters"
+     },
+     {
+      "clueFragment": "rook",
+      "gives": "R",
+      "note": "R = rook in chess notation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ILVE",
+      "R"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EVIL",
+       "gives": "ILVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A famous horse has been cured of its bad behaviour, as has a little chess piece.",
+     "walkthrough": "S and R are standard abbreviations, and 'in' sits the rearranged EVIL between them.",
+     "definitionFit": "Silver is the Lone Ranger's horse in the Western stories."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rook"
+    }
+   }
   },
   {
    "id": "13-down",
@@ -213,7 +856,68 @@
    "clue": {
     "text": "Disease expert treated visitor stuffed with Christmas cake? (10)"
    },
-   "solution": "VIROLOGIST"
+   "solution": "VIROLOGIST",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "VIROLOGIST",
+    "definitions": [
+     {
+      "text": "Disease expert",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "treated",
+      "for": "anagram",
+      "note": "the visitor's letters are processed into a new order"
+     },
+     {
+      "text": "stuffed with",
+      "for": "container",
+      "note": "the rearranged visitor has the cake inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "visitor",
+      "gives": "VISITOR",
+      "note": "anagram fodder, 7 letters"
+     },
+     {
+      "clueFragment": "Christmas cake?",
+      "gives": "LOG",
+      "note": "a Yule log is a Christmas cake; the question mark flags the example"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VIRO",
+      "LOG",
+      "IST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "VISITOR",
+       "gives": "VIROIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor treats a visitor who has eaten too much Christmas cake.",
+     "walkthrough": "'Treated' belongs to the doctor in the surface, but it works on the visitor's letters.",
+     "definitionFit": "Definition by field: the study of viruses is a branch of disease science, so its practitioner is a disease expert."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "treated"
+    }
+   }
   },
   {
    "id": "14-across",
@@ -237,7 +941,62 @@
      }
     ]
    },
-   "solution": "ASITWERE"
+   "solution": "ASITWERE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "AS IT WERE",
+    "definitions": [
+     {
+      "text": "so to speak",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "the daughter departs from the word"
+     },
+     {
+      "text": "in distress",
+      "for": "anagram",
+      "note": "letters in a state of distress are thrown out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "waterside",
+      "gives": "WATERSIDE",
+      "note": "anagram fodder once D goes"
+     },
+     {
+      "clueFragment": "Daughter",
+      "gives": "D",
+      "note": "D = daughter, removed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WATERSIE",
+       "gives": "ASITWERE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A daughter walks away from the riverbank, upset.",
+     "walkthrough": "Remove D from WATERSIDE first, then rearrange the eight letters left.",
+     "definitionFit": "'As it were' and 'so to speak' both soften a figurative phrase."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "distress"
+    }
+   }
   },
   {
    "id": "15-across",
@@ -251,7 +1010,55 @@
    "clue": {
     "text": "Suggestion husband ignored: discourteous to butt in (7)"
    },
-   "solution": "INTRUDE"
+   "solution": "INTRUDE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "INTRUDE",
+    "definitions": [
+     {
+      "text": "butt in",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ignored",
+      "for": "deletion",
+      "note": "the husband is left out of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Suggestion husband ignored",
+      "gives": "INT",
+      "note": "a hint is a suggestion; lose H = husband"
+     },
+     {
+      "clueFragment": "discourteous",
+      "gives": "RUDE",
+      "note": "rude = discourteous"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INT",
+      "RUDE"
+     ]
+    },
+    "explanation": {
+     "surface": "The wife hinted, the husband took no notice, and interrupting would be impolite.",
+     "walkthrough": "H for husband is the standard abbreviation from genealogy and forms.",
+     "definitionFit": "A plain synonym: both mean to enter a conversation or place uninvited."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Suggestion"
+    }
+   }
   },
   {
    "id": "16-down",
@@ -265,7 +1072,68 @@
    "clue": {
     "text": "Country crowd at last sail from shore to island (8)"
    },
-   "solution": "DJIBOUTI"
+   "solution": "DJIBOUTI",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DJIBOUTI",
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at last",
+      "for": "letter_selection",
+      "note": "only the final letter of 'crowd' is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crowd",
+      "gives": "D",
+      "select": "last",
+      "note": "last letter of crowd"
+     },
+     {
+      "clueFragment": "sail",
+      "gives": "JIB",
+      "note": "a jib is a triangular sail"
+     },
+     {
+      "clueFragment": "from shore",
+      "gives": "OUT",
+      "note": "a boat out is away from the shore"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "I",
+      "note": "I = island"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "JIB",
+      "OUT",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A crowd finally sets sail from the coast for an island.",
+     "walkthrough": "'At last' feels like 'finally' in the story, but it takes only the D at the end of crowd.",
+     "definitionFit": "Djibouti is a small country in the Horn of Africa."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "crowd"
+    }
+   }
   },
   {
    "id": "17-across",
@@ -279,7 +1147,66 @@
    "clue": {
     "text": "Sound asleep, embracing Kelvin, having left dive? (7)"
    },
-   "solution": "SNORKEL"
+   "solution": "SNORKEL",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SNORKEL",
+    "definitions": [
+     {
+      "text": "dive?",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "embracing",
+      "for": "container",
+      "note": "the snore holds the K inside it"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sound asleep",
+      "gives": "SNORE",
+      "note": "a snore is a sound made asleep"
+     },
+     {
+      "clueFragment": "Kelvin",
+      "gives": "K",
+      "note": "K = kelvin, the temperature unit"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L = left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SNOR",
+      "K",
+      "E",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone fast asleep hugs Kelvin after leaving a seedy bar.",
+     "walkthrough": "'Sound asleep' reads as deeply asleep; it is the noise a sleeper makes. The question mark flags that 'dive' is loose: snorkelling is swimming near the surface.",
+     "definitionFit": "To snorkel is to swim face-down using a breathing tube, a shallow sort of dive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Sound"
+    }
+   }
   },
   {
    "id": "18-down",
@@ -293,7 +1220,55 @@
    "clue": {
     "text": "Those from around these parts, and alien near them? (8)"
    },
-   "solution": "EARTHMEN"
+   "solution": "EARTHMEN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EARTHMEN",
+    "definitions": [
+     {
+      "text": "Those from around these parts",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "alien",
+      "for": "anagram",
+      "note": "the letters are made strange, turned into something unfamiliar"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "near them",
+      "gives": "NEARTHEM",
+      "note": "anagram fodder, 8 letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NEARTHEM",
+       "gives": "EARTHMEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Locals wonder whether there is an alien living close by.",
+     "walkthrough": "'Alien' looks like a noun in the surface, a creature from outer space, but it is an adjective saying 'made strange'.",
+     "definitionFit": "Earthmen are people from Earth, 'these parts' as a space visitor would say."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "alien"
+    }
+   }
   },
   {
    "id": "19-down",
@@ -307,7 +1282,51 @@
    "clue": {
     "text": "Warm, feathery layer for barbarian (7)"
    },
-   "solution": "HEATHEN"
+   "solution": "HEATHEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HEATHEN",
+    "definitions": [
+     {
+      "text": "barbarian",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Warm",
+      "gives": "HEAT",
+      "note": "to heat is to warm"
+     },
+     {
+      "clueFragment": "feathery layer",
+      "gives": "HEN",
+      "note": "a hen is a feathered egg-layer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HEAT",
+      "HEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A cosy layer of down is offered to a savage.",
+     "walkthrough": "'Feathery layer' reads like a quilt or insulation, but a layer is something that lays eggs.",
+     "definitionFit": "Heathen is a scornful word for an uncivilised person, a barbarian."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "layer"
+    }
+   }
   },
   {
    "id": "20-across",
@@ -327,7 +1346,65 @@
      }
     ]
    },
-   "solution": "COALMINE"
+   "solution": "COALMINE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "COAL MINE",
+    "definitions": [
+     {
+      "text": "pit",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "the soft letter is not kept"
+     },
+     {
+      "text": "retrained",
+      "for": "anagram",
+      "note": "the policeman is trained all over again, into a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Policeman",
+      "gives": "POLICEMAN",
+      "note": "anagram fodder once P goes"
+     },
+     {
+      "clueFragment": "soft",
+      "gives": "P",
+      "note": "p = piano, soft in music; removed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OLICEMAN",
+       "gives": "COALMINE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tough police officer is retrained for work down the pit.",
+     "walkthrough": "The word 'Policeman' is used as letters, not as an officer to be swapped for a synonym like COP.",
+     "definitionFit": "Pit is the everyday British word for a coal mine, as in pit village and pitman."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "retrained"
+    }
+   }
   },
   {
    "id": "21-down",
@@ -341,7 +1418,61 @@
    "clue": {
     "text": "Lonely type behind upwardly mobile Chinese people (6)"
    },
-   "solution": "ORPHAN"
+   "solution": "ORPHAN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ORPHAN",
+    "definitions": [
+     {
+      "text": "Lonely type",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upwardly mobile",
+      "for": "reversal",
+      "note": "in a down clue, moving upwards runs the word backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "behind",
+      "gives": "PRO",
+      "note": "to be behind something is to be pro it, in favour"
+     },
+     {
+      "clueFragment": "Chinese people",
+      "gives": "HAN",
+      "note": "the Han are China's majority ethnic group"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ORP",
+      "HAN"
+     ],
+     "reversals": [
+      {
+       "from": "PRO",
+       "to": "ORP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lonely figure trails behind socially ambitious Chinese.",
+     "walkthrough": "'Behind' looks like a position word and 'upwardly mobile' like social climbing; in fact 'behind' means supporting, PRO, which the second phrase sends upwards.",
+     "definitionFit": "Definition by description: a child without parents is pictured as alone in the world."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "behind"
+    }
+   }
   },
   {
    "id": "22-across",
@@ -355,7 +1486,44 @@
    "clue": {
     "text": "One after another mentioned trainee (6)"
    },
-   "solution": "INTERN"
+   "solution": "INTERN",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "INTERN",
+    "definitions": [
+     {
+      "text": "trainee",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mentioned",
+      "for": "homophone",
+      "note": "the phrase is only said, so the answer takes its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One after another",
+      "gives": "INTERN",
+      "soundsLike": "IN TURN",
+      "note": "in turn = one after another"
+     }
+    ],
+    "explanation": {
+     "surface": "Trainees are named one at a time.",
+     "walkthrough": "'In turn' and 'intern' sound alike in British English, where the r is not pronounced.",
+     "definitionFit": "A plain synonym: both work for experience while learning the job."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "id": "22-down",
@@ -369,7 +1537,62 @@
    "clue": {
     "text": "Popular monarch stopping street advertising (6)"
    },
-   "solution": "INSERT"
+   "solution": "INSERT",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "INSERT",
+    "definitions": [
+     {
+      "text": "advertising",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stopping",
+      "for": "container",
+      "note": "the monarch plugs the street, sitting inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Popular",
+      "gives": "IN",
+      "note": "in = popular, fashionable"
+     },
+     {
+      "clueFragment": "street",
+      "gives": "ST",
+      "note": "St = street"
+     },
+     {
+      "clueFragment": "monarch",
+      "gives": "ER",
+      "note": "ER = Elizabeth Regina, the Queen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "S",
+      "ER",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A well-loved king blocks the road for publicity.",
+     "walkthrough": "An insert is an advertising leaflet slipped inside a newspaper or magazine.",
+     "definitionFit": "An insert is a loose sheet of advertising put inside a publication."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stopping"
+    }
+   }
   },
   {
    "id": "23-across",
@@ -383,7 +1606,68 @@
    "clue": {
     "text": "Toilets unfortunately blocked with animal body part (10)"
    },
-   "solution": "EPIGLOTTIS"
+   "solution": "EPIGLOTTIS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "EPIGLOTTIS",
+    "definitions": [
+     {
+      "text": "body part",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfortunately",
+      "for": "anagram",
+      "note": "the toilets have gone wrong, their letters out of order"
+     },
+     {
+      "text": "blocked with",
+      "for": "container",
+      "note": "the animal sits inside the rearranged toilets like a blockage"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Toilets",
+      "gives": "TOILETS",
+      "note": "anagram fodder, 7 letters"
+     },
+     {
+      "clueFragment": "animal",
+      "gives": "PIG",
+      "note": "a pig is an animal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "PIG",
+      "LOTTIS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TOILETS",
+       "gives": "ELOTTIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The loos are blocked, sadly, by some part of an animal's body.",
+     "walkthrough": "'Animal body part' runs together as one phrase, but 'animal' belongs to the wordplay.",
+     "definitionFit": "The epiglottis is the flap in the throat that covers the windpipe when you swallow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "animal"
+    }
+   }
   },
   {
    "id": "24-across",
@@ -397,7 +1681,66 @@
    "clue": {
     "text": "Penny leaving store to tour old London area (4)"
    },
-   "solution": "SOHO"
+   "solution": "SOHO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "SOHO",
+    "definitions": [
+     {
+      "text": "London area",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "the penny departs from the store"
+     },
+     {
+      "text": "to tour",
+      "for": "container",
+      "note": "what remains goes all the way round the O"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "store",
+      "gives": "SHOP",
+      "note": "a shop is a store"
+     },
+     {
+      "clueFragment": "Penny",
+      "gives": "P",
+      "note": "p = penny, removed"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O = old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "O",
+      "HO"
+     ]
+    },
+    "explanation": {
+     "surface": "Penny walks out of the shop to explore a historic part of London.",
+     "walkthrough": "'Old' reads as describing the London area but is its own letter, O.",
+     "definitionFit": "Soho is a district of London's West End, known for nightlife and theatres."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Penny"
+    }
+   }
   },
   {
    "id": "24-down",
@@ -411,7 +1754,48 @@
    "clue": {
     "text": "Pieces for one not completely secure (4)"
    },
-   "solution": "SOLI"
+   "solution": "SOLI",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SOLI",
+    "definitions": [
+     {
+      "text": "Pieces for one",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not completely",
+      "for": "deletion",
+      "note": "the word is cut short of its last letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "secure",
+      "gives": "SOLID",
+      "note": "secure = firm, steady; the whole word less its final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOLI"
+     ]
+    },
+    "explanation": {
+     "surface": "Items for a single person are not entirely safe.",
+     "walkthrough": "SOLI is the Italian plural of solo, used in music.",
+     "definitionFit": "Solos are pieces for one performer, and soli is their plural."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Pieces"
+    }
+   }
   },
   {
    "id": "25-across",
@@ -425,7 +1809,60 @@
    "clue": {
     "text": "Fish tails in horse meat for dog (6)"
    },
-   "solution": "BASSET"
+   "solution": "BASSET",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BASSET",
+    "definitions": [
+     {
+      "text": "dog",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tails in",
+      "for": "letter_selection",
+      "note": "the tails of the words are their last letters"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fish",
+      "gives": "BASS",
+      "note": "a bass is a fish"
+     },
+     {
+      "clueFragment": "horse meat",
+      "gives": "ET",
+      "select": "last",
+      "note": "last letters of horse and meat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BASS",
+      "ET"
+     ]
+    },
+    "explanation": {
+     "surface": "Fish tails mixed into horse meat as dog food.",
+     "walkthrough": "'Fish tails' pairs naturally, but 'tails' belongs with 'horse meat'.",
+     "definitionFit": "A basset is a short-legged hound."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "tails"
+    }
+   }
   },
   {
    "id": "26-across",
@@ -439,7 +1876,61 @@
    "clue": {
     "text": "Recorded fragment about tailless bird (8)"
    },
-   "solution": "ENROLLED"
+   "solution": "ENROLLED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "ENROLLED",
+    "definitions": [
+     {
+      "text": "Recorded",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "the fragment goes round the bird"
+     },
+     {
+      "text": "tailless",
+      "for": "deletion",
+      "note": "the bird loses its last letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fragment",
+      "gives": "END",
+      "note": "an end is a fragment, as in odds and ends"
+     },
+     {
+      "clueFragment": "tailless bird",
+      "gives": "ROLLE",
+      "note": "a roller is a bird; drop its tail R"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "ROLLE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A snippet of recording about a bird with no tail.",
+     "walkthrough": "The roller is a brightly coloured bird of Europe and Africa.",
+     "definitionFit": "A plain synonym: a name entered on a register has been recorded there."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Recorded"
+    }
+   }
   }
  ]
 }
