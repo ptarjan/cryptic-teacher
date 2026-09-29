@@ -60,6 +60,7 @@ from clue_types import NAMES
 from definitions import place
 from fetch_puzzle import puzzle_files, read_puzzle_file
 from puzzle_schema import order
+from groups import entry_id
 
 DATA = Path.home() / "cryptic-setter-data"
 OUT = ROOT / "tools" / "data" / "blog_facts"
@@ -1650,7 +1651,7 @@ def puzzle_entries(p):
     """[(entry id, clue body, solution)] in the order blogs print them."""
     rows = [e for e in p["entries"] if clue_body(e["clue"].get("text"))]
     rows.sort(key=lambda e: (e["direction"] != "across", e["number"]))
-    return [(e["id"], clue_body(e["clue"]["text"]), e.get("solution") or "") for e in rows]
+    return [(entry_id(e), clue_body(e["clue"]["text"]), e.get("solution") or "") for e in rows]
 
 
 def align(entries, stream):
@@ -1775,7 +1776,7 @@ def bigdave_records():
     out = []
     for line in path.read_text(encoding="utf-8").splitlines():
         r = json.loads(line)
-        ents = [(f"{e['number']}-{e['direction']}", clue_body(e.get("clue")),
+        ents = [(entry_id(e), clue_body(e.get("clue")),
                  e.get("answer") or "") for e in r["entries"] if clue_body(e.get("clue"))]
         if ents:
             out.append((f"bd:{r['series']}-{r['number']}", r["number"], ents, "bd:" + r["series"]))
@@ -2029,7 +2030,7 @@ def clues_of(pid):
     """{entry id: clue} of puzzle `pid`, {} where we hold no such puzzle."""
     from puzzle_paths import find
     path = find(pid)
-    return {e["id"]: e["clue"].get("text", "") for e in read_puzzle_file(path)["entries"]} if path else {}
+    return {entry_id(e): e["clue"].get("text", "") for e in read_puzzle_file(path)["entries"]} if path else {}
 
 
 def write(best, series):

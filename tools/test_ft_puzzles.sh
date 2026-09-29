@@ -97,7 +97,7 @@ from pathlib import Path
 tmp = Path(tempfile.mkdtemp())
 def built(number, clue):
     return {"id": f"ftcryptic-{number}", "number": number, "dimensions": {"cols": 5, "rows": 5},
-            "entries": [{"id": "1-across", "number": 1, "direction": "across",
+            "entries": [{"number": 1, "direction": "across",
                          "position": {"x": 0, "y": 0}, "length": 5, "clue": {"text": clue}, "solution": "ABCDE"}]}
 (tmp / "parsed.jsonl").write_text("".join(json.dumps({"post_id": n, "number": n, "date": "2026-09-01"}) + "\n"
                                           for n in (300, 301)))

@@ -12,7 +12,7 @@ def errors(ann, preamble=None):
             "assembly": {"pieces": ["TURNS", "TONE"]},
             "blocks": [{"clueFragment": "Changes", "gives": "TURNS"},
                        {"clueFragment": "colour", "gives": "TONE"}]}
-    puzzle = {"id": "t-1", "entries": [{"id": "1-across", "number": 1, "direction": "across",
+    puzzle = {"id": "t-1", "entries": [{"number": 1, "direction": "across",
               "clue": {"text": "Changes colour", "enumeration": "9"}, "solution": "TURNSTONE",
               "annotation": {**base, **ann}}]}
     if preamble:

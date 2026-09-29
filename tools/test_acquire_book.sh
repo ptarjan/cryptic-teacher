@@ -50,6 +50,7 @@ sys.path.insert(0, "tools")
 import grid_verdict
 from light_spec import build_spec
 from reconstruct_grid import reconstruct
+from groups import entry_id
 
 CONTROL = json.loads(Path("tools/data/penguin5_control.json").read_text())
 PUZZLES = CONTROL["puzzles"]
@@ -210,8 +211,8 @@ else:
             for k in ("gridOrigin", "retrievedFrom", "publisher"):
                 if mine.get("source", {}).get(k) != corpus.get("source", {}).get(k):
                     diffs.append(f"source.{k}")
-            me = {e["id"]: e for e in mine["entries"]}
-            we = {e["id"]: e for e in corpus["entries"]}
+            me = {entry_id(e): e for e in mine["entries"]}
+            we = {entry_id(e): e for e in corpus["entries"]}
             if set(me) != set(we):
                 diffs.append("entry ids")
             for eid in set(me) & set(we):

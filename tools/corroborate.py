@@ -67,6 +67,7 @@ sys.path.insert(0, str(TOOLS))
 import enumeration
 import provenance
 import series as series_meta
+from groups import entry_id
 
 DATA = Path.home() / "cryptic-setter-data"
 GEORGEHO = DATA / "georgeho" / "data.db"
@@ -466,16 +467,16 @@ def cells(entry):
 
 def units(puzzle):
     """{leader id: [member entries in answer order]}: each answer's lights."""
-    by_id = {e["id"]: e for e in puzzle["entries"]}
+    by_id = {entry_id(e): e for e in puzzle["entries"]}
     out, taken = {}, set()
     for e in puzzle["entries"]:
         group = [g for g in (e.get("group") or []) if g in by_id]
-        if len(group) > 1 and group[0] == e["id"]:
-            out[e["id"]] = [by_id[g] for g in group]
+        if len(group) > 1 and group[0] == entry_id(e):
+            out[entry_id(e)] = [by_id[g] for g in group]
             taken.update(group)
     for e in puzzle["entries"]:
-        if e["id"] not in taken:
-            out[e["id"]] = [e]
+        if entry_id(e) not in taken:
+            out[entry_id(e)] = [e]
     return out
 
 
@@ -608,7 +609,7 @@ def answer_disputes(puzzle, records):
         for rec in records:
             for m in members:
                 got = rec.answers.get((m["number"], m["direction"]))
-                if not got or got == wrong.get(m["id"]):
+                if not got or got == wrong.get(entry_id(m)):
                     continue
                 if m is members[0] and len(got) == size:
                     _add(cands, got, rec.source, rec.origin)
@@ -714,7 +715,7 @@ def field_disputes(puzzle, records):
                     shown.setdefault(clue_key(text), text)
             if not cands:
                 continue
-            d = Dispute("clue", m["id"], None, {shown[k]: s for k, s in cands.items()})
+            d = Dispute("clue", entry_id(m), None, {shown[k]: s for k, s in cands.items()})
             size = len(unit_cells(members)) if m is members[0] else m["length"]
             fits = {v for v in d.candidates
                     if sum(enumeration_parts(v)) in (size, 0)}
@@ -738,7 +739,7 @@ def resolve(puzzle, sources=None):
 def apply(puzzle, disputes):
     """`puzzle` with every settled winner written in."""
     puzzle = {**puzzle, "entries": [dict(e) for e in puzzle["entries"]]}
-    by_id = {e["id"]: e for e in puzzle["entries"]}
+    by_id = {entry_id(e): e for e in puzzle["entries"]}
     all_units = units(puzzle)
     for d in disputes:
         if d.winner is None or d.winner == d.primary:
@@ -746,7 +747,7 @@ def apply(puzzle, disputes):
         if d.field == "answer":
             rest = d.winner
             for m in all_units[d.entry]:
-                by_id[m["id"]]["solution"], rest = rest[:m["length"]], rest[m["length"]:]
+                by_id[entry_id(m)]["solution"], rest = rest[:m["length"]], rest[m["length"]:]
         elif d.field == "clue":
             kept = {k: v for k, v in by_id[d.entry]["clue"].items()
                     if k not in ("text", "enumeration")}
@@ -799,11 +800,11 @@ def known_wrong(puzzle):
     import fetch_puzzle
     fixes = {eid: (served, corrected) for (pid, eid), (served, corrected, _w)
              in fetch_puzzle.SOURCE_ANSWER_WRONG.items() if pid == puzzle["id"]}
-    if not any(e["id"] in fixes and e.get("solution") == fixes[e["id"]][0]
+    if not any(entry_id(e) in fixes and e.get("solution") == fixes[entry_id(e)][0]
                for e in puzzle["entries"]):
         return puzzle
-    entries = [dict(e, solution=fixes[e["id"]][1])
-               if e["id"] in fixes and e.get("solution") == fixes[e["id"]][0] else e
+    entries = [dict(e, solution=fixes[entry_id(e)][1])
+               if entry_id(e) in fixes and e.get("solution") == fixes[entry_id(e)][0] else e
                for e in puzzle["entries"]]
     return {**puzzle, "entries": entries}
 

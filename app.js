@@ -878,13 +878,16 @@
   // A linked answer is one clue: only its leader carries `group` (itself first)
   // and the annotation, and each continuation belongs to the first leader in
   // the puzzle's entry order whose group lists it.
+  // An entry's id, "<number>-<direction>": what `group` lists. Derived; the
+  // puzzle file stores none.
+  const entryId = (e) => e.number + "-" + e.direction;
   const buildLeaderOf = (list) => {
     const out = {};
-    list.forEach((e) => (e.group || []).slice(1).forEach((id) => { if (id !== e.id && !(id in out)) out[id] = e.id; }));
+    list.forEach((e) => (e.group || []).slice(1).forEach((id) => { if (id !== entryId(e) && !(id in out)) out[id] = entryId(e); }));
     return out;
   };
-  const holderOf = (e) => byId[leaderOf[e.id]] || e;
-  const entryKey = (e) => holderOf(e).id;
+  const holderOf = (e) => byId[leaderOf[entryId(e)]] || e;
+  const entryKey = (e) => entryId(holderOf(e));
   const annOf = (e) => {
     const h = holderOf(e);
     return h.annotation || blogAnn(h);
@@ -1649,7 +1652,7 @@
     entries = P.entries.slice().sort((a, b) =>
       (a.direction === b.direction) ? a.number - b.number : (a.direction === "across" ? -1 : 1));
     byId = {};
-    entries.forEach((e) => { byId[e.id] = e; });
+    entries.forEach((e) => { byId[entryId(e)] = e; });
     leaderOf = buildLeaderOf(P.entries);
     entries.forEach((e) => {
       for (let i = 0; i < e.length; i++) {
@@ -1657,7 +1660,7 @@
         const y = e.position.y + (e.direction === "down" ? i : 0);
         if (!cells[y][x]) cells[y][x] = { x, y, sol: null, num: null, across: null, down: null, letter: "", wrong: false, revealed: false };
         const c = cells[y][x];
-        c[e.direction] = e.id;
+        c[e.direction] = entryId(e);
         if (i === 0) c.num = c.num || e.number;
         if (e.solution) c.sol = e.solution[i];
       }
@@ -1761,7 +1764,7 @@
       ol.innerHTML = "";
       entries.filter((e) => e.direction === dir).forEach((e) => {
         const li = document.createElement("li");
-        li.id = "clue-" + e.id;
+        li.id = "clue-" + entryId(e);
         li.innerHTML = `<span class="clue-num">${e.number}</span><span class="clue-text"></span>` +
           `<span class="checkers"></span>`;
         // No focusKbd: picking a clue off the list is not a decision to type,
@@ -1997,7 +2000,7 @@
   function refreshClues() {
     const curE = currentEntry();
     entries.forEach((e) => {
-      const li = $("clue-" + e.id);
+      const li = $("clue-" + entryId(e));
       if (!li) return;
       const holder = holderOf(e);
       li.querySelector(".clue-text").innerHTML = (holder === e) ? clueHTML(e) : plainClueHTML(e);
@@ -2710,7 +2713,7 @@
   // both entries, so getting the first must not hand over the second.
   function groupSolved(e) {
     const h = holderOf(e);
-    return (h.group || [h.id]).map((id) => byId[id]).filter(Boolean).every(isEntrySolved);
+    return (h.group || [entryId(h)]).map((id) => byId[id]).filter(Boolean).every(isEntrySolved);
   }
 
   // viaType marks the one call (typeLetter) that represents an actual solve;
@@ -2734,9 +2737,9 @@
 
   function checkSolvedEntries(viaType) {
     entries.forEach((e) => {
-      if (isEntrySolved(e) && solvedWith[e.id] === undefined) {
+      if (isEntrySolved(e) && solvedWith[entryId(e)] === undefined) {
         creditOpenBlocks(e);
-        solvedWith[e.id] = Math.max(0, shownRungs(e).length - earnedRungs(e).length);
+        solvedWith[entryId(e)] = Math.max(0, shownRungs(e).length - earnedRungs(e).length);
         // You were being quizzed on a rung of this clue and then you solved it
         // from the grid. Leaving the question up asks you to go on hunting for
         // the definition in a clue you have already beaten — the same reason
@@ -4747,7 +4750,7 @@
     const key = entryKey(e);
     fetch(SYNC_ENDPOINT.replace(/\/$/, "") + "/r", {
       method: "POST", headers: { "content-type": "application/json" },
-      body: JSON.stringify({ puzzle: P && P.id, clue: e.id,
+      body: JSON.stringify({ puzzle: P && P.id, clue: entryId(e),
                              rung: shownRungs(e).slice(-1)[0] || "", note }),
     }).then((r) => {
       if (!r.ok) throw new Error("HTTP " + r.status);
@@ -5312,11 +5315,11 @@
     if (!groupSolved(e)) return Math.max(0, shownRungs(e).length - earnedRungs(e).length);
     const key = entryKey(e);
     return entries.filter((g) => entryKey(g) === key)
-      .reduce((n, g) => Math.max(n, solvedWith[g.id] || 0), 0);
+      .reduce((n, g) => Math.max(n, solvedWith[entryId(g)] || 0), 0);
   }
 
   function renderScore() {
-    const total = entries.filter((e) => !leaderOf[e.id]).length;
+    const total = entries.filter((e) => !leaderOf[entryId(e)]).length;
     let solved = 0, noHints = 0, levelsUsed = 0, lettersRevealed = 0;
     const counted = {};
     entries.forEach((e) => {
@@ -6189,7 +6192,7 @@
     }
     if (tallyDrawn && !earned) return;
     tallyDrawn = true;
-    const total = entries.filter((e) => !leaderOf[e.id]).length;
+    const total = entries.filter((e) => !leaderOf[entryId(e)]).length;
     const counted = {};
     let noHints = 0, levels = 0;
     entries.forEach((e) => {

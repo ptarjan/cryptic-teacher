@@ -162,7 +162,7 @@ so a clued puzzle can be assembled without reshaping anything:
 
 ```json
 {
-  "id": "1-across", "number": 1, "direction": "across",
+  "number": 1, "direction": "across",
   "position": {"x": 0, "y": 0}, "length": 4,
   "solution": "PACE", "checkedPattern": "PaCe", "checkedIndices": [0, 2],
   "clueability": 73, "familiarity": 29, "hooks": "ANCXDH"

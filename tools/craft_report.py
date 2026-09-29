@@ -164,6 +164,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import clue_types  # noqa: E402
 from difficulty import _rank_list, moments  # noqa: E402
 from fetch_puzzle import puzzle_files, read_puzzle_file  # noqa: E402 — one glob, one reader for every tool
+from groups import entry_id  # noqa: E402
 
 # Below this a device's count is dominated by which puzzles happen to be
 # blogged, not by whether solvers like it.
@@ -250,7 +251,7 @@ def double_duty(entries):
             others |= set(words_of(b.get("clueFragment")))
         shared = dwords & others
         if shared:
-            hits.append((e["id"], sorted(shared)))
+            hits.append((entry_id(e), sorted(shared)))
     return (len(hits) / len(entries) if entries else None), hits
 
 
@@ -416,14 +417,14 @@ def device_vs_favourites(voted):
         if pid not in voted or not ents:
             continue
         n = len(ents)
-        k = sum(1 for e in ents if e["id"] in voted[pid])
+        k = sum(1 for e in ents if entry_id(e) in voted[pid])
         if n < 2 or k == 0 or k == n:
             continue
         puzzles, clues, names = puzzles + 1, clues + n, names + k
         seen = defaultdict(list)
         for e in ents:
             for atom in set(e["annotation"]["type"]):
-                seen[atom].append(e["id"] in voted[pid])
+                seen[atom].append(entry_id(e) in voted[pid])
         for atom, flags in seen.items():
             m = len(flags)
             tot[atom] += m
@@ -481,8 +482,8 @@ def vs_favourites(votes_path, trials=3000):
         if pid not in voted or pid not in obs or not ents:
             continue
         dd = {i for i, _ in obs[pid]["double_duty_clues"]}
-        rows.append((pid, [int(e["id"] in dd) for e in ents],
-                     [int(e["id"] in voted[pid]) for e in ents]))
+        rows.append((pid, [int(entry_id(e) in dd) for e in ents],
+                     [int(entry_id(e) in voted[pid]) for e in ents]))
     if len(rows) < 20:
         print(f"only {len(rows)} puzzles are both observed and voted on",
               file=sys.stderr)

@@ -56,6 +56,7 @@ import json
 import re
 import sys
 from pathlib import Path
+from groups import entry_id
 
 # "See 15", "See 11 down", "See 23 13 across, or 11" — a light whose clue lives
 # on another light. The corpus spells continuations this way in every series;
@@ -151,12 +152,12 @@ def resolve_groups(entries):
 
     def leader_for(entry, seen):
         target = continuation_target(entry.get("clue"))
-        candidates = [c for c in by_number.get(target, []) if c["id"] != entry["id"]]
+        candidates = [c for c in by_number.get(target, []) if entry_id(c) != entry_id(entry)]
         named = continuation_direction(entry.get("clue"))
         candidates = [c for c in candidates if c["direction"] == named] or candidates
         if not candidates:
             raise SystemExit(
-                f"{entry['id']}: clue {entry['clue']!r} points at No {target}, "
+                f"{entry_id(entry)}: clue {entry['clue']!r} points at No {target}, "
                 f"which names no other light")
         clued = [c for c in candidates if continuation_target(c.get("clue")) is None]
         pool = clued or candidates
@@ -164,27 +165,27 @@ def resolve_groups(entries):
             same = [c for c in pool if c["direction"] == entry["direction"]]
             pool = same or pool
         if len(pool) != 1:
-            named = ", ".join(sorted(c["id"] for c in pool))
+            named = ", ".join(sorted(entry_id(c) for c in pool))
             raise SystemExit(
-                f"{entry['id']}: clue {entry['clue']!r} points at No {target}, which "
+                f"{entry_id(entry)}: clue {entry['clue']!r} points at No {target}, which "
                 f"names {len(pool)} candidate lights ({named}) — cannot link it")
         found = pool[0]
         if continuation_target(found.get("clue")) is None:
             return found
-        if found["id"] in seen:
+        if entry_id(found) in seen:
             raise SystemExit(
-                f"{entry['id']}: clue {entry['clue']!r} leads back to itself through "
-                f"{found['id']} — a loop of pointers has no leader")
-        return leader_for(found, seen | {entry["id"]})
+                f"{entry_id(entry)}: clue {entry['clue']!r} leads back to itself through "
+                f"{entry_id(found)} — a loop of pointers has no leader")
+        return leader_for(found, seen | {entry_id(entry)})
 
     groups = {}
     for e in entries:
         if continuation_target(e.get("clue")) is None:
             continue
-        leader = leader_for(e, {e["id"]})
-        groups.setdefault(leader["id"], [leader["id"]])
-        groups[leader["id"]].append(e["id"])
-        groups[e["id"]] = groups[leader["id"]]
+        leader = leader_for(e, {entry_id(e)})
+        groups.setdefault(entry_id(leader), [entry_id(leader)])
+        groups[entry_id(leader)].append(entry_id(e))
+        groups[entry_id(e)] = groups[entry_id(leader)]
     return groups
 
 
@@ -283,7 +284,7 @@ def normalise_record(record):
     safe to run on anything and safe to run twice.
     """
     entries = record["puzzle"]["entries"]
-    by_id = {e["id"]: e for e in entries}
+    by_id = {entry_id(e): e for e in entries}
     fill = record.get("fill") or {}
     groups = resolve_groups(entries)
 
@@ -294,7 +295,7 @@ def normalise_record(record):
         lights = [by_id[gid] for gid in group_ids]
         cells = sum(e["length"] for e in lights)
         was = by_id[leader_id].get("enumeration")
-        strays = [e["id"] for e in lights[1:] if e.get("enumeration")]
+        strays = [entry_id(e) for e in lights[1:] if e.get("enumeration")]
         if not strays and was and sum(n for n, _ in enumeration_parts(was)) == cells:
             continue  # already leader form; the answer gets no vote over it
 

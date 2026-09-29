@@ -52,6 +52,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 from fetch_puzzle import read_puzzle_file  # noqa: E402 — one reader
 import puzzle_paths  # noqa: E402 — one puzzles/
 import enumeration  # noqa: E402 — the printed line a judge reads
+from groups import entry_id  # noqa: E402
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 AXES = ["surface", "misdirection", "pennydrop", "economy", "fairness"]
@@ -78,8 +79,8 @@ def build_pairs(votes, rng):
             skipped.append((pid, "no puzzle file"))
             continue
         entries = annotated_entries(read_puzzle_file(path))
-        yes = [e for e in entries if e["id"] in voted[pid]]
-        no = [e for e in entries if e["id"] not in voted[pid]]
+        yes = [e for e in entries if entry_id(e) in voted[pid]]
+        no = [e for e in entries if entry_id(e) not in voted[pid]]
         if not yes or not no:
             skipped.append((pid, "no usable pair"))
             continue
@@ -111,8 +112,8 @@ def build_extra_pairs(votes, rng, used, want):
         if path is None:
             continue
         entries = annotated_entries(read_puzzle_file(path))
-        yes = [e for e in entries if e["id"] in voted[pid] and (pid, e["id"]) not in used]
-        no = [e for e in entries if e["id"] not in voted[pid] and (pid, e["id"]) not in used]
+        yes = [e for e in entries if entry_id(e) in voted[pid] and (pid, entry_id(e)) not in used]
+        no = [e for e in entries if entry_id(e) not in voted[pid] and (pid, entry_id(e)) not in used]
         if yes and no:
             pools[pid] = (yes, no)
 
@@ -162,7 +163,7 @@ def extend(args):
         for side in ("voted", "unvoted"):
             label = "c%04d" % (next_label + 2 * i + (side == "unvoted"))
             rows.append(clue_row(pr["puzzle"], pr[side], label))
-            key[label] = {"puzzle": pr["puzzle"], "entry": pr[side]["id"],
+            key[label] = {"puzzle": pr["puzzle"], "entry": entry_id(pr[side]),
                           "pair": next_pair + i, "voted": side == "voted"}
     rng.shuffle(rows)
 
@@ -184,7 +185,7 @@ def extend(args):
 
 def clue_row(pid, entry, label):
     return {"label": label, "clue": enumeration.printed(entry["clue"]),
-            "solution": entry["solution"], "_puzzle": pid, "_entry": entry["id"]}
+            "solution": entry["solution"], "_puzzle": pid, "_entry": entry_id(entry)}
 
 
 def sample(args):
@@ -197,7 +198,7 @@ def sample(args):
         for side in ("voted", "unvoted"):
             label = "c%04d" % (2 * i + (side == "unvoted"))
             rows.append(clue_row(p["puzzle"], p[side], label))
-            key[label] = {"puzzle": p["puzzle"], "entry": p[side]["id"],
+            key[label] = {"puzzle": p["puzzle"], "entry": entry_id(p[side]),
                           "pair": i, "voted": side == "voted"}
     rng.shuffle(rows)
 

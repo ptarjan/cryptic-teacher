@@ -37,6 +37,7 @@ from fetch_puzzle import (
     puzzle_is_annotated,
     read_puzzle_file,
 )
+from groups import entry_id
 
 CACHE = Path(os.environ.get("STAGE4_ROWS") or Path.home() / ".cache" / "cryptic-stage4-rows.json")
 PORTABLE = D.PORTABLE
@@ -151,7 +152,7 @@ def clue_rows(puz, facts):
         clue = D.ENUMERATION.sub("", e["clue"].get("text", "")).strip()
         if not clue or re.match(r"(?i)see\b", clue):
             continue
-        f = facts.get(e.get("id")) or {}
+        f = facts.get(entry_id(e)) or {}
         ann = e.get("annotation") or {}
         d = D.definition_key(f.get("definition")) or D.definition_key(ann.get("definition"))
         t = ann.get("type") or f.get("type") or ""

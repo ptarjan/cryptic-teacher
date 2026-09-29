@@ -53,6 +53,7 @@ from grid_fill import MIN_CHECKED_RATIO  # noqa: E402 — the authoring rulebook
 from series import official_key  # noqa: E402
 import corroborate  # noqa: E402
 import provenance  # noqa: E402
+from groups import entry_id  # noqa: E402
 
 
 def normalise(answer):
@@ -96,7 +97,7 @@ def check_geometry(puzzle):
 
     placed, cells, starts = [], defaultdict(list), defaultdict(list)
     for entry in puzzle.get("entries") or []:
-        eid = entry.get("id")
+        eid = entry_id(entry)
         pos = entry.get("position") or {}
         x, y = pos.get("x"), pos.get("y")
         length, direction = entry.get("length"), entry.get("direction")
@@ -118,15 +119,15 @@ def check_geometry(puzzle):
 
     for cell, occupants in sorted(cells.items()):
         for direction in ("across", "down"):
-            same = sorted(e["id"] for e in occupants if e["direction"] == direction)
+            same = sorted(entry_id(e) for e in occupants if e["direction"] == direction)
             if len(same) > 1:
                 problems.append(f"cell {cell}: {len(same)} {direction} lights "
                                 f"share it — " + ", ".join(same))
 
     for cell, here in sorted(starts.items()):
         if len({e.get("number") for e in here}) > 1:
-            detail = ", ".join(f"{e['id']} is numbered {e.get('number')}"
-                               for e in sorted(here, key=lambda e: e["id"]))
+            detail = ", ".join(f"{entry_id(e)} is numbered {e.get('number')}"
+                               for e in sorted(here, key=lambda e: entry_id(e)))
             problems.append(f"cell {cell}: one square, {len(here)} clue "
                             f"numbers — {detail}")
 
@@ -140,7 +141,7 @@ def check_geometry(puzzle):
             for i in range(entry["length"])
             for o in cells[(x + i, y) if across else (x, y + i)])
         if not crossed:
-            problems.append(f"{entry['id']}: {entry['length']} cells "
+            problems.append(f"{entry_id(entry)}: {entry['length']} cells "
                             f"{entry['direction']} from ({x},{y}), crossing nothing")
 
     if cells:
@@ -157,7 +158,7 @@ def check_fill(puzzle, fill):
     """Return (cells, problems). Never raises on bad input — the caller decides
     what to do with the list, and an empty list is the only thing that writes."""
     problems = []
-    by_id = {e["id"]: e for e in puzzle["entries"]}
+    by_id = {entry_id(e): e for e in puzzle["entries"]}
 
     for key in fill:
         if key not in by_id:
@@ -165,22 +166,22 @@ def check_fill(puzzle, fill):
 
     cells = {}
     for entry in puzzle["entries"]:
-        raw = fill.get(entry["id"])
+        raw = fill.get(entry_id(entry))
         if raw is None or not str(raw).strip():
-            problems.append(f"{entry['id']}: no answer given")
+            problems.append(f"{entry_id(entry)}: no answer given")
             continue
         answer = normalise(raw)
         if not answer:
-            problems.append(f"{entry['id']}: {raw!r} has no letters in it")
+            problems.append(f"{entry_id(entry)}: {raw!r} has no letters in it")
             continue
         if len(answer) != entry["length"]:
             problems.append(
-                f"{entry['id']}: {raw!r} is {len(answer)} letters, grid wants {entry['length']}")
+                f"{entry_id(entry)}: {raw!r} is {len(answer)} letters, grid wants {entry['length']}")
             continue
         x, y = entry["position"]["x"], entry["position"]["y"]
         for i, ch in enumerate(answer):
             cell = (x + i, y) if entry["direction"] == "across" else (x, y + i)
-            cells.setdefault(cell, {})[entry["id"]] = ch
+            cells.setdefault(cell, {})[entry_id(entry)] = ch
 
     crossings = 0
     for cell, occupants in sorted(cells.items()):
@@ -200,7 +201,7 @@ def check_sources(puzzle, fill, sources=None):
     blog when corroborate settles the two, so a disagreement is refused here,
     before it is written, or it ships. A blog answer the fill's own crossings
     rule out (corroborate's grid rule) is the blog's misparse and is let go."""
-    filled = {**puzzle, "entries": [{**e, "solution": normalise(fill.get(e["id"], ""))}
+    filled = {**puzzle, "entries": [{**e, "solution": normalise(fill.get(entry_id(e), ""))}
                                     for e in puzzle["entries"]]}
     problems = []
     for d in corroborate.resolve(filled, sources):
@@ -276,7 +277,7 @@ def main():
         raise SystemExit(f"{args.number} already has published solutions — refusing to overwrite")
 
     for entry in puzzle["entries"]:
-        entry["solution"] = normalise(fill[entry["id"]])
+        entry["solution"] = normalise(fill[entry_id(entry)])
     detail = {
         "model": args.model,
         "date": datetime.date.today().isoformat(),

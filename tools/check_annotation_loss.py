@@ -32,6 +32,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import groups  # noqa: E402
+from groups import entry_id  # noqa: E402
 from fetch_puzzle import ROOT, has_words, read_puzzle_file, resolve_puzzle  # noqa: E402
 
 
@@ -49,7 +50,7 @@ def clues(puzzle):
     """The entries that are annotated: all but a linked answer's continuations,
     which its leader's annotation covers (tools/groups.py)."""
     continuations = groups.leader_of(puzzle["entries"])
-    return [e for e in puzzle["entries"] if e["id"] not in continuations]
+    return [e for e in puzzle["entries"] if entry_id(e) not in continuations]
 
 
 def unannotated(puzzle):
@@ -73,8 +74,8 @@ def main(argv):
         # Two very different failures land in the same gap, and treating them
         # alike sent someone to grade a model that had been handed a clue with
         # no words in it. Only the solvable one is a loss.
-        unsolved = [e["id"] for e in missing if has_words(e["clue"].get("text", ""))]
-        wordless = [e["id"] for e in missing if not has_words(e["clue"].get("text", ""))]
+        unsolved = [entry_id(e) for e in missing if has_words(e["clue"].get("text", ""))]
+        wordless = [entry_id(e) for e in missing if not has_words(e["clue"].get("text", ""))]
         if unsolved:
             short.append((puzzle["id"], total - len(missing), total,
                           unsolved, wordless))

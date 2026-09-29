@@ -262,7 +262,6 @@
   "entry": {
    "type": "object",
    "required": [
-    "id",
     "number",
     "direction",
     "position",
@@ -271,11 +270,6 @@
    ],
    "additionalProperties": false,
    "properties": {
-    "id": {
-     "description": "<number>-<direction>.",
-     "type": "string",
-     "pattern": "^\\d+-(across|down)$"
-    },
     "number": {
      "type": "integer",
      "minimum": 1
@@ -320,12 +314,12 @@
      "const": "LIKELY"
     },
     "group": {
-     "description": "On the leader of a linked answer only: the answer's entry ids in order, this entry first; an answer that repeats a light names it again. The other lights carry no group and no annotation; a light the clue says continues two answers is in both leaders' groups.",
+     "description": "On the leader of a linked answer only: the answer's entry ids (\"<number>-<direction>\", derived: entries store no id) in order, this entry first; an answer that repeats a light names it again. The other lights carry no group and no annotation; a light the clue says continues two answers is in both leaders' groups.",
      "type": "array",
      "minItems": 2,
      "items": {
       "type": "string",
-      "minLength": 1
+      "pattern": "^\\d+-(across|down)$"
      }
     },
     "annotation": {

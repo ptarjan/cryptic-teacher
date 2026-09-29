@@ -46,6 +46,7 @@ TOOLS = Path(__file__).resolve().parent
 sys.path.insert(0, str(TOOLS))
 import provenance  # noqa: E402
 import groups  # noqa: E402 — linked answers
+from groups import entry_id  # noqa: E402
 from fetch_puzzle import read_puzzle_file, resolve_puzzle, write_puzzle_file  # noqa: E402
 
 # The commands whose Bash call is the one running this file right now.
@@ -153,7 +154,7 @@ def annotator(by, pid):
 def apply(path, annotations, by=None):
     puzzle = read_puzzle_file(path)
     continuations = groups.leader_of(puzzle["entries"])
-    ids = [e["id"] for e in puzzle["entries"] if e["id"] not in continuations]
+    ids = [entry_id(e) for e in puzzle["entries"] if entry_id(e) not in continuations]
     missing = [i for i in ids if i not in annotations]
     extra = [k for k in annotations if k not in ids and k not in continuations]
     covered = [f"{k} (annotate it on {continuations[k]})" for k in annotations
@@ -175,9 +176,9 @@ def apply(path, annotations, by=None):
     had_hints = provenance.has_hints(puzzle)
     before = [e.get("annotation") for e in puzzle["entries"]]
     for entry in puzzle["entries"]:
-        if entry["id"] in continuations:
+        if entry_id(entry) in continuations:
             continue
-        ann = annotations[entry["id"]]
+        ann = annotations[entry_id(entry)]
         if ann is None:
             entry.pop("annotation", None)
         else:

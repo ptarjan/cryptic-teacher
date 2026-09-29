@@ -25,10 +25,12 @@ out=$(PYTHONPATH=tools python3 - <<'PY'
 import json
 import enumeration
 import fetch_puzzle as fetcher
+from groups import entry_id
 
 
 def entry(eid, clue, **kw):
-    e = {"id": eid, "number": 1, "direction": "across",
+    num, _, d = eid.partition("-")
+    e = {"number": int(num), "direction": d,
          "position": {"x": 0, "y": 0}, "length": 5,
          "clue": enumeration.clue(clue, missing=not fetcher.has_words(enumeration.split(clue)[0])),
          "solution": "ABCDE"}
@@ -50,7 +52,7 @@ stored = {"id": "cryptic-23370", "entries": [
     entry("3-down", "See 2 (5)"),
 ]}
 fetcher.carry_recovered_clues(fetched, stored)
-by = {e["id"]: e for e in fetched["entries"]}
+by = {entry_id(e): e for e in fetched["entries"]}
 print("KEPT", enumeration.printed(by["1-across"]["clue"]))
 print("FLAG", by["1-across"]["clue"].get("missing"))
 print("GROUP", json.dumps(by["2-down"].get("group")), json.dumps(by["3-down"].get("group")))
@@ -66,7 +68,7 @@ stored = {"id": "cryptic-1", "entries": [
     entry("2-down", " (5)"),
 ]}
 fetcher.carry_recovered_clues(fetched, stored)
-by = {e["id"]: e for e in fetched["entries"]}
+by = {entry_id(e): e for e in fetched["entries"]}
 print("PAPER", enumeration.printed(by["1-across"]["clue"]))
 print("BLANK", enumeration.printed(by["2-down"]["clue"]), by["2-down"]["clue"].get("missing"))
 
@@ -83,7 +85,7 @@ stored = {"id": "cryptic-2", "entries": [
     entry("2-down", "Cafe au lait (5)", annotation=note),
 ]}
 fetcher.merge_annotations(fetched, stored)
-by = {e["id"]: e for e in fetched["entries"]}
+by = {entry_id(e): e for e in fetched["entries"]}
 print("REWORDED", by["1-across"].get("annotation"))
 print("RETYPED", by["2-down"]["annotation"] is note)
 

@@ -22,6 +22,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from fetch_puzzle import puzzle_files, read_puzzle_file  # noqa: E402 — one glob, one reader
+from groups import entry_id  # noqa: E402
 
 CACHE = os.path.expanduser("~/cryptic-setter-data/fifteensquared")
 
@@ -58,8 +59,8 @@ def load_corpus():
         for e in puz.get("entries", []):
             sol = (e.get("solution") or "").upper()
             if sol:
-                answers[re.sub(r"[^A-Z]", "", sol)] = e["id"]
-            refs[(e["number"], e["direction"][0])] = e["id"]
+                answers[re.sub(r"[^A-Z]", "", sol)] = entry_id(e)
+            refs[(e["number"], e["direction"][0])] = entry_id(e)
         out[puz["id"]] = {"answers": answers, "refs": refs}
     return out
 

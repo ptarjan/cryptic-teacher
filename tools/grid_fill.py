@@ -696,7 +696,6 @@ def entry_records(grid, solution, meta):
         marks = [cell in checked for cell in s.cells]
         clue, fam, flags = meta.get(word, (0, 0, "?"))
         out.append({
-            "id": f"{s.number}-{s.direction}",
             "number": s.number,
             "direction": s.direction,
             "position": {"x": s.col, "y": s.row},

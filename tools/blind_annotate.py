@@ -43,6 +43,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import provenance
 from fetch_puzzle import (read_puzzle_file, record_misses, resolve_puzzle,
                           write_puzzle_file)
+from groups import entry_id
 
 ROOT = Path(__file__).resolve().parent.parent
 STASH_DIR = ROOT / ".blind"
@@ -57,7 +58,7 @@ def hide(arg):
         # that is already blank would overwrite it with nothing.
         raise SystemExit(f"{stash} already exists — run `restore` first")
 
-    key = {e["id"]: e.get("solution") for e in puzzle["entries"]}
+    key = {entry_id(e): e.get("solution") for e in puzzle["entries"]}
     if not all(key.values()):
         raise SystemExit(f"{puzzle['id']} has no published key to hide "
                          f"({sum(1 for v in key.values() if not v)} entries "
@@ -101,8 +102,8 @@ def restore():
         # night into a destroyed puzzle. Put the key back and say nothing.
         if not any((e.get("solution") or "").strip() for e in puzzle["entries"]):
             for e in puzzle["entries"]:
-                if key.get(e["id"]):
-                    e["solution"] = key[e["id"]]
+                if key.get(entry_id(e)):
+                    e["solution"] = key[entry_id(e)]
             # No generator: restoring a stashed key must put back the file's
             # own banner, not the default, which relabelled every
             # non-Guardian puzzle this ever touched.
@@ -114,12 +115,12 @@ def restore():
 
         wrong = []
         for e in puzzle["entries"]:
-            truth = key.get(e["id"])
+            truth = key.get(entry_id(e))
             if truth is None:          # an entry the stash never covered
                 continue
             guess = e.get("solution") or ""
             if guess.strip().upper() != truth.strip().upper():
-                wrong.append((e["id"], guess or "(nothing)", truth))
+                wrong.append((entry_id(e), guess or "(nothing)", truth))
                 e.pop("annotation", None)
             e["solution"] = truth
 

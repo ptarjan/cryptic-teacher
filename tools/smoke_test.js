@@ -12,6 +12,8 @@ let failures = 0;
 // can guard them: a stack trace stops the suite dead and hides every other result.
 // The clue's words, without the enumeration; "" where the paper printed none.
 const clueText = (e) => e.clue.text || "";
+// An entry's id, "<number>-<direction>": the puzzle file stores none.
+const entryId = (e) => e.number + "-" + e.direction;
 // The line a solver reads: the words, then "(enumeration)" (app.js enumHTML).
 const printedClue = (e) => clueText(e) + (e.clue.enumeration
   ? (clueText(e) ? " " : "") + "(" + e.clue.enumeration + ")" : "");
@@ -2114,20 +2116,20 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
     if (openFromPicker(target.id)) {
       assert(registry["puzzle-title"].innerHTML.includes("hints via " + blogName),
         `${target.id}'s title names the blog its hints come from: ${registry["puzzle-title"].innerHTML}`);
-      registry["clue-" + e.id].listeners.click[0]();
+      registry["clue-" + entryId(e)].listeners.click[0]();
       assert(registry["hint-meter"].innerHTML.includes("hints via " + blogName),
-        `${target.id} ${e.id}: the meter badges blog-derived hints`);
+        `${target.id} ${entryId(e)}: the meter badges blog-derived hints`);
       assert(registry["hint-escape"].innerHTML.includes(`href="${puz.blog.url}"`)
         && registry["hint-escape"].innerHTML.includes("Full explanation on " + blogName),
-        `${target.id} ${e.id}: links to the full write-up: ${registry["hint-escape"].innerHTML}`);
+        `${target.id} ${entryId(e)}: links to the full write-up: ${registry["hint-escape"].innerHTML}`);
       const def = registry["hint-next"].children.find((b) => /Where is the definition/.test(b.textContent));
-      if (assert(def, `${target.id} ${e.id}: has a definition rung: ${btnNames()}`)) {
+      if (assert(def, `${target.id} ${entryId(e)}: has a definition rung: ${btnNames()}`)) {
         takeRung(def);
         assert(registry["hint-body"].innerHTML.includes(`<mark class="def">${e.blog.definitions[0].text}</mark>`)
           || registry["hint-body"].innerHTML.includes(e.blog.definitions[0].text.replace(/&/g, "&amp;")),
-          `${target.id} ${e.id}: the definition rung names the blog's definition`);
+          `${target.id} ${entryId(e)}: the definition rung names the blog's definition`);
         assert(registry["hint-clue"].innerHTML.includes('class="def'),
-          `${target.id} ${e.id}: the definition is marked in the clue`);
+          `${target.id} ${entryId(e)}: the definition is marked in the clue`);
       }
       // What the blog marked includes its WORD (clue words) blocks, so the
       // blocks rung is there exactly when this clue has one; the walkthrough
@@ -2140,9 +2142,9 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
         && (bare(gives) !== sol || sol.length >= 3
           && (bare(frag).includes(sol) || bare(frag).includes([...sol].reverse().join("")))));
       assert(!registry["hint-next"].children.some((b) => /Full walkthrough/.test(b.textContent)),
-        `${target.id} ${e.id}: a blog ladder stops at what the blog marked: ${btnNames()}`);
+        `${target.id} ${entryId(e)}: a blog ladder stops at what the blog marked: ${btnNames()}`);
       assert(registry["hint-next"].children.some((b) => /building blocks/.test(b.textContent)) === shown.length > 0,
-        `${target.id} ${e.id}: a building-blocks rung exactly when the blog wrote blocks: ${btnNames()}`);
+        `${target.id} ${entryId(e)}: a building-blocks rung exactly when the blog wrote blocks: ${btnNames()}`);
     }
   }
 }
@@ -2164,7 +2166,7 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
       const ents = JSON.parse(fs.readFileSync(file, "utf8")).entries;
       const hit = Object.entries(rec.entries).find(([eid, fa]) => JSON.stringify(fa.type) === '["hidden_word"]'
         && (fa.blocks || []).length === 1 && !(fa.indicators || []).length
-        && ents.some((x) => x.id === eid && !x.annotation && x.solution && bare(x.solution) === bare(fa.blocks[0].gives)
+        && ents.some((x) => entryId(x) === eid && !x.annotation && x.solution && bare(x.solution) === bare(fa.blocks[0].gives)
           && clueText(x).includes(fa.blocks[0].clueFragment)));
       if (hit) { target = { pid, eid: hit[0], answer: bare(hit[1].blocks[0].gives) }; break; }
     }
@@ -2207,7 +2209,7 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
         && (fa.blocks || []).length === 1 && /^[A-Z]+$/.test(fa.blocks[0].soundsLike || ""));
       if (!hit) continue;
       const file = pp.find(pid);
-      const e = file && JSON.parse(fs.readFileSync(file, "utf8")).entries.find((x) => x.id === hit[0]);
+      const e = file && JSON.parse(fs.readFileSync(file, "utf8")).entries.find((x) => entryId(x) === hit[0]);
       if (e && !e.annotation && e.solution && clueText(e).includes(hit[1].blocks[0].clueFragment)) {
         target = { pid, eid: hit[0], answer: bare(e.solution), heard: hit[1].blocks[0].soundsLike };
         break;
@@ -2248,10 +2250,10 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
       && assert(target, "the sample holds an un-annotated clue whose only blog fact is an inferred core type")
       && openFromPicker(target.id)) {
     const e = hit(target);
-    registry["clue-" + e.id].listeners.click[0]();
+    registry["clue-" + entryId(e)].listeners.click[0]();
     const meter = registry["hint-meter"].innerHTML;
     assert(meter.includes("hints from the letters") && !meter.includes("hints via "),
-      `${target.id} ${e.id}: an inferred type is not badged as the blog's: ${meter}`);
+      `${target.id} ${entryId(e)}: an inferred type is not badged as the blog's: ${meter}`);
   }
 }
 
@@ -2270,7 +2272,7 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
   const target = allPuzzles.find((p) => !p.annotated && puzzles[p.id] && puzzles[p.id].blog && hit(p));
   if (assert(target, "the sample holds an un-annotated clue with blog blocks") && openFromPicker(target.id)) {
     const e = hit(target);
-    registry["clue-" + e.id].listeners.click[0]();
+    registry["clue-" + entryId(e)].listeners.click[0]();
     for (let guard = 0; guard < 20; guard++) {
       const btn = registry["hint-next"].children.find(CLIMBABLE);
       if (!btn) break;
@@ -2279,7 +2281,7 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
     const { gives, clueFragment: frag } = e.blog.blocks.find(piece(e));
     const body = registry["hint-body"].innerHTML;
     assert(body.includes(`“${frag}”`) && body.includes(`<span class="gives">${gives}</span>`),
-      `${target.id} ${e.id}: the blocks rung shows “${frag}” → ${gives}: ${body.slice(0, 400)}`);
+      `${target.id} ${entryId(e)}: the blocks rung shows “${frag}” → ${gives}: ${body.slice(0, 400)}`);
   }
 }
 
@@ -2406,8 +2408,8 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
     // Searched for rather than scanned out of the default list: the default list
     // is annotated-only, and a puzzle can carry annotated clues while its index
     // flag says otherwise (mid-annotation, or a partial hand-edit).
-    reopenForSweep(id, e.id);
-    const row = registry["clue-" + e.id];
+    reopenForSweep(id, entryId(e));
+    const row = registry["clue-" + entryId(e)];
     assert(row && row.listeners.click, `clue list shows ${e.number}${e.direction[0]}: ${clueText(e)}`);
     row.listeners.click[0]();
     // The definition rung and NOTHING else, which is where linkWords
@@ -2467,7 +2469,7 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
     assert(cds.length, "the corpus still has a cryptic definition to check");
     for (const cd of cds) {
       const ans = (cd.e.annotation.answer || "").replace(/[^A-Za-z]/g, "").toUpperCase();
-      const where = `${cd.id} ${cd.e.id} (${ans})`;
+      const where = `${cd.id} ${entryId(cd.e)} (${ans})`;
       // Under four letters the answer turns up in the ladder's own fixed prose —
       // "Either two plain definitions" for TWO — so, as in the validator's
       // check_cryptic_definition_blocks, it is too short to call a leak.
@@ -2533,7 +2535,7 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
         const html = registry["hint-body"].innerHTML;
         const fixed = html.match(/<p><strong>[\s\S]*?<\/p>|<p class="mechanism">[\s\S]*?<\/p>/g) || [];
         const leak = fixed.find((p) => says(p, h.e.annotation.answer));
-        assert(!leak, `${h.id} ${h.e.id} (${h.e.annotation.answer}): the ladder's fixed prose says the answer before the walkthrough — ${leak}`);
+        assert(!leak, `${h.id} ${entryId(h.e)} (${h.e.annotation.answer}): the ladder's fixed prose says the answer before the walkthrough — ${leak}`);
       }
     }
   }
@@ -2577,13 +2579,13 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
         if (isAsking(registry["hint-body"])) {
           const asked = registry["hint-body"].innerHTML.match(/<span class="gives">([^<]*)<\/span>/g) || [];
           assert(!asked.some((s) => bare(s.replace(/<[^>]*>/g, "")) === r.ans),
-            `${r.id} ${r.e.id} (${r.ans}): the question in front of the rung prints the answer — ${registry["hint-body"].innerHTML}`);
+            `${r.id} ${entryId(r.e)} (${r.ans}): the question in front of the rung prints the answer — ${registry["hint-body"].innerHTML}`);
           registry["guess-tell"].onclick();
         }
         const spans = registry["hint-body"].innerHTML.match(/<span class="gives">([^<]*)<\/span>/g) || [];
         const spelled = spans.find((s) => bare(s.replace(/<[^>]*>/g, "")) === r.ans);
         assert(!spelled,
-          `${r.id} ${r.e.id} (${r.ans}): the letters rung spells the answer out before the walkthrough`);
+          `${r.id} ${entryId(r.e)} (${r.ans}): the letters rung spells the answer out before the walkthrough`);
       }
     }
   }
@@ -2620,16 +2622,16 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
         const html = registry["hint-body"].innerHTML;
         if (!bought) {
           assert(!html.includes("anagram-ring"),
-            `${r.id} ${r.e.id}: the ring is on screen before the building blocks are bought`);
+            `${r.id} ${entryId(r.e)}: the ring is on screen before the building blocks are bought`);
           continue;
         }
         if (!html.includes("anagram-ring")) break;  // no blocks rung on this clue
         if (!ringSample) ringSample = r;
         const tiles = [...html.matchAll(/data-ana="\d+"[^>]*>([A-Z])</g)].map((m) => m[1]);
         assert(tiles.slice().sort().join("") === r.f.split("").sort().join(""),
-          `${r.id} ${r.e.id}: the ring holds the fodder (${tiles.join("")} vs ${r.f})`);
+          `${r.id} ${entryId(r.e)}: the ring holds the fodder (${tiles.join("")} vs ${r.f})`);
         assert(tiles.join("") !== r.ans || new Set(r.f).size < 2,
-          `${r.id} ${r.e.id}: the ring dealt the answer itself`);
+          `${r.id} ${entryId(r.e)}: the ring dealt the answer itself`);
         drawn++;
         break;
       }
@@ -2673,16 +2675,16 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
       // One ring, whatever the answer's shape.
       const discs = (html.match(/class="ana-disc[ "]/g) || []).length;
       assert(discs === 1,
-        `${m.id} ${m.e.id}: ${m.words.join(" ")} drew ${discs} rings, not 1`);
+        `${m.id} ${entryId(m.e)}: ${m.words.join(" ")} drew ${discs} rings, not 1`);
       // Every letter is still on it, and each one knows which word it belongs
       // to — that mapping is what puts the gaps in the right places.
       const tiles = (html.match(/data-ana="\d+"/g) || []).length;
       assert(tiles === m.words.join("").length,
-        `${m.id} ${m.e.id}: ${tiles} tiles on the ring, answer has ${m.words.join("").length}`);
+        `${m.id} ${entryId(m.e)}: ${tiles} tiles on the ring, answer has ${m.words.join("").length}`);
       m.words.forEach((w, i) => {
         const inWord = (html.match(new RegExp(`data-word="${i}"`, "g")) || []).length;
         assert(inWord === w.length,
-          `${m.id} ${m.e.id}: ${inWord} tiles before break ${i}, ${w} is ${w.length}`);
+          `${m.id} ${entryId(m.e)}: ${inWord} tiles before break ${i}, ${w} is ${w.length}`);
       });
       // Every word is broken from its neighbour, INCLUDING the last from the
       // first. A circle has no end, so a gap only between words leaves the last
@@ -2694,7 +2696,7 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
         /left:calc\(50% \+ (-?\d+)px\);\s*\n?\s*top:calc\(50% \+ (-?\d+)px\)/g)]
         .map((p2) => Math.atan2(Number(p2[2]), Number(p2[1])));
       assert(pos.length === tiles,
-        `${m.id} ${m.e.id}: read ${pos.length} tile positions off ${tiles} tiles`);
+        `${m.id} ${entryId(m.e)}: read ${pos.length} tile positions off ${tiles} tiles`);
       const TAU = 2 * Math.PI;
       const steps = pos.map((a, i) => ((pos[(i + 1) % pos.length] - a) % TAU + TAU) % TAU);
       const unit = Math.min(...steps);
@@ -2704,11 +2706,11 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
       m.words.forEach((w, i) => {
         at += w.length;
         assert(steps[at] > unit * 1.5,
-          `${m.id} ${m.e.id}: no gap after ${w}` +
+          `${m.id} ${entryId(m.e)}: no gap after ${w}` +
           (i === m.words.length - 1 ? " — the ring wraps straight into the first word" : ""));
       });
       assert(steps.filter((x) => x > unit * 1.5).length === m.words.length,
-        `${m.id} ${m.e.id}: ${steps.filter((x) => x > unit * 1.5).length} gaps for ` +
+        `${m.id} ${entryId(m.e)}: ${steps.filter((x) => x > unit * 1.5).length} gaps for ` +
         `${m.words.length} words — a gap sits somewhere that is not a word end`);
       split++;
     }
@@ -2854,7 +2856,7 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
       const rs = runs(registry["hint-clue"].innerHTML);
       const plain = rs.map((r) => r.text).join("");
       assert(plain === printedClue(e),
-        `${id} ${e.id}: the marked-up clue is no longer the clue: ${JSON.stringify(plain)}`);
+        `${id} ${entryId(e)}: the marked-up clue is no longer the clue: ${JSON.stringify(plain)}`);
       let at = 0;
       const spans = rs.map((r) => { const i = at; at += r.text.length; return { ...r, i }; });
       const isLetter = (c) => !!c && /[A-Za-z]/.test(c);
@@ -2887,7 +2889,7 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
           ok = [...Array(frag.length).keys()].every((k) => (covered.ind || new Set()).has(i + k));
         }
         assert(ok,
-          `${id} ${e.id}: ${JSON.stringify(frag)} was bought as an indicator but is not ` +
+          `${id} ${entryId(e)}: ${JSON.stringify(frag)} was bought as an indicator but is not ` +
           `marked on a whole word of the clue — a hint that has been paid for cannot ` +
           `leave the screen: ` + registry["hint-clue"].innerHTML);
       }
@@ -2897,12 +2899,12 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
       const def = d0 && d0.text;
       const defAt = d0 ? cpToIdx(clueText(e), d0.at) : -1;
       assert(!d0 || clueText(e).slice(defAt, defAt + def.length) === def,
-        `${id} ${e.id}: the definition's \`at\` does not point at its text: ${JSON.stringify(d0)}`);
+        `${id} ${entryId(e)}: the definition's \`at\` does not point at its text: ${JSON.stringify(d0)}`);
       if (def && clueText(e).slice(defAt, defAt + def.length) === def) {
         const at = defAt;
         const gap = [...Array(def.length).keys()].filter((k) => !anyMarked.has(at + k));
         assert(!gap.length || spans.some((s) => s.cls.split(/\s+/).includes("def")),
-          `${id} ${e.id}: the definition is not marked at all: ` + registry["hint-clue"].innerHTML);
+          `${id} ${entryId(e)}: the definition is not marked at all: ` + registry["hint-clue"].innerHTML);
       }
       // A definition whose words occur twice in the clue ("Sam, Tim, Rich and
       // Ali each cutting last cutting", definition "cutting", indicator "each
@@ -2911,13 +2913,13 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
       const defHits = [];
       for (let i = def ? clueText(e).indexOf(def) : -1; i >= 0; i = clueText(e).indexOf(def, i + 1)) defHits.push(i);
       if (defHits.length > 1 && defHits.includes(defAt)) {
-        repeatedDefs.push(`${id} ${e.id}`);
+        repeatedDefs.push(`${id} ${entryId(e)}`);
         // An indicator inside the definition takes its own words (see
         // clueMarks), so the rule is: all of it marked, some of it as def.
         const keys = [...Array(def.length).keys()];
         assert(keys.every((k) => anyMarked.has(defAt + k)) &&
                keys.some((k) => (covered.def || new Set()).has(defAt + k)),
-          `${id} ${e.id}: the definition ${JSON.stringify(def)} occurs ${defHits.length} times and ` +
+          `${id} ${entryId(e)}: the definition ${JSON.stringify(def)} occurs ${defHits.length} times and ` +
           `is not marked at its \`at\` (${d0.at}): ` + registry["hint-clue"].innerHTML);
       }
     };
@@ -2928,7 +2930,7 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
       if (!withAnn.length) continue;
       openPuzzle(id);
       for (const e of withAnn) {
-        const row = registry["clue-" + e.id];
+        const row = registry["clue-" + entryId(e)];
         if (!row || !row.listeners.click) continue;
         seenTypes.add(String(e.annotation.type));
         row.listeners.click[0]();
@@ -2945,7 +2947,7 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
             .filter(Boolean)
             .map((m) => ({ n: +m[1], label: m[2].trim() }))
             .sort((a, b) => a.n - b.n);
-          const where = `${id} ${e.id} (${e.annotation.type})`;
+          const where = `${id} ${entryId(e)} (${e.annotation.type})`;
           const shownAs = () => numbered.map((r) => `${r.n} ${r.label}`).join(" | ");
           assert(numbered.every((r) => r.n >= 1 && r.n <= LADDER.length)
             && new Set(numbered.map((r) => r.n)).size === numbered.length,
@@ -2968,7 +2970,7 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
             // "· free" is the price, not the name: every rung of a clue its
             // crossers already solved is free.
             const m = /^\d+ · (.*?)(?: · free)?$/.exec(b.textContent || "");
-            if (m && !names.has(m[1])) names.set(m[1], `${id} ${e.id} (${e.annotation.type})`);
+            if (m && !names.has(m[1])) names.set(m[1], `${id} ${entryId(e)} (${e.annotation.type})`);
           }
           takeRung(btns[0]);
         }
@@ -3007,13 +3009,13 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
       openClue(s);
       const btn = registry["hint-next"].children.find(
         (b) => b.onclick && /indicator/i.test(b.textContent) && !b.disabled);
-      assert(btn, `${s.id} ${s.e.id}: the indicators rung is offered`);
+      assert(btn, `${s.id} ${entryId(s.e)}: the indicators rung is offered`);
       if (!btn) continue;
       takeRung(btn);
       const html = registry["hint-body"].innerHTML;
       for (const { text: ind, note } of s.n) {
         assert(html.includes(note.replace(/&/g, "&amp;").replace(/'/g, "&#39;")),
-          `${s.id} ${s.e.id}: the note for ${JSON.stringify(ind)} never reaches the ` +
+          `${s.id} ${entryId(s.e)}: the note for ${JSON.stringify(ind)} never reaches the ` +
           `indicators rung: ` + html);
       }
       // And when every indicator is explained, the explanations are the whole
@@ -3030,7 +3032,7 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
         const rest = rung
           .replace(/<span class="step-label">[^<]*<\/span>/, "")
           .replace(/<ul class="ind-notes">[\s\S]*?<\/ul>/, "").trim();
-        assert(!rest, `${s.id} ${s.e.id}: every indicator has a note, so the rung ` +
+        assert(!rest, `${s.id} ${entryId(s.e)}: every indicator has a note, so the rung ` +
           `should be those notes and nothing else — also found: ` + rest);
       }
     }
@@ -3054,7 +3056,7 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
     for (const s of sound) {
       const heard = (s.e.annotation.blocks || []).filter((b) => b.soundsLike);
       assert(heard.length,
-        `${s.id} ${s.e.id}: type ${s.e.annotation.type} but no block says what is said aloud`);
+        `${s.id} ${entryId(s.e)}: type ${s.e.annotation.type} but no block says what is said aloud`);
       openClue(s);
       // Climb until the blocks rung has been bought.
       let html = "";
@@ -3079,7 +3081,7 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
       }
       for (const b of heard) {
         assert(html.includes(sounded(b)),
-          `${s.id} ${s.e.id}: the blocks rung never shows ${b.soundsLike}, ` +
+          `${s.id} ${entryId(s.e)}: the blocks rung never shows ${b.soundsLike}, ` +
           `which is the whole mechanism — ` + html);
       }
     }
@@ -3114,7 +3116,7 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
         btn.onclick();
         const asking = isAsking(registry["hint-body"]);
         assert(asking || !/^Next building block · /.test(label),
-          `${s.id} ${s.e.id}: "${label}" handed a piece over without asking anything`);
+          `${s.id} ${entryId(s.e)}: "${label}" handed a piece over without asking anything`);
         if (asking) registry["guess-tell"].onclick();
       }
     }
@@ -3141,7 +3143,7 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
   })();
   assert(withInd, "at least one annotation names an indicator that occurs in its clue");
   openFromPicker(withInd.id);
-  registry["clue-" + withInd.e.id].listeners.click[0]();
+  registry["clue-" + entryId(withInd.e)].listeners.click[0]();
   const indBtn = registry["hint-next"].children.find((b) => /indicator/i.test(b.textContent) && !b.disabled);
   assert(indBtn, "the indicators rung is offered from cold: " + registry["hint-next"].innerHTML);
   takeRung(indBtn);
@@ -3164,7 +3166,7 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
   {
     const e = withInd.e;
     e.annotation.explanation.definitionFit = "SMOKE-FIT: the answer is an instance of the definition.";
-    registry["clue-" + e.id].listeners.click[0]();
+    registry["clue-" + entryId(e)].listeners.click[0]();
     let guard = 0;
     while (registry["hint-next"].children[0] && registry["hint-next"].children[0].onclick && guard++ < 8) {
       takeRung(registry["hint-next"].children[0]);
@@ -3793,7 +3795,7 @@ registry["reset-puzzle"].onclick();
     kd(ev("Tab"));
     const e = currentEntry();
     if (e && e.solution && !e.group
-      && !openPuz.entries.some((g) => (g.group || []).includes(e.id))) solo = e;
+      && !openPuz.entries.some((g) => (g.group || []).includes(entryId(e)))) solo = e;
   }
   assert(solo, "found an unlinked entry with a published answer to solve");
   assert(registry["hint-next"].children.some((b) => b.disabled),
@@ -4016,11 +4018,11 @@ registry["reset-puzzle"].onclick();
     const puz = JSON.parse(fs.readFileSync(f, "utf8"));
     puz.entries.forEach((e) => {
       assert(!/<\/?[a-zA-Z][^>]*>/.test(clueText(e)),
-        `${puz.id} ${e.id}: clue still carries markup — ${clueText(e).slice(0, 60)}`);
+        `${puz.id} ${entryId(e)}: clue still carries markup — ${clueText(e).slice(0, 60)}`);
       (e.clue.italics || []).forEach((r) => {
         withItalics++;
         assert(r.at >= 0 && r.length > 0 && r.at + r.length <= [...clueText(e)].length,
-          `${puz.id} ${e.id}: italic range ${JSON.stringify(r)} falls outside its clue`);
+          `${puz.id} ${entryId(e)}: italic range ${JSON.stringify(r)} falls outside its clue`);
       });
     });
   });
@@ -4066,18 +4068,18 @@ registry["reset-puzzle"].onclick();
     const puz = JSON.parse(fs.readFileSync(f, "utf8"));
     puz.entries.forEach((e) => {
       assert(hasWords(clueText(e)) === !e.clue.missing,
-        `${puz.id} ${e.id}: clue.missing disagrees with the clue text — ${JSON.stringify(clueText(e))}`);
+        `${puz.id} ${entryId(e)}: clue.missing disagrees with the clue text — ${JSON.stringify(clueText(e))}`);
       assert(!(e.clue.missing && e.annotation),
-        `${puz.id} ${e.id}: annotated a clue with no words in it — that explanation was invented`);
+        `${puz.id} ${entryId(e)}: annotated a clue with no words in it — that explanation was invented`);
       assert(!(e.clue.missingNote && !e.clue.missing),
-        `${puz.id} ${e.id}: clue.missingNote on a clue that has words — it renders nowhere`);
+        `${puz.id} ${entryId(e)}: clue.missingNote on a clue that has words — it renders nowhere`);
     });
     // The re-spend is the bug, and this is where it would come back: a puzzle
     // whose only gaps are blank clues has to count as done, or it sits in the
     // backlog forever.
     if (annotatedInIndex.has(puz.id)) {
       const continuations = new Set(puz.entries.flatMap((e) => (e.group || []).slice(1)));
-      const answerable = puz.entries.filter((e) => hasWords(clueText(e)) && !continuations.has(e.id));
+      const answerable = puz.entries.filter((e) => hasWords(clueText(e)) && !continuations.has(entryId(e)));
       assert(annotatedInIndex.get(puz.id) === answerable.every((e) => e.annotation),
         `${puz.id}: index 'annotated' should count only the clues that can be annotated`);
     }
@@ -4152,7 +4154,7 @@ registry["reset-puzzle"].onclick();
       const real = text.replace(/['’]/g, "").split(/[ \-–]/).filter(Boolean).map((w) => w.length);
       if (real.length < 2) return;
       assert(String(drawn) === String(real),
-        `${puz.id} ${e.id}: strip would break ${drawn} but ${text} breaks ${real}`);
+        `${puz.id} ${entryId(e)}: strip would break ${drawn} but ${text} breaks ${real}`);
     });
   });
 
@@ -4668,7 +4670,7 @@ global.realSetTimeout(() => {
     }
     return out;
   };
-  const select = (e) => registry["clue-" + e.id].listeners.click[0]();
+  const select = (e) => registry["clue-" + entryId(e)].listeners.click[0]();
 
   const candidates = (puz.entries || []).filter((e) => e.solution && e.length >= 2);
   assert(candidates.length >= 3, "cryptic-30066 has at least three typeable entries");
@@ -4685,7 +4687,7 @@ global.realSetTimeout(() => {
     "every cell of the just-solved entry carries the settling flash");
   assert(cells.every((c) => c.classList.contains("clean")),
     "solved with no hints and no reveals gets the gold tier, distinct from the green one");
-  assert(registry["clue-" + cleanE.id].classList.contains("no-hints"),
+  assert(registry["clue-" + entryId(cleanE)].classList.contains("no-hints"),
     "the clue row picks up the persistent no-hints marker");
 
   // The flash is transient...
@@ -4694,7 +4696,7 @@ global.realSetTimeout(() => {
     "the flash classes clear themselves once the settle is over");
   // ...but the marker on the row is a standing fact about how it was solved,
   // not a leftover of the animation — it must still be there with no flash.
-  assert(registry["clue-" + cleanE.id].classList.contains("no-hints"),
+  assert(registry["clue-" + entryId(cleanE)].classList.contains("no-hints"),
     "the no-hints marker outlives the flash");
   // The squares are the other way round: the flash is the whole of it, and a
   // finished word leaves no standing tint behind ("you don't have to add the
@@ -4730,7 +4732,7 @@ global.realSetTimeout(() => {
     const rcells = cellsOf(revealedE);
     assert(!rcells.some((c) => c.classList.contains("solved-flash") || c.classList.contains("clean")),
       "revealing the whole answer gets no flash, of either tier");
-    assert(!registry["clue-" + revealedE.id].classList.contains("no-hints"),
+    assert(!registry["clue-" + entryId(revealedE)].classList.contains("no-hints"),
       "and no gold marker either — a reveal is not a clean solve");
   }
 
@@ -4741,9 +4743,9 @@ global.realSetTimeout(() => {
   // anything the flash itself touched.
   global.flushTimers(200);
   openFresh();  // no reset this time — this is the restore path under test
-  assert(registry["clue-" + cleanE.id].classList.contains("no-hints"),
+  assert(registry["clue-" + entryId(cleanE)].classList.contains("no-hints"),
     "the no-hints marker survives closing and reopening the puzzle");
-  assert(!registry["clue-" + revealedE.id].classList.contains("no-hints"),
+  assert(!registry["clue-" + entryId(revealedE)].classList.contains("no-hints"),
     "and a revealed entry still carries no marker after that same restore");
 }
 
@@ -4835,7 +4837,7 @@ global.realSetTimeout(() => {
     assert(li, "picker finds the puzzle to guess on");
     li.children[0].onclick();
     registry["reset-puzzle"].onclick();
-    registry["clue-" + found.e.id].listeners.click[0]();
+    registry["clue-" + entryId(found.e)].listeners.click[0]();
   };
   const defBtn = () => registry["hint-next"].children.find(
     (b) => /definition/i.test(b.textContent || "") && !b.disabled);
@@ -5027,7 +5029,7 @@ global.realSetTimeout(() => {
     if (!li) return false;
     li.children[0].onclick();
     registry["reset-puzzle"].onclick();
-    registry["clue-" + e.id].listeners.click[0]();
+    registry["clue-" + entryId(e)].listeners.click[0]();
     return true;
   };
   const rungs = () => registry["hint-next"].children;
@@ -5078,7 +5080,7 @@ global.realSetTimeout(() => {
     assert(two, "the corpus has a two-piece clue to check the floor against");
     assert(two && !/id="gm-slot-\d+"/.test(two.html),
       `a two-piece clue is asked a piece at a time, not matched (${two && two.id} ${
-        two && two.e.id}): ` + (two && two.html.slice(0, 300)));
+        two && entryId(two.e)}): ` + (two && two.html.slice(0, 300)));
   }
 
   let walked = null, tried = 0;
@@ -5313,14 +5315,14 @@ global.realSetTimeout(() => {
     // hintsShown says the rung was opened; blocksAt says nothing at all — the
     // shape a sync merge left behind before 9af9ed7, and the shape a save from
     // before pacing existed has always had.
-    storage[key] = JSON.stringify({ hintsShown: { [e.id]: ["blocks"] }, updated: Date.now() });
+    storage[key] = JSON.stringify({ hintsShown: { [entryId(e)]: ["blocks"] }, updated: Date.now() });
 
     registry["btn-picker"].onclick();
     const li = pickerRowFor(id);
     assert(li, `the picker can reopen puzzle ${puzzles[id].number} to reload the damaged save`);
     if (li) {
       li.children[0].onclick();
-      registry["clue-" + e.id].listeners.click[0]();
+      registry["clue-" + entryId(e)].listeners.click[0]();
       const html = registry["hint-body"].innerHTML;
       assert(!/class="gives"/.test(html),
         "a rung shown with no blocksAt count reveals no pieces on reload, not every piece: "
@@ -5368,7 +5370,7 @@ global.realSetTimeout(() => {
     assert(li, "picker finds the puzzle to drag on");
     li.children[0].onclick();
     registry["reset-puzzle"].onclick();
-    registry["clue-" + found.e.id].listeners.click[0]();
+    registry["clue-" + entryId(found.e)].listeners.click[0]();
   };
   const rung = (re) => registry["hint-next"].children.find(
     (b) => re.test(b.textContent || "") && !b.disabled);
@@ -5662,7 +5664,7 @@ global.realSetTimeout(() => {
     assert(li, "picker finds the puzzle to be asked about");
     li.children[0].onclick();
     registry["reset-puzzle"].onclick();
-    registry["clue-" + found.e.id].listeners.click[0]();
+    registry["clue-" + entryId(found.e)].listeners.click[0]();
     const btn = registry["hint-next"].children.find((b) => /kind of clue/i.test(b.textContent || ""));
     assert(btn, "the type rung is offered: " + registry["hint-next"].innerHTML);
     cold = registry["hint-body"].innerHTML;
@@ -5750,7 +5752,7 @@ global.realSetTimeout(() => {
   // replays while the solver is doing something else entirely — "the old 'yes
   // that's the one' is animating as I'm picking a new clue".
   assert(html.includes("guess-result fresh"), "the verdict arrives with an entrance: " + html);
-  registry["clue-" + found.e.id].listeners.click[0]();
+  registry["clue-" + entryId(found.e)].listeners.click[0]();
   assert(!/guess-result fresh/.test(registry["hint-body"].innerHTML),
     "and does not replay it on the next draw: " + registry["hint-body"].innerHTML);
   assert(registry["scorebar"].innerHTML === free,
@@ -5776,7 +5778,7 @@ global.realSetTimeout(() => {
     open();
     registry["guess-tell"].onclick();
     const main = named(registry["hint-body"].innerHTML);
-    assert(main.length === 1, `the rung on ${found.id} ${found.e.id} (${found.e.annotation.type}) `
+    assert(main.length === 1, `the rung on ${found.id} ${entryId(found.e)} (${found.e.annotation.type}) `
       + "names exactly one family: " + main);
     const v = graded();
     const secondary = Object.keys(v).find((k) => v[k] && k !== main[0]);
@@ -5791,9 +5793,9 @@ global.realSetTimeout(() => {
   // open after.
   assert(/asks you a question before it tells you/.test(cold), "a cold clue says what the ladder is: " + cold);
   const other = (puzzles[found.id].entries || []).find(
-    (x) => x.id !== found.e.id && x.annotation && (x.annotation.type || []).length);
+    (x) => entryId(x) !== entryId(found.e) && x.annotation && (x.annotation.type || []).length);
   assert(other, "the puzzle has a second annotated clue to open cold");
-  registry["clue-" + other.id].listeners.click[0]();
+  registry["clue-" + entryId(other)].listeners.click[0]();
   assert(!/asks before it tells/.test(registry["hint-body"].innerHTML),
     "and stops saying it once a rung has been worked out: " + registry["hint-body"].innerHTML);
 }
@@ -5829,7 +5831,7 @@ global.realSetTimeout(() => {
       const li = pickerRowFor(found.id);
       li.children[0].onclick();
       registry["reset-puzzle"].onclick();
-      registry["clue-" + found.e.id].listeners.click[0]();
+      registry["clue-" + entryId(found.e)].listeners.click[0]();
       registry["hint-next"].children.find((b) => /kind of clue/i.test(b.textContent || "")).onclick();
     };
     const choices = () => {
@@ -5897,7 +5899,7 @@ global.realSetTimeout(() => {
   assert(li, "picker finds the whole-clue definition puzzle");
   li.children[0].onclick();
   registry["reset-puzzle"].onclick();
-  registry["clue-" + found.e.id].listeners.click[0]();
+  registry["clue-" + entryId(found.e)].listeners.click[0]();
   const btn = registry["hint-next"].children.find((b) => /definition/i.test(b.textContent || ""));
   assert(btn, "the definition rung is offered on " + clueText(found.e) + ": "
     + registry["hint-next"].innerHTML);
@@ -5936,7 +5938,7 @@ global.realSetTimeout(() => {
     assert(li, "picker finds the " + want + " puzzle");
     li.children[0].onclick();
     registry["reset-puzzle"].onclick();
-    registry["clue-" + found.e.id].listeners.click[0]();
+    registry["clue-" + entryId(found.e)].listeners.click[0]();
     // Climb the whole ladder: the line rides on the blocks rung, or on the
     // walkthrough when the clue has no blocks rung to carry it.
     for (let guard = 0; guard < 16; guard++) {
@@ -5996,7 +5998,7 @@ global.realSetTimeout(() => {
     assert(li, "picker finds the edge-word puzzle");
     li.children[0].onclick();
     registry["reset-puzzle"].onclick();
-    registry["clue-" + found.e.id].listeners.click[0]();
+    registry["clue-" + entryId(found.e)].listeners.click[0]();
     const b = registry["hint-next"].children.find((x) => /definition/i.test(x.textContent || ""));
     assert(b, "the definition rung is offered on " + clueText(found.e));
     b.onclick();
@@ -6039,7 +6041,7 @@ global.realSetTimeout(() => {
     if (!li) return false;
     li.children[0].onclick();
     registry["reset-puzzle"].onclick();
-    registry["clue-" + e.id].listeners.click[0]();
+    registry["clue-" + entryId(e)].listeners.click[0]();
     return true;
   };
   const labels = () => registry["hint-next"].children.map((b) => b.textContent || "").join(" | ");
@@ -6058,21 +6060,21 @@ global.realSetTimeout(() => {
   assert(pure || !FULL, "the corpus has a double definition whose blocks are its two definitions");
   if (pure && open(pure.id, pure.e)) {
     assert(!/building blocks/i.test(labels()),
-      `${pure.id} ${pure.e.id}: "${clueText(pure.e)}" offers no building blocks: ${labels()}`);
+      `${pure.id} ${entryId(pure.e)}: "${clueText(pure.e)}" offers no building blocks: ${labels()}`);
     const def = registry["hint-next"].children.find((b) => /definition/i.test(b.textContent || ""));
-    if (assert(def, `${pure.id} ${pure.e.id}: the definition rung is offered: ${labels()}`)) {
+    if (assert(def, `${pure.id} ${entryId(pure.e)}: the definition rung is offered: ${labels()}`)) {
       def.onclick();
       if (isAsking(registry["hint-body"])) registry["guess-tell"].onclick();
       const said = bare(registry["hint-body"].innerHTML.replace(/<[^>]*>/g, " "));
       pure.bl.forEach((b) => assert(said.includes(bare(b.note)),
-        `${pure.id} ${pure.e.id}: the note on "${b.clueFragment}" is on the definition rung: `
+        `${pure.id} ${entryId(pure.e)}: the note on "${b.clueFragment}" is on the definition rung: `
           + registry["hint-body"].innerHTML));
     }
   }
   assert(third || !FULL, "the corpus has a double definition with a sense the split does not name");
   if (third && open(third.id, third.e)) {
     assert(/building blocks/i.test(labels()),
-      `${third.id} ${third.e.id}: "${clueText(third.e)}" keeps the building blocks for the sense `
+      `${third.id} ${entryId(third.e)}: "${clueText(third.e)}" keeps the building blocks for the sense `
         + `the definition rung never named: ${labels()}`);
   }
 }
@@ -6101,7 +6103,7 @@ global.realSetTimeout(() => {
     if (!li) return false;
     li.children[0].onclick();
     registry["reset-puzzle"].onclick();
-    registry["clue-" + e.id].listeners.click[0]();
+    registry["clue-" + entryId(e)].listeners.click[0]();
     return true;
   };
   const asking = () => isAsking(registry["hint-body"]);
@@ -6135,21 +6137,21 @@ global.realSetTimeout(() => {
   assert(ana || !FULL, "the corpus has a pure anagram whose fodder is every unnamed word");
   if (ana && open(ana.id, ana.e)) {
     const b = climbToBlocks();
-    if (assert(b, `${ana.id} ${ana.e.id}: the building blocks are reachable`)) {
+    if (assert(b, `${ana.id} ${entryId(ana.e)}: the building blocks are reachable`)) {
       b.onclick();
-      assert(!asking(), `${ana.id} ${ana.e.id}: "${clueText(ana.e)}" hands its fodder over unasked: `
+      assert(!asking(), `${ana.id} ${entryId(ana.e)}: "${clueText(ana.e)}" hands its fodder over unasked: `
         + registry["hint-body"].innerHTML);
     }
   }
   assert(cha || !FULL, "the corpus has a two-piece charade whose every word is claimed");
   if (cha && open(cha.id, cha.e)) {
     const b = climbToBlocks();
-    if (assert(b, `${cha.id} ${cha.e.id}: the building blocks are reachable`)) {
+    if (assert(b, `${cha.id} ${entryId(cha.e)}: the building blocks are reachable`)) {
       b.onclick();
-      if (assert(asking(), `${cha.id} ${cha.e.id}: the first piece of "${clueText(cha.e)}" is asked`)) {
+      if (assert(asking(), `${cha.id} ${entryId(cha.e)}: the first piece of "${clueText(cha.e)}" is asked`)) {
         registry["guess-tell"].onclick();
         assert(!registry["hint-next"].children.some((x) => /next piece/i.test(x.textContent || "")),
-          `${cha.id} ${cha.e.id}: the last piece comes with it, not behind a question: `
+          `${cha.id} ${entryId(cha.e)}: the last piece comes with it, not behind a question: `
             + registry["hint-next"].children.map((x) => x.textContent).join(" | "));
       }
     }
@@ -6184,7 +6186,7 @@ global.realSetTimeout(() => {
     assert(li, "picker finds the puzzle to guess on");
     li.children[0].onclick();
     registry["reset-puzzle"].onclick();
-    registry["clue-" + found.e.id].listeners.click[0]();
+    registry["clue-" + entryId(found.e)].listeners.click[0]();
   };
   const rung = (re) => registry["hint-next"].children.find((b) => re.test(b.textContent || ""));
   // Ladder positions rather than labels: every rung button is "<n> · <label>",
@@ -6397,7 +6399,7 @@ global.realSetTimeout(() => {
   const puz = (global.window.CRYPTIC_PUZZLES || {})["cryptic-30066"];
   const entry = (puz.entries || []).find((e) => e.solution && e.annotation && e.length >= 5);
   assert(entry, "an annotated clue with a published answer to type into");
-  reg["clue-" + entry.id].listeners.click[0]();
+  reg["clue-" + entryId(entry)].listeners.click[0]();
   assert(el("hint-next").children.length, "the clue opens with rungs to take");
 
   const quiet = () => ["hint-body", "hint-next", "hint-escape"].map((id) => el(id).writes);
@@ -6468,7 +6470,7 @@ global.realSetTimeout(() => {
   const puz = (global.window.CRYPTIC_PUZZLES || {})["cryptic-30066"];
   const entry = (puz.entries || []).find((e) => e.annotation && e.annotation.explanation.walkthrough);
   assert(entry, "a clue with a walkthrough rung to open");
-  reg["clue-" + entry.id].listeners.click[0]();
+  reg["clue-" + entryId(entry)].listeners.click[0]();
 
   // Climb to the walkthrough, taking whatever rungs this clue happens to have
   // and telling the quiz we do not want to guess.
@@ -6488,7 +6490,7 @@ global.realSetTimeout(() => {
   // Everything the server could still be holding from before that last click.
   global.flushTimers(200);
   const stale = { v: 1, puzzles: { "cryptic-30066": save() } };
-  assert(stale.puzzles["cryptic-30066"].hintsShown[entry.id].indexOf("walkthrough") < 0,
+  assert(stale.puzzles["cryptic-30066"].hintsShown[entryId(entry)].indexOf("walkthrough") < 0,
     "the stale copy predates the walkthrough, which is the whole point of it");
 
   walk.onclick();
@@ -6504,11 +6506,11 @@ global.realSetTimeout(() => {
   };
   global.flushTimers(2500);
   assert(pushed, "the click really did schedule a push");
-  assert(pushed.puzzles["cryptic-30066"].hintsShown[entry.id].indexOf("walkthrough") >= 0,
+  assert(pushed.puzzles["cryptic-30066"].hintsShown[entryId(entry)].indexOf("walkthrough") >= 0,
     "and what we pushed includes the rung — a save still in its debounce is flushed first");
   assert(reg["hint-body"].innerHTML.includes(entry.annotation.explanation.walkthrough.slice(0, 40)),
     "the walkthrough survives the reply: " + reg["hint-body"].innerHTML.slice(0, 120));
-  assert(save().hintsShown[entry.id].indexOf("walkthrough") >= 0,
+  assert(save().hintsShown[entryId(entry)].indexOf("walkthrough") >= 0,
     "and it survives in the saved state, not just on the screen");
   delete global.fetch;
 }
@@ -6550,7 +6552,7 @@ global.realSetTimeout(() => {
   const li = pickerRowFor(first);
   if (assert(li, "picker finds a puzzle to report on")) {
     li.children[0].onclick();
-    registry["clue-" + e.id].listeners.click[0]();
+    registry["clue-" + entryId(e)].listeners.click[0]();
     assert(/id="rp-open"/.test(registry["hint-escape"].innerHTML),
       "every clue offers it: " + registry["hint-escape"].innerHTML);
     registry["rp-open"].onclick();
@@ -6566,7 +6568,7 @@ global.realSetTimeout(() => {
     // Typing into the page re-renders the panel on every keystroke. A strip that
     // is rewritten while you are writing in it throws the sentence away.
     registry["rp-note"].value = "the definition is the wrong way round";
-    registry["clue-" + e.id].listeners.click[0]();
+    registry["clue-" + entryId(e)].listeners.click[0]();
     assert(registry["rp-note"].value === "the definition is the wrong way round",
       "a redraw does not eat what you were typing: " + registry["rp-note"].value);
 
@@ -6580,7 +6582,7 @@ global.realSetTimeout(() => {
         "to the report endpoint: " + sent.url + " " + sent.opt.method);
       const body = JSON.parse(sent.opt.body);
       assert(body.note === "the definition is the wrong way round", "with what was written");
-      assert(body.clue === e.id && body.puzzle,
+      assert(body.clue === entryId(e) && body.puzzle,
         "and which clue it was about, which is the half the reporter should not have to type: "
           + JSON.stringify(body));
     }
@@ -6596,9 +6598,9 @@ global.realSetTimeout(() => {
     // Walk a few clues the way a solver does and check the last one is the one
     // that gets reported.
     const walkTo = (global.window.CRYPTIC_PUZZLES[first].entries || [])
-      .filter((x) => registry["clue-" + x.id]).slice(0, 4);
+      .filter((x) => registry["clue-" + entryId(x)]).slice(0, 4);
     if (assert(walkTo.length >= 2, "there are clues to walk between")) {
-      walkTo.forEach((x) => registry["clue-" + x.id].listeners.click[0]());
+      walkTo.forEach((x) => registry["clue-" + entryId(x)].listeners.click[0]());
       const last = walkTo[walkTo.length - 1];
       registry["rp-open"].onclick();
       assert(/id="rp-note"/.test(registry["hint-escape"].innerHTML),
@@ -6654,7 +6656,7 @@ global.realSetTimeout(() => {
     if (!li) return false;
     li.children[0].onclick();
     registry["reset-puzzle"].onclick();
-    registry["clue-" + e.id].listeners.click[0]();
+    registry["clue-" + entryId(e)].listeners.click[0]();
     return true;
   };
   const rungs = () => registry["hint-next"].children;
@@ -6692,7 +6694,7 @@ global.realSetTimeout(() => {
     registry["guess-check"].onclick();
     const html = panelHTML();
     assert(html.includes("guess-verdict right"),
-      `${found.id} ${found.e.id}: one word of each indicator is enough: ` + html);
+      `${found.id} ${entryId(found.e)}: one word of each indicator is enough: ` + html);
     assert(html.includes("in full it’s"),
       "and the whole phrase is what comes back: " + html);
 

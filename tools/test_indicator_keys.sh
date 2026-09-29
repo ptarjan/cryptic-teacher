@@ -41,7 +41,7 @@ import build_seo_pages as b
 b.indicator_lexicon = lambda: LEX
 def linked(*entries):
     found = {}
-    puz = {"id": "t-1", "date": None, "entries": [dict(e, id=f"{i}-across") for i, e in enumerate(entries)]}
+    puz = {"id": "t-1", "date": None, "entries": [dict(e, number=i, direction="across") for i, e in enumerate(entries)]}
     b.clue_indicators(found, puz, " ".join(f'id="{i}-across"' for i in range(len(entries))))
     return {k: v[2] for k, v in found.items()}
 

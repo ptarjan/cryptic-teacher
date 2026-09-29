@@ -55,8 +55,9 @@ one() { local n=$1; shift; run --series "${n%%-*}" --from "${n##*-}" --to "${n##
 groups() { (cd "$work" && PYTHONPATH=tools python3 -c '
 import json, sys, fetch_puzzle as fetcher
 from pathlib import Path
+from groups import entry_id
 puzzle = fetcher.read_puzzle_file(Path(sys.argv[1]))
-print(json.dumps([[e["id"], e.get("group")] for e in puzzle["entries"]]))' "$1"); }
+print(json.dumps([[entry_id(e), e.get("group")] for e in puzzle["entries"]]))' "$1"); }
 
 # Written through the fetcher's own writer, so a fixture cannot be in a format
 # the tool would reject for reasons of its own.
@@ -68,7 +69,7 @@ import puzzle_paths
 
 DAY = timedelta(days=1)
 def entry(eid, num, direction, x, y, length, clue, solution, group=None):
-    e = {"id": eid, "number": num, "direction": direction,
+    e = {"number": num, "direction": direction,
          "position": {"x": x, "y": y}, "length": length,
          "clue": enumeration.clue(clue or ""), "solution": solution}
     if not fetcher.has_words(e["clue"].get("text", "")):

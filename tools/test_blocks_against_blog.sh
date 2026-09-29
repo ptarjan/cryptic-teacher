@@ -8,7 +8,7 @@ python3 - <<'PY'
 import validate_annotations as v
 
 def run(clue, blocks, theirs):
-    puzzle = {"entries": [{"id": "1-across", "number": 1, "direction": "across",
+    puzzle = {"entries": [{"number": 1, "direction": "across",
                            "clue": {"text": clue}, "annotation": {"blocks": blocks}}]}
     v.blog_facts_for = lambda p: {"name": "Blog", "url": "u",
                                   "entries": {"1-across": {"blocks": theirs}}}
@@ -35,7 +35,7 @@ check("the blog's anagram fodder against ours", False, run("x", [b("in hat", "IN
 check("the blog's anagram fodder against our result", False, run("x", [b("in hat", "THAIN")], [fodder("in hat", "IN HAT")]))
 check("a piece nobody of ours spells or takes", True, run("x", [b("top", "CAP")], [b("communist", "RED")]))
 def typed(ours, theirs, **fact):
-    puzzle = {"entries": [{"id": "1-across", "number": 1, "direction": "across",
+    puzzle = {"entries": [{"number": 1, "direction": "across",
                            "clue": {"text": "x"}, "annotation": {"type": ours}}]}
     v.blog_facts_for = lambda p: {"name": "Blog", "url": "u",
                                   "entries": {"1-across": {"type": theirs, **fact}}}
