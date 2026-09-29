@@ -44,6 +44,7 @@ from pathlib import Path
 
 TOOLS = Path(__file__).resolve().parent
 sys.path.insert(0, str(TOOLS))
+import enumeration
 import fetch_puzzle
 import puzzle_paths
 import reconstruct_grid as rg
@@ -308,7 +309,7 @@ def build(rec, row, series, date, setter, typed=None):
     by_key = {(e["number"], e["direction"]): e for e in entries}
     if set(by_key) != set(lights) or len(by_key) != len(entries):
         return None, "entries do not match the grid's lights"
-    if not all(has_words(e.get("clue") or "") for e in entries):
+    if not all(has_words(enumeration.split(e.get("clue"))[0]) for e in entries):
         return None, "a light has no clue"
 
     out = []
@@ -345,35 +346,35 @@ def build(rec, row, series, date, setter, typed=None):
     groups = {gid: g for gid, g in groups.items() if not composite(g)}
     recounted, seps_of = [], {}
     for e in out:
-        enumeration = e.pop("enumeration")
+        enum = e.pop("enumeration")
         group = groups.get(e["id"], [e["id"]])
-        if not enumeration:
+        if not enum:
             if group[0] == e["id"]:
                 return None, "a clue has no enumeration"
             continue
-        count = sum(n for n, _ in enumeration_parts(enumeration))
+        count = sum(n for n, _ in enumeration_parts(enum))
         if count == e["length"]:
             group = [e["id"]]
         elif group[0] != e["id"]:
             return None, "an enumeration disagrees with its light"
         try:
-            seps_by_light = separators(group, by_id, enumeration)
+            seps_by_light = separators(group, by_id, enum)
         except SystemExit:
             spaced = by_key[(e["number"], e["direction"])].get("answer_spaced")
-            enumeration = from_answer(group, by_id, enumeration, spaced, typed)
-            if not enumeration:
+            enum = from_answer(group, by_id, enum, spaced, typed)
+            if not enum:
                 return None, ("an enumeration disagrees with its light, and the "
                               "answer holds too few words to take the count from")
-            e["clue"] = with_enumeration(e["clue"], enumeration)
+            e["clue"] = with_enumeration(e["clue"], enum)
             recounted.append(f"{e['number']} {e['direction']}")
             try:
-                seps_by_light = separators(group, by_id, enumeration)
+                seps_by_light = separators(group, by_id, enum)
             except SystemExit:
                 return None, "the printed answer's word breaks do not fit its lights"
         seps_of.update(seps_by_light)
     for e in out:
         seps = seps_of.get(e["id"])
-        e["clue"] = {"text": e["clue"], **({"separators": seps} if seps else {})}
+        e["clue"] = enumeration.clue(e["clue"], separators=seps)
         if groups.get(e["id"], [None])[0] == e["id"]:
             e["group"] = list(groups[e["id"]])
         e["solution"] = e.pop("solution")  # last, as every other series writes it

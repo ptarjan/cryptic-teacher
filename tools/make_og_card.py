@@ -54,6 +54,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import app_tables  # noqa: E402 — app.js's tables, read from app.js
 from annotation import whole_anagram  # tools/annotation.py
 import clue_types  # noqa: E402
+import enumeration  # noqa: E402
 from fetch_puzzle import (  # noqa: E402 — one glob, one reader, one puzzles/ for every tool
     blog_annotation, blog_facts_for, puzzle_files, read_puzzle_file,
     with_blog_facts)
@@ -168,10 +169,9 @@ def marked_clue(clue, marks):
 
 
 def bare_clue(entry):
-    """The clue without its enumeration, plus the enumeration on its own."""
-    text = entry["clue"].get("text", "")
-    clue = re.sub(r"\s*\(\d+[\d,\-\s]*\)\s*$", "", text)
-    return clue, text[len(clue):].strip()
+    """The clue's words, and its enumeration as printed: "(5,4)", or ""."""
+    clue = entry["clue"]
+    return clue.get("text", ""), (f"({clue['enumeration']})" if clue.get("enumeration") else "")
 
 
 def plan(entry):
@@ -187,13 +187,13 @@ def plan(entry):
     ann = entry.get("annotation") or {}
     if not ann.get("definitions") or not ann.get("answer") or not entry["clue"].get("text"):
         return None
-    clue, enumeration = bare_clue(entry)
+    clue, enum = bare_clue(entry)
     if len(clue) > 78:
         return None                                 # no type size makes this fit
     t = ann.get("type") or []
     p = {"clue": clue, "ann": ann, "hidden": None, "fodder": None, "partial": False,
          "indicator": None, "indicators": [], "family": clue_types.family_of(t),
-         "enumeration": enumeration}
+         "enumeration": enum}
     try:
         d = ann["definitions"][0]
         if clue[d["at"]:d["at"] + len(d["text"])] != d["text"]:
@@ -575,7 +575,7 @@ def check_prose_stays_in_family(prose_html, family, types):
 def compose(entry, p, number=0):
     """The card's inner HTML for one clue, or SystemExit if it can't be drawn."""
     ann, clue = p["ann"], p["clue"]
-    _, enumeration = bare_clue(entry)
+    _, enum = bare_clue(entry)
 
     marks = [(*p["definition"], "def")]
     if p["hidden"]:
@@ -611,7 +611,7 @@ def compose(entry, p, number=0):
     check_no_answer(clue_html, steps, ann["answer"])
     check_prose_stays_in_family(steps, p["family"], ann.get("type"))
     return f"""<!--CARD-START {number} {entry["id"]}-->
-  <div class="clue{size}">{clue_html} <span class="enum">{html.escape(enumeration)}</span></div>
+  <div class="clue{size}">{clue_html} <span class="enum">{html.escape(enum)}</span></div>
   <ol class="rungs">{steps}</ol>
   <div class="held"><span class="lbl">Answer</span><span class="dots">{dots}</span></div>
   <!--CARD-END-->"""
@@ -682,7 +682,7 @@ def card_key(pid, salt):
     could, and not when a file around it is re-spelled or gains a key the card
     never draws.
     """
-    drawn = [{"id": e["id"], "clue": e["clue"].get("text", ""),
+    drawn = [{"id": e["id"], "clue": enumeration.printed(e["clue"]),
               "annotation": e.get("annotation")}
              for e in load(pid)["entries"]]
     h = salt.copy()

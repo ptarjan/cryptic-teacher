@@ -19,18 +19,18 @@ def check(name, want, got):
 def at(clue, *texts):
     return [d["at"] for d in D.place([{"text": t} for t in texts], clue)]
 
-check("once", [4], at("Big cat (4)", "cat"))
-check("whole words: not inside Part", [23], at("Part of medicine man’s art (6)", "art"))
-check("before the enumeration", [0], at("4, whichever way you look at it! (4)", "4"))
-check("at an end: last of two", [41], at("Speak about Irish city, but not northern city (9)", "city"))
-check("at an end: first of two", [0], at("Down, as in Watership Down? (3,1,5,5)", "Down, as"))
+check("once", [4], at("Big cat", "cat"))
+check("whole words: not inside Part", [23], at("Part of medicine man’s art", "art"))
+check("the enumeration is not in the text", [0], at("4, whichever way you look at it!", "4"))
+check("at an end: last of two", [41], at("Speak about Irish city, but not northern city", "city"))
+check("at an end: first of two", [0], at("Down, as in Watership Down?", "Down, as"))
 check("no overlap with the other definition, in clue order", [0, 6],
-      at("Down, as in Watership Down? (3,1,5,5)", "Down", "as in Watership Down?"))
+      at("Down, as in Watership Down?", "Down", "as in Watership Down?"))
 check("a given `at` that points at its text is kept", [22],
-      [d["at"] for d in D.place([{"text": "Down", "at": 22}], "Down, as in Watership Down? (3,1,5,5)")])
+      [d["at"] for d in D.place([{"text": "Down", "at": 22}], "Down, as in Watership Down?")])
 check("a wrong `at` is recomputed", [4],
-      [d["at"] for d in D.place([{"text": "cat", "at": 1}], "Big cat (4)")])
-check("note is kept", "why", D.place([{"text": "cat", "note": "why"}], "Big cat (4)")[0]["note"])
+      [d["at"] for d in D.place([{"text": "cat", "at": 1}], "Big cat")])
+check("note is kept", "why", D.place([{"text": "cat", "note": "why"}], "Big cat")[0]["note"])
 
 def refused(clue, *texts):
     try:
@@ -38,12 +38,12 @@ def refused(clue, *texts):
     except ValueError as err:
         return str(err)
     return None
-check("both ends is ambiguous", True, "occurs 3 times" in (refused("up and up and up (2)", "up") or ""))
-check("not in the clue", True, "not in the clue" in (refused("Big cat (4)", "dog") or ""))
+check("both ends is ambiguous", True, "occurs 3 times" in (refused("up and up and up", "up") or ""))
+check("not in the clue", True, "not in the clue" in (refused("Big cat", "dog") or ""))
 
 def errors(defs):
     puzzle = {"id": "t-1", "entries": [{"id": "1-across", "number": 1, "direction": "across",
-              "clue": {"text": "Changes colour (9)"}, "solution": "TURNSTONE",
+              "clue": {"text": "Changes colour", "enumeration": "9"}, "solution": "TURNSTONE",
               "annotation": {"type": ["charade"], "answer": "TURNSTONE", "explanation": {"walkthrough": "w"},
                              "definitions": defs, "assembly": {"pieces": ["TURNS", "TONE"]},
                              "blocks": [{"clueFragment": "Changes", "gives": "TURNS"},

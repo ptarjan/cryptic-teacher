@@ -152,9 +152,9 @@ Shape:
 - `definitions` holds one object per definition, two for a double definition,
   in clue order: `text`, `at` (its offset in the clue, in Unicode code points)
   and an optional `note`. Writers give `text` and `tools/definitions.py` fills
-  `at`; where the text occurs twice it takes the whole-word occurrence before
-  the enumeration, clear of the other definition, at the clue's start or end,
-  and refuses to guess past that.
+  `at`; where the text occurs twice it takes the whole-word occurrence clear
+  of the other definition, at the clue's start or end, and refuses to guess
+  past that.
 - `indicators` holds one object per indicator phrase: `text`, `for` (the one
   type from the annotation's own `type` that the words signal) and `note` (why
   they signal it in this clue). New annotations need `for` and `note`; older
@@ -203,10 +203,15 @@ Shape:
   defines and the clue does not. It is valid only when the puzzle has a
   `preamble`, and never beside `definitions`.
 - `clue` is the clue as printed, in one object:
-  - `text`: the printed string, enumeration included ("… (4,9,6)", "See 21").
-    The enumeration stays in the text because many clues print none or print
-    it oddly ("(1'5)", "(6 and 5)"); offsets into the text (`italics`, a
-    definition's `at`) count Unicode code points.
+  - `text`: the printed words, without the enumeration ("Moscow politician
+    revolting in style", "See 21"). Offsets into it (`italics`, a definition's
+    `at`) count Unicode code points.
+  - `enumeration`: the printed letter counts without the brackets, "4,9,6",
+    "2-3", "1'5", "6 and 5"; absent when the clue prints none (about 9,500,
+    mostly "See 21" continuations). `text + " (" + enumeration + ")"` is the
+    printed line. It is stored rather than rebuilt from `separators`: a linked
+    answer's leader prints the whole group's count, and some prints say what
+    separators cannot.
   - `separators`: the marks inside this light's answer, in order, as
     `{"at", "mark"}`. `at` counts this light's answer letters before the mark,
     not clue characters. Each light of a linked answer carries the marks inside
@@ -215,8 +220,8 @@ Shape:
     `","` for a word break or `"-"` for a hyphen, rarely `"'"`, `"."`, `"/"`,
     `":"`, `";"` or `"and"`.
   - `italics`: spans of `text` printed in italics, `{"at", "length"}`.
-  - `missing: true`: the paper printed no words (`text`, if any, is just the
-    enumeration), with an optional `missingNote`. A blank clue is kept as
+  - `missing: true`: the paper printed no words (no `text`; an `enumeration`
+    may still be there), with an optional `missingNote`. A blank clue is kept as
     printed, never filled in: it can be the setter's joke (cryptic-30098
     12-across is `{"missing": true, …}` because the answer is NOONDAY and the
     clue number is 12).

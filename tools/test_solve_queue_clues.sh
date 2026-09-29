@@ -42,9 +42,9 @@ out=$(python3 - <<'EOF'
 import sys
 sys.path.insert(0, "tools")
 from fetch_puzzle import clue_coverage
-p = {"entries": [{"clue": {"text": "Vehicle for a comeback (3)"}},    # readable
-                 {"clue": {"text": " (8)", "missing": True}},       # printed blank
-                 {"clue": {"text": "␣␣ 9 (5)"}}]}        # bare cross-reference
+p = {"entries": [{"clue": {"text": "Vehicle for a comeback", "enumeration": "3"}},    # readable
+                 {"clue": {"enumeration": "8", "missing": True}},       # printed blank
+                 {"clue": {"text": "␣␣ 9", "enumeration": "5"}}]}        # bare cross-reference
 c = clue_coverage(p)
 print(f"{c['present']}/{c['total']}")
 EOF

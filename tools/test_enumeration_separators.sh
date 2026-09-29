@@ -13,6 +13,7 @@ import sys
 
 sys.path.insert(0, "tools")
 from fetch_puzzle import enumeration_separators
+import enumeration
 
 fails = 0
 
@@ -27,7 +28,7 @@ def check(name, got, want):
 
 
 def seps(*entries):
-    es = [{**e, "clue": {"text": e["clue"]}} for e in entries]
+    es = [{**e, "clue": enumeration.clue(e["clue"])} for e in entries]
     enumeration_separators(es)
     return [e["clue"].get("separators") for e in es]
 
@@ -54,12 +55,12 @@ check("a group head whose own light is the phrase",
       seps({"id": "1", "length": 10, "clue": "Q (7,3)", "group": ["1", "2"]},
            {"id": "2", "length": 4, "clue": "(see 1) (4)"}),
       [[{"at": 7, "mark": ","}], None])
-es = [{"id": "1", "length": 9, "clue": {"text": "Q (5,4)", "italics": [{"at": 0, "length": 1}]},
+es = [{"id": "1", "length": 9, "clue": {"text": "Q", "enumeration": "5,4", "italics": [{"at": 0, "length": 1}]},
        "solution": "ABCDEFGHI"}]
 enumeration_separators(es)
-check("written inside the clue, between its text and its italics",
-      list(es[0]["clue"]), ["text", "separators", "italics"])
-es = [{"id": "1", "length": 9, "clue": {"text": "Q (5,4)"}, "solution": "ABCDEFGHI"}]
+check("written inside the clue, between its enumeration and its italics",
+      list(es[0]["clue"]), ["text", "enumeration", "separators", "italics"])
+es = [{"id": "1", "length": 9, "clue": {"text": "Q", "enumeration": "5,4"}, "solution": "ABCDEFGHI"}]
 enumeration_separators(es)
 check("the entry's own keys are untouched", list(es[0]), ["id", "length", "clue", "solution"])
 

@@ -53,6 +53,7 @@ import urllib.error
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import enumeration  # noqa: E402 — a clue's printed counts; tools/enumeration.py
 from fetch_puzzle import (enumeration_separators, flatten_clue, http_bytes, has_words,  # noqa: E402
                           puzzle_path, reindex, write_puzzle_file)
 from fetch_wayback import maybe_gunzip, SLEEP_SECONDS  # noqa: E402 — shared Wayback plumbing
@@ -209,18 +210,15 @@ def convert(data):
         # a tag left in the string is read by the solver. flatten_clue lifts it
         # into ranges beside a plain clue, which is what every other fetcher
         # here stores and what the annotation offsets are measured against.
-        clue, italics = flatten_clue(item["clue"].strip())
+        line, italics = flatten_clue(item["clue"].strip())
         entries.append({
             "id": f"{item['num']}-{direction}",
             "number": item["num"],
             "direction": direction,
             "position": {"x": col, "y": row},
             "length": length,
-            "clue": {
-                **({"text": clue} if clue else {}),
-                **({"italics": italics} if italics else {}),
-                **({} if has_words(clue) else {"missing": True}),
-            },
+            "clue": enumeration.clue(line, italics=italics,
+                                     missing=not has_words(enumeration.split(line)[0])),
             "solution": answer,
         })
 

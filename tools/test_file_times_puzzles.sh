@@ -19,7 +19,7 @@ check() {  # check <what> <expected> <got>
 
 out=$(PYTHONPATH="$REPO/tools" python3 - <<'PY'
 import datetime, json, pathlib, tempfile
-import fetch_puzzle, provenance, puzzle_paths
+import enumeration, fetch_puzzle, provenance, puzzle_paths
 import reconstruct_grid as rg
 import file_times_puzzles as F
 
@@ -93,8 +93,8 @@ print("REPRINTED", skipped["globeandmail reprints it"])
 
 p = json.loads(puzzle_paths.find("times-100").read_text())
 by_id = {e["id"]: e for e in p["entries"]}
-print("CLUE_KEEPS_COUNT", by_id["2-down"]["clue"]["text"])
-print("CLEAN", by_id["1-down"]["clue"]["text"])
+print("CLUE_KEEPS_COUNT", enumeration.printed(by_id["2-down"]["clue"]))
+print("CLEAN", enumeration.printed(by_id["1-down"]["clue"]))
 print("SEPARATORS", json.dumps(by_id["2-down"]["clue"].get("separators")))
 print("SOLVED", all(e["solution"] for e in p["entries"]))
 print("DATED", p["date"])
@@ -108,7 +108,7 @@ print("PRIZE_UNDATED", sunday["date"], json.loads(puzzle_paths.find("times-29000
 # A second run writes nothing, and a file that has drifted is named, not rewritten.
 path = puzzle_paths.find("times-102")
 edited = json.loads(path.read_text())
-edited["entries"][0]["clue"] = {"text": "Annotated since (2)"}
+edited["entries"][0]["clue"] = {"text": "Annotated since", "enumeration": "2"}
 path.write_text(json.dumps(edited))
 before = {q.name: q.read_bytes() for q in puzzle_paths.PUZZLE_DIR.rglob("*") if q.is_file()}
 filed, _, drifted = F.run(grids, parsed, listing=LISTING)
@@ -139,6 +139,7 @@ for key, held in (("PLACEHOLDER", None), ("NAMED", "Someone")):
 # "See 5 Across (3)" under a light 5-across's clue names, each light counting
 # only itself, is a pointer to where its clue is, not a linked answer; a
 # pointer the leader's clue never names stays a group, held on the leader.
+import enumeration
 import file_blog_puzzles as B
 pointed = rec(10, 105, "2026-01-13")
 for e in pointed["entries"]:
@@ -165,7 +166,8 @@ for e in typo["entries"]:
         e["clue"], e["enumeration"] = "Zero first (0,5)", "0,5"
 built, why = B.build(typo, row(typo), "times", None, None)
 by_id = {e["id"]: e for e in built["entries"]}
-print("RECOUNTED", by_id["5-across"]["clue"]["text"], "|", by_id["2-down"]["clue"]["text"], "|",
+print("RECOUNTED", enumeration.printed(by_id["5-across"]["clue"]), "|",
+      enumeration.printed(by_id["2-down"]["clue"]), "|",
       built["solutions"]["check"].split("; ")[-1])
 for e in typo["entries"]:
     if (e["number"], e["direction"]) == (5, "across"):

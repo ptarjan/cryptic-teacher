@@ -118,6 +118,8 @@ def clue_html_text(clue):
         piece = esc(text[a:b])
         italic = any(r["at"] <= a < r["at"] + r["length"] for r in clue.get("italics", ()))
         out.append(f"<i>{piece}</i>" if italic else piece)
+    if clue.get("enumeration"):
+        out.append(f"{' ' if text else ''}({esc(clue['enumeration'])})")
     return "".join(out)
 
 

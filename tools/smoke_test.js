@@ -10,8 +10,11 @@ const pp = require("./puzzle_paths");
 let failures = 0;
 // Returns the condition, so a check whose failure would crash the checks after it
 // can guard them: a stack trace stops the suite dead and hides every other result.
-// The printed clue, enumeration included; "" where the paper printed nothing.
+// The clue's words, without the enumeration; "" where the paper printed none.
 const clueText = (e) => e.clue.text || "";
+// The line a solver reads: the words, then "(enumeration)" (app.js enumHTML).
+const printedClue = (e) => clueText(e) + (e.clue.enumeration
+  ? (clueText(e) ? " " : "") + "(" + e.clue.enumeration + ")" : "");
 const assert = (cond, msg) => { if (!cond) { failures++; console.error("FAIL:", msg); } return !!cond; };
 // The walk says its sentence in exactly ONE node: the caption beside the
 // spotlight while there is a hole, the line down in the panel when there is
@@ -2846,7 +2849,7 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
       const ann = e.annotation;
       const rs = runs(registry["hint-clue"].innerHTML);
       const plain = rs.map((r) => r.text).join("");
-      assert(plain === clueText(e),
+      assert(plain === printedClue(e),
         `${id} ${e.id}: the marked-up clue is no longer the clue: ${JSON.stringify(plain)}`);
       let at = 0;
       const spans = rs.map((r) => { const i = at; at += r.text.length; return { ...r, i }; });
@@ -4049,9 +4052,9 @@ registry["reset-puzzle"].onclick();
       + "answer, and only a person can write it, so nothing may silently discard it");
   });
 
-  // Mirrors has_words() in tools/fetch_puzzle.py: anything left after the
-  // enumeration comes off is a clue, punctuation included.
-  const hasWords = (clue) => clue.replace(/\([\d,\-. ]*\)/g, "").trim() !== "";
+  // Mirrors has_words() in tools/fetch_puzzle.py: any printed text is a clue,
+  // punctuation included (the enumeration is not in the text).
+  const hasWords = (clue) => clue.trim() !== "";
   const index = JSON.parse(fs.readFileSync(path.join(ROOT, "puzzles", "index.json"), "utf8"));
   const annotatedInIndex = new Map(index.puzzles.map((p) => [p.id, p.annotated]));
   const files = pp.puzzleFiles().filter((f) => /^[a-z0-9]+-\d+\.json$/.test(path.basename(f)));
@@ -4098,14 +4101,15 @@ registry["reset-puzzle"].onclick();
     if (!cuts.length) return null;
     return cuts.map((c, i) => c - (i ? cuts[i - 1] : 0)).concat(n - cuts[cuts.length - 1]);
   };
-  assert(String(shape("Actor in a boat (3,6)", 9)) === "3,6", "a comma is a word break");
-  assert(String(shape("Left out (3-5)", 8)) === "3,5", "a hyphen breaks too");
-  assert(shape("Plain one (9)", 9) === null, "one word gets no divisions at all");
+  assert(String(shape("3,6", 9)) === "3,6", "a comma is a word break");
+  assert(String(shape("3-5", 8)) === "3,5", "a hyphen breaks too");
+  assert(shape("9", 9) === null, "one word gets no divisions at all");
+  assert(shape(undefined, 9) === null, "no enumeration, no divisions");
   // The whole group's enumeration sits on the first leg of a linked clue, so it
   // must not be drawn over that leg's squares alone.
-  assert(shape("Split across two (5,4)", 5) === null, "a total that misses the entry is ignored");
-  assert(shape("Vague (two words)", 9) === null, "prose in the brackets is not an enumeration");
-  assert(String(shape("Feed typo (6.6)", 12)) === "6,6", "a period where a comma was meant");
+  assert(shape("5,4", 5) === null, "a total that misses the entry is ignored");
+  assert(shape("6 and 3", 9) === null, "a worded enumeration draws no breaks");
+  assert(String(shape("6.6", 12)) === "6,6", "a period where a comma was meant");
 
   // The leading light's own share of a linked answer: the first `length`
   // squares' worth of letters, returned only when the answer really does break
@@ -4126,7 +4130,7 @@ registry["reset-puzzle"].onclick();
     const puz = JSON.parse(fs.readFileSync(f, "utf8"));
     puz.entries.forEach((e) => {
       const ans = e.annotation && e.annotation.answer;
-      const drawn = shape(clueText(e), e.length);
+      const drawn = shape(e.clue.enumeration, e.length);
       if (!ans || !drawn) return;
       // A linked group's answer is stored whole on its leading light, but the
       // strip is drawn over that light's own squares. Usually the paper
@@ -4813,7 +4817,7 @@ global.realSetTimeout(() => {
       const words = def.trim().split(/\s+/).length;
       // Not the whole clue: guessAsk refuses a question whose answer is
       // everything, and rightly.
-      if (words >= clueText(e).replace(/\s*\([^()]*\)\s*$/, "").split(/\s+/).length) continue;
+      if (words >= clueText(e).split(/\s+/).length) continue;
       found = { id, e, words };
       break;
     }
@@ -4841,7 +4845,7 @@ global.realSetTimeout(() => {
   // once tapping starts passes a "contains guess-clue" check just fine while
   // still reflowing under the solver.
   const wordCount = (clue) =>
-    (clue.replace(/\s*\([^()]*\)\s*$/, "").match(/\S+/g) || []).length;
+    (clue.match(/\S+/g) || []).length;
   const boxCount = (html) => (html.match(/class="gw/g) || []).length;
   const restingHTML = registry["hint-clue"].innerHTML;
   const restingBoxes = boxCount(restingHTML);

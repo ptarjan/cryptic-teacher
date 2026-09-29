@@ -198,7 +198,7 @@ print("the split shape cannot be FILED, not merely rejected")
 puzzle = filing.build(copy.deepcopy(SPLIT), "newpenguinbkguar0000perk", "opus")
 built = {e["id"]: e for e in puzzle["entries"]}
 same("the leader's clue prints the whole answer's count",
-     built["7-down"]["clue"]["text"].endswith("(4,4)"), True)
+     built["7-down"]["clue"].get("enumeration"), "4,4")
 same("the continuation's clue prints no count at all", built["8-down"]["clue"], {"text": "See 7"})
 same("the word break sits in the light it falls in",
      built["7-down"]["clue"].get("separators"), [{"at": 4, "mark": ","}])
@@ -254,7 +254,7 @@ same("a puzzle with a countless continuation can be filed unsolved",
      filing.build(unsolved_record(
          [light("7-down", 7, "down", 5, "That's the Berliner's way!", "5"),
           light("17-down", 17, "down", 9, "See 7", None)]),
-         "newpenguinbkguar0000perk", "opus", unsolved=True)["entries"][0]["clue"]["text"].endswith("(5,9)"), True)
+         "newpenguinbkguar0000perk", "opus", unsolved=True)["entries"][0]["clue"].get("enumeration"), "5,9")
 
 print("with no answer to fall back on it refuses rather than inventing a count")
 refuses("a printed count that does not fit its own light",
@@ -266,7 +266,7 @@ print("an unsolved puzzle files with the same counts and no answers")
 puzzle = filing.build(copy.deepcopy(SPLIT_UNSOLVED), "isbn_9780140248098", "opus", unsolved=True)
 built = {e["id"]: e for e in puzzle["entries"]}
 same("the leader's clue prints the whole answer's count",
-     built["7-down"]["clue"]["text"].endswith("(4,4)"), True)
+     built["7-down"]["clue"].get("enumeration"), "4,4")
 same("the continuation's clue prints no count", built["8-down"]["clue"], {"text": "See 7"})
 same("the word break is placed without an answer to place it from",
      built["7-down"]["clue"].get("separators"), [{"at": 4, "mark": ","}])
@@ -292,7 +292,6 @@ except SystemExit as exc:
          "no answer for 8-down" in str(exc), True)
 
 print("every linked answer in the book series on disk still reads leader form")
-COUNT = re.compile(r"\((\d[\d,\-–/ ]*)\)\s*$")
 groups_seen = 0
 for path in sorted(Path("puzzles/book").glob("*/book-*.json")):
     puzzle = fetch_puzzle.read_puzzle_file(path)
@@ -304,17 +303,17 @@ for path in sorted(Path("puzzles/book").glob("*/book-*.json")):
         groups_seen += 1
         where = f"{puzzle['id']} {' + '.join(group)}"
         cells = sum(entries[gid]["length"] for gid in group)
-        m = COUNT.search(entry["clue"].get("text", ""))
-        if not m:
+        said = entry["clue"].get("enumeration")
+        if not said:
             fails.append(where)
             print(f"  FAIL: {where}: the leader prints no count")
             continue
-        counted = sum(int(n) for n in re.findall(r"\d+", m.group(1)))
+        counted = sum(int(n) for n in re.findall(r"\d+", said))
         if counted != cells:
             fails.append(where)
             print(f"  FAIL: {where}: leader counts {counted}, the group holds {cells}")
         for gid in group[1:]:
-            if COUNT.search(entries[gid]["clue"].get("text", "")):
+            if entries[gid]["clue"].get("enumeration"):
                 fails.append(where)
                 print(f"  FAIL: {where}: {gid} is a continuation and prints its own count")
 if groups_seen:

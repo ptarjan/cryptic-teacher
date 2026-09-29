@@ -58,6 +58,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import clue_types  # noqa: E402
 import puzzle_schema  # noqa: E402 — tools/data/puzzle.schema.json
 import definitions  # where each definition sits; tools/definitions.py
+import enumeration  # noqa: E402 — a clue's printed counts; tools/enumeration.py
 import groups  # noqa: E402 — linked answers; tools/groups.py
 from annotation import assembly, explanation, whole_anagram  # tools/annotation.py
 from fetch_puzzle import (  # noqa: E402 — one reader, one exemption
@@ -761,7 +762,7 @@ def check_surface(tag, ann, clue, warnings):
     before the rule are grandfathered in annotation_backlog.json."""
     if "surface" in explanation(ann) or set(types_of(ann)) <= SURFACE_OPTIONAL_TYPES:
         return
-    words = WORD_RE.findall(definitions.ENUMERATION.sub("", clue or ""))
+    words = WORD_RE.findall(clue or "")
     if len(words) >= SURFACE_MIN_WORDS:
         warnings.append(f"{tag}: no explanation.surface — say in one sentence (25 words max) what "
                         f"the clue pretends to be about; a clue of {len(words)} words "
@@ -1472,8 +1473,9 @@ def blind_misses(pid):
 
 
 def is_blank_clue(clue):
-    """A grid entry the setter left without a clue: only an enumeration, if that."""
-    return not re.sub(r"\([\d,\-\s]+\)\s*$", "", clue).strip()
+    """A grid entry the setter left without a clue: no text (an enumeration,
+    if printed, is kept apart)."""
+    return not (clue or "").strip()
 
 
 def check_every_clue_is_annotated(entries, errors, warnings, misses=(), corpus=False):
@@ -1494,8 +1496,7 @@ def check_every_clue_is_annotated(entries, errors, warnings, misses=(), corpus=F
 
     The one legitimate blank is a clue the setter left blank on purpose (a
     grid entry with no clue text, as in cryptic-30098 12A). That is detectable
-    from the clue itself rather than from an allowlist: strip the enumeration
-    and nothing is left.
+    from the clue itself rather than from an allowlist: it has no text.
 
     The other is a blind run's miss, in `misses`. A blind night hides the key,
     and the grader afterwards drops the explanation of every clue the model got
@@ -2238,10 +2239,10 @@ def check_clue_unchanged(puzzle, path, errors):
                            capture_output=True, text=True, check=False)
     if shown.returncode:
         return                  # not committed yet: nothing to compare with
-    was = {e["id"]: e["clue"].get("text", "")
+    was = {e["id"]: enumeration.printed(e["clue"])
            for e in json.loads(shown.stdout).get("entries", [])}
     for e in puzzle["entries"]:
-        now = e["clue"].get("text", "")
+        now = enumeration.printed(e["clue"])
         if (e.get("annotation") is not None and e["id"] in was
                 and clue_words(was[e["id"]]) != clue_words(now)):
             errors.append(
