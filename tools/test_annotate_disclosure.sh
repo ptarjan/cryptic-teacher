@@ -124,14 +124,14 @@ say("features_present_quiet", not w)
 # surface: absent on a picture-painting clue warns and counts against the
 # ratchet; a short clue, a pure definition, or a present surface is quiet.
 w = []
-V.check_surface("1A", {"type": ["charade"]}, "Behaved antisocially and gave birth (5)", w)
+V.check_surface("1A", {"type": ["charade"]}, "Behaved antisocially and gave birth", w)
 say("surface_absent_warns", len(w) == 1 and "no explanation.surface" in w[0])
 say("surface_counted_by_ratchet", V.count_backlog(w)["explanation.surface"] == 1)
 w = []
-V.check_surface("1A", {"type": ["charade"]}, "Flat pack (4,4)", w)
-V.check_surface("1A", {"type": ["double_definition"]}, "Seize part of a finger (4)", w)
+V.check_surface("1A", {"type": ["charade"]}, "Flat pack", w)
+V.check_surface("1A", {"type": ["double_definition"]}, "Seize part of a finger", w)
 V.check_surface("1A", {"type": ["charade"], "explanation": {"surface": "A bad week."}},
-                "Behaved antisocially and gave birth (5)", w)
+                "Behaved antisocially and gave birth", w)
 say("surface_optional_quiet", not w)
 
 

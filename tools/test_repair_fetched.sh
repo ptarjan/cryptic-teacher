@@ -62,6 +62,7 @@ print(json.dumps([[e["id"], e.get("group")] for e in puzzle["entries"]]))' "$1")
 # the tool would reject for reasons of its own.
 PYTHONPATH="$work/tools" python3 - <<'PY'
 from datetime import date, timedelta
+import enumeration
 import fetch_puzzle as fetcher
 import puzzle_paths
 
@@ -69,9 +70,9 @@ DAY = timedelta(days=1)
 def entry(eid, num, direction, x, y, length, clue, solution, group=None):
     e = {"id": eid, "number": num, "direction": direction,
          "position": {"x": x, "y": y}, "length": length,
-         "clue": {**({"text": clue} if clue else {}),
-                  **({} if fetcher.has_words(clue) else {"missing": True})},
-         "solution": solution}
+         "clue": enumeration.clue(clue or ""), "solution": solution}
+    if not fetcher.has_words(e["clue"].get("text", "")):
+        e["clue"]["missing"] = True
     if group:
         e["group"] = group
     return e
