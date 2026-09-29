@@ -3308,11 +3308,6 @@
     // fresh on every render is what makes the ring survive its own redraws.
     return `<div class="anagram-ring">
       <div class="ana-discs">${discs}</div>
-      <p class="muted">${cuts.length > 1
-        ? `The gaps are where the answer's words end, ${cuts.join(" then ")} letters. Letters`
-        : "Letters"} you already have in the crossword grid are fixed in their places on the ring,
-        reading clockwise from the top. Tap a letter to cross it off once you've used it. Click the ring and type
-        to add a letter, Backspace to remove the last. Shuffle for a fresh arrangement.</p>
       <button type="button" id="ana-shuffle" class="ghost small">Shuffle</button>
     </div>`;
   }
