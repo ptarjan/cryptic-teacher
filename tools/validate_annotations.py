@@ -151,9 +151,9 @@ MAX_CRYPTIC_DEFINITIONS = 2
 #
 # A walkthrough budget for the companion rule: "When you basically give the whole
 # answer in the building blocks you don't need to have the full walkthrough."
-# 45 is measured, not invented — across the 231 annotated walkthroughs in
-# puzzles/ the median is 32 words and the 90th percentile is 42, while the A001
-# set that prompted the feedback ran 44-63 with a median of 54.
+# 45 sits above the 99th percentile: across 74,474 published walkthroughs with
+# blocks (2026-09-28) the median is 19 words, p90 32, p99 40, and 0.1% run over
+# 45. The A001 set that prompted the feedback ran 44-63 with a median of 54.
 MAX_WALKTHROUGH_WORDS = 45
 
 # Opening formulas that spend the first clause on something other than the clue.
