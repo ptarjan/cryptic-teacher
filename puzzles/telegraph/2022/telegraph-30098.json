@@ -23,6 +23,9 @@
   "date": "2022-09-21",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,43 @@
     "text": "Requirement for sporting types in GPs’ workplace",
     "enumeration": "8"
    },
-   "solution": "PRACTICE"
+   "solution": "PRACTICE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PRACTICE",
+    "definitions": [
+     {
+      "text": "Requirement for sporting types",
+      "at": 0
+     },
+     {
+      "text": "GPs’ workplace",
+      "at": 34
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Requirement for sporting types",
+      "note": "athletes need regular training sessions to stay sharp"
+     },
+     {
+      "clueFragment": "GPs’ workplace",
+      "note": "a family doctor works in a general medical surgery of that name"
+     }
+    ],
+    "explanation": {
+     "surface": "A notice about what sportsmen need at the local doctors' surgery.",
+     "walkthrough": "Two unrelated senses of one word: repeated training, and the business premises of a group of GPs (general practitioners, British family doctors).",
+     "definitionFit": "Training drills are what athletes must do, and British doctors call their shared surgery by this same noun."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "sporting"
+    }
+   }
   },
   {
    "number": 1,
@@ -56,7 +95,62 @@
      }
     ]
    },
-   "solution": "PICKAT"
+   "solution": "PICKAT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PICK AT",
+    "definitions": [
+     {
+      "text": "Find fault with",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "borders",
+      "for": "letter_selection",
+      "note": "a country's borders are its edges, so only the outermost letters of Kenya are used"
+     },
+     {
+      "text": "touring",
+      "for": "container",
+      "note": "to tour a place is to travel round it, so the old Scot goes round Kenya's borders"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old Scot",
+      "gives": "PICT",
+      "note": "the Picts were an ancient people of northern Scotland"
+     },
+     {
+      "clueFragment": "Kenya’s borders",
+      "gives": "KA",
+      "select": "outer",
+      "note": "the first and last letters of Kenya"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIC",
+      "KA",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A grumbling Scotsman complaining his way around a trip to East Africa.",
+     "walkthrough": "The Picts were the ancient inhabitants of north-east Scotland, which is why 'old' is needed; they are split to take Kenya's edge letters inside.",
+     "definitionFit": "To nag or carp at someone over small things is a phrasal verb meaning criticise pettily."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "touring"
+    }
+   }
   },
   {
    "number": 2,
@@ -70,7 +164,71 @@
     "text": "A daughter with suitable skills at the outset is flexible",
     "enumeration": "6"
    },
-   "solution": "ADAPTS"
+   "solution": "ADAPTS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ADAPTS",
+    "definitions": [
+     {
+      "text": "is flexible",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the outset",
+      "for": "letter_selection",
+      "note": "the outset of a word is its beginning, so only the opening letter of skills counts"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as printed"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "d is the standard abbreviation for daughter"
+     },
+     {
+      "clueFragment": "suitable",
+      "gives": "APT",
+      "note": "apt means fitting or suitable"
+     },
+     {
+      "clueFragment": "skills at the outset",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter of skills"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "D",
+      "APT",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A proud parent praising a versatile daughter who had the right skills from the start.",
+     "walkthrough": "The definition is a verb phrase, so the answer is the third-person form ADAPTS to match 'is flexible'.",
+     "definitionFit": "Someone who adjusts readily to changing circumstances bends to fit, the same idea as being pliable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "outset"
+    }
+   }
   },
   {
    "number": 3,
@@ -84,7 +242,67 @@
     "text": "Fantasy writer leaving large island split making gift",
     "enumeration": "5"
    },
-   "solution": "TOKEN"
+   "solution": "TOKEN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TOKEN",
+    "definitions": [
+     {
+      "text": "gift",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "when letters leave a word they depart from it, so large and island are removed from the fantasy writer"
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fantasy writer",
+      "gives": "TOLKIEN",
+      "note": "J.R.R. Tolkien, author of The Lord of the Rings"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the clothing-size abbreviation for large"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "I",
+      "note": "I is the standard abbreviation for island"
+     },
+     {
+      "clueFragment": "split",
+      "note": "surface padding that describes the removed pair as separated, since they are not adjacent in the writer's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "K",
+      "EN"
+     ]
+    },
+    "explanation": {
+     "surface": "A fantasy novelist abandoning a big island divided up, as if it were a present.",
+     "walkthrough": "'Split' tells you the two letters taken out are not side by side: remove the L and the I separately from TOLKIEN to leave TOKEN.",
+     "definitionFit": "A small present given as a symbol of thanks or affection is called a token."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "split"
+    }
+   }
   },
   {
    "number": 4,
@@ -98,7 +316,54 @@
     "text": "Set of cardinals overlooking Latin characteristic of an arch?",
     "enumeration": "7"
    },
-   "solution": "CONCAVE"
+   "solution": "CONCAVE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CONCAVE",
+    "definitions": [
+     {
+      "text": "characteristic of an arch?",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overlooking",
+      "for": "deletion",
+      "note": "to overlook something is to ignore or leave it out, so Latin is omitted from the cardinals' gathering"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Set of cardinals",
+      "gives": "CONCLAVE",
+      "note": "the assembly of cardinals that elects a pope"
+     },
+     {
+      "clueFragment": "Latin",
+      "gives": "L",
+      "note": "L is the standard abbreviation for Latin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CONC",
+      "AVE"
+     ]
+    },
+    "explanation": {
+     "surface": "Cardinals in Rome gazing down on Latin inscriptions carved into an arched vault.",
+     "walkthrough": "'Overlooking' looks like cardinals peering down from a height; here it means ignoring, so the Latin letter is dropped from the papal gathering.",
+     "definitionFit": "Seen from underneath, an arch curves inward like a hollow, so the question mark flags an example of that shape."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "overlooking"
+    }
+   }
   },
   {
    "number": 5,
@@ -112,7 +377,62 @@
     "text": "Sing country mostly having covered R&B",
     "enumeration": "6"
    },
-   "solution": "WARBLE"
+   "solution": "WARBLE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "WARBLE",
+    "definitions": [
+     {
+      "text": "Sing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the country loses its final letter"
+     },
+     {
+      "text": "having covered",
+      "for": "container",
+      "note": "to cover something is to wrap over it, so the shortened country surrounds R&B"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "country mostly",
+      "gives": "WALE",
+      "note": "Wales without its final letter"
+     },
+     {
+      "clueFragment": "R&B",
+      "gives": "RB",
+      "note": "the letters as printed, ampersand ignored"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WA",
+      "RB",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A singer from some country who mostly performs cover versions of rhythm and blues songs.",
+     "walkthrough": "'Covered' is music-business talk for recording someone else's song; here it means wrapping round, so the shortened country goes round RB.",
+     "definitionFit": "To trill melodiously, like a songbird, is a lighthearted verb for vocal performance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "covered"
+    }
+   }
   },
   {
    "number": 6,
@@ -126,7 +446,68 @@
     "text": "A job to defend most of reasoning for one making excuses?",
     "enumeration": "9"
    },
-   "solution": "APOLOGIST"
+   "solution": "APOLOGIST",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "container"
+    ],
+    "answer": "APOLOGIST",
+    "definitions": [
+     {
+      "text": "one making excuses?",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "most of",
+      "for": "deletion",
+      "note": "most of a word is all but its tail, so reasoning's synonym is cut short by one letter"
+     },
+     {
+      "text": "to defend",
+      "for": "container",
+      "note": "defending means standing guard round something, so the job encloses the shortened reasoning"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as printed"
+     },
+     {
+      "clueFragment": "job",
+      "gives": "POST",
+      "note": "a post is a position of employment"
+     },
+     {
+      "clueFragment": "most of reasoning",
+      "gives": "LOGI",
+      "note": "logic without its last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "PO",
+      "LOGI",
+      "ST"
+     ]
+    },
+    "explanation": {
+     "surface": "A defence lawyer whose work is justifying weak arguments for someone who keeps making excuses.",
+     "walkthrough": "To defend something is to stand round it, so the job surrounds the curtailed reasoning after the opening A.",
+     "definitionFit": "Someone who argues in justification of a cause or person is a defender; the question mark allows the looser excuse-maker sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "defend"
+    }
+   }
   },
   {
    "number": 7,
@@ -146,7 +527,61 @@
      }
     ]
    },
-   "solution": "BUMPINTO"
+   "solution": "BUMPINTO",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "BUMP INTO",
+    "definitions": [
+     {
+      "text": "Come across",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in a ragged state",
+      "for": "anagram",
+      "note": "something ragged is torn and disordered, so the letters of 'in top' are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vagrant",
+      "gives": "BUM",
+      "note": "bum is slang for a tramp or down-and-out"
+     },
+     {
+      "clueFragment": "in top",
+      "gives": "INTOP",
+      "note": "anagram fodder, five letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUM",
+      "PINTO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INTOP",
+       "gives": "PINTO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tramp wearing a tattered shirt, the sort of person you come across on the street.",
+     "walkthrough": "'In top' looks like describing what the vagrant is wearing, but both words are shuffled letters.",
+     "definitionFit": "To meet someone by chance is an idiom for encountering them unexpectedly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "top"
+    }
+   }
   },
   {
    "number": 8,
@@ -160,7 +595,45 @@
     "text": "Outfit with matching elements in musical group",
     "enumeration": "8"
    },
-   "solution": "ENSEMBLE"
+   "solution": "ENSEMBLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ENSEMBLE",
+    "definitions": [
+     {
+      "text": "Outfit with matching elements",
+      "at": 0
+     },
+     {
+      "text": "musical group",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Outfit with matching elements",
+      "note": "a coordinated set of clothes worn together"
+     },
+     {
+      "clueFragment": "musical group",
+      "note": "a set of performers playing together"
+     }
+    ],
+    "explanation": {
+     "surface": "A band all dressed in coordinated outfits.",
+     "walkthrough": "Both senses share the French root for 'together': coordinated clothing and a group of players.",
+     "definitionFit": "A coordinated set of garments and a small band of performers are both called by this borrowed French noun."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -174,7 +647,62 @@
     "text": "Excellent witticism in front of guests",
     "enumeration": "8"
    },
-   "solution": "CRACKING"
+   "solution": "CRACKING",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "CRACKING",
+    "definitions": [
+     {
+      "text": "Excellent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "front of",
+      "for": "letter_selection",
+      "note": "the front of a word is its first letter, so guests contributes only its opener"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "witticism",
+      "gives": "CRACK",
+      "note": "a crack is a wisecrack or joke"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as printed"
+     },
+     {
+      "clueFragment": "guests",
+      "gives": "G",
+      "select": "first",
+      "note": "first letter of guests"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRACK",
+      "IN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A host delivering a brilliant quip in front of the assembled guests.",
+     "walkthrough": "'In front of' reads as one phrase about position; it splits into IN plus 'front of' for the first letter.",
+     "definitionFit": "British informal praise for something very good; a cracking time is a superb one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "front"
+    }
+   }
   },
   {
    "number": 10,
@@ -188,7 +716,48 @@
     "text": "Pads, we’re told, for noted detective",
     "enumeration": "6"
    },
-   "solution": "HOLMES"
+   "solution": "HOLMES",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "HOLMES",
+    "definitions": [
+     {
+      "text": "noted detective",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we’re told",
+      "for": "homophone",
+      "note": "being told something means hearing it spoken, so the pads word is taken by its sound"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pads",
+      "gives": "HOLMES",
+      "soundsLike": "HOMES",
+      "note": "a pad is slang for a flat or home; the L in the name is silent"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone explaining that pads, as they have heard, are what a famous sleuth needs.",
+     "walkthrough": "Pad is informal for where someone lives; the plural, spoken, matches the surname of Conan Doyle's fictional sleuth.",
+     "definitionFit": "Sherlock, created by Arthur Conan Doyle, is the most famous fictional investigator of all."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Pads"
+    }
+   }
   },
   {
    "number": 11,
@@ -202,7 +771,57 @@
     "text": "Go for clubs from the south",
     "enumeration": "4"
    },
-   "solution": "STAB"
+   "solution": "STAB",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "STAB",
+    "definitions": [
+     {
+      "text": "Go",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from the south",
+      "for": "reversal",
+      "note": "in a down entry the south is the bottom, so the clubs word is written upwards"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clubs",
+      "gives": "BATS",
+      "note": "cricket or baseball bats are clubs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAB"
+     ],
+     "reversals": [
+      {
+       "from": "BATS",
+       "to": "STAB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Choosing to head for golf clubs in the south.",
+     "walkthrough": "In a down clue, reading from the south means reading upwards. 'Clubs' wants to be the card suit C; it is sports equipment.",
+     "definitionFit": "Having a stab at something means making an attempt, just as having a go does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "clubs"
+    }
+   }
   },
   {
    "number": 12,
@@ -216,7 +835,75 @@
     "text": "Retainer or nurse kept by a French aunt without English",
     "enumeration": "9"
    },
-   "solution": "ATTENDANT"
+   "solution": "ATTENDANT",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "container"
+    ],
+    "answer": "ATTENDANT",
+    "definitions": [
+     {
+      "text": "Retainer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so the French aunt loses English"
+     },
+     {
+      "text": "kept by",
+      "for": "container",
+      "note": "something kept by another is held inside it, so nurse sits within a French aunt"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as printed"
+     },
+     {
+      "clueFragment": "French aunt",
+      "gives": "TANTE",
+      "note": "tante is French for aunt"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the standard abbreviation for English"
+     },
+     {
+      "clueFragment": "nurse",
+      "gives": "TEND",
+      "note": "to nurse someone is to tend them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AT",
+      "TEND",
+      "ANT"
+     ]
+    },
+    "explanation": {
+     "surface": "A household servant or nanny employed by a French aunt who speaks no English.",
+     "walkthrough": "Tante is the French word for aunt, a common crossword borrowing; the nursing verb goes in after its first letters once the English letter is gone.",
+     "definitionFit": "A retainer is an old word for a servant in a noble household, someone who waits on a master."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nurse"
+    }
+   }
   },
   {
    "number": 13,
@@ -230,7 +917,63 @@
     "text": "Element showing no end of remorseless hatred",
     "enumeration": "5"
    },
-   "solution": "ODIUM"
+   "solution": "ODIUM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "ODIUM",
+    "definitions": [
+     {
+      "text": "hatred",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, so remorseless supplies only its last"
+     },
+     {
+      "text": "no",
+      "for": "deletion",
+      "note": "'no' means without, so that final letter of remorseless is taken away from the element"
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Element",
+      "gives": "SODIUM",
+      "note": "a chemical element, symbol Na"
+     },
+     {
+      "clueFragment": "end of remorseless",
+      "gives": "S",
+      "select": "last",
+      "note": "final letter of remorseless"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ODIUM"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's bitter, unrelenting hatred revealing itself.",
+     "walkthrough": "'No end of' usually means plenty of; here 'no' removes the last letter of remorseless from the element.",
+     "definitionFit": "General loathing or widespread contempt directed at a person is a formal noun for detestation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Element"
+    }
+   }
   },
   {
    "number": 14,
@@ -244,7 +987,59 @@
     "text": "Extremely arthritic horse in pain",
     "enumeration": "4"
    },
-   "solution": "ACHE"
+   "solution": "ACHE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ACHE",
+    "definitions": [
+     {
+      "text": "pain",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Extremely",
+      "for": "letter_selection",
+      "note": "extremes are the outermost points, so arthritic and horse each give their first and last letters"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "arthritic",
+      "gives": "AC",
+      "select": "outer",
+      "note": "first and last letters of arthritic"
+     },
+     {
+      "clueFragment": "horse",
+      "gives": "HE",
+      "select": "outer",
+      "note": "first and last letters of horse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AC",
+      "HE"
+     ]
+    },
+    "explanation": {
+     "surface": "A badly arthritic old horse suffering.",
+     "walkthrough": "'Extremely' reads as very, but it takes the extremes of both following words.",
+     "definitionFit": "A dull continuous hurt is a near synonym for physical suffering or soreness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Extremely"
+    }
+   }
   },
   {
    "number": 15,
@@ -258,7 +1053,51 @@
     "text": "In a merry state, cite a free thing used by coffee drinkers",
     "enumeration": "9"
    },
-   "solution": "CAFETIERE"
+   "solution": "CAFETIERE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CAFETIERE",
+    "definitions": [
+     {
+      "text": "thing used by coffee drinkers",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In a merry state",
+      "for": "anagram",
+      "note": "someone merry is tipsy and unsteady, so 'cite a free' gets scrambled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cite a free",
+      "gives": "CITEAFREE",
+      "note": "anagram fodder, nine letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CITEAFREE",
+       "gives": "CAFETIERE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tipsy customer demanding a complimentary item in a coffee shop.",
+     "walkthrough": "A cafetière is the British name for a French press, a glass jug with a plunger.",
+     "definitionFit": "A plunger pot for brewing ground beans is equipment used by people who make their own filter brew."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "merry"
+    }
+   }
   },
   {
    "number": 16,
@@ -272,7 +1111,67 @@
     "text": "Group with knight and bishop backed city",
     "enumeration": "7"
    },
-   "solution": "BRISTOL"
+   "solution": "BRISTOL",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "BRISTOL",
+    "definitions": [
+     {
+      "text": "city",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backed",
+      "for": "reversal",
+      "note": "something backed is sent backwards, so group, knight and bishop are read in reverse"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Group",
+      "gives": "LOT",
+      "note": "a lot is a set or group"
+     },
+     {
+      "clueFragment": "knight",
+      "gives": "SIR",
+      "note": "the title given to a knight"
+     },
+     {
+      "clueFragment": "bishop",
+      "gives": "B",
+      "note": "B is the chess abbreviation for bishop"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "RIS",
+      "TOL"
+     ],
+     "reversals": [
+      {
+       "from": "LOTSIRB",
+       "to": "BRISTOL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chess club whose knight and bishop players support their home city.",
+     "walkthrough": "Bristol is a large port city in south-west England. 'Knight and bishop' pulls towards chess pieces, but only the bishop is a chess abbreviation.",
+     "definitionFit": "It is a major urban centre in the west of England, so a proper-noun example of the general term."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "backed"
+    }
+   }
   },
   {
    "number": 17,
@@ -286,7 +1185,62 @@
     "text": "US singer beginning to upset writer of sweet innocence?",
     "enumeration": "8"
    },
-   "solution": "CHERUBIC"
+   "solution": "CHERUBIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "CHERUBIC",
+    "definitions": [
+     {
+      "text": "of sweet innocence?",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its first letter, so upset gives only its opener"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "US singer",
+      "gives": "CHER",
+      "note": "the American pop star known by one name"
+     },
+     {
+      "clueFragment": "upset",
+      "gives": "U",
+      "select": "first",
+      "note": "first letter of upset"
+     },
+     {
+      "clueFragment": "writer",
+      "gives": "BIC",
+      "note": "a Biro, a ballpoint pen brand"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHER",
+      "U",
+      "BIC"
+     ]
+    },
+    "explanation": {
+     "surface": "An American singer starting to upset a songwriter known for sweet, innocent lyrics.",
+     "walkthrough": "'Writer' is a person in the surface and a pen in the wordplay; Bic is a ballpoint brand name.",
+     "definitionFit": "Resembling a chubby angelic infant describes a face or manner of childlike purity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "writer"
+    }
+   }
   },
   {
    "number": 18,
@@ -306,7 +1260,63 @@
      }
     ]
    },
-   "solution": "ATRANDOM"
+   "solution": "ATRANDOM",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "AT RANDOM",
+    "definitions": [
+     {
+      "text": "Haphazardly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "managed activity placed in the bread site means inserted into it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "site supplying bread?",
+      "gives": "ATM",
+      "note": "a cash machine dispenses bread, slang for money"
+     },
+     {
+      "clueFragment": "managed",
+      "gives": "RAN",
+      "note": "ran a business means managed it"
+     },
+     {
+      "clueFragment": "activity",
+      "gives": "DO",
+      "note": "a do is an event or bit of activity"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AT",
+      "RAN",
+      "DO",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "A chaotic operation at a bakery.",
+     "walkthrough": "The bakery reading of 'bread' is the trap: bread is slang for money, so the site is a cash dispenser.",
+     "definitionFit": "Done without method or plan, by chance, the adverbial phrase fits anything carried out haphazardly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bread"
+    }
+   }
   },
   {
    "number": 19,
@@ -320,7 +1330,72 @@
     "text": "Loathsome husband developed fault importing drug",
     "enumeration": "7"
    },
-   "solution": "HATEFUL"
+   "solution": "HATEFUL",
+   "annotation": {
+    "type": [
+     "charade",
+     "container",
+     "anagram"
+    ],
+    "answer": "HATEFUL",
+    "definitions": [
+     {
+      "text": "Loathsome",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "importing",
+      "for": "container",
+      "note": "to import is to bring in, so fault takes the drug inside itself"
+     },
+     {
+      "text": "developed",
+      "for": "anagram",
+      "note": "something developed has changed form, so fault with its drug is rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "h is the standard abbreviation for husband"
+     },
+     {
+      "clueFragment": "fault",
+      "gives": "FAULT",
+      "note": "anagram fodder"
+     },
+     {
+      "clueFragment": "drug",
+      "gives": "E",
+      "note": "E is slang for the drug ecstasy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "ATEFUL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FAULTE",
+       "gives": "ATEFUL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vile husband whose failing is bringing drugs into the house.",
+     "walkthrough": "The drug letter joins the fault letters and the six are then rearranged after the husband.",
+     "definitionFit": "Something that arouses strong dislike or disgust is detestable, a straightforward synonym pair."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "developed"
+    }
+   }
   },
   {
    "number": 20,
@@ -334,7 +1409,43 @@
     "text": "Secure player in a pack",
     "enumeration": "4"
    },
-   "solution": "LOCK"
+   "solution": "LOCK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LOCK",
+    "definitions": [
+     {
+      "text": "Secure",
+      "at": 0
+     },
+     {
+      "text": "player in a pack",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Secure",
+      "note": "to fasten something with a key"
+     },
+     {
+      "clueFragment": "player in a pack",
+      "note": "a second-row forward in a rugby scrum"
+     }
+    ],
+    "explanation": {
+     "surface": "A safe position for a card player.",
+     "walkthrough": "'Pack' suggests cards, but it is the rugby scrum, the eight forwards; the second-row forward is a lock.",
+     "definitionFit": "A verb for fastening doors shut, and a rugby union forward position in the second row of the scrum."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "pack"
+    }
+   }
   },
   {
    "number": 21,
@@ -348,7 +1459,52 @@
     "text": "Attractive courtier seen every now and then",
     "enumeration": "4"
    },
-   "solution": "CUTE"
+   "solution": "CUTE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "CUTE",
+    "definitions": [
+     {
+      "text": "Attractive",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "seen every now and then",
+      "for": "letter_selection",
+      "note": "seen now and then means seen at intervals, so only alternate letters of courtier show"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "courtier",
+      "gives": "CUTE",
+      "select": "alternate",
+      "note": "first, third, fifth and seventh letters of courtier"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "U",
+      "T",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A handsome royal attendant who appears at court only occasionally.",
+     "walkthrough": "'Every now and then' means at regular intervals, so take every other letter starting with the first.",
+     "definitionFit": "Pretty or charming in an endearing way; an informal synonym for appealing looks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "seen"
+    }
+   }
   },
   {
    "number": 21,
@@ -362,7 +1518,61 @@
     "text": "Burn millions in company lacking solvency",
     "enumeration": "7"
    },
-   "solution": "COMBUST"
+   "solution": "COMBUST",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "COMBUST",
+    "definitions": [
+     {
+      "text": "Burn",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "millions in company means the millions go inside, between company and the bankrupt word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "Co. is the standard abbreviation for company"
+     },
+     {
+      "clueFragment": "millions",
+      "gives": "M",
+      "note": "m is the abbreviation for million"
+     },
+     {
+      "clueFragment": "lacking solvency",
+      "gives": "BUST",
+      "note": "bust means bankrupt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "M",
+      "BUST"
+     ]
+    },
+    "explanation": {
+     "surface": "A company going bankrupt after burning through millions.",
+     "walkthrough": "'Burn' reads as squandering money in the surface, but it is the definition, meaning catch fire.",
+     "definitionFit": "To catch fire and be consumed by flames is the literal sense of this chemistry verb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Burn"
+    }
+   }
   },
   {
    "number": 22,
@@ -376,7 +1586,43 @@
     "text": "Fewest points admitted by imam in imamate",
     "enumeration": "6"
    },
-   "solution": "MINIMA"
+   "solution": "MINIMA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "MINIMA",
+    "definitions": [
+     {
+      "text": "Fewest points",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "admitted by",
+      "for": "hidden_word",
+      "note": "something admitted by others is let in among them, so the answer sits inside the words imam in imamate"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "imam in imamate",
+      "gives": "MINIMA",
+      "note": "runs across the last letter of imam, all of in, and the start of imamate"
+     }
+    ],
+    "explanation": {
+     "surface": "A religious leader in his own jurisdiction conceding that he scored the lowest.",
+     "walkthrough": "An imamate is the territory or office of an imam; the answer straddles three words.",
+     "definitionFit": "The plural of the mathematical term for the lowest value on a curve or smallest amounts reached."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "points"
+    }
+   }
   },
   {
    "number": 23,
@@ -390,7 +1636,59 @@
     "text": "African party cuts notice for spirited session?",
     "enumeration": "6"
    },
-   "solution": "SEANCE"
+   "solution": "SEANCE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SEANCE",
+    "definitions": [
+     {
+      "text": "spirited session?",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cuts",
+      "for": "container",
+      "note": "a party that cuts notice slices into it, so the African party sits inside"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "notice",
+      "gives": "SEE",
+      "note": "to notice is to see"
+     },
+     {
+      "clueFragment": "African party",
+      "gives": "ANC",
+      "note": "the African National Congress, South Africa's governing party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "ANC",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A political party slashing publicity for a lively meeting.",
+     "walkthrough": "'Notice' looks like a noun, a poster or announcement; it is the verb. 'Spirited' is the pun: a session involving spirits.",
+     "definitionFit": "A gathering where people try to contact the dead is a meeting full of ghosts, hence the playful question mark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "spirited"
+    }
+   }
   },
   {
    "number": 24,
@@ -404,7 +1702,62 @@
     "text": "Slate rubbish about central part of case",
     "enumeration": "5"
    },
-   "solution": "ROAST"
+   "solution": "ROAST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ROAST",
+    "definitions": [
+     {
+      "text": "Slate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "central part of",
+      "for": "letter_selection",
+      "note": "the central part of a word is its middle, so case gives its inner two letters"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so rubbish goes round the middle of case"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rubbish",
+      "gives": "ROT",
+      "note": "rot means nonsense"
+     },
+     {
+      "clueFragment": "central part of case",
+      "gives": "AS",
+      "select": "middle",
+      "note": "the middle two letters of case"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RO",
+      "AS",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone dismissing the core of a legal argument as nonsense.",
+     "walkthrough": "'Slate' is British informal for criticise harshly, not the roofing stone; roast has the same meaning.",
+     "definitionFit": "Both verbs mean to criticise someone severely or tear into them in public."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Slate"
+    }
+   }
   },
   {
    "number": 25,
@@ -418,7 +1771,54 @@
     "text": "Evict a mob in a riot, being antagonistic?",
     "enumeration": "9"
    },
-   "solution": "COMBATIVE"
+   "solution": "COMBATIVE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "COMBATIVE",
+    "definitions": [
+     {
+      "text": "antagonistic",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in a riot",
+      "for": "anagram",
+      "note": "a riot is wild disorder, so 'evict a mob' is thrown into a new order"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Evict a mob",
+      "gives": "EVICTAMOB",
+      "note": "anagram fodder, nine letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "EVICTAMOB",
+       "gives": "COMBATIVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Police clearing a rioting crowd and getting hostile about it.",
+     "walkthrough": "'In a riot' fits the scene of a mob so well that it hides its job of scrambling letters.",
+     "definitionFit": "Eager to fight or argue; hostile and ready for conflict are shared meanings of these adjectives."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "riot"
+    }
+   }
   },
   {
    "number": 26,
@@ -432,7 +1832,65 @@
     "text": "A film about source of sweet or savoury jelly",
     "enumeration": "5"
    },
-   "solution": "ASPIC"
+   "solution": "ASPIC",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ASPIC",
+    "definitions": [
+     {
+      "text": "savoury jelly",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "source of",
+      "for": "letter_selection",
+      "note": "a source is where something starts, so sweet gives its first letter"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so 'a film' wraps round the letter from sweet"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A film",
+      "gives": "APIC",
+      "note": "A as printed, plus pic, informal for a film"
+     },
+     {
+      "clueFragment": "source of sweet",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter of sweet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "S",
+      "PIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A movie about where to get sweet or savoury jellies.",
+     "walkthrough": "'Sweet or savoury jelly' wants to be one definition, but sweet belongs to the wordplay; aspic is only the savoury kind.",
+     "definitionFit": "A clear gelatin made from meat stock, used to set cold dishes, is a savoury moulded preparation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sweet"
+    }
+   }
   },
   {
    "number": 27,
@@ -446,7 +1904,59 @@
     "text": "Move end of project to get financial allowance",
     "enumeration": "6"
    },
-   "solution": "BUDGET"
+   "solution": "BUDGET",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "BUDGET",
+    "definitions": [
+     {
+      "text": "financial allowance",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, so project gives only its last"
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Move",
+      "gives": "BUDGE",
+      "note": "to budge is to shift slightly"
+     },
+     {
+      "clueFragment": "end of project",
+      "gives": "T",
+      "select": "last",
+      "note": "last letter of project"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUDGE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Postponing a project's deadline to secure more funding.",
+     "walkthrough": "'Move end of project' reads as rescheduling a deadline; it splits into the verb plus a final letter.",
+     "definitionFit": "The sum of money set aside for a purpose is the amount one is permitted to spend."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Move"
+    }
+   }
   },
   {
    "number": 28,
@@ -460,7 +1970,67 @@
     "text": "Sense politician is enthralled by free outing",
     "enumeration": "8"
    },
-   "solution": "GUMPTION"
+   "solution": "GUMPTION",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "GUMPTION",
+    "definitions": [
+     {
+      "text": "Sense",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "free",
+      "for": "anagram",
+      "note": "letters set free are loose to move, so outing is rearranged"
+     },
+     {
+      "text": "is enthralled by",
+      "for": "container",
+      "note": "one enthralled by something is captured and held by it, so the politician is held inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "outing",
+      "gives": "OUTING",
+      "note": "anagram fodder"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "MP",
+      "note": "Member of Parliament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GU",
+      "MP",
+      "TION"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OUTING",
+       "gives": "GUTION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A politician delighted by a complimentary day trip, a junket.",
+     "walkthrough": "'Free outing' reads as a perk; 'free' is the instruction to rearrange the outing letters around the politician.",
+     "definitionFit": "Gumption is practical shrewdness or common sense, often with a hint of initiative."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "free"
+    }
+   }
   },
   {
    "number": 29,
@@ -474,7 +2044,54 @@
     "text": "Curve hard to miss in part of a legislature",
     "enumeration": "6"
    },
-   "solution": "CAMBER"
+   "solution": "CAMBER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CAMBER",
+    "definitions": [
+     {
+      "text": "Curve",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to miss",
+      "for": "deletion",
+      "note": "to miss something is to be without it, so the part of a legislature lacks hard"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "h is the pencil-grading abbreviation for hard"
+     },
+     {
+      "clueFragment": "part of a legislature",
+      "gives": "CHAMBER",
+      "note": "a house of parliament, such as the upper chamber"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "AMBER"
+     ]
+    },
+    "explanation": {
+     "surface": "A bend that is hard to overlook inside a parliament building.",
+     "walkthrough": "Camber is the slight arch across a road surface, higher in the middle so water drains off.",
+     "definitionFit": "A gentle convex slope or bow, as on a road or a ship's deck, is a technical word for a shallow bend."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "miss"
+    }
+   }
   },
   {
    "number": 30,
@@ -488,7 +2105,62 @@
     "text": "Conventional poster close to fine wooden barrier",
     "enumeration": "8"
    },
-   "solution": "STOCKADE"
+   "solution": "STOCKADE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "STOCKADE",
+    "definitions": [
+     {
+      "text": "wooden barrier",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its ending, so fine gives its last letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conventional",
+      "gives": "STOCK",
+      "note": "a stock response is a standard, conventional one"
+     },
+     {
+      "clueFragment": "poster",
+      "gives": "AD",
+      "note": "an ad is an advertisement, such as a poster"
+     },
+     {
+      "clueFragment": "fine",
+      "gives": "E",
+      "select": "last",
+      "note": "last letter of fine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STOCK",
+      "AD",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "An ordinary advertising hoarding placed next to a well-made timber fence.",
+     "walkthrough": "'Close to' reads as near; here it means the closing letter.",
+     "definitionFit": "A defensive enclosure of upright timber posts is a fortified fence made of logs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "poster"
+    }
+   }
   }
  ]
 }
