@@ -37,6 +37,7 @@ TOOLS = Path(__file__).resolve().parent
 ROOT = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
 
+import blog_post  # noqa: E402
 import clue_types  # noqa: E402
 import groups  # noqa: E402
 from groups import entry_id  # noqa: E402
@@ -165,12 +166,14 @@ def notes(puzzle):
     if (left and blog and not is_blind(puzzle)
             and len(left) <= stuck_allowance(len(puzzle["entries"]))):
         host, words = blog
+        how = (f"`python3 tools/blog_post.py {puzzle['id']}` prints its cached post and comments"
+               if blog_post.find(puzzle["id"]) else
+               f"WebSearch `{words}`, then WebFetch the post and its comments")
         out.append(
             f"Stuck on {', '.join(entry_id(e) for e in left)}? {host} blogs this puzzle "
-            f"clue by clue: WebSearch `{words}`, then WebFetch the post (its comments "
-            f"often have what the blogger missed). Take only the mechanism and write "
-            f"every field yourself in this file's voice; if the blog does not settle "
-            f"it either, the clue stays null.")
+            f"clue by clue: {how} (the comments often have what the blogger missed). "
+            f"Take only the mechanism and write every field yourself in this file's "
+            f"voice; if the blog does not settle it either, the clue stays null.")
     return out
 
 
