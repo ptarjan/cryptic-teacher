@@ -530,11 +530,14 @@ UNLINKED_IN_SOURCE = dict([
      "the MAJOR that would make DRUM MAJOR is already spent on 17/19/20-across's "
      "MAJOR AND MINOR"),
     (("cryptic-24951", "16-down: clue says (3,3,3,5,3,7) = 24, answer holds 3"),
-     "the LET THE ... DOG SEE THE RABBIT it needs is already spent on "
-     "18-down + 24-across + 8-down's own group"),
+     "SET THE CAT AMONG THE PIGEONS is 16-down + 24-across + 13-across + "
+     "1-down, but 24-across THE reads \"See 16\", one leader, and the paper "
+     "grouped it into 18-down + 24-across + 8-down's LET THE DOG SEE THE "
+     "RABBIT"),
     (("cryptic-24640", "17-across: clue says (5,3,5) = 13, answer holds 5"),
-     "the NEW and WORLD that would make BRAVE NEW WORLD are already spent on "
-     "18/20/31-across's NEW WORLD ORDER"),
+     "the NEW that would make BRAVE NEW WORLD is 18-across, which leads its "
+     "own NEW WORLD ORDER, and a light that starts one answer cannot continue "
+     "another"),
     (("cryptic-24575",
       "9-across + 18-down + 7-down + 16-down + 19-across + 29-across: "
       "clue says (3,4,2,3,8,3,3,9,3,5,3,5) = 51, answer holds 9 alone or 42 "
@@ -542,9 +545,6 @@ UNLINKED_IN_SOURCE = dict([
      "the White Queen's line repeats JAM three times and adds AND once; the "
      "grid holds JAM only once and has no AND at all, so no light can supply "
      "the repeats"),
-    (("cryptic-24540", "24-across: clue says (5,6) = 11, answer holds 5"),
-     "no light in this grid is blank, spare, or grouped toward the six missing "
-     "letters"),
     (("cryptic-24531", "22-across: clue says (3,4,3,4) = 14, answer holds 7"),
      "the LET IT BE that would finish SHE SAID LET IT BE is already spent on "
      "19-across + 6-down's own linked answer"),
@@ -596,9 +596,9 @@ UNLINKED_IN_SOURCE = dict([
     # 23,821 is the shape this table exists for, seven times over. Its theme is
     # LEFT, RIGHT and CENTRE, and the paper clues each of the three lights
     # holding them into several answers at once — RIGHT alone finishes MISTER
-    # RIGHT, INSIDE RIGHT, RIGHT NOTE and RIGHT AS RAIN. `group` is one list per
-    # entry, so each of the three can be written into exactly one of its
-    # answers, and these are the answers left over.
+    # RIGHT, INSIDE RIGHT, RIGHT NOTE and RIGHT AS RAIN. Each of the three
+    # lights reads "See" and one number, so it sits in that one leader's group,
+    # and these are the answers left over.
     (("cryptic-23821", "4-across: clue says (6,5) = 11, answer holds 6"),
      "the RIGHT that would make MISTER RIGHT is already spent on "
      "23-down + 16-across's RIGHT NOTE"),
@@ -625,39 +625,20 @@ UNLINKED_IN_SOURCE = dict([
       "linked"),
      "no light in this grid is blank, spare, or grouped toward the six missing "
      "letters"),
-    (("cryptic-23753", "48-down: clue says (7) = 7, answer holds 3"),
-     "no light in this grid is blank, spare, or grouped toward the four missing "
-     "letters"),
     (("cryptic-23731",
       "3-down + 16-down + 4-down + 5-down + 11-across + 21-across: "
       "clue says (2,2,4,4,4,3,4,4,5,4,2,4,4,7) = 53, answer holds 4 alone or 49 "
       "linked"),
      "the Macbeth line repeats WERE, DONE and IT; the grid holds each only once, "
      "so no light can supply the repeats"),
-    (("cryptic-23695",
-      "13-down + 9-across: clue says (4-6,9,6) = 25, answer holds 10 alone or "
-      "19 linked"),
-     "no light in this grid is blank, spare, or grouped toward the six missing "
-     "letters"),
-    (("cryptic-23660", "7-down: clue says (4,1,5,3) = 13, answer holds 5"),
-     "no light in this grid is blank, spare, or grouped toward the eight missing "
-     "letters"),
     (("cryptic-23651",
       "8-down + 16-down + 1-across + 4-across + 15-across + 25-across: "
       "clue says (3,3,4,3,3,3,6,6,2,1,4,4,4) = 46, answer holds 13 alone or 40 "
       "linked"),
      "the song lyric repeats SHE WAS; the grid holds it only once, so no light "
      "can supply the repeat"),
-    (("cryptic-23626", "22-down: clue says (4,2,4) = 10, answer holds 6"),
-     "the LOVE that would make FALL IN LOVE is already spent on "
-     "27-across + 28-across's own linked answer, whose clue names this light "
-     "too (\"See 28 and 22\")"),
     (("cryptic-23625", "8-across: clue says (4,4,5) = 13, answer holds 8"),
      "no light in this grid is blank, spare, or grouped toward the five missing "
-     "letters"),
-    (("cryptic-23559",
-      "7-down: clue says (1,4-2,3,3,4) = 17, answer holds 13"),
-     "no light in this grid is blank, spare, or grouped toward the four missing "
      "letters"),
     (("cryptic-23541",
       "4-down + 19-down + 8-down: clue says (6,1,5 and 4,2,6,3) = 27, "
@@ -674,39 +655,21 @@ UNLINKED_IN_SOURCE = dict([
       "9 linked"),
      "the BRITISH that would make A VERY BRITISH COUP is already spent on "
      "24-across + 29-across's BRITISH EMPIRE"),
-    (("cryptic-23405", "23-down: clue says (5,4) = 9, answer holds 5"),
-     "the ARMS that would make SLOPE ARMS is already spent on 9-across + "
-     "24-down's ORDER ARMS"),
-    (("cryptic-23314", "13-across: clue says (7,7) = 14, answer holds 7"),
-     "no light in this grid is blank, spare, or grouped toward the seven "
-     "missing letters"),
     (("cryptic-23299",
-      "1-across + 19-down + 10-across: clue says (2,3,2,5,2,7,6) = 27, "
+      "1-across + 10-across + 19-down: clue says (2,3,2,5,2,7,6) = 27, "
       "answer holds 7 alone or 22 linked"),
-     "no light in this grid is blank, spare, or grouped toward the five missing "
-     "letters, despite the clue naming other numbers"),
-    (("cryptic-23299",
-      "9-across + 24-down: clue says (5,4,6) = 15, answer holds 5 alone or 9 "
-      "linked"),
-     "no light in this grid is blank, spare, or grouped toward the six missing "
-     "letters, despite the clue naming other numbers"),
+     "the HUMAN of TO ERR IS HUMAN, TO FORGIVE DIVINE is 9-across, which leads "
+     "its own HUMAN FACE DIVINE, and a light that starts one answer cannot "
+     "continue another"),
     (("cryptic-23299", "12-across: clue says (4,5,2) = 11, answer holds 4"),
      "no light in this grid is blank, spare, or grouped toward the seven "
      "missing letters"),
-    (("cryptic-23247", "19-down: clue says (7,4) = 11, answer holds 7"),
-     "the TOWN that would make SWINDON TOWN is 9-across, whose own clue reads "
-     "\"See 15 and 19\" and whose one `group` field the paper spent on "
-     "15-across + 9-across's FREETOWN"),
     (("cryptic-22968",
       "3-down + 21-down: clue says (4,2,3,3,2,3,3,4) = 24, answer holds 4 "
       "alone or 12 linked"),
      "Forsyth's catchphrase says NICE and TO SEE YOU twice each; the grid holds "
      "each once, at 3-down and 21-down, and every other light in it carries its "
      "own clue and its own answer"),
-    (("cryptic-22933", "22-down: clue says (8) = 8, answer holds 4"),
-     "the PLAY that would make WORDPLAY is 8-down, whose clue reads \"See 1 "
-     "across and 22\" — it ends the SCOTTISH PLAY too, and the paper's one "
-     "`group` field is spent on 1-across"),
     (("cryptic-22841",
       "8-down + 21-down + 12-down: clue says (4,2,3,2,3,4,6) = 24, answer "
       "holds 4 alone or 18 linked"),
@@ -718,8 +681,8 @@ UNLINKED_IN_SOURCE = dict([
      "full clue of its own and is pointed at by 7-down's \"See 25\" for ESTATE "
      "AGENTS"),
     (("cryptic-22831", "15-across: clue says (7,6) = 13, answer holds 7"),
-     "the same 25-across ESTATE would make HOUSING ESTATE, and one light "
-     "cannot be the second word of three answers at once"),
+     "the same 25-across ESTATE would make HOUSING ESTATE, and it carries a "
+     "full clue of its own"),
     (("cryptic-21640", "20-down: clue says (5,7) = 12, answer holds 5"),
      "the THERESA that makes SAINT THERESA is 1-across, spent on the paper's "
      "own five-light group for the ONE-EYED YELLOW IDOL line — 19-down's "
@@ -742,10 +705,11 @@ UNLINKED_IN_SOURCE = dict([
      "8-down's LITTLE GREEN MEN"),
     (("cryptic-21625", "6-down: clue says (5,2,3,5,2,4) = 21, answer holds 15"),
      "the OF TIME that finishes DANCE TO THE MUSIC OF TIME is 7-down, which "
-     "12-across's AHEAD OF TIME needs just as much; one light, two answers"),
+     "12-across's AHEAD OF TIME needs just as much, and 7-down has no clue "
+     "text to say it continues either answer"),
     (("cryptic-21625", "12-across: clue says (5,2,4) = 11, answer holds 5"),
      "the same 7-down OF TIME finishes 6-down's DANCE TO THE MUSIC OF TIME, "
-     "and `group` cannot say a light ends both"),
+     "and 7-down has no clue text to say it continues either answer"),
     (("cryptic-22490",
       "20-down + 4-down + 4-across: clue says (5,6,3,5,8) = 27, answer holds "
       "5 alone or 22 linked"),
@@ -757,14 +721,6 @@ UNLINKED_IN_SOURCE = dict([
      "the clue opens \"(and 10 again)\" — the paper spends one nine-cell light "
      "twice, printing THIRTY-SIX (6-3) in it and counting a second (6-4) "
      "answer it never gave a light to"),
-    (("cryptic-22289", "21-across: clue says (5,5) = 10, answer holds 5"),
-     "the ADLER that makes LARRY ADLER is 10-across, already spent on "
-     "13-across + 10-across's IRENE ADLER in this Freud-themed grid; one "
-     "light, two answers"),
-    (("cryptic-22289", "21-down: clue says (6,5) = 11, answer holds 6"),
-     "the FREUD that makes LUCIAN FREUD is 24-across, which 22-across + "
-     "24-across's CLEMENT FREUD needs just as much, and `group` cannot say a "
-     "light ends both"),
     (("cryptic-22327",
       "21-down + 20-down: clue says (6,6,6) = 18, answer holds 6 alone or 12 "
       "linked"),
@@ -788,11 +744,8 @@ UNLINKED_IN_SOURCE = dict([
       "or 19 linked"),
      "the WHAT that makes LOOK WHAT THE CAT DRAGGED IN is 21-across, already "
      "spent on 21-across + 23-down + 9-across + 11-across's WHAT SORT OF TIME "
-     "DO YOU CALL THIS THEN; one light, two answers"),
-    (("cryptic-22022", "24-across: clue says (8) = 8, answer holds 4"),
-     "the FORD that makes Constable's FLATFORD is 24-down, whose own clue "
-     "reads \"See 2 and 24 across\" and so names both leaders itself; `group` "
-     "holds one list and it went to 2-down"),
+     "DO YOU CALL THIS THEN, and a light that starts one answer cannot "
+     "continue another"),
     (("cryptic-21893", "11-across: clue says (6,4,2,3,8) = 23, answer holds 12"),
      "BATTLE HYMN OF THE REPUBLIC is 23 letters and 11-across holds the "
      "twelve of BATTLE HYMN OF; no light in this grid is blank, spare or "
