@@ -10,7 +10,10 @@ Output goes to puzzles/authored/<year>/authored-<number>.json, written by
 tools/fetch_puzzle.write_puzzle_file exactly as it writes Guardian puzzles, so
 the same schema, validator, app and smoke test apply to our own puzzles with no
 special cases: the id is <series>-<number> like every other puzzle's, and the
-source names us as publisher with no url, since nothing was fetched.
+source names us as publisher with no url, since nothing was fetched. It
+refuses to write a puzzle tools/validate_annotations.py has an ERROR for, so
+the authoring rules (a stated scene on every clue, a joke on half of them)
+cannot be skipped by not running the validator.
 
   python3 tools/build_authored_puzzle.py \
       --fill tools/data/sample_fill_11.json \
@@ -32,6 +35,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import provenance  # noqa: E402
 import puzzle_paths  # noqa: E402
 import series  # noqa: E402
+import validate_annotations  # noqa: E402
 from fetch_puzzle import write_puzzle_file  # noqa: E402
 
 
@@ -109,6 +113,10 @@ def main():
                                                  had_hints=False)
         except ValueError as err:
             sys.exit(f"--annotated-by: {err}")
+    _, errors, _ = validate_annotations.validate_puzzle(puzzle)
+    if errors:
+        sys.exit("refusing to write: tools/validate_annotations.py has "
+                 f"{len(errors)} ERROR(s)\n  " + "\n  ".join(errors))
     out = write_puzzle_file(puzzle_paths.file_for(puzzle), puzzle,
                             generator="tools/build_authored_puzzle.py")
     print(f"wrote {out} — {len(puzzle['entries'])} entries")
