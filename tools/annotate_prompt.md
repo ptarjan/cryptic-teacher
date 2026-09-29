@@ -139,7 +139,8 @@ Nine first runs in ten fail, nearly always on these five rules. Get them right f
 - `definitionFit` needs 25+ characters and 3+ content words that are in neither the
   definition nor the answer. Name the relation (synonym, example, crossword-only
   sense, idiom); don't read the definition back with the answer in it.
-- An indicator `note` needs 25+ characters and words beyond the indicator's own.
+- An indicator `note` needs 25+ characters and words beyond the indicator's own, and
+  never writes a block's letters: its rung comes before the blocks.
 - No block `note` may contain the answer. Write about the fragment; the walkthrough
   spells the answer.
 - A `cryptic_definition` has 2+ blocks (the surface reading, the setter's reading),
