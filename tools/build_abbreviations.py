@@ -18,6 +18,12 @@ fails, printing the tools/add_abbreviation.py command for each, when a reading
 SEEN_MIN clues use is neither in the table, derived() from pieces it holds, nor
 in REJECT. CI runs it, so the table follows the corpus instead of waiting for
 an annotator to notice a gap.
+
+    python3 tools/build_abbreviations.py --fix
+
+adds each of those readings. The nightly runs it right after the lexicons are
+rebuilt, so a reading crossing SEEN_MIN lands in the same commit; one that is
+not a convention is taken out by adding it to REJECT.
 """
 import json
 import re
@@ -349,8 +355,17 @@ def check():
     return 1
 
 
+def fix():
+    """Add every reading check() would ask for. Returns non-zero if one is refused."""
+    import add_abbreviation
+    return max([add_abbreviation.main([letters, word]) for word, letters, _ in proposals()],
+               default=0)
+
+
 if __name__ == "__main__":
     import sys
     if sys.argv[1:] == ["--check"]:
         sys.exit(check())
+    if sys.argv[1:] == ["--fix"]:
+        sys.exit(fix())
     print(f"abbreviations.js: {write(OUT, render())}")
