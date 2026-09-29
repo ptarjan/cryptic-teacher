@@ -76,8 +76,9 @@ from blog_facts import (
     clue_body,
     fact_from_json,
     fact_json,
-    file_text,
+    file_rows,
     heard_blocks,
+    rewrite_rows,
 )
 from groups import entry_id
 from indicator_keys import WORD, letters
@@ -1547,25 +1548,31 @@ def read_leads(required=False):
 
 
 class Leads:
-    """The leads file, one puzzle a line as blog_facts writes it, with a
-    puzzle's parsed only when get() asks: parsed whole, it outweighed the file
-    tenfold and was held the whole run."""
+    """The leads file, one puzzle a line as blog_facts writes it, holding each
+    puzzle's line offset and parsing a puzzle only when get() asks: parsed
+    whole, it outweighed the file tenfold and was held the whole run."""
 
     def __init__(self, path):
-        self._text, dec = {}, json.JSONDecoder()
-        with path.open(encoding="utf-8") as f:
-            for line in f:
-                line = line.rstrip("\n").rstrip(",")
-                if line in ("{", "}"):
+        self._path, self._at, dec = path, {}, json.JSONDecoder()
+        with path.open("rb") as f:
+            while line := f.readline():
+                text = line.decode("utf-8").rstrip("\n").rstrip(",")
+                if text in ("{", "}"):
                     continue
-                pid, end = dec.raw_decode(line)
-                if line[end:end + 1] != ":":
+                pid, end = dec.raw_decode(text)
+                if text[end:end + 1] != ":":
                     sys.exit(f"{path} is not one puzzle a line: rerun tools/blog_facts.py, which writes it so")
-                self._text[pid] = line[end + 1:]
+                self._at[pid] = f.tell() - len(line)
 
     def get(self, pid, default=None):
-        text = self._text.get(pid)
-        return default if text is None else json.loads(text)
+        at = self._at.get(pid)
+        if at is None:
+            return default
+        with self._path.open("rb") as f:
+            f.seek(at)
+            text = f.readline().decode("utf-8").rstrip("\n").rstrip(",")
+        _, end = json.JSONDecoder().raw_decode(text)
+        return json.loads(text[end + 1:])
 
 
 def stated(facts):
@@ -1778,24 +1785,27 @@ def write(corpus, votes, said=None):
     lex, dlex = Lexicon(corpus), Definitions(corpus)
     puzzles = itertools.groupby(corpus, key=lambda r: r[0])
     head = next(puzzles, None)
+
+    def filled(f):
+        nonlocal head
+        for pid, rec in file_rows(f):
+            if head is not None and head[0] == pid:
+                got, new = (said or {}).get(pid, {}), {}
+                for _, eid, clue, answer, facts in head[1]:
+                    facts = {**facts, "leads": got[eid]} if eid in got else facts
+                    # Definitions are placed in the clue's words, as the puzzle stores them.
+                    found = fact_json(inferred(clue, answer, facts, votes, lex, ilex, dlex),
+                                      enumeration.split(clue)[0])
+                    if found:
+                        new[eid] = found
+                head = next(puzzles, None)
+                if new:
+                    n.update(k for v in new.values() for k in v.get("inferred", ()))
+                    rec["entries"] = dict(sorted(new.items()))
+            yield pid, rec
+
     for f in sorted(OUT.glob("*.json")):
-        rows_ = json.loads(f.read_text(encoding="utf-8"))
-        for pid, rec in rows_.items():
-            if head is None or head[0] != pid:
-                continue
-            got, new = (said or {}).get(pid, {}), {}
-            for _, eid, clue, answer, facts in head[1]:
-                facts = {**facts, "leads": got[eid]} if eid in got else facts
-                # Definitions are placed in the clue's words, as the puzzle stores them.
-                found = fact_json(inferred(clue, answer, facts, votes, lex, ilex, dlex),
-                                  enumeration.split(clue)[0])
-                if found:
-                    new[eid] = found
-            head = next(puzzles, None)
-            if new:
-                n.update(k for v in new.values() for k in v.get("inferred", ()))
-                rec["entries"] = dict(sorted(new.items()))
-        f.write_text(file_text(rows_), encoding="utf-8")
+        rewrite_rows(f, filled(f))
     if head is not None:
         sys.exit(f"letter_facts.write: {head[0]} is out of step with {OUT.relative_to(ROOT)}: corpus must be rows() in order")
     return n
