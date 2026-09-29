@@ -350,11 +350,11 @@ hold. So two parts of it are now ERRORs on every puzzle we set, and
   `letters`, `hidden`, `definition`...) and may not name the answer. Only 1.6%
   of published surfaces use that vocabulary, so a surface that needs it is
   describing the machinery. (`check_authored_surface`)
-* **Half the clues in the puzzle carry a joke** (`features.joke`: `pun` or
-  `absurd`), and a pun names its word in `features.misdirectedWord`. Half is
-  measured from fifteensquared favourite votes: a joke is on 25.7% of clues
-  nobody named, 38.4% of clues named once, 48.8% named twice and 51.3% named
-  three or more times. (`check_authored_jokes`, `MIN_JOKE_SHARE`)
+* **A pun names its word.** A clue tagged `features.joke: pun` names the word
+  whose second sense carries it in `features.misdirectedWord`. There is no joke
+  quota: a quota of half, tried on 2026-09-29, was met by tagging clues rather
+  than writing jokes, and scored worse (see the grading section).
+  (`check_authored_puns`)
 
 The favourites' own surfaces show what the field is for. Everyman 4087's
 `Business listing two things enjoyed by Victorian conwoman? (6,3,6)` =
