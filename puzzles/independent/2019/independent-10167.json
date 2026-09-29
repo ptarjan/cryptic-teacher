@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "id": "1-across",
@@ -34,7 +37,58 @@
     "text": "Stalks latecomer regularly, often smoking weed?",
     "enumeration": "10"
    },
-   "solution": "LEMONGRASS"
+   "solution": "LEMONGRASS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LEMONGRASS",
+    "definitions": [
+     {
+      "text": "Stalks",
+      "at": 0,
+      "note": "lemongrass is sold and cooked as stalks, so the plural noun stands for the plant"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "'regularly' asks for letters at a fixed interval, here every third one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "latecomer regularly",
+      "gives": "LEM",
+      "select": "regular",
+      "note": "every third letter of LatEcoMer: L, E, M"
+     },
+     {
+      "clueFragment": "often smoking weed",
+      "gives": "ONGRASS",
+      "note": "someone habitually smoking weed is 'on grass' (grass = cannabis)"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEM",
+      "ONGRASS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who turns up late is always seen puffing on a joint.",
+     "walkthrough": "'Stalks' looks like a verb about following someone, but it is the plural noun. The regular letters are every third one, not the usual alternate ones; 'on grass' is slang for being a regular cannabis user.",
+     "definitionFit": "A definition by the part used: the plant reaches the kitchen as woody stalks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Stalks"
+    }
+   }
   },
   {
    "id": "1-down",
@@ -49,7 +103,43 @@
     "text": "Spandex: extremely crass clothing",
     "enumeration": "5"
    },
-   "solution": "LYCRA"
+   "solution": "LYCRA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "LYCRA",
+    "definitions": [
+     {
+      "text": "Spandex",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "clothing",
+      "for": "hidden_word",
+      "note": "read as a verb, 'clothing' means dressing or wrapping round, so the two words wrap the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "extremely crass",
+      "gives": "LYCRA",
+      "note": "sitting inside extremeLY CRAss"
+     }
+    ],
+    "explanation": {
+     "surface": "A fashion verdict: skin-tight stretch fabric is the height of bad taste.",
+     "walkthrough": "'Clothing' reads as the garments made of Spandex, but it is a verb: the words clothe, or wrap around, the answer.",
+     "definitionFit": "A regional equivalence: the British trade name for the stretch fibre that Americans call by the other name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "clothing"
+    }
+   }
   },
   {
    "id": "2-down",
@@ -70,7 +160,68 @@
      }
     ]
    },
-   "solution": "MINUSSIGN"
+   "solution": "MINUSSIGN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "MINUS SIGN",
+    "definitions": [
+     {
+      "text": "an indication of negativity",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cryptically",
+      "for": "anagram",
+      "note": "'cryptically' says the words are to be read in a coded, scrambled form"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "'around' puts the scrambled letters on either side of the next piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Is musing",
+      "gives": "ISMUSING",
+      "note": "anagram fodder, eight letters"
+     },
+     {
+      "clueFragment": "noon",
+      "gives": "N",
+      "note": "N is the standard abbreviation for noon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MI",
+      "N",
+      "USSIGN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ISMUSING",
+       "gives": "MIUSSIGN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Is brooding over something at midday a sign of a pessimistic mood?",
+     "walkthrough": "The surface's 'negativity' is about mood; the definition means it in the arithmetic sense.",
+     "definitionFit": "A plain description: the dash in front of a number shows it is below zero."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "negativity"
+    }
+   }
   },
   {
    "id": "3-down",
@@ -85,7 +236,61 @@
     "text": "Local communities bug heroin suspect with violent criminals",
     "enumeration": "14"
    },
-   "solution": "NEIGHBOURHOODS"
+   "solution": "NEIGHBOURHOODS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "NEIGHBOURHOODS",
+    "definitions": [
+     {
+      "text": "Local communities",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "suspect",
+      "for": "anagram",
+      "note": "as an adjective 'suspect' means dubious, so the letters before it are not to be trusted in their order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bug heroin",
+      "gives": "BUGHEROIN",
+      "note": "anagram fodder"
+     },
+     {
+      "clueFragment": "violent criminals",
+      "gives": "HOODS",
+      "note": "hoods = hoodlums, thugs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEIGHBOUR",
+      "HOODS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BUGHEROIN",
+       "gives": "NEIGHBOUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Residents wiretap a gang they think is dealing heroin.",
+     "walkthrough": "'Bug' and 'suspect' both look like police verbs, but 'bug' is just letters and 'suspect' is an adjective saying those letters are out of order.",
+     "definitionFit": "A plain synonym: districts of a town together with the people who live there."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bug"
+    }
+   }
   },
   {
    "id": "4-down",
@@ -106,7 +311,57 @@
      }
     ]
    },
-   "solution": "REENTER"
+   "solution": "REENTER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RE-ENTER",
+    "definitions": [
+     {
+      "text": "compete again",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "quitting",
+      "for": "deletion",
+      "note": "the letter for 'quietly' is 'quitting', leaving the word it sat in"
+     }
+    ],
+    "linkWords": [
+     "is to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One who regrets",
+      "gives": "REPENTER",
+      "note": "someone who repents"
+     },
+     {
+      "clueFragment": "quietly",
+      "gives": "P",
+      "note": "p = piano, quietly in music; this letter goes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REENTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A remorseful player who walked away wants to come back into the contest.",
+     "walkthrough": "'Quietly quitting' passes for the office buzzword for doing the bare minimum, but it is P leaving the word.",
+     "definitionFit": "A plain synonym: signing up for a race or contest a second time."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "quietly"
+    }
+   }
   },
   {
    "id": "5-down",
@@ -127,7 +382,57 @@
      }
     ]
    },
-   "solution": "STAYSUP"
+   "solution": "STAYSUP",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "STAYS UP",
+    "definitions": [
+     {
+      "text": "doesn't settle in the evening",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occasionally",
+      "for": "letter_selection",
+      "note": "'occasionally' means now and then, so only every other letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Guy's",
+      "gives": "STAYS",
+      "note": "a guy is a stay, a rope bracing a tent or mast; the 's is kept"
+     },
+     {
+      "clueFragment": "lump occasionally",
+      "gives": "UP",
+      "select": "alternate",
+      "note": "the even letters of lUmP"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAYS",
+      "UP"
+     ]
+    },
+    "explanation": {
+     "surface": "A man with a lump on him cannot get comfortable at night.",
+     "walkthrough": "'Guy' is not a man here but a guy rope, which is also called a stay.",
+     "definitionFit": "An idiom: not going to bed at night is the opposite of settling down for it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Guy's"
+    }
+   }
   },
   {
    "id": "6-across",
@@ -142,7 +447,47 @@
     "text": "Old-fashioned haircut for a male",
     "enumeration": "4"
    },
-   "solution": "PERM"
+   "solution": "PERM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PERM",
+    "definitions": [
+     {
+      "text": "Old-fashioned haircut",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for a",
+      "gives": "PER",
+      "note": "per = for a, as in 'per day'"
+     },
+     {
+      "clueFragment": "male",
+      "gives": "M",
+      "note": "M is the standard abbreviation for male"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PER",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "A dated hairstyle suited to a man.",
+     "walkthrough": "'For a' looks like filler connecting haircut to male, but it supplies PER.",
+     "definitionFit": "A definition by example: chemically set curls, a style associated with the 1980s."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "for"
+    }
+   }
   },
   {
    "id": "7-down",
@@ -157,7 +502,48 @@
     "text": "Provide online joke?",
     "enumeration": "5"
    },
-   "solution": "EQUIP"
+   "solution": "EQUIP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EQUIP",
+    "definitions": [
+     {
+      "text": "Provide",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "online",
+      "gives": "E",
+      "note": "e- = electronic, online, as in email"
+     },
+     {
+      "clueFragment": "joke",
+      "gives": "QUIP",
+      "note": "a quip is a witty remark"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "QUIP"
+     ]
+    },
+    "explanation": {
+     "surface": "Posting gags on the internet as a service to others.",
+     "walkthrough": "The e- prefix of email and e-commerce gives 'online' as the single letter E.",
+     "definitionFit": "A plain synonym: to supply someone with what they need."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "online"
+    }
+   }
   },
   {
    "id": "8-down",
@@ -178,7 +564,71 @@
      }
     ]
    },
-   "solution": "MOTHEATEN"
+   "solution": "MOTHEATEN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "MOTH-EATEN",
+    "definitions": [
+     {
+      "text": "Shabby",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cancelled",
+      "for": "deletion",
+      "note": "a cancelled run is struck out, so the R is struck from the word"
+     },
+     {
+      "text": "by",
+      "for": "charade",
+      "note": "'by' means beside, so the pieces sit next to each other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "way of working",
+      "gives": "MO",
+      "note": "MO = modus operandi, a way of working"
+     },
+     {
+      "clueFragment": "playhouse",
+      "gives": "THEATRE",
+      "note": "a playhouse is a theatre"
+     },
+     {
+      "clueFragment": "run",
+      "gives": "R",
+      "note": "R = run in cricket scoring; this letter goes"
+     },
+     {
+      "clueFragment": "November",
+      "gives": "N",
+      "note": "November is N in the radio alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "THEATE",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A tatty production at the theatre has its November run called off.",
+     "walkthrough": "The surface ties 'November run cancelled' together as a theatre booking; in fact N is added and only the R goes.",
+     "definitionFit": "A figurative sense: cloth chewed full of holes by moths, hence worn out and tatty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "run"
+    }
+   }
   },
   {
    "id": "9-down",
@@ -199,7 +649,81 @@
      }
     ]
    },
-   "solution": "PITCHEDBATTLES"
+   "solution": "PITCHEDBATTLES",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "PITCHED BATTLES",
+    "definitions": [
+     {
+      "text": "disturbances",
+      "at": 84
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to meet",
+      "for": "charade",
+      "note": "one piece meets the next, so they are joined end to end"
+     },
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "'almost' means not quite all, so the name loses its last letter"
+     }
+    ],
+    "linkWords": [
+     "which resulted in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Penny",
+      "gives": "P",
+      "note": "P = penny"
+     },
+     {
+      "clueFragment": "longed",
+      "gives": "ITCHED",
+      "note": "itched = longed, yearned"
+     },
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "B = British"
+     },
+     {
+      "clueFragment": "ex-Prime Minister, almost",
+      "gives": "ATTLE",
+      "note": "Clement ATTLEE, Labour Prime Minister 1945-51, without his last letter"
+     },
+     {
+      "clueFragment": "succeeded",
+      "gives": "S",
+      "note": "S = succeeded, the genealogical abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ITCHED",
+      "B",
+      "ATTLE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman called Penny's longing to meet a former British premier ended in riots.",
+     "walkthrough": "'Penny' reads as a woman's name, but it is the coin abbreviation P.",
+     "definitionFit": "A loose synonym: set-piece violent clashes are an extreme kind of public disorder."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Penny"
+    }
+   }
   },
   {
    "id": "10-across",
@@ -214,7 +738,76 @@
     "text": "Brief caught working with Russia and its allies before start of election",
     "enumeration": "7"
    },
-   "solution": "CONCISE"
+   "solution": "CONCISE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "CONCISE",
+    "definitions": [
+     {
+      "text": "Brief",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with",
+      "for": "charade",
+      "note": "'with' simply adds one piece to the next"
+     },
+     {
+      "text": "start of",
+      "for": "letter_selection",
+      "note": "'start of' takes just the opening letter of the word that follows"
+     }
+    ],
+    "linkWords": [
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "C = caught in cricket scoring"
+     },
+     {
+      "clueFragment": "working",
+      "gives": "ON",
+      "note": "on = working, as a machine is on"
+     },
+     {
+      "clueFragment": "Russia and its allies",
+      "gives": "CIS",
+      "note": "the Commonwealth of Independent States, the post-Soviet bloc"
+     },
+     {
+      "clueFragment": "start of election",
+      "gives": "E",
+      "select": "first",
+      "note": "first letter of Election"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ON",
+      "CIS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A lawyer's brief is exposed as having worked for Moscow just before polling.",
+     "walkthrough": "'Brief' looks like a lawyer or a set of instructions; it is the adjective.",
+     "definitionFit": "A plain synonym: short and to the point."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Brief"
+    }
+   }
   },
   {
    "id": "11-across",
@@ -229,7 +822,56 @@
     "text": "Sample of \"Float like a butterfly, sting like a be\"?",
     "enumeration": "7"
    },
-   "solution": "ALIQUOT"
+   "solution": "ALIQUOT",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ALIQUOT",
+    "definitions": [
+     {
+      "text": "Sample",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "be",
+      "for": "deletion",
+      "note": "'be' is BEE printed without its last letter, showing that the quotation is cut short the same way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Float like a butterfly",
+      "gives": "ALI",
+      "note": "Muhammad Ali's own boast about his boxing"
+     },
+     {
+      "clueFragment": "sting like a",
+      "gives": "QUOTE",
+      "note": "the whole line is a famous quotation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALI",
+      "QUOT"
+     ]
+    },
+    "explanation": {
+     "surface": "An excerpt from Muhammad Ali's most famous line about his boxing.",
+     "walkthrough": "The typo is the instruction: 'be' is BEE without its last letter, so the Ali quote loses its last letter too.",
+     "definitionFit": "A technical synonym: a chemist's measured portion taken from a larger quantity for testing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "be"
+    }
+   }
   },
   {
    "id": "12-across",
@@ -244,7 +886,52 @@
     "text": "Seethes at debauched lovers of Grace?",
     "enumeration": "9"
    },
-   "solution": "AESTHETES"
+   "solution": "AESTHETES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AESTHETES",
+    "definitions": [
+     {
+      "text": "lovers of Grace",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "debauched",
+      "for": "anagram",
+      "note": "debauched means corrupted, led astray, so the letters are knocked out of their proper order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Seethes at",
+      "gives": "SEETHESAT",
+      "note": "anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SEETHESAT",
+       "gives": "AESTHETES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is fuming at the dissolute admirers of a woman called Grace.",
+     "walkthrough": "The capital G makes Grace look like a woman's name; it is grace in the sense of beauty and elegance.",
+     "definitionFit": "A cryptic paraphrase: people devoted to beauty and refinement love elegance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Grace"
+    }
+   }
   },
   {
    "id": "13-across",
@@ -259,7 +946,65 @@
     "text": "Manage to capture Serbian leader in thicket",
     "enumeration": "5"
    },
-   "solution": "COPSE"
+   "solution": "COPSE",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "COPSE",
+    "definitions": [
+     {
+      "text": "thicket",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to capture",
+      "for": "container",
+      "note": "to capture something is to hold it inside, so COPE holds the letter"
+     },
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "a leader goes first, so only the opening letter is used"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Manage",
+      "gives": "COPE",
+      "note": "cope = manage"
+     },
+     {
+      "clueFragment": "Serbian leader",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter of Serbian"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COP",
+      "S",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A fugitive Serbian leader is caught hiding in dense undergrowth.",
+     "walkthrough": "'Leader' reads as a head of state, but it only means the first letter.",
+     "definitionFit": "A near synonym: a small wood of close-growing trees and bushes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "id": "14-across",
@@ -274,7 +1019,59 @@
     "text": "Character eating into company's capital",
     "enumeration": "5"
    },
-   "solution": "CAIRO"
+   "solution": "CAIRO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CAIRO",
+    "definitions": [
+     {
+      "text": "capital",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eating into",
+      "for": "container",
+      "note": "something eating into a word ends up inside it"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Character",
+      "gives": "AIR",
+      "note": "an air is a manner or character, an air of confidence"
+     },
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "Co = company"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "AIR",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is eating into a firm's money.",
+     "walkthrough": "'Capital' is set up as a firm's money, but it is a capital city; 's is 'is', linking wordplay to definition.",
+     "definitionFit": "A definition by example: the seat of government of Egypt."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "id": "14-down",
@@ -289,7 +1086,54 @@
     "text": "Reduction of the reaction times of a city lass in transit",
     "enumeration": "9"
    },
-   "solution": "CATALYSIS"
+   "solution": "CATALYSIS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CATALYSIS",
+    "definitions": [
+     {
+      "text": "Reduction of the reaction times",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in transit",
+      "for": "anagram",
+      "note": "letters in transit are on the move, so they will not arrive in the order they set out"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a city lass",
+      "gives": "ACITYLASS",
+      "note": "anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ACITYLASS",
+       "gives": "CATALYSIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl from town on the move reacts more quickly than usual.",
+     "walkthrough": "'In transit' reads as a girl travelling, but it says the letters are moving about.",
+     "definitionFit": "A description by effect: a catalyst speeds a chemical change, so the time it takes shrinks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "transit"
+    }
+   }
   },
   {
    "id": "15-across",
@@ -304,7 +1148,54 @@
     "text": "Play the part of salesman with grudge",
     "enumeration": "9"
    },
-   "solution": "REPRESENT"
+   "solution": "REPRESENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REPRESENT",
+    "definitions": [
+     {
+      "text": "Play the part of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with",
+      "for": "charade",
+      "note": "'with' simply adds the second piece to the first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "salesman",
+      "gives": "REP",
+      "note": "a rep is a sales representative"
+     },
+     {
+      "clueFragment": "grudge",
+      "gives": "RESENT",
+      "note": "resent = grudge, as a verb"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REP",
+      "RESENT"
+     ]
+    },
+    "explanation": {
+     "surface": "An actor takes the role of a travelling salesman who bears a grudge.",
+     "walkthrough": "'Grudge' looks like a noun the salesman carries; it has to be read as a verb.",
+     "definitionFit": "A theatrical sense: to portray a character on stage or in art."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "grudge"
+    }
+   }
   },
   {
    "id": "16-down",
@@ -319,7 +1210,69 @@
     "text": "Obtained sacred text, rewritten to remove sacrilegious introduction",
     "enumeration": "9"
    },
-   "solution": "EXTRACTED"
+   "solution": "EXTRACTED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "anagram"
+    ],
+    "answer": "EXTRACTED",
+    "definitions": [
+     {
+      "text": "Obtained",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "introduction",
+      "for": "letter_selection",
+      "note": "an introduction comes first, so only the opening letter is used"
+     },
+     {
+      "text": "to remove",
+      "for": "deletion",
+      "note": "'to remove' takes that letter out of the fodder"
+     },
+     {
+      "text": "rewritten",
+      "for": "anagram",
+      "note": "text that is rewritten comes out in a new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sacred text",
+      "gives": "SACREDTEXT",
+      "note": "the letters to work on"
+     },
+     {
+      "clueFragment": "sacrilegious introduction",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter of Sacrilegious, the letter taken away"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ACREDTEXT",
+       "gives": "EXTRACTED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A holy scripture is revised to cut out an irreverent opening.",
+     "walkthrough": "With the S of 'sacred' gone, the nine remaining letters are rearranged.",
+     "definitionFit": "A plain synonym: drawn out or got hold of, as information or a tooth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rewritten"
+    }
+   }
   },
   {
    "id": "17-across",
@@ -340,7 +1293,54 @@
      }
     ]
    },
-   "solution": "TENORCLEF"
+   "solution": "TENORCLEF",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TENOR CLEF",
+    "definitions": [
+     {
+      "text": "instruction for a musician",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "'agitato'",
+      "for": "anagram",
+      "note": "agitato is Italian for agitated, and agitated letters are stirred up"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Reflect on",
+      "gives": "REFLECTON",
+      "note": "anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REFLECTON",
+       "gives": "TENORCLEF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A player ponders the marking 'agitato' on the score.",
+     "walkthrough": "'Agitato' is a real score marking, so it hides well as an instruction to stir the letters.",
+     "definitionFit": "A description: the sign at the start of a stave tells a cellist or trombonist which pitch each line stands for."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "'agitato'"
+    }
+   }
   },
   {
    "id": "18-down",
@@ -355,7 +1355,53 @@
     "text": "Film serial killer next to new desk",
     "enumeration": "7"
    },
-   "solution": "LECTERN"
+   "solution": "LECTERN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LECTERN",
+    "definitions": [
+     {
+      "text": "desk",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "next to",
+      "for": "charade",
+      "note": "'next to' puts the second piece right beside the first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Film serial killer",
+      "gives": "LECTER",
+      "note": "Hannibal Lecter of The Silence of the Lambs"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N = new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LECTER",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A movie murderer is placed beside a brand-new desk.",
+     "walkthrough": "The surface makes 'new desk' a phrase; 'new' belongs to the wordplay and 'desk' stands alone.",
+     "definitionFit": "A specific kind: a sloping reading stand used by a speaker or in church."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "19-down",
@@ -370,7 +1416,64 @@
     "text": "Card play is excellent, supported by system's odds",
     "enumeration": "7"
    },
-   "solution": "FINESSE"
+   "solution": "FINESSE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "FINESSE",
+    "definitions": [
+     {
+      "text": "Card play",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "supported by",
+      "for": "charade",
+      "note": "in a down entry, what is supported sits on top, so the second piece goes underneath"
+     },
+     {
+      "text": "odds",
+      "for": "letter_selection",
+      "note": "'odds' means the odd-numbered letters"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "excellent",
+      "gives": "FINE",
+      "note": "fine = excellent"
+     },
+     {
+      "clueFragment": "system's odds",
+      "gives": "SSE",
+      "select": "alternate",
+      "note": "the odd letters of SyStEm"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FINE",
+      "SSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A card player's strategy is sound, backed by a betting system.",
+     "walkthrough": "'Odds' suggests betting but means the odd-numbered letters.",
+     "definitionFit": "A bridge term: an attempt to win a trick with a lower card while a higher one is still out."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "odds"
+    }
+   }
   },
   {
    "id": "20-across",
@@ -385,7 +1488,46 @@
     "text": "Don't declare staff",
     "enumeration": "5"
    },
-   "solution": "BATON"
+   "solution": "BATON",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BATON",
+    "definitions": [
+     {
+      "text": "Don't declare",
+      "at": 0,
+      "note": "the verb phrase is read run together as one word"
+     },
+     {
+      "text": "staff",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Don't declare",
+      "gives": "BATON",
+      "note": "in cricket, a side that declares ends its innings early; one that doesn't carries on at the crease"
+     },
+     {
+      "clueFragment": "staff",
+      "gives": "BATON",
+      "note": "a staff here is a short stick, as carried by a conductor or relay runner"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A cricket side that doesn't declare will BAT ON; run together that is the stick.",
+     "definitionFit": "Two senses: continuing to bat instead of closing the innings, and a short stick or rod of office."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "declare"
+    }
+   }
   },
   {
    "id": "21-across",
@@ -400,7 +1542,60 @@
     "text": "Perhaps arm officers, to begin with, in prison",
     "enumeration": "5"
    },
-   "solution": "LIMBO"
+   "solution": "LIMBO",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "LIMBO",
+    "definitions": [
+     {
+      "text": "prison",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to begin with",
+      "for": "letter_selection",
+      "note": "'to begin with' takes only the opening letter"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Perhaps arm",
+      "gives": "LIMB",
+      "note": "an arm is one example of a limb"
+     },
+     {
+      "clueFragment": "officers, to begin with",
+      "gives": "O",
+      "select": "first",
+      "note": "first letter of Officers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIMB",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A suggestion that prison officers could be issued weapons.",
+     "walkthrough": "'Arm' looks like a verb, give weapons to, but it is a noun: an arm, perhaps, is a limb.",
+     "definitionFit": "An old slang sense: a place of confinement, a jail."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "arm"
+    }
+   }
   },
   {
    "id": "22-down",
@@ -415,7 +1610,64 @@
     "text": "Pile of rector's neck hair covering opening in sink",
     "enumeration": "5"
    },
-   "solution": "MANSE"
+   "solution": "MANSE",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "MANSE",
+    "definitions": [
+     {
+      "text": "Pile of rector's",
+      "at": 0,
+      "note": "a pile is a large house, so 'pile of rector's' is the rector's house"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "hair covering something lies around it, so the letters wrap the next piece"
+     },
+     {
+      "text": "opening in",
+      "for": "letter_selection",
+      "note": "the opening of a word is its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "neck hair",
+      "gives": "MANE",
+      "note": "the long hair on a horse's or lion's neck"
+     },
+     {
+      "clueFragment": "opening in sink",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter of Sink"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAN",
+      "S",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A clergyman's clump of neck hair is clogging the plughole.",
+     "walkthrough": "'Pile' looks like a heap of hair, but it is a grand house. The answer is strictly a minister's home, stretched here to a rector.",
+     "definitionFit": "A definition by function: the house a church provides for its clergyman."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Pile"
+    }
+   }
   },
   {
    "id": "23-across",
@@ -430,7 +1682,49 @@
     "text": "Force prisoners to study",
     "enumeration": "9"
    },
-   "solution": "CONSTRAIN"
+   "solution": "CONSTRAIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CONSTRAIN",
+    "definitions": [
+     {
+      "text": "Force",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prisoners",
+      "gives": "CONS",
+      "note": "cons = convicts"
+     },
+     {
+      "clueFragment": "study",
+      "gives": "TRAIN",
+      "note": "to train is to study for a skill, as to train as a nurse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CONS",
+      "TRAIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Making inmates attend classes.",
+     "walkthrough": "The surface reads as one instruction; 'to' only sits between the two pieces.",
+     "definitionFit": "A plain synonym as a verb: to compel or oblige."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "24-down",
@@ -445,7 +1739,58 @@
     "text": "Asian river, with rising level of nitrogen, is focus of infection",
     "enumeration": "5"
    },
-   "solution": "NIDUS"
+   "solution": "NIDUS",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "NIDUS",
+    "definitions": [
+     {
+      "text": "focus of infection",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with rising level of nitrogen",
+      "for": "reversal",
+      "note": "N is nitrogen's symbol, and in a down entry it rises one level, swapping places with the I above it"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Asian river",
+      "gives": "INDUS",
+      "note": "the Indus flows through Pakistan"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NI",
+      "DUS"
+     ],
+     "reversals": [
+      {
+       "from": "IN",
+       "to": "NI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Rising nitrogen levels in an Asian river make it the source of disease.",
+     "walkthrough": "The surface's 'rising level' sounds like pollution data; the letters of the river do the moving instead.",
+     "definitionFit": "A medical term: the spot where bacteria settle and multiply, the seat of a disease."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "level"
+    }
+   }
   },
   {
    "id": "25-across",
@@ -466,7 +1811,50 @@
      }
     ]
    },
-   "solution": "SINEDIE"
+   "solution": "SINEDIE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SINE DIE",
+    "definitions": [
+     {
+      "text": "with no date for a restart",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Function",
+      "gives": "SINE",
+      "note": "the trigonometric function"
+     },
+     {
+      "clueFragment": "end",
+      "gives": "DIE",
+      "note": "die = end, come to an end"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SINE",
+      "DIE"
+     ]
+    },
+    "explanation": {
+     "surface": "A computer function set to stop with no date given for rebooting.",
+     "walkthrough": "'Function' looks like a party or a software routine, but it is the trigonometric one.",
+     "definitionFit": "A Latin phrase, 'without a day': a meeting adjourned this way has no fixed date to resume."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Function"
+    }
+   }
   },
   {
    "id": "26-across",
@@ -481,7 +1869,58 @@
     "text": "Acknowledged to be unhappy without musical instrument",
     "enumeration": "7"
    },
-   "solution": "SALUTED"
+   "solution": "SALUTED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SALUTED",
+    "definitions": [
+     {
+      "text": "Acknowledged",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "container",
+      "note": "'without' in its old sense means outside, so the first word goes around the second"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unhappy",
+      "gives": "SAD",
+      "note": "sad = unhappy"
+     },
+     {
+      "clueFragment": "musical instrument",
+      "gives": "LUTE",
+      "note": "the plucked stringed instrument"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SA",
+      "LUTE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A musician admits to being miserable without their instrument.",
+     "walkthrough": "'Without' reads as lacking, which is the trap; the old meaning, outside, is the one at work.",
+     "definitionFit": "A plain synonym: greeted or recognised with a gesture."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "id": "27-across",
@@ -496,7 +1935,60 @@
     "text": "Disheartened, cries about issue",
     "enumeration": "4"
    },
-   "solution": "SPEW"
+   "solution": "SPEW",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "SPEW",
+    "definitions": [
+     {
+      "text": "issue",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Disheartened",
+      "for": "deletion",
+      "note": "a word's heart is its middle letter, so disheartened loses it"
+     },
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "'about' turns the word round"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Disheartened, cries",
+      "gives": "WEPS",
+      "note": "WEEPS with its middle letter, its heart, removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPEW"
+     ],
+     "reversals": [
+      {
+       "from": "WEPS",
+       "to": "SPEW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone downcast weeps over a problem.",
+     "walkthrough": "'Issue' reads as a problem to cry about, but it is a verb, to pour out.",
+     "definitionFit": "A plain synonym as a verb: to pour out or gush forth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "issue"
+    }
+   }
   },
   {
    "id": "28-across",
@@ -511,7 +2003,71 @@
     "text": "Nudes ride in a cavalier fashion across Sweden, revealing bottoms",
     "enumeration": "10"
    },
-   "solution": "UNDERSIDES"
+   "solution": "UNDERSIDES",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "UNDERSIDES",
+    "definitions": [
+     {
+      "text": "bottoms",
+      "at": 58
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in a cavalier fashion",
+      "for": "anagram",
+      "note": "done cavalierly means carelessly, so the letters land any old way"
+     },
+     {
+      "text": "across",
+      "for": "container",
+      "note": "the scrambled letters stretch across the next piece, enclosing it"
+     }
+    ],
+    "linkWords": [
+     "revealing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nudes ride",
+      "gives": "NUDESRIDE",
+      "note": "anagram fodder"
+     },
+     {
+      "clueFragment": "Sweden",
+      "gives": "S",
+      "note": "S is the international vehicle code for Sweden"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNDER",
+      "S",
+      "IDES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NUDESRIDE",
+       "gives": "UNDERIDES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Naked riders gallop carelessly through Sweden, showing their backsides.",
+     "walkthrough": "'Cavalier' puns on horsemen, fitting 'ride', while telling you to jumble the letters; 'bottoms' in the surface is a joke about bare bums.",
+     "definitionFit": "A plain synonym: the lower surfaces of things."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cavalier"
+    }
+   }
   }
  ]
 }
