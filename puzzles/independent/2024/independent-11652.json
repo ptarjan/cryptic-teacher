@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,69 @@
     "text": "Violins playing, but no love at first sight",
     "enumeration": "6"
    },
-   "solution": "VISION"
+   "solution": "VISION",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "anagram"
+    ],
+    "answer": "VISION",
+    "definitions": [
+     {
+      "text": "sight",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "'at first' points to the opening letter of the word 'love' just before it"
+     },
+     {
+      "text": "no",
+      "for": "deletion",
+      "note": "'no' tells us the violins go without that initial of 'love'"
+     },
+     {
+      "text": "playing",
+      "for": "anagram",
+      "note": "instruments playing are being worked over, so the letters of 'Violins' get rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Violins",
+      "gives": "VIOLINS",
+      "note": "taken as printed, the fodder"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "L",
+      "select": "first",
+      "note": "the first letter of love, which is removed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "VIOINS",
+       "gives": "VISION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A romantic who hears violins but, sadly, does not fall for anyone at first sight.",
+     "walkthrough": "'Love' here is not O but its first letter; drop that L from the seven letters and the six left rearrange.",
+     "definitionFit": "Sight and vision are both the faculty of seeing with the eyes, straightforward synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +112,71 @@
     "text": "Viagra's reformulated around another drug to produce ups and downs",
     "enumeration": "8"
    },
-   "solution": "VAGARIES"
+   "solution": "VAGARIES",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "VAGARIES",
+    "definitions": [
+     {
+      "text": "ups and downs",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reformulated",
+      "for": "anagram",
+      "note": "a drug that is reformulated has its make-up changed, so the letters of 'Viagra's' are remixed"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "the remixed brand name goes around the other drug, holding it inside"
+     }
+    ],
+    "linkWords": [
+     "to produce"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Viagra's",
+      "gives": "VIAGRAS",
+      "note": "the brand name with its possessive S, as fodder"
+     },
+     {
+      "clueFragment": "another drug",
+      "gives": "E",
+      "note": "E is ecstasy, the usual crossword drug"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VAGARI",
+      "E",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "VIAGRAS",
+       "gives": "VAGARIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pharmacist's tale of a reformulated pill mixed with something else, producing ups and downs.",
+     "walkthrough": "'Ups and downs' in the surface sounds pharmaceutical, even slyly sexual, but it defines unpredictable changes.",
+     "definitionFit": "Vagaries are erratic, unpredictable changes of fortune, which is what life's ups and downs are."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ups"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +190,51 @@
     "text": "Seat in small plane?",
     "enumeration": "5"
    },
-   "solution": "STOOL"
+   "solution": "STOOL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STOOL",
+    "definitions": [
+     {
+      "text": "Seat",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the standard abbreviation for small, as on clothing labels"
+     },
+     {
+      "clueFragment": "plane?",
+      "gives": "TOOL",
+      "note": "a carpenter's plane is one example of a tool, hence the question mark"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TOOL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asking whether their seat is in a small aircraft.",
+     "walkthrough": "'Plane' pretends to be an aircraft but is the woodworking tool; the question mark flags that it is an example.",
+     "definitionFit": "A stool is a simple backless seat for one person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "plane"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +248,55 @@
     "text": "Propositions: obvious temptations? Not initially",
     "enumeration": "9"
    },
-   "solution": "OVERTURES"
+   "solution": "OVERTURES",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "OVERTURES",
+    "definitions": [
+     {
+      "text": "Propositions",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not initially",
+      "for": "deletion",
+      "note": "'not initially' strips the opening letter from the word for temptations"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "obvious",
+      "gives": "OVERT",
+      "note": "overt means open, plainly visible"
+     },
+     {
+      "clueFragment": "temptations",
+      "gives": "LURES",
+      "note": "lures tempt, so they are temptations; the L then goes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVERT",
+      "URES"
+     ]
+    },
+    "explanation": {
+     "surface": "A cynic describing propositions as blatant temptations, with a hedge tacked on.",
+     "walkthrough": "The deletion applies only to the second word, the temptations, which lose their first letter.",
+     "definitionFit": "Overtures are opening approaches or offers made to someone, much like propositions put forward."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "initially"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +310,58 @@
     "text": "Rods securing frame in dormitory",
     "enumeration": "8"
    },
-   "solution": "BARRACKS"
+   "solution": "BARRACKS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BARRACKS",
+    "definitions": [
+     {
+      "text": "dormitory",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "securing",
+      "for": "container",
+      "note": "to secure something is to hold it fast, so the rods grip the frame inside them"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rods",
+      "gives": "BARS",
+      "note": "bars are metal rods"
+     },
+     {
+      "clueFragment": "frame",
+      "gives": "RACK",
+      "note": "a rack is a frame for holding things"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAR",
+      "RACK",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Metal rods holding a bed frame in place in a shared sleeping room.",
+     "walkthrough": "The frame sits between the third and fourth letters of the rods.",
+     "definitionFit": "Barracks are buildings where soldiers sleep in communal quarters, a military dormitory."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "frame"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +375,56 @@
     "text": "Detailed suggestion promoting a material",
     "enumeration": "7"
    },
-   "solution": "APROPOS"
+   "solution": "APROPOS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "cycling"
+    ],
+    "answer": "APROPOS",
+    "definitions": [
+     {
+      "text": "material",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Detailed",
+      "for": "deletion",
+      "note": "read as de-tailed, the suggestion loses its tail, its final letter"
+     },
+     {
+      "text": "promoting",
+      "for": "cycling",
+      "note": "in a down clue promoting moves a letter up, so the word's last 'a' rises to the top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "suggestion",
+      "gives": "PROPOSAL",
+      "note": "a proposal is a suggestion put forward"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "PROPOS"
+     ]
+    },
+    "explanation": {
+     "surface": "A detailed suggestion to promote some fabric or other material.",
+     "walkthrough": "PROPOSAL loses its L to become PROPOSA, then the A at the bottom is promoted to the top of this down entry.",
+     "definitionFit": "Material in the legal sense means relevant or pertinent, which is what apropos means as an adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Detailed"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +438,66 @@
     "text": "The middle of throng split by lines for show featuring temporary seating",
     "enumeration": "5"
    },
-   "solution": "RODEO"
+   "solution": "RODEO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "RODEO",
+    "definitions": [
+     {
+      "text": "show featuring temporary seating",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "The middle of",
+      "for": "letter_selection",
+      "note": "'the middle of' keeps only the central letters of 'throng'"
+     },
+     {
+      "text": "split by",
+      "for": "container",
+      "note": "something split by another thing has that thing wedged inside it"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "throng",
+      "gives": "RO",
+      "select": "middle",
+      "note": "the third and fourth of its six letters"
+     },
+     {
+      "clueFragment": "lines",
+      "gives": "ODE",
+      "note": "an ode is a poem, a set of lines"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ODE",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A crowd divided by rows at an event with pop-up grandstands.",
+     "walkthrough": "The temporary seating is not the stands but the saddle on a bucking bronco, which a rider keeps only briefly.",
+     "definitionFit": "A rodeo is a public exhibition of cowboys riding bulls and broncos, whose riders are thrown within seconds."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "seating"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +511,76 @@
     "text": "After opening of container, adjust heat and cool to make aphrodisiac",
     "enumeration": "9"
    },
-   "solution": "CHOCOLATE"
+   "solution": "CHOCOLATE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "CHOCOLATE",
+    "definitions": [
+     {
+      "text": "aphrodisiac",
+      "at": 57
+     }
+    ],
+    "indicators": [
+     {
+      "text": "opening of",
+      "for": "letter_selection",
+      "note": "the opening of a word is its first letter, here of 'container'"
+     },
+     {
+      "text": "adjust",
+      "for": "anagram",
+      "note": "to adjust is to rearrange, applied to the letters of 'heat and cool'"
+     },
+     {
+      "text": "After",
+      "for": "charade",
+      "note": "'after' places the rearranged part behind the container's first letter"
+     }
+    ],
+    "linkWords": [
+     "to make"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "container",
+      "gives": "C",
+      "select": "first",
+      "note": "its first letter"
+     },
+     {
+      "clueFragment": "heat and cool",
+      "gives": "HEATCOOL",
+      "note": "both words as fodder, 'and' just joining them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HOCOLATE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HEATCOOL",
+       "gives": "HOCOLATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A recipe instruction: open the pot, fiddle with the heat, let it cool, and out comes a love potion.",
+     "walkthrough": "The cooking surface hides both mechanisms: 'container' gives only its first letter, and 'heat and cool' are raw letters to rearrange.",
+     "definitionFit": "Chocolate has long been reputed to arouse desire, a popular example of a supposed love food."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "container"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +594,59 @@
     "text": "Lying that's done during function",
     "enumeration": "6"
    },
-   "solution": "SUPINE"
+   "solution": "SUPINE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SUPINE",
+    "definitions": [
+     {
+      "text": "Lying",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "during",
+      "for": "container",
+      "note": "something happening during something else sits within it, so 'done' goes inside 'function'"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "function",
+      "gives": "SINE",
+      "note": "sine is a trigonometric function"
+     },
+     {
+      "clueFragment": "done",
+      "gives": "UP",
+      "note": "as in 'time's up', finished"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "UP",
+      "INE"
+     ]
+    },
+    "explanation": {
+     "surface": "Seems to be about telling lies on the job, at some official function.",
+     "walkthrough": "'Lying' looks like fibbing but means lying down.",
+     "definitionFit": "Supine describes a body stretched out flat on its back, a particular way of reclining."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Lying"
+    }
+   }
   },
   {
    "number": 9,
@@ -159,7 +660,50 @@
     "text": "Less likely to leave incriminating traces in government - and worshipped?",
     "enumeration": "6"
    },
-   "solution": "GLOVED"
+   "solution": "GLOVED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GLOVED",
+    "definitions": [
+     {
+      "text": "Less likely to leave incriminating traces",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "government",
+      "gives": "G",
+      "note": "G is the standard abbreviation for government"
+     },
+     {
+      "clueFragment": "worshipped",
+      "gives": "LOVED",
+      "note": "to worship someone is to adore or love them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "LOVED"
+     ]
+    },
+    "explanation": {
+     "surface": "A sly dig at politicians who are careful to leave no evidence of wrongdoing yet remain adored.",
+     "walkthrough": "The definition is descriptive rather than a synonym: hands in gloves leave no fingerprints.",
+     "definitionFit": "Wearing gloves stops a criminal leaving fingerprints, so a gloved hand is less easily traced."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "government"
+    }
+   }
   },
   {
    "number": 10,
@@ -173,7 +717,62 @@
     "text": "Sycophant, wanting a larger love, devastated",
     "enumeration": "9"
    },
-   "solution": "GROVELLER"
+   "solution": "GROVELLER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "GROVELLER",
+    "definitions": [
+     {
+      "text": "Sycophant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wanting",
+      "for": "deletion",
+      "note": "wanting means lacking, so the phrase goes without its 'a'"
+     },
+     {
+      "text": "devastated",
+      "for": "anagram",
+      "note": "something devastated is wrecked, so the remaining letters of 'larger love' are scrambled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article itself, removed"
+     },
+     {
+      "clueFragment": "larger love",
+      "gives": "LARGERLOVE",
+      "note": "both words as fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LRGERLOVE",
+       "gives": "GROVELLER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A flatterer heartbroken because they wanted a bigger romance than they got.",
+     "walkthrough": "The 'a' is taken literally: remove that one letter from the ten, then rearrange nine.",
+     "definitionFit": "A groveller behaves obsequiously to win favour, which is exactly what a toady or flatterer does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "devastated"
+    }
+   }
   },
   {
    "number": 11,
@@ -187,7 +786,62 @@
     "text": "Get excited and fall in love? The reverse, on both counts",
     "enumeration": "5"
    },
-   "solution": "DROOP"
+   "solution": "DROOP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DROOP",
+    "definitions": [
+     {
+      "text": "Get excited",
+      "at": 0,
+      "note": "the answer is the opposite: 'the reverse' turns the definition round"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'fall in love' puts one word inside the other"
+     },
+     {
+      "text": "The reverse, on both counts",
+      "for": "container",
+      "note": "this swaps which holds which, and also flips the definition to its opposite"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, so the letter O"
+     },
+     {
+      "clueFragment": "fall",
+      "gives": "DROP",
+      "note": "to fall is to drop"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DR",
+      "O",
+      "OP"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice on romance: get worked up and tumble head over heels.",
+     "walkthrough": "'The reverse, on both counts' flips both halves: the answer means the opposite of getting excited, and love goes inside fall instead of fall inside love.",
+     "definitionFit": "To droop is to sag or wilt, the opposite of perking up or becoming aroused."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "reverse"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +861,68 @@
      }
     ]
    },
-   "solution": "RELATIVEPRONOUN"
+   "solution": "RELATIVEPRONOUN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "RELATIVE PRONOUN",
+    "definitions": [
+     {
+      "text": "who?",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Funny",
+      "for": "anagram",
+      "note": "funny means peculiar, so the letters of the following words are made to behave oddly"
+     },
+     {
+      "text": "half-hearted",
+      "for": "deletion",
+      "note": "the heart of 'poor' is its middle pair, and half of that pair is lost"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Valentine",
+      "gives": "VALENTINE",
+      "note": "as printed, fodder"
+     },
+     {
+      "clueFragment": "our",
+      "gives": "OUR",
+      "note": "as printed, fodder"
+     },
+     {
+      "clueFragment": "poor",
+      "gives": "POR",
+      "note": "one of the two middle letters dropped"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "VALENTINEOURPOR",
+       "gives": "RELATIVEPRONOUN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lament over a lukewarm Valentine from a secret admirer, ending in 'who was it?'",
+     "walkthrough": "My Funny Valentine is a song, which helps the surface; the definition is the grammar term that 'who' is an example of.",
+     "definitionFit": "Who introduces a clause referring back to a noun, as in 'the man who came', making it a textbook example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "who"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +936,60 @@
     "text": "Appeared and endlessly vented, having spent too long on the sunbed",
     "enumeration": "7"
    },
-   "solution": "ENTERED"
+   "solution": "ENTERED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ENTERED",
+    "definitions": [
+     {
+      "text": "Appeared",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endlessly",
+      "for": "letter_selection",
+      "note": "without either end, 'vented' keeps only its inner letters"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vented",
+      "gives": "ENTE",
+      "select": "middle",
+      "note": "first and last letters removed"
+     },
+     {
+      "clueFragment": "having spent too long on the sunbed",
+      "gives": "RED",
+      "note": "overdo the tanning and you come out red"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENTE",
+      "RED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who showed up and ranted at length after burning on a tanning bed.",
+     "walkthrough": "The long final phrase is a roundabout clue for a single colour.",
+     "definitionFit": "To enter is to come on stage or into a room, so an actor who entered has appeared."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "vented"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +1009,51 @@
      }
     ]
    },
-   "solution": "TRIPLESEC"
+   "solution": "TRIPLESEC",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TRIPLE SEC",
+    "definitions": [
+     {
+      "text": "liqueur",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Three",
+      "gives": "TRIPLE",
+      "note": "triple means threefold"
+     },
+     {
+      "clueFragment": "ticks",
+      "gives": "SEC",
+      "note": "a tick is a moment, and sec is short for second"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRIPLE",
+      "SEC"
+     ]
+    },
+    "explanation": {
+     "surface": "A bartender's joke: three checkmarks earn you a drink.",
+     "walkthrough": "In British usage 'a tick' means a moment ('back in a tick'), so three ticks is a triple second.",
+     "definitionFit": "Triple sec is an orange-flavoured spirit, the kind of sweet liqueur used in cocktails like the margarita."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "ticks"
+    }
+   }
   },
   {
    "number": 15,
@@ -255,7 +1067,43 @@
     "text": "Covertly insult another polygamist",
     "enumeration": "6"
    },
-   "solution": "SULTAN"
+   "solution": "SULTAN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SULTAN",
+    "definitions": [
+     {
+      "text": "polygamist",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Covertly",
+      "for": "hidden_word",
+      "note": "covertly means secretly, so the answer lies concealed within the next two words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "insult another",
+      "gives": "SULTAN",
+      "note": "running across the gap between the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone sneakily slighting a man with several wives.",
+     "walkthrough": "The answer straddles two words, starting inside 'insult' and finishing at the start of the next.",
+     "definitionFit": "Sultans traditionally kept harems with multiple wives, making the ruler a classic polygamist."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "insult"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +1123,71 @@
      }
     ]
    },
-   "solution": "LOOKALIVE"
+   "solution": "LOOKALIVE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "LOOK ALIVE",
+    "definitions": [
+     {
+      "text": "step on it",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "arising",
+      "for": "reversal",
+      "note": "in a down clue arising means going upwards, so 'sin' reads from the bottom"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Perhaps glimpse",
+      "gives": "LOOK",
+      "note": "a glimpse is one kind of look, hence 'perhaps'"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "as printed"
+     },
+     {
+      "clueFragment": "sin",
+      "gives": "EVIL",
+      "note": "evil is sin, wickedness"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOOK",
+      "A",
+      "LIVE"
+     ],
+     "reversals": [
+      {
+       "from": "EVIL",
+       "to": "LIVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Catch sight of wrongdoing emerging and crush it underfoot.",
+     "walkthrough": "'Step on it' looks like stamping on the sin but is an idiom telling someone to hurry.",
+     "definitionFit": "Both are imperative idioms urging someone to hurry up and get moving quickly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "step"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +1201,61 @@
     "text": "Modest in the extreme, show reluctance to share recipe with others",
     "enumeration": "8"
    },
-   "solution": "DEMUREST"
+   "solution": "DEMUREST",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "DEMUREST",
+    "definitions": [
+     {
+      "text": "Modest in the extreme",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to share",
+      "for": "deletion",
+      "note": "two words that share a letter overlap on it, so it appears only once"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "show reluctance",
+      "gives": "DEMUR",
+      "note": "to demur is to raise objections, hold back"
+     },
+     {
+      "clueFragment": "recipe",
+      "gives": "R",
+      "note": "R is the abbreviation for recipe, from Latin, on prescriptions"
+     },
+     {
+      "clueFragment": "others",
+      "gives": "REST",
+      "note": "the rest are the others"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEMU",
+      "R",
+      "EST"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone so shy they won't even pass on a recipe to friends.",
+     "walkthrough": "DEMUR ends and REST begins with the recipe letter, so the two words join sharing that one R.",
+     "definitionFit": "Demurest is the superlative of demure, meaning shy and reserved to the greatest degree."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "share"
+    }
+   }
   },
   {
    "number": 18,
@@ -303,7 +1269,45 @@
     "text": "Crosses and gently touches",
     "enumeration": "6"
    },
-   "solution": "KISSES"
+   "solution": "KISSES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "KISSES",
+    "definitions": [
+     {
+      "text": "Crosses",
+      "at": 0
+     },
+     {
+      "text": "gently touches",
+      "at": 12
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Crosses",
+      "note": "the X marks signed at the foot of a letter"
+     },
+     {
+      "clueFragment": "gently touches",
+      "note": "the verb: brushes lightly, as billiard balls do"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "An X at the end of a message stands for a kiss, which is why crosses define the noun.",
+     "definitionFit": "Written X marks symbolise kisses, and to kiss can also mean to brush lightly against something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Crosses"
+    }
+   }
   },
   {
    "number": 19,
@@ -317,7 +1321,55 @@
     "text": "Lacking substance, accepting base trickery",
     "enumeration": "7"
    },
-   "solution": "SLEIGHT"
+   "solution": "SLEIGHT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SLEIGHT",
+    "definitions": [
+     {
+      "text": "trickery",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accepting",
+      "for": "container",
+      "note": "to accept is to take in, so the word for insubstantial takes the base inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lacking substance",
+      "gives": "SLIGHT",
+      "note": "slight means flimsy, insubstantial"
+     },
+     {
+      "clueFragment": "base",
+      "gives": "E",
+      "note": "e is the base of natural logarithms"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SL",
+      "E",
+      "IGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "A flimsy scheme that tolerates low deceit.",
+     "walkthrough": "'Base' sounds like 'low' in the surface but is the mathematical constant.",
+     "definitionFit": "Sleight means cunning or dexterous deception, as in sleight of hand, so it is trickery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "base"
+    }
+   }
   },
   {
    "number": 20,
@@ -331,7 +1383,60 @@
     "text": "Melania perhaps serene before getting knocked out by love",
     "enumeration": "7"
    },
-   "solution": "SLOVENE"
+   "solution": "SLOVENE",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "SLOVENE",
+    "definitions": [
+     {
+      "text": "Melania perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "getting knocked out by",
+      "for": "substitution",
+      "note": "knocked out by means displaced by, so the word for 'before' is swapped for the word for love"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "serene",
+      "gives": "SERENE",
+      "note": "as printed"
+     },
+     {
+      "clueFragment": "before",
+      "gives": "ERE",
+      "note": "ere is an old word for before; it sits in the middle of the previous word"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "LOVE",
+      "note": "as printed, the replacement"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "LOVE",
+      "NE"
+     ]
+    },
+    "explanation": {
+     "surface": "Melania Trump calm before being overwhelmed by romance.",
+     "walkthrough": "'Before' is not placement but the old word ere, found inside 'serene' and replaced.",
+     "definitionFit": "Melania Trump was born in Slovenia, so she is an example of a person of that nationality."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "before"
+    }
+   }
   },
   {
    "number": 20,
@@ -345,7 +1450,58 @@
     "text": "Drink, being hesitant to admit mistake",
     "enumeration": "6"
    },
-   "solution": "SHERRY"
+   "solution": "SHERRY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SHERRY",
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to admit",
+      "for": "container",
+      "note": "admitting something lets it in, so the word for hesitant takes the mistake inside"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hesitant",
+      "gives": "SHY",
+      "note": "shy means reluctant, hesitant"
+     },
+     {
+      "clueFragment": "mistake",
+      "gives": "ERR",
+      "note": "to err is to make a mistake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SH",
+      "ERR",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone reluctant to own up to a blunder after a few drinks.",
+     "walkthrough": "'Admit' looks like confess in the surface but means let in.",
+     "definitionFit": "Sherry is a fortified wine from Spain, one example of an alcoholic beverage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "admit"
+    }
+   }
   },
   {
    "number": 21,
@@ -359,7 +1515,61 @@
     "text": "Adjusted balance after skating originally looked hard",
     "enumeration": "6"
    },
-   "solution": "STARED"
+   "solution": "STARED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "STARED",
+    "definitions": [
+     {
+      "text": "looked hard",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "originally points to how 'skating' starts, its first letter"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "'after' puts the adjusted balance behind the skating letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "skating",
+      "gives": "S",
+      "select": "first",
+      "note": "its first letter"
+     },
+     {
+      "clueFragment": "Adjusted balance",
+      "gives": "TARED",
+      "note": "to tare a scale is to reset it to zero before weighing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TARED"
+     ]
+    },
+    "explanation": {
+     "surface": "A skater who regained their balance and gave a fierce look.",
+     "walkthrough": "'Adjusted balance' is not an anagram signal; it is the weighing term tare, setting scales to zero with the container on.",
+     "definitionFit": "To stare is to gaze fixedly and intently at something, to look hard."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "balance"
+    }
+   }
   },
   {
    "number": 22,
@@ -387,7 +1597,54 @@
      }
     ]
    },
-   "solution": "TILLTHEREWASYOU"
+   "solution": "TILLTHEREWASYOU",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TILL THERE WAS YOU",
+    "definitions": [
+     {
+      "text": "a love song",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "composed",
+      "for": "anagram",
+      "note": "to compose is to put together, so the letters are arranged afresh"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What I resolutely",
+      "gives": "WHATIRESOLUTELY",
+      "note": "fifteen letters of fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WHATIRESOLUTELY",
+       "gives": "TILLTHEREWASYOU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A songwriter proudly declaring that their determined effort produced a romantic ballad.",
+     "walkthrough": "'Composed' fits the songwriting surface perfectly while doing the anagram work.",
+     "definitionFit": "Till There Was You is a romantic ballad from The Music Man, famously covered by the Beatles."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "composed"
+    }
+   }
   },
   {
    "number": 23,
@@ -401,7 +1658,58 @@
     "text": "Head over heels, tried again to make the grade - it's shocking!",
     "enumeration": "5"
    },
-   "solution": "TASER"
+   "solution": "TASER",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "TASER",
+    "definitions": [
+     {
+      "text": "it's shocking!",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Head over heels",
+      "for": "reversal",
+      "note": "turning head over heels flips top to bottom, so in a down clue the word reads upwards"
+     }
+    ],
+    "linkWords": [
+     "to make the grade -"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tried again",
+      "gives": "RESAT",
+      "note": "resat, as in took an exam again"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TASER"
+     ],
+     "reversals": [
+      {
+       "from": "RESAT",
+       "to": "TASER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A student delirious after retaking an exam to pass.",
+     "walkthrough": "In Britain you resit a failed exam, past tense resat; 'to make the grade' only colours the surface.",
+     "definitionFit": "A taser is a stun gun that incapacitates by delivering an electric shock."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "shocking"
+    }
+   }
   },
   {
    "number": 24,
@@ -415,7 +1723,62 @@
     "text": "Oaf, I understand, enthralled by the sound of you",
     "enumeration": "5"
    },
-   "solution": "YAHOO"
+   "solution": "YAHOO",
+   "annotation": {
+    "type": [
+     "homophone",
+     "container"
+    ],
+    "answer": "YAHOO",
+    "definitions": [
+     {
+      "text": "Oaf",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the sound of",
+      "for": "homophone",
+      "note": "the sound of a word is how it is spoken, not spelt"
+     },
+     {
+      "text": "enthralled by",
+      "for": "container",
+      "note": "enthralled means captivated, held inside by the other part"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the sound of you",
+      "gives": "YOO",
+      "soundsLike": "YOU",
+      "note": "the pronoun spelt as said"
+     },
+     {
+      "clueFragment": "I understand",
+      "gives": "AH",
+      "note": "'ah' is what you say when you understand"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "Y",
+      "AH",
+      "OO"
+     ]
+    },
+    "explanation": {
+     "surface": "A lout admitting they are captivated by someone's voice.",
+     "walkthrough": "The exclamation sits after the first letter of the phonetic spelling.",
+     "definitionFit": "A yahoo is a coarse, boorish person, from the brutish creatures in Gulliver's Travels."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "enthralled"
+    }
+   }
   },
   {
    "number": 25,
@@ -429,7 +1792,53 @@
     "text": "Regularly overlooked groomsmen, so making spectacular bloomers",
     "enumeration": "5"
    },
-   "solution": "ROSES"
+   "solution": "ROSES",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ROSES",
+    "definitions": [
+     {
+      "text": "spectacular bloomers",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Regularly overlooked",
+      "for": "letter_selection",
+      "note": "overlooking at regular intervals skips every other letter"
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "groomsmen, so",
+      "gives": "ROSES",
+      "select": "alternate",
+      "note": "second, fourth, sixth, eighth and tenth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROSES"
+     ]
+    },
+    "explanation": {
+     "surface": "Wedding attendants who are ignored and so commit dramatic blunders.",
+     "walkthrough": "Bloomers are British slang for blunders as well as old underwear, but here they are things that bloom.",
+     "definitionFit": "Roses are showy flowering plants, and anything that flowers is literally a bloomer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bloomers"
+    }
+   }
   },
   {
    "number": 26,
@@ -443,7 +1852,54 @@
     "text": "He's forced to deliver but surprisingly he regains",
     "enumeration": "9"
    },
-   "solution": "GARNISHEE"
+   "solution": "GARNISHEE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GARNISHEE",
+    "definitions": [
+     {
+      "text": "He's forced to deliver",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surprisingly",
+      "for": "anagram",
+      "note": "surprisingly means in an unexpected way, so the letters turn up in an unexpected order"
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "he regains",
+      "gives": "HEREGAINS",
+      "note": "nine letters of fodder, from the second 'he' in the clue"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HEREGAINS",
+       "gives": "GARNISHEE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man compelled to hand something over who nevertheless gets it back.",
+     "walkthrough": "A legal term: a court can order a third party holding a debtor's money to pay the creditor instead.",
+     "definitionFit": "A garnishee is the third party legally ordered by a court to pay money owed to a creditor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "deliver"
+    }
+   }
   },
   {
    "number": 27,
@@ -457,7 +1913,71 @@
     "text": "See about green colour at last for deck",
     "enumeration": "8"
    },
-   "solution": "DECORATE"
+   "solution": "DECORATE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "DECORATE",
+    "definitions": [
+     {
+      "text": "deck",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "going about something means surrounding it, so 'see' wraps the other parts"
+     },
+     {
+      "text": "at last",
+      "for": "letter_selection",
+      "note": "'at last' picks the final letter of 'colour'"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "See",
+      "gives": "DATE",
+      "note": "to see someone is to date them"
+     },
+     {
+      "clueFragment": "green",
+      "gives": "ECO",
+      "note": "eco-friendly, environmentally green"
+     },
+     {
+      "clueFragment": "colour",
+      "gives": "R",
+      "select": "last",
+      "note": "its last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ECO",
+      "R",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone planning to repaint the deck, perhaps green.",
+     "walkthrough": "'Deck' here is the verb, to adorn, not the wooden platform.",
+     "definitionFit": "To deck is to adorn or festoon, as in 'deck the halls', which is to decorate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "deck"
+    }
+   }
   },
   {
    "number": 28,
@@ -471,7 +1991,64 @@
     "text": "Sweetheart rejected? Time for rebellion",
     "enumeration": "6"
    },
-   "solution": "REVOLT"
+   "solution": "REVOLT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "REVOLT",
+    "definitions": [
+     {
+      "text": "rebellion",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rejected",
+      "for": "reversal",
+      "note": "a rejected suitor is sent back, so the word for sweetheart is turned round"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sweetheart",
+      "gives": "LOVER",
+      "note": "a lover is a sweetheart"
+     },
+     {
+      "clueFragment": "Time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REVOL",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "LOVER",
+       "to": "REVOL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A jilted partner deciding it is time to rise up.",
+     "walkthrough": "'Rejected' reads as a broken heart but works on the letters of the sweetheart.",
+     "definitionFit": "A revolt is an uprising against authority, which is what a rebellion is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rejected"
+    }
+   }
   }
  ]
 }
