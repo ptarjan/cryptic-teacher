@@ -720,7 +720,7 @@ if [ -n "$unsolved" ] && command -v claude >/dev/null 2>&1; then
     solve_sess=()
     [ -n "$solve_sid" ] && solve_sess=(--session-id "$solve_sid")
     claude -p "Solve the cryptic crossword in $(python3 tools/puzzle_paths.py "$num") in this repo. Its answers have not been published, so there is no key: follow tools/solve_prompt.md exactly, write your fill to $fill, and iterate against 'python3 tools/apply_solution.py $num --fill $fill --check-only' until every crossing agrees. Do not write to puzzles/ — the calling script applies the fill." \
-      "${solve_sess[@]}" \
+      "${solve_sess[@]}" "${CLAUDE_HEADLESS[@]}" \
       --model "$ANNOTATE_MODEL" \
       --effort "$ANNOTATE_EFFORT" \
       --allowedTools "Read,Write,Edit,Bash(python3 *),Bash(node *)" \
@@ -865,7 +865,7 @@ if [ -n "$pending" ]; then
       fi
       while :; do
         # shellcheck disable=SC2086
-        $ann_cap claude -p "$ann_prompt" "${ann_sess[@]}" \
+        $ann_cap claude -p "$ann_prompt" "${ann_sess[@]}" "${CLAUDE_HEADLESS[@]}" \
             --model "$ANNOTATE_MODEL" \
             --effort "$ANNOTATE_EFFORT" \
             --allowedTools "$ann_tools" \
@@ -1027,7 +1027,7 @@ if bad_hints=$(python3 tools/reports.py --since 14 2>&1); then
         echo "fixing $(printf '%s' "$bad_hints" | grep -c '^  r:') reported hint(s) with Claude Code... (session ${session:-unknown}%)"
         claude -p "Read tools/report_fix_prompt.md and follow it exactly. These are the reports it is about:
 
-$bad_hints" \
+$bad_hints" "${CLAUDE_HEADLESS[@]}" \
           --model "$ANNOTATE_MODEL" \
           --effort "$ANNOTATE_EFFORT" \
           --allowedTools "Read,Write,Edit,Bash(python3 *),Bash(node *)" \
