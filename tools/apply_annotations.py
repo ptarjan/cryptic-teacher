@@ -38,6 +38,7 @@ session there is no model to read, so say who it was:
 """
 import json
 import os
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -45,6 +46,7 @@ from pathlib import Path
 TOOLS = Path(__file__).resolve().parent
 sys.path.insert(0, str(TOOLS))
 import provenance  # noqa: E402
+import puzzle_integrity  # noqa: E402
 import groups  # noqa: E402 — linked answers
 from groups import entry_id  # noqa: E402
 from fetch_puzzle import read_puzzle_file, resolve_puzzle, write_puzzle_file  # noqa: E402
@@ -151,6 +153,29 @@ def annotator(by, pid):
     return model
 
 
+ENTRY_PATH = re.compile(r"\$\.entries\[(\d+)\]")
+BLOCKS_HELP = ("write `blocks` as annotate_prompt.md shows: a cryptic_definition has "
+               "2+ blocks without `gives`; a double_definition has one block per definition")
+
+
+def refusal(path, puzzle, err):
+    """One line per finding, keyed by the id the _ann file uses, not entries[N]."""
+    lines = []
+    for kind, _, what in err.flags:
+        m = ENTRY_PATH.search(what)
+        if m and int(m[1]) < len(puzzle["entries"]):
+            eid = entry_id(puzzle["entries"][int(m[1])])
+            rest = what[m.end():].removeprefix(".annotation")
+            what = eid + (" " + rest[1:] if rest.startswith(".") else rest)
+            if "missing required key 'blocks'" in what:
+                what += f" — {BLOCKS_HELP}"
+        else:
+            what = f"{kind} {what}"
+        lines.append("  " + what)
+    return (f"apply_annotations: {path.name}: refused to write, fix these in "
+            f"the _ann file:\n" + "\n".join(lines))
+
+
 def apply(path, annotations, by=None):
     puzzle = read_puzzle_file(path)
     continuations = groups.leader_of(puzzle["entries"])
@@ -192,7 +217,10 @@ def apply(path, annotations, by=None):
                 puzzle, annotator(by, path.stem), had_hints)
         except ValueError as err:
             raise SystemExit(f"apply_annotations: cannot credit these hints: {err}")
-    write_puzzle_file(path, puzzle)
+    try:
+        write_puzzle_file(path, puzzle)
+    except puzzle_integrity.RefusedWrite as err:
+        raise SystemExit(refusal(path, puzzle, err))
     solved = sum(1 for v in annotations.values() if v is not None)
     return solved, len(ids)
 

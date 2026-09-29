@@ -576,6 +576,9 @@ tools/prereset_backfill.sh                   burns the tail of the weekly quota 
                                              ungated
 tools/test_annotate_retry.sh                 drives that resume with a fake CLI, so it is not
                                              first tried on a night it is needed
+tools/test_apply_refusal.sh                  a refused annotation write names clue ids and no
+                                             traceback, so the model does not map entries[N] by
+                                             hand
 tools/annotate_postmortem.py                 why an annotation run died, read off its
                                              transcript — sent WITH the alert, so the report is
                                              not a pointer to a log

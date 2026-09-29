@@ -231,6 +231,7 @@ LAYOUT = [
     ("scheduling", "tools/weekly_usage.py", "how much of a Claude quota window is spent, and when it resets"),
     ("scheduling", "tools/prereset_backfill.sh", "burns the tail of the weekly quota on backfills, ungated"),
     ("scheduling", "tools/test_annotate_retry.sh", "drives that resume with a fake CLI, so it is not first tried on a night it is needed"),
+    ("scheduling", "tools/test_apply_refusal.sh", "a refused annotation write names clue ids and no traceback, so the model does not map entries[N] by hand"),
     ("scheduling", "tools/annotate_postmortem.py", "why an annotation run died, read off its transcript — sent WITH the alert, so the report is not a pointer to a log"),
     ("scheduling", "tools/test_annotate_postmortem.sh", "checks that post-mortem reports the right shape and that the nightly actually sends it"),
     ("scheduling", "tools/failed_inputs.py", "records a failed annotation or cold solve with a hash of its inputs, so it is skipped until they change"),
