@@ -184,7 +184,7 @@ puzzle = copy.deepcopy(pi.read_puzzle_file(pi.puzzle_paths.find("cryptic-24104")
 
 def blank(p, entries):
     for e in entries:
-        e["clue"] = {"text": f"({e['length']})", "missing": True}
+        e["clue"] = {"enumeration": str(e["length"]), "missing": True}
     flags = []
     pi.check_shape(p, today, flags)
     return [f[2] for f in flags if "blank" in f[2]]

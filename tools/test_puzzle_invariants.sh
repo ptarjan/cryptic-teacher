@@ -101,8 +101,7 @@ write("crossing-conflict", p)
 p = copy.deepcopy(indy)
 blank = copy.deepcopy(indy)
 first = entry(blank, p["entries"][0]["id"])
-first["clue"] = {"text": " " + fetcher.ENUMERATION.search(first["clue"]["text"]).group(0).strip(),
-                "missing": True}
+first["clue"] = {"enumeration": first["clue"]["enumeration"], "missing": True}
 write("refetch-blanks-a-clue", blank, over=p)
 
 p = copy.deepcopy(indy)
@@ -114,7 +113,7 @@ print("ACQUIRED", got and got["source"]["acquiredOn"])
 
 p = copy.deepcopy(indy)
 lead, cont = p["entries"][0], p["entries"][1]
-lead["clue"]["text"] = fetcher.ENUMERATION.sub(f"({lead['length']},{cont['length']})", lead["clue"]["text"])
+lead["clue"]["enumeration"] = f"{lead['length']},{cont['length']}"
 cont["clue"] = {"text": f"See {lead['number']}"}
 lead["group"] = cont["group"] = [lead["id"], cont["id"]]
 cont.pop("annotation", None)
@@ -125,7 +124,7 @@ write("leader-holds-group", p)
 quick = real("timesquick-2000")
 p = copy.deepcopy(quick)
 lead = next(e for e in p["entries"] if not fetcher.is_continuation(e["clue"]["text"]))
-lead["clue"]["text"] = fetcher.ENUMERATION.sub("", lead["clue"]["text"]).rstrip()
+del lead["clue"]["enumeration"]
 write("blog-clue-no-enumeration", p)
 
 p = copy.deepcopy(real("sundaytimes-5000"))

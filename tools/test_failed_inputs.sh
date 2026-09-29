@@ -120,7 +120,7 @@ check "answers arriving are a new input" "$(ledger skipped solve)" ""
 echo "new arrivals are not capped; ANNOTATE_MAX bounds only the older backlog"
 # shellcheck disable=SC2154 # $fresh is set by the eval of $pick
 fresh_q() { ( cd "$sand" && ANNOTATE_MAX=2 eval "$pick" && printf '%s\n' "$fresh" ); }
-ago() { python3 -c "import datetime as d; print(d.datetime.now(d.timezone.utc).date() - d.timedelta(days=$1))"; }
+ago() { python3 -c "import datetime as d; print(d.date.today() - d.timedelta(days=$1))"; }
 for i in 1 2 3; do puzzle "nw-$i" CAT; done
 puzzle old-1 CAT; puzzle old-2 CAT; puzzle old-3 CAT
 index "nw-1:$(ago 0):no" "nw-2:$(ago 1):no" "nw-3:$(ago 1):no" \
