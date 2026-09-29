@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "id": "1-across",
@@ -33,7 +36,48 @@
    "clue": {
     "text": "Excellent finishing, not starting (7)"
    },
-   "solution": "TOPPING"
+   "solution": "TOPPING",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TOPPING",
+    "definitions": [
+     {
+      "text": "Excellent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not starting",
+      "for": "deletion",
+      "note": "a word that is not starting has lost its first letter, so STOPPING drops its S"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "finishing, not starting",
+      "gives": "TOPPING",
+      "note": "finishing is stopping, and not starting takes away its first letter, S"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOPPING"
+     ]
+    },
+    "explanation": {
+     "surface": "Praise for a strong finish, oddly qualified by a poor start.",
+     "walkthrough": "'Finishing' reads as the end of a race or a piece of work, but it is simply stopping.",
+     "definitionFit": "Topping is dated British slang for excellent, as in 'a topping idea'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "finishing"
+    }
+   }
   },
   {
    "id": "1-down",
@@ -47,7 +91,63 @@
    "clue": {
     "text": "Strikes hit workers initially involved in courses (7)"
    },
-   "solution": "THWACKS"
+   "solution": "THWACKS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "THWACKS",
+    "definitions": [
+     {
+      "text": "Strikes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the first letters of hit and workers"
+     },
+     {
+      "text": "involved in",
+      "for": "container",
+      "note": "letters involved in a word are wrapped up inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "courses",
+      "gives": "TACKS",
+      "note": "a sailing boat's tacks are the courses it takes against the wind"
+     },
+     {
+      "clueFragment": "hit workers",
+      "gives": "HW",
+      "select": "first",
+      "note": "the first letters of hit and workers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "HW",
+      "ACKS"
+     ]
+    },
+    "explanation": {
+     "surface": "Workers walk out on strike and it hits the courses they run.",
+     "walkthrough": "'Strikes' and 'workers' together suggest industrial action, but strikes are blows here, and courses are sailing tacks.",
+     "definitionFit": "To thwack is to strike hard, so thwacks are strikes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Strikes"
+    }
+   }
   },
   {
    "id": "2-down",
@@ -61,7 +161,51 @@
    "clue": {
     "text": "Notes praising evolution of pangolins (9)"
    },
-   "solution": "PLAINSONG"
+   "solution": "PLAINSONG",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PLAINSONG",
+    "definitions": [
+     {
+      "text": "Notes praising",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "evolution of",
+      "for": "anagram",
+      "note": "in evolution a creature's form changes, so the letters of pangolins change their order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pangolins",
+      "gives": "PANGOLINS",
+      "note": "the fodder, used whole"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PANGOLINS",
+       "gives": "PLAINSONG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A naturalist's hymn of praise to how the scaly pangolin evolved.",
+     "walkthrough": "The clue sounds like a nature essay; the definition is the first two words, describing sung notes of praise.",
+     "definitionFit": "Plainsong is unaccompanied church chant, notes sung in praise of God."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "evolution"
+    }
+   }
   },
   {
    "id": "3-down",
@@ -75,7 +219,46 @@
    "clue": {
     "text": "Juliet's predecessor somewhere in Asia (5)"
    },
-   "solution": "INDIA"
+   "solution": "INDIA",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "INDIA",
+    "definitions": [
+     {
+      "text": "Juliet's predecessor",
+      "at": 0
+     },
+     {
+      "text": "somewhere in Asia",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Juliet's predecessor",
+      "gives": "INDIA",
+      "note": "Juliet is J in the NATO phonetic alphabet; the codeword for the letter before it is wanted"
+     },
+     {
+      "clueFragment": "somewhere in Asia",
+      "gives": "INDIA",
+      "note": "the country in South Asia"
+     }
+    ],
+    "explanation": {
+     "surface": "Who came before Juliet, in some Asian setting?",
+     "walkthrough": "Juliet sends the mind to Romeo or an ex-partner, but she is the radio-alphabet word for J, and India is the word for I.",
+     "definitionFit": "India is a country in Asia, and India precedes Juliet in the phonetic alphabet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Juliet's"
+    }
+   }
   },
   {
    "id": "4-down",
@@ -89,7 +272,51 @@
    "clue": {
     "text": "Item designed for light switches 10 (9)"
    },
-   "solution": "GIRANDOLE"
+   "solution": "GIRANDOLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GIRANDOLE",
+    "definitions": [
+     {
+      "text": "Item designed for light",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "switches",
+      "for": "anagram",
+      "note": "the letters of 10 switch places with one another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "10",
+      "gives": "RELOADING",
+      "note": "the answer to 10 Across"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RELOADING",
+       "gives": "GIRANDOLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something made for lighting that has switches, as a lamp would.",
+     "walkthrough": "'Light switches' reads as one thing, a wall switch; split it, and switches is the instruction working on the cross-referenced answer.",
+     "definitionFit": "A girandole is an ornate branched candlestick or wall bracket for candles, an item designed to give light."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "switches"
+    }
+   }
   },
   {
    "id": "5-across",
@@ -103,7 +330,56 @@
    "clue": {
     "text": "Eve's birthplace just before Jesus born, in fashion (7)"
    },
-   "solution": "RIBCAGE"
+   "solution": "RIBCAGE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RIBCAGE",
+    "definitions": [
+     {
+      "text": "Eve's birthplace",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the date is put in the word for fashion"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fashion",
+      "gives": "RAGE",
+      "note": "the rage is the current fashion"
+     },
+     {
+      "clueFragment": "just before Jesus born",
+      "gives": "IBC",
+      "note": "the year just before Jesus was born is 1 BC, with the 1 written as I"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "IBC",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A Nativity-era question about where Eve came from, just before Christ.",
+     "walkthrough": "The Biblical dating is the wordplay: 1 BC, the last year before the traditional birth of Jesus, is read as the letters IBC.",
+     "definitionFit": "In Genesis, Eve was made from one of Adam's ribs, so the ribcage was where she came from."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Jesus"
+    }
+   }
   },
   {
    "id": "5-down",
@@ -117,7 +393,46 @@
    "clue": {
     "text": "Measure big cheese (5)"
    },
-   "solution": "RULER"
+   "solution": "RULER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RULER",
+    "definitions": [
+     {
+      "text": "Measure",
+      "at": 0
+     },
+     {
+      "text": "big cheese",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Measure",
+      "gives": "RULER",
+      "note": "a noun here: the straight edge you measure lengths with"
+     },
+     {
+      "clueFragment": "big cheese",
+      "gives": "RULER",
+      "note": "a big cheese is the person in charge"
+     }
+    ],
+    "explanation": {
+     "surface": "An instruction to weigh up a large cheese.",
+     "walkthrough": "'Measure' looks like a verb working on the cheese, but it is a noun, and big cheese is slang for a boss.",
+     "definitionFit": "A ruler measures lengths, and a ruler is the one in charge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cheese"
+    }
+   }
   },
   {
    "id": "6-down",
@@ -131,7 +446,52 @@
    "clue": {
     "text": "Nomadic tribesman controlling vital area? (9)"
    },
-   "solution": "BRAINSTEM"
+   "solution": "BRAINSTEM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BRAINSTEM",
+    "definitions": [
+     {
+      "text": "controlling vital area?",
+      "at": 18,
+      "note": "a descriptive phrase for the answer, not a noun"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Nomadic",
+      "for": "anagram",
+      "note": "nomads wander, so the letters of tribesman wander into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tribesman",
+      "gives": "TRIBESMAN",
+      "note": "the fodder, used whole"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TRIBESMAN",
+       "gives": "BRAINSTEM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wandering tribesman in command of some crucial territory.",
+     "walkthrough": "The definition reads as a tribal chief holding land; the question mark flags that the vital area is in the body.",
+     "definitionFit": "The brainstem controls breathing and heartbeat, the body's vital functions, and is itself a vital area of the brain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "vital"
+    }
+   }
   },
   {
    "id": "7-down",
@@ -145,7 +505,46 @@
    "clue": {
     "text": "Whisper main number of forty-five? (5)"
    },
-   "solution": "ASIDE"
+   "solution": "ASIDE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ASIDE",
+    "definitions": [
+     {
+      "text": "Whisper",
+      "at": 0
+     },
+     {
+      "text": "main number of forty-five?",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Whisper",
+      "gives": "ASIDE",
+      "note": "a noun: a remark spoken quietly, out of others' hearing, as actors do on stage"
+     },
+     {
+      "clueFragment": "main number of forty-five?",
+      "gives": "ASIDE",
+      "note": "a forty-five is a 45 rpm single record, and its main track is the lead side"
+     }
+    ],
+    "explanation": {
+     "surface": "A hushed question about the key figure in forty-five.",
+     "walkthrough": "Forty-five looks like a number to do sums with; it is a vinyl single, and its main number is the song on the A-side.",
+     "definitionFit": "An aside is a quiet remark, and the A-side is a single's lead song."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "forty-five"
+    }
+   }
   },
   {
    "id": "8-down",
@@ -159,7 +558,62 @@
    "clue": {
     "text": "Genius, good man inspired by old oath (7)"
    },
-   "solution": "EGGHEAD"
+   "solution": "EGGHEAD",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "EGGHEAD",
+    "definitions": [
+     {
+      "text": "Genius",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inspired by",
+      "for": "container",
+      "note": "what is inspired is breathed in, so the letters go inside the oath"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old oath",
+      "gives": "EGAD",
+      "note": "egad is an old-fashioned mild oath"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G = good"
+     },
+     {
+      "clueFragment": "man",
+      "gives": "HE",
+      "note": "a man is a he"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EG",
+      "G",
+      "HE",
+      "AD"
+     ]
+    },
+    "explanation": {
+     "surface": "A clever, decent man was moved by an old vow.",
+     "walkthrough": "'Inspired by' suggests influence, but here it means breathed in, so GHE sits inside EGAD.",
+     "definitionFit": "An egghead is an intellectual, a very clever person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "inspired"
+    }
+   }
   },
   {
    "id": "9-across",
@@ -173,7 +627,58 @@
    "clue": {
     "text": "Join together touring a region of South East England (5)"
    },
-   "solution": "WEALD"
+   "solution": "WEALD",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "WEALD",
+    "definitions": [
+     {
+      "text": "region of South East England",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "touring",
+      "for": "container",
+      "note": "to tour a thing is to go all round it"
+     }
+    ],
+    "linkWords": [
+     "a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Join together",
+      "gives": "WELD",
+      "note": "to weld is to join metal together"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the letter A, as printed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WE",
+      "A",
+      "LD"
+     ]
+    },
+    "explanation": {
+     "surface": "A group heading off together on a tour of South East England.",
+     "walkthrough": "'A' does double work in the surface as the article before region, but it is the letter that goes inside.",
+     "definitionFit": "The Weald is an area of Kent, Sussex and Surrey, once heavily wooded, in South East England."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "touring"
+    }
+   }
   },
   {
    "id": "10-across",
@@ -187,7 +692,51 @@
    "clue": {
     "text": "Filling up again, could be a long ride? (9)"
    },
-   "solution": "RELOADING"
+   "solution": "RELOADING",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RELOADING",
+    "definitions": [
+     {
+      "text": "Filling up again",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "could be",
+      "for": "anagram",
+      "note": "the letters of the phrase could be arranged into another word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a long ride",
+      "gives": "ALONGRIDE",
+      "note": "the fodder, three words run together"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ALONGRIDE",
+       "gives": "RELOADING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A driver refuelling wonders whether a long trip lies ahead.",
+     "walkthrough": "The surface is about a fuel stop before a journey; the journey is only the fodder.",
+     "definitionFit": "Reloading is filling up again, as with a gun or a vehicle's cargo."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ride"
+    }
+   }
   },
   {
    "id": "11-across",
@@ -201,7 +750,64 @@
    "clue": {
     "text": "Sort of tin can or bottle, ultimately - this? (9)"
    },
-   "solution": "CONTAINER"
+   "solution": "CONTAINER",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "CONTAINER",
+    "definitions": [
+     {
+      "text": "Sort of tin can or bottle, ultimately - this?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately points to the last letter of bottle"
+     },
+     {
+      "text": "Sort of",
+      "for": "anagram",
+      "note": "to sort letters is to put them into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tin can or",
+      "gives": "TINCANOR",
+      "note": "anagram fodder, three words run together"
+     },
+     {
+      "clueFragment": "bottle",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of bottle"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TINCANORE",
+       "gives": "CONTAINER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tin can or a bottle is, when all is said and done, a kind of this.",
+     "walkthrough": "The whole clue is both the definition and the wordplay: tin cans and bottles are containers, and their letters make the word.",
+     "definitionFit": "Tin cans and bottles are both kinds of container."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Sort"
+    }
+   }
   },
   {
    "id": "12-across",
@@ -215,7 +821,62 @@
    "clue": {
     "text": "Relative peace finally found in European city (5)"
    },
-   "solution": "NIECE"
+   "solution": "NIECE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "NIECE",
+    "definitions": [
+     {
+      "text": "Relative",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the last letter of peace"
+     },
+     {
+      "text": "found in",
+      "for": "container",
+      "note": "the letter is found inside the city's name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European city",
+      "gives": "NICE",
+      "note": "Nice, the city on the French Riviera"
+     },
+     {
+      "clueFragment": "peace",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of peace"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NI",
+      "E",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "A family member at last finds peace in a European city.",
+     "walkthrough": "The European city is Nice, on the French Riviera; the word also means pleasant, which helps it hide.",
+     "definitionFit": "A niece is a relative, the daughter of one's brother or sister."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "peace"
+    }
+   }
   },
   {
    "id": "13-across",
@@ -229,7 +890,47 @@
    "clue": {
     "text": "Charge that may be electrical (5)"
    },
-   "solution": "STORM"
+   "solution": "STORM",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STORM",
+    "definitions": [
+     {
+      "text": "Charge",
+      "at": 0
+     },
+     {
+      "text": "that may be electrical",
+      "at": 7,
+      "note": "a descriptive phrase for the answer, not a noun"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Charge",
+      "gives": "STORM",
+      "note": "a verb: to rush at and attack a position, as troops do"
+     },
+     {
+      "clueFragment": "that may be electrical",
+      "gives": "STORM",
+      "note": "weather with thunder and lightning is called electrical"
+     }
+    ],
+    "explanation": {
+     "surface": "A note that a charge may be an electric one.",
+     "walkthrough": "Charge and electrical together point to electric charge, but the charge is an attack, and it is the storm that may be electrical.",
+     "definitionFit": "The first sense is military, troops rushing a position; the second is weather, since thunder and lightning make it electrical."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Charge"
+    }
+   }
   },
   {
    "id": "14-down",
@@ -243,7 +944,55 @@
    "clue": {
     "text": "Monotreme's dicky ticker (9)"
    },
-   "solution": "METRONOME"
+   "solution": "METRONOME",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "METRONOME",
+    "definitions": [
+     {
+      "text": "ticker",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dicky",
+      "for": "anagram",
+      "note": "dicky means faulty, so the letters of monotreme are out of order"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Monotreme",
+      "gives": "MONOTREME",
+      "note": "the fodder, used whole"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MONOTREME",
+       "gives": "METRONOME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A platypus or echidna has a dodgy heart.",
+     "walkthrough": "A monotreme is an egg-laying mammal such as the platypus; 'dicky ticker' is British slang for a weak heart, but the ticker here is the one on a piano.",
+     "definitionFit": "A metronome ticks out a steady beat for musicians, so it is a ticker."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ticker"
+    }
+   }
   },
   {
    "id": "15-across",
@@ -257,7 +1006,52 @@
    "clue": {
     "text": "Badger used to rat, disconcerted (9)"
    },
-   "solution": "OUTSTARED"
+   "solution": "OUTSTARED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OUTSTARED",
+    "definitions": [
+     {
+      "text": "disconcerted",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Badger",
+      "for": "anagram",
+      "note": "to badger is to harass, and the letters are harassed into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "used to rat",
+      "gives": "USEDTORAT",
+      "note": "the fodder, three words run together"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "USEDTORAT",
+       "gives": "OUTSTARED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A badger, once given to informing on others, is thrown off balance.",
+     "walkthrough": "Badger looks like the animal and the subject of the sentence; it is the anagram instruction, and the definition is the last word.",
+     "definitionFit": "To outstare someone is to disconcert them by staring until they look away."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Badger"
+    }
+   }
   },
   {
    "id": "16-down",
@@ -271,7 +1065,51 @@
    "clue": {
     "text": "Motherese discombobulated triplets (9)"
    },
-   "solution": "THREESOME"
+   "solution": "THREESOME",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "THREESOME",
+    "definitions": [
+     {
+      "text": "triplets",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "discombobulated",
+      "for": "anagram",
+      "note": "discombobulated means thrown into confusion, like the letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Motherese",
+      "gives": "MOTHERESE",
+      "note": "the fodder, used whole"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MOTHERESE",
+       "gives": "THREESOME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Baby talk leaves three infants thoroughly confused.",
+     "walkthrough": "Motherese is the sing-song way parents talk to babies, which suits the triplets in the surface; the word is only fodder.",
+     "definitionFit": "A plain synonym at the level of number: triplets are three born together, and the answer is any group of three."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Motherese"
+    }
+   }
   },
   {
    "id": "17-down",
@@ -285,7 +1123,55 @@
    "clue": {
     "text": "Springier pants for putting on again (9)"
    },
-   "solution": "REPRISING"
+   "solution": "REPRISING",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REPRISING",
+    "definitions": [
+     {
+      "text": "putting on again",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pants",
+      "for": "anagram",
+      "note": "pants is British slang for rubbish, so the letters are in a poor, jumbled state"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Springier",
+      "gives": "SPRINGIER",
+      "note": "the fodder, used whole"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SPRINGIER",
+       "gives": "REPRISING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Stretchier trousers make them easier to put on again.",
+     "walkthrough": "Pants reads as trousers being put on; it is the British slang adjective for rubbish, used to jumble the word before it.",
+     "definitionFit": "A theatre sense: an actor returns to an old role, or a company stages a show once more."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pants"
+    }
+   }
   },
   {
    "id": "18-across",
@@ -299,7 +1185,51 @@
    "clue": {
     "text": "Doctor gathering clothes for later time? (9)"
    },
-   "solution": "NIGHTGEAR"
+   "solution": "NIGHTGEAR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NIGHTGEAR",
+    "definitions": [
+     {
+      "text": "clothes for later time?",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Doctor",
+      "for": "anagram",
+      "note": "to doctor something is to tamper with it, changing the letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gathering",
+      "gives": "GATHERING",
+      "note": "the fodder, used whole"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GATHERING",
+       "gives": "NIGHTGEAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor collects outfits to wear later on.",
+     "walkthrough": "Doctor reads as a person doing the gathering; it is a verb, the instruction to tamper with the next word.",
+     "definitionFit": "Nightgear is clothing worn at night, the later part of the day."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Doctor"
+    }
+   }
   },
   {
    "id": "18-down",
@@ -313,7 +1243,48 @@
    "clue": {
     "text": "Detected without 1 Across (7)"
    },
-   "solution": "NOTICED"
+   "solution": "NOTICED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NOTICED",
+    "definitions": [
+     {
+      "text": "Detected",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "without",
+      "gives": "NOT",
+      "note": "without a thing is not having it"
+     },
+     {
+      "clueFragment": "1 Across",
+      "gives": "ICED",
+      "note": "1 Across is TOPPING; a cake with a topping of icing is iced"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOT",
+      "ICED"
+     ]
+    },
+    "explanation": {
+     "surface": "Found, while lacking whatever 1 Across is.",
+     "walkthrough": "The cross-reference is read in its cake sense: without topping is not iced.",
+     "definitionFit": "To notice something is to detect it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "id": "19-across",
@@ -333,7 +1304,50 @@
      }
     ]
    },
-   "solution": "MOPUP"
+   "solution": "MOPUP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MOP UP",
+    "definitions": [
+     {
+      "text": "Finish off",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hair",
+      "gives": "MOP",
+      "note": "a mop is a thick mass of hair"
+     },
+     {
+      "clueFragment": "in beehive style?",
+      "gives": "UP",
+      "note": "a beehive hairdo is piled up high on the head"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOP",
+      "UP"
+     ]
+    },
+    "explanation": {
+     "surface": "A final touch at the hairdresser's, piling hair into a beehive.",
+     "walkthrough": "The question mark flags that 'in beehive style' is just UP, the way a beehive is worn.",
+     "definitionFit": "To mop up is to finish off, dealing with what remains."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Finish"
+    }
+   }
   },
   {
    "id": "20-down",
@@ -347,7 +1361,47 @@
    "clue": {
     "text": "Drink upset duck (7)"
    },
-   "solution": "PINTAIL"
+   "solution": "PINTAIL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PINTAIL",
+    "definitions": [
+     {
+      "text": "duck",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drink",
+      "gives": "PINT",
+      "note": "a pint is a drink, typically of beer"
+     },
+     {
+      "clueFragment": "upset",
+      "gives": "AIL",
+      "note": "to ail is to trouble or upset"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PINT",
+      "AIL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone knocks over a drink and ducks.",
+     "walkthrough": "Upset reads as the drink being spilt, or as an anagram signal; it is a verb, AIL, meaning to trouble.",
+     "definitionFit": "A definition by example: a dabbling species named for the drake's long, pointed central tail feathers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "id": "21-across",
@@ -361,7 +1415,58 @@
    "clue": {
     "text": "Rate of workforce's retirement? (5)"
    },
-   "solution": "TEMPO"
+   "solution": "TEMPO",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TEMPO",
+    "definitions": [
+     {
+      "text": "Rate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retirement",
+      "for": "reversal",
+      "note": "to retire is to draw back, so the letters go backwards"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "workforce's",
+      "gives": "OPMET",
+      "note": "split as work + force: OP is short for opus, a work, and the Met is London's Metropolitan Police force"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEMPO"
+     ],
+     "reversals": [
+      {
+       "from": "OPMET",
+       "to": "TEMPO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "How quickly are the staff retiring?",
+     "walkthrough": "Workforce reads as one word for the staff; split it into work and force. The Met is the Metropolitan Police, London's police force.",
+     "definitionFit": "Tempo is rate or speed, as of music or activity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "workforce's"
+    }
+   }
   },
   {
    "id": "22-down",
@@ -375,7 +1480,56 @@
    "clue": {
     "text": "Right, second right, then a left (5)"
    },
-   "solution": "MORAL"
+   "solution": "MORAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MORAL",
+    "definitions": [
+     {
+      "text": "Right",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "then"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "second right",
+      "gives": "MOR",
+      "note": "a mo is a moment, a second, and R = right"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the letter A, as printed"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L = left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOR",
+      "A",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "Directions to a driver: right, second right, then a left.",
+     "walkthrough": "The surface is a set of road directions; the first Right is the definition, and 'second' means a moment, not the second turning.",
+     "definitionFit": "Moral means right in the ethical sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "second"
+    }
+   }
   },
   {
    "id": "23-across",
@@ -389,7 +1543,54 @@
    "clue": {
     "text": "Part of shell in 11 at sea (9)"
    },
-   "solution": "CRENATION"
+   "solution": "CRENATION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CRENATION",
+    "definitions": [
+     {
+      "text": "Part of shell",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at sea",
+      "for": "anagram",
+      "note": "something at sea is confused, so the letters are disordered"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "11",
+      "gives": "CONTAINER",
+      "note": "the answer to 11 Across"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CONTAINER",
+       "gives": "CRENATION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A piece of shell is found inside a container out at sea.",
+     "walkthrough": "At sea fits the shell's natural home, but it is the anagram instruction for the cross-referenced answer.",
+     "definitionFit": "Crenation is a scalloped or notched edge, as on the rim of some shells."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sea"
+    }
+   }
   },
   {
    "id": "23-down",
@@ -403,7 +1604,44 @@
    "clue": {
     "text": "Build boat (5)"
    },
-   "solution": "CRAFT"
+   "solution": "CRAFT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CRAFT",
+    "definitions": [
+     {
+      "text": "Build",
+      "at": 0
+     },
+     {
+      "text": "boat",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Build",
+      "gives": "CRAFT",
+      "note": "a verb: to make something skilfully by hand"
+     },
+     {
+      "clueFragment": "boat",
+      "gives": "CRAFT",
+      "note": "a noun: any vessel, as in a small landing boat"
+     }
+    ],
+    "explanation": {
+     "surface": "An instruction to construct a boat.",
+     "walkthrough": "The two words read as verb and object; each is a separate definition.",
+     "definitionFit": "One word, two parts of speech: the verb for making by hand, and the noun for any vessel on water."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "id": "24-down",
@@ -417,7 +1655,80 @@
    "clue": {
     "text": "Vessel a swine almost capsized, circling river (5)"
    },
-   "solution": "AORTA"
+   "solution": "AORTA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "reversal",
+     "container"
+    ],
+    "answer": "AORTA",
+    "definitions": [
+     {
+      "text": "Vessel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost all of the word, so TOAD loses its last letter"
+     },
+     {
+      "text": "capsized",
+      "for": "reversal",
+      "note": "a capsized boat turns over, and in a down clue the letters turn back"
+     },
+     {
+      "text": "circling",
+      "for": "container",
+      "note": "the reversed letters circle round the river"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the letter A, as printed"
+     },
+     {
+      "clueFragment": "swine almost",
+      "gives": "TOA",
+      "note": "a swine is a toad, a contemptible person; TOAD loses its final D"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R = river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AO",
+      "R",
+      "TA"
+     ],
+     "reversals": [
+      {
+       "from": "ATOA",
+       "to": "AOTA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boat with a pig on board overturns on a river.",
+     "walkthrough": "Swine wants to be a pig, HOG or BOAR; it is an insult, and toad is the matching one.",
+     "definitionFit": "The aorta is the body's main artery, a blood vessel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Vessel"
+    }
+   }
   },
   {
    "id": "25-across",
@@ -431,7 +1742,48 @@
    "clue": {
     "text": "Six on the table? Stir broiled meat (9)"
    },
-   "solution": "CARBONADO"
+   "solution": "CARBONADO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CARBONADO",
+    "definitions": [
+     {
+      "text": "broiled meat",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Six on the table?",
+      "gives": "CARBON",
+      "note": "carbon is element six on the periodic table"
+     },
+     {
+      "clueFragment": "Stir",
+      "gives": "ADO",
+      "note": "a stir is a fuss, an ado"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CARBON",
+      "ADO"
+     ]
+    },
+    "explanation": {
+     "surface": "Six people seated for dinner, and grilled meat that needs stirring.",
+     "walkthrough": "The table is the periodic table, not a dinner table; the question mark flags the pun.",
+     "definitionFit": "A dated cookery term, from Spanish, for meat scored across and grilled over coals."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "table"
+    }
+   }
   },
   {
    "id": "26-across",
@@ -445,7 +1797,49 @@
    "clue": {
     "text": "Indian condiment absorbed by chapati, a restaurateur recalled (5)"
    },
-   "solution": "RAITA"
+   "solution": "RAITA",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "RAITA",
+    "definitions": [
+     {
+      "text": "Indian condiment",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "absorbed by",
+      "for": "hidden_word",
+      "note": "the answer is soaked up inside the words that follow"
+     },
+     {
+      "text": "recalled",
+      "for": "reversal",
+      "note": "to recall is to call back, so the letters read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chapati, a restaurateur",
+      "gives": "RAITA",
+      "note": "chap(ATI A R)estaurateur, read backwards"
+     }
+    ],
+    "explanation": {
+     "surface": "A restaurant owner remembers the yoghurt dip soaked up by the flatbread.",
+     "walkthrough": "The Indian meal in the surface is real: raita does get mopped up with chapati.",
+     "definitionFit": "Raita is an Indian side dish of yoghurt with cucumber or other vegetables."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "recalled"
+    }
+   }
   },
   {
    "id": "27-across",
@@ -459,7 +1853,56 @@
    "clue": {
     "text": "Most uninspiring airport tax originally (7)"
    },
-   "solution": "DULLEST"
+   "solution": "DULLEST",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "DULLEST",
+    "definitions": [
+     {
+      "text": "Most uninspiring",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "originally points to the first letter of tax"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "airport",
+      "gives": "DULLES",
+      "note": "Dulles is Washington DC's main international airport"
+     },
+     {
+      "clueFragment": "tax",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter of tax"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DULLES",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Airport taxes, a traveller complains, are the most tedious thing about flying.",
+     "walkthrough": "Airport is not a general word for a hub but one specific airport whose name nearly spells the answer.",
+     "definitionFit": "A plain synonym in the superlative: dull is uninspiring, so the -est form matches 'most'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "airport"
+    }
+   }
   },
   {
    "id": "28-across",
@@ -473,7 +1916,60 @@
    "clue": {
     "text": "Gospel backfiring on church body (7)"
    },
-   "solution": "EVANGEL"
+   "solution": "EVANGEL",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "EVANGEL",
+    "definitions": [
+     {
+      "text": "Gospel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backfiring",
+      "for": "reversal",
+      "note": "something that backfires goes the wrong way, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on",
+      "gives": "LEG",
+      "note": "in cricket, the on side is also called the leg side"
+     },
+     {
+      "clueFragment": "church body",
+      "gives": "NAVE",
+      "note": "the nave is the main body of a church"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVANGEL"
+     ],
+     "reversals": [
+      {
+       "from": "LEGNAVE",
+       "to": "EVANGEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A church council's preaching of the gospel goes badly wrong.",
+     "walkthrough": "On looks like a link word; it is a cricket term: the on side of the field, where the batsman's legs are, is also the leg side.",
+     "definitionFit": "Evangel is an old word for the gospel, the Christian good news."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "on"
+    }
+   }
   }
  ]
 }
