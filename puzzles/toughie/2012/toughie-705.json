@@ -24,6 +24,9 @@
   "date": "2012-01-19",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,75 @@
     "text": "Tipsy refugee clutching book in confines of bar — and fried food",
     "enumeration": "10"
    },
-   "solution": "BEEFBURGER"
+   "solution": "BEEFBURGER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "BEEFBURGER",
+    "definitions": [
+     {
+      "text": "fried food",
+      "at": 54
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Tipsy",
+      "for": "anagram",
+      "note": "a tipsy person staggers about, and so do these letters"
+     },
+     {
+      "text": "confines of",
+      "for": "letter_selection",
+      "note": "the confines of a word are its boundary letters, the first and last"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "refugee",
+      "gives": "REFUGEE",
+      "note": "anagram fodder, used as printed"
+     },
+     {
+      "clueFragment": "book",
+      "gives": "B",
+      "note": "B = book, the standard abbreviation"
+     },
+     {
+      "clueFragment": "confines of bar",
+      "gives": "BR",
+      "select": "outer",
+      "note": "the outer letters of BaR"
+     },
+     {
+      "clueFragment": "clutching",
+      "note": "surface padding: it places the book with the other letters, but everything is shuffled anyway"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REFUGEE B BR",
+       "gives": "BEEFBURGER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drunk asylum-seeker at the edge of a pub, clutching a book and some chips.",
+     "walkthrough": "'Clutching' and 'in' only place B and BR beside the fodder; since everything is then shuffled, where they sit makes no difference.",
+     "definitionFit": "A beefburger is a patty usually fried or grilled, so 'fried food' is a fair loose description."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Tipsy"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +122,62 @@
     "text": "Read casually arguments held by outsiders in brigade",
     "enumeration": "6"
    },
-   "solution": "BROWSE"
+   "solution": "BROWSE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "BROWSE",
+    "definitions": [
+     {
+      "text": "Read casually",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "held by",
+      "for": "container",
+      "note": "the arguments are held inside the other letters"
+     },
+     {
+      "text": "outsiders in",
+      "for": "letter_selection",
+      "note": "the outsiders of a word are its first and last letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "outsiders in brigade",
+      "gives": "BE",
+      "select": "outer",
+      "note": "the outer letters of BrigadE"
+     },
+     {
+      "clueFragment": "arguments",
+      "gives": "ROWS",
+      "note": "rows = quarrels, rhyming with 'cows'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ROWS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone skims a report of squabbles among soldiers in a brigade.",
+     "walkthrough": "ROW here is the British word for a noisy quarrel, pronounced to rhyme with 'cow'.",
+     "definitionFit": "To browse is to read idly, dipping in without system."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "outsiders"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +191,64 @@
     "text": "Priest before pilgrimage held up as prophet",
     "enumeration": "6"
    },
-   "solution": "ELIJAH"
+   "solution": "ELIJAH",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ELIJAH",
+    "definitions": [
+     {
+      "text": "prophet",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "held up",
+      "for": "reversal",
+      "note": "in a down clue, something held up reads from the bottom upward"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Priest",
+      "gives": "ELI",
+      "note": "Eli, the priest who raised Samuel, is the crossword's usual priest"
+     },
+     {
+      "clueFragment": "pilgrimage",
+      "gives": "HAJ",
+      "note": "the hajj, the Muslim pilgrimage to Mecca, spelt HAJ"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELI",
+      "JAH"
+     ],
+     "reversals": [
+      {
+       "from": "HAJ",
+       "to": "JAH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A priest is delayed on the way to a pilgrimage and hailed as a prophet.",
+     "walkthrough": "'Held up' reads like 'delayed', but in a down clue it turns HAJ upward to give JAH.",
+     "definitionFit": "Elijah is the Old Testament prophet taken up to heaven in a whirlwind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "held"
+    }
+   }
   },
   {
    "number": 3,
@@ -85,7 +268,51 @@
      }
     ]
    },
-   "solution": "BANANAREPUBLIC"
+   "solution": "BANANAREPUBLIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BANANA REPUBLIC",
+    "definitions": [
+     {
+      "text": "client state?",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "that’s corrupted",
+      "for": "anagram",
+      "note": "corrupted letters are spoilt out of their proper order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cap annual bribe",
+      "gives": "CAPANNUALBRIBE",
+      "note": "anagram fodder, 14 letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CAP ANNUAL BRIBE",
+       "gives": "BANANAREPUBLIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A call to limit the yearly backhander that has corrupted a dependent state.",
+     "walkthrough": "The surface fits the answer so well that it nearly defines it, with bribery and corruption the stuff of banana republics.",
+     "definitionFit": "A banana republic is a small, unstable state beholden to foreign interests, which makes it a client state; the question mark flags the loose fit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Cap"
+    }
+   }
   },
   {
    "number": 4,
@@ -105,7 +332,69 @@
      }
     ]
    },
-   "solution": "RESTHOUSE"
+   "solution": "RESTHOUSE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "REST HOUSE",
+    "definitions": [
+     {
+      "text": "an amenity for travellers",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shortly",
+      "for": "deletion",
+      "note": "cut short, ESTHER loses its tail and keeps its abbreviation"
+     },
+     {
+      "text": "to probe",
+      "for": "container",
+      "note": "a probe goes inside what it examines"
+     },
+     {
+      "text": "not good",
+      "for": "deletion",
+      "note": "'not G' tells you to take the letter G away"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Book shortly",
+      "gives": "ESTH",
+      "note": "Esther, a book of the Old Testament, shortened to its abbreviation ESTH"
+     },
+     {
+      "clueFragment": "beef, not good",
+      "gives": "ROUSE",
+      "note": "beef = GROUSE (a complaint), losing G for good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ESTH",
+      "OUSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A travel guidebook item: a brief note on beef, not recommended as a service for tourists.",
+     "walkthrough": "Both 'beef' and 'grouse' are slang for a complaint; G is the standard abbreviation for good.",
+     "definitionFit": "A rest house is a lodging for travellers, especially in parts of Asia and Africa."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "beef"
+    }
+   }
   },
   {
    "number": 5,
@@ -119,7 +408,71 @@
     "text": "Leading man in Stratford keeping a time for creative influence",
     "enumeration": "5"
    },
-   "solution": "ERATO"
+   "solution": "ERATO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "ERATO",
+    "definitions": [
+     {
+      "text": "creative influence",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in Stratford",
+      "for": "deletion",
+      "note": "Stratford in east London is Cockney country, where the H goes unspoken"
+     },
+     {
+      "text": "keeping",
+      "for": "container",
+      "note": "the word keeps the others inside it"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Leading man in Stratford",
+      "gives": "ERO",
+      "note": "HERO, the leading man, said the Cockney way as 'ERO"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "used as printed"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T = time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ER",
+      "A",
+      "T",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A star actor at Stratford holds the stage for a time, inspiring others.",
+     "walkthrough": "Stratford suggests Shakespeare's Stratford-upon-Avon and a leading actor; the Stratford that matters is the east London one, where Cockneys drop their H.",
+     "definitionFit": "Erato is one of the nine Muses, the muse of love poetry, and a muse is a creative influence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Stratford"
+    }
+   }
   },
   {
    "number": 6,
@@ -133,7 +486,55 @@
     "text": "Fool perhaps trailing second jacketed type?",
     "enumeration": "4"
    },
-   "solution": "SPUD"
+   "solution": "SPUD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SPUD",
+    "definitions": [
+     {
+      "text": "jacketed type?",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "trailing",
+      "for": "charade",
+      "note": "the pudding trails behind, placed after S"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S = second"
+     },
+     {
+      "clueFragment": "Fool perhaps",
+      "gives": "PUD",
+      "note": "a fool is a fruit-and-cream dessert, so an example of a pud, British slang for pudding"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PUD"
+     ]
+    },
+    "explanation": {
+     "surface": "A fool lags behind a second person wearing a jacket.",
+     "walkthrough": "'Fool' is not a silly person but the British dessert, which makes it an example of a pud (pudding, dessert).",
+     "definitionFit": "A spud is a potato, and a jacket potato is one baked in its skin, so a spud is the 'jacketed type'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Fool"
+    }
+   }
   },
   {
    "number": 7,
@@ -147,7 +548,66 @@
     "text": "Curve in a tennis shot coming up after one following service?",
     "enumeration": "8"
    },
-   "solution": "PARABOLA"
+   "solution": "PARABOLA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "PARABOLA",
+    "definitions": [
+     {
+      "text": "Curve",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coming up",
+      "for": "reversal",
+      "note": "in a down clue, coming up means reading from the bottom upward"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "the reversed shot is placed after PARA"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one following service",
+      "gives": "PARA",
+      "note": "a para, a paratrooper, is one who follows military service"
+     },
+     {
+      "clueFragment": "a tennis shot",
+      "gives": "ALOB",
+      "note": "A + LOB, a high looping tennis shot"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PARA",
+      "BOLA"
+     ],
+     "reversals": [
+      {
+       "from": "ALOB",
+       "to": "BOLA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tennis player's shot curves up after a serve.",
+     "walkthrough": "The tennis words 'shot' and 'service' pull toward the court, but 'service' is the armed services, and a para (paratrooper) is one of its soldiers.",
+     "definitionFit": "A parabola is a mathematical curve, the path of a thrown ball, so a lob traces one too."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "service"
+    }
+   }
   },
   {
    "number": 8,
@@ -167,7 +627,69 @@
      }
     ]
    },
-   "solution": "DAYTRIPS"
+   "solution": "DAYTRIPS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "DAY TRIPS",
+    "definitions": [
+     {
+      "text": "brief excursions",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "clumsily",
+      "for": "anagram",
+      "note": "a clumsy hand muddles the letters"
+     },
+     {
+      "text": "put around",
+      "for": "container",
+      "note": "the dips are placed around the shuffled tray"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Party food",
+      "gives": "DIPS",
+      "note": "dips such as salsa or hummus, served at parties"
+     },
+     {
+      "clueFragment": "tray",
+      "gives": "TRAY",
+      "note": "anagram fodder"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "AYTR",
+      "IPS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TRAY",
+       "gives": "AYTR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Dips arranged clumsily around a tray at a party on short outings.",
+     "walkthrough": "'Party food' is one idea, not a party plus food; the food is split open after its first letter to take in the rest.",
+     "definitionFit": "An outing there and back within a single day is short by nature, so the definition is a plain paraphrase."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -191,7 +713,51 @@
      }
     ]
    },
-   "solution": "SPITANDSAWDUST"
+   "solution": "SPITANDSAWDUST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SPIT-AND-SAWDUST",
+    "definitions": [
+     {
+      "text": "Spartan",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "excitable",
+      "for": "anagram",
+      "note": "excitable letters will not stay still in their order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dad puts twins as",
+      "gives": "DADPUTSTWINSAS",
+      "note": "anagram fodder, 14 letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DAD PUTS TWINS AS",
+       "gives": "SPITANDSAWDUST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A strict father decides his twins are overexcitable.",
+     "walkthrough": "'Spartan' reads as a description of the dad, and it is the definition. A spit-and-sawdust pub is a basic British bar, once with sawdust on the floor.",
+     "definitionFit": "Spit-and-sawdust means plain and without comforts, as spartan does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Spartan"
+    }
+   }
   },
   {
    "number": 10,
@@ -205,7 +771,77 @@
     "text": "Top firearm after tip-off recalled for hunter",
     "enumeration": "5"
    },
-   "solution": "ORION"
+   "solution": "ORION",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "reversal"
+    ],
+    "answer": "ORION",
+    "definitions": [
+     {
+      "text": "hunter",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tip-off",
+      "for": "deletion",
+      "note": "the tip, the last letter, comes off the gun"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "the firearm is placed after top"
+     },
+     {
+      "text": "recalled",
+      "for": "reversal",
+      "note": "called back, the letters run backward"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Top",
+      "gives": "NOI",
+      "note": "top = No. 1, written NO I"
+     },
+     {
+      "clueFragment": "firearm after tip-off",
+      "gives": "RO",
+      "note": "ROD, gangster slang for a gun, with its tip off"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OR",
+      "I",
+      "ON"
+     ],
+     "reversals": [
+      {
+       "from": "NOIRO",
+       "to": "ORION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A leading gun, recalled after a tip-off, for a hunter.",
+     "walkthrough": "'Tip-off' looks like an informer's warning; here it strips the tip from ROD. The number one, NO I, is the top.",
+     "definitionFit": "Orion is the great hunter of Greek myth, now a constellation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tip-off"
+    }
+   }
   },
   {
    "number": 11,
@@ -225,7 +861,56 @@
      }
     ]
    },
-   "solution": "STAGPARTY"
+   "solution": "STAGPARTY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STAG PARTY",
+    "definitions": [
+     {
+      "text": "celebration before match?",
+      "at": 13
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the role goes inside the word for fake"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fake",
+      "gives": "STAGY",
+      "note": "stagy = theatrical, artificial"
+     },
+     {
+      "clueFragment": "Role",
+      "gives": "PART",
+      "note": "an actor's part"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAG",
+      "PART",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "An actor's role in a staged celebration before a sports fixture.",
+     "walkthrough": "'Match' wants to be a sports fixture; it is a marriage, and a stag party is the British bachelor party before a wedding.",
+     "definitionFit": "A stag party is the groom's celebration before his wedding, a match in the marriage sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "match"
+    }
+   }
   },
   {
    "number": 12,
@@ -239,7 +924,59 @@
     "text": "Good man with sign of inflation saving a tiny bit of money? It’s constant",
     "enumeration": "7"
    },
-   "solution": "STAUNCH"
+   "solution": "STAUNCH",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "STAUNCH",
+    "definitions": [
+     {
+      "text": "constant",
+      "at": 65
+     }
+    ],
+    "indicators": [
+     {
+      "text": "saving",
+      "for": "deletion",
+      "note": "'saving' means except, so the penny is left out"
+     }
+    ],
+    "linkWords": [
+     "It’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Good man",
+      "gives": "ST",
+      "note": "ST = saint, a good man"
+     },
+     {
+      "clueFragment": "sign of inflation saving a tiny bit of money",
+      "gives": "AUNCH",
+      "note": "PAUNCH, a swollen belly, except P, a penny"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "AUNCH"
+     ]
+    },
+    "explanation": {
+     "surface": "A virtuous man, worried about rising prices, saves every penny; that is constancy.",
+     "walkthrough": "'Inflation' reads as rising prices, and the money words back that up; the inflation is a swelling stomach, a paunch. P is a penny, the smallest British coin.",
+     "definitionFit": "Staunch means loyal and constant, as a staunch supporter is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "inflation"
+    }
+   }
   },
   {
    "number": 13,
@@ -253,7 +990,72 @@
     "text": "Who possibly lacking depth is seen around extremely bothersome period?",
     "enumeration": "7"
    },
-   "solution": "OCTOBER"
+   "solution": "OCTOBER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "OCTOBER",
+    "definitions": [
+     {
+      "text": "period",
+      "at": 63
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lacking",
+      "for": "deletion",
+      "note": "to lack something is to be without it, so the word must go without D, the abbreviation for depth"
+     },
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its end letters"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "the shortened word goes around BE"
+     }
+    ],
+    "linkWords": [
+     "is seen"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Who possibly lacking depth",
+      "gives": "OCTOR",
+      "note": "DOCTOR, as in Doctor Who, lacking D for depth"
+     },
+     {
+      "clueFragment": "extremely bothersome",
+      "gives": "BE",
+      "select": "outer",
+      "note": "the extreme letters of BothersomE"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OCTO",
+      "BE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone shallow hangs around during an irritating stretch of time.",
+     "walkthrough": "'Who' reads as the pronoun; it is Doctor Who, the long-running BBC science-fiction series, so 'Who possibly' gives DOCTOR.",
+     "definitionFit": "A month is one kind of period, so the definition works by example with a deliberately vague word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Who"
+    }
+   }
   },
   {
    "number": 14,
@@ -273,7 +1075,52 @@
      }
     ]
    },
-   "solution": "FREUDIANSLIP"
+   "solution": "FREUDIANSLIP",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FREUDIAN SLIP",
+    "definitions": [
+     {
+      "text": "it exposes an unconscious thought",
+      "at": 31,
+      "note": "a clause describing the answer; 'it' stands for the slip"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "that’s woeful",
+      "for": "anagram",
+      "note": "a woeful arrangement is a bad one, so the letters need putting right"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A sinful pride",
+      "gives": "ASINFULPRIDE",
+      "note": "anagram fodder, 12 letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "A SINFUL PRIDE",
+       "gives": "FREUDIANSLIP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A confession that sinful pride is shameful, since it betrays one's hidden mind.",
+     "walkthrough": "The fodder has a Freudian ring of its own: a sin blurted out by accident is exactly what the answer describes.",
+     "definitionFit": "A Freudian slip is a verbal error thought to reveal an unconscious wish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "woeful"
+    }
+   }
   },
   {
    "number": 15,
@@ -287,7 +1134,83 @@
     "text": "Novelist getting hint of damages after notable novel is taken into Irish court",
     "enumeration": "9"
    },
-   "solution": "ISHERWOOD"
+   "solution": "ISHERWOOD",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "ISHERWOOD",
+    "definitions": [
+     {
+      "text": "Novelist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hint of",
+      "for": "letter_selection",
+      "note": "a hint is just the first letter"
+     },
+     {
+      "text": "is taken into",
+      "for": "container",
+      "note": "the novel goes inside the abbreviation for Irish"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "D is placed after the rest"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Irish",
+      "gives": "IR",
+      "note": "IR = Irish"
+     },
+     {
+      "clueFragment": "notable novel",
+      "gives": "SHE",
+      "note": "She, H. Rider Haggard's famous novel"
+     },
+     {
+      "clueFragment": "court",
+      "gives": "WOO",
+      "note": "to court = to woo"
+     },
+     {
+      "clueFragment": "hint of damages",
+      "gives": "D",
+      "select": "first",
+      "note": "the first letter of Damages"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "SHE",
+      "R",
+      "WOO",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A novelist wins a hint of damages after a famous novel is taken to court in Ireland.",
+     "walkthrough": "'Court' pulls toward a legal hearing alongside 'damages'; here it is a verb, to woo.",
+     "definitionFit": "Christopher Isherwood was the English novelist of Goodbye to Berlin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "court"
+    }
+   }
   },
   {
    "number": 16,
@@ -301,7 +1224,81 @@
     "text": "A tune outwardly defended by uppity rival of A Franklin with variety?",
     "enumeration": "8"
    },
-   "solution": "ASSORTED"
+   "solution": "ASSORTED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "ASSORTED",
+    "definitions": [
+     {
+      "text": "with variety?",
+      "at": 56
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outwardly",
+      "for": "letter_selection",
+      "note": "the outward letters of a word are its first and last"
+     },
+     {
+      "text": "uppity",
+      "for": "reversal",
+      "note": "in a down clue, uppity letters go up, reading from the bottom"
+     },
+     {
+      "text": "defended by",
+      "for": "container",
+      "note": "the tune is guarded inside the rival's name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "used as printed"
+     },
+     {
+      "clueFragment": "rival of A Franklin",
+      "gives": "DROSS",
+      "note": "D Ross, Diana Ross, a rival of Aretha Franklin, styled with an initial as Franklin is"
+     },
+     {
+      "clueFragment": "tune outwardly",
+      "gives": "TE",
+      "select": "outer",
+      "note": "the outer letters of TunE"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "SSOR",
+      "TE",
+      "D"
+     ],
+     "reversals": [
+      {
+       "from": "DROSS",
+       "to": "SSORD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A song defended by a haughty rival of the soul singer Aretha Franklin, with some variety.",
+     "walkthrough": "'A Franklin' signals the name style, initial plus surname, so the rival comes as D ROSS; turned upward it reads SSORD and takes TE inside.",
+     "definitionFit": "Assorted means of various kinds, so 'with variety'; the question mark flags the phrase standing in for an adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "uppity"
+    }
+   }
   },
   {
    "number": 17,
@@ -315,7 +1312,62 @@
     "text": "Former Home Secretary always protecting Northern animals",
     "enumeration": "8"
    },
-   "solution": "REINDEER"
+   "solution": "REINDEER",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "REINDEER",
+    "definitions": [
+     {
+      "text": "animals",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "protecting",
+      "for": "container",
+      "note": "the minister's name wraps around N to protect it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Former Home Secretary",
+      "gives": "REID",
+      "note": "John Reid, UK Home Secretary 2006-07"
+     },
+     {
+      "clueFragment": "Northern",
+      "gives": "N",
+      "note": "N = Northern"
+     },
+     {
+      "clueFragment": "always",
+      "gives": "EER",
+      "note": "e'er, the poetic contraction of ever"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REI",
+      "N",
+      "D",
+      "EER"
+     ]
+    },
+    "explanation": {
+     "surface": "A former British minister always stands up for animals of the north.",
+     "walkthrough": "The Home Secretary is the UK minister for policing and immigration; the one needed is John Reid.",
+     "definitionFit": "Reindeer are the deer of the Arctic north; the plural form is the same as the singular."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Northern"
+    }
+   }
   },
   {
    "number": 18,
@@ -329,7 +1381,65 @@
     "text": "Champion retained by very expensive contract for race",
     "enumeration": "12"
    },
-   "solution": "STEEPLECHASE"
+   "solution": "STEEPLECHASE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "STEEPLECHASE",
+    "definitions": [
+     {
+      "text": "race",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retained by",
+      "for": "container",
+      "note": "the contract holds the champion inside it"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "very expensive",
+      "gives": "STEEP",
+      "note": "a steep price is a very high one"
+     },
+     {
+      "clueFragment": "contract",
+      "gives": "LEASE",
+      "note": "a lease is a rental contract"
+     },
+     {
+      "clueFragment": "Champion",
+      "gives": "CH",
+      "note": "CH = champion, as in dog-show titles"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STEEP",
+      "LE",
+      "CH",
+      "ASE"
+     ]
+    },
+    "explanation": {
+     "surface": "A champion jockey signs a costly deal to ride in a race.",
+     "walkthrough": "'Champion retained by' reads as a sports star kept under contract, and the champion is only CH.",
+     "definitionFit": "A steeplechase is a horse race over fences, or a track race with hurdles and water jumps."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "retained"
+    }
+   }
   },
   {
    "number": 19,
@@ -343,7 +1453,44 @@
     "text": "Train planned with wonder, we hear",
     "enumeration": "6"
    },
-   "solution": "MENTOR"
+   "solution": "MENTOR",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "MENTOR",
+    "definitions": [
+     {
+      "text": "Train",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "what we hear is the sound, not the spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "planned with wonder",
+      "gives": "MENTOR",
+      "soundsLike": "MEANT AWE",
+      "note": "meant = planned, awe = wonder, said together in an accent that drops a final R"
+     }
+    ],
+    "explanation": {
+     "surface": "A railway train designed to inspire wonder.",
+     "walkthrough": "'Train' looks like a locomotive; it is the verb, to coach. The sound match relies on a non-rhotic British accent, in which MENTOR ends in 'aw'.",
+     "definitionFit": "Train is the verb here, and to coach and guide a junior is a plain synonym of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Train"
+    }
+   }
   },
   {
    "number": 20,
@@ -357,7 +1504,45 @@
     "text": "Class of people in car",
     "enumeration": "6"
    },
-   "solution": "ESTATE"
+   "solution": "ESTATE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ESTATE",
+    "definitions": [
+     {
+      "text": "Class of people",
+      "at": 0
+     },
+     {
+      "text": "car",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Class of people",
+      "note": "the traditional orders of the realm: clergy, nobility and commons"
+     },
+     {
+      "clueFragment": "car",
+      "note": "a British car type with a long body and a rear door, a station wagon in the US"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The estates of the realm are the traditional social classes: clergy, nobility and commons. An estate car is the British term for a station wagon.",
+     "definitionFit": "An estate is a social class, and an estate is a car with a long rear load space."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 21,
@@ -371,7 +1556,67 @@
     "text": "Occupant of bench in way of working backed in old TV programme",
     "enumeration": "7"
    },
-   "solution": "OMNIBUS"
+   "solution": "OMNIBUS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "OMNIBUS",
+    "definitions": [
+     {
+      "text": "old TV programme",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backed",
+      "for": "reversal",
+      "note": "backed means run backward"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Occupant of bench",
+      "gives": "SUB",
+      "note": "a substitute sits on the bench waiting to play"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "used as printed"
+     },
+     {
+      "clueFragment": "way of working",
+      "gives": "MO",
+      "note": "MO = modus operandi, a way of working"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OM",
+      "NI",
+      "BUS"
+     ],
+     "reversals": [
+      {
+       "from": "SUBINMO",
+       "to": "OMNIBUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A judge on the bench, whose methods came up in an old television show.",
+     "walkthrough": "'Bench' suggests a court, but it is the substitutes' bench in sport; 'in' is part of the wordplay, not a link.",
+     "definitionFit": "Omnibus was a long-running BBC arts documentary series."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bench"
+    }
+   }
   },
   {
    "number": 22,
@@ -385,7 +1630,58 @@
     "text": "Morning in Westminster for religious instructor",
     "enumeration": "5"
    },
-   "solution": "SWAMI"
+   "solution": "SWAMI",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SWAMI",
+    "definitions": [
+     {
+      "text": "religious instructor",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "morning goes inside Westminster's code"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Westminster",
+      "gives": "SWI",
+      "note": "SW1, Westminster's London postcode, with 1 read as I"
+     },
+     {
+      "clueFragment": "Morning",
+      "gives": "AM",
+      "note": "a.m. = morning"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SW",
+      "AM",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A morning service in Westminster Abbey for a religious teacher.",
+     "walkthrough": "SW1 is the London postcode that includes Parliament, which is why crosswords use it for Westminster.",
+     "definitionFit": "The title belongs to a Hindu teacher of religion, so the definition is a plain synonym put in general terms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Westminster"
+    }
+   }
   },
   {
    "number": 23,
@@ -399,7 +1695,64 @@
     "text": "Points to be covered among a lot of spots in green state",
     "enumeration": "7"
    },
-   "solution": "RAWNESS"
+   "solution": "RAWNESS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "RAWNESS",
+    "definitions": [
+     {
+      "text": "green state",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be covered among",
+      "for": "container",
+      "note": "the points are covered by the other letters"
+     },
+     {
+      "text": "a lot of",
+      "for": "deletion",
+      "note": "a lot of, not all, so the last letter goes"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a lot of spots",
+      "gives": "RAS",
+      "note": "RASH, an outbreak of spots, minus its last letter"
+     },
+     {
+      "clueFragment": "Points",
+      "gives": "WNES",
+      "note": "four compass points: west, north, east, south"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RA",
+      "WNES",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Pimples that need covering up amid a spotty breakout on a teenager's face.",
+     "walkthrough": "'Points' is plural and takes four letters here, one for each compass point.",
+     "definitionFit": "Green carries its sense of inexperienced or unripe, and that unseasoned condition is the noun's plain sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "green"
+    }
+   }
   },
   {
    "number": 24,
@@ -419,7 +1772,80 @@
      }
     ]
    },
-   "solution": "THEMIKADO"
+   "solution": "THEMIKADO",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "THE MIKADO",
+    "definitions": [
+     {
+      "text": "that’s staged regularly?",
+      "at": 53,
+      "note": "a clause describing the answer: a stage work often revived"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on reflection",
+      "for": "reversal",
+      "note": "a reflection shows the word backwards"
+     },
+     {
+      "text": "retaining",
+      "for": "container",
+      "note": "the reversed word holds the edge inside it"
+     },
+     {
+      "text": "before",
+      "for": "charade",
+      "note": "the result comes before the party"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Material",
+      "gives": "KIT",
+      "note": "kit = equipment, gear"
+     },
+     {
+      "clueFragment": "edge",
+      "gives": "HEM",
+      "note": "a hem is the edge of a fabric"
+     },
+     {
+      "clueFragment": "a party",
+      "gives": "ADO",
+      "note": "A + DO, a party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "HEM",
+      "IK",
+      "ADO"
+     ],
+     "reversals": [
+      {
+       "from": "KIT",
+       "to": "TIK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fabric, looked at again, keeps its edge ahead of a party that is put on regularly.",
+     "walkthrough": "Order matters: the material is turned round before the edge goes in. The Mikado is a comic opera by Gilbert and Sullivan.",
+     "definitionFit": "The Mikado, Gilbert and Sullivan's comic opera, is one of the most often revived stage works."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Material"
+    }
+   }
   },
   {
    "number": 25,
@@ -433,7 +1859,42 @@
     "text": "No moderate found among awful traditionalists",
     "enumeration": "5"
    },
-   "solution": "ULTRA"
+   "solution": "ULTRA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ULTRA",
+    "definitions": [
+     {
+      "text": "No moderate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found among",
+      "for": "hidden_word",
+      "note": "the answer is found among the letters of the next words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "awful traditionalists",
+      "gives": "ULTRA",
+      "note": "awfUL TRAditionalists"
+     }
+    ],
+    "explanation": {
+     "surface": "No moderate is found among these dreadful conservatives.",
+     "walkthrough": "The surface is almost a definition in itself: an ultra is exactly the kind of traditionalist the clue describes.",
+     "definitionFit": "An ultra is an extremist, someone who is no moderate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 26,
@@ -447,7 +1908,55 @@
     "text": "Speed shown by regulars in drab rota",
     "enumeration": "4"
    },
-   "solution": "DART"
+   "solution": "DART",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "DART",
+    "definitions": [
+     {
+      "text": "Speed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regulars in",
+      "for": "letter_selection",
+      "note": "regular letters are taken at even steps, here every other one"
+     }
+    ],
+    "linkWords": [
+     "shown by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drab rota",
+      "gives": "DART",
+      "select": "alternate",
+      "note": "DrAbRoTa, the first, third, fifth and seventh letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "A",
+      "R",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Speed shows up among the regular names on a dull duty roster.",
+     "walkthrough": "'Regulars' tempts you to think of pub regulars; it means letters picked at a regular interval.",
+     "definitionFit": "Speed is a verb here, to move fast, and a sudden quick movement is the synonym's sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "regulars"
+    }
+   }
   },
   {
    "number": 27,
@@ -471,7 +1980,58 @@
      }
     ]
    },
-   "solution": "PIEDATERRE"
+   "solution": "PIEDATERRE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PIED-A-TERRE",
+    "definitions": [
+     {
+      "text": "temporary lodging",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entertained by",
+      "for": "container",
+      "note": "the girlfriend is entertained, taken in, by the Frenchman"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "French chap",
+      "gives": "PIERRE",
+      "note": "Pierre, a typical French man's name"
+     },
+     {
+      "clueFragment": "Girlfriend",
+      "gives": "DATE",
+      "note": "a date = a girlfriend one goes out with"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIE",
+      "DATE",
+      "RRE"
+     ]
+    },
+    "explanation": {
+     "surface": "A Frenchman entertains his girlfriend in his temporary flat.",
+     "walkthrough": "The French chap is simply a common French first name, here Pierre.",
+     "definitionFit": "A pied-à-terre is a small second home kept for occasional stays."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "entertained"
+    }
+   }
   }
  ]
 }
