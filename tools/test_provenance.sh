@@ -331,27 +331,24 @@ out5=$(python3 tools/backfill_provenance.py --dry-run --report 2>&1)
 same "nothing left to change" \
   "$(grep -oE 'would change [0-9]+' <<<"$out5" | awk '{print $3}')" "0"
 
-echo "an authored draft's id ('A001', no hyphen) parses instead of crashing on int()"
+echo "the authored puzzle's id parses like any other and stamps as ours"
 out6=$(PYTHONPATH="$REPO/tools" python3 - <<'PY'
 import series as series_table
 import provenance as p
 
-# A regression check for the crash tools/build_authored_puzzle.py hit: its id
-# has no hyphen (deliberately, so it misses the "*-[0-9]*.json" glob the
-# nightly sweep uses), and parse_id used to call int() on it unconditionally.
-print("AUTHORED_SERIES", series_table.parse_id("A001")[0])
-print("AUTHORED_NUMBER", series_table.parse_id("A001")[1])
-print("SERIES_OF_ID", p.series_of_id("A001"))
+print("AUTHORED_SERIES", series_table.parse_id("authored-1")[0])
+print("AUTHORED_NUMBER", series_table.parse_id("authored-1")[1])
+print("SERIES_OF_ID", p.series_of_id("authored-1"))
 
-# Fetched ids must behave exactly as before: hyphenated ones split on the
-# last hyphen, and a bare pre-namespacing number still has no series.
+# Fetched ids split on the last hyphen, and a bare pre-namespacing number
+# has no series.
 print("FETCHED_SERIES", series_table.parse_id("everyman-4165")[0])
 print("FETCHED_NUMBER", series_table.parse_id("everyman-4165")[1])
 print("PRENAMESPACE_SERIES", series_table.parse_id("30089")[0])
 print("PRENAMESPACE_NUMBER", series_table.parse_id("30089")[1])
 
 puzzle = {
-    "id": "A001", "number": "A001", "series": "authored",
+    "id": "authored-1", "number": 1, "series": "authored",
     "name": "x", "setter": "x", "date": "2026-01-01",
     "dimensions": {"cols": 1, "rows": 1}, "entries": [],
 }
@@ -360,7 +357,7 @@ print("STAMPED_GRID_ORIGIN", stamped["source"]["gridOrigin"])
 PY
 )
 same "parse_id reads the authored id's series" "$(field AUTHORED_SERIES "$out6")" "authored"
-same "and keeps the id itself as its number" "$(field AUTHORED_NUMBER "$out6")" "A001"
+same "and its integer number" "$(field AUTHORED_NUMBER "$out6")" "1"
 same "provenance.series_of_id agrees" "$(field SERIES_OF_ID "$out6")" "authored"
 same "a hyphenated fetched id still splits on the last hyphen" \
   "$(field FETCHED_SERIES "$out6")" "everyman"
