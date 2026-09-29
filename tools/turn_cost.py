@@ -6,9 +6,10 @@
     python3 tools/turn_cost.py --json        # the same numbers, for something else to read
 
 An annotation session is one Claude Code transcript whose first user message
-starts with "Annotate" and whose assistant records sum to at least 20,000 output
-tokens — the token floor is what separates a real annotation from a one-clue fix
-that happens to open with the same word.
+starts with ANNOTATE_PREFIX, the opening of the headless annotate prompt; a
+one-clue fix or a fix-the-validator run opens differently. No output-token floor:
+a cheap run is exactly the one a floor would drop, which biases the median up.
+tools/annotate_audit.py reads the same sessions for what the turns went on.
 
 WHY THIS IS A TOOL AND NOT A SCRIPT SOMEBODY RAN ONCE. Turn cost was measured by
 hand twice. The first measurement recorded a jump from a median of 47 API calls
@@ -38,13 +39,13 @@ import sys
 CLAUDE_DIR = pathlib.Path(os.environ.get("CLAUDE_CONFIG_DIR")
                           or pathlib.Path.home() / ".claude")
 TRANSCRIPTS = sorted(CLAUDE_DIR.glob("projects/*cryptic*/*.jsonl"))
-MIN_OUTPUT_TOKENS = 20000
+ANNOTATE_PREFIX = "Annotate the crossword"
 
 
 def sessions():
     """Yield (started, api_calls, text_turns) for every annotation transcript."""
     for path in TRANSCRIPTS:
-        started, first_user, out_tokens = None, None, 0
+        started, first_user = None, None
         # Keyed by the API's own message id, because the CLI writes one JSONL
         # line PER CONTENT BLOCK and stamps every one of them with the whole
         # turn's usage. Counting lines bills a turn once per block, and a line
@@ -72,16 +73,13 @@ def sessions():
                     mid = msg.get("id") or rec.get("uuid")
                     if mid not in turns:
                         turns[mid] = False
-                        out_tokens += (msg.get("usage") or {}).get("output_tokens") or 0
                     body = msg.get("content")
                     if isinstance(body, list) and any(
                             isinstance(c, dict) and c.get("type") == "tool_use" for c in body):
                         turns[mid] = True
         except OSError:
             continue
-        if not started or not (first_user or "").strip().startswith("Annotate"):
-            continue
-        if out_tokens < MIN_OUTPUT_TOKENS:
+        if not started or not (first_user or "").strip().startswith(ANNOTATE_PREFIX):
             continue
         calls = len(turns)
         text_turns = sum(1 for acted in turns.values() if not acted)
