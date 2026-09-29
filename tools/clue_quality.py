@@ -18,10 +18,11 @@ comma or a copula, with no sentence wrapped around them.
 Rewriting those six clues produced a second complaint, and it is the sharper one:
 *they still do not read as real sentences or carry a joke.* `That Conservative
 lot, and mean with it` is a grammatical fragment with no finite verb — nothing a
-person would ever say out loud. Three further checks look for that: a clue with
-no finite verb (`not-a-sentence`), a clue that opens by telling the solver what
-to do (`imperative-opening`), and a clue built out of word pairs that no
-published setter has ever written (`unattested-phrasing`).
+person would ever say out loud. Two further checks look for that: a clue that
+opens by telling the solver what to do (`imperative-opening`), and a clue built
+out of word pairs that no published setter has ever written
+(`unattested-phrasing`). A third, a clue with no finite verb, was deleted: it
+fired on half of published clues and solvers' favourites ignored it.
 
 Every warning here is a smell, not an error. Exit status is 0 either way — this
 informs the setter, it does not block the build.
@@ -46,11 +47,11 @@ each puzzle, favourite against puzzle-mate
 
 An odds ratio under 1 means solvers favour the clue less when the check fires;
 |z| under 2 is no evidence either way. Two checks are established the way they
-were designed: `indicator-abuts-fodder` and `terse`. `fenced-definition` is
-established the OTHER way: a definition standing alone behind a comma or colon
-makes a clue half as likely again to be a favourite. `stock-indicator` and
-`not-a-sentence` fire on a sixth and on half of all published clues and carry
-no signal at all. `copula-definition`, `imperative-opening` and
+were designed: `indicator-abuts-fodder` and `terse`. Three were deleted on
+this table. `fenced-definition` was established the OTHER way: a definition
+standing alone behind a comma or colon makes a clue half as likely again to be
+a favourite. `stock-indicator` and `not-a-sentence` fired on a sixth and on
+half of all published clues and carried no signal at all. `copula-definition`, `imperative-opening` and
 `unattested-phrasing` point the right way but are too rare to establish.
 
 Two cautions. The votes are fifteensquared's: Guardian, Independent, Everyman
@@ -178,39 +179,14 @@ CORPUS = Path.home() / "cryptic-setter-data" / "georgeho" / "data.db"
 # the seam between wordplay and definition it is doing no surface work at all.
 COPULAS = r"(?:is|are|was|were|gives|makes|means|provides|produces|becomes|yields)"
 
-# How rare an indicator has to be before it stops shouting. Published setters use
-# 92% of their indicators exactly once; ours clustered in the top few percent by
-# frequency, which is why judges could see the mechanism coming.
-STOCK_PERCENTILE = 0.02
-
 # Every second row of the corpus: 330k of the 660k clues, spread across all ten
 # sources because the rowids interleave. The bigram table it builds has ~870k
 # entries and costs a few seconds and a few hundred MB; set this to 1 for the
 # whole corpus if you are willing to pay double for a slightly denser table.
 CORPUS_SAMPLE_MODULUS = 2
 
-# --- the finite-verb inventory ----------------------------------------------
-# There is no POS tagger here and there will not be one; the whole tool is
-# stdlib. So "does this clue contain a finite verb" is answered by a closed-class
-# inventory plus two corpus-derived open-class sets (see load_corpus_norms).
-#
-# Its limits, stated up front:
-#   * A finite verb outside the inventory and outside the corpus sets is missed,
-#     so a real sentence can be flagged. Rare present-tense verbs ("Minister
-#     resigns") are the usual victims.
-#   * -ed forms are hopelessly ambiguous in cryptic English: `Dream disturbed,
-#     carrying a gun` is a noun phrase but `Morgan dropped a million` is a
-#     sentence, and they are the same shape. The tie is broken by asking whether
-#     the corpus ever uses that word as a wordplay indicator; if it does, it is
-#     assumed to be doing mechanism duty rather than being the sentence's verb.
-#     That is a guess, and it is wrong on some clues in both directions.
-#   * "'s" is counted as a verb, though it is a genitive at least as often as it
-#     is `is`/`has`. That direction is chosen deliberately: everywhere this
-#     inventory guesses, it guesses towards "there is a verb", because a missed
-#     warning costs nothing and a wrong one scolds a good clue.
-#   * No agreement, no clause structure, no scope. A finite verb anywhere in the
-#     clue counts, even inside a subordinate clause, and a bare plural present
-#     ("Compilers keep secrets") is missed entirely for want of a subject number.
+# Verb forms that make a clue's opening a statement, not an order to the solver:
+# `Is`, `Has` and `Would` open questions and statements, never instructions.
 COPULA_FORMS = {
     "is", "are", "was", "were", "am", "isn't", "aren't", "wasn't", "weren't",
     "has", "have", "had", "hasn't", "haven't", "hadn't",
@@ -219,36 +195,8 @@ COPULA_FORMS = {
     "couldn't", "may", "might", "must", "mustn't", "shall", "should",
     "shouldn't", "ought", "need", "dare", "'s", "'re", "'ll", "'ve", "'d",
 }
-# Irregular finite pasts. Deliberately excludes forms that are commoner as nouns
-# or adjectives in clue English (left, lost, won, put, hit, set, cast, read,
-# rose, bore, wound, drew, shot, spent, ground), because a false negative here
-# only costs a missed warning while a false positive scolds a good clue.
-IRREGULAR_PAST = {
-    "went", "saw", "took", "gave", "came", "said", "told", "knew", "thought",
-    "wrote", "broke", "kept", "sent", "met", "brought", "caught", "fell",
-    "felt", "heard", "meant", "paid", "sold", "stood", "understood", "became",
-    "began", "drove", "ate", "flew", "grew", "bought", "built", "chose",
-    "fought", "forgot", "hid", "rode", "rang", "sang", "sank", "slept",
-    "spoke", "stole", "swam", "taught", "tore", "woke", "blew", "dug", "fed",
-    "fled", "froze", "hung", "leapt", "lit", "shook", "shone", "sprang",
-    "stuck", "swore", "swept", "threw", "wore", "struck", "led", "ran",
-}
-# Words that end in -ed and are not past tenses. The -eed family (speed, need,
-# breed, indeed) is excluded wholesale, which costs "agreed" and "freed"; the
-# rest are the -ed nouns and adjectives frequent enough in clue English to
-# matter. Without this, `Space losing its head at speed` reads "speed" as a verb.
-ED_NOT_A_VERB = {
-    "sacred", "hundred", "hatred", "kindred", "wicked", "naked", "aged",
-    "united", "limited", "moped", "shred", "biped", "quadruped", "tweed",
-    "shed", "sled", "embed", "inbred", "crossbred", "learned", "beloved",
-    "rugged", "ragged", "jagged", "wretched", "crooked", "blessed", "cursed",
-}
 # Verbs that tell the SOLVER what to do with the letters. An imperative is
-# grammatically a sentence, which is why these words are exempt from
-# `not-a-sentence` — but an imperative addressed to the solver is not a surface,
-# which is why they get their own warning instead. The two checks never fire on
-# the same clue: this list is folded into the imperative openers that satisfy
-# check 1, and then flagged by check 2.
+# grammatically a sentence, but one addressed to the solver is not a surface.
 ASSEMBLY_VERBS = {
     "take", "put", "add", "note", "place", "insert", "get", "set", "bring",
     "give", "append", "attach", "combine", "include", "join", "move",
@@ -309,18 +257,6 @@ def bigrams(toks):
     return list(zip(toks, toks[1:]))
 
 
-def stems(word):
-    """Candidate base forms of a third-person -s word. No real morphology."""
-    if not word.endswith("s") or len(word) < 4:
-        return ()
-    out = [word[:-1]]
-    if word.endswith("es"):
-        out.append(word[:-2])
-    if word.endswith("ies"):
-        out.append(word[:-3] + "y")
-    return tuple(out)
-
-
 def load_corpus_norms(path, exclude=None):
     """Corpus norms: clue length, indicator frequency, verb sets, bigrams.
 
@@ -337,10 +273,8 @@ def load_corpus_norms(path, exclude=None):
     seen_bigrams = set()
     after_to = {}       # word -> times it followed "to" (infinitive evidence)
     after_det = {}      # word -> times it followed a determiner (noun evidence)
-    after_subj = {}     # word -> times it followed a subject pronoun (verb evidence)
     determiners = {"the", "a", "an", "his", "her", "its", "their", "this",
                    "that", "these", "those", "my", "our", "your", "every"}
-    subjects = {"he", "she", "they", "we", "who", "which", "you", "i"}
 
     rows = db.execute(
         "select answer, clue from clues where clue is not null "
@@ -365,54 +299,18 @@ def load_corpus_norms(path, exclude=None):
                 after_to[w] = after_to.get(w, 0) + 1
             elif prev in determiners:
                 after_det[w] = after_det.get(w, 0) + 1
-            elif prev in subjects:
-                after_subj[w] = after_subj.get(w, 0) + 1
 
     median_words = {n: statistics.median(v) for n, v in lengths.items() if len(v) > 50}
-
-    freq = {}
-    for (ind,) in db.execute("select indicator from indicators"):
-        if ind:
-            freq[ind.strip().lower()] = freq.get(ind.strip().lower(), 0) + 1
-    ranked = sorted(freq.items(), key=lambda kv: -kv[1])
-    cutoff = max(1, int(len(ranked) * STOCK_PERCENTILE))
-    stock = {w for w, _ in ranked[:cutoff]}
 
     # Base forms, from infinitives: "to bury", "to alter". A noun that sometimes
     # follows "to" (a destination) is filtered out by the determiner count.
     base_verbs = {w for w, c in after_to.items()
                   if c >= 6 and after_det.get(w, 0) < 0.5 * c}
-    # Present-tense -s forms: the word follows a subject pronoun at least as
-    # often as it follows a determiner ("gets" does, "stars" and "papers" do
-    # not). The second signal — stem is a known infinitive — is applied at check
-    # time by finite_verbs(), so a word never seen in either context still gets
-    # a hearing. Both are measured on clues of the exact register we write in.
-    verby_s = {w for w, c in after_subj.items()
-               if w.endswith("s") and c >= 2 and c >= after_det.get(w, 0)}
 
-    return {"median_words": median_words, "stock": stock,
-            "verby_s": verby_s, "base_verbs": base_verbs | ASSEMBLY_VERBS,
-            "bigrams": seen_bigrams, "indicator_vocab": set(freq),
+    return {"median_words": median_words,
+            "base_verbs": base_verbs | ASSEMBLY_VERBS,
+            "bigrams": seen_bigrams,
             "n_rows": n_rows}
-
-
-def finite_verbs(toks, norms):
-    """Words in `toks` that can be read as the finite verb of a clause."""
-    found = []
-    for w in toks:
-        if w in COPULA_FORMS or w in IRREGULAR_PAST:
-            found.append(w)
-        elif norms and (w in norms["verby_s"]
-                        or any(s in norms["base_verbs"] for s in stems(w))):
-            found.append(w)
-        elif w.endswith("ed") and len(w) > 4 and not w.endswith("eed") \
-                and w not in ED_NOT_A_VERB:
-            # Past tense or participle-as-indicator? Ask the corpus whether the
-            # word has a life as a wordplay indicator; if it does, assume it is
-            # the mechanism talking, not the sentence.
-            if not norms or w not in norms["indicator_vocab"]:
-                found.append(w)
-    return found
 
 
 def opens_imperative(toks, norms):
@@ -443,15 +341,6 @@ def check(eid, spec, norms):
                         f"'{definition}' is bolted on with a copula; the clue "
                         f"states its own answer rather than describing a scene"))
 
-    # 2. Definition fenced off by punctuation — the giveaway of a parts list.
-    for chunk in re.split(r"\s*[,:;]\s*", lower):
-        c = re.sub(r"^(?:to|a|the|an)\s+", "", chunk).strip()
-        if definition and c == definition.lower():
-            out.append(("fenced-definition",
-                        f"'{definition}' sits alone behind punctuation, so the "
-                        f"surface never has to accommodate it"))
-            break
-
     # 3. Anagram indicator jammed against its own fodder.
     fodder = (whole_anagram(ann) or "").strip()
     if fodder:
@@ -471,21 +360,12 @@ def check(eid, spec, norms):
                             f"description; do NOT move it, adjacency is required"))
                 break
 
-    # 6. No finite verb: a noun phrase, not an utterance.
-    toks = tokens(clue)
-    imperative = opens_imperative(toks, norms)
-    verbs = finite_verbs(toks, norms)
-    if not verbs and not imperative:
-        out.append(("not-a-sentence",
-                    "no finite verb found, so this is a noun phrase rather than "
-                    "an utterance; published setters do this on half their clues "
-                    "and get away with it, so the question is only whether the "
-                    "phrase is one a person would actually say aloud"))
-
-    # 7. Opens by telling the solver what to do. Grammatically a sentence
-    #    (which is why check 6 lets it through), but the addressee is the solver,
+    # 7. Opens by telling the solver what to do. Grammatically a sentence, but
+    #    the addressee is the solver,
     #    not anyone inside the surface — instructions wearing a sentence's
     #    clothes.
+    toks = tokens(clue)
+    imperative = opens_imperative(toks, norms)
     if imperative and imperative in ASSEMBLY_VERBS:
         out.append(("imperative-opening",
                     f"'{imperative}' opens the clue by instructing the solver; "
@@ -509,14 +389,6 @@ def check(eid, spec, norms):
                             f"clues ({shown}); the phrasing was built to fit the "
                             f"letters, not spoken"))
 
-        # 4. Stock indicators. Rarity is the cheapest misdirection there is.
-        for ind in (i["text"] for i in ann.get("indicators") or []):
-            k = ind.strip().lower()
-            if k in norms["stock"]:
-                out.append(("stock-indicator",
-                            f"'{ind}' is one of the most-used indicators in the "
-                            f"corpus; solvers read it as a signpost"))
-
         # 5. Too short to carry a picture. Not a rule against brevity — a rule
         #    against having no room for a surface idea.
         n = len("".join(c for c in ann.get("answer", "") if c.isalpha()))
@@ -530,9 +402,8 @@ def check(eid, spec, norms):
     return out
 
 
-CODES = ["copula-definition", "fenced-definition", "indicator-abuts-fodder",
-         "stock-indicator", "terse", "not-a-sentence", "imperative-opening",
-         "unattested-phrasing"]
+CODES = ["copula-definition", "indicator-abuts-fodder", "terse",
+         "imperative-opening", "unattested-phrasing"]
 
 def calibrate(corpus, votes_path):
     """Each check against solvers' favourite-clue votes, on published clues.
