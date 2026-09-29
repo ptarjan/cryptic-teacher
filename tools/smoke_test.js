@@ -6613,8 +6613,8 @@ global.realSetTimeout(() => {
       global.fetch = realFetch2;
       if (assert(sent2, "Send still sends it after walking")) {
         const body2 = JSON.parse(sent2.opt.body);
-        assert(body2.clue === last.id,
-          `the report names the clue on screen (${last.id}), not one left behind: `
+        assert(body2.clue === entryId(last),
+          `the report names the clue on screen (${entryId(last)}), not one left behind: `
             + JSON.stringify(body2));
       }
     }
