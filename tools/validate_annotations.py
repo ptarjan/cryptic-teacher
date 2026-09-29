@@ -348,7 +348,7 @@ def check_walkthrough_budget(tag, ann, warnings):
 #
 # What real setters use beyond the core is measured, not typed:
 # tools/build_clue_joints.py adds every word published clues declare as a link
-# word often enough (tools/data/clue_joints.json), and CI keeps it current.
+# word often enough (tools/data/clue_joints.json), and the nightly keeps it current.
 CORE_LINKS = frozenset({
     # equivalence
     "is", "are", "was", "were", "be", "been", "being", "am", "s",

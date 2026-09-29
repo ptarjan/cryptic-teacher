@@ -228,8 +228,7 @@ is what separates a clue from a joke that happens to contain the answer. See
 Three rules about how the pieces of a clue attach to each other. All three are
 ERRORs in the validator and all three are scoped by `is_authored()`. Their word
 lists are measured from published annotations by `tools/build_clue_joints.py`
-(`tools/data/clue_joints.json`), and CI fails when the file falls behind the
-corpus. `--unscoped` runs them on published grids.
+(`tools/data/clue_joints.json`), which the nightly re-measures. `--unscoped` runs them on published grids.
 
 1. **A link word stands in for an equals sign.** Paul: "link words have to stand
    in for an equals sign." A link word may state equivalence (`is`, `'s`),

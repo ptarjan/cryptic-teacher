@@ -15,8 +15,10 @@ typed:
   vertical    least AXIS_MIN reversal clues, at most AXIS_MAX_CROSS of them on
               the other axis. A word bound to neither axis is neutral.
 
-    python3 tools/build_clue_joints.py           # rewrite tools/data/clue_joints.json
-    python3 tools/build_clue_joints.py --check   # CI: fail if the file is stale
+    python3 tools/build_clue_joints.py   # rewrite tools/data/clue_joints.json
+
+The nightly (tools/daily_update.sh) reruns it, since every annotation can move
+the lists.
 
 Only published puzzles count: our own clues cannot vote for our own rules.
 """
@@ -101,20 +103,6 @@ def words(doc):
 
 def main():
     new = derive()
-    if sys.argv[1:] == ["--check"]:
-        old = json.loads(OUT.read_text()) if OUT.exists() else {}
-        stale = []
-        for k, now in words(new).items():
-            was = set(old.get(k) or {})
-            add, drop = sorted(set(now) - was), sorted(was - set(now))
-            if add or drop:
-                stale.append(f"  {k}: +{add} -{drop}")
-        if stale:
-            print("tools/data/clue_joints.json no longer matches the corpus; run "
-                  "python3 tools/build_clue_joints.py\n" + "\n".join(stale))
-            sys.exit(1)
-        print("clue_joints.json matches the corpus")
-        return
     OUT.write_text(json.dumps(new, indent=1, sort_keys=False) + "\n")
     w = words(new)
     print(f"wrote {OUT.relative_to(ROOT)}: {len(w['linkWords'])} link words, "
