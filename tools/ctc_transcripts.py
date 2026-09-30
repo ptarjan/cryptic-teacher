@@ -86,6 +86,10 @@ PACKETS = Path("/data/home/cache/ctc/packets")
 #: --channel picks one; the default is Cracking the Cryptic, whose files keep
 #: the ctc_ names; the others write tools/data/yt_solvers/<slug>_<kind>.json.
 SKILLS = ("expert", "intermediate", "beginner")
+#: Explainers talk through a finished puzzle with no solve to time, so they
+#: are kept out of solvecheck and unstick and serve parsecheck alone (their
+#: solve_times file only holds the clue timestamps parsecheck reads).
+EXPLAINER = "explainer"
 CHANNELS = {
     "ctc": ("Cracking the Cryptic", "expert", "/data/home/cache/ctc/subs"),
     "pat_cousins": ("Pat Cousins", "expert", "/data/home/cache/yt_solvers/pat_cousins/subs"),
@@ -95,6 +99,11 @@ CHANNELS = {
     "solving_telegraph_cryptic": ("Solving The Telegraph Cryptic", "beginner",
                                   "/data/home/cache/yt_solvers/solving_telegraph_cryptic/subs"),
     "cryptic_mystic": ("The Cryptic Mystic", "beginner", "/data/home/cache/yt_solvers/cryptic_mystic/subs"),
+    "cafe_cryptic": ("Cafe Cryptic", EXPLAINER, "/data/home/cache/yt_solvers/cafe_cryptic/subs"),
+    "henderson": ("Henderson Cryptic", EXPLAINER, "/data/home/cache/yt_solvers/henderson/subs"),
+    "justcordelia": ("justcordelia", EXPLAINER, "/data/home/cache/yt_solvers/justcordelia/subs"),
+    "minute_cryptic": ("Minute Cryptic", EXPLAINER, "/data/home/cache/yt_solvers/minute_cryptic/subs"),
+    "morning_cryptic": ("Morning Cryptic", EXPLAINER, "/data/home/cache/yt_solvers/morning_cryptic/subs"),
 }
 CHANNEL = "ctc"
 
@@ -1288,7 +1297,7 @@ def unstick_by_skill():
     count: every unlock but the rungs is read off the transcript alone."""
     by = {k: ([], []) for k in SKILLS}
     for ch, (_, skill, subs) in CHANNELS.items():
-        if not data_file("solve_times", ch).exists():
+        if skill == EXPLAINER or not data_file("solve_times", ch).exists():
             continue
         use_channel(ch)
         print(f"== {ch} ({skill})")
@@ -1355,7 +1364,7 @@ def skillcheck():
     each solver's pace and each puzzle's hardness cancel before pooling."""
     out, pooled = {"channels": {}, "skills": {}}, collections.defaultdict(list)
     for ch, (name, skill, _) in CHANNELS.items():
-        if not data_file("solve_times", ch).exists():
+        if skill == EXPLAINER or not data_file("solve_times", ch).exists():
             continue
         use_channel(ch)
         t = solve_table()
@@ -1424,6 +1433,8 @@ if __name__ == "__main__":
         (skillcheck if cmd == "solvecheck" else unstick_by_skill)()
         sys.exit()
     todo = list(CHANNELS) if channel == "all" else channel.split(",")
+    if cmd in ("unstick", "solvecheck"):
+        todo = [c for c in todo if c not in CHANNELS or CHANNELS[c][1] != EXPLAINER]
     for ch in todo:
         use_channel(ch)
         if len(args) > 1 and "," not in channel and channel != "all":
