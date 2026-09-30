@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,56 @@
     "text": "Set a limit on a town's size",
     "enumeration": "8"
    },
-   "solution": "CAPACITY"
+   "solution": "CAPACITY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CAPACITY",
+    "definitions": [
+     {
+      "text": "size",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Set a limit on",
+      "gives": "CAP",
+      "note": "to cap something is to set an upper limit on it"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article taken as it stands"
+     },
+     {
+      "clueFragment": "town",
+      "gives": "CITY",
+      "note": "a city is a large town"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAP",
+      "A",
+      "CITY"
+     ]
+    },
+    "explanation": {
+     "surface": "A council capping how big a town may grow.",
+     "walkthrough": "The surface reads 'town's size' as one phrase, but the 's is only a link ('is') and 'size' stands alone as the definition.",
+     "definitionFit": "Capacity is the amount something can hold, its volume or extent, a direct synonym of size."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "town"
+    }
+   }
   },
   {
    "number": 2,
@@ -53,7 +105,58 @@
      }
     ]
    },
-   "solution": "ISPY"
+   "solution": "ISPY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "I SPY",
+    "definitions": [
+     {
+      "text": "game",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "one thing coming after another tells you the order in which the pieces are laid down"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Italy",
+      "gives": "I",
+      "note": "I is the international vehicle code for Italy"
+     },
+     {
+      "clueFragment": "Smiley, perhaps",
+      "gives": "SPY",
+      "note": "George Smiley is John le Carré's fictional spy; 'perhaps' marks him as one example"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "SPY"
+     ]
+    },
+    "explanation": {
+     "surface": "A Smiley, maybe a smiley emoji, following some Italian pastime.",
+     "walkthrough": "'Smiley' looks like an emoticon, but it is le Carré's spymaster George Smiley, so it gives SPY once 'perhaps' flags an example.",
+     "definitionFit": "I spy is the children's guessing game where players name something seen beginning with a given letter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Smiley"
+    }
+   }
   },
   {
    "number": 3,
@@ -67,7 +170,43 @@
     "text": "Proper stuff or malware component?",
     "enumeration": "6"
    },
-   "solution": "FORMAL"
+   "solution": "FORMAL",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "FORMAL",
+    "definitions": [
+     {
+      "text": "Proper",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "component",
+      "for": "hidden_word",
+      "note": "a component is one part of a larger whole, so the answer is a part of the words beside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stuff or malware",
+      "gives": "FORMAL",
+      "note": "the letters run across the end of the first word, the whole of the second and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "Asking whether some software is legitimate material or a piece of malicious code.",
+     "walkthrough": "The answer sits in stuFF OR MALware; 'Proper' and 'stuff' tempt you to think of real stuff versus malware, but 'component' is the pointer.",
+     "definitionFit": "Formal and proper both describe behaviour that follows etiquette and correct convention, so they are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "component"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +220,70 @@
     "text": "Difficult to keep a ship's bearing, when flustered",
     "enumeration": "8"
    },
-   "solution": "HARASSED"
+   "solution": "HARASSED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HARASSED",
+    "definitions": [
+     {
+      "text": "flustered",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to keep",
+      "for": "container",
+      "note": "to keep something is to hold it, so one piece holds the others inside it"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Difficult",
+      "gives": "HARD",
+      "note": "hard means difficult"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article taken as it stands"
+     },
+     {
+      "clueFragment": "ship's",
+      "gives": "SS",
+      "note": "SS is steamship, as in the SS Great Britain"
+     },
+     {
+      "clueFragment": "bearing",
+      "gives": "E",
+      "note": "a compass bearing: E for east"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAR",
+      "A",
+      "SS",
+      "E",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A navigator struggling to hold a vessel's course while in a fluster.",
+     "walkthrough": "'Bearing' looks like a course being steered, but it is just a compass point, the usual crossword source for N, S, E or W.",
+     "definitionFit": "Someone harassed is worried and hurried by too many demands, the same state as being flustered."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bearing"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +297,62 @@
     "text": "Previously in favour of cutting worker's assistance",
     "enumeration": "10"
    },
-   "solution": "BEFOREHAND"
+   "solution": "BEFOREHAND",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "BEFOREHAND",
+    "definitions": [
+     {
+      "text": "Previously",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cutting",
+      "for": "container",
+      "note": "something cutting through another sits inside it, splitting it in two"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "worker's",
+      "gives": "BEE",
+      "note": "the worker bee is the crossword's standard worker"
+     },
+     {
+      "clueFragment": "in favour of",
+      "gives": "FOR",
+      "note": "to be for something is to be in favour of it"
+     },
+     {
+      "clueFragment": "assistance",
+      "gives": "HAND",
+      "note": "to give a hand is to give assistance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "FOR",
+      "E",
+      "HAND"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who once supported cutting back the help given to workers.",
+     "walkthrough": "FOR goes inside BEE, then HAND follows; 'worker' as BEE is a convention worth learning, and the 's only joins it to 'assistance'.",
+     "definitionFit": "Beforehand means at an earlier time, in advance, which is what previously expresses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "worker's"
+    }
+   }
   },
   {
    "number": 6,
@@ -109,7 +366,65 @@
     "text": "Fruit is one of five issues key at the heart of diets",
     "enumeration": "6"
    },
-   "solution": "QUINCE"
+   "solution": "QUINCE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "QUINCE",
+    "definitions": [
+     {
+      "text": "Fruit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the heart of",
+      "for": "letter_selection",
+      "note": "the heart of something is its centre, so only the central letter is kept"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one of five issues",
+      "gives": "QUIN",
+      "note": "issue means offspring, and a quin is one of quintuplets"
+     },
+     {
+      "clueFragment": "key",
+      "gives": "C",
+      "note": "C is a musical key"
+     },
+     {
+      "clueFragment": "diets",
+      "gives": "E",
+      "select": "middle",
+      "note": "the middle of a five-letter word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "QUIN",
+      "C",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A fruit named as one of five key problems in the diet debate.",
+     "walkthrough": "'Issues' looks like problems but means children, as in 'died without issue', so one of five is a QUIN.",
+     "definitionFit": "The quince is a hard yellow pear-shaped fruit, usually cooked into jelly or paste, an example of the category."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "issues"
+    }
+   }
   },
   {
    "number": 7,
@@ -123,7 +438,51 @@
     "text": "One's got to go abroad for Dad's game",
     "enumeration": "8"
    },
-   "solution": "PASSPORT"
+   "solution": "PASSPORT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PASSPORT",
+    "definitions": [
+     {
+      "text": "One's got to go abroad",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dad's",
+      "gives": "PAS",
+      "note": "Pa is Dad, with its 's kept"
+     },
+     {
+      "clueFragment": "game",
+      "gives": "SPORT",
+      "note": "a sport is a game"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAS",
+      "SPORT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone forced to travel overseas just to catch a match their father follows.",
+     "walkthrough": "The definition is a cryptic phrase: 'One's got' means you must have one of these in order to go abroad.",
+     "definitionFit": "A passport is the travel document a person must carry to cross borders and enter foreign countries."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "One's"
+    }
+   }
   },
   {
    "number": 8,
@@ -137,7 +496,56 @@
     "text": "Favourite drink? Hint — half please!",
     "enumeration": "6"
    },
-   "solution": "TIPPLE"
+   "solution": "TIPPLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "TIPPLE",
+    "definitions": [
+     {
+      "text": "Favourite drink",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half",
+      "for": "deletion",
+      "note": "only half the word survives, so the rest of its letters are dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hint",
+      "gives": "TIP",
+      "note": "a tip is a hint"
+     },
+     {
+      "clueFragment": "please",
+      "gives": "PLE",
+      "note": "the first half of the word, its last three letters dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIP",
+      "PLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A regular in a pub hinting at their usual order: a half, please.",
+     "walkthrough": "'Half please' reads as ordering half a pint, but it takes half of the word 'please'.",
+     "definitionFit": "Someone's tipple is the alcoholic drink they habitually prefer, so it means their usual favourite beverage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "half"
+    }
+   }
   },
   {
    "number": 9,
@@ -151,7 +559,50 @@
     "text": "Broad Street has top notch concert hall",
     "enumeration": "6"
    },
-   "solution": "AVENUE"
+   "solution": "AVENUE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AVENUE",
+    "definitions": [
+     {
+      "text": "Broad Street",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "top notch",
+      "gives": "A",
+      "note": "A is the top grade, as in A1 or grade A"
+     },
+     {
+      "clueFragment": "concert hall",
+      "gives": "VENUE",
+      "note": "a concert hall is one kind of venue"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "VENUE"
+     ]
+    },
+    "explanation": {
+     "surface": "A particular Broad Street boasting a first-rate concert hall.",
+     "walkthrough": "'Broad Street' looks like a proper name, but it is a lower-case description: a wide street.",
+     "definitionFit": "An avenue is typically a wide road, often lined with trees, so a broad street describes it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Broad"
+    }
+   }
   },
   {
    "number": 10,
@@ -165,7 +616,57 @@
     "text": "Oddball's unknown to some",
     "enumeration": "4"
    },
-   "solution": "ZANY"
+   "solution": "ZANY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ZANY",
+    "definitions": [
+     {
+      "text": "Oddball",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to",
+      "for": "charade",
+      "note": "one thing added to another means the pieces simply join up in order"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unknown",
+      "gives": "Z",
+      "note": "x, y and z are the unknowns in algebra"
+     },
+     {
+      "clueFragment": "some",
+      "gives": "ANY",
+      "note": "'any' and 'some' both mean an unspecified amount"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "Z",
+      "ANY"
+     ]
+    },
+    "explanation": {
+     "surface": "An eccentric whose name means nothing to certain people.",
+     "walkthrough": "'Unknown to some' reads as 'not known by some people', but it is an algebra letter added to a word for some.",
+     "definitionFit": "A zany is an eccentric clownish person, originally a comic stage buffoon, so it names an oddball."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unknown"
+    }
+   }
   },
   {
    "number": 11,
@@ -185,7 +686,54 @@
      }
     ]
    },
-   "solution": "MOPEAROUND"
+   "solution": "MOPEAROUND",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MOPE AROUND",
+    "definitions": [
+     {
+      "text": "Hang about miserably",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be sacked",
+      "for": "anagram",
+      "note": "a sacked town is ransacked and thrown into disorder, so these letters are thrown about"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "poor man due",
+      "gives": "POORMANDUE",
+      "note": "anagram fodder, ten letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "POORMANDUE",
+       "gives": "MOPEAROUND"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A penniless man who is about to lose his job drifts around glumly.",
+     "walkthrough": "'Due to' looks like the link 'because of', but 'due' is fodder and 'to be sacked' is the signal.",
+     "definitionFit": "To mope around is to wander listlessly while feeling sorry for yourself, loitering in low spirits."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sacked"
+    }
+   }
   },
   {
    "number": 12,
@@ -199,7 +747,70 @@
     "text": "Drive off with 500 mince pies left",
     "enumeration": "6"
    },
-   "solution": "DISPEL"
+   "solution": "DISPEL",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "DISPEL",
+    "definitions": [
+     {
+      "text": "Drive off",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mince",
+      "for": "anagram",
+      "note": "to mince food is to chop it up small, so these letters are chopped and rearranged"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "500",
+      "gives": "D",
+      "note": "D is 500 in Roman numerals"
+     },
+     {
+      "clueFragment": "pies",
+      "gives": "PIES",
+      "note": "anagram fodder"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ISPE",
+      "L"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PIES",
+       "gives": "ISPE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Driving away with five hundred mince pies still uneaten.",
+     "walkthrough": "'Mince pies' is a single Christmas treat on the surface, but 'mince' is a verb telling you to chop up PIES.",
+     "definitionFit": "To dispel is to drive away or scatter, as in dispelling doubts or fears, a direct synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mince"
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +830,52 @@
      }
     ]
    },
-   "solution": "POINTEDOUT"
+   "solution": "POINTEDOUT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "POINTED OUT",
+    "definitions": [
+     {
+      "text": "Indicated",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "be bottled",
+      "for": "anagram",
+      "note": "bottled is slang for drunk, and drunk things stagger out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pinot due to",
+      "gives": "PINOTDUETO",
+      "note": "anagram fodder, ten letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PINOTDUETO",
+       "gives": "POINTEDOUT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A note that the Pinot Noir is ready to go into bottles.",
+     "walkthrough": "'Bottled' looks like winemaking, but in British slang it means drunk, hence scrambled; 'due to' belongs to the fodder.",
+     "definitionFit": "To point out is to draw attention to or show, which is what indicated means as a past-tense verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bottled"
+    }
+   }
   },
   {
    "number": 14,
@@ -233,7 +889,78 @@
     "text": "One hearing story about good man has points to ponder at the end",
     "enumeration": "8"
    },
-   "solution": "LISTENER"
+   "solution": "LISTENER",
+   "annotation": {
+    "type": [
+     "container",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "LISTENER",
+    "definitions": [
+     {
+      "text": "One hearing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "to go about is to surround, so one piece wraps around another"
+     },
+     {
+      "text": "at the end",
+      "for": "letter_selection",
+      "note": "only the closing letter of the word is kept, the one at its end"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "story",
+      "gives": "LIE",
+      "note": "a lie is a made-up story"
+     },
+     {
+      "clueFragment": "good man",
+      "gives": "ST",
+      "note": "a saint is a good man, abbreviated ST"
+     },
+     {
+      "clueFragment": "points",
+      "gives": "NE",
+      "note": "two compass points, north and east"
+     },
+     {
+      "clueFragment": "ponder",
+      "gives": "R",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LI",
+      "ST",
+      "E",
+      "NE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A member of an audience hearing a tale about a virtuous man, left with things to think over.",
+     "walkthrough": "LIE goes around ST, then N and E (compass points) and R follow; 'good man' as ST (saint) is a standard convention.",
+     "definitionFit": "A listener is a person who is paying attention to sound, especially speech, so it names one hearing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "points"
+    }
+   }
   },
   {
    "number": 15,
@@ -247,7 +974,83 @@
     "text": "Parking in city terrible with a large model",
     "enumeration": "7"
    },
-   "solution": "TYPICAL"
+   "solution": "TYPICAL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "TYPICAL",
+    "definitions": [
+     {
+      "text": "model",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "terrible",
+      "for": "anagram",
+      "note": "something terrible is in a bad state, so these letters are knocked out of shape"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "being in something means sitting inside it"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "city",
+      "gives": "CITY",
+      "note": "anagram fodder"
+     },
+     {
+      "clueFragment": "Parking",
+      "gives": "P",
+      "note": "P is the sign for a car park"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article taken as it stands"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L for large, as on clothing labels"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TY",
+      "P",
+      "IC",
+      "A",
+      "L"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CITY",
+       "gives": "TYIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Car parking in a city being awful, and a big fashion model involved somehow.",
+     "walkthrough": "CITY is rearranged to TYIC, P is placed inside, then A and L follow. 'Model' is an adjective here, as in a model pupil.",
+     "definitionFit": "A model example is a representative one showing the usual features of its kind, which is what typical means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "model"
+    }
+   }
   },
   {
    "number": 16,
@@ -267,7 +1070,77 @@
      }
     ]
    },
-   "solution": "AFTERALL"
+   "solution": "AFTERALL",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram",
+     "container"
+    ],
+    "answer": "AFTER ALL",
+    "definitions": [
+     {
+      "text": "Despite everything",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wasted",
+      "for": "anagram",
+      "note": "wasted is slang for very drunk, so these letters reel out of order"
+     },
+     {
+      "text": "put into",
+      "for": "container",
+      "note": "something put into another ends up inside it"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flat",
+      "gives": "FLAT",
+      "note": "anagram fodder"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "ERA",
+      "note": "an era is a period of time"
+     },
+     {
+      "clueFragment": "student",
+      "gives": "L",
+      "note": "L is a learner, from the L-plate on a learner driver's car"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AFT",
+      "ERA",
+      "L",
+      "L"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FLAT",
+       "gives": "AFTL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A student who, against the odds, gets put into a flat that is a wreck.",
+     "walkthrough": "'Wasted' is British slang for drunk, a signal to scramble; 'student' for L comes from the learner plate, and the time and student go in before the scrambled word's last letter.",
+     "definitionFit": "After all is an idiom meaning in spite of what was expected or said earlier, matching despite everything."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wasted"
+    }
+   }
   },
   {
    "number": 17,
@@ -281,7 +1154,63 @@
     "text": "Nowadays church is behind forefront of progress",
     "enumeration": "7"
    },
-   "solution": "ADVANCE"
+   "solution": "ADVANCE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADVANCE",
+    "definitions": [
+     {
+      "text": "progress",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is behind",
+      "for": "charade",
+      "note": "coming behind something means following it in the order the pieces are laid down"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nowadays",
+      "gives": "AD",
+      "note": "AD, anno Domini, is the present era"
+     },
+     {
+      "clueFragment": "forefront",
+      "gives": "VAN",
+      "note": "the van, short for vanguard, is the forefront"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "VAN",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that the church lags behind the leading edge of social change today.",
+     "walkthrough": "'Forefront of progress' looks like a phrase to take a first letter from, but 'forefront' is VAN and 'progress' is the definition.",
+     "definitionFit": "Advance and progress are both nouns or verbs for forward movement or development, so they are synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "forefront"
+    }
+   }
   },
   {
    "number": 18,
@@ -295,7 +1224,64 @@
     "text": "Making sure revolutionary's caught before monarch arrives",
     "enumeration": "8"
    },
-   "solution": "CHECKING"
+   "solution": "CHECKING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHECKING",
+    "definitions": [
+     {
+      "text": "Making sure",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "before",
+      "for": "charade",
+      "note": "coming before means leading, which fixes the order the pieces are laid down"
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "arrives"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "revolutionary",
+      "gives": "CHE",
+      "note": "Che Guevara, the crossword's standard revolutionary"
+     },
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "c is caught in cricket scoring"
+     },
+     {
+      "clueFragment": "monarch",
+      "gives": "KING",
+      "note": "a king is a monarch"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHE",
+      "C",
+      "KING"
+     ]
+    },
+    "explanation": {
+     "surface": "Security making certain a rebel is arrested before the king turns up.",
+     "walkthrough": "CHE, then C, then KING. 'Caught' as C comes from cricket scorecards, where a batsman dismissed that way is marked c.",
+     "definitionFit": "Checking something means verifying or confirming it is correct, the same as making sure of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "caught"
+    }
+   }
   },
   {
    "number": 19,
@@ -315,7 +1301,66 @@
      }
     ]
    },
-   "solution": "COMEUP"
+   "solution": "COMEUP",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "COME UP",
+    "definitions": [
+     {
+      "text": "rise",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "contain",
+      "for": "container",
+      "note": "to contain something is to hold it within, so one piece goes inside another"
+     }
+    ],
+    "linkWords": [
+     "has",
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Company",
+      "gives": "CO",
+      "note": "Co is the abbreviation for company"
+     },
+     {
+      "clueFragment": "European politician",
+      "gives": "MEP",
+      "note": "MEP is a Member of the European Parliament"
+     },
+     {
+      "clueFragment": "union",
+      "gives": "U",
+      "note": "U for union"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "ME",
+      "U",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "A firm has a Euro MP trying to hold back a trade union's growing power.",
+     "walkthrough": "CO, then MEP holding U; the definition 'rise' is a verb here, as a subject might rise or come up.",
+     "definitionFit": "To come up is a phrasal verb for moving upward or emerging, as the sun does, a synonym of rise."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "union's"
+    }
+   }
   },
   {
    "number": 20,
@@ -339,7 +1384,70 @@
      }
     ]
    },
-   "solution": "TENTOTWO"
+   "solution": "TENTOTWO",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "TEN TO TWO",
+    "definitions": [
+     {
+      "text": "1.50",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "+",
+      "for": "charade",
+      "note": "a plus sign adds one thing to the next, so pieces join in order"
+     },
+     {
+      "text": "-",
+      "for": "deletion",
+      "note": "a minus sign subtracts, so a letter is taken away"
+     }
+    ],
+    "linkWords": [
+     "="
+    ],
+    "blocks": [
+     {
+      "clueFragment": "x",
+      "gives": "TEN",
+      "note": "X is ten in Roman numerals"
+     },
+     {
+      "clueFragment": "(2-w)",
+      "gives": "TO",
+      "note": "the number two written as a word, less its W"
+     },
+     {
+      "clueFragment": "2",
+      "gives": "TWO",
+      "note": "the numeral written as a word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEN",
+      "TO",
+      "TWO"
+     ]
+    },
+    "explanation": {
+     "surface": "An algebra sum whose answer is a price of one pound fifty.",
+     "walkthrough": "It looks like maths with an unknown x, but x is the Roman ten and '2' is read as a word. 1.50 is a time, not money.",
+     "definitionFit": "Ten minutes before two o'clock is the clock time 1.50, written with the British dot between hours and minutes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "x"
+    }
+   }
   },
   {
    "number": 21,
@@ -353,7 +1461,72 @@
     "text": "Prophet put priest on short pilgrimage going north",
     "enumeration": "6"
    },
-   "solution": "ELIJAH"
+   "solution": "ELIJAH",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "charade"
+    ],
+    "answer": "ELIJAH",
+    "definitions": [
+     {
+      "text": "Prophet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put",
+      "for": "charade",
+      "note": "putting one thing on another stacks them, so they join in order"
+     },
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "something short is cut down, so the word loses its final letter"
+     },
+     {
+      "text": "going north",
+      "for": "reversal",
+      "note": "in a down clue, going north means reading upward, backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "priest",
+      "gives": "ELI",
+      "note": "Eli is the priest in the Book of Samuel, a crossword regular"
+     },
+     {
+      "clueFragment": "pilgrimage",
+      "gives": "HAJ",
+      "note": "the hajj is the pilgrimage to Mecca, here cut to three letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELI",
+      "JAH"
+     ],
+     "reversals": [
+      {
+       "from": "HAJ",
+       "to": "JAH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A prophet sending a priest on a brief journey northwards.",
+     "walkthrough": "In a down clue, 'on' means placed above, so the priest comes first; the pilgrimage is the hajj, which loses one J before turning upward.",
+     "definitionFit": "Elijah is an Old Testament prophet who was taken to heaven in a whirlwind, an example of the category."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "north"
+    }
+   }
   },
   {
    "number": 22,
@@ -367,7 +1540,56 @@
     "text": "Force commercial gain from device",
     "enumeration": "6"
    },
-   "solution": "GADGET"
+   "solution": "GADGET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GADGET",
+    "definitions": [
+     {
+      "text": "device",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Force",
+      "gives": "G",
+      "note": "g is the symbol for gravitational force"
+     },
+     {
+      "clueFragment": "commercial",
+      "gives": "AD",
+      "note": "a commercial is an advertisement, an ad"
+     },
+     {
+      "clueFragment": "gain",
+      "gives": "GET",
+      "note": "to get something is to gain it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "AD",
+      "GET"
+     ]
+    },
+    "explanation": {
+     "surface": "Pushing to make money out of some invention.",
+     "walkthrough": "'Commercial gain' reads as profit, but splits into two pieces: 'commercial' is an advert, 'gain' is a verb.",
+     "definitionFit": "A gadget is a small mechanical or electronic tool, so it is a kind of device."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "commercial"
+    }
+   }
   },
   {
    "number": 22,
@@ -381,7 +1603,46 @@
     "text": "Went on for ever about some fungus he discovered",
     "enumeration": "6"
    },
-   "solution": "GUSHED"
+   "solution": "GUSHED",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "GUSHED",
+    "definitions": [
+     {
+      "text": "Went on for ever",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "only some of the following words is used, a part rather than the whole"
+     }
+    ],
+    "linkWords": [
+     "about"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fungus he discovered",
+      "gives": "GUSHED",
+      "note": "the letters run from the end of the first word into the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "A mycologist who talked endlessly about a mushroom he found.",
+     "walkthrough": "The answer is in funGUS HE Discovered; 'about' links the definition, as you gush about something.",
+     "definitionFit": "To gush is to talk with effusive, unrestrained enthusiasm at length, which is going on for ever."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "some"
+    }
+   }
   },
   {
    "number": 23,
@@ -395,7 +1656,57 @@
     "text": "Head after more nuts in rough country?",
     "enumeration": "10"
    },
-   "solution": "WILDERNESS"
+   "solution": "WILDERNESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WILDERNESS",
+    "definitions": [
+     {
+      "text": "rough country",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "one thing coming after another fixes the order in which the pieces are laid down"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "more nuts",
+      "gives": "WILDER",
+      "note": "nuts means crazy, wild, so more nuts is wilder"
+     },
+     {
+      "clueFragment": "Head",
+      "gives": "NESS",
+      "note": "a ness is a headland, as in Dungeness, a headland on the Kent coast"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WILDER",
+      "NESS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone losing their head over nuts growing in some untamed region.",
+     "walkthrough": "'Head' is geographical, a headland (NESS), not a person's head; 'nuts' is an adjective meaning crazy.",
+     "definitionFit": "A wilderness is uncultivated, uninhabited land left in its natural state, which is rough country."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Head"
+    }
+   }
   },
   {
    "number": 24,
@@ -409,7 +1720,48 @@
     "text": "Aftermath of funeral",
     "enumeration": "4"
    },
-   "solution": "WAKE"
+   "solution": "WAKE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WAKE",
+    "definitions": [
+     {
+      "text": "Aftermath",
+      "at": 0
+     },
+     {
+      "text": "funeral",
+      "at": 13,
+      "note": "a wake is the gathering around a funeral rather than the funeral itself"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Aftermath",
+      "gives": "WAKE",
+      "note": "what follows behind an event, like the trail a ship leaves"
+     },
+     {
+      "clueFragment": "funeral",
+      "gives": "WAKE",
+      "note": "the watch or party held for the dead around a burial"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as one phrase, the time after a burial, but it splits into two meanings joined by 'of'.",
+     "definitionFit": "The disturbed water behind a ship gives the idiom in the wake of, meaning consequence; separately a vigil beside the dead."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "of"
+    }
+   }
   },
   {
    "number": 24,
@@ -423,7 +1775,64 @@
     "text": "Turn a blind eye to wife's criminal kin!",
     "enumeration": "4"
    },
-   "solution": "WINK"
+   "solution": "WINK",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "WINK",
+    "definitions": [
+     {
+      "text": "Turn a blind eye to",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "criminal",
+      "for": "anagram",
+      "note": "something criminal is bent or crooked, so these letters are twisted out of order"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "W is the abbreviation for wife"
+     },
+     {
+      "clueFragment": "kin",
+      "gives": "KIN",
+      "note": "anagram fodder"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "INK"
+     ],
+     "anagrams": [
+      {
+       "fodder": "KIN",
+       "gives": "INK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Ignoring the fact that your spouse's relatives are crooks.",
+     "walkthrough": "The definition includes 'to': you wink at something to show you will not report it.",
+     "definitionFit": "To wink at wrongdoing is an idiom for deliberately overlooking it, the same as pretending not to see."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "criminal"
+    }
+   }
   },
   {
    "number": 25,
@@ -437,7 +1846,65 @@
     "text": "Oddly unable to follow chap's instructions",
     "enumeration": "6"
    },
-   "solution": "MANUAL"
+   "solution": "MANUAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "MANUAL",
+    "definitions": [
+     {
+      "text": "instructions",
+      "at": 30,
+      "note": "the answer is singular, a book of instructions"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Oddly",
+      "for": "letter_selection",
+      "note": "odd-numbered positions are kept, first, third and fifth"
+     },
+     {
+      "text": "to follow",
+      "for": "charade",
+      "note": "following something means coming after it in the order laid down"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chap",
+      "gives": "MAN",
+      "note": "a chap is a man"
+     },
+     {
+      "clueFragment": "unable",
+      "gives": "UAL",
+      "select": "alternate",
+      "note": "its first, third and fifth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAN",
+      "UAL"
+     ]
+    },
+    "explanation": {
+     "surface": "Being strangely incapable of obeying a man's orders.",
+     "walkthrough": "'Oddly unable' reads as 'strangely unable' but takes the odd letters; the second piece comes after the first.",
+     "definitionFit": "A manual is a handbook that tells you how to operate something, a booklet containing instructions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Oddly"
+    }
+   }
   },
   {
    "number": 26,
@@ -451,7 +1918,80 @@
     "text": "Expecting working parent to get hold of good nanny, initially",
     "enumeration": "8"
    },
-   "solution": "PREGNANT"
+   "solution": "PREGNANT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "letter_selection"
+    ],
+    "answer": "PREGNANT",
+    "definitions": [
+     {
+      "text": "Expecting",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "working",
+      "for": "anagram",
+      "note": "something working is in operation, so the letters are worked into a new order"
+     },
+     {
+      "text": "to get hold of",
+      "for": "container",
+      "note": "getting hold of something means gripping it, so one piece holds another"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the opening letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "parent",
+      "gives": "PARENT",
+      "note": "anagram fodder"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G for good"
+     },
+     {
+      "clueFragment": "nanny",
+      "gives": "N",
+      "select": "first",
+      "note": "the opening letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRE",
+      "G",
+      "N",
+      "ANT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PARENT",
+       "gives": "PREANT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A working mum-to-be arranging to hire a good nanny in advance.",
+     "walkthrough": "PARENT is rearranged to PRE + ANT, with G and N placed in the middle.",
+     "definitionFit": "Expecting is a gentle idiom for carrying an unborn baby, the state of being with child."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "working"
+    }
+   }
   }
  ]
 }
