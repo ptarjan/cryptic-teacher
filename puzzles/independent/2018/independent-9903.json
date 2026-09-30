@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,61 @@
     "text": "Gent, a little short, beds elderly rich blonde",
     "enumeration": "6"
    },
-   "solution": "GOLDEN"
+   "solution": "GOLDEN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "GOLDEN",
+    "definitions": [
+     {
+      "text": "rich blonde",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a little short",
+      "for": "deletion",
+      "note": "falling a little short means stopping just before the end, so the final letter is lost"
+     },
+     {
+      "text": "beds",
+      "for": "container",
+      "note": "to bed something is to take it into bed with you, so one piece lies inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gent",
+      "gives": "GEN",
+      "note": "the word with its last letter dropped"
+     },
+     {
+      "clueFragment": "elderly",
+      "gives": "OLD",
+      "note": "a plain synonym"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "OLD",
+      "EN"
+     ]
+    },
+    "explanation": {
+     "surface": "A slightly short gentleman takes an old, wealthy blonde to bed.",
+     "walkthrough": "'Gent' is the informal word for a gentleman; the elderly piece sits right in the middle of the shortened word.",
+     "definitionFit": "Golden describes hair of a deep, lustrous yellow shade, so a rich blonde colour is golden."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "beds"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +104,56 @@
     "text": "Corset glue coming unstuck where tailor didn't finish stitching",
     "enumeration": "10"
    },
-   "solution": "GLOUCESTER"
+   "solution": "GLOUCESTER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GLOUCESTER",
+    "definitions": [
+     {
+      "text": "where tailor didn't finish stitching",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coming unstuck",
+      "for": "anagram",
+      "note": "things that come unstuck fall apart, so these letters come loose and reassemble in another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Corset",
+      "gives": "CORSET",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "glue",
+      "gives": "GLUE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CORSETGLUE",
+       "gives": "GLOUCESTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A corset held with glue falls apart, in a workshop where the tailor never finished the sewing.",
+     "walkthrough": "The definition alludes to Beatrix Potter's story The Tailor of Gloucester, in which the ailing tailor cannot finish a coat and mice complete the stitching for him.",
+     "definitionFit": "In Beatrix Potter's tale the unfinished waistcoat belongs to a tailor living in that English cathedral city."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "glue"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +167,58 @@
     "text": "Introduce law to reduce sugar",
     "enumeration": "7"
    },
-   "solution": "LACTOSE"
+   "solution": "LACTOSE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LACTOSE",
+    "definitions": [
+     {
+      "text": "sugar",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Introduce",
+      "for": "container",
+      "note": "to introduce one thing to another is to put it inside, so one piece goes into the other"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "law",
+      "gives": "ACT",
+      "note": "an Act of Parliament is a law"
+     },
+     {
+      "clueFragment": "reduce",
+      "gives": "LOSE",
+      "note": "to reduce weight is to lose it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "ACT",
+      "OSE"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to bring in legislation cutting sugar consumption.",
+     "walkthrough": "It reads like a public-health policy, but 'sugar' is the definition and 'law' and 'reduce' are both pieces of wordplay.",
+     "definitionFit": "Lactose is the natural sugar found in milk, a specific example of the chemical category."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reduce"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +232,63 @@
     "text": "Capturing a bit of noise, audio equipment is on",
     "enumeration": "5"
    },
-   "solution": "EARNS"
+   "solution": "EARNS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "EARNS",
+    "definitions": [
+     {
+      "text": "is on",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a bit of",
+      "for": "letter_selection",
+      "note": "a bit of something is a small piece, here just its opening letter"
+     },
+     {
+      "text": "Capturing",
+      "for": "container",
+      "note": "capturing something means holding it inside, so one piece is taken in by the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "audio equipment",
+      "gives": "EARS",
+      "note": "ears are the body's own listening equipment"
+     },
+     {
+      "clueFragment": "noise",
+      "gives": "N",
+      "select": "first",
+      "note": "its first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EAR",
+      "N",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Audio gear is switched on and picking up a little background noise.",
+     "walkthrough": "'Is on' looks like the switch being turned on; in the informal sense 'she is on fifty grand' it means receives a salary.",
+     "definitionFit": "Saying someone is on a given amount is informal speech for what they receive as wages or salary."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "on"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +302,65 @@
     "text": "Walk around edge of herd, or pass through?",
     "enumeration": "6"
    },
-   "solution": "THREAD"
+   "solution": "THREAD",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "THREAD",
+    "definitions": [
+     {
+      "text": "pass through?",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "edge of",
+      "for": "letter_selection",
+      "note": "the edge of a word is where it starts, so only the opening letter is kept"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "going around something encloses it, so one piece surrounds the other"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Walk",
+      "gives": "TREAD",
+      "note": "to tread is to walk"
+     },
+     {
+      "clueFragment": "herd",
+      "gives": "H",
+      "select": "first",
+      "note": "its first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "H",
+      "READ"
+     ]
+    },
+    "explanation": {
+     "surface": "A shepherd wonders whether to skirt round the flock or go straight through it.",
+     "walkthrough": "H sits inside TREAD after its T. The question mark flags that 'pass through' is meant in the needle-and-cotton sense.",
+     "definitionFit": "To thread a needle or beads is to pass a strand through the eye or holes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "herd"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +374,62 @@
     "text": "Stale chop you once fed to Edward",
     "enumeration": "9"
    },
-   "solution": "HACKNEYED"
+   "solution": "HACKNEYED",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "HACKNEYED",
+    "definitions": [
+     {
+      "text": "Stale",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fed to",
+      "for": "container",
+      "note": "food fed to someone goes inside them, so one piece ends up within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chop",
+      "gives": "HACK",
+      "note": "to hack is to chop roughly"
+     },
+     {
+      "clueFragment": "Edward",
+      "gives": "NED",
+      "note": "Ned is a pet form of Edward"
+     },
+     {
+      "clueFragment": "you once",
+      "gives": "YE",
+      "note": "ye is the old form of you"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HACK",
+      "NE",
+      "YE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is fed a stale chop of meat, served to a man called Edward.",
+     "walkthrough": "'Stale chop' reads as old meat, but 'Stale' is the definition and 'chop' is a verb. Ye is the archaic plural 'you'.",
+     "definitionFit": "Hackneyed phrases have been used so often they have lost freshness, like stale bread."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "chop"
+    }
+   }
   },
   {
    "number": 6,
@@ -130,7 +456,55 @@
     "text": "Double-act, one that never took off?",
     "enumeration": "4"
    },
-   "solution": "DODO"
+   "solution": "DODO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DODO",
+    "definitions": [
+     {
+      "text": "one that never took off?",
+      "at": 12
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Double",
+      "for": "charade",
+      "note": "doubling something means writing it twice, so the same piece is placed next to itself"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "act",
+      "gives": "DO",
+      "note": "to do is to act"
+     },
+     {
+      "clueFragment": "act",
+      "gives": "DO",
+      "note": "the same piece again"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "DO"
+     ]
+    },
+    "explanation": {
+     "surface": "A comedy double act that flopped and never got off the ground.",
+     "walkthrough": "'Double-act' looks like a comedy pairing; read as an instruction it doubles a word for act. The question mark flags that 'took off' means flight.",
+     "definitionFit": "The extinct Mauritius bird was flightless, so it never literally rose into the air."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "took"
+    }
+   }
   },
   {
    "number": 8,
@@ -144,7 +518,56 @@
     "text": "Heroine left on the Titanic starts to imagine Atlantis",
     "enumeration": "6"
    },
-   "solution": "PORTIA"
+   "solution": "PORTIA",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "PORTIA",
+    "definitions": [
+     {
+      "text": "Heroine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts to",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter, so the first letter of each following word is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "left on the Titanic",
+      "gives": "PORT",
+      "note": "on a ship the left side is port"
+     },
+     {
+      "clueFragment": "imagine Atlantis",
+      "gives": "IA",
+      "select": "first",
+      "note": "the first letters of both words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PORT",
+      "IA"
+     ]
+    },
+    "explanation": {
+     "surface": "The heroine left behind on the sinking liner begins to picture a lost undersea world.",
+     "walkthrough": "'Left on the Titanic' sounds like someone abandoned on the ship; it is just the nautical word for left.",
+     "definitionFit": "Portia is the clever heroine of Shakespeare's The Merchant of Venice, who argues the case against Shylock."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 9,
@@ -158,7 +581,55 @@
     "text": "Business finally failing to work for musicians",
     "enumeration": "8"
    },
-   "solution": "CONCERTO"
+   "solution": "CONCERTO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "CONCERTO",
+    "definitions": [
+     {
+      "text": "work for musicians",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally failing",
+      "for": "deletion",
+      "note": "when the end fails it drops away, so the last letter goes missing"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Business",
+      "gives": "CONCER",
+      "note": "a concern is a business, minus its last letter"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CONCER",
+      "TO"
+     ]
+    },
+    "explanation": {
+     "surface": "A business on its last legs fails to provide work for its musicians.",
+     "walkthrough": "'Work for musicians' looks like employment for players; here work means a composition.",
+     "definitionFit": "A concerto is a musical composition for soloist and orchestra, a piece written to be performed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "work"
+    }
+   }
   },
   {
    "number": 10,
@@ -172,7 +643,71 @@
     "text": "Painter's son going round the bend in church",
     "enumeration": "6"
    },
-   "solution": "CLAUDE"
+   "solution": "CLAUDE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CLAUDE",
+    "definitions": [
+     {
+      "text": "Painter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going round",
+      "for": "container",
+      "note": "going round something encircles it, so one piece wraps another"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "being in something means sitting inside it, so the result goes within another piece"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "son",
+      "gives": "LAD",
+      "note": "a lad is a boy or son"
+     },
+     {
+      "clueFragment": "the bend",
+      "gives": "U",
+      "note": "a U-bend, the bend shaped like the letter"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LA",
+      "U",
+      "D",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "An artist's son is going mad at church.",
+     "walkthrough": "'Painter's son' looks like the definition and 'round the bend' like madness; the apostrophe-s is 'is', and the son wraps a U-shaped bend.",
+     "definitionFit": "Claude Lorrain and Claude Monet are both famous artists often known simply by that first name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bend"
+    }
+   }
   },
   {
    "number": 11,
@@ -196,7 +731,62 @@
    "group": [
     "11-across",
     "6-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CROSS-EXAMINE",
+    "definitions": [
+     {
+      "text": "grill",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mixed",
+      "for": "anagram",
+      "note": "mixed things are jumbled together, so these letters are thrown into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Six",
+      "gives": "SIX",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "McRae's",
+      "gives": "MCRAES",
+      "note": "taken as written, apostrophe ignored"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "ONE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SIXMCRAESONE",
+       "gives": "CROSSEXAMINE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An order at a café: six of McRae's specials and one mixed grill.",
+     "walkthrough": "'Mixed grill' looks like a plate of meats; 'mixed' is the signal and 'grill' the definition.",
+     "definitionFit": "To grill a witness is to question them intensely, as a barrister questions the opposing side's witness in court."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "grill"
+    }
+   }
   },
   {
    "number": 12,
@@ -210,7 +800,65 @@
     "text": "40-30; fault on return makes game",
     "enumeration": "6"
    },
-   "solution": "TENNIS"
+   "solution": "TENNIS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TENNIS",
+    "definitions": [
+     {
+      "text": "game",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on return",
+      "for": "reversal",
+      "note": "something on its return comes back the way it went, so the letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "makes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "40-30",
+      "gives": "TEN",
+      "note": "forty minus thirty is ten"
+     },
+     {
+      "clueFragment": "fault",
+      "gives": "SIN",
+      "note": "a sin is a moral fault"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEN",
+      "NIS"
+     ],
+     "reversals": [
+      {
+       "from": "SIN",
+       "to": "NIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "At forty-thirty, a fault on the return of serve decides the game.",
+     "walkthrough": "40-30 is a tennis score, but here it is subtraction. 'Fault' and 'return' also look like tennis terms but are wordplay.",
+     "definitionFit": "Tennis is a racket sport played over a net, one example of a game."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "40-30"
+    }
+   }
   },
   {
    "number": 13,
@@ -224,7 +872,62 @@
     "text": "Top bunk lined with Calvin Klein coat",
     "enumeration": "10"
    },
-   "solution": "MACKINTOSH"
+   "solution": "MACKINTOSH",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "MACKINTOSH",
+    "definitions": [
+     {
+      "text": "coat",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lined with",
+      "for": "container",
+      "note": "a garment lined with fabric has it inside, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Top",
+      "gives": "MAIN",
+      "note": "main means chief or top"
+     },
+     {
+      "clueFragment": "Calvin Klein",
+      "gives": "CK",
+      "note": "the designer's initials, used as his brand"
+     },
+     {
+      "clueFragment": "bunk",
+      "gives": "TOSH",
+      "note": "bunk and tosh both mean nonsense"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "CK",
+      "IN",
+      "TOSH"
+     ]
+    },
+    "explanation": {
+     "surface": "A top bunk bed lined with a designer-label coat.",
+     "walkthrough": "'Top bunk' reads as a bed; split, 'Top' is chief and 'bunk' is nonsense, and CK goes inside the first.",
+     "definitionFit": "A mackintosh is a waterproof raincoat, named after the Scottish inventor of the rubberised cloth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bunk"
+    }
+   }
   },
   {
    "number": 14,
@@ -238,7 +941,61 @@
     "text": "Old court hero ultimately identifiable by cigar droppings",
     "enumeration": "4"
    },
-   "solution": "ASHE"
+   "solution": "ASHE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ASHE",
+    "definitions": [
+     {
+      "text": "Old court hero",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so only the final letter is kept"
+     },
+     {
+      "text": "by",
+      "for": "charade",
+      "note": "by means next to, so the two pieces are placed side by side"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cigar droppings",
+      "gives": "ASH",
+      "note": "what falls from a burning cigar"
+     },
+     {
+      "clueFragment": "identifiable",
+      "gives": "E",
+      "select": "last",
+      "note": "its last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASH",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A former sporting hero can finally be identified by the cigar ash he leaves behind.",
+     "walkthrough": "The pieces are written in reverse clue order: the droppings come first, the last letter second.",
+     "definitionFit": "Arthur Ashe was a US tennis champion who won Wimbledon in 1975, so a hero of the tennis court in the past."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "court"
+    }
+   }
   },
   {
    "number": 15,
@@ -258,7 +1015,56 @@
      }
     ]
    },
-   "solution": "HEAVYMETAL"
+   "solution": "HEAVYMETAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HEAVY METAL",
+    "definitions": [
+     {
+      "text": "'singing' with a loud band",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "interrupted by",
+      "for": "container",
+      "note": "something interrupted has another thing break into its middle, so one piece goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Big dinner",
+      "gives": "HEAVYMEAL",
+      "note": "a big, filling dinner"
+     },
+     {
+      "clueFragment": "tenor",
+      "gives": "T",
+      "note": "T is the abbreviation for tenor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HEAVYME",
+      "T",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A large dinner party is disrupted by a tenor singing along with a noisy group.",
+     "walkthrough": "The quotation marks around 'singing' are the setter's joke: vocals in this genre are often shouted or screamed.",
+     "definitionFit": "Heavy metal is a loud rock genre with distorted guitars, whose vocals purists hardly call singing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tenor"
+    }
+   }
   },
   {
    "number": 15,
@@ -272,7 +1078,56 @@
     "text": "Most empty their guns when ordered",
     "enumeration": "9"
    },
-   "solution": "HUNGRIEST"
+   "solution": "HUNGRIEST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HUNGRIEST",
+    "definitions": [
+     {
+      "text": "Most empty",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when ordered",
+      "for": "anagram",
+      "note": "things ordered are put into a sequence, so these letters are rearranged into a new one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "their",
+      "gives": "THEIR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "guns",
+      "gives": "GUNS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THEIRGUNS",
+       "gives": "HUNGRIEST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Most soldiers fire off all their guns when commanded to.",
+     "walkthrough": "'Most empty their guns' reads as a verb phrase; 'Most empty' is an adjective, the definition.",
+     "definitionFit": "Hunger comes from an empty stomach, so the people feeling emptiest inside are the ones with the greatest appetite."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "empty"
+    }
+   }
   },
   {
    "number": 16,
@@ -296,7 +1151,61 @@
      }
     ]
    },
-   "solution": "BEARINMIND"
+   "solution": "BEARINMIND",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BEAR IN MIND",
+    "definitions": [
+     {
+      "text": "remember?",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Sorry",
+      "for": "anagram",
+      "note": "sorry can mean in a poor state, so these letters are knocked into a new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ned",
+      "gives": "NED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "I'm",
+      "gives": "IM",
+      "note": "taken as written, apostrophe ignored"
+     },
+     {
+      "clueFragment": "Brian",
+      "gives": "BRIAN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NEDIMBRIAN",
+       "gives": "BEARINMIND"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone apologises to Ned for failing to recognise them: it's Brian, surely he remembers?",
+     "walkthrough": "The whole clue sounds like a social apology; 'Sorry' is the signal, used in its sense of sorry-looking or shabby.",
+     "definitionFit": "To keep something in mind or not forget it is a common idiomatic expression for recall."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sorry"
+    }
+   }
   },
   {
    "number": 17,
@@ -310,7 +1219,67 @@
     "text": "Pub in difficulty keeping separate hot food",
     "enumeration": "7"
    },
-   "solution": "RHUBARB"
+   "solution": "RHUBARB",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RHUBARB",
+    "definitions": [
+     {
+      "text": "food",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "being in something means sitting inside it, so this piece goes within another"
+     },
+     {
+      "text": "keeping separate",
+      "for": "container",
+      "note": "keeping things separate means holding them apart, so the outer piece holds two insertions at different places"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "difficulty",
+      "gives": "RUB",
+      "note": "as in Hamlet's 'there's the rub'"
+     },
+     {
+      "clueFragment": "hot",
+      "gives": "H",
+      "note": "H is the abbreviation for hot, as on a tap"
+     },
+     {
+      "clueFragment": "Pub",
+      "gives": "BAR",
+      "note": "a bar is a pub"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "H",
+      "U",
+      "BAR",
+      "B"
+     ]
+    },
+    "explanation": {
+     "surface": "A pub in trouble keeps its hot food apart from the rest.",
+     "walkthrough": "'Hot food' looks like the definition, but hot is its own piece; the difficulty holds two insertions at separate points rather than side by side.",
+     "definitionFit": "Rhubarb stalks are cooked and eaten, usually as a dessert in crumbles and pies."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "separate"
+    }
+   }
   },
   {
    "number": 18,
@@ -330,7 +1299,44 @@
      }
     ]
    },
-   "solution": "INDEBT"
+   "solution": "INDEBT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "IN DEBT",
+    "definitions": [
+     {
+      "text": "Embarrassed",
+      "at": 0
+     },
+     {
+      "text": "where to put uniform for debut?",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Embarrassed",
+      "note": "first meaning: financially embarrassed, short of money"
+     },
+     {
+      "clueFragment": "where to put uniform for debut?",
+      "note": "second meaning: uniform is U in the radio alphabet, and the phrase says where U must go to spell the word debut"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is mortified about where to put their kit for a first appearance.",
+     "walkthrough": "Uniform is U in the NATO alphabet; placed inside DEBT it makes DEBUT, so the answer describes its own position.",
+     "definitionFit": "Financial embarrassment is a polite phrase for owing money one cannot pay, so embarrassed here means owing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "uniform"
+    }
+   }
   },
   {
    "number": 19,
@@ -344,7 +1350,47 @@
     "text": "British general in the driver's seat in WW2 transport",
     "enumeration": "4"
    },
-   "solution": "BIKE"
+   "solution": "BIKE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BIKE",
+    "definitions": [
+     {
+      "text": "transport",
+      "at": 44
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "B is the abbreviation for British"
+     },
+     {
+      "clueFragment": "general in the driver's seat in WW2",
+      "gives": "IKE",
+      "note": "Ike was Eisenhower, the general in overall command in the Second World War"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "IKE"
+     ]
+    },
+    "explanation": {
+     "surface": "A British general at the wheel of a wartime vehicle.",
+     "walkthrough": "'British general' reads as one man, but the British goes on the front and the general is American.",
+     "definitionFit": "A bicycle is a two-wheeled machine used for getting around, one example of a means of travel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "British"
+    }
+   }
   },
   {
    "number": 19,
@@ -358,7 +1404,65 @@
     "text": "Threat to bumper crop boy left with pig food?",
     "enumeration": "7"
    },
-   "solution": "BOLLARD"
+   "solution": "BOLLARD",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "BOLLARD",
+    "definitions": [
+     {
+      "text": "Threat to bumper",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crop",
+      "for": "deletion",
+      "note": "to crop is to cut short, so the word loses its last letter"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boy",
+      "gives": "BO",
+      "note": "the word without its last letter"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "pig food?",
+      "gives": "LARD",
+      "note": "lard is pig fat used in cooking; the question mark flags the loose phrase"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BO",
+      "L",
+      "LARD"
+     ]
+    },
+    "explanation": {
+     "surface": "A danger to a bumper harvest: a boy left in charge of the pig swill.",
+     "walkthrough": "'Bumper crop' reads as a big harvest; the bumper belongs to a car and 'crop' is the cutting signal.",
+     "definitionFit": "A bollard is a short post by the road that can dent a car's front or rear guard if it is driven into."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bumper"
+    }
+   }
   },
   {
    "number": 20,
@@ -372,7 +1476,56 @@
     "text": "Rotten dessert - eating three as starter",
     "enumeration": "6"
    },
-   "solution": "PUTRID"
+   "solution": "PUTRID",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PUTRID",
+    "definitions": [
+     {
+      "text": "Rotten",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "whatever is eaten goes inside the eater, so one piece swallows the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dessert",
+      "gives": "PUD",
+      "note": "pud is British slang for pudding, meaning dessert"
+     },
+     {
+      "clueFragment": "three as starter",
+      "gives": "TRI",
+      "note": "tri- is the prefix meaning three, used at the start of words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PU",
+      "TRI",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A dessert has gone off, and three of them were eaten as a first course.",
+     "walkthrough": "'Starter' looks like a first course; here it means a word's beginning, as in tricycle.",
+     "definitionFit": "Putrid means decomposing and foul-smelling, just as food that has gone bad is described."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "starter"
+    }
+   }
   },
   {
    "number": 21,
@@ -386,7 +1539,45 @@
     "text": "Support for conductor saying all aboard?",
     "enumeration": "5"
    },
-   "solution": "PYLON"
+   "solution": "PYLON",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "PYLON",
+    "definitions": [
+     {
+      "text": "Support for conductor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "saying",
+      "for": "homophone",
+      "note": "saying something means speaking it, so the sound matters and not the spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "all aboard?",
+      "gives": "PYLON",
+      "soundsLike": "PILE ON",
+      "note": "the cry to everyone to pile on"
+     }
+    ],
+    "explanation": {
+     "surface": "A bus conductor calls out for everyone to climb aboard.",
+     "walkthrough": "The conductor looks like a person on a bus; it is an electrical cable, and 'all aboard' becomes the phrase 'pile on'.",
+     "definitionFit": "Pylons are tall steel towers that hold up overhead electricity cables carrying power."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "conductor"
+    }
+   }
   },
   {
    "number": 21,
@@ -400,7 +1591,64 @@
     "text": "Writer, say, raised in suburb",
     "enumeration": "5"
    },
-   "solution": "PENGE"
+   "solution": "PENGE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "PENGE",
+    "definitions": [
+     {
+      "text": "suburb",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "in a down clue, raising letters makes them read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Writer",
+      "gives": "PEN",
+      "note": "a pen is a writing implement"
+     },
+     {
+      "clueFragment": "say",
+      "gives": "EG",
+      "note": "e.g. means for example"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PEN",
+      "GE"
+     ],
+     "reversals": [
+      {
+       "from": "EG",
+       "to": "GE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An author, for instance, grew up in the suburbs.",
+     "walkthrough": "PENGE is a district of south-east London; 'Writer' is the pen, not an author.",
+     "definitionFit": "It is a residential district on the southern outskirts of London, a typical example of a suburban area."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Writer"
+    }
+   }
   },
   {
    "number": 22,
@@ -414,7 +1662,65 @@
     "text": "Way a dung-beetle goes around upside-down",
     "enumeration": "4"
    },
-   "solution": "ROAD"
+   "solution": "ROAD",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "ROAD",
+    "definitions": [
+     {
+      "text": "Way",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "goes around",
+      "for": "container",
+      "note": "going around something encloses it, so one piece surrounds the other"
+     },
+     {
+      "text": "upside-down",
+      "for": "reversal",
+      "note": "turning upside-down in a down clue flips the order, so the letters read bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dung-beetle",
+      "gives": "DOR",
+      "note": "a dor is a kind of dung beetle, a crossword favourite"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROAD"
+     ],
+     "reversals": [
+      {
+       "from": "DAOR",
+       "to": "ROAD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The way a dung beetle travels, rolling along upside-down.",
+     "walkthrough": "'Way' looks like manner, as in how the beetle moves; it is the definition meaning route.",
+     "definitionFit": "A road is a route for travel, and 'way' is the older word for a path or street."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Way"
+    }
+   }
   },
   {
    "number": 23,
@@ -428,7 +1734,46 @@
     "text": "Poet's inclusion of metaphor a certainty",
     "enumeration": "6"
    },
-   "solution": "HORACE"
+   "solution": "HORACE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "HORACE",
+    "definitions": [
+     {
+      "text": "Poet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inclusion of",
+      "for": "hidden_word",
+      "note": "an inclusion is something held within, so the letters are sitting inside the following words"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "metaphor a certainty",
+      "gives": "HORACE",
+      "note": "spans the end of the first word, the middle word and the start of the last"
+     }
+    ],
+    "explanation": {
+     "surface": "Using metaphor is a sure thing in any poet's writing.",
+     "walkthrough": "'Poet's' reads as possessive; the apostrophe-s is 'is', linking the definition to the wordplay.",
+     "definitionFit": "Horace was a leading Latin lyric writer of the Augustan age, author of the Odes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "inclusion"
+    }
+   }
   },
   {
    "number": 24,
@@ -442,7 +1787,60 @@
     "text": "Unit of housing block let, one pound down",
     "enumeration": "8"
    },
-   "solution": "BUNGALOW"
+   "solution": "BUNGALOW",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "BUNGALOW",
+    "definitions": [
+     {
+      "text": "Unit of housing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "down",
+      "for": "deletion",
+      "note": "being down by something means being short of it, so a letter is lost"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "block",
+      "gives": "BUNG",
+      "note": "to bung up is to block"
+     },
+     {
+      "clueFragment": "let",
+      "gives": "ALOW",
+      "note": "let means allow, minus one L"
+     },
+     {
+      "clueFragment": "one pound",
+      "gives": "L",
+      "note": "L is the pound sign, removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUNG",
+      "ALOW"
+     ]
+    },
+    "explanation": {
+     "surface": "A flat in a housing block is let out, with the rent cut by a pound.",
+     "walkthrough": "'Housing block' reads as flats, but 'block' is a verb and 'let' means permit, not rent.",
+     "definitionFit": "A bungalow is a single-storey house, one dwelling in a stock of homes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "let"
+    }
+   }
   },
   {
    "number": 25,
@@ -456,7 +1854,66 @@
     "text": "Discuss young toff at Eton losing a lot of weight",
     "enumeration": "6"
    },
-   "solution": "DEBATE"
+   "solution": "DEBATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "DEBATE",
+    "definitions": [
+     {
+      "text": "Discuss",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing",
+      "for": "deletion",
+      "note": "losing something means it drops away, so part of the word is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "young toff",
+      "gives": "DEB",
+      "note": "a deb, or debutante, is a young upper-class woman entering society"
+     },
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Eton",
+      "gives": "ETON",
+      "note": "taken as written, before the removal"
+     },
+     {
+      "clueFragment": "a lot of weight",
+      "gives": "TON",
+      "note": "a ton is a heavy weight, and it is removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEB",
+      "AT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Talk about a posh youngster at Eton, the elite boarding school, who has slimmed down.",
+     "walkthrough": "Eton is Britain's most famous private boarding school; here the word just sheds TON.",
+     "definitionFit": "To debate a topic is to argue about it formally, weighing views for and against."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "weight"
+    }
+   }
   },
   {
    "number": 26,
@@ -470,7 +1927,70 @@
     "text": "Journalist, during trip to Mecca, heading west to this city",
     "enumeration": "6"
    },
-   "solution": "JEDDAH"
+   "solution": "JEDDAH",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "JEDDAH",
+    "definitions": [
+     {
+      "text": "this city",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heading west",
+      "for": "reversal",
+      "note": "in an across answer west is leftward, so the letters run right to left"
+     },
+     {
+      "text": "during",
+      "for": "container",
+      "note": "during means within the span of something, so one piece goes inside the other"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trip to Mecca",
+      "gives": "HADJ",
+      "note": "the hadj, or hajj, is the Muslim pilgrimage to Mecca"
+     },
+     {
+      "clueFragment": "Journalist",
+      "gives": "ED",
+      "note": "an editor, the stock crossword journalist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "J",
+      "ED",
+      "DAH"
+     ],
+     "reversals": [
+      {
+       "from": "HADJ",
+       "to": "JDAH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A reporter on a pilgrimage to Mecca travels west to reach the city.",
+     "walkthrough": "The pilgrimage is reversed first, then ED goes in after its J.",
+     "definitionFit": "Jeddah is a Saudi Arabian port on the Red Sea, the usual arrival point for Mecca pilgrims, as the scene describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "heading"
+    }
+   }
   }
  ]
 }
