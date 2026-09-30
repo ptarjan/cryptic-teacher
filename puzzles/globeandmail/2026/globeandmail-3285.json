@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,56 @@
     "text": "Army chap destroyed source of drugs",
     "enumeration": "8"
    },
-   "solution": "PHARMACY"
+   "solution": "PHARMACY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PHARMACY",
+    "definitions": [
+     {
+      "text": "source of drugs",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "destroyed",
+      "for": "anagram",
+      "note": "something destroyed is broken apart, so the letters must be rebuilt in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Army",
+      "gives": "ARMY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "chap",
+      "gives": "CHAP",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ARMYCHAP",
+       "gives": "PHARMACY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier has wrecked a supplier of narcotics, like a raid on a drug lord's lab.",
+     "walkthrough": "'Army chap' looks like one soldier, but the two words are simply the letters to rearrange.",
+     "definitionFit": "A chemist's shop is where medicines are dispensed, so it is literally a place you obtain medication from."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drugs"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +99,48 @@
     "text": "Mountain, say, cut off at the top",
     "enumeration": "4"
    },
-   "solution": "PEAK"
+   "solution": "PEAK",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "PEAK",
+    "definitions": [
+     {
+      "text": "Mountain",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut off at the top",
+      "for": "deletion",
+      "note": "in a down entry the top is the start, so the opening letter is chopped away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "say",
+      "gives": "SPEAK",
+      "note": "to say something is to speak it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PEAK"
+     ]
+    },
+    "explanation": {
+     "surface": "A mountain whose summit has been sheared off, perhaps by erosion.",
+     "walkthrough": "In a down clue 'at the top' means the first letter, so the S goes and PEAK is left.",
+     "definitionFit": "A peak is a pointed summit, and by extension a whole mountain, as in the high peaks of the Rockies."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "say"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +154,65 @@
     "text": "Surprise tons with a noise outside",
     "enumeration": "7"
    },
-   "solution": "ASTOUND"
+   "solution": "ASTOUND",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ASTOUND",
+    "definitions": [
+     {
+      "text": "Surprise",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "one thing sitting outside another wraps around it"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "noise",
+      "gives": "SOUND",
+      "note": "any noise is a sound"
+     },
+     {
+      "clueFragment": "tons",
+      "gives": "T",
+      "note": "T is the abbreviation for tons"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "S",
+      "T",
+      "OUND"
+     ]
+    },
+    "explanation": {
+     "surface": "Something huge and very loud gives everyone a shock, like tons of rubble crashing down.",
+     "walkthrough": "The noise word wraps around the tons abbreviation, with A in front: A + S(T)OUND.",
+     "definitionFit": "To astound someone is to amaze or shock them greatly, a stronger synonym for catching them off guard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tons"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +226,63 @@
     "text": "Two fish pierced by tip of sharp metal implement",
     "enumeration": "11"
    },
-   "solution": "MARLINSPIKE"
+   "solution": "MARLINSPIKE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "MARLINSPIKE",
+    "definitions": [
+     {
+      "text": "metal implement",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pierced by",
+      "for": "container",
+      "note": "whatever is pierced has something pushed into it, so a piece goes inside"
+     },
+     {
+      "text": "tip of",
+      "for": "letter_selection",
+      "note": "the tip of a word is its very first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Two fish",
+      "gives": "MARLINPIKE",
+      "note": "two fish, the marlin and the pike, one after the other"
+     },
+     {
+      "clueFragment": "sharp",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter of sharp"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MARLIN",
+      "S",
+      "PIKE"
+     ]
+    },
+    "explanation": {
+     "surface": "Two fish are skewered by a pointed metal tool, like catch on a spit.",
+     "walkthrough": "'Two fish' gives two separate words, split around the single letter. A marlinspike is a pointed tool sailors use to separate strands of rope when splicing.",
+     "definitionFit": "A marlinspike is a tapered steel spike used in ropework and splicing, so it is a metal tool."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pierced"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +296,65 @@
     "text": "Crowd in church with English dress",
     "enumeration": "6"
    },
-   "solution": "CLOTHE"
+   "solution": "CLOTHE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "CLOTHE",
+    "definitions": [
+     {
+      "text": "dress",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another sits inside it"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "church",
+      "gives": "CH",
+      "note": "CH is the abbreviation for church"
+     },
+     {
+      "clueFragment": "Crowd",
+      "gives": "LOT",
+      "note": "a lot is a group or crowd of people"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LOT",
+      "H",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A congregation at church is wearing its English finery.",
+     "walkthrough": "'Dress' reads as a noun in the surface, but here it is the verb: C(LOT)H + E.",
+     "definitionFit": "To dress someone is to put garments on them, which is exactly what the verb clothe means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dress"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +368,43 @@
     "text": "X in “waXwork” is supersized",
     "enumeration": "4"
    },
-   "solution": "KISS"
+   "solution": "KISS",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "KISS",
+    "definitions": [
+     {
+      "text": "X",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the answer sits inside the words that follow, spanning their letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "waXwork” is supersized",
+      "gives": "KISS",
+      "note": "run across the end of the first word, all of the second and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "A quip about a wax museum, where the capital letter in the middle of the word has been blown up in size.",
+     "walkthrough": "The capital X in the quoted word is a decoy, drawing the eye; the definition is the X at the start, the letter-writer's sign for a smooch.",
+     "definitionFit": "Letter writers sign off with a row of crosses meaning smooches, so the cross symbol stands for that affectionate gesture."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "supersized"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +418,67 @@
     "text": "Inadequate IT holds author up",
     "enumeration": "5"
    },
-   "solution": "INEPT"
+   "solution": "INEPT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "INEPT",
+    "definitions": [
+     {
+      "text": "Inadequate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry going up means reading from bottom to top, backwards"
+     },
+     {
+      "text": "holds",
+      "for": "container",
+      "note": "to hold something is to keep it within, so one piece goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "IT",
+      "gives": "IT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "author",
+      "gives": "PEN",
+      "note": "to author a work is to pen it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "NEP",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "PEN",
+       "to": "NEP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A useless IT department keeps a writer waiting, holding up their work.",
+     "walkthrough": "'Holds up' reads as delaying, but the phrase splits: 'holds' puts one piece inside IT, and 'up' flips that piece.",
+     "definitionFit": "Inept means lacking skill or competence, a close synonym of inadequate when describing performance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +492,62 @@
     "text": "Mailing involving poster initially paying out",
     "enumeration": "8"
    },
-   "solution": "SPENDING"
+   "solution": "SPENDING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SPENDING",
+    "definitions": [
+     {
+      "text": "paying out",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of the word before it"
+     },
+     {
+      "text": "involving",
+      "for": "container",
+      "note": "to involve something is to take it in, so a piece goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mailing",
+      "gives": "SENDING",
+      "note": "mailing a letter is sending it"
+     },
+     {
+      "clueFragment": "poster",
+      "gives": "P",
+      "select": "first",
+      "note": "first letter of poster"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "P",
+      "ENDING"
+     ]
+    },
+    "explanation": {
+     "surface": "A mailshot with a poster in it costs the sender money.",
+     "walkthrough": "S(P)ENDING: the single letter slips in after the first letter of the mailing word.",
+     "definitionFit": "Spending is laying out money, the same as paying it out for goods or services."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "poster"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +561,48 @@
     "text": "Trying to find roof beam when the first goes missing",
     "enumeration": "5"
    },
-   "solution": "AFTER"
+   "solution": "AFTER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "AFTER",
+    "definitions": [
+     {
+      "text": "Trying to find",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when the first goes missing",
+      "for": "deletion",
+      "note": "the first of a word going missing means its opening letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "roof beam",
+      "gives": "RAFTER",
+      "note": "a rafter is a sloping beam that supports a roof"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AFTER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is searching for a roof beam after the first one has vanished.",
+     "walkthrough": "Drop the R from the roof beam. 'After' here is the sense in 'the police are after him'.",
+     "definitionFit": "Being after something means pursuing or seeking it, as in chasing a goal or a suspect."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "first"
+    }
+   }
   },
   {
    "number": 9,
@@ -159,7 +616,64 @@
     "text": "Bad smell around place is disgusting",
     "enumeration": "7"
    },
-   "solution": "OBSCENE"
+   "solution": "OBSCENE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "OBSCENE",
+    "definitions": [
+     {
+      "text": "disgusting",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "reversal",
+      "note": "turning something around makes it face the other way, so it reads backwards"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bad smell",
+      "gives": "BO",
+      "note": "BO is body odour"
+     },
+     {
+      "clueFragment": "place",
+      "gives": "SCENE",
+      "note": "a scene is the place where something happens"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OB",
+      "SCENE"
+     ],
+     "reversals": [
+      {
+       "from": "BO",
+       "to": "OB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A foul stink hanging about somewhere is revolting.",
+     "walkthrough": "'Around' looks like a container signal wrapping the smell around the place, but it only turns the smell backwards; BO is the standard shorthand for body odour.",
+     "definitionFit": "Obscene means offensive to accepted standards of decency, so repulsive or revolting in a strong sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "around"
+    }
+   }
   },
   {
    "number": 10,
@@ -173,7 +687,56 @@
     "text": "Secondary route Sinbad organised",
     "enumeration": "11"
    },
-   "solution": "SUBORDINATE"
+   "solution": "SUBORDINATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SUBORDINATE",
+    "definitions": [
+     {
+      "text": "Secondary",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "organised",
+      "for": "anagram",
+      "note": "to organise is to put into a fresh arrangement, so the letters get reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "route",
+      "gives": "ROUTE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Sinbad",
+      "gives": "SINBAD",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ROUTESINBAD",
+       "gives": "SUBORDINATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A back road planned by Sinbad, the legendary sailor, for one of his voyages.",
+     "walkthrough": "'Secondary route' reads as one phrase, a side road, but the definition is the first word alone.",
+     "definitionFit": "Something subordinate is lower in rank or importance, which is what secondary means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Secondary"
+    }
+   }
   },
   {
    "number": 11,
@@ -187,7 +750,55 @@
     "text": "Wanton unoccupied suffering change of heart in favour of one",
     "enumeration": "11"
    },
-   "solution": "UNINHIBITED"
+   "solution": "UNINHIBITED",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "UNINHIBITED",
+    "definitions": [
+     {
+      "text": "Wanton",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "suffering change of heart in favour of",
+      "for": "substitution",
+      "note": "a change of heart swaps out the central letter for something else"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unoccupied",
+      "gives": "UNINHABITED",
+      "note": "a place nobody lives in is unoccupied"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNINH",
+      "I",
+      "BITED"
+     ]
+    },
+    "explanation": {
+     "surface": "An empty-headed wanton has a change of heart and decides to settle for one partner.",
+     "walkthrough": "The middle letter of the eleven-letter word for unoccupied is A; swap it for I.",
+     "definitionFit": "Wanton can mean unrestrained or free of moral restraint, and uninhibited describes someone without such restraint."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heart"
+    }
+   }
   },
   {
    "number": 12,
@@ -201,7 +812,61 @@
     "text": "Alternative to rice cold? Often it’s cooked",
     "enumeration": "8"
    },
-   "solution": "CONFETTI"
+   "solution": "CONFETTI",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "CONFETTI",
+    "definitions": [
+     {
+      "text": "Alternative to rice",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cooked",
+      "for": "anagram",
+      "note": "cooked means doctored or fiddled, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C is the abbreviation for cold, as on taps"
+     },
+     {
+      "clueFragment": "Often it",
+      "gives": "OFTENIT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ONFETTI"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OFTENIT",
+       "gives": "ONFETTI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A kitchen musing: cold food as a substitute for rice, which is usually served hot.",
+     "walkthrough": "Rice and paper pieces are both thrown over couples leaving a wedding, which is the sense of 'alternative' here.",
+     "definitionFit": "Guests traditionally shower newlyweds with grains or paper scraps, so the paper version replaces the grains."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "rice"
+    }
+   }
   },
   {
    "number": 13,
@@ -215,7 +880,53 @@
     "text": "Getting on, feeling the chill a bit without cape",
     "enumeration": "6"
    },
-   "solution": "OLDISH"
+   "solution": "OLDISH",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "OLDISH",
+    "definitions": [
+     {
+      "text": "Getting on",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so a letter is taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "feeling the chill a bit",
+      "gives": "COLDISH",
+      "note": "somewhat cold"
+     },
+     {
+      "clueFragment": "cape",
+      "gives": "C",
+      "note": "C is the map abbreviation for cape"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OLDISH"
+     ]
+    },
+    "explanation": {
+     "surface": "An ageing person starts to feel the cold a little when they leave their cloak off.",
+     "walkthrough": "A cape reads as a cloak, but it is the headland abbreviation C, removed from the front.",
+     "definitionFit": "Someone getting on is ageing, and oldish describes a person who is fairly advanced in years."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cape"
+    }
+   }
   },
   {
    "number": 14,
@@ -229,7 +940,50 @@
     "text": "Cowardly Charlie chased by bird",
     "enumeration": "6"
    },
-   "solution": "CRAVEN"
+   "solution": "CRAVEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CRAVEN",
+    "definitions": [
+     {
+      "text": "Cowardly",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "chased by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Charlie",
+      "gives": "C",
+      "note": "C is Charlie in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "bird",
+      "gives": "RAVEN",
+      "note": "a raven is a large black bird"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "RAVEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A timid man named Charlie flees from a pursuing bird.",
+     "walkthrough": "'Chased by' means followed by, so the bird comes after C.",
+     "definitionFit": "Craven is an old-fashioned word for contemptibly lacking courage, a direct synonym of cowardly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Charlie"
+    }
+   }
   },
   {
    "number": 15,
@@ -243,7 +997,65 @@
     "text": "Struggle introducing new label showing year wine’s made",
     "enumeration": "7"
    },
-   "solution": "VINTAGE"
+   "solution": "VINTAGE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "VINTAGE",
+    "definitions": [
+     {
+      "text": "year wine’s made",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "introducing",
+      "for": "container",
+      "note": "to introduce something is to bring it inside"
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Struggle",
+      "gives": "VIE",
+      "note": "to vie is to compete or struggle"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "label",
+      "gives": "TAG",
+      "note": "a tag is a label"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VI",
+      "N",
+      "TAG",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A winery wrestles over a new bottle label giving the year of production.",
+     "walkthrough": "VI(N TAG)E: the struggle word opens to take in the new label.",
+     "definitionFit": "A wine's vintage is the year its grapes were harvested and the wine was produced."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Struggle"
+    }
+   }
   },
   {
    "number": 16,
@@ -257,7 +1069,71 @@
     "text": "Rook cat’s chewed and half left",
     "enumeration": "6"
    },
-   "solution": "CASTLE"
+   "solution": "CASTLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "deletion",
+     "charade"
+    ],
+    "answer": "CASTLE",
+    "definitions": [
+     {
+      "text": "Rook",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "chewed",
+      "for": "anagram",
+      "note": "chewed means mangled, so the letters are jumbled"
+     },
+     {
+      "text": "half",
+      "for": "deletion",
+      "note": "keeping only half of a word means losing the rest of it"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cat’s",
+      "gives": "CATS",
+      "note": "taken as written without the apostrophe"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "LEFT",
+      "note": "taken as written; its first half is kept"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAST",
+      "LE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CATS",
+       "gives": "CAST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cat has mauled a crow-like bird and left half of it behind.",
+     "walkthrough": "Rook looks like the bird the cat caught, but it is the chess piece.",
+     "definitionFit": "In chess the rook is also called the castle, since the piece is shaped like a tower."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Rook"
+    }
+   }
   },
   {
    "number": 17,
@@ -271,7 +1147,57 @@
     "text": "Lure of saint leaving Italy in 1922-43?",
     "enumeration": "11"
    },
-   "solution": "FASCINATION"
+   "solution": "FASCINATION",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "FASCINATION",
+    "definitions": [
+     {
+      "text": "Lure",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "something leaving departs, so those letters are taken out"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Italy in 1922-43?",
+      "gives": "FASCISTNATION",
+      "note": "Italy under Mussolini, from 1922 to 1943, was a Fascist state"
+     },
+     {
+      "clueFragment": "saint",
+      "gives": "ST",
+      "note": "ST is the abbreviation for saint"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FASCI",
+      "NATION"
+     ]
+    },
+    "explanation": {
+     "surface": "A holy man's attraction to leaving Mussolini's Italy.",
+     "walkthrough": "The dates are those of Mussolini's rule; remove ST from the phrase describing the country then.",
+     "definitionFit": "A lure is a powerful attraction, and fascination is the state of being strongly drawn or captivated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "saint"
+    }
+   }
   },
   {
    "number": 18,
@@ -285,7 +1211,47 @@
     "text": "Small price paid for renting horse",
     "enumeration": "5"
    },
-   "solution": "SHIRE"
+   "solution": "SHIRE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SHIRE",
+    "definitions": [
+     {
+      "text": "horse",
+      "at": 29
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "S is the abbreviation for small, as in clothing sizes"
+     },
+     {
+      "clueFragment": "price paid for renting",
+      "gives": "HIRE",
+      "note": "hire is the fee paid to rent something"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "HIRE"
+     ]
+    },
+    "explanation": {
+     "surface": "A modest fee to rent a horse for a ride.",
+     "walkthrough": "The definition is the last word; the rest builds the letters.",
+     "definitionFit": "A shire is a very large, strong English breed of draught animal used for pulling heavy loads."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Small"
+    }
+   }
   },
   {
    "number": 19,
@@ -299,7 +1265,57 @@
     "text": "Animal running up for grass",
     "enumeration": "4"
    },
-   "solution": "REED"
+   "solution": "REED",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "REED",
+    "definitions": [
+     {
+      "text": "grass",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "running up",
+      "for": "reversal",
+      "note": "in a down entry, going up means reading from bottom to top, backwards"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Animal",
+      "gives": "DEER",
+      "note": "a deer is an animal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REED"
+     ],
+     "reversals": [
+      {
+       "from": "DEER",
+       "to": "REED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An animal bounds uphill looking for grazing.",
+     "walkthrough": "The animal is a DEER, which in this down entry is written bottom to top.",
+     "definitionFit": "Reeds are tall water plants of the grass family, so a reed is a kind of grass."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "running"
+    }
+   }
   },
   {
    "number": 20,
@@ -313,7 +1329,55 @@
     "text": "Spear I had found in river",
     "enumeration": "7"
    },
-   "solution": "TRIDENT"
+   "solution": "TRIDENT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TRIDENT",
+    "definitions": [
+     {
+      "text": "Spear",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found in",
+      "for": "container",
+      "note": "something found in another lies inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "river",
+      "gives": "TRENT",
+      "note": "the Trent is a major river in the English Midlands"
+     },
+     {
+      "clueFragment": "I had",
+      "gives": "ID",
+      "note": "I'd is the contraction of I had"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TR",
+      "ID",
+      "ENT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone confesses to discovering a spear in a riverbed.",
+     "walkthrough": "'River' is not the usual crossword R here but the Trent, a long river in central England.",
+     "definitionFit": "A trident is a three-pronged spear, like the one carried by Neptune or used for fishing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "found"
+    }
+   }
   },
   {
    "number": 21,
@@ -327,7 +1391,56 @@
     "text": "Head of arboretum donated succulent",
     "enumeration": "5"
    },
-   "solution": "AGAVE"
+   "solution": "AGAVE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "AGAVE",
+    "definitions": [
+     {
+      "text": "succulent",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Head of",
+      "for": "letter_selection",
+      "note": "the head of a word is its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "arboretum",
+      "gives": "A",
+      "select": "first",
+      "note": "first letter of arboretum"
+     },
+     {
+      "clueFragment": "donated",
+      "gives": "GAVE",
+      "note": "to donate is to give, so donated is gave"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "GAVE"
+     ]
+    },
+    "explanation": {
+     "surface": "The director of a tree garden has given away a fleshy plant.",
+     "walkthrough": "'Succulent' reads as an adjective in the surface, but it is the noun for a fleshy plant.",
+     "definitionFit": "Agave is a spiky desert plant with thick fleshy leaves, the source of tequila, and so a succulent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "succulent"
+    }
+   }
   },
   {
    "number": 22,
@@ -341,7 +1454,61 @@
     "text": "I encountered returning pair of lovers",
     "enumeration": "4"
    },
-   "solution": "ITEM"
+   "solution": "ITEM",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ITEM",
+    "definitions": [
+     {
+      "text": "pair of lovers",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means going back the way it came, so it reads backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "encountered",
+      "gives": "MET",
+      "note": "to encounter someone is to meet them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "TEM"
+     ],
+     "reversals": [
+      {
+       "from": "MET",
+       "to": "TEM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone recalls bumping into a couple on their way home.",
+     "walkthrough": "The couple in the clue is the definition, not someone you met.",
+     "definitionFit": "Two people described as an item are in a romantic relationship, an informal idiom for a couple."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "returning"
+    }
+   }
   },
   {
    "number": 23,
@@ -355,7 +1522,61 @@
     "text": "Clergyman always gripped by right objective",
     "enumeration": "8"
    },
-   "solution": "REVEREND"
+   "solution": "REVEREND",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "REVEREND",
+    "definitions": [
+     {
+      "text": "Clergyman",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gripped by",
+      "for": "container",
+      "note": "whatever is gripped is held inside something else"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     },
+     {
+      "clueFragment": "always",
+      "gives": "EVER",
+      "note": "ever means always, as in ever hopeful"
+     },
+     {
+      "clueFragment": "objective",
+      "gives": "END",
+      "note": "an end is an aim or objective"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "EVER",
+      "END"
+     ]
+    },
+    "explanation": {
+     "surface": "A minister who is forever in the grip of righteous aims.",
+     "walkthrough": "The right-hand letter and the objective together hold the word for always: R(EVER)END.",
+     "definitionFit": "Reverend is the title and informal name for a member of the clergy, such as a minister or priest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "objective"
+    }
+   }
   }
  ]
 }
