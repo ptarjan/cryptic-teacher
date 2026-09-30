@@ -392,6 +392,9 @@ tools/validate_annotations.py                proves every annotation actually sp
                                              and may not say
 tools/test_indicator_note_letters.sh         an indicator note may not write a block's letters,
                                              since its rung comes before the blocks
+tools/test_selector_indicator.sh             a letter selector ("capital of", "initially") is
+                                             an indicator, so a new or changed block holds only
+                                             the words it selects from
 tools/test_anagram_fodder.sh                 an anagram's fodder is drawn from the clue's
                                              wordplay and its blocks' letters
 tools/test_indicator_straddle.sh             an indicator may sit inside a definition but not
