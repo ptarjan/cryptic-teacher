@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,52 @@
     "text": "Peak starts to fall under joint initiative",
     "enumeration": "4"
    },
-   "solution": "FUJI"
+   "solution": "FUJI",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "FUJI",
+    "definitions": [
+     {
+      "text": "Peak",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts to",
+      "for": "letter_selection",
+      "note": "the starts of words are their opening letters, so only the first of each is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fall under joint initiative",
+      "gives": "FUJI",
+      "select": "first",
+      "note": "the opening letter of each of the four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "U",
+      "J",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A climber worries that a joint project will begin with a fall from a summit.",
+     "walkthrough": "The four words after 'starts to' each lend their first letter; Fuji is the famous volcano in Japan.",
+     "definitionFit": "Mount Fuji is the highest mountain in Japan, so it is an example of a mountain summit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "joint"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +95,57 @@
     "text": "Incited blonde grumbling about borders",
     "enumeration": "5"
    },
-   "solution": "URGED"
+   "solution": "URGED",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "URGED",
+    "definitions": [
+     {
+      "text": "Incited",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "borders",
+      "for": "hidden_word",
+      "note": "to border something is to lie alongside and straddle it, so the letters span the join between two words"
+     },
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "turning about means facing the other way, so the letters are read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "blonde grumbling",
+      "gives": "DEGRU",
+      "note": "the letters straddling the gap between the two words"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "DEGRU",
+       "to": "URGED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stirred up a fair-haired person who was complaining about the edges of something.",
+     "walkthrough": "The end of 'blonde' and the start of 'grumbling' give DEGRU, which read backwards is URGED.",
+     "definitionFit": "To urge someone on is to press or push them to act, the same as inciting them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "borders"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +159,51 @@
     "text": "Impetuosity livens up Messi when playing",
     "enumeration": "13"
    },
-   "solution": "IMPULSIVENESS"
+   "solution": "IMPULSIVENESS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IMPULSIVENESS",
+    "definitions": [
+     {
+      "text": "Impetuosity",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when playing",
+      "for": "anagram",
+      "note": "playing suggests moving about freely, so the letters are set in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "livens up Messi",
+      "gives": "LIVENSUPMESSI",
+      "note": "the thirteen letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LIVENSUPMESSI",
+       "gives": "IMPULSIVENESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Lionel Messi's rash flair brightens a football match whenever he takes the field.",
+     "walkthrough": "Messi, the Argentine footballer, supplies letters rather than a person; the whole of 'livens up Messi' is rearranged.",
+     "definitionFit": "Both nouns describe acting rashly on sudden urges without stopping to think first."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Messi"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +223,79 @@
      }
     ]
    },
-   "solution": "WORETHIN"
+   "solution": "WORETHIN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "charade"
+    ],
+    "answer": "WORE THIN",
+    "definitions": [
+     {
+      "text": "became annoying",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "something turned over ends up the other way round, so its letters run backwards"
+     },
+     {
+      "text": "untidy",
+      "for": "anagram",
+      "note": "an untidy arrangement is jumbled, so the letters are mixed up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Argument",
+      "gives": "ROW",
+      "note": "a row is a noisy quarrel"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "home",
+      "gives": "IN",
+      "note": "to be in is to be at home"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WOR",
+      "ETH",
+      "IN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "THE",
+       "gives": "ETH"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "ROW",
+       "to": "WOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A couple quarrels about the messy state of their house.",
+     "walkthrough": "'Home' gives IN because being in means being at home; 'wore thin' is an idiom for patience or a joke running out.",
+     "definitionFit": "A joke or excuse that has worn thin has lost its appeal through repetition and now irritates."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "home"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +309,73 @@
     "text": "Earl in Wisconsin turned Doctor Strange",
     "enumeration": "5"
    },
-   "solution": "WEIRD"
+   "solution": "WEIRD",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal",
+     "charade"
+    ],
+    "answer": "WEIRD",
+    "definitions": [
+     {
+      "text": "Strange",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing placed in another sits inside it"
+     },
+     {
+      "text": "turned",
+      "for": "reversal",
+      "note": "something turned round faces the opposite way, so its letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Earl",
+      "gives": "E",
+      "note": "E is an abbreviation for earl"
+     },
+     {
+      "clueFragment": "Wisconsin",
+      "gives": "WI",
+      "note": "WI is the postal code for the US state"
+     },
+     {
+      "clueFragment": "Doctor",
+      "gives": "DR",
+      "note": "the usual abbreviation for doctor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WEI",
+      "RD"
+     ],
+     "reversals": [
+      {
+       "from": "DR",
+       "to": "RD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nobleman living in the American Midwest became the Marvel sorcerer Doctor Strange.",
+     "walkthrough": "'Doctor Strange' reads as the Marvel hero, but 'Doctor' belongs to the wordplay and 'Strange' alone is the definition.",
+     "definitionFit": "Weird and strange are close synonyms for something odd or unusual."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Strange"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +389,47 @@
     "text": "Farmer managed pop diva",
     "enumeration": "7"
    },
-   "solution": "RANCHER"
+   "solution": "RANCHER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RANCHER",
+    "definitions": [
+     {
+      "text": "Farmer",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "managed",
+      "gives": "RAN",
+      "note": "to run a business is to manage it"
+     },
+     {
+      "clueFragment": "pop diva",
+      "gives": "CHER",
+      "note": "Cher is the American singer famed as a diva"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAN",
+      "CHER"
+     ]
+    },
+    "explanation": {
+     "surface": "A farmer who once acted as agent for a pop star.",
+     "walkthrough": "RAN for 'managed' is followed by the singer CHER.",
+     "definitionFit": "A rancher runs a large livestock farm, especially in North America."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "managed"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +443,52 @@
     "text": "What Professor McGonagall does with small geeks",
     "enumeration": "13"
    },
-   "solution": "TRAINSPOTTERS"
+   "solution": "TRAINSPOTTERS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TRAINSPOTTERS",
+    "definitions": [
+     {
+      "text": "geeks",
+      "at": 42
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What Professor McGonagall does",
+      "gives": "TRAINSPOTTER",
+      "note": "in the Harry Potter books she teaches young wizards, including the boy hero himself"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRAINS",
+      "POTTER",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about how a Hogwarts teacher deals with little nerds.",
+     "walkthrough": "McGonagall teaches Harry at Hogwarts, so she TRAINS POTTER; add S for small. A trainspotter is a British hobbyist who logs train numbers, the byword for an obsessive.",
+     "definitionFit": "Trainspotters are the stock example of obsessive enthusiasts, so the word is used for nerds in general."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "does"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +502,60 @@
     "text": "Iris worked with pen to stimulate the imagination",
     "enumeration": "7"
    },
-   "solution": "INSPIRE"
+   "solution": "INSPIRE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INSPIRE",
+    "definitions": [
+     {
+      "text": "stimulate the imagination",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "worked",
+      "for": "anagram",
+      "note": "material that is worked is shaped and reshaped, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Iris",
+      "gives": "IRIS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "pen",
+      "gives": "PEN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IRISPEN",
+       "gives": "INSPIRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A writer called Iris took up her pen to fire readers' imaginations.",
+     "walkthrough": "IRIS and PEN together are rearranged.",
+     "definitionFit": "To inspire someone is to fill them with creative ideas, rousing their mind to invent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "worked"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +569,51 @@
     "text": "Awful peaty gin from African country",
     "enumeration": "8"
    },
-   "solution": "EGYPTIAN"
+   "solution": "EGYPTIAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EGYPTIAN",
+    "definitions": [
+     {
+      "text": "from African country",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Awful",
+      "for": "anagram",
+      "note": "something awful is in a bad state, so the letters are thrown into disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "peaty gin",
+      "gives": "PEATYGIN",
+      "note": "the eight letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PEATYGIN",
+       "gives": "EGYPTIAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint about a nasty smoky-tasting gin imported from Africa.",
+     "walkthrough": "'Awful' reads as a verdict on the gin but signals the rearrangement of 'peaty gin'.",
+     "definitionFit": "The adjective describes a person or thing originating in Egypt, a nation of north-east Africa."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Awful"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +627,44 @@
     "text": "Artificial sole binds to boot",
     "enumeration": "4"
    },
-   "solution": "ALSO"
+   "solution": "ALSO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ALSO",
+    "definitions": [
+     {
+      "text": "to boot",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "binds",
+      "for": "hidden_word",
+      "note": "to bind is to hold something wrapped up inside, so the letters sit within the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Artificial sole",
+      "gives": "ALSO",
+      "note": "the end of the first word runs into the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A fake sole is fastened onto a boot.",
+     "walkthrough": "'Boot' seems to be footwear, matching the sole; 'to boot' is an idiom meaning in addition.",
+     "definitionFit": "The idiom 'to boot' means as well or in addition, the same sense as the adverb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "boot"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +678,53 @@
     "text": "Spoilt son leaves ready to ride",
     "enumeration": "6"
    },
-   "solution": "ADDLED"
+   "solution": "ADDLED",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ADDLED",
+    "definitions": [
+     {
+      "text": "Spoilt",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaves",
+      "for": "deletion",
+      "note": "whatever leaves goes away, so that letter is taken out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ready to ride",
+      "gives": "SADDLED",
+      "note": "a horse is ready to ride once its saddle is on"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ADDLED"
+     ]
+    },
+    "explanation": {
+     "surface": "A pampered boy walks out on a horse that has been prepared for him.",
+     "walkthrough": "'Spoilt son' looks like one phrase, a pampered child; 'Spoilt' is the definition and 'son' is the letter removed.",
+     "definitionFit": "An addled egg is one that has gone rotten, so addled can mean spoilt or gone bad."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Spoilt"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +738,51 @@
     "text": "Cleaner removing clothing to be off colour",
     "enumeration": "3"
    },
-   "solution": "AIL"
+   "solution": "AIL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "AIL",
+    "definitions": [
+     {
+      "text": "be off colour",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "removing clothing",
+      "for": "deletion",
+      "note": "clothing is the outer covering, so stripping it takes away the outside letters"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cleaner",
+      "gives": "DAILY",
+      "note": "a daily is a British term for a cleaner who comes in each day"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AIL"
+     ]
+    },
+    "explanation": {
+     "surface": "A cleaner taking off her overalls because she feels unwell.",
+     "walkthrough": "A daily is British for a domestic cleaner; strip its first and last letters and AIL remains.",
+     "definitionFit": "To ail is to be unwell or poorly, and 'off colour' is an idiom for feeling slightly ill."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "clothing"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +796,57 @@
     "text": "Chinese dynasty heard important one’s blown in",
     "enumeration": "6"
    },
-   "solution": "HANKIE"
+   "solution": "HANKIE",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "HANKIE",
+    "definitions": [
+     {
+      "text": "one’s blown in",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heard",
+      "for": "homophone",
+      "note": "what is heard is taken by ear, so the spelling follows the sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chinese dynasty",
+      "gives": "HAN",
+      "note": "the Han dynasty ruled China for four centuries"
+     },
+     {
+      "clueFragment": "important",
+      "gives": "KIE",
+      "soundsLike": "KEY",
+      "note": "key means crucial or important"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAN",
+      "KIE"
+     ]
+    },
+    "explanation": {
+     "surface": "A historical note that an important Chinese ruling house was swept in on a wind.",
+     "walkthrough": "'one's blown in' seems to describe an arrival on the wind; it describes a handkerchief, which you blow your nose into.",
+     "definitionFit": "A handkerchief is the cloth people blow their noses into, so it is a thing one blows into."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "blown"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +860,39 @@
     "text": "One has a meaningful job in publishing",
     "enumeration": "13"
    },
-   "solution": "LEXICOGRAPHER"
+   "solution": "LEXICOGRAPHER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "LEXICOGRAPHER",
+    "definitions": [
+     {
+      "text": "One has a meaningful job in publishing",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One has a meaningful job in publishing",
+      "note": "surface reading: someone in the book trade whose work feels worthwhile"
+     },
+     {
+      "clueFragment": "meaningful job",
+      "note": "setter's reading: a job that is literally all about meanings, compiling them for a dictionary"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Meaningful' suggests fulfilling work, but read literally it is work full of word meanings.",
+     "definitionFit": "A compiler of dictionaries spends every day writing out the senses of words for print."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "meaningful"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +906,54 @@
     "text": "Teach ace duet to dance",
     "enumeration": "7"
    },
-   "solution": "EDUCATE"
+   "solution": "EDUCATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EDUCATE",
+    "definitions": [
+     {
+      "text": "Teach",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dance",
+      "for": "anagram",
+      "note": "dancers move around and change places, so the letters swap positions"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ace duet",
+      "gives": "ACEDUET",
+      "note": "the seven letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ACEDUET",
+       "gives": "EDUCATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to coach a star pair of performers in dancing.",
+     "walkthrough": "'ace duet' is rearranged.",
+     "definitionFit": "To teach and to educate both mean giving someone knowledge or instruction."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dance"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +967,51 @@
     "text": "Unknown rubs Coe the wrong way",
     "enumeration": "7"
    },
-   "solution": "OBSCURE"
+   "solution": "OBSCURE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OBSCURE",
+    "definitions": [
+     {
+      "text": "Unknown",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the wrong way",
+      "for": "anagram",
+      "note": "things done the wrong way are out of proper order, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rubs Coe",
+      "gives": "RUBSCOE",
+      "note": "the seven letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RUBSCOE",
+       "gives": "OBSCURE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some nobody irritates Sebastian Coe, the Olympic runner and athletics chief.",
+     "walkthrough": "'rubs the wrong way' is an idiom for annoying, but here 'rubs Coe' is the fodder and 'the wrong way' is the signal.",
+     "definitionFit": "An obscure figure is little known or unfamiliar to the public, so the adjective matches unknown."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rubs"
+    }
+   }
   },
   {
    "number": 15,
@@ -263,7 +1025,51 @@
     "text": "Make a short trip, arguing regularly",
     "enumeration": "3"
    },
-   "solution": "RUN"
+   "solution": "RUN",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "RUN",
+    "definitions": [
+     {
+      "text": "Make a short trip",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "at regular intervals means every other one, so alternate letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "arguing",
+      "gives": "RUN",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "U",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A couple bickering constantly while popping out on a brief errand.",
+     "walkthrough": "Take the even letters of 'arguing'.",
+     "definitionFit": "A run can be a quick journey, as in a run to the shops, so to run is to take a brief outing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "arguing"
+    }
+   }
   },
   {
    "number": 16,
@@ -277,7 +1083,46 @@
     "text": "Powerful women and men",
     "enumeration": "6"
    },
-   "solution": "QUEENS"
+   "solution": "QUEENS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "QUEENS",
+    "definitions": [
+     {
+      "text": "Powerful women",
+      "at": 0
+     },
+     {
+      "text": "men",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Powerful women",
+      "note": "first meaning: female monarchs"
+     },
+     {
+      "clueFragment": "men",
+      "note": "second meaning: the chess pieces, which crossword setters call men"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'men' seems to be the opposite of 'women', but chess pieces are called men, and the queen is the most powerful piece on the board.",
+     "definitionFit": "Queens are female rulers of kingdoms, and also the strongest pieces in chess, which are called men."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "men"
+    }
+   }
   },
   {
    "number": 17,
@@ -291,7 +1136,55 @@
     "text": "This author’s introduced to unacceptable idea",
     "enumeration": "6"
    },
-   "solution": "NOTION"
+   "solution": "NOTION",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NOTION",
+    "definitions": [
+     {
+      "text": "idea",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "introduced to",
+      "for": "container",
+      "note": "something introduced to a thing is brought into it, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "This author’s",
+      "gives": "I",
+      "note": "the setter refers to herself or himself as I; the 's is 'is'"
+     },
+     {
+      "clueFragment": "unacceptable",
+      "gives": "NOTON",
+      "note": "'not on' is an idiom for not acceptable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOT",
+      "I",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A writer confesses to being presented with an objectionable concept.",
+     "walkthrough": "'Not on' is British and colloquial for unacceptable; the setter's I goes in the middle.",
+     "definitionFit": "A notion is a thought, belief or concept, a general synonym for an idea."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "introduced"
+    }
+   }
   },
   {
    "number": 17,
@@ -305,7 +1198,76 @@
     "text": "Loud female drunk by noon is producing unpleasant smells",
     "enumeration": "5"
    },
-   "solution": "NIFFS"
+   "solution": "NIFFS",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "NIFFS",
+    "definitions": [
+     {
+      "text": "producing unpleasant smells",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drunk",
+      "for": "anagram",
+      "note": "a drunk person staggers about, so the letters are shaken into a new order"
+     },
+     {
+      "text": "by",
+      "for": "charade",
+      "note": "by means beside, so one piece is set next to the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "noon",
+      "gives": "N",
+      "note": "N is short for noon"
+     },
+     {
+      "clueFragment": "Loud",
+      "gives": "F",
+      "note": "f, forte, is the musical direction for loud"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "F is the abbreviation for female"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "IFFS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FFIS",
+       "gives": "IFFS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A noisy woman who is already tipsy by midday gives off a bad smell.",
+     "walkthrough": "'is' looks like the link but is part of the rearranged letters. Niff is British slang for a bad smell, and to niff is to stink.",
+     "definitionFit": "The British slang verb niff means to stink, so it describes giving off a nasty odour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drunk"
+    }
+   }
   },
   {
    "number": 18,
@@ -319,7 +1281,53 @@
     "text": "Discharged bishop departs drunk",
     "enumeration": "5"
    },
-   "solution": "OOZED"
+   "solution": "OOZED",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "OOZED",
+    "definitions": [
+     {
+      "text": "Discharged",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "departs",
+      "for": "deletion",
+      "note": "whatever departs goes away, so that letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drunk",
+      "gives": "BOOZED",
+      "note": "boozed means having drunk a lot of alcohol"
+     },
+     {
+      "clueFragment": "bishop",
+      "gives": "B",
+      "note": "B is the chess notation for bishop"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OOZED"
+     ]
+    },
+    "explanation": {
+     "surface": "A churchman leaves the diocese in disgrace, sacked for drinking.",
+     "walkthrough": "'Discharged' looks like the bishop being fired; it means a liquid seeped out.",
+     "definitionFit": "A wound or pipe that discharged fluid let it seep slowly out, which is what oozing is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Discharged"
+    }
+   }
   },
   {
    "number": 19,
@@ -333,7 +1341,44 @@
     "text": "American Express entertaining staff",
     "enumeration": "4"
    },
-   "solution": "CANE"
+   "solution": "CANE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "CANE",
+    "definitions": [
+     {
+      "text": "staff",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entertaining",
+      "for": "hidden_word",
+      "note": "to entertain guests is to have them inside your home, so the letters are held within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American Express",
+      "gives": "CANE",
+      "note": "the end of the first word runs into the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A credit card company takes its employees out for corporate hospitality.",
+     "walkthrough": "'staff' reads as employees, but here it is a walking stick.",
+     "definitionFit": "A staff is a long stick carried for support, and a cane is a walking stick."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "staff"
+    }
+   }
   },
   {
    "number": 20,
@@ -347,7 +1392,59 @@
     "text": "United’s front two don’t move or warm up",
     "enumeration": "8"
    },
-   "solution": "UNFREEZE"
+   "solution": "UNFREEZE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "UNFREEZE",
+    "definitions": [
+     {
+      "text": "warm up",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "front two",
+      "for": "letter_selection",
+      "note": "the front of a word is its beginning, so its opening pair of letters is kept"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "United’s",
+      "gives": "UN",
+      "select": "first",
+      "note": "the first two letters of the word, taken from its front"
+     },
+     {
+      "clueFragment": "don’t move",
+      "gives": "FREEZE",
+      "note": "to freeze is to stop still"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "FREEZE"
+     ]
+    },
+    "explanation": {
+     "surface": "The football team Manchester United's two strikers either stand still or do their warm-up exercises.",
+     "walkthrough": "'front two' sounds like strikers in a football team, but it takes the first two letters of 'United'.",
+     "definitionFit": "To unfreeze something is to thaw it, raising its temperature so that it is no longer frozen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "front"
+    }
+   }
   },
   {
    "number": 21,
@@ -361,7 +1458,55 @@
     "text": "Once more check out donkeys in reserve",
     "enumeration": "8"
    },
-   "solution": "REASSESS"
+   "solution": "REASSESS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REASSESS",
+    "definitions": [
+     {
+      "text": "Once more check out",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing placed in another sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "reserve",
+      "gives": "RES",
+      "note": "RES is the abbreviation for reserve"
+     },
+     {
+      "clueFragment": "donkeys",
+      "gives": "ASSES",
+      "note": "asses are donkeys"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "ASSES",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A vet looks again at the donkeys kept in a nature reserve.",
+     "walkthrough": "The definition is the three-word phrase at the front; 'reserve' is shortened to its standard abbreviation before the animals go inside it.",
+     "definitionFit": "To reassess is to evaluate or examine again, repeating an assessment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reserve"
+    }
+   }
   },
   {
    "number": 22,
@@ -375,7 +1520,60 @@
     "text": "English show contempt for returning team",
     "enumeration": "4"
    },
-   "solution": "SIDE"
+   "solution": "SIDE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "SIDE",
+    "definitions": [
+     {
+      "text": "team",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means going back the way you came, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "show contempt for",
+      "gives": "DIS",
+      "note": "to dis someone is slang for disrespecting them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SIDE"
+     ],
+     "reversals": [
+      {
+       "from": "EDIS",
+       "to": "SIDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "English fans jeer at a team coming back onto the pitch.",
+     "walkthrough": "E plus DIS gives EDIS, which runs backwards.",
+     "definitionFit": "In sport a side is one of the two teams in a match, as in the home side."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "returning"
+    }
+   }
   }
  ]
 }
