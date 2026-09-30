@@ -23,6 +23,9 @@
   "date": "2017-12-26",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,42 @@
     "text": "Patient / investigation",
     "enumeration": "4"
    },
-   "solution": "CASE"
+   "solution": "CASE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CASE",
+    "definitions": [
+     {
+      "text": "Patient",
+      "at": 0
+     },
+     {
+      "text": "investigation",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Patient",
+      "note": "first meaning: a person under a doctor's care"
+     },
+     {
+      "clueFragment": "investigation",
+      "note": "second meaning: a matter the police look into"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Patient' looks like an adjective meaning calm, but it is the noun: someone a doctor treats.",
+     "definitionFit": "Doctors speak of a patient as a case, and detectives call an inquiry they are working on a case."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Patient"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +88,59 @@
     "text": "Hard to invest in bank for legislative assembly",
     "enumeration": "7"
    },
-   "solution": "CHAMBER"
+   "solution": "CHAMBER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CHAMBER",
+    "definitions": [
+     {
+      "text": "legislative assembly",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to invest in",
+      "for": "container",
+      "note": "to invest someone with a thing is to clothe or place it upon them, so one piece is set inside another"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hard",
+      "gives": "H",
+      "note": "H is the pencil-grade abbreviation for hard"
+     },
+     {
+      "clueFragment": "bank",
+      "gives": "CAMBER",
+      "note": "a camber is the banked slope across a road"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "H",
+      "AMBER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone urges putting hard cash into a bank on behalf of a parliament.",
+     "walkthrough": "'Invest' reads as putting money in a bank, but here it means to place one thing inside another.",
+     "definitionFit": "A lawmaking body such as the upper or lower house of a parliament is called a chamber."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "invest"
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +154,67 @@
     "text": "Bag gripping role on American movie",
     "enumeration": "9"
    },
-   "solution": "SPARTACUS"
+   "solution": "SPARTACUS",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SPARTACUS",
+    "definitions": [
+     {
+      "text": "movie",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gripping",
+      "for": "container",
+      "note": "to grip is to hold tight, so one piece clasps the other within it"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down entry, lying on something means sitting above it, so the order is top then bottom"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bag",
+      "gives": "SAC",
+      "note": "a sac is a bag-like pouch"
+     },
+     {
+      "clueFragment": "role",
+      "gives": "PART",
+      "note": "an actor's role is a part"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US for American"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PART",
+      "AC",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "A bag holding a script for a part in a Hollywood film.",
+     "walkthrough": "In a down clue 'on' puts the first piece above the next, so the bag-and-role unit sits on top of the American.",
+     "definitionFit": "Spartacus is the 1960 Kubrick film starring Kirk Douglas as the rebel gladiator."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "role"
+    }
+   }
   },
   {
    "number": 3,
@@ -78,7 +228,42 @@
     "text": "Dejected, post-exorcism?",
     "enumeration": "10"
    },
-   "solution": "SPIRITLESS"
+   "solution": "SPIRITLESS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SPIRITLESS",
+    "definitions": [
+     {
+      "text": "Dejected",
+      "at": 0
+     },
+     {
+      "text": "post-exorcism",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dejected",
+      "note": "first meaning: lacking energy or cheer"
+     },
+     {
+      "clueFragment": "post-exorcism",
+      "note": "second meaning, whimsical: after an exorcism a possessed person no longer has the demon inside"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second half is playful: read the word as 'spirit' plus '-less', what a person is once a spirit is cast out; the question mark flags the joke.",
+     "definitionFit": "Someone downcast and listless has lost their vigour, the everyday sense of having no spirit left."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 4,
@@ -92,7 +277,59 @@
     "text": "Quality arousing sorrow has power over Dumas character",
     "enumeration": "6"
    },
-   "solution": "PATHOS"
+   "solution": "PATHOS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PATHOS",
+    "definitions": [
+     {
+      "text": "Quality arousing sorrow",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has",
+      "for": "charade",
+      "note": "one thing having another is taken as the two simply going together side by side"
+     },
+     {
+      "text": "over",
+      "for": "charade",
+      "note": "in a down entry, over means placed higher up, so this piece comes first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "power",
+      "gives": "P",
+      "note": "P is the physics symbol for power"
+     },
+     {
+      "clueFragment": "Dumas character",
+      "gives": "ATHOS",
+      "note": "Athos is one of the Three Musketeers in the Alexandre Dumas novel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ATHOS"
+     ]
+    },
+    "explanation": {
+     "surface": "A literary critic notes that a sad quality dominates a character from Dumas.",
+     "walkthrough": "In a down clue 'over' means the first piece sits on top of the second.",
+     "definitionFit": "Pathos is the element in art or speech that moves an audience to pity or sadness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "power"
+    }
+   }
   },
   {
    "number": 5,
@@ -106,7 +343,58 @@
     "text": "Trace accommodating auberge in France, perhaps?",
     "enumeration": "8"
    },
-   "solution": "REPUBLIC"
+   "solution": "REPUBLIC",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REPUBLIC",
+    "definitions": [
+     {
+      "text": "France, perhaps",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accommodating",
+      "for": "container",
+      "note": "to accommodate is to give lodging to, so one piece houses the other inside"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trace",
+      "gives": "RELIC",
+      "note": "a relic is a remaining trace of something past"
+     },
+     {
+      "clueFragment": "auberge",
+      "gives": "PUB",
+      "note": "an auberge is a French inn, so a pub"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "PUB",
+      "LIC"
+     ]
+    },
+    "explanation": {
+     "surface": "Tracking down a country inn somewhere in France.",
+     "walkthrough": "'In France' looks like it belongs with auberge; in fact 'France, perhaps' is the definition by example.",
+     "definitionFit": "France is one example of a state governed without a monarch, with an elected head."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Trace"
+    }
+   }
   },
   {
    "number": 6,
@@ -130,7 +418,71 @@
      }
     ]
    },
-   "solution": "THEMINDBOGGLES"
+   "solution": "THEMINDBOGGLES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "THE MIND BOGGLES",
+    "definitions": [
+     {
+      "text": "that’s bizarre!",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the opening letter of each word is kept"
+     },
+     {
+      "text": "astray",
+      "for": "anagram",
+      "note": "to go astray is to wander off the proper course, so the letters leave their order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Great Britain",
+      "gives": "GB",
+      "select": "first",
+      "note": "the first letters of the two words"
+     },
+     {
+      "clueFragment": "led",
+      "gives": "LED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "something",
+      "gives": "SOMETHING",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GBLEDSOMETHING",
+       "gives": "THEMINDBOGGLES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Britain has been led down the wrong path by something truly weird.",
+     "walkthrough": "'Astray' sits between the pieces, so the whole string of fodder, including 'something', is scrambled together.",
+     "definitionFit": "The exclamation expresses disbelief at something incredible, exactly as one would say 'that's bizarre!' in speech."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "something"
+    }
+   }
   },
   {
    "number": 7,
@@ -144,7 +496,67 @@
     "text": "Plant, one breaking some land up",
     "enumeration": "5"
    },
-   "solution": "ERICA"
+   "solution": "ERICA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "ERICA",
+    "definitions": [
+     {
+      "text": "Plant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "breaking",
+      "for": "container",
+      "note": "breaking into something means entering it, so one piece bursts into the middle of another"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, up means reading from the bottom to the top, the opposite way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "some land",
+      "gives": "ACRE",
+      "note": "an acre is a measured piece of land"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ER",
+      "I",
+      "CA"
+     ],
+     "reversals": [
+      {
+       "from": "ACRE",
+       "to": "ERCA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A plant, or a single root, breaking through the soil.",
+     "walkthrough": "In a down clue 'up' means read from bottom to top.",
+     "definitionFit": "Erica is the botanical genus name of heather, a flowering shrub."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "breaking"
+    }
+   }
   },
   {
    "number": 8,
@@ -158,7 +570,56 @@
     "text": "Bone problem besetting winger",
     "enumeration": "7"
    },
-   "solution": "STERNUM"
+   "solution": "STERNUM",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STERNUM",
+    "definitions": [
+     {
+      "text": "Bone",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "besetting",
+      "for": "container",
+      "note": "to beset is to surround on all sides, so one piece encloses the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "problem",
+      "gives": "SUM",
+      "note": "a sum is an arithmetic problem"
+     },
+     {
+      "clueFragment": "winger",
+      "gives": "TERN",
+      "note": "a tern is a seabird, a creature with wings"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TERN",
+      "UM"
+     ]
+    },
+    "explanation": {
+     "surface": "A football winger is plagued by a bone injury.",
+     "walkthrough": "'Winger' suggests a footballer, but it is a bird; 'problem' is a maths sum.",
+     "definitionFit": "The sternum is the flat breastbone in the middle of the chest, where the ribs join."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "winger"
+    }
+   }
   },
   {
    "number": 9,
@@ -172,7 +633,46 @@
     "text": "Composure needed — lack of power in broken wings?",
     "enumeration": "14"
    },
-   "solution": "UNFLAPPABILITY"
+   "solution": "UNFLAPPABILITY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "UNFLAPPABILITY",
+    "definitions": [
+     {
+      "text": "Composure",
+      "at": 0
+     },
+     {
+      "text": "lack of power in broken wings",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "needed"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Composure",
+      "note": "first meaning: calmness under pressure"
+     },
+     {
+      "clueFragment": "lack of power in broken wings",
+      "note": "second meaning, whimsical: wings that are broken cannot beat, so they are unable to flap"
+     }
+    ],
+    "explanation": {
+     "surface": "Stay calm even when injured and grounded.",
+     "walkthrough": "Split the word as un-flap-ability, no ability to flap, which is the plight of a bird with broken wings; the question mark signals the pun.",
+     "definitionFit": "Someone who never gets flustered or panics shows calm self-control under stress."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 10,
@@ -186,7 +686,78 @@
     "text": "V — a sign that’s rude in vacuous affront",
     "enumeration": "7"
    },
-   "solution": "AGAINST"
+   "solution": "AGAINST",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "AGAINST",
+    "definitions": [
+     {
+      "text": "V",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rude",
+      "for": "anagram",
+      "note": "rude in its sense of rough or crudely made implies unformed letters to be reworked"
+     },
+     {
+      "text": "vacuous",
+      "for": "letter_selection",
+      "note": "vacuous means empty, so the word loses its inside and keeps only its outer letters"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed inside, so one piece goes within the other"
+     }
+    ],
+    "linkWords": [
+     "that’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a sign",
+      "gives": "ASIGN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "affront",
+      "gives": "AT",
+      "select": "outer",
+      "note": "the word emptied of its middle leaves its first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "GAINS",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ASIGN",
+       "gives": "GAINS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The V-sign is a rude gesture, an empty-headed insult.",
+     "walkthrough": "The surface points at the rude two-fingered V-sign, but V here is short for versus, as in a fixture list.",
+     "definitionFit": "V stands for versus, Latin for opposed to, used in sports fixtures and legal case names."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sign"
+    }
+   }
   },
   {
    "number": 11,
@@ -200,7 +771,56 @@
     "text": "Progressive at first, stay moderate",
     "enumeration": "7"
    },
-   "solution": "PRESIDE"
+   "solution": "PRESIDE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PRESIDE",
+    "definitions": [
+     {
+      "text": "moderate",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first means at the very start, so only the opening letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Progressive",
+      "gives": "P",
+      "select": "first",
+      "note": "the opening letter of the word"
+     },
+     {
+      "clueFragment": "stay",
+      "gives": "RESIDE",
+      "note": "to reside is to stay or live somewhere"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "RESIDE"
+     ]
+    },
+    "explanation": {
+     "surface": "Political advice: be radical at the start, then settle into the centre ground.",
+     "walkthrough": "'Moderate' looks like a political adjective; it is the verb, to chair a debate.",
+     "definitionFit": "To moderate a meeting or debate is to chair it, which means being in charge of proceedings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "moderate"
+    }
+   }
   },
   {
    "number": 12,
@@ -224,7 +844,67 @@
      }
     ]
    },
-   "solution": "BATTLEOFBRITAIN"
+   "solution": "BATTLEOFBRITAIN",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "BATTLE OF BRITAIN",
+    "definitions": [
+     {
+      "text": "action",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out in the sense of wrong or disordered means the letters are thrown into a new order"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after means following behind, so this piece comes second in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "strike",
+      "gives": "BAT",
+      "note": "to bat is to strike, as with a bat"
+     },
+     {
+      "clueFragment": "In brief, total",
+      "gives": "INBRIEFTOTAL",
+      "note": "taken as written, ignoring the comma"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAT",
+      "TLEOFBRITAIN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INBRIEFTOTAL",
+       "gives": "TLEOFBRITAIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A news summary: the total number of workers walked out after the strike.",
+     "walkthrough": "'Strike action' reads as industrial action, and 'In brief' as a summary; the first three words are the letters to scramble.",
+     "definitionFit": "In military language an action is a battle or engagement, and this was the 1940 air campaign over southern England."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "strike"
+    }
+   }
   },
   {
    "number": 13,
@@ -238,7 +918,61 @@
     "text": "Great queen backing formula",
     "enumeration": "6"
    },
-   "solution": "RECIPE"
+   "solution": "RECIPE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "RECIPE",
+    "definitions": [
+     {
+      "text": "formula",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backing",
+      "for": "reversal",
+      "note": "going backwards means moving in the opposite direction, so the letters run right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Great",
+      "gives": "EPIC",
+      "note": "epic means great in scale"
+     },
+     {
+      "clueFragment": "queen",
+      "gives": "ER",
+      "note": "ER, Elizabeth Regina, is the crossword queen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "CIPE"
+     ],
+     "reversals": [
+      {
+       "from": "EPICER",
+       "to": "RECIPE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A formula endorsed by a great queen, like a royal warrant.",
+     "walkthrough": "'Backing' looks like support for the formula, but it tells you to read the whole string in reverse.",
+     "definitionFit": "A recipe is a set of instructions for making something, a prescribed method much like a formula."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "backing"
+    }
+   }
   },
   {
    "number": 14,
@@ -258,7 +992,53 @@
      }
     ]
    },
-   "solution": "WINDFARM"
+   "solution": "WINDFARM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WIND FARM",
+    "definitions": [
+     {
+      "text": "Concentration of turbines",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "turn",
+      "gives": "WIND",
+      "note": "to wind is to turn, as a handle"
+     },
+     {
+      "clueFragment": "a long way",
+      "gives": "FAR",
+      "note": "far means a long way off"
+     },
+     {
+      "clueFragment": "miles",
+      "gives": "M",
+      "note": "M is the abbreviation for miles"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WIND",
+      "FAR",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "Travelling miles past a cluster of spinning turbines.",
+     "walkthrough": "'Wind' is the verb that rhymes with 'find', not the breeze, though the breeze is what the answer needs.",
+     "definitionFit": "A wind farm is a site where many wind turbines are grouped together to generate electricity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turn"
+    }
+   }
   },
   {
    "number": 15,
@@ -272,7 +1052,73 @@
     "text": "Reason ecclesiastical leader in primate is the chosen one",
     "enumeration": "9"
    },
-   "solution": "APPOINTEE"
+   "solution": "APPOINTEE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "APPOINTEE",
+    "definitions": [
+     {
+      "text": "the chosen one",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "a leader goes in front, so only the opening letter of the word is taken"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed inside, so the combined pieces go within the other"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "primate",
+      "gives": "APE",
+      "note": "an ape is a primate"
+     },
+     {
+      "clueFragment": "Reason",
+      "gives": "POINT",
+      "note": "the point of something is its reason or purpose"
+     },
+     {
+      "clueFragment": "ecclesiastical",
+      "gives": "E",
+      "select": "first",
+      "note": "the opening letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AP",
+      "POINT",
+      "E",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "The reasoning of a church leader inside a primate's office decides the chosen one.",
+     "walkthrough": "'Primate' looks like an archbishop, which suits the church words, but here it is the animal.",
+     "definitionFit": "Someone selected for a post or office has been appointed, so is the person chosen for it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "primate"
+    }
+   }
   },
   {
    "number": 16,
@@ -286,7 +1132,49 @@
     "text": "Column I bandaged?",
     "enumeration": "8"
    },
-   "solution": "PILASTER"
+   "solution": "PILASTER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PILASTER",
+    "definitions": [
+     {
+      "text": "Column",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bandaged",
+      "gives": "PLASTER",
+      "note": "a sticking plaster is a small bandage, wrapped around the I"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "I",
+      "LASTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper column in which the writer confesses to being bandaged up.",
+     "walkthrough": "'Bandaged' does double duty: it supplies the plaster and says that the plaster goes round the I. A plaster is a British word for an adhesive bandage.",
+     "definitionFit": "A pilaster is a flat rectangular column projecting slightly from a wall, a decorative architectural pier."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Column"
+    }
+   }
   },
   {
    "number": 17,
@@ -300,7 +1188,65 @@
     "text": "Island placed to the west has overly excited state",
     "enumeration": "8"
    },
-   "solution": "TASMANIA"
+   "solution": "TASMANIA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "TASMANIA",
+    "definitions": [
+     {
+      "text": "Island",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to the west",
+      "for": "reversal",
+      "note": "in an across entry west is leftward, so the letters run backwards from right to left"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "placed",
+      "gives": "SAT",
+      "note": "sat, as in set down, means placed"
+     },
+     {
+      "clueFragment": "overly excited state",
+      "gives": "MANIA",
+      "note": "mania is a state of extreme excitement"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAS",
+      "MANIA"
+     ],
+     "reversals": [
+      {
+       "from": "SAT",
+       "to": "TAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An island off to the west is in a frenzy.",
+     "walkthrough": "'State' belongs to the wordplay, but the answer is also an Australian state, a nice touch.",
+     "definitionFit": "Tasmania is the large island lying south of mainland Australia and forming one of its states."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "state"
+    }
+   }
   },
   {
    "number": 17,
@@ -314,7 +1260,56 @@
     "text": "Bottom edge of bat hit, caught",
     "enumeration": "7"
    },
-   "solution": "TRAPPED"
+   "solution": "TRAPPED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TRAPPED",
+    "definitions": [
+     {
+      "text": "caught",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Bottom edge of",
+      "for": "letter_selection",
+      "note": "in a down entry the bottom edge of a word is its final letter, the one lowest down"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bat",
+      "gives": "T",
+      "select": "last",
+      "note": "in a down clue the bottom letter is the final one"
+     },
+     {
+      "clueFragment": "hit",
+      "gives": "RAPPED",
+      "note": "rapped means struck or hit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RAPPED"
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket dismissal: the ball hits the bottom edge of the bat and is caught.",
+     "walkthrough": "The surface is pure cricket, where an edge off the bat can be caught, but 'bottom edge' simply selects a letter.",
+     "definitionFit": "To be caught in a snare or unable to escape is to be trapped, a close synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "edge"
+    }
+   }
   },
   {
    "number": 18,
@@ -334,7 +1329,58 @@
      }
     ]
    },
-   "solution": "POMPOM"
+   "solution": "POMPOM",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "POM-POM",
+    "definitions": [
+     {
+      "text": "gun",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the wrong way round",
+      "for": "reversal",
+      "note": "facing the wrong way round means pointing in the opposite direction, so the letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Washers",
+      "gives": "MOPMOP",
+      "note": "a mop is something that washes floors; the plural means two of them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POMPOM"
+     ],
+     "reversals": [
+      {
+       "from": "MOPMOP",
+       "to": "POMPOM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Washers fitted back to front inside a gun.",
+     "walkthrough": "'Washers' suggests the flat rings used in plumbing; here it is two floor mops.",
+     "definitionFit": "A pom-pom is a rapid-firing automatic anti-aircraft cannon, named for the sound it makes when firing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Washers"
+    }
+   }
   },
   {
    "number": 19,
@@ -348,7 +1394,55 @@
     "text": "Murmur about this Latin style of punk",
     "enumeration": "7"
    },
-   "solution": "MOHICAN"
+   "solution": "MOHICAN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MOHICAN",
+    "definitions": [
+     {
+      "text": "style of punk",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about in the sense of around means one piece wraps round the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Murmur",
+      "gives": "MOAN",
+      "note": "a moan is a low murmur of complaint"
+     },
+     {
+      "clueFragment": "this Latin",
+      "gives": "HIC",
+      "note": "hic is the Latin word for this"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "HIC",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "Grumbling about a Latin-derived punk look.",
+     "walkthrough": "'Style' here means hairstyle, not a musical genre.",
+     "definitionFit": "A mohican is the haircut with a central strip standing upright and the sides shaved, a classic punk look."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Murmur"
+    }
+   }
   },
   {
    "number": 20,
@@ -362,7 +1456,43 @@
     "text": "Japanese entertainer in bondage is handmaiden",
     "enumeration": "6"
    },
-   "solution": "GEISHA"
+   "solution": "GEISHA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "GEISHA",
+    "definitions": [
+     {
+      "text": "Japanese entertainer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in means contained within, so the answer lies inside the run of words that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bondage is handmaiden",
+      "gives": "GEISHA",
+      "note": "the letters run across the end of the first word, all of the second and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "A Japanese performer in servitude is a mere handmaid.",
+     "walkthrough": "The surface pictures servitude, but 'in' simply marks the answer as sitting inside the following words.",
+     "definitionFit": "A geisha is a Japanese woman trained to entertain guests with music, dance and conversation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bondage"
+    }
+   }
   },
   {
    "number": 21,
@@ -382,7 +1512,54 @@
      }
     ]
    },
-   "solution": "AMERICANENGLISH"
+   "solution": "AMERICANENGLISH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AMERICAN ENGLISH",
+    "definitions": [
+     {
+      "text": "the words of Martin Luther King, say",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reinterpretation of",
+      "for": "anagram",
+      "note": "a reinterpretation gives a new version of something, so the letters are rearranged afresh"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Anglicanism here",
+      "gives": "ANGLICANISMHERE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ANGLICANISMHERE",
+       "gives": "AMERICANENGLISH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A new take on Anglican faith, heard in the sermons of Martin Luther King.",
+     "walkthrough": "King was a Baptist preacher, so the church words suggest theology; the definition is about his language.",
+     "definitionFit": "King was an American speaker, so the language of his speeches is an example of the US variety of the tongue."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Anglicanism"
+    }
+   }
   },
   {
    "number": 22,
@@ -396,7 +1573,56 @@
     "text": "Mushroom fine in the midst of evening",
     "enumeration": "5"
    },
-   "solution": "ENOKI"
+   "solution": "ENOKI",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ENOKI",
+    "definitions": [
+     {
+      "text": "Mushroom",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in the midst of",
+      "for": "container",
+      "note": "in the midst of means surrounded by, so one piece sits inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "evening",
+      "gives": "ENI",
+      "select": "middle",
+      "note": "the middle three of the seven letters"
+     },
+     {
+      "clueFragment": "fine",
+      "gives": "OK",
+      "note": "OK means fine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "OK",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A mushroom that is fine to eat in the evening.",
+     "walkthrough": "'In the midst of' does two jobs: it takes the middle letters of the last word and puts the second piece inside them.",
+     "definitionFit": "Enoki is a Japanese variety of fungus with long thin white stems, eaten in soups and salads."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -410,7 +1636,69 @@
     "text": "Very simple thing for bird to catch worms, ultimately",
     "enumeration": "7"
    },
-   "solution": "PROTIST"
+   "solution": "PROTIST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "PROTIST",
+    "definitions": [
+     {
+      "text": "Very simple thing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to catch",
+      "for": "container",
+      "note": "to catch is to seize and hold, so one piece closes round the other"
+     },
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so only the final letter of the word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for",
+      "gives": "PRO",
+      "note": "pro means for, in favour of"
+     },
+     {
+      "clueFragment": "bird",
+      "gives": "TIT",
+      "note": "a tit is a small songbird"
+     },
+     {
+      "clueFragment": "worms",
+      "gives": "S",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRO",
+      "TI",
+      "S",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "It is a very simple matter for a bird to catch worms.",
+     "walkthrough": "'For' is not a link here; it supplies the first piece.",
+     "definitionFit": "A protist is a single-celled organism such as an amoeba, one of the most basic forms of life."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "for"
+    }
+   }
   },
   {
    "number": 24,
@@ -424,7 +1712,62 @@
     "text": "I doubt decaying houses beginning to crumble",
     "enumeration": "7"
    },
-   "solution": "SCEPTIC"
+   "solution": "SCEPTIC",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SCEPTIC",
+    "definitions": [
+     {
+      "text": "I doubt",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "houses",
+      "for": "container",
+      "note": "to house something is to shelter it inside, so one piece holds the other"
+     },
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its opening letter, so only that is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "decaying",
+      "gives": "SEPTIC",
+      "note": "septic means putrefying or decaying"
+     },
+     {
+      "clueFragment": "crumble",
+      "gives": "C",
+      "select": "first",
+      "note": "the opening letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "C",
+      "EPTIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A doubter looks at rotting houses beginning to crumble.",
+     "walkthrough": "'I doubt' is a cryptic definition by statement: it is what the answer would say.",
+     "definitionFit": "A doubter who questions accepted claims would sum up their attitude in the words 'I doubt'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "houses"
+    }
+   }
   },
   {
    "number": 25,
@@ -444,7 +1787,54 @@
      }
     ]
    },
-   "solution": "DAILYBREAD"
+   "solution": "DAILYBREAD",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DAILY BREAD",
+    "definitions": [
+     {
+      "text": "a living",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "made",
+      "for": "anagram",
+      "note": "made means fashioned or constructed, so the letters are built into a new shape"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bid already",
+      "gives": "BIDALREADY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BIDALREADY",
+       "gives": "DAILYBREAD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An offer has already been made to earn a livelihood.",
+     "walkthrough": "'Made' looks like part of the phrase 'already made' but it signals the letters are fashioned into something new.",
+     "definitionFit": "From the Lord's Prayer, the phrase means the basic food and income one needs to survive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "made"
+    }
+   }
   },
   {
    "number": 26,
@@ -458,7 +1848,41 @@
     "text": "Thin / British film director",
     "enumeration": "4"
    },
-   "solution": "LEAN"
+   "solution": "LEAN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LEAN",
+    "definitions": [
+     {
+      "text": "Thin",
+      "at": 0
+     },
+     {
+      "text": "British film director",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Thin",
+      "note": "first meaning: slim, without fat"
+     },
+     {
+      "clueFragment": "British film director",
+      "note": "second meaning: the surname of the director of Lawrence of Arabia"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The two parts simply sit side by side with no link word.",
+     "definitionFit": "Lean describes meat or a person with little fat, and Sir David Lean made Brief Encounter and Doctor Zhivago."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
