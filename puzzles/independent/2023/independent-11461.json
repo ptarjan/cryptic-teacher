@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -39,7 +42,40 @@
      }
     ]
    },
-   "solution": "HIPREPLACEMENT"
+   "solution": "HIPREPLACEMENT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "HIP REPLACEMENT",
+    "definitions": [
+     {
+      "text": "Operation",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Operation Phi",
+      "note": "surface reading: a military mission code-named after a Greek letter"
+     },
+     {
+      "clueFragment": "Phi",
+      "note": "setter's reading: this Greek letter's name is a rearrangement of a joint's name, so it describes a surgery for that joint"
+     }
+    ],
+    "explanation": {
+     "surface": "A military mission with a Greek-letter codename.",
+     "walkthrough": "Read the answer as an instruction: PHI is what you get when the letters of HIP are put in a different order, a replacement of HIP.",
+     "definitionFit": "Surgeons commonly fit an artificial joint at the pelvis, and that surgery is called this."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Operation"
+    }
+   }
   },
   {
    "number": 1,
@@ -53,7 +89,55 @@
     "text": "One spotted laughing, laughing about desire",
     "enumeration": "5"
    },
-   "solution": "HYENA"
+   "solution": "HYENA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HYENA",
+    "definitions": [
+     {
+      "text": "One spotted laughing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "'about' means around, so one piece goes round the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "laughing",
+      "gives": "HA",
+      "note": "HA is the sound of laughing"
+     },
+     {
+      "clueFragment": "desire",
+      "gives": "YEN",
+      "note": "a yen is a longing or desire"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "YEN",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone seen giggling, giggling over what they want.",
+     "walkthrough": "The repeated 'laughing' makes it look like one phrase; the first belongs to the definition, the second is the wordplay.",
+     "definitionFit": "The spotted hyena is the African animal famous for its cackling call, often described as laughter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "spotted"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +151,44 @@
     "text": "Sound pick-up line",
     "enumeration": "7"
    },
-   "solution": "PHONEME"
+   "solution": "PHONEME",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PHONEME",
+    "definitions": [
+     {
+      "text": "Sound",
+      "at": 0
+     },
+     {
+      "text": "pick-up line",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sound",
+      "note": "first meaning: a basic unit of speech sound in linguistics"
+     },
+     {
+      "clueFragment": "pick-up line",
+      "note": "second meaning, split 5,2: what someone says when chatting you up and asking you to call"
+     }
+    ],
+    "explanation": {
+     "surface": "A sound system that picks up a line, as a microphone might.",
+     "walkthrough": "Split the answer as PHONE ME and it becomes a line used to pick someone up; 'pick-up' pretends to be audio equipment.",
+     "definitionFit": "Linguists call the smallest distinct unit of speech sound in a language by this technical term."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pick-up"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +202,72 @@
     "text": "Priest that is ringing bells heartily from below",
     "enumeration": "3"
    },
-   "solution": "ELI"
+   "solution": "ELI",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "reversal"
+    ],
+    "answer": "ELI",
+    "definitions": [
+     {
+      "text": "Priest",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heartily",
+      "for": "letter_selection",
+      "note": "'heartily' points to the heart of a word, its central letter"
+     },
+     {
+      "text": "ringing",
+      "for": "container",
+      "note": "to ring something is to encircle it, so one piece goes around another"
+     },
+     {
+      "text": "from below",
+      "for": "reversal",
+      "note": "in a down answer, reading from below means reading upwards, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is the abbreviation for 'that is' (id est)"
+     },
+     {
+      "clueFragment": "bells",
+      "gives": "L",
+      "select": "middle",
+      "note": "the middle letter of a five-letter word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELI"
+     ],
+     "reversals": [
+      {
+       "from": "ILE",
+       "to": "ELI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cleric who enthusiastically rings church bells from beneath the tower.",
+     "walkthrough": "IE wraps around L to make ILE, which read upwards gives the answer. Eli is the priest of Shiloh who raised Samuel in the Bible.",
+     "definitionFit": "Eli is the biblical priest at Shiloh, a stock crossword example of a holy man."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ringing"
+    }
+   }
   },
   {
    "number": 4,
@@ -105,7 +291,72 @@
      }
     ]
    },
-   "solution": "LENDANEAR"
+   "solution": "LENDANEAR",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "LEND AN EAR",
+    "definitions": [
+     {
+      "text": "Listen",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "'about' can mean turned around or knocked about, so the letters are moved into a new order"
+     },
+     {
+      "text": "harnessing",
+      "for": "container",
+      "note": "to harness something is to hold it in, so one piece sits inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "and",
+      "gives": "AND",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "learn",
+      "gives": "LEARN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the symbol for energy in physics"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "E",
+      "NDANEAR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ANDLEARN",
+       "gives": "LNDANEAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to pay attention and study how power can be captured.",
+     "walkthrough": "'Listen and learn' reads as a set phrase, but 'Listen' alone is the definition and 'and learn' is the letter supply, with E slotted in after the first letter.",
+     "definitionFit": "To pay attention to what someone says is an idiom for listening, from Mark Antony's 'Friends, Romans, countrymen'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "and"
+    }
+   }
   },
   {
    "number": 5,
@@ -119,7 +370,44 @@
     "text": "Sound of a mouse — hit it off!",
     "enumeration": "5"
    },
-   "solution": "CLICK"
+   "solution": "CLICK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CLICK",
+    "definitions": [
+     {
+      "text": "Sound of a mouse",
+      "at": 0
+     },
+     {
+      "text": "hit it off",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sound of a mouse",
+      "note": "first meaning: the noise a computer mouse button makes"
+     },
+     {
+      "clueFragment": "hit it off",
+      "note": "second meaning: to get on well immediately with someone"
+     }
+    ],
+    "explanation": {
+     "surface": "A squeak from a rodent, followed by a cry to swat it.",
+     "walkthrough": "The mouse is a computer mouse, not the rodent, and 'hit it off' is not a call to strike but the idiom for getting on well.",
+     "definitionFit": "The word names the short sharp noise of a pressed button and also a sudden rapport between two people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "mouse"
+    }
+   }
   },
   {
    "number": 6,
@@ -143,7 +431,51 @@
      }
     ]
    },
-   "solution": "MUMSTHEWORD"
+   "solution": "MUMSTHEWORD",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MUMS THE WORD",
+    "definitions": [
+     {
+      "text": "Shh!",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrong",
+      "for": "anagram",
+      "note": "something wrong is not in its proper order, so the letters get rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Who strummed",
+      "gives": "WHOSTRUMMED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WHOSTRUMMED",
+       "gives": "MUMSTHEWORD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks which guitarist played a bum note, then tells everyone to hush.",
+     "walkthrough": "The question mark and 'Shh!' make it read as an irritated remark at a gig; the eleven letters of the first two words rearrange into the phrase.",
+     "definitionFit": "The idiom is a request to keep quiet about something, just as a hushing noise asks for silence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wrong"
+    }
+   }
   },
   {
    "number": 7,
@@ -157,7 +489,68 @@
     "text": "Northern Ireland Republican opposing an answer to ultimate free state",
     "enumeration": "7"
    },
-   "solution": "NIRVANA"
+   "solution": "NIRVANA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NIRVANA",
+    "definitions": [
+     {
+      "text": "ultimate free state",
+      "at": 50
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Northern Ireland",
+      "gives": "NI",
+      "note": "NI is the abbreviation for Northern Ireland"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R abbreviates Republican"
+     },
+     {
+      "clueFragment": "opposing",
+      "gives": "V",
+      "note": "v. for versus, meaning against"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "answer",
+      "gives": "A",
+      "note": "A is the standard abbreviation for answer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NI",
+      "R",
+      "V",
+      "AN",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "An Irish nationalist objecting to a solution for the Irish Free State.",
+     "walkthrough": "The political surface points at Irish history, but 'free state' belongs to the definition, the Buddhist sense of release.",
+     "definitionFit": "In Buddhism this is the final goal, a condition of release from suffering and the cycle of rebirth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "free"
+    }
+   }
   },
   {
    "number": 8,
@@ -171,7 +564,58 @@
     "text": "By restraining someone horny, that gets you wild",
     "enumeration": "8"
    },
-   "solution": "BLUSTERY"
+   "solution": "BLUSTERY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BLUSTERY",
+    "definitions": [
+     {
+      "text": "wild",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "restraining",
+      "for": "container",
+      "note": "to restrain is to hold in, so one piece is held inside another"
+     }
+    ],
+    "linkWords": [
+     "that gets you"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "By",
+      "gives": "BY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "someone horny",
+      "gives": "LUSTER",
+      "note": "a horny person is one who lusts"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "LUSTER",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Holding back an aroused person only makes them more unruly.",
+     "walkthrough": "'Someone horny' is not a creature with horns but a person full of desire. Wild here describes the weather, as in gusty and stormy.",
+     "definitionFit": "Stormy weather with strong gusts is described as rough or wild, and this adjective means exactly that."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wild"
+    }
+   }
   },
   {
    "number": 9,
@@ -185,7 +629,44 @@
     "text": "Cut from expensive Toni and Guy with roots like Boris Johnson",
     "enumeration": "7"
    },
-   "solution": "ETONIAN"
+   "solution": "ETONIAN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ETONIAN",
+    "definitions": [
+     {
+      "text": "Guy with roots like Boris Johnson",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Cut from",
+      "for": "hidden_word",
+      "note": "something cut from a larger piece is a section of it, so the letters sit inside a run of words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "expensive Toni and",
+      "gives": "ETONIAN",
+      "note": "the letters run across the word boundaries"
+     }
+    ],
+    "explanation": {
+     "surface": "A haircut at the pricey salon chain Toni and Guy, leaving roots like Boris Johnson's.",
+     "walkthrough": "Toni and Guy is a British chain of hairdressers, so 'Cut' and 'roots' look like hair talk; 'Guy' actually begins the definition. Eton is the elite school Johnson attended.",
+     "definitionFit": "Boris Johnson was educated at Eton College, so a man who shares that background is an old boy of the school."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Guy"
+    }
+   }
   },
   {
    "number": 10,
@@ -199,7 +680,57 @@
     "text": "Quince's married, and said to be cheating",
     "enumeration": "7"
    },
-   "solution": "IMMORAL"
+   "solution": "IMMORAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IMMORAL",
+    "definitions": [
+     {
+      "text": "cheating",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "and",
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quince's",
+      "gives": "IM",
+      "note": "Quince is the setter, so 'Quince is' becomes 'I am', contracted"
+     },
+     {
+      "clueFragment": "married",
+      "gives": "M",
+      "note": "M is the abbreviation for married"
+     },
+     {
+      "clueFragment": "said",
+      "gives": "ORAL",
+      "note": "oral means spoken"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IM",
+      "M",
+      "ORAL"
+     ]
+    },
+    "explanation": {
+     "surface": "The setter confesses to being married yet rumoured to be unfaithful.",
+     "walkthrough": "A setter referring to themself by pen name stands for I or ME; here the possessive-looking ''s' is 'is', giving I'M.",
+     "definitionFit": "Being unfaithful or dishonest is conduct that breaks moral standards, so it is described as unethical in this way."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Quince's"
+    }
+   }
   },
   {
    "number": 11,
@@ -213,7 +744,39 @@
     "text": "One used to go swinging in the woods",
     "enumeration": "3"
    },
-   "solution": "AXE"
+   "solution": "AXE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "AXE",
+    "definitions": [
+     {
+      "text": "One used to go swinging in the woods",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One used to go swinging in the woods",
+      "note": "surface reading: a person who once went off to swing from trees or join a free-love party in the forest"
+     },
+     {
+      "clueFragment": "swinging",
+      "note": "setter's reading: a tool that is swung at trees by a woodcutter"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'One used to go' suggests someone's old habit and 'swinging' hints at a racy lifestyle; in fact it is a tool that is used, swung at trunks in a forest.",
+     "definitionFit": "A woodcutter's chopping tool is swung by hand to fell trees in a forest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "swinging"
+    }
+   }
   },
   {
    "number": 12,
@@ -233,7 +796,50 @@
      }
     ]
    },
-   "solution": "BLANKETBANS"
+   "solution": "BLANKETBANS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BLANKET BANS",
+    "definitions": [
+     {
+      "text": "periods of Prohibition",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hide",
+      "gives": "BLANKET",
+      "note": "to blanket something is to cover it up"
+     },
+     {
+      "clueFragment": "bars",
+      "gives": "BANS",
+      "note": "to bar is to ban"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BLANKET",
+      "BANS"
+     ]
+    },
+    "explanation": {
+     "surface": "Concealing drinking dens during the American era of outlawed alcohol.",
+     "walkthrough": "'Hide' and 'bars' conjure speakeasies, but both are verbs; Prohibition was the US nationwide ban on alcohol from 1920 to 1933.",
+     "definitionFit": "Prohibition was a total outlawing of alcohol, the kind of across-the-board restriction this phrase describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "bars"
+    }
+   }
   },
   {
    "number": 12,
@@ -247,7 +853,53 @@
     "text": "Accosts American behind playing round of golf",
     "enumeration": "11"
    },
-   "solution": "BUTTONHOLES"
+   "solution": "BUTTONHOLES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BUTTONHOLES",
+    "definitions": [
+     {
+      "text": "Accosts",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American behind",
+      "gives": "BUTT",
+      "note": "butt is US slang for the bottom"
+     },
+     {
+      "clueFragment": "playing",
+      "gives": "ON",
+      "note": "a player in the game is on"
+     },
+     {
+      "clueFragment": "round of golf",
+      "gives": "HOLES",
+      "note": "a round of golf is played over a set of holes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUTT",
+      "ON",
+      "HOLES"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stops an American who is trailing on the course.",
+     "walkthrough": "'Behind' looks like 'trailing' but is the noun for the backside.",
+     "definitionFit": "To detain someone in conversation against their wish is to corner them, a verb meaning much the same as accost."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "behind"
+    }
+   }
   },
   {
    "number": 13,
@@ -267,7 +919,84 @@
      }
     ]
    },
-   "solution": "WHEATGERM"
+   "solution": "WHEATGERM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "WHEAT GERM",
+    "definitions": [
+     {
+      "text": "superfood",
+      "at": 54
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taste of",
+      "for": "letter_selection",
+      "note": "a taste is just a small first sample, so only the opening letter is kept"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "'about' means around, so one piece goes around another"
+     },
+     {
+      "text": "inspiring",
+      "for": "container",
+      "note": "to inspire is literally to breathe in, so one piece is taken inside another"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What",
+      "gives": "WHAT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Emma",
+      "gives": "E",
+      "select": "first",
+      "note": "the first letter"
+     },
+     {
+      "clueFragment": "Stone's",
+      "gives": "GEM",
+      "note": "a gem is a precious stone; the ''s' reads as 'is'"
+     },
+     {
+      "clueFragment": "recipe",
+      "gives": "R",
+      "note": "R abbreviates recipe, as in the Rx on prescriptions"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WH",
+      "E",
+      "AT",
+      "GE",
+      "R",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking what the actress Emma Stone thinks of a health-food recipe.",
+     "walkthrough": "Emma Stone the actress is split in two: her first name gives one letter, her surname a jewel.",
+     "definitionFit": "The embryo of the grain kernel is sold as a nutrient-dense health supplement, the sort marketed as a superfood."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Stone's"
+    }
+   }
   },
   {
    "number": 13,
@@ -281,7 +1010,60 @@
     "text": "Lined with ice, learner driver has trouble getting up",
     "enumeration": "8"
    },
-   "solution": "WRINKLED"
+   "solution": "WRINKLED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WRINKLED",
+    "definitions": [
+     {
+      "text": "Lined",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "W is the abbreviation for with"
+     },
+     {
+      "clueFragment": "ice",
+      "gives": "RINK",
+      "note": "a rink is a sheet of ice for skating"
+     },
+     {
+      "clueFragment": "learner driver",
+      "gives": "L",
+      "note": "L is the plate a learner driver displays"
+     },
+     {
+      "clueFragment": "has trouble getting up",
+      "gives": "ED",
+      "note": "ED stands for erectile dysfunction, trouble getting it up"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "RINK",
+      "L",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A novice driver struggles to climb an icy hill.",
+     "walkthrough": "'Lined with ice' reads as one phrase about a coated road; 'Lined' alone is the definition. 'Trouble getting up' is a cheeky nod to ED, erectile dysfunction.",
+     "definitionFit": "Skin that is creased and furrowed with age is described as having lines."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "getting"
+    }
+   }
   },
   {
    "number": 14,
@@ -301,7 +1083,69 @@
      }
     ]
    },
-   "solution": "MOUNTFUJI"
+   "solution": "MOUNTFUJI",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "charade"
+    ],
+    "answer": "MOUNT FUJI",
+    "definitions": [
+     {
+      "text": "Second ninja, unfit on run, regularly ascends this?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "'regularly' means at even intervals, so letters are kept at a fixed spacing, skipping one each time"
+     },
+     {
+      "text": "ascends",
+      "for": "reversal",
+      "note": "in a down answer, going up means reading bottom to top, so the order flips"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Second",
+      "gives": "MO",
+      "note": "a mo is a moment, a second"
+     },
+     {
+      "clueFragment": "ninja, unfit on run",
+      "gives": "IJUFTNU",
+      "select": "alternate",
+      "note": "the even-placed letters of the four words run together"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "UNTFUJI"
+     ],
+     "reversals": [
+      {
+       "from": "IJUFTNU",
+       "to": "UNTFUJI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clumsy, out-of-shape ninja slowly climbs a famous Japanese peak.",
+     "walkthrough": "The whole clue doubles as the definition: a ninja is Japanese, and this is what gets climbed. 'Second' gives MO, as in 'wait a mo'.",
+     "definitionFit": "Japan's highest peak, a volcano, is climbed by many thousands of hikers each summer, fitting the ninja's ascent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Second"
+    }
+   }
   },
   {
    "number": 15,
@@ -321,7 +1165,60 @@
      }
     ]
    },
-   "solution": "ERASE"
+   "solution": "ERASE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ERASE",
+    "definitions": [
+     {
+      "text": "Off the mark",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at last",
+      "for": "letter_selection",
+      "note": "'at last' points to the end, so only the final letter is kept"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Times",
+      "gives": "ERAS",
+      "note": "eras are periods of time"
+     },
+     {
+      "clueFragment": "puzzle",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ERAS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A cry of relief at finally getting started on the Times crossword.",
+     "walkthrough": "The italic Times pretends to be the newspaper, but it is just the plural of time. 'Off the mark' is read literally: take a mark off.",
+     "definitionFit": "To rub out a pencil stroke or blot is to remove a written mark, which is what the verb means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Times"
+    }
+   }
   },
   {
    "number": 16,
@@ -335,7 +1232,55 @@
     "text": "Frigid without layers, John digs in the snow",
     "enumeration": "5"
    },
-   "solution": "IGLOO"
+   "solution": "IGLOO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "IGLOO",
+    "definitions": [
+     {
+      "text": "digs in the snow",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without layers",
+      "for": "deletion",
+      "note": "taking away layers strips the outside repeatedly, so the outer letters are peeled off twice"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Frigid",
+      "gives": "IG",
+      "note": "the two outer letters come off each end"
+     },
+     {
+      "clueFragment": "John",
+      "gives": "LOO",
+      "note": "john and loo are both slang for a toilet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IG",
+      "LOO"
+     ]
+    },
+    "explanation": {
+     "surface": "A man called John, freezing without enough clothes, shovels through snow.",
+     "walkthrough": "'Digs' is not a verb but British slang for lodgings; john is American slang for the toilet, loo the British word.",
+     "definitionFit": "An Inuit dome shelter built from blocks of packed snow is a home, and 'digs' is informal British for lodgings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "digs"
+    }
+   }
   },
   {
    "number": 17,
@@ -349,7 +1294,40 @@
     "text": "Stock clue for 'eagle'",
     "enumeration": "7"
    },
-   "solution": "LINEAGE"
+   "solution": "LINEAGE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "LINEAGE",
+    "definitions": [
+     {
+      "text": "Stock",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clue for 'eagle'",
+      "note": "surface reading: a standard, much-used crossword clue for a bird of prey"
+     },
+     {
+      "clueFragment": "clue for 'eagle'",
+      "note": "setter's reading: split the answer 1,2,4 and it is an instruction that builds the bird's name by putting a letter inside four others"
+     }
+    ],
+    "explanation": {
+     "surface": "A stock crossword clue for the bird of prey.",
+     "walkthrough": "Read as L IN EAGE, the answer is itself a clue: put L inside EAGE and you get EAGLE. 'Stock' looks like 'standard' but is the definition.",
+     "definitionFit": "Stock means ancestry or family descent, as in 'of good stock', which is what a line of descent is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Stock"
+    }
+   }
   },
   {
    "number": 18,
@@ -363,7 +1341,64 @@
     "text": "Gunners, facing United, callously kicking everyone in a rowdy way",
     "enumeration": "9"
    },
-   "solution": "RAUCOUSLY"
+   "solution": "RAUCOUSLY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "RAUCOUSLY",
+    "definitions": [
+     {
+      "text": "in a rowdy way",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "kicking everyone",
+      "for": "deletion",
+      "note": "kicking out everyone means ejecting a word for all, so those letters leave"
+     }
+    ],
+    "linkWords": [
+     "facing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gunners",
+      "gives": "RA",
+      "note": "RA is the Royal Artillery, the army's gunners"
+     },
+     {
+      "clueFragment": "United",
+      "gives": "U",
+      "note": "U abbreviates United in football club names"
+     },
+     {
+      "clueFragment": "callously",
+      "gives": "COUSLY",
+      "note": "loses its ALL"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RA",
+      "U",
+      "COUSLY"
+     ]
+    },
+    "explanation": {
+     "surface": "Arsenal (the Gunners) play Manchester United, with players brutally kicking each other in a rough match.",
+     "walkthrough": "Arsenal are nicknamed the Gunners, but here the Gunners are the Royal Artillery, RA. ALL, a word for everyone, is taken out of 'callously'.",
+     "definitionFit": "Raucous means loud and harsh, like a boisterous crowd, so this adverb describes behaving noisily and disorderly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Gunners"
+    }
+   }
   },
   {
    "number": 19,
@@ -377,7 +1412,42 @@
     "text": "Pinch lover",
     "enumeration": "7"
    },
-   "solution": "SQUEEZE"
+   "solution": "SQUEEZE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SQUEEZE",
+    "definitions": [
+     {
+      "text": "Pinch",
+      "at": 0
+     },
+     {
+      "text": "lover",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pinch",
+      "note": "first meaning: to press tightly between fingers"
+     },
+     {
+      "clueFragment": "lover",
+      "note": "second meaning: informal word for a boyfriend or girlfriend"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The two words sound like a flirty gesture, but they are separate meanings of one word, one a verb and one a noun.",
+     "definitionFit": "To press something tightly is a synonym for pinching, and informally one's romantic partner is called a 'main' one of these."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lover"
+    }
+   }
   },
   {
    "number": 20,
@@ -397,7 +1467,66 @@
      }
     ]
    },
-   "solution": "KINDHEARTED"
+   "solution": "KINDHEARTED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "KIND-HEARTED",
+    "definitions": [
+     {
+      "text": "Good",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shot",
+      "for": "anagram",
+      "note": "something shot is ruined or broken, so the letters are knocked out of order"
+     },
+     {
+      "text": "pursues",
+      "for": "charade",
+      "note": "to pursue is to follow behind, so one piece goes after the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in the dark",
+      "gives": "INTHEDARK",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "journalist",
+      "gives": "ED",
+      "note": "ED is the short form of editor, a stock journalist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KINDHEART",
+      "ED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INTHEDARK",
+       "gives": "KINDHEART"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A decent reporter follows up a wild guess.",
+     "walkthrough": "'Shot in the dark' is a stock idiom for a guess, which hides the fact that 'shot' is the anagram signal on the following three words.",
+     "definitionFit": "A good person in the moral sense is caring and generous, so this compound adjective is a close synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "shot"
+    }
+   }
   },
   {
    "number": 21,
@@ -417,7 +1546,65 @@
      }
     ]
    },
-   "solution": "ATSEA"
+   "solution": "ATSEA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "AT SEA",
+    "definitions": [
+     {
+      "text": "getting stumped",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Striking opener",
+      "for": "deletion",
+      "note": "to strike is to cross out, and an opener is the first letter, so the first letter goes"
+     },
+     {
+      "text": "exposed",
+      "for": "deletion",
+      "note": "something exposed has its covering removed at one end, so the final letter goes"
+     }
+    ],
+    "linkWords": [
+     "faces",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the bowler",
+      "gives": "AT",
+      "note": "a bowler is a hat; its first letter goes"
+     },
+     {
+      "clueFragment": "seam",
+      "gives": "SEA",
+      "note": "its last letter goes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AT",
+      "SEA"
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket opening batsman faces a seam bowler and is stumped out.",
+     "walkthrough": "The cricket words mislead: the bowler is a bowler hat, and 'stumped' means baffled, not dismissed. In cricket a batter is stumped when the wicketkeeper breaks the stumps.",
+     "definitionFit": "Being confused and bewildered, not knowing what to do, is described with this nautical idiom."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bowler"
+    }
+   }
   },
   {
    "number": 22,
@@ -431,7 +1618,64 @@
     "text": "Seconds for customers, after hot dish that's out of this world",
     "enumeration": "3"
    },
-   "solution": "UFO"
+   "solution": "UFO",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "UFO",
+    "definitions": [
+     {
+      "text": "dish that's out of this world",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Seconds for",
+      "for": "letter_selection",
+      "note": "'seconds' asks for the letter in position two of each word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "customers",
+      "gives": "U",
+      "select": 2,
+      "note": "the letter in position two"
+     },
+     {
+      "clueFragment": "after",
+      "gives": "F",
+      "select": 2,
+      "note": "the letter in position two"
+     },
+     {
+      "clueFragment": "hot",
+      "gives": "O",
+      "select": 2,
+      "note": "the letter in position two"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "F",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Restaurant patrons asking for second helpings of a spicy dish.",
+     "walkthrough": "'Seconds' looks like second helpings at a meal, and 'hot dish' like the food; 'dish' begins the definition, as in a flying saucer.",
+     "definitionFit": "A flying saucer, the classic dish-shaped alien craft, comes from outer space and is literally not from Earth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Seconds"
+    }
+   }
   },
   {
    "number": 23,
@@ -445,7 +1689,62 @@
     "text": "More than one Range Rover runs off latest in clean fuels",
     "enumeration": "5"
    },
-   "solution": "OVENS"
+   "solution": "OVENS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "OVENS",
+    "definitions": [
+     {
+      "text": "More than one Range",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "runs off",
+      "for": "deletion",
+      "note": "R abbreviates runs, and 'off' says those letters are taken away"
+     },
+     {
+      "text": "latest in",
+      "for": "letter_selection",
+      "note": "the latest of anything is its final item, so each word gives its last letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rover",
+      "gives": "OVE",
+      "note": "both Rs taken away"
+     },
+     {
+      "clueFragment": "clean fuels",
+      "gives": "NS",
+      "select": "last",
+      "note": "the last letter of each word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVE",
+      "NS"
+     ]
+    },
+    "explanation": {
+     "surface": "Many Range Rover cars running on greener fuel.",
+     "walkthrough": "The Range Rover is a British luxury 4x4, but 'Range' goes with the definition: a range is a large kitchen cooker.",
+     "definitionFit": "A range is a cooking stove with several hot compartments, so a plural of these kitchen appliances fits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Range"
+    }
+   }
   },
   {
    "number": 24,
@@ -459,7 +1758,68 @@
     "text": "Macron's article stops baked beans sanctions",
     "enumeration": "7"
    },
-   "solution": "ENABLES"
+   "solution": "ENABLES",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ENABLES",
+    "definitions": [
+     {
+      "text": "sanctions",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "baked",
+      "for": "anagram",
+      "note": "baking transforms the ingredients, so the letters are remade in a new order"
+     },
+     {
+      "text": "stops",
+      "for": "container",
+      "note": "a stopper plugs a gap, so one piece fills the middle of another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beans",
+      "gives": "BEANS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Macron's article",
+      "gives": "LE",
+      "note": "Macron is the French president, and le is the French definite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENAB",
+      "LE",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BEANS",
+       "gives": "ENABS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The French president's newspaper piece bans baked beans.",
+     "walkthrough": "'Article' suggests a news story, but it is the grammatical article, and 'sanctions' is the verb meaning permits, not penalties.",
+     "definitionFit": "To sanction something can mean to authorise or allow it, so the verb for making something possible is a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "sanctions"
+    }
+   }
   },
   {
    "number": 25,
@@ -473,7 +1833,76 @@
     "text": "One picked Lukaku, dropping centre back and half from eleven",
     "enumeration": "7"
    },
-   "solution": "UKULELE"
+   "solution": "UKULELE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "charade"
+    ],
+    "answer": "UKULELE",
+    "definitions": [
+     {
+      "text": "One picked",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dropping centre",
+      "for": "deletion",
+      "note": "to drop the centre is to lose the middle, so the central letters go"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means travelling the other way, so the order runs backwards"
+     },
+     {
+      "text": "half from",
+      "for": "deletion",
+      "note": "taking only half leaves the first part of a word and drops the rest"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lukaku",
+      "gives": "LUKU",
+      "note": "its middle pair of letters go"
+     },
+     {
+      "clueFragment": "eleven",
+      "gives": "ELE",
+      "note": "the word is cut in half, keeping the first three of its six letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UKUL",
+      "ELE"
+     ],
+     "reversals": [
+      {
+       "from": "LUKU",
+       "to": "UKUL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A manager selects striker Romelu Lukaku, then leaves him out of the centre-back role and the starting eleven.",
+     "walkthrough": "The football words point to team selection, but 'picked' means plucked, as strings are.",
+     "definitionFit": "A small four-stringed guitar is played by plucking its strings with the fingers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "picked"
+    }
+   }
   },
   {
    "number": 26,
@@ -487,7 +1916,45 @@
     "text": "Some of Shaun the Sheep's friends delivered milk",
     "enumeration": "3"
    },
-   "solution": "USE"
+   "solution": "USE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "USE",
+    "definitions": [
+     {
+      "text": "milk",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "delivered",
+      "for": "homophone",
+      "note": "a speech is delivered out loud, so the word is taken by how it sounds"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Some of Shaun the Sheep's friends",
+      "gives": "USE",
+      "soundsLike": "EWES",
+      "note": "female sheep are ewes"
+     }
+    ],
+    "explanation": {
+     "surface": "Shaun the Sheep's farm friends producing milk.",
+     "walkthrough": "Shaun the Sheep is a British children's animated character. 'Milk' looks like the dairy product but is a verb: to exploit.",
+     "definitionFit": "To milk a situation is to exploit it for all it is worth, which is to take advantage of it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "milk"
+    }
+   }
   },
   {
    "number": 27,
@@ -501,7 +1968,51 @@
     "text": "Severus Snape is brewing charm",
     "enumeration": "14"
    },
-   "solution": "PERSUASIVENESS"
+   "solution": "PERSUASIVENESS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PERSUASIVENESS",
+    "definitions": [
+     {
+      "text": "charm",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brewing",
+      "for": "anagram",
+      "note": "a brew is something mixed and stirred, so the letters are jumbled into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Severus Snape is",
+      "gives": "SEVERUSSNAPEIS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SEVERUSSNAPEIS",
+       "gives": "PERSUASIVENESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The Harry Potter potions master Severus Snape mixing up a magic spell.",
+     "walkthrough": "In Harry Potter, Snape teaches Potions, so 'brewing charm' looks like magic; 'charm' is the definition in its everyday sense of winning people over.",
+     "definitionFit": "Charm is the power to win people over, and the quality of being able to convince others is a near synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "charm"
+    }
+   }
   }
  ]
 }
