@@ -23,6 +23,9 @@
   "date": "2017-11-09",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,62 @@
     "text": "Silly clowning around outside back of hut",
     "enumeration": "8"
    },
-   "solution": "FOOTLING"
+   "solution": "FOOTLING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "FOOTLING",
+    "definitions": [
+     {
+      "text": "Silly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back of",
+      "for": "letter_selection",
+      "note": "the back of a word is its final letter, so only the end is kept"
+     },
+     {
+      "text": "around outside",
+      "for": "container",
+      "note": "going around or sitting outside something means wrapping it, so one piece encloses another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clowning",
+      "gives": "FOOLING",
+      "note": "clowning about is fooling"
+     },
+     {
+      "clueFragment": "hut",
+      "gives": "T",
+      "select": "last",
+      "note": "last letter of hut"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOO",
+      "T",
+      "LING"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone dismisses a bit of daft clowning going on around the back of a hut.",
+     "walkthrough": "'Around' looks like part of the phrase 'clowning around', but here it joins 'outside' as the instruction to wrap FOOLING round T.",
+     "definitionFit": "Footling is a British adjective meaning trivial, petty or silly, describing something not worth taking seriously."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "around"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +108,45 @@
     "text": "Vendetta not many’d spoken of",
     "enumeration": "4"
    },
-   "solution": "FEUD"
+   "solution": "FEUD",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "FEUD",
+    "definitions": [
+     {
+      "text": "Vendetta",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spoken of",
+      "for": "homophone",
+      "note": "something spoken of is said out loud, so we want a word matching its sound, not its spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not many’d",
+      "gives": "FEUD",
+      "soundsLike": "FEW'D",
+      "note": "not many is few, and the setter adds the contraction 'd to make it few'd"
+     }
+    ],
+    "explanation": {
+     "surface": "An awkward line about a vendetta that few people would talk about.",
+     "walkthrough": "The ugly contraction 'many'd' is the setter's signal: 'not many'd' is 'few'd', which is said exactly like the answer.",
+     "definitionFit": "A vendetta is a prolonged bitter quarrel, often between families, which is what a feud is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "many’d"
+    }
+   }
   },
   {
    "number": 2,
@@ -82,7 +178,67 @@
      }
     ]
    },
-   "solution": "ONCEINABLUEMOON"
+   "solution": "ONCEINABLUEMOON",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ONCE IN A BLUE MOON",
+    "definitions": [
+     {
+      "text": "Very rarely",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "varied",
+      "for": "anagram",
+      "note": "something varied has been changed about, so these letters come in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "performing",
+      "gives": "ON",
+      "note": "a performer who is on is on stage"
+     },
+     {
+      "clueFragment": "a nice",
+      "gives": "CEINA",
+      "note": "letters to be rearranged"
+     },
+     {
+      "clueFragment": "1930s song",
+      "gives": "BLUEMOON",
+      "note": "Blue Moon is a Rodgers and Hart song from 1934"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ON",
+      "CEINA",
+      "BLUEMOON"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ANICE",
+       "gives": "CEINA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A performer seldom sings a nicely varied old 1930s standard.",
+     "walkthrough": "The rearranged letters sit between ON and the song title to spell ONCE IN A BLUE MOON.",
+     "definitionFit": "The idiom describes something that happens only on the rarest occasions, exactly as seldom as a second full moon in a month."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "performing"
+    }
+   }
   },
   {
    "number": 3,
@@ -96,7 +252,40 @@
     "text": "What a convict won’t do for a budgie!",
     "enumeration": "8"
    },
-   "solution": "LOVEBIRD"
+   "solution": "LOVEBIRD",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "LOVEBIRD",
+    "definitions": [
+     {
+      "text": "a budgie",
+      "at": 28
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What a convict won’t do",
+      "note": "surface reading: something a prisoner refuses to do"
+     },
+     {
+      "clueFragment": "What a convict won’t do",
+      "note": "setter's reading: 'bird' is slang for a prison sentence, and no convict will enjoy doing time"
+     }
+    ],
+    "explanation": {
+     "surface": "A joke about a prisoner's attitude to a pet budgerigar.",
+     "walkthrough": "Doing bird is British slang for serving a jail term, so a convict won't love bird; read as one word, that is a small parrot.",
+     "definitionFit": "Lovebirds are small affectionate parrots, and budgerigars are loosely called lovebirds as a similar small pet parrot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "convict"
+    }
+   }
   },
   {
    "number": 4,
@@ -110,7 +299,63 @@
     "text": "City don leaving capital to provide material …",
     "enumeration": "5"
    },
-   "solution": "NYLON"
+   "solution": "NYLON",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "NYLON",
+    "definitions": [
+     {
+      "text": "material",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "when something is leaving, it departs and is taken out of the word it was in"
+     }
+    ],
+    "linkWords": [
+     "to provide"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "City",
+      "gives": "NY",
+      "note": "NY is New York"
+     },
+     {
+      "clueFragment": "don",
+      "gives": "DON",
+      "note": "taken as written, the letters to remove"
+     },
+     {
+      "clueFragment": "capital",
+      "gives": "LONDON",
+      "note": "the British capital city"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NY",
+      "LON"
+     ]
+    },
+    "explanation": {
+     "surface": "A university lecturer quits the capital to supply cloth to another city.",
+     "walkthrough": "'Don' reads as an Oxbridge lecturer, but here it is just three letters to strike out of the capital's name.",
+     "definitionFit": "Nylon is a synthetic fabric used for stockings and clothing, so it counts as a material."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "don"
+    }
+   }
   },
   {
    "number": 5,
@@ -124,7 +369,67 @@
     "text": "Keep new judge in the same cricket side",
     "enumeration": "6"
    },
-   "solution": "DONJON"
+   "solution": "DONJON",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "DONJON",
+    "definitions": [
+     {
+      "text": "Keep",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "to be in something is to sit inside it, so one piece goes within the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the same",
+      "gives": "DO",
+      "note": "DO is short for ditto, meaning the same"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "judge",
+      "gives": "J",
+      "note": "J is the abbreviation for judge"
+     },
+     {
+      "clueFragment": "cricket side",
+      "gives": "ON",
+      "note": "the on side is the leg side of a cricket field"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "N",
+      "J",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A selector asks to retain a fresh umpire with the same cricket team.",
+     "walkthrough": "'Keep' looks like a verb, but it is the noun for a castle's strongest tower. The on side is the leg side of a cricket field.",
+     "definitionFit": "A donjon is the old spelling of dungeon, meaning the central fortified tower of a castle, also called its keep."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Keep"
+    }
+   }
   },
   {
    "number": 6,
@@ -138,7 +443,43 @@
     "text": "… partly for a chemical plant",
     "enumeration": "6"
    },
-   "solution": "ORACHE"
+   "solution": "ORACHE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ORACHE",
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "partly",
+      "for": "hidden_word",
+      "note": "partly means only a portion is used, so the letters sit inside a longer run of text"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for a chemical",
+      "gives": "ORACHE",
+      "note": "letters running across the words"
+     }
+    ],
+    "explanation": {
+     "surface": "Continuing 4 down: material is supplied, in part, for a chemical works.",
+     "walkthrough": "The ellipsis links back to 4 down, but this clue stands alone: the letters run through 'for a chemical', and 'chemical plant' is a false phrase.",
+     "definitionFit": "Orache is a leafy herb of the goosefoot family, sometimes grown as a spinach substitute, so it is a plant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "chemical"
+    }
+   }
   },
   {
    "number": 7,
@@ -166,7 +507,72 @@
      }
     ]
    },
-   "solution": "JACKOFALLTRADES"
+   "solution": "JACKOFALLTRADES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "JACK OF ALL TRADES",
+    "definitions": [
+     {
+      "text": "Versatile worker",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the start of a word, so its first letter is kept"
+     }
+    ],
+    "linkWords": [
+     "’s",
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flag",
+      "gives": "JACK",
+      "note": "a jack is a small flag flown on a ship"
+     },
+     {
+      "clueFragment": "overturned",
+      "gives": "O",
+      "select": "first",
+      "note": "first letter of overturned"
+     },
+     {
+      "clueFragment": "autumn",
+      "gives": "FALL",
+      "note": "fall is the American word for autumn"
+     },
+     {
+      "clueFragment": "winds",
+      "gives": "TRADES",
+      "note": "the trades are the trade winds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JACK",
+      "O",
+      "FALL",
+      "TRADES"
+     ]
+    },
+    "explanation": {
+     "surface": "A handyman's flag gets knocked over by autumn gales.",
+     "walkthrough": "'Overturned' looks like a reversal signal, but only its first letter is used. The 's stands for 'is', joining definition to wordplay.",
+     "definitionFit": "The phrase names someone able to turn a hand to many different jobs, which is a versatile worker."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "overturned"
+    }
+   }
   },
   {
    "number": 8,
@@ -180,7 +586,56 @@
     "text": "Scholar, one barely recognisable outside Alabama",
     "enumeration": "10"
    },
-   "solution": "NATURALIST"
+   "solution": "NATURALIST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NATURALIST",
+    "definitions": [
+     {
+      "text": "Scholar",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "to be outside something is to surround it, so one piece wraps around another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one barely recognisable",
+      "gives": "NATURIST",
+      "note": "someone barely recognisable is wearing next to nothing, like a nudist"
+     },
+     {
+      "clueFragment": "Alabama",
+      "gives": "AL",
+      "note": "AL is the postal abbreviation for Alabama"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NATUR",
+      "AL",
+      "IST"
+     ]
+    },
+    "explanation": {
+     "surface": "An academic has gone so native in Alabama he is barely recognisable.",
+     "walkthrough": "'Barely' pretends to mean scarcely; it really means naked, so the barely recognisable one is a nudist.",
+     "definitionFit": "A naturalist is an expert who studies natural history, plants and animals, so the word fits a scholar."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "barely"
+    }
+   }
   },
   {
    "number": 9,
@@ -194,7 +649,80 @@
     "text": "Unknown in C stream, one child’s first alphabet",
     "enumeration": "8"
    },
-   "solution": "CYRILLIC"
+   "solution": "CYRILLIC",
+   "annotation": {
+    "type": [
+     "container",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "CYRILLIC",
+    "definitions": [
+     {
+      "text": "alphabet",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "to be in something is to sit inside it, so one piece goes within another"
+     },
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "the first of a word is its opening letter, so only that is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "C",
+      "gives": "C",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Unknown",
+      "gives": "Y",
+      "note": "algebra's unknowns are x, y and z"
+     },
+     {
+      "clueFragment": "stream",
+      "gives": "RILL",
+      "note": "a rill is a small stream"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "child’s",
+      "gives": "C",
+      "select": "first",
+      "note": "first letter of child"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "Y",
+      "RILL",
+      "I",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "A child's first alphabet includes some mysterious letter by a stream.",
+     "walkthrough": "The bare 'C' looks like a note or a grade, but it is simply the letter; Y goes after it and before RILL.",
+     "definitionFit": "Cyrillic is the script used for Russian, Bulgarian and Serbian, so it names a particular alphabet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "C"
+    }
+   }
   },
   {
    "number": 10,
@@ -208,7 +736,78 @@
     "text": "Rudely cursed at first by a French climber nursing injury",
     "enumeration": "9"
    },
-   "solution": "UNCIVILLY"
+   "solution": "UNCIVILLY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "UNCIVILLY",
+    "definitions": [
+     {
+      "text": "Rudely",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first points to the start of a word, so only its opening letter is kept"
+     },
+     {
+      "text": "nursing",
+      "for": "container",
+      "note": "to nurse something is to hold it close, so one piece is held inside another"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a French",
+      "gives": "UN",
+      "note": "un is French for a"
+     },
+     {
+      "clueFragment": "cursed",
+      "gives": "C",
+      "select": "first",
+      "note": "first letter of cursed"
+     },
+     {
+      "clueFragment": "climber",
+      "gives": "IVY",
+      "note": "ivy is a climbing plant"
+     },
+     {
+      "clueFragment": "injury",
+      "gives": "ILL",
+      "note": "ill as a noun means harm or injury"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "C",
+      "IV",
+      "ILL",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A hurt French mountaineer swears rudely at first.",
+     "walkthrough": "'Climber' suggests a mountaineer, but it is the plant IVY, which opens to take ILL.",
+     "definitionFit": "Acting uncivilly means behaving without courtesy or good manners, which is the same as acting rudely."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "climber"
+    }
+   }
   },
   {
    "number": 11,
@@ -222,7 +821,50 @@
     "text": "Former tax on a type of neckwear",
     "enumeration": "5"
    },
-   "solution": "ASCOT"
+   "solution": "ASCOT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASCOT",
+    "definitions": [
+     {
+      "text": "a type of neckwear",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Former tax",
+      "gives": "SCOT",
+      "note": "scot was an old tax, surviving in scot-free"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "SCOT"
+     ]
+    },
+    "explanation": {
+     "surface": "A historical levy was charged on a kind of tie.",
+     "walkthrough": "In an across clue, X 'on' Y puts X after Y, so the old tax follows A.",
+     "definitionFit": "An ascot is a broad cravat-style tie worn looped at the throat, named after the racecourse, so it is neckwear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Former"
+    }
+   }
   },
   {
    "number": 12,
@@ -236,7 +878,50 @@
     "text": "Doctor attending Light Infantry member",
     "enumeration": "4"
    },
-   "solution": "LIMB"
+   "solution": "LIMB",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LIMB",
+    "definitions": [
+     {
+      "text": "member",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "attending"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Light Infantry",
+      "gives": "LI",
+      "note": "LI is the military abbreviation for Light Infantry"
+     },
+     {
+      "clueFragment": "Doctor",
+      "gives": "MB",
+      "note": "MB is Bachelor of Medicine, a doctor's degree"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LI",
+      "MB"
+     ]
+    },
+    "explanation": {
+     "surface": "A medic treats a soldier of the Light Infantry regiment.",
+     "walkthrough": "'Attending' suggests a doctor tending a patient, but it only means next to. MB, Bachelor of Medicine, is a British medical degree.",
+     "definitionFit": "Member has an older sense of a body part, especially an arm or leg, which is what a limb is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "member"
+    }
+   }
   },
   {
    "number": 13,
@@ -250,7 +935,52 @@
     "text": "Our Bing? He could be the bloke next door!",
     "enumeration": "9"
    },
-   "solution": "NEIGHBOUR"
+   "solution": "NEIGHBOUR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NEIGHBOUR",
+    "definitions": [
+     {
+      "text": "the bloke next door",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "could be",
+      "for": "anagram",
+      "note": "could be suggests what the letters might become if arranged differently"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Our Bing? He",
+      "gives": "OURBINGHE",
+      "note": "letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OURBINGHE",
+       "gives": "NEIGHBOUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wonders whether the famous crooner Bing Crosby might be living next door.",
+     "walkthrough": "The capital B makes Bing look like Crosby, but it is just four letters of fodder.",
+     "definitionFit": "A neighbour is a person living in the adjacent house, the man or woman who lives beside you."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Bing"
+    }
+   }
   },
   {
    "number": 14,
@@ -270,7 +1000,50 @@
      }
     ]
    },
-   "solution": "SQUARESAIL"
+   "solution": "SQUARESAIL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SQUARE SAIL",
+    "definitions": [
+     {
+      "text": "canvas on yard",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "seeing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fuddy-duddies",
+      "gives": "SQUARES",
+      "note": "squares are old-fashioned, conventional people"
+     },
+     {
+      "clueFragment": "worry",
+      "gives": "AIL",
+      "note": "to ail is to trouble or worry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SQUARES",
+      "AIL"
+     ]
+    },
+    "explanation": {
+     "surface": "Old fogeys fret when they see a tent pitched in the garden.",
+     "walkthrough": "'Yard' reads as a garden, but it is a ship's spar, and 'canvas' is sailcloth.",
+     "definitionFit": "A square sail is a four-sided sail hung from a horizontal spar across the mast, so it is canvas on a yard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "yard"
+    }
+   }
   },
   {
    "number": 15,
@@ -284,7 +1057,62 @@
     "text": "Figure in role of duke having noisy argument on phone?",
     "enumeration": "10"
    },
-   "solution": "QUADRANGLE"
+   "solution": "QUADRANGLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "QUADRANGLE",
+    "definitions": [
+     {
+      "text": "Figure",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on phone?",
+      "for": "homophone",
+      "note": "on the phone we hear sounds without seeing spelling, so the word is judged by how it is said"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in role of",
+      "gives": "QUA",
+      "note": "qua is Latin for in the capacity of"
+     },
+     {
+      "clueFragment": "duke",
+      "gives": "D",
+      "note": "D is the abbreviation for duke"
+     },
+     {
+      "clueFragment": "noisy argument",
+      "gives": "RANGLE",
+      "soundsLike": "WRANGLE",
+      "note": "a wrangle is a loud dispute; the silent w drops out in the spelling"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "QUA",
+      "D",
+      "RANGLE"
+     ]
+    },
+    "explanation": {
+     "surface": "An actor playing a duke has a shouting match over the telephone.",
+     "walkthrough": "'Figure' suggests a person or number, but here it is a geometric shape.",
+     "definitionFit": "A quadrangle is a plane shape with four angles and four sides, so it is a geometric figure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Figure"
+    }
+   }
   },
   {
    "number": 16,
@@ -298,7 +1126,65 @@
     "text": "Bird which nests in northern university church",
     "enumeration": "8"
    },
-   "solution": "NUTHATCH"
+   "solution": "NUTHATCH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NUTHATCH",
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nests in",
+      "for": "container",
+      "note": "to nest in a place is to settle snugly inside it, so one piece sits within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "northern",
+      "gives": "N",
+      "note": "N is the abbreviation for northern"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "U is the abbreviation for university"
+     },
+     {
+      "clueFragment": "which",
+      "gives": "THAT",
+      "note": "which and that are interchangeable relative pronouns"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CH",
+      "note": "CH is the abbreviation for church"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NU",
+      "THAT",
+      "CH"
+     ]
+    },
+    "explanation": {
+     "surface": "A bird that makes its home in a church at a northern university.",
+     "walkthrough": "'Which' looks like a mere relative pronoun joining bird to its habits, but it supplies letters of its own and is the piece that nests.",
+     "definitionFit": "The nuthatch is a small European songbird that climbs tree trunks head first, so it is a kind of bird."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "which"
+    }
+   }
   },
   {
    "number": 17,
@@ -312,7 +1198,46 @@
     "text": "Highland Scot’s verbal report of force eight wind, perhaps",
     "enumeration": "4"
    },
-   "solution": "GAEL"
+   "solution": "GAEL",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "GAEL",
+    "definitions": [
+     {
+      "text": "Highland Scot",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "verbal report of",
+      "for": "homophone",
+      "note": "a verbal report is spoken, so the word wanted matches the sound, not the spelling"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "force eight wind, perhaps",
+      "gives": "GAEL",
+      "soundsLike": "GALE",
+      "note": "force eight on the Beaufort scale is a gale; 'perhaps' marks it as one example"
+     }
+    ],
+    "explanation": {
+     "surface": "A Highlander gives a spoken account of a severe storm.",
+     "walkthrough": "The 's stands for 'is'. Force eight is gale on the Beaufort wind scale.",
+     "definitionFit": "A Gael is a Gaelic-speaking Celt, and in Scotland the term traditionally means a Highlander."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -326,7 +1251,56 @@
     "text": "Escape of liquid ultimately damages sacking",
     "enumeration": "8"
    },
-   "solution": "SPILLAGE"
+   "solution": "SPILLAGE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SPILLAGE",
+    "definitions": [
+     {
+      "text": "Escape of liquid",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so only the last letter of a word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "damages",
+      "gives": "S",
+      "select": "last",
+      "note": "last letter of damages"
+     },
+     {
+      "clueFragment": "sacking",
+      "gives": "PILLAGE",
+      "note": "sacking a town is plundering it, which is pillage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PILLAGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A leak in the end ruins some hessian sacks.",
+     "walkthrough": "'Sacking' suggests coarse cloth or dismissal, but here it means looting a town.",
+     "definitionFit": "A spillage is an amount of fluid that has spilt or leaked out of its container, so an escape of liquid."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sacking"
+    }
+   }
   },
   {
    "number": 19,
@@ -340,7 +1314,47 @@
     "text": "Completely unknown person giving us support",
     "enumeration": "4"
    },
-   "solution": "ALLY"
+   "solution": "ALLY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ALLY",
+    "definitions": [
+     {
+      "text": "person giving us support",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Completely",
+      "gives": "ALL",
+      "note": "all as in 'all alone', meaning completely"
+     },
+     {
+      "clueFragment": "unknown",
+      "gives": "Y",
+      "note": "algebra's unknowns are x, y and z"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALL",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A total stranger comes forward to back our cause.",
+     "walkthrough": "'Completely unknown person' reads as one phrase, but the definition starts only at 'person'.",
+     "definitionFit": "An ally is someone who sides with and helps another party, a friend or partner who backs you."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unknown"
+    }
+   }
   },
   {
    "number": 20,
@@ -354,7 +1368,62 @@
     "text": "Stores investing pounds in standard baked foods",
     "enumeration": "10"
    },
-   "solution": "STOCKPILES"
+   "solution": "STOCKPILES",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "STOCKPILES",
+    "definitions": [
+     {
+      "text": "Stores",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "investing",
+      "for": "container",
+      "note": "to invest is to clothe or surround, so one piece is placed within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "standard",
+      "gives": "STOCK",
+      "note": "stock as an adjective means standard or usual"
+     },
+     {
+      "clueFragment": "baked foods",
+      "gives": "PIES",
+      "note": "pies are baked dishes"
+     },
+     {
+      "clueFragment": "pounds",
+      "gives": "L",
+      "note": "L is the abbreviation for pounds sterling, from libra"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STOCK",
+      "PI",
+      "L",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "Shops put money into ordinary bakery goods.",
+     "walkthrough": "'Investing pounds' sounds financial, but investing means enclosing: L goes inside PIES.",
+     "definitionFit": "A stockpile is a reserve supply accumulated for future use, so stockpiles are stores."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "investing"
+    }
+   }
   },
   {
    "number": 21,
@@ -368,7 +1437,64 @@
     "text": "Proper woman retiring as governess",
     "enumeration": "6"
    },
-   "solution": "DUENNA"
+   "solution": "DUENNA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "DUENNA",
+    "definitions": [
+     {
+      "text": "governess",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retiring",
+      "for": "reversal",
+      "note": "retiring means going back, so this piece is read backwards"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Proper",
+      "gives": "DUE",
+      "note": "due means proper or fitting, as in due care"
+     },
+     {
+      "clueFragment": "woman",
+      "gives": "ANN",
+      "note": "a common woman's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DUE",
+      "NNA"
+     ],
+     "reversals": [
+      {
+       "from": "ANN",
+       "to": "NNA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A respectable lady withdraws from society to become a governess.",
+     "walkthrough": "'Retiring' reads as shy or leaving work, but it turns the name round.",
+     "definitionFit": "A duenna is an older woman employed to act as chaperone and governess to young girls in Spanish and Portuguese families."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "retiring"
+    }
+   }
   },
   {
    "number": 22,
@@ -382,7 +1508,70 @@
     "text": "Performer from Utah welcomed by one-time City worker",
     "enumeration": "9"
    },
-   "solution": "EXECUTANT"
+   "solution": "EXECUTANT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "EXECUTANT",
+    "definitions": [
+     {
+      "text": "Performer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "welcomed by",
+      "for": "container",
+      "note": "someone welcomed is taken in, so this piece is placed inside others"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one-time",
+      "gives": "EX",
+      "note": "ex means former"
+     },
+     {
+      "clueFragment": "City",
+      "gives": "EC",
+      "note": "EC is the postcode of the City of London"
+     },
+     {
+      "clueFragment": "Utah",
+      "gives": "UT",
+      "note": "UT is the postal abbreviation for Utah"
+     },
+     {
+      "clueFragment": "worker",
+      "gives": "ANT",
+      "note": "the worker ant is the crossword's standard worker"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "EC",
+      "UT",
+      "ANT"
+     ]
+    },
+    "explanation": {
+     "surface": "An American entertainer is greeted by a former banker.",
+     "walkthrough": "'City worker' looks like a banker, but the City (London's financial district) and the worker are separate pieces.",
+     "definitionFit": "An executant is someone who carries out or performs something, especially a musician playing a piece."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "City"
+    }
+   }
   },
   {
    "number": 23,
@@ -396,7 +1585,58 @@
     "text": "Old Italian poet’s sons immersed in Chinese way of life",
     "enumeration": "5"
    },
-   "solution": "TASSO"
+   "solution": "TASSO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TASSO",
+    "definitions": [
+     {
+      "text": "Old Italian poet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "immersed in",
+      "for": "container",
+      "note": "to be immersed in something is to be sunk inside it, so one piece sits within another"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chinese way of life",
+      "gives": "TAO",
+      "note": "the Tao is the Way in Chinese philosophy"
+     },
+     {
+      "clueFragment": "sons",
+      "gives": "SS",
+      "note": "S for son, doubled for the plural"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TA",
+      "SS",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "An Italian poet's sons are steeped in Eastern philosophy.",
+     "walkthrough": "The 's reads as possessive but stands for 'is'. Torquato Tasso wrote Jerusalem Delivered in the 16th century.",
+     "definitionFit": "Tasso is a sixteenth-century Italian epic writer, best known for Jerusalem Delivered, so he is an old Italian poet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "immersed"
+    }
+   }
   },
   {
    "number": 24,
@@ -410,7 +1650,47 @@
     "text": "See about specialised knowledge",
     "enumeration": "4"
    },
-   "solution": "LORE"
+   "solution": "LORE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LORE",
+    "definitions": [
+     {
+      "text": "specialised knowledge",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "See",
+      "gives": "LO",
+      "note": "lo is an old word for look or see"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LO",
+      "RE"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to look into expert knowledge.",
+     "walkthrough": "'About' looks like a container or reversal signal, but it simply gives RE.",
+     "definitionFit": "Lore is a body of traditional or expert learning about a particular subject, such as folklore or bird lore."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 25,
@@ -424,7 +1704,62 @@
     "text": "Alcoholic drink boozer finally concealed in coat",
     "enumeration": "4"
    },
-   "solution": "MARC"
+   "solution": "MARC",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "MARC",
+    "definitions": [
+     {
+      "text": "Alcoholic drink",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally means at the end, so only the last letter is kept"
+     },
+     {
+      "text": "concealed in",
+      "for": "container",
+      "note": "something concealed in another is hidden inside it, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "coat",
+      "gives": "MAC",
+      "note": "a mac is a raincoat, short for mackintosh"
+     },
+     {
+      "clueFragment": "boozer",
+      "gives": "R",
+      "select": "last",
+      "note": "last letter of boozer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "R",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "A drinker ends up hiding a bottle of spirits in his coat.",
+     "walkthrough": "'Boozer' is British slang for a pub or a heavy drinker, but only its last letter is used.",
+     "definitionFit": "Marc is a brandy distilled from the skins and pips left after grapes are pressed for wine, so it is an alcoholic drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "boozer"
+    }
+   }
   },
   {
    "number": 26,
@@ -438,7 +1773,68 @@
     "text": "A scam involving introduction of ripe fruit",
     "enumeration": "5"
    },
-   "solution": "ACORN"
+   "solution": "ACORN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ACORN",
+    "definitions": [
+     {
+      "text": "fruit",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "introduction of",
+      "for": "letter_selection",
+      "note": "an introduction is the opening, so only the first letter is kept"
+     },
+     {
+      "text": "involving",
+      "for": "container",
+      "note": "to involve is to include or take in, so one piece is placed within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "scam",
+      "gives": "CON",
+      "note": "a con is a swindle"
+     },
+     {
+      "clueFragment": "ripe",
+      "gives": "R",
+      "select": "first",
+      "note": "first letter of ripe"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "CO",
+      "R",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A fraud that involves passing off ripe fruit.",
+     "walkthrough": "'Fruit' suggests something juicy, but botanically a nut counts: the acorn is the oak's fruit.",
+     "definitionFit": "The acorn is the nut produced by an oak tree, and in botany a nut is a kind of fruit bearing the seed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fruit"
+    }
+   }
   },
   {
    "number": 27,
@@ -452,7 +1848,47 @@
     "text": "Accountant’s woman, one fated to be disbelieved",
     "enumeration": "9"
    },
-   "solution": "CASSANDRA"
+   "solution": "CASSANDRA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CASSANDRA",
+    "definitions": [
+     {
+      "text": "one fated to be disbelieved",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Accountant’s",
+      "gives": "CAS",
+      "note": "CA is a chartered accountant, with the 's kept"
+     },
+     {
+      "clueFragment": "woman",
+      "gives": "SANDRA",
+      "note": "a woman's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAS",
+      "SANDRA"
+     ]
+    },
+    "explanation": {
+     "surface": "An accountant's wife is doomed never to be believed.",
+     "walkthrough": "The apostrophe-s looks possessive but supplies a letter: CA's gives CAS before the name.",
+     "definitionFit": "In Greek myth the Trojan princess was cursed by Apollo to prophesy truly but never be believed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Accountant’s"
+    }
+   }
   },
   {
    "number": 28,
@@ -466,7 +1902,68 @@
     "text": "Liberal leader with a posh four-wheeled carriage",
     "enumeration": "6"
    },
-   "solution": "LANDAU"
+   "solution": "LANDAU",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LANDAU",
+    "definitions": [
+     {
+      "text": "four-wheeled carriage",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "a leader goes in front, so only the opening letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Liberal",
+      "gives": "L",
+      "select": "first",
+      "note": "first letter of Liberal"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "AND",
+      "note": "and means with or plus"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "posh",
+      "gives": "U",
+      "note": "U means upper-class, as in U and non-U"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "AND",
+      "A",
+      "U"
+     ]
+    },
+    "explanation": {
+     "surface": "A party leader rides in a grand horse-drawn coach.",
+     "walkthrough": "'Posh' giving U comes from 1950s British talk of U (upper-class) and non-U speech and manners.",
+     "definitionFit": "A landau is a horse-drawn four-wheeled vehicle with a folding hood, so it matches the description of a carriage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "with"
+    }
+   }
   },
   {
    "number": 29,
@@ -480,7 +1977,51 @@
     "text": "Variety of conifers connected with court",
     "enumeration": "8"
    },
-   "solution": "FORENSIC"
+   "solution": "FORENSIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FORENSIC",
+    "definitions": [
+     {
+      "text": "connected with court",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Variety of",
+      "for": "anagram",
+      "note": "a variety is a different form of something, so these letters appear in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "conifers",
+      "gives": "CONIFERS",
+      "note": "letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CONIFERS",
+       "gives": "FORENSIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A particular type of pine tree is linked to a royal court.",
+     "walkthrough": "'Court' suggests a palace setting among the trees, but it is a court of law.",
+     "definitionFit": "Forensic describes evidence or methods used in legal proceedings, so it relates to law courts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "court"
+    }
+   }
   }
  ]
 }
