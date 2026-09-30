@@ -144,6 +144,7 @@ LAYOUT = [
     ("annotating", "tools/test_annotate_disclosure.sh", "proves each rule cut from the annotation prompt still arrives through its check, and that the blog lookup is disclosed only once the last few clues are null — never earlier, never blind"),
     ("annotating", "tools/validate_annotations.py", "proves every annotation actually spells its answer, plus the other rules about what a rung may and may not say"),
     ("annotating", "tools/test_indicator_note_letters.sh", "an indicator note may not write a block's letters, since its rung comes before the blocks"),
+    ("annotating", "tools/test_selector_indicator.sh", "a letter selector (\"capital of\", \"initially\") is an indicator, so a new or changed block holds only the words it selects from"),
     ("annotating", "tools/test_anagram_fodder.sh", "an anagram's fodder is drawn from the clue's wordplay and its blocks' letters"),
     ("annotating", "tools/test_indicator_straddle.sh", "an indicator may sit inside a definition but not across its edge"),
     ("annotating", "tools/test_indicator_repeats.sh", "an indicator may repeat in `indicators` only as often as the clue prints it"),
