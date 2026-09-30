@@ -17,6 +17,8 @@ CAN be verified is self-consistency, mechanically and completely:
   * every entry answered (a partial fill would publish a half-solved puzzle)
   * every answer the length the grid wants
   * letters only, so "?" and "TBC" can't sneak in as an answer
+  * every answer's stated definition words of its clue, at one end of it
+    (check_definitions)
   * every crossing cell agreeing between its across and its down
   * every answer a blog we hold for the puzzle names (tools/corroborate.py's
     sources), where it names one: a cell no down word crosses is checked by
@@ -52,6 +54,7 @@ from fetch_puzzle import (read_puzzle_file, reindex,  # noqa: E402
 from grid_fill import MIN_CHECKED_RATIO  # noqa: E402 — the authoring rulebook's floor
 from series import official_key  # noqa: E402
 import corroborate  # noqa: E402
+from definitions import QUOTES  # noqa: E402
 import provenance  # noqa: E402
 from groups import entry_id  # noqa: E402
 
@@ -215,6 +218,81 @@ def check_sources(puzzle, fill, sources=None):
     return problems
 
 
+#: Words that may stand between a definition and its end of the clue: link
+#: words ("As theatre patron, agree: poor play") and example markers.
+LINK_WORDS = {
+    "a", "an", "the", "as", "to", "with", "such", "being", "in", "its", "it", "this",
+    "so", "and", "for", "of", "from", "by", "is", "are", "be", "gets", "get", "that",
+    "what", "here", "one", "ones", "perhaps", "say", "maybe", "possibly", "or", "at",
+    "on", "s", "i", "im", "you", "we", "these", "those", "thus", "how", "when",
+    "where", "which", "who", "like", "given", "giving", "makes", "make", "making",
+    "can", "could", "may", "might", "would", "will", "ive", "youre", "theyre", "hes",
+    "shes", "theres", "heres", "whats"}
+#: At most this many link words between a definition and its end.
+MAX_LINK = 3
+#: A clue that only points at another entry's ("See 5"), and the "(& 6dn.)"
+#: some papers print before the head of a linked clue.
+SEE_CLUE = re.compile(r"(?i)\s*see\b")
+LINKED_PREFIX = re.compile(r"(?i)^\s*\(?&\s*\d+\s*(?:ac|dn|across|down)?\.?\)?\s*")
+
+
+def _fold(s):
+    return re.sub(r"\s+", " ", str(s).translate(QUOTES).lower()).strip()
+
+
+def _only_links(s):
+    words = re.findall(r"[a-z]+", s.replace("'", ""))
+    return len(words) <= MAX_LINK and all(w in LINK_WORDS for w in words)
+
+
+def check_definitions(puzzle, definitions):
+    """Every answer's stated definition as problems: missing, not words of its
+    clue, or in the middle of it. A definition sits at one end of a cryptic
+    clue; words stated as the definition from the middle are wordplay, and an
+    answer fitting them is usually the word the wordplay starts from, before
+    its change is applied (HALLWAY for "At midpoint of entrance area, having
+    change of heart", which is HALFWAY). Over the corpus's 85,199 annotated
+    clues the rule refuses 111 correct definitions (0.13%, one puzzle in 25),
+    most of them written short of their end, which the refusal says to state
+    whole."""
+    problems = []
+    for entry in puzzle["entries"]:
+        eid = entry_id(entry)
+        clue = LINKED_PREFIX.sub("", entry["clue"].get("text", ""))
+        if not clue.strip() or SEE_CLUE.match(clue):
+            continue
+        d = _fold(definitions.get(eid) or "")
+        if not d:
+            problems.append(f"{eid}: no definition given")
+            continue
+        text = _fold(clue)
+        spots = [m.start() for m in re.finditer(re.escape(d), text)]
+        if not spots:
+            problems.append(f"{eid}: the definition {definitions[eid]!r} is not "
+                            f"words of the clue {clue!r}; give them verbatim")
+        elif not any(_only_links(text[:i]) or _only_links(text[i + len(d):]) for i in spots):
+            problems.append(
+                f"{eid}: the definition {definitions[eid]!r} sits in the middle of "
+                f"{clue!r}, but a definition sits at one end. Middle words are wordplay, "
+                "so this answer is probably the word the wordplay starts from: reparse "
+                "until every clue word has a job. If the definition does reach an end, "
+                "state all of it")
+    return problems
+
+
+def split_fill(fill):
+    """(entry id -> answer, entry id -> definition) from a fill whose values are
+    {"answer": ..., "definition": ...}. A bare answer string has no definition,
+    which check_definitions refuses."""
+    answers, defs = {}, {}
+    for eid, value in fill.items():
+        if isinstance(value, dict):
+            answers[eid], defs[eid] = value.get("answer"), value.get("definition")
+        else:
+            answers[eid] = value
+    return answers, defs
+
+
 def render_grid(puzzle, cells):
     w, h = puzzle["dimensions"]["cols"], puzzle["dimensions"]["rows"]
     rows = []
@@ -237,7 +315,8 @@ def main():
     ap.add_argument("number", metavar="puzzle",
                     help="puzzle id (everyman-4166) or bare number (4166)")
     ap.add_argument("--fill", required=True,
-                    help='JSON file mapping entry id -> answer, e.g. {"1-across": "POPULAR FRONT"}')
+                    help='JSON file mapping entry id -> answer and definition, e.g. '
+                         '{"1-across": {"answer": "POPULAR FRONT", "definition": "Left-wing alliance"}}')
     ap.add_argument("--model", default="unknown", help="which model produced the fill")
     ap.add_argument("--check-only", action="store_true",
                     help="report and exit without touching the puzzle file")
@@ -248,12 +327,14 @@ def main():
 
     fill = json.loads(Path(args.fill).read_text(encoding="utf-8"))
     if not isinstance(fill, dict):
-        raise SystemExit("--fill must be a JSON object of entry id -> answer")
+        raise SystemExit('--fill must be a JSON object of entry id -> '
+                         '{"answer": ..., "definition": ...}')
+    fill, defs = split_fill(fill)
 
     cells, crossings, problems = check_fill(puzzle, fill)
     # The grid before the fill: a fill that agrees with an incoherent grid has
     # agreed with nothing, so nothing may be written into one.
-    problems = check_geometry(puzzle) + problems
+    problems = check_geometry(puzzle) + problems + check_definitions(puzzle, defs)
     if not problems:
         problems = check_sources(puzzle, fill)
     print(f"{args.number}: {len(puzzle['entries'])} entries, {len(fill)} answers given, "
