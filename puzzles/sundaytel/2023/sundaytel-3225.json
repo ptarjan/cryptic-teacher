@@ -23,6 +23,9 @@
   "date": "2023-08-23",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,43 @@
     "text": "Captured by generalissimo, untethered horse",
     "enumeration": "5"
    },
-   "solution": "MOUNT"
+   "solution": "MOUNT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "MOUNT",
+    "definitions": [
+     {
+      "text": "horse",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Captured by",
+      "for": "hidden_word",
+      "note": "what is captured by the next words is held inside them, so the answer lies within that stretch of text"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "generalissimo, untethered",
+      "gives": "MOUNT",
+      "note": "the letters run across the join between the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A dictator's loose horse has been rounded up.",
+     "walkthrough": "The answer sits across 'generalissiMO UNTethered'; 'horse' looks like part of the story but is the definition.",
+     "definitionFit": "A mount is the animal a rider sits on, most often a horse, so the two words are synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Captured"
+    }
+   }
   },
   {
    "number": 2,
@@ -50,7 +89,65 @@
     "text": "Clumsily flail about, when back of heel caught in stumble",
     "enumeration": "8"
    },
-   "solution": "FLOUNDER"
+   "solution": "FLOUNDER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "FLOUNDER",
+    "definitions": [
+     {
+      "text": "Clumsily flail about",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back of",
+      "for": "letter_selection",
+      "note": "the back of a word is its final letter, so only the end of 'heel' is used"
+     },
+     {
+      "text": "caught in",
+      "for": "container",
+      "note": "something caught in another thing sits inside it, so the heel's letter goes inside 'stumble'"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stumble",
+      "gives": "FOUNDER",
+      "note": "to founder is to stumble or go lame, used of horses"
+     },
+     {
+      "clueFragment": "back of heel",
+      "gives": "L",
+      "select": "last",
+      "note": "last letter of heel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "L",
+      "OUNDER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone trips over their own heel and flails about clumsily.",
+     "walkthrough": "L slips into FOUNDER after its first letter, giving FLOUNDER.",
+     "definitionFit": "To flounder is to struggle and thrash awkwardly, exactly the clumsy flailing described, so this is a straight synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heel"
+    }
+   }
   },
   {
    "number": 3,
@@ -64,7 +161,63 @@
     "text": "Pharaoh possibly: mummy’s bandaged heading for sarcophagus",
     "enumeration": "6"
    },
-   "solution": "MASTER"
+   "solution": "MASTER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "MASTER",
+    "definitions": [
+     {
+      "text": "Pharaoh possibly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heading for",
+      "for": "letter_selection",
+      "note": "a heading comes at the top, so only the first letter of 'sarcophagus' is used"
+     },
+     {
+      "text": "bandaged",
+      "for": "container",
+      "note": "a bandage wraps round something, so 'mummy' wraps round the letter from the coffin"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mummy",
+      "gives": "MATER",
+      "note": "mater is Latin for mother, a common crossword word for mum"
+     },
+     {
+      "clueFragment": "heading for sarcophagus",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter of sarcophagus"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "S",
+      "TER"
+     ]
+    },
+    "explanation": {
+     "surface": "An Egyptian king's mummy lies wrapped in bandages, ready for its stone coffin.",
+     "walkthrough": "'Mummy' suggests an embalmed body, but here it is mother, MATER; the 's is 'is', so mummy is bandaged round S to make MASTER.",
+     "definitionFit": "A pharaoh ruled his subjects as their lord, and 'possibly' marks him as one example of a master."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "mummy"
+    }
+   }
   },
   {
    "number": 4,
@@ -78,7 +231,55 @@
     "text": "Censor inspector in film",
     "enumeration": "4"
    },
-   "solution": "EDIT"
+   "solution": "EDIT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EDIT",
+    "definitions": [
+     {
+      "text": "Censor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another sits inside it, so the officer goes inside the film"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "film",
+      "gives": "ET",
+      "note": "E.T., the Spielberg film"
+     },
+     {
+      "clueFragment": "inspector",
+      "gives": "DI",
+      "note": "DI = Detective Inspector"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "DI",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "An official checks a film for material to cut.",
+     "walkthrough": "The surface suggests a film classification board; the inspector is a police rank, the detective inspector, not a censor.",
+     "definitionFit": "To censor text or footage is to cut or alter it, which is one kind of editing, so the verbs overlap."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "inspector"
+    }
+   }
   },
   {
    "number": 5,
@@ -92,7 +293,49 @@
     "text": "Newsreader‘s supportive item in the main?",
     "enumeration": "6"
    },
-   "solution": "ANCHOR"
+   "solution": "ANCHOR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ANCHOR",
+    "definitions": [
+     {
+      "text": "Newsreader",
+      "at": 0
+     },
+     {
+      "text": "supportive item in the main",
+      "at": 13
+     }
+    ],
+    "linkWords": [
+     "‘s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Newsreader",
+      "gives": "ANCHOR",
+      "note": "the presenter who fronts a news broadcast"
+     },
+     {
+      "clueFragment": "supportive item in the main",
+      "gives": "ANCHOR",
+      "note": "'the main' is the open sea, and this item holds a ship steady there"
+     }
+    ],
+    "explanation": {
+     "surface": "A question about what keeps a newsreader supported.",
+     "walkthrough": "'The main' is an old word for the sea, which turns 'supportive item' from a newsroom prop into ship's gear.",
+     "definitionFit": "A news anchor is the lead presenter of a bulletin; a ship's anchor holds the vessel in place at sea."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "main"
+    }
+   }
   },
   {
    "number": 6,
@@ -112,7 +355,69 @@
      }
     ]
    },
-   "solution": "BOWWINDOW"
+   "solution": "BOWWINDOW",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "BOW WINDOW",
+    "definitions": [
+     {
+      "text": "Opening",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "the first of a word is its opening letter, so only the start of 'door' is used"
+     },
+     {
+      "text": "covered by",
+      "for": "container",
+      "note": "something covered by another is wrapped inside it, so the dog's word surrounds the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dog",
+      "gives": "BOWWOW",
+      "note": "bow-wow, a child's word for a dog"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "the word itself"
+     },
+     {
+      "clueFragment": "door’s first",
+      "gives": "D",
+      "select": "first",
+      "note": "first letter of door"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOWW",
+      "IN",
+      "D",
+      "OW"
+     ]
+    },
+    "explanation": {
+     "surface": "A dog blocks the doorway just as it opens.",
+     "walkthrough": "'In' is fodder here, not a container signal; the dog is the child's word for it, which splits after its fourth letter.",
+     "definitionFit": "A bow window is a curved bay window, and a window is an opening in a wall, so this is a specific example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 7,
@@ -126,7 +431,47 @@
     "text": "Sweet English writer, incautious",
     "enumeration": "9"
    },
-   "solution": "FOOLHARDY"
+   "solution": "FOOLHARDY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FOOLHARDY",
+    "definitions": [
+     {
+      "text": "incautious",
+      "at": 22
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sweet",
+      "gives": "FOOL",
+      "note": "a fool is a fruit-and-cream dessert, as in gooseberry fool"
+     },
+     {
+      "clueFragment": "English writer",
+      "gives": "HARDY",
+      "note": "Thomas Hardy, English novelist and poet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOOL",
+      "HARDY"
+     ]
+    },
+    "explanation": {
+     "surface": "A charming English author who speaks without thinking.",
+     "walkthrough": "'Sweet' looks like an adjective describing the writer; it is a British pudding, a fool being a fruit fool.",
+     "definitionFit": "Foolhardy means recklessly bold, taking risks without thought, which matches incautious as a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sweet"
+    }
+   }
   },
   {
    "number": 8,
@@ -140,7 +485,62 @@
     "text": "Nose surgery behind some nasal orifice, primarily",
     "enumeration": "5"
    },
-   "solution": "SNOOP"
+   "solution": "SNOOP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SNOOP",
+    "definitions": [
+     {
+      "text": "Nose",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means at the start, so only the first letters of 'some nasal orifice' are used"
+     },
+     {
+      "text": "behind",
+      "for": "charade",
+      "note": "one thing behind another comes after it, so the surgery follows the initials"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "some nasal orifice, primarily",
+      "gives": "SNO",
+      "select": "first",
+      "note": "first letters of some, nasal, orifice"
+     },
+     {
+      "clueFragment": "surgery",
+      "gives": "OP",
+      "note": "op = operation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SNO",
+      "OP"
+     ]
+    },
+    "explanation": {
+     "surface": "A rhinoplasty that works on the back of a nostril.",
+     "walkthrough": "'Nose' reads as the body part in a medical surface, but it is the verb meaning to pry.",
+     "definitionFit": "To nose about is to pry into other people's business, which is exactly what snooping means; a verb synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Nose"
+    }
+   }
   },
   {
    "number": 9,
@@ -154,7 +554,40 @@
     "text": "Top mark in German?",
     "enumeration": "6"
    },
-   "solution": "UMLAUT"
+   "solution": "UMLAUT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "UMLAUT",
+    "definitions": [
+     {
+      "text": "Top mark in German?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Top mark in German?",
+      "note": "surface reading: the highest grade awarded in a German exam"
+     },
+     {
+      "clueFragment": "Top mark",
+      "note": "setter's reading: a mark written on top of a letter, the two dots over a German vowel"
+     }
+    ],
+    "explanation": {
+     "surface": "A pupil asks what the best grade is in German class.",
+     "walkthrough": "'Top mark' wants to be a grade like an A; it is literally a mark placed on top of a letter.",
+     "definitionFit": "The umlaut is the pair of dots written above a, o or u in German, a diacritic sitting above the vowel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Top"
+    }
+   }
   },
   {
    "number": 10,
@@ -168,7 +601,43 @@
     "text": "Slight stain sultanate has covered up",
     "enumeration": "6"
    },
-   "solution": "INSULT"
+   "solution": "INSULT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "INSULT",
+    "definitions": [
+     {
+      "text": "Slight",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has covered up",
+      "for": "hidden_word",
+      "note": "what the phrase has covered up is concealed within it, so the answer lies inside the next words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stain sultanate",
+      "gives": "INSULT",
+      "note": "the letters run across the join between the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A small blot on a sultanate's reputation has been hushed up.",
+     "walkthrough": "The answer sits in 'staIN SULTanate'; 'Slight' reads as an adjective with 'stain' but is the noun definition.",
+     "definitionFit": "A slight is a snub or act of disrespect, the same thing as an insult; both nouns name an affront."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Slight"
+    }
+   }
   },
   {
    "number": 11,
@@ -182,7 +651,60 @@
     "text": "Male bird split by a chopper",
     "enumeration": "8"
    },
-   "solution": "TOMAHAWK"
+   "solution": "TOMAHAWK",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TOMAHAWK",
+    "definitions": [
+     {
+      "text": "chopper",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "split by",
+      "for": "container",
+      "note": "something split by another is pushed apart with it in the gap, so the bird opens to take the letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Male",
+      "gives": "TOM",
+      "note": "a tom is a male cat or turkey"
+     },
+     {
+      "clueFragment": "bird",
+      "gives": "HAWK",
+      "note": "a bird of prey"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the word itself"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOM",
+      "A",
+      "HAWK"
+     ]
+    },
+    "explanation": {
+     "surface": "A cock bird is hacked in two with an axe.",
+     "walkthrough": "'Male bird' is one compound bird name, and the split falls exactly between its two words.",
+     "definitionFit": "A tomahawk is a light Native American axe, and any axe or hatchet can be called a chopper."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "split"
+    }
+   }
   },
   {
    "number": 12,
@@ -196,7 +718,60 @@
     "text": "Party bores a shade blessed",
     "enumeration": "6"
    },
-   "solution": "ADORED"
+   "solution": "ADORED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ADORED",
+    "definitions": [
+     {
+      "text": "blessed",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bores",
+      "for": "container",
+      "note": "to bore is to drill into, so the party goes into the middle of 'a shade'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the word itself"
+     },
+     {
+      "clueFragment": "Party",
+      "gives": "DO",
+      "note": "a do is a party"
+     },
+     {
+      "clueFragment": "shade",
+      "gives": "RED",
+      "note": "red is a shade of colour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "DO",
+      "RED"
+     ]
+    },
+    "explanation": {
+     "surface": "A party-goer finds that a certain hue is boring.",
+     "walkthrough": "'Bores' looks like dull guests at the party; it means drills into, the verb.",
+     "definitionFit": "Blessed can mean revered or worshipped, held in holy regard, which is what adored means in its religious sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bores"
+    }
+   }
   },
   {
    "number": 13,
@@ -210,7 +785,51 @@
     "text": "Exercise where doctor in need of a doctor!",
     "enumeration": "5"
    },
-   "solution": "DRILL"
+   "solution": "DRILL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DRILL",
+    "definitions": [
+     {
+      "text": "Exercise",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "where"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "doctor",
+      "gives": "DR",
+      "note": "Dr = doctor"
+     },
+     {
+      "clueFragment": "in need of a doctor",
+      "gives": "ILL",
+      "note": "someone ill needs medical attention"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DR",
+      "ILL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone at the gym gets hurt and a doctor is needed.",
+     "walkthrough": "The two doctors play different roles: one is the abbreviation, the other is part of a phrase describing a sick person.",
+     "definitionFit": "A drill is a repeated practice routine, as in fire drill or army drill, a common sense of exercise."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Exercise"
+    }
+   }
   },
   {
    "number": 14,
@@ -224,7 +843,50 @@
     "text": "Perfect sound for broadcast",
     "enumeration": "6"
    },
-   "solution": "AIRING"
+   "solution": "AIRING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AIRING",
+    "definitions": [
+     {
+      "text": "broadcast",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Perfect",
+      "gives": "AI",
+      "note": "A1 means first-rate, with the 1 read as the letter I"
+     },
+     {
+      "clueFragment": "sound",
+      "gives": "RING",
+      "note": "a ring is the sound of a bell"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AI",
+      "RING"
+     ]
+    },
+    "explanation": {
+     "surface": "A perfect acoustic for a radio transmission.",
+     "walkthrough": "A1 as a byword for excellent is a British idiom; crosswords often turn its digit into the letter I.",
+     "definitionFit": "An airing is a showing of a programme on radio or television, so it names a single broadcast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Perfect"
+    }
+   }
   },
   {
    "number": 15,
@@ -238,7 +900,55 @@
     "text": "Member’s supporter hosting tour, young man",
     "enumeration": "9"
    },
-   "solution": "STRIPLING"
+   "solution": "STRIPLING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STRIPLING",
+    "definitions": [
+     {
+      "text": "young man",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hosting",
+      "for": "container",
+      "note": "a host has guests inside, so the supporter holds the tour within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Member’s supporter",
+      "gives": "SLING",
+      "note": "a sling supports an injured arm, a limb or member"
+     },
+     {
+      "clueFragment": "tour",
+      "gives": "TRIP",
+      "note": "a trip is a tour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TRIP",
+      "LING"
+     ]
+    },
+    "explanation": {
+     "surface": "A club member's backer is laying on a tour for a youth.",
+     "walkthrough": "'Member' suggests a club or parliament; it is a limb, and a sling supports an arm.",
+     "definitionFit": "A stripling is an old word for a youth who is not yet fully grown, so it names a young man."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Member’s"
+    }
+   }
   },
   {
    "number": 16,
@@ -252,7 +962,47 @@
     "text": "Move about in prison",
     "enumeration": "4"
    },
-   "solution": "STIR"
+   "solution": "STIR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STIR",
+    "definitions": [
+     {
+      "text": "Move about",
+      "at": 0
+     },
+     {
+      "text": "prison",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Move about",
+      "gives": "STIR",
+      "note": "to shift slightly or start to wake"
+     },
+     {
+      "clueFragment": "prison",
+      "gives": "STIR",
+      "note": "an old British slang word for jail, as in doing time"
+     }
+    ],
+    "explanation": {
+     "surface": "An inmate paces around a cell.",
+     "walkthrough": "'Stir' as a slang word for prison is British, as in doing time in stir.",
+     "definitionFit": "To stir is to begin moving, and stir is also an informal word for jail."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -266,7 +1016,43 @@
     "text": "Rapid writer",
     "enumeration": "5"
    },
-   "solution": "SWIFT"
+   "solution": "SWIFT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SWIFT",
+    "definitions": [
+     {
+      "text": "Rapid",
+      "at": 0
+     },
+     {
+      "text": "writer",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rapid",
+      "gives": "SWIFT",
+      "note": "a plain synonym for fast"
+     },
+     {
+      "clueFragment": "writer",
+      "gives": "SWIFT",
+      "note": "the Irish satirist who wrote Gulliver's Travels"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The clue reads as a writer who works fast; both words are definitions.",
+     "definitionFit": "Swift is an ordinary synonym for fast, and Jonathan Swift was the Irish satirist behind Gulliver's Travels."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -280,7 +1066,54 @@
     "text": "Looking to take out a line",
     "enumeration": "6"
    },
-   "solution": "STRING"
+   "solution": "STRING",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "STRING",
+    "definitions": [
+     {
+      "text": "line",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to take out",
+      "for": "deletion",
+      "note": "to take something out is to remove it, so the next word 'a' is dropped from 'looking'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Looking",
+      "gives": "STARING",
+      "note": "staring = looking fixedly"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the letter removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "RING"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hoping to take a fishing line out on the water.",
+     "walkthrough": "'Looking to' wants to mean hoping to; it is STARING, and 'to take out a' removes its A.",
+     "definitionFit": "A string is a length of cord or thread, and a line is the same thing, as in fishing line."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Looking"
+    }
+   }
   },
   {
    "number": 18,
@@ -294,7 +1127,54 @@
     "text": "Fund band that’s retrogressive",
     "enumeration": "4"
    },
-   "solution": "POOL"
+   "solution": "POOL",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "POOL",
+    "definitions": [
+     {
+      "text": "Fund",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "that’s retrogressive",
+      "for": "reversal",
+      "note": "retrogressive means going backwards, so the band is read from its end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "band",
+      "gives": "LOOP",
+      "note": "a loop is a band or ring"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POOL"
+     ],
+     "reversals": [
+      {
+       "from": "LOOP",
+       "to": "POOL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Raising money for a music group that has gone backwards in style.",
+     "walkthrough": "'Band' suggests musicians; here it is a loop, like a rubber band.",
+     "definitionFit": "A pool is a shared kitty of money that people pay into, which is a fund in the common sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "band"
+    }
+   }
   },
   {
    "number": 18,
@@ -308,7 +1188,55 @@
     "text": "View girl cradled by parents",
     "enumeration": "8"
    },
-   "solution": "PANORAMA"
+   "solution": "PANORAMA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PANORAMA",
+    "definitions": [
+     {
+      "text": "View",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cradled by",
+      "for": "container",
+      "note": "something cradled by another is held inside its arms, so the parents surround the girl"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "parents",
+      "gives": "PAMA",
+      "note": "pa and ma, dad and mum"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "NORA",
+      "note": "a girl's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "NORA",
+      "MA"
+     ]
+    },
+    "explanation": {
+     "surface": "A family scene: a baby girl held by her mother and father.",
+     "walkthrough": "The parents part to hold the girl between them, one on each side, just as the surface pictures a baby being held.",
+     "definitionFit": "A panorama is a wide, unbroken scene of the landscape, so it is a sweeping kind of view."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "View"
+    }
+   }
   },
   {
    "number": 19,
@@ -322,7 +1250,46 @@
     "text": "Kid irritated crab?",
     "enumeration": "6"
    },
-   "solution": "NIPPER"
+   "solution": "NIPPER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NIPPER",
+    "definitions": [
+     {
+      "text": "Kid",
+      "at": 0
+     },
+     {
+      "text": "irritated crab?",
+      "at": 4
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Kid",
+      "gives": "NIPPER",
+      "note": "British slang for a small child"
+     },
+     {
+      "clueFragment": "irritated crab?",
+      "gives": "NIPPER",
+      "note": "a crab that is annoyed pinches with its claws, making it something that nips"
+     }
+    ],
+    "explanation": {
+     "surface": "A child is as grumpy as a cross crab.",
+     "walkthrough": "'Kid' reads as a verb to tease; it is a youngster. The question mark flags the playful second definition.",
+     "definitionFit": "A nipper is informal British for a young child, and literally anything that pinches, such as a crab's claw."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Kid"
+    }
+   }
   },
   {
    "number": 20,
@@ -336,7 +1303,54 @@
     "text": "Dialect in soap, it proving incomprehensible",
     "enumeration": "6"
    },
-   "solution": "PATOIS"
+   "solution": "PATOIS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PATOIS",
+    "definitions": [
+     {
+      "text": "Dialect",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "proving incomprehensible",
+      "for": "anagram",
+      "note": "something incomprehensible is jumbled beyond sense, so the preceding letters are scrambled"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soap, it",
+      "gives": "SOAPIT",
+      "note": "anagram fodder, 6 letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SOAPIT",
+       "gives": "PATOIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Viewers cannot follow a TV soap because of the regional dialect.",
+     "walkthrough": "'In' is a link here, not a container signal; the fodder is simply the two words that follow.",
+     "definitionFit": "A patois is a local or regional form of speech, often non-standard, so it is a kind of dialect."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "soap"
+    }
+   }
   },
   {
    "number": 21,
@@ -350,7 +1364,55 @@
     "text": "Myth for example written in advance",
     "enumeration": "6"
    },
-   "solution": "LEGEND"
+   "solution": "LEGEND",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LEGEND",
+    "definitions": [
+     {
+      "text": "Myth",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "written in",
+      "for": "container",
+      "note": "something written in a document is set inside it, so the abbreviation goes inside 'advance'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "advance",
+      "gives": "LEND",
+      "note": "to advance money is to lend it"
+     },
+     {
+      "clueFragment": "for example",
+      "gives": "EG",
+      "note": "e.g. = for example"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "EG",
+      "END"
+     ]
+    },
+    "explanation": {
+     "surface": "A story is set down on paper before it happens.",
+     "walkthrough": "'In advance' wants to be read as beforehand; 'advance' is a loan, and 'written in' is the container signal.",
+     "definitionFit": "A legend is a traditional story, often not historically true, which makes it a close synonym of myth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "advance"
+    }
+   }
   },
   {
    "number": 22,
@@ -364,7 +1426,74 @@
     "text": "Seal takes off after first of geese",
     "enumeration": "6"
    },
-   "solution": "GASKET"
+   "solution": "GASKET",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "GASKET",
+    "definitions": [
+     {
+      "text": "Seal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first of",
+      "for": "letter_selection",
+      "note": "the first of a word is its opening letter, so only the start of 'geese' is used"
+     },
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "off means gone wrong or awry, so the letters of 'takes' are rearranged"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "one piece placed after another comes second, so the rearranged word follows the goose's letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "first of geese",
+      "gives": "G",
+      "select": "first",
+      "note": "first letter of geese"
+     },
+     {
+      "clueFragment": "takes",
+      "gives": "TAKES",
+      "note": "anagram fodder, 5 letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "ASKET"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TAKES",
+       "gives": "ASKET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A seal flies off in pursuit of the leading goose.",
+     "walkthrough": "'Takes off' looks like a phrasal verb for flying away; 'takes' is fodder and 'off' the anagram signal.",
+     "definitionFit": "A gasket is a rubber or fibre ring fitted between two surfaces to stop leaks, a mechanical seal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Seal"
+    }
+   }
   },
   {
    "number": 23,
@@ -378,7 +1507,61 @@
     "text": "Thin layer over top of tapestry broke",
     "enumeration": "5"
    },
-   "solution": "SKINT"
+   "solution": "SKINT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SKINT",
+    "definitions": [
+     {
+      "text": "broke",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "top of",
+      "for": "letter_selection",
+      "note": "the top of a word in a down clue is its first letter, so only the start of 'tapestry' is used"
+     },
+     {
+      "text": "over",
+      "for": "charade",
+      "note": "in a down clue one piece over another is written above it, so the layer comes first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Thin layer",
+      "gives": "SKIN",
+      "note": "a skin is a thin outer layer"
+     },
+     {
+      "clueFragment": "top of tapestry",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter of tapestry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SKIN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A tapestry has worn so thin at the top that it broke.",
+     "walkthrough": "'Broke' looks like a verb about the fabric tearing; it is the adjective, having no money. Skint is British slang.",
+     "definitionFit": "Skint is informal British for penniless, having no money at all, the same meaning as broke."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "broke"
+    }
+   }
   },
   {
    "number": 24,
@@ -392,7 +1575,51 @@
     "text": "Peculiar man lit up, whitish-grey",
     "enumeration": "8"
    },
-   "solution": "PLATINUM"
+   "solution": "PLATINUM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PLATINUM",
+    "definitions": [
+     {
+      "text": "whitish-grey",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Peculiar",
+      "for": "anagram",
+      "note": "peculiar means strange or out of the ordinary, so the letters that follow come out in an odd order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "man lit up",
+      "gives": "MANLITUP",
+      "note": "anagram fodder, 8 letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MANLITUP",
+       "gives": "PLATINUM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An odd fellow lit up and turned pale grey.",
+     "walkthrough": "'Lit up' looks like a verb about the man; it is simply part of the fodder.",
+     "definitionFit": "Platinum is a precious metal whose silvery colour gives its name to a pale grey-white shade, as in platinum blonde."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lit"
+    }
+   }
   },
   {
    "number": 25,
@@ -406,7 +1633,45 @@
     "text": "Come across food for the audience?",
     "enumeration": "4"
    },
-   "solution": "MEET"
+   "solution": "MEET",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "MEET",
+    "definitions": [
+     {
+      "text": "Come across",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for the audience",
+      "for": "homophone",
+      "note": "an audience hears rather than reads, so the word is taken by how it is said"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "food",
+      "gives": "MEET",
+      "soundsLike": "MEAT",
+      "note": "meat is food, and said aloud matches the answer"
+     }
+    ],
+    "explanation": {
+     "surface": "Catering is laid out for the audience at a show.",
+     "walkthrough": "The question mark admits that 'food for the audience' is a stretch; it is meat said, not written.",
+     "definitionFit": "To meet someone is to encounter them, the same as coming across them by chance; a verb synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "audience"
+    }
+   }
   },
   {
    "number": 26,
@@ -420,7 +1685,43 @@
     "text": "Hammer action",
     "enumeration": "6"
    },
-   "solution": "STRIKE"
+   "solution": "STRIKE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STRIKE",
+    "definitions": [
+     {
+      "text": "Hammer",
+      "at": 0
+     },
+     {
+      "text": "action",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hammer",
+      "gives": "STRIKE",
+      "note": "to hammer is to hit hard"
+     },
+     {
+      "clueFragment": "action",
+      "gives": "STRIKE",
+      "note": "short for industrial action, a workers' walkout"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Action' is short for industrial action, the British phrase for workers walking out.",
+     "definitionFit": "To strike is to hit, as a hammer does, and a strike is a workers' walkout, often called industrial action."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -434,7 +1735,58 @@
     "text": "Slow mover‘s cruise round pole",
     "enumeration": "5"
    },
-   "solution": "SNAIL"
+   "solution": "SNAIL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SNAIL",
+    "definitions": [
+     {
+      "text": "Slow mover",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "container",
+      "note": "going round something encloses it, so 'cruise' surrounds the pole"
+     }
+    ],
+    "linkWords": [
+     "‘s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cruise",
+      "gives": "SAIL",
+      "note": "to cruise is to sail"
+     },
+     {
+      "clueFragment": "pole",
+      "gives": "N",
+      "note": "N = north pole"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "N",
+      "AIL"
+     ]
+    },
+    "explanation": {
+     "surface": "A sluggish ship takes a cruise around the Pole.",
+     "walkthrough": "'Pole' suggests the Arctic; in crosswords it is N or S, one of the magnetic poles.",
+     "definitionFit": "The snail is proverbial for slowness, so a slow mover is a fair description of the creature."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pole"
+    }
+   }
   },
   {
    "number": 28,
@@ -454,7 +1806,67 @@
      }
     ]
    },
-   "solution": "NEVERMIND"
+   "solution": "NEVERMIND",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "NEVER MIND",
+    "definitions": [
+     {
+      "text": "oh well!",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retired",
+      "for": "reversal",
+      "note": "to retire is to withdraw backwards, so 'office' is read from its end"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another sits inside it, so the scum goes inside the office"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "office",
+      "gives": "DEN",
+      "note": "a den is a private study or office"
+     },
+     {
+      "clueFragment": "Scum",
+      "gives": "VERMIN",
+      "note": "vermin = worthless people, scum"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NE",
+      "VERMIN",
+      "D"
+     ],
+     "reversals": [
+      {
+       "from": "DEN",
+       "to": "NED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sigh on learning that a disreputable person has left the office.",
+     "walkthrough": "'Retired' looks like the scum has left work; it turns the office round, and 'oh well!' is the whole definition.",
+     "definitionFit": "Both are shrugging interjections of resignation, used when something is not worth worrying about, so the phrases are equivalent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "retired"
+    }
+   }
   }
  ]
 }
