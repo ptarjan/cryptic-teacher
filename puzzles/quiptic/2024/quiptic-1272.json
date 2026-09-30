@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,50 @@
     "text": "Male to consume pork?",
     "enumeration": "4"
    },
-   "solution": "MEAT"
+   "solution": "MEAT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MEAT",
+    "definitions": [
+     {
+      "text": "pork?",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Male",
+      "gives": "M",
+      "note": "M is the standard abbreviation for male"
+     },
+     {
+      "clueFragment": "consume",
+      "gives": "EAT",
+      "note": "to consume food is to eat it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "EAT"
+     ]
+    },
+    "explanation": {
+     "surface": "A question of whether a man ought to eat pork.",
+     "walkthrough": "The question mark flags a definition by example: pork is one kind of the answer, not a synonym for it.",
+     "definitionFit": "Pork is one instance of animal flesh eaten as food, hence the question mark marking an example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pork"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +93,61 @@
     "text": "Work? Not I – terrible choice!",
     "enumeration": "6"
    },
-   "solution": "OPTION"
+   "solution": "OPTION",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "OPTION",
+    "definitions": [
+     {
+      "text": "choice",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "terrible",
+      "for": "anagram",
+      "note": "something terrible is in a bad state, so these letters are wrecked into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Work",
+      "gives": "OP",
+      "note": "OP is short for opus, a musical work"
+     },
+     {
+      "clueFragment": "Not I",
+      "gives": "NOTI",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OP",
+      "TION"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NOTI",
+       "gives": "TION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone refusing a job and calling it an awful choice.",
+     "walkthrough": "OP (opus) is the crossword's usual abbreviation for a work; 'Not I' is not a refusal but four letters to rearrange.",
+     "definitionFit": "An option is one of several possibilities you may pick, so it is a straight synonym of choice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Not"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +161,51 @@
     "text": "European club joined by two men",
     "enumeration": "10"
    },
-   "solution": "MACEDONIAN"
+   "solution": "MACEDONIAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MACEDONIAN",
+    "definitions": [
+     {
+      "text": "European",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "joined by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "club",
+      "gives": "MACE",
+      "note": "a mace is a heavy club used as a weapon"
+     },
+     {
+      "clueFragment": "two men",
+      "gives": "DONIAN",
+      "note": "two men's names, Don and Ian"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MACE",
+      "DON",
+      "IAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A continental football club signs two new players.",
+     "walkthrough": "'European club' reads as a football team, but the club is a weapon and the two men are simply Don and Ian.",
+     "definitionFit": "A Macedonian is a native of North Macedonia or the Greek region of Macedonia, both in Europe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "club"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +219,48 @@
     "text": "Skin problem? Phone America!",
     "enumeration": "6"
    },
-   "solution": "CALLUS"
+   "solution": "CALLUS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CALLUS",
+    "definitions": [
+     {
+      "text": "Skin problem?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Phone",
+      "gives": "CALL",
+      "note": "to phone someone is to call them"
+     },
+     {
+      "clueFragment": "America",
+      "gives": "US",
+      "note": "US is short for the United States of America"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CALL",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "An advert-style pitch: got a skin complaint? Ring an American helpline.",
+     "walkthrough": "The exclamation makes it read like a slogan; the command splits into a verb and a country abbreviation.",
+     "definitionFit": "A callus is a thickened, hardened patch of skin from repeated friction, a minor dermatological complaint."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Phone"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +274,54 @@
     "text": "Get me to grab rotten fruit",
     "enumeration": "8"
    },
-   "solution": "BERGAMOT"
+   "solution": "BERGAMOT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BERGAMOT",
+    "definitions": [
+     {
+      "text": "fruit",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rotten",
+      "for": "anagram",
+      "note": "rotten things have broken down, so these letters decay into a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "Get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "me to grab",
+      "gives": "METOGRAB",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "METOGRAB",
+       "gives": "BERGAMOT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to snatch some fruit that has gone off.",
+     "walkthrough": "'Rotten fruit' looks like one phrase, but 'rotten' works on the three words before it and only 'fruit' defines.",
+     "definitionFit": "The bergamot is a small sour citrus fruit whose rind oil flavours Earl Grey tea."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rotten"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +335,47 @@
     "text": "Duck enclosure not shut up",
     "enumeration": "4"
    },
-   "solution": "OPEN"
+   "solution": "OPEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OPEN",
+    "definitions": [
+     {
+      "text": "not shut up",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Duck",
+      "gives": "O",
+      "note": "a duck is a score of nothing in cricket, the letter O"
+     },
+     {
+      "clueFragment": "enclosure",
+      "gives": "PEN",
+      "note": "a pen is an enclosure for animals"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "PEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A duck pen that has been left unlocked.",
+     "walkthrough": "A duck is cricket's zero, written as O; 'shut up' means closed, not silenced.",
+     "definitionFit": "Something not shut up is unlocked and accessible, the ordinary adjectival sense of the word."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Duck"
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +389,56 @@
     "text": "A quiet relation, that’s obvious",
     "enumeration": "8"
    },
-   "solution": "APPARENT"
+   "solution": "APPARENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "APPARENT",
+    "definitions": [
+     {
+      "text": "obvious",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "that’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "quiet",
+      "gives": "P",
+      "note": "p, piano, is the musical marking for quiet"
+     },
+     {
+      "clueFragment": "relation",
+      "gives": "PARENT",
+      "note": "a parent is a close relation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "P",
+      "PARENT"
+     ]
+    },
+    "explanation": {
+     "surface": "Remarking that a silent relative's feelings are plain to see.",
+     "walkthrough": "P for quiet comes from musical notation, where p (piano) means play softly.",
+     "definitionFit": "Apparent means clearly visible or plainly evident, a direct synonym of obvious."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "quiet"
+    }
+   }
   },
   {
    "number": 8,
@@ -131,7 +452,55 @@
     "text": "Attempt to carry a carrier",
     "enumeration": "4"
    },
-   "solution": "TRAY"
+   "solution": "TRAY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TRAY",
+    "definitions": [
+     {
+      "text": "carrier",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to carry",
+      "for": "container",
+      "note": "to carry something is to hold it within your grasp, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Attempt",
+      "gives": "TRY",
+      "note": "to attempt is to try"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TR",
+      "A",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Trying to lift a bag or a porter.",
+     "walkthrough": "'Carrier' suggests a bag or airline; here it is anything flat used for bringing items to a table.",
+     "definitionFit": "A tray is a flat board with a rim for bearing dishes or drinks from place to place."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "carrier"
+    }
+   }
   },
   {
    "number": 9,
@@ -145,7 +514,43 @@
     "text": "Part of Mollie’s plan: a delightful walk by the seaside?",
     "enumeration": "9"
    },
-   "solution": "ESPLANADE"
+   "solution": "ESPLANADE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ESPLANADE",
+    "definitions": [
+     {
+      "text": "walk by the seaside?",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Part of",
+      "for": "hidden_word",
+      "note": "only a portion of the following run of text is wanted, a stretch sitting across word breaks"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mollie’s plan: a delightful",
+      "gives": "ESPLANADE",
+      "note": "a continuous string runs from the end of the name into the last word"
+     }
+    ],
+    "explanation": {
+     "surface": "Mollie has a scheme for a lovely stroll along the coast.",
+     "walkthrough": "The run starts at the E ending Mollie and finishes inside 'delightful'; the colon and apostrophe are ignored.",
+     "definitionFit": "A promenade along a seafront, laid out for strolling, is exactly this kind of public walkway."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "plan"
+    }
+   }
   },
   {
    "number": 10,
@@ -159,7 +564,59 @@
     "text": "Stuff hanging on wall? It is the norm around gym",
     "enumeration": "5"
    },
-   "solution": "PAPER"
+   "solution": "PAPER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PAPER",
+    "definitions": [
+     {
+      "text": "Stuff hanging on wall?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "going around something encloses it, so one piece wraps the other"
+     }
+    ],
+    "linkWords": [
+     "It is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the norm",
+      "gives": "PAR",
+      "note": "par is the normal or expected standard"
+     },
+     {
+      "clueFragment": "gym",
+      "gives": "PE",
+      "note": "PE, physical education, is school gym"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "PE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asking about wall hangings in a gym and being told they are standard.",
+     "walkthrough": "PE (physical education) is the British school name for gym class; the question mark marks a cryptic definition, wallpaper being the stuff hung on walls.",
+     "definitionFit": "Wallpaper is paper pasted to a wall, so the material itself is what hangs there, playfully clued."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hanging"
+    }
+   }
   },
   {
    "number": 11,
@@ -173,7 +630,57 @@
     "text": "Food taking time to mature",
     "enumeration": "5"
    },
-   "solution": "TRIPE"
+   "solution": "TRIPE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TRIPE",
+    "definitions": [
+     {
+      "text": "Food",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking",
+      "for": "charade",
+      "note": "one thing taking another picks it up and adds it alongside, so pieces are joined"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "mature",
+      "gives": "RIPE",
+      "note": "fruit that has matured is ripe"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RIPE"
+     ]
+    },
+    "explanation": {
+     "surface": "Some food that needs time before it is ready to eat.",
+     "walkthrough": "'Mature' is an adjective here, not a verb; tripe is the stomach lining of cattle, eaten in Britain and elsewhere.",
+     "definitionFit": "Tripe, the edible stomach lining of cows or sheep, is a traditional offal dish and so a kind of eating matter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mature"
+    }
+   }
   },
   {
    "number": 12,
@@ -187,7 +694,56 @@
     "text": "Fabled lad playing with energy",
     "enumeration": "9"
    },
-   "solution": "LEGENDARY"
+   "solution": "LEGENDARY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LEGENDARY",
+    "definitions": [
+     {
+      "text": "Fabled",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "playing",
+      "for": "anagram",
+      "note": "playing about with something moves it around freely, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lad",
+      "gives": "LAD",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "ENERGY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LADENERGY",
+       "gives": "LEGENDARY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A famous boy performing with great vigour.",
+     "walkthrough": "'With' simply adds the second word to the letters to be rearranged; 'energy' is used whole, not abbreviated to E.",
+     "definitionFit": "Something fabled is told of in stories and myths, which is the core sense of legendary."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "playing"
+    }
+   }
   },
   {
    "number": 13,
@@ -201,7 +757,51 @@
     "text": "In dances one finds beat disappears",
     "enumeration": "7"
    },
-   "solution": "TANGOES"
+   "solution": "TANGOES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TANGOES",
+    "definitions": [
+     {
+      "text": "dances",
+      "at": 3
+     }
+    ],
+    "linkWords": [
+     "In",
+     "one finds"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beat",
+      "gives": "TAN",
+      "note": "to tan someone's hide is to beat them"
+     },
+     {
+      "clueFragment": "disappears",
+      "gives": "GOES",
+      "note": "something that disappears goes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAN",
+      "GOES"
+     ]
+    },
+    "explanation": {
+     "surface": "A dancer loses the rhythm mid-performance.",
+     "walkthrough": "'Beat' suggests musical rhythm but means thrash; 'dances' is a verb, matching the third-person verb answer.",
+     "definitionFit": "To tango is to perform the Argentine ballroom dance, so the verb form fits a person who dances."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "beat"
+    }
+   }
   },
   {
    "number": 13,
@@ -215,7 +815,59 @@
     "text": "Potato maybe in container here when peeled",
     "enumeration": "5"
    },
-   "solution": "TUBER"
+   "solution": "TUBER",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "TUBER",
+    "definitions": [
+     {
+      "text": "Potato maybe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when peeled",
+      "for": "letter_selection",
+      "note": "peeling removes the skin, so the outermost letters are stripped and the inside kept"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "container",
+      "gives": "TUB",
+      "note": "a tub is a container"
+     },
+     {
+      "clueFragment": "here",
+      "gives": "ER",
+      "select": "middle",
+      "note": "the word with its first and last letters removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TUB",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "Potatoes being peeled here and put in a bowl.",
+     "walkthrough": "Peeling fits a potato, which is what makes the indicator hide so well.",
+     "definitionFit": "A potato is a swollen underground stem storing starch, the classic example of this plant part, hence 'maybe'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "peeled"
+    }
+   }
   },
   {
    "number": 14,
@@ -229,7 +881,54 @@
     "text": "Girls and men said to be bad",
     "enumeration": "7"
    },
-   "solution": "MAIDENS"
+   "solution": "MAIDENS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MAIDENS",
+    "definitions": [
+     {
+      "text": "Girls",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be bad",
+      "for": "anagram",
+      "note": "something gone bad has spoilt, so these letters fall into a different order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "men said",
+      "gives": "MENSAID",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MENSAID",
+       "gives": "MAIDENS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A report that both women and men are reputed to be wicked.",
+     "walkthrough": "'Said' tempts a solver to hunt for a sound-alike, but it is just four letters in the mix.",
+     "definitionFit": "Maidens is an old-fashioned word for young unmarried women, so it stands for girls."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "said"
+    }
+   }
   },
   {
    "number": 15,
@@ -243,7 +942,54 @@
     "text": "Unlikely pair, solemn and distant",
     "enumeration": "10"
    },
-   "solution": "IMPERSONAL"
+   "solution": "IMPERSONAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IMPERSONAL",
+    "definitions": [
+     {
+      "text": "distant",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Unlikely",
+      "for": "anagram",
+      "note": "an unlikely version is an improbable one, so these letters are forced into a strange arrangement"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pair, solemn",
+      "gives": "PAIRSOLEMN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PAIRSOLEMN",
+       "gives": "IMPERSONAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mismatched couple, one grave and the other aloof.",
+     "walkthrough": "'Solemn and distant' reads as a two-part description, but 'and' only joins the letters to the definition.",
+     "definitionFit": "Someone distant is cool and unfriendly, lacking warmth or personal feeling towards others."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pair"
+    }
+   }
   },
   {
    "number": 16,
@@ -257,7 +1003,50 @@
     "text": "Second implement found in seat",
     "enumeration": "5"
    },
-   "solution": "STOOL"
+   "solution": "STOOL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STOOL",
+    "definitions": [
+     {
+      "text": "seat",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "found in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     },
+     {
+      "clueFragment": "implement",
+      "gives": "TOOL",
+      "note": "an implement is a tool"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TOOL"
+     ]
+    },
+    "explanation": {
+     "surface": "A spare tool turns up down the side of a chair.",
+     "walkthrough": "'Found in' sounds like a container signal but only links the parts to the definition.",
+     "definitionFit": "A stool is a backless chair for one person, a basic kind of seat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "found"
+    }
+   }
   },
   {
    "number": 17,
@@ -271,7 +1060,60 @@
     "text": "Bishop has ambition – not half! – to be in children’s film",
     "enumeration": "5"
    },
-   "solution": "BAMBI"
+   "solution": "BAMBI",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "BAMBI",
+    "definitions": [
+     {
+      "text": "children’s film",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not half",
+      "for": "deletion",
+      "note": "not half means only half is kept, so the back half is dropped"
+     }
+    ],
+    "linkWords": [
+     "has",
+     "to be in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bishop",
+      "gives": "B",
+      "note": "B is the chess abbreviation for bishop"
+     },
+     {
+      "clueFragment": "ambition",
+      "gives": "AMBITION",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "AMBI"
+     ]
+    },
+    "explanation": {
+     "surface": "A cleric longing, very much, to star in a family movie.",
+     "walkthrough": "'Not half!' is also a British exclamation meaning 'very much', which is how the surface hides the instruction.",
+     "definitionFit": "Bambi is the 1942 Disney animated feature about a young deer, made for younger viewers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "half"
+    }
+   }
   },
   {
    "number": 18,
@@ -285,7 +1127,61 @@
     "text": "Assert chief ain’t wicked",
     "enumeration": "8"
    },
-   "solution": "MAINTAIN"
+   "solution": "MAINTAIN",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "MAINTAIN",
+    "definitions": [
+     {
+      "text": "Assert",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wicked",
+      "for": "anagram",
+      "note": "wicked behaviour is disorderly and twisted, so these letters are scrambled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chief",
+      "gives": "MAIN",
+      "note": "chief means main, principal"
+     },
+     {
+      "clueFragment": "ain’t",
+      "gives": "AINT",
+      "note": "taken as written, without the apostrophe"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAIN",
+      "TAIN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AINT",
+       "gives": "TAIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone insisting the boss is not evil.",
+     "walkthrough": "The slang 'ain't' supplies four letters once the apostrophe is dropped.",
+     "definitionFit": "To maintain a claim is to state firmly that it is true, the same sense as assert."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wicked"
+    }
+   }
   },
   {
    "number": 19,
@@ -299,7 +1195,58 @@
     "text": "Squat as one blocking street",
     "enumeration": "3"
    },
-   "solution": "SIT"
+   "solution": "SIT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SIT",
+    "definitions": [
+     {
+      "text": "Squat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "blocking",
+      "for": "container",
+      "note": "something blocking a road sits in the middle of it, so one piece lies inside the other"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "street",
+      "gives": "ST",
+      "note": "ST is the abbreviation for street"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "I",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A protester crouching in the road to obstruct traffic.",
+     "walkthrough": "A squat is also an occupied building, which pulls toward a noun; here it is a verb meaning to perch or sit down.",
+     "definitionFit": "To squat is to crouch or perch low, a way of being seated, so the verbs overlap."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Squat"
+    }
+   }
   },
   {
    "number": 19,
@@ -313,7 +1260,56 @@
     "text": "Deposit dispatched – small amount of money enclosed",
     "enumeration": "8"
    },
-   "solution": "SEDIMENT"
+   "solution": "SEDIMENT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SEDIMENT",
+    "definitions": [
+     {
+      "text": "Deposit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "enclosed",
+      "for": "container",
+      "note": "something enclosed is shut inside another thing, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dispatched",
+      "gives": "SENT",
+      "note": "a thing dispatched has been sent"
+     },
+     {
+      "clueFragment": "small amount of money",
+      "gives": "DIME",
+      "note": "a dime is a US ten-cent coin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "DIME",
+      "NT"
+     ]
+    },
+    "explanation": {
+     "surface": "A bank deposit posted off with a little cash inside the envelope.",
+     "walkthrough": "'Deposit' suggests money, especially beside 'money'; it is the geological sense, matter settling out of a liquid.",
+     "definitionFit": "Sediment is material that settles to the bottom of a liquid, which geologists call a deposit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Deposit"
+    }
+   }
   },
   {
    "number": 20,
@@ -327,7 +1323,44 @@
     "text": "Some occupation that may be outside the house",
     "enumeration": "5"
    },
-   "solution": "PATIO"
+   "solution": "PATIO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "PATIO",
+    "definitions": [
+     {
+      "text": "that may be outside the house",
+      "at": 16,
+      "note": "a relative clause standing for 'something that may be outside the house', so it names a thing"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some of a word is only a part of it, so a stretch within it is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "occupation",
+      "gives": "PATIO",
+      "note": "the middle letters of the word"
+     }
+    ],
+    "explanation": {
+     "surface": "A job that might be done outdoors rather than at home.",
+     "walkthrough": "The run sits in the middle of the single word 'occupation'.",
+     "definitionFit": "A paved area beside a house for sitting and eating outdoors is found just outside the building."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "occupation"
+    }
+   }
   },
   {
    "number": 21,
@@ -341,7 +1374,48 @@
     "text": "Came down, reportedly, and acted as monarch",
     "enumeration": "7"
    },
-   "solution": "REIGNED"
+   "solution": "REIGNED",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "REIGNED",
+    "definitions": [
+     {
+      "text": "acted as monarch",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "a report is spoken, so the word is heard rather than read"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Came down",
+      "gives": "REIGNED",
+      "soundsLike": "RAINED",
+      "note": "rain comes down from the sky"
+     }
+    ],
+    "explanation": {
+     "surface": "A king who descended from the throne and still ruled.",
+     "walkthrough": "'Came down' is the weather, rain falling, not a descent.",
+     "definitionFit": "To reign is to rule as king or queen, so having reigned means having ruled a kingdom."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Came"
+    }
+   }
   },
   {
    "number": 22,
@@ -355,7 +1429,55 @@
     "text": "Sweet desert animal carrying artist",
     "enumeration": "7"
    },
-   "solution": "CARAMEL"
+   "solution": "CARAMEL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CARAMEL",
+    "definitions": [
+     {
+      "text": "Sweet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "carrying",
+      "for": "container",
+      "note": "a creature carrying a load holds it within, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "desert animal",
+      "gives": "CAMEL",
+      "note": "the camel is the animal of the desert"
+     },
+     {
+      "clueFragment": "artist",
+      "gives": "RA",
+      "note": "RA, Royal Academician, is a recognised artist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "RA",
+      "MEL"
+     ]
+    },
+    "explanation": {
+     "surface": "A lovely camel bearing a painter across the sand.",
+     "walkthrough": "'Sweet' reads as an adjective praising the animal but is the noun definition; RA is a member of the Royal Academy of Arts.",
+     "definitionFit": "A caramel is a chewy toffee-like confection of cooked sugar, butter and milk, a British sweet or candy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sweet"
+    }
+   }
   },
   {
    "number": 22,
@@ -369,7 +1491,43 @@
     "text": "HQ maybe in decent region",
     "enumeration": "6"
    },
-   "solution": "CENTRE"
+   "solution": "CENTRE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "CENTRE",
+    "definitions": [
+     {
+      "text": "HQ maybe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the answer is contained inside the words that follow, spanning a break between them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "decent region",
+      "gives": "CENTRE",
+      "note": "a run of letters across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Headquarters might be in a respectable district.",
+     "walkthrough": "The British spelling ending -RE is what the letters give; American readers would expect -ER.",
+     "definitionFit": "A headquarters is the hub from which an organisation is run, one example of a central base, hence 'maybe'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "decent"
+    }
+   }
   },
   {
    "number": 23,
@@ -389,7 +1547,64 @@
      }
     ]
    },
-   "solution": "MADEIT"
+   "solution": "MADEIT",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "MADE IT",
+    "definitions": [
+     {
+      "text": "achieved the desired result",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "a new version is a remade one, so these letters take a fresh form"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mum",
+      "gives": "MA",
+      "note": "Ma is a familiar word for mother"
+     },
+     {
+      "clueFragment": "diet",
+      "gives": "DIET",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "DEIT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DIET",
+       "gives": "DEIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Mother tried a fresh eating plan and it worked.",
+     "walkthrough": "'On' just places one part before the next; the whole surface is a neat story whose ending is the answer.",
+     "definitionFit": "To make it is an idiom meaning to succeed or reach a goal, matching achieving the desired result."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "new"
+    }
+   }
   },
   {
    "number": 24,
@@ -403,7 +1618,39 @@
     "text": "Worker who may shift stock",
     "enumeration": "9"
    },
-   "solution": "CATTLEMAN"
+   "solution": "CATTLEMAN",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CATTLEMAN",
+    "definitions": [
+     {
+      "text": "Worker who may shift stock",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Worker who may shift stock",
+      "note": "surface reading: a shop or warehouse employee who sells or moves goods"
+     },
+     {
+      "clueFragment": "stock",
+      "note": "setter's reading: stock means livestock, which a herdsman drives from place to place"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Shift stock' is business jargon for selling goods; the setter means herding farm animals.",
+     "definitionFit": "A man who looks after and drives herds of cows is exactly a worker who moves livestock."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "stock"
+    }
+   }
   },
   {
    "number": 24,
@@ -417,7 +1664,62 @@
     "text": "Hurled bits finally eaten by pet?",
     "enumeration": "4"
    },
-   "solution": "CAST"
+   "solution": "CAST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CAST",
+    "definitions": [
+     {
+      "text": "Hurled",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the end, so only the closing letter is kept"
+     },
+     {
+      "text": "eaten by",
+      "for": "container",
+      "note": "what is eaten goes inside the eater, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bits",
+      "gives": "S",
+      "select": "last",
+      "note": "the final letter of the word"
+     },
+     {
+      "clueFragment": "pet",
+      "gives": "CAT",
+      "note": "a cat is a typical pet; the question mark flags the example"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "S",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Scraps thrown to the family animal, which gobbles them up.",
+     "walkthrough": "The question mark admits that a cat is only one possible pet.",
+     "definitionFit": "To cast is to throw or fling, and its past form is identical, matching hurled."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Hurled"
+    }
+   }
   },
   {
    "number": 25,
@@ -431,7 +1733,55 @@
     "text": "Biographies, not very short stories",
     "enumeration": "4"
    },
-   "solution": "LIES"
+   "solution": "LIES",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LIES",
+    "definitions": [
+     {
+      "text": "stories",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not means without, so something is taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Biographies",
+      "gives": "LIVES",
+      "note": "biographies are written lives of people"
+     },
+     {
+      "clueFragment": "very short",
+      "gives": "V",
+      "note": "V is the short form of very"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LI",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "Biographies that are not particularly brief tales.",
+     "walkthrough": "'Short stories' looks like a phrase; 'short' belongs with 'very', meaning its abbreviation. 'Stories' is the fibbing sense.",
+     "definitionFit": "Telling stories is a mild idiom for telling untruths, so stories here are falsehoods or fibs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "short"
+    }
+   }
   },
   {
    "number": 26,
@@ -445,7 +1795,52 @@
     "text": "Directive establishing borders with borders disappearing",
     "enumeration": "5"
    },
-   "solution": "ORDER"
+   "solution": "ORDER",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ORDER",
+    "definitions": [
+     {
+      "text": "Directive",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with borders disappearing",
+      "for": "letter_selection",
+      "note": "when the edges vanish only the inside survives, so the inner letters are kept"
+     }
+    ],
+    "linkWords": [
+     "establishing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "borders",
+      "gives": "ORDER",
+      "select": "middle",
+      "note": "the word without its first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ORDER"
+     ]
+    },
+    "explanation": {
+     "surface": "An official instruction setting out national frontiers.",
+     "walkthrough": "The same word does double duty: once as the letters and once as the instruction to trim its own edges.",
+     "definitionFit": "A directive is an official instruction from authority, which is a command in the imperative sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "establishing"
+    }
+   }
   },
   {
    "number": 27,
@@ -459,7 +1854,43 @@
     "text": "Offensive position",
     "enumeration": "4"
    },
-   "solution": "RANK"
+   "solution": "RANK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RANK",
+    "definitions": [
+     {
+      "text": "Offensive",
+      "at": 0
+     },
+     {
+      "text": "position",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Offensive",
+      "note": "first meaning: foul-smelling, disgusting"
+     },
+     {
+      "clueFragment": "position",
+      "note": "second meaning: a grade or standing in a hierarchy"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Offensive position' sounds military, an attacking post, but the two words are separate meanings.",
+     "definitionFit": "The adjective means having a strong unpleasant smell; the noun means someone's level or grade in an organisation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Offensive"
+    }
+   }
   },
   {
    "number": 28,
@@ -473,7 +1904,55 @@
     "text": "Observe home being surrounded by that river",
     "enumeration": "5"
    },
-   "solution": "SEINE"
+   "solution": "SEINE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SEINE",
+    "definitions": [
+     {
+      "text": "that river",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being surrounded by",
+      "for": "container",
+      "note": "a thing surrounded by another is encircled, so one piece sits inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Observe",
+      "gives": "SEE",
+      "note": "to observe is to see"
+     },
+     {
+      "clueFragment": "home",
+      "gives": "IN",
+      "note": "someone at home is in"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "IN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Watching a house stand beside a particular river.",
+     "walkthrough": "'Home' is IN, as in 'staying in'. 'That river' hints the setter points abroad: the river flowing through Paris.",
+     "definitionFit": "The Seine is the principal river of Paris and northern France, a specific named waterway."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "home"
+    }
+   }
   },
   {
    "number": 29,
@@ -487,7 +1966,61 @@
     "text": "A bishop in the country telling a story?",
     "enumeration": "9"
    },
-   "solution": "NARRATION"
+   "solution": "NARRATION",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NARRATION",
+    "definitions": [
+     {
+      "text": "telling a story?",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "being in something means lying inside it, so one piece is put within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the country",
+      "gives": "NATION",
+      "note": "a nation is a country"
+     },
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bishop",
+      "gives": "RR",
+      "note": "RR, Right Reverend, is the title of a bishop"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "A",
+      "RR",
+      "ATION"
+     ]
+    },
+    "explanation": {
+     "surface": "A rural bishop spinning a tale, or perhaps a fib.",
+     "walkthrough": "RR stands for Right Reverend, the formal style of a Church of England bishop; the question mark hints the bishop may be lying.",
+     "definitionFit": "Narration is the act of recounting events in sequence, which is what telling a story means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "country"
+    }
+   }
   }
  ]
 }
