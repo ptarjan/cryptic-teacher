@@ -26,6 +26,7 @@ rate.
   python3 tools/ctc_transcripts.py solves SUBS_DIR              # -> tools/data/ctc_solve_times.json
   python3 tools/ctc_transcripts.py solvecheck                    # our per-clue difficulty vs those solves
   python3 tools/ctc_transcripts.py parsecheck SUBS_DIR          # our parses vs the solvers' explanations -> tools/data/ctc_parse_check.json
+  python3 tools/ctc_transcripts.py unstick SUBS_DIR             # what unlocked each hard solve, against the hint ladder -> tools/data/ctc_unstick.json
 
 Solve times. A clue is read when its number and direction ("ten across") or
 three consecutive words of its text are first said; it is solved at the first
@@ -44,6 +45,14 @@ or unknown per field: definition (clue words the solver calls the
 definition), type (a device named that we lack, or one of ours named),
 fodder (the clue words said after "anagram of") and pieces (a short block's
 letters heard beside its clue words). Silence is unknown, never agreement.
+
+Unstick. A hard solve (stuck, or waited LONG_WAIT_S from reading) is
+unlocked by what is said in the UNLOCK_LEAD_S before it, with the clue read
+aloud dropped: the definition, an indicator, a device named, a short piece,
+letters already in the grid, or a word read in its other sense. Each unlock
+credits the rung of app.js's ladder that shows it, and every order of the
+rungs is scored by the mean rungs a solver takes to reach one that would have
+unstuck them.
 
 TITLES.tsv is `id<TAB>title` per video, from `yt-dlp --flat-playlist`.
 The reasons file maps a moment id to {"reasons": [...], "quote": "..."}.
@@ -934,10 +943,250 @@ def parsecheck(subs_dir, top=15):
         print(f"  {ty:20s} {s['clues']:5d} clues, {s['judged']:5d} judged, {s['any_disagree']:4d} disagree ({s['rate']})")
 
 
+UNSTICK = ROOT / "tools" / "data" / "ctc_unstick.json"
+#: A clue is a hard one when it is flagged stuck or waited this long from its
+#: reading to its solve (about the top quarter of waits).
+LONG_WAIT_S = 180
+#: The baseline: solves read and solved within QUICK_WAIT_S, not stuck. What a
+#: solver says at every solve (the definition beside the answer) is not what
+#: unstuck anyone, so each unlock's share is read against its share here.
+QUICK_WAIT_S = 60
+#: What unlocked it is said in the UNLOCK_LEAD_S before the solve and the
+#: first UNLOCK_TAIL_S after (the answer is said mid-sentence).
+UNLOCK_LEAD_S, UNLOCK_TAIL_S = 20, 5
+#: The rungs of app.js's ladderSteps, in the order its LABELS map lists them.
+LADDER = ("indicators", "definition", "type", "blocks")
+#: Which rung carries each unlock. Crossing letters are the grid's reveal-a-letter
+#: button, not a rung; a word's other sense goes to the rung whose words hold
+#: the misdirected word (unstick_rungs).
+UNLOCK_RUNG = {"definition": "definition", "indicator": "indicators", "device": "type",
+               "block": "blocks", "crossing": "letter"}
+DEF_CUE = re.compile(r"\bDEFINITION\b|\bDEFINED\b|\bDEFINES\b")
+INDICATOR_CUE = re.compile(r"\bINDICAT\w*")
+BLOCK_CUE = re.compile(r"\bABBREVIAT\w*|\bSHORT FOR\b|\bSTANDS? FOR\b|\b(?:[B-HJ-Z] ){0,2}[B-HJ-Z] FOR [A-Z]{3,}")
+CROSSING_CUE = re.compile(
+    r"\bWITH (?:THE |AN? )?[B-HJ-Z]\b|\b(?:BEGIN\w*|START\w*|END\w*) (?:WITH|IN) (?:AN? )?[B-HJ-Z]\b|"
+    r"\bCHECK(?:ER|ING LETTER|ED LETTER)S?\b|\bCROSS(?:ER|ING LETTER)S?\b|\bBLANK\b|"
+    r"\bSOMETHING [A-Z] SOMETHING\b|\b[A-Z] SOMETHING [A-Z]\b|\b(?:THE )?LETTERS? (?:I|WE) (?:HAVE|VE GOT)\b")
+SENSE_CUE = re.compile(
+    r"\bSENSE\b|\b(?:OTHER|DIFFERENT|ANOTHER|SECOND|OTHER KIND OF) MEANING\b|\bMISLE[AD]\w*|\bMISDIRECT\w*|"
+    r"\bAS AN? (?:VERB|NOUN|ADJECTIVE)\b|\bRATHER THAN\b|\bI WAS THINKING OF\b|\bDISGUISE\w*|"
+    r"\bCAPITAL LETTER\b|\bNOT (?:THE|AN?) [A-Z]+ (?:BUT|KIND)\b")
+
+
+def unread(toks, clue):
+    """The tokens with every run of three or more of the clue's words read in
+    order dropped: a clue read aloud names every word in it and unlocks nothing."""
+    cw = norm(re.sub(r"<[^>]+>", " ", clue)).split()
+    grams = {tuple(cw[i:i + 3]) for i in range(len(cw) - 2)}
+    drop = set()
+    for i in range(len(toks) - 2):
+        if tuple(toks[i:i + 3]) in grams:
+            drop.update((i, i + 1, i + 2))
+    return [w for i, w in enumerate(toks) if i not in drop]
+
+
+def near_answer(toks, answer, words, reach=5):
+    """Whether any of the words sits within reach tokens of the answer."""
+    aw = answer.split()
+    at = [i for i in range(len(toks)) if toks[i:i + len(aw)] == aw]
+    return any(toks[j] in words for i in at
+               for j in range(max(0, i - reach), min(len(toks), i + len(aw) + reach)))
+
+
+def classify_unlock(e, talk):
+    """{unlock: evidence} for what the solver said around one hard solve.
+
+    definition: our definition's words said next to the answer, or the word
+    "definition"; indicator: an indicator's own words said, or "indicator",
+    with the type it signals; device: a device named ("anagram of", "hidden")
+    without its indicator; block: a short piece's letters heard with its clue
+    words, or an abbreviation called one; crossing: letters already in the
+    grid ("with the W", "beginning with"); sense: a word read another way
+    ("in the sense of", "misled")."""
+    a = e.get("annotation") or {}
+    clue = e["clue"].get("text", "")
+    ans = e["_phrase"]
+    answ = set(ans.split())
+    toks = unread(talk.split(), clue)
+    s = " ".join(toks)
+    tokset = set(toks)
+    cw = _content(clue)
+    out = {}
+    defs = set().union(*(_content(d["text"]) for d in a.get("definitions") or [])) - answ
+    if not defs:   # unannotated: the clue's first and last content words
+        words = [w for w in norm(re.sub(r"<[^>]+>", " ", clue)).split() if len(w) >= 3 and w not in STOP]
+        defs = set(words[:1] + words[-1:]) - answ
+    def said(pat):
+        """The first match of pat that is not merely clue words."""
+        return next((m.group(0) for m in pat.finditer(s) if not set(m.group(0).split()) <= cw | STOP), None)
+
+    if m := said(DEF_CUE):
+        out["definition"] = m
+    elif near_answer(toks, ans, defs):
+        out["definition"] = " ".join(sorted(defs & tokset))
+    heard = [i for i in a.get("indicators") or [] if _content(i["text"]) & tokset - answ]
+    if heard:
+        out["indicator"] = heard[0].get("for") or "unknown"
+    elif said(INDICATOR_CUE):
+        ty = [i.get("for") for i in a.get("indicators") or []]
+        out["indicator"] = (ty[0] if ty else None) or "unknown"
+    named = [t for t, c in NAMED_STRONG.items() if _named(s, c, cw | answ)]
+    if named and "indicator" not in out:
+        out["device"] = named[0]
+    for b in a.get("blocks") or []:
+        f, g = b.get("clueFragment", ""), _letters(b.get("gives") or "")
+        fw = _content(f) - answ
+        if not g or not fw or len(g) > 4 or sorted(_letters(f)) == sorted(g) or g in _letters(f):
+            continue
+        if (re.search(r"\b" + " ?".join(g) + r"\b", s)) and fw & tokset:
+            out["block"] = f"{f}={g}"
+            break
+    if "block" not in out and (m := said(BLOCK_CUE)):
+        out["block"] = m
+    if m := said(CROSSING_CUE):
+        out["crossing"] = m
+    if m := said(SENSE_CUE):
+        out["sense"] = m
+    return out
+
+
+def available_rungs(a):
+    """The LADDER rungs ladderSteps builds for this annotation."""
+    have = {"indicators": bool(a.get("indicators")), "definition": bool(a.get("definitions")),
+            "type": bool(a.get("type")), "blocks": bool(a.get("blocks"))}
+    return [r for r in LADDER if have[r]]
+
+
+def unstick_rungs(a, unlocks):
+    """The rungs whose content carries one of the unlocks. A word's other
+    sense is on the rung that shows the misdirected word: the definition, an
+    indicator, else a block."""
+    out = {UNLOCK_RUNG[u] for u in unlocks if u in UNLOCK_RUNG}
+    if "sense" in unlocks:
+        mw = _content((a.get("features") or {}).get("misdirectedWord") or "")
+        if mw & set().union(*(_content(d["text"]) for d in a.get("definitions") or [])):
+            out.add("definition")
+        elif mw & set().union(*(_content(i["text"]) for i in a.get("indicators") or [])):
+            out.add("indicators")
+        elif mw:
+            out.add("blocks")
+        else:
+            out.add("sense")
+    return out
+
+
+def rungs_to_unlock(rows, order):
+    """Mean rungs taken, walking order over each clue's available rungs, until
+    one that carries its unlock; over clues some available rung unlocks."""
+    n = tot = 0
+    for r in rows:
+        avail = [x for x in order if x in r["available"]]
+        hits = [i for i, x in enumerate(avail) if x in r["rungs"]]
+        if hits:
+            n += 1
+            tot += hits[0] + 1
+    return round(tot / n, 3) if n else None, n
+
+
+def two_prop_p(k1, n1, k2, n2):
+    """Two-sided normal-approximation p that k1/n1 and k2/n2 share a rate."""
+    if not n1 or not n2:
+        return 1.0
+    q = (k1 + k2) / (n1 + n2)
+    se = math.sqrt(q * (1 - q) * (1 / n1 + 1 / n2))
+    return math.erfc(abs(k1 / n1 - k2 / n2) / se / math.sqrt(2)) if se else 1.0
+
+
+def unstick(subs_dir):
+    """What unlocked each hard CtC solve, by clue type, against the ladder -> UNSTICK."""
+    data = json.loads(SOLVES.read_text())
+    by_video = collections.defaultdict(list)
+    for c in data["clues"]:
+        by_video[c["video"]].append(c)
+    rows, quick = [], []
+    for vid, clues in by_video.items():
+        f = Path(subs_dir) / f"{vid}.en.vtt"
+        if not f.exists():
+            continue
+        lines = parse_vtt(f)
+        puz = entries_of(clues[0]["puzzle"])
+        for c in clues:
+            is_hard = c["stuck"] or (c["read_to_solve"] or 0) >= LONG_WAIT_S
+            if not is_hard and (c["read_to_solve"] is None or c["read_to_solve"] >= QUICK_WAIT_S):
+                continue
+            e = puz.get(c["entry"])
+            if not e:
+                continue
+            talk = norm(" ".join(l for t, l in lines if c["t"] - UNLOCK_LEAD_S <= t <= c["t"] + UNLOCK_TAIL_S))
+            a = e.get("annotation") or {}
+            u = classify_unlock(e, talk)
+            (rows if is_hard else quick).append({"video": vid, "puzzle": c["puzzle"], "entry": c["entry"], "answer": e["solution"],
+                         "clue": e["clue"].get("text", ""), "type": (a.get("type") or [None])[0],
+                         "stuck": c["stuck"], "wait": c["read_to_solve"], "unlocks": u,
+                         "available": available_rungs(a), "rungs": sorted(unstick_rungs(a, u))})
+    ann = [r for r in rows if r["type"]]
+    orders = list(itertools.permutations(LADDER))
+
+    def summarise(sel, base):
+        n, nb = len(sel), len(base) or 1
+        bc = collections.Counter(k for r in base for k in r["unlocks"])
+        uc = collections.Counter(k for r in sel for k in r["unlocks"])
+        ind = collections.Counter(r["unlocks"]["indicator"] for r in sel if "indicator" in r["unlocks"])
+        dev = collections.Counter(r["unlocks"]["device"] for r in sel if "device" in r["unlocks"])
+        rc = collections.Counter(x for r in sel for x in r["rungs"])
+        avail = collections.Counter(x for r in sel for x in r["available"])
+        # A rung's hit rate is over the clues that have it.
+        hit = {x: round(sum(x in r["rungs"] for r in sel if x in r["available"]) / avail[x], 3)
+               for x in LADDER if avail[x]}
+        cur, k = rungs_to_unlock(sel, LADDER)
+        best = min(orders, key=lambda o: (rungs_to_unlock(sel, o)[0] or 99, o != LADDER))
+        return {"clues": n, "classified": sum(bool(r["unlocks"]) for r in sel),
+                "unlocks": {x: {"clues": c, "share": round(c / n, 3), "quick_share": round(bc[x] / nb, 3),
+                                "lift": round(c / n / (bc[x] / nb), 2) if bc[x] else None,
+                                "p": round(two_prop_p(c, n, bc[x], len(base)), 4)}
+                            for x, c in uc.most_common()} if n else {},
+                "quick_clues": len(base),
+                "indicator_types": dict(ind.most_common()), "devices_named": dict(dev.most_common()),
+                "rungs": dict(rc.most_common()), "rung_hit_rate": hit,
+                "best_first_rung": max(hit, key=hit.get) if hit else None,
+                "current_order": {"order": list(LADDER), "mean_rungs": cur, "clues": k},
+                "best_order": {"order": list(best), "mean_rungs": rungs_to_unlock(sel, best)[0]}}
+
+    types = collections.Counter(r["type"] for r in ann)
+    summ = {"hard_clues": len(rows), "videos": len({r["video"] for r in rows}),
+            "all": summarise(rows, quick), "annotated": summarise(ann, [r for r in quick if r["type"]]),
+            "by_type": {t: summarise([r for r in ann if r["type"] == t], [r for r in quick if r["type"] == t])
+                        for t, c in types.most_common() if c >= 10}}
+    row = lambda x: json.dumps(x, ensure_ascii=False, separators=(",", ":"))
+    UNSTICK.write_text('{"summary":' + json.dumps(summ, ensure_ascii=False, indent=1)
+                       + ',\n"clues":[\n' + ",\n".join(map(row, rows)) + "\n]}\n")
+    print(f"{len(rows)} hard solves in {summ['videos']} videos ({len(ann)} annotated) -> {UNSTICK}")
+    for key in ("all", "annotated"):
+        s = summ[key]
+        print(f"  {key}: {s['classified']}/{s['clues']} classified; share, vs {s['quick_clues']} quick solves: "
+              + ", ".join(f"{x} {u['share']:.0%} vs {u['quick_share']:.0%}" for x, u in s["unlocks"].items()))
+    print("  hard vs quick at p < 0.05: " + "; ".join(
+        f"{t} {x} {u['share']:.0%} vs {u['quick_share']:.0%}"
+        for t, sm in [("annotated", summ["annotated"])] + list(summ["by_type"].items())
+        for x, u in sm["unlocks"].items() if u["p"] < 0.05))
+    print("  rung hit rate on hard solves (share of clues with the rung whose unlock it shows):")
+    print(f"  {'type':20s} {'n':>4s}  " + "  ".join(f"{x[:5]:>5s}" for x in LADDER) + "  best-first  now->best mean rungs")
+    for t, s in [("annotated", summ["annotated"])] + list(summ["by_type"].items()):
+        h = s["rung_hit_rate"]
+        print(f"  {t:20s} {s['clues']:4d}  " + "  ".join(
+            f"{h[x]:5.0%}" if x in h else "    -" for x in LADDER)
+            + f"  {s['best_first_rung'] or '-':10s}  {s['current_order']['mean_rungs']} -> "
+              f"{s['best_order']['mean_rungs']} {'/'.join(x[:3] for x in s['best_order']['order'])}")
+
+
 if __name__ == "__main__":
     cmd = sys.argv[1] if len(sys.argv) > 1 else ""
     if cmd == "solves":
         solves(sys.argv[2])
+        sys.exit()
+    if cmd == "unstick":
+        unstick(sys.argv[2])
         sys.exit()
     if cmd == "parsecheck":
         parsecheck(sys.argv[2])
