@@ -286,7 +286,7 @@ LAYOUT = [
     ("finding out whether any of it is working", "tools/favourite_grading.py", "blind matched pairs of a clue commenters named as a favourite against one from the same puzzle they did not, scored on the five rubric axes; the run finished null, so nothing downstream reads the scores"),
     ("finding out whether any of it is working", "tools/favourite_grading.sh", "grades those packets one claude -p per batch, skipping any batch whose score file already parses"),
     ("finding out whether any of it is working", "tools/favourite_grading_prompt.md", "what the judge is told each axis means"),
-    ("finding out whether any of it is working", "tools/ctc_transcripts.py", "reads Cracking the Cryptic solve transcripts, finds each praised or disliked clue, ties it to our annotated copy, and counts device and feature lift against the same puzzles; times when each clue is read and solved, and tests our per-clue difficulty ingredients against it; checks our parses against how the solvers explain each clue; classifies what unlocked each hard solve and scores the hint ladder's rung order against it"),
+    ("finding out whether any of it is working", "tools/ctc_transcripts.py", "reads YouTube solve transcripts (Cracking the Cryptic, then every channel in its CHANNELS table, each tagged with its solver's skill), finds each praised or disliked clue, ties it to our annotated copy, and counts device and feature lift against the same puzzles; times when each clue is read and solved, and tests our per-clue difficulty ingredients against it; checks our parses against how the solvers explain each clue; classifies what unlocked each hard solve and scores the hint ladder's rung order against it; --channel all compares our difficulty and the unlocks across solver skill"),
     ("finding out whether any of it is working", "tools/ctc_reasons_prompt.md", "what the judge is told when naming why a solver reacted to a clue"),
     ("finding out whether any of it is working", "tools/compare_mc.py", "word-count and shape comparison of our hints against Minute Cryptic’s"),
 
@@ -294,6 +294,7 @@ LAYOUT = [
     ("tables everything else reads", "tools/data/ctc_solve_times.json", "per clue of each timed Cracking the Cryptic solve video: when it was read and solved, seconds since the previous solve, solve rank 0-1 within the video, and a stuck flag"),
     ("tables everything else reads", "tools/data/ctc_parse_check.json", "per annotated clue CtC solved on video: agree, disagree or unknown for its definition, type, anagram fodder and short pieces against what the solver said explaining it, with the words that disagreed; a summary by field and type on top"),
     ("tables everything else reads", "tools/data/ctc_unstick.json", "per stuck or long-waited clue CtC solved on video: what the solver said in the 20 seconds before the solve that unlocked it (definition, indicator, device, short piece, crossing letters, other sense) and the ladder rungs that show it; a summary by clue type against quick solves, with every rung order scored"),
+    ("tables everything else reads", "tools/data/yt_solvers/", "the same moments, solve times, parse check and unstick tables for each other solve channel, as <slug>_<kind>.json, plus skill_check.json (our per-clue difficulty against each channel's waits, pooled by solver skill, and the solvers against each other) and unstick_by_skill.json (what unlocked hard solves at each skill level)"),
     ("tables everything else reads", "tools/data/ctc_reasons.json", "the judge's verdict, reasons and the solver's own words for each reacted-to clue"),
     ("tables everything else reads", "tools/series.py", "the one table of facts about each series: publisher, naming, URL shape"),
     ("tables everything else reads", "tools/kv.py", "the one helper for reaching the sync KV namespace through wrangler"),
@@ -381,6 +382,7 @@ LAYOUT_EXEMPT = re.compile(r"""
     | ^tools/data/favourite_grading/(packets|scores)/  # covered by the two directory lines
     | ^tools/data/penguin_partial_fills/            # covered by the directory line
     | ^tools/data/blog_facts/                       # covered by the directory line
+    | ^tools/data/yt_solvers/                       # covered by the directory line
     | ^household-plugins/           # covered by the <name>/plugin.toml line
     | ^og/                          # covered by the og/ line
     | ^vendor/                      # covered by the vendor/ line

@@ -725,15 +725,19 @@ tools/favourite_grading.py                   blind matched pairs of a clue comme
 tools/favourite_grading.sh                   grades those packets one claude -p per batch,
                                              skipping any batch whose score file already parses
 tools/favourite_grading_prompt.md            what the judge is told each axis means
-tools/ctc_transcripts.py                     reads Cracking the Cryptic solve transcripts,
-                                             finds each praised or disliked clue, ties it to
-                                             our annotated copy, and counts device and feature
-                                             lift against the same puzzles; times when each
-                                             clue is read and solved, and tests our per-clue
-                                             difficulty ingredients against it; checks our
-                                             parses against how the solvers explain each clue;
-                                             classifies what unlocked each hard solve and
-                                             scores the hint ladder's rung order against it
+tools/ctc_transcripts.py                     reads YouTube solve transcripts (Cracking the
+                                             Cryptic, then every channel in its CHANNELS table,
+                                             each tagged with its solver's skill), finds each
+                                             praised or disliked clue, ties it to our annotated
+                                             copy, and counts device and feature lift against
+                                             the same puzzles; times when each clue is read and
+                                             solved, and tests our per-clue difficulty
+                                             ingredients against it; checks our parses against
+                                             how the solvers explain each clue; classifies what
+                                             unlocked each hard solve and scores the hint
+                                             ladder's rung order against it; --channel all
+                                             compares our difficulty and the unlocks across
+                                             solver skill
 tools/ctc_reasons_prompt.md                  what the judge is told when naming why a solver
                                              reacted to a clue
 tools/compare_mc.py                          word-count and shape comparison of our hints
@@ -759,6 +763,13 @@ tools/data/ctc_unstick.json                  per stuck or long-waited clue CtC s
                                              sense) and the ladder rungs that show it; a
                                              summary by clue type against quick solves, with
                                              every rung order scored
+tools/data/yt_solvers/                       the same moments, solve times, parse check and
+                                             unstick tables for each other solve channel, as
+                                             <slug>_<kind>.json, plus skill_check.json (our
+                                             per-clue difficulty against each channel's waits,
+                                             pooled by solver skill, and the solvers against
+                                             each other) and unstick_by_skill.json (what
+                                             unlocked hard solves at each skill level)
 tools/data/ctc_reasons.json                  the judge's verdict, reasons and the solver's own
                                              words for each reacted-to clue
 tools/series.py                              the one table of facts about each series:
