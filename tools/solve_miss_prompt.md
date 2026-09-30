@@ -30,7 +30,9 @@ too:
 - a rule in `tools/solve_prompt.md`, stated in general terms and not about this
   clue. Keep the file's plain style, and put the rule under the heading it
   belongs to. Only add a rule if one does not already say the same thing; if
-  one does, sharpen it;
+  one does, sharpen it. Every solve pays for every word of that file, so
+  `tools/test_solve_misses.sh` caps it at 500 words: a rule that does not fit
+  must replace or merge with a weaker one;
 - a check in `tools/apply_solution.py`, if the class can be caught
   mechanically without refusing correct fills. Add a case to
   `tools/test_apply_refusal.sh` and run that test;
