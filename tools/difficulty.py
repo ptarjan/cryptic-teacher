@@ -211,6 +211,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from fetch_puzzle import (  # noqa: E402 — one glob, one reader for every tool
     puzzle_files, puzzle_is_annotated, read_puzzle_file)
 import definitions
+import parallel
 import series as series_meta
 from groups import entry_id
 LEXICON = ROOT / "tools" / "data" / "lexicon.tsv"
@@ -641,14 +642,42 @@ def blog_definitions():
     """{puzzle id: {entry id: definition}}: the blogger's underlined definition,
     from tools/data/blog_facts/."""
     out = {}
-    for f in sorted(BLOG_FACTS.glob("*.json")):
-        for pid, v in json.loads(f.read_text(encoding="utf-8")).items():
-            defs = {eid: definition_key(definitions.texts(b))
-                    for eid, b in (v.get("entries") or {}).items()}
-            defs = {k: d for k, d in defs.items() if d}
-            if defs:
-                out[pid] = defs
+    for part in parallel.pmap(blog_file_definitions, sorted(BLOG_FACTS.glob("*.json")),
+                              chunksize=1):
+        out.update(part)
     return out
+
+
+def blog_file_definitions(f):
+    """blog_definitions() for one tools/data/blog_facts/<series>.json."""
+    out = {}
+    for pid, v in json.loads(f.read_text(encoding="utf-8")).items():
+        defs = {eid: definition_key(definitions.texts(b))
+                for eid, b in (v.get("entries") or {}).items()}
+        defs = {k: d for k, d in defs.items() if d}
+        if defs:
+            out[pid] = defs
+    return out
+
+
+def history_row(path):
+    """(day, id, single-word answers, (answer, definition head) pairs) for
+    one puzzle file, or None for an undated puzzle; history() counts these."""
+    puz = read_puzzle_file(path)
+    day = series_meta.puzzle_day(puz)
+    if not day:
+        return None
+    bd = blog_definitions().get(puz["id"], {})
+    sols, pairs = set(), set()
+    for e in puz["entries"]:
+        sol = letters(e.get("solution"))
+        if not sol or e["clue"].get("separators"):
+            continue
+        sols.add(sol)
+        d = bd.get(entry_id(e)) or definition_key(definitions.texts(e.get("annotation")))
+        if d:
+            pairs.add((sol, definition_head(d)))
+    return day, puz["id"], sols, pairs
 
 
 @functools.lru_cache(maxsize=1)
@@ -676,24 +705,8 @@ def history():
 
     Higher is less familiar. Each is None until HISTORY_FLOOR earlier puzzles
     (earlier defined puzzles, for the pairing) are behind it."""
-    blog = blog_definitions()
-    rows = []
-    for path in puzzle_files():
-        puz = read_puzzle_file(path)
-        day = series_meta.puzzle_day(puz)
-        if not day:
-            continue
-        bd = blog.get(puz["id"], {})
-        sols, pairs = set(), set()
-        for e in puz["entries"]:
-            sol = letters(e.get("solution"))
-            if not sol or e["clue"].get("separators"):
-                continue
-            sols.add(sol)
-            d = bd.get(entry_id(e)) or definition_key(definitions.texts(e.get("annotation")))
-            if d:
-                pairs.add((sol, definition_head(d)))
-        rows.append((day, puz["id"], sols, pairs))
+    blog_definitions()      # loaded once, before the workers fork
+    rows = [r for r in parallel.pmap(history_row, puzzle_files()) if r]
     rows.sort(key=lambda r: r[0])
     seen, paired = {}, {}
     n_all = n_defined = 0
@@ -865,28 +878,41 @@ def score(puz, ctx):
             "basis": sorted(zs)}
 
 
+#: (context, comments, comment_blend) for scored_row(), set by all_scores()
+#: before its workers fork.
+_SCORING = None
+
+
+def scored_row(path):
+    """(id, rating) for one puzzle file as all_scores() reports it, before the
+    percentile, or None for a puzzle score() cannot rate."""
+    ctx, comments, cm = _SCORING
+    puz = read_puzzle_file(path)
+    s = score(puz, ctx)
+    if not s:
+        return None
+    b = blend(puz["id"], s["index"], comments, cm)
+    if b is not None:
+        s["clue_index"] = s["index"]
+        s["index"] = round(b, 3)
+        s["band"] = band_of(b, ctx.base)
+        s["basis"] = s["basis"] + ["blog comments"]
+    return puz["id"], s
+
+
 def all_scores(base=None):
     """Every puzzle's rating as the badges show it: score()'s clue index, and
     where a Times for the Times post has enough comments stating solve times,
     that index blended with them (blend()). score() itself stays clue-only,
     because the harnesses that choose components measure it against the
     SNITCH, and the comments are solver times too."""
+    global _SCORING
     ctx = context(base)
-    comments, cm = load_comments(), ctx.base.get("comment_blend") or {}
-    out = {}
-    for path in puzzle_files():
-        puz = read_puzzle_file(path)
-        s = score(puz, ctx)
-        if s:
-            b = blend(puz["id"], s["index"], comments, cm)
-            if b is not None:
-                s["clue_index"] = s["index"]
-                s["index"] = round(b, 3)
-                s["band"] = band_of(b, ctx.base)
-                s["basis"] = s["basis"] + ["blog comments"]
-            # Keyed by ID, not number: two papers can reach the same number
-            # and the caller would then get whichever was scored last.
-            out[puz["id"]] = s
+    wordnet()               # loaded once, before the workers fork
+    _SCORING = ctx, load_comments(), ctx.base.get("comment_blend") or {}
+    # Keyed by ID, not number: two papers can reach the same number and the
+    # caller would then get whichever was scored last.
+    out = dict(r for r in parallel.pmap(scored_row, puzzle_files()) if r)
     # The percentile is a live comparison and says so — it is the answer to
     # "how does this rank against what's on the site", which genuinely does
     # change as puzzles arrive. The band above it stays put; only this moves.

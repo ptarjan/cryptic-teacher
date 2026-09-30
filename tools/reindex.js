@@ -81,7 +81,7 @@ function newest(dir, keep) {
    manifest is held against the count of sources on disk as well.
 
    The shims are checked for EXISTENCE, one per source, and never counted:
-   build_shims() does not prune, so a tree that has had puzzles deleted carries
+   the reindex does not prune shims, so a tree that has had puzzles deleted carries
    orphan .js files forever and a count would read as stale on every run —
    which is a rebuild that cannot fix what it is reacting to. A checkout with
    the manifest but not the shims cannot load a puzzle, and that is what this
