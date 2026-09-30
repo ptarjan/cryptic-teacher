@@ -186,6 +186,7 @@ LAYOUT = [
 
     ("building and checking the site", "tools/build_seo_pages.py", "one static page per puzzle, for search engines and unfurls"),
     ("building and checking the site", "tools/build_clue_joints.py", "measures clue_joints.json from published annotations; the nightly reruns it"),
+    ("building and checking the site", "tools/build_fill_floors.py", "measures fill_floors.json from published answers; the nightly reruns it"),
     ("building and checking the site", "tools/build_abbreviations.py", "publishes the abbreviations table to the browser as abbreviations.js, so the solver’s glossary can’t drift from the clue-writer’s"),
     ("building and checking the site", "tools/build_readme.py", "this: rewrites the generated regions of README.md and docs/LAYOUT.md, --check fails on drift"),
     ("building and checking the site", "tools/make_og_card.py", "picks a puzzle’s best clue and lays out its social card"),
@@ -303,6 +304,7 @@ LAYOUT = [
 
     ("tables everything else reads", "tools/data/README.md", "what in tools/data is committed, what is fetched, and under what licence"),
     ("tables everything else reads", "tools/data/clue_joints.json", "link words and reversal-axis words published clues use, measured by build_clue_joints.py and read by the authoring checks in validate_annotations.py"),
+    ("tables everything else reads", "tools/data/fill_floors.json", "grid_fill.py's clueability and familiarity floors per entry length, the 25th percentile of published answers, measured by build_fill_floors.py"),
     ("tables everything else reads", "tools/data/abbreviations.json", "standard abbreviations: every reading ten or more clues use, checked by build_abbreviations.py --check"),
     ("tables everything else reads", "tools/data/lexicons/blocks.json", "clue word -> letters -> clues, off the blogs and our annotations (tools/letter_facts.py --lexicons); the abbreviations/ page lists its short conventions"),
     ("tables everything else reads", "tools/data/cmudict.txt.gz", "the CMU Pronouncing Dictionary, stress dropped; tools/letter_facts.py hears a homophone block by it"),

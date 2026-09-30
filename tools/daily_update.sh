@@ -275,6 +275,8 @@ python3 tools/difficulty_check.py --write >/dev/null || echo "difficulty_check f
 # annotations. Every annotated clue can move them, so they are refreshed here
 # rather than checked on each push.
 python3 tools/build_clue_joints.py >/dev/null || echo "build_clue_joints failed (rc=$?); the authoring checks use last night's tools/data/clue_joints.json"
+# The grid filler's per-length floors, re-measured over the day's answers.
+python3 tools/build_fill_floors.py >/dev/null || echo "build_fill_floors failed (rc=$?); grid_fill uses last night's tools/data/fill_floors.json"
 
 # What we hold of every series, printed every night whether or not anything is
 # wrong, because the two ways a series dies are both silent: a fetcher that can

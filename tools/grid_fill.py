@@ -14,9 +14,11 @@ Two things make this more than a crossword-shaped constraint solver:
 2. The fill is clueability-aware. A word that interlocks perfectly but offers a
    setter no wordplay is a bad answer, so tools/clueability.py scores every
    candidate and the search both ORDERS by that score and REFUSES anything under
-   a floor. `fill()` is a generator with a veto hook, so a clue-writing stage
-   that fails on an entry can blacklist it and pull the next fill instead of
-   starting the whole search again.
+   a floor. The floors are per length, measured from published answers by
+   tools/build_fill_floors.py into tools/data/fill_floors.json. `fill()` is a
+   generator with a veto hook, so a clue-writing stage that fails on an entry
+   can blacklist it and pull the next fill instead of starting the whole search
+   again.
 
 Usage:
   python3 tools/grid_fill.py --size 11 [--seed N] [--out grid.json]
@@ -37,6 +39,7 @@ import clueability  # noqa: E402  (same directory, no third-party deps)
 TOOLS = Path(__file__).resolve().parent
 DATA = TOOLS / "data"
 BLACKLIST_FILE = DATA / "unclueable.json"
+FLOORS_FILE = DATA / "fill_floors.json"
 
 BLOCK = "#"
 LIGHT = "."
@@ -69,10 +72,7 @@ TEMPLATES = {
 .#.#.#.#.#.
 ......#....
 """,
-    # 28 entries, lengths 5-7, 40% checked, through-cuts 3/3. Chosen over
-    # shapes with full-width 13-letter entries: those are legal but barely
-    # fillable, because the pool of clueable 13-letter words is ~200 and two of
-    # them have to interlock with 12s (the filler exhausted its budget on one).
+    # 28 entries, lengths 5-7, 40% checked, through-cuts 3/3.
     13: """
 .......#.....
 .#.#.#.#.#.#.
@@ -435,9 +435,23 @@ def load_grid(size=None, path=None, minimum=MIN_ENTRY, strict=True,
 # Wordlist
 # --------------------------------------------------------------------------
 
-def load_words(min_clue, min_familiarity, lengths, rebuild=False):
+def length_floors(lengths, min_clue=None, min_familiarity=None):
+    """{length: (clue_floor, familiarity_floor)}. Each floor is the measured one
+    for that length (the nearest measured length when it has none), unless the
+    caller fixes it for every length."""
+    measured = {int(L): (f["clue"], f["familiarity"])
+                for L, f in json.loads(FLOORS_FILE.read_text())["floors"].items()}
+    out = {}
+    for L in lengths:
+        clue, fam = measured[min(measured, key=lambda m: (abs(m - L), -m))]
+        out[L] = (clue if min_clue is None else min_clue,
+                  fam if min_familiarity is None else min_familiarity)
+    return out
+
+
+def load_words(floors, rebuild=False):
     """Candidate words by length: {length: [(word, clue_score, familiarity)]},
-    best-clued first.
+    best-clued first. `floors` is {length: (clue_floor, familiarity_floor)}.
 
     Falls back to /usr/share/dict/words when the Lufz lexicon has not been
     fetched. That fallback is deliberately loud: the system dictionary has no
@@ -463,11 +477,11 @@ def load_words(min_clue, min_familiarity, lengths, rebuild=False):
                 continue
         if not table:
             raise IllegalGrid("no wordlist available at all")
-        min_clue = min_familiarity = 0
+        floors = {L: (0, 0) for L in floors}
 
     by_len = {}
     for w, (clue, fam, flags) in table.items():
-        if len(w) in lengths and clue >= min_clue and fam >= min_familiarity:
+        if len(w) in floors and clue >= floors[len(w)][0] and fam >= floors[len(w)][1]:
             by_len.setdefault(len(w), []).append((w, clue, fam, flags))
     for L in by_len:
         by_len[L].sort(key=lambda t: (-t[1], -t[2], t[0]))
@@ -767,12 +781,12 @@ def main(argv=None):
     ap.add_argument("--relax-unches", action="store_true",
                     help="allow two consecutive unchecked letters mid-entry "
                          "(published-grid convention) instead of none (Exet)")
-    # Defaults tuned by inspecting fills: at 30/18 the grid was legal but the
-    # corners filled with PARC and PROTO, which no daily setter would print.
-    ap.add_argument("--min-clue", type=int, default=40,
-                    help="clueability floor: below this a word is not a legal fill")
-    ap.add_argument("--min-familiarity", type=int, default=25,
-                    help="solver-fairness floor from lexicon importance")
+    ap.add_argument("--min-clue", type=int,
+                    help="clueability floor for every length, replacing the "
+                         "per-length ones in tools/data/fill_floors.json")
+    ap.add_argument("--min-familiarity", type=int,
+                    help="solver-fairness floor for every length, replacing the "
+                         "per-length ones in tools/data/fill_floors.json")
     ap.add_argument("--restarts", type=int, default=25)
     ap.add_argument("--max-nodes", type=int, default=120000)
     ap.add_argument("--time-limit", type=float, default=30.0,
@@ -812,10 +826,11 @@ def main(argv=None):
         print("all convention checks passed" if not problems else problems)
         return 0
 
-    by_len = load_words(args.min_clue, args.min_familiarity, set(lengths),
-                        rebuild=args.rebuild_scores)
+    floors = length_floors(lengths, args.min_clue, args.min_familiarity)
+    by_len = load_words(floors, rebuild=args.rebuild_scores)
     for L in lengths:
-        print(f"  {len(by_len.get(L, [])):>5} candidates of length {L}", file=sys.stderr)
+        print(f"  {len(by_len.get(L, [])):>5} candidates of length {L} "
+              f"(floors {floors[L][0]}/{floors[L][1]})", file=sys.stderr)
 
     blacklist = load_blacklist()
     veto = (lambda w: blacklist.get(w)) if blacklist else None
@@ -857,8 +872,7 @@ def main(argv=None):
             "size": grid.rows,
             "pattern": grid.pattern,
             "seed": args.seed,
-            "minClueability": args.min_clue,
-            "minFamiliarity": args.min_familiarity,
+            "floors": {str(L): {"clue": c, "familiarity": f} for L, (c, f) in floors.items()},
             "worstClueability": best[0][0],
             "meanClueability": round(best[0][1], 1),
             "entries": records,
