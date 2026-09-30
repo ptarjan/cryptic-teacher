@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,67 @@
     "text": "Inflate a price to tour England's capital",
     "enumeration": "6"
    },
-   "solution": "AERATE"
+   "solution": "AERATE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "AERATE",
+    "definitions": [
+     {
+      "text": "Inflate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "capital",
+      "for": "letter_selection",
+      "note": "a capital is the head letter at the start of a word, so only the first is kept"
+     },
+     {
+      "text": "to tour",
+      "for": "container",
+      "note": "to tour a place is to travel all round it, so one piece goes round another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "price",
+      "gives": "RATE",
+      "note": "a price is a rate, as in the going rate"
+     },
+     {
+      "clueFragment": "England",
+      "gives": "E",
+      "select": "first",
+      "note": "its opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "E",
+      "RATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A shopkeeper puffs up a price for visitors touring England's capital city.",
+     "walkthrough": "'England's capital' looks like London, but here it means the capital letter of England, which sits inside A RATE.",
+     "definitionFit": "To aerate is to fill with air, which is what you do when you blow up or pump up something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +110,48 @@
     "text": "Mostly silk product from France",
     "enumeration": "4"
    },
-   "solution": "BRIE"
+   "solution": "BRIE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "BRIE",
+    "definitions": [
+     {
+      "text": "product from France",
+      "at": 12
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the final letter is lost"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "silk",
+      "gives": "BRIEF",
+      "note": "a silk is a senior barrister (a King's Counsel, who wears a silk gown), and a barrister is a brief in slang"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRIE"
+     ]
+    },
+    "explanation": {
+     "surface": "An item made mostly of silk, imported from France.",
+     "walkthrough": "In Britain a silk is a senior barrister and a brief is informal for a barrister, so silk gives BRIEF, and 'mostly' trims it to BRIE.",
+     "definitionFit": "Brie is a soft cheese originating in the Île-de-France region, so it is a French product."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "silk"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +165,67 @@
     "text": "Soviet police man breaking sticks off",
     "enumeration": "8"
    },
-   "solution": "CHEKISTS"
+   "solution": "CHEKISTS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "CHEKISTS",
+    "definitions": [
+     {
+      "text": "Soviet police",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "something off has gone bad or is out of order, so these letters are rearranged"
+     },
+     {
+      "text": "breaking",
+      "for": "container",
+      "note": "breaking into something means getting inside it, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "man",
+      "gives": "HE",
+      "note": "a man is referred to as he"
+     },
+     {
+      "clueFragment": "sticks",
+      "gives": "STICKS",
+      "note": "taken as written, as the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HE",
+      "KISTS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "STICKS",
+       "gives": "CKISTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Soviet policeman snaps off some sticks.",
+     "walkthrough": "'Police man' reads as one word, policeman, but it splits: 'Soviet police' is the definition and 'man' is a pronoun breaking into the jumbled letters.",
+     "definitionFit": "The Cheka was the early Soviet secret police force, and its agents were called Chekists."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "man"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +239,50 @@
     "text": "501 stars producing records",
     "enumeration": "7"
    },
-   "solution": "DIARIES"
+   "solution": "DIARIES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DIARIES",
+    "definitions": [
+     {
+      "text": "records",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "producing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "501",
+      "gives": "DI",
+      "note": "in Roman numerals D is 500 and I is 1"
+     },
+     {
+      "clueFragment": "stars",
+      "gives": "ARIES",
+      "note": "Aries is a constellation, a group of stars"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "ARIES"
+     ]
+    },
+    "explanation": {
+     "surface": "Five hundred and one celebrities release records, as if a label's roster had a hit.",
+     "walkthrough": "The number is read as Roman numerals, DI, and 'stars' is one particular constellation of the zodiac.",
+     "definitionFit": "Diaries are daily written accounts of events, kept as personal records of one's life."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stars"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +296,69 @@
     "text": "Innovator in camp up and about",
     "enumeration": "6"
    },
-   "solution": "EDISON"
+   "solution": "EDISON",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "EDISON",
+    "definitions": [
+     {
+      "text": "Innovator",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, going up means reading from bottom to top, so the letters run backwards"
+     },
+     {
+      "text": "and",
+      "for": "charade",
+      "note": "and simply adds one piece after another in sequence"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "camp",
+      "gives": "SIDE",
+      "note": "a camp is a faction or side in a dispute"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "ON",
+      "note": "about in the sense of concerning, as in a book on birds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EDIS",
+      "ON"
+     ],
+     "reversals": [
+      {
+       "from": "SIDE",
+       "to": "EDIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An inventor is at a camp and has just got up and is walking about.",
+     "walkthrough": "'Camp up and about' sounds like someone waking in a tent; 'camp' is a faction, SIDE, turned upward, with ON for 'about'.",
+     "definitionFit": "Thomas Edison was the prolific American inventor of the phonograph and practical electric light bulb, a famous example of an innovator."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "camp"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +372,51 @@
     "text": "Invalid felt sicker, having come out in most spots",
     "enumeration": "10"
    },
-   "solution": "FRECKLIEST"
+   "solution": "FRECKLIEST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FRECKLIEST",
+    "definitions": [
+     {
+      "text": "having come out in most spots",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Invalid",
+      "for": "anagram",
+      "note": "something invalid is not sound or proper, so the letters are out of order and need rearranging"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "felt sicker",
+      "gives": "FELTSICKER",
+      "note": "taken as written, as the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FELTSICKER",
+       "gives": "FRECKLIEST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sick patient felt worse after breaking out in a rash of spots.",
+     "walkthrough": "'Invalid' reads as a noun for a sick person, which fits the illness; it is really the adjective meaning not sound.",
+     "definitionFit": "Freckles are small brown marks on the skin, so the freckliest person has broken out in the greatest number of them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Invalid"
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +430,50 @@
     "text": "Father has something inherited with value",
     "enumeration": "8"
    },
-   "solution": "GENERATE"
+   "solution": "GENERATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GENERATE",
+    "definitions": [
+     {
+      "text": "Father",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "something inherited",
+      "gives": "GENE",
+      "note": "a gene is a unit of heredity passed from parent to child"
+     },
+     {
+      "clueFragment": "value",
+      "gives": "RATE",
+      "note": "to rate something is to value it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GENE",
+      "RATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A father owns a valuable heirloom.",
+     "walkthrough": "'Father' looks like a noun, a parent, but it is the verb meaning to beget.",
+     "definitionFit": "To father something is to bring it into being or produce it, the same sense as the verb generate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Father"
+    }
+   }
   },
   {
    "number": 8,
@@ -131,7 +487,50 @@
     "text": "Warm area of hard ground",
     "enumeration": "6"
    },
-   "solution": "HEARTH"
+   "solution": "HEARTH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HEARTH",
+    "definitions": [
+     {
+      "text": "Warm area",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H is the pencil-grade abbreviation for hard"
+     },
+     {
+      "clueFragment": "ground",
+      "gives": "EARTH",
+      "note": "earth is the ground beneath our feet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "EARTH"
+     ]
+    },
+    "explanation": {
+     "surface": "A sunny patch on otherwise hard, frozen ground.",
+     "walkthrough": "H for hard is the mark used on pencils, as in HB.",
+     "definitionFit": "The hearth is the floor of a fireplace, the spot in a home where it is warmest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "ground"
+    }
+   }
   },
   {
    "number": 9,
@@ -145,7 +544,72 @@
     "text": "Ruling party on the left, around south, is supported uncommonly",
     "enumeration": "8"
    },
-   "solution": "INDORSED"
+   "solution": "INDORSED",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "INDORSED",
+    "definitions": [
+     {
+      "text": "supported uncommonly",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means surrounding, so one piece is placed on both sides of another"
+     }
+    ],
+    "linkWords": [
+     "on",
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ruling",
+      "gives": "IN",
+      "note": "a party in power is said to be in"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "DO",
+      "note": "a do is a party or celebration"
+     },
+     {
+      "clueFragment": "the left",
+      "gives": "RED",
+      "note": "red is the colour of the political left"
+     },
+     {
+      "clueFragment": "south",
+      "gives": "S",
+      "note": "S is the abbreviation for south"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "DO",
+      "R",
+      "S",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A left-wing ruling party is backed by an unusual coalition, with the south of the country on side.",
+     "walkthrough": "'Ruling party' reads as one phrase but splits into two pieces, and red is the traditional colour of the left. 'Uncommonly' tells you the answer is a rarer spelling.",
+     "definitionFit": "Indorsed is a rare variant spelling of endorsed, meaning backed or approved, so the definition flags its unusual form."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "party"
+    }
+   }
   },
   {
    "number": 10,
@@ -159,7 +623,54 @@
     "text": "After joint, do giggle",
     "enumeration": "4"
    },
-   "solution": "JAPE"
+   "solution": "JAPE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "JAPE",
+    "definitions": [
+     {
+      "text": "giggle",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "After",
+      "for": "charade",
+      "note": "after tells us which piece comes second, so order is set by this word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "joint",
+      "gives": "J",
+      "note": "J is slang for a cannabis joint"
+     },
+     {
+      "clueFragment": "do",
+      "gives": "APE",
+      "note": "to do someone is to imitate them, to ape them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "J",
+      "APE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who has smoked a joint goes on to giggle.",
+     "walkthrough": "'Do' as in doing an impression of someone gives APE; 'giggle' is a noun here, a bit of fun.",
+     "definitionFit": "In British English a giggle can be a bit of fun or a lark, as is a jape, a practical joke."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "joint"
+    }
+   }
   },
   {
    "number": 11,
@@ -173,7 +684,71 @@
     "text": "Extremely knavish career by communist playing the communist reformer",
     "enumeration": "10"
    },
-   "solution": "KHRUSHCHEV"
+   "solution": "KHRUSHCHEV",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "KHRUSHCHEV",
+    "definitions": [
+     {
+      "text": "the communist reformer",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Extremely",
+      "for": "letter_selection",
+      "note": "extremely points at the extremes, the two outermost letters of a word"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "knavish",
+      "gives": "KH",
+      "select": "outer",
+      "note": "the first and last letters"
+     },
+     {
+      "clueFragment": "career",
+      "gives": "RUSH",
+      "note": "to career is to rush headlong"
+     },
+     {
+      "clueFragment": "communist",
+      "gives": "CHE",
+      "note": "Che Guevara, the Marxist revolutionary"
+     },
+     {
+      "clueFragment": "playing",
+      "gives": "V",
+      "note": "v, for versus, as in a fixture list where one team is playing another"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KH",
+      "RUSH",
+      "CHE",
+      "V"
+     ]
+    },
+    "explanation": {
+     "surface": "A villainous career spent playing a part alongside another communist.",
+     "walkthrough": "'Career' is the verb meaning rush, not a job; 'playing' is v, as in Arsenal v Chelsea.",
+     "definitionFit": "Nikita Khrushchev led the Soviet Union after Stalin and is known for his de-Stalinisation reforms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "career"
+    }
+   }
   },
   {
    "number": 12,
@@ -197,7 +772,66 @@
      }
     ]
    },
-   "solution": "LETMESEE"
+   "solution": "LETMESEE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "LET ME SEE",
+    "definitions": [
+     {
+      "text": "I need to think",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dropped",
+      "for": "deletion",
+      "note": "something dropped is let fall and left out, so it is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the French",
+      "gives": "LE",
+      "note": "le is French for the"
+     },
+     {
+      "clueFragment": "paper",
+      "gives": "TIMES",
+      "note": "The Times, a British newspaper"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "one as a Roman numeral, the letter taken out"
+     },
+     {
+      "clueFragment": "pair of Europeans",
+      "gives": "EE",
+      "note": "E is the abbreviation for European, twice"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LE",
+      "TMES",
+      "EE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone muses on why a French newspaper let two European correspondents go.",
+     "walkthrough": "The Times is the London daily newspaper; with its I dropped it becomes TMES.",
+     "definitionFit": "Let me see is a spoken filler used while pausing to consider something, much like saying you need a moment's thought."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "dropped"
+    }
+   }
   },
   {
    "number": 13,
@@ -211,7 +845,59 @@
     "text": "Element sculpted with art in lintel",
     "enumeration": "10"
    },
-   "solution": "MANTELTREE"
+   "solution": "MANTELTREE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MANTELTREE",
+    "definitions": [
+     {
+      "text": "lintel",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sculpted",
+      "for": "anagram",
+      "note": "sculpted material is reshaped into a new form, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Element",
+      "gives": "ELEMENT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "art",
+      "gives": "ART",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ELEMENTART",
+       "gives": "MANTELTREE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A decorative element carved into a stone lintel above a door.",
+     "walkthrough": "'With' simply joins the two words whose letters are mixed together.",
+     "definitionFit": "A manteltree is the beam or stone across the top of a fireplace opening, a kind of lintel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Element"
+    }
+   }
   },
   {
    "number": 14,
@@ -225,7 +911,51 @@
     "text": "Treated ailing ruminant in Asia",
     "enumeration": "6"
    },
-   "solution": "NILGAI"
+   "solution": "NILGAI",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NILGAI",
+    "definitions": [
+     {
+      "text": "ruminant in Asia",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Treated",
+      "for": "anagram",
+      "note": "something treated has been worked on and changed, so these letters are altered in order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ailing",
+      "gives": "AILING",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AILING",
+       "gives": "NILGAI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vet has treated a sick cud-chewing animal somewhere in Asia.",
+     "walkthrough": "'Treated ailing' reads as medical care for a sick animal, but 'treated' is the signal to rearrange.",
+     "definitionFit": "The nilgai, or blue bull, is a large antelope of India and Pakistan, and antelopes chew the cud."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Treated"
+    }
+   }
   },
   {
    "number": 15,
@@ -239,7 +969,55 @@
     "text": "Puts forward large packaging deal",
     "enumeration": "6"
    },
-   "solution": "OPINES"
+   "solution": "OPINES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "OPINES",
+    "definitions": [
+     {
+      "text": "Puts forward",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "packaging",
+      "for": "container",
+      "note": "packaging wraps round its contents, so one piece encloses another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "large",
+      "gives": "OS",
+      "note": "OS stands for outsize, a clothing size"
+     },
+     {
+      "clueFragment": "deal",
+      "gives": "PINE",
+      "note": "deal is softwood timber such as pine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "PINE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A company proposes a big packaging contract.",
+     "walkthrough": "'Deal' looks like a business agreement but is the timber sense, as in a deal table.",
+     "definitionFit": "To opine is to state a view, so someone who opines is putting forward their opinion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "deal"
+    }
+   }
   },
   {
    "number": 16,
@@ -259,7 +1037,59 @@
      }
     ]
    },
-   "solution": "PALMEDOR"
+   "solution": "PALMEDOR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PALME DOR",
+    "definitions": [
+     {
+      "text": "a prize",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrestling",
+      "for": "anagram",
+      "note": "wrestlers twist and tangle, so these letters are contorted into a new order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pro",
+      "gives": "PRO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "medal",
+      "gives": "MEDAL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PROMEDAL",
+       "gives": "PALMEDOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A professional wrestler competes for a medal as a prize.",
+     "walkthrough": "'Pro wrestling' reads as the entertainment sport, but 'wrestling' is the signal to mix up PRO and MEDAL.",
+     "definitionFit": "The Palme d'Or is the top award given at the Cannes Film Festival each year."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wrestling"
+    }
+   }
   },
   {
    "number": 17,
@@ -273,7 +1103,46 @@
     "text": "Province that's eight steps behind India?",
     "enumeration": "6"
    },
-   "solution": "QUEBEC"
+   "solution": "QUEBEC",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "QUEBEC",
+    "definitions": [
+     {
+      "text": "Province",
+      "at": 0
+     },
+     {
+      "text": "eight steps behind India?",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Province",
+      "note": "first meaning: the French-speaking Canadian province"
+     },
+     {
+      "clueFragment": "eight steps behind India?",
+      "note": "second meaning: in the phonetic alphabet India is I, and counting eight letters on from I lands on Q"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "India here is not the country but the codeword for I in the NATO phonetic alphabet; the question mark flags the playful counting.",
+     "definitionFit": "Quebec is both a large Canadian province and the NATO radio codeword for the letter Q."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "India"
+    }
+   }
   },
   {
    "number": 17,
@@ -287,7 +1156,43 @@
     "text": "Diddly-squat, or zero, is round number in piquet",
     "enumeration": "8"
    },
-   "solution": "QUATORZE"
+   "solution": "QUATORZE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "QUATORZE",
+    "definitions": [
+     {
+      "text": "number in piquet",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is round",
+      "for": "hidden_word",
+      "note": "the outer words sit round the solution, enclosing it within their letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Diddly-squat, or zero",
+      "gives": "QUATORZE",
+      "note": "the letters run on across the words, ignoring the comma and space"
+     }
+    ],
+    "explanation": {
+     "surface": "A card player scores diddly-squat, zero, in a round of piquet.",
+     "walkthrough": "'Round number' looks like a whole number such as fifty; the phrase splits so that 'is round' signals the enclosure and the definition is 'number in piquet'.",
+     "definitionFit": "In the card game piquet, a quatorze is a set of four aces, kings, queens, jacks or tens, scoring fourteen points."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 18,
@@ -301,7 +1206,64 @@
     "text": "Fish hearts, but not hat, could be articles on boats",
     "enumeration": "7"
    },
-   "solution": "RUDDERS"
+   "solution": "RUDDERS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "RUDDERS",
+    "definitions": [
+     {
+      "text": "articles on boats",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "but not",
+      "for": "deletion",
+      "note": "but not means excluding, so these letters are taken away"
+     }
+    ],
+    "linkWords": [
+     "could be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fish",
+      "gives": "RUDD",
+      "note": "the rudd is a freshwater fish"
+     },
+     {
+      "clueFragment": "hearts",
+      "gives": "HEARTS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hat",
+      "gives": "HAT",
+      "note": "taken as written, the letters to remove"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RUDD",
+      "ERS"
+     ]
+    },
+    "explanation": {
+     "surface": "Fish hearts, but no hat, might be things you'd find stored on board a boat.",
+     "walkthrough": "The letters of 'hat' need not be together in 'hearts': each is removed separately, and the rudd is a small European freshwater fish.",
+     "definitionFit": "A rudder is the hinged blade at a vessel's stern used for steering, a standard fitting on boats."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "hearts"
+    }
+   }
   },
   {
    "number": 19,
@@ -315,7 +1277,65 @@
     "text": "Most scheming to get agreement accepted by special officer",
     "enumeration": "6"
    },
-   "solution": "SLYEST"
+   "solution": "SLYEST",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SLYEST",
+    "definitions": [
+     {
+      "text": "Most scheming",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accepted by",
+      "for": "container",
+      "note": "what is accepted is taken in, so one piece goes inside another"
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "special",
+      "gives": "S",
+      "note": "S is an abbreviation for special"
+     },
+     {
+      "clueFragment": "agreement",
+      "gives": "YES",
+      "note": "yes is a word of agreement"
+     },
+     {
+      "clueFragment": "officer",
+      "gives": "LT",
+      "note": "Lt is the abbreviation for lieutenant, an officer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "L",
+      "YES",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "The most devious operator gets a deal approved by a special agent.",
+     "walkthrough": "S for special is a crossword abbreviation; the agreement word goes inside LT, the officer.",
+     "definitionFit": "Sly means cunning and underhand, so the slyest person is the most scheming and crafty."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "agreement"
+    }
+   }
   },
   {
    "number": 20,
@@ -329,7 +1349,63 @@
     "text": "Dogs are, we hear, wearing formal evening attire",
     "enumeration": "6"
    },
-   "solution": "TRAILS"
+   "solution": "TRAILS",
+   "annotation": {
+    "type": [
+     "homophone",
+     "container"
+    ],
+    "answer": "TRAILS",
+    "definitions": [
+     {
+      "text": "Dogs",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "we hear points to what is heard, so a sound stands in for letters"
+     },
+     {
+      "text": "wearing",
+      "for": "container",
+      "note": "whatever wears clothing is inside it, so one piece sits within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "are",
+      "gives": "R",
+      "soundsLike": "ARE",
+      "note": "the word is pronounced like the letter R"
+     },
+     {
+      "clueFragment": "formal evening attire",
+      "gives": "TAILS",
+      "note": "tails are a tailcoat, worn for white-tie occasions"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "R",
+      "AILS"
+     ]
+    },
+    "explanation": {
+     "surface": "Dogs, it's said, are dressed up in formal evening wear.",
+     "walkthrough": "'Dogs' reads as the animals, but it is the verb, to follow closely.",
+     "definitionFit": "To dog someone is to follow them persistently, the same as to trail them or shadow them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Dogs"
+    }
+   }
   },
   {
    "number": 21,
@@ -343,7 +1419,54 @@
     "text": "Doctor cut a vein? It's not working",
     "enumeration": "8"
    },
-   "solution": "UNACTIVE"
+   "solution": "UNACTIVE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "UNACTIVE",
+    "definitions": [
+     {
+      "text": "not working",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Doctor",
+      "for": "anagram",
+      "note": "to doctor something is to tamper with it, so the letters are altered in order"
+     }
+    ],
+    "linkWords": [
+     "It's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cut a vein",
+      "gives": "CUTAVEIN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CUTAVEIN",
+       "gives": "UNACTIVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A medic asks whether cutting a vein would help, and is told the treatment isn't working.",
+     "walkthrough": "'Doctor' looks like the physician, which suits the vein, but it is the verb meaning to tamper with.",
+     "definitionFit": "Unactive is an uncommon form of inactive, describing something idle or not operating."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Doctor"
+    }
+   }
   },
   {
    "number": 22,
@@ -357,7 +1480,67 @@
     "text": "Child, under six, framing current image",
     "enumeration": "6"
    },
-   "solution": "VISION"
+   "solution": "VISION",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "VISION",
+    "definitions": [
+     {
+      "text": "image",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "under",
+      "for": "charade",
+      "note": "in a down entry, being under means coming lower down, so order is fixed by this word"
+     },
+     {
+      "text": "framing",
+      "for": "container",
+      "note": "a frame surrounds a picture, so one piece encloses another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "six",
+      "gives": "VI",
+      "note": "six in Roman numerals"
+     },
+     {
+      "clueFragment": "Child",
+      "gives": "SON",
+      "note": "a son is a child"
+     },
+     {
+      "clueFragment": "current",
+      "gives": "I",
+      "note": "I is the symbol for electric current"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VI",
+      "S",
+      "I",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A young child with a picture of a flowing river framed around it.",
+     "walkthrough": "I is the symbol for current in physics formulas; in a down clue the child sits below the six.",
+     "definitionFit": "A vision is a mental picture or something seen in the mind's eye, so it is an image."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "current"
+    }
+   }
   },
   {
    "number": 23,
@@ -377,7 +1560,70 @@
      }
     ]
    },
-   "solution": "WESTWARDHO"
+   "solution": "WESTWARDHO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "WESTWARD HO",
+    "definitions": [
+     {
+      "text": "novel",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "moving ecstasy",
+      "for": "anagram",
+      "note": "moving the drug's letter shifts just that one letter to a new position while the rest stay put"
+     },
+     {
+      "text": "arrests",
+      "for": "container",
+      "note": "to arrest someone is to hold them in custody, so one piece holds another"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Which person",
+      "gives": "WHO",
+      "note": "who asks which person"
+     },
+     {
+      "clueFragment": "attendant",
+      "gives": "STEWARD",
+      "note": "a steward attends passengers on a ship or plane"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "ESTWARD",
+      "HO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "STEWARD",
+       "gives": "ESTWARD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A detective novel: someone arrests a flight attendant carrying ecstasy.",
+     "walkthrough": "E is crossword shorthand for the drug ecstasy; only that letter of the attendant moves, to the front, before being held inside.",
+     "definitionFit": "Westward Ho! is an 1855 adventure novel by Charles Kingsley, which gave its name to a Devon village."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ecstasy"
+    }
+   }
   },
   {
    "number": 24,
@@ -391,7 +1637,50 @@
     "text": "Axes by stone portico in Greece",
     "enumeration": "4"
    },
-   "solution": "XYST"
+   "solution": "XYST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "XYST",
+    "definitions": [
+     {
+      "text": "portico in Greece",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Axes",
+      "gives": "XY",
+      "note": "x and y are the two axes of a graph"
+     },
+     {
+      "clueFragment": "stone",
+      "gives": "ST",
+      "note": "st is the abbreviation for stone, the British weight"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "XY",
+      "ST"
+     ]
+    },
+    "explanation": {
+     "surface": "Axes lie beside a stone colonnade in ancient Greece.",
+     "walkthrough": "'Axes' looks like chopping tools, but it is the plural of axis. A stone is a British unit of weight, 14 pounds.",
+     "definitionFit": "A xyst was a long covered colonnade in ancient Greek gymnasiums where athletes exercised in winter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Axes"
+    }
+   }
   },
   {
    "number": 24,
@@ -411,7 +1700,47 @@
      }
     ]
    },
-   "solution": "XRAY"
+   "solution": "XRAY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "X-RAY",
+    "definitions": [
+     {
+      "text": "bones may appear in this",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Unknown",
+      "gives": "X",
+      "note": "x is the classic algebraic unknown"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "RAY",
+      "note": "a ray is a flat fish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "X",
+      "RAY"
+     ]
+    },
+    "explanation": {
+     "surface": "A mystery fish whose skeleton might show up in a picture.",
+     "walkthrough": "Fish bones make the reader picture a fishbone, but the bones are those of a patient in a hospital image.",
+     "definitionFit": "An X-ray photograph shows the skeleton because radiation passes through soft tissue but is blocked by bone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "bones"
+    }
+   }
   },
   {
    "number": 25,
@@ -425,7 +1754,58 @@
     "text": "Vocalist, one shouting after swallowing too many drugs",
     "enumeration": "8"
    },
-   "solution": "YODELLER"
+   "solution": "YODELLER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "YODELLER",
+    "definitions": [
+     {
+      "text": "Vocalist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swallowing",
+      "for": "container",
+      "note": "what is swallowed goes inside, so one piece takes another into itself"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one shouting",
+      "gives": "YELLER",
+      "note": "a yeller is one who yells or shouts"
+     },
+     {
+      "clueFragment": "too many drugs",
+      "gives": "OD",
+      "note": "OD is short for overdose"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "Y",
+      "OD",
+      "ELLER"
+     ]
+    },
+    "explanation": {
+     "surface": "A singer starts shouting after taking an overdose.",
+     "walkthrough": "The overdose is not a cause of the shouting but letters swallowed by the shouter.",
+     "definitionFit": "A yodeller is a singer who switches rapidly between chest voice and falsetto, as in Alpine folk music."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "swallowing"
+    }
+   }
   },
   {
    "number": 26,
@@ -439,7 +1819,59 @@
     "text": "Content to leave Zimbabwe with many a fanatic",
     "enumeration": "6"
    },
-   "solution": "ZEALOT"
+   "solution": "ZEALOT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ZEALOT",
+    "definitions": [
+     {
+      "text": "fanatic",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Content to leave",
+      "for": "letter_selection",
+      "note": "when the contents leave, only the outside shell remains, so just the ends are kept"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Zimbabwe",
+      "gives": "ZE",
+      "select": "outer",
+      "note": "the first and last letters"
+     },
+     {
+      "clueFragment": "many",
+      "gives": "ALOT",
+      "note": "a lot means many"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ZE",
+      "ALOT"
+     ]
+    },
+    "explanation": {
+     "surface": "Happy to leave Zimbabwe along with many a fanatic.",
+     "walkthrough": "'Content' reads as happy, but it is the noun, the insides of a word, which are emptied.",
+     "definitionFit": "A zealot is someone with extreme, uncompromising enthusiasm for a cause, just as a fanatic is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Content"
+    }
+   }
   }
  ]
 }
