@@ -710,10 +710,21 @@ tools/favourite_grading.py                   blind matched pairs of a clue comme
 tools/favourite_grading.sh                   grades those packets one claude -p per batch,
                                              skipping any batch whose score file already parses
 tools/favourite_grading_prompt.md            what the judge is told each axis means
+tools/ctc_transcripts.py                     reads Cracking the Cryptic solve transcripts,
+                                             finds each praised or disliked clue, ties it to
+                                             our annotated copy, and counts device and feature
+                                             lift against the same puzzles
+tools/ctc_reasons_prompt.md                  what the judge is told when naming why a solver
+                                             reacted to a clue
 tools/compare_mc.py                          word-count and shape comparison of our hints
                                              against Minute Cryptic’s
 
 tables everything else reads
+tools/data/ctc_moments.json                  every reaction ctc_transcripts.py found: video,
+                                             puzzle, trigger words, a minute of transcript, and
+                                             the clue it was tied to
+tools/data/ctc_reasons.json                  the judge's verdict, reasons and the solver's own
+                                             words for each reacted-to clue
 tools/series.py                              the one table of facts about each series:
                                              publisher, naming, URL shape
 tools/kv.py                                  the one helper for reaching the sync KV namespace
