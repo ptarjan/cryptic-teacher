@@ -24,6 +24,9 @@
   "date": "2025-01-13",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,49 @@
     "text": "A portion of haggis always lacks flavour at first",
     "enumeration": "4"
    },
-   "solution": "HALF"
+   "solution": "HALF",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "HALF",
+    "definitions": [
+     {
+      "text": "A portion",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "'at first' asks for the opening letter of each of the four words before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "haggis always lacks flavour",
+      "gives": "HALF",
+      "select": "first",
+      "note": "the leading letters of haggis, always, lacks and flavour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HALF"
+     ]
+    },
+    "explanation": {
+     "surface": "A food critic complains that a serving of haggis is always bland.",
+     "walkthrough": "The first four letters of the surface's words spell the answer, and 'A portion' at the front is the definition, not part of the fodder.",
+     "definitionFit": "A half is one of two equal shares of something, so it is a portion of the whole."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "portion"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +96,45 @@
     "text": "Trousers for fashionable types",
     "enumeration": "8"
    },
-   "solution": "HIPSTERS"
+   "solution": "HIPSTERS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HIPSTERS",
+    "definitions": [
+     {
+      "text": "Trousers",
+      "at": 0
+     },
+     {
+      "text": "fashionable types",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trousers",
+      "gives": "HIPSTERS",
+      "note": "trousers cut to sit on the hips rather than the waist"
+     },
+     {
+      "clueFragment": "fashionable types",
+      "gives": "HIPSTERS",
+      "note": "people who follow the latest trends in culture and style"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In British English, hipsters are also low-slung trousers (Americans say hip-huggers), which is the sense a non-British solver may not know.",
+     "definitionFit": "Both senses share one word: low-waisted slacks, and trendy people with self-consciously cool taste."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Trousers"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +148,46 @@
     "text": "Place is somewhat foul, i.e. unpleasant",
     "enumeration": "4"
    },
-   "solution": "LIEU"
+   "solution": "LIEU",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "LIEU",
+    "definitions": [
+     {
+      "text": "Place",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "somewhat",
+      "for": "hidden_word",
+      "note": "'somewhat' means only partly, so just a stretch of the following words is taken"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "foul, i.e. unpleasant",
+      "gives": "LIEU",
+      "note": "runs from the end of foul, through i.e., into the start of unpleasant"
+     }
+    ],
+    "explanation": {
+     "surface": "A visitor describes a grim spot as rather nasty and disagreeable.",
+     "walkthrough": "The 'i.e.' looks like a writer's aside but supplies the middle two letters of the hidden run.",
+     "definitionFit": "Lieu is French for place, used in English mainly in the phrase 'in lieu of', meaning in place of."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "i.e."
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +201,70 @@
     "text": "Yell about terrible tune for quite a long time",
     "enumeration": "7"
    },
-   "solution": "CENTURY"
+   "solution": "CENTURY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "CENTURY",
+    "definitions": [
+     {
+      "text": "quite a long time",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "terrible",
+      "for": "anagram",
+      "note": "a terrible tune is one mangled out of shape, so its letters are jumbled"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "'about' means around, so the yell wraps itself around the mangled tune"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Yell",
+      "gives": "CRY",
+      "note": "to yell is to cry out"
+     },
+     {
+      "clueFragment": "tune",
+      "gives": "TUNE",
+      "note": "anagram fodder, four letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ENTU",
+      "RY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TUNE",
+       "gives": "ENTU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone shouts at an awful song that has been playing for ages.",
+     "walkthrough": "'Terrible tune' looks like a complaint about music, but it is an instruction to rearrange the four letters of the word.",
+     "definitionFit": "A hundred years is certainly a lengthy period, so the understatement 'quite a long time' fits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "tune"
+    }
+   }
   },
   {
    "number": 3,
@@ -93,7 +278,44 @@
     "text": "Caught person throwing part of game",
     "enumeration": "6"
    },
-   "solution": "CHUKKA"
+   "solution": "CHUKKA",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "CHUKKA",
+    "definitions": [
+     {
+      "text": "part of game",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Caught",
+      "for": "homophone",
+      "note": "to catch a remark is to hear it, so what follows is taken by ear"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "person throwing",
+      "gives": "CHUKKA",
+      "soundsLike": "CHUCKER",
+      "note": "one who chucks, or throws, something"
+     }
+    ],
+    "explanation": {
+     "surface": "A fielder snaps up a catch from someone lobbing the ball during a match.",
+     "walkthrough": "'Caught' wants to be C, the cricket abbreviation, but here it means heard. In a British accent the final R of the thrower's name is silent, so the two words sound alike. A chukka is one of the timed periods in polo.",
+     "definitionFit": "Polo matches are divided into chukkas of about seven minutes each, so one is a section of the game."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Caught"
+    }
+   }
   },
   {
    "number": 4,
@@ -113,7 +335,46 @@
      }
     ]
    },
-   "solution": "NAMEDROPPING"
+   "solution": "NAMEDROPPING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NAME-DROPPING",
+    "definitions": [
+     {
+      "text": "the practice of mentioning famous connections",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Celeb",
+      "gives": "NAME",
+      "note": "a celebrity is a big name"
+     },
+     {
+      "clueFragment": "ditching",
+      "gives": "DROPPING",
+      "note": "to ditch something is to drop it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NAME",
+      "DROPPING"
+     ]
+    },
+    "explanation": {
+     "surface": "A star gives up the habit of boasting about which famous people they know.",
+     "walkthrough": "Each of the first two words translates straight into one half of the hyphenated answer.",
+     "definitionFit": "Name-dropping means casually citing well-known acquaintances to impress others, exactly the habit the definition describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -127,7 +388,52 @@
     "text": "Inconvenient direction hospital worker may once have gone?",
     "enumeration": "8"
    },
-   "solution": "UNTOWARD"
+   "solution": "UNTOWARD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNTOWARD",
+    "definitions": [
+     {
+      "text": "Inconvenient",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "direction",
+      "gives": "UNTO",
+      "note": "an old word meaning 'to' or 'towards', which is why the clue says 'once'"
+     },
+     {
+      "clueFragment": "hospital",
+      "gives": "WARD",
+      "note": "a room or section of a hospital where patients stay"
+     },
+     {
+      "clueFragment": "worker may once have gone",
+      "note": "surface padding that frames the scene; 'once' flags the old-fashioned word for direction"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNTO",
+      "WARD"
+     ]
+    },
+    "explanation": {
+     "surface": "A playful question about where a nurse might have been sent in bygone days.",
+     "walkthrough": "The wordplay is a little scene: in old-fashioned language a hospital worker would go 'unto ward'. The question mark flags this whimsical reading.",
+     "definitionFit": "Untoward describes something unexpected and unwelcome, which is close to troublesome or awkward in its effect."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "direction"
+    }
+   }
   },
   {
    "number": 6,
@@ -141,7 +447,59 @@
     "text": "University awayday’s ending with beer!",
     "enumeration": "4"
    },
-   "solution": "YALE"
+   "solution": "YALE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "YALE",
+    "definitions": [
+     {
+      "text": "University",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ending",
+      "for": "letter_selection",
+      "note": "the ending of awayday's is its final letter alone"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "awayday’s",
+      "gives": "Y",
+      "select": "last",
+      "note": "last letter of awayday"
+     },
+     {
+      "clueFragment": "beer",
+      "gives": "ALE",
+      "note": "ale is a kind of beer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "Y",
+      "ALE"
+     ]
+    },
+    "explanation": {
+     "surface": "Students on a day trip finish off with a drink.",
+     "walkthrough": "An awayday is a British term for a day out, originally a cheap return rail ticket.",
+     "definitionFit": "Yale is an Ivy League institution in New Haven, Connecticut, an example of the category named."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "awayday’s"
+    }
+   }
   },
   {
    "number": 7,
@@ -155,7 +513,51 @@
     "text": "Elaborate item printers get wrong",
     "enumeration": "12"
    },
-   "solution": "MISINTERPRET"
+   "solution": "MISINTERPRET",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MISINTERPRET",
+    "definitions": [
+     {
+      "text": "get wrong",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Elaborate",
+      "for": "anagram",
+      "note": "to elaborate is to work something up into a new form, so the letters are reworked"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "item printers",
+      "gives": "ITEMPRINTERS",
+      "note": "anagram fodder, twelve letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ITEMPRINTERS",
+       "gives": "MISINTERPRET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fancy piece of print work gets botched at the press.",
+     "walkthrough": "'Elaborate' reads as an adjective describing the item, but it is a verb telling you to rework the letters.",
+     "definitionFit": "To misinterpret is to understand or read something incorrectly, a straightforward synonym pair."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Elaborate"
+    }
+   }
   },
   {
    "number": 8,
@@ -175,7 +577,62 @@
      }
     ]
    },
-   "solution": "PRECIOUSMETAL"
+   "solution": "PRECIOUSMETAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "PRECIOUS METAL",
+    "definitions": [
+     {
+      "text": "valuable material",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nearly",
+      "for": "deletion",
+      "note": "'nearly all' is the word stopped just short of its end"
+     },
+     {
+      "text": "Somehow",
+      "for": "anagram",
+      "note": "'somehow' says the letters get there by some unstated arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "computerise",
+      "gives": "COMPUTERISE",
+      "note": "anagram fodder, eleven letters"
+     },
+     {
+      "clueFragment": "all",
+      "gives": "AL",
+      "note": "the word minus its final letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "COMPUTERISE AL",
+       "gives": "PRECIOUSMETAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone plans to digitise almost every precious document in an archive.",
+     "walkthrough": "The anagram fodder is COMPUTERISE plus AL, thirteen letters in all.",
+     "definitionFit": "Gold, silver and platinum are prized, costly substances, so the phrase is a fair description."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "computerise"
+    }
+   }
   },
   {
    "number": 9,
@@ -189,7 +646,54 @@
     "text": "Sort of info lawyers know to begin with",
     "enumeration": "3"
    },
-   "solution": "ILK"
+   "solution": "ILK",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ILK",
+    "definitions": [
+     {
+      "text": "Sort",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to begin with",
+      "for": "letter_selection",
+      "note": "'to begin with' takes what each of the three words starts with"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "info lawyers know",
+      "gives": "ILK",
+      "select": "first",
+      "note": "opening letters of info, lawyers and know"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "L",
+      "K"
+     ]
+    },
+    "explanation": {
+     "surface": "The kind of facts that attorneys understand from the outset.",
+     "walkthrough": "'Sort of' reads as a hedge, but 'Sort' alone is the definition and 'of' is the link.",
+     "definitionFit": "Ilk means kind or type, as in 'people of that ilk'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sort"
+    }
+   }
   },
   {
    "number": 10,
@@ -209,7 +713,55 @@
      }
     ]
    },
-   "solution": "EGGON"
+   "solution": "EGGON",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "EGG ON",
+    "definitions": [
+     {
+      "text": "Urge",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "'almost vanished' is the synonym cut off before its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "say",
+      "gives": "EG",
+      "note": "e.g., for example"
+     },
+     {
+      "clueFragment": "vanished",
+      "gives": "GON",
+      "note": "vanished is gone, minus its last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EG",
+      "GON"
+     ]
+    },
+    "explanation": {
+     "surface": "A craving that, for instance, has nearly disappeared.",
+     "walkthrough": "'Urge' reads as a noun in the surface but the definition is the verb.",
+     "definitionFit": "To egg on is to encourage or push someone to act, a phrasal verb meaning the same as the imperative prompt."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Urge"
+    }
+   }
   },
   {
    "number": 11,
@@ -233,7 +785,51 @@
      }
     ]
    },
-   "solution": "GETRIDOF"
+   "solution": "GETRIDOF",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GET RID OF",
+    "definitions": [
+     {
+      "text": "trash",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "'about' means turned around every which way, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I’d forget",
+      "gives": "IDFORGET",
+      "note": "anagram fodder, eight letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IDFORGET",
+       "gives": "GETRIDOF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone admits they would not remember the rubbish.",
+     "walkthrough": "'Trash' looks like a noun but is the verb, to throw away.",
+     "definitionFit": "To trash something in the sense of binning it is to dispose of it, so the phrasal verb matches."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "trash"
+    }
+   }
   },
   {
    "number": 12,
@@ -247,7 +843,50 @@
     "text": "Look, food is likely a big element of holiday expenditure",
     "enumeration": "7"
    },
-   "solution": "AIRFARE"
+   "solution": "AIRFARE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AIRFARE",
+    "definitions": [
+     {
+      "text": "likely a big element of holiday expenditure",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Look",
+      "gives": "AIR",
+      "note": "an air is a look or manner, as in 'an air of confidence'"
+     },
+     {
+      "clueFragment": "food",
+      "gives": "FARE",
+      "note": "fare is food, as in 'simple fare'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AIR",
+      "FARE"
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller notes that meals are probably a large part of trip spending.",
+     "walkthrough": "The surface suggests food is the big holiday cost; in fact 'Look' and 'food' are the wordplay and the flight ticket is the answer.",
+     "definitionFit": "The ticket price for a flight is often the largest single cost of a trip abroad."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "food"
+    }
+   }
   },
   {
    "number": 13,
@@ -261,7 +900,55 @@
     "text": "Vision certainly embodied by rowing crew",
     "enumeration": "8"
    },
-   "solution": "EYESIGHT"
+   "solution": "EYESIGHT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EYESIGHT",
+    "definitions": [
+     {
+      "text": "Vision",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "embodied by",
+      "for": "container",
+      "note": "to be embodied by is to sit inside another body, so 'certainly' goes within the crew"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rowing crew",
+      "gives": "EIGHT",
+      "note": "a rowing boat with eight oarsmen, and by extension its crew"
+     },
+     {
+      "clueFragment": "certainly",
+      "gives": "YES",
+      "note": "an emphatic agreement"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "YES",
+      "IGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "A dream of success is shared by all the members of a boat team.",
+     "walkthrough": "An eight is the standard name for a racing boat and its crew of eight rowers.",
+     "definitionFit": "Vision in its literal sense is the ability to see, which is what the answer means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Vision"
+    }
+   }
   },
   {
    "number": 14,
@@ -281,7 +968,55 @@
      }
     ]
    },
-   "solution": "SOTHERE"
+   "solution": "SOTHERE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SO THERE",
+    "definitions": [
+     {
+      "text": "I told you",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cuts",
+      "for": "container",
+      "note": "to cut into something is to go inside it, so 'hurt' is split around 'the'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hurt",
+      "gives": "SORE",
+      "note": "sore means painful or hurt"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "used as printed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SO",
+      "THE",
+      "RE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone smugly reminds a friend that they warned them the injuries would sting.",
+     "walkthrough": "'The cuts' reads as wounds, but 'the' is fodder and 'cuts' is the instruction to insert it.",
+     "definitionFit": "Both phrases are triumphant retorts said after being proved correct in an argument."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "cuts"
+    }
+   }
   },
   {
    "number": 15,
@@ -295,7 +1030,61 @@
     "text": "Joyful story upset newspaper boss",
     "enumeration": "6"
    },
-   "solution": "ELATED"
+   "solution": "ELATED",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ELATED",
+    "definitions": [
+     {
+      "text": "Joyful",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down clue, to upset is to tip over, so the story is turned bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "story",
+      "gives": "TALE",
+      "note": "a tale is a story"
+     },
+     {
+      "clueFragment": "newspaper boss",
+      "gives": "ED",
+      "note": "abbreviation for editor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELAT",
+      "ED"
+     ],
+     "reversals": [
+      {
+       "from": "TALE",
+       "to": "ELAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A happy news item annoys the paper's editor.",
+     "walkthrough": "'Upset' reads as annoyed in the surface, but it tips the story over.",
+     "definitionFit": "Elated means in high spirits, a close synonym of happy and glad."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 16,
@@ -309,7 +1098,71 @@
     "text": "Poet periodically welcomes in a doctor and priest",
     "enumeration": "5"
    },
-   "solution": "PADRE"
+   "solution": "PADRE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PADRE",
+    "definitions": [
+     {
+      "text": "priest",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "periodically",
+      "for": "letter_selection",
+      "note": "'periodically' takes letters at regular intervals, here every other one of the poet"
+     },
+     {
+      "text": "welcomes in",
+      "for": "container",
+      "note": "to welcome someone in is to take them inside, so the poet's letters surround the rest"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Poet",
+      "gives": "PE",
+      "select": "alternate",
+      "note": "first and third letters of poet"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "used as printed"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "DR",
+      "note": "standard abbreviation for doctor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "A",
+      "DR",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A writer of verse sometimes has a physician and a clergyman as guests.",
+     "walkthrough": "Padre is a common term for a chaplain, especially in the armed forces.",
+     "definitionFit": "Padre is Spanish and Italian for father, and in English means a chaplain or clergyman."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Poet"
+    }
+   }
   },
   {
    "number": 17,
@@ -323,7 +1176,48 @@
     "text": "Cheek, or something next to it!",
     "enumeration": "3"
    },
-   "solution": "LIP"
+   "solution": "LIP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LIP",
+    "definitions": [
+     {
+      "text": "Cheek",
+      "at": 0
+     },
+     {
+      "text": "something next to it",
+      "at": 10
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cheek",
+      "gives": "LIP",
+      "note": "cheek as insolence or backchat"
+     },
+     {
+      "clueFragment": "something next to it",
+      "gives": "LIP",
+      "note": "the part of the face beside the cheek"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The first sense is cheek meaning impudence; the second reads cheek as the body part, and the lip lies beside it. The exclamation mark marks the playful switch.",
+     "definitionFit": "Lip is slang for insolent talk, and also the fleshy edge of the mouth adjoining the face's side."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Cheek"
+    }
+   }
   },
   {
    "number": 18,
@@ -337,7 +1231,58 @@
     "text": "Engine noise is mostly clean, right?",
     "enumeration": "4"
    },
-   "solution": "PURR"
+   "solution": "PURR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "PURR",
+    "definitions": [
+     {
+      "text": "Engine noise",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "'mostly' keeps most of the word, dropping its last letter"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clean",
+      "gives": "PUR",
+      "note": "clean is pure, minus its final letter"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "standard abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PUR",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A mechanic asks whether a motor's sound is largely smooth.",
+     "walkthrough": "The surface's 'right?' is a question tag, but it is just the single letter.",
+     "definitionFit": "A well-tuned motor running smoothly makes a low, steady hum like a contented cat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 19,
@@ -351,7 +1296,47 @@
     "text": "Large amount of money in substantial property",
     "enumeration": "4"
    },
-   "solution": "PILE"
+   "solution": "PILE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PILE",
+    "definitions": [
+     {
+      "text": "Large amount of money",
+      "at": 0
+     },
+     {
+      "text": "substantial property",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Large amount of money",
+      "gives": "PILE",
+      "note": "informal for a fortune, as when someone makes a killing on the stock market"
+     },
+     {
+      "clueFragment": "substantial property",
+      "gives": "PILE",
+      "note": "a large imposing building, such as a stately home"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface reads as wealth tied up in real estate, but 'in' is only a link between two meanings.",
+     "definitionFit": "Informally a fortune is a pile, and a grand old mansion is also called a pile."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 20,
@@ -365,7 +1350,51 @@
     "text": "Getting redundant sign updated",
     "enumeration": "13"
    },
-   "solution": "UNDERSTANDING"
+   "solution": "UNDERSTANDING",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "UNDERSTANDING",
+    "definitions": [
+     {
+      "text": "Getting",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "updated",
+      "for": "anagram",
+      "note": "an updated sign has been redone, so its letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "redundant sign",
+      "gives": "REDUNDANTSIGN",
+      "note": "anagram fodder, thirteen letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REDUNDANTSIGN",
+       "gives": "UNDERSTANDING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An obsolete notice is being replaced with a new version.",
+     "walkthrough": "'Getting' reads as receiving, but here it means grasping, as in 'I'm not getting the joke'.",
+     "definitionFit": "To get something informally is to comprehend it, so the present participles match."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Getting"
+    }
+   }
   },
   {
    "number": 21,
@@ -379,7 +1408,65 @@
     "text": "Discredited official silenced after losing millions",
     "enumeration": "7"
    },
-   "solution": "REFUTED"
+   "solution": "REFUTED",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "REFUTED",
+    "definitions": [
+     {
+      "text": "Discredited",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "'after' puts the silenced word second, behind the official"
+     },
+     {
+      "text": "losing",
+      "for": "deletion",
+      "note": "'losing millions' removes the abbreviation for millions from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "official",
+      "gives": "REF",
+      "note": "short for referee, the match official"
+     },
+     {
+      "clueFragment": "silenced",
+      "gives": "MUTED",
+      "note": "silenced is muted"
+     },
+     {
+      "clueFragment": "millions",
+      "gives": "M",
+      "note": "standard abbreviation for millions, the letter removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REF",
+      "UTED"
+     ]
+    },
+    "explanation": {
+     "surface": "A disgraced bureaucrat is gagged after a costly financial loss.",
+     "walkthrough": "'Official' sounds like a civil servant but is the sports referee.",
+     "definitionFit": "A claim that has been refuted has been proved false, which is to say shown up as untrue."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "official"
+    }
+   }
   },
   {
    "number": 22,
@@ -393,7 +1480,55 @@
     "text": "Dog possibly swallows small bug",
     "enumeration": "4"
    },
-   "solution": "PEST"
+   "solution": "PEST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PEST",
+    "definitions": [
+     {
+      "text": "bug",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swallows",
+      "for": "container",
+      "note": "to swallow is to take inside, so the dog holds 'small'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dog possibly",
+      "gives": "PET",
+      "note": "a dog is one example of a pet, hence 'possibly'"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "standard abbreviation for small, as on clothing labels"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PE",
+      "S",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A hound eats a tiny insect.",
+     "walkthrough": "The dog eating a bug is a natural picture; the bug is the definition, not the thing swallowed.",
+     "definitionFit": "A pest is an insect or creature that damages crops or homes, as a bug can be."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bug"
+    }
+   }
   }
  ]
 }
