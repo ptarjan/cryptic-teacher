@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,61 @@
     "text": "Curtail relaxation that includes brief prank",
     "enumeration": "8"
    },
-   "solution": "RESTRICT"
+   "solution": "RESTRICT",
+   "annotation": {
+    "type": [
+     "container",
+     "deletion"
+    ],
+    "answer": "RESTRICT",
+    "definitions": [
+     {
+      "text": "Curtail",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "that includes",
+      "for": "container",
+      "note": "to include something is to take it inside, so one piece is placed within another"
+     },
+     {
+      "text": "brief",
+      "for": "deletion",
+      "note": "something brief is cut short, so the word loses its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "relaxation",
+      "gives": "REST",
+      "note": "rest is relaxation"
+     },
+     {
+      "clueFragment": "prank",
+      "gives": "TRICK",
+      "note": "a trick is a prank; shortened it loses its last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RES",
+      "TRIC",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wants to cut short a break that includes a quick practical joke.",
+     "walkthrough": "'Brief' looks like it describes the prank's length; it tells you to drop the final letter before the shortened word goes inside the relaxation.",
+     "definitionFit": "To curtail something is to limit or cut it back, which is what restricting does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "brief"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +104,47 @@
     "text": "Leaves, getting reprimand",
     "enumeration": "6"
    },
-   "solution": "ROCKET"
+   "solution": "ROCKET",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ROCKET",
+    "definitions": [
+     {
+      "text": "Leaves",
+      "at": 0,
+      "note": "plural leaves for a salad plant named as a mass noun"
+     },
+     {
+      "text": "reprimand",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Leaves",
+      "note": "first meaning: the peppery salad plant, also called arugula"
+     },
+     {
+      "clueFragment": "reprimand",
+      "note": "second meaning: British slang for a severe telling-off"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Leaves' reads as a verb, someone departing; it is the salad. In British slang, to 'get a rocket' is to be told off sharply.",
+     "definitionFit": "Rocket is a salad green eaten as leaves, and a rocket is also informal British speech for a stern scolding."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Leaves"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +158,61 @@
     "text": "Turns down incentives including bit of nepotism",
     "enumeration": "6"
    },
-   "solution": "SPURNS"
+   "solution": "SPURNS",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "SPURNS",
+    "definitions": [
+     {
+      "text": "Turns down",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "including",
+      "for": "container",
+      "note": "to include is to hold within, so one piece is set inside another"
+     },
+     {
+      "text": "bit of",
+      "for": "letter_selection",
+      "note": "a bit is a small part, here just the opening letter of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "incentives",
+      "gives": "SPURS",
+      "note": "spurs are incentives or stimuli"
+     },
+     {
+      "clueFragment": "nepotism",
+      "gives": "N",
+      "select": "first",
+      "note": "the first letter of nepotism"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPUR",
+      "N",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone honest refuses perks that involve a little favouritism towards relatives.",
+     "walkthrough": "N goes inside SPURS, just before its final S.",
+     "definitionFit": "To spurn is to reject or refuse with contempt, the same as turning an offer down."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +226,65 @@
     "text": "Resort with Everyman, from the outset, nagging people to fix things",
     "enumeration": "9"
    },
-   "solution": "REPAIRMEN"
+   "solution": "REPAIRMEN",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "REPAIRMEN",
+    "definitions": [
+     {
+      "text": "people to fix things",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from the outset",
+      "for": "letter_selection",
+      "note": "the outset is the start, so only the opening letter of the word is kept"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Resort",
+      "gives": "REPAIR",
+      "note": "to repair to a place is to resort to it, go there"
+     },
+     {
+      "clueFragment": "Everyman",
+      "gives": "ME",
+      "note": "the setter, Everyman, refers to himself as me"
+     },
+     {
+      "clueFragment": "nagging",
+      "gives": "N",
+      "select": "first",
+      "note": "the first letter of nagging"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REPAIR",
+      "ME",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A holiday resort, the setter, and someone nagging tradesmen to get on with the job.",
+     "walkthrough": "'Resort' looks like a noun, a holiday spot; here it is the old verb, as in 'repair to the drawing room'. A setter's own pen-name stands for ME.",
+     "definitionFit": "Repairmen are workers whose job is mending broken appliances and equipment, so they are folk hired to fix things."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Resort"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +304,51 @@
      }
     ]
    },
-   "solution": "CATHERINEWHEEL"
+   "solution": "CATHERINEWHEEL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CATHERINE-WHEEL",
+    "definitions": [
+     {
+      "text": "Exercise",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "questionable",
+      "for": "anagram",
+      "note": "something questionable is doubtful or not right, so the letters are not in their right order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "We're N.I.C.E. Health",
+      "gives": "WERENICEHEALTH",
+      "note": "all fourteen letters, ignoring punctuation"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WERENICEHEALTH",
+       "gives": "CATHERINEWHEEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A health body insists it is nice, then, doubted, barks an order to go and exercise.",
+     "walkthrough": "NICE is Britain's National Institute for Health and Care Excellence, which advises on treatments. The dots make it look like an acronym, but its letters join the anagram.",
+     "definitionFit": "A catherine-wheel is another name for a cartwheel, the gymnastic move of turning sideways over the hands, so it is a physical workout move."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Exercise"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +362,68 @@
     "text": "Wholesaler offloading dodgy sole; I'm seeking something more substantial",
     "enumeration": "6"
    },
-   "solution": "WHALER"
+   "solution": "WHALER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "deletion"
+    ],
+    "answer": "WHALER",
+    "definitions": [
+     {
+      "text": "I'm seeking something more substantial",
+      "at": 34,
+      "note": "a clause spoken by the answer, not a noun phrase"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "offloading",
+      "for": "deletion",
+      "note": "to offload is to get rid of a load, so letters are taken away"
+     },
+     {
+      "text": "dodgy",
+      "for": "anagram",
+      "note": "dodgy means unreliable or not straight, so these letters appear in a jumbled order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wholesaler",
+      "gives": "WHOLESALER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sole",
+      "gives": "SOLE",
+      "note": "taken as written; jumbled it matches the run O, L, E, S inside the longer word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WH",
+      "ALER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SOLE",
+       "gives": "OLES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fish trader dumps some iffy sole, saying he wants something with more meat on it.",
+     "walkthrough": "Remove OLES, a scramble of SOLE, from WHOLESALER to leave WHALER. The definition is the answer speaking: a sole is a small flatfish, and the whaler hunts much bigger prey.",
+     "definitionFit": "A whaler is a person or ship that hunts whales, creatures vastly bigger than a flatfish, so its catch is weightier."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sole"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +437,46 @@
     "text": "Believer in growth industries, partly",
     "enumeration": "5"
    },
-   "solution": "HINDU"
+   "solution": "HINDU",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "HINDU",
+    "definitions": [
+     {
+      "text": "Believer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "partly",
+      "for": "hidden_word",
+      "note": "partly means only in part, so the answer is a stretch of the text rather than whole words"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "growth industries",
+      "gives": "HINDU",
+      "note": "the end of growth runs into the start of industries"
+     }
+    ],
+    "explanation": {
+     "surface": "An economist who has faith that certain sectors will expand.",
+     "walkthrough": "'Believer in growth industries' reads as one phrase; 'in' is only the link between the definition and the words that hold the answer.",
+     "definitionFit": "A Hindu is a follower of Hinduism, a major world religion, so is a person of religious faith."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +490,70 @@
     "text": "Lazy type rising, transfixed by a TV showing foreign nationals",
     "enumeration": "8"
    },
-   "solution": "LATVIANS"
+   "solution": "LATVIANS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "LATVIANS",
+    "definitions": [
+     {
+      "text": "foreign nationals",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rising",
+      "for": "reversal",
+      "note": "in a down entry, rising means reading upward, so the letters run backwards"
+     },
+     {
+      "text": "transfixed by",
+      "for": "container",
+      "note": "to be transfixed is to be pierced through, so one piece is driven into the other"
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lazy type",
+      "gives": "SNAIL",
+      "note": "a snail is proverbially slow and idle"
+     },
+     {
+      "clueFragment": "a TV",
+      "gives": "ATV",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "ATV",
+      "IANS"
+     ],
+     "reversals": [
+      {
+       "from": "SNAIL",
+       "to": "LIANS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A couch potato gets up, spellbound by the television set.",
+     "walkthrough": "SNAIL upside down is LIANS, and A TV goes in after its first letter.",
+     "definitionFit": "Latvians are citizens of Latvia, a Baltic country, so to a British setter they are people from abroad."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "transfixed"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +567,84 @@
     "text": "Regretted sports lesson having torn around centre field in the end",
     "enumeration": "8"
    },
-   "solution": "REPENTED"
+   "solution": "REPENTED",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "REPENTED",
+    "definitions": [
+     {
+      "text": "Regretted",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means surrounding, so one piece wraps the other"
+     },
+     {
+      "text": "centre",
+      "for": "letter_selection",
+      "note": "the centre of a word is its middle letter, which is the one kept"
+     },
+     {
+      "text": "in the end",
+      "for": "charade",
+      "note": "in the end means finally, so the last letter of the word is added at the close"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "torn",
+      "gives": "RENT",
+      "note": "rent is an old past participle of rend, to tear"
+     },
+     {
+      "clueFragment": "sports lesson",
+      "gives": "PE",
+      "note": "PE is physical education, the school sports lesson"
+     },
+     {
+      "clueFragment": "field",
+      "gives": "E",
+      "select": "middle",
+      "note": "the middle letter of field"
+     },
+     {
+      "clueFragment": "field",
+      "gives": "D",
+      "select": "last",
+      "note": "the last letter of field"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "PE",
+      "NT",
+      "E",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A pupil regrets the games lesson where they tore around the middle of the pitch.",
+     "walkthrough": "'Torn around' reads as a pupil running about, but 'torn' is the old past participle of rend, and it goes around the sports lesson. 'Field' then gives both its centre and its end letter.",
+     "definitionFit": "To repent is to feel sorrow or remorse for something done, the same as regretting it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "torn"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +664,39 @@
      }
     ]
    },
-   "solution": "INDOORFIREWORK"
+   "solution": "INDOORFIREWORK",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "INDOOR FIREWORK",
+    "definitions": [
+     {
+      "text": "One that'll go off, but won't hit the roof?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One that'll go off, but won't hit the roof?",
+      "note": "surface reading: someone who loses their temper, yet somehow never flies into a rage"
+     },
+     {
+      "clueFragment": "One that'll go off, but won't hit the roof?",
+      "note": "setter's reading: a small explosive made to be set off inside, which never shoots up to the ceiling"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Go off' and 'hit the roof' are both idioms for losing your temper, so the clue seems to describe a person. Taken literally, it is a novelty firework for use indoors, which fizzes but does not launch.",
+     "definitionFit": "Such a device ignites and pops like any explosive novelty, but is designed for use in a room, so nothing rockets upward."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "roof"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +710,58 @@
     "text": "Cold blast, heading off for hot buttered food?",
     "enumeration": "7"
    },
-   "solution": "CRUMPET"
+   "solution": "CRUMPET",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "CRUMPET",
+    "definitions": [
+     {
+      "text": "hot buttered food",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heading off",
+      "for": "deletion",
+      "note": "with its heading taken off, a word loses its first letter"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cold",
+      "gives": "C",
+      "note": "C is the abbreviation for cold, as on a tap"
+     },
+     {
+      "clueFragment": "blast",
+      "gives": "TRUMPET",
+      "note": "to trumpet is to blast out a loud sound; without its first letter it becomes RUMPET"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "RUMPET"
+     ]
+    },
+    "explanation": {
+     "surface": "A chilly gust makes someone set off home for something warm and buttery.",
+     "walkthrough": "'Heading off' looks like leaving; it tells you to drop the T of TRUMPET. A crumpet is a British griddle cake with holes on top, toasted and buttered.",
+     "definitionFit": "Crumpets are spongy griddle cakes that are toasted and eaten warm, spread with butter that soaks into the holes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heading"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +781,56 @@
      }
     ]
    },
-   "solution": "NONSTOP"
+   "solution": "NONSTOP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NON-STOP",
+    "definitions": [
+     {
+      "text": "24/7",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "given"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drama",
+      "gives": "NO",
+      "note": "No, also spelt Noh, is classical Japanese theatre"
+     },
+     {
+      "clueFragment": "two Poles",
+      "gives": "NS",
+      "note": "N and S, north and south, are the two poles"
+     },
+     {
+      "clueFragment": "crown",
+      "gives": "TOP",
+      "note": "the crown of something is its top"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "NS",
+      "TOP"
+     ]
+    },
+    "explanation": {
+     "surface": "A round-the-clock soap opera in which two Polish characters are crowned.",
+     "walkthrough": "'Poles' looks like people from Poland; it means the compass poles. The 'drama' is the Japanese form No.",
+     "definitionFit": "24/7 means twenty-four hours a day, seven days a week, so continuous without any break."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Poles"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +844,44 @@
     "text": "Weariness concerning, you and I said",
     "enumeration": "5"
    },
-   "solution": "ENNUI"
+   "solution": "ENNUI",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "ENNUI",
+    "definitions": [
+     {
+      "text": "Weariness",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "said",
+      "for": "homophone",
+      "note": "said means spoken, so the words count by their sound rather than their spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "concerning, you and I",
+      "gives": "ENNUI",
+      "soundsLike": "ON WE",
+      "note": "on means concerning, and we means you and I; run together they sound like the French word"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone admits that the two of us are getting tired.",
+     "walkthrough": "Said with a French lilt, 'on we' gives the borrowed word.",
+     "definitionFit": "Ennui is a listless boredom and lack of interest, a kind of mental tiredness borrowed from French."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "concerning"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +895,52 @@
     "text": "No, outlive inferior – as part of this?",
     "enumeration": "9"
    },
-   "solution": "EVOLUTION"
+   "solution": "EVOLUTION",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "EVOLUTION",
+    "definitions": [
+     {
+      "text": "No, outlive inferior – as part of this?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inferior",
+      "for": "anagram",
+      "note": "inferior means poor or substandard, so these letters are in a worse, disordered state"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "No, outlive",
+      "gives": "NOOUTLIVE",
+      "note": "all nine letters of the two words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NOOUTLIVE",
+       "gives": "EVOLUTION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The weaker ones don't survive, and that is part of the process.",
+     "walkthrough": "The whole clue does double duty: read plainly it says the inferior do not outlive the fitter, which is natural selection.",
+     "definitionFit": "Under Darwin's theory of evolution, weaker creatures die out while better-adapted ones survive and breed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "inferior"
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +954,54 @@
     "text": "In recompense, arranged for attendance everywhere",
     "enumeration": "12"
    },
-   "solution": "OMNIPRESENCE"
+   "solution": "OMNIPRESENCE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OMNIPRESENCE",
+    "definitions": [
+     {
+      "text": "attendance everywhere",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "arranged",
+      "for": "anagram",
+      "note": "arranged means put into a new order, so the letters are set out differently"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In recompense",
+      "gives": "INRECOMPENSE",
+      "note": "all twelve letters of the two words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INRECOMPENSE",
+       "gives": "OMNIPRESENCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone gets paid back for turning up to everything.",
+     "walkthrough": "'In recompense' reads as a set phrase meaning 'as payment', which hides that both words are the letters to rearrange.",
+     "definitionFit": "Omnipresence is the state of being present in all places at once, so being in attendance at every location."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "recompense"
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +1015,46 @@
     "text": "Impression is a success",
     "enumeration": "9"
    },
-   "solution": "SENSATION"
+   "solution": "SENSATION",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SENSATION",
+    "definitions": [
+     {
+      "text": "Impression",
+      "at": 0
+     },
+     {
+      "text": "a success",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Impression",
+      "note": "first meaning: a feeling or perception"
+     },
+     {
+      "clueFragment": "a success",
+      "note": "second meaning: a hit that causes great excitement"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as a verdict on a mimic's act; the two halves are separate meanings of one word joined by 'is'.",
+     "definitionFit": "A sensation is a physical or mental feeling, and also an event or person causing a public stir, a hit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Impression"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +1068,54 @@
     "text": "Physicist in 90s, sprightly",
     "enumeration": "8"
    },
-   "solution": "EINSTEIN"
+   "solution": "EINSTEIN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EINSTEIN",
+    "definitions": [
+     {
+      "text": "Physicist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sprightly",
+      "for": "anagram",
+      "note": "sprightly means lively and bouncing about, so the letters jump into a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "90s",
+      "gives": "NINETIES",
+      "note": "the 90s written out in full"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NINETIES",
+       "gives": "EINSTEIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A scientist still full of energy in extreme old age.",
+     "walkthrough": "The numeral must be spelt out as a word before its letters can be rearranged.",
+     "definitionFit": "Albert Einstein was the theoretical scientist behind relativity, the best-known physicist of the twentieth century."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "90s"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +1129,56 @@
     "text": "Staves conferred extremely piously to represent elevated status, primarily?",
     "enumeration": "8"
    },
-   "solution": "SCEPTRES"
+   "solution": "SCEPTRES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "and_lit"
+    ],
+    "answer": "SCEPTRES",
+    "definitions": [
+     {
+      "text": "Staves conferred extremely piously to represent elevated status, primarily?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily points to what comes first, so only the initial of each word counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Staves conferred extremely piously to represent elevated status",
+      "gives": "SCEPTRES",
+      "select": "first",
+      "note": "the first letters of these eight words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "C",
+      "E",
+      "P",
+      "T",
+      "R",
+      "E",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Ceremonial rods handed over with great reverence as symbols of high rank.",
+     "walkthrough": "The whole clue describes the answer while its eight initials spell it; the question mark flags that double duty.",
+     "definitionFit": "Sceptres are ornamental rods presented at coronations to a monarch as emblems of royal power and rank."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 18,
@@ -303,7 +1192,70 @@
     "text": "Latest: nephew that is detained by nuns for causing trouble",
     "enumeration": "12"
    },
-   "solution": "INCONVENIENT"
+   "solution": "INCONVENIENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "INCONVENIENT",
+    "definitions": [
+     {
+      "text": "causing trouble",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "detained by",
+      "for": "container",
+      "note": "someone detained is held inside, so one piece is kept within another"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Latest",
+      "gives": "IN",
+      "note": "the latest thing is in, fashionable"
+     },
+     {
+      "clueFragment": "nephew",
+      "gives": "N",
+      "note": "N is the abbreviation for nephew"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is the abbreviation of id est, that is"
+     },
+     {
+      "clueFragment": "nuns",
+      "gives": "CONVENT",
+      "note": "a convent is a community of nuns"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "CONVE",
+      "NIE",
+      "NT"
+     ]
+    },
+    "explanation": {
+     "surface": "The newest news: a young relative is being held by nuns for misbehaving.",
+     "walkthrough": "'Latest' looks like a news heading; it means fashionable. 'Nuns' stands for the building they live in, which holds the nephew and 'that is'.",
+     "definitionFit": "Something inconvenient creates difficulty or bother for someone, so it is a cause of trouble."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Latest"
+    }
+   }
   },
   {
    "number": 19,
@@ -317,7 +1269,51 @@
     "text": "Anglo-Saxon meeting with keen Spanish affirmation in old Italian town",
     "enumeration": "6"
    },
-   "solution": "ASSISI"
+   "solution": "ASSISI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASSISI",
+    "definitions": [
+     {
+      "text": "old Italian town",
+      "at": 53
+     }
+    ],
+    "linkWords": [
+     "meeting with",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Anglo-Saxon",
+      "gives": "AS",
+      "note": "the initial letters of Anglo and Saxon"
+     },
+     {
+      "clueFragment": "keen Spanish affirmation",
+      "gives": "SISI",
+      "note": "si is Spanish for yes, and an eager speaker says it twice"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AS",
+      "SISI"
+     ]
+    },
+    "explanation": {
+     "surface": "An English traveller meets an enthusiastic Spaniard nodding yes in a historic Italian town.",
+     "walkthrough": "'Keen' is why the Spanish yes is doubled.",
+     "definitionFit": "Assisi is a hill town in Umbria, the medieval birthplace of St Francis, so a historic place in Italy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "keen"
+    }
+   }
   },
   {
    "number": 20,
@@ -331,7 +1327,42 @@
     "text": "Car, old sausage",
     "enumeration": "6"
    },
-   "solution": "BANGER"
+   "solution": "BANGER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BANGER",
+    "definitions": [
+     {
+      "text": "Car, old",
+      "at": 0
+     },
+     {
+      "text": "sausage",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Car, old",
+      "note": "first meaning: British slang for a battered old car"
+     },
+     {
+      "clueFragment": "sausage",
+      "note": "second meaning: British slang for a sausage"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In Britain a banger is both a clapped-out car and a sausage, as in bangers and mash; 'old' belongs with the car.",
+     "definitionFit": "British slang uses the one word for a worn-out, noisy vehicle and for a fried pork link."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "old"
+    }
+   }
   },
   {
    "number": 21,
@@ -345,7 +1376,68 @@
     "text": "Implausibly cheers up touring large tomb",
     "enumeration": "9"
    },
-   "solution": "SEPULCHRE"
+   "solution": "SEPULCHRE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SEPULCHRE",
+    "definitions": [
+     {
+      "text": "tomb",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Implausibly",
+      "for": "anagram",
+      "note": "implausibly means in a way hard to believe, so the letters are not in a believable order"
+     },
+     {
+      "text": "touring",
+      "for": "container",
+      "note": "to tour is to go all round something, so one piece travels around another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cheers up",
+      "gives": "CHEERSUP",
+      "note": "the letters of both words"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the abbreviation for large, as on clothing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEPU",
+      "L",
+      "CHRE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CHEERSUP",
+       "gives": "SEPUCHRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Visiting a huge burial monument somehow lifts someone's spirits, against all expectation.",
+     "walkthrough": "'Cheers up' reads as a verb phrase; it is the letters to rearrange, which then wrap around L.",
+     "definitionFit": "A sepulchre is a stone burial chamber or vault, so another word for a tomb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "touring"
+    }
+   }
   },
   {
    "number": 22,
@@ -365,7 +1457,48 @@
      }
     ]
    },
-   "solution": "LOCAL"
+   "solution": "LOCAL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LO-CAL",
+    "definitions": [
+     {
+      "text": "This describes something healthier",
+      "at": 0,
+      "note": "a sentence about an adjective, not the adjective itself"
+     },
+     {
+      "text": "the pub",
+      "at": 38
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "This describes something healthier",
+      "note": "first meaning: an adjective for food or drink low in calories"
+     },
+     {
+      "clueFragment": "the pub",
+      "note": "second meaning: the pub nearest home that a person regularly uses"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone orders the lighter option at the pub.",
+     "walkthrough": "The British 'local' is your regular neighbourhood pub; split with a hyphen, the same letters are the label on diet products.",
+     "definitionFit": "Lo-cal is shorthand for low-calorie, a label for slimming food, while a regular's nearest tavern is called their local."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 23,
@@ -385,7 +1518,65 @@
      }
     ]
    },
-   "solution": "ATSEA"
+   "solution": "ATSEA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "AT SEA",
+    "definitions": [
+     {
+      "text": "Lost",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter is taken"
+     },
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first points to the beginning, so only the opening letter is used"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fantasies",
+      "gives": "ATSE",
+      "select": "alternate",
+      "note": "the second, fourth, sixth and eighth letters"
+     },
+     {
+      "clueFragment": "abstracted",
+      "gives": "A",
+      "select": "first",
+      "note": "the first letter of abstracted"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ATSE",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A daydreamer drifts off into flights of fancy, absent-minded from the start.",
+     "walkthrough": "'Lost in fantasies' reads as one phrase, but 'in' is the link, with the definition being just 'Lost'.",
+     "definitionFit": "To be at sea is an idiom for being confused or bewildered, so not knowing which way to turn."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 24,
@@ -399,7 +1590,43 @@
     "text": "To some extent, fear a cheesy auricular annoyance",
     "enumeration": "7"
    },
-   "solution": "EARACHE"
+   "solution": "EARACHE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EARACHE",
+    "definitions": [
+     {
+      "text": "auricular annoyance",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "To some extent",
+      "for": "hidden_word",
+      "note": "to some extent means partly, so only a portion of the following text is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fear a cheesy",
+      "gives": "EARACHE",
+      "note": "runs from inside fear, across a, into cheesy"
+     }
+    ],
+    "explanation": {
+     "surface": "Dreading some corny chat-up line that grates on the ear.",
+     "walkthrough": "'Auricular' means to do with the ear, so the definition is a pain in that organ.",
+     "definitionFit": "Earache is a pain inside the ear, and auricular is the formal adjective for things relating to the ear."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "cheesy"
+    }
+   }
   },
   {
    "number": 25,
@@ -413,7 +1640,53 @@
     "text": "Volunteering work repeatedly trendy: good",
     "enumeration": "7"
    },
-   "solution": "OPINING"
+   "solution": "OPINING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OPINING",
+    "definitions": [
+     {
+      "text": "Volunteering",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "work",
+      "gives": "OP",
+      "note": "op is short for opus, a work"
+     },
+     {
+      "clueFragment": "repeatedly trendy",
+      "gives": "ININ",
+      "note": "in means trendy, and repeatedly means it appears twice"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OP",
+      "ININ",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "Doing unpaid charity work has become fashionable again and again, which is a good thing.",
+     "walkthrough": "'Volunteering' looks like charity work; it means offering a view unasked.",
+     "definitionFit": "To volunteer a remark is to offer it unprompted, and opining is offering one's view in just that way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Volunteering"
+    }
+   }
   },
   {
    "number": 26,
@@ -427,7 +1700,70 @@
     "text": "Starters of niçoises: endives cored, stale, curl up",
     "enumeration": "6"
    },
-   "solution": "NESTLE"
+   "solution": "NESTLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "charade"
+    ],
+    "answer": "NESTLE",
+    "definitions": [
+     {
+      "text": "curl up",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Starters of",
+      "for": "letter_selection",
+      "note": "starters come first, so each word supplies only its opening letter"
+     },
+     {
+      "text": "cored",
+      "for": "deletion",
+      "note": "coring removes the middle, so the central letter of the word goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "niçoises",
+      "gives": "N",
+      "select": "first",
+      "note": "the first letter of niçoises"
+     },
+     {
+      "clueFragment": "endives",
+      "gives": "E",
+      "select": "first",
+      "note": "the first letter of endives"
+     },
+     {
+      "clueFragment": "stale",
+      "gives": "STALE",
+      "note": "taken as written; its middle letter A is removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "E",
+      "ST",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A salad report: the endives, cored, are stale and curling at the edges.",
+     "walkthrough": "'Cored' sits beside 'endives' and looks as if it describes them, but it acts on 'stale'. A salade niçoise is a French salad with tuna, eggs and olives.",
+     "definitionFit": "To nestle is to settle snugly and comfortably, as a cat or child does when it curls up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cored"
+    }
+   }
   },
   {
    "number": 27,
@@ -441,7 +1777,64 @@
     "text": "Hide, hold back, becoming more emaciated",
     "enumeration": "8"
    },
-   "solution": "SKINNIER"
+   "solution": "SKINNIER",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "SKINNIER",
+    "definitions": [
+     {
+      "text": "more emaciated",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back means backwards, so the word is read in the opposite direction"
+     }
+    ],
+    "linkWords": [
+     "becoming"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hide",
+      "gives": "SKIN",
+      "note": "an animal's hide is its skin"
+     },
+     {
+      "clueFragment": "hold",
+      "gives": "REIN",
+      "note": "to rein is to hold in check"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SKIN",
+      "NIER"
+     ],
+     "reversals": [
+      {
+       "from": "REIN",
+       "to": "NIER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hides and holds back from eating, and so grows thinner.",
+     "walkthrough": "'Hide' looks like a verb, to conceal; it is the noun, an animal's skin.",
+     "definitionFit": "Skinny means very thin, so its comparative describes someone thinner and bonier, closer to wasting away."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Hide"
+    }
+   }
   }
  ]
 }
