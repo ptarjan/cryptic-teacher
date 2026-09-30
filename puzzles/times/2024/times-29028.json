@@ -23,6 +23,9 @@
   "date": "2024-09-28",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,61 @@
     "text": "Wicked dresses are slightly reduced, second-hand",
     "enumeration": "9"
    },
-   "solution": "VICARIOUS"
+   "solution": "VICARIOUS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "VICARIOUS",
+    "definitions": [
+     {
+      "text": "second-hand",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "slightly reduced",
+      "for": "deletion",
+      "note": "something slightly reduced has lost just a little, so a single letter is trimmed from the end"
+     },
+     {
+      "text": "dresses",
+      "for": "container",
+      "note": "to dress something is to clothe it, so one piece wraps around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wicked",
+      "gives": "VICIOUS",
+      "note": "wicked and vicious are synonyms"
+     },
+     {
+      "clueFragment": "are",
+      "gives": "AR",
+      "note": "the word with its final letter trimmed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VIC",
+      "AR",
+      "IOUS"
+     ]
+    },
+    "explanation": {
+     "surface": "A cruel shopkeeper marks down clothes a little and sells them as used.",
+     "walkthrough": "'Second-hand' sits at the end looking like part of the sale, but it is the definition; 'dresses' is not clothing but the verb, to clothe.",
+     "definitionFit": "A vicarious experience is felt through someone else rather than directly, which is experiencing things at second hand."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "dresses"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +107,48 @@
     "text": "Nerve shown where gambler may have gone for audition?",
     "enumeration": "5"
    },
-   "solution": "VAGUS"
+   "solution": "VAGUS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "VAGUS",
+    "definitions": [
+     {
+      "text": "Nerve",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for audition",
+      "for": "homophone",
+      "note": "an audition is a hearing, so the word is judged by how it is heard rather than spelt"
+     }
+    ],
+    "linkWords": [
+     "shown"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "where gambler may have gone",
+      "gives": "VAGUS",
+      "soundsLike": "VEGAS",
+      "note": "Las Vegas is the gambling city of Nevada"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone shows courage at an audition, as a gambler shows nerve at the tables.",
+     "walkthrough": "'Nerve' pretends to mean courage; it is the anatomical kind. VAGUS is said 'VAY-gus', just like Vegas.",
+     "definitionFit": "The vagus is the long cranial nerve running from the brainstem down to the heart, lungs and gut."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Nerve"
+    }
+   }
   },
   {
    "number": 2,
@@ -74,7 +172,39 @@
      }
     ]
    },
-   "solution": "CHARLESTHEFIRST"
+   "solution": "CHARLESTHEFIRST",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CHARLES THE FIRST",
+    "definitions": [
+     {
+      "text": "Royal corgis regularly in caps?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Royal corgis regularly in caps?",
+      "note": "surface reading: the monarch's corgis often wear little hats"
+     },
+     {
+      "clueFragment": "corgis regularly in caps",
+      "note": "setter's reading: every other letter of corgis from the start is C and R, and written in capitals CR is Carolus Rex, a royal cipher"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Taking alternate letters of 'corgis' from the start gives C and R; in capitals that is CR, Carolus Rex, the cipher of a King Charles, and C is also literally the first letter of Charles.",
+     "definitionFit": "The executed Stuart king of England, whose royal monogram was the Latin initials CR for Carolus Rex."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "caps"
+    }
+   }
   },
   {
    "number": 3,
@@ -94,7 +224,50 @@
      }
     ]
    },
-   "solution": "ROSIELEE"
+   "solution": "ROSIELEE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ROSIE LEE",
+    "definitions": [
+     {
+      "text": "Non-alcoholic brew",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "uniting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cider drinker",
+      "gives": "ROSIE",
+      "note": "the girl in the memoir Cider with Rosie"
+     },
+     {
+      "clueFragment": "her creator",
+      "gives": "LEE",
+      "note": "Laurie Lee wrote Cider with Rosie"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROSIE",
+      "LEE"
+     ]
+    },
+    "explanation": {
+     "surface": "A soft drink made by blending a cider fan with the person who invented her.",
+     "walkthrough": "Cider with Rosie is Laurie Lee's memoir of a Cotswold childhood. 'Non-alcoholic' is set against the cider to throw you off.",
+     "definitionFit": "Rosie Lee is Cockney rhyming slang for tea, a brewed drink containing no alcohol."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "cider"
+    }
+   }
   },
   {
    "number": 4,
@@ -114,7 +287,55 @@
      }
     ]
    },
-   "solution": "OHOH"
+   "solution": "OHOH",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "OH-OH",
+    "definitions": [
+     {
+      "text": "Whoops",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the rise",
+      "for": "reversal",
+      "note": "in a down entry, rising means reading upward, so the letters run bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "terraced houses",
+      "gives": "HOHO",
+      "note": "HO is the abbreviation for house; terraced houses are joined in a row, so two of them side by side"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OHOH"
+     ],
+     "reversals": [
+      {
+       "from": "HOHO",
+       "to": "OHOH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone exclaims in dismay as a row of terraced houses climbs up a hill.",
+     "walkthrough": "Terraced houses are British row houses sharing side walls, so the two HOs are joined; read upward they become the exclamation.",
+     "definitionFit": "Both are exclamations uttered on noticing a mistake or sensing trouble ahead."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "terraced"
+    }
+   }
   },
   {
    "number": 5,
@@ -128,7 +349,56 @@
     "text": "Retailer adapted to pressure",
     "enumeration": "10"
    },
-   "solution": "SUPERSTORE"
+   "solution": "SUPERSTORE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SUPERSTORE",
+    "definitions": [
+     {
+      "text": "Retailer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "adapted",
+      "for": "anagram",
+      "note": "something adapted has been altered and rearranged to fit a new use"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "pressure",
+      "gives": "PRESSURE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TOPRESSURE",
+       "gives": "SUPERSTORE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shopkeeper changed their ways because they were pushed into it.",
+     "walkthrough": "'Adapted to pressure' reads as one phrase about a business bending; it splits into the indicator and the fodder.",
+     "definitionFit": "A superstore is a very large shop, so it is a kind of retailer selling goods to the public."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "adapted"
+    }
+   }
   },
   {
    "number": 6,
@@ -142,7 +412,54 @@
     "text": "A Greek character’s a pest",
     "enumeration": "5"
    },
-   "solution": "APHIS"
+   "solution": "APHIS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "APHIS",
+    "definitions": [
+     {
+      "text": "a pest",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Greek character",
+      "gives": "PHI",
+      "note": "phi is a letter of the Greek alphabet"
+     },
+     {
+      "clueFragment": "’s",
+      "gives": "S",
+      "note": "the S of the possessive"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "PHI",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone complains that a particular Greek person is a nuisance.",
+     "walkthrough": "'Character' suggests a person, but here it means a letter of the alphabet.",
+     "definitionFit": "An aphis is an aphid, a sap-sucking greenfly that gardeners treat as a nuisance insect."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 6,
@@ -162,7 +479,55 @@
      }
     ]
    },
-   "solution": "AIRCON"
+   "solution": "AIRCON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AIR-CON",
+    "definitions": [
+     {
+      "text": "cooler",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "charade",
+      "note": "in a down entry, being over means sitting above, so the first piece comes before the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Manner",
+      "gives": "AIR",
+      "note": "an air is a manner or bearing"
+     },
+     {
+      "clueFragment": "deception",
+      "gives": "CON",
+      "note": "a con is a swindle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AIR",
+      "CON"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's attitude towards trickery is described as calmer.",
+     "walkthrough": "'Cooler' looks like an adjective about the manner; it is a noun for a machine.",
+     "definitionFit": "Air-conditioning units chill a room, so the device is literally something that lowers temperature."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cooler"
+    }
+   }
   },
   {
    "number": 7,
@@ -190,7 +555,39 @@
      }
     ]
    },
-   "solution": "HEIRTOTHETHRONE"
+   "solution": "HEIRTOTHETHRONE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "HEIR TO THE THRONE",
+    "definitions": [
+     {
+      "text": "A waiter yet to serve?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A waiter yet to serve?",
+      "note": "surface reading: a restaurant waiter who has not yet brought the food"
+     },
+     {
+      "clueFragment": "A waiter yet to serve?",
+      "note": "setter's reading: someone waiting for their turn to serve as monarch"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A waiter is here simply one who waits, and to serve means to hold office, so this is a royal in line for the crown.",
+     "definitionFit": "The next in line to become monarch spends years waiting before beginning their reign in office."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "waiter"
+    }
+   }
   },
   {
    "number": 8,
@@ -204,7 +601,67 @@
     "text": "Terrible housing rated badly, head off",
     "enumeration": "9"
    },
-   "solution": "SIDETRACK"
+   "solution": "SIDETRACK",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SIDETRACK",
+    "definitions": [
+     {
+      "text": "head off",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "badly",
+      "for": "anagram",
+      "note": "done badly means done wrongly, so the letters come out in a jumbled order"
+     },
+     {
+      "text": "housing",
+      "for": "container",
+      "note": "to house something is to give it a home inside, so one piece sits within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Terrible",
+      "gives": "SICK",
+      "note": "feeling terrible is feeling sick"
+     },
+     {
+      "clueFragment": "rated",
+      "gives": "RATED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SI",
+      "DETRA",
+      "CK"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RATED",
+       "gives": "DETRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Awful accommodation scored poorly, so someone leaves.",
+     "walkthrough": "'Head off' looks like leaving; it means divert, as in heading off trouble.",
+     "definitionFit": "To head someone off is to intercept and divert them, which is what sidetracking a person does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 9,
@@ -224,7 +681,39 @@
      }
     ]
    },
-   "solution": "GRASSHOPPERMIND"
+   "solution": "GRASSHOPPERMIND",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "GRASSHOPPER MIND",
+    "definitions": [
+     {
+      "text": "A confused thinker progressing by leaps and bounds?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A confused thinker progressing by leaps and bounds?",
+      "note": "surface reading: a muddled person who is nonetheless improving rapidly"
+     },
+     {
+      "clueFragment": "progressing by leaps and bounds",
+      "note": "setter's reading: a mind that jumps from topic to topic like an insect hopping through a meadow"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Leaps and bounds' is the idiom for fast progress, but here it is taken literally as jumping about.",
+     "definitionFit": "The phrase describes a restless intellect unable to concentrate, flitting between ideas without settling on any."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "progressing"
+    }
+   }
   },
   {
    "number": 10,
@@ -238,7 +727,72 @@
     "text": "Puzzler, one claiming victory with answer, ultimately",
     "enumeration": "6"
    },
-   "solution": "SOLVER"
+   "solution": "SOLVER",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SOLVER",
+    "definitions": [
+     {
+      "text": "Puzzler",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "claiming",
+      "for": "container",
+      "note": "to claim something is to take hold of it, so one piece grabs the other"
+     },
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means at the very end, so only the final letter is kept"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "SOLE",
+      "note": "sole means single, only one"
+     },
+     {
+      "clueFragment": "victory",
+      "gives": "V",
+      "note": "V is the abbreviation for victory"
+     },
+     {
+      "clueFragment": "answer",
+      "gives": "R",
+      "select": "last",
+      "note": "its last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOL",
+      "V",
+      "E",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A crossword fan triumphantly announces success once the final answer is in.",
+     "walkthrough": "'One' is SOLE, not I or A; the V goes inside it and R follows.",
+     "definitionFit": "A puzzler can be a person who works at puzzles, so someone who cracks crosswords fits it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "one"
+    }
+   }
   },
   {
    "number": 11,
@@ -252,7 +806,70 @@
     "text": "Toast moved behind blubber in freezer",
     "enumeration": "8"
    },
-   "solution": "CRYOSTAT"
+   "solution": "CRYOSTAT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "CRYOSTAT",
+    "definitions": [
+     {
+      "text": "freezer",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "moved",
+      "for": "anagram",
+      "note": "letters that are moved are shifted out of their order into a new arrangement"
+     },
+     {
+      "text": "behind",
+      "for": "charade",
+      "note": "being behind means coming after, so this piece follows the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "blubber",
+      "gives": "CRY",
+      "note": "to blubber is to weep noisily"
+     },
+     {
+      "clueFragment": "Toast",
+      "gives": "TOAST",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRY",
+      "OSTAT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TOAST",
+       "gives": "OSTAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Toast has been shoved to the back of the freezer behind some whale fat.",
+     "walkthrough": "'Blubber' pretends to be whale fat to suit the freezer; it is the verb to sob.",
+     "definitionFit": "A cryostat keeps things at very low temperatures, a laboratory apparatus working as a specialised deep chiller."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "blubber"
+    }
+   }
   },
   {
    "number": 12,
@@ -272,7 +889,48 @@
      }
     ]
    },
-   "solution": "PLUMBRANDY"
+   "solution": "PLUMBRANDY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PLUM BRANDY",
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 27
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "To an absolute degree",
+      "gives": "PLUMB",
+      "note": "plumb as an adverb means utterly, as in plumb crazy"
+     },
+     {
+      "clueFragment": "hot",
+      "gives": "RANDY",
+      "note": "hot in the sense of sexually eager"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLUMB",
+      "RANDY"
+     ]
+    },
+    "explanation": {
+     "surface": "A drink described as extremely hot, like a toddy.",
+     "walkthrough": "'Hot drink' reads as one phrase; the split is after 'hot', which means lustful. Randy is British slang for sexually aroused.",
+     "definitionFit": "Plum brandy, such as slivovitz, is a spirit distilled from fermented plums and served as a drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "hot"
+    }
+   }
   },
   {
    "number": 13,
@@ -286,7 +944,48 @@
     "text": "Two girls, note, fit together perfectly",
     "enumeration": "10"
    },
-   "solution": "TESSELLATE"
+   "solution": "TESSELLATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TESSELLATE",
+    "definitions": [
+     {
+      "text": "fit together perfectly",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Two girls",
+      "gives": "TESSELLA",
+      "note": "the names Tess and Ella"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "TE",
+      "note": "te is the seventh note of the sol-fa scale"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TESS",
+      "ELLA",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "Two girls and a written note turn out to match each other ideally.",
+     "walkthrough": "The girls' names are Tess and Ella; the sol-fa note follows them.",
+     "definitionFit": "Tiles or shapes that tessellate interlock with no gaps or overlaps, covering a surface completely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "note"
+    }
+   }
   },
   {
    "number": 13,
@@ -306,7 +1005,51 @@
      }
     ]
    },
-   "solution": "TESTMATCH"
+   "solution": "TESTMATCH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TEST MATCH",
+    "definitions": [
+     {
+      "text": "game",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "works in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "See if",
+      "gives": "TEST",
+      "note": "to test is to see if something works"
+     },
+     {
+      "clueFragment": "striker",
+      "gives": "MATCH",
+      "note": "a match is struck to light it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEST",
+      "MATCH"
+     ]
+    },
+    "explanation": {
+     "surface": "A coach checks whether the new forward performs well during the fixture.",
+     "walkthrough": "'Striker' suggests a footballer; it is a match that you strike. A Test match is an international cricket match played over up to five days.",
+     "definitionFit": "A Test match is an international fixture in cricket or rugby, so it is a kind of sporting contest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "striker"
+    }
+   }
   },
   {
    "number": 14,
@@ -320,7 +1063,50 @@
     "text": "Mount regularly beaten, nag",
     "enumeration": "4"
    },
-   "solution": "ETNA"
+   "solution": "ETNA",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ETNA",
+    "definitions": [
+     {
+      "text": "Mount",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every second letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beaten, nag",
+      "gives": "ETNA",
+      "select": "alternate",
+      "note": "the even letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ETNA"
+     ]
+    },
+    "explanation": {
+     "surface": "A rider's horse, often thrashed, is a worn-out old nag.",
+     "walkthrough": "'Mount' wants to be the horse, matching 'nag'; it is a mountain.",
+     "definitionFit": "Etna is an active volcano on Sicily, and Mount is its title in Mount Etna."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Mount"
+    }
+   }
   },
   {
    "number": 15,
@@ -334,7 +1120,57 @@
     "text": "Girl stealing drink pocketed lot?",
     "enumeration": "8"
    },
-   "solution": "MARSUPIA"
+   "solution": "MARSUPIA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MARSUPIA",
+    "definitions": [
+     {
+      "text": "pocketed lot?",
+      "at": 20,
+      "note": "a playful definition: a lot of pockets, the pouches themselves"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stealing",
+      "for": "container",
+      "note": "a thief who steals something takes it inside and keeps it, so one piece holds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Girl",
+      "gives": "MARIA",
+      "note": "a girl's name"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "SUP",
+      "note": "to sup is to drink"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAR",
+      "SUP",
+      "IA"
+     ]
+    },
+    "explanation": {
+     "surface": "A girl who took someone's drink put the lot in her pocket.",
+     "walkthrough": "The question mark flags the whimsical definition: a set of pockets rather than anything pocketed.",
+     "definitionFit": "Marsupia is the plural of marsupium, the pouch in which kangaroos and other marsupials carry their young."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pocketed"
+    }
+   }
   },
   {
    "number": 16,
@@ -348,7 +1184,48 @@
     "text": "Four-fifths of extremely popular London area",
     "enumeration": "4"
    },
-   "solution": "SOHO"
+   "solution": "SOHO",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SOHO",
+    "definitions": [
+     {
+      "text": "London area",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Four-fifths of",
+      "for": "deletion",
+      "note": "four-fifths of a five-letter phrase means one letter in five is dropped, here the final one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "extremely popular",
+      "gives": "SOHOT",
+      "note": "extremely is so, popular is hot"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOHO"
+     ]
+    },
+    "explanation": {
+     "surface": "Most of a trendy district of London is thronged with visitors.",
+     "walkthrough": "Four-fifths of a five-letter string is its first four letters.",
+     "definitionFit": "Soho is a district of the West End in central London known for nightlife and theatres."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "extremely"
+    }
+   }
   },
   {
    "number": 17,
@@ -368,7 +1245,67 @@
      }
     ]
    },
-   "solution": "SMARTALECK"
+   "solution": "SMARTALECK",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SMART ALECK",
+    "definitions": [
+     {
+      "text": "Cocky type",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "horsing around",
+      "for": "anagram",
+      "note": "horsing around is messing about, so the letters fool about into a new order"
+     },
+     {
+      "text": "aboard",
+      "for": "container",
+      "note": "whatever is aboard a vessel sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boat",
+      "gives": "SMACK",
+      "note": "a smack is a small fishing boat"
+     },
+     {
+      "clueFragment": "later",
+      "gives": "LATER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SMA",
+      "RTALE",
+      "CK"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LATER",
+       "gives": "RTALE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A swaggering fellow will fool about on a boat afterwards.",
+     "walkthrough": "A smack is a traditional sailing fishing vessel, a crossword favourite for 'boat'.",
+     "definitionFit": "A smart aleck is an irritatingly know-it-all person, the very picture of someone overconfident and cheeky."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "horsing"
+    }
+   }
   },
   {
    "number": 18,
@@ -382,7 +1319,45 @@
     "text": "Slip off in English town",
     "enumeration": "6"
    },
-   "solution": "SLOUGH"
+   "solution": "SLOUGH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SLOUGH",
+    "definitions": [
+     {
+      "text": "Slip off",
+      "at": 0
+     },
+     {
+      "text": "English town",
+      "at": 12
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Slip off",
+      "note": "first meaning: to shed, as a snake sheds its skin"
+     },
+     {
+      "clueFragment": "English town",
+      "note": "second meaning: a town in Berkshire, west of London"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The verb rhymes with 'cuff', the town with 'cow'; they are spelt the same. Slough is a Berkshire town, the setting of the British sitcom The Office.",
+     "definitionFit": "The verb means to cast off dead skin, and separately the name belongs to a Berkshire commuter town."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Slip"
+    }
+   }
   },
   {
    "number": 19,
@@ -396,7 +1371,62 @@
     "text": "Scarves: fifty Elizabeth squeezed through mangles",
     "enumeration": "8"
    },
-   "solution": "MUFFLERS"
+   "solution": "MUFFLERS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "MUFFLERS",
+    "definitions": [
+     {
+      "text": "Scarves",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "squeezed through",
+      "for": "container",
+      "note": "something squeezed through goes into the middle of another thing, ending up inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mangles",
+      "gives": "MUFFS",
+      "note": "to muff is to bungle, so muffs means spoils"
+     },
+     {
+      "clueFragment": "fifty",
+      "gives": "L",
+      "note": "L is the Roman numeral for fifty"
+     },
+     {
+      "clueFragment": "Elizabeth",
+      "gives": "ER",
+      "note": "ER, Elizabeth Regina, the Queen's cipher"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MUFF",
+      "L",
+      "ER",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Neck scarves: fifty of them forced through a laundry mangle by a woman named Elizabeth.",
+     "walkthrough": "'Mangles' suggests the old wringers for laundry; it is the verb, to botch.",
+     "definitionFit": "A muffler is an old-fashioned word for a warm scarf wrapped around the neck in cold weather."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mangles"
+    }
+   }
   },
   {
    "number": 20,
@@ -410,7 +1440,62 @@
     "text": "Condition like this that’s avoided is case of malaria",
     "enumeration": "6"
    },
-   "solution": "ASTHMA"
+   "solution": "ASTHMA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ASTHMA",
+    "definitions": [
+     {
+      "text": "Condition",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "that’s avoided",
+      "for": "deletion",
+      "note": "what is avoided is kept away, so the named letters are left out"
+     },
+     {
+      "text": "case of",
+      "for": "letter_selection",
+      "note": "a case is an outer casing, so only the outside letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "like this",
+      "gives": "ASTHIS",
+      "note": "as this means like this"
+     },
+     {
+      "clueFragment": "malaria",
+      "gives": "MA",
+      "select": "outer",
+      "note": "its first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASTH",
+      "MA"
+     ]
+    },
+    "explanation": {
+     "surface": "A disease like this one is avoided because it is a form of malaria.",
+     "walkthrough": "'Is' is not a link word here; it is the pair of letters removed from AS THIS.",
+     "definitionFit": "Asthma is a chronic respiratory condition, a medical disorder in which the airways narrow and breathing becomes difficult."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "is"
+    }
+   }
   },
   {
    "number": 21,
@@ -424,7 +1509,66 @@
     "text": "Check passage that’s blocked by unmentionables, primarily",
     "enumeration": "5"
    },
-   "solution": "AUDIT"
+   "solution": "AUDIT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "AUDIT",
+    "definitions": [
+     {
+      "text": "Check",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so only the opening letter is kept"
+     },
+     {
+      "text": "blocked by",
+      "for": "container",
+      "note": "whatever is blocked has an obstruction lodged inside it, so one piece holds the other"
+     }
+    ],
+    "linkWords": [
+     "that’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "passage",
+      "gives": "ADIT",
+      "note": "an adit is a horizontal passage into a mine"
+     },
+     {
+      "clueFragment": "unmentionables",
+      "gives": "U",
+      "select": "first",
+      "note": "its first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "U",
+      "DIT"
+     ]
+    },
+    "explanation": {
+     "surface": "Inspect a corridor that has been clogged up with underwear.",
+     "walkthrough": "Adit is a mining term worth remembering. Unmentionables is a jokey word for underwear.",
+     "definitionFit": "An audit is an official inspection of accounts, so to audit is to examine and verify them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "unmentionables"
+    }
+   }
   },
   {
    "number": 22,
@@ -438,7 +1582,46 @@
     "text": "M (or seemingly D!) — or U once?",
     "enumeration": "4"
    },
-   "solution": "THOU"
+   "solution": "THOU",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "THOU",
+    "definitions": [
+     {
+      "text": "M",
+      "at": 0
+     },
+     {
+      "text": "U once",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "M",
+      "note": "first meaning: a thousand, which M stands for in Roman numerals"
+     },
+     {
+      "clueFragment": "U once",
+      "note": "second meaning: U is text-speak for you"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Thou is slang for a thousand, which M denotes. The bracketed aside teases that D, another Roman numeral, might seem to mean the same, though it is only 500.",
+     "definitionFit": "Thou is informal shorthand for a thousand, and also the archaic second-person singular pronoun meaning you."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "U"
+    }
+   }
   },
   {
    "number": 23,
@@ -462,7 +1645,70 @@
      }
     ]
    },
-   "solution": "TARQUINTHEPROUD"
+   "solution": "TARQUINTHEPROUD",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TARQUIN THE PROUD",
+    "definitions": [
+     {
+      "text": "Old Roman king",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for revolution",
+      "for": "anagram",
+      "note": "a revolution is an overturning, so the letters are turned over into a new order"
+     }
+    ],
+    "linkWords": [
+     "in",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "truth",
+      "gives": "TRUTH",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "done",
+      "gives": "DONE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Iraq",
+      "gives": "IRAQ",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "up",
+      "gives": "UP",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TRUTHDONEIRAQUP",
+       "gives": "TARQUINTHEPROUD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An ancient ruler is finished with Iraq, which is in turmoil and ripe for rebellion.",
+     "walkthrough": "'Up for revolution' reads as political uprising; it is the anagram signal, with 'up' also in the fodder.",
+     "definitionFit": "Tarquinius Superbus was the seventh and last legendary monarch of Rome, overthrown around 509 BC."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "revolution"
+    }
+   }
   },
   {
    "number": 24,
@@ -476,7 +1722,43 @@
     "text": "Small door that chain’s locked up",
     "enumeration": "5"
    },
-   "solution": "HATCH"
+   "solution": "HATCH",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "HATCH",
+    "definitions": [
+     {
+      "text": "Small door",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "locked up",
+      "for": "hidden_word",
+      "note": "something locked up is shut away inside, so the letters are enclosed within other words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that chain’s",
+      "gives": "HATCH",
+      "note": "letters running across the word boundary"
+     }
+    ],
+    "explanation": {
+     "surface": "A little door is secured with a chain.",
+     "walkthrough": "The chain seems to be what locks the door; the letters are simply enclosed in 'that chain's'.",
+     "definitionFit": "A hatch is a small opening with a door or cover, as in a serving hatch or ship's hatch."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "chain"
+    }
+   }
   },
   {
    "number": 25,
@@ -500,7 +1782,39 @@
      }
     ]
    },
-   "solution": "YOUNAMEIT"
+   "solution": "YOUNAMEIT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "YOU NAME IT",
+    "definitions": [
+     {
+      "text": "I’d suggest giving that a title — anything?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I’d suggest giving that a title",
+      "note": "surface reading: one person asks another to come up with a title"
+     },
+     {
+      "clueFragment": "anything?",
+      "note": "setter's reading: the everyday phrase meaning whatever you like, any example at all"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Taken literally, the phrase invites someone to give a name; idiomatically it means 'anything you care to mention'.",
+     "definitionFit": "The idiom is used to indicate that every possible item is included, whatever someone might mention."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "title"
+    }
+   }
   }
  ]
 }
