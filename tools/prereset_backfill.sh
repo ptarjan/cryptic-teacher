@@ -326,6 +326,8 @@ past_deadline() {
 # spend on Monday unless it needs to."
 still_behind() {
   if [ "${FORCE:-0}" = 1 ]; then return 0; fi
+  # A spend-by deadline is the request to spend now; pacing to it is wrong.
+  if [ "${PRERESET_FULL_WIDTH:-0}" = 1 ]; then return 0; fi
   # verdict is initialised, not just declared: `local verdict` leaves it UNSET,
   # and set -u turns the unreadable-API path into an unbound-variable abort.
   local hours verdict=""
@@ -343,6 +345,7 @@ still_behind() {
 # kept back then expires with the window it was kept back from, and the last
 # night of a week is worth more to Paul spent than it is available.
 reserve_affordable() {
+  if [ "${PRERESET_FULL_WIDTH:-0}" = 1 ]; then return 1; fi
   local hours verdict=""
   hours=$(python3 tools/weekly_usage.py --resets-in 2>/dev/null)
   [ -n "$hours" ] && verdict=$(python3 tools/prereset_plan.py --behind "$hours" 2>/dev/null)
