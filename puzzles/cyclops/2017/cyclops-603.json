@@ -24,6 +24,9 @@
   "date": "2017-07-24",
   "check": "29 entries verified against the grid (lengths, crossings, linked-clue mapping)"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,67 @@
     "text": "Shameless baronet conceals backtracking about birth",
     "enumeration": "7"
    },
-   "solution": "BLATANT"
+   "solution": "BLATANT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "BLATANT",
+    "definitions": [
+     {
+      "text": "Shameless",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "conceals",
+      "for": "container",
+      "note": "whatever conceals something wraps around it, so the baronet goes outside the other piece"
+     },
+     {
+      "text": "backtracking about",
+      "for": "reversal",
+      "note": "to backtrack is to go the way you came, so the word for birth is read right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "baronet",
+      "gives": "BT",
+      "note": "the standard abbreviation after a baronet's name"
+     },
+     {
+      "clueFragment": "birth",
+      "gives": "NATAL",
+      "note": "adjective relating to birth, as in antenatal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "LATAN",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "NATAL",
+       "to": "LATAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shameless aristocrat hides his backsliding over some scandal of birth.",
+     "walkthrough": "'Backtracking' looks like part of the surface's scandal, but with 'about' it simply turns the birth word round before the baronet swallows it.",
+     "definitionFit": "Something done openly with no attempt at concealment or modesty is flagrant; the two words are plain synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "backtracking"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +114,68 @@
     "text": "PC Lake fitting up RAF officer",
     "enumeration": "6"
    },
-   "solution": "LAPTOP"
+   "solution": "LAPTOP",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "LAPTOP",
+    "definitions": [
+     {
+      "text": "PC",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue going up means reading the officer's letters from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lake",
+      "gives": "L",
+      "note": "map abbreviation for lake"
+     },
+     {
+      "clueFragment": "fitting",
+      "gives": "APT",
+      "note": "fitting means suitable"
+     },
+     {
+      "clueFragment": "RAF officer",
+      "gives": "PO",
+      "note": "Pilot Officer, a Royal Air Force rank"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "APT",
+      "OP"
+     ],
+     "reversals": [
+      {
+       "from": "PO",
+       "to": "OP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A police constable named Lake is being promoted to an air force rank.",
+     "walkthrough": "PC wants to be a police constable; here it is a personal computer. L + APT + OP (PO upside down) gives LAPTOP.",
+     "definitionFit": "A portable computer small enough to rest on your knees is one kind of personal computer, so this is definition by example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "PC"
+    }
+   }
   },
   {
    "number": 3,
@@ -65,7 +189,68 @@
     "text": "Conservative's end count is a disaster – tough!",
     "enumeration": "9"
    },
-   "solution": "TENACIOUS"
+   "solution": "TENACIOUS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "TENACIOUS",
+    "definitions": [
+     {
+      "text": "tough",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, so only the last of Conservative is kept"
+     },
+     {
+      "text": "disaster",
+      "for": "anagram",
+      "note": "a disaster leaves things wrecked and jumbled, so the letters before it are thrown into disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conservative's end",
+      "gives": "E",
+      "select": "last",
+      "note": "last letter of Conservative"
+     },
+     {
+      "clueFragment": "count",
+      "gives": "COUNT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "is a",
+      "gives": "ISA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ECOUNTISA",
+       "gives": "TENACIOUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Tory's final election tally has gone horribly wrong, and that's just hard luck.",
+     "walkthrough": "E + COUNT + IS A, nine letters, rearrange into TENACIOUS. 'Tough!' looks like an exclamation of 'hard luck'; it is the definition.",
+     "definitionFit": "Someone stubbornly persistent who refuses to give up is resilient and hardy; tough in that sense is a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tough"
+    }
+   }
   },
   {
    "number": 4,
@@ -85,7 +270,52 @@
      }
     ]
    },
-   "solution": "NEWYORK"
+   "solution": "NEWYORK",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NEW YORK",
+    "definitions": [
+     {
+      "text": "First Lady reluctant to leave it?",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "scatty",
+      "for": "anagram",
+      "note": "scatty means scatterbrained and disorganised, so the letters before it are scattered into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Er ... wonky",
+      "gives": "ERWONKY",
+      "note": "the hesitation plus the adjective, taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ERWONKY",
+       "gives": "NEWYORK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dithering, muddled First Lady hesitates about quitting somewhere she likes.",
+     "walkthrough": "'Wonky' looks like the anagram indicator, but it is fodder: ER + WONKY rearranged by 'scatty' gives NEW YORK.",
+     "definitionFit": "Melania Trump stayed in Manhattan for months after the 2017 inauguration rather than move to Washington, so the city is the place she would not quit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "wonky"
+    }
+   }
   },
   {
    "number": 5,
@@ -99,7 +329,43 @@
     "text": "Lout's ideal housing on the surface",
     "enumeration": "7"
    },
-   "solution": "OUTSIDE"
+   "solution": "OUTSIDE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "OUTSIDE",
+    "definitions": [
+     {
+      "text": "on the surface",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "housing",
+      "for": "hidden_word",
+      "note": "the phrase before it houses, or holds inside it, a run of consecutive letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lout's ideal",
+      "gives": "OUTSIDE",
+      "note": "letters two to eight of the phrase run straight through"
+     }
+    ],
+    "explanation": {
+     "surface": "A yob's dream home is described, apparently superficially.",
+     "walkthrough": "The answer runs across 'lOUT'S IDEal', ignoring the apostrophe.",
+     "definitionFit": "The exterior of a thing is its external face, the part showing to the world; both phrases mean exterior."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "housing"
+    }
+   }
   },
   {
    "number": 6,
@@ -113,7 +379,51 @@
     "text": "Arse-over-tip DUP need reforming",
     "enumeration": "7"
    },
-   "solution": "UPENDED"
+   "solution": "UPENDED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "UPENDED",
+    "definitions": [
+     {
+      "text": "Arse-over-tip",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reforming",
+      "for": "anagram",
+      "note": "to reform something is to form it anew, so the letters before it are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "DUP need",
+      "gives": "DUPNEED",
+      "note": "the Democratic Unionist Party's initials plus the verb, letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DUPNEED",
+       "gives": "UPENDED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The Northern Irish unionist party, in a total mess, needs reform.",
+     "walkthrough": "Arse-over-tip is British slang for tumbling head over heels. The DUP is Northern Ireland's Democratic Unionist Party, which propped up Theresa May's government.",
+     "definitionFit": "Something turned head over heels or knocked upside down has been overturned; the slang phrase and the answer are synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "reforming"
+    }
+   }
   },
   {
    "number": 7,
@@ -127,7 +437,62 @@
     "text": "So it's bad on Conservative who suffers in silence",
     "enumeration": "5"
    },
-   "solution": "STOIC"
+   "solution": "STOIC",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "STOIC",
+    "definitions": [
+     {
+      "text": "who suffers in silence",
+      "at": 28,
+      "note": "a relative clause standing for a noun: one who suffers in silence"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bad",
+      "for": "anagram",
+      "note": "the first two words go bad, spoilt out of their proper order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "So it",
+      "gives": "SOIT",
+      "note": "taken letter for letter"
+     },
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STOI",
+      "C"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SOIT",
+       "gives": "STOI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Things are bad for the Tories, but one of them bears it without complaint.",
+     "walkthrough": "In a down clue 'on' means placed on top of: STOI, from SO IT, sits above C.",
+     "definitionFit": "A philosopher of endurance, and by extension anyone who bears pain or hardship without complaining, is a stoic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bad"
+    }
+   }
   },
   {
    "number": 8,
@@ -141,7 +506,51 @@
     "text": "Abbott's having parade for shambolic state of May's government?",
     "enumeration": "8"
    },
-   "solution": "DISARRAY"
+   "solution": "DISARRAY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DISARRAY",
+    "definitions": [
+     {
+      "text": "shambolic state of May's government?",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Abbott's",
+      "gives": "DIS",
+      "note": "Diane Abbott, a Labour MP, shortened to Di, with the possessive kept"
+     },
+     {
+      "clueFragment": "having parade",
+      "gives": "ARRAY",
+      "note": "a parade is an impressive display, an array"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIS",
+      "ARRAY"
+     ]
+    },
+    "explanation": {
+     "surface": "A Labour frontbencher gloats over the chaos of Theresa May's Conservative government.",
+     "walkthrough": "Diane Abbott was Labour's shadow Home Secretary during Theresa May's premiership; her first name is shortened and the possessive kept.",
+     "definitionFit": "A condition of confusion and disorder, as May's cabinet was over Brexit, is what the word means; the question mark flags the topical example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "parade"
+    }
+   }
   },
   {
    "number": 9,
@@ -159,7 +568,58 @@
    "group": [
     "9-across",
     "17-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OPEN ARMS",
+    "definitions": [
+     {
+      "text": "They welcome",
+      "at": 10,
+      "note": "a clause standing for a plural noun: the things that welcome"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "round",
+      "gives": "O",
+      "note": "a round thing is shaped like the letter O"
+     },
+     {
+      "clueFragment": "to shut up",
+      "gives": "PEN",
+      "note": "to pen is to shut up or enclose, as sheep"
+     },
+     {
+      "clueFragment": "members",
+      "gives": "ARMS",
+      "note": "limbs of the body are members"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "PEN",
+      "ARMS"
+     ]
+    },
+    "explanation": {
+     "surface": "Hosts turn to the task of silencing their members.",
+     "walkthrough": "'Shut up' tempts you to think of silence; here it means confine. 'Members' are limbs, not people in a club.",
+     "definitionFit": "Greeting someone with outstretched limbs is the gesture of warm hospitality, so the idiom stands for a friendly reception."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "members"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +639,49 @@
      }
     ]
    },
-   "solution": "WHITEHOUSE"
+   "solution": "WHITEHOUSE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WHITEHOUSE",
+    "definitions": [
+     {
+      "text": "Moral campaigner once",
+      "at": 0
+     },
+     {
+      "text": "symbol of Trump and his staff",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "split a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Moral campaigner once",
+      "gives": "WHITEHOUSE",
+      "note": "Mary, the late British crusader against sex and swearing on television, surnamed after a pale dwelling"
+     },
+     {
+      "clueFragment": "symbol of Trump and his staff",
+      "gives": "WHITEHOUSE",
+      "note": "the presidential residence in Washington, standing for the administration"
+     }
+    ],
+    "explanation": {
+     "surface": "A former morals crusader is set against the headquarters of Trump's administration.",
+     "walkthrough": "Mary Whitehouse was a British campaigner against sex and swearing on TV; split into two words, her surname becomes the WHITE HOUSE, hence the 5,5 enumeration.",
+     "definitionFit": "The presidential residence in Washington stands for the President's administration; Mary Whitehouse was a famous British crusader for decency in broadcasting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "split"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +695,72 @@
     "text": "\"Yours truly is a great looker, guys,\" tweet started – revealing what Trump's headed for?",
     "enumeration": "11"
    },
-   "solution": "IMPEACHMENT"
+   "solution": "IMPEACHMENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "IMPEACHMENT",
+    "definitions": [
+     {
+      "text": "what Trump's headed for?",
+      "at": 65
+     }
+    ],
+    "indicators": [
+     {
+      "text": "started",
+      "for": "letter_selection",
+      "note": "the word is only just started, so only its opening letter is used"
+     }
+    ],
+    "linkWords": [
+     "revealing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Yours truly is",
+      "gives": "IM",
+      "note": "yours truly means the speaker, so I am, shortened to I'm"
+     },
+     {
+      "clueFragment": "a great looker",
+      "gives": "PEACH",
+      "note": "a peach is a very attractive person"
+     },
+     {
+      "clueFragment": "guys",
+      "gives": "MEN",
+      "note": "guys are men"
+     },
+     {
+      "clueFragment": "tweet started",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter of tweet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IM",
+      "PEACH",
+      "MEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A vain presidential tweet boasting of his good looks gives away where he is heading.",
+     "walkthrough": "I'M + PEACH + MEN + T. The quotation marks dress the wordplay as a Trump tweet.",
+     "definitionFit": "Formal charges brought by Congress against a sitting president are what Trump faced; the question mark marks it as prediction."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "tweet"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +774,59 @@
     "text": "Hard, working with Conservative House leader",
     "enumeration": "6"
    },
-   "solution": "HONCHO"
+   "solution": "HONCHO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HONCHO",
+    "definitions": [
+     {
+      "text": "leader",
+      "at": 38
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hard",
+      "gives": "H",
+      "note": "pencil-grade abbreviation"
+     },
+     {
+      "clueFragment": "working",
+      "gives": "ON",
+      "note": "a machine that is working is on"
+     },
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "House",
+      "gives": "HO",
+      "note": "abbreviation for house"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "ON",
+      "C",
+      "HO"
+     ]
+    },
+    "explanation": {
+     "surface": "A tough, hard-working Tory Leader of the House of Commons.",
+     "walkthrough": "'House leader' looks like one phrase, but 'House' gives HO and 'leader' alone is the definition.",
+     "definitionFit": "Head honcho is informal, originally Japanese, slang for the boss or person in charge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "House"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +840,73 @@
     "text": "Piss-covered crud sloshed over one – sort of treatment dogs get",
     "enumeration": "8"
    },
-   "solution": "PEDICURE"
+   "solution": "PEDICURE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "PEDICURE",
+    "definitions": [
+     {
+      "text": "sort of treatment dogs get",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sloshed",
+      "for": "anagram",
+      "note": "sloshed means drunk, and a drunk's letters stagger out of order"
+     },
+     {
+      "text": "covered",
+      "for": "container",
+      "note": "the urine covers, so goes all round, the jumbled muck and the one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Piss",
+      "gives": "PEE",
+      "note": "slang for urine"
+     },
+     {
+      "clueFragment": "crud",
+      "gives": "CRUD",
+      "note": "taken letter for letter"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PE",
+      "DICUR",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CRUDI",
+       "gives": "DICUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Filth is splashed over someone, the kind of thing a dog gets up to.",
+     "walkthrough": "'Dogs' seem to be pets; they are feet, from rhyming slang 'dog's meat'.",
+     "definitionFit": "Cosmetic care of the feet and toenails is what a salon gives; with dogs meaning feet, the phrase describes that treatment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dogs"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +926,66 @@
      }
     ]
    },
-   "solution": "ROCKBAND"
+   "solution": "ROCKBAND",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ROCK BAND",
+    "definitions": [
+     {
+      "text": "Possibly Queen",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first and foremost",
+      "for": "letter_selection",
+      "note": "the name's first letter comes foremost, so only that opening letter of Donald is used"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tip",
+      "gives": "ROCK",
+      "note": "to tip is to tilt or sway, as does rock"
+     },
+     {
+      "clueFragment": "bar",
+      "gives": "BAN",
+      "note": "to bar is to prohibit"
+     },
+     {
+      "clueFragment": "Donald",
+      "gives": "D",
+      "select": "first",
+      "note": "first letter of Donald"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROCK",
+      "BAN",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Her Majesty offers a tip: ban Donald Trump above all.",
+     "walkthrough": "'Queen' looks like the monarch; it is Freddie Mercury's band. 'Possibly' marks it as an example.",
+     "definitionFit": "Queen, the British group behind Bohemian Rhapsody, is one example of a guitar-driven pop music group."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Queen"
+    }
+   }
   },
   {
    "number": 15,
@@ -259,7 +1003,57 @@
    "group": [
     "15-across",
     "25-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "REAL LIFE",
+    "definitions": [
+     {
+      "text": "It's no dream",
+      "at": 10,
+      "note": "a clause standing for a noun: the thing that is no dream"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaders of",
+      "for": "letter_selection",
+      "note": "the leaders of a line of words are their opening letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Republican extremists articulate lucid",
+      "gives": "REAL",
+      "select": "first",
+      "note": "first letters of these four words"
+     },
+     {
+      "clueFragment": "sentence",
+      "gives": "LIFE",
+      "note": "a life sentence, the longest prison term"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REAL",
+      "LIFE"
+     ]
+    },
+    "explanation": {
+     "surface": "A wake-up call: hardline Republicans are delivering clear pronouncements.",
+     "walkthrough": "'Sentence' wants to be grammar after 'articulate lucid'; it is a prison term, LIFE.",
+     "definitionFit": "Waking existence, as opposed to fantasy or fiction, is the actual world; being no dream is exactly that contrast."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "sentence"
+    }
+   }
   },
   {
    "number": 15,
@@ -283,7 +1077,52 @@
      }
     ]
    },
-   "solution": "RULEOFLAW"
+   "solution": "RULEOFLAW",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RULE OF LAW",
+    "definitions": [
+     {
+      "text": "which Trump apparently rides roughshod over",
+      "at": 26,
+      "note": "a relative clause standing for the noun it describes"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Constructing",
+      "for": "anagram",
+      "note": "constructing builds something new out of the materials that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wall for EU",
+      "gives": "WALLFOREU",
+      "note": "taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WALLFOREU",
+       "gives": "RULEOFLAW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Trump's border-wall obsession, and his disregard for the European Union.",
+     "walkthrough": "The wall nods to Trump's Mexican border wall; the nine letters of WALL FOR EU are rebuilt as RULE OF LAW.",
+     "definitionFit": "The principle that everyone, leaders included, is bound by the courts and legislation is what critics said Trump trampled on."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Constructing"
+    }
+   }
   },
   {
    "number": 16,
@@ -303,7 +1142,53 @@
      }
     ]
    },
-   "solution": "IRONWILL"
+   "solution": "IRONWILL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IRON WILL",
+    "definitions": [
+     {
+      "text": "Thatcher-style determination",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Press",
+      "gives": "IRON",
+      "note": "to press clothes is to iron them"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "abbreviation for with"
+     },
+     {
+      "clueFragment": "evil",
+      "gives": "ILL",
+      "note": "ill as a noun means harm or evil"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IRON",
+      "W",
+      "ILL"
+     ]
+    },
+    "explanation": {
+     "surface": "The newspapers hammer away with malicious, Thatcherite resolve.",
+     "walkthrough": "'Press' looks like the newspapers; it is the verb to iron. Thatcher was nicknamed the Iron Lady.",
+     "definitionFit": "Unbending resolve of the kind Margaret Thatcher, the Iron Lady, was famous for is exactly an unyielding determination."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Press"
+    }
+   }
   },
   {
    "number": 17,
@@ -331,7 +1216,85 @@
     "text": "Sad leches accept lead from Donald Trump's core programme",
     "enumeration": "8"
    },
-   "solution": "SCHEDULE"
+   "solution": "SCHEDULE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "SCHEDULE",
+    "definitions": [
+     {
+      "text": "programme",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Sad",
+      "for": "anagram",
+      "note": "the lechers are in a sad, sorry state, so their letters fall out of order"
+     },
+     {
+      "text": "accept",
+      "for": "container",
+      "note": "to accept is to take in, so the jumbled word holds the other letters inside"
+     },
+     {
+      "text": "lead from",
+      "for": "letter_selection",
+      "note": "the lead of a word is the letter at its front"
+     },
+     {
+      "text": "core",
+      "for": "letter_selection",
+      "note": "the core of a word is its middle, so only the central letter of Trump is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "leches",
+      "gives": "LECHES",
+      "note": "taken letter for letter"
+     },
+     {
+      "clueFragment": "lead from Donald",
+      "gives": "D",
+      "select": "first",
+      "note": "first letter of Donald"
+     },
+     {
+      "clueFragment": "Trump's core",
+      "gives": "U",
+      "select": "middle",
+      "note": "middle letter of Trump"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCHE",
+      "DU",
+      "LE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LECHES",
+       "gives": "SCHELE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pathetic lechers take their cue from Trump's central policy agenda.",
+     "walkthrough": "'Leches' is not a word you know; it is just fodder chosen for the surface, and the two single letters go into the middle of its rearrangement.",
+     "definitionFit": "A timetable or plan of events is a programme, as in a TV or conference programme; the words are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sad"
+    }
+   }
   },
   {
    "number": 18,
@@ -345,7 +1308,64 @@
     "text": "He has plans to cut school – \"mere diversion\"",
     "enumeration": "7"
    },
-   "solution": "SCHEMER"
+   "solution": "SCHEMER",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "SCHEMER",
+    "definitions": [
+     {
+      "text": "He has plans",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "diversion",
+      "for": "anagram",
+      "note": "a diversion sends things off their usual route, so the letters of mere go a different way"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cut school",
+      "gives": "SCH",
+      "note": "school cut short to its standard abbreviation"
+     },
+     {
+      "clueFragment": "mere",
+      "gives": "MERE",
+      "note": "taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCH",
+      "EMER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MERE",
+       "gives": "EMER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A truant plans to skip lessons, calling it just a harmless distraction.",
+     "walkthrough": "'Cut school' reads as truanting; it is the word school cut down to its standard abbreviation.",
+     "definitionFit": "A plotter or intriguer is a person who devises secret plots; the definition describes one such person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 19,
@@ -359,7 +1379,78 @@
     "text": "Failure to meet requirement, Conservative leader, one fed up with PCs etc.",
     "enumeration": "7"
    },
-   "solution": "DEFICIT"
+   "solution": "DEFICIT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "charade"
+    ],
+    "answer": "DEFICIT",
+    "definitions": [
+     {
+      "text": "Failure to meet requirement",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "the leader of a word is its opening letter"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue going up reverses the preceding run of letters from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conservative leader",
+      "gives": "C",
+      "select": "first",
+      "note": "first letter of Conservative"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral"
+     },
+     {
+      "clueFragment": "fed",
+      "gives": "FED",
+      "note": "taken letter for letter"
+     },
+     {
+      "clueFragment": "PCs etc.",
+      "gives": "IT",
+      "note": "information technology, which covers computers and the like"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEFIC",
+      "IT"
+     ],
+     "reversals": [
+      {
+       "from": "CIFED",
+       "to": "DEFIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Tory leader, sick of politically correct nonsense, falls short.",
+     "walkthrough": "'PCs' looks like political correctness; it is personal computers. C + I + FED all read upward, then IT.",
+     "definitionFit": "A shortfall, where the amount available falls below what is needed, is what the word means in accounts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "PCs"
+    }
+   }
   },
   {
    "number": 20,
@@ -379,7 +1470,83 @@
      }
     ]
    },
-   "solution": "OPTFOR"
+   "solution": "OPTFOR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "charade"
+    ],
+    "answer": "OPT FOR",
+    "definitions": [
+     {
+      "text": "Decide on",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heartless",
+      "for": "letter_selection",
+      "note": "with its heart removed only the outside letters of Trump survive"
+     },
+     {
+      "text": "backing",
+      "for": "reversal",
+      "note": "backing means going in reverse, so the words after it are read backwards"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "zero, shaped like the letter"
+     },
+     {
+      "clueFragment": "of",
+      "gives": "OF",
+      "note": "taken letter for letter"
+     },
+     {
+      "clueFragment": "heartless Trump",
+      "gives": "TP",
+      "select": "outer",
+      "note": "Trump with its middle letters removed"
+     },
+     {
+      "clueFragment": "Right",
+      "gives": "R",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "PTFO",
+      "R"
+     ],
+     "reversals": [
+      {
+       "from": "OFTP",
+       "to": "PTFO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Choosing nothing, and yet gaining the backing of a callous Trump and the political Right.",
+     "walkthrough": "'Backing of' looks like a phrase meaning support from, but 'of' is itself fodder, reversed together with the shell of Trump.",
+     "definitionFit": "To choose or select one option among several is what both phrasal verbs mean; they are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "backing"
+    }
+   }
   },
   {
    "number": 21,
@@ -393,7 +1560,70 @@
     "text": "After cocaine and sex, he accepts ring – which is useful to an Inuit",
     "enumeration": "8"
    },
-   "solution": "SNOWSHOE"
+   "solution": "SNOWSHOE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SNOWSHOE",
+    "definitions": [
+     {
+      "text": "which is useful to an Inuit",
+      "at": 41,
+      "note": "a relative clause standing for the noun it describes"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accepts",
+      "for": "container",
+      "note": "to accept is to take in, so the man holds the ring inside him"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cocaine",
+      "gives": "SNOW",
+      "note": "slang for cocaine"
+     },
+     {
+      "clueFragment": "sex",
+      "gives": "S",
+      "note": "first letter of sex, as abbreviated on forms"
+     },
+     {
+      "clueFragment": "he",
+      "gives": "HE",
+      "note": "taken letter for letter"
+     },
+     {
+      "clueFragment": "ring",
+      "gives": "O",
+      "note": "a ring is shaped like the letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SNOW",
+      "S",
+      "H",
+      "O",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "After drugs and sex, a man accepts an engagement ring, something an Arctic dweller would value.",
+     "walkthrough": "'Ring' tempts as a wedding band; it is just the round letter. Snow is slang for cocaine, and S for sex is the tick-box abbreviation on forms.",
+     "definitionFit": "A racket-like frame strapped to the boot spreads weight on deep drifts, practical footwear for Arctic peoples."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "ring"
+    }
+   }
   },
   {
    "number": 22,
@@ -407,7 +1637,70 @@
     "text": "Washington diminished, lacking sympathetic leader for the nation",
     "enumeration": "5"
    },
-   "solution": "WALES"
+   "solution": "WALES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "charade"
+    ],
+    "answer": "WALES",
+    "definitions": [
+     {
+      "text": "the nation",
+      "at": 54
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "the leader of a word is its opening letter"
+     },
+     {
+      "text": "lacking",
+      "for": "deletion",
+      "note": "lacking something means being without it, so that letter is taken away"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Washington",
+      "gives": "WA",
+      "note": "postal abbreviation for Washington State"
+     },
+     {
+      "clueFragment": "diminished",
+      "gives": "LESS",
+      "note": "less means reduced or smaller"
+     },
+     {
+      "clueFragment": "sympathetic leader",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter of sympathetic"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WA",
+      "LES"
+     ]
+    },
+    "explanation": {
+     "surface": "Washington's standing has shrunk, and the country has no caring leader.",
+     "walkthrough": "LESS minus one S gives LES, after WA. 'Washington' looks like the US capital; it is the state's abbreviation.",
+     "definitionFit": "The principality west of England is one of the four countries making up the United Kingdom."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Washington"
+    }
+   }
   },
   {
    "number": 23,
@@ -421,7 +1714,68 @@
     "text": "Possibly in need of push-up bra, smart, with internal pop-out",
     "enumeration": "6"
    },
-   "solution": "FLOPPY"
+   "solution": "FLOPPY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "FLOPPY",
+    "definitions": [
+     {
+      "text": "Possibly in need of push-up bra",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "the word pop is knocked out of shape, so its letters change places"
+     },
+     {
+      "text": "internal",
+      "for": "container",
+      "note": "internal means inside, so the rearranged letters go inside the word for smart"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "smart",
+      "gives": "FLY",
+      "note": "fly is British slang for sharp or knowing"
+     },
+     {
+      "clueFragment": "pop",
+      "gives": "POP",
+      "note": "taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FL",
+      "OPP",
+      "Y"
+     ],
+     "anagrams": [
+      {
+       "fodder": "POP",
+       "gives": "OPP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Lingerie advice: a stylish push-up bra to stop things spilling out.",
+     "walkthrough": "'Smart' looks like well dressed; it means sharp-witted, which fly is in British slang.",
+     "definitionFit": "Sagging or limp describes a bust that would benefit from support; 'possibly' marks it as one example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "smart"
+    }
+   }
   },
   {
    "number": 24,
@@ -435,7 +1789,55 @@
     "text": "Not how you'd describe Trump's Capitol, mid crisis",
     "enumeration": "10"
    },
-   "solution": "DIPLOMATIC"
+   "solution": "DIPLOMATIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DIPLOMATIC",
+    "definitions": [
+     {
+      "text": "Not how you'd describe Trump",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crisis",
+      "for": "anagram",
+      "note": "in a crisis everything is thrown into turmoil, so the letters before it are thrown into a new order"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Capitol, mid",
+      "gives": "CAPITOLMID",
+      "note": "taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CAPITOLMID",
+       "gives": "DIPLOMATIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Trump's Washington, caught up in the middle of a crisis.",
+     "walkthrough": "'Mid crisis' reads as 'in the middle of a crisis'; 'mid' is fodder with CAPITOL and 'crisis' alone scrambles them.",
+     "definitionFit": "Tactful and discreet in dealing with people is the opposite of Trump's famously blunt manner, hence the negative definition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "mid"
+    }
+   }
   },
   {
    "number": 25,
@@ -463,7 +1865,71 @@
     "text": "Cluer's bollocks injected with oxygen to get a satisfactory climax?",
     "enumeration": "7"
    },
-   "solution": "CLOSURE"
+   "solution": "CLOSURE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "CLOSURE",
+    "definitions": [
+     {
+      "text": "a satisfactory climax?",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bollocks",
+      "for": "anagram",
+      "note": "bollocks is British slang for rubbish or a mess, so the word before it is made a mess of"
+     },
+     {
+      "text": "injected with",
+      "for": "container",
+      "note": "something injected goes inside, so the gas element is placed within the jumbled letters"
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cluer's",
+      "gives": "CLUERS",
+      "note": "taken letter for letter, ignoring the apostrophe"
+     },
+     {
+      "clueFragment": "oxygen",
+      "gives": "O",
+      "note": "chemical symbol"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CL",
+      "O",
+      "SURE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CLUERS",
+       "gives": "CLSURE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crossword setter's testicles are pumped with oxygen in pursuit of a good orgasm.",
+     "walkthrough": "'Bollocks' looks anatomical; it is slang for nonsense and scrambles CLUERS, which then takes O inside.",
+     "definitionFit": "A satisfying sense of resolution or ending, as at the end of a story, is the emotional meaning of the word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bollocks"
+    }
+   }
   },
   {
    "number": 27,
@@ -477,7 +1943,71 @@
     "text": "Perversely set to engage in conflict, Germany – that's official",
     "enumeration": "7"
    },
-   "solution": "STEWARD"
+   "solution": "STEWARD",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "STEWARD",
+    "definitions": [
+     {
+      "text": "official",
+      "at": 55
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Perversely",
+      "for": "anagram",
+      "note": "perversely means contrarily, against the natural order, so the letters are put in a contrary order"
+     }
+    ],
+    "linkWords": [
+     "to engage in",
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "set",
+      "gives": "SET",
+      "note": "taken letter for letter"
+     },
+     {
+      "clueFragment": "conflict",
+      "gives": "WAR",
+      "note": "war is armed conflict"
+     },
+     {
+      "clueFragment": "Germany",
+      "gives": "D",
+      "note": "international vehicle registration for Deutschland"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STE",
+      "WAR",
+      "D"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SET",
+       "gives": "STE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Contrarily, Germany is officially preparing to go to war.",
+     "walkthrough": "STE, from SET, then WAR and D. 'That's official' reads as a declaration; only 'official' is the definition.",
+     "definitionFit": "Someone who supervises arrangements at a race meeting, or manages a household or estate, is a functionary, an official."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "official"
+    }
+   }
   }
  ]
 }
