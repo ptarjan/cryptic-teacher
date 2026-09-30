@@ -19,6 +19,8 @@ tmp="$(mktemp -d)"
 trap 'rm -rf "$tmp"' EXIT
 
 g() { git -c user.name=t -c user.email=t@t -c advice.detachedHead=false "$@"; }
+# The script under test runs plain git, which CI gives no identity to commit with.
+export GIT_AUTHOR_NAME=t GIT_AUTHOR_EMAIL=t@t GIT_COMMITTER_NAME=t GIT_COMMITTER_EMAIL=t@t
 git init -q --bare -b master "$tmp/origin.git"
 g clone -q "$tmp/origin.git" "$tmp/seed" 2>/dev/null
 mkdir -p "$tmp/seed/puzzles/s/2026"
@@ -61,7 +63,7 @@ run() {
       g checkout -q -- puzzles/s/2026/sibling.json
       kill -CONT "$writer"
     else
-      "$push" >/dev/null 2>&1 || fails=$((fails + 1))
+      "$push" >>"$tmp/new.err" 2>&1 || fails=$((fails + 1))
     fi
   done
   kill "$writer"; wait "$writer" 2>/dev/null
@@ -81,7 +83,7 @@ g -C "$tmp/burn" stash clear
 head_before=$(git -C "$tmp/burn" rev-parse HEAD)
 new_fails=$(run new)
 echo "new push (tools/push_puzzle_commit.sh):        $new_fails of $rounds rounds failed"
-[ "$new_fails" = 0 ] || { echo "FAIL: push_puzzle_commit.sh failed with a sibling writing"; rc=1; }
+[ "$new_fails" = 0 ] || { echo "FAIL: push_puzzle_commit.sh failed with a sibling writing:"; sort "$tmp/new.err" | uniq -c | sort -rn | head -5; rc=1; }
 
 cd "$tmp/burn" || exit 1
 git fetch -q origin master
