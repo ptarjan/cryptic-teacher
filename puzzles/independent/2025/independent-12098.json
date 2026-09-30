@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,55 @@
     "text": "Navy amongst school of whales in body of water",
     "enumeration": "4"
    },
-   "solution": "POND"
+   "solution": "POND",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "POND",
+    "definitions": [
+     {
+      "text": "body of water",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "amongst",
+      "for": "container",
+      "note": "to be amongst a group is to sit inside it, so 'navy' goes inside the whales"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "school of whales",
+      "gives": "POD",
+      "note": "a pod is the collective noun for a group of whales"
+     },
+     {
+      "clueFragment": "Navy",
+      "gives": "N",
+      "note": "N is the standard abbreviation for navy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PO",
+      "N",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A naval vessel finds itself surrounded by a group of whales out at sea.",
+     "walkthrough": "N slips between the O and D of POD. The whales and navy suggest open ocean, but the definition shrinks it to a small garden feature.",
+     "definitionFit": "A pond is a small, still expanse enclosed by land, one kind of watery area."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Navy"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +98,80 @@
     "text": "Problems: town’s foremost functions involving bar where power’s off",
     "enumeration": "8"
    },
-   "solution": "TROUBLES"
+   "solution": "TROUBLES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "container",
+     "charade"
+    ],
+    "answer": "TROUBLES",
+    "definitions": [
+     {
+      "text": "Problems",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "foremost",
+      "for": "letter_selection",
+      "note": "the foremost part of a word is its opening letter, so only the start of 'town' is kept"
+     },
+     {
+      "text": "where power’s off",
+      "for": "deletion",
+      "note": "the bar has 'power' switched off, meaning the abbreviation for power is taken out of it"
+     },
+     {
+      "text": "involving",
+      "for": "container",
+      "note": "to involve something is to take it in, so 'functions' wraps round the shortened bar"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "town’s",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter of town"
+     },
+     {
+      "clueFragment": "functions",
+      "gives": "ROLES",
+      "note": "roles are functions or jobs"
+     },
+     {
+      "clueFragment": "bar",
+      "gives": "PUB",
+      "note": "a pub is a bar"
+     },
+     {
+      "clueFragment": "power",
+      "gives": "P",
+      "note": "P = power in physics"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RO",
+      "UB",
+      "LES"
+     ]
+    },
+    "explanation": {
+     "surface": "A town's leading events are hampered by trouble at the local bar during a power cut.",
+     "walkthrough": "'Where power's off' reads like a blackout in the pub, but it is an instruction to delete a letter from the word for bar.",
+     "definitionFit": "Troubles are difficulties or worries; both nouns are plural and interchangeable in most sentences."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "power’s"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +185,56 @@
     "text": "Roofworker heading for skyscraper subsequently",
     "enumeration": "6"
    },
-   "solution": "SLATER"
+   "solution": "SLATER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SLATER",
+    "definitions": [
+     {
+      "text": "Roofworker",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heading for",
+      "for": "letter_selection",
+      "note": "the heading of a word is its opening letter, so only the start of 'skyscraper' is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "skyscraper",
+      "gives": "S",
+      "select": "first",
+      "note": "initial letter of skyscraper"
+     },
+     {
+      "clueFragment": "subsequently",
+      "gives": "LATER",
+      "note": "later = afterwards, subsequently"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "LATER"
+     ]
+    },
+    "explanation": {
+     "surface": "A builder working on roofs is off to a tall tower next.",
+     "walkthrough": "'Heading for' looks like travel toward a skyscraper, but it just asks for the tower's first letter.",
+     "definitionFit": "A slater lays slate tiles on roofs, so the trade name is a specific kind of roofer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heading"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +248,72 @@
     "text": "Topic: Queen has deductive flair about it, on reflection",
     "enumeration": "8"
    },
-   "solution": "QUESTION"
+   "solution": "QUESTION",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal",
+     "charade"
+    ],
+    "answer": "QUESTION",
+    "definitions": [
+     {
+      "text": "Topic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "to be about something is to surround it, so 'deductive flair' goes round 'it'"
+     },
+     {
+      "text": "on reflection",
+      "for": "reversal",
+      "note": "a reflection shows things back to front, so the combined piece is turned round"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Queen",
+      "gives": "QU",
+      "note": "Qu. is a dictionary abbreviation for queen"
+     },
+     {
+      "clueFragment": "deductive flair",
+      "gives": "NOSE",
+      "note": "a nose for something is an instinct for sniffing out the truth"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "used as printed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "QU",
+      "ESTION"
+     ],
+     "reversals": [
+      {
+       "from": "NOITSE",
+       "to": "ESTION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A monarch is praised for detective-like insight, as a thoughtful aside.",
+     "walkthrough": "Most solvers try ER or R for Queen; the rarer dictionary abbreviation is needed here. Only the flair-plus-it piece is reversed, not the Queen.",
+     "definitionFit": "A question can mean the matter under discussion, as in 'the question of funding', so it is a subject."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "deductive"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +327,55 @@
     "text": "Surprises husband wearing footwear",
     "enumeration": "6"
    },
-   "solution": "SHOCKS"
+   "solution": "SHOCKS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SHOCKS",
+    "definitions": [
+     {
+      "text": "Surprises",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wearing",
+      "for": "container",
+      "note": "whoever wears an item is inside it, so 'husband' sits within the footwear"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "footwear",
+      "gives": "SOCKS",
+      "note": "socks are worn on the feet"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "H = husband in genealogy tables"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "H",
+      "OCKS"
+     ]
+    },
+    "explanation": {
+     "surface": "A spouse startles everyone by turning up in unexpected shoes or slippers.",
+     "walkthrough": "H goes after the first letter of SOCKS. Both words can be verbs, which is what lets the definition read naturally.",
+     "definitionFit": "To shock someone is to startle or astonish them, a stronger version of surprising them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wearing"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +389,62 @@
     "text": "I get aboard front part of fairground ride, something taking to the skies",
     "enumeration": "10"
    },
-   "solution": "HELICOPTER"
+   "solution": "HELICOPTER",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "HELICOPTER",
+    "definitions": [
+     {
+      "text": "something taking to the skies",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "aboard",
+      "for": "container",
+      "note": "to be aboard is to be inside a vehicle, so the first two pieces ride inside the fairground word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "used as printed"
+     },
+     {
+      "clueFragment": "get",
+      "gives": "COP",
+      "note": "to cop is informal for to get or catch, as in 'cop a look'"
+     },
+     {
+      "clueFragment": "front part of fairground ride",
+      "gives": "HELTER",
+      "note": "the helter-skelter is a spiral slide at British fairs; this is its first half"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HEL",
+      "I",
+      "COP",
+      "TER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone climbs onto the first car of a carnival attraction that seems ready to fly.",
+     "walkthrough": "A helter-skelter is a tall spiral slide found at British fairgrounds; 'front part' asks only for the first half of its name.",
+     "definitionFit": "A helicopter is a rotor-driven aircraft, so it is literally a machine that rises into the air."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "get"
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +458,61 @@
     "text": "I will enter church or part of cathedral",
     "enumeration": "5"
    },
-   "solution": "CHOIR"
+   "solution": "CHOIR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CHOIR",
+    "definitions": [
+     {
+      "text": "part of cathedral",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "will enter",
+      "for": "container",
+      "note": "whatever enters goes inside, so 'I' is placed within 'church or'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "church",
+      "gives": "CH",
+      "note": "CH is the usual abbreviation for church"
+     },
+     {
+      "clueFragment": "or",
+      "gives": "OR",
+      "note": "used as printed"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "used as printed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CH",
+      "O",
+      "I",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone vows to go into a church, or perhaps some section of a great cathedral.",
+     "walkthrough": "'Or' looks like a conjunction offering a choice, but it is fodder for the wordplay.",
+     "definitionFit": "The choir is the area of a large church, east of the nave, where the singers and clergy sit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "or"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +526,68 @@
     "text": "Accomplishment regarding something local I observed in study",
     "enumeration": "12"
    },
-   "solution": "CONSUMMATION"
+   "solution": "CONSUMMATION",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CONSUMMATION",
+    "definitions": [
+     {
+      "text": "Accomplishment",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "observed in",
+      "for": "container",
+      "note": "things observed in a place are seen inside it, so the preceding pieces sit within the word for 'study'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "regarding",
+      "gives": "ON",
+      "note": "on = regarding, about, as in 'a talk on birds'"
+     },
+     {
+      "clueFragment": "something local",
+      "gives": "SUMMAT",
+      "note": "summat is northern English dialect for something"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "used as printed"
+     },
+     {
+      "clueFragment": "study",
+      "gives": "CON",
+      "note": "to con is an old word for to study or pore over"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ON",
+      "SUMMAT",
+      "I",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A scholar notes an achievement involving some regional matter they observed during research.",
+     "walkthrough": "'Local' signals dialect: in northern England 'something' is said summat. 'Con' as study is old-fashioned but a crossword staple.",
+     "definitionFit": "Consummation is the completion or fulfilment of a plan, which is an achievement brought about."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "local"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +601,48 @@
     "text": "Defeat in debate with no opening for amused response",
     "enumeration": "8"
    },
-   "solution": "LAUGHTER"
+   "solution": "LAUGHTER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LAUGHTER",
+    "definitions": [
+     {
+      "text": "amused response",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with no opening",
+      "for": "deletion",
+      "note": "having no opening means the first letter of the word for 'defeat' is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Defeat in debate",
+      "gives": "SLAUGHTER",
+      "note": "to slaughter an opponent is to beat them overwhelmingly in argument"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAUGHTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A crushing loss in an argument, with no rebuttal, draws amusement from the audience.",
+     "walkthrough": "Drop the S from SLAUGHTER. 'Opening' tempts the solver toward a debate's opening speech rather than a first letter.",
+     "definitionFit": "Laughter is the sound people make when something tickles them, a reaction to comedy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "opening"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +662,63 @@
      }
     ]
    },
-   "solution": "CHIMNEYSWEEP"
+   "solution": "CHIMNEYSWEEP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "CHIMNEY SWEEP",
+    "definitions": [
+     {
+      "text": "I was often dirty from work",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gets corrupted",
+      "for": "anagram",
+      "note": "corrupted material is spoilt and jumbled, so the letters of the first words are rearranged"
+     },
+     {
+      "text": "last of",
+      "for": "letter_selection",
+      "note": "the last of a word is its final letter, so only the end of 'grime' is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Why specimen",
+      "gives": "WHYSPECIMEN",
+      "note": "anagram fodder, 11 letters"
+     },
+     {
+      "clueFragment": "grime",
+      "gives": "E",
+      "select": "last",
+      "note": "final letter of grime"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WHYSPECIMEN E",
+       "gives": "CHIMNEYSWEEP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lab sample is spoilt by dirt, and the speaker admits to often coming home filthy.",
+     "walkthrough": "The definition is written in the first person, as if the answer were speaking; the grime of the surface is exactly the soot a sweep collects.",
+     "definitionFit": "Chimney sweeps cleaned soot from flues and were famously blackened by their trade, hence grubby after a shift."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "specimen"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +738,67 @@
      }
     ]
    },
-   "solution": "NODOUBT"
+   "solution": "NODOUBT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "NO DOUBT",
+    "definitions": [
+     {
+      "text": "for sure",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "appearing upset",
+      "for": "anagram",
+      "note": "something upset is knocked over and disordered, so the letters of 'but' are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sleep",
+      "gives": "NOD",
+      "note": "to nod, or nod off, is to doze"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O = over, the cricket scoring abbreviation"
+     },
+     {
+      "clueFragment": "but",
+      "gives": "BUT",
+      "note": "anagram fodder"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOD",
+      "O",
+      "UBT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BUT",
+       "gives": "UBT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone has finished napping but looks distressed about something.",
+     "walkthrough": "'Sleep over' looks like a sleepover or the end of a nap, but splits into NOD and O. In cricket an over is a set of six balls, abbreviated O.",
+     "definitionFit": "Both phrases are adverbial expressions of certainty, used to say something is undoubtedly true."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +812,66 @@
     "text": "Somewhat unpleasant time dodging criticism is hard",
     "enumeration": "7"
    },
-   "solution": "SICKISH"
+   "solution": "SICKISH",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "SICKISH",
+    "definitions": [
+     {
+      "text": "Somewhat unpleasant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dodging",
+      "for": "deletion",
+      "note": "time dodges the word for criticism by escaping from it, so that letter is taken out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "criticism",
+      "gives": "STICK",
+      "note": "to get stick is British slang for being criticised"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T = time"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "used as printed"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H = hard, as on pencils"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SICK",
+      "IS",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "Avoiding criticism for a while proves difficult and rather disagreeable.",
+     "walkthrough": "In Britain 'stick' is informal for harsh criticism or abuse, as in 'taking stick' from the crowd.",
+     "definitionFit": "Sick can mean nasty or distasteful, and the -ish suffix softens it to mildly so."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "time"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +885,70 @@
     "text": "American praise curtailed and retracted? That’s normal",
     "enumeration": "5"
    },
-   "solution": "USUAL"
+   "solution": "USUAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "charade"
+    ],
+    "answer": "USUAL",
+    "definitions": [
+     {
+      "text": "normal",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "curtailed",
+      "for": "deletion",
+      "note": "curtailing cuts off the tail, so the word for praise loses its final letter"
+     },
+     {
+      "text": "retracted",
+      "for": "reversal",
+      "note": "to retract is to draw back, so the shortened praise runs backwards"
+     }
+    ],
+    "linkWords": [
+     "That’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US = United States, American"
+     },
+     {
+      "clueFragment": "praise",
+      "gives": "LAUD",
+      "note": "to laud is to praise"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "US",
+      "UAL"
+     ],
+     "reversals": [
+      {
+       "from": "LAU",
+       "to": "UAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An American's compliment is cut short and withdrawn, which is apparently standard behaviour.",
+     "walkthrough": "The trimming happens before the turning round: the praise loses its tail first, then runs backwards.",
+     "definitionFit": "Usual and normal are adjective synonyms describing what typically or customarily happens."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "retracted"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +968,51 @@
      }
     ]
    },
-   "solution": "ULTRAVIRES"
+   "solution": "ULTRAVIRES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ULTRA VIRES",
+    "definitions": [
+     {
+      "text": "Beyond one’s authority",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Scrapping",
+      "for": "anagram",
+      "note": "scrapping can mean fighting, a brawl that throws the letters of the phrase into disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "virus alert",
+      "gives": "VIRUSALERT",
+      "note": "anagram fodder, 10 letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "VIRUSALERT",
+       "gives": "ULTRAVIRES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An official cancels a warning about a computer infection without having the power to do so.",
+     "walkthrough": "'Scrapping' reads as cancelling, but here it means brawling, which is what shuffles the fodder.",
+     "definitionFit": "Ultra vires is a Latin legal term for acting outside the powers granted to a person or body."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Scrapping"
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +1026,66 @@
     "text": "Wet weather? Sheep getting mostly lined up inside",
     "enumeration": "9"
    },
-   "solution": "RAINSTORM"
+   "solution": "RAINSTORM",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "RAINSTORM",
+    "definitions": [
+     {
+      "text": "Wet weather",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the phrase for 'lined up' loses its last letter"
+     },
+     {
+      "text": "getting",
+      "for": "container",
+      "note": "getting something means receiving it, so the sheep takes in the shortened phrase"
+     },
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside confirms the shortened phrase goes within the sheep rather than beside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sheep",
+      "gives": "RAM",
+      "note": "a ram is a male sheep"
+     },
+     {
+      "clueFragment": "lined up",
+      "gives": "INSTORE",
+      "note": "in store means planned or awaiting, lined up for later"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RA",
+      "INSTOR",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "A flock of sheep standing in rows outdoors on a drizzly day.",
+     "walkthrough": "IN STORE loses its E and goes inside RAM. 'Inside' at the end confirms where the shortened phrase sits.",
+     "definitionFit": "A rainstorm is a heavy downpour, a spell of weather that leaves everything soaked."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lined"
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +1099,49 @@
     "text": "Quantity of vegetation, there being no energy in what veggies decline",
     "enumeration": "3"
    },
-   "solution": "MAT"
+   "solution": "MAT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "MAT",
+    "definitions": [
+     {
+      "text": "Quantity of vegetation",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "there being no energy in",
+      "for": "deletion",
+      "note": "energy is abbreviated E, and having none in the word means that letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "what veggies decline",
+      "gives": "MEAT",
+      "note": "vegetarians refuse to eat meat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAT"
+     ]
+    },
+    "explanation": {
+     "surface": "A vegetarian surveys a pile of greens, lacking the energy found in the food they refuse.",
+     "walkthrough": "MEAT without E. 'Veggies' is British slang for vegetarians, not vegetables, which is the trap.",
+     "definitionFit": "A mat of weeds or grass is a dense, tangled layer of plant growth covering the ground."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "veggies"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +1155,53 @@
     "text": "Investments - Henry to avoid small amounts",
     "enumeration": "7"
    },
-   "solution": "SAVINGS"
+   "solution": "SAVINGS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SAVINGS",
+    "definitions": [
+     {
+      "text": "Investments",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to avoid",
+      "for": "deletion",
+      "note": "the henry avoids the word for small amounts by being absent from it, so its letter is left out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small amounts",
+      "gives": "SHAVINGS",
+      "note": "shavings are thin slivers or tiny portions"
+     },
+     {
+      "clueFragment": "Henry",
+      "gives": "H",
+      "note": "H = henry, the unit of inductance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAVINGS"
+     ]
+    },
+    "explanation": {
+     "surface": "A man named Henry puts his money into schemes that shun trifling sums.",
+     "walkthrough": "SHAVINGS minus H. Henry looks like a person but is the physics unit whose symbol is H.",
+     "definitionFit": "Savings are money set aside, often placed in accounts or funds to grow over time."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Henry"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +1215,72 @@
     "text": "A lot of poetry about international name in drink suppliers",
     "enumeration": "8"
    },
-   "solution": "VINTNERS"
+   "solution": "VINTNERS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "VINTNERS",
+    "definitions": [
+     {
+      "text": "drink suppliers",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "A lot of",
+      "for": "deletion",
+      "note": "a lot of means most but not all, so the word for poetry loses its final letter"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "going about something means surrounding it, so the shortened poetry goes round 'international'"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'name' is put in the result, landing between the two halves"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "poetry",
+      "gives": "VERSE",
+      "note": "verse is poetry"
+     },
+     {
+      "clueFragment": "international",
+      "gives": "INT",
+      "note": "INT is a standard abbreviation for international"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "N = name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "INT",
+      "N",
+      "ERS"
+     ]
+    },
+    "explanation": {
+     "surface": "Plenty of verse has been written about a famous global brand of alcohol sellers.",
+     "walkthrough": "VERS goes round INT to make VINTERS, then N goes in after the T.",
+     "definitionFit": "Vintners are wine merchants, the traders who sell bottles of wine to the public."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "name"
+    }
+   }
   },
   {
    "number": 18,
@@ -303,7 +1294,47 @@
     "text": "Hold back drink over equipment familiar to 17",
     "enumeration": "8"
    },
-   "solution": "SUPPRESS"
+   "solution": "SUPPRESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SUPPRESS",
+    "definitions": [
+     {
+      "text": "Hold back",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drink",
+      "gives": "SUP",
+      "note": "to sup is to drink in small mouthfuls"
+     },
+     {
+      "clueFragment": "equipment familiar to 17",
+      "gives": "PRESS",
+      "note": "a wine press is the machine the answer to 17 down would know well"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUP",
+      "PRESS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone resists having a drink near apparatus that wine merchants would recognise.",
+     "walkthrough": "In a down clue 'over' puts SUP above PRESS. The cross-reference points to VINTNERS, whose trade uses a press to crush grapes.",
+     "definitionFit": "To suppress something is to restrain it or keep it in check, stopping it from coming out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 19,
@@ -317,7 +1348,53 @@
     "text": "Obligation to work hard? Not right",
     "enumeration": "3"
    },
-   "solution": "TIE"
+   "solution": "TIE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TIE",
+    "definitions": [
+     {
+      "text": "Obligation",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not right",
+      "for": "deletion",
+      "note": "'not' tells us the abbreviation for 'right' is absent from the verb for working hard"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "work hard",
+      "gives": "TIRE",
+      "note": "to tire is to exert oneself to the point of weariness"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R = right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIE"
+     ]
+    },
+    "explanation": {
+     "surface": "Is there a duty to toil away? Apparently that would be wrong.",
+     "walkthrough": "TIRE loses R. 'Not right' reads as a moral objection to hard work but is a deletion instruction.",
+     "definitionFit": "A tie is a bond or commitment, such as family ties that restrict one's freedom."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 20,
@@ -331,7 +1408,58 @@
     "text": "Characteristic features offering pitfalls around IT test",
     "enumeration": "9"
    },
-   "solution": "TRAPPINGS"
+   "solution": "TRAPPINGS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TRAPPINGS",
+    "definitions": [
+     {
+      "text": "Characteristic features",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "the pitfalls are placed around the test, enclosing it"
+     }
+    ],
+    "linkWords": [
+     "offering"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pitfalls",
+      "gives": "TRAPS",
+      "note": "traps are pitfalls"
+     },
+     {
+      "clueFragment": "IT test",
+      "gives": "PING",
+      "note": "ping is a network command used to test whether a computer is reachable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRAP",
+      "PING",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A computing exam is full of hidden dangers that give it a certain character.",
+     "walkthrough": "IT here is information technology, not the pronoun; the test is a network command.",
+     "definitionFit": "Trappings are the outward signs or accessories associated with something, like the trappings of power."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "IT"
+    }
+   }
   },
   {
    "number": 21,
@@ -345,7 +1473,58 @@
     "text": "Poor imitation of wages that will secure staff",
     "enumeration": "6"
    },
-   "solution": "PARODY"
+   "solution": "PARODY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PARODY",
+    "definitions": [
+     {
+      "text": "Poor imitation",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "that will secure",
+      "for": "container",
+      "note": "to secure something is to hold it inside, so the wages enclose the staff"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wages",
+      "gives": "PAY",
+      "note": "pay = wages"
+     },
+     {
+      "clueFragment": "staff",
+      "gives": "ROD",
+      "note": "a rod is a staff or stick"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "ROD",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A cheap copy of a salary scheme that promises to keep employees on.",
+     "walkthrough": "'Staff' looks like employees, fitting the wages, but it is a stick.",
+     "definitionFit": "A parody can mean a feeble or travesty version of something, a mockery of the real thing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "staff"
+    }
+   }
   },
   {
    "number": 22,
@@ -359,7 +1538,54 @@
     "text": "Taxidermist with no time for bear",
     "enumeration": "6"
    },
-   "solution": "SUFFER"
+   "solution": "SUFFER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SUFFER",
+    "definitions": [
+     {
+      "text": "bear",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with no time",
+      "for": "deletion",
+      "note": "having no time means the abbreviation for 'time' is removed from the word for taxidermist"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Taxidermist",
+      "gives": "STUFFER",
+      "note": "a taxidermist stuffs dead animals"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T = time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUFFER"
+     ]
+    },
+    "explanation": {
+     "surface": "A busy taxidermist cannot fit in a job on a bear.",
+     "walkthrough": "STUFFER minus T. 'Bear' looks like the animal waiting to be stuffed, but it is the verb meaning endure.",
+     "definitionFit": "To bear hardship is to endure or tolerate it, the same as to suffer it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bear"
+    }
+   }
   },
   {
    "number": 23,
@@ -373,7 +1599,58 @@
     "text": "City in which I may broach accepted standards",
     "enumeration": "5"
    },
-   "solution": "PARIS"
+   "solution": "PARIS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PARIS",
+    "definitions": [
+     {
+      "text": "City",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "may broach",
+      "for": "container",
+      "note": "to broach is to pierce and open, so 'I' breaks into the standards"
+     }
+    ],
+    "linkWords": [
+     "in which"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "accepted standards",
+      "gives": "PARS",
+      "note": "pars are norms or expected levels, as in golf"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "used as printed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAR",
+      "I",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A town where one might raise the subject of conventional norms.",
+     "walkthrough": "I goes inside PARS. 'Broach' suggests raising a topic, but it means breaking into.",
+     "definitionFit": "Paris is the capital of France, one example of a major urban centre."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "broach"
+    }
+   }
   },
   {
    "number": 24,
@@ -387,7 +1664,65 @@
     "text": "Greek character – no Catholic, in my opinion, backsliding",
     "enumeration": "7"
    },
-   "solution": "OMICRON"
+   "solution": "OMICRON",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "OMICRON",
+    "definitions": [
+     {
+      "text": "Greek character",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backsliding",
+      "for": "reversal",
+      "note": "sliding back means moving in the opposite direction, so the whole string runs backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "no",
+      "gives": "NO",
+      "note": "used as printed"
+     },
+     {
+      "clueFragment": "Catholic",
+      "gives": "RC",
+      "note": "RC = Roman Catholic"
+     },
+     {
+      "clueFragment": "in my opinion",
+      "gives": "IMO",
+      "note": "IMO is the texting abbreviation for in my opinion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OMICRON"
+     ],
+     "reversals": [
+      {
+       "from": "NORCIMO",
+       "to": "OMICRON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Greek person, who is not a Catholic, is falling away from their faith in the speaker's view.",
+     "walkthrough": "NO + RC + IMO is reversed. 'Backsliding' fits the religious surface, lapsing from belief, while telling the solver to read backwards.",
+     "definitionFit": "Omicron is the fifteenth letter of the Greek alphabet, the short O."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 25,
@@ -401,7 +1736,48 @@
     "text": "Favouring air a lot in life",
     "enumeration": "7"
    },
-   "solution": "FORTUNE"
+   "solution": "FORTUNE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FORTUNE",
+    "definitions": [
+     {
+      "text": "a lot in life",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Favouring",
+      "gives": "FOR",
+      "note": "to be for something is to favour it"
+     },
+     {
+      "clueFragment": "air",
+      "gives": "TUNE",
+      "note": "an air is a melody"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOR",
+      "TUNE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone prefers to be outdoors in the fresh air for much of their life.",
+     "walkthrough": "'A lot' looks like 'much', but 'lot in life' is one's destiny; 'air' is a melody, not breeze.",
+     "definitionFit": "One's lot is one's destiny or luck, and fortune names that same fate or chance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lot"
+    }
+   }
   },
   {
    "number": 26,
@@ -415,7 +1791,56 @@
     "text": "Stopped, without father getting worn-out",
     "enumeration": "4"
    },
-   "solution": "USED"
+   "solution": "USED",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "USED",
+    "definitions": [
+     {
+      "text": "worn-out",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so the letters for 'father' are taken away"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stopped",
+      "gives": "PAUSED",
+      "note": "paused = stopped briefly"
+     },
+     {
+      "clueFragment": "father",
+      "gives": "PA",
+      "note": "pa = father"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "USED"
+     ]
+    },
+    "explanation": {
+     "surface": "A family came to a halt without their dad, who was exhausted.",
+     "walkthrough": "PAUSED minus PA.",
+     "definitionFit": "Used goods are second-hand and have seen wear, so they are no longer fresh or new."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "father"
+    }
+   }
   },
   {
    "number": 27,
@@ -429,7 +1854,62 @@
     "text": "Information challenge, implicating male police officer",
     "enumeration": "8"
    },
-   "solution": "GENDARME"
+   "solution": "GENDARME",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "GENDARME",
+    "definitions": [
+     {
+      "text": "police officer",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "implicating",
+      "for": "container",
+      "note": "to implicate is to fold in or involve, so the challenge takes in 'male'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Information",
+      "gives": "GEN",
+      "note": "gen is British slang for information"
+     },
+     {
+      "clueFragment": "challenge",
+      "gives": "DARE",
+      "note": "a dare is a challenge"
+     },
+     {
+      "clueFragment": "male",
+      "gives": "M",
+      "note": "M = male"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GEN",
+      "DAR",
+      "M",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A dispute over information drags in a man who works on the force.",
+     "walkthrough": "Gen is British informal for the facts on something, as in 'get the gen'. The officer is French, which nothing in the surface hints at.",
+     "definitionFit": "A gendarme is a member of the French armed police, so an officer of the law."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "implicating"
+    }
+   }
   },
   {
    "number": 28,
@@ -443,7 +1923,65 @@
     "text": "Rest and shelter, accommodated by South Pole initially",
     "enumeration": "5"
    },
-   "solution": "SLEEP"
+   "solution": "SLEEP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SLEEP",
+    "definitions": [
+     {
+      "text": "Rest",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the opening letters of the two words are taken"
+     },
+     {
+      "text": "accommodated by",
+      "for": "container",
+      "note": "to be accommodated is to be housed inside, so the shelter goes between the two letters"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "South Pole",
+      "gives": "SP",
+      "select": "first",
+      "note": "first letters of South and Pole"
+     },
+     {
+      "clueFragment": "shelter",
+      "gives": "LEE",
+      "note": "the lee is the side sheltered from the wind"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "LEE",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "An explorer at the South Pole takes a break and finds cover from the wind.",
+     "walkthrough": "'South Pole' looks like a place, but 'initially' applies to both words. The lee is the side of something sheltered from the wind.",
+     "definitionFit": "Sleep is the body's nightly repose, the fullest form of resting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Pole"
+    }
+   }
   }
  ]
 }
