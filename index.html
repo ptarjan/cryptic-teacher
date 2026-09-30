@@ -55,13 +55,14 @@
     <h1>Cryptic Teacher</h1>
     <p class="tagline">Real published crosswords, with hints that show how each clue works.</p>
   </div>
-  <!-- The four ▾ buttons open a panel in place; Learn is the only thing in here
-       that leaves the page, so it sits at the end rather than interrupting them. -->
+  <!-- The ▾ buttons open a panel in place; Learn is the only thing in here that
+       leaves the page, so it sits at the end rather than interrupting them. -->
   <div class="header-controls">
-    <button id="btn-picker" class="ghost" title="Choose a puzzle">Puzzles ▾</button>
-    <button id="btn-sync" class="ghost" title="Use your progress on another device">Sync ▾</button>
-    <button id="btn-notify" class="ghost" title="Get a notification when a new puzzle is ready">Notify ▾</button>
-    <button id="btn-feedback" class="ghost" title="Report a problem or suggest an idea">Feedback ▾</button>
+    <button id="btn-picker" class="ghost" title="Choose a puzzle">Puzzles<span class="caret"> ▾</span></button>
+    <button id="btn-stats" class="ghost" title="Your solving stats, rank and milestones">Stats<span class="caret"> ▾</span></button>
+    <button id="btn-sync" class="ghost" title="Use your progress on another device">Sync<span class="caret"> ▾</span></button>
+    <button id="btn-notify" class="ghost" title="Get a notification when a new puzzle is ready">Notify<span class="caret"> ▾</span></button>
+    <button id="btn-feedback" class="ghost" title="Report a problem or suggest an idea">Feedback<span class="caret"> ▾</span></button>
     <a class="ghost" href="https://cryptic.paultarjan.com/learn/" aria-label="How cryptic clues work" title="How cryptic clues work">Learn</a>
   </div>
 </header>
@@ -189,6 +190,15 @@
      <span id="fb-msg" class="muted small-note" role="status" aria-live="polite"></span></p>
 </div>
 
+<!-- Filled by app.js (STATS_SECTIONS) from the saves; nothing here is stored. -->
+<div id="stats-panel" class="panel hidden" role="dialog" aria-label="Your stats">
+  <div class="panel-head">
+    <strong>Your stats</strong>
+    <button class="ghost small" id="btn-stats-close" aria-label="Close">✕</button>
+  </div>
+  <div id="stats-body"><p class="muted small-note">Counting…</p></div>
+</div>
+
 <div id="picker-panel" class="panel hidden" role="dialog" aria-label="Choose a puzzle">
   <div class="panel-head">
     <strong>Choose a puzzle</strong>
@@ -242,6 +252,8 @@
     <h2 id="puzzle-title"></h2>
     <p id="puzzle-preamble" class="preamble hidden"></p>
     <div id="scorebar" title="Your score for this puzzle: the fewer hints you use, the better"></div>
+    <span id="streak" title="Days in a row on which you finished a puzzle"></span>
+    <p id="milestone-note" class="hidden" role="status"></p>
   </div>
   <!-- Shown once, in the session that earns it, when the last square goes in.
        app.js fills it; empty and hidden otherwise. -->

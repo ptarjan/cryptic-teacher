@@ -952,6 +952,9 @@
       + frag.slice(0, lo) + frag.slice(lo, hi).toUpperCase() + frag.slice(hi);
   }
   const tag = (e) => e.number + (e.direction === "across" ? "A" : "D");
+  // The key a save's `letters` and `letterAt` hold square i of an entry under.
+  const squareOf = (e, i) => (e.position.x + (e.direction === "across" ? i : 0)) + ","
+    + (e.position.y + (e.direction === "across" ? 0 : i));
   const hasSolutions = () => entries.every((e) => e.solution);
 
   // ---------- persistence ----------
@@ -2670,11 +2673,10 @@
   // against it (hintsCharged, frozen in solvedWith the moment it solved) and no
   // letter was revealed on it (revealsUsed, the escape hatch). Both are the
   // exact figures the scorebar's own "n with no hints" tally already reads
-  // (renderScore below) — reused rather than a second definition of "clean"
-  // that could drift from the one the scorebar reports.
+  // (renderScore below), put through the one rule, cleanSolve.
   function noHintsSolve(e) {
     if (!isEntrySolved(e)) return false;
-    return hintsCharged(e) === 0 && !(revealsUsed[entryKey(e)] > 0);
+    return cleanSolve(hintsCharged(e), revealsUsed[entryKey(e)]);
   }
   function entryCells(e) { const out = []; for (let i = 0; i < e.length; i++) out.push(cellAt(e, i)); return out; }
 
@@ -2741,6 +2743,7 @@
   }
 
   function checkSolvedEntries(viaType) {
+    let typedOne = false;
     entries.forEach((e) => {
       if (isEntrySolved(e) && solvedWith[entryId(e)] === undefined) {
         creditOpenBlocks(e);
@@ -2764,9 +2767,12 @@
           guessing = null;
         }
         beacon("entry");
-        if (viaType) celebrateSolve(e);
+        if (viaType) { celebrateSolve(e); typedOne = true; }
       }
     });
+    // After the loop, not inside it: one letter can finish two clues, and a
+    // save taken between them would price the second as clean.
+    if (typedOne) noteMilestone();
   }
 
   // ---------- hint ladder ----------
@@ -5352,9 +5358,17 @@
     // because they needed telling.
     if (!groupSolved(e)) return Math.max(0, shownRungs(e).length - earnedRungs(e).length);
     const key = entryKey(e);
-    return entries.filter((g) => entryKey(g) === key)
-      .reduce((n, g) => Math.max(n, solvedWith[entryId(g)] || 0), 0);
+    return frozenCharge(solvedWith, entries.filter((g) => entryKey(g) === key).map(entryId));
   }
+  // A solved clue's price given a save's solvedWith and the ids of its legs:
+  // the largest leg's snapshot. Takes the map rather than reading the live one
+  // so the stats page prices a clue in any save exactly as the scorebar prices
+  // the one on screen.
+  const frozenCharge = (sw, legIds) => legIds.reduce((n, id) => Math.max(n, sw[id] || 0), 0);
+  // What "no hints" means, everywhere it is asked: no rung charged and no
+  // letter revealed. The scorebar, the gold tint, the clue list's star and the
+  // stats page all call this one, so none of them can drift from the others.
+  const cleanSolve = (charged, reveals) => !charged && !(reveals > 0);
 
   function renderScore() {
     const total = entries.filter((e) => !leaderOf[entryId(e)]).length;
@@ -5367,7 +5381,7 @@
       const rungs = hintsCharged(e);
       if (groupSolved(e)) {
         solved++;
-        if (!rungs && !(revealsUsed[key] > 0)) noHints++;
+        if (cleanSolve(rungs, revealsUsed[key])) noHints++;
       }
       levelsUsed += rungs;
       lettersRevealed += revealsUsed[key] || 0;
@@ -5375,6 +5389,258 @@
     $("scorebar").innerHTML =
       `Solved <strong>${solved}/${total}</strong> clues · <strong>${noHints}</strong> with no hints · <strong>${levelsUsed}</strong> hints used`
       + (lettersRevealed ? ` · plus <strong>${lettersRevealed}</strong> letter${lettersRevealed > 1 ? "s" : ""} revealed` : "");
+    drawScoreExtras();
+  }
+
+  // ---------- stats ----------
+  // Everything on the stats panel is read off the saves (one ct:<id> per puzzle
+  // started, merged across devices by sync/merge.js) and nothing is written: a
+  // stored total is a second copy of what the saves already say, and two
+  // devices would disagree about it. The score counts hints, never time, so no
+  // figure here is a duration or a speed.
+  //
+  // A clue counts once every square of it is right in the save, the test the
+  // scorebar makes live. It costs its charged rungs (frozenCharge) plus the
+  // letters revealed on it, so a cost of 0 is exactly cleanSolve. When it was
+  // solved is the latest letterAt stamp on its squares.
+  function clueLedger() {
+    const clues = [], totals = {};
+    const saves = savedProgress();
+    Object.keys(saves).forEach((id) => {
+      const puz = window.CRYPTIC_PUZZLES[id];
+      if (!puz || !puz.entries) return;
+      const s = saves[id], letters = s.letters || {}, stamps = s.letterAt || {};
+      const lead = buildLeaderOf(puz.entries);
+      const legs = {};
+      puz.entries.forEach((e) => {
+        const key = lead[entryId(e)] || entryId(e);
+        (legs[key] = legs[key] || []).push(e);
+      });
+      totals[id] = Object.keys(legs).length;
+      Object.keys(legs).forEach((key) => {
+        let at = 0, solved = true;
+        legs[key].forEach((e) => {
+          for (let i = 0; i < e.length; i++) {
+            const sq = squareOf(e, i);
+            if (!e.solution || !letters[sq] || letters[sq][0] !== e.solution[i]) solved = false;
+            at = Math.max(at, stamps[sq] || 0);
+          }
+        });
+        if (!solved) return;
+        const hints = frozenCharge(s.solvedWith || {}, legs[key].map(entryId));
+        const reveals = (s.revealsUsed || {})[key] || 0;
+        clues.push({ id, key, at: at || s.updated || 0, cost: hints + reveals,
+                     clean: cleanSolve(hints, reveals) });
+      });
+    });
+    clues.sort((a, b) => a.at - b.at);
+    return { clues, totals };
+  }
+
+  // Ranks go on clean solves and on how few hints the recent ones took, never
+  // on volume: a clue that needed hints moves nobody up. The share is of the
+  // last RANK_WINDOW clues so the rank says how you solve now, and it can fall.
+  // Computed on every draw and never stored.
+  const RANK_WINDOW = 50;
+  const RANKS = [
+    { name: "Novice", clean: 0, low: 0 },
+    { name: "Apprentice", clean: 5, low: 0 },
+    { name: "Solver", clean: 25, low: 0.3 },
+    { name: "Adept", clean: 75, low: 0.45 },
+    { name: "Expert", clean: 200, low: 0.6 },
+    { name: "Master", clean: 500, low: 0.75 },
+    { name: "Setter", clean: 1000, low: 0.85 },
+  ];
+  // Each is reached on the one solve that first makes its test true, so the
+  // walk below knows the date and the clue, and the solve can say so.
+  const MILESTONES = [
+    ["First clue solved", (n) => n.clues >= 1],
+    ["First clue with no hints", (n) => n.clean >= 1],
+    ["First puzzle finished", (n) => n.puzzles >= 1],
+    ["First puzzle with no hints", (n) => n.cleanPuzzles >= 1],
+    ["10 clues with no hints", (n) => n.clean >= 10],
+    ["100 clues solved", (n) => n.clues >= 100],
+    ["10 puzzles finished", (n) => n.puzzles >= 10],
+    ["100 clues with no hints", (n) => n.clean >= 100],
+    ["500 clues solved", (n) => n.clues >= 500],
+    ["50 puzzles finished", (n) => n.puzzles >= 50],
+    ["1,000 clues solved", (n) => n.clues >= 1000],
+    ["500 clues with no hints", (n) => n.clean >= 500],
+    ["100 puzzles finished", (n) => n.puzzles >= 100],
+  ];
+  const DAY_MS = 864e5;
+
+  // A local calendar day, as a number that sorts: a streak is about the
+  // solver's days, and a UTC day would split an evening in two.
+  const dayNum = (d) => d.getFullYear() * 10000 + (d.getMonth() + 1) * 100 + d.getDate();
+  const dayBefore = (d) => new Date(d.getFullYear(), d.getMonth(), d.getDate() - 1);
+  // Consecutive local days with a puzzle finished on them (timing.solvedAt).
+  // Today not finished yet still leaves yesterday's run alive.
+  function puzzleStreak(now) {
+    const days = {};
+    const saves = savedProgress();
+    Object.keys(saves).forEach((id) => {
+      const t = saves[id].timing && saves[id].timing.solvedAt;
+      if (t) days[dayNum(new Date(t))] = new Date(t);
+    });
+    let d = new Date(now), current = 0;
+    if (!days[dayNum(d)]) d = dayBefore(d);
+    while (days[dayNum(d)]) { current++; d = dayBefore(d); }
+    let best = 0;
+    Object.keys(days).forEach((k) => {
+      if (days[dayNum(dayBefore(days[k]))]) return;
+      let run = 0;
+      for (let e = days[k]; days[dayNum(e)]; e = new Date(e.getFullYear(), e.getMonth(), e.getDate() + 1)) run++;
+      best = Math.max(best, run);
+    });
+    return { current, best };
+  }
+
+  const perClue = (list) => list.reduce((n, c) => n + c.cost, 0) / list.length;
+  const oneDp = (x) => (Math.round(x * 10) / 10).toFixed(1);
+
+  function solverStats(now) {
+    const { clues, totals } = clueLedger();
+    const n = { clues: 0, clean: 0, puzzles: 0, cleanPuzzles: 0 };
+    const got = {}, dirty = {};
+    const milestones = MILESTONES.map(([label]) => ({ label, at: 0, id: null }));
+    clues.forEach((c) => {
+      n.clues++;
+      if (c.clean) n.clean++; else dirty[c.id] = true;
+      got[c.id] = (got[c.id] || 0) + 1;
+      if (got[c.id] === totals[c.id]) { n.puzzles++; if (!dirty[c.id]) n.cleanPuzzles++; }
+      MILESTONES.forEach(([, test], i) => {
+        if (!milestones[i].id && test(n)) Object.assign(milestones[i], { at: c.at, id: c.id });
+      });
+    });
+    const hist = [0, 0, 0, 0];
+    clues.forEach((c) => { hist[Math.min(c.cost, 3)]++; });
+    const recent = clues.slice(-RANK_WINDOW);
+    const low = recent.length ? recent.filter((c) => c.cost <= 1).length / recent.length : 0;
+    let rank = 0;
+    while (rank + 1 < RANKS.length && n.clean >= RANKS[rank + 1].clean && low >= RANKS[rank + 1].low) rank++;
+    // Hints per clue for each of the last twelve weeks, oldest first; null for
+    // a week with nothing solved, which the sparkline leaves as a gap.
+    const weeks = [];
+    for (let w = 11; w >= 0; w--) {
+      const inWeek = clues.filter((c) => c.at <= now - w * 7 * DAY_MS && c.at > now - (w + 1) * 7 * DAY_MS);
+      weeks.push(inWeek.length ? perClue(inWeek) : null);
+    }
+    const last30 = clues.filter((c) => c.at > now - 30 * DAY_MS);
+    const prev30 = clues.filter((c) => c.at > now - 60 * DAY_MS && c.at <= now - 30 * DAY_MS);
+    return { clues, n, hist, low, rank, milestones, weeks, streak: puzzleStreak(now),
+             trend: last30.length >= 5 && prev30.length >= 5 ? [perClue(prev30), perClue(last30)] : null };
+  }
+
+  // The panel is these sections in order, each a function of the one computed
+  // solverStats. Another view of the same saves is another entry here.
+  function statsSummaryHTML(st) {
+    const solved = st.n.clues;
+    const cell = (v, label) => `<div class="stat"><strong>${v}</strong><span>${label}</span></div>`;
+    const bars = st.hist.map((count, i) => {
+      const pct = st.hist.some(Boolean) ? Math.round(100 * count / Math.max(...st.hist)) : 0;
+      return `<div class="hist-row${i ? "" : " clean"}"><span class="hist-label">${i === 3 ? "3+" : i}</span>`
+        + `<span class="hist-bar" style="width:max(1.6em, ${pct}%)">${count}</span></div>`;
+    }).join("");
+    return `<div class="stat-row">${cell(st.n.puzzles, "puzzles finished")}${cell(solved, "clues solved")}`
+      + cell(solved ? Math.round(100 * st.n.clean / solved) + "%" : "–", "with no hints")
+      + cell(solved ? oneDp(perClue(st.clues)) : "–", "hints per clue") + `</div>`
+      + `<h3 class="stats-h">Hints per clue</h3><div class="hist">${bars}</div>`
+      + `<p class="muted small-note">A revealed letter counts as a hint, so 0 is a clue solved with no help at all.</p>`;
+  }
+  function statsTrendHTML(st) {
+    const pts = st.weeks.map((v, i) => (v === null ? null : [i * 10, v]));
+    const top = Math.max(3, ...st.weeks.filter((v) => v !== null));
+    const y = (v) => (2 + 26 * (1 - v / top)).toFixed(1);
+    // One polyline per unbroken run of weeks, so an empty week is a gap rather
+    // than a line drawn through a week nobody solved in.
+    const runs = [[]];
+    pts.forEach((p) => { if (p) runs[runs.length - 1].push(p); else if (runs[runs.length - 1].length) runs.push([]); });
+    const lines = runs.filter((r) => r.length).map((r) => r.length > 1
+      ? `<polyline points="${r.map(([x, v]) => x + 2 + "," + y(v)).join(" ")}"/>`
+      : `<circle cx="${r[0][0] + 2}" cy="${y(r[0][1])}" r="1.8"/>`).join("");
+    let line = "Solve clues on a few different weeks and your trend shows up here.";
+    if (st.trend) {
+      const [a, b] = st.trend.map(oneDp);
+      line = a === b ? `Your hints per clue held at ${b} over 30 days.`
+        : `Your hints per clue ${+b < +a ? "fell" : "rose"} from ${a} to ${b} over 30 days.`;
+    }
+    return `<h3 class="stats-h">Trend</h3>`
+      + `<svg class="spark" viewBox="0 0 114 30" role="img" aria-label="Hints per clue, week by week, for the last twelve weeks">`
+      + `<line x1="0" y1="28" x2="114" y2="28"/>${lines}</svg>`
+      + `<p class="stats-line">${line}</p>`
+      + `<p class="muted small-note">Hints per clue each week for the last twelve weeks. Lower is better.</p>`;
+  }
+  function statsRankHTML(st) {
+    const next = RANKS[st.rank + 1];
+    let need = "The top rank. Every clue from here is for the love of it.";
+    if (next) {
+      const more = next.clean - st.n.clean;
+      const wants = [];
+      if (more > 0) wants.push(`${more} more clue${more > 1 ? "s" : ""} with no hints`);
+      if (st.low < next.low) wants.push(`${Math.round(next.low * 100)}% of your last ${RANK_WINDOW} clues on one hint or none (now ${Math.round(st.low * 100)}%)`);
+      need = `Next, ${next.name}: ${wants.join(", and ")}.`;
+    }
+    return `<h3 class="stats-h">Rank</h3><p class="rank"><strong>${RANKS[st.rank].name}</strong></p>`
+      + `<p class="stats-line">${need}</p>`;
+  }
+  function statsStreakHTML(st) {
+    const days = (k) => `${k} day${k === 1 ? "" : "s"}`;
+    return `<h3 class="stats-h">Streak</h3><p class="stats-line"><strong>${days(st.streak.current)}</strong> in a row with a puzzle finished`
+      + ` · best ${days(st.streak.best)}</p>`;
+  }
+  function statsMilestonesHTML(st) {
+    const when = (t) => new Date(t).toLocaleDateString(undefined, { day: "numeric", month: "short", year: "numeric" });
+    const reached = st.milestones.filter((m) => m.id);
+    const ahead = st.milestones.filter((m) => !m.id).slice(0, 3);
+    return `<h3 class="stats-h">Milestones</h3><ul class="milestones">`
+      + reached.map((m) => `<li class="reached">${m.label}<span class="muted">${when(m.at)}</span></li>`).join("")
+      + ahead.map((m) => `<li class="ahead">${m.label}</li>`).join("") + `</ul>`;
+  }
+  const STATS_SECTIONS = [statsSummaryHTML, statsTrendHTML, statsRankHTML, statsStreakHTML, statsMilestonesHTML];
+
+  // Every started puzzle's file, then `then` once: the ledger needs each
+  // puzzle's answers, and a sync pull can bring saves for files never fetched.
+  function whenStartedLoaded(then) {
+    const ids = Object.keys(savedProgress()).filter((id) => BY_ID[id]);
+    let left = ids.length + 1;
+    const one = () => { if (--left === 0) then(); };
+    ids.forEach((id) => loadPuzzle(id, one));
+    one();
+  }
+  function renderStats() {
+    const st = solverStats(Date.now());
+    setHTML($("stats-body"), STATS_SECTIONS.map((f) => f(st)).join(""));
+  }
+  function toggleStats(show) {
+    if (!showPanel("stats-panel", show)) return;
+    if (P) flushState();
+    whenStartedLoaded(() => { if (!$("stats-panel").classList.contains("hidden")) renderStats(); });
+  }
+
+  // A milestone reached by the letter just typed gets one line under the
+  // scorebar, until the next solve replaces it. Nothing pops up. The save is
+  // written first so the solve is in it, and the milestone is the one this
+  // solve reached when its stamp is the save's own.
+  let milestoneNote = { id: null, text: "" };
+  function noteMilestone() {
+    clearTimeout(saveTimer);
+    writeState();
+    const id = P.id, stamp = (store.get(stateKey(), null) || {}).updated;
+    milestoneNote = { id, text: "" };
+    whenStartedLoaded(() => {
+      if (!P || P.id !== id || milestoneNote.id !== id) return;
+      const hit = solverStats(Date.now()).milestones.filter((m) => m.id === id && m.at === stamp);
+      milestoneNote.text = hit.map((m) => m.label).join(" · ");
+      drawScoreExtras();
+    });
+  }
+  function drawScoreExtras() {
+    const k = puzzleStreak(Date.now()).current;
+    setHTML($("streak"), k ? `<strong>${k}</strong>-day streak` : "");
+    const note = P && milestoneNote.id === P.id ? milestoneNote.text : "";
+    setHTML($("milestone-note"), note ? "Milestone: " + esc(note) : "");
+    $("milestone-note").classList.toggle("hidden", !note);
   }
 
   // ---------- picker ----------
@@ -5571,11 +5837,7 @@
     if (!filled || !puz) return { filled, total: 0, done: false };
     const want = {};   // "x,y" -> the letter that belongs there
     puz.entries.forEach((e) => {
-      for (let i = 0; i < e.length; i++) {
-        const x = e.position.x + (e.direction === "across" ? i : 0);
-        const y = e.position.y + (e.direction === "across" ? 0 : i);
-        want[x + "," + y] = e.solution ? e.solution[i] : null;
-      }
+      for (let i = 0; i < e.length; i++) want[squareOf(e, i)] = e.solution ? e.solution[i] : null;
     });
     const squares = Object.keys(want);
     // letters[k] is "A" or "A!" — a revealed letter still counts as done. You
@@ -5987,7 +6249,7 @@
   //
   // Opening one therefore closes the others, and every opener goes through
   // here, so a fourth panel cannot bring the overlap back by forgetting to.
-  const PANELS = ["sync-panel", "notify-panel", "picker-panel", "fb-panel"];
+  const PANELS = ["sync-panel", "notify-panel", "picker-panel", "fb-panel", "stats-panel"];
   function closePanel(id) {
     // Whatever the panel was doing to the outside world stops when it goes
     // away. The scanner holds the camera, so a panel closed by another one
@@ -6465,6 +6727,8 @@
 
   function boot() {
     bindFeedback();
+    $("btn-stats").onclick = () => toggleStats();
+    $("btn-stats-close").onclick = () => toggleStats(false);
     bindWelcome();
     // The lesson is /learn/ — a page, reached by a plain link in the header.
     // It is a document you read end to end, and it outgrew the collapsible
