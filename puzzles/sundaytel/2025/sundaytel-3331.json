@@ -23,6 +23,9 @@
   "date": "2025-09-03",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,67 @@
     "text": "A fuse blown, indefinite number plugged in – dangerous",
     "enumeration": "6"
    },
-   "solution": "UNSAFE"
+   "solution": "UNSAFE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "UNSAFE",
+    "definitions": [
+     {
+      "text": "dangerous",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "blown",
+      "for": "anagram",
+      "note": "something blown has burst apart, so its letters are scattered and reassembled"
+     },
+     {
+      "text": "plugged in",
+      "for": "container",
+      "note": "something plugged in is pushed inside a socket, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A fuse",
+      "gives": "AFUSE",
+      "note": "the letters as written, to be rearranged"
+     },
+     {
+      "clueFragment": "indefinite number",
+      "gives": "N",
+      "note": "n is the mathematician's symbol for an unspecified number"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "N",
+      "SAFE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AFUSE",
+       "gives": "USAFE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An electrician warns that a blown fuse with something jammed into the socket is hazardous.",
+     "walkthrough": "Rearrange A FUSE as U SAFE, then slip N in after the U to get UNSAFE.",
+     "definitionFit": "Something unsafe is hazardous or risky, a plain synonym for being a danger to people."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "plugged"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +113,84 @@
     "text": "Cooking pan on top of cupboard in Britain, empty",
     "enumeration": "6"
    },
-   "solution": "UNPACK"
+   "solution": "UNPACK",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "UNPACK",
+    "definitions": [
+     {
+      "text": "empty",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Cooking",
+      "for": "anagram",
+      "note": "cooking transforms raw ingredients, so these letters are worked into a new order"
+     },
+     {
+      "text": "top of",
+      "for": "letter_selection",
+      "note": "the top of a down entry is its first letter, so only the opening letter is kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "being in something means sitting inside it, so the preceding letters go within the next piece"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pan",
+      "gives": "PAN",
+      "note": "the word as written, to be rearranged"
+     },
+     {
+      "clueFragment": "cupboard",
+      "gives": "C",
+      "select": "first",
+      "note": "the first letter of cupboard"
+     },
+     {
+      "clueFragment": "Britain",
+      "gives": "UK",
+      "note": "UK, the United Kingdom, stands for Britain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "NPA",
+      "C",
+      "K"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PAN",
+       "gives": "NPA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A kitchen scene: a cooking pan sits on top of a British cupboard, which is otherwise bare.",
+     "walkthrough": "'Empty' looks like it describes the cupboard, but it is the definition, used as a verb meaning to take the contents out.",
+     "definitionFit": "To unpack a suitcase or box is to take everything out of it, emptying it completely."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "empty"
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +204,65 @@
     "text": "Pastures new then right for icon",
     "enumeration": "9"
    },
-   "solution": "SUPERSTAR"
+   "solution": "SUPERSTAR",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "SUPERSTAR",
+    "definitions": [
+     {
+      "text": "icon",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "something made new is remade, so these letters are put into a fresh order"
+     }
+    ],
+    "linkWords": [
+     "then",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pastures",
+      "gives": "PASTURES",
+      "note": "the word as written, to be rearranged"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the standard abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUPERSTA",
+      "R"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PASTURES",
+       "gives": "SUPERSTA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A farmer moves the herd to pastures new, which proves the right move for some iconic figure.",
+     "walkthrough": "'Pastures new' is a familiar phrase, which hides that 'new' is working on the word before it rather than describing it.",
+     "definitionFit": "An icon is a celebrated figure admired by many, which is exactly what a superstar is in popular culture."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "new"
+    }
+   }
   },
   {
    "number": 3,
@@ -84,7 +282,55 @@
      }
     ]
    },
-   "solution": "FURNITUREPOLISH"
+   "solution": "FURNITUREPOLISH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FURNITURE POLISH",
+    "definitions": [
+     {
+      "text": "lovely finisher?",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mazy",
+      "for": "anagram",
+      "note": "a mazy route twists and turns like a maze, so the letters wind into a new order"
+     }
+    ],
+    "linkWords": [
+     "Observing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "runs, I lift hero up",
+      "gives": "RUNSILIFTHEROUP",
+      "note": "all fifteen letters as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RUNSILIFTHEROUP",
+       "gives": "FURNITUREPOLISH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A football commentator watches a winger's mazy runs, then a teammate lifts the hero up after a lovely goal.",
+     "walkthrough": "The surface is all football: mazy runs and a lovely finisher sound like a goalscorer. 'Finisher' is really something applied to wood as a final finish.",
+     "definitionFit": "Polish for tables and chairs is a finishing product that leaves wood looking lovely, a playful cryptic description."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "finisher"
+    }
+   }
   },
   {
    "number": 4,
@@ -104,7 +350,47 @@
      }
     ]
    },
-   "solution": "CHOPCHOP"
+   "solution": "CHOPCHOP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHOP-CHOP",
+    "definitions": [
+     {
+      "text": "as quick as you can!",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Meat",
+      "gives": "CHOP",
+      "note": "a chop is a cut of meat, such as a lamb or pork chop"
+     },
+     {
+      "clueFragment": "axe",
+      "gives": "CHOP",
+      "note": "to axe something is to cut it down"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHOP",
+      "CHOP"
+     ]
+    },
+    "explanation": {
+     "surface": "A butcher is urged to use the meat axe as fast as possible.",
+     "walkthrough": "'Meat axe' reads as one tool, but each word gives the same four letters, one a noun and one a verb.",
+     "definitionFit": "Chop-chop is an informal exclamation urging someone to hurry up and move quickly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "axe"
+    }
+   }
   },
   {
    "number": 5,
@@ -118,7 +404,52 @@
     "text": "Tramp, haversack on back, only initially",
     "enumeration": "4"
    },
-   "solution": "HOBO"
+   "solution": "HOBO",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "HOBO",
+    "definitions": [
+     {
+      "text": "Tramp",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so just the first letter of each word is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "haversack on back, only",
+      "gives": "HOBO",
+      "select": "first",
+      "note": "the first letters of four consecutive words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "O",
+      "B",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A tramp wanders along with only a haversack slung on his back.",
+     "walkthrough": "'Only initially' reads as 'at first just', but 'initially' tells you to take opening letters.",
+     "definitionFit": "A hobo is an American term for a homeless wanderer, the same as a British tramp or vagrant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "initially"
+    }
+   }
   },
   {
    "number": 6,
@@ -146,7 +477,47 @@
      }
     ]
    },
-   "solution": "PAINTTHETOWNRED"
+   "solution": "PAINTTHETOWNRED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PAINT THE TOWN RED",
+    "definitions": [
+     {
+      "text": "Have fun",
+      "at": 0
+     },
+     {
+      "text": "add a little colour to the place?",
+      "at": 13
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Have fun",
+      "note": "first meaning: go out and celebrate wildly"
+     },
+     {
+      "clueFragment": "add a little colour to the place?",
+      "note": "second meaning, taken literally: decorate a whole settlement in one colour"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone decides to enjoy themselves and brighten up their home with some colour.",
+     "walkthrough": "The question mark flags the literal reading of a well-known idiom: coating a town in red paint would certainly add colour.",
+     "definitionFit": "The idiom means to go out for a lively night of celebration and revelry, often involving drinking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "colour"
+    }
+   }
   },
   {
    "number": 7,
@@ -160,7 +531,55 @@
     "text": "Misanthrope having change of heart",
     "enumeration": "5"
    },
-   "solution": "HATER"
+   "solution": "HATER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HATER",
+    "definitions": [
+     {
+      "text": "Misanthrope",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "change of",
+      "for": "anagram",
+      "note": "a change alters the arrangement, so the letters are placed in a different order"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "heart",
+      "gives": "HEART",
+      "note": "the word as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HEART",
+       "gives": "HATER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grumpy loner who dislikes everyone finally softens and has a change of heart.",
+     "walkthrough": "'Change of heart' is an idiom for relenting, but here the heart itself changes: its five letters rearranged.",
+     "definitionFit": "A misanthrope dislikes humankind in general, so is a hater of people in the broadest sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "heart"
+    }
+   }
   },
   {
    "number": 8,
@@ -180,7 +599,61 @@
      }
     ]
    },
-   "solution": "PIECHART"
+   "solution": "PIECHART",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "PIE CHART",
+    "definitions": [
+     {
+      "text": "diagram",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bendy",
+      "for": "anagram",
+      "note": "something bendy can be twisted out of shape, so these letters are bent into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Constant",
+      "gives": "PI",
+      "note": "pi is the mathematical constant, roughly 3.14"
+     },
+     {
+      "clueFragment": "arc, the",
+      "gives": "ARCTHE",
+      "note": "the letters as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PI",
+      "ECHART"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ARCTHE",
+       "gives": "ECHART"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A geometry lesson: a constant arc, then a bendy diagram on the board.",
+     "walkthrough": "The maths setting suits the answer: pi, arcs and a circular chart all belong to circles.",
+     "definitionFit": "A pie chart is a circular diagram divided into slices showing the proportions of a whole."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Constant"
+    }
+   }
   },
   {
    "number": 9,
@@ -200,7 +673,55 @@
      }
     ]
    },
-   "solution": "POPART"
+   "solution": "POPART",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "POP ART",
+    "definitions": [
+     {
+      "text": "twentieth-century designs",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "filled with",
+      "for": "container",
+      "note": "a vessel filled with something holds it inside, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Container",
+      "gives": "POT",
+      "note": "a pot is a container"
+     },
+     {
+      "clueFragment": "standard",
+      "gives": "PAR",
+      "note": "par is the standard or normal level, as in golf"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PO",
+      "PAR",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A display case filled with classic designs from the twentieth century.",
+     "walkthrough": "'Container' sounds like the cabinet holding the exhibits; it is only a generic word for a vessel, which wraps around the golfer's standard.",
+     "definitionFit": "Pop art was a 1950s and 60s movement whose bold images, by Warhol and Lichtenstein, drew on mass culture."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "standard"
+    }
+   }
   },
   {
    "number": 10,
@@ -214,7 +735,64 @@
     "text": "Ban is reviewed on the drink",
     "enumeration": "8"
    },
-   "solution": "ABSINTHE"
+   "solution": "ABSINTHE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ABSINTHE",
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reviewed",
+      "for": "anagram",
+      "note": "reviewed read as re-viewed means looked at afresh, so the letters are seen in a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ban is",
+      "gives": "BANIS",
+      "note": "the letters as written, to be rearranged"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ABSIN",
+      "THE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BANIS",
+       "gives": "ABSIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Authorities are reconsidering a ban on a certain alcoholic drink.",
+     "walkthrough": "Fitting surface: absinthe really was banned in many countries for decades, and those bans were later reviewed and lifted.",
+     "definitionFit": "Absinthe is a strong green aniseed-flavoured spirit, historically made with wormwood, so it is a type of alcoholic beverage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reviewed"
+    }
+   }
   },
   {
    "number": 11,
@@ -228,7 +806,50 @@
     "text": "Bishop for example specified day for order",
     "enumeration": "7"
    },
-   "solution": "MANDATE"
+   "solution": "MANDATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MANDATE",
+    "definitions": [
+     {
+      "text": "order",
+      "at": 37
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bishop for example",
+      "gives": "MAN",
+      "note": "a bishop is one of the chess pieces, also called men"
+     },
+     {
+      "clueFragment": "specified day",
+      "gives": "DATE",
+      "note": "a date is a particular day fixed in advance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAN",
+      "DATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A church bishop names a particular day for some ceremony.",
+     "walkthrough": "The bishop is not a cleric but a chess piece; chessmen are pieces, so a bishop is an example of a man.",
+     "definitionFit": "A mandate is an official instruction or command given by an authority, so it is an order."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bishop"
+    }
+   }
   },
   {
    "number": 12,
@@ -242,7 +863,44 @@
     "text": "Top Ceredigion town",
     "enumeration": "8"
    },
-   "solution": "CARDIGAN"
+   "solution": "CARDIGAN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CARDIGAN",
+    "definitions": [
+     {
+      "text": "Top",
+      "at": 0
+     },
+     {
+      "text": "Ceredigion town",
+      "at": 4
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Top",
+      "note": "first meaning: a knitted garment worn on the upper body"
+     },
+     {
+      "clueFragment": "Ceredigion town",
+      "note": "second meaning: a market town in Ceredigion, a county in west Wales"
+     }
+    ],
+    "explanation": {
+     "surface": "The finest town in the Welsh county of Ceredigion.",
+     "walkthrough": "'Top' reads as an adjective meaning best, but it is a noun for an item of clothing. Ceredigion is a county on the west coast of Wales.",
+     "definitionFit": "A cardigan is a knitted sweater buttoned down the front, and it shares its name with a Welsh coastal town."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Top"
+    }
+   }
   },
   {
    "number": 13,
@@ -256,7 +914,57 @@
     "text": "Formality as chief meets canonised individual",
     "enumeration": "6"
    },
-   "solution": "STARCH"
+   "solution": "STARCH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STARCH",
+    "definitions": [
+     {
+      "text": "Formality",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "meets",
+      "for": "charade",
+      "note": "when two things meet they come together side by side, so the pieces are joined up"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "canonised individual",
+      "gives": "ST",
+      "note": "ST is the abbreviation for saint, someone canonised by the church"
+     },
+     {
+      "clueFragment": "chief",
+      "gives": "ARCH",
+      "note": "arch means chief or principal, as in archbishop or arch-rival"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "ARCH"
+     ]
+    },
+    "explanation": {
+     "surface": "A stiff ceremony as a leader greets a newly made saint.",
+     "walkthrough": "The pieces come in reverse of clue order: the saint's abbreviation comes first, then the word for chief.",
+     "definitionFit": "Starch, figuratively, is stiffness of manner, the stiff formality of someone who is starchy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "chief"
+    }
+   }
   },
   {
    "number": 14,
@@ -270,7 +978,58 @@
     "text": "Country where soldiers in tune",
     "enumeration": "7"
    },
-   "solution": "ARMENIA"
+   "solution": "ARMENIA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ARMENIA",
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "being in something means lying inside it, so the first piece sits within the second"
+     }
+    ],
+    "linkWords": [
+     "where"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soldiers",
+      "gives": "MEN",
+      "note": "soldiers are men in crossword shorthand, as in officers and men"
+     },
+     {
+      "clueFragment": "tune",
+      "gives": "ARIA",
+      "note": "an aria is a tune or song, especially in opera"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AR",
+      "MEN",
+      "IA"
+     ]
+    },
+    "explanation": {
+     "surface": "A country where the soldiers march in step, all in tune.",
+     "walkthrough": "'In tune' reads as a phrase meaning harmonious, but 'in' is the insertion signal and 'tune' gives the outer word.",
+     "definitionFit": "Armenia is a nation in the South Caucasus, bordering Turkey, Georgia, Azerbaijan and Iran."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tune"
+    }
+   }
   },
   {
    "number": 15,
@@ -284,7 +1043,51 @@
     "text": "Brief storm down there, rush out",
     "enumeration": "13"
    },
-   "solution": "THUNDERSHOWER"
+   "solution": "THUNDERSHOWER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "THUNDERSHOWER",
+    "definitions": [
+     {
+      "text": "Brief storm",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out can mean disordered or wrong, so these letters are put into a different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "down there, rush",
+      "gives": "DOWNTHERERUSH",
+      "note": "all thirteen letters as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DOWNTHERERUSH",
+       "gives": "THUNDERSHOWER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A short sharp storm is raging down there, so everyone rushes outside.",
+     "walkthrough": "'Rush out' sounds like people running into the weather; 'out' is only telling you to rearrange the letters before it.",
+     "definitionFit": "A thundershower is a short burst of rain accompanied by thunder, a squall that passes quickly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 16,
@@ -298,7 +1101,51 @@
     "text": "Hero with fewer breaks – why?",
     "enumeration": "9"
    },
-   "solution": "WHEREFORE"
+   "solution": "WHEREFORE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "WHEREFORE",
+    "definitions": [
+     {
+      "text": "why?",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "breaks",
+      "for": "anagram",
+      "note": "something that breaks falls to pieces, so these letters are broken up and rebuilt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hero with fewer",
+      "gives": "HEROFEWER",
+      "note": "the letters of both words, with the joining word ignored"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HEROFEWER",
+       "gives": "WHEREFORE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks why a sporting hero is getting fewer breaks these days.",
+     "walkthrough": "Echoes Juliet's famous line 'wherefore art thou Romeo', which is often misread as 'where' but really asks why.",
+     "definitionFit": "Wherefore is an old-fashioned interrogative meaning for what reason, asking about cause just as why does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "breaks"
+    }
+   }
   },
   {
    "number": 17,
@@ -312,7 +1159,67 @@
     "text": "Slow mover set about transporting load",
     "enumeration": "8"
    },
-   "solution": "ESCARGOT"
+   "solution": "ESCARGOT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ESCARGOT",
+    "definitions": [
+     {
+      "text": "Slow mover",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "about can mean turned around or moved round, so the letters are rearranged"
+     },
+     {
+      "text": "transporting",
+      "for": "container",
+      "note": "to transport goods is to carry them within, so one piece holds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "set",
+      "gives": "SET",
+      "note": "the word as written, to be rearranged"
+     },
+     {
+      "clueFragment": "load",
+      "gives": "CARGO",
+      "note": "cargo is a load carried by a ship or vehicle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ES",
+      "CARGO",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SET",
+       "gives": "EST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A slow lorry sets off carrying its heavy load.",
+     "walkthrough": "The rearranged word is split in two to carry the load inside. 'Slow mover' is a snail, and escargot is the French word used for edible snails.",
+     "definitionFit": "Escargot is a snail, especially one cooked as food, and snails are proverbially the slowest of creatures."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "transporting"
+    }
+   }
   },
   {
    "number": 18,
@@ -332,7 +1239,57 @@
      }
     ]
    },
-   "solution": "STREETTHEATRE"
+   "solution": "STREETTHEATRE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STREET THEATRE",
+    "definitions": [
+     {
+      "text": "outdoor entertainment",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by",
+      "for": "charade",
+      "note": "by means beside or next to, so the two pieces sit alongside each other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the way",
+      "gives": "STREET",
+      "note": "a street is a way or road; many street names end in Way"
+     },
+     {
+      "clueFragment": "Room for procedure",
+      "gives": "THEATRE",
+      "note": "an operating theatre is the room where surgical procedures happen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STREET",
+      "THEATRE"
+     ]
+    },
+    "explanation": {
+     "surface": "Space for a planned event beside the road during an open-air show.",
+     "walkthrough": "The pieces come in reverse of clue order. 'Procedure' means a surgical operation, and British hospitals call the operating room a theatre.",
+     "definitionFit": "Street theatre means plays or performances staged in public outdoor places for passers-by."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "procedure"
+    }
+   }
   },
   {
    "number": 19,
@@ -346,7 +1303,43 @@
     "text": "Rip off what shepherd might remove",
     "enumeration": "6"
    },
-   "solution": "FLEECE"
+   "solution": "FLEECE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FLEECE",
+    "definitions": [
+     {
+      "text": "Rip off",
+      "at": 0
+     },
+     {
+      "text": "what shepherd might remove",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rip off",
+      "note": "first meaning: to cheat someone out of money"
+     },
+     {
+      "clueFragment": "what shepherd might remove",
+      "note": "second meaning: the woolly coat shorn from a sheep"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Rip off' suggests tearing something away, which fits the shearing image, but it is the slang verb for overcharging.",
+     "definitionFit": "To fleece someone is to swindle them; a fleece is also the wool coat of a sheep, taken off at shearing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Rip"
+    }
+   }
   },
   {
    "number": 20,
@@ -360,7 +1353,43 @@
     "text": "Flower delivery service",
     "enumeration": "6"
    },
-   "solution": "AMAZON"
+   "solution": "AMAZON",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "AMAZON",
+    "definitions": [
+     {
+      "text": "Flower",
+      "at": 0
+     },
+     {
+      "text": "delivery service",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flower",
+      "note": "first meaning: something that flows, a river"
+     },
+     {
+      "clueFragment": "delivery service",
+      "note": "second meaning: the online retailer that ships parcels"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Flower delivery service' reads as a florist; but split it, and read 'flower' as flow-er, a thing that flows, so a river.",
+     "definitionFit": "The Amazon is the great South American river, and Amazon is also the giant online shopping and delivery company."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Flower"
+    }
+   }
   },
   {
    "number": 21,
@@ -374,7 +1403,50 @@
     "text": "Warning signal, as marines would do it?",
     "enumeration": "5"
    },
-   "solution": "ALARM"
+   "solution": "ALARM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ALARM",
+    "definitions": [
+     {
+      "text": "Warning signal",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "would do it?"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "as",
+      "gives": "ALA",
+      "note": "à la is French for in the manner of, that is, as someone does"
+     },
+     {
+      "clueFragment": "marines",
+      "gives": "RM",
+      "note": "RM stands for the Royal Marines"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALA",
+      "RM"
+     ]
+    },
+    "explanation": {
+     "surface": "A warning sound, done the way marines would do it.",
+     "walkthrough": "'As marines would do it' is the phrase à la RM: in the style of the Royal Marines, Britain's commando infantry.",
+     "definitionFit": "An alarm is a sound or signal that warns people of danger, such as a siren or bell."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "marines"
+    }
+   }
   },
   {
    "number": 22,
@@ -394,7 +1466,42 @@
      }
     ]
    },
-   "solution": "BIGWHEEL"
+   "solution": "BIGWHEEL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BIG WHEEL",
+    "definitions": [
+     {
+      "text": "Important person",
+      "at": 0
+     },
+     {
+      "text": "fairground ride?",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Important person",
+      "note": "first meaning: a slang term for someone influential"
+     },
+     {
+      "clueFragment": "fairground ride?",
+      "note": "second meaning: the tall rotating passenger ride at a funfair"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The possessive makes it sound like a VIP owns a ride; it is two meanings of one phrase.",
+     "definitionFit": "A big wheel is slang for a powerful, influential figure, and also the British name for a Ferris wheel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 23,
@@ -408,7 +1515,44 @@
     "text": "Be aware of negative broadcast?",
     "enumeration": "4"
    },
-   "solution": "KNOW"
+   "solution": "KNOW",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "KNOW",
+    "definitions": [
+     {
+      "text": "Be aware of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broadcast?",
+      "for": "homophone",
+      "note": "what is broadcast is heard over the air, so we go by sound rather than spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "negative",
+      "gives": "KNOW",
+      "soundsLike": "NO",
+      "note": "no is the negative answer"
+     }
+    ],
+    "explanation": {
+     "surface": "A warning to watch out for bad news on the airwaves.",
+     "walkthrough": "The silent K means the answer is spoken exactly like the negative reply.",
+     "definitionFit": "To know something is to have awareness or knowledge of it, the same as being conscious of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "negative"
+    }
+   }
   },
   {
    "number": 24,
@@ -422,7 +1566,55 @@
     "text": "Rise in endowment: stop plugging it",
     "enumeration": "8"
    },
-   "solution": "GRADIENT"
+   "solution": "GRADIENT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GRADIENT",
+    "definitions": [
+     {
+      "text": "Rise",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "plugging",
+      "for": "container",
+      "note": "a plug fills a hole from inside, so one piece is lodged within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "endowment",
+      "gives": "GRANT",
+      "note": "a grant is a sum of money given, an endowment"
+     },
+     {
+      "clueFragment": "stop",
+      "gives": "DIE",
+      "note": "to die is to stop, as an engine dies"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRA",
+      "DIE",
+      "NT"
+     ]
+    },
+    "explanation": {
+     "surface": "An endowment fund has grown, and someone wants to halt the increase.",
+     "walkthrough": "'It' refers back to the endowment, the word being plugged.",
+     "definitionFit": "A gradient is a slope, the degree of rise of a road or hill, so a rise in the land."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rise"
+    }
+   }
   },
   {
    "number": 25,
@@ -436,7 +1628,43 @@
     "text": "Rut – might dancer get into it?",
     "enumeration": "6"
    },
-   "solution": "GROOVE"
+   "solution": "GROOVE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GROOVE",
+    "definitions": [
+     {
+      "text": "Rut",
+      "at": 0
+     },
+     {
+      "text": "might dancer get into it?",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rut",
+      "note": "first meaning: a long narrow channel or furrow"
+     },
+     {
+      "clueFragment": "might dancer get into it?",
+      "note": "second meaning: the rhythm a dancer settles into"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second half is a cryptic hint: dancers are said to get into the groove when they catch the beat.",
+     "definitionFit": "A groove is a narrow cut or track, like a rut, and also a steady rhythmic feel in music."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dancer"
+    }
+   }
   },
   {
    "number": 26,
@@ -450,7 +1678,56 @@
     "text": "Axe, article splitting two predators",
     "enumeration": "8"
    },
-   "solution": "TOMAHAWK"
+   "solution": "TOMAHAWK",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "TOMAHAWK",
+    "definitions": [
+     {
+      "text": "Axe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "splitting",
+      "for": "container",
+      "note": "to split something is to come between its parts, so one piece sits inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "two predators",
+      "gives": "TOMHAWK",
+      "note": "a tom is a male cat and a hawk a bird of prey, both hunters"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "a is the indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOM",
+      "A",
+      "HAWK"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper article with an axe to grind drives a wedge between two rival predators.",
+     "walkthrough": "The single-letter article sits between the cat and the bird of prey.",
+     "definitionFit": "A tomahawk is a light axe originally used by Native American peoples as a tool and weapon."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 27,
@@ -464,7 +1741,43 @@
     "text": "Stick in salad her endives",
     "enumeration": "6"
    },
-   "solution": "ADHERE"
+   "solution": "ADHERE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ADHERE",
+    "definitions": [
+     {
+      "text": "Stick",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the answer lies in the words that follow, sitting inside them across the gaps"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "salad her endives",
+      "gives": "ADHERE",
+      "note": "the letters run across the word breaks"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone pokes a stick into her salad of endives.",
+     "walkthrough": "'Stick' looks like a noun in the salad, but it is a verb defining the answer, found in saLAD HER Endives.",
+     "definitionFit": "To adhere is to stick fast or cling to a surface, as glue or a label does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stick"
+    }
+   }
   }
  ]
 }
