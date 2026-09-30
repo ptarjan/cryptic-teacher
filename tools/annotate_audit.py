@@ -123,6 +123,12 @@ def stopped_names(text):
     """Why annotate_check refused to apply: each schema complaint, entry index dropped."""
     found = {re.sub(r"\$\.entries\[\d+\]\.?", "", m).strip()
              for m in re.findall(r"SCHEMA (\$[^;\n]*)", text)}
+    # apply_annotations' refusal: one "  <entry id>[ field]: finding" per line.
+    listed = text.partition("refused to write, fix these in the _ann file:\n")[2]
+    for line in listed.split("\n\n")[0].splitlines():
+        m = re.match(r"\s+\d+-(?:across|down)\s*(.*?)(?: — .*)?$", line)
+        if m:
+            found.add(re.sub(r"\[\d+\]", "[]", m.group(1)).lstrip(":").strip())
     if found:
         return {f"apply refused: schema {f}" for f in found}
     m = re.search(r"STOPPED — (.{0,60})", text)

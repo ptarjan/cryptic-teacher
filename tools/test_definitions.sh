@@ -30,6 +30,8 @@ check("a given `at` that points at its text is kept", [22],
       [d["at"] for d in D.place([{"text": "Down", "at": 22}], "Down, as in Watership Down?")])
 check("a wrong `at` is recomputed", [4],
       [d["at"] for d in D.place([{"text": "cat", "at": 1}], "Big cat")])
+check("straight quotes typed for curly ones take the clue's spelling", ["Don\u2019t panic"],
+      [d["text"] for d in D.place([{"text": "Don't panic"}], "Don\u2019t panic \u2014 and don\u2019t shave!")])
 check("note is kept", "why", D.place([{"text": "cat", "note": "why"}], "Big cat")[0]["note"])
 
 def refused(clue, *texts):

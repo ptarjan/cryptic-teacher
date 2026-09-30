@@ -32,6 +32,7 @@ audit hits are worth fixing and do not fail the build.
 import contextlib
 import io
 import json
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -40,6 +41,7 @@ TOOLS = Path(__file__).resolve().parent
 ROOT = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
 
+from annotate_audit import load_templates, rule_name  # noqa: E402
 import blog_post  # noqa: E402
 import clue_types  # noqa: E402
 import definitions  # noqa: E402
@@ -260,6 +262,22 @@ def preview(path, pending):
         return [], []
 
 
+def name_checks(report):
+    """`report` with each validator line ending in the check that wrote it.
+
+    Without the name, a run wanting `--explain` guesses one from the message's
+    words (`definition-overlap`) and is refused, a turn each time."""
+    templates = load_templates(Path(validate_annotations.__file__).read_text(encoding="utf-8"))
+    out = []
+    for line in report.splitlines():
+        if line.startswith((validate_annotations.ERROR_PREFIX, validate_annotations.WARN_PREFIX)):
+            name = rule_name(re.sub(r"^\s*(ERROR|warn):\s*", "", line), templates)
+            if name.startswith("check_"):
+                line += f" [{name}]"
+        out.append(line)
+    return "\n".join(out)
+
+
 def main(argv):
     if not argv or argv[0] in ("-h", "--help"):
         print(__doc__.strip())
@@ -297,10 +315,9 @@ def main(argv):
             if errs or warns:
                 print("\nwhat the validator says about the same annotations, so both "
                       "lists are fixed in one edit:")
-                for w in warns:
-                    print(f"{validate_annotations.WARN_PREFIX}{w}")
-                for e in errs:
-                    print(f"{validate_annotations.ERROR_PREFIX}{e}")
+                print(name_checks("\n".join(
+                    [f"{validate_annotations.WARN_PREFIX}{w}" for w in warns]
+                    + [f"{validate_annotations.ERROR_PREFIX}{e}" for e in errs])))
             print(f"\nannotate_check {stem}: STOPPED — the annotations were not "
                   f"applied, so {shown} is unchanged. Fix everything above in "
                   f"{pending.name} in one edit and re-run.")
@@ -313,7 +330,7 @@ def main(argv):
     with contextlib.redirect_stdout(buf):
         vrc = validate_annotations.main([stem])
     vout = buf.getvalue().rstrip()
-    print("\n" + vout)
+    print("\n" + name_checks(vout))
     errors = sum(l.startswith(validate_annotations.ERROR_PREFIX)
                  for l in vout.splitlines())
     warns = sum(l.startswith(validate_annotations.WARN_PREFIX)
@@ -373,8 +390,8 @@ def main(argv):
               f"this command again. Re-running to confirm one fix at a time "
               f"costs a turn per warning and tells you nothing this run did not.")
         print("Any line you cannot act on: "
-              "`python3 tools/validate_annotations.py --explain <check-name>` "
-              "prints that check's own source. Do not open the file itself.")
+              "`python3 tools/validate_annotations.py --explain <the [check_name] "
+              "after it>` prints that check's own source. Do not open the file itself.")
     return vrc
 
 

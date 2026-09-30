@@ -37,6 +37,14 @@ check(a.stopped_names("SCHEMA $.entries[2].annotation: missing required key 'blo
                       "SCHEMA $.entries[9].annotation: missing required key 'blocks'"),
       {"apply refused: schema annotation: missing required key 'blocks'"},
       "schema refusals collapse across entries")
+check(a.stopped_names("apply_annotations: x.json: refused to write, fix these in the _ann file:\n"
+                      "  7-down explanation: missing required key 'walkthrough'\n"
+                      "  11-across explanation: missing required key 'walkthrough'\n"
+                      "  3-down: missing required key 'blocks' — write `blocks` as shown\n\n"
+                      "annotate_check x: STOPPED — the annotations were not applied"),
+      {"apply refused: schema explanation: missing required key 'walkthrough'",
+       "apply refused: schema missing required key 'blocks'"},
+      "apply_annotations refusals are named by finding, entry id dropped")
 check(a.tool_error_kind("Bash", "python3 tools/annotate_check.py x", "Exit code 1\nFAIL"), None,
       "annotate_check reporting errors is not a wasted call")
 check(a.tool_error_kind("Bash", "cat <<X", "Contains brace with quote character"),
