@@ -27,5 +27,16 @@ check("a one-letter block", 0, warned("so S goes last"))
 check("the whole answer is another check's", 0, warned("so HES appears", gives=("HES",)))
 check("marker counts toward the backlog", 1,
       v.count_backlog(["1A: indicator note on 'about' writes a block's letters (EH)"])["indicators.noteLetters"])
+ann = {"blocks": [{"clueFragment": "cracked lips", "gives": "SPLI"},
+                  {"clueFragment": "Nurse", "gives": "TEND"}]}
+at_first = {"text": "at first"}
+check("new note: a block's clue words", ["lips"],
+      v.blocks_named_in("the lips come first", ann, at_first))
+check("new note: letters and clue words", ["TEND", "lips"],
+      v.blocks_named_in("the lips' letters come first, before TEND", ann, at_first))
+check("new note: the indicator's own words", [],
+      v.blocks_named_in("cracked things are broken up", ann, {"text": "cracked"}))
+check("new note: what the word does", [],
+      v.blocks_named_in("puts the piece after it at the front", ann, at_first))
 raise SystemExit(fails)
 PY
