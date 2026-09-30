@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,48 @@
     "text": "Point creature's head out",
     "enumeration": "4"
    },
-   "solution": "EAST"
+   "solution": "EAST",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EAST",
+    "definitions": [
+     {
+      "text": "Point",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head out",
+      "for": "deletion",
+      "note": "with its head out, a word loses its first letter and keeps the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "creature's",
+      "gives": "BEAST",
+      "note": "a creature is a beast; its first letter goes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EAST"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone points out a creature poking its head out of a burrow.",
+     "walkthrough": "BEAST loses its B to leave EAST. 'Point' here is a compass point, not a verb.",
+     "definitionFit": "East is one of the four cardinal directions marked on a compass."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Point"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +91,58 @@
     "text": "Old lady eating one's bread",
     "enumeration": "4"
    },
-   "solution": "NAAN"
+   "solution": "NAAN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NAAN",
+    "definitions": [
+     {
+      "text": "bread",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "something eaten ends up inside the eater, so one piece goes within another"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old lady",
+      "gives": "NAN",
+      "note": "a nan is a grandmother, an old lady"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "one as the article a"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NA",
+      "A",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A grandmother tucks into someone's loaf.",
+     "walkthrough": "NAN takes in A to make NA(A)N. The 's is 'is', linking wordplay to definition.",
+     "definitionFit": "Naan is a flat leavened loaf from South Asian cooking, baked in a tandoor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "eating"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +156,44 @@
     "text": "Guy drinks noisily",
     "enumeration": "5"
    },
-   "solution": "TEASE"
+   "solution": "TEASE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "TEASE",
+    "definitions": [
+     {
+      "text": "Guy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "noisily",
+      "for": "homophone",
+      "note": "done noisily means heard rather than seen, so the sound is what counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drinks",
+      "gives": "TEASE",
+      "soundsLike": "TEAS",
+      "note": "cups of tea are drinks; said out loud the plural matches the answer"
+     }
+    ],
+    "explanation": {
+     "surface": "A man slurps his drinks.",
+     "walkthrough": "'Guy' looks like a noun for a man, but it is the verb meaning to mock or rib.",
+     "definitionFit": "To guy someone is to make fun of them, the same as ribbing or mocking them playfully."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Guy"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +207,43 @@
     "text": "Government official gets a rise (slightly less than fifty percent)",
     "enumeration": "4"
    },
-   "solution": "TSAR"
+   "solution": "TSAR",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TSAR",
+    "definitions": [
+     {
+      "text": "Government official",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "slightly less than fifty percent",
+      "for": "hidden_word",
+      "note": "a little under half of some letters is taken, so a short run sits inside a longer string"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gets a rise",
+      "gives": "TSAR",
+      "note": "four consecutive letters from the middle of these nine"
+     }
+    ],
+    "explanation": {
+     "surface": "A civil servant gets a pay rise, though under half of what was asked.",
+     "walkthrough": "The parenthesis looks like a pay figure, but it counts letters: four out of the nine in 'gets a rise'.",
+     "definitionFit": "Newspapers call a government-appointed head of a policy area, like a drugs chief, by this Russian imperial title."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "percent"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +257,65 @@
     "text": "Excellent knockout I'd welcomed in self-defence",
     "enumeration": "6"
    },
-   "solution": "AIKIDO"
+   "solution": "AIKIDO",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "AIKIDO",
+    "definitions": [
+     {
+      "text": "self-defence",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "welcomed",
+      "for": "container",
+      "note": "a guest who is welcomed is taken in, so one piece goes inside another"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Excellent",
+      "gives": "AI",
+      "note": "A1 means first-rate, written with the letter I for the digit"
+     },
+     {
+      "clueFragment": "knockout",
+      "gives": "KO",
+      "note": "the boxing abbreviation"
+     },
+     {
+      "clueFragment": "I'd",
+      "gives": "ID",
+      "note": "the contraction without its apostrophe"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AI",
+      "K",
+      "ID",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A fighter delighted to have landed a knockout while defending themselves.",
+     "walkthrough": "A1, meaning first-rate, is written with the letter I standing in for the digit 1, a common crossword trick.",
+     "definitionFit": "Aikido is a Japanese martial art built on turning an attacker's force aside rather than striking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "welcomed"
+    }
+   }
   },
   {
    "number": 6,
@@ -109,7 +335,65 @@
      }
     ]
    },
-   "solution": "GREATAPE"
+   "solution": "GREATAPE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "GREAT APE",
+    "definitions": [
+     {
+      "text": "Primate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "directed",
+      "for": "anagram",
+      "note": "letters that are directed are ordered about into a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rage",
+      "gives": "RAGE",
+      "note": "anagram fodder"
+     },
+     {
+      "clueFragment": "band",
+      "gives": "TAPE",
+      "note": "a band is a strip of tape"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GREA",
+      "TAPE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RAGE",
+       "gives": "GREA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An ape's fury is aimed at a group of musicians.",
+     "walkthrough": "'Band' reads as a group of players but is a strip of sticky material; 'at' simply joins the two parts.",
+     "definitionFit": "Gorillas, chimpanzees and orangutans are the large tailless members of the monkey order."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "band"
+    }
+   }
   },
   {
    "number": 7,
@@ -123,7 +407,61 @@
     "text": "Soldiers knocked over - that's horrible part of course",
     "enumeration": "5"
    },
-   "solution": "ROUGH"
+   "solution": "ROUGH",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ROUGH",
+    "definitions": [
+     {
+      "text": "part of course",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "knocked over",
+      "for": "reversal",
+      "note": "something knocked over ends up upside down, which in a down clue flips the order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Soldiers",
+      "gives": "OR",
+      "note": "Other Ranks, ordinary soldiers"
+     },
+     {
+      "clueFragment": "that's horrible",
+      "gives": "UGH",
+      "note": "the exclamation of disgust"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RO",
+      "UGH"
+     ],
+     "reversals": [
+      {
+       "from": "OR",
+       "to": "RO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Troops scattered on a racecourse or assault course, an awful sight.",
+     "walkthrough": "OR is the standard crossword abbreviation for Other Ranks. The 'course' is a golf course, not a race or a meal.",
+     "definitionFit": "On a golf layout the long grass bordering the fairway is where wayward shots land."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "course"
+    }
+   }
   },
   {
    "number": 8,
@@ -137,7 +475,79 @@
     "text": "Looking happy - agreed about keeping money I left",
     "enumeration": "6"
    },
-   "solution": "SMILEY"
+   "solution": "SMILEY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "SMILEY",
+    "definitions": [
+     {
+      "text": "Looking happy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "turned about means facing the other way, so the letters run backwards"
+     },
+     {
+      "text": "keeping",
+      "for": "container",
+      "note": "to keep something is to hold it, so one piece holds others inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "agreed",
+      "gives": "YES",
+      "note": "saying yes means you agreed"
+     },
+     {
+      "clueFragment": "money",
+      "gives": "M",
+      "note": "the abbreviation for money"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "as printed"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "the usual abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "M",
+      "I",
+      "L",
+      "EY"
+     ],
+     "reversals": [
+      {
+       "from": "YES",
+       "to": "SEY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone grins after a deal on the money they are owed.",
+     "walkthrough": "The word for agreeing is turned round first, and only then wraps the money, the I and the left.",
+     "definitionFit": "A smiley face or expression is one wearing a grin, cheerful in appearance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 9,
@@ -151,7 +561,56 @@
     "text": "Cause to love early Corrie legend (special one)? Not half!",
     "enumeration": "7"
    },
-   "solution": "ENAMOUR"
+   "solution": "ENAMOUR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ENAMOUR",
+    "definitions": [
+     {
+      "text": "Cause to love",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not half!",
+      "for": "deletion",
+      "note": "not half means lose half, so only the first half of a name stays"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "early Corrie legend",
+      "gives": "ENA",
+      "note": "Ena Sharples, a formidable character from the first years of Coronation Street"
+     },
+     {
+      "clueFragment": "special one",
+      "gives": "MOURINHO",
+      "note": "Jose Mourinho, the football manager who called himself the Special One"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENA",
+      "MOUR"
+     ]
+    },
+    "explanation": {
+     "surface": "A soap veteran and a famous football manager supposedly make you fall in love.",
+     "walkthrough": "Corrie is Coronation Street, the long-running British TV soap. Only the first four letters of the eight-letter MOURINHO are kept.",
+     "definitionFit": "To enamour someone is to charm them into affection, making them fond or smitten."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "half"
+    }
+   }
   },
   {
    "number": 10,
@@ -165,7 +624,56 @@
     "text": "Car one American can make",
     "enumeration": "6"
    },
-   "solution": "AUSTIN"
+   "solution": "AUSTIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AUSTIN",
+    "definitions": [
+     {
+      "text": "Car",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "make"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "the article for one"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "United States"
+     },
+     {
+      "clueFragment": "can",
+      "gives": "TIN",
+      "note": "a can is a tin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "US",
+      "TIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A car that any American could build.",
+     "walkthrough": "'Make' looks like a car maker; it only links the parts to the definition.",
+     "definitionFit": "Austin was a British motor manufacturer whose models, like the Mini and Seven, bore its name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "can"
+    }
+   }
   },
   {
    "number": 11,
@@ -179,7 +687,79 @@
     "text": "Still being here, take car outside (can I get into reverse?)",
     "enumeration": "8"
    },
-   "solution": "SURVIVAL"
+   "solution": "SURVIVAL",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal",
+     "charade"
+    ],
+    "answer": "SURVIVAL",
+    "definitions": [
+     {
+      "text": "Still being here",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "to be outside something is to surround it, so one piece wraps another"
+     },
+     {
+      "text": "get into reverse",
+      "for": "reversal",
+      "note": "going into reverse gear means travelling backwards, and the letters run backwards too"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "take",
+      "gives": "R",
+      "note": "R is the abbreviation for recipe, Latin for take"
+     },
+     {
+      "clueFragment": "car",
+      "gives": "SUV",
+      "note": "sport utility vehicle"
+     },
+     {
+      "clueFragment": "can",
+      "gives": "LAV",
+      "note": "can is slang for a toilet, as is lav"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "as printed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SU",
+      "R",
+      "V",
+      "IVAL"
+     ],
+     "reversals": [
+      {
+       "from": "LAVI",
+       "to": "IVAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A driver who is still here asks whether they can put the car in reverse.",
+     "walkthrough": "'Take' is R because doctors' prescriptions began with R for recipe, Latin for take. 'Can' is slang for a toilet, not a verb.",
+     "definitionFit": "Survival is the state of continuing to live or exist after danger has passed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "can"
+    }
+   }
   },
   {
    "number": 12,
@@ -193,7 +773,56 @@
     "text": "B1 unconvincing about China according to Macron",
     "enumeration": "7"
    },
-   "solution": "THIAMIN"
+   "solution": "THIAMIN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "THIAMIN",
+    "definitions": [
+     {
+      "text": "B1",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "to be about something is to be around it, so one piece surrounds another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unconvincing",
+      "gives": "THIN",
+      "note": "a thin excuse is unconvincing"
+     },
+     {
+      "clueFragment": "China according to Macron",
+      "gives": "AMI",
+      "note": "china means mate in rhyming slang (china plate); the French president would say ami"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THI",
+      "AMI",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A weak comment on China by the French president.",
+     "walkthrough": "China plate is Cockney rhyming slang for mate, and ami is French for friend. B1 looks like a code but is a vitamin.",
+     "definitionFit": "Vitamin B1 is the chemical name of this nutrient, found in grains and needed for metabolism."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "China"
+    }
+   }
   },
   {
    "number": 13,
@@ -207,7 +836,52 @@
     "text": "Hard for regulars to make trouble",
     "enumeration": "3"
    },
-   "solution": "ADO"
+   "solution": "ADO",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ADO",
+    "definitions": [
+     {
+      "text": "trouble",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regulars",
+      "for": "letter_selection",
+      "note": "things that come at regular intervals suggest taking every second letter"
+     }
+    ],
+    "linkWords": [
+     "to make"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hard for",
+      "gives": "ADO",
+      "select": "alternate",
+      "note": "the even letters of these two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ADO"
+     ]
+    },
+    "explanation": {
+     "surface": "It's hard for the regular customers to cause a scene.",
+     "walkthrough": "'Regulars' reads as pub customers but asks for the second, fourth and sixth letters.",
+     "definitionFit": "Ado means fuss or bother, as in much ado about nothing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "regulars"
+    }
+   }
   },
   {
    "number": 14,
@@ -221,7 +895,47 @@
     "text": "Child is a girl",
     "enumeration": "5"
    },
-   "solution": "ISSUE"
+   "solution": "ISSUE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ISSUE",
+    "definitions": [
+     {
+      "text": "Child",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "as printed"
+     },
+     {
+      "clueFragment": "a girl",
+      "gives": "SUE",
+      "note": "a girl's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IS",
+      "SUE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone announces a baby is a daughter.",
+     "walkthrough": "'A girl' in cryptics often means any girl's name; here it is SUE.",
+     "definitionFit": "Issue is a formal, legal word for offspring or descendants."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "girl"
+    }
+   }
   },
   {
    "number": 15,
@@ -235,7 +949,68 @@
     "text": "Animal in motion panicking - too right",
     "enumeration": "7"
    },
-   "solution": "POTOROO"
+   "solution": "POTOROO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "POTOROO",
+    "definitions": [
+     {
+      "text": "Animal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "panicking",
+      "for": "anagram",
+      "note": "panicking letters scatter wildly, ending up in a new order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "motion",
+      "gives": "POO",
+      "note": "a motion is a bowel movement"
+     },
+     {
+      "clueFragment": "too right",
+      "gives": "TOOR",
+      "note": "TOO as printed plus R for right, anagram fodder"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PO",
+      "TORO",
+      "O"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TOOR",
+       "gives": "TORO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An animal on the move is in a panic, very much so.",
+     "walkthrough": "'Motion' reads as movement but is its medical sense, a stool. The rearranged TOO R goes inside it.",
+     "definitionFit": "The potoroo is a small Australian marsupial, a rat-kangaroo, so it is one specific creature."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "motion"
+    }
+   }
   },
   {
    "number": 16,
@@ -249,7 +1024,65 @@
     "text": "Green upset with article for Indian? Could be",
     "enumeration": "5"
    },
-   "solution": "OCEAN"
+   "solution": "OCEAN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "OCEAN",
+    "definitions": [
+     {
+      "text": "Indian? Could be",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "something upset is turned over, which in a down clue puts the letters bottom to top"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Green",
+      "gives": "ECO",
+      "note": "green in the environmental sense"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "AN",
+      "note": "the indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OCE",
+      "AN"
+     ],
+     "reversals": [
+      {
+       "from": "ECO",
+       "to": "OCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An environmentalist is annoyed about wording on behalf of an Indian person.",
+     "walkthrough": "'Indian' looks like a person, but the question mark and 'could be' signal an example: the Indian Ocean.",
+     "definitionFit": "The Indian is one instance of the great bodies of saltwater, so this is definition by example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Indian"
+    }
+   }
   },
   {
    "number": 17,
@@ -263,7 +1096,48 @@
     "text": "Go for champs in broadcast",
     "enumeration": "6"
    },
-   "solution": "CHOOSE"
+   "solution": "CHOOSE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "CHOOSE",
+    "definitions": [
+     {
+      "text": "Go for",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broadcast",
+      "for": "homophone",
+      "note": "something broadcast is heard over the air, so its sound matters"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "champs",
+      "gives": "CHOOSE",
+      "soundsLike": "CHEWS",
+      "note": "to champ is to chew noisily"
+     }
+    ],
+    "explanation": {
+     "surface": "A call to back the winners on a TV show.",
+     "walkthrough": "'Champs' reads as champions but is the verb to champ, to munch.",
+     "definitionFit": "To go for something is to pick or select it from the options."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "champs"
+    }
+   }
   },
   {
    "number": 17,
@@ -277,7 +1151,51 @@
     "text": "Time con spent in Latin America's not very much",
     "enumeration": "7"
    },
-   "solution": "CENTIMO"
+   "solution": "CENTIMO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CENTIMO",
+    "definitions": [
+     {
+      "text": "in Latin America's not very much",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spent",
+      "for": "anagram",
+      "note": "money that is spent is broken up and scattered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Time con",
+      "gives": "TIMECON",
+      "note": "anagram fodder, seven letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TIMECON",
+       "gives": "CENTIMO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A trickster's prison time in South America didn't amount to much.",
+     "walkthrough": "'Time' looks like a prison sentence; it and 'con' are only letters. The definition includes 'in Latin America', where the coin is used.",
+     "definitionFit": "A centimo is a hundredth of the currency unit in several Spanish-speaking countries, a tiny sum."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Time"
+    }
+   }
   },
   {
    "number": 18,
@@ -291,7 +1209,58 @@
     "text": "Swing with nurse in front",
     "enumeration": "6"
    },
-   "solution": "VENEER"
+   "solution": "VENEER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "VENEER",
+    "definitions": [
+     {
+      "text": "front",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another sits inside it"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Swing",
+      "gives": "VEER",
+      "note": "to swing round is to veer"
+     },
+     {
+      "clueFragment": "nurse",
+      "gives": "EN",
+      "note": "Enrolled Nurse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "EN",
+      "EER"
+     ]
+    },
+    "explanation": {
+     "surface": "A child on a swing with a nurse standing ahead.",
+     "walkthrough": "'In front' reads as one phrase, but 'in' is the container signal and 'front' the definition. EN is Enrolled Nurse.",
+     "definitionFit": "A veneer is a thin surface layer, so figuratively a facade that hides what lies beneath."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "front"
+    }
+   }
   },
   {
    "number": 19,
@@ -305,7 +1274,65 @@
     "text": "I returned dirty look Liberal ignored",
     "enumeration": "3"
    },
-   "solution": "EGO"
+   "solution": "EGO",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion"
+    ],
+    "answer": "EGO",
+    "definitions": [
+     {
+      "text": "I",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returned",
+      "for": "reversal",
+      "note": "something returned goes back the way it came"
+     },
+     {
+      "text": "ignored",
+      "for": "deletion",
+      "note": "whatever is ignored is left out altogether"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dirty look",
+      "gives": "OGLE",
+      "note": "a leer"
+     },
+     {
+      "clueFragment": "Liberal",
+      "gives": "L",
+      "note": "the party abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EGO"
+     ],
+     "reversals": [
+      {
+       "from": "OGLE",
+       "to": "ELGO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone recalls giving a nasty glare while the Liberal was snubbed.",
+     "walkthrough": "OGLE reversed is ELGO; dropping L leaves EGO. The definition is the single letter I, the self.",
+     "definitionFit": "The ego is a person's sense of self, which the pronoun names in the first person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "I"
+    }
+   }
   },
   {
    "number": 20,
@@ -319,7 +1346,70 @@
     "text": "Didn't prevent Bale getting punished in final",
     "enumeration": "7"
    },
-   "solution": "ENABLED"
+   "solution": "ENABLED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ENABLED",
+    "definitions": [
+     {
+      "text": "Didn't prevent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "punished",
+      "for": "anagram",
+      "note": "punished letters are knocked about into a new order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another sits inside it"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bale",
+      "gives": "BALE",
+      "note": "anagram fodder"
+     },
+     {
+      "clueFragment": "final",
+      "gives": "END",
+      "note": "the final part is the end"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "ABLE",
+      "D"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BALE",
+       "gives": "ABLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A footballer, Gareth Bale, is booked in a cup final but not stopped.",
+     "walkthrough": "'Final' reads as a match but gives END, which holds the rearranged BALE.",
+     "definitionFit": "To enable something is to allow or make it possible, the opposite of blocking it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "final"
+    }
+   }
   },
   {
    "number": 21,
@@ -333,7 +1423,42 @@
     "text": "Hammer old car",
     "enumeration": "6"
    },
-   "solution": "BEETLE"
+   "solution": "BEETLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BEETLE",
+    "definitions": [
+     {
+      "text": "Hammer",
+      "at": 0
+     },
+     {
+      "text": "old car",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hammer",
+      "note": "a noun here: a heavy wooden mallet for driving wedges or pegs"
+     },
+     {
+      "clueFragment": "old car",
+      "note": "the classic rounded Volkswagen model"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Hammer' looks like a verb meaning to bash an old car, but it is a noun for a tool.",
+     "definitionFit": "A mallet with a big wooden head shares its name with the rounded Volkswagen model of old."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Hammer"
+    }
+   }
   },
   {
    "number": 22,
@@ -347,7 +1472,77 @@
     "text": "Senior embracing sex without agreement, say? It's Trump's forte",
     "enumeration": "7"
    },
-   "solution": "SNOOKER"
+   "solution": "SNOOKER",
+   "annotation": {
+    "type": [
+     "homophone",
+     "deletion",
+     "container"
+    ],
+    "answer": "SNOOKER",
+    "definitions": [
+     {
+      "text": "Trump's forte",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "say",
+      "for": "homophone",
+      "note": "say means spoken out loud, so the sound matters rather than the spelling"
+     },
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "to be without something is to lack it, so letters are removed"
+     },
+     {
+      "text": "embracing",
+      "for": "container",
+      "note": "an embrace wraps arms around, so one piece surrounds another"
+     }
+    ],
+    "linkWords": [
+     "It's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Senior",
+      "gives": "SR",
+      "note": "the abbreviation"
+     },
+     {
+      "clueFragment": "sex",
+      "gives": "NOOKIE",
+      "note": "British slang for sex"
+     },
+     {
+      "clueFragment": "agreement",
+      "gives": "I",
+      "soundsLike": "AYE",
+      "note": "aye means yes, a word of agreement"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "NOOKE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A dig at an elderly president's non-consensual behaviour.",
+     "walkthrough": "Trump is Judd Trump, the English cue-sport champion, not the US president. Aye is spoken the same as the letter I, which is what goes missing.",
+     "definitionFit": "Judd Trump is a world champion at this cue game, so it is the thing he excels at."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Trump's"
+    }
+   }
   },
   {
    "number": 23,
@@ -361,7 +1556,60 @@
     "text": "Sinister country Spain on reflection",
     "enumeration": "5"
    },
-   "solution": "EERIE"
+   "solution": "EERIE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "EERIE",
+    "definitions": [
+     {
+      "text": "Sinister",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on reflection",
+      "for": "reversal",
+      "note": "a reflection shows things back to front, so the letters run the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "country",
+      "gives": "EIRE",
+      "note": "the Irish name for Ireland"
+     },
+     {
+      "clueFragment": "Spain",
+      "gives": "E",
+      "note": "the international vehicle code for Spain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EERIE"
+     ],
+     "reversals": [
+      {
+       "from": "EIREE",
+       "to": "EERIE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A menacing nation, as Spain sees it after some thought.",
+     "walkthrough": "EIRE plus E runs backwards as EERIE. E for Spain comes from the letters on international car plates.",
+     "definitionFit": "Eerie means strange and unsettling in a way that causes unease or fear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reflection"
+    }
+   }
   },
   {
    "number": 24,
@@ -375,7 +1623,61 @@
     "text": "Don't believe what was said before but uncertain",
     "enumeration": "5"
    },
-   "solution": "DOUBT"
+   "solution": "DOUBT",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "DOUBT",
+    "definitions": [
+     {
+      "text": "Don't believe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "uncertain",
+      "for": "anagram",
+      "note": "letters that are uncertain have no settled order and can be rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "what was said before",
+      "gives": "DO",
+      "note": "short for ditto, used to repeat what came above"
+     },
+     {
+      "clueFragment": "but",
+      "gives": "BUT",
+      "note": "anagram fodder"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "UBT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BUT",
+       "gives": "UBT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sceptic refuses to trust an earlier statement.",
+     "walkthrough": "DO is the ditto abbreviation, meaning the same as above. 'Uncertain' sounds like the definition but only rearranges 'but'.",
+     "definitionFit": "To doubt is to be unconvinced by, or to question the truth of, a claim."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "uncertain"
+    }
+   }
   },
   {
    "number": 25,
@@ -389,7 +1691,59 @@
     "text": "Tire out Pole labouring and abruptly slowing down",
     "enumeration": "8"
    },
-   "solution": "RITENUTO"
+   "solution": "RITENUTO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RITENUTO",
+    "definitions": [
+     {
+      "text": "abruptly slowing down",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "labouring",
+      "for": "anagram",
+      "note": "labouring letters are worked over hard until they fall into a new order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tire out",
+      "gives": "TIREOUT",
+      "note": "anagram fodder"
+     },
+     {
+      "clueFragment": "Pole",
+      "gives": "N",
+      "note": "the North Pole"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TIREOUT N",
+       "gives": "RITENUTO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An exhausted Polish worker suddenly eases off.",
+     "walkthrough": "'Pole' looks like a Polish person but is a magnetic pole, N.",
+     "definitionFit": "In music this Italian direction tells players to hold back the tempo at once rather than gradually."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pole"
+    }
+   }
   },
   {
    "number": 26,
@@ -403,7 +1757,53 @@
     "text": "Exploits non-British carriers",
     "enumeration": "4"
    },
-   "solution": "USES"
+   "solution": "USES",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "USES",
+    "definitions": [
+     {
+      "text": "Exploits",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "non-",
+      "for": "deletion",
+      "note": "the prefix non- means without, so a letter is taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "the abbreviation"
+     },
+     {
+      "clueFragment": "carriers",
+      "gives": "BUSES",
+      "note": "buses carry passengers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "USES"
+     ]
+    },
+    "explanation": {
+     "surface": "Foreign airlines or shipping firms take advantage.",
+     "walkthrough": "BUSES loses its B to leave USES. 'Exploits' is a verb here, not heroic deeds.",
+     "definitionFit": "To exploit something is to make use of it, often to one's advantage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "carriers"
+    }
+   }
   },
   {
    "number": 27,
@@ -417,7 +1817,65 @@
     "text": "Ability parking gets worse after crash",
     "enumeration": "6"
    },
-   "solution": "POWERS"
+   "solution": "POWERS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "POWERS",
+    "definitions": [
+     {
+      "text": "Ability",
+      "at": 0,
+      "note": "singular noun defining a plural one"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after crash",
+      "for": "anagram",
+      "note": "a crash smashes things apart, so the letters come out jumbled"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "parking",
+      "gives": "P",
+      "note": "the road-sign abbreviation"
+     },
+     {
+      "clueFragment": "worse",
+      "gives": "WORSE",
+      "note": "anagram fodder"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "OWERS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "WORSE",
+       "gives": "OWERS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A driver's parking gets worse following a car accident.",
+     "walkthrough": "P comes first and 'worse' is rearranged after it.",
+     "definitionFit": "Someone's powers are their faculties or capacities, what they are capable of doing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "crash"
+    }
+   }
   },
   {
    "number": 27,
@@ -437,7 +1895,65 @@
      }
     ]
    },
-   "solution": "PIAF"
+   "solution": "PIAF",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "PIAF",
+    "definitions": [
+     {
+      "text": "singer",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "turned about means facing the other way, so the letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Private Eye",
+      "gives": "PI",
+      "note": "a private investigator"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "FA",
+      "note": "sweet FA, British slang for nothing at all"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PI",
+      "AF"
+     ],
+     "reversals": [
+      {
+       "from": "FA",
+       "to": "AF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The satirical magazine Private Eye has no story about a singer.",
+     "walkthrough": "The italics make it look like the British satirical magazine, but it is a detective, PI. Sweet FA means nothing at all.",
+     "definitionFit": "Edith Piaf was the French chanteuse famous for songs like La Vie en rose."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Eye"
+    }
+   }
   },
   {
    "number": 28,
@@ -451,7 +1967,57 @@
     "text": "Over in Florida was this often dried up?",
     "enumeration": "4"
    },
-   "solution": "WADI"
+   "solution": "WADI",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "WADI",
+    "definitions": [
+     {
+      "text": "this often dried up",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "what is in a phrase is contained within its letters"
+     },
+     {
+      "text": "Over",
+      "for": "reversal",
+      "note": "turned over means read the other way, bottom to top in a down clue"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Florida was",
+      "gives": "IDAW",
+      "note": "four letters straddling the two words"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "IDAW",
+       "to": "WADI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about whether this feature in Florida used to be dry.",
+     "walkthrough": "Read 'Florida was' backwards to find the answer. 'This' stands for the answer itself.",
+     "definitionFit": "A wadi is a desert valley or streambed that holds water only in the rainy season."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Over"
+    }
+   }
   },
   {
    "number": 29,
@@ -465,7 +2031,48 @@
     "text": "Unskilled worker an associate of Bill? That's not true",
     "enumeration": "6"
    },
-   "solution": "COOLIE"
+   "solution": "COOLIE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COOLIE",
+    "definitions": [
+     {
+      "text": "Unskilled worker",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "an associate of Bill",
+      "gives": "COO",
+      "note": "from the phrase bill and coo, of courting doves"
+     },
+     {
+      "clueFragment": "That's not true",
+      "gives": "LIE",
+      "note": "a falsehood"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COO",
+      "LIE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone denies a labourer is a partner of a man called Bill.",
+     "walkthrough": "'Bill' looks like a man's name, but lovers bill and coo like doves. The answer is a dated and now offensive term.",
+     "definitionFit": "Historically this word named a hired labourer from Asia doing heavy manual work for low pay."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bill"
+    }
+   }
   },
   {
    "number": 30,
@@ -485,7 +2092,71 @@
      }
     ]
    },
-   "solution": "BRANDNEW"
+   "solution": "BRANDNEW",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "BRAND NEW",
+    "definitions": [
+     {
+      "text": "extremely fresh",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a touch of",
+      "for": "letter_selection",
+      "note": "a touch is the lightest contact, so only the very first letter is taken"
+     },
+     {
+      "text": "added in",
+      "for": "container",
+      "note": "whatever is put in goes inside something else"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tea",
+      "gives": "BREW",
+      "note": "a brew is a pot of tea"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "AND",
+      "note": "with and and both mean together"
+     },
+     {
+      "clueFragment": "nutmeg",
+      "gives": "N",
+      "select": "first",
+      "note": "its opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BR",
+      "AND",
+      "N",
+      "EW"
+     ]
+    },
+    "explanation": {
+     "surface": "A cup of tea spiced with nutmeg tastes very fresh.",
+     "walkthrough": "'With' is not a link here: it supplies its synonym AND, which goes inside the tea along with the nutmeg's first letter.",
+     "definitionFit": "Something unused and just made is as new as it can be, straight from the maker."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "touch"
+    }
+   }
   }
  ]
 }
