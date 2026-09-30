@@ -21,6 +21,7 @@ WordNet through nltk (python3 -m pip install --user nltk;
 nltk.download("wordnet")); wn_unrelated_content is the shipped
 definition_unrelated, which reads the committed subset instead.
 """
+import datetime
 import json
 import os
 import re
@@ -149,7 +150,7 @@ def clue_rows(puz, facts):
     for e in puz["entries"]:
         if not e.get("solution"):
             continue
-        clue = D.ENUMERATION.sub("", e["clue"].get("text", "")).strip()
+        clue = e["clue"].get("text", "").strip()
         if not clue or re.match(r"(?i)see\b", clue):
             continue
         f = facts.get(entry_id(e)) or {}
@@ -233,8 +234,17 @@ def dump():
                      "index": s["index"] if s else None, "z": s["z"] if s else None,
                      "portable": sum(D.WEIGHTS[k] * z for k, z in pz.items()) / tot if tot else None,
                      "pz": pz, "cand": cand(puz, bf.get(pid, {}))})
-    CACHE.write_text(json.dumps(rows))
+    CACHE.write_text(json.dumps(rows, default=str))
     print(len(rows), "rows")
+
+
+def load_rows(path):
+    """Dumped rows with each ISO date back to a date (the check calls .weekday())."""
+    rows = json.loads(Path(path).read_text())
+    for r in rows:
+        if isinstance(r.get("date"), str) and len(r["date"]) == 10:
+            r["date"] = datetime.date.fromisoformat(r["date"])
+    return rows
 
 
 # The shipped index's own check (tools/difficulty_check.py) defines the test.
@@ -276,7 +286,7 @@ SETS = {
 
 
 def test(keys):
-    rows = json.loads(CACHE.read_text())
+    rows = load_rows(CACHE)
     tr = [r for r in rows if r["series"] == "times" and r["nitch"] is not None]
     cov = [r["cand"] for r in tr if r["cand"]]
     print("coverage (times rated): wn", round(sum(c["_wn_cover"] for c in cov) / len(cov), 3),
@@ -290,7 +300,7 @@ def test(keys):
             sign = CANDIDATES[k]
             add(rows, bk, k, sign, weight_of=wf)
             sub = [r for r in tr if sel(r) and r["cand"] and r["cand"].get(k) is not None]
-            f = weekday_resid_target([(r["date"], r["nitch"]) for r in tr], "9", "0")
+            f = weekday_resid_target([(r["date"], r["nitch"]) for r in tr], datetime.date.max, datetime.date.min)
             raw = D._spearman([r["cand"][k] for r in sub], [f(r) for r in sub])
             print(f"  {('+' if sign > 0 else '-') + k:22s} times  {fmt(heldout(rows, 'new', sel))}  raw {raw:+.3f}")
             if name == "annotated":
@@ -299,7 +309,7 @@ def test(keys):
 
 def order():
     """Gentle-series margin of the index, per component and without each."""
-    rows = [r for r in json.loads(CACHE.read_text()) if r["index"] is not None]
+    rows = [r for r in load_rows(CACHE) if r["index"] is not None]
     gentle = lambda r: r["series"] in D.GENTLE_SERIES
 
     def margin(vals):
