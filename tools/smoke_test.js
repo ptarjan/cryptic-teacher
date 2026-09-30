@@ -5127,14 +5127,23 @@ global.realSetTimeout(() => {
     return null;
   };
   const bare = (t) => String(t || "").replace(/[^A-Za-z]/g, "").toUpperCase();
-  // The pieces the matching question would be made of: every block that names
-  // words in the clue and gives letters that are neither those same words nor
-  // the whole answer (both of those pair themselves on sight).
+  // The pieces the matching question would be made of: every building block
+  // that names words in the clue and shows letters that are not those same
+  // words. What a block shows is app.js's blockLetters, read out of app.js, so
+  // the test and the app cannot disagree about which pieces are pairings.
+  const { blockLetters, buildingBlocks } = (() => {
+    const src = fs.readFileSync(path.join(ROOT, "app.js"), "utf8");
+    const from = src.indexOf("function wholeWord");
+    const end = src.indexOf("const buildingBlocks", from);
+    const to = src.indexOf("\n", end);
+    assert(from > 0 && end > from, "blockLetters and buildingBlocks are still in app.js to be read");
+    return new Function(src.slice(from, to) + "\n  return { blockLetters, buildingBlocks };")();
+  })();
   const pairsOf = (e) => {
     const a = e.annotation;
-    return ((a && a.blocks) || []).filter((b) => b.clueFragment && b.gives
-      && bare(b.gives) !== bare((a && a.answer) || e.solution)
-      && bare(b.clueFragment) !== bare(b.gives));
+    if (!a) return [];
+    return buildingBlocks(a).map((b) => ({ ...b, gives: blockLetters(a, b) }))
+      .filter((b) => b.clueFragment && b.gives && bare(b.clueFragment) !== bare(b.gives));
   };
 
   // Two pairs is not a matching question: the last pairing is forced in any of
