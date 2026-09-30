@@ -14,8 +14,9 @@ Checks, for every annotated entry:
     "anagrams" is a letter-for-letter anagram of its gives, and each of
     "reversals" reverses correctly
   - hidden answers actually occur in the clue's letters, and an answer that
-    runs across a word break in the wordplay is typed hidden_word unless a
-    note calls it a coincidence (check_unmarked_hidden_word)
+    runs across a word break in the wordplay, or sits inside one word other
+    than at the front, back or middle a deletion or selection keeps, is typed
+    hidden_word unless a note calls it a coincidence (check_unmarked_hidden_word)
   - a linked answer's `group` sits on its leader alone, leader first, and its
     other lights carry no annotation (check_groups)
 
@@ -767,15 +768,59 @@ def hidden_runs(clue, ann):
     return runs
 
 
+def inside_runs(clue, ann):
+    """Where the answer, forwards or reversed, sits inside one clue word outside
+    every definition without being all of it: (direction, word, left, right)
+    tuples, left and right the counts of the word's letters on either side.
+    A possessive's 's is not part of the word, so REMARK reversing "Kramer's"
+    is a whole-word reversal."""
+    answer = letters(ann.get("answer"))
+    if len(answer) < 3:
+        return []
+    spans = [(d["at"], d["at"] + len(d["text"])) for d in ann.get("definitions") or []
+             if isinstance(d, dict) and isinstance(d.get("at"), int)
+             and isinstance(d.get("text"), str)]
+    runs = []
+    for m in HIDDEN_WORD_RE.finditer(clue):
+        if any(m.start() < b and a < m.end() for a, b in spans):
+            continue
+        word = letters(re.sub(r"['’]s$", "", m.group(), flags=re.IGNORECASE))
+        for direction, target in (("forwards", answer), ("reversed", answer[::-1])):
+            if direction == "reversed" and target == answer:
+                continue
+            k = word.find(target)
+            while k >= 0 and len(target) < len(word):
+                run = (direction, m.group(), k, len(word) - k - len(target))
+                if run not in runs:
+                    runs.append(run)
+                k = word.find(target, k + 1)
+    return runs
+
+
+# The devices that take a fixed stretch of one word: a deletion or selection
+# keeps its front or back ("endless", "half", "first three") or its middle
+# ("heart of", "uncovered", "centre"). An odd leftover puts the middle one
+# letter off centre.
+POSITIONAL_TYPES = {"deletion", "letter_selection"}
+
+
 def check_unmarked_hidden_word(tag, ann, clue, errors):
     """An answer that spells itself across a word break in the wordplay is a
     hidden word, and its type says so, unless a block or indicator note says the
     run is a coincidence: pieces clued one by one that happen to sit side by
     side (TO + T in "to time", ILL + S in "will start").
 
+    The same goes for an answer inside one word (TAR in "starting"), unless the
+    type has a deletion or letter selection and the answer is the word's front,
+    back or middle, the stretches those devices keep (TOSH as the heart of
+    "Photoshop's", EXPO from "Sexpot stripped").
+
     CALIBRATION (published annotations, 2026-09-30): 57 of 85,250 hit it; 27
     were hidden words typed as something else (EGRET reversed in "after
-    getting", ROUTINE in "Soldier out in Egypt"), 30 were coincidences."""
+    getting", ROUTINE in "Soldier out in Egypt"), 30 were coincidences. Inside
+    one word, 82 non-hidden annotations hold the answer; 71 are a deletion's or
+    selection's front, back or middle, and the other 11 were coincidences (TAR
+    in "starting", PRESS opening "pressure")."""
     types = set(types_of(ann))
     if "hidden_word" in types:
         return
@@ -783,14 +828,26 @@ def check_unmarked_hidden_word(tag, ann, clue, errors):
              for x in ann.get(key) or [] if isinstance(x, dict)]
     if any("coinciden" in n.lower() for n in notes):
         return
+    def fix(direction):
+        return ("`hidden_word` and `reversal`" if direction == "reversed"
+                else "`hidden_word`")
     for direction, words in hidden_runs(clue, ann):
-        fix = ("`hidden_word` and `reversal`" if direction == "reversed"
-               else "`hidden_word`")
         errors.append(
             f"{tag}: the answer runs {direction} across {words!r}, outside the "
-            f"definition, but `type` has no hidden_word. Add {fix} to `type` if the "
-            f"setter hid it there, or say in the note of the block holding those "
-            f"words that it is a coincidence")
+            f"definition, but `type` has no hidden_word. Add {fix(direction)} to "
+            f"`type` if the setter hid it there, or say in the note of the block "
+            f"holding those words that it is a coincidence")
+    positional = POSITIONAL_TYPES & types
+    for direction, word, left, right in inside_runs(clue, ann):
+        if positional and (not left or not right or abs(left - right) <= 1):
+            continue
+        errors.append(
+            f"{tag}: the answer sits {direction} inside {word!r} ({left} letters "
+            f"before it, {right} after), outside the definition, but `type` has no "
+            f"hidden_word. A deletion or letter selection keeps a word's front, back "
+            f"or middle; a run anywhere else is a hidden word. Add {fix(direction)} "
+            f"to `type` with {word!r} as the block, or say in that block's note "
+            f"that it is a coincidence")
 
 
 # A reversal runs along the entry, so the indicator has to name the entry's own

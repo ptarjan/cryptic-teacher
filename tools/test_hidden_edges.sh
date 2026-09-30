@@ -3,8 +3,9 @@
 # word or starts or ends on a word boundary, forwards or reversed, and pass one
 # that crosses a space and begins and ends inside words? And does
 # tools/validate_annotations.py refuse an annotation whose answer runs across a
-# word break in its wordplay when the type has no hidden_word and no block or
-# indicator note calls it a coincidence?
+# word break in its wordplay, or sits inside one word anywhere but the front,
+# back or middle a deletion or selection keeps, when the type has no
+# hidden_word and no block or indicator note calls it a coincidence?
 #
 #     bash tools/test_hidden_edges.sh
 #
@@ -13,7 +14,7 @@
 # boundary, 2 end on one), so our own clues may not. "Osprey swallows victim"
 # hides PREY inside one word; 267 of those published clues do that, and we don't.
 set -uo pipefail
-cd "$(dirname "$0")/.."
+cd "$(dirname "$0")/.." || exit 1
 
 PYTHONPATH=tools python3 - <<'PY'
 import sys
@@ -82,6 +83,28 @@ checks = [
               ["the pieces sit side by side, a coincidence the setter does not signal"])),
     ("whole words are not hidden", 0,
      unmarked("It’s a revolution in sparkling wine", "ASTI", ["reversal"], "sparkling wine")),
+    # Inside one word: a deletion or selection keeps a front, back or middle;
+    # anywhere else the run is hidden.
+    ("inside one word, typed as a selection", 1,
+     unmarked("Some photoshopping rubbish", "TOSH", ["letter_selection"], "rubbish")),
+    ("inside one word, reversed", 1,
+     unmarked("Set down, coming back in sundials", "LAID", ["letter_selection"], "Set down")),
+    ("inside one word, typed", 0,
+     unmarked("Some photoshopping rubbish", "TOSH", ["hidden_word"], "rubbish")),
+    ("the heart of one word", 0,
+     unmarked("At heart, Photoshop's rubbish", "TOSH", ["letter_selection"], "rubbish")),
+    ("one word stripped", 0,
+     unmarked("Sexpot stripped for show", "EXPO", ["deletion"], "show")),
+    ("the front of one word, curtailed", 0,
+     unmarked("Signal disapproval when boozing loses its sparkle", "BOO", ["deletion"],
+              "Signal disapproval")),
+    ("the front of one word, but no deletion", 1,
+     unmarked("Decrease pressure concerning steam ship?", "PRESS", ["charade"], "Decrease")),
+    ("inside one word, a coincidence the note owns", 0,
+     unmarked("Pitch from Hollywood A-lister starting late", "TAR", ["deletion"], "Pitch",
+              ["the letters sitting inside starting are a coincidence"])),
+    ("a possessive is a whole word", 0,
+     unmarked("Kramer's taken aback, giving notice", "REMARK", ["reversal"], "notice")),
 ]
 bad = [f"{name}: {len(errs)} errors, want {want} {errs}" for name, want, errs in checks
        if len(errs) != want]
