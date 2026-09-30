@@ -23,6 +23,9 @@
   "date": "2024-01-19",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,55 @@
     "text": "Rat briefly stopping near fish",
     "enumeration": "8"
    },
-   "solution": "STINGRAY"
+   "solution": "STINGRAY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STINGRAY",
+    "definitions": [
+     {
+      "text": "fish",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stopping",
+      "for": "container",
+      "note": "something stopping a gap plugs it, sitting inside the opening it fills"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rat briefly",
+      "gives": "RA",
+      "note": "the word for a rodent with its last letter cut short"
+     },
+     {
+      "clueFragment": "near",
+      "gives": "STINGY",
+      "note": "near is an old word for mean or tight-fisted"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STING",
+      "RA",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A rodent darts in close beside a fish, as if describing a scene on a riverbank.",
+     "walkthrough": "'Near' looks like a word of place but means miserly here, as in 'near with his money'. The shortened rat sits inside STINGY.",
+     "definitionFit": "A stingray is a flat cartilaginous sea creature with a venomous barb on its tail."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "near"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +101,66 @@
     "text": "[Taking] forever to cross street [might be] this? On the contrary!",
     "enumeration": "6"
    },
-   "solution": "SAGEST"
+   "solution": "SAGEST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SAGEST",
+    "definitions": [
+     {
+      "text": "this",
+      "at": 44,
+      "note": "stands for the answer, pointing back to the rest of the clue"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to cross",
+      "for": "container",
+      "note": "crossing something means going across it, one item passing through another"
+     },
+     {
+      "text": "On the contrary!",
+      "for": "container",
+      "note": "the phrase reverses who does the crossing, so the second item goes around the first instead of through it"
+     }
+    ],
+    "linkWords": [
+     "[Taking]",
+     "[might be]"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "forever",
+      "gives": "AGES",
+      "note": "'for ages' means for a very long time"
+     },
+     {
+      "clueFragment": "street",
+      "gives": "ST",
+      "note": "the standard abbreviation in addresses"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "AGES",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone dawdles endlessly at the kerb, and the clue asks whether that is the wisest way to cross.",
+     "walkthrough": "Read straight, AGES would cross ST; 'On the contrary!' flips it so ST crosses, that is surrounds, AGES. Taking forever to cross a road may well be the wisest course.",
+     "definitionFit": "Sagest is the superlative of sage, meaning most wise, which suits a very cautious pedestrian."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cross"
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +174,70 @@
     "text": "Awfully like crab, is not laidback ultimately — but this?",
     "enumeration": "9"
    },
-   "solution": "IRASCIBLE"
+   "solution": "IRASCIBLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "IRASCIBLE",
+    "definitions": [
+     {
+      "text": "Awfully like crab, is not laidback ultimately — but this?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means at the end, pointing to the final letter of a word"
+     },
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "'not' means leave out, so a letter is removed from the pool"
+     },
+     {
+      "text": "Awfully",
+      "for": "anagram",
+      "note": "done awfully means done badly, so the letters come out in a mangled order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "like crab, is",
+      "gives": "LIKECRABIS",
+      "note": "the letters as written"
+     },
+     {
+      "clueFragment": "laidback",
+      "gives": "K",
+      "select": "last",
+      "note": "the final letter of this word, which is taken away"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LIECRABIS",
+       "gives": "IRASCIBLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who is awfully crabby and never laid-back: what word describes them?",
+     "walkthrough": "Remove K from LIKE CRAB IS and rearrange the rest. The whole clue doubles as the definition: a person crabby and far from laid-back is short-tempered.",
+     "definitionFit": "Irascible means quick to anger, the temperament of someone called crabby and never relaxed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Awfully"
+    }
+   }
   },
   {
    "number": 3,
@@ -78,7 +251,48 @@
     "text": "Part of theatre finale that’s particularly welcome",
     "enumeration": "7"
    },
-   "solution": "GODSEND"
+   "solution": "GODSEND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GODSEND",
+    "definitions": [
+     {
+      "text": "that’s particularly welcome",
+      "at": 23,
+      "note": "describes a thing, where the answer is a noun for it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Part of theatre",
+      "gives": "GODS",
+      "note": "the gods are the highest gallery seats in a British theatre"
+     },
+     {
+      "clueFragment": "finale",
+      "gives": "END",
+      "note": "a finale is the ending"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GODS",
+      "END"
+     ]
+    },
+    "explanation": {
+     "surface": "A section of a theatre show's closing number goes down especially well with the audience.",
+     "walkthrough": "'The gods' is the cheap upper gallery of a theatre, far from the stage.",
+     "definitionFit": "A godsend is an unexpected piece of good fortune, something arriving just when it is most needed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "theatre"
+    }
+   }
   },
   {
    "number": 4,
@@ -92,7 +306,48 @@
     "text": "Relative, sprightly, heading off",
     "enumeration": "5"
    },
-   "solution": "AUNTY"
+   "solution": "AUNTY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "AUNTY",
+    "definitions": [
+     {
+      "text": "Relative",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heading off",
+      "for": "deletion",
+      "note": "with its head off, a word loses its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sprightly",
+      "gives": "JAUNTY",
+      "note": "jaunty means lively and cheerful"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AUNTY"
+     ]
+    },
+    "explanation": {
+     "surface": "A lively family member sets off somewhere.",
+     "walkthrough": "JAUNTY loses its J.",
+     "definitionFit": "An aunty, an informal spelling of aunt, is a parent's sister and so a family member."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heading"
+    }
+   }
   },
   {
    "number": 5,
@@ -106,7 +361,43 @@
     "text": "The smallest number needed liquor — umpteen bottles",
     "enumeration": "6"
    },
-   "solution": "QUORUM"
+   "solution": "QUORUM",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "QUORUM",
+    "definitions": [
+     {
+      "text": "The smallest number needed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bottles",
+      "for": "hidden_word",
+      "note": "to bottle is to hold inside, so the letters are held within the phrase"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "liquor — umpteen",
+      "gives": "QUORUM",
+      "note": "sitting inside these two words across the dash"
+     }
+    ],
+    "explanation": {
+     "surface": "Somebody needed only a little drink, yet umpteen bottles got downed.",
+     "walkthrough": "'Bottles' looks like a noun for the liquor, but it is a verb meaning holds inside.",
+     "definitionFit": "A quorum is the minimum count of members who must be present for a meeting to conduct business validly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bottles"
+    }
+   }
   },
   {
    "number": 6,
@@ -120,7 +411,56 @@
     "text": "Spotted meat for lunch, the healthier sort?",
     "enumeration": "7"
    },
-   "solution": "UNCLEAN"
+   "solution": "UNCLEAN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "UNCLEAN",
+    "definitions": [
+     {
+      "text": "Spotted",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "meat for",
+      "for": "letter_selection",
+      "note": "the meat of something is its inside, so only the central letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lunch",
+      "gives": "UNC",
+      "select": "middle",
+      "note": "this word stripped of its first and last letters"
+     },
+     {
+      "clueFragment": "the healthier sort",
+      "gives": "LEAN",
+      "note": "lean meat has less fat and is thought healthier"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNC",
+      "LEAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A diner sees marbled meat at lunch and wonders whether it is the healthier choice.",
+     "walkthrough": "'Meat' looks like food on the plate, but it asks for the inside of LUNCH; the question mark flags that LEAN is a kind of meat, not a meaning of healthier.",
+     "definitionFit": "Something spotted with marks or stains is dirty, and unclean is a plain synonym for soiled."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "meat"
+    }
+   }
   },
   {
    "number": 7,
@@ -134,7 +474,59 @@
     "text": "Accompanying opening line — [or] after it?",
     "enumeration": "5"
    },
-   "solution": "RANDY"
+   "solution": "RANDY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RANDY",
+    "definitions": [
+     {
+      "text": "after it",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "opening",
+      "for": "container",
+      "note": "opening means making a gap in something, into which another piece can go"
+     }
+    ],
+    "linkWords": [
+     "[or]"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Accompanying",
+      "gives": "AND",
+      "note": "and means together with"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "RY",
+      "note": "RY, railway, is a standard abbreviation for a line"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "AND",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "An accompanist plays the first line of a song, or comes in after it.",
+     "walkthrough": "'Opening line' reads as a first line of verse, but opening is a verb here: AND opens RY up. 'It' is slang for sex.",
+     "definitionFit": "Randy is British slang for feeling sexually eager, so someone randy is keen to get 'it'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "opening"
+    }
+   }
   },
   {
    "number": 8,
@@ -148,7 +540,65 @@
     "text": "What can be bittersweet: [having] nothing left with lots to go round?",
     "enumeration": "8"
    },
-   "solution": "MOLASSES"
+   "solution": "MOLASSES",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "MOLASSES",
+    "definitions": [
+     {
+      "text": "What can be bittersweet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to go round",
+      "for": "container",
+      "note": "going round something means encircling it on both sides"
+     }
+    ],
+    "linkWords": [
+     "[having]"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "the letter shaped like zero"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "the standard abbreviation"
+     },
+     {
+      "clueFragment": "lots",
+      "gives": "MASSES",
+      "note": "masses means a great many"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "O",
+      "L",
+      "ASSES"
+     ]
+    },
+    "explanation": {
+     "surface": "A wistful feeling, bittersweet, of being left with nothing while plenty goes around everyone else.",
+     "walkthrough": "Bittersweet looks like an emotion, but it describes a taste: dark treacle has a bitter edge to its sugar.",
+     "definitionFit": "Molasses is the thick dark syrup left after refining sugar, sweet yet slightly bitter in flavour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "bittersweet"
+    }
+   }
   },
   {
    "number": 9,
@@ -162,7 +612,66 @@
     "text": "Disgusted at welcome that’s got extended to sides",
     "enumeration": "8"
    },
-   "solution": "LOATHING"
+   "solution": "LOATHING",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "LOATHING",
+    "definitions": [
+     {
+      "text": "Disgusted",
+      "at": 0,
+      "note": "an adjective, where the answer is a participle or noun for the feeling"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to sides",
+      "for": "container",
+      "note": "a word placed to both sides of another flanks it, one part on each end"
+     }
+    ],
+    "linkWords": [
+     "that’s got"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "welcome",
+      "gives": "HI",
+      "note": "a friendly greeting"
+     },
+     {
+      "clueFragment": "extended",
+      "gives": "LONG",
+      "note": "long means drawn out in length"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LO",
+      "AT",
+      "HI",
+      "NG"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is put off by a greeting that drags on far too long.",
+     "walkthrough": "'Welcome' feels like a noun for a reception, but it is a one-word greeting; 'to sides' means placed on both sides.",
+     "definitionFit": "Loathing is intense disgust or hatred, the feeling of someone thoroughly repelled."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "welcome"
+    }
+   }
   },
   {
    "number": 10,
@@ -186,7 +695,59 @@
      }
     ]
    },
-   "solution": "GRANDUNIONCANAL"
+   "solution": "GRANDUNIONCANAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GRAND UNION CANAL",
+    "definitions": [
+     {
+      "text": "waterway",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrongly",
+      "for": "anagram",
+      "note": "done wrongly means put in the wrong order, so the letters need rearranging"
+     }
+    ],
+    "linkWords": [
+     "associated with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Long run",
+      "gives": "LONGRUN",
+      "note": "the letters as written"
+     },
+     {
+      "clueFragment": "Canadian",
+      "gives": "CANADIAN",
+      "note": "the letters as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LONGRUNCANADIAN",
+       "gives": "GRANDUNIONCANAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A long stretch of water is mistakenly thought to be in Canada.",
+     "walkthrough": "'Canadian waterway' reads as one phrase, but Canadian is anagram material and the waterway is English. The Grand Union Canal runs from London to Birmingham.",
+     "definitionFit": "A canal is an artificial channel for boats, so this one is a man-made inland waterway."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Canadian"
+    }
+   }
   },
   {
    "number": 11,
@@ -200,7 +761,59 @@
     "text": "Being tight-lipped, [in] case of some battle",
     "enumeration": "7"
    },
-   "solution": "SECRECY"
+   "solution": "SECRECY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SECRECY",
+    "definitions": [
+     {
+      "text": "Being tight-lipped",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "case of",
+      "for": "letter_selection",
+      "note": "the case of something is its outer shell, so only the outside letters are kept"
+     }
+    ],
+    "linkWords": [
+     "[in]"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "some",
+      "gives": "SE",
+      "select": "outer",
+      "note": "the first and last letters of this word"
+     },
+     {
+      "clueFragment": "battle",
+      "gives": "CRECY",
+      "note": "Crécy, in northern France, was an English victory of 1346"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "CRECY"
+     ]
+    },
+    "explanation": {
+     "surface": "An old soldier stays silent about what happened in a certain battle.",
+     "walkthrough": "The accent on Crécy is dropped in the grid, as usual in crosswords.",
+     "definitionFit": "Secrecy is the state of keeping quiet and hiding information, which is what someone tight-lipped does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 12,
@@ -220,7 +833,47 @@
      }
     ]
    },
-   "solution": "TIEDYES"
+   "solution": "TIEDYES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TIE-DYES",
+    "definitions": [
+     {
+      "text": "Coloured garments",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drew",
+      "gives": "TIED",
+      "note": "a match drawn is a match tied"
+     },
+     {
+      "clueFragment": "approval",
+      "gives": "YES",
+      "note": "yes signals agreement"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIED",
+      "YES"
+     ]
+    },
+    "explanation": {
+     "surface": "Some brightly dyed clothes won people's approval.",
+     "walkthrough": "'Drew' suggests sketching or pulling, but it means finished level in a game.",
+     "definitionFit": "Tie-dyes are shirts or dresses patterned by knotting fabric before dipping it in dye."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drew"
+    }
+   }
   },
   {
    "number": 13,
@@ -240,7 +893,65 @@
      }
     ]
    },
-   "solution": "ABUDHABI"
+   "solution": "ABUDHABI",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ABU DHABI",
+    "definitions": [
+     {
+      "text": "the City",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the final letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "on",
+     "[in]"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "friend",
+      "gives": "BUD",
+      "note": "a bud is a pal"
+     },
+     {
+      "clueFragment": "Dependency",
+      "gives": "HABIT",
+      "note": "an addiction, as in a drug habit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BUD",
+      "HABI"
+     ]
+    },
+    "explanation": {
+     "surface": "Relying too much on a friend who works in London's financial district.",
+     "walkthrough": "'The City' with a capital C suggests London's Square Mile, but it is the capital of the United Arab Emirates. In an across clue 'on' puts the first part after the second.",
+     "definitionFit": "Abu Dhabi is the capital city of the United Arab Emirates, on the Persian Gulf coast."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "City"
+    }
+   }
   },
   {
    "number": 14,
@@ -254,7 +965,60 @@
     "text": "Caution, twenty-four hours after promotion? Rather!",
     "enumeration": "8"
    },
-   "solution": "ADMONISH"
+   "solution": "ADMONISH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADMONISH",
+    "definitions": [
+     {
+      "text": "Caution",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "placing one thing after another sets it second in the line, so the order is swapped from the clue"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "promotion",
+      "gives": "AD",
+      "note": "an ad promotes a product"
+     },
+     {
+      "clueFragment": "twenty-four hours",
+      "gives": "MON",
+      "note": "Monday, one day of the week"
+     },
+     {
+      "clueFragment": "Rather!",
+      "gives": "ISH",
+      "note": "tagged on to a reply, 'ish' means sort of or somewhat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "MON",
+      "ISH"
+     ]
+    },
+    "explanation": {
+     "surface": "A warning that a day after being promoted, someone must be careful: very much so!",
+     "walkthrough": "'Rather!' sounds like an emphatic British 'certainly', but it means somewhat, the sense of the spoken tag 'ish'.",
+     "definitionFit": "To admonish someone is to warn or reprimand them firmly, which is to caution them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rather!"
+    }
+   }
   },
   {
    "number": 15,
@@ -268,7 +1032,65 @@
     "text": "Rope [that’s] not long now twisted with energy",
     "enumeration": "5"
    },
-   "solution": "NOOSE"
+   "solution": "NOOSE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "NOOSE",
+    "definitions": [
+     {
+      "text": "Rope",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "twisted",
+      "for": "reversal",
+      "note": "twisted round, a word faces the opposite way"
+     }
+    ],
+    "linkWords": [
+     "[that’s]",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not long now",
+      "gives": "SOON",
+      "note": "soon means before long"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the physics symbol"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOOS",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "SOON",
+       "to": "NOOS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rope, soon to be used, is twisted vigorously.",
+     "walkthrough": "'Twisted' would suit rope literally, which hides its job as the turnaround signal.",
+     "definitionFit": "A noose is a loop of cord with a running knot, a piece of rope that tightens when pulled."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "twisted"
+    }
+   }
   },
   {
    "number": 16,
@@ -292,7 +1114,44 @@
      }
     ]
    },
-   "solution": "ONTHEGAME"
+   "solution": "ONTHEGAME",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ON THE GAME",
+    "definitions": [
+     {
+      "text": "Thus tennis player should focus",
+      "at": 0
+     },
+     {
+      "text": "like a pro",
+      "at": 35
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Thus tennis player should focus",
+      "note": "first meaning: concentrating on the match in hand"
+     },
+     {
+      "clueFragment": "like a pro",
+      "note": "second meaning: British slang for working as a prostitute"
+     }
+    ],
+    "explanation": {
+     "surface": "A tennis player ought to concentrate as a professional would.",
+     "walkthrough": "'Pro' suggests a sports professional, as the tennis scene demands; it is also short for prostitute, and 'on the game' is British slang for working as one.",
+     "definitionFit": "A focused player keeps their mind on the game, and a prostitute in British slang is said to be on the game."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pro"
+    }
+   }
   },
   {
    "number": 17,
@@ -306,7 +1165,43 @@
     "text": "A place for firm / assumptions",
     "enumeration": "8"
    },
-   "solution": "PREMISES"
+   "solution": "PREMISES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PREMISES",
+    "definitions": [
+     {
+      "text": "A place for firm",
+      "at": 0
+     },
+     {
+      "text": "assumptions",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A place for firm",
+      "note": "first meaning: the building and land a business occupies"
+     },
+     {
+      "clueFragment": "assumptions",
+      "note": "second meaning: statements taken as the basis of an argument"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Firm' looks like an adjective, making 'firm assumptions' a phrase; it is a noun, a company.",
+     "definitionFit": "A company's offices are its business property, and in logic the propositions an argument starts from share the same word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "firm"
+    }
+   }
   },
   {
    "number": 18,
@@ -320,7 +1215,50 @@
     "text": "Concerning time before [finding] local official once",
     "enumeration": "5"
    },
-   "solution": "REEVE"
+   "solution": "REEVE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REEVE",
+    "definitions": [
+     {
+      "text": "local official once",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "[finding]"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Concerning",
+      "gives": "RE",
+      "note": "re means about, as in business letters"
+     },
+     {
+      "clueFragment": "time before",
+      "gives": "EVE",
+      "note": "the eve is the day or evening before an event"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "EVE"
+     ]
+    },
+    "explanation": {
+     "surface": "Looking back to an earlier period, someone uncovers a former local administrator.",
+     "walkthrough": "A reeve was the chief officer of a town or district in medieval England, whence sheriff, from shire-reeve.",
+     "definitionFit": "The reeve was a historical English magistrate or manor supervisor, a local official no longer found."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "time"
+    }
+   }
   },
   {
    "number": 19,
@@ -334,7 +1272,61 @@
     "text": "Reserve weapon carried by English vessel",
     "enumeration": "7"
    },
-   "solution": "EARMARK"
+   "solution": "EARMARK",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "EARMARK",
+    "definitions": [
+     {
+      "text": "Reserve",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "carried by",
+      "for": "container",
+      "note": "something carried is held within whatever bears it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "the standard abbreviation"
+     },
+     {
+      "clueFragment": "weapon",
+      "gives": "ARM",
+      "note": "arms are weapons"
+     },
+     {
+      "clueFragment": "vessel",
+      "gives": "ARK",
+      "note": "Noah's boat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "ARM",
+      "ARK"
+     ]
+    },
+    "explanation": {
+     "surface": "A spare gun is stowed aboard an English ship.",
+     "walkthrough": "'Reserve' looks like an adjective for the spare weapon, but it is the definition, a verb.",
+     "definitionFit": "To earmark funds or items is to set them aside for a particular purpose, keeping them in hand."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Reserve"
+    }
+   }
   },
   {
    "number": 20,
@@ -348,7 +1340,51 @@
     "text": "All available money and permits [for] people on the move",
     "enumeration": "8"
    },
-   "solution": "MIGRANTS"
+   "solution": "MIGRANTS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MIGRANTS",
+    "definitions": [
+     {
+      "text": "people on the move",
+      "at": 38
+     }
+    ],
+    "linkWords": [
+     "and",
+     "[for]"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "All available money",
+      "gives": "MI",
+      "note": "M1 is the economists' measure of the money readily available, the 1 read as an I"
+     },
+     {
+      "clueFragment": "permits",
+      "gives": "GRANTS",
+      "note": "grants means allows"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MI",
+      "GRANTS"
+     ]
+    },
+    "explanation": {
+     "surface": "Cash and travel papers are what travellers need.",
+     "walkthrough": "'Permits' reads as a noun, like visas, which suits the travel scene; here it is the verb 'allows'.",
+     "definitionFit": "Migrants are those who relocate from one place to another, often across borders, in search of work or safety."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "permits"
+    }
+   }
   },
   {
    "number": 21,
@@ -362,7 +1398,61 @@
     "text": "Got up? I’m obliged to do that, weary",
     "enumeration": "7"
    },
-   "solution": "ATTIRED"
+   "solution": "ATTIRED",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ATTIRED",
+    "definitions": [
+     {
+      "text": "Got up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to do that",
+      "for": "reversal",
+      "note": "'that' points back to rising, and in a down entry rising turns a word upside down"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I’m obliged",
+      "gives": "TA",
+      "note": "ta is British slang for thanks"
+     },
+     {
+      "clueFragment": "weary",
+      "gives": "TIRED",
+      "note": "a direct synonym"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AT",
+      "TIRED"
+     ],
+     "reversals": [
+      {
+       "from": "TA",
+       "to": "AT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asked whether they got out of bed says they had to, though exhausted.",
+     "walkthrough": "'Got up' looks like getting out of bed, but it means dressed up. 'Ta' is informal British for thank you.",
+     "definitionFit": "To be got up in something is to be dressed in it, and attired means clothed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Got"
+    }
+   }
   },
   {
    "number": 22,
@@ -376,7 +1466,54 @@
     "text": "Travelling rep due[‘s] broken down",
     "enumeration": "6"
    },
-   "solution": "PUREED"
+   "solution": "PUREED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PUREED",
+    "definitions": [
+     {
+      "text": "broken down",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Travelling",
+      "for": "anagram",
+      "note": "things that are travelling are moving about, so the letters shift position"
+     }
+    ],
+    "linkWords": [
+     "[‘s]"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rep due",
+      "gives": "REPDUE",
+      "note": "the letters as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REPDUE",
+       "gives": "PUREED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A travelling sales representative, expected somewhere, has had a breakdown.",
+     "walkthrough": "The surface suggests a car or a person breaking down; the definition is about food mashed to pulp.",
+     "definitionFit": "Pureed food has been blended or sieved into a smooth paste, its solids broken down."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "broken"
+    }
+   }
   },
   {
    "number": 23,
@@ -396,7 +1533,50 @@
      }
     ]
    },
-   "solution": "MILKRUN"
+   "solution": "MILKRUN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MILK RUN",
+    "definitions": [
+     {
+      "text": "uneventful journey",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "Following"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "exploit",
+      "gives": "MILK",
+      "note": "to milk something is to take all you can from it"
+     },
+     {
+      "clueFragment": "managed",
+      "gives": "RUN",
+      "note": "to run a business is to manage it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MILK",
+      "RUN"
+     ]
+    },
+    "explanation": {
+     "surface": "After a daring feat, someone pulled off a quiet trip.",
+     "walkthrough": "'Exploit' reads as a noun, a heroic deed, but it is a verb; 'Following' places the second word after the first.",
+     "definitionFit": "A milk run is a routine trip with no incidents, from the dull regular round of a milk delivery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "exploit"
+    }
+   }
   },
   {
    "number": 24,
@@ -410,7 +1590,64 @@
     "text": "River [has] periodically recalled ferry? If only!",
     "enumeration": "5"
    },
-   "solution": "LOIRE"
+   "solution": "LOIRE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal"
+    ],
+    "answer": "LOIRE",
+    "definitions": [
+     {
+      "text": "River",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "periodically",
+      "for": "letter_selection",
+      "note": "something happening periodically comes at regular intervals, so every other letter is taken"
+     },
+     {
+      "text": "recalled",
+      "for": "reversal",
+      "note": "recalling something calls it back, so the letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "[has]"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ferry? If only",
+      "gives": "ERIOL",
+      "select": "alternate",
+      "note": "the even letters of these words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOIRE"
+     ],
+     "reversals": [
+      {
+       "from": "ERIOL",
+       "to": "LOIRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wistfully remembering a river ferry that sometimes ran: if only it still did.",
+     "walkthrough": "Taking the second, fourth, sixth letters and so on, then reading back, gives France's longest river.",
+     "definitionFit": "The Loire is France's longest river, flowing west past chateaux to the Atlantic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "recalled"
+    }
+   }
   },
   {
    "number": 25,
@@ -424,7 +1661,55 @@
     "text": "French artist, dispensing with frame, struck gold",
     "enumeration": "7"
    },
-   "solution": "WATTEAU"
+   "solution": "WATTEAU",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "WATTEAU",
+    "definitions": [
+     {
+      "text": "French artist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dispensing with frame",
+      "for": "deletion",
+      "note": "the frame of a word is its outer edge, and dispensing with it strips both ends"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "struck",
+      "gives": "SWATTED",
+      "note": "swatted means hit sharply"
+     },
+     {
+      "clueFragment": "gold",
+      "gives": "AU",
+      "note": "AU is the chemical symbol, from Latin aurum"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WATTE",
+      "AU"
+     ]
+    },
+    "explanation": {
+     "surface": "A French painter, taking a picture out of its frame, hit upon a fortune.",
+     "walkthrough": "'Frame' belongs to the art scene, but it strips the ends of SWATTED. Antoine Watteau was an 18th-century French painter of fêtes galantes.",
+     "definitionFit": "Watteau was a French Rococo painter known for elegant outdoor scenes of courtship."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "frame"
+    }
+   }
   },
   {
    "number": 25,
@@ -438,7 +1723,45 @@
     "text": "Our team has possibly picked up web design",
     "enumeration": "5"
    },
-   "solution": "WEAVE"
+   "solution": "WEAVE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "WEAVE",
+    "definitions": [
+     {
+      "text": "web design",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "possibly picked up",
+      "for": "homophone",
+      "note": "picked up means heard, so the answer is caught by the ear"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Our team has",
+      "gives": "WEAVE",
+      "soundsLike": "WE'VE",
+      "note": "the contraction for 'we have'"
+     }
+    ],
+    "explanation": {
+     "surface": "A team seems to have taken up website design.",
+     "walkthrough": "'Web design' suggests building websites, but web here is woven fabric.",
+     "definitionFit": "The weave of a fabric is the pattern in which its threads interlace, the design of the web."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "web"
+    }
+   }
   },
   {
    "number": 26,
@@ -458,7 +1781,39 @@
      }
     ]
    },
-   "solution": "SPIRALSTAIRCASE"
+   "solution": "SPIRALSTAIRCASE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SPIRAL STAIRCASE",
+    "definitions": [
+     {
+      "text": "Flight affected by winds?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flight affected by winds?",
+      "note": "surface reading: an aircraft journey buffeted by gusts"
+     },
+     {
+      "clueFragment": "Flight affected by winds?",
+      "note": "setter's reading: a set of steps that twists round and round"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Flight' suggests air travel and 'winds' weather; read instead as a flight of stairs that winds, pronounced to rhyme with minds.",
+     "definitionFit": "A flight is a series of steps, and one that coils round a central column turns as it climbs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "winds"
+    }
+   }
   },
   {
    "number": 27,
@@ -472,7 +1827,47 @@
     "text": "Eastern ruler said to flourish",
     "enumeration": "6"
    },
-   "solution": "SHEIKH"
+   "solution": "SHEIKH",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SHEIKH",
+    "definitions": [
+     {
+      "text": "Eastern ruler",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "said",
+      "for": "homophone",
+      "note": "what is said is spoken, so the sound matters rather than the spelling"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flourish",
+      "gives": "SHEIKH",
+      "soundsLike": "SHAKE",
+      "note": "to flourish a sword is to shake or brandish it"
+     }
+    ],
+    "explanation": {
+     "surface": "A ruler in the East is reported to be thriving.",
+     "walkthrough": "'Flourish' seems to mean prosper, but it means wave about, as with a weapon. Many British speakers say the answer like 'shake'.",
+     "definitionFit": "A sheikh is an Arab chief or leader of a tribe, family or state in the Middle East."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "flourish"
+    }
+   }
   },
   {
    "number": 28,
@@ -486,7 +1881,50 @@
     "text": "One using free ticket passed on by teacher",
     "enumeration": "8"
    },
-   "solution": "DEADHEAD"
+   "solution": "DEADHEAD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DEADHEAD",
+    "definitions": [
+     {
+      "text": "One using free ticket",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "passed on",
+      "gives": "DEAD",
+      "note": "passed on is a euphemism for died"
+     },
+     {
+      "clueFragment": "teacher",
+      "gives": "HEAD",
+      "note": "the head teacher runs a British school"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEAD",
+      "HEAD"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone got a complimentary pass handed down from their teacher.",
+     "walkthrough": "'Passed on' suggests handing over the ticket, but it means died.",
+     "definitionFit": "Deadhead is an American term for someone travelling or attending on a complimentary pass without paying."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "passed"
+    }
+   }
   }
  ]
 }
