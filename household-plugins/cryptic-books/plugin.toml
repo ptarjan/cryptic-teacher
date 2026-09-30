@@ -1,0 +1,28 @@
+about    = "Read the next archive.org crossword book nobody has read yet, one loan at a time"
+room     = "cryptic-crosswords"
+# Every third day, and usually a few seconds: 24 registered books hold no
+# puzzle, and the only thing between them and the corpus is archive.org's
+# lending limit. That limit counts loans TAKEN over a period archive.org does
+# not publish and is not cleared by returning anything, so there is no interval
+# to wait out — asking is the only way to find out, it costs one request and
+# takes no loan, and a refusal exits 0 having spent nothing. Asking hourly
+# found nothing in 42 consecutive tries, so the poll is paced to match how
+# rarely the answer can change.
+schedule = "40 9 */3 * *"
+where    = "container"
+run      = "/Users/pt/github/cryptic-teacher/tools/acquire_books.sh"
+# The transcript is how a night that went wrong is read back; the scheduler's
+# own stdout goes to `docker logs`, where nothing looks for it.
+log      = "/Users/pt/github/cryptic-teacher/.books.log"
+# Three hours, not unlimited. One book is minutes of fetching and CPU, so this
+# only ever fires on a wedged run — and a wedged run under a no-limit timeout
+# holds the lock forever, which is this job silently never running again.
+timeout  = 10800
+
+# Both pin this job's state to the volume, agreeing with $HOME rather than
+# overriding it — spelled out because the job is also run by hand, and a shell
+# that inherited some other $HOME would put the archive.org loan ledger and a
+# half-finished worktree somewhere nothing looks for them again.
+[env]
+XDG_CONFIG_HOME  = "/Users/pt/.config"
+CT_WORKTREE_ROOT = "/Users/pt/.cryptic-teacher"

@@ -28,8 +28,9 @@
 # reads the loan ledger and returns anything left open, and it is the only
 # reason this job can be killed at any moment without owing archive.org a book.
 #
-# Install: a plugin manifest at ~/.config/household/plugins/cryptic-books/,
-# then `tools/plugins.py --write` in the household repo. Never a second cron.
+# Scheduled by household-plugins/cryptic-books/plugin.toml, symlinked from
+# ~/.config/household/plugins/cryptic-books; after an edit run
+# `tools/plugins.py --write` in the household repo. Never a second cron.
 set -uo pipefail
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$REPO" || exit 1

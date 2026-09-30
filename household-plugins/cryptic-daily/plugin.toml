@@ -1,0 +1,21 @@
+about    = "Fetch the day's cryptics, annotate the newest un-annotated ones under a usage gate, smoke-test and push"
+room     = "cryptic-crosswords"
+schedule = "15 6 * * *"
+where    = "container"
+run      = "/Users/pt/github/cryptic-teacher/tools/daily_update.sh"
+# The run's whole transcript is how a night that went wrong is read back the
+# next morning, and the scheduler's own stdout goes to `docker logs`, where
+# nothing looks for it.
+log      = "/Users/pt/github/cryptic-teacher/.update.log"
+# No limit, as the crontab line this replaces had none. It annotates until the
+# usage gate stops it, which is legitimately hours; the lock stops a pile-up.
+timeout  = 0
+
+# Both pin this job's state to the volume. $HOME points there too, so these
+# agree with the default rather than overriding it — spelled out because the
+# job is also run by hand, and a shell that inherited some other $HOME would
+# put the Cloudflare credential and a half-finished worktree somewhere nothing
+# looks for them again.
+[env]
+XDG_CONFIG_HOME  = "/Users/pt/.config"
+CT_WORKTREE_ROOT = "/Users/pt/.cryptic-teacher"

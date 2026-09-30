@@ -594,6 +594,11 @@ tools/weekly_usage.py                        how much of a Claude quota window i
                                              when it resets
 tools/prereset_backfill.sh                   burns the tail of the weekly quota on backfills,
                                              ungated
+household-plugins/<name>/plugin.toml         when and where the household bridge runs each
+                                             scheduled job (daily, prereset, books, annotate
+                                             audit); symlinked from
+                                             ~/.config/household/plugins/<name>, then
+                                             `tools/plugins.py --write` in the household repo
 tools/test_annotate_retry.sh                 drives that resume with a fake CLI, so it is not
                                              first tried on a night it is needed
 tools/test_apply_refusal.sh                  a refused annotation write names clue ids and no
