@@ -72,6 +72,11 @@ is true on the day it is pasted:
                 Guardian that started grading by day would show up there as a
                 step that survives its setters.
 
+  CTC           Per clue: Cracking the Cryptic's solve videos time the wait
+                from reading each clue to solving it. The per-clue forms of
+                the components against that wait, within each video. A check,
+                not part of the adoption rule above.
+
 That null is a finding about the Guardian, not a failure of the index: it
 grades by setter rotation rather than by editorial fiat, and the rotation is
 what the measurement found. Do not reopen it by padding n with the unannotated
@@ -1140,6 +1145,16 @@ def validate():
                     question, not a known fact — it grades by setter rotation
                     rather than editorial fiat — so a null here is a finding
                     about the Guardian, NOT a failure of the index.
+
+      CTC           Per clue, the one place a human's difficulty is timed:
+                    Cracking the Cryptic's solve videos give each clue the
+                    wait from first reading it to solving it
+                    (tools/ctc_transcripts.py solves). The per-clue forms of
+                    the components, weighted as WEIGHTS weights them, against
+                    that wait within each video; and the wait against the
+                    Times for the Times comments' hard flags on the same clues,
+                    which shows the wait measures difficulty at all.
+                    `ctc_transcripts.py solvecheck` prints every component.
     """
     scores, meta = scored_meta()
     print(f"{len(scores)} puzzle(s) scored (annotated) of {len(list(puzzle_files()))} fetched")
@@ -1233,6 +1248,19 @@ def validate():
                   f"(n={len(held)} over {len({r[2] for r in held})} setters)")
         print("              decided 2026-09-09: the day is the setter, so the "
               "model has no day-of-week term")
+
+    import ctc_transcripts
+    if ctc_transcripts.SOLVES.exists():
+        t = ctc_transcripts.solve_table()
+        wait = 1 + ctc_transcripts.CTC_MEASURES.index("ctc_wait")
+        pairs = t.cols["all"]["composite"]
+        r, n, p = ctc_transcripts._rho_p([x[0] for x in pairs], [x[wait] for x in pairs])
+        rs = [x for v in t.per_video.values() for x in v]
+        hr, hn, hp = ctc_transcripts._rho_p(*zip(*t.human[("ctc_wait", "hard")]))
+        print(f"\nCTC           {t.clues} clues timed in {t.videos} solve videos")
+        print(f"              per-clue index vs wait to solve, within video: rho = {r:+.3f} "
+              f"(n={n}, p = {p:.2g}), positive in {sum(x > 0 for x in rs)}/{len(rs)} videos")
+        print(f"              wait vs Times for the Times hard flags: rho = {hr:+.3f} (n={hn}, p = {hp:.2g})")
     return 0
 
 
