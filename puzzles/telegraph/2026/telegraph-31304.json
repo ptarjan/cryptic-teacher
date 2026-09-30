@@ -23,6 +23,9 @@
   "date": "2026-07-29",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,68 @@
     "text": "Rabbit finally ate carrot turning reddish brown",
     "enumeration": "10"
    },
-   "solution": "TERRACOTTA"
+   "solution": "TERRACOTTA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "TERRACOTTA",
+    "definitions": [
+     {
+      "text": "reddish brown",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "what comes finally is the end, so only the closing letter of the word is kept"
+     },
+     {
+      "text": "turning",
+      "for": "anagram",
+      "note": "turning things over changes their order, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rabbit",
+      "gives": "T",
+      "select": "last",
+      "note": "the last letter of the word"
+     },
+     {
+      "clueFragment": "ate",
+      "gives": "ATE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "carrot",
+      "gives": "CARROT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TATECARROT",
+       "gives": "TERRACOTTA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rabbit munches a carrot until it is finished, and the colour changes.",
+     "walkthrough": "The rabbit and its carrot look like the story, but only the rabbit's last letter joins the carrot and 'ate' for the rearrangement.",
+     "definitionFit": "Terracotta is the unglazed brownish-red clay of flowerpots, and its name is used for that orange-brown colour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "turning"
+    }
+   }
   },
   {
    "number": 2,
@@ -50,7 +114,55 @@
     "text": "Pound deposited in each island in the Med",
     "enumeration": "4"
    },
-   "solution": "ELBA"
+   "solution": "ELBA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ELBA",
+    "definitions": [
+     {
+      "text": "island in the Med",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "deposited in",
+      "for": "container",
+      "note": "something deposited in a place is put inside it, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "each",
+      "gives": "EA",
+      "note": "EA is the standard abbreviation for each, as on price tags"
+     },
+     {
+      "clueFragment": "Pound",
+      "gives": "LB",
+      "note": "lb is the abbreviation for a pound in weight"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "LB",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Money is being banked on every island around the Mediterranean.",
+     "walkthrough": "Pound suggests money here, but it is the weight abbreviation. The Med is the usual short name for the Mediterranean Sea.",
+     "definitionFit": "Elba is the Italian island off Tuscany where Napoleon was exiled in 1814, lying in the Mediterranean Sea."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Pound"
+    }
+   }
   },
   {
    "number": 3,
@@ -64,7 +176,62 @@
     "text": "Hesitation around Ms Turner, a bit of a looker?",
     "enumeration": "6"
    },
-   "solution": "RETINA"
+   "solution": "RETINA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "RETINA",
+    "definitions": [
+     {
+      "text": "a bit of a looker?",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "reversal",
+      "note": "to come around is to turn to face the other way, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hesitation",
+      "gives": "ER",
+      "note": "er is the sound people make when hesitating"
+     },
+     {
+      "clueFragment": "Ms Turner",
+      "gives": "TINA",
+      "note": "Tina Turner, the singer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "TINA"
+     ],
+     "reversals": [
+      {
+       "from": "ER",
+       "to": "RE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hesitates near Tina Turner, perhaps an admirer who is something of a beauty.",
+     "walkthrough": "'Around' looks like it wants a container, but here it only turns the hesitation round before Tina follows. 'Looker' suggests a beauty, but it means an eye.",
+     "definitionFit": "The retina is the light-sensitive layer at the back of the eye, so it is literally part of the organ that looks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "looker"
+    }
+   }
   },
   {
    "number": 4,
@@ -78,7 +245,42 @@
     "text": "Close container for 13 Down",
     "enumeration": "7"
    },
-   "solution": "COMPACT"
+   "solution": "COMPACT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "COMPACT",
+    "definitions": [
+     {
+      "text": "Close",
+      "at": 0
+     },
+     {
+      "text": "container for 13 Down",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Close",
+      "note": "first meaning: dense, tightly packed together"
+     },
+     {
+      "clueFragment": "container for 13 Down",
+      "note": "second meaning: a small flat case with a mirror, carried in a handbag"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "13 Down is FACE POWDER, so the second definition is the little case that holds pressed powder. 'Close' is the adjective (pronounced like 'dose'), not the verb.",
+     "definitionFit": "The adjective means dense or tightly packed, and the noun is a small mirrored case for pressed cosmetic powder."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Close"
+    }
+   }
   },
   {
    "number": 5,
@@ -92,7 +294,46 @@
     "text": "Excessively large utensil",
     "enumeration": "4"
    },
-   "solution": "TOOL"
+   "solution": "TOOL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TOOL",
+    "definitions": [
+     {
+      "text": "utensil",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Excessively",
+      "gives": "TOO",
+      "note": "too means to an excessive degree"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the clothing-size abbreviation for large"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOO",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A kitchen implement that is far too big.",
+     "walkthrough": "The clue reads as one oversized utensil, but the first two words are separate pieces.",
+     "definitionFit": "A utensil is an implement for practical work, and a tool is the general word for any such implement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -106,7 +347,66 @@
     "text": "As the Gunners wanting a student in charge?",
     "enumeration": "7"
    },
-   "solution": "ARSENIC"
+   "solution": "ARSENIC",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ARSENIC",
+    "definitions": [
+     {
+      "text": "As",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wanting",
+      "for": "deletion",
+      "note": "wanting means lacking, so the named letters are missing from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the Gunners",
+      "gives": "ARSENAL",
+      "note": "Arsenal Football Club's nickname is the Gunners"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "student",
+      "gives": "L",
+      "note": "L for learner, as on a learner driver's plates"
+     },
+     {
+      "clueFragment": "in charge",
+      "gives": "IC",
+      "note": "i/c is the abbreviation for in charge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARSEN",
+      "IC"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about whether Arsenal football club would be better with a student in command.",
+     "walkthrough": "'As' reads like the word 'as', but it is the chemical symbol. Arsenal is a north London football club; losing A and L leaves ARSEN, then IC follows.",
+     "definitionFit": "As is the chemical symbol for arsenic in the periodic table, element number thirty-three."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "As"
+    }
+   }
   },
   {
    "number": 7,
@@ -126,7 +426,39 @@
      }
     ]
    },
-   "solution": "MIDASTOUCH"
+   "solution": "MIDASTOUCH",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "MIDAS TOUCH",
+    "definitions": [
+     {
+      "text": "Gift of gold that ultimately infuriated the old king?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gift of gold",
+      "note": "surface reading: a present made of gold, or a talent for making money"
+     },
+     {
+      "clueFragment": "that ultimately infuriated the old king?",
+      "note": "setter's reading: the mythical king's wish that everything he touched turn to gold, which turned his food and his daughter to metal"
+     }
+    ],
+    "explanation": {
+     "surface": "A golden present that ended up enraging an ancient monarch.",
+     "walkthrough": "'Gift' looks like a present, but it is the magical power granted by Dionysus in the Greek myth, which became a curse.",
+     "definitionFit": "The phrase names the legendary Phrygian king's power to turn anything to gold, now used for anyone whose ventures always make money."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Gift"
+    }
+   }
   },
   {
    "number": 8,
@@ -140,7 +472,66 @@
     "text": "Austere spy throttling Australian leaving Spain",
     "enumeration": "10"
    },
-   "solution": "ASTRINGENT"
+   "solution": "ASTRINGENT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "ASTRINGENT",
+    "definitions": [
+     {
+      "text": "Austere",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "throttling",
+      "for": "container",
+      "note": "throttling grips something round the neck, so one piece wraps round another"
+     },
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "whatever is leaving goes away, so that letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spy",
+      "gives": "AGENT",
+      "note": "a secret agent is a spy"
+     },
+     {
+      "clueFragment": "Australian",
+      "gives": "STRINE",
+      "note": "Strine is a jokey name for broad Australian English, from 'Australian' said in that accent"
+     },
+     {
+      "clueFragment": "Spain",
+      "gives": "E",
+      "note": "E is the international vehicle code for Spain (España)"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "STRIN",
+      "GENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A stern spy strangles an Australian who is trying to get out of Spain.",
+     "walkthrough": "Australian is not A here but STRINE, the name for Australian speech; without its E it sits inside the spy.",
+     "definitionFit": "Astringent means harshly severe or sharply critical in manner, a close synonym of stern and austere."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Australian"
+    }
+   }
   },
   {
    "number": 9,
@@ -154,7 +545,52 @@
     "text": "Leaders of bishops implacably against sexist prejudice",
     "enumeration": "4"
    },
-   "solution": "BIAS"
+   "solution": "BIAS",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "BIAS",
+    "definitions": [
+     {
+      "text": "prejudice",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Leaders of",
+      "for": "letter_selection",
+      "note": "leaders go at the front, so each word gives only its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bishops implacably against sexist",
+      "gives": "BIAS",
+      "select": "first",
+      "note": "the opening letters of these four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "I",
+      "A",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Senior bishops stand firmly against discrimination on grounds of sex.",
+     "walkthrough": "'Sexist' pairs so naturally with 'prejudice' that it looks like part of the definition, but it only contributes a letter.",
+     "definitionFit": "Bias is an unfair inclination for or against a person or group, the same idea as prejudice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Leaders"
+    }
+   }
   },
   {
    "number": 10,
@@ -168,7 +604,54 @@
     "text": "I mess about when drunk or sober",
     "enumeration": "10"
    },
-   "solution": "ABSTEMIOUS"
+   "solution": "ABSTEMIOUS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ABSTEMIOUS",
+    "definitions": [
+     {
+      "text": "sober",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when drunk",
+      "for": "anagram",
+      "note": "a drunk person's words come out jumbled, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I mess about",
+      "gives": "IMESSABOUT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IMESSABOUT",
+       "gives": "ABSTEMIOUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone admits they fool around whether they have been drinking or not.",
+     "walkthrough": "'Mess about' looks like the anagram signal, but the whole phrase 'I mess about' is the fodder and 'drunk' does the mixing.",
+     "definitionFit": "Abstemious means moderate or self-denying, especially about drink, so it fits someone who stays sober."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drunk"
+    }
+   }
   },
   {
    "number": 11,
@@ -182,7 +665,47 @@
     "text": "Dainty City hideaway",
     "enumeration": "6"
    },
-   "solution": "ECLAIR"
+   "solution": "ECLAIR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ECLAIR",
+    "definitions": [
+     {
+      "text": "Dainty",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "City",
+      "gives": "EC",
+      "note": "EC is the postcode area of the City of London"
+     },
+     {
+      "clueFragment": "hideaway",
+      "gives": "LAIR",
+      "note": "a lair is an animal's hidden den"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EC",
+      "LAIR"
+     ]
+    },
+    "explanation": {
+     "surface": "A delicate little retreat in the financial district of London.",
+     "walkthrough": "'Dainty' looks like an adjective, but it is the noun meaning a delicacy. The City is London's financial district, whose postcodes begin EC.",
+     "definitionFit": "A dainty, as a noun, is a small delicious treat, and a cream-filled chocolate pastry is one such delicacy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Dainty"
+    }
+   }
   },
   {
    "number": 12,
@@ -196,7 +719,47 @@
     "text": "Early childhood popular? Imagine!",
     "enumeration": "7"
    },
-   "solution": "INFANCY"
+   "solution": "INFANCY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INFANCY",
+    "definitions": [
+     {
+      "text": "Early childhood",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "popular",
+      "gives": "IN",
+      "note": "what is in is fashionable or popular"
+     },
+     {
+      "clueFragment": "Imagine",
+      "gives": "FANCY",
+      "note": "to fancy is to imagine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "FANCY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone marvels that early childhood could be a fashionable topic.",
+     "walkthrough": "The exclamation 'Imagine!' is the 'Fancy!' of surprise.",
+     "definitionFit": "Infancy is the earliest period of a person's life, from birth to toddlerhood, which is early childhood."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Imagine"
+    }
+   }
   },
   {
    "number": 12,
@@ -210,7 +773,42 @@
     "text": "Getting set up in Main St, Allington",
     "enumeration": "10"
    },
-   "solution": "INSTALLING"
+   "solution": "INSTALLING",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "INSTALLING",
+    "definitions": [
+     {
+      "text": "Getting set up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the answer sits in the following words, running across their boundaries"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Main St, Allington",
+      "gives": "INSTALLING",
+      "note": "runs across the street and the place name"
+     }
+    ],
+    "explanation": {
+     "surface": "Something is being established on the main street of a village called Allington.",
+     "walkthrough": "The answer starts inside 'Main' and ends inside 'Allington', ignoring the comma.",
+     "definitionFit": "Installing means putting equipment in place ready for use, and getting something set up is the same process."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -230,7 +828,74 @@
      }
     ]
    },
-   "solution": "FACEPOWDER"
+   "solution": "FACEPOWDER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "FACE POWDER",
+    "definitions": [
+     {
+      "text": "cosmetic",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "no. 1",
+      "for": "letter_selection",
+      "note": "number one is the first, so only the opening letter of the name is kept"
+     },
+     {
+      "text": "pinching",
+      "for": "container",
+      "note": "to pinch is to grip between fingers, so one piece holds another inside"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "the words before come first and the rest follows after them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Confront",
+      "gives": "FACE",
+      "note": "to face someone is to confront them"
+     },
+     {
+      "clueFragment": "authority",
+      "gives": "POWER",
+      "note": "power and authority are synonyms"
+     },
+     {
+      "clueFragment": "Dior’s",
+      "gives": "D",
+      "select": "first",
+      "note": "the opening letter of the fashion house's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FACE",
+      "POW",
+      "D",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "Challenging the powers that be after stealing Dior's top-selling make-up.",
+     "walkthrough": "'Pinching' looks like theft, but it means the D is held inside POWER.",
+     "definitionFit": "Face powder is a fine make-up applied to the skin, one particular example of a cosmetic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pinching"
+    }
+   }
   },
   {
    "number": 14,
@@ -244,7 +909,39 @@
     "text": "The call of the mountains?",
     "enumeration": "5"
    },
-   "solution": "YODEL"
+   "solution": "YODEL",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "YODEL",
+    "definitions": [
+     {
+      "text": "The call of the mountains?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The call of the mountains?",
+      "note": "surface reading: the romantic lure the hills have for walkers and climbers"
+     },
+     {
+      "clueFragment": "call",
+      "note": "setter's reading: a literal cry, the warbling Alpine song switching between chest voice and falsetto"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'The call of the wild' makes this sound like the pull the mountains exert, but the call is a real sound made in the Alps.",
+     "definitionFit": "Yodelling is the singing style of Swiss and Tyrolean herders, a cry traditionally carried across Alpine valleys."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "call"
+    }
+   }
   },
   {
    "number": 15,
@@ -258,7 +955,53 @@
     "text": "Illuminate answer to crossword clue “English knight”",
     "enumeration": "7"
    },
-   "solution": "LIGHTEN"
+   "solution": "LIGHTEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LIGHTEN",
+    "definitions": [
+     {
+      "text": "Illuminate",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "answer to crossword clue",
+      "gives": "LIGHT",
+      "note": "a light is the setters' term for a grid entry, the answer to a clue"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "knight",
+      "gives": "N",
+      "note": "N is the chess notation for a knight"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIGHT",
+      "E",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking to be told the solution to a crossword clue whose wording is 'English knight'.",
+     "walkthrough": "The quotation marks make 'English knight' look like a clue to solve, but it is just two more letters. N is used for a knight because K is taken by the king.",
+     "definitionFit": "To lighten is to make brighter or shed light on, which is what illuminating something does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "answer"
+    }
+   }
   },
   {
    "number": 15,
@@ -272,7 +1015,57 @@
     "text": "On air, finale from Wurlitzer organ",
     "enumeration": "5"
    },
-   "solution": "LIVER"
+   "solution": "LIVER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LIVER",
+    "definitions": [
+     {
+      "text": "organ",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finale from",
+      "for": "letter_selection",
+      "note": "a finale is the very end, so only the closing letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "On air",
+      "gives": "LIVE",
+      "note": "a programme on air is being broadcast live"
+     },
+     {
+      "clueFragment": "Wurlitzer",
+      "gives": "R",
+      "select": "last",
+      "note": "the final letter of the name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIVE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A broadcast of the closing number played on a Wurlitzer organ.",
+     "walkthrough": "A Wurlitzer is a famous theatre organ, so 'organ' seems to be the instrument; it is the body part.",
+     "definitionFit": "The liver is a large internal organ of the body that processes nutrients and filters the blood."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "organ"
+    }
+   }
   },
   {
    "number": 16,
@@ -286,7 +1079,56 @@
     "text": "Subject closed, prince periodically discharged",
     "enumeration": "5"
    },
-   "solution": "TOPIC"
+   "solution": "TOPIC",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TOPIC",
+    "definitions": [
+     {
+      "text": "Subject",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "periodically discharged",
+      "for": "letter_selection",
+      "note": "letters are let go at regular intervals, so every other one is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "closed",
+      "gives": "TO",
+      "note": "a door pushed to is closed"
+     },
+     {
+      "clueFragment": "prince",
+      "gives": "PIC",
+      "select": "alternate",
+      "note": "the first, third and fifth letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "PIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A case is closed and a prince is released from time to time.",
+     "walkthrough": "'To' as in 'pull the door to' means shut, a sense many solvers miss.",
+     "definitionFit": "A topic is the matter under discussion, the subject of a talk, essay or conversation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "discharged"
+    }
+   }
   },
   {
    "number": 17,
@@ -300,7 +1142,55 @@
     "text": "Faction determined to arrest Charlie",
     "enumeration": "4"
    },
-   "solution": "SECT"
+   "solution": "SECT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SECT",
+    "definitions": [
+     {
+      "text": "Faction",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to arrest",
+      "for": "container",
+      "note": "arresting someone means holding them, so one piece is held inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "determined",
+      "gives": "SET",
+      "note": "set on something means determined to do it"
+     },
+     {
+      "clueFragment": "Charlie",
+      "gives": "C",
+      "note": "Charlie is C in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "C",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A splinter group is resolved to have someone called Charlie arrested.",
+     "walkthrough": "Charlie looks like a person, but the phonetic alphabet turns it into one letter.",
+     "definitionFit": "A sect is a group that has broken away from a larger body over belief, much like a faction within a party."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Charlie"
+    }
+   }
   },
   {
    "number": 18,
@@ -314,7 +1204,58 @@
     "text": "This compiler admitting America is an inspiration",
     "enumeration": "4"
    },
-   "solution": "MUSE"
+   "solution": "MUSE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MUSE",
+    "definitions": [
+     {
+      "text": "an inspiration",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "admitting",
+      "for": "container",
+      "note": "to admit is to let in, so one piece is taken inside another"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "This compiler",
+      "gives": "ME",
+      "note": "the setter referring to themselves"
+     },
+     {
+      "clueFragment": "America",
+      "gives": "US",
+      "note": "US is the abbreviation for the United States"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "US",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "The setter confesses that America inspires them.",
+     "walkthrough": "'This compiler' is the setter speaking of themselves, so it means ME.",
+     "definitionFit": "A muse is a person or spirit who inspires an artist, named after the nine Greek goddesses of the arts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "admitting"
+    }
+   }
   },
   {
    "number": 19,
@@ -328,7 +1269,57 @@
     "text": "Halle Berry, at heart revolutionary maverick",
     "enumeration": "5"
    },
-   "solution": "REBEL"
+   "solution": "REBEL",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "REBEL",
+    "definitions": [
+     {
+      "text": "maverick",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at heart",
+      "for": "hidden_word",
+      "note": "the heart is the inside, so the letters come from within the words"
+     },
+     {
+      "text": "revolutionary",
+      "for": "reversal",
+      "note": "a revolution is a turn right round, so the letters run the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Halle Berry",
+      "gives": "LEBER",
+      "note": "the central letters of the actress's name"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "LEBER",
+       "to": "REBEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The actress Halle Berry is, deep down, a radical nonconformist.",
+     "walkthrough": "'Revolutionary' looks like part of the definition beside 'maverick', but it turns the hidden letters backwards.",
+     "definitionFit": "A maverick is an unorthodox independent thinker, and a rebel is someone who defies convention or authority."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "revolutionary"
+    }
+   }
   },
   {
    "number": 19,
@@ -342,7 +1333,41 @@
     "text": "Avoid a repeated piece of music",
     "enumeration": "7"
    },
-   "solution": "REFRAIN"
+   "solution": "REFRAIN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "REFRAIN",
+    "definitions": [
+     {
+      "text": "Avoid",
+      "at": 0
+     },
+     {
+      "text": "a repeated piece of music",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Avoid",
+      "note": "first meaning: hold back from doing something"
+     },
+     {
+      "clueFragment": "a repeated piece of music",
+      "note": "second meaning: the chorus that recurs between verses of a song"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The verb meaning to hold back and the noun for a song's chorus share one spelling.",
+     "definitionFit": "To refrain from something is to abstain or hold back, and a refrain is the recurring chorus of a song."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -356,7 +1381,61 @@
     "text": "Yoko Ono regularly supports light satire",
     "enumeration": "7"
    },
-   "solution": "LAMPOON"
+   "solution": "LAMPOON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LAMPOON",
+    "definitions": [
+     {
+      "text": "satire",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "at regular intervals, so every other letter is kept"
+     },
+     {
+      "text": "supports",
+      "for": "charade",
+      "note": "in a down entry a support sits underneath, so this piece comes below"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "light",
+      "gives": "LAMP",
+      "note": "a lamp is a light"
+     },
+     {
+      "clueFragment": "Yoko Ono",
+      "gives": "OON",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters of the name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAMP",
+      "OON"
+     ]
+    },
+    "explanation": {
+     "surface": "Yoko Ono is a steady backer of gentle comic mockery.",
+     "walkthrough": "The clue is read in reverse: the letters from Yoko Ono go beneath the light, since this is a down answer.",
+     "definitionFit": "A lampoon is a piece of writing or drawing that ridicules someone, a form of satire."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "light"
+    }
+   }
   },
   {
    "number": 21,
@@ -370,7 +1449,55 @@
     "text": "Clobber engineers in shock",
     "enumeration": "7"
    },
-   "solution": "APPAREL"
+   "solution": "APPAREL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "APPAREL",
+    "definitions": [
+     {
+      "text": "Clobber",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece placed in another sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shock",
+      "gives": "APPAL",
+      "note": "to appal is to shock or horrify"
+     },
+     {
+      "clueFragment": "engineers",
+      "gives": "RE",
+      "note": "RE is the Royal Engineers, a British Army corps"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "APPA",
+      "RE",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hits the engineers, who are left stunned.",
+     "walkthrough": "'Clobber' looks like a verb meaning to hit, but it is British slang for clothes and gear.",
+     "definitionFit": "Clobber in British slang means clothing and belongings, and apparel is a formal word for clothing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Clobber"
+    }
+   }
   },
   {
    "number": 22,
@@ -384,7 +1511,59 @@
     "text": "Small axe husband traded for right mechanical device",
     "enumeration": "7"
    },
-   "solution": "RATCHET"
+   "solution": "RATCHET",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "RATCHET",
+    "definitions": [
+     {
+      "text": "mechanical device",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "traded for",
+      "for": "substitution",
+      "note": "trading one thing for another swaps them, so a letter is exchanged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small axe",
+      "gives": "HATCHET",
+      "note": "a hatchet is a small short-handled axe"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "h is the abbreviation for husband"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ATCHET"
+     ]
+    },
+    "explanation": {
+     "surface": "A husband swaps a little axe for the correct piece of machinery.",
+     "walkthrough": "'Right' reads as 'the correct', but it is simply the letter R replacing the husband's H.",
+     "definitionFit": "A ratchet is a toothed wheel or bar with a catch allowing motion in one direction only, a mechanical device."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 23,
@@ -398,7 +1577,56 @@
     "text": "Initially, children eat authentic breakfast food",
     "enumeration": "6"
    },
-   "solution": "CEREAL"
+   "solution": "CEREAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CEREAL",
+    "definitions": [
+     {
+      "text": "breakfast food",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so the opening letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "children eat",
+      "gives": "CE",
+      "select": "first",
+      "note": "the opening letters of these two words"
+     },
+     {
+      "clueFragment": "authentic",
+      "gives": "REAL",
+      "note": "real and authentic are synonyms"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CE",
+      "REAL"
+     ]
+    },
+    "explanation": {
+     "surface": "To begin the day, youngsters have a proper morning meal.",
+     "walkthrough": "'Initially' seems to govern only 'children', but it takes the first letter of 'eat' as well.",
+     "definitionFit": "Cereal, such as cornflakes or porridge, is the typical grain-based dish eaten first thing in the morning."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Initially"
+    }
+   }
   },
   {
    "number": 24,
@@ -412,7 +1640,62 @@
     "text": "Liberal philosopher engaging women’s solicitor",
     "enumeration": "6"
    },
-   "solution": "LAWYER"
+   "solution": "LAWYER",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "LAWYER",
+    "definitions": [
+     {
+      "text": "solicitor",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "engaging",
+      "for": "container",
+      "note": "to engage is to take on or grip, so one piece holds another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Liberal",
+      "gives": "L",
+      "note": "L is the abbreviation for Liberal"
+     },
+     {
+      "clueFragment": "philosopher",
+      "gives": "AYER",
+      "note": "A. J. Ayer, the twentieth-century British philosopher"
+     },
+     {
+      "clueFragment": "women’s",
+      "gives": "W",
+      "note": "W is the abbreviation for women"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "A",
+      "W",
+      "YER"
+     ]
+    },
+    "explanation": {
+     "surface": "A liberal-minded thinker hires a solicitor for women.",
+     "walkthrough": "'Engaging' looks like hiring someone, but it means the philosopher holds the W. A. J. Ayer is a familiar crossword philosopher.",
+     "definitionFit": "In Britain a solicitor is a qualified legal professional who advises clients, one kind of lawyer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "engaging"
+    }
+   }
   },
   {
    "number": 25,
@@ -426,7 +1709,56 @@
     "text": "Wander around promenade briefly naked in the morning",
     "enumeration": "4"
    },
-   "solution": "ROAM"
+   "solution": "ROAM",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ROAM",
+    "definitions": [
+     {
+      "text": "Wander around",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "naked",
+      "for": "deletion",
+      "note": "something naked has its covering stripped, so the outer letters go"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "promenade briefly",
+      "gives": "PROM",
+      "note": "prom is the short form of promenade, a seafront walk"
+     },
+     {
+      "clueFragment": "in the morning",
+      "gives": "AM",
+      "note": "a.m. means before noon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RO",
+      "AM"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone takes a quick stroll along the seafront without clothes early in the day.",
+     "walkthrough": "'Naked' seems to describe the walker, but it strips the outside letters from the shortened promenade.",
+     "definitionFit": "To roam is to travel aimlessly over an area, which is what wandering around means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "naked"
+    }
+   }
   },
   {
    "number": 26,
@@ -440,7 +1772,44 @@
     "text": "Look cruel, by the sound of it",
     "enumeration": "4"
    },
-   "solution": "MIEN"
+   "solution": "MIEN",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "MIEN",
+    "definitions": [
+     {
+      "text": "Look",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by the sound of it",
+      "for": "homophone",
+      "note": "judging by what is heard rather than seen, so a word spoken the same way is wanted"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cruel",
+      "gives": "MIEN",
+      "soundsLike": "MEAN",
+      "note": "mean means unkind or cruel"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone seems to have a cruel appearance, or at least sounds like it.",
+     "walkthrough": "'Look' could be a verb, but here it is the noun for a person's appearance.",
+     "definitionFit": "A person's mien is their bearing or facial expression, meaning their look or air."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Look"
+    }
+   }
   },
   {
    "number": 27,
@@ -454,7 +1823,77 @@
     "text": "One breaking into a Volkswagen Golf etc is sorry",
     "enumeration": "10"
    },
-   "solution": "APOLOGETIC"
+   "solution": "APOLOGETIC",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "APOLOGETIC",
+    "definitions": [
+     {
+      "text": "sorry",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "breaking into",
+      "for": "container",
+      "note": "breaking into a place means getting inside it, so one piece enters another"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Volkswagen",
+      "gives": "POLO",
+      "note": "the Polo is a Volkswagen model"
+     },
+     {
+      "clueFragment": "Golf",
+      "gives": "G",
+      "note": "Golf is G in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "etc",
+      "gives": "ETC",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "POLO",
+      "G",
+      "ET",
+      "I",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "A car thief who broke into a VW Golf now regrets it.",
+     "walkthrough": "The Golf is also a Volkswagen, so 'Volkswagen Golf' reads as one car; the car is the Polo and Golf is just G.",
+     "definitionFit": "Someone apologetic is expressing regret for a wrong they have done, which is being sorry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Golf"
+    }
+   }
   },
   {
    "number": 28,
@@ -468,7 +1907,50 @@
     "text": "Heartless work of fiction, A Christmas Carol?",
     "enumeration": "4"
    },
-   "solution": "NOEL"
+   "solution": "NOEL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "NOEL",
+    "definitions": [
+     {
+      "text": "A Christmas Carol",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Heartless",
+      "for": "deletion",
+      "note": "without a heart means the middle is removed, so the central letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "work of fiction",
+      "gives": "NOVEL",
+      "note": "a novel is a long work of fiction"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "EL"
+     ]
+    },
+    "explanation": {
+     "surface": "Calling Dickens's A Christmas Carol a cold, unfeeling novel.",
+     "walkthrough": "The title of Dickens's famous story makes 'A Christmas Carol' look like the work of fiction, but it is the definition.",
+     "definitionFit": "A noel is a hymn or song sung at Christmas, from the French word for the festive season."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Carol"
+    }
+   }
   },
   {
    "number": 29,
@@ -492,7 +1974,63 @@
      }
     ]
    },
-   "solution": "NOMANSLAND"
+   "solution": "NOMANSLAND",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "NO-MANS-LAND",
+    "definitions": [
+     {
+      "text": "disputed territory",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so that letter is left out"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Invaders",
+      "gives": "NORMANS",
+      "note": "the Normans invaded England in 1066"
+     },
+     {
+      "clueFragment": "resistance",
+      "gives": "R",
+      "note": "R is the symbol for electrical resistance"
+     },
+     {
+      "clueFragment": "arrive",
+      "gives": "LAND",
+      "note": "to land is to arrive, as a plane or ship does"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOMANS",
+      "LAND"
+     ]
+    },
+    "explanation": {
+     "surface": "An invading army lands unopposed in contested ground.",
+     "walkthrough": "'Without resistance' reads as 'unopposed', but it drops the R from the invaders.",
+     "definitionFit": "The phrase names the ground between opposing trenches that neither side controls, or any area whose ownership is contested."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "resistance"
+    }
+   }
   }
  ]
 }
