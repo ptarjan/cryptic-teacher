@@ -113,8 +113,7 @@ case "${1:-}" in
     # command's exit status away: a lister that dies partway through is then
     # indistinguishable from nothing being stale, and every puzzle after the one
     # it died on silently keeps a stale card while the run reports success.
-    python3 "$REPO/tools/make_og_card.py" --prune
-    list="$(python3 "$REPO/tools/make_og_card.py" --stale --limit "${OG_LIMIT:-600}")"
+    list="$(python3 "$REPO/tools/og_list.py" "${OG_LIMIT:-600}")"
     for n in $list; do one "$n"; done ;;
   *) mkdir -p "$REPO/og"; one "$1" ;;
 esac
