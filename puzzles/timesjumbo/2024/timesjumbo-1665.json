@@ -23,6 +23,9 @@
   "date": "2024-04-13",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,54 @@
     "text": "Gave funds due after death",
     "enumeration": "7"
    },
-   "solution": "ENDOWED"
+   "solution": "ENDOWED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ENDOWED",
+    "definitions": [
+     {
+      "text": "Gave funds",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "one thing coming after another means the second piece is written behind the first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "death",
+      "gives": "END",
+      "note": "death is the end of life"
+     },
+     {
+      "clueFragment": "due",
+      "gives": "OWED",
+      "note": "a debt that is due is owed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "END",
+      "OWED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone left money in a will that was payable once they died.",
+     "walkthrough": "The surface reads like a bequest, but 'due after death' is two pieces put in order, the debt word following the death word.",
+     "definitionFit": "To endow is to provide an institution or person with a permanent income or gift of money."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "due"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +100,54 @@
     "text": "Smallest, not large bearing",
     "enumeration": "4"
    },
-   "solution": "EAST"
+   "solution": "EAST",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EAST",
+    "definitions": [
+     {
+      "text": "bearing",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "saying a word is not present tells you to strike that letter out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Smallest",
+      "gives": "LEAST",
+      "note": "least means smallest in amount"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the clothing-size abbreviation for large"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EAST"
+     ]
+    },
+    "explanation": {
+     "surface": "A description of the tiniest of some machine part, such as a ball bearing that is not a large one.",
+     "walkthrough": "'Bearing' seems to be a machine part; here it is a compass direction. Take L from LEAST.",
+     "definitionFit": "A compass bearing is a direction, and east is one of the four cardinal points used for navigation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bearing"
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +161,54 @@
     "text": "Awful matricide is completely opposed",
     "enumeration": "9"
    },
-   "solution": "DIAMETRIC"
+   "solution": "DIAMETRIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DIAMETRIC",
+    "definitions": [
+     {
+      "text": "completely opposed",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Awful",
+      "for": "anagram",
+      "note": "something awful is in a terrible state, so the letters are thrown into disorder"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "matricide",
+      "gives": "MATRICIDE",
+      "note": "taken as written, the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MATRICIDE",
+       "gives": "DIAMETRIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Killing one's mother is dreadful and utterly against everything decent.",
+     "walkthrough": "The moral outrage of the surface hides a plain rearrangement of nine letters.",
+     "definitionFit": "Diametric opposites sit at either end of a diameter, as far apart as possible, hence totally contrary."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Awful"
+    }
+   }
   },
   {
    "number": 3,
@@ -96,7 +240,44 @@
      }
     ]
    },
-   "solution": "WHEREANGELSFEARTOTREAD"
+   "solution": "WHEREANGELSFEARTOTREAD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WHERE ANGELS FEAR TO TREAD",
+    "definitions": [
+     {
+      "text": "Book",
+      "at": 0
+     },
+     {
+      "text": "big attraction all the same for the foolish",
+      "at": 5,
+      "note": "a cryptic description of a place, not a noun"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Book",
+      "note": "first meaning: the title of E. M. Forster's first novel"
+     },
+     {
+      "clueFragment": "big attraction all the same for the foolish",
+      "note": "second meaning: the proverb says fools rush in there regardless, so it draws them all the same"
+     }
+    ],
+    "explanation": {
+     "surface": "A novel that proves a huge draw even for readers with little sense.",
+     "walkthrough": "The proverb 'Fools rush in where angels fear to tread' is the key: the place the wise avoid is exactly where the foolish head anyway.",
+     "definitionFit": "Forster took his 1905 novel's title from Alexander Pope's line about fools rushing into danger that wiser beings shun."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "attraction"
+    }
+   }
   },
   {
    "number": 4,
@@ -110,7 +291,70 @@
     "text": "Novice upset to be nipped by device for cutting rock",
     "enumeration": "7"
    },
-   "solution": "DIORITE"
+   "solution": "DIORITE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "DIORITE",
+    "definitions": [
+     {
+      "text": "rock",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "upset means knocked over, and in a down entry that turns the letters upside down"
+     },
+     {
+      "text": "nipped by",
+      "for": "container",
+      "note": "to be nipped by something is to be pinched between its jaws, so held inside"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "device for cutting",
+      "gives": "DIE",
+      "note": "a die is a tool for cutting or stamping shapes"
+     },
+     {
+      "clueFragment": "Novice",
+      "gives": "TIRO",
+      "note": "a tiro is a beginner"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "ORIT",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "TIRO",
+       "to": "ORIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A beginner falls over and gets pinched by a rock-cutting machine.",
+     "walkthrough": "'Device for cutting rock' reads as one phrase, but 'rock' is the definition standing alone at the end.",
+     "definitionFit": "Diorite is a coarse-grained igneous rock, a type of stone rather than a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rock"
+    }
+   }
   },
   {
    "number": 5,
@@ -124,7 +368,58 @@
     "text": "Matter about buffs showing self-assertive behaviour",
     "enumeration": "9"
    },
-   "solution": "PUSHINESS"
+   "solution": "PUSHINESS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PUSHINESS",
+    "definitions": [
+     {
+      "text": "self-assertive behaviour",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece goes round the other"
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Matter",
+      "gives": "PUS",
+      "note": "pus is the matter in an infected wound"
+     },
+     {
+      "clueFragment": "buffs",
+      "gives": "SHINES",
+      "note": "to buff shoes is to shine them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PU",
+      "SHINES",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "An issue concerning enthusiasts who throw their weight around.",
+     "walkthrough": "'Matter' and 'buffs' pose as abstract nouns; one is the stuff in a wound and the other a verb for polishing.",
+     "definitionFit": "Pushiness is the quality of forcing yourself forward and insisting on your own way, self-assertion taken too far."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "buffs"
+    }
+   }
   },
   {
    "number": 5,
@@ -138,7 +433,59 @@
     "text": "Parking truck, one long part of the operation?",
     "enumeration": "11"
    },
-   "solution": "PARTICIPANT"
+   "solution": "PARTICIPANT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PARTICIPANT",
+    "definitions": [
+     {
+      "text": "part of the operation?",
+      "at": 24
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Parking",
+      "gives": "P",
+      "note": "P is the road-sign abbreviation for parking"
+     },
+     {
+      "clueFragment": "truck",
+      "gives": "ARTIC",
+      "note": "an artic is a British articulated lorry"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "long",
+      "gives": "PANT",
+      "note": "to long for something is to pant for it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ARTIC",
+      "I",
+      "PANT"
+     ]
+    },
+    "explanation": {
+     "surface": "A lorry parked for a long time as a piece of some larger business.",
+     "walkthrough": "ARTIC is British shorthand for an articulated lorry, a truck with a separate cab. 'Long' is a verb here, not an adjective.",
+     "definitionFit": "A participant is someone who takes part in something, a member of the team carrying out an enterprise."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "long"
+    }
+   }
   },
   {
    "number": 6,
@@ -152,7 +499,48 @@
     "text": "Suspicion of serious error with steering gear reported",
     "enumeration": "9"
    },
-   "solution": "SCINTILLA"
+   "solution": "SCINTILLA",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SCINTILLA",
+    "definitions": [
+     {
+      "text": "Suspicion",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reported",
+      "for": "homophone",
+      "note": "something reported is passed on by word of mouth, so we go by how it is said"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "serious error with steering gear",
+      "gives": "SCINTILLA",
+      "soundsLike": "SIN TILLER",
+      "note": "a sin is a serious wrong and a tiller steers a boat"
+     }
+    ],
+    "explanation": {
+     "surface": "A hint that there was a grave mistake with a vehicle's steering, according to reports.",
+     "walkthrough": "'Suspicion' is not doubt here but its other sense of a tiny trace, as in 'a suspicion of garlic'.",
+     "definitionFit": "A scintilla is a tiny trace or hint, and a suspicion can mean just a slight touch of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Suspicion"
+    }
+   }
   },
   {
    "number": 7,
@@ -166,7 +554,47 @@
     "text": "Valuable brick home acquired",
     "enumeration": "5"
    },
-   "solution": "INGOT"
+   "solution": "INGOT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INGOT",
+    "definitions": [
+     {
+      "text": "Valuable brick",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "home",
+      "gives": "IN",
+      "note": "to be in is to be at home"
+     },
+     {
+      "clueFragment": "acquired",
+      "gives": "GOT",
+      "note": "got means obtained"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "GOT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone has bought a precious block for the house.",
+     "walkthrough": "IN for 'at home' is a common crossword equivalence.",
+     "definitionFit": "An ingot is a cast bar of gold or other metal, shaped like a brick and worth a great deal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "home"
+    }
+   }
   },
   {
    "number": 8,
@@ -180,7 +608,42 @@
     "text": "Wrote up hemistichs in part avoiding strong words",
     "enumeration": "11"
    },
-   "solution": "EUPHEMISTIC"
+   "solution": "EUPHEMISTIC",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EUPHEMISTIC",
+    "definitions": [
+     {
+      "text": "avoiding strong words",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in part",
+      "for": "hidden_word",
+      "note": "only a part of the phrase is used, so the letters sit inside the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wrote up hemistichs",
+      "note": "the run of letters spans the end of the first word through most of the last"
+     }
+    ],
+    "explanation": {
+     "surface": "A poet wrote out half-lines of verse while keeping the language clean.",
+     "walkthrough": "'Wrote up' tempts you to reverse something, but the letters run forwards from the E of Wrote. A hemistich is half a line of verse.",
+     "definitionFit": "Euphemistic language substitutes mild or vague terms for blunt or offensive ones."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 9,
@@ -194,7 +657,55 @@
     "text": "Thoroughly explore musical ability in school",
     "enumeration": "6"
    },
-   "solution": "SEARCH"
+   "solution": "SEARCH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SEARCH",
+    "definitions": [
+     {
+      "text": "Thoroughly explore",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one thing within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "school",
+      "gives": "SCH",
+      "note": "SCH is the abbreviation for school"
+     },
+     {
+      "clueFragment": "musical ability",
+      "gives": "EAR",
+      "note": "having an ear for music means being able to pick out tunes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "EAR",
+      "CH"
+     ]
+    },
+    "explanation": {
+     "surface": "Fully investigate the musical talent at a school.",
+     "walkthrough": "An ear for music is natural musical talent.",
+     "definitionFit": "To search a place is to look through it carefully and completely for something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ability"
+    }
+   }
   },
   {
    "number": 10,
@@ -208,7 +719,52 @@
     "text": "Old and regularly unsteady",
     "enumeration": "4"
    },
-   "solution": "USED"
+   "solution": "USED",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "USED",
+    "definitions": [
+     {
+      "text": "Old",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "at regular intervals means taking every other letter"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unsteady",
+      "gives": "USED",
+      "select": "alternate",
+      "note": "the first, third, fifth and seventh letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "USED"
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly person who is often wobbly on their feet.",
+     "walkthrough": "'Regularly' seems to say how often someone is unsteady, but it picks out the odd letters.",
+     "definitionFit": "Used goods are second-hand, previously owned and so no longer new."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "regularly"
+    }
+   }
   },
   {
    "number": 11,
@@ -222,7 +778,66 @@
     "text": "Notice ring — right on a married woman",
     "enumeration": "7"
    },
-   "solution": "SIGNORA"
+   "solution": "SIGNORA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SIGNORA",
+    "definitions": [
+     {
+      "text": "married woman",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down entry one piece placed on another comes above it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Notice",
+      "gives": "SIGN",
+      "note": "a sign is a posted notice"
+     },
+     {
+      "clueFragment": "ring",
+      "gives": "O",
+      "note": "O is ring-shaped"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SIGN",
+      "O",
+      "R",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Seeing a wedding ring on a woman's finger shows she is married.",
+     "walkthrough": "The dash makes it sound like spotting a ring; each word is a separate piece.",
+     "definitionFit": "Signora is the Italian title and form of address for a married woman, like Mrs or madam."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ring"
+    }
+   }
   },
   {
    "number": 12,
@@ -236,7 +851,42 @@
     "text": "Partly refurbished arms TA’d test in place",
     "enumeration": "9"
    },
-   "solution": "DARMSTADT"
+   "solution": "DARMSTADT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "DARMSTADT",
+    "definitions": [
+     {
+      "text": "place",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Partly",
+      "for": "hidden_word",
+      "note": "partly means only a portion, so the letters are a stretch within the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "refurbished arms TA’d test",
+      "note": "the letters run from the end of the first word into the start of the last"
+     }
+    ],
+    "explanation": {
+     "surface": "Weapons that the Territorial Army had overhauled were tried out on site.",
+     "walkthrough": "TA is the Territorial Army, Britain's volunteer reserve; the odd contraction TA'd exists only to supply letters.",
+     "definitionFit": "Darmstadt is a city in the German state of Hesse, so it is simply a location."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "refurbished"
+    }
+   }
   },
   {
    "number": 13,
@@ -264,7 +914,51 @@
      }
     ]
    },
-   "solution": "HAVEANOTHERTHINKCOMING"
+   "solution": "HAVEANOTHERTHINKCOMING",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HAVE ANOTHER THINK COMING",
+    "definitions": [
+     {
+      "text": "Be wrong",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "working",
+      "for": "anagram",
+      "note": "working suggests being worked into a new shape, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mine having no Thatcher OK",
+      "gives": "MINEHAVINGNOTHATCHEROK",
+      "note": "taken as written, twenty-two letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MINEHAVINGNOTHATCHEROK",
+       "gives": "HAVEANOTHERTHINKCOMING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Is it a mistake that a working coal mine got no approval from Margaret Thatcher, whose government shut many pits?",
+     "walkthrough": "The surface evokes the 1980s pit closures, but the whole long phrase is simply letters to reshuffle.",
+     "definitionFit": "The idiom says someone who expects a thing is mistaken and will need to reconsider."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 14,
@@ -278,7 +972,54 @@
     "text": "Sabotage drink mixed for sports activity",
     "enumeration": "13"
    },
-   "solution": "SKATEBOARDING"
+   "solution": "SKATEBOARDING",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SKATEBOARDING",
+    "definitions": [
+     {
+      "text": "sports activity",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mixed",
+      "for": "anagram",
+      "note": "mixed means stirred together, so the letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sabotage drink",
+      "gives": "SABOTAGEDRINK",
+      "note": "taken as written, the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SABOTAGEDRINK",
+       "gives": "SKATEBOARDING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone spikes a cocktail to disrupt a sporting event.",
+     "walkthrough": "'Drink mixed' sounds like a cocktail; 'mixed' works on both words before it.",
+     "definitionFit": "Skateboarding is the pastime of riding a board on wheels, often doing tricks, and counts as a sport."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mixed"
+    }
+   }
   },
   {
    "number": 15,
@@ -292,7 +1033,63 @@
     "text": "Friend grabbing horse to annoy marsupial",
     "enumeration": "9"
    },
-   "solution": "PHALANGER"
+   "solution": "PHALANGER",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "PHALANGER",
+    "definitions": [
+     {
+      "text": "marsupial",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "grabbing",
+      "for": "container",
+      "note": "to grab is to seize and hold, so one piece takes another inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Friend",
+      "gives": "PAL",
+      "note": "a pal is a friend"
+     },
+     {
+      "clueFragment": "horse",
+      "gives": "H",
+      "note": "horse is slang for heroin, abbreviated H"
+     },
+     {
+      "clueFragment": "to annoy",
+      "gives": "ANGER",
+      "note": "to anger someone is to annoy them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "H",
+      "AL",
+      "ANGER"
+     ]
+    },
+    "explanation": {
+     "surface": "A friend seizes a horse, which irritates a kangaroo-like animal.",
+     "walkthrough": "'Horse' giving H goes through heroin: horse is drug slang for it, and H its common abbreviation.",
+     "definitionFit": "Phalangers are tree-dwelling Australasian pouched mammals, including the possums and cuscuses."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "horse"
+    }
+   }
   },
   {
    "number": 16,
@@ -306,7 +1103,64 @@
     "text": "Who’ll study DNA of cat found next to one burial chamber",
     "enumeration": "10"
    },
-   "solution": "GENETICIST"
+   "solution": "GENETICIST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GENETICIST",
+    "definitions": [
+     {
+      "text": "Who’ll study DNA",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "next to",
+      "for": "charade",
+      "note": "next to means side by side, so the pieces are simply placed in a row"
+     }
+    ],
+    "linkWords": [
+     "of",
+     "found"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cat",
+      "gives": "GENET",
+      "note": "a genet is a slender spotted cat-like animal"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "burial chamber",
+      "gives": "CIST",
+      "note": "a cist is a prehistoric stone coffin or tomb"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GENET",
+      "I",
+      "CIST"
+     ]
+    },
+    "explanation": {
+     "surface": "A scientist analyses the genes of a cat discovered beside a tomb.",
+     "walkthrough": "'DNA of cat' reads as one phrase; the definition stops at DNA and the cat is a genet.",
+     "definitionFit": "A geneticist is a scientist who researches heredity, genes and the molecule that carries them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "of"
+    }
+   }
   },
   {
    "number": 17,
@@ -320,7 +1174,59 @@
     "text": "Chartreuse drunk with round can be risky",
     "enumeration": "11"
    },
-   "solution": "TREACHEROUS"
+   "solution": "TREACHEROUS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TREACHEROUS",
+    "definitions": [
+     {
+      "text": "risky",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drunk",
+      "for": "anagram",
+      "note": "a drunk person staggers about, so the letters reel into a new order"
+     }
+    ],
+    "linkWords": [
+     "can be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chartreuse",
+      "gives": "CHARTREUSE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "round",
+      "gives": "O",
+      "note": "O is round in shape"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CHARTREUSEO",
+       "gives": "TREACHEROUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Knocking back a round of green liqueur can be dangerous.",
+     "walkthrough": "'Round' looks like a round of drinks, but it is only the letter shaped like a circle. Chartreuse is a French herbal liqueur.",
+     "definitionFit": "Treacherous conditions, such as icy roads, are hazardous and unpredictable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 18,
@@ -334,7 +1240,57 @@
     "text": "Dictator is human, no saint",
     "enumeration": "5"
    },
-   "solution": "PERON"
+   "solution": "PERON",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "PERON",
+    "definitions": [
+     {
+      "text": "Dictator",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "no",
+      "for": "deletion",
+      "note": "no means without, so that letter is taken away"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "human",
+      "gives": "PERSON",
+      "note": "a human being is a person"
+     },
+     {
+      "clueFragment": "saint",
+      "gives": "S",
+      "note": "S is the abbreviation for saint"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PER",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "Even a tyrant is only a mortal and far from holy.",
+     "walkthrough": "Juan Perón was the Argentine leader who ruled as a strongman in the 1940s and 1950s.",
+     "definitionFit": "Perón governed Argentina with authoritarian powers, so he is a well-known example of a dictator."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "saint"
+    }
+   }
   },
   {
    "number": 18,
@@ -348,7 +1304,62 @@
     "text": "The Sun reported charge on public transport",
     "enumeration": "7"
    },
-   "solution": "PHOEBUS"
+   "solution": "PHOEBUS",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "PHOEBUS",
+    "definitions": [
+     {
+      "text": "The Sun",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reported",
+      "for": "homophone",
+      "note": "reported means passed on by speech, so the sound matters rather than the spelling"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down entry one piece put on another sits above it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "charge",
+      "gives": "PHOE",
+      "soundsLike": "FEE",
+      "note": "a fee is a charge"
+     },
+     {
+      "clueFragment": "public transport",
+      "gives": "BUS",
+      "note": "a bus is public transport"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PHOE",
+      "BUS"
+     ]
+    },
+    "explanation": {
+     "surface": "A tabloid newspaper claimed fares were being raised on buses.",
+     "walkthrough": "'The Sun' looks like the newspaper; it is the sun god. Only the first piece is spelt differently from how it sounds.",
+     "definitionFit": "Phoebus, meaning bright, is an epithet of Apollo as god of the sun, used poetically for the sun itself."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Sun"
+    }
+   }
   },
   {
    "number": 19,
@@ -362,7 +1373,65 @@
     "text": "It’s old Piglet running round in a flap",
     "enumeration": "10"
    },
-   "solution": "EPIGLOTTIS"
+   "solution": "EPIGLOTTIS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EPIGLOTTIS",
+    "definitions": [
+     {
+      "text": "a flap",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "running round",
+      "for": "anagram",
+      "note": "running round in circles suggests disorder, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It’s",
+      "gives": "ITS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "Piglet",
+      "gives": "PIGLET",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ITSOPIGLET",
+       "gives": "EPIGLOTTIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Winnie-the-Pooh's friend Piglet, now elderly, rushes about in a panic.",
+     "walkthrough": "'In a flap' means flustered, which suits Piglet; split off 'in' and 'a flap' is the definition.",
+     "definitionFit": "The epiglottis is the flap of cartilage that closes over the windpipe when you swallow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flap"
+    }
+   }
   },
   {
    "number": 20,
@@ -376,7 +1445,56 @@
     "text": "Buffalo in river area for all to see",
     "enumeration": "7"
    },
-   "solution": "TAMARAU"
+   "solution": "TAMARAU",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TAMARAU",
+    "definitions": [
+     {
+      "text": "Buffalo",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "river",
+      "gives": "TAMAR",
+      "note": "the Tamar is the river dividing Devon from Cornwall"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "A is the abbreviation for area"
+     },
+     {
+      "clueFragment": "for all to see",
+      "gives": "U",
+      "note": "U is the British film certificate meaning suitable for everyone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAMAR",
+      "A",
+      "U"
+     ]
+    },
+    "explanation": {
+     "surface": "A buffalo stands in a river where everyone can see it.",
+     "walkthrough": "U is the British film rating for universal viewing, suitable for all audiences. The Tamar is a river in south-west England.",
+     "definitionFit": "The tamarau is a small wild buffalo found only on the Philippine island of Mindoro."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "see"
+    }
+   }
   },
   {
    "number": 21,
@@ -390,7 +1508,59 @@
     "text": "Capital provided by lender, Saudi, perhaps (unlimited)",
     "enumeration": "6"
    },
-   "solution": "ANKARA"
+   "solution": "ANKARA",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ANKARA",
+    "definitions": [
+     {
+      "text": "Capital",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unlimited",
+      "for": "deletion",
+      "note": "without limits means losing the boundaries, so the outermost letters go"
+     }
+    ],
+    "linkWords": [
+     "provided by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lender",
+      "gives": "BANK",
+      "note": "a bank lends money"
+     },
+     {
+      "clueFragment": "Saudi, perhaps",
+      "gives": "ARAB",
+      "note": "a Saudi is an example of an Arab"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANK",
+      "ARA"
+     ]
+    },
+    "explanation": {
+     "surface": "Money was supplied by a financier, possibly Saudi, without any cap.",
+     "walkthrough": "'Capital' seems to mean money, which the lender suits; it is a capital city. The two pieces join and then lose their very first and last letters.",
+     "definitionFit": "Ankara is the capital city of Turkey, seat of its government since 1923."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Capital"
+    }
+   }
   },
   {
    "number": 22,
@@ -404,7 +1574,56 @@
     "text": "Fabric sun hat turned out no good",
     "enumeration": "8"
    },
-   "solution": "SHANTUNG"
+   "solution": "SHANTUNG",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SHANTUNG",
+    "definitions": [
+     {
+      "text": "Fabric",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned out",
+      "for": "anagram",
+      "note": "turned out suggests being turned inside out, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sun hat",
+      "gives": "SUNHAT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "no good",
+      "gives": "NG",
+      "note": "NG is the abbreviation for no good"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SUNHATNG",
+       "gives": "SHANTUNG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sun hat made of some cloth proved useless.",
+     "walkthrough": "'Turned out no good' reads as a verdict, but the phrase splits: the indicator, then an abbreviation added to the fodder.",
+     "definitionFit": "Shantung is a silk cloth with a rough, slubbed texture, named after the Chinese province."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turned"
+    }
+   }
   },
   {
    "number": 23,
@@ -418,7 +1637,55 @@
     "text": "Scotland’s odd about case for players",
     "enumeration": "9"
    },
-   "solution": "ORCHESTRA"
+   "solution": "ORCHESTRA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ORCHESTRA",
+    "definitions": [
+     {
+      "text": "players",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one piece is placed around another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scotland’s odd",
+      "gives": "ORRA",
+      "note": "orra is a Scots word for odd or occasional"
+     },
+     {
+      "clueFragment": "case",
+      "gives": "CHEST",
+      "note": "a chest is a large case or box"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OR",
+      "CHEST",
+      "RA"
+     ]
+    },
+    "explanation": {
+     "surface": "A Scottish eccentric fusses over the box for a sports team.",
+     "walkthrough": "'Scotland's odd' points to a dialect word: ORRA is Scots for odd, and it wraps the case.",
+     "definitionFit": "An orchestra is a large group of instrumental musicians who perform together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "odd"
+    }
+   }
   },
   {
    "number": 24,
@@ -432,7 +1699,46 @@
     "text": "Money taken by shop for pastry",
     "enumeration": "8"
    },
-   "solution": "TURNOVER"
+   "solution": "TURNOVER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TURNOVER",
+    "definitions": [
+     {
+      "text": "Money taken by shop",
+      "at": 0
+     },
+     {
+      "text": "pastry",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Money taken by shop",
+      "note": "first meaning: the total takings of a business over a period"
+     },
+     {
+      "clueFragment": "pastry",
+      "note": "second meaning: a pastry case folded over a filling"
+     }
+    ],
+    "explanation": {
+     "surface": "A bakery uses its takings to buy baked goods.",
+     "walkthrough": "Two unrelated meanings of one word: sales revenue, and a folded filled pastry such as an apple one.",
+     "definitionFit": "A business's turnover is its gross sales, and a turnover is also a half-moon pastry with fruit inside."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "taken"
+    }
+   }
   },
   {
    "number": 25,
@@ -446,7 +1752,55 @@
     "text": "Own up to hiding millions in part of mine",
     "enumeration": "5"
    },
-   "solution": "ADMIT"
+   "solution": "ADMIT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ADMIT",
+    "definitions": [
+     {
+      "text": "Own up to",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hiding",
+      "for": "container",
+      "note": "to hide something is to keep it inside, out of sight"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "part of mine",
+      "gives": "ADIT",
+      "note": "an adit is a horizontal passage into a mine"
+     },
+     {
+      "clueFragment": "millions",
+      "gives": "M",
+      "note": "M is the abbreviation for million"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "M",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "Confess to concealing a fortune in a mine shaft.",
+     "walkthrough": "An adit is the level entrance tunnel of a mine, a crossword favourite.",
+     "definitionFit": "To admit a fault is to confess it, acknowledging that it is true."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hiding"
+    }
+   }
   },
   {
    "number": 26,
@@ -466,7 +1820,52 @@
      }
     ]
    },
-   "solution": "HOTSPOT"
+   "solution": "HOTSPOT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HOT SPOT",
+    "definitions": [
+     {
+      "text": "popular nightclub",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "to",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Keen",
+      "gives": "HOT",
+      "note": "to be hot on something is to be keen on it"
+     },
+     {
+      "clueFragment": "make out",
+      "gives": "SPOT",
+      "note": "to make out something is to spot it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOT",
+      "SPOT"
+     ]
+    },
+    "explanation": {
+     "surface": "Eager to kiss and cuddle at a trendy club.",
+     "walkthrough": "'Make out' suggests kissing in a club; here it means to discern.",
+     "definitionFit": "A hot spot is a lively, fashionable place of entertainment, such as a busy club or bar."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "make"
+    }
+   }
   },
   {
    "number": 27,
@@ -480,7 +1879,57 @@
     "text": "Old diva wanting bread but no tea",
     "enumeration": "5"
    },
-   "solution": "PATTI"
+   "solution": "PATTI",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "PATTI",
+    "definitions": [
+     {
+      "text": "Old diva",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "no",
+      "for": "deletion",
+      "note": "no means without, so those letters are removed"
+     }
+    ],
+    "linkWords": [
+     "wanting",
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bread",
+      "gives": "CHAPATTI",
+      "note": "a chapatti is an Indian flatbread"
+     },
+     {
+      "clueFragment": "tea",
+      "gives": "CHA",
+      "note": "cha is a slang word for tea"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PATTI"
+     ]
+    },
+    "explanation": {
+     "surface": "A demanding veteran opera singer asks for food but not a cuppa.",
+     "walkthrough": "Adelina Patti was a celebrated 19th-century soprano. The tea word is lopped off the front of the bread.",
+     "definitionFit": "Patti was one of the most famous opera sopranos of the Victorian era, a prima donna of a past age."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wanting"
+    }
+   }
   },
   {
    "number": 28,
@@ -494,7 +1943,56 @@
     "text": "Angel perhaps trapping Devil, which might provide relief",
     "enumeration": "13"
    },
-   "solution": "BACKSCRATCHER"
+   "solution": "BACKSCRATCHER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BACKSCRATCHER",
+    "definitions": [
+     {
+      "text": "which might provide relief",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "trapping",
+      "for": "container",
+      "note": "to trap something is to catch it and hold it within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Angel perhaps",
+      "gives": "BACKER",
+      "note": "an angel is a financial backer of a theatre show"
+     },
+     {
+      "clueFragment": "Devil",
+      "gives": "SCRATCH",
+      "note": "Old Scratch is a nickname for the Devil"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BACK",
+      "SCRATCH",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A heavenly being catches Satan, which might bring the world some comfort.",
+     "walkthrough": "Both religious figures are misleading: an angel is a theatrical investor, and the Devil is Old Scratch.",
+     "definitionFit": "A back-scratcher is a long-handled tool used to relieve an itch you cannot reach."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Angel"
+    }
+   }
   },
   {
    "number": 29,
@@ -508,7 +2006,50 @@
     "text": "Clubs — noisy and dim",
     "enumeration": "5"
    },
-   "solution": "CLOUD"
+   "solution": "CLOUD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CLOUD",
+    "definitions": [
+     {
+      "text": "dim",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Clubs",
+      "gives": "C",
+      "note": "C is the card-suit abbreviation for clubs"
+     },
+     {
+      "clueFragment": "noisy",
+      "gives": "LOUD",
+      "note": "loud means noisy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LOUD"
+     ]
+    },
+    "explanation": {
+     "surface": "Nightclubs that are loud and poorly lit.",
+     "walkthrough": "'Dim' looks like an adjective for the lighting, but it is a verb.",
+     "definitionFit": "To cloud something is to make it less clear or bright, obscuring it as a cloud blocks light."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dim"
+    }
+   }
   },
   {
    "number": 30,
@@ -522,7 +2063,58 @@
     "text": "Regular patron of some in cast",
     "enumeration": "7"
    },
-   "solution": "HABITUE"
+   "solution": "HABITUE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HABITUE",
+    "definitions": [
+     {
+      "text": "Regular patron",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece within another"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cast",
+      "gives": "HUE",
+      "note": "a cast is a tinge of colour, a hue"
+     },
+     {
+      "clueFragment": "some",
+      "gives": "ABIT",
+      "note": "a bit means some"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "ABIT",
+      "UE"
+     ]
+    },
+    "explanation": {
+     "surface": "A faithful supporter of a few members of a theatre company.",
+     "walkthrough": "'Cast' suggests actors, backing up 'patron'; here it is a slight tint of colour.",
+     "definitionFit": "A habitué is someone who frequents a particular place, a regular visitor or customer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cast"
+    }
+   }
   },
   {
    "number": 31,
@@ -536,7 +2128,64 @@
     "text": "Agreed to change society for tons raising no objection?",
     "enumeration": "9"
    },
-   "solution": "CONTENTED"
+   "solution": "CONTENTED",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "CONTENTED",
+    "definitions": [
+     {
+      "text": "raising no objection?",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "change",
+      "for": "substitution",
+      "note": "to change one thing for another is to swap it out"
+     }
+    ],
+    "linkWords": [
+     "to",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Agreed",
+      "gives": "CONSENTED",
+      "note": "to consent is to agree"
+     },
+     {
+      "clueFragment": "society",
+      "gives": "S",
+      "note": "S is the abbreviation for society"
+     },
+     {
+      "clueFragment": "tons",
+      "gives": "T",
+      "note": "T is the abbreviation for tons"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "T",
+      "ENTED"
+     ]
+    },
+    "explanation": {
+     "surface": "A club agreed to swap its society for tons of something, and nobody complained.",
+     "walkthrough": "One letter inside the agreement word is swapped for another; the question mark flags a loose definition.",
+     "definitionFit": "Someone contented is satisfied, so they have no complaint or grievance to voice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "society"
+    }
+   }
   },
   {
    "number": 32,
@@ -550,7 +2199,55 @@
     "text": "Give up on eating small sweet",
     "enumeration": "7"
    },
-   "solution": "DESSERT"
+   "solution": "DESSERT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DESSERT",
+    "definitions": [
+     {
+      "text": "sweet",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "whatever eats something takes it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Give up on",
+      "gives": "DESERT",
+      "note": "to desert someone is to abandon them"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DES",
+      "S",
+      "ERT"
+     ]
+    },
+    "explanation": {
+     "surface": "Stop eating a little pudding, as on a diet.",
+     "walkthrough": "'Give up on eating' reads as dieting; the phrase splits after 'on'. A sweet is a British term for pudding.",
+     "definitionFit": "In Britain a sweet is the pudding course, the same thing as the course served after the main meal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "eating"
+    }
+   }
   },
   {
    "number": 33,
@@ -570,7 +2267,56 @@
      }
     ]
    },
-   "solution": "SMOKEBOMB"
+   "solution": "SMOKEBOMB",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SMOKE BOMB",
+    "definitions": [
+     {
+      "text": "What can be used to conceal",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cigarette",
+      "gives": "SMOKE",
+      "note": "a smoke is a cigarette"
+     },
+     {
+      "clueFragment": "smell",
+      "gives": "BO",
+      "note": "BO is body odour"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "MB",
+      "note": "MB is a Bachelor of Medicine degree"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SMOKE",
+      "BO",
+      "MB"
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor uses something to mask the whiff of tobacco.",
+     "walkthrough": "The definition runs further than it seems: 'conceal' belongs to it, not to the wordplay.",
+     "definitionFit": "A smoke bomb releases a dense cloud to hide troops or movements from view."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "conceal"
+    }
+   }
   },
   {
    "number": 34,
@@ -584,7 +2330,70 @@
     "text": "Like action of yeast in French loaf with mineral left right out",
     "enumeration": "11"
    },
-   "solution": "BIOCHEMICAL"
+   "solution": "BIOCHEMICAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "BIOCHEMICAL",
+    "definitions": [
+     {
+      "text": "Like action of yeast",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "deletion",
+      "note": "out means removed, so that letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "in",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "French loaf",
+      "gives": "BRIOCHE",
+      "note": "a brioche is a rich French bread"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     },
+     {
+      "clueFragment": "mineral",
+      "gives": "MICA",
+      "note": "mica is a flaky silicate mineral"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BIOCHE",
+      "MICA",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "How yeast works in a French bread made with a mineral, some ingredient left out.",
+     "walkthrough": "'Left right out' sounds like one phrase for omitted; split it into the abbreviation for left and the removal of R.",
+     "definitionFit": "Yeast ferments sugar by means of enzymes, a chemical process in living cells."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 35,
@@ -604,7 +2413,50 @@
      }
     ]
    },
-   "solution": "BLUEMOUNTAINS"
+   "solution": "BLUEMOUNTAINS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BLUE MOUNTAINS",
+    "definitions": [
+     {
+      "text": "A feature of Jamaica",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "regularly squander",
+      "gives": "BLUE",
+      "note": "to blue money is to spend it freely; 'regularly' only colours the habit"
+     },
+     {
+      "clueFragment": "heaps on a large scale",
+      "gives": "MOUNTAINS",
+      "note": "mountains of something are huge heaps of it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BLUE",
+      "MOUNTAINS"
+     ]
+    },
+    "explanation": {
+     "surface": "A Jamaican habit of routinely wasting great piles of money.",
+     "walkthrough": "'Regularly' tempts you to take alternate letters, but nothing fits; it is part of the spending verb. To blue money is British slang for blowing it.",
+     "definitionFit": "The Blue Mountains are Jamaica's highest range, famous for their coffee."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "regularly"
+    }
+   }
   },
   {
    "number": 36,
@@ -618,7 +2470,49 @@
     "text": "Computer’s hex device",
     "enumeration": "11"
    },
-   "solution": "MICROSWITCH"
+   "solution": "MICROSWITCH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MICROSWITCH",
+    "definitions": [
+     {
+      "text": "device",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Computer’s",
+      "gives": "MICROS",
+      "note": "a micro is a microcomputer, plus the S of the possessive"
+     },
+     {
+      "clueFragment": "hex",
+      "gives": "WITCH",
+      "note": "a hex is a witch, especially in American usage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MICRO",
+      "S",
+      "WITCH"
+     ]
+    },
+    "explanation": {
+     "surface": "A curse built into some computer's gadget.",
+     "walkthrough": "'Hex' suggests hexadecimal in a computing clue; it means one who casts spells.",
+     "definitionFit": "A microswitch is a small electrical switch operated by very slight movement, used in many machines."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "hex"
+    }
+   }
   },
   {
    "number": 37,
@@ -632,7 +2526,59 @@
     "text": "Approve of sellers, not very European",
     "enumeration": "7"
    },
-   "solution": "ENDORSE"
+   "solution": "ENDORSE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ENDORSE",
+    "definitions": [
+     {
+      "text": "Approve of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not tells you that letter is absent from the result"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sellers",
+      "gives": "VENDORS",
+      "note": "vendors are sellers"
+     },
+     {
+      "clueFragment": "very",
+      "gives": "V",
+      "note": "V is the abbreviation for very"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENDORS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Backing traders, as long as they are not too European.",
+     "walkthrough": "'Not very European' sounds like a judgement on the traders; the pieces are the removal of one letter and the addition of another.",
+     "definitionFit": "To endorse a plan is to declare your support for it publicly, giving your approval."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "very"
+    }
+   }
   },
   {
    "number": 37,
@@ -646,7 +2592,60 @@
     "text": "In effect one is organised and methodical",
     "enumeration": "9"
    },
-   "solution": "EFFICIENT"
+   "solution": "EFFICIENT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EFFICIENT",
+    "definitions": [
+     {
+      "text": "methodical",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "organised",
+      "for": "anagram",
+      "note": "things organised are put into a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "is",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In effect",
+      "gives": "INEFFECT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INEFFECTI",
+       "gives": "EFFICIENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Effectively, someone is tidy and systematic.",
+     "walkthrough": "'In effect' reads as 'effectively'; it is letters to rearrange with the Roman one.",
+     "definitionFit": "An efficient person works in an orderly way, wasting no time or effort."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "effect"
+    }
+   }
   },
   {
    "number": 38,
@@ -660,7 +2659,50 @@
     "text": "Work with convulsive twitch of the eye",
     "enumeration": "5"
    },
-   "solution": "OPTIC"
+   "solution": "OPTIC",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OPTIC",
+    "definitions": [
+     {
+      "text": "of the eye",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Work",
+      "gives": "OP",
+      "note": "OP is short for opus, a work"
+     },
+     {
+      "clueFragment": "convulsive twitch",
+      "gives": "TIC",
+      "note": "a tic is an involuntary spasm"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OP",
+      "TIC"
+     ]
+    },
+    "explanation": {
+     "surface": "Having to function with an eyelid that keeps twitching.",
+     "walkthrough": "The definition is an adjectival phrase, which the answer matches as an adjective.",
+     "definitionFit": "Optic means relating to vision or the organs of sight, as in the optic nerve."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Work"
+    }
+   }
   },
   {
    "number": 39,
@@ -674,7 +2716,54 @@
     "text": "A pectoral fashioned for monarch",
     "enumeration": "9"
    },
-   "solution": "CLEOPATRA"
+   "solution": "CLEOPATRA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CLEOPATRA",
+    "definitions": [
+     {
+      "text": "monarch",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fashioned",
+      "for": "anagram",
+      "note": "fashioned means made into a shape, so the letters are reworked"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A pectoral",
+      "gives": "APECTORAL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "APECTORAL",
+       "gives": "CLEOPATRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A jewelled breastplate made for a king or queen.",
+     "walkthrough": "A pectoral is an ornament worn on the chest, fitting for Egyptian royalty.",
+     "definitionFit": "Cleopatra VII was the last reigning ruler of Ptolemaic Egypt, a queen and so a monarch."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pectoral"
+    }
+   }
   },
   {
    "number": 40,
@@ -688,7 +2777,62 @@
     "text": "Company supply outside idiot dealing with knowledge acquisition",
     "enumeration": "9"
    },
-   "solution": "COGNITIVE"
+   "solution": "COGNITIVE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "COGNITIVE",
+    "definitions": [
+     {
+      "text": "dealing with knowledge acquisition",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "outside means surrounding, so one piece wraps another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Company",
+      "gives": "CO",
+      "note": "CO is the abbreviation for company"
+     },
+     {
+      "clueFragment": "supply",
+      "gives": "GIVE",
+      "note": "to give is to supply"
+     },
+     {
+      "clueFragment": "idiot",
+      "gives": "NIT",
+      "note": "a nit is a fool"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "G",
+      "NIT",
+      "IVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A firm provides things beyond the reach of a fool who handles data.",
+     "walkthrough": "NIT, short for nitwit, is British slang for a fool.",
+     "definitionFit": "Cognitive refers to the mental processes of perceiving, thinking and learning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "supply"
+    }
+   }
   },
   {
    "number": 41,
@@ -702,7 +2846,69 @@
     "text": "One million letters are with university for a swindle",
     "enumeration": "9"
    },
-   "solution": "IMPOSTURE"
+   "solution": "IMPOSTURE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IMPOSTURE",
+    "definitions": [
+     {
+      "text": "a swindle",
+      "at": 44
+     }
+    ],
+    "linkWords": [
+     "with",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "million",
+      "gives": "M",
+      "note": "M is the abbreviation for million"
+     },
+     {
+      "clueFragment": "letters",
+      "gives": "POST",
+      "note": "letters arrive in the post"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "U is the abbreviation for university"
+     },
+     {
+      "clueFragment": "are",
+      "gives": "RE",
+      "note": "'re is the contracted form of are, as in they're"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "M",
+      "POST",
+      "U",
+      "RE"
+     ]
+    },
+    "explanation": {
+     "surface": "A million fake letters from a college make up a fraud.",
+     "walkthrough": "'Are' is shortened as in a contraction like we're; the other pieces are standard abbreviations.",
+     "definitionFit": "An imposture is a deception, especially pretending to be someone else, so a fraud or con."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "are"
+    }
+   }
   },
   {
    "number": 42,
@@ -716,7 +2922,51 @@
     "text": "Female pointer to produce litter",
     "enumeration": "6"
    },
-   "solution": "FARROW"
+   "solution": "FARROW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FARROW",
+    "definitions": [
+     {
+      "text": "produce litter",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Female",
+      "gives": "F",
+      "note": "F is the abbreviation for female"
+     },
+     {
+      "clueFragment": "pointer",
+      "gives": "ARROW",
+      "note": "an arrow points the way"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "ARROW"
+     ]
+    },
+    "explanation": {
+     "surface": "A bitch of the pointer breed is about to have puppies.",
+     "walkthrough": "'Pointer' suggests the gun dog, which fits the litter; here it is a sign.",
+     "definitionFit": "To farrow is for a sow to give birth to a litter of piglets."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pointer"
+    }
+   }
   },
   {
    "number": 43,
@@ -736,7 +2986,44 @@
      }
     ]
    },
-   "solution": "RUNDOWN"
+   "solution": "RUNDOWN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RUN-DOWN",
+    "definitions": [
+     {
+      "text": "In a poor state",
+      "at": 0
+     },
+     {
+      "text": "narrowly losing at cricket",
+      "at": 17,
+      "note": "the cryptic sense is two words, a run down"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In a poor state",
+      "note": "first meaning: dilapidated or exhausted"
+     },
+     {
+      "clueFragment": "narrowly losing at cricket",
+      "note": "second meaning: behind by one run, the smallest margin in cricket"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In cricket, scores are counted in runs, so a side one run behind is losing narrowly.",
+     "definitionFit": "Run-down describes a building fallen into disrepair or a person tired and unwell."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "narrowly"
+    }
+   }
   },
   {
    "number": 44,
@@ -756,7 +3043,50 @@
      }
     ]
    },
-   "solution": "CHEESEDOFF"
+   "solution": "CHEESEDOFF",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHEESED OFF",
+    "definitions": [
+     {
+      "text": "Fed up",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mousetrap, perhaps",
+      "gives": "CHEESE",
+      "note": "mousetrap is British slang for cheap, ordinary cheese"
+     },
+     {
+      "clueFragment": "remove",
+      "gives": "DOFF",
+      "note": "to doff a hat is to take it off"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHEESE",
+      "DOFF"
+     ]
+    },
+    "explanation": {
+     "surface": "Tired of a mouse-catching device, get rid of it.",
+     "walkthrough": "The answer splits differently from the pieces: the D of the removing word joins the cheese. Mousetrap is British slang for bland cheddar.",
+     "definitionFit": "Cheesed off is British slang for annoyed and bored, the same state as being sick of something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mousetrap"
+    }
+   }
   },
   {
    "number": 45,
@@ -770,7 +3100,60 @@
     "text": "Refrain initially featuring our Rupert and Pooh?",
     "enumeration": "7"
    },
-   "solution": "FORBEAR"
+   "solution": "FORBEAR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "FORBEAR",
+    "definitions": [
+     {
+      "text": "Refrain",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the first letters count"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "featuring our Rupert",
+      "gives": "FOR",
+      "select": "first",
+      "note": "the opening letter of each word"
+     },
+     {
+      "clueFragment": "Pooh?",
+      "gives": "BEAR",
+      "note": "Winnie-the-Pooh is a bear, hence the question mark"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOR",
+      "BEAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A song chorus starring two much-loved storybook bears.",
+     "walkthrough": "'Refrain' looks like a chorus but is the verb. Rupert Bear is a British comic-strip character, used here only for his initial.",
+     "definitionFit": "To forbear is to hold back from doing something, the same as refraining from it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Refrain"
+    }
+   }
   },
   {
    "number": 46,
@@ -784,7 +3167,50 @@
     "text": "Egyptian’s spirit stated to be broken",
     "enumeration": "5"
    },
-   "solution": "KAPUT"
+   "solution": "KAPUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "KAPUT",
+    "definitions": [
+     {
+      "text": "broken",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Egyptian’s spirit",
+      "gives": "KA",
+      "note": "the ka is the spirit or life force in ancient Egyptian belief"
+     },
+     {
+      "clueFragment": "stated",
+      "gives": "PUT",
+      "note": "to put something a certain way is to state it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KA",
+      "PUT"
+     ]
+    },
+    "explanation": {
+     "surface": "A man from Egypt was said to be downhearted.",
+     "walkthrough": "KA is the ancient Egyptian soul, a staple of crosswords. 'Stated' is in the sense of 'as she put it'.",
+     "definitionFit": "Kaput, from German, is an informal word meaning finished, ruined or no longer working."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spirit"
+    }
+   }
   },
   {
    "number": 47,
@@ -798,7 +3224,64 @@
     "text": "Reduced manoeuvre in street is hard",
     "enumeration": "6"
    },
-   "solution": "STRICT"
+   "solution": "STRICT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "STRICT",
+    "definitions": [
+     {
+      "text": "hard",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reduced",
+      "for": "deletion",
+      "note": "reduced means cut short, so the last letter goes"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one thing within another"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "street",
+      "gives": "ST",
+      "note": "ST is the abbreviation for street"
+     },
+     {
+      "clueFragment": "manoeuvre",
+      "gives": "TRICK",
+      "note": "a trick is a crafty manoeuvre"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TRIC",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Doing a shortened turn in a road is difficult.",
+     "walkthrough": "'Hard' seems to mean difficult; it means stern, as in a hard teacher.",
+     "definitionFit": "A strict person is severe and demanding, like a hard taskmaster enforcing rules."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hard"
+    }
+   }
   },
   {
    "number": 48,
@@ -812,7 +3295,60 @@
     "text": "Not secret, MP being involved in dispute",
     "enumeration": "11"
    },
-   "solution": "CONTRETEMPS"
+   "solution": "CONTRETEMPS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CONTRETEMPS",
+    "definitions": [
+     {
+      "text": "dispute",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involved",
+      "for": "anagram",
+      "note": "involved means intricate and tangled, so the letters are mixed up"
+     }
+    ],
+    "linkWords": [
+     "being",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Not secret",
+      "gives": "NOTSECRET",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "MP",
+      "gives": "MP",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NOTSECRETMP",
+       "gives": "CONTRETEMPS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "It is public knowledge that a member of parliament is caught up in a quarrel.",
+     "walkthrough": "'Not secret' seems to mean public; it is nine letters of fodder with the MP.",
+     "definitionFit": "A contretemps is a minor argument or disagreement, borrowed from French."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Not"
+    }
+   }
   },
   {
    "number": 49,
@@ -826,7 +3362,69 @@
     "text": "Tons in solar radiation get initially attacked by a wasp",
     "enumeration": "5"
    },
-   "solution": "STUNG"
+   "solution": "STUNG",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "STUNG",
+    "definitions": [
+     {
+      "text": "attacked by a wasp",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside another"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at first, so only the opening letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "solar radiation",
+      "gives": "SUN",
+      "note": "the sun is the source of solar radiation, and sunlight is often simply called the sun"
+     },
+     {
+      "clueFragment": "Tons",
+      "gives": "T",
+      "note": "T is the abbreviation for tons"
+     },
+     {
+      "clueFragment": "get",
+      "gives": "G",
+      "select": "first",
+      "note": "the opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "T",
+      "UN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "Lots of people out in the sunshine end up bothered by wasps.",
+     "walkthrough": "The definition is a whole phrase, and 'get' supplies only its first letter.",
+     "definitionFit": "A wasp attacks by stinging, so someone attacked by one has been injured by its sting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Tons"
+    }
+   }
   },
   {
    "number": 50,
@@ -840,7 +3438,48 @@
     "text": "Who’ll do a lot to deliver domestic energy?",
     "enumeration": "10"
    },
-   "solution": "POWERHOUSE"
+   "solution": "POWERHOUSE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "POWERHOUSE",
+    "definitions": [
+     {
+      "text": "Who’ll do a lot",
+      "at": 0
+     },
+     {
+      "text": "deliver domestic energy",
+      "at": 19,
+      "note": "a verb phrase, read as the two words power house"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Who’ll do a lot",
+      "note": "first meaning: a dynamic, hard-working person"
+     },
+     {
+      "clueFragment": "deliver domestic energy",
+      "note": "second meaning: split in two, to supply electricity to a home"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone who will work hard to bring power into people's homes.",
+     "walkthrough": "The second meaning splits the answer into its two words, a verb and its object.",
+     "definitionFit": "A powerhouse is a person of great energy and output, someone who gets a great deal done."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "domestic"
+    }
+   }
   },
   {
    "number": 51,
@@ -854,7 +3493,48 @@
     "text": "Ordinary black curtains",
     "enumeration": "4"
    },
-   "solution": "BEND"
+   "solution": "BEND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BEND",
+    "definitions": [
+     {
+      "text": "Ordinary",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "black",
+      "gives": "B",
+      "note": "B is the pencil-grade abbreviation for black"
+     },
+     {
+      "clueFragment": "curtains",
+      "gives": "END",
+      "note": "curtains means the end, as in death or ruin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "END"
+     ]
+    },
+    "explanation": {
+     "surface": "Plain dark drapes in an everyday room.",
+     "walkthrough": "'Ordinary' is not an adjective but a noun from heraldry, a basic geometric charge on a shield.",
+     "definitionFit": "In heraldry a bend is one of the ordinaries, the diagonal band running across a coat of arms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Ordinary"
+    }
+   }
   },
   {
    "number": 52,
@@ -868,7 +3548,67 @@
     "text": "Backing prison to hold Arab narcissist",
     "enumeration": "9"
    },
-   "solution": "EGOMANIAC"
+   "solution": "EGOMANIAC",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "EGOMANIAC",
+    "definitions": [
+     {
+      "text": "narcissist",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Backing",
+      "for": "reversal",
+      "note": "backing means moving backwards, so the letters run the other way"
+     },
+     {
+      "text": "to hold",
+      "for": "container",
+      "note": "to hold something is to keep it within, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prison",
+      "gives": "CAGE",
+      "note": "a cage is a place of confinement"
+     },
+     {
+      "clueFragment": "Arab",
+      "gives": "OMANI",
+      "note": "an Omani is an Arab from Oman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EG",
+      "OMANI",
+      "AC"
+     ],
+     "reversals": [
+      {
+       "from": "CAGE",
+       "to": "EGAC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Supporting the jailing of a man infatuated with himself.",
+     "walkthrough": "The prison word turns round first and then wraps the Arab.",
+     "definitionFit": "An egomaniac is obsessively self-centred, which is what marks out a narcissist."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Backing"
+    }
+   }
   },
   {
    "number": 53,
@@ -896,7 +3636,51 @@
      }
     ]
    },
-   "solution": "UPTOTHEMINUTE"
+   "solution": "UPTOTHEMINUTE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UP TO THE MINUTE",
+    "definitions": [
+     {
+      "text": "far from past",
+      "at": 35
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The responsibility of",
+      "gives": "UPTO",
+      "note": "a decision up to you is your responsibility"
+     },
+     {
+      "clueFragment": "tiny ones",
+      "gives": "THEMINUTE",
+      "note": "the minute are tiny ones, as the rich are rich people"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UPTO",
+      "THEMINUTE"
+     ]
+    },
+    "explanation": {
+     "surface": "Looking after very young children is anything but old-fashioned.",
+     "walkthrough": "The trick is reading the answer as 'up to the minute ones': something that is the charge of small things.",
+     "definitionFit": "Up to the minute means completely modern and current, as far as possible from being outdated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tiny"
+    }
+   }
   },
   {
    "number": 54,
@@ -910,7 +3694,56 @@
     "text": "Red wine’s having great effect, knocking out petty officer",
     "enumeration": "4"
    },
-   "solution": "TENT"
+   "solution": "TENT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TENT",
+    "definitions": [
+     {
+      "text": "Red wine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "knocking out",
+      "for": "deletion",
+      "note": "knocking something out removes it, so those letters disappear"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "having great effect",
+      "gives": "POTENT",
+      "note": "something potent is powerful in its effect"
+     },
+     {
+      "clueFragment": "petty officer",
+      "gives": "PO",
+      "note": "PO is the abbreviation for petty officer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A strong red wine is so powerful it floors a naval officer.",
+     "walkthrough": "Tent is an old name for a deep-red Spanish wine, once used as communion wine; ''s' stands for 'is'.",
+     "definitionFit": "Tent, from Spanish tinto, is a dark red wine from Spain, so a red wine by name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "knocking"
+    }
+   }
   },
   {
    "number": 55,
@@ -924,7 +3757,54 @@
     "text": "Communication system that’s great help when working",
     "enumeration": "9"
    },
-   "solution": "TELEGRAPH"
+   "solution": "TELEGRAPH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TELEGRAPH",
+    "definitions": [
+     {
+      "text": "Communication system",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when working",
+      "for": "anagram",
+      "note": "working means being worked on, so the letters are reshaped"
+     }
+    ],
+    "linkWords": [
+     "that’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "great help",
+      "gives": "GREATHELP",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GREATHELP",
+       "gives": "TELEGRAPH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A network of messages that proves very useful as long as it functions.",
+     "walkthrough": "The surface praises a system; 'great help' is the nine letters and 'when working' the indicator.",
+     "definitionFit": "The telegraph sent coded messages along wires, a long-distance messaging network before the telephone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 56,
@@ -938,7 +3818,67 @@
     "text": "Road split by a grand little plant",
     "enumeration": "7"
    },
-   "solution": "RAGWEED"
+   "solution": "RAGWEED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RAGWEED",
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "split by",
+      "for": "container",
+      "note": "something split apart by another has that other lodged in the gap"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Road",
+      "gives": "RD",
+      "note": "RD is the abbreviation for road"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "grand",
+      "gives": "G",
+      "note": "G is the abbreviation for grand, a thousand"
+     },
+     {
+      "clueFragment": "little",
+      "gives": "WEE",
+      "note": "wee is Scottish for little"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "A",
+      "G",
+      "WEE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A tiny weed cracks open the tarmac on a highway.",
+     "walkthrough": "'Grand' is a thousand pounds, abbreviated G. 'Little plant' reads as one phrase, but 'little' is wordplay.",
+     "definitionFit": "Ragwort and ragweed are wild flowering plants, the latter a common allergy-causing weed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "little"
+    }
+   }
   }
  ]
 }
