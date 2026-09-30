@@ -565,7 +565,61 @@ run_wave() {
       failed=$((failed + 1))
     fi
   done
+  sync_wave
   return $failed
+}
+
+# One try at rebasing this tree onto origin/master and pushing whatever it then
+# holds that origin does not, run through push_race_retry. Only on a quiet tree
+# (see sync_wave). --autostash for what is left uncommitted. HEAD is detached in
+# this worktree, so master is named on both sides of the push.
+sync_attempt() {
+  git fetch -q origin master && git rebase -q --autostash origin/master &&
+    if [ -n "$(git rev-list origin/master..HEAD)" ]; then git push -q origin HEAD:master; fi
+}
+
+# Bring this tree up to origin/master, and publish anything the per-puzzle
+# pushes could not. Only here, with every run of the wave waited on: a rebase
+# with an annotator still writing fails on its clean-tree check, and an
+# autostash taken then holds that sibling's finished puzzle hostage. Planner and
+# code changes reach the burn through this rebase, and the local copies of
+# puzzles push_puzzle_commit.sh already published drop out as patch-identical.
+sync_wave() {
+  [ "$DRY_RUN" = 1 ] && return 0
+  # The glossary rows this wave's runs added (tools/add_abbreviation.py writes
+  # them whole, under a lock). Published now rather than at the republish, so
+  # the puzzles already pushed validate on master, and a burn that is killed
+  # does not lose them to nightly_worktree.sh's reset --hard.
+  if [ -n "$(git status --porcelain -- tools/data/abbreviations.json)" ]; then
+    git add -- tools/data/abbreviations.json
+    git commit -q -m "$(printf 'Abbreviations from the pre-reset backfill\n\n%s' "$(python3 tools/provenance.py trailer)")"
+  fi
+  # Nothing generated survives the rebase, because nothing generated is worth
+  # carrying: the republish step rewrites every one of these files wholesale
+  # from the puzzle sources, so the copy sitting in the tree right now is
+  # already garbage. Carried across in the --autostash, it conflicts the first
+  # time origin rebuilt the same pages, and an unmerged index fails every later
+  # `git commit` and every later autostash in the run.
+  #
+  # Exclusions, not a list of what to drop, for the reason the republish `add
+  # -A` gives: a named list of generated paths is incomplete the day someone
+  # adds a generated path. What is excluded is what a run actually authors —
+  # a puzzle kept after a cut-off run, and glossary edits under tools/.
+  git checkout -q -- . ':(exclude)puzzles/*.json' ':(exclude)tools/'
+  # checkout only restores files git is tracking HERE. A generated page for a
+  # puzzle this worktree's HEAD predates is untracked, so it survives, and the
+  # moment origin commits that same path, rebase refuses to check out over it
+  # ("untracked working tree files would be overwritten").
+  git clean -qfd -e 'puzzles/**/*.json' -e 'tools/'
+  push_race_retry sync_attempt ||
+    alert "pre-reset backfill could not bring its worktree up to origin/master or push what it holds — see .prereset.log."
+  # An unmerged file is the rest of the night's problem: every commit and every
+  # autostash from here on fails, so the job would keep buying annotations it
+  # cannot save. Stop while the alert still names one cause.
+  if [ -n "$(git ls-files -u)" ]; then
+    alert "pre-reset backfill wedged its worktree — a rebase left these unmerged: $(git diff --name-only --diff-filter=U | tr '\n' ' '). Nothing more can commit, so the run stopped rather than spend on work it cannot save. Resolve in $PWD, then push."
+    exit 1
+  fi
 }
 
 # What a finished wave teaches, and whether to keep going.
@@ -767,56 +821,10 @@ commit_puzzle() {
     # a rename rather than as a new copy beside the old one.
     git add -A -- "$(puzzle_spec "$num")"
     git commit -q -m "$(printf '%s %s\n\n%s' "$what" "$num" "$(python3 tools/provenance.py trailer)")"
-    # Nothing generated survives the rebase, because nothing generated is worth
-    # carrying: the republish step rewrites every one of these files wholesale
-    # from the puzzle sources, so the copy sitting in the tree right now is
-    # already garbage. It used to ride across as part of the --autostash, and the
-    # first time origin rebuilt the same pages the pop conflicted — 47 generated
-    # files left unmerged, and an unmerged index fails every later `git commit`
-    # AND every later autostash in the run ("Cannot save the current index
-    # state"). Each wave after that spent a full four-puzzle annotation, could
-    # commit none of it, and alerted; two nights' worth of that is what this
-    # line prevents (2026-09-01).
-    #
-    # Exclusions, not a list of what to drop, for the reason the republish `add
-    # -A` gives: a named list of generated paths is incomplete the day someone
-    # adds a generated path. What is excluded is what a run actually authors —
-    # a sibling wave's puzzle, still mid-write, and glossary edits under tools/.
-    git checkout -q -- . ':(exclude)puzzles/*.json' ':(exclude)tools/'
-    # checkout only restores files git is tracking HERE. A generated page for a
-    # puzzle this worktree's HEAD predates is untracked, so it survives — and the
-    # moment origin commits that same path, rebase's checkout refuses to detach
-    # HEAD over it ("untracked working tree files would be overwritten"), the &&
-    # chain never reaches the push, and every puzzle for the rest of the night
-    # commits locally and alerts. Same exclusions, same reason (2026-09-02).
-    git clean -qfd -e 'puzzles/**/*.json' -e 'tools/'
-    # --autostash still, for what is left: a plain rebase refuses outright with a
-    # sibling's half-written puzzle unstaged ("cannot pull with rebase: You have
-    # unstaged changes"). Every push in this job failed that way on the nights of
-    # 2026-08-05 and 08-06, so the work stayed on the mini and the site went on
-    # serving un-annotated puzzles that were annotated locally. HEAD is detached
-    # in this worktree, so master is named on both sides of the push.
-    attempt_push() {
-      git fetch -q origin master && git rebase -q --autostash origin/master &&
-        git push -q origin HEAD:master
-    }
-    # push_race_retry (tools/nightly_worktree.sh) redoes this a few times, with
-    # a backoff, if a sibling worktree (a sibling wave, the 06:15 job, or
-    # daily_update.sh's own nightly run) wins the lock on the shared
-    # refs/remotes/origin/master first — "cannot lock ref ... is at X but
-    # expected Y" is that race, not a conflict, and used to get only one bare
-    # retry here with no backoff and no check that it was even the same
-    # failure. Anything else it returns straight through to the alert below.
-    push_race_retry attempt_push ||
-      alert "pre-reset backfill committed $what $num but could not push it — the site will not show it until someone pushes. See .prereset.log."
-    # An unmerged file is not this puzzle's problem, it is the rest of the
-    # night's: every commit and every autostash from here on fails, so the job
-    # would keep buying Opus annotations it cannot save and alert once per wave.
-    # Stop while the alert still names one cause instead of five symptoms.
-    if [ -n "$(git ls-files -u)" ]; then
-      alert "pre-reset backfill wedged its worktree — a rebase left these unmerged: $(git diff --name-only --diff-filter=U | tr '\n' ' '). Nothing more can commit, so the run stopped rather than spend on work it cannot save. Resolve in $PWD, then push."
-      exit 1
-    fi
+    # Straight to origin/master without touching the tree: siblings in this
+    # wave are still writing here. The tree catches up in sync_wave.
+    tools/push_puzzle_commit.sh ||
+      alert "pre-reset backfill committed $what $num but could not push it — the site will not show it until the end of this wave retries. See .prereset.log."
     echo "committed $what $num"
   else
     echo "$what $num produced no change"
@@ -1112,14 +1120,8 @@ if [ -n "$(git status --porcelain)" ]; then
   git commit -q -m "$(printf 'Republish after pre-reset backfill\n\n%s' "$(python3 tools/provenance.py trailer)")"
   left=$(git status --porcelain | cut -c4- | tr '\n' ' ')
   [ -n "$left" ] && alert "the pre-reset backfill committed, and left these behind in its own worktree: $left"
-  # HEAD is detached here, so master is named on both sides — `pull --rebase`
-  # has no upstream to read and `push origin HEAD` has no branch to write.
-  attempt_push() {
-    git fetch -q origin master && git rebase -q --autostash origin/master &&
-      git push -q origin HEAD:master
-  }
-  # push_race_retry, for the reason commit_puzzle gives at its own.
-  push_race_retry attempt_push ||
+  # No annotator is running any more, so the rebase is safe here.
+  push_race_retry sync_attempt ||
     alert "pre-reset backfill could not push its republish commit — the built pages are committed locally only. See .prereset.log."
 fi
 
