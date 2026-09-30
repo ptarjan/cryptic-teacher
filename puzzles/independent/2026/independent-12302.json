@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,67 @@
     "text": "Cat very much recalled when hosting piece of animation",
     "enumeration": "6"
    },
-   "solution": "OCELOT"
+   "solution": "OCELOT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "OCELOT",
+    "definitions": [
+     {
+      "text": "Cat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "recalled",
+      "for": "reversal",
+      "note": "to recall is to call back, so the letters are brought back the other way"
+     },
+     {
+      "text": "when hosting",
+      "for": "container",
+      "note": "a host takes a guest in, so one string of letters gets another placed inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "very much",
+      "gives": "TOO",
+      "note": "'too' means excessively, very much"
+     },
+     {
+      "clueFragment": "piece of animation",
+      "gives": "CEL",
+      "note": "a cel is one transparent sheet painted for a frame of cartoon animation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "CEL",
+      "OT"
+     ],
+     "reversals": [
+      {
+       "from": "TOO",
+       "to": "OOT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone remembers a cartoon they loved, perhaps one starring a cat.",
+     "walkthrough": "'Recalled' suggests memory, but it means called back, turning the word round; the animation sheet then sits after its first letter.",
+     "definitionFit": "The ocelot is a spotted wild feline of the Americas, an example of a cat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "recalled"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +110,55 @@
     "text": "Secure line during party",
     "enumeration": "5"
    },
-   "solution": "CLAMP"
+   "solution": "CLAMP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CLAMP",
+    "definitions": [
+     {
+      "text": "Secure",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "during",
+      "for": "container",
+      "note": "something happening during an event sits inside its span, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L is the standard abbreviation for line"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "CAMP",
+      "note": "a camp is a faction or party within a larger group"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "L",
+      "AMP"
+     ]
+    },
+    "explanation": {
+     "surface": "A political instruction to hold the party line firm.",
+     "walkthrough": "'Party' suggests a celebration, but here it is a faction, as in the opposing camp.",
+     "definitionFit": "To clamp something is to fasten it tightly in place, a verb synonym for secure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "party"
+    }
+   }
   },
   {
    "number": 3,
@@ -67,7 +178,86 @@
      }
     ]
    },
-   "solution": "LITTLETOE"
+   "solution": "LITTLETOE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LITTLE TOE",
+    "definitions": [
+     {
+      "text": "Piggy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "top off",
+      "for": "deletion",
+      "note": "taking the top off removes the first letter of the word"
+     },
+     {
+      "text": "rolling around",
+      "for": "anagram",
+      "note": "things rolling around tumble out of order, so the letters are mixed"
+     },
+     {
+      "text": "floor of",
+      "for": "letter_selection",
+      "note": "the floor is the bottom, and in a down entry the bottom of a word is its last letter"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down clue one piece sitting on another comes above it, so they join in sequence"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drunk",
+      "gives": "LIT",
+      "note": "lit is slang for drunk"
+     },
+     {
+      "clueFragment": "bottle",
+      "gives": "OTTLE",
+      "note": "the word with its first letter removed"
+     },
+     {
+      "clueFragment": "lounge",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIT",
+      "TLETO",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OTTLE",
+       "gives": "TLETO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drunken pig swigs from a bottle and rolls around on the lounge floor.",
+     "walkthrough": "'Piggy' is not a pig: the nursery rhyme 'This little piggy went to market' counts a child's toes, and the last and smallest piggy is the little toe, the one nearest the floor.",
+     "definitionFit": "In the toe-counting nursery rhyme each toe is a piggy, so the final small one is a piggy by nickname."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Piggy"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +271,62 @@
     "text": "Office work - binding, including third of reports",
     "enumeration": "6"
    },
-   "solution": "TYPING"
+   "solution": "TYPING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TYPING",
+    "definitions": [
+     {
+      "text": "Office work",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "third of",
+      "for": "letter_selection",
+      "note": "the third of a word is its third letter taken alone"
+     },
+     {
+      "text": "including",
+      "for": "container",
+      "note": "to include something is to take it in, so one piece is held inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "binding",
+      "gives": "TYING",
+      "note": "tying is binding with string or rope"
+     },
+     {
+      "clueFragment": "reports",
+      "gives": "P",
+      "select": 3,
+      "note": "the third letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TY",
+      "P",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "Clerical chores in an office: binding documents and collating reports.",
+     "walkthrough": "'Binding' looks like office stationery work, but it simply means fastening with a cord.",
+     "definitionFit": "Keyboarding letters and documents is a classic clerical task done by staff in offices."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "binding"
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +346,74 @@
      }
     ]
    },
-   "solution": "DUSTBOWL"
+   "solution": "DUSTBOWL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "DUST BOWL",
+    "definitions": [
+     {
+      "text": "Location of historic US economic crisis?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the start, so only the opening letter is used"
+     },
+     {
+      "text": "horribly",
+      "for": "anagram",
+      "note": "something done horribly is badly messed up, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Remains",
+      "gives": "DUST",
+      "note": "dust is what remains of the dead, as in ashes to ashes"
+     },
+     {
+      "clueFragment": "bad",
+      "gives": "B",
+      "select": "first",
+      "note": "the first letter of the word"
+     },
+     {
+      "clueFragment": "low",
+      "gives": "LOW",
+      "note": "taken as written before being rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DUST",
+      "B",
+      "OWL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LOW",
+       "gives": "OWL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A historian describes the grim, low point of an American economic disaster.",
+     "walkthrough": "The Dust Bowl was the drought-stricken region of the American prairies in the 1930s, when dust storms ruined farms during the Great Depression.",
+     "definitionFit": "Drought and soil erosion in the 1930s turned the southern plains into a wasteland, deepening Depression-era hardship for farming families."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Remains"
+    }
+   }
   },
   {
    "number": 5,
@@ -121,7 +433,73 @@
      }
     ]
    },
-   "solution": "DUPLEXAPARTMENT"
+   "solution": "DUPLEXAPARTMENT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "DUPLEX APARTMENT",
+    "definitions": [
+     {
+      "text": "US flat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "curtailed",
+      "for": "deletion",
+      "note": "to curtail is to cut short, so the final letter is removed"
+     },
+     {
+      "text": "amended",
+      "for": "anagram",
+      "note": "something amended has been altered, so the letters are rewritten in new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tax",
+      "gives": "TAX",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Need",
+      "gives": "NEED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Trump",
+      "gives": "TRUMP",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "plan",
+      "gives": "PLA",
+      "note": "the word with its last letter cut off"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TAXNEEDTRUMPPLA",
+       "gives": "DUPLEXAPARTMENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about a flat-rate American tax and whether a presidential plan needs trimming.",
+     "walkthrough": "'Flat tax' reads as a single-rate tax policy, but the definition ends at 'flat', and 'tax' joins the letters to be mixed.",
+     "definitionFit": "In American usage a duplex apartment is a residence spread over two floors, a kind of flat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "flat"
+    }
+   }
   },
   {
    "number": 6,
@@ -141,7 +519,70 @@
      }
     ]
    },
-   "solution": "SUREFIRE"
+   "solution": "SUREFIRE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "SURE-FIRE",
+    "definitions": [
+     {
+      "text": "guaranteed success",
+      "at": 46,
+      "note": "the answer is an adjective, as in a sure-fire success; the definition phrase names the thing it describes"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "source of",
+      "for": "letter_selection",
+      "note": "a source is where something starts, so only the first letter is taken"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "to be about something is to surround it, so one piece goes around another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Go to court",
+      "gives": "SUE",
+      "note": "to sue is to take legal action in court"
+     },
+     {
+      "clueFragment": "rotten",
+      "gives": "R",
+      "select": "first",
+      "note": "the first letter of the word"
+     },
+     {
+      "clueFragment": "discharge",
+      "gives": "FIRE",
+      "note": "to fire a gun is to discharge it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SU",
+      "R",
+      "E",
+      "FIRE"
+     ]
+    },
+    "explanation": {
+     "surface": "A lawyer bets that suing over a rotten discharge will surely win.",
+     "walkthrough": "'Discharge' suggests something oozing from the rotten source, but it means firing a weapon.",
+     "definitionFit": "Something sure-fire is certain to succeed, as a gun that never misfires, so it describes a guaranteed success."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "discharge"
+    }
+   }
   },
   {
    "number": 7,
@@ -155,7 +596,65 @@
     "text": "Beginning to sink into Welsh lake? Probably not this wood",
     "enumeration": "5"
    },
-   "solution": "BALSA"
+   "solution": "BALSA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "and_lit"
+    ],
+    "answer": "BALSA",
+    "definitions": [
+     {
+      "text": "Probably not this wood",
+      "at": 35,
+      "note": "the whole phrase points to a wood that would not sink"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its first letter, taken alone"
+     },
+     {
+      "text": "into",
+      "for": "container",
+      "note": "going into something means ending up inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sink",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of the word"
+     },
+     {
+      "clueFragment": "Welsh lake",
+      "gives": "BALA",
+      "note": "Bala Lake, Llyn Tegid, is the largest natural lake in Wales"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAL",
+      "S",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Throw a piece of wood into a Welsh lake: this kind is unlikely to sink.",
+     "walkthrough": "Balsa is so light it floats high, which is why it would probably not sink; Bala is a lake in north Wales.",
+     "definitionFit": "Balsa is an exceptionally light, buoyant timber used for rafts and model aircraft, so it rarely goes under."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sink"
+    }
+   }
   },
   {
    "number": 8,
@@ -169,7 +668,70 @@
     "text": "Was wrong to embrace hot graduate in part of rest-room",
     "enumeration": "9"
    },
-   "solution": "WASHBASIN"
+   "solution": "WASHBASIN",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "WASHBASIN",
+    "definitions": [
+     {
+      "text": "part of rest-room",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to embrace",
+      "for": "container",
+      "note": "an embrace wraps arms around someone, so outer letters surround inner ones"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Was",
+      "gives": "WAS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "wrong",
+      "gives": "SIN",
+      "note": "a sin is a moral wrong"
+     },
+     {
+      "clueFragment": "hot",
+      "gives": "H",
+      "note": "H is the abbreviation for hot on taps"
+     },
+     {
+      "clueFragment": "graduate",
+      "gives": "BA",
+      "note": "a BA, Bachelor of Arts, is a graduate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WAS",
+      "H",
+      "BA",
+      "SIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone misbehaved by hugging a sexy graduate in the washroom.",
+     "walkthrough": "'Was wrong' reads as one verb phrase, but it splits into two pieces that open around the rest.",
+     "definitionFit": "A sink for washing hands is a standard fitting of a public lavatory or bathroom."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hot"
+    }
+   }
   },
   {
    "number": 9,
@@ -183,7 +745,51 @@
     "text": "Stuff in bin appears wet, filthy",
     "enumeration": "10"
    },
-   "solution": "WASTEPAPER"
+   "solution": "WASTEPAPER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "WASTEPAPER",
+    "definitions": [
+     {
+      "text": "Stuff in bin",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "filthy",
+      "for": "anagram",
+      "note": "something filthy is a mess, so the letters are thrown into disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "appears wet",
+      "gives": "APPEARSWET",
+      "note": "taken as written before being rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "APPEARSWET",
+       "gives": "WASTEPAPER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The rubbish in the bin looks damp and dirty.",
+     "walkthrough": "The surface is a straight description of a bin, which is why the letter mix hides so well.",
+     "definitionFit": "Discarded sheets and scraps are what typically fill an office rubbish basket."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "filthy"
+    }
+   }
   },
   {
    "number": 10,
@@ -197,7 +803,43 @@
     "text": "Least likely to persist",
     "enumeration": "4"
    },
-   "solution": "LAST"
+   "solution": "LAST",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LAST",
+    "definitions": [
+     {
+      "text": "Least likely",
+      "at": 0
+     },
+     {
+      "text": "persist",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Least likely",
+      "note": "first meaning: as in 'the final person you would expect'"
+     },
+     {
+      "clueFragment": "persist",
+      "note": "second meaning: to continue or endure over time"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface reads as one phrase about what is unlikely to endure; it splits into two separate meanings.",
+     "definitionFit": "The word is an adjective for the one you would expect least and a verb for going on enduring."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "persist"
+    }
+   }
   },
   {
    "number": 11,
@@ -211,7 +853,63 @@
     "text": "Poulenc’s variation - ultimate in exquisite richness",
     "enumeration": "8"
    },
-   "solution": "OPULENCE"
+   "solution": "OPULENCE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "OPULENCE",
+    "definitions": [
+     {
+      "text": "richness",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "variation",
+      "for": "anagram",
+      "note": "a variation is a changed version of a theme, so the letters are altered in order"
+     },
+     {
+      "text": "ultimate in",
+      "for": "letter_selection",
+      "note": "the ultimate is the final one, so the last letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Poulenc’s",
+      "gives": "POULENC",
+      "note": "the composer's name taken as written"
+     },
+     {
+      "clueFragment": "exquisite",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of the word"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "POULENCE",
+       "gives": "OPULENCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A music critic praises a Poulenc piece in variation form for its lush sound.",
+     "walkthrough": "Francis Poulenc was a French composer, so 'variation' looks like a musical form; it is the signal to mix the letters.",
+     "definitionFit": "Opulence is great wealth or luxuriousness, a close synonym for lavish richness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "variation"
+    }
+   }
   },
   {
    "number": 12,
@@ -225,7 +923,60 @@
     "text": "Fine times pursuing dog, in need of exercise?",
     "enumeration": "6"
    },
-   "solution": "FLABBY"
+   "solution": "FLABBY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FLABBY",
+    "definitions": [
+     {
+      "text": "in need of exercise?",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pursuing",
+      "for": "charade",
+      "note": "to pursue is to follow behind, so one piece comes after the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fine",
+      "gives": "F",
+      "note": "F is the pencil-grade abbreviation for fine"
+     },
+     {
+      "clueFragment": "dog",
+      "gives": "LAB",
+      "note": "a lab is a Labrador retriever"
+     },
+     {
+      "clueFragment": "times",
+      "gives": "BY",
+      "note": "in multiplication, three by four means three times four"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "LAB",
+      "BY"
+     ]
+    },
+    "explanation": {
+     "surface": "An owner has fun times chasing the dog, which clearly needs a walk.",
+     "walkthrough": "'Times' looks like occasions, but it is the multiplication sign read as 'by'.",
+     "definitionFit": "Someone with slack, soft flesh could do with a workout, a playful description signalled by the question mark."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "times"
+    }
+   }
   },
   {
    "number": 13,
@@ -239,7 +990,62 @@
     "text": "Possible limitation of first castle",
     "enumeration": "4"
    },
-   "solution": "FORT"
+   "solution": "FORT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "FORT",
+    "definitions": [
+     {
+      "text": "castle",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "limitation of",
+      "for": "letter_selection",
+      "note": "the limits of a word are its boundaries, so only its outer letters are kept"
+     },
+     {
+      "text": "of",
+      "for": "container",
+      "note": "the boundary letters are those of a word that holds the other piece between them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "first",
+      "gives": "FT",
+      "select": "outer",
+      "note": "the first and last letters of the word"
+     },
+     {
+      "clueFragment": "Possible",
+      "gives": "OR",
+      "note": "'or' introduces a possible alternative"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "OR",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A historian speculates about the earliest boundary of an original castle.",
+     "walkthrough": "'First' looks like an ordinal, but it is simply the word whose outside letters are kept.",
+     "definitionFit": "A fort is a fortified military stronghold, which is broadly what a castle is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "first"
+    }
+   }
   },
   {
    "number": 14,
@@ -253,7 +1059,62 @@
     "text": "Not seeing even bits of plain when within plain",
     "enumeration": "9"
    },
-   "solution": "OBLIVIOUS"
+   "solution": "OBLIVIOUS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "OBLIVIOUS",
+    "definitions": [
+     {
+      "text": "Not seeing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "even bits of",
+      "for": "letter_selection",
+      "note": "the even bits are those in positions two, four and so on"
+     },
+     {
+      "text": "when within",
+      "for": "container",
+      "note": "being within something means sitting inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "plain",
+      "gives": "OBVIOUS",
+      "note": "plain means obvious, clear to see"
+     },
+     {
+      "clueFragment": "plain",
+      "gives": "LI",
+      "select": "alternate",
+      "note": "the second and fourth letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OB",
+      "LI",
+      "VIOUS"
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller notices nothing while crossing flat, featureless country.",
+     "walkthrough": "'Plain' appears twice with two jobs: once as the source of letters, once meaning evident.",
+     "definitionFit": "Oblivious means unaware of what is around you, so failing to notice or see it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "plain"
+    }
+   }
   },
   {
    "number": 15,
@@ -267,7 +1128,69 @@
     "text": "Insouciance from song in E by couple of sopranos",
     "enumeration": "8"
    },
-   "solution": "AIRINESS"
+   "solution": "AIRINESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AIRINESS",
+    "definitions": [
+     {
+      "text": "Insouciance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by",
+      "for": "charade",
+      "note": "standing by something is being next to it, so the pieces sit side by side"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "song",
+      "gives": "AIR",
+      "note": "an air is a tune or song"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "E",
+      "gives": "E",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "couple of sopranos",
+      "gives": "SS",
+      "note": "S is the abbreviation for soprano, doubled for a couple"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AIR",
+      "IN",
+      "E",
+      "SS"
+     ]
+    },
+    "explanation": {
+     "surface": "A light-hearted duet in the key of E sung by two sopranos.",
+     "walkthrough": "'In E' reads as a musical key, but 'in' and 'E' each go straight into the answer.",
+     "definitionFit": "Airiness is a breezy, carefree lightness of manner, much the same as nonchalant unconcern."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "E"
+    }
+   }
   },
   {
    "number": 16,
@@ -287,7 +1210,50 @@
      }
     ]
    },
-   "solution": "NEARTHING"
+   "solution": "NEARTHING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NEAR THING",
+    "definitions": [
+     {
+      "text": "Close call",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "note",
+      "gives": "N",
+      "note": "N is the abbreviation for note"
+     },
+     {
+      "clueFragment": "electrical equipment safe",
+      "gives": "EARTHING",
+      "note": "earthing connects equipment to the ground so faults discharge harmlessly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "EARTHING"
+     ]
+    },
+    "explanation": {
+     "surface": "An electrician narrowly avoids a shock and writes a note about proper safety.",
+     "walkthrough": "Earthing is the British term for grounding a circuit, what Americans call grounding.",
+     "definitionFit": "A narrow escape from disaster is called either phrase, both idioms for something that almost happened."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "note"
+    }
+   }
   },
   {
    "number": 17,
@@ -301,7 +1267,71 @@
     "text": "Cheer in Government after America withdraws, moving quickly",
     "enumeration": "8"
    },
-   "solution": "HURRYING"
+   "solution": "HURRYING",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "HURRYING",
+    "definitions": [
+     {
+      "text": "moving quickly",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "deletion",
+      "note": "the state after a departure is what remains once the named letter has gone"
+     },
+     {
+      "text": "withdraws",
+      "for": "deletion",
+      "note": "whoever withdraws leaves the scene, so those letters drop out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cheer",
+      "gives": "HURRAY",
+      "note": "hurray is a cheer"
+     },
+     {
+      "clueFragment": "America",
+      "gives": "A",
+      "note": "A is the abbreviation for America, and it is removed"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Government",
+      "gives": "G",
+      "note": "G is the abbreviation for government"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HURRY",
+      "IN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "Politicians celebrate as the US pulls out of an alliance at speed.",
+     "walkthrough": "'After' tells you the removal happens to the cheer; 'in' and G then follow on.",
+     "definitionFit": "To hurry is to go with haste, so the present participle means going fast."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cheer"
+    }
+   }
   },
   {
    "number": 18,
@@ -315,7 +1345,65 @@
     "text": "Praise everybody getting university involved in Charles Lamb",
     "enumeration": "8"
    },
-   "solution": "ALLELUIA"
+   "solution": "ALLELUIA",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ALLELUIA",
+    "definitions": [
+     {
+      "text": "Praise",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involved in",
+      "for": "container",
+      "note": "something involved in a thing is caught up inside it"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "everybody",
+      "gives": "ALL",
+      "note": "all means everybody"
+     },
+     {
+      "clueFragment": "Charles Lamb",
+      "gives": "ELIA",
+      "note": "Elia was the pen name of the essayist Charles Lamb"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "U is the abbreviation for university"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALL",
+      "EL",
+      "U",
+      "IA"
+     ]
+    },
+    "explanation": {
+     "surface": "Charles Lamb earns acclaim from all as a university takes up his work.",
+     "walkthrough": "Charles Lamb published his Essays of Elia under that pen name, a crossword favourite.",
+     "definitionFit": "Alleluia is a liturgical exclamation meaning 'praise the Lord', used as a noun for such praise."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Lamb"
+    }
+   }
   },
   {
    "number": 19,
@@ -329,7 +1417,48 @@
     "text": "Relative’s place regularly visited, in part of London",
     "enumeration": "4"
    },
-   "solution": "AUNT"
+   "solution": "AUNT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "AUNT",
+    "definitions": [
+     {
+      "text": "Relative",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in part of London",
+      "for": "deletion",
+      "note": "in Cockney speech of London's East End the initial H is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "place regularly visited",
+      "gives": "HAUNT",
+      "note": "a haunt is a place someone frequents"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AUNT"
+     ]
+    },
+    "explanation": {
+     "surface": "A relative's house that gets frequent visits somewhere in London.",
+     "walkthrough": "Cockneys, from the East End of London, famously drop their H's, so the word loses its opening letter.",
+     "definitionFit": "An aunt is the sister of a parent, a family relation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "London"
+    }
+   }
   },
   {
    "number": 20,
@@ -343,7 +1472,47 @@
     "text": "A bad American playwright",
     "enumeration": "6"
    },
-   "solution": "ONEILL"
+   "solution": "ONEILL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "O'NEILL",
+    "definitions": [
+     {
+      "text": "American playwright",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "ONE",
+      "note": "a means one, as in a hundred"
+     },
+     {
+      "clueFragment": "bad",
+      "gives": "ILL",
+      "note": "ill means bad, as in ill feeling"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ONE",
+      "ILL"
+     ]
+    },
+    "explanation": {
+     "surface": "A critic dismisses a US dramatist as a poor one.",
+     "walkthrough": "'Bad' seems to describe the writer, but it is its own piece.",
+     "definitionFit": "Eugene O'Neill wrote Long Day's Journey into Night and won the Nobel Prize for Literature."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bad"
+    }
+   }
   },
   {
    "number": 21,
@@ -357,7 +1526,68 @@
     "text": "One cheers, enthralled by a virtual reality film franchise",
     "enumeration": "6"
    },
-   "solution": "AVATAR"
+   "solution": "AVATAR",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "AVATAR",
+    "definitions": [
+     {
+      "text": "film franchise",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "enthralled by",
+      "for": "container",
+      "note": "to be enthralled is to be held captive, so one piece is held inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "A",
+      "note": "a is one"
+     },
+     {
+      "clueFragment": "cheers",
+      "gives": "TA",
+      "note": "ta is British slang for thanks, as is cheers"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "virtual reality",
+      "gives": "VR",
+      "note": "VR is the abbreviation for virtual reality"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "V",
+      "A",
+      "TA",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A cinemagoer toasts a virtual-reality movie series that has them spellbound.",
+     "walkthrough": "In British speech both cheers and ta mean thank you; one + ta sits inside VR, after the a.",
+     "definitionFit": "Avatar is James Cameron's series of science-fiction films set on the alien moon Pandora."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cheers"
+    }
+   }
   },
   {
    "number": 22,
@@ -371,7 +1601,43 @@
     "text": "Fish served in ornate trattoria",
     "enumeration": "5"
    },
-   "solution": "TETRA"
+   "solution": "TETRA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TETRA",
+    "definitions": [
+     {
+      "text": "Fish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "served in",
+      "for": "hidden_word",
+      "note": "a dish served in a vessel is held within it, so the letters lie inside the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ornate trattoria",
+      "gives": "TETRA",
+      "note": "the letters run across the end of one word into the start of the next"
+     }
+    ],
+    "explanation": {
+     "surface": "A fish dish arrives at a fancy Italian restaurant.",
+     "walkthrough": "'Served' plays on the restaurant scene; the answer spans the two words.",
+     "definitionFit": "A tetra is a small, brightly coloured tropical freshwater fish popular in aquariums."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "served"
+    }
+   }
   },
   {
    "number": 23,
@@ -385,7 +1651,62 @@
     "text": "Metal treatment involving time, just a bit",
     "enumeration": "8"
    },
-   "solution": "TINCTURE"
+   "solution": "TINCTURE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "TINCTURE",
+    "definitions": [
+     {
+      "text": "just a bit",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involving",
+      "for": "container",
+      "note": "to involve is to take in, so one piece encloses another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Metal",
+      "gives": "TIN",
+      "note": "tin is a metal"
+     },
+     {
+      "clueFragment": "treatment",
+      "gives": "CURE",
+      "note": "a cure is a medical treatment"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIN",
+      "C",
+      "T",
+      "URE"
+     ]
+    },
+    "explanation": {
+     "surface": "A metallurgist applies a time-sensitive treatment to a small area.",
+     "walkthrough": "'Metal treatment' reads as one process, but splits into a metal and a remedy.",
+     "definitionFit": "A tincture is a slight trace or tinge of something, so a mere touch or small amount."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "treatment"
+    }
+   }
   },
   {
    "number": 24,
@@ -399,7 +1720,60 @@
     "text": "Memorial regarding defeat getting cut down",
     "enumeration": "5"
    },
-   "solution": "RELIC"
+   "solution": "RELIC",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "RELIC",
+    "definitions": [
+     {
+      "text": "Memorial",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut down",
+      "for": "deletion",
+      "note": "cutting something down shortens it, so the final letter is removed"
+     },
+     {
+      "text": "getting",
+      "for": "charade",
+      "note": "one piece getting another acquires it, so the two join end to end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "regarding",
+      "gives": "RE",
+      "note": "re means regarding, concerning"
+     },
+     {
+      "clueFragment": "defeat",
+      "gives": "LIC",
+      "note": "lick means defeat; the word loses its last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "LIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A war memorial about a defeat is chopped down.",
+     "walkthrough": "'Defeat' sounds military, but it is the informal verb meaning to beat.",
+     "definitionFit": "A relic is an object kept from the past as a reminder, so it serves as a keepsake of commemoration."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "defeat"
+    }
+   }
   },
   {
    "number": 25,
@@ -413,7 +1787,43 @@
     "text": "After a job?",
     "enumeration": "4"
    },
-   "solution": "POST"
+   "solution": "POST",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "POST",
+    "definitions": [
+     {
+      "text": "After",
+      "at": 0
+     },
+     {
+      "text": "a job",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "After",
+      "note": "first meaning: the Latin prefix meaning later"
+     },
+     {
+      "clueFragment": "a job",
+      "note": "second meaning: a position of employment"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as a job-seeker's question; 'After' is not a verb here but a separate meaning.",
+     "definitionFit": "The word is a prefix for later in time and a noun for a position someone is employed in."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "After"
+    }
+   }
   },
   {
    "number": 26,
@@ -427,7 +1837,66 @@
     "text": "Disqualified one active in e.g. libel",
     "enumeration": "10"
    },
-   "solution": "INELIGIBLE"
+   "solution": "INELIGIBLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INELIGIBLE",
+    "definitions": [
+     {
+      "text": "Disqualified",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "active",
+      "for": "anagram",
+      "note": "active things are busy and moving, so the letters are stirred into new places"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "e.g.",
+      "gives": "EG",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "libel",
+      "gives": "LIBEL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IINEGLIBEL",
+       "gives": "INELIGIBLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone involved in a libel case is barred from taking part.",
+     "walkthrough": "'Active in' reads as taking part, but 'active' mixes all the letters, including those of 'in'.",
+     "definitionFit": "Being disqualified means not allowed to take part, which is what not meeting the entry criteria means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "active"
+    }
+   }
   },
   {
    "number": 27,
@@ -441,7 +1910,55 @@
     "text": "Parisian delicacy? Parisian is importing a load",
     "enumeration": "8"
    },
-   "solution": "ESCARGOT"
+   "solution": "ESCARGOT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ESCARGOT",
+    "definitions": [
+     {
+      "text": "Parisian delicacy?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "importing",
+      "for": "container",
+      "note": "to import is to bring in, so one piece is taken inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Parisian is",
+      "gives": "EST",
+      "note": "est is French for 'is'"
+     },
+     {
+      "clueFragment": "a load",
+      "gives": "CARGO",
+      "note": "a cargo is a load of goods"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ES",
+      "CARGO",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A French gourmet has a shipment of luxury food brought in.",
+     "walkthrough": "'Parisian' appears twice: once marking a French dish, once asking for a French word.",
+     "definitionFit": "Escargots are snails cooked in garlic butter, a famous item of French cuisine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "importing"
+    }
+   }
   },
   {
    "number": 28,
@@ -455,7 +1972,55 @@
     "text": "Delicate, hanging around for one bequest",
     "enumeration": "6"
    },
-   "solution": "LEGACY"
+   "solution": "LEGACY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LEGACY",
+    "definitions": [
+     {
+      "text": "bequest",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hanging around",
+      "for": "container",
+      "note": "hanging around something means surrounding it, so one piece wraps another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Delicate",
+      "gives": "LACY",
+      "note": "lacy means fine and delicate like lace"
+     },
+     {
+      "clueFragment": "for one",
+      "gives": "EG",
+      "note": "e.g. means for example, for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "EG",
+      "ACY"
+     ]
+    },
+    "explanation": {
+     "surface": "A fragile heirloom left hanging about is someone's inheritance.",
+     "walkthrough": "'For one' looks like part of the surface, but it stands for e.g.",
+     "definitionFit": "A legacy is money or property left to someone in a will, the same as a bequest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hanging"
+    }
+   }
   }
  ]
 }
