@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,56 @@
     "text": "Furniture ultimately not fit for the task",
     "enumeration": "5"
    },
-   "solution": "TABLE"
+   "solution": "TABLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TABLE",
+    "definitions": [
+     {
+      "text": "Furniture",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so only the closing letter of the next word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not",
+      "gives": "T",
+      "select": "last",
+      "note": "the final letter of 'not'"
+     },
+     {
+      "clueFragment": "fit for the task",
+      "gives": "ABLE",
+      "note": "able means capable, fit for the job"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that a piece of furniture turned out useless for its intended job.",
+     "walkthrough": "The surface reads 'not fit for the task' as one verdict on the furniture, but 'not' is split off to supply one letter.",
+     "definitionFit": "A table is a standard household item with a flat top on legs, one example of furnishings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "not"
+    }
+   }
   },
   {
    "number": 1,
@@ -53,7 +105,51 @@
      }
     ]
    },
-   "solution": "TUBESTATIONS"
+   "solution": "TUBESTATIONS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TUBE STATIONS",
+    "definitions": [
+     {
+      "text": "Underground sites",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "TV",
+      "gives": "TUBE",
+      "note": "the tube is informal for television"
+     },
+     {
+      "clueFragment": "channels",
+      "gives": "STATIONS",
+      "note": "broadcasting stations are channels"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TUBE",
+      "STATIONS"
+     ]
+    },
+    "explanation": {
+     "surface": "Somebody asking where the secret bases of television networks are hidden.",
+     "walkthrough": "The Tube is the London Underground railway; 'Underground' looks like it means secret or buried, but it names the railway.",
+     "definitionFit": "Stops on the London metro system are places where passengers board trains beneath the city streets."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Underground"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +163,56 @@
     "text": "Flawed Lib Dems he transformed",
     "enumeration": "9"
    },
-   "solution": "BLEMISHED"
+   "solution": "BLEMISHED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BLEMISHED",
+    "definitions": [
+     {
+      "text": "Flawed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "transformed",
+      "for": "anagram",
+      "note": "something transformed has changed its form, so the letters take on a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lib Dems",
+      "gives": "LIBDEMS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "he",
+      "gives": "HE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LIBDEMSHE",
+       "gives": "BLEMISHED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A flawed Liberal Democrat politician whom some man has reshaped.",
+     "walkthrough": "The Lib Dems are the Liberal Democrats, a British political party; here the name is only a bag of letters.",
+     "definitionFit": "Something marked with a blemish carries a visible defect or imperfection, making it damaged or spoiled."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Lib"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +226,55 @@
     "text": "Praise one-time tax cut",
     "enumeration": "5"
    },
-   "solution": "EXTOL"
+   "solution": "EXTOL",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "EXTOL",
+    "definitions": [
+     {
+      "text": "Praise",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut",
+      "for": "deletion",
+      "note": "cut means shortened, so the word loses its last letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one-time",
+      "gives": "EX",
+      "note": "ex means former"
+     },
+     {
+      "clueFragment": "tax",
+      "gives": "TOLL",
+      "note": "a toll is a levy or tax"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "TOL"
+     ]
+    },
+    "explanation": {
+     "surface": "Applauding a government that once reduced a tax.",
+     "walkthrough": "'Tax cut' reads as a single phrase, but 'cut' docks the final L of TOLL.",
+     "definitionFit": "To extol is to laud or glorify someone warmly, a formal verb synonym for speaking highly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +288,65 @@
     "text": "Best sources of general revision before each exam",
     "enumeration": "8"
    },
-   "solution": "GREATEST"
+   "solution": "GREATEST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "GREATEST",
+    "definitions": [
+     {
+      "text": "Best",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sources of",
+      "for": "letter_selection",
+      "note": "a source is where something starts, so the opening letters are kept"
+     }
+    ],
+    "linkWords": [
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "general revision",
+      "gives": "GR",
+      "select": "first",
+      "note": "the opening letters of 'general' and 'revision'"
+     },
+     {
+      "clueFragment": "each",
+      "gives": "EA",
+      "note": "EA is the standard abbreviation for each"
+     },
+     {
+      "clueFragment": "exam",
+      "gives": "TEST",
+      "note": "a test is an exam"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GR",
+      "EA",
+      "TEST"
+     ]
+    },
+    "explanation": {
+     "surface": "Study advice: the best materials for broad revision ahead of every exam.",
+     "walkthrough": "'Before' places the first pieces ahead of the last; EA is a price-list abbreviation for each.",
+     "definitionFit": "Greatest is a superlative adjective meaning finest or top, matching best in both sense and form."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sources"
+    }
+   }
   },
   {
    "number": 4,
@@ -115,7 +366,43 @@
      }
     ]
    },
-   "solution": "GOINGOVER"
+   "solution": "GOINGOVER",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "GOING OVER",
+    "definitions": [
+     {
+      "text": "Examining",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "some means only a portion, so a run of letters is taken from inside the phrase"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "farrago in government",
+      "gives": "GOINGOVER",
+      "note": "the run spans the end of 'farrago', all of 'in' and the start of 'government'"
+     }
+    ],
+    "explanation": {
+     "surface": "Investigating a hotchpotch of nonsense inside the government.",
+     "walkthrough": "A farrago is a confused mixture; the answer runs across three words of the phrase.",
+     "definitionFit": "Going over something means checking or reviewing it carefully, a phrasal verb matching the participle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "some"
+    }
+   }
   },
   {
    "number": 5,
@@ -129,7 +416,53 @@
     "text": "Monster rising up thus",
     "enumeration": "4"
    },
-   "solution": "ERGO"
+   "solution": "ERGO",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "ERGO",
+    "definitions": [
+     {
+      "text": "thus",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rising up",
+      "for": "reversal",
+      "note": "in a down entry, rising means reading from bottom to top, so the word runs backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Monster",
+      "gives": "OGRE",
+      "note": "an ogre is a monster"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ERGO"
+     ],
+     "reversals": [
+      {
+       "from": "OGRE",
+       "to": "ERGO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A monster rears up in just this way.",
+     "walkthrough": "The reversal indicator suits a down clue, where the letters climb the grid.",
+     "definitionFit": "Ergo is Latin for therefore, used in English as a logical connective meaning consequently or hence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -149,7 +482,42 @@
      }
     ]
    },
-   "solution": "TOPDRAWER"
+   "solution": "TOPDRAWER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TOP-DRAWER",
+    "definitions": [
+     {
+      "text": "Excellent",
+      "at": 0
+     },
+     {
+      "text": "place people often store underwear?",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Excellent",
+      "note": "first meaning: of the highest quality or class"
+     },
+     {
+      "clueFragment": "place people often store underwear?",
+      "note": "second meaning: the uppermost compartment of a chest, the usual home of socks and pants"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags that the second meaning is a literal description rather than a dictionary sense.",
+     "definitionFit": "As an adjective the phrase means first-rate or upper-class, from the idea that the best things go at the top."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 7,
@@ -163,7 +531,44 @@
     "text": "Belts and items of footwear",
     "enumeration": "5"
    },
-   "solution": "SOCKS"
+   "solution": "SOCKS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SOCKS",
+    "definitions": [
+     {
+      "text": "Belts",
+      "at": 0
+     },
+     {
+      "text": "items of footwear",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Belts",
+      "note": "first meaning: punches or hits hard"
+     },
+     {
+      "clueFragment": "items of footwear",
+      "note": "second meaning: garments worn on the feet"
+     }
+    ],
+    "explanation": {
+     "surface": "A list of clothing accessories: belts and things you wear on your feet.",
+     "walkthrough": "'Belts' looks like a noun for waist straps; it is a verb meaning hits, matching the verb 'socks'.",
+     "definitionFit": "To sock someone is slang for striking them, while the plural noun names knitted foot coverings worn inside shoes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Belts"
+    }
+   }
   },
   {
    "number": 8,
@@ -183,7 +588,54 @@
      }
     ]
    },
-   "solution": "BREATHINGSPACE"
+   "solution": "BREATHINGSPACE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BREATHING SPACE",
+    "definitions": [
+     {
+      "text": "some downtime",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Drunk",
+      "for": "anagram",
+      "note": "someone drunk is disordered and unsteady, so the letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "escaping the bar",
+      "gives": "ESCAPINGTHEBAR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ESCAPINGTHEBAR",
+       "gives": "BREATHINGSPACE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drunk leaving the pub to get a bit of rest.",
+     "walkthrough": "'Drunk' looks like the person doing the leaving, but it signals the jumble of the three words after it.",
+     "definitionFit": "A pause or respite that lets someone recover before carrying on is a spell of rest or relaxation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Drunk"
+    }
+   }
   },
   {
    "number": 9,
@@ -203,7 +655,40 @@
      }
     ]
    },
-   "solution": "HOUSETRAINED"
+   "solution": "HOUSETRAINED",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "HOUSE-TRAINED",
+    "definitions": [
+     {
+      "text": "Instructed not to do business internally?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Instructed not to do business internally?",
+      "note": "surface reading: told not to trade within a company, like an insider-dealing ban"
+     },
+     {
+      "clueFragment": "do business internally",
+      "note": "setter's reading: a pet taught not to relieve itself indoors"
+     }
+    ],
+    "explanation": {
+     "surface": "An employee warned against insider trading.",
+     "walkthrough": "'Do business' is a coy phrase for a pet relieving itself, and 'internally' means inside the home.",
+     "definitionFit": "A dog or cat that has learnt to go outside for its toilet needs has been taught this domestic habit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "business"
+    }
+   }
   },
   {
    "number": 10,
@@ -217,7 +702,51 @@
     "text": "Stuff leaking from small sack",
     "enumeration": "8"
    },
-   "solution": "SPILLAGE"
+   "solution": "SPILLAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SPILLAGE",
+    "definitions": [
+     {
+      "text": "Stuff leaking",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     },
+     {
+      "clueFragment": "sack",
+      "gives": "PILLAGE",
+      "note": "to sack a town is to pillage it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PILLAGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Contents dribbling out of a little bag.",
+     "walkthrough": "'Sack' looks like a bag, which suits the leak, but it is plunder.",
+     "definitionFit": "Material that has escaped or run out of a container is spilt matter, a noun for leaked contents."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sack"
+    }
+   }
   },
   {
    "number": 11,
@@ -231,7 +760,61 @@
     "text": "Quick pasta sauce containing last bit of pepper",
     "enumeration": "6"
    },
-   "solution": "PRESTO"
+   "solution": "PRESTO",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "PRESTO",
+    "definitions": [
+     {
+      "text": "Quick",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "containing",
+      "for": "container",
+      "note": "to contain is to hold inside, so one piece sits within another"
+     },
+     {
+      "text": "last bit of",
+      "for": "letter_selection",
+      "note": "the last bit of a word is its final letter, which alone is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pasta sauce",
+      "gives": "PESTO",
+      "note": "pesto is a basil sauce for pasta"
+     },
+     {
+      "clueFragment": "pepper",
+      "gives": "R",
+      "select": "last",
+      "note": "the final letter of 'pepper'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "R",
+      "ESTO"
+     ]
+    },
+    "explanation": {
+     "surface": "A fast pasta sauce spiked with a touch of pepper.",
+     "walkthrough": "The R slips in after the first letter of the sauce.",
+     "definitionFit": "Presto is a musical direction meaning very fast, and also used generally for instantly or rapid."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -245,7 +828,52 @@
     "text": "Stickers have sides removed",
     "enumeration": "9"
    },
-   "solution": "ADHESIVES"
+   "solution": "ADHESIVES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ADHESIVES",
+    "definitions": [
+     {
+      "text": "Stickers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "removed",
+      "for": "anagram",
+      "note": "read as re-moved, meaning moved again, so the letters are shifted into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "have sides",
+      "gives": "HAVESIDES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HAVESIDES",
+       "gives": "ADHESIVES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Labels whose edges have been peeled away.",
+     "walkthrough": "'Sides removed' suggests deleting outer letters, a false path; nothing is deleted, and 'removed' splits as re-moved.",
+     "definitionFit": "Glues and gums are things that stick, so stickers here means bonding substances rather than printed labels."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "removed"
+    }
+   }
   },
   {
    "number": 13,
@@ -259,7 +887,67 @@
     "text": "Increasingly grand position beset by utter anarchy at its core",
     "enumeration": "9"
    },
-   "solution": "STATELIER"
+   "solution": "STATELIER",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "STATELIER",
+    "definitions": [
+     {
+      "text": "Increasingly grand",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beset by",
+      "for": "container",
+      "note": "to be beset is to be surrounded on all sides, so one piece is enclosed"
+     },
+     {
+      "text": "at its core",
+      "for": "letter_selection",
+      "note": "the core is the very centre, so only the middle letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "utter",
+      "gives": "STATE",
+      "note": "to utter is to state"
+     },
+     {
+      "clueFragment": "position",
+      "gives": "LIE",
+      "note": "the lie of something is how it is positioned"
+     },
+     {
+      "clueFragment": "anarchy",
+      "gives": "R",
+      "select": "middle",
+      "note": "the central letter of the seven in 'anarchy'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STATE",
+      "LIE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A lofty post surrounded by total chaos in the middle.",
+     "walkthrough": "'Utter' looks like an adjective, total, qualifying anarchy; it is the verb. The outer pair wraps LIE.",
+     "definitionFit": "Stately means dignified and imposing, so its comparative form describes something more grand."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "utter"
+    }
+   }
   },
   {
    "number": 14,
@@ -273,7 +961,56 @@
     "text": "Briefly outline a certain, pronounced issue",
     "enumeration": "9"
    },
-   "solution": "SUMMARISE"
+   "solution": "SUMMARISE",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "SUMMARISE",
+    "definitions": [
+     {
+      "text": "Briefly outline",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pronounced",
+      "for": "homophone",
+      "note": "pronounced means spoken, so the words are judged by how they are said"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a certain",
+      "gives": "SUMM",
+      "soundsLike": "SOME",
+      "note": "some means a certain, as in some person"
+     },
+     {
+      "clueFragment": "issue",
+      "gives": "ARISE",
+      "note": "to issue is to emerge or come up"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUMM",
+      "ARISE"
+     ]
+    },
+    "explanation": {
+     "surface": "A request to sketch out a particular, clearly stated problem.",
+     "walkthrough": "'Pronounced' looks like an adjective meaning marked; it is the sound signal, and 'issue' is a verb, not a problem.",
+     "definitionFit": "To give the main points of something in short form is to condense it into a brief account."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pronounced"
+    }
+   }
   },
   {
    "number": 15,
@@ -287,7 +1024,65 @@
     "text": "Drifts west after following the shoreline at first",
     "enumeration": "5"
    },
-   "solution": "WAFTS"
+   "solution": "WAFTS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "WAFTS",
+    "definitions": [
+     {
+      "text": "Drifts",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first points to the start, so only the opening letter is kept"
+     }
+    ],
+    "linkWords": [
+     "following"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "west",
+      "gives": "W",
+      "note": "W is the compass abbreviation for west"
+     },
+     {
+      "clueFragment": "after",
+      "gives": "AFT",
+      "note": "aft means behind or after, a nautical term"
+     },
+     {
+      "clueFragment": "the shoreline",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of 'shoreline'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "AFT",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A boat drifting westwards after tracking the coast.",
+     "walkthrough": "'After' reads as a sequencing word but supplies letters itself; 'following' then just keeps the pieces in order.",
+     "definitionFit": "Waft is a verb for moving gently through the air or over water, the same as floating along."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "after"
+    }
+   }
   },
   {
    "number": 16,
@@ -301,7 +1096,55 @@
     "text": "One who likes embracing popular moneymaker?",
     "enumeration": "9"
    },
-   "solution": "FINANCIER"
+   "solution": "FINANCIER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FINANCIER",
+    "definitions": [
+     {
+      "text": "moneymaker?",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "embracing",
+      "for": "container",
+      "note": "to embrace is to wrap your arms around, so one piece encloses another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One who likes",
+      "gives": "FANCIER",
+      "note": "a fancier is an enthusiast for something"
+     },
+     {
+      "clueFragment": "popular",
+      "gives": "IN",
+      "note": "in means fashionable or popular"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "IN",
+      "ANCIER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone fond of cuddling a well-liked earner.",
+     "walkthrough": "The question mark admits the definition is loose: this person handles capital rather than minting coins.",
+     "definitionFit": "A person who manages large sums or funds ventures makes money through investment and banking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "embracing"
+    }
+   }
   },
   {
    "number": 17,
@@ -315,7 +1158,40 @@
     "text": "I broadcast using code",
     "enumeration": "5"
    },
-   "solution": "INDIA"
+   "solution": "INDIA",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "INDIA",
+    "definitions": [
+     {
+      "text": "I broadcast using code",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I broadcast using code",
+      "note": "surface reading: a speaker saying they transmit messages in cipher"
+     },
+     {
+      "clueFragment": "I",
+      "note": "setter's reading: the letter I, as sent over the radio in the NATO phonetic alphabet"
+     }
+    ],
+    "explanation": {
+     "surface": "A spy confessing to sending coded transmissions.",
+     "walkthrough": "'I' looks like the speaker but is the letter itself; the radio alphabet gives each letter a code word.",
+     "definitionFit": "In the international spelling alphabet used by pilots and signallers, the letter between H and J has this country name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "I"
+    }
+   }
   },
   {
    "number": 18,
@@ -329,7 +1205,67 @@
     "text": "New term describing trademark artist",
     "enumeration": "9"
    },
-   "solution": "REMBRANDT"
+   "solution": "REMBRANDT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "REMBRANDT",
+    "definitions": [
+     {
+      "text": "artist",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "New",
+      "for": "anagram",
+      "note": "something new is remade, so the letters take a fresh order"
+     },
+     {
+      "text": "describing",
+      "for": "container",
+      "note": "to describe a circle is to draw round it, so one piece goes around another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "term",
+      "gives": "TERM",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "trademark",
+      "gives": "BRAND",
+      "note": "a brand is a trademark"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REM",
+      "BRAND",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TERM",
+       "gives": "REMT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fresh label for a painter's signature style.",
+     "walkthrough": "'Describing' seems to mean characterising, but in geometry it means tracing round, so the reworked word encloses the other piece.",
+     "definitionFit": "Rembrandt was the seventeenth-century Dutch painter famed for portraits and The Night Watch."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "describing"
+    }
+   }
   },
   {
    "number": 19,
@@ -343,7 +1279,47 @@
     "text": "No storage unit had food",
     "enumeration": "6"
    },
-   "solution": "NOSHED"
+   "solution": "NOSHED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NOSHED",
+    "definitions": [
+     {
+      "text": "had food",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "No",
+      "gives": "NO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "storage unit",
+      "gives": "SHED",
+      "note": "a shed is an outbuilding for storing things"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "SHED"
+     ]
+    },
+    "explanation": {
+     "surface": "A lament that without a storeroom there was nowhere to keep food.",
+     "walkthrough": "The surface splits after 'unit', making 'had' part of a storage story; 'had food' is really the definition.",
+     "definitionFit": "Nosh is informal British slang for eating, so the past tense means ate a meal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "had"
+    }
+   }
   },
   {
    "number": 20,
@@ -357,7 +1333,58 @@
     "text": "Flight from Bari, at sunset, heading north",
     "enumeration": "5"
    },
-   "solution": "STAIR"
+   "solution": "STAIR",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "STAIR",
+    "definitions": [
+     {
+      "text": "Flight",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from",
+      "for": "hidden_word",
+      "note": "from means taken out of, so the letters are drawn from inside the phrase"
+     },
+     {
+      "text": "heading north",
+      "for": "reversal",
+      "note": "in a down entry, going north means reading upwards, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bari, at sunset",
+      "gives": "RIATS",
+      "note": "the run straddles the end of 'Bari', all of 'at' and the start of 'sunset'"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "RIATS",
+       "to": "STAIR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A plane leaving the Italian port of Bari in the evening, bound northwards.",
+     "walkthrough": "'Flight' pretends to be an aeroplane journey; it is a set of steps. Bari is a city in southern Italy.",
+     "definitionFit": "A stair can mean a whole series of steps, just as a flight is a run of steps between floors."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Flight"
+    }
+   }
   },
   {
    "number": 21,
@@ -371,7 +1398,55 @@
     "text": "Shrub in one area on cultivated plot",
     "enumeration": "8"
    },
-   "solution": "GARDENIA"
+   "solution": "GARDENIA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GARDENIA",
+    "definitions": [
+     {
+      "text": "Shrub",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cultivated plot",
+      "gives": "GARDEN",
+      "note": "a garden is a cultivated plot of land"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "A is the abbreviation for area"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GARDEN",
+      "I",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Planting a bush in one part of a tended bed.",
+     "walkthrough": "In an across clue, 'on' puts the first pieces after the plot.",
+     "definitionFit": "The gardenia is an evergreen bush with fragrant white flowers, one kind of woody plant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -385,7 +1460,57 @@
     "text": "The end of poverty right away",
     "enumeration": "5"
    },
-   "solution": "DEATH"
+   "solution": "DEATH",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "DEATH",
+    "definitions": [
+     {
+      "text": "The end",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "away",
+      "for": "deletion",
+      "note": "away means gone or removed, so a letter is taken out"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "poverty",
+      "gives": "DEARTH",
+      "note": "a dearth is a scarcity or poverty of something"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEA",
+      "TH"
+     ]
+    },
+    "explanation": {
+     "surface": "A call to eliminate poverty immediately.",
+     "walkthrough": "'Right away' reads as immediately, but it splits: the R for right goes away from the scarcity word.",
+     "definitionFit": "Dying is the close of life, so the end is a common euphemism for mortality's final moment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 23,
@@ -399,7 +1524,44 @@
     "text": "Was a rat seen in Los Angeles?",
     "enumeration": "4"
    },
-   "solution": "SANG"
+   "solution": "SANG",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SANG",
+    "definitions": [
+     {
+      "text": "Was a rat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "seen in",
+      "for": "hidden_word",
+      "note": "seen in means visible inside, so the letters sit within the next words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Los Angeles",
+      "gives": "SANG",
+      "note": "the run straddles the end of 'Los' and the start of 'Angeles'"
+     }
+    ],
+    "explanation": {
+     "surface": "Asking whether a rodent was spotted in Los Angeles.",
+     "walkthrough": "A rat here is an informer, not a rodent; singing is slang for giving information to police.",
+     "definitionFit": "Criminal slang has an informer sing to the police, so to have sung is to have grassed or informed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rat"
+    }
+   }
   },
   {
    "number": 24,
@@ -413,7 +1575,44 @@
     "text": "Advantageous transformation – feature of AI?",
     "enumeration": "14"
    },
-   "solution": "CAPITALISATION"
+   "solution": "CAPITALISATION",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CAPITALISATION",
+    "definitions": [
+     {
+      "text": "Advantageous transformation",
+      "at": 0
+     },
+     {
+      "text": "feature of AI?",
+      "at": 30
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Advantageous transformation",
+      "note": "first meaning: turning something to profit or advantage"
+     },
+     {
+      "clueFragment": "feature of AI?",
+      "note": "second meaning: the use of upper-case letters, as both letters here are written"
+     }
+    ],
+    "explanation": {
+     "surface": "Praising the benefits that artificial intelligence brings.",
+     "walkthrough": "'AI' looks like artificial intelligence; the question mark hints that its point is being written in upper case.",
+     "definitionFit": "Capitalising on something means exploiting it, while writing a word in upper-case letters is the typographic sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "AI"
+    }
+   }
   },
   {
    "number": 25,
@@ -427,7 +1626,46 @@
     "text": "Put off expert rascal",
     "enumeration": "8"
    },
-   "solution": "PROROGUE"
+   "solution": "PROROGUE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PROROGUE",
+    "definitions": [
+     {
+      "text": "Put off",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "expert",
+      "gives": "PRO",
+      "note": "a pro is an expert"
+     },
+     {
+      "clueFragment": "rascal",
+      "gives": "ROGUE",
+      "note": "a rogue is a rascal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRO",
+      "ROGUE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone repelled by a skilled scoundrel.",
+     "walkthrough": "'Put off' looks like disgusted, but it means postponed, the sense for suspending a parliament.",
+     "definitionFit": "To prorogue is to discontinue a parliamentary session without dissolving it, formally deferring business until later."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -441,7 +1679,54 @@
     "text": "Mob surrounding old, nasty king",
     "enumeration": "5"
    },
-   "solution": "HEROD"
+   "solution": "HEROD",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HEROD",
+    "definitions": [
+     {
+      "text": "nasty king",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surrounding",
+      "for": "container",
+      "note": "to surround is to encircle, so one piece goes round another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mob",
+      "gives": "HERD",
+      "note": "a herd is a crowd or mob"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HER",
+      "O",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A crowd closing in on an elderly, cruel monarch.",
+     "walkthrough": "The small piece slips in before the last letter of the crowd.",
+     "definitionFit": "Herod the Great, the Judean ruler, ordered the massacre of the innocents in the Gospel story."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
