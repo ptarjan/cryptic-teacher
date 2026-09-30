@@ -23,6 +23,7 @@ import build_authored_puzzle as builder
 import provenance
 import puzzle_integrity
 import puzzle_paths
+import series
 import validate_annotations
 from fetch_puzzle import write_puzzle_file
 
@@ -55,6 +56,9 @@ with tempfile.TemporaryDirectory() as scratch:
             "url" in src) != ("Cryptic Teacher", "tools/build_authored_puzzle.py",
                               "authored", False):
         fails.append(f"source is {src}")
+    # The site publishes it at ?p=authored-1 only because the series is unlisted.
+    if not series.unlisted(written["series"]):
+        fails.append(f"series {written['series']!r} is listed: the site would index it")
     if written["solutions"] != {"origin": "authored"}:
         fails.append(f"solutions is {written['solutions']}")
 
