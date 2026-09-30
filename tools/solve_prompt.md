@@ -17,16 +17,16 @@ entry. Use it. It is the only thing that can tell you an answer is wrong.
 ## Output
 
 Write a JSON file, at the path your task gives you, mapping every entry id to
-its answer:
+its answer and definition, copied verbatim from the clue:
 
-    {"1-across": "POPULAR FRONT", "9-across": "AGAIN", ...}
+    {"1-across": {"answer": "POPULAR FRONT", "definition": "Left-wing alliance"}, ...}
 
 Spaces, hyphens and apostrophes are stripped. Then run the check:
 
     python3 tools/apply_solution.py <number> --fill <path> --check-only
 
-It lists missing entries, wrong lengths and crossings that disagree, and it
-writes nothing. Fix what it reports and run it again until it passes. The
+It lists missing entries, wrong lengths, crossings that disagree and
+definitions not at an end of their clue, and it writes nothing. Fix what it reports and run it again until it passes. The
 caller reruns it and refuses the whole fill unless it passes, so a partial or
 conflicting fill publishes nothing.
 
@@ -44,9 +44,8 @@ behind it. Both show up as a clue you cannot parse, so treat an unparsed answer
 as suspect.
 
 A half-parse counts as unparsed: each half of a double definition must define
-the answer alone, and a word that does no job in your parse means your answer
-is probably an intermediate step, such as the word before a "change of heart".
-Doubt matters most on unchecked cells, where nothing else will catch it.
+the answer alone. Doubt matters most on unchecked cells, where nothing else
+will catch it.
 
 ## Confidence
 
