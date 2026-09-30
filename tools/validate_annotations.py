@@ -2389,26 +2389,37 @@ def check_clue_unchanged(puzzle, path, errors):
 
 
 # The indicators rung is a tier below the building blocks, and a note written as
-# the operation happens spells the blocks out: telegraph-31356 11A's "to grip"
-# read "STARTING grips, holds, the L", every piece of the clue on the rung bought
-# to find one word ("It gives away the blocks in the indicator", 2026-09-29).
-# 12,744 of 76,772 committed notes did it. app.js blanks those letters on the
-# page (maskBlockLetters, the same rule as below), which leaves a sentence of
-# ellipses, so a note written from now on says what the word means and names
-# the pieces by their clue words instead. Checked on the entries a run wrote,
-# the way check_clue_unchanged is, so the committed corpus stays the mask's job.
-def block_letters_in(note, ann):
-    """The capitalised words of `note` that spell a block's letters, where
-    those letters are not just the block's own clue words."""
+# the operation happens hands the blocks over: telegraph-31356 11A's "to grip"
+# read "STARTING grips, holds, the L" ("It gives away the blocks in the
+# indicator", 2026-09-29), and 17D's "at first" read "the lips' letters come
+# first, before TEND" ("Tend is given away", 2026-09-30). Naming a piece by its
+# clue words gives it away as surely as by its letters. app.js hides such a note
+# (noteNamesBlock, the same rule as below), so a note says what the indicator's
+# words mean and do, and names no piece. Checked on the entries a run wrote, the
+# way check_clue_unchanged is, so the committed corpus stays the app's job.
+NOTE_JOINERS = {"the", "this", "these", "those", "its", "one", "such", "for", "from", "with",
+                "that", "and", "are", "was", "not", "but", "his", "her", "their"}
+
+
+def blocks_named_in(note, ann, ind):
+    """The words of `note` that name a block: its letters, where those are not
+    just its own clue words, or a clue word of a block that is not one of this
+    indicator's own words."""
     bare = lambda s: re.sub(r"[^A-Za-z]", "", str(s or "")).upper()
-    hidden = {bare(b.get("gives")) for b in ann.get("blocks") or []
+    words = lambda s: re.findall(r"[a-z]+", re.sub(r"['\u2019]s\b", "", str(s or "").lower()))
+    blocks = ann.get("blocks") or []
+    hidden = {bare(b.get("gives")) for b in blocks
               if bare(b.get("gives")) and bare(b.get("gives")) != bare(b.get("clueFragment"))}
-    return [w for w in re.findall(r"\b[A-Z]+\b", str(note or ""))
-            if w in hidden and w not in ("A", "I")]
+    own = set(words(ind.get("text")))
+    named = {w for b in blocks for w in words(b.get("clueFragment"))
+             if len(w) >= 3 and w not in NOTE_JOINERS and w not in own}
+    return ([w for w in re.findall(r"\b[A-Z]+\b", str(note or ""))
+             if w in hidden and w not in ("A", "I")]
+            + [w for w in words(note) if w in named])
 
 
 def check_indicator_notes_hide_blocks(puzzle, path, errors):
-    """A new or changed annotation's indicator notes spell no block's letters."""
+    """A new or changed annotation's indicator notes name no block."""
     committed = committed_entries(path) or {}
     for e in puzzle["entries"]:
         ann = e.get("annotation")
@@ -2417,15 +2428,16 @@ def check_indicator_notes_hide_blocks(puzzle, path, errors):
         for ind in ann.get("indicators") or []:
             if not isinstance(ind, dict):
                 continue
-            spelled = block_letters_in(ind.get("note"), ann)
-            if spelled:
+            named = blocks_named_in(ind.get("note"), ann, ind)
+            if named:
                 errors.append(
-                    f"{entry_id(e)}: note on indicator {ind.get('text')!r} spells the "
-                    f"block letters {', '.join(dict.fromkeys(spelled))} — "
-                    f"{ind.get('note')!r}. The indicators rung comes before the "
-                    f"blocks, so say what the word does to the pieces and name them by "
-                    f"their clue words: \"to grip is to hold, so 'beginning' holds "
-                    f"'learner'\", not \"STARTING grips the L\"")
+                    f"{entry_id(e)}: note on indicator {ind.get('text')!r} names the "
+                    f"blocks by {', '.join(dict.fromkeys(named))} — {ind.get('note')!r}. "
+                    f"The indicators rung comes before the blocks, so say what these "
+                    f"words mean and what they do, naming no piece by its letters or "
+                    f"its clue words: \"to grip is to hold, so one piece holds "
+                    f"another\", not \"STARTING grips the L\" or \"'beginning' "
+                    f"holds 'learner'\"")
 
 
 def validate_puzzle(puzzle, corpus=False):
