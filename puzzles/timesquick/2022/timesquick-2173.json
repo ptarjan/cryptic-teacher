@@ -24,6 +24,9 @@
   "date": "2022-07-07",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,49 @@
     "text": "Regularly daunt thin opponent",
     "enumeration": "4"
    },
-   "solution": "ANTI"
+   "solution": "ANTI",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ANTI",
+    "definitions": [
+     {
+      "text": "opponent",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Regularly",
+      "for": "letter_selection",
+      "note": "something done regularly happens at even intervals, so every other letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "daunt thin",
+      "gives": "ANTI",
+      "select": "alternate",
+      "note": "the second, fourth, sixth and eighth letters of these two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANTI"
+     ]
+    },
+    "explanation": {
+     "surface": "An intimidating, skinny rival faced in some contest.",
+     "walkthrough": "'Regularly daunt' reads like a verb phrase, but it tells you to take alternate letters from the next two words.",
+     "definitionFit": "An anti is a person who is against something, a noun form of the prefix meaning against."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "daunt"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +96,71 @@
     "text": "Honour leading pairs of actors, covering last decade",
     "enumeration": "8"
    },
-   "solution": "ACCOLADE"
+   "solution": "ACCOLADE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ACCOLADE",
+    "definitions": [
+     {
+      "text": "Honour",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leading pairs of",
+      "for": "letter_selection",
+      "note": "the leading pair of any word is its opening two letters, taken here from each word in turn"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "actors",
+      "gives": "AC",
+      "select": 2,
+      "note": "opening two letters"
+     },
+     {
+      "clueFragment": "covering",
+      "gives": "CO",
+      "select": 2,
+      "note": "opening two letters"
+     },
+     {
+      "clueFragment": "last",
+      "gives": "LA",
+      "select": 2,
+      "note": "opening two letters"
+     },
+     {
+      "clueFragment": "decade",
+      "gives": "DE",
+      "select": 2,
+      "note": "opening two letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AC",
+      "CO",
+      "LA",
+      "DE"
+     ]
+    },
+    "explanation": {
+     "surface": "An award given to the best acting duos of the past ten years.",
+     "walkthrough": "'Covering' looks like a link meaning 'spanning', but it is one of the four words whose first two letters build the answer.",
+     "definitionFit": "An accolade is an award or expression of praise, a close synonym for an honour bestowed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "covering"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +174,43 @@
     "text": "Instruct set of coaches",
     "enumeration": "5"
    },
-   "solution": "TRAIN"
+   "solution": "TRAIN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TRAIN",
+    "definitions": [
+     {
+      "text": "Instruct",
+      "at": 0
+     },
+     {
+      "text": "set of coaches",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Instruct",
+      "note": "first meaning: to teach a skill"
+     },
+     {
+      "clueFragment": "set of coaches",
+      "note": "second meaning: railway carriages coupled together"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Coaches' tempts you towards sports trainers, which chimes with 'Instruct'; here coaches are railway carriages.",
+     "definitionFit": "The verb means to teach or drill someone, and the noun is a line of connected railway carriages."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "coaches"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +224,59 @@
     "text": "Very enthusiastic as English tactics altered",
     "enumeration": "8"
    },
-   "solution": "ECSTATIC"
+   "solution": "ECSTATIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ECSTATIC",
+    "definitions": [
+     {
+      "text": "Very enthusiastic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "altered",
+      "for": "anagram",
+      "note": "what is altered is changed, so the letters are rearranged into a new order"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "tactics",
+      "gives": "TACTICS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ETACTICS",
+       "gives": "ECSTATIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fans are thrilled because the England team changed its game plan.",
+     "walkthrough": "'English tactics' reads as a sports phrase; English supplies only its abbreviation E before the rearrangement.",
+     "definitionFit": "Ecstatic means overwhelmed with joy or delight, a stronger synonym for being wildly keen."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "English"
+    }
+   }
   },
   {
    "number": 4,
@@ -99,7 +296,52 @@
      }
     ]
    },
-   "solution": "COUNTYCRICKET"
+   "solution": "COUNTYCRICKET",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "COUNTY CRICKET",
+    "definitions": [
+     {
+      "text": "Tricky cut once, playing this sport?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "playing",
+      "for": "anagram",
+      "note": "letters that are playing are moving about freely, so they can be rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tricky cut once",
+      "gives": "TRICKYCUTONCE",
+      "note": "the thirteen letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TRICKYCUTONCE",
+       "gives": "COUNTYCRICKET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A batsman recalls once playing an awkward cut shot in a match.",
+     "walkthrough": "The whole clue is both wordplay and definition: a cut is a cricket stroke, so the scene itself points to the sport. County cricket is England's first-class domestic competition, played between county sides such as Yorkshire or Kent.",
+     "definitionFit": "The cut is a batting stroke, so playing a tricky one describes a game of the domestic first-class form of the sport."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 5,
@@ -119,7 +361,56 @@
      }
     ]
    },
-   "solution": "TIEIN"
+   "solution": "TIEIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TIE-IN",
+    "definitions": [
+     {
+      "text": "Link",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "temperature",
+      "gives": "T",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e., Latin id est"
+     },
+     {
+      "clueFragment": "popular",
+      "gives": "IN",
+      "note": "fashionable, as in 'the in thing'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "IE",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "Something connected to the weather that is currently in fashion.",
+     "walkthrough": "IE is the abbreviation for 'that is'; IN means popular or fashionable.",
+     "definitionFit": "A tie-in is a connection or association between things, such as a product linked to a film."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "temperature"
+    }
+   }
   },
   {
    "number": 6,
@@ -133,7 +424,47 @@
     "text": "Bill of relatively small price, we hear, for picture",
     "enumeration": "7"
    },
-   "solution": "TABLEAU"
+   "solution": "TABLEAU",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "TABLEAU",
+    "definitions": [
+     {
+      "text": "picture",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "what we hear is spoken rather than written, so the spelling can differ from the sound"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bill of relatively small price",
+      "gives": "TABLEAU",
+      "soundsLike": "TAB LOW",
+      "note": "a bill is a tab, and a relatively small price is low"
+     }
+    ],
+    "explanation": {
+     "surface": "A cheap bill paid for a painting.",
+     "walkthrough": "A TAB is a bill, as at a bar; put LOW after it and say it: TAB-LOW sounds like TABLEAU.",
+     "definitionFit": "A tableau is a vivid scene or picturesque group, especially a still arrangement resembling a painting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bill"
+    }
+   }
   },
   {
    "number": 7,
@@ -147,7 +478,46 @@
     "text": "Maybe Jack’s way to send greetings",
     "enumeration": "4"
    },
-   "solution": "CARD"
+   "solution": "CARD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CARD",
+    "definitions": [
+     {
+      "text": "Maybe Jack",
+      "at": 0
+     },
+     {
+      "text": "way to send greetings",
+      "at": 13
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Maybe Jack",
+      "note": "first meaning: the knave, one example from a deck used for games"
+     },
+     {
+      "clueFragment": "way to send greetings",
+      "note": "second meaning: a birthday or Christmas greeting posted by mail"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Jack's way' reads as a man's method; 'Maybe' marks Jack as an example, the knave in a deck.",
+     "definitionFit": "The jack is a playing card in a deck, and a greetings card is posted to wish someone well."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Jack"
+    }
+   }
   },
   {
    "number": 8,
@@ -161,7 +531,55 @@
     "text": "Divulge answer during party",
     "enumeration": "6"
    },
-   "solution": "REVEAL"
+   "solution": "REVEAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REVEAL",
+    "definitions": [
+     {
+      "text": "Divulge",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "during",
+      "for": "container",
+      "note": "something happening during an event sits within it, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "party",
+      "gives": "REVEL",
+      "note": "a revel is a lively celebration"
+     },
+     {
+      "clueFragment": "answer",
+      "gives": "A",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REVE",
+      "A",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone lets slip the answer to a quiz at a party.",
+     "walkthrough": "A for answer, as in Q and A, goes inside REVEL.",
+     "definitionFit": "To divulge is to make a secret known, which is exactly what it means to disclose or uncover it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "answer"
+    }
+   }
   },
   {
    "number": 9,
@@ -175,7 +593,50 @@
     "text": "French castle talk – by water there",
     "enumeration": "7"
    },
-   "solution": "CHATEAU"
+   "solution": "CHATEAU",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHATEAU",
+    "definitions": [
+     {
+      "text": "French castle",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "talk",
+      "gives": "CHAT",
+      "note": "a chat is an informal talk"
+     },
+     {
+      "clueFragment": "water there",
+      "gives": "EAU",
+      "note": "'there' points back to France: water in French is eau"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAT",
+      "EAU"
+     ]
+    },
+    "explanation": {
+     "surface": "A conversation beside a lake at a castle in France.",
+     "walkthrough": "'There' refers back to 'French', so the water is the French word EAU.",
+     "definitionFit": "A château is a castle or large country house in France, the direct French term."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "there"
+    }
+   }
   },
   {
    "number": 10,
@@ -189,7 +650,47 @@
     "text": "What’s left after burning at end of three months",
     "enumeration": "5"
    },
-   "solution": "EMBER"
+   "solution": "EMBER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "EMBER",
+    "definitions": [
+     {
+      "text": "What’s left after burning",
+      "at": 0
+     },
+     {
+      "text": "end of three months",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What’s left after burning",
+      "note": "first meaning: a glowing remnant of a fire"
+     },
+     {
+      "clueFragment": "end of three months",
+      "note": "second meaning: the closing letters shared by September, November and December"
+     }
+    ],
+    "explanation": {
+     "surface": "Something that remains of a fire at the close of a quarter.",
+     "walkthrough": "The second meaning is cryptic: September, November and December all finish with the same five letters.",
+     "definitionFit": "A glowing fragment of coal or wood remains in a dying fire, and those three month names share this ending."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "months"
+    }
+   }
   },
   {
    "number": 11,
@@ -203,7 +704,56 @@
     "text": "Lot put off by Arthurian knight’s weapon",
     "enumeration": "5"
    },
-   "solution": "LANCE"
+   "solution": "LANCE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LANCE",
+    "definitions": [
+     {
+      "text": "weapon",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put off by",
+      "for": "deletion",
+      "note": "something put off is sent away, so these letters are removed from the name"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Arthurian knight",
+      "gives": "LANCELOT",
+      "note": "Sir Lancelot of the Round Table"
+     },
+     {
+      "clueFragment": "Lot",
+      "gives": "LOT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "The Round Table knight's weapon scares off a man named Lot.",
+     "walkthrough": "Lot is the knight's last three letters; strip them from LANCELOT. 'Knight's' reads as possessive, but the 's is 'is', the link.",
+     "definitionFit": "A lance is a long spear carried by a mounted knight, one kind of weapon."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Lot"
+    }
+   }
   },
   {
    "number": 12,
@@ -217,7 +767,70 @@
     "text": "Time with this writer coming back in transport for two",
     "enumeration": "6"
    },
-   "solution": "TANDEM"
+   "solution": "TANDEM",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "TANDEM",
+    "definitions": [
+     {
+      "text": "transport for two",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coming back",
+      "for": "reversal",
+      "note": "coming back means returning the way it came, so the letters run right to left"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Time",
+      "gives": "T",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "AND",
+      "note": "'and' joins things, like 'with'"
+     },
+     {
+      "clueFragment": "this writer",
+      "gives": "ME",
+      "note": "the setter refers to themself"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "AND",
+      "EM"
+     ],
+     "reversals": [
+      {
+       "from": "ME",
+       "to": "EM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A writer spends time travelling home on a vehicle built for two.",
+     "walkthrough": "'This writer' is the setter's way of saying 'me'; only that piece is turned round, while 'with' supplies its synonym 'and'.",
+     "definitionFit": "A tandem is a bicycle with seats and pedals for two riders, one behind the other."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "writer"
+    }
+   }
   },
   {
    "number": 13,
@@ -231,7 +844,66 @@
     "text": "Hated getting unusually dry inside – happy to be this?",
     "enumeration": "8"
    },
-   "solution": "HYDRATED"
+   "solution": "HYDRATED",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "HYDRATED",
+    "definitions": [
+     {
+      "text": "Hated getting unusually dry inside – happy to be this?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "getting",
+      "for": "container",
+      "note": "getting something means receiving it, so one piece takes another into itself"
+     },
+     {
+      "text": "unusually",
+      "for": "anagram",
+      "note": "arranged unusually means not in the normal order, so the letters are mixed up"
+     }
+    ],
+    "linkWords": [
+     "inside"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hated",
+      "gives": "HATED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "dry",
+      "gives": "DRY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HATEDDRY",
+       "gives": "HYDRATED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who hated feeling parched within would be glad to get a drink.",
+     "walkthrough": "The whole clue does double duty: it is the wordplay, and it also defines, since anyone who hates being parched would be glad to be well watered.",
+     "definitionFit": "Someone who loathed feeling parched would be pleased to have enough water in their body again."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Hated"
+    }
+   }
   },
   {
    "number": 14,
@@ -251,7 +923,54 @@
      }
     ]
    },
-   "solution": "DOUBLECENTURY"
+   "solution": "DOUBLECENTURY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DOUBLE CENTURY",
+    "definitions": [
+     {
+      "text": "Big score",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put together",
+      "for": "anagram",
+      "note": "things put together are assembled anew, so the letters are built into a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "club tourney Ed",
+      "gives": "CLUBTOURNEYED",
+      "note": "the thirteen letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CLUBTOURNEYED",
+       "gives": "DOUBLECENTURY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A player named Ed racks up a huge total at a club competition.",
+     "walkthrough": "In cricket, a century is 100 runs by one batter, so a double century is 200 in a single innings.",
+     "definitionFit": "Two hundred runs by one batter in an innings is an exceptionally large individual total in cricket."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Ed"
+    }
+   }
   },
   {
    "number": 15,
@@ -265,7 +984,62 @@
     "text": "University moved fast, initially isolating unruly male element",
     "enumeration": "7"
    },
-   "solution": "URANIUM"
+   "solution": "URANIUM",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "URANIUM",
+    "definitions": [
+     {
+      "text": "element",
+      "at": 55
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the opening letter of each following word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "University",
+      "gives": "U",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "moved fast",
+      "gives": "RAN",
+      "note": "to run is to move fast"
+     },
+     {
+      "clueFragment": "isolating unruly male",
+      "gives": "IUM",
+      "select": "first",
+      "note": "first letter of each of the three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "RAN",
+      "IUM"
+     ]
+    },
+    "explanation": {
+     "surface": "A college quickly separated out a badly behaved man.",
+     "walkthrough": "'Unruly' looks like an anagram signal, but it is just one of the three words giving a first letter.",
+     "definitionFit": "Uranium is a radioactive metallic chemical element, used as nuclear fuel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "unruly"
+    }
+   }
   },
   {
    "number": 16,
@@ -279,7 +1053,64 @@
     "text": "Spice in container brought up by Margaret",
     "enumeration": "6"
    },
-   "solution": "NUTMEG"
+   "solution": "NUTMEG",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "NUTMEG",
+    "definitions": [
+     {
+      "text": "Spice",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brought up",
+      "for": "reversal",
+      "note": "in a down clue, bringing something up lifts it from bottom to top, so it reads backwards"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "container",
+      "gives": "TUN",
+      "note": "a tun is a large cask"
+     },
+     {
+      "clueFragment": "Margaret",
+      "gives": "MEG",
+      "note": "a short form of the name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NUT",
+      "MEG"
+     ],
+     "reversals": [
+      {
+       "from": "TUN",
+       "to": "NUT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A jar of seasoning is fetched upstairs by a woman called Margaret.",
+     "walkthrough": "A tun is a large barrel for wine or beer; only it is reversed, while MEG is a familiar form of Margaret.",
+     "definitionFit": "Nutmeg is the aromatic seed of a tropical tree, ground and used as a kitchen spice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "container"
+    }
+   }
   },
   {
    "number": 17,
@@ -293,7 +1124,67 @@
     "text": "Expedition long way off is, on return, written about",
     "enumeration": "6"
    },
-   "solution": "SAFARI"
+   "solution": "SAFARI",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "SAFARI",
+    "definitions": [
+     {
+      "text": "Expedition",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on return",
+      "for": "reversal",
+      "note": "something on its return heads back towards its start, so the letters run backwards"
+     },
+     {
+      "text": "written about",
+      "for": "container",
+      "note": "something written about another thing is written around it, so it encloses that piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "long way off",
+      "gives": "AFAR",
+      "note": "afar means at a great distance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "AFAR",
+      "I"
+     ],
+     "reversals": [
+      {
+       "from": "IS",
+       "to": "SI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A journey to a distant place is described in writing once home.",
+     "walkthrough": "Only the short word 'is' turns round; 'written about' then wraps it around the phrase meaning far away, one letter either side.",
+     "definitionFit": "A safari is an overland expedition, traditionally in Africa, to observe or hunt wild animals."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "return"
+    }
+   }
   },
   {
    "number": 18,
@@ -307,7 +1198,47 @@
     "text": "Article, genuine, referring to locality",
     "enumeration": "5"
    },
-   "solution": "AREAL"
+   "solution": "AREAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AREAL",
+    "definitions": [
+     {
+      "text": "referring to locality",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Article",
+      "gives": "A",
+      "note": "the indefinite article"
+     },
+     {
+      "clueFragment": "genuine",
+      "gives": "REAL",
+      "note": "genuine means real"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "REAL"
+     ]
+    },
+    "explanation": {
+     "surface": "An authentic item relating to a particular neighbourhood.",
+     "walkthrough": "The article is A, the indefinite one, placed before REAL.",
+     "definitionFit": "Areal is an adjective meaning relating to an area or region, the geographic sense of a district."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Article"
+    }
+   }
   },
   {
    "number": 19,
@@ -321,7 +1252,47 @@
     "text": "Vegetable, poor stuff, I hesitate to say",
     "enumeration": "5"
    },
-   "solution": "TATER"
+   "solution": "TATER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TATER",
+    "definitions": [
+     {
+      "text": "Vegetable",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "poor stuff",
+      "gives": "TAT",
+      "note": "tat is cheap, shoddy goods"
+     },
+     {
+      "clueFragment": "I hesitate to say",
+      "gives": "ER",
+      "note": "the sound made when hesitating"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAT",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone reluctant to criticise a vegetable as low quality.",
+     "walkthrough": "TAT is British slang for tasteless or low-quality goods; ER is the noise of hesitation.",
+     "definitionFit": "Tater is informal slang for a potato, the everyday starchy root vegetable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hesitate"
+    }
+   }
   },
   {
    "number": 20,
@@ -335,7 +1306,43 @@
     "text": "Recurring idea used in intro, perfect",
     "enumeration": "5"
    },
-   "solution": "TROPE"
+   "solution": "TROPE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TROPE",
+    "definitions": [
+     {
+      "text": "Recurring idea",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "used in",
+      "for": "hidden_word",
+      "note": "letters used in a phrase are part of it, so the solution sits inside the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "intro, perfect",
+      "gives": "TROPE",
+      "note": "spans the end of one word and the start of the next"
+     }
+    ],
+    "explanation": {
+     "surface": "A familiar theme deployed in an opening that is flawless.",
+     "walkthrough": "The comma is ignored: the letters run across 'intro' into 'perfect'.",
+     "definitionFit": "A trope is a common motif or theme that turns up again and again in stories or art."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "used"
+    }
+   }
   },
   {
    "number": 21,
@@ -349,7 +1356,42 @@
     "text": "Separate role",
     "enumeration": "4"
    },
-   "solution": "PART"
+   "solution": "PART",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PART",
+    "definitions": [
+     {
+      "text": "Separate",
+      "at": 0
+     },
+     {
+      "text": "role",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Separate",
+      "note": "first meaning: to divide or move apart"
+     },
+     {
+      "clueFragment": "role",
+      "note": "second meaning: a character played by an actor"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Separate' could be an adjective, but here it is the verb, matching the verb sense.",
+     "definitionFit": "The verb means to divide or go apart, and the noun is an actor's character in a play."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Separate"
+    }
+   }
   },
   {
    "number": 22,
@@ -363,7 +1405,56 @@
     "text": "Female fighter, extremely capable",
     "enumeration": "5"
    },
-   "solution": "ALICE"
+   "solution": "ALICE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ALICE",
+    "definitions": [
+     {
+      "text": "Female",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "extremely points to the extremes of a word, its first and last letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fighter",
+      "gives": "ALI",
+      "note": "Muhammad Ali, the boxer"
+     },
+     {
+      "clueFragment": "capable",
+      "gives": "CE",
+      "select": "outer",
+      "note": "first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALI",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "A very competent woman soldier.",
+     "walkthrough": "'Fighter' is Muhammad Ali, the world heavyweight boxing champion; 'Female' is loosely defining a girl's name.",
+     "definitionFit": "Alice is a common woman's first name, so the clue offers it as an example of a female person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fighter"
+    }
+   }
   },
   {
    "number": 23,
@@ -383,7 +1474,64 @@
      }
     ]
    },
-   "solution": "KEEPOUT"
+   "solution": "KEEPOUT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "KEEP OUT",
+    "definitions": [
+     {
+      "text": "Prevent entry",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mischievous",
+      "for": "anagram",
+      "note": "something mischievous plays tricks and misbehaves, so the letters will not stay in order"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Peke",
+      "gives": "PEKE",
+      "note": "a Pekinese dog"
+     },
+     {
+      "clueFragment": "newly released",
+      "gives": "OUT",
+      "note": "a record or book newly released is out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KEEP",
+      "OUT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PEKE",
+       "gives": "KEEP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A naughty little dog, just let loose, must be stopped from getting in.",
+     "walkthrough": "A Peke is a Pekinese, a small long-haired dog. 'Released' suggests an escaped pet, but here OUT means published.",
+     "definitionFit": "The phrase is an instruction on signs forbidding people from going in, synonymous with barring access."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "released"
+    }
+   }
   },
   {
    "number": 24,
@@ -397,7 +1545,53 @@
     "text": "Note politician yet to arrive, a pattern",
     "enumeration": "8"
    },
-   "solution": "TEMPLATE"
+   "solution": "TEMPLATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TEMPLATE",
+    "definitions": [
+     {
+      "text": "a pattern",
+      "at": 31
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Note",
+      "gives": "TE",
+      "note": "the seventh note in tonic sol-fa"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "MP",
+      "note": "Member of Parliament"
+     },
+     {
+      "clueFragment": "yet to arrive",
+      "gives": "LATE",
+      "note": "overdue"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TE",
+      "MP",
+      "LATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A tardy politician is noted as setting an example.",
+     "walkthrough": "TE is the note in do-re-mi; MP is a Member of Parliament, the British lawmaker.",
+     "definitionFit": "A template is a shaped guide or model used for copying designs, much like a pattern."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Note"
+    }
+   }
   },
   {
    "number": 25,
@@ -411,7 +1605,54 @@
     "text": "Leader heard Republican missed out",
     "enumeration": "4"
    },
-   "solution": "HEAD"
+   "solution": "HEAD",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "HEAD",
+    "definitions": [
+     {
+      "text": "Leader",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "missed out",
+      "for": "deletion",
+      "note": "something missed out is omitted, so a letter is dropped from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "heard",
+      "gives": "HEARD",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HEA",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A political chief was told a Republican was excluded.",
+     "walkthrough": "'Heard' looks like a homophone signal, but it is the word to trim: drop its R.",
+     "definitionFit": "The head of an organisation is its chief, the person in charge of everyone else."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heard"
+    }
+   }
   }
  ]
 }
