@@ -13,7 +13,9 @@ Checks, for every annotated entry:
   - assembly: "pieces" concatenate exactly to the answer letters, each of
     "anagrams" is a letter-for-letter anagram of its gives, and each of
     "reversals" reverses correctly
-  - hidden answers actually occur in the clue's letters
+  - hidden answers actually occur in the clue's letters, and an answer that
+    runs across a word break in the wordplay is typed hidden_word unless a
+    note calls it a coincidence (check_unmarked_hidden_word)
   - a linked answer's `group` sits on its leader alone, leader first, and its
     other lights carry no annotation (check_groups)
 
@@ -716,6 +718,79 @@ def check_indicator_outside_fodder(tag, ann, clue, errors):
                 f"{fodder!r} — its letters are already being "
                 f"shuffled, so it cannot also be the instruction to shuffle them. "
                 f"The indicator is some other word in the clue.")
+
+
+# A word, with any apostrophe or hyphen inside it: "friend's" and
+# "ham-fistedly" are one word each. tools/build_authored_puzzle.py reads
+# hidden words with it too.
+HIDDEN_WORD_RE = re.compile(r"[^\W\d_]+(?:['’-][^\W\d_]+)*")
+
+
+def hidden_runs(clue, ann):
+    """Where the answer, forwards or reversed, spells itself across a word break
+    in the clue words outside every definition: (direction, words) pairs, the
+    direction "forwards" or "reversed" and the words the run crosses. A run of
+    whole words is not hidden (ASTI reverses "It's a" outright), so it is not
+    reported."""
+    answer = letters(ann.get("answer"))
+    if len(answer) < 3:
+        return []
+    spans = [(d["at"], d["at"] + len(d["text"])) for d in ann.get("definitions") or []
+             if isinstance(d, dict) and isinstance(d.get("at"), int)
+             and isinstance(d.get("text"), str)]
+    runs = []
+    # A definition breaks the text into stretches; a run may not cross one.
+    cuts = sorted(spans) + [(len(clue), len(clue))]
+    start = 0
+    for a, b in cuts:
+        stretch = clue[start:a] if a > start else ""
+        start = max(start, b)
+        text, word, words = [], [], []
+        for n, m in enumerate(HIDDEN_WORD_RE.finditer(stretch)):
+            words.append(m.group())
+            for ch in letters(m.group()):
+                text.append(ch)
+                word.append(n)
+        text = "".join(text)
+        targets = [("forwards", answer)]
+        if answer != answer[::-1]:
+            targets.append(("reversed", answer[::-1]))
+        for direction, target in targets:
+            for i in range(len(text) - len(target) + 1):
+                j = i + len(target) - 1
+                whole = ((i == 0 or word[i - 1] != word[i])
+                         and (j + 1 == len(text) or word[j + 1] != word[j]))
+                if text.startswith(target, i) and word[i] != word[j] and not whole:
+                    run = (direction, " ".join(words[word[i]:word[j] + 1]))
+                    if run not in runs:
+                        runs.append(run)
+    return runs
+
+
+def check_unmarked_hidden_word(tag, ann, clue, errors):
+    """An answer that spells itself across a word break in the wordplay is a
+    hidden word, and its type says so, unless a block or indicator note says the
+    run is a coincidence: pieces clued one by one that happen to sit side by
+    side (TO + T in "to time", ILL + S in "will start").
+
+    CALIBRATION (published annotations, 2026-09-30): 57 of 85,250 hit it; 27
+    were hidden words typed as something else (EGRET reversed in "after
+    getting", ROUTINE in "Soldier out in Egypt"), 30 were coincidences."""
+    types = set(types_of(ann))
+    if "hidden_word" in types:
+        return
+    notes = [str(x.get("note") or "") for key in ("blocks", "indicators")
+             for x in ann.get(key) or [] if isinstance(x, dict)]
+    if any("coinciden" in n.lower() for n in notes):
+        return
+    for direction, words in hidden_runs(clue, ann):
+        fix = ("`hidden_word` and `reversal`" if direction == "reversed"
+               else "`hidden_word`")
+        errors.append(
+            f"{tag}: the answer runs {direction} across {words!r}, outside the "
+            f"definition, but `type` has no hidden_word. Add {fix} to `type` if the "
+            f"setter hid it there, or say in the note of the block holding those "
+            f"words that it is a coincidence")
 
 
 # A reversal runs along the entry, so the indicator has to name the entry's own
@@ -2616,7 +2691,12 @@ def validate_puzzle(puzzle, corpus=False):
             clue_letters = letters(expand_cross_references(clue, puzzle["entries"]))
             reversed_ok = ("reversal" in types_of(ann)
                            and ans_letters[::-1] in clue_letters)
-            if ans_letters not in clue_letters and not reversed_ok:
+            # A hidden homophone hides the sound, not the spelling: APHID from
+            # s(AFE ID)iomatically, so the block's soundsLike is what is found.
+            sound_ok = ("homophone" in types_of(ann)
+                        and any(letters(b.get("soundsLike")) in clue_letters
+                                for b in ann.get("blocks") or [] if b.get("soundsLike")))
+            if ans_letters not in clue_letters and not reversed_ok and not sound_ok:
                 errors.append(f"{tag}: hidden answer {ans_letters} not found inside clue letters")
         if not (build.get("pieces") or whole_anagram(ann) or {"hidden_word", "double_definition", "cryptic_definition",
                     "homophone"} & set(types_of(ann))):
@@ -2642,6 +2722,7 @@ def validate_puzzle(puzzle, corpus=False):
         check_sound_names_its_source(tag, ann, errors, warnings)
         check_sound_is_not_a_letter_swap(tag, ann, errors, warnings)
         check_indicators(tag, ann, clue, errors, warnings)
+        check_unmarked_hidden_word(tag, ann, clue, errors)
         check_no_answer_in_early_rungs(tag, ann, errors, warnings)
         check_block_notes_dont_name_the_answer(tag, ann, errors, warnings)
         check_indicator_notes_name_no_block(tag, ann, errors)
