@@ -43,18 +43,10 @@ their crossing letter, and an answer that fits the letters with no wordplay
 behind it. Both show up as a clue you cannot parse, so treat an unparsed answer
 as suspect.
 
-A half-parse counts as unparsed. The usual form is a double definition where
-one half only gestures at the answer, such as a measure of land offered for
-"edge of field". Each half must define the answer on its own. If one does not,
-read that part again as wordplay, taking it literally letter by letter. A
-question mark often marks exactly that. Take particular care when the letters
-in doubt fall on unchecked cells, because nothing else will catch them there.
-
-The other usual form is writing in a word the wordplay only starts from. A
-clue that defines a word and then changes it ("having change of heart", "after
-a turn", "losing its head") wants the changed word, and the definition is the
-words you have not used. If any word of the clue does no job in your parse,
-your answer is probably an intermediate step, not the answer.
+A half-parse counts as unparsed: each half of a double definition must define
+the answer alone, and a word that does no job in your parse means your answer
+is probably an intermediate step, such as the word before a "change of heart".
+Doubt matters most on unchecked cells, where nothing else will catch it.
 
 ## Confidence
 
