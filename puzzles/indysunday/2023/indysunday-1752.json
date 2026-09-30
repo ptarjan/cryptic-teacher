@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,58 @@
     "text": "Rook eaten by animal, leaving front part of body",
     "enumeration": "6"
    },
-   "solution": "BREAST"
+   "solution": "BREAST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BREAST",
+    "definitions": [
+     {
+      "text": "front part of body",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eaten by",
+      "for": "container",
+      "note": "what is eaten ends up inside the eater, so one piece goes inside another"
+     }
+    ],
+    "linkWords": [
+     "leaving"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "animal",
+      "gives": "BEAST",
+      "note": "a beast is any animal"
+     },
+     {
+      "clueFragment": "Rook",
+      "gives": "R",
+      "note": "R is the chess notation for a rook"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "R",
+      "EAST"
+     ]
+    },
+    "explanation": {
+     "surface": "A crow is devoured by some creature, which leaves behind only the front of its victim's body.",
+     "walkthrough": "The rook looks like the bird and 'leaving' sounds like the animal's leftovers, but the rook is the chess piece and 'leaving' just joins wordplay to definition.",
+     "definitionFit": "The chest, particularly its upper frontal area, is commonly called this in ordinary anatomical usage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Rook"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +101,64 @@
     "text": "Island with pubs occupied by nasty Oscar",
     "enumeration": "8"
    },
-   "solution": "BARBADOS"
+   "solution": "BARBADOS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BARBADOS",
+    "definitions": [
+     {
+      "text": "Island",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occupied by",
+      "for": "container",
+      "note": "a place occupied by people has them inside it, so one piece is filled by another"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pubs",
+      "gives": "BARS",
+      "note": "bars are pubs"
+     },
+     {
+      "clueFragment": "nasty",
+      "gives": "BAD",
+      "note": "nasty means bad"
+     },
+     {
+      "clueFragment": "Oscar",
+      "gives": "O",
+      "note": "Oscar is O in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAR",
+      "BAD",
+      "O",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "An island whose drinking places have been taken over by some unpleasant fellow called Oscar.",
+     "walkthrough": "Oscar reads as a person's name, but it stands for the letter O in the radio alphabet.",
+     "definitionFit": "A Caribbean nation in the West Indies, surrounded by sea, famous for rum and cricket."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Oscar"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +172,60 @@
     "text": "Mix ice with salt: you can stretch it!",
     "enumeration": "7"
    },
-   "solution": "ELASTIC"
+   "solution": "ELASTIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ELASTIC",
+    "definitions": [
+     {
+      "text": "you can stretch it",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Mix",
+      "for": "anagram",
+      "note": "mixing things jumbles them together, so these letters are put in a new order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ice",
+      "gives": "ICE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "salt",
+      "gives": "SALT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ICESALT",
+       "gives": "ELASTIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A kitchen or road-gritting tip: combine ice and salt and the result becomes stretchy.",
+     "walkthrough": "The recipe tone suggests freezing mixtures, but 'Mix' simply scrambles the seven letters of the two nouns.",
+     "definitionFit": "Stretchy tape or cord used in waistbands is a material that extends under tension and springs back."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Mix"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +239,57 @@
     "text": "Area with LGBT clubs reflected in Pimlico hostelry",
     "enumeration": "4"
    },
-   "solution": "SOHO"
+   "solution": "SOHO",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "SOHO",
+    "definitions": [
+     {
+      "text": "Area with LGBT clubs",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the letters needed sit inside the following words, running across their join"
+     },
+     {
+      "text": "reflected",
+      "for": "reversal",
+      "note": "a mirror reflection shows things back to front, so the letters run the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pimlico hostelry",
+      "gives": "OHOS",
+      "note": "the end of the first word and the start of the second"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "OHOS",
+       "to": "SOHO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A London district of gay bars is mirrored in a pub in Pimlico.",
+     "walkthrough": "Pimlico is itself a London district, which makes the reader look for a place name there rather than letters spanning the two words. SOHO is the central London area known for nightlife and gay venues.",
+     "definitionFit": "The West End district around Old Compton Street is London's best-known neighbourhood for gay bars and nightlife."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "reflected"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +303,58 @@
     "text": "Blink, seeing shoddy stuff in lovely surroundings",
     "enumeration": "7"
    },
-   "solution": "NICTATE"
+   "solution": "NICTATE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NICTATE",
+    "definitions": [
+     {
+      "text": "Blink",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in lovely surroundings",
+      "for": "container",
+      "note": "being in something's surroundings means sitting inside it, so one piece is enclosed by another"
+     }
+    ],
+    "linkWords": [
+     "seeing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lovely",
+      "gives": "NICE",
+      "note": "nice means lovely"
+     },
+     {
+      "clueFragment": "shoddy stuff",
+      "gives": "TAT",
+      "note": "tat is cheap, poor-quality goods"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NIC",
+      "TAT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone blinks in disbelief at cheap junk displayed in a beautiful setting.",
+     "walkthrough": "'Surroundings' belongs to the outer word, telling you the lovely word goes round the shoddy one.",
+     "definitionFit": "A rare formal verb, also spelt nictitate, for closing and reopening the eyelids quickly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "seeing"
+    }
+   }
   },
   {
    "number": 4,
@@ -109,7 +374,61 @@
      }
     ]
    },
-   "solution": "NATIONALANTHEM"
+   "solution": "NATIONALANTHEM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NATIONAL ANTHEM",
+    "definitions": [
+     {
+      "text": "this well-known tune",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "composed",
+      "for": "anagram",
+      "note": "to compose is to put together and arrange, so the letters are arranged afresh"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Al",
+      "gives": "AL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a thin man",
+      "gives": "ATHINMAN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "NOTE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ALATHINMANNOTE",
+       "gives": "NATIONALANTHEM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A skinny chap called Al wrote a famous melody.",
+     "walkthrough": "'Composed' fits the musical surface perfectly, and 'note' seems to be music too, but both are just letters to scramble.",
+     "definitionFit": "Every country has an official patriotic song played at state and sporting occasions, so it is widely known."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "composed"
+    }
+   }
   },
   {
    "number": 5,
@@ -123,7 +442,63 @@
     "text": "Bruises resulting when tango replaces foxtrot in doubtful circumstances",
     "enumeration": "10"
    },
-   "solution": "CONTUSIONS"
+   "solution": "CONTUSIONS",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "CONTUSIONS",
+    "definitions": [
+     {
+      "text": "Bruises",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "replaces",
+      "for": "substitution",
+      "note": "to replace is to take another's place, so one letter is swapped for another"
+     }
+    ],
+    "linkWords": [
+     "resulting when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "doubtful circumstances",
+      "gives": "CONFUSIONS",
+      "note": "confusions are states of doubt and uncertainty"
+     },
+     {
+      "clueFragment": "foxtrot",
+      "gives": "F",
+      "note": "Foxtrot is F in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "tango",
+      "gives": "T",
+      "note": "Tango is T in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "T",
+      "USIONS"
+     ]
+    },
+    "explanation": {
+     "surface": "Injuries picked up when one ballroom dance is swapped for another in a muddle on the dance floor.",
+     "walkthrough": "Tango and foxtrot read as dances, but they are the radio-alphabet names for T and F.",
+     "definitionFit": "The medical term for bruises is contusions: injuries where small blood vessels break under intact skin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tango"
+    }
+   }
   },
   {
    "number": 6,
@@ -137,7 +512,68 @@
     "text": "A bishop loves to be excited ... Pardon?",
     "enumeration": "7"
    },
-   "solution": "ABSOLVE"
+   "solution": "ABSOLVE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "ABSOLVE",
+    "definitions": [
+     {
+      "text": "Pardon",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be excited",
+      "for": "anagram",
+      "note": "excited things are stirred up and agitated, so these letters get jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bishop",
+      "gives": "B",
+      "note": "B is the chess notation for a bishop"
+     },
+     {
+      "clueFragment": "loves",
+      "gives": "LOVES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "B",
+      "SOLVE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LOVES",
+       "gives": "SOLVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cleric admits he loves getting worked up, and the listener says 'Pardon?' in surprise.",
+     "walkthrough": "'Pardon?' looks like a request to repeat, but it is the verb meaning forgive, fitting a bishop.",
+     "definitionFit": "A priest grants forgiveness of sins, releasing someone from guilt or blame; both verbs mean to forgive."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Pardon"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +587,56 @@
     "text": "Mock former queen, seated next to unknown",
     "enumeration": "6"
    },
-   "solution": "ERSATZ"
+   "solution": "ERSATZ",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ERSATZ",
+    "definitions": [
+     {
+      "text": "Mock",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "next to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "former queen",
+      "gives": "ER",
+      "note": "ER, Elizabeth Regina, is the late Queen Elizabeth II"
+     },
+     {
+      "clueFragment": "seated",
+      "gives": "SAT",
+      "note": "seated means sat"
+     },
+     {
+      "clueFragment": "unknown",
+      "gives": "Z",
+      "note": "algebra uses x, y and z for unknowns"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ER",
+      "SAT",
+      "Z"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone ridicules an ex-monarch who has been placed beside a stranger.",
+     "walkthrough": "'Mock' reads as a verb meaning ridicule, but here it is the adjective meaning imitation.",
+     "definitionFit": "Both adjectives describe an inferior imitation substituted for the real thing, like mock leather."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mock"
+    }
+   }
   },
   {
    "number": 8,
@@ -179,7 +664,39 @@
      }
     ]
    },
-   "solution": "ALOADOFRUBBISH"
+   "solution": "ALOADOFRUBBISH",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "A LOAD OF RUBBISH",
+    "definitions": [
+     {
+      "text": "Does such nonsense merit a tip?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Does such nonsense merit a tip?",
+      "note": "surface reading: should silly talk earn a gratuity?"
+     },
+     {
+      "clueFragment": "tip",
+      "note": "setter's reading: a tip is a British rubbish dump, where junk is carted in quantity"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A tip sounds like a gratuity for a waiter; in Britain a tip is also a municipal dump, and what goes there by the truckload is waste, a common phrase for nonsense.",
+     "definitionFit": "The phrase is everyday British slang for utter nonsense, while literally describing a cartful of refuse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tip"
+    }
+   }
   },
   {
    "number": 9,
@@ -193,7 +710,43 @@
     "text": "Fish: something that could be smoked?",
     "enumeration": "5"
    },
-   "solution": "ROACH"
+   "solution": "ROACH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ROACH",
+    "definitions": [
+     {
+      "text": "Fish",
+      "at": 0
+     },
+     {
+      "text": "something that could be smoked",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fish",
+      "note": "first meaning: a freshwater fish of the carp family"
+     },
+     {
+      "clueFragment": "something that could be smoked",
+      "note": "second meaning: slang for the butt of a cannabis joint"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Smoked fish like kippers make the second half sound culinary, but it refers to the end of a joint.",
+     "definitionFit": "The word names a common European river fish and, in drug slang, the stub of a cannabis cigarette."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "smoked"
+    }
+   }
   },
   {
    "number": 10,
@@ -207,7 +760,63 @@
     "text": "Tedious at first, unless it involved these instrumentalists",
     "enumeration": "9"
    },
-   "solution": "LUTENISTS"
+   "solution": "LUTENISTS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "LUTENISTS",
+    "definitions": [
+     {
+      "text": "these instrumentalists",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first points to the opening letter of the preceding word only"
+     },
+     {
+      "text": "involved",
+      "for": "anagram",
+      "note": "involved means tangled and intricate, so the letters are twisted into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tedious",
+      "gives": "T",
+      "select": "first",
+      "note": "its opening letter"
+     },
+     {
+      "clueFragment": "unless it",
+      "gives": "UNLESSIT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TUNLESSIT",
+       "gives": "LUTENISTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A concert would be dull from the start unless these particular musicians were taking part.",
+     "walkthrough": "'Involved' looks like it means the players took part, but it is the anagram signal.",
+     "definitionFit": "Players of the lute, a plucked Renaissance string instrument, are musicians of a specific kind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "involved"
+    }
+   }
   },
   {
    "number": 11,
@@ -221,7 +830,45 @@
     "text": "Bet against, one could say?",
     "enumeration": "4"
    },
-   "solution": "ANTE"
+   "solution": "ANTE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "ANTE",
+    "definitions": [
+     {
+      "text": "Bet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "one could say",
+      "for": "homophone",
+      "note": "what one could say points to the spoken form, not the spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "against",
+      "gives": "ANTE",
+      "soundsLike": "ANTI",
+      "note": "anti means against, and is said the same as the poker stake"
+     }
+    ],
+    "explanation": {
+     "surface": "Placing a wager on the opposing side, or so someone might put it.",
+     "walkthrough": "'Bet against' looks like a single phrase meaning wager on failure; split it into a definition and the word whose sound gives the answer.",
+     "definitionFit": "In poker, the stake each player puts into the pot before cards are dealt is a compulsory wager."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "against"
+    }
+   }
   },
   {
    "number": 12,
@@ -235,7 +882,50 @@
     "text": "Border giving Democrat trouble",
     "enumeration": "4"
    },
-   "solution": "DADO"
+   "solution": "DADO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DADO",
+    "definitions": [
+     {
+      "text": "Border",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "giving"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Democrat",
+      "gives": "D",
+      "note": "D is the abbreviation for Democrat"
+     },
+     {
+      "clueFragment": "trouble",
+      "gives": "ADO",
+      "note": "ado is fuss or trouble"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ADO"
+     ]
+    },
+    "explanation": {
+     "surface": "A frontier dispute causes headaches for a Democratic politician.",
+     "walkthrough": "'Border' suggests a national frontier, but it is the decorative band on a wall.",
+     "definitionFit": "The lower section of an interior wall, often panelled or marked off by a rail, forms a decorative band."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Border"
+    }
+   }
   },
   {
    "number": 13,
@@ -249,7 +939,58 @@
     "text": "In bright daylight? Just the opposite, when saint departs",
     "enumeration": "5"
    },
-   "solution": "UNLIT"
+   "solution": "UNLIT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "UNLIT",
+    "definitions": [
+     {
+      "text": "Just the opposite",
+      "at": 20,
+      "note": "points back to the opening words: the answer is the reverse of being in bright daylight"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "departs",
+      "for": "deletion",
+      "note": "something that departs leaves, so a letter is taken away"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In bright daylight",
+      "gives": "SUNLIT",
+      "note": "lit by the sun"
+     },
+     {
+      "clueFragment": "saint",
+      "gives": "S",
+      "note": "S is the abbreviation for saint"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNLIT"
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzle about daylight: the reverse is true once a holy person leaves.",
+     "walkthrough": "The opening phrase supplies the letters and the middle phrase the meaning: losing its S, a word for sunny becomes one for dark.",
+     "definitionFit": "Something without lighting is dark, the reverse of standing in bright sunshine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "saint"
+    }
+   }
   },
   {
    "number": 14,
@@ -263,7 +1004,48 @@
     "text": "Writer's joint entitlement to book royalties?",
     "enumeration": "10"
    },
-   "solution": "AUTHORSHIP"
+   "solution": "AUTHORSHIP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AUTHORSHIP",
+    "definitions": [
+     {
+      "text": "entitlement to book royalties?",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Writer's",
+      "gives": "AUTHORS",
+      "note": "an author is a writer, with the possessive S"
+     },
+     {
+      "clueFragment": "joint",
+      "gives": "HIP",
+      "note": "the hip is a joint of the body"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AUTHORS",
+      "HIP"
+     ]
+    },
+    "explanation": {
+     "surface": "A co-writer's claim to a share of the book's earnings.",
+     "walkthrough": "'Joint entitlement' reads as a shared right, but joint is a body part and the definition starts after it.",
+     "definitionFit": "Being the recognised creator of a book is what gives someone a claim on its sales income, hence the question mark."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "joint"
+    }
+   }
   },
   {
    "number": 15,
@@ -291,7 +1073,54 @@
      }
     ]
    },
-   "solution": "ONCEUPONATIME"
+   "solution": "ONCEUPONATIME",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ONCE UPON A TIME",
+    "definitions": [
+     {
+      "text": "the way tales start",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Criminal",
+      "for": "anagram",
+      "note": "criminal suggests something bent or corrupted, so the letters are distorted"
+     }
+    ],
+    "linkWords": [
+     "is this"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mate I pounce on",
+      "gives": "MATEIPOUNCEON",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MATEIPOUNCEON",
+       "gives": "ONCEUPONATIME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crook announces he will jump on his accomplice, as in some storybook opening.",
+     "walkthrough": "'Criminal' reads as a noun, a villain; it is an adjective telling you to scramble the following words.",
+     "definitionFit": "Fairy stories traditionally begin with this formula, setting the narrative in a vague distant past."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Criminal"
+    }
+   }
   },
   {
    "number": 16,
@@ -305,7 +1134,44 @@
     "text": "Reckon being seen in vest, I'm a tease?",
     "enumeration": "8"
    },
-   "solution": "ESTIMATE"
+   "solution": "ESTIMATE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ESTIMATE",
+    "definitions": [
+     {
+      "text": "Reckon",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being seen in",
+      "for": "hidden_word",
+      "note": "something seen within other words is visible inside them, letters running across the gaps"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vest, I'm a tease",
+      "gives": "ESTIMATE",
+      "note": "runs from the second letter of the first word into the last word"
+     }
+    ],
+    "explanation": {
+     "surface": "A flirt wearing only an undershirt wonders if she counts as a tease.",
+     "walkthrough": "The vest-wearing tease is a distraction; the answer spans three words, ignoring the comma and apostrophe.",
+     "definitionFit": "To judge approximately or calculate roughly is to reckon, as in reckoning a cost."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "tease"
+    }
+   }
   },
   {
    "number": 17,
@@ -333,7 +1199,54 @@
      }
     ]
    },
-   "solution": "ASHARDASNAILS"
+   "solution": "ASHARDASNAILS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AS HARD AS NAILS",
+    "definitions": [
+     {
+      "text": "how tough is that?",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrecked",
+      "for": "anagram",
+      "note": "a wrecked thing is smashed apart, so the letters are broken up and rebuilt"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sarah sails and",
+      "gives": "SARAHSAILSAND",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SARAHSAILSAND",
+       "gives": "ASHARDASNAILS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor called Sarah is shipwrecked, and someone marvels at how resilient she must be.",
+     "walkthrough": "'And' looks like a connector but its three letters are needed in the fodder.",
+     "definitionFit": "The simile describes someone extremely tough or unfeeling, answering the question of the degree of toughness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "and"
+    }
+   }
   },
   {
    "number": 17,
@@ -347,7 +1260,73 @@
     "text": "A non-drinker seen with a French drunkard, finally becomes acclimatised",
     "enumeration": "7"
    },
-   "solution": "ATTUNED"
+   "solution": "ATTUNED",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ATTUNED",
+    "definitions": [
+     {
+      "text": "acclimatised",
+      "at": 59
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the closing letter of the preceding word"
+     }
+    ],
+    "linkWords": [
+     "seen with",
+     "becomes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "non-drinker",
+      "gives": "TT",
+      "note": "TT, teetotal, describes someone who does not drink alcohol"
+     },
+     {
+      "clueFragment": "a French",
+      "gives": "UNE",
+      "note": "une is the French feminine for a"
+     },
+     {
+      "clueFragment": "drunkard",
+      "gives": "D",
+      "select": "last",
+      "note": "its closing letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "TT",
+      "UNE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A teetotaller keeping company with a French drunk eventually gets used to it.",
+     "walkthrough": "'A French' could be UN or UNE; only the feminine form gives the needed letters.",
+     "definitionFit": "Someone who has adjusted or become accustomed to surroundings is in harmony with them, like an instrument in tune."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "drunkard"
+    }
+   }
   },
   {
    "number": 18,
@@ -367,7 +1346,52 @@
      }
     ]
    },
-   "solution": "ILLWILL"
+   "solution": "ILLWILL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ILL WILL",
+    "definitions": [
+     {
+      "text": "Animosity",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "shown, as",
+     "created"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unwell",
+      "gives": "ILL",
+      "note": "unwell means ill"
+     },
+     {
+      "clueFragment": "last testament",
+      "gives": "WILL",
+      "note": "a will is a last testament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ILL",
+      "WILL"
+     ]
+    },
+    "explanation": {
+     "surface": "Bitterness surfaces because a dying person's final will was drawn up while sick.",
+     "walkthrough": "The phrase literally describes a will made while sick, which is where the question mark comes in.",
+     "definitionFit": "Hostility or resentment towards someone is the everyday sense of this compound noun."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "testament"
+    }
+   }
   },
   {
    "number": 19,
@@ -381,7 +1405,43 @@
     "text": "Lord Elphick covers site of ancient oracle",
     "enumeration": "6"
    },
-   "solution": "DELPHI"
+   "solution": "DELPHI",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "DELPHI",
+    "definitions": [
+     {
+      "text": "site of ancient oracle",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covers",
+      "for": "hidden_word",
+      "note": "what covers something has it underneath, so the letters sit concealed within the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lord Elphick",
+      "gives": "DELPHI",
+      "note": "the last letter of the first word and most of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A peer named Elphick reports on the location of a Greek oracle.",
+     "walkthrough": "'Covers' sounds like a journalist reporting on something, but it signals letters held inside the two words.",
+     "definitionFit": "The Greek sanctuary of Apollo where the Pythia gave prophecies was the most famous oracle of antiquity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "covers"
+    }
+   }
   },
   {
    "number": 20,
@@ -395,7 +1455,43 @@
     "text": "Women terpsichoreans, embracing, go onstage",
     "enumeration": "5"
    },
-   "solution": "ENTER"
+   "solution": "ENTER",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ENTER",
+    "definitions": [
+     {
+      "text": "go onstage",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "embracing",
+      "for": "hidden_word",
+      "note": "to embrace is to hold in one's arms, so the words hold the letters inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Women terpsichoreans",
+      "gives": "ENTER",
+      "note": "the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "Female dancers hug each other and then make their entrance before an audience.",
+     "walkthrough": "Terpsichorean means relating to dance, from Terpsichore, the Muse of dance.",
+     "definitionFit": "The stage direction for an actor's arrival in a scene is this verb, as in scripts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "embracing"
+    }
+   }
   },
   {
    "number": 21,
@@ -409,7 +1505,48 @@
     "text": "Computer term that's a bit of a mouthful to pronounce!",
     "enumeration": "4"
    },
-   "solution": "BYTE"
+   "solution": "BYTE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BYTE",
+    "definitions": [
+     {
+      "text": "Computer term",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to pronounce",
+      "for": "homophone",
+      "note": "pronouncing concerns spoken sound, so the spelling may differ from what is heard"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a bit of a mouthful",
+      "gives": "BYTE",
+      "soundsLike": "BITE",
+      "note": "a bite is a small mouthful of food"
+     }
+    ],
+    "explanation": {
+     "surface": "A technical word that is hard to say.",
+     "walkthrough": "'A bit of a mouthful' idiomatically means hard to say, but read literally it is a morsel of food; 'bit' is also a computing nod.",
+     "definitionFit": "In computing, a unit of data usually made up of eight bits is a standard term."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "mouthful"
+    }
+   }
   },
   {
    "number": 22,
@@ -423,7 +1560,54 @@
     "text": "Lad I upset in store",
     "enumeration": "4"
    },
-   "solution": "ALDI"
+   "solution": "ALDI",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ALDI",
+    "definitions": [
+     {
+      "text": "store",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "upset means knocked over and disordered, so the letters are reordered"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lad I",
+      "gives": "LADI",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LADI",
+       "gives": "ALDI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boy says he got upset while in a shop.",
+     "walkthrough": "ALDI is a German discount supermarket chain with many branches in Britain and elsewhere.",
+     "definitionFit": "The budget grocery chain is a supermarket, a retail shop selling food and household goods."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 23,
@@ -437,7 +1621,53 @@
     "text": "Ship gas - but not Nitrogen",
     "enumeration": "4"
    },
-   "solution": "ARGO"
+   "solution": "ARGO",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ARGO",
+    "definitions": [
+     {
+      "text": "Ship",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "but not",
+      "for": "deletion",
+      "note": "but not means excluding, so a letter is left out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gas",
+      "gives": "ARGON",
+      "note": "a noble gas"
+     },
+     {
+      "clueFragment": "Nitrogen",
+      "gives": "N",
+      "note": "N is the chemical symbol for nitrogen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARGO"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for sending a gas cylinder, specifying that nitrogen is excluded.",
+     "walkthrough": "'Ship' reads as a verb meaning send; it is the definition, a vessel from myth.",
+     "definitionFit": "In Greek legend, Jason and the Argonauts sailed in this vessel in search of the Golden Fleece."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Ship"
+    }
+   }
   },
   {
    "number": 24,
@@ -451,7 +1681,51 @@
     "text": "Hit drug that's ready to snort: this is one's payoff",
     "enumeration": "9"
    },
-   "solution": "PUNCHLINE"
+   "solution": "PUNCHLINE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PUNCHLINE",
+    "definitions": [
+     {
+      "text": "payoff",
+      "at": 46
+     }
+    ],
+    "linkWords": [
+     "this is one's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hit",
+      "gives": "PUNCH",
+      "note": "to punch is to hit"
+     },
+     {
+      "clueFragment": "drug that's ready to snort",
+      "gives": "LINE",
+      "note": "a line is a strip of powdered cocaine laid out for snorting"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PUNCH",
+      "LINE"
+     ]
+    },
+    "explanation": {
+     "surface": "A popular narcotic gets prepared for inhaling, and that is a dealer's reward.",
+     "walkthrough": "'Hit' could be a dose of a drug, fitting the surface, but it is the verb strike. 'One' is a joke, whose payoff is its final line.",
+     "definitionFit": "The final line of a joke that delivers the laugh is the reward for listening, a common figurative use."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Hit"
+    }
+   }
   },
   {
    "number": 25,
@@ -465,7 +1739,55 @@
     "text": "Lady holding a dish to have with curry?",
     "enumeration": "5"
    },
-   "solution": "RAITA"
+   "solution": "RAITA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RAITA",
+    "definitions": [
+     {
+      "text": "dish to have with curry",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "to hold something is to have it within one's grasp, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lady",
+      "gives": "RITA",
+      "note": "Rita is a woman's name"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "A",
+      "ITA"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman carries a plate of something to eat alongside an Indian meal.",
+     "walkthrough": "'Lady' stands for any woman's name; RITA is the one that fits.",
+     "definitionFit": "The yoghurt side dish with cucumber and mint is a cooling Indian accompaniment served beside spicy food."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Lady"
+    }
+   }
   },
   {
    "number": 26,
@@ -491,7 +1813,54 @@
      }
     ]
    },
-   "solution": "INDEPTH"
+   "solution": "INDEPTH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IN-DEPTH",
+    "definitions": [
+     {
+      "text": "extremely detailed",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reworking of",
+      "for": "anagram",
+      "note": "reworking something redoes it in a new form, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ET in PhD",
+      "gives": "ETINPHD",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ETINPHD",
+       "gives": "INDEPTH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An academic's doctoral thesis revisits the film ET with exhaustive thoroughness.",
+     "walkthrough": "ET is italicised as the Spielberg film title, which makes it look like a unit; its letters join the rest to be scrambled.",
+     "definitionFit": "A thorough, comprehensive treatment covering every aspect of a subject is described with this adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Reworking"
+    }
+   }
   },
   {
    "number": 27,
@@ -505,7 +1874,56 @@
     "text": "Footballer to proceed with a falsehood",
     "enumeration": "6"
    },
-   "solution": "GOALIE"
+   "solution": "GOALIE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GOALIE",
+    "definitions": [
+     {
+      "text": "Footballer",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "proceed",
+      "gives": "GO",
+      "note": "to proceed is to go"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "falsehood",
+      "gives": "LIE",
+      "note": "a lie is a falsehood"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GO",
+      "A",
+      "LIE"
+     ]
+    },
+    "explanation": {
+     "surface": "A soccer player carries on telling an untruth, perhaps about a dive.",
+     "walkthrough": "The surface suggests a cheating player; the words simply build the answer in order.",
+     "definitionFit": "The goalkeeper is the team player guarding the net, informally known by this shortened form."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "proceed"
+    }
+   }
   }
  ]
 }
