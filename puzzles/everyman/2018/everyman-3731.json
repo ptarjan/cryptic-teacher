@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,48 @@
     "text": "Stop in country's southernmost county",
     "enumeration": "4"
    },
-   "solution": "CORK"
+   "solution": "CORK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CORK",
+    "definitions": [
+     {
+      "text": "Stop",
+      "at": 0
+     },
+     {
+      "text": "country's southernmost county",
+      "at": 8
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stop",
+      "gives": "CORK",
+      "note": "a stopper for a bottle, or the verb to seal one"
+     },
+     {
+      "clueFragment": "country's southernmost county",
+      "gives": "CORK",
+      "note": "the Irish county at the bottom of the island"
+     }
+    ],
+    "explanation": {
+     "surface": "A traveller pausing for a while in the far south of the country.",
+     "walkthrough": "Cork is the southernmost county of Ireland; 'country' leaves the solver to work out which country is meant.",
+     "definitionFit": "A stopper and the Irish county share one word; the verb sense is sealing a bottle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Stop"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +91,61 @@
     "text": "Oppose heartless mob, breaking cover",
     "enumeration": "6"
    },
-   "solution": "COMBAT"
+   "solution": "COMBAT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "COMBAT",
+    "definitions": [
+     {
+      "text": "Oppose",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heartless",
+      "for": "deletion",
+      "note": "a word without its heart has lost its middle letter, so 'mob' drops its centre"
+     },
+     {
+      "text": "breaking",
+      "for": "container",
+      "note": "something breaking into a cover sits inside it, so the trimmed 'mob' goes within 'cover'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cover",
+      "gives": "COAT",
+      "note": "a coat is a cover, as a coat of paint"
+     },
+     {
+      "clueFragment": "heartless mob",
+      "gives": "MB",
+      "note": "mob with its middle O removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "MB",
+      "AT"
+     ]
+    },
+    "explanation": {
+     "surface": "Resisting an unruly crowd that is smashing through a protective screen.",
+     "walkthrough": "'Oppose' needs the verb sense of the answer, as in to fight a disease.",
+     "definitionFit": "To combat something is to fight against it, a direct verb synonym for resisting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cover"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +159,54 @@
     "text": "Conversion of sinner, a case for rebirth",
     "enumeration": "11"
    },
-   "solution": "RENAISSANCE"
+   "solution": "RENAISSANCE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RENAISSANCE",
+    "definitions": [
+     {
+      "text": "rebirth",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Conversion of",
+      "for": "anagram",
+      "note": "a conversion changes one form into another, so the letters of the following words are rearranged"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sinner, a case",
+      "gives": "SINNERACASE",
+      "note": "anagram fodder, 11 letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SINNER A CASE",
+       "gives": "RENAISSANCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A religious conversion argued as a sinner being born again.",
+     "walkthrough": "'Conversion' fits the religious picture perfectly while telling the solver to rearrange the letters.",
+     "definitionFit": "The French word literally means being born anew, the revival of arts and learning."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Conversion"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +226,60 @@
      }
     ]
    },
-   "solution": "BRUSHOFF"
+   "solution": "BRUSHOFF",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BRUSH-OFF",
+    "definitions": [
+     {
+      "text": "Rejection",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "the words before 'after' come second, so 'of force' follows 'brief encounter'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brief encounter",
+      "gives": "BRUSH",
+      "note": "a brush with someone is a fleeting meeting"
+     },
+     {
+      "clueFragment": "of",
+      "gives": "OF",
+      "note": "the word taken as it stands"
+     },
+     {
+      "clueFragment": "force",
+      "gives": "F",
+      "note": "F is the physics symbol for force"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRUSH",
+      "OF",
+      "F"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone being forcefully rebuffed after a short meeting, with a nod to the film Brief Encounter.",
+     "walkthrough": "'Of' looks like a link word joining 'Rejection' to the rest, but it supplies two letters of the answer.",
+     "definitionFit": "Giving someone the brush-off means curtly dismissing them, an idiomatic rebuff."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "of"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +293,49 @@
     "text": "Dissolute men in scrapes",
     "enumeration": "5"
    },
-   "solution": "RAKES"
+   "solution": "RAKES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RAKES",
+    "definitions": [
+     {
+      "text": "Dissolute men",
+      "at": 0
+     },
+     {
+      "text": "scrapes",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dissolute men",
+      "gives": "RAKES",
+      "note": "a rake is a pleasure-seeking libertine"
+     },
+     {
+      "clueFragment": "scrapes",
+      "gives": "RAKES",
+      "note": "to rake is to scrape along a surface, as with a garden tool"
+     }
+    ],
+    "explanation": {
+     "surface": "Debauched men getting themselves into scrapes, meaning trouble.",
+     "walkthrough": "'Scrapes' reads as a noun meaning troubles; it is really the verb.",
+     "definitionFit": "The noun names immoral pleasure-seekers and the verb means dragging across a surface."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "scrapes"
+    }
+   }
   },
   {
    "number": 5,
@@ -115,7 +355,67 @@
      }
     ]
    },
-   "solution": "SINGAPORESLING"
+   "solution": "SINGAPORESLING",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "SINGAPORE SLING",
+    "definitions": [
+     {
+      "text": "cocktail",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not having one",
+      "for": "deletion",
+      "note": "'one' is the letter I, and the wine is written without it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Offence",
+      "gives": "SIN",
+      "note": "a sin is a moral offence"
+     },
+     {
+      "clueFragment": "Opening",
+      "gives": "GAP",
+      "note": "a gap is an opening"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "standard abbreviation for old"
+     },
+     {
+      "clueFragment": "wine, not having one",
+      "gives": "RESLING",
+      "note": "Riesling, a white wine, minus its I"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SIN",
+      "GAP",
+      "O",
+      "RESLING"
+     ]
+    },
+    "explanation": {
+     "surface": "Is it a crime to open an old bottle of wine without offering a cocktail?",
+     "walkthrough": "Riesling is a white grape and wine; removing the I (one) leaves RESLING to finish the drink's name.",
+     "definitionFit": "The Singapore Sling is a gin-based mixed drink created at Raffles Hotel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Opening"
+    }
+   }
   },
   {
    "number": 6,
@@ -129,7 +429,44 @@
     "text": "Casual eccentric",
     "enumeration": "3"
    },
-   "solution": "ODD"
+   "solution": "ODD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ODD",
+    "definitions": [
+     {
+      "text": "Casual",
+      "at": 0
+     },
+     {
+      "text": "eccentric",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Casual",
+      "gives": "ODD",
+      "note": "casual here means occasional, as in jobs done now and then"
+     },
+     {
+      "clueFragment": "eccentric",
+      "gives": "ODD",
+      "note": "an eccentric person is peculiar or strange"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Casual' leads to ODD through phrases like odd jobs or the odd drink, meaning occasional.",
+     "definitionFit": "Irregular, occasional work and strange behaviour are both described with this word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Casual"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +480,68 @@
     "text": "Loudly working to secure prize, endlessly alert",
     "enumeration": "8"
    },
-   "solution": "FOREWARN"
+   "solution": "FOREWARN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container",
+     "charade"
+    ],
+    "answer": "FOREWARN",
+    "definitions": [
+     {
+      "text": "alert",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endlessly",
+      "for": "deletion",
+      "note": "without its end, 'prize' loses its final letter"
+     },
+     {
+      "text": "to secure",
+      "for": "container",
+      "note": "to secure something is to hold it fast, so 'working' wraps round the trimmed 'prize'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Loudly",
+      "gives": "F",
+      "note": "f is forte, the musical mark for loud"
+     },
+     {
+      "clueFragment": "working",
+      "gives": "ON",
+      "note": "a machine that is on is working"
+     },
+     {
+      "clueFragment": "prize, endlessly",
+      "gives": "REWAR",
+      "note": "reward without its last letter D"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "O",
+      "REWAR",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone noisily busy trying to win a prize, never resting.",
+     "walkthrough": "'Alert' looks like an adjective meaning watchful but is the verb, to warn in advance.",
+     "definitionFit": "To forewarn is to give someone advance notice of danger, a verb synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "alert"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +561,51 @@
      }
     ]
    },
-   "solution": "ABRAHAMLINCOLN"
+   "solution": "ABRAHAMLINCOLN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ABRAHAM LINCOLN",
+    "definitions": [
+     {
+      "text": "president",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Amendment of",
+      "for": "anagram",
+      "note": "an amendment alters a text, so the letters of the following words are altered in order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a bill can harm no",
+      "gives": "ABILLCANHARMNO",
+      "note": "anagram fodder, 14 letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "A BILL CAN HARM NO",
+       "gives": "ABRAHAMLINCOLN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A legislative amendment reassuring us that a bill cannot hurt any president.",
+     "walkthrough": "The political vocabulary of bills and amendments fits the answer, the sixteenth US president; the comma in the enumeration separates first name from surname.",
+     "definitionFit": "Lincoln led the United States during the Civil War, a specific example of a head of state."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Amendment"
+    }
+   }
   },
   {
    "number": 9,
@@ -183,7 +625,78 @@
      }
     ]
    },
-   "solution": "MESSEDUP"
+   "solution": "MESSEDUP",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "MESSED UP",
+    "definitions": [
+     {
+      "text": "confused",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "evil",
+      "for": "anagram",
+      "note": "evil means bad, and 'used' is badly treated into a new order"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "'psychic awareness' goes about, meaning around, the rearranged 'used'"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Medium",
+      "gives": "M",
+      "note": "M is the clothing-size abbreviation for medium"
+     },
+     {
+      "clueFragment": "psychic awareness",
+      "gives": "ESP",
+      "note": "extrasensory perception"
+     },
+     {
+      "clueFragment": "used",
+      "gives": "SEDU",
+      "note": "the four letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ES",
+      "SEDU",
+      "P"
+     ],
+     "anagrams": [
+      {
+       "fodder": "USED",
+       "gives": "SEDU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A spiritualist medium, sensing evil, once became bewildered.",
+     "walkthrough": "'Medium' looks like the psychic herself but is only the size abbreviation; 'evil' is an unusual anagram indicator, meaning bad.",
+     "definitionFit": "Messed up is informal for muddled or disordered, an adjectival phrase synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Medium"
+    }
+   }
   },
   {
    "number": 10,
@@ -197,7 +710,72 @@
     "text": "Point in difficult situation with leaders of army keen for short holiday",
     "enumeration": "9"
    },
-   "solution": "MINIBREAK"
+   "solution": "MINIBREAK",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "MINIBREAK",
+    "definitions": [
+     {
+      "text": "short holiday",
+      "at": 59
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'point' sits in 'difficult situation', inside it"
+     },
+     {
+      "text": "leaders of",
+      "for": "letter_selection",
+      "note": "the leaders of words are their first letters, taken from 'army' and 'keen'"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "difficult situation",
+      "gives": "MIRE",
+      "note": "to be in the mire is to be in trouble"
+     },
+     {
+      "clueFragment": "Point",
+      "gives": "NIB",
+      "note": "a nib is the point of a pen"
+     },
+     {
+      "clueFragment": "army keen",
+      "gives": "AK",
+      "select": "first",
+      "note": "first letters of army and keen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MI",
+      "NIB",
+      "RE",
+      "AK"
+     ]
+    },
+    "explanation": {
+     "surface": "Soldiers in a tight spot eager for some leave.",
+     "walkthrough": "'Point' tempts as a compass letter but is the tip of a pen; the army setting hides the idea of a holiday.",
+     "definitionFit": "A minibreak is a British term for a brief trip away, often a long weekend."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Point"
+    }
+   }
   },
   {
    "number": 11,
@@ -211,7 +789,62 @@
     "text": "Plug I put in near lowest point",
     "enumeration": "5"
    },
-   "solution": "NADIR"
+   "solution": "NADIR",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "NADIR",
+    "definitions": [
+     {
+      "text": "lowest point",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put in",
+      "for": "container",
+      "note": "'plug' and 'I' are put inside 'near'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "near",
+      "gives": "NR",
+      "note": "standard abbreviation for near, as in addresses"
+     },
+     {
+      "clueFragment": "Plug",
+      "gives": "AD",
+      "note": "a plug is a piece of advertising"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "the letter as printed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "AD",
+      "I",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to fit a plug near the bottom of something, like a sink.",
+     "walkthrough": "'Plug' pictures a bath stopper but is a promotional mention, AD.",
+     "definitionFit": "The nadir is the bottom of a decline, originally the point directly below an observer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Plug"
+    }
+   }
   },
   {
    "number": 12,
@@ -225,7 +858,67 @@
     "text": "Condemn popular article about beasts",
     "enumeration": "7"
    },
-   "solution": "ANIMALS"
+   "solution": "ANIMALS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ANIMALS",
+    "definitions": [
+     {
+      "text": "beasts",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "turning about means facing the other way, so the combined words run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Condemn",
+      "gives": "SLAM",
+      "note": "to slam is to criticise harshly"
+     },
+     {
+      "clueFragment": "popular",
+      "gives": "IN",
+      "note": "what is in is fashionable"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "the indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "NI",
+      "MALS"
+     ],
+     "reversals": [
+      {
+       "from": "SLAMINA",
+       "to": "ANIMALS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A critic attacking a well-liked newspaper piece on wildlife.",
+     "walkthrough": "'About' reads as 'concerning' in the surface but reverses SLAMINA.",
+     "definitionFit": "Beasts and animals are general synonyms for living creatures other than humans."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 13,
@@ -239,7 +932,57 @@
     "text": "Everything in exhibition is superficial",
     "enumeration": "7"
    },
-   "solution": "SHALLOW"
+   "solution": "SHALLOW",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SHALLOW",
+    "definitions": [
+     {
+      "text": "superficial",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'everything' goes in 'exhibition', inside it"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "exhibition",
+      "gives": "SHOW",
+      "note": "a show is an exhibition"
+     },
+     {
+      "clueFragment": "Everything",
+      "gives": "ALL",
+      "note": "all means everything"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SH",
+      "ALL",
+      "OW"
+     ]
+    },
+    "explanation": {
+     "surface": "A critic dismissing an entire exhibition as lacking depth.",
+     "walkthrough": "The surface reads as a verdict on a show, and the show literally surrounds everything in it.",
+     "definitionFit": "Shallow and superficial both describe thinking that lacks depth, a straight synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -253,7 +996,80 @@
     "text": "Law-making stage that is interrupted by small, important upset",
     "enumeration": "11"
    },
-   "solution": "LEGISLATIVE"
+   "solution": "LEGISLATIVE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "LEGISLATIVE",
+    "definitions": [
+     {
+      "text": "Law-making",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "something upset is knocked over and disordered, so 'important' is rearranged"
+     },
+     {
+      "text": "interrupted by",
+      "for": "container",
+      "note": "'that is' is broken into by 'small' and the rearranged word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stage",
+      "gives": "LEG",
+      "note": "a leg is a stage of a journey or race"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e., id est, means that is"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "standard abbreviation for small"
+     },
+     {
+      "clueFragment": "important",
+      "gives": "LATIV",
+      "note": "vital rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEG",
+      "I",
+      "S",
+      "LATIV",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "VITAL",
+       "gives": "LATIV"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bill's passage through parliament being disrupted by a minor but significant upset.",
+     "walkthrough": "'Important' becomes VITAL before being rearranged; S and LATIV go inside I.E.",
+     "definitionFit": "The legislative branch is the one that makes laws, an adjectival synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stage"
+    }
+   }
   },
   {
    "number": 15,
@@ -267,7 +1083,73 @@
     "text": "Gossip left doctor in peril after examination",
     "enumeration": "13"
    },
-   "solution": "SCANDALMONGER"
+   "solution": "SCANDALMONGER",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SCANDALMONGER",
+    "definitions": [
+     {
+      "text": "Gossip",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'left' and 'doctor' are placed in 'peril'"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "the peril part comes after 'examination'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "examination",
+      "gives": "SCAN",
+      "note": "a scan is a medical examination"
+     },
+     {
+      "clueFragment": "peril",
+      "gives": "DANGER",
+      "note": "peril means danger"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "standard abbreviation for left"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "MO",
+      "note": "medical officer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCAN",
+      "DA",
+      "L",
+      "MO",
+      "NGER"
+     ]
+    },
+    "explanation": {
+     "surface": "Rumour that a doctor abandoned a patient in danger after a check-up.",
+     "walkthrough": "MO, medical officer, is the usual crossword doctor; 'Gossip' is the person who spreads rumours, not the talk itself.",
+     "definitionFit": "A scandalmonger is someone who spreads malicious rumours, which one sense of gossip names."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "examination"
+    }
+   }
   },
   {
    "number": 16,
@@ -281,7 +1163,56 @@
     "text": "Note angry energy in sport",
     "enumeration": "8"
    },
-   "solution": "LACROSSE"
+   "solution": "LACROSSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LACROSSE",
+    "definitions": [
+     {
+      "text": "sport",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Note",
+      "gives": "LA",
+      "note": "the sixth note of the sol-fa scale"
+     },
+     {
+      "clueFragment": "angry",
+      "gives": "CROSS",
+      "note": "cross means annoyed"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "the physics symbol for energy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LA",
+      "CROSS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A player's furious energy shown on the field.",
+     "walkthrough": "The three pieces are simply joined; 'in' links wordplay to definition.",
+     "definitionFit": "Lacrosse is a team game played with netted sticks, an example of a sport."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Note"
+    }
+   }
   },
   {
    "number": 17,
@@ -295,7 +1226,61 @@
     "text": "Extensive lamentation after end of bliss",
     "enumeration": "8"
    },
-   "solution": "SWEEPING"
+   "solution": "SWEEPING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SWEEPING",
+    "definitions": [
+     {
+      "text": "Extensive",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its last letter, taken from 'bliss'"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "'lamentation' comes after the selected letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bliss",
+      "gives": "S",
+      "select": "last",
+      "note": "last letter of bliss"
+     },
+     {
+      "clueFragment": "lamentation",
+      "gives": "WEEPING",
+      "note": "weeping is loud grieving"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "WEEPING"
+     ]
+    },
+    "explanation": {
+     "surface": "Prolonged grief after happiness has come to an end.",
+     "walkthrough": "The surface reads as tears after joy ends, which is exactly how the pieces combine.",
+     "definitionFit": "Sweeping changes are wide-ranging and far-reaching, so the adjective is a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Extensive"
+    }
+   }
   },
   {
    "number": 18,
@@ -315,7 +1300,54 @@
      }
     ]
    },
-   "solution": "WINKLEPICKERS"
+   "solution": "WINKLEPICKERS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "WINKLE-PICKERS",
+    "definitions": [
+     {
+      "text": "Pointed shoes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shocking",
+      "for": "anagram",
+      "note": "shocking suggests something violently disturbed, so the following letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pink were slick",
+      "gives": "PINKWERESLICK",
+      "note": "anagram fodder, 13 letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PINK WERE SLICK",
+       "gives": "WINKLEPICKERS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Shoes in a garish pink looking very smart and polished.",
+     "walkthrough": "Winkle-pickers are British shoes with long sharp toes, popular with 1950s-60s rockers; 'shocking pink' is a phrase, but only 'shocking' is the indicator.",
+     "definitionFit": "The name jokes that the toes are sharp enough to pick winkles, small sea snails, from shells."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shocking"
+    }
+   }
   },
   {
    "number": 19,
@@ -329,7 +1361,42 @@
     "text": "Place of refuge in fantasy, luminous",
     "enumeration": "6"
    },
-   "solution": "ASYLUM"
+   "solution": "ASYLUM",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ASYLUM",
+    "definitions": [
+     {
+      "text": "Place of refuge",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the answer is inside the run of letters spanning 'fantasy, luminous'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fantasy, luminous",
+      "gives": "ASYLUM",
+      "note": "the last three letters of one word joined to the first three of the next"
+     }
+    ],
+    "explanation": {
+     "surface": "A glowing dreamland imagined as a safe haven.",
+     "walkthrough": "The comma between the two words is ignored when reading straight across them.",
+     "definitionFit": "Asylum is protection granted to those fleeing danger, and also a sanctuary giving it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -343,7 +1410,74 @@
     "text": "Endless odd elements of theory presented in revolutionary way",
     "enumeration": "7"
    },
-   "solution": "ETERNAL"
+   "solution": "ETERNAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "container"
+    ],
+    "answer": "ETERNAL",
+    "definitions": [
+     {
+      "text": "Endless",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "odd elements of",
+      "for": "letter_selection",
+      "note": "the odd elements are the first, third and fifth letters of 'theory'"
+     },
+     {
+      "text": "revolutionary",
+      "for": "reversal",
+      "note": "a revolution turns things round, so 'way' is written backwards"
+     },
+     {
+      "text": "presented in",
+      "for": "container",
+      "note": "the selected letters are presented inside the turned-round 'way'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "theory",
+      "gives": "TER",
+      "select": "alternate",
+      "note": "t, e, r from positions one, three and five"
+     },
+     {
+      "clueFragment": "way",
+      "gives": "LANE",
+      "note": "a lane is a way or road"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "TER",
+      "NAL"
+     ],
+     "reversals": [
+      {
+       "from": "LANE",
+       "to": "ENAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An unending revolutionary theory, presented piece by piece.",
+     "walkthrough": "'Odd elements' means the letters in odd-numbered positions, not strange parts of the theory.",
+     "definitionFit": "Something eternal lasts forever and never stops, so the words are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "revolutionary"
+    }
+   }
   },
   {
    "number": 21,
@@ -357,7 +1491,50 @@
     "text": "Vegetables, smooth, first to last",
     "enumeration": "5"
    },
-   "solution": "LEEKS"
+   "solution": "LEEKS",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "LEEKS",
+    "definitions": [
+     {
+      "text": "Vegetables",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first to last",
+      "for": "cycling",
+      "note": "the opening letter of 'smooth' is moved to the end of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "smooth",
+      "gives": "SLEEK",
+      "note": "sleek means smooth and glossy"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SLEEK",
+       "gives": "LEEKS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cook's note: vegetables smoothed, from first to last.",
+     "walkthrough": "The S at the front of SLEEK moves to the back.",
+     "definitionFit": "Leeks are onion-family plants eaten as vegetables, an example of the category."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -371,7 +1548,62 @@
     "text": "River bank in very large city in France",
     "enumeration": "7"
    },
-   "solution": "ORLEANS"
+   "solution": "ORLEANS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ORLEANS",
+    "definitions": [
+     {
+      "text": "city in France",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'river' and 'bank' go inside 'very large'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "very large",
+      "gives": "OS",
+      "note": "outsize, the clothing abbreviation"
+     },
+     {
+      "clueFragment": "River",
+      "gives": "R",
+      "note": "standard abbreviation for river"
+     },
+     {
+      "clueFragment": "bank",
+      "gives": "LEAN",
+      "note": "an aircraft banks when it leans over"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "R",
+      "LEAN",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A riverbank in a great French city, like the Loire at Orleans.",
+     "walkthrough": "'River bank' reads as one thing but splits into R and the verb bank, meaning tilt.",
+     "definitionFit": "Orleans is a city on the Loire, famous for Joan of Arc, and an example of a French city."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bank"
+    }
+   }
   },
   {
    "number": 23,
@@ -385,7 +1617,67 @@
     "text": "Opening clue, not hard, otherwise taken back",
     "enumeration": "5"
    },
-   "solution": "INTRO"
+   "solution": "INTRO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "charade"
+    ],
+    "answer": "INTRO",
+    "definitions": [
+     {
+      "text": "Opening",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not hard",
+      "for": "deletion",
+      "note": "the abbreviation for hard is removed from 'clue'"
+     },
+     {
+      "text": "taken back",
+      "for": "reversal",
+      "note": "taken back means returned the way it came, so 'otherwise' runs backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clue, not hard",
+      "gives": "INT",
+      "note": "hint without its H"
+     },
+     {
+      "clueFragment": "otherwise",
+      "gives": "OR",
+      "note": "or else means otherwise"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INT",
+      "RO"
+     ],
+     "reversals": [
+      {
+       "from": "OR",
+       "to": "RO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A first crossword clue that is easy, or else withdrawn.",
+     "walkthrough": "A clue is a HINT; H is the pencil-grade abbreviation for hard.",
+     "definitionFit": "An intro is an informal short form for an introduction, the opening part of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "clue"
+    }
+   }
   },
   {
    "number": 24,
@@ -399,7 +1691,46 @@
     "text": "Temperature? Zero, more than once as well",
     "enumeration": "3"
    },
-   "solution": "TOO"
+   "solution": "TOO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TOO",
+    "definitions": [
+     {
+      "text": "as well",
+      "at": 34
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Temperature",
+      "gives": "T",
+      "note": "standard abbreviation for temperature"
+     },
+     {
+      "clueFragment": "Zero, more than once",
+      "gives": "OO",
+      "note": "zero looks like O, used twice"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "OO"
+     ]
+    },
+    "explanation": {
+     "surface": "A weather report: temperatures at zero again and again.",
+     "walkthrough": "'More than once' means the O appears twice.",
+     "definitionFit": "Too and as well both mean also or in addition, adverb synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -413,7 +1744,55 @@
     "text": "Key? It's in steel as ordered",
     "enumeration": "9"
    },
-   "solution": "ESSENTIAL"
+   "solution": "ESSENTIAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ESSENTIAL",
+    "definitions": [
+     {
+      "text": "Key",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ordered",
+      "for": "anagram",
+      "note": "ordered means put into a new arrangement, so the preceding letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "It's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in steel as",
+      "gives": "INSTEELAS",
+      "note": "anagram fodder, 9 letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IN STEEL AS",
+       "gives": "ESSENTIAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A key made of steel, just as it was ordered.",
+     "walkthrough": "'Key' suggests a metal object and so does 'steel'; it is the adjective, as in a key point.",
+     "definitionFit": "A key factor is crucial, so key as an adjective shares the sense of indispensable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Key"
+    }
+   }
   },
   {
    "number": 26,
@@ -427,7 +1806,68 @@
     "text": "Leave poems bearing name with singular merit",
     "enumeration": "8"
    },
-   "solution": "GOODNESS"
+   "solution": "GOODNESS",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "GOODNESS",
+    "definitions": [
+     {
+      "text": "merit",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bearing",
+      "for": "container",
+      "note": "to bear is to carry, so 'poems' carries 'name' inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Leave",
+      "gives": "GO",
+      "note": "go means leave"
+     },
+     {
+      "clueFragment": "poems",
+      "gives": "ODES",
+      "note": "odes are lyric poems"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "standard abbreviation for name"
+     },
+     {
+      "clueFragment": "singular",
+      "gives": "S",
+      "note": "grammatical abbreviation for singular"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GO",
+      "OD",
+      "N",
+      "ES",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Leaving behind named poems of rare quality.",
+     "walkthrough": "'Singular' pretends to mean exceptional but is just the grammar abbreviation.",
+     "definitionFit": "Goodness is virtue or excellence, a noun synonym for worth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "singular"
+    }
+   }
   },
   {
    "number": 27,
@@ -441,7 +1881,48 @@
     "text": "Spy and spymaster appear",
     "enumeration": "4"
    },
-   "solution": "SEEM"
+   "solution": "SEEM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SEEM",
+    "definitions": [
+     {
+      "text": "appear",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spy",
+      "gives": "SEE",
+      "note": "to spy is to catch sight of"
+     },
+     {
+      "clueFragment": "spymaster",
+      "gives": "M",
+      "note": "M is the head of the secret service in the James Bond stories"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEE",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "An agent and their chief turning up together.",
+     "walkthrough": "'Spy' looks like a noun paired with its boss, but it is the verb to see.",
+     "definitionFit": "To appear can mean to look or give an impression, the same verb sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Spy"
+    }
+   }
   }
  ]
 }
