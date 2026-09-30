@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,62 @@
     "text": "Bull given snip chasing male vet?",
     "enumeration": "5"
    },
-   "solution": "MEDIC"
+   "solution": "MEDIC",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "MEDIC",
+    "definitions": [
+     {
+      "text": "vet?",
+      "at": 29,
+      "note": "the question mark admits a vet treats animals, a medic people"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "given snip",
+      "for": "deletion",
+      "note": "a snip is a small cut, so the word loses its tail end"
+     },
+     {
+      "text": "chasing",
+      "for": "charade",
+      "note": "to chase is to follow behind, so this piece comes second in the line"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "male",
+      "gives": "M",
+      "note": "M is the standard abbreviation for male"
+     },
+     {
+      "clueFragment": "Bull",
+      "gives": "EDIC",
+      "note": "a bull is a papal edict; snipping off its last letter leaves four"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "EDIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A bull at the vet's is being given the snip, a castration, right after another male animal.",
+     "walkthrough": "'Bull' is not the farm animal but a papal decree, an EDICT. The snip is an abbreviation cut, not a castration.",
+     "definitionFit": "To vet something is to examine it closely, and a medic is a doctor who examines patients; the question mark flags the loose fit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bull"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +105,44 @@
     "text": "Blades ground for the kitchen staff",
     "enumeration": "4"
    },
-   "solution": "MACE"
+   "solution": "MACE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MACE",
+    "definitions": [
+     {
+      "text": "Blades ground for the kitchen",
+      "at": 0
+     },
+     {
+      "text": "staff",
+      "at": 30
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Blades ground for the kitchen",
+      "note": "first meaning: the spice, sold whole as dried 'blades' of nutmeg husk and ground for cooking"
+     },
+     {
+      "clueFragment": "staff",
+      "note": "second meaning: a ceremonial rod of office carried before an official"
+     }
+    ],
+    "explanation": {
+     "surface": "Knives are sharpened on a grindstone for the chefs and cooks who work in the kitchen.",
+     "walkthrough": "'Kitchen staff' reads as one phrase meaning cooks, but the split falls between them. Whole mace is sold in pieces called blades, which are ground into the spice.",
+     "definitionFit": "Mace is both a cooking spice made from the dried nutmeg aril and a heavy ceremonial rod carried in parliaments and processions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Blades"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +156,56 @@
     "text": "Drawn after capturing rook stranded up top?",
     "enumeration": "11"
    },
-   "solution": "DREADLOCKED"
+   "solution": "DREADLOCKED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DREADLOCKED",
+    "definitions": [
+     {
+      "text": "stranded up top?",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after capturing",
+      "for": "container",
+      "note": "capturing means seizing and holding, so one piece ends up held inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drawn",
+      "gives": "DEADLOCKED",
+      "note": "a drawn game is one ending in stalemate or deadlock"
+     },
+     {
+      "clueFragment": "rook",
+      "gives": "R",
+      "note": "R is the chess notation for a rook"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "R",
+      "EADLOCKED"
+     ]
+    },
+    "explanation": {
+     "surface": "A chess game ends drawn after one player takes a rook.",
+     "walkthrough": "The chess surface hides a hairstyle: the rook slips in after the first letter. 'Stranded' here means made into strands, not marooned.",
+     "definitionFit": "Hair twisted into dreadlocks is literally arranged in strands on the head, a playful reading of the word for marooned."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "stranded"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +219,62 @@
     "text": "Plate in church boosting capital? Quite the opposite",
     "enumeration": "6"
    },
-   "solution": "CHROME"
+   "solution": "CHROME",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHROME",
+    "definitions": [
+     {
+      "text": "Plate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "boosting",
+      "for": "charade",
+      "note": "to boost is to lift up, and in a down entry lifting puts one piece above another"
+     },
+     {
+      "text": "Quite the opposite",
+      "for": "charade",
+      "note": "this tells the solver to swap the stated order, so the lifter becomes the lifted"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "church",
+      "gives": "CH",
+      "note": "CH is the usual abbreviation for church"
+     },
+     {
+      "clueFragment": "capital",
+      "gives": "ROME",
+      "note": "the capital city of Italy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CH",
+      "ROME"
+     ]
+    },
+    "explanation": {
+     "surface": "A collection plate in church is raising funds for the capital, or perhaps the reverse.",
+     "walkthrough": "Read literally, the capital would sit on top of the church; 'Quite the opposite' puts the church above instead. 'Plate' is the metal coating, not the collection dish.",
+     "definitionFit": "Chrome is chromium used as a shiny metallic coating, so to plate with it or the plating itself is chrome."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Plate"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +294,62 @@
      }
     ]
    },
-   "solution": "WAISTDEEP"
+   "solution": "WAISTDEEP",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "WAIST-DEEP",
+    "definitions": [
+     {
+      "text": "up to the midriff",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to maintain",
+      "for": "container",
+      "note": "to maintain is to hold or keep up, so the outer piece holds the others within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Keen",
+      "gives": "WEEP",
+      "note": "to keen is to wail in grief"
+     },
+     {
+      "clueFragment": "excellent",
+      "gives": "AI",
+      "note": "A1 means first-rate, written with letters as AI"
+     },
+     {
+      "clueFragment": "standard",
+      "gives": "STD",
+      "note": "STD is an abbreviation of standard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "AI",
+      "STD",
+      "EEP"
+     ]
+    },
+    "explanation": {
+     "surface": "An enthusiast wants to keep up an excellent standard, but seems to be out of their depth.",
+     "walkthrough": "'Keen' looks like eager but is the verb for wailing. A1, meaning top-class, is written AI in crosswords.",
+     "definitionFit": "Standing in water reaching the middle of the body means being immersed as far as the belly, which the phrase describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Keen"
+    }
+   }
   },
   {
    "number": 4,
@@ -115,7 +369,68 @@
      }
     ]
    },
-   "solution": "WOODNYMPH"
+   "solution": "WOODNYMPH",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "WOOD NYMPH",
+    "definitions": [
+     {
+      "text": "Spirit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "seen around",
+      "for": "container",
+      "note": "something around another encircles it, so these letters wrap the inner ones"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "W is the abbreviation for with"
+     },
+     {
+      "clueFragment": "punch",
+      "gives": "OOMPH",
+      "note": "punch as in vigour or force"
+     },
+     {
+      "clueFragment": "delta",
+      "gives": "D",
+      "note": "Delta is the NATO alphabet word for D"
+     },
+     {
+      "clueFragment": "city",
+      "gives": "NY",
+      "note": "NY is New York"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "OO",
+      "D",
+      "NY",
+      "MPH"
+     ]
+    },
+    "explanation": {
+     "surface": "A drink with punch is found around a city on a river delta, such as New Orleans.",
+     "walkthrough": "'Spirit' and 'punch' both suggest drinks, but the first is a mythical being and the second means energy.",
+     "definitionFit": "A dryad or forest sprite in Greek myth is a supernatural being, so a spirit in the sense of a minor divinity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Spirit"
+    }
+   }
   },
   {
    "number": 5,
@@ -129,7 +444,68 @@
     "text": "Croon head off to uplifting cast piece",
     "enumeration": "5"
    },
-   "solution": "INGOT"
+   "solution": "INGOT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "charade"
+    ],
+    "answer": "INGOT",
+    "definitions": [
+     {
+      "text": "cast piece",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head off",
+      "for": "deletion",
+      "note": "taking the head off a word removes its first letter"
+     },
+     {
+      "text": "uplifting",
+      "for": "reversal",
+      "note": "in a down entry lifting something up makes it read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Croon",
+      "gives": "ING",
+      "note": "to croon is to sing softly; losing its head leaves three letters"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ING",
+      "OT"
+     ],
+     "reversals": [
+      {
+       "from": "TO",
+       "to": "OT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crooner loses their head over a rousing piece sung by the cast of a show.",
+     "walkthrough": "'Cast piece' suggests a theatre number, but it is metal poured into a mould.",
+     "definitionFit": "An ingot is a block of metal made by pouring molten metal into a mould, so literally a piece that has been cast."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cast"
+    }
+   }
   },
   {
    "number": 6,
@@ -149,7 +525,65 @@
      }
     ]
    },
-   "solution": "TAPDANCE"
+   "solution": "TAPDANCE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "TAP DANCE",
+    "definitions": [
+     {
+      "text": "Adept manoeuvres with cane, largely",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "manoeuvres",
+      "for": "anagram",
+      "note": "manoeuvres are moves and repositionings, so the letters are shifted around"
+     },
+     {
+      "text": "largely",
+      "for": "deletion",
+      "note": "largely means for the most part, so the word keeps all but its final letter"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Adept",
+      "gives": "ADEPT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cane",
+      "gives": "CAN",
+      "note": "cane without its last letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ADEPTCAN",
+       "gives": "TAPDANCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A skilled performer goes through their routine, mostly using a walking cane.",
+     "walkthrough": "The whole clue is both wordplay and definition: a classic tap routine is a skilled performer's moves, often done twirling a cane.",
+     "definitionFit": "Tap routines in old musicals often featured a hat and cane, so skilled footwork largely involving a cane describes one well."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 7,
@@ -163,7 +597,50 @@
     "text": "Matriarch at no point removes clothes",
     "enumeration": "3"
    },
-   "solution": "EVE"
+   "solution": "EVE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "EVE",
+    "definitions": [
+     {
+      "text": "Matriarch",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "removes clothes",
+      "for": "letter_selection",
+      "note": "stripping off clothes removes the outer layer, so the word loses its outside letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at no point",
+      "gives": "EVE",
+      "select": "middle",
+      "note": "at no point means never; the inner three letters are kept"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A family matriarch declares she never undresses.",
+     "walkthrough": "The stripped word is NEVER. In Genesis, Eve is the first woman and so mother of all.",
+     "definitionFit": "In the Bible Eve is the first woman and mother of all humanity, the original female head of a family line."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "clothes"
+    }
+   }
   },
   {
    "number": 8,
@@ -177,7 +654,65 @@
     "text": "Dad took off, or mum left? Hard to explain",
     "enumeration": "10"
    },
-   "solution": "PARANORMAL"
+   "solution": "PARANORMAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PARANORMAL",
+    "definitions": [
+     {
+      "text": "Hard to explain",
+      "at": 27
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dad",
+      "gives": "PA",
+      "note": "an informal word for father"
+     },
+     {
+      "clueFragment": "took off",
+      "gives": "RAN",
+      "note": "to take off is to leave in a hurry"
+     },
+     {
+      "clueFragment": "or",
+      "gives": "OR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "mum",
+      "gives": "MA",
+      "note": "an informal word for mother"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "RAN",
+      "OR",
+      "MA",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A child cannot work out whether it was their father or their mother who walked out.",
+     "walkthrough": "Every word of the family drama is a building block, read straight through in order.",
+     "definitionFit": "Paranormal events such as ghosts lie beyond the scope of scientific understanding, so they defy normal explanation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 9,
@@ -191,7 +726,56 @@
     "text": "All the best Argentine red, then English port",
     "enumeration": "7"
    },
-   "solution": "CHEERIO"
+   "solution": "CHEERIO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHEERIO",
+    "definitions": [
+     {
+      "text": "All the best",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "then"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Argentine red",
+      "gives": "CHE",
+      "note": "Che Guevara was an Argentine-born Marxist revolutionary"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "port",
+      "gives": "RIO",
+      "note": "Rio de Janeiro, the Brazilian port"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHE",
+      "E",
+      "RIO"
+     ]
+    },
+    "explanation": {
+     "surface": "A toast of good wishes over a bottle of Argentine red wine, followed by some English port.",
+     "walkthrough": "The drinks are a red herring: 'red' means a communist and 'port' a harbour city, not wine. 'English port' splits into two pieces.",
+     "definitionFit": "Both are informal British farewells, ways of wishing someone well as you part company."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "red"
+    }
+   }
   },
   {
    "number": 10,
@@ -211,7 +795,68 @@
      }
     ]
    },
-   "solution": "GAPYEAR"
+   "solution": "GAPYEAR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "GAP YEAR",
+    "definitions": [
+     {
+      "text": "when study's delayed?",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drinks in",
+      "for": "container",
+      "note": "to drink something in is to take it inside, so one piece swallows the others"
+     },
+     {
+      "text": "pair of",
+      "for": "letter_selection",
+      "note": "a pair is two, so only the opening couple of letters are used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tackle",
+      "gives": "GEAR",
+      "note": "tackle as in equipment, like fishing tackle"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "pyjamas",
+      "gives": "PY",
+      "select": "first",
+      "note": "a pair of letters: the first letter and the second letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "A",
+      "PY",
+      "EAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A student lounges around drinking in pyjamas, putting off their studies.",
+     "walkthrough": "The surface nicely paints a year off; 'Tackle' is the noun for kit, not the verb.",
+     "definitionFit": "A gap year is a year taken off, usually between school and university, postponing further education."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Tackle"
+    }
+   }
   },
   {
    "number": 11,
@@ -225,7 +870,60 @@
     "text": "Show George, perhaps, helping to end devil",
     "enumeration": "13"
    },
-   "solution": "DEMONSTRATION"
+   "solution": "DEMONSTRATION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DEMONSTRATION",
+    "definitions": [
+     {
+      "text": "Show",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to end",
+      "for": "charade",
+      "note": "going at the end means being tacked on after the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "devil",
+      "gives": "DEMON",
+      "note": "a demon is a devil"
+     },
+     {
+      "clueFragment": "George, perhaps",
+      "gives": "ST",
+      "note": "George is one example of a saint, abbreviated ST"
+     },
+     {
+      "clueFragment": "helping",
+      "gives": "RATION",
+      "note": "a helping or portion of food"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEMON",
+      "ST",
+      "RATION"
+     ]
+    },
+    "explanation": {
+     "surface": "A performance in which St George helps finish off a devil, like his dragon.",
+     "walkthrough": "George is England's patron saint, so 'George, perhaps' yields the saint abbreviation. 'Helping' is a noun, a portion, not a verb.",
+     "definitionFit": "A demonstration is a display or exhibition of how something works, so a show in that sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "helping"
+    }
+   }
   },
   {
    "number": 12,
@@ -245,7 +943,74 @@
      }
     ]
    },
-   "solution": "ILLEQUIPPED"
+   "solution": "ILLEQUIPPED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "ILL-EQUIPPED",
+    "definitions": [
+     {
+      "text": "Unprepared",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cryptic",
+      "for": "anagram",
+      "note": "something cryptic is puzzling and obscured, so the letters come in a scrambled order"
+     },
+     {
+      "text": "into",
+      "for": "container",
+      "note": "into signals entry, so one piece is placed within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "setter's going to",
+      "gives": "ILL",
+      "note": "the setter says 'I'll', short for I will"
+     },
+     {
+      "clueFragment": "deep",
+      "gives": "DEEP",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "crack",
+      "gives": "QUIP",
+      "note": "a crack is a wisecrack or joke"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ILL",
+      "E",
+      "QUIP",
+      "PED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DEEP",
+       "gives": "EPED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A setter admits they are unprepared to crack a deep, cryptic puzzle.",
+     "walkthrough": "The setter refers to themself, so 'setter's going to' is I'LL. 'Crack' is a joke, not an attempt to solve.",
+     "definitionFit": "Lacking the tools or skills needed for a task is being inadequately furnished, which is a state of unreadiness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "crack"
+    }
+   }
   },
   {
    "number": 13,
@@ -265,7 +1030,67 @@
      }
     ]
    },
-   "solution": "WORLDMUSIC"
+   "solution": "WORLDMUSIC",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "WORLD MUSIC",
+    "definitions": [
+     {
+      "text": "genre",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "struggling",
+      "for": "anagram",
+      "note": "struggling suggests thrashing about, so the letters are thrown into a new order"
+     },
+     {
+      "text": "to grasp",
+      "for": "container",
+      "note": "to grasp is to hold, so the scrambled letters take in an extra one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drum",
+      "gives": "DRUM",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "scowl",
+      "gives": "SCOWL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "current",
+      "gives": "I",
+      "note": "I is the symbol for electric current"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DRUMSCOWLI",
+       "gives": "WORLDMUSIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A scowling drummer struggles to keep up with the latest musical style.",
+     "walkthrough": "'Current' looks like modern, but it is the physics symbol I.",
+     "definitionFit": "World music is a marketing category for traditional and popular styles from outside the Western mainstream, a category of music."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "current"
+    }
+   }
   },
   {
    "number": 14,
@@ -279,7 +1104,48 @@
     "text": "Call to lover overheard in wind?",
     "enumeration": "4"
    },
-   "solution": "OBOE"
+   "solution": "OBOE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "OBOE",
+    "definitions": [
+     {
+      "text": "wind",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overheard",
+      "for": "homophone",
+      "note": "overheard means caught by the ear, so the sound counts rather than the spelling"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Call to lover",
+      "gives": "OBOE",
+      "soundsLike": "O BEAU",
+      "note": "an old-fashioned cry to a sweetheart: O, beau!"
+     }
+    ],
+    "explanation": {
+     "surface": "A lovelorn cry to a sweetheart is carried away on the breeze.",
+     "walkthrough": "A beau is a boyfriend, and 'O' is the poetic vocative. 'Wind' is the orchestra section, not the breeze.",
+     "definitionFit": "The oboe is a double-reed woodwind instrument, so one member of the wind family."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "wind"
+    }
+   }
   },
   {
    "number": 15,
@@ -293,7 +1159,69 @@
     "text": "Spy dog smuggles contents of plan in little bits",
     "enumeration": "9"
    },
-   "solution": "MOLECULAR"
+   "solution": "MOLECULAR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "MOLECULAR",
+    "definitions": [
+     {
+      "text": "in little bits",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "smuggles",
+      "for": "container",
+      "note": "to smuggle is to carry something hidden, so one piece is tucked inside another"
+     },
+     {
+      "text": "contents of",
+      "for": "letter_selection",
+      "note": "the contents are what lies inside, so only the inner letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spy",
+      "gives": "MOLE",
+      "note": "a mole is a spy planted inside an organisation"
+     },
+     {
+      "clueFragment": "dog",
+      "gives": "CUR",
+      "note": "a cur is a mongrel dog"
+     },
+     {
+      "clueFragment": "plan",
+      "gives": "LA",
+      "select": "middle",
+      "note": "the two letters inside the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOLE",
+      "CU",
+      "LA",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A spy's dog secretly carries the plan across the border, split into little pieces.",
+     "walkthrough": "The espionage surface reads naturally; 'Spy dog' is not one thing but two pieces.",
+     "definitionFit": "Molecular describes matter at the scale of molecules, the tiny particles things are made of, so in minute parts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "dog"
+    }
+   }
   },
   {
    "number": 16,
@@ -307,7 +1235,61 @@
     "text": "Really sozzled earl fronting political protest",
     "enumeration": "9"
    },
-   "solution": "LITERALLY"
+   "solution": "LITERALLY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LITERALLY",
+    "definitions": [
+     {
+      "text": "Really",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fronting",
+      "for": "charade",
+      "note": "to front something is to stand before it, so this piece goes ahead of the next"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sozzled",
+      "gives": "LIT",
+      "note": "lit is slang for drunk"
+     },
+     {
+      "clueFragment": "earl",
+      "gives": "E",
+      "note": "E is an abbreviation for earl"
+     },
+     {
+      "clueFragment": "political protest",
+      "gives": "RALLY",
+      "note": "a mass meeting to protest or support a cause"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIT",
+      "E",
+      "RALLY"
+     ]
+    },
+    "explanation": {
+     "surface": "A thoroughly drunk aristocrat leads a political demonstration.",
+     "walkthrough": "'Really' sits at the front like an intensifier for sozzled, but it is the definition.",
+     "definitionFit": "Literally is widely used as an intensifier meaning truly or actually, the same job an emphatic adverb does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Really"
+    }
+   }
   },
   {
    "number": 17,
@@ -321,7 +1303,70 @@
     "text": "Article about milk had to turn people green",
     "enumeration": "8"
    },
-   "solution": "NAUSEATE"
+   "solution": "NAUSEATE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "NAUSEATE",
+    "definitions": [
+     {
+      "text": "turn people green",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about can mean turned round, so these letters face the other way"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Article",
+      "gives": "AN",
+      "note": "the indefinite article"
+     },
+     {
+      "clueFragment": "milk",
+      "gives": "USE",
+      "note": "to milk is to exploit or use"
+     },
+     {
+      "clueFragment": "had",
+      "gives": "ATE",
+      "note": "to have a meal is to eat it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NA",
+      "USE",
+      "ATE"
+     ],
+     "reversals": [
+      {
+       "from": "AN",
+       "to": "NA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper feature about dairy made readers envious or environmentally minded.",
+     "walkthrough": "'Milk' is a verb meaning exploit, and 'had' is past tense of having food.",
+     "definitionFit": "To nauseate is to make someone feel sick, and people who feel queasy are said to look green."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "milk"
+    }
+   }
   },
   {
    "number": 18,
@@ -345,7 +1390,62 @@
      }
     ]
    },
-   "solution": "LIKEASHOT"
+   "solution": "LIKEASHOT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LIKE A SHOT",
+    "definitions": [
+     {
+      "text": "immediately",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Opening of",
+      "for": "letter_selection",
+      "note": "an opening is the start of something, so only the first letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lancashire",
+      "gives": "L",
+      "select": "first",
+      "note": "first letter of the county"
+     },
+     {
+      "clueFragment": "furniture chain's",
+      "gives": "IKEAS",
+      "note": "the Swedish flat-pack store, with its possessive S"
+     },
+     {
+      "clueFragment": "trending",
+      "gives": "HOT",
+      "note": "something hot is fashionable right now"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "IKEAS",
+      "HOT"
+     ]
+    },
+    "explanation": {
+     "surface": "A new branch of a furniture store opens in Lancashire, and it is instantly popular.",
+     "walkthrough": "'Opening' reads as a shop launch but it picks the first letter. Lancashire is a county in north-west England.",
+     "definitionFit": "The idiom compares speed to a bullet leaving a gun, meaning without any delay whatsoever."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Opening"
+    }
+   }
   },
   {
    "number": 19,
@@ -359,7 +1459,57 @@
     "text": "American pier not quite in water",
     "enumeration": "4"
    },
-   "solution": "AQUA"
+   "solution": "AQUA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "AQUA",
+    "definitions": [
+     {
+      "text": "water",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not quite",
+      "for": "deletion",
+      "note": "not quite means falling a little short, so the word loses its final letter"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is an abbreviation for American"
+     },
+     {
+      "clueFragment": "pier",
+      "gives": "QUA",
+      "note": "a quay is a pier; cut short it loses the Y"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "QUA"
+     ]
+    },
+    "explanation": {
+     "surface": "An American pier doesn't quite reach down into the water.",
+     "walkthrough": "The pier is a quay, trimmed of its last letter.",
+     "definitionFit": "Aqua is the Latin word for water, used in English in chemistry, pharmacy and product names."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -373,7 +1523,43 @@
     "text": "Old folk? They're sometimes right",
     "enumeration": "6"
    },
-   "solution": "ANGLES"
+   "solution": "ANGLES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ANGLES",
+    "definitions": [
+     {
+      "text": "Old folk?",
+      "at": 0
+     },
+     {
+      "text": "They're sometimes right",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old folk?",
+      "note": "first meaning: a Germanic people who settled in England in the fifth century"
+     },
+     {
+      "clueFragment": "They're sometimes right",
+      "note": "second meaning: geometric figures, some measuring ninety degrees"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Old folk' suggests the elderly, who are sometimes right, but it means an ancient people who gave England its name.",
+     "definitionFit": "The Angles were an early medieval tribe, and in geometry a right angle is one of exactly ninety degrees."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Old"
+    }
+   }
   },
   {
    "number": 21,
@@ -393,7 +1579,51 @@
      }
     ]
    },
-   "solution": "MODUSOPERANDI"
+   "solution": "MODUSOPERANDI",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MODUS OPERANDI",
+    "definitions": [
+     {
+      "text": "Way to work",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changes",
+      "for": "anagram",
+      "note": "changes means alterations, so the letters are rearranged into something new"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "around imposed",
+      "gives": "AROUNDIMPOSED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AROUNDIMPOSED",
+       "gives": "MODUSOPERANDI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Staff look for a way to get round changes that management has imposed on them.",
+     "walkthrough": "'Way to work' sounds like a commute but is the definition; the next two words supply every letter.",
+     "definitionFit": "This Latin phrase means a method of operating, the habitual procedure someone follows."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "around"
+    }
+   }
   },
   {
    "number": 22,
@@ -407,7 +1637,58 @@
     "text": "Fold suit and tie that is left out",
     "enumeration": "5"
    },
-   "solution": "PLEAT"
+   "solution": "PLEAT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "PLEAT",
+    "definitions": [
+     {
+      "text": "Fold",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "left out",
+      "for": "deletion",
+      "note": "leaving something out means omitting it, so those letters drop away"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "suit",
+      "gives": "PLEA",
+      "note": "a suit is a lawsuit, and a plea is a legal case or appeal"
+     },
+     {
+      "clueFragment": "tie that is",
+      "gives": "T",
+      "note": "that is gives IE, the abbreviation id est; removing it from the word leaves one letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLEA",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Folding up a suit and tie, and then finding the tie has been left out.",
+     "walkthrough": "'That is' is the Latin abbreviation i.e., which the solver removes. 'Suit' is a legal action, not clothing.",
+     "definitionFit": "A pleat is a doubled-over crease in cloth pressed or stitched in place, a type of fold."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "suit"
+    }
+   }
   },
   {
    "number": 23,
@@ -421,7 +1702,53 @@
     "text": "Sharpness put wife off piece of cheddar",
     "enumeration": "4"
    },
-   "solution": "EDGE"
+   "solution": "EDGE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EDGE",
+    "definitions": [
+     {
+      "text": "Sharpness",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put wife off",
+      "for": "deletion",
+      "note": "putting something off removes it, so the matching letter is taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "W is the abbreviation for wife"
+     },
+     {
+      "clueFragment": "piece of cheddar",
+      "gives": "WEDGE",
+      "note": "cheese is often cut into triangular wedges"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EDGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A sharp-tasting cheese put the husband's wife off her food.",
+     "walkthrough": "'Sharpness' hints at mature cheddar's tang; it is the definition. Cheddar is a hard English cheese.",
+     "definitionFit": "Edge means keenness or bite, as in an edge to someone's voice, a synonym for sharpness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sharpness"
+    }
+   }
   },
   {
    "number": 24,
@@ -435,7 +1762,60 @@
     "text": "Keeping in fashion behind bar for the most part",
     "enumeration": "7"
    },
-   "solution": "STORAGE"
+   "solution": "STORAGE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "STORAGE",
+    "definitions": [
+     {
+      "text": "Keeping",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "behind",
+      "for": "charade",
+      "note": "being behind means coming after, so this piece follows the other"
+     },
+     {
+      "text": "for the most part",
+      "for": "deletion",
+      "note": "for the most part means nearly all, so the word loses its last letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bar",
+      "gives": "STO",
+      "note": "to bar is to stop; trimmed, it loses its P"
+     },
+     {
+      "clueFragment": "in fashion",
+      "gives": "RAGE",
+      "note": "all the rage means fashionable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STO",
+      "RAGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stays in fashion while drinking behind a bar most of the time.",
+     "walkthrough": "'Bar' is a verb meaning block, not a pub.",
+     "definitionFit": "Keeping something means holding it safely for later, the act of putting things into store."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bar"
+    }
+   }
   },
   {
    "number": 25,
@@ -449,7 +1829,46 @@
     "text": "Crew need underground rock for broadcast",
     "enumeration": "3"
    },
-   "solution": "OAR"
+   "solution": "OAR",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "OAR",
+    "definitions": [
+     {
+      "text": "Crew need",
+      "at": 0,
+      "note": "a noun phrase for a thing a rowing crew needs"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for broadcast",
+      "for": "homophone",
+      "note": "a broadcast is heard rather than read, so the spoken sound matters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "underground rock",
+      "gives": "OAR",
+      "soundsLike": "ORE",
+      "note": "ore is rock mined from underground"
+     }
+    ],
+    "explanation": {
+     "surface": "A film crew needs an underground rock band for their broadcast.",
+     "walkthrough": "'Underground rock' suggests alternative music; it is mineral ore dug from a mine.",
+     "definitionFit": "A rowing crew cannot move a boat without them, so an oar is the essential equipment a crew needs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rock"
+    }
+   }
   },
   {
    "number": 26,
@@ -469,7 +1888,50 @@
      }
     ]
    },
-   "solution": "LILYPAD"
+   "solution": "LILYPAD",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "LILY PAD",
+    "definitions": [
+     {
+      "text": "island for hopping",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Oddly miss",
+      "for": "letter_selection",
+      "note": "missing the odd ones skips positions one, three, five and so on, keeping every second letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old Islay, upland",
+      "gives": "LILYPAD",
+      "select": "alternate",
+      "note": "the even-numbered letters of these three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LILYPAD"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone oddly misses the old Scottish island of Islay and its hills, good for island-hopping.",
+     "walkthrough": "Islay is a Hebridean island famous for whisky, but here it is just letters. The island is a floating leaf a frog hops between.",
+     "definitionFit": "Frogs hop from one floating water-lily leaf to the next, each a tiny green refuge on a pond."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "island"
+    }
+   }
   },
   {
    "number": 27,
@@ -483,7 +1945,48 @@
     "text": "Field where they saw grouse coming in",
     "enumeration": "9"
    },
-   "solution": "CARPENTRY"
+   "solution": "CARPENTRY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CARPENTRY",
+    "definitions": [
+     {
+      "text": "Field where they saw",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "grouse",
+      "gives": "CARP",
+      "note": "to grouse is to grumble or complain"
+     },
+     {
+      "clueFragment": "coming in",
+      "gives": "ENTRY",
+      "note": "an entry is an arrival or coming in"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CARP",
+      "ENTRY"
+     ]
+    },
+    "explanation": {
+     "surface": "A field where people watched grouse flying in to land.",
+     "walkthrough": "'Saw' is the woodworking verb, not seeing, and 'grouse' is complaining, not the game bird.",
+     "definitionFit": "Carpentry is the trade of working timber, a discipline in which cutting wood with saws is routine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "saw"
+    }
+   }
   },
   {
    "number": 28,
@@ -497,7 +2000,57 @@
     "text": "Play the crab, primarily sniping and doing little",
     "enumeration": "5"
    },
-   "solution": "SIDLE"
+   "solution": "SIDLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SIDLE",
+    "definitions": [
+     {
+      "text": "Play the crab",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so only the opening letter counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sniping",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter of the word"
+     },
+     {
+      "clueFragment": "doing little",
+      "gives": "IDLE",
+      "note": "idle means inactive"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "IDLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone acts crabby, mainly making snide remarks and not doing much work.",
+     "walkthrough": "'Play the crab' suggests being grumpy, but it means moving like a crab.",
+     "definitionFit": "Crabs scuttle sideways, and to sidle is to edge along furtively in a sideways manner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "crab"
+    }
+   }
   }
  ]
 }
