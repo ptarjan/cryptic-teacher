@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,43 @@
     "text": "Dull walker",
     "enumeration": "10"
    },
-   "solution": "PEDESTRIAN"
+   "solution": "PEDESTRIAN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PEDESTRIAN",
+    "definitions": [
+     {
+      "text": "Dull",
+      "at": 0
+     },
+     {
+      "text": "walker",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dull",
+      "note": "first meaning: uninspired, lacking any excitement"
+     },
+     {
+      "clueFragment": "walker",
+      "note": "second meaning: someone travelling on foot rather than in a vehicle"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as a put-down of a boring hiker, but the two words are separate meanings of one word, one adjective and one noun.",
+     "definitionFit": "The word is both an adjective for prosaic, unimaginative work and a noun for a person going on foot along a street."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Dull"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +86,69 @@
     "text": "Pity about sides of radio writer’s disposition",
     "enumeration": "10"
    },
-   "solution": "PROPENSITY"
+   "solution": "PROPENSITY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "PROPENSITY",
+    "definitions": [
+     {
+      "text": "disposition",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "to be about something is to surround it, so one piece wraps round the others"
+     },
+     {
+      "text": "sides of",
+      "for": "letter_selection",
+      "note": "the sides of a word are its two edges, so only the outermost letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pity",
+      "gives": "PITY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "radio",
+      "gives": "RO",
+      "select": "outer",
+      "note": "the first and last letters of the word"
+     },
+     {
+      "clueFragment": "writer’s",
+      "gives": "PENS",
+      "note": "a pen is a writer, and the 's is read as a plural-style ending"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "RO",
+      "PENS",
+      "ITY"
+     ]
+    },
+    "explanation": {
+     "surface": "A lament about the temperament of someone who writes for radio.",
+     "walkthrough": "'Pity' looks like the start of a sentiment, but it is the outer shell; 'writer's' must be read as a plural, the apostrophe ignored.",
+     "definitionFit": "A propensity is a natural tendency or inclination, which is what a person's disposition towards something means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pity"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +162,45 @@
     "text": "Failure just the same after revolution",
     "enumeration": "3"
    },
-   "solution": "DUD"
+   "solution": "DUD",
+   "annotation": {
+    "type": [
+     "palindrome"
+    ],
+    "answer": "DUD",
+    "definitions": [
+     {
+      "text": "Failure",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Failure",
+      "note": "the definition: something that does not work"
+     },
+     {
+      "clueFragment": "just the same after revolution",
+      "note": "turned round end to end, the word still reads identically"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DUD"
+     ]
+    },
+    "explanation": {
+     "surface": "A political revolution that changes nothing is a failure.",
+     "walkthrough": "'Revolution' suggests politics, but here it means turning the word round: DUD reads the same backwards.",
+     "definitionFit": "A dud is informal for anything that fails to work, like a shell that does not explode."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "revolution"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +214,59 @@
     "text": "Theatre expert’s sudden rise — one not finished",
     "enumeration": "7"
    },
-   "solution": "SURGEON"
+   "solution": "SURGEON",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "SURGEON",
+    "definitions": [
+     {
+      "text": "Theatre expert",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not finished",
+      "for": "deletion",
+      "note": "something unfinished is missing its end, so the final letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sudden rise",
+      "gives": "SURGE",
+      "note": "a surge is a sudden rise, as of water or demand"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "ONE",
+      "note": "taken as written, before its last letter goes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SURGE",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "An actor or director enjoying a sudden rise in fame before the play is finished.",
+     "walkthrough": "'Theatre' suggests the stage, but it is the operating theatre; SURGE + ON(e) gives SURGEON.",
+     "definitionFit": "Operations happen in an operating theatre, and the specialist who performs them there is the surgeon."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Theatre"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +280,54 @@
     "text": "Favourable outcome in Ulster ground",
     "enumeration": "6"
    },
-   "solution": "RESULT"
+   "solution": "RESULT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RESULT",
+    "definitions": [
+     {
+      "text": "Favourable outcome",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ground",
+      "for": "anagram",
+      "note": "ground means crushed or milled, so the letters are broken up and reformed"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ulster",
+      "gives": "ULSTER",
+      "note": "the Northern Irish province, taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ULSTER",
+       "gives": "RESULT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A good outcome achieved on a football ground in Northern Ireland.",
+     "walkthrough": "'Ulster ground' reads like a sports venue, but 'ground' shuffles ULSTER. In British speech 'getting a result' means a good one.",
+     "definitionFit": "In British usage a result often means a win or success, as in a team getting a result away from home."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ground"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +341,42 @@
     "text": "Media pronouncement containing something offering protection",
     "enumeration": "5"
    },
-   "solution": "APRON"
+   "solution": "APRON",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "APRON",
+    "definitions": [
+     {
+      "text": "something offering protection",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "containing",
+      "for": "hidden_word",
+      "note": "the phrase holds the letters within it, so the target sits inside the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Media pronouncement",
+      "note": "the letters run consecutively across the join between these two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A statement from the press that includes some sort of safeguard.",
+     "walkthrough": "The answer spans mediA PRONouncement. The definition is deliberately vague.",
+     "definitionFit": "An apron is worn to shield clothing from dirt or spills while cooking or working."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "containing"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +390,52 @@
     "text": "Adroit, me? Making changes, I may achieve agreement",
     "enumeration": "8"
    },
-   "solution": "MEDIATOR"
+   "solution": "MEDIATOR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MEDIATOR",
+    "definitions": [
+     {
+      "text": "I may achieve agreement",
+      "at": 28,
+      "note": "a first-person clause stands for the noun: the answer speaks as the one who may achieve agreement"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Making changes",
+      "for": "anagram",
+      "note": "changes applied to the letters rearrange them into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Adroit, me",
+      "gives": "ADROITME",
+      "note": "both words taken as written, punctuation ignored"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ADROITME",
+       "gives": "MEDIATOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone boasting that a deft reworking of proposals will bring the sides together.",
+     "walkthrough": "The question mark and comma are surface only. The definition is the answer speaking about itself, fittingly since an adroit person makes a good go-between.",
+     "definitionFit": "A mediator is a go-between who negotiates between disputing parties to bring about a settlement."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Adroit"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +449,45 @@
     "text": "Religious group in command",
     "enumeration": "5"
    },
-   "solution": "ORDER"
+   "solution": "ORDER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ORDER",
+    "definitions": [
+     {
+      "text": "Religious group",
+      "at": 0
+     },
+     {
+      "text": "command",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Religious group",
+      "note": "first meaning: a community of monks or nuns living under a rule"
+     },
+     {
+      "clueFragment": "command",
+      "note": "second meaning: an instruction given with authority"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'In command' reads as one phrase about leadership; 'in' is only a link joining two meanings of one word.",
+     "definitionFit": "The word covers both a monastic community such as the Benedictines and an authoritative instruction that must be obeyed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +501,56 @@
     "text": "Notices about religious instruction TV programmes of a kind",
     "enumeration": "6"
    },
-   "solution": "SERIES"
+   "solution": "SERIES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SERIES",
+    "definitions": [
+     {
+      "text": "TV programmes of a kind",
+      "at": 36,
+      "note": "the answer is one noun for a set of related programmes, so a plural phrase defines it"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "to be about something is to go round it, so one piece surrounds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Notices",
+      "gives": "SEES",
+      "note": "to notice is to see, in the third person"
+     },
+     {
+      "clueFragment": "religious instruction",
+      "gives": "RI",
+      "note": "RI is the standard abbreviation for the school subject"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "RI",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "Announcements about religious education broadcasts on television.",
+     "walkthrough": "'Notices' looks like a noun but is the verb SEES, wrapped round RI, the British school abbreviation for Religious Instruction.",
+     "definitionFit": "A series is a run of episodes broadcast in sequence, one particular kind of grouping of television shows."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Notices"
+    }
+   }
   },
   {
    "number": 9,
@@ -159,7 +564,58 @@
     "text": "Regret road works — making progress? No!",
     "enumeration": "10"
    },
-   "solution": "RETROGRADE"
+   "solution": "RETROGRADE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RETROGRADE",
+    "definitions": [
+     {
+      "text": "making progress? No!",
+      "at": 20,
+      "note": "the phrase negates an -ing verb phrase to describe the opposite state, so it stands for the adjective"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "works",
+      "for": "anagram",
+      "note": "roadworks dig up and rebuild, so the letters are rebuilt into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Regret",
+      "gives": "REGRET",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "road",
+      "gives": "ROAD",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REGRETROAD",
+       "gives": "RETROGRADE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A driver stuck in roadworks grumbling that traffic isn't moving.",
+     "walkthrough": "'Road works' reads as one thing, the familiar traffic hold-up; 'works' is the anagram signal.",
+     "definitionFit": "A retrograde step goes backwards or makes things worse, the reverse of moving forward."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "works"
+    }
+   }
   },
   {
    "number": 10,
@@ -173,7 +629,47 @@
     "text": "The Spanish female — mischievous one",
     "enumeration": "3"
    },
-   "solution": "ELF"
+   "solution": "ELF",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ELF",
+    "definitions": [
+     {
+      "text": "mischievous one",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The Spanish",
+      "gives": "EL",
+      "note": "el is the Spanish masculine word for 'the'"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "F is the standard abbreviation for female"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EL",
+      "F"
+     ]
+    },
+    "explanation": {
+     "surface": "A naughty Spanish woman.",
+     "walkthrough": "Foreign articles are a crossword staple: EL is Spanish for 'the'.",
+     "definitionFit": "Elves in folklore are small sprites known for playing tricks and pranks on people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "female"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +689,66 @@
      }
     ]
    },
-   "solution": "FORGETIT"
+   "solution": "FORGETIT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "FORGET IT",
+    "definitions": [
+     {
+      "text": "Out of the question!",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its opening letter, so only that is kept"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Blacksmith’s place",
+      "gives": "FORGE",
+      "note": "the workshop where a smith heats and shapes metal"
+     },
+     {
+      "clueFragment": "test",
+      "gives": "T",
+      "select": "first",
+      "note": "the opening letter of the word"
+     },
+     {
+      "clueFragment": "computers etc",
+      "gives": "IT",
+      "note": "IT, information technology, covers computers and the like"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FORGE",
+      "T",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "A blacksmith turning his shop into a computer-testing lab? Out of the question!",
+     "walkthrough": "The 'etc' signals a category, IT; FORGE + T + IT gives FORGET IT.",
+     "definitionFit": "Saying 'forget it' is an informal flat refusal, dismissing a request as not worth considering at all."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "computers"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +762,62 @@
     "text": "Sweetbrier, say, worker put in row",
     "enumeration": "9"
    },
-   "solution": "EGLANTINE"
+   "solution": "EGLANTINE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "EGLANTINE",
+    "definitions": [
+     {
+      "text": "Sweetbrier",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put in",
+      "for": "container",
+      "note": "to put something in is to insert it, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "say",
+      "gives": "EG",
+      "note": "'say' as in 'for example', abbreviated e.g."
+     },
+     {
+      "clueFragment": "row",
+      "gives": "LINE",
+      "note": "a row is a line, as of people or seats"
+     },
+     {
+      "clueFragment": "worker",
+      "gives": "ANT",
+      "note": "the worker ant is the crossword's standard worker"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EG",
+      "L",
+      "ANT",
+      "INE"
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener sets a labourer to plant sweetbriers in a row.",
+     "walkthrough": "'Sweetbrier, say' looks like a definition by example, but 'say' is wordplay for 'for example', and the worker is the crossword's usual insect.",
+     "definitionFit": "Eglantine is the old name for the sweetbrier, a wild rose with fragrant leaves."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "say"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +831,67 @@
     "text": "Item of clothing a rocker initially features in number",
     "enumeration": "6"
    },
-   "solution": "SARONG"
+   "solution": "SARONG",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SARONG",
+    "definitions": [
+     {
+      "text": "Item of clothing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the opening letter is taken"
+     },
+     {
+      "text": "features in",
+      "for": "container",
+      "note": "to feature in something is to appear inside it, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rocker",
+      "gives": "R",
+      "select": "first",
+      "note": "the opening letter of the word"
+     },
+     {
+      "clueFragment": "number",
+      "gives": "SONG",
+      "note": "a number is a piece of music in a performance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "AR",
+      "ONG"
+     ]
+    },
+    "explanation": {
+     "surface": "A rock musician wears a distinctive garment during one number.",
+     "walkthrough": "'Number' is the musical sense, SONG, with A + R inside it.",
+     "definitionFit": "A sarong is a wrapped length of cloth worn round the waist, a garment common in Southeast Asia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 14,
@@ -235,7 +905,54 @@
     "text": "Talk next after thoughtful teacher explains reasoning at the outset",
     "enumeration": "6"
    },
-   "solution": "NATTER"
+   "solution": "NATTER",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "NATTER",
+    "definitions": [
+     {
+      "text": "Talk",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the outset",
+      "for": "letter_selection",
+      "note": "the outset is the start, so each word gives only its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "next after thoughtful teacher explains reasoning",
+      "gives": "NATTER",
+      "select": "first",
+      "note": "the opening letters of these six words in turn"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "A",
+      "T",
+      "T",
+      "E",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A classroom scene: after a considered teacher lays out their argument, it's the pupils' turn to talk.",
+     "walkthrough": "The long middle is all fodder; only its initial letters matter. 'Natter' is British informal for a chat.",
+     "definitionFit": "To natter is to chat idly and at length, an informal British word for casual conversation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "teacher"
+    }
+   }
   },
   {
    "number": 15,
@@ -249,7 +966,57 @@
     "text": "Chop up endless tropical fruit",
     "enumeration": "7"
    },
-   "solution": "APRICOT"
+   "solution": "APRICOT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "APRICOT",
+    "definitions": [
+     {
+      "text": "fruit",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Chop up",
+      "for": "anagram",
+      "note": "chopping something up breaks it into bits, so the letters are reassembled"
+     },
+     {
+      "text": "endless",
+      "for": "deletion",
+      "note": "without an end, a word loses its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tropical",
+      "gives": "TROPICAL",
+      "note": "taken as written, before its last letter goes"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TROPICA",
+       "gives": "APRICOT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to slice up some exotic fruit.",
+     "walkthrough": "'Tropical fruit' reads as the definition, but 'tropical' is fodder: trimmed to TROPICA and rearranged.",
+     "definitionFit": "An apricot is a small orange stone fruit, related to the peach and plum."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tropical"
+    }
+   }
   },
   {
    "number": 16,
@@ -263,7 +1030,45 @@
     "text": "Novelist concerned about the environment, we hear",
     "enumeration": "6"
    },
-   "solution": "GREENE"
+   "solution": "GREENE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "GREENE",
+    "definitions": [
+     {
+      "text": "Novelist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "what we hear is a spoken sound, so the letters come from pronunciation not spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "concerned about the environment",
+      "gives": "GREENE",
+      "soundsLike": "GREEN",
+      "note": "the adjective for someone environmentally minded"
+     }
+    ],
+    "explanation": {
+     "surface": "A writer known for ecological concerns.",
+     "walkthrough": "The novelist is Graham Greene, author of Brighton Rock and The Power and the Glory.",
+     "definitionFit": "Graham Greene was a twentieth-century English writer of fiction, famous for thrillers and Catholic-themed books."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "environment"
+    }
+   }
   },
   {
    "number": 17,
@@ -277,7 +1082,66 @@
     "text": "Worker in finance more confident after rate adjusted",
     "enumeration": "9"
    },
-   "solution": "TREASURER"
+   "solution": "TREASURER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "TREASURER",
+    "definitions": [
+     {
+      "text": "Worker in finance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "adjusted",
+      "for": "anagram",
+      "note": "adjusting something alters it, so the letters are rearranged"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "coming after means following behind, so the earlier-named piece goes second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rate",
+      "gives": "RATE",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "more confident",
+      "gives": "SURER",
+      "note": "comparative of sure, meaning more certain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TREA",
+      "SURER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RATE",
+       "gives": "TREA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A finance worker feels more assured once the interest rate has been changed.",
+     "walkthrough": "'Rate adjusted' sounds like an interest-rate change, a perfect fit for the surface; it is the anagram TREA, followed by SURER.",
+     "definitionFit": "A treasurer manages the funds and accounts of an organisation, a person whose job is money."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "adjusted"
+    }
+   }
   },
   {
    "number": 18,
@@ -291,7 +1155,45 @@
     "text": "Put on for period",
     "enumeration": "5"
    },
-   "solution": "STAGE"
+   "solution": "STAGE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STAGE",
+    "definitions": [
+     {
+      "text": "Put on",
+      "at": 0
+     },
+     {
+      "text": "period",
+      "at": 11
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Put on",
+      "note": "first meaning: to mount a production, as of a play"
+     },
+     {
+      "clueFragment": "period",
+      "note": "second meaning: a phase in a process of development"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Put on for period' sounds like dressing for a historical drama; 'for' only joins a verb meaning to a noun meaning.",
+     "definitionFit": "As a verb the word means to present a show to an audience; as a noun it is a distinct phase or step."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "period"
+    }
+   }
   },
   {
    "number": 19,
@@ -305,7 +1207,63 @@
     "text": "Mat for you — pleasing finally",
     "enumeration": "3"
    },
-   "solution": "RUG"
+   "solution": "RUG",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "RUG",
+    "definitions": [
+     {
+      "text": "Mat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally means at the end, so each word gives only its closing letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for",
+      "gives": "R",
+      "select": "last",
+      "note": "closing letter of the word"
+     },
+     {
+      "clueFragment": "you",
+      "gives": "U",
+      "select": "last",
+      "note": "closing letter of the word"
+     },
+     {
+      "clueFragment": "pleasing",
+      "gives": "G",
+      "select": "last",
+      "note": "closing letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "U",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A doormat offered as a nice present for you.",
+     "walkthrough": "'finally' seems to apply only to 'pleasing', but it covers all three words before it, including 'for', which looks like a link word.",
+     "definitionFit": "A rug is a small floor covering, and mat is a close synonym for such a piece of carpet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "for"
+    }
+   }
   },
   {
    "number": 20,
@@ -319,7 +1277,57 @@
     "text": "Appearance of wise person after six",
     "enumeration": "6"
    },
-   "solution": "VISAGE"
+   "solution": "VISAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "VISAGE",
+    "definitions": [
+     {
+      "text": "Appearance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "coming after means following behind, so the earlier-named piece goes second"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "six",
+      "gives": "VI",
+      "note": "six in Roman numerals"
+     },
+     {
+      "clueFragment": "wise person",
+      "gives": "SAGE",
+      "note": "a sage is a wise person"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VI",
+      "SAGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A wise person turning up after six o'clock.",
+     "walkthrough": "Roman numerals are a staple: six is VI, which the clue puts ahead of the sage.",
+     "definitionFit": "A visage is a literary word for a face or facial expression, the way someone looks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "six"
+    }
+   }
   },
   {
    "number": 21,
@@ -333,7 +1341,62 @@
     "text": "Copper starts to pour pensioner a drink",
     "enumeration": "5"
    },
-   "solution": "CUPPA"
+   "solution": "CUPPA",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "CUPPA",
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts to",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter, so each gives only that"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Copper",
+      "gives": "CU",
+      "note": "Cu is the chemical symbol for copper"
+     },
+     {
+      "clueFragment": "pour pensioner",
+      "gives": "PP",
+      "select": "first",
+      "note": "the opening letter of each word"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CU",
+      "PP",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A police officer begins pouring an elderly person a drink.",
+     "walkthrough": "'Copper' is the British slang for a policeman in the surface, but here the metal, symbol Cu. A cuppa is British for a cup of tea.",
+     "definitionFit": "A cuppa is informal British for a cup of tea, the everyday hot drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Copper"
+    }
+   }
   },
   {
    "number": 22,
@@ -347,7 +1410,43 @@
     "text": "Character from Athens visible from steep hill",
     "enumeration": "3"
    },
-   "solution": "PHI"
+   "solution": "PHI",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "PHI",
+    "definitions": [
+     {
+      "text": "Character from Athens",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "visible from",
+      "for": "hidden_word",
+      "note": "something visible shows through, so the target can be seen within the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "steep hill",
+      "note": "the letters run consecutively across the join between these two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A figure in Athens who can be seen from a steep hill such as the Acropolis.",
+     "walkthrough": "'Character' suggests a person, but it is a letter of the Greek alphabet, spanning steeP HIll.",
+     "definitionFit": "Phi is the twenty-first letter of the Greek alphabet, the script used in Athens."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Character"
+    }
+   }
   },
   {
    "number": 23,
@@ -361,7 +1460,64 @@
     "text": "Reporter I confused with English collection of pieces",
     "enumeration": "10"
    },
-   "solution": "REPERTOIRE"
+   "solution": "REPERTOIRE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REPERTOIRE",
+    "definitions": [
+     {
+      "text": "collection of pieces",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "confused",
+      "for": "anagram",
+      "note": "something confused is jumbled, so the letters are mixed into a new order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Reporter",
+      "gives": "REPORTER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the standard abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REPORTERIE",
+       "gives": "REPERTOIRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A journalist admits being muddled by an English anthology.",
+     "walkthrough": "Only 'Reporter' and 'I' are named as confused, but E joins them in the mix.",
+     "definitionFit": "A repertoire is the stock of songs, plays or musical works a performer is ready to present."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pieces"
+    }
+   }
   }
  ]
 }
