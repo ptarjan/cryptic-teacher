@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,62 @@
     "text": "Reluctant to wear oddly cheesy apparel",
     "enumeration": "7"
    },
-   "solution": "CLOTHES"
+   "solution": "CLOTHES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CLOTHES",
+    "definitions": [
+     {
+      "text": "apparel",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly",
+      "for": "letter_selection",
+      "note": "oddly points to the odd-numbered positions, so only first, third and fifth letters are kept"
+     },
+     {
+      "text": "to wear",
+      "for": "container",
+      "note": "whatever is worn goes around the wearer, so one piece is dressed in another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cheesy",
+      "gives": "CES",
+      "select": "alternate",
+      "note": "letters one, three and five of the word"
+     },
+     {
+      "clueFragment": "Reluctant",
+      "gives": "LOTH",
+      "note": "loth is an old spelling of loath, meaning unwilling"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LOTH",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is unwilling to put on a naff, tacky outfit.",
+     "walkthrough": "The odd letters of cheesy, C-E-S, put on LOTH: C + LOTH + ES gives CLOTHES.",
+     "definitionFit": "Apparel is a slightly formal word for garments, the things people wear, a straight synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wear"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +105,43 @@
     "text": "Firmly grasp batch of eggs",
     "enumeration": "6"
    },
-   "solution": "CLUTCH"
+   "solution": "CLUTCH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CLUTCH",
+    "definitions": [
+     {
+      "text": "Firmly grasp",
+      "at": 0
+     },
+     {
+      "text": "batch of eggs",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Firmly grasp",
+      "note": "first meaning: a verb, to seize and hold tightly"
+     },
+     {
+      "clueFragment": "batch of eggs",
+      "note": "second meaning: a noun, the set of eggs a bird lays at one time"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone grips a nestful of eggs.",
+     "walkthrough": "The surface reads as one action on one object; in fact the verb and the noun phrase are two separate meanings of the same word.",
+     "definitionFit": "The word serves as a verb for gripping tightly and as a noun for a hen's set of laid eggs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "batch"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +155,74 @@
     "text": "Old, drunk Noah entertains one Cincinnati resident?",
     "enumeration": "6"
    },
-   "solution": "OHIOAN"
+   "solution": "OHIOAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram",
+     "container"
+    ],
+    "answer": "OHIOAN",
+    "definitions": [
+     {
+      "text": "Cincinnati resident?",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drunk",
+      "for": "anagram",
+      "note": "a drunk person staggers about, so these letters lurch into a new order"
+     },
+     {
+      "text": "entertains",
+      "for": "container",
+      "note": "a host who entertains has a guest inside the house, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old",
+      "gives": "O",
+      "note": "O is the standard abbreviation for old"
+     },
+     {
+      "clueFragment": "Noah",
+      "gives": "NOAH",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "H",
+      "I",
+      "OAN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NOAH",
+       "gives": "HOAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly, drunken Noah plays host to someone from Cincinnati.",
+     "walkthrough": "'Old, drunk Noah' paints a biblical picture, but 'drunk' only reshuffles the name. The question mark is there because a Cincinnati resident is just one example of the wider group.",
+     "definitionFit": "Cincinnati is a city in the US state of Ohio, so anyone living there is a native or inhabitant of that state."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Noah"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +242,61 @@
      }
     ]
    },
-   "solution": "HIGHFLIERS"
+   "solution": "HIGHFLIERS",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "HIGH-FLIERS",
+    "definitions": [
+     {
+      "text": "Successful people",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shot",
+      "for": "anagram",
+      "note": "something shot is ruined or wrecked, so these letters are broken up and rebuilt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in an intoxicated state",
+      "gives": "HIGH",
+      "note": "high is slang for drunk or drugged"
+     },
+     {
+      "clueFragment": "rifles",
+      "gives": "RIFLES",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HIGH",
+      "FLIERS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RIFLES",
+       "gives": "FLIERS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Drunken achievers go out and fire guns.",
+     "walkthrough": "'Shot' looks like the past tense of firing the rifles, but it is the signal to rearrange them into FLIERS.",
+     "definitionFit": "A high-flier is an ambitious person who rises fast in a career, an idiom for someone very successful."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "shot"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +310,55 @@
     "text": "Retail promotion includes black, expensive fur",
     "enumeration": "5"
    },
-   "solution": "SABLE"
+   "solution": "SABLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SABLE",
+    "definitions": [
+     {
+      "text": "expensive fur",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "includes",
+      "for": "container",
+      "note": "to include something is to hold it within, so one piece sits inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Retail promotion",
+      "gives": "SALE",
+      "note": "a shop's sale is a promotion with reduced prices"
+     },
+     {
+      "clueFragment": "black",
+      "gives": "B",
+      "note": "B is the abbreviation for black, as on pencils"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SA",
+      "B",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A shop's special offer features pricey black fur.",
+     "walkthrough": "SALE holds B: SA(B)LE. 'Black' looks like a colour describing the fur, but it only gives one letter.",
+     "definitionFit": "Sable is the costly dark pelt of a small Asian marten, prized for coats and fine paintbrushes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "black"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +372,58 @@
     "text": "Action receiving tennis serve – it’s struck out",
     "enumeration": "7"
    },
-   "solution": "DELETED"
+   "solution": "DELETED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DELETED",
+    "definitions": [
+     {
+      "text": "struck out",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "receiving",
+      "for": "container",
+      "note": "whatever receives something takes it in, so one piece goes inside the other"
+     }
+    ],
+    "linkWords": [
+     "it’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Action",
+      "gives": "DEED",
+      "note": "a deed is an act or action"
+     },
+     {
+      "clueFragment": "tennis serve",
+      "gives": "LET",
+      "note": "a let is a serve that clips the net and must be replayed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "LET",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A tennis player's serve is ruled out.",
+     "walkthrough": "DEED takes in LET: DE(LET)ED. 'Struck out' suggests a sporting dismissal, but here it means crossed out.",
+     "definitionFit": "Words that are struck out have a line drawn through them, meaning removed from a text."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "struck"
+    }
+   }
   },
   {
    "number": 5,
@@ -129,7 +443,64 @@
      }
     ]
    },
-   "solution": "DESERTRAT"
+   "solution": "DESERTRAT",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "DESERT RAT",
+    "definitions": [
+     {
+      "text": "WWII British soldier",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going north",
+      "for": "reversal",
+      "note": "in a down clue, travelling north means reading from the bottom upwards, so the letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Abandon",
+      "gives": "DESERT",
+      "note": "to desert is to abandon"
+     },
+     {
+      "clueFragment": "sailor",
+      "gives": "TAR",
+      "note": "tar is an old word for a sailor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DESERT",
+      "RAT"
+     ],
+     "reversals": [
+      {
+       "from": "TAR",
+       "to": "RAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor deserting and heading north is compared with a wartime British soldier.",
+     "walkthrough": "TAR for sailor is a standard crossword convention; running it upwards gives RAT after DESERT.",
+     "definitionFit": "The Desert Rats was the nickname of the British 7th Armoured Division, which fought in North Africa during the Second World War."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "north"
+    }
+   }
   },
   {
    "number": 6,
@@ -143,7 +514,55 @@
     "text": "Spoils implement turned upside down",
     "enumeration": "4"
    },
-   "solution": "LOOT"
+   "solution": "LOOT",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "LOOT",
+    "definitions": [
+     {
+      "text": "Spoils",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned upside down",
+      "for": "reversal",
+      "note": "in a down clue, turning something upside down makes the letters read bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "implement",
+      "gives": "TOOL",
+      "note": "a tool is an implement"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOOT"
+     ],
+     "reversals": [
+      {
+       "from": "TOOL",
+       "to": "LOOT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone ruins a gadget by flipping it over.",
+     "walkthrough": "'Spoils' looks like a verb for ruining, but it is the plural noun for plunder.",
+     "definitionFit": "Spoils are goods taken by thieves or soldiers, and loot is the everyday word for that plunder."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Spoils"
+    }
+   }
   },
   {
    "number": 7,
@@ -163,7 +582,69 @@
      }
     ]
    },
-   "solution": "TURNDOWN"
+   "solution": "TURNDOWN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "TURN DOWN",
+    "definitions": [
+     {
+      "text": "Refuse",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last of",
+      "for": "letter_selection",
+      "note": "the last of something is its final part, so just the closing letter is kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing being in another means it sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "barrel",
+      "gives": "TUN",
+      "note": "a tun is a large cask for beer or wine"
+     },
+     {
+      "clueFragment": "beer",
+      "gives": "R",
+      "select": "last",
+      "note": "the final letter of the word"
+     },
+     {
+      "clueFragment": "in a low mood",
+      "gives": "DOWN",
+      "note": "down means depressed or glum"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TU",
+      "R",
+      "N",
+      "DOWN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone gloomily declines the dregs left in the cask.",
+     "walkthrough": "The surface suggests someone moping over their pint; a tun is an old word for a large cask, and 'in a low mood' is a separate piece placed at the end.",
+     "definitionFit": "To turn down an offer is to decline or reject it, a phrasal verb synonymous with refusing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Refuse"
+    }
+   }
   },
   {
    "number": 8,
@@ -177,7 +658,50 @@
     "text": "Shorten by 91.44 cm area where ships are repaired",
     "enumeration": "8"
    },
-   "solution": "DOCKYARD"
+   "solution": "DOCKYARD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DOCKYARD",
+    "definitions": [
+     {
+      "text": "area where ships are repaired",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shorten",
+      "gives": "DOCK",
+      "note": "to dock is to cut short, as with a tail or wages"
+     },
+     {
+      "clueFragment": "91.44 cm",
+      "gives": "YARD",
+      "note": "a yard is exactly 91.44 centimetres"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOCK",
+      "YARD"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to cut something down by one yard's length.",
+     "walkthrough": "The precise metric figure is a disguise for the imperial yard, which then follows DOCK.",
+     "definitionFit": "A dockyard is a naval or commercial site with docks and equipment for building and repairing vessels."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Shorten"
+    }
+   }
   },
   {
    "number": 9,
@@ -191,7 +715,50 @@
     "text": "Taking drugs in university, spill the beans",
     "enumeration": "5"
    },
-   "solution": "USING"
+   "solution": "USING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "USING",
+    "definitions": [
+     {
+      "text": "Taking drugs",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "U is the standard abbreviation for university"
+     },
+     {
+      "clueFragment": "spill the beans",
+      "gives": "SING",
+      "note": "to sing is slang for informing to the police"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "SING"
+     ]
+    },
+    "explanation": {
+     "surface": "A student caught on drugs at college tells all.",
+     "walkthrough": "'Spill the beans' and sing are both slang for confessing or grassing to the authorities.",
+     "definitionFit": "Using is a slang participle for being on illegal drugs, as in an addict who is still using."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spill"
+    }
+   }
   },
   {
    "number": 10,
@@ -205,7 +772,69 @@
     "text": "See chessman – king I check at first",
     "enumeration": "9"
    },
-   "solution": "BISHOPRIC"
+   "solution": "BISHOPRIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "BISHOPRIC",
+    "definitions": [
+     {
+      "text": "See",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first means at the start, so only the opening letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chessman",
+      "gives": "BISHOP",
+      "note": "a bishop is a chess piece"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "R",
+      "note": "R stands for rex, Latin for king"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "check",
+      "gives": "C",
+      "select": "first",
+      "note": "the opening letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BISHOP",
+      "R",
+      "I",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "A chess player watches a piece as they put the king in check.",
+     "walkthrough": "'See' looks like an instruction to look, but it is the noun: a bishop's see. R for king comes from the Latin rex.",
+     "definitionFit": "A see is the diocese or office of a bishop, and bishopric names that same territory or position."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "See"
+    }
+   }
   },
   {
    "number": 11,
@@ -219,7 +848,73 @@
     "text": "Drivers suffer terribly after tea, you heard",
     "enumeration": "10"
    },
-   "solution": "CHAUFFEURS"
+   "solution": "CHAUFFEURS",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone",
+     "anagram"
+    ],
+    "answer": "CHAUFFEURS",
+    "definitions": [
+     {
+      "text": "Drivers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "terribly",
+      "for": "anagram",
+      "note": "done terribly means done badly, so the letters come out in a messed-up order"
+     },
+     {
+      "text": "heard",
+      "for": "homophone",
+      "note": "something heard is taken by ear, so the sound matters rather than the spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tea",
+      "gives": "CHA",
+      "note": "cha or char is British slang for tea"
+     },
+     {
+      "clueFragment": "suffer",
+      "gives": "SUFFER",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "you",
+      "gives": "U",
+      "soundsLike": "YOU",
+      "note": "the letter U is pronounced like the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHA",
+      "UFFEURS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SUFFERU",
+       "gives": "UFFEURS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Motorists have a dreadful time after a cup of tea, apparently.",
+     "walkthrough": "'You heard' reads like 'so I'm told', but it supplies the letter that sounds like you, which joins the rearranged letters. Cha is British slang for tea.",
+     "definitionFit": "A chauffeur is a person employed to drive someone else's car, so the plural means paid drivers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heard"
+    }
+   }
   },
   {
    "number": 12,
@@ -233,7 +928,60 @@
     "text": "Lazily covers for injured lady",
     "enumeration": "4"
    },
-   "solution": "IDLY"
+   "solution": "IDLY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "IDLY",
+    "definitions": [
+     {
+      "text": "Lazily",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covers",
+      "for": "letter_selection",
+      "note": "covers are the outside of a book, so only the outermost letters of each word are kept"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "injured",
+      "gives": "ID",
+      "select": "outer",
+      "note": "the first and last letters of the word"
+     },
+     {
+      "clueFragment": "lady",
+      "gives": "LY",
+      "select": "outer",
+      "note": "the first and last letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ID",
+      "LY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone half-heartedly stands in for a woman who has been hurt.",
+     "walkthrough": "'Covers for' reads as 'stands in for', but 'covers' alone means the outside letters, and 'for' is a link.",
+     "definitionFit": "Both words are adverbs describing doing nothing much, avoiding effort or work; a plain synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "covers"
+    }
+   }
   },
   {
    "number": 13,
@@ -253,7 +1001,62 @@
      }
     ]
    },
-   "solution": "LIPREADING"
+   "solution": "LIPREADING",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "LIP-READING",
+    "definitions": [
+     {
+      "text": "seeing what people are saying",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "welcomes",
+      "for": "container",
+      "note": "to welcome guests is to take them in, so the pieces go inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Principal",
+      "gives": "LEADING",
+      "note": "leading means chief or principal"
+     },
+     {
+      "clueFragment": "current",
+      "gives": "I",
+      "note": "I is the symbol for electric current"
+     },
+     {
+      "clueFragment": "PR",
+      "gives": "PR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "I",
+      "PR",
+      "EADING"
+     ]
+    },
+    "explanation": {
+     "surface": "A head teacher greets the latest publicist to find out what everyone thinks.",
+     "walkthrough": "I and PR go inside LEADING, after its first letter. 'Current' looks like 'present-day', but it is the physics symbol I.",
+     "definitionFit": "Lip-reading lets a deaf person understand speech by watching the mouth, literally seeing words spoken aloud rather than hearing them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "current"
+    }
+   }
   },
   {
    "number": 14,
@@ -267,7 +1070,46 @@
     "text": "Person watching Milanese football side, one asking questions",
     "enumeration": "11"
    },
-   "solution": "INTERVIEWER"
+   "solution": "INTERVIEWER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INTERVIEWER",
+    "definitions": [
+     {
+      "text": "one asking questions",
+      "at": 40
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Milanese football side",
+      "gives": "INTER",
+      "note": "Inter Milan is one of the city's two big clubs"
+     },
+     {
+      "clueFragment": "Person watching",
+      "gives": "VIEWER",
+      "note": "a viewer is someone who watches"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INTER",
+      "VIEWER"
+     ]
+    },
+    "explanation": {
+     "surface": "A spectator at an Italian football match who is also putting questions to people.",
+     "walkthrough": "The clue gives the watcher first, but the team comes first in the answer: INTER then VIEWER.",
+     "definitionFit": "An interviewer is the person who poses the queries in a job interview, broadcast or survey."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -287,7 +1129,43 @@
      }
     ]
    },
-   "solution": "TRAINFARE"
+   "solution": "TRAINFARE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TRAIN FARE",
+    "definitions": [
+     {
+      "text": "Charge for travelling",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "through",
+      "for": "hidden_word",
+      "note": "the answer runs through the following words, straddling the gaps between them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sumatra, in Far East",
+      "gives": "TRAINFARE",
+      "note": "the letters run on unbroken across these words"
+     }
+    ],
+    "explanation": {
+     "surface": "A price paid for a journey across an Indonesian island.",
+     "walkthrough": "The answer starts in the last three letters of Sumatra and ends on the first letter of East.",
+     "definitionFit": "A fare is the price of a ticket for a journey, and this one is for a rail trip."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "through"
+    }
+   }
   },
   {
    "number": 16,
@@ -301,7 +1179,68 @@
     "text": "One hugged by funny actress – most alarming!",
     "enumeration": "8"
    },
-   "solution": "SCARIEST"
+   "solution": "SCARIEST",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SCARIEST",
+    "definitions": [
+     {
+      "text": "most alarming",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "funny",
+      "for": "anagram",
+      "note": "funny means odd or peculiar, so the letters are put into a strange order"
+     },
+     {
+      "text": "hugged by",
+      "for": "container",
+      "note": "whatever is hugged is held in someone's arms, so it goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "actress",
+      "gives": "ACTRESS",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCAR",
+      "I",
+      "EST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ACTRESS",
+       "gives": "SCAREST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Being embraced by a comedienne is a terrifying experience.",
+     "walkthrough": "'Funny actress' looks like a comic performer, but 'funny' tells you to rearrange the seven letters, then I goes in.",
+     "definitionFit": "Something alarming is frightening, and the superlative of scary means frightening to the greatest degree."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "funny"
+    }
+   }
   },
   {
    "number": 17,
@@ -315,7 +1254,60 @@
     "text": "Chicken also following a parrot",
     "enumeration": "8"
    },
-   "solution": "COCKATOO"
+   "solution": "COCKATOO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COCKATOO",
+    "definitions": [
+     {
+      "text": "parrot",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following means coming after, so one piece is placed behind the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chicken",
+      "gives": "COCK",
+      "note": "a cock is a male chicken"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "also",
+      "gives": "TOO",
+      "note": "too means also"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COCK",
+      "A",
+      "TOO"
+     ]
+    },
+    "explanation": {
+     "surface": "A hen trots along behind a pet bird as well.",
+     "walkthrough": "'Following a' tells you the word for also comes after the A, not after the chicken.",
+     "definitionFit": "A cockatoo is a crested member of the parrot family native to Australia and nearby islands."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Chicken"
+    }
+   }
   },
   {
    "number": 18,
@@ -329,7 +1321,51 @@
     "text": "When playing, Tories charm musical director",
     "enumeration": "11"
    },
-   "solution": "CHOIRMASTER"
+   "solution": "CHOIRMASTER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CHOIRMASTER",
+    "definitions": [
+     {
+      "text": "musical director",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "When playing",
+      "for": "anagram",
+      "note": "things at play move around freely, so these letters are jumbled into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tories charm",
+      "gives": "TORIESCHARM",
+      "note": "taken as written, eleven letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TORIESCHARM",
+       "gives": "CHOIRMASTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Conservatives are delightful company when they play music under a conductor.",
+     "walkthrough": "'Playing' fits the musical picture, which hides that it is the signal to rearrange the two words.",
+     "definitionFit": "A choirmaster trains and conducts a group of singers, so is a director of vocal music."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "playing"
+    }
+   }
   },
   {
    "number": 19,
@@ -343,7 +1379,63 @@
     "text": "That man keeps equine animal and large badger",
     "enumeration": "6"
    },
-   "solution": "HASSLE"
+   "solution": "HASSLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "HASSLE",
+    "definitions": [
+     {
+      "text": "badger",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeps",
+      "for": "container",
+      "note": "to keep something is to hold on to it, so pieces are held within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "That man",
+      "gives": "HE",
+      "note": "he is the pronoun for that man"
+     },
+     {
+      "clueFragment": "equine animal",
+      "gives": "ASS",
+      "note": "an ass is a donkey, a member of the horse family"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the abbreviation for large, as on clothing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "ASS",
+      "L",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A man owns a horse-like animal and a big badger.",
+     "walkthrough": "'Badger' sits among the animals, looking like the large beast being kept, but it is a verb meaning to pester.",
+     "definitionFit": "To badger someone is to pester them persistently, and to hassle has the same sense of nagging harassment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "badger"
+    }
+   }
   },
   {
    "number": 20,
@@ -357,7 +1449,44 @@
     "text": "Affirm where fan of international cricket might be",
     "enumeration": "6"
    },
-   "solution": "ATTEST"
+   "solution": "ATTEST",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ATTEST",
+    "definitions": [
+     {
+      "text": "Affirm",
+      "at": 0
+     },
+     {
+      "text": "where fan of international cricket might be",
+      "at": 7,
+      "note": "defines the two-word phrase 'at Test', a location rather than a verb"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Affirm",
+      "note": "first meaning: to declare something true"
+     },
+     {
+      "clueFragment": "where fan of international cricket might be",
+      "note": "second meaning, split in two: at a Test match, cricket's top international fixture"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second half defines the answer read as two words: a Test is a full international cricket match, so a fan might be 'at Test'.",
+     "definitionFit": "To attest is to bear witness or declare formally that something is true, synonymous with affirming it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fan"
+    }
+   }
   },
   {
    "number": 21,
@@ -371,7 +1500,44 @@
     "text": "Debauched fellow, one maybe kept in garden shed",
     "enumeration": "4"
    },
-   "solution": "RAKE"
+   "solution": "RAKE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RAKE",
+    "definitions": [
+     {
+      "text": "Debauched fellow",
+      "at": 0
+     },
+     {
+      "text": "one maybe kept in garden shed",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Debauched fellow",
+      "note": "first meaning: a dissolute, womanising man of fashion"
+     },
+     {
+      "clueFragment": "one maybe kept in garden shed",
+      "note": "second meaning: a long-handled garden tool with a toothed head"
+     }
+    ],
+    "explanation": {
+     "surface": "A libertine is shut away in a garden shed.",
+     "walkthrough": "The surface suggests a scoundrel locked up; 'one' is a tool, and 'maybe' flags it as one example of what a shed holds.",
+     "definitionFit": "The word names both a dissolute playboy, as in Hogarth's Rake's Progress, and a gardening tool for leaves."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "kept"
+    }
+   }
   },
   {
    "number": 22,
@@ -385,7 +1551,70 @@
     "text": "A French agricultural worker touring Limousin’s capital, not Nice",
     "enumeration": "10"
    },
-   "solution": "UNPLEASANT"
+   "solution": "UNPLEASANT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "UNPLEASANT",
+    "definitions": [
+     {
+      "text": "not Nice",
+      "at": 57
+     }
+    ],
+    "indicators": [
+     {
+      "text": "capital",
+      "for": "letter_selection",
+      "note": "a capital is a head letter, so just the opening letter is kept"
+     },
+     {
+      "text": "touring",
+      "for": "container",
+      "note": "to tour a place is to travel around it, so one piece encircles another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A French",
+      "gives": "UN",
+      "note": "un is French for a"
+     },
+     {
+      "clueFragment": "agricultural worker",
+      "gives": "PEASANT",
+      "note": "a peasant works the land"
+     },
+     {
+      "clueFragment": "Limousin’s",
+      "gives": "L",
+      "select": "first",
+      "note": "the opening letter of the region's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "P",
+      "L",
+      "EASANT"
+     ]
+    },
+    "explanation": {
+     "surface": "A French farmhand travels around a region's capital but avoids the Riviera city of Nice.",
+     "walkthrough": "The capital N of Nice is a disguise: read it as the adjective nice, and 'not nice' defines the answer. Limousin is a region of central France.",
+     "definitionFit": "Something unpleasant is disagreeable, the plain opposite of the ordinary adjective for being agreeable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Nice"
+    }
+   }
   },
   {
    "number": 23,
@@ -399,7 +1628,48 @@
     "text": "Reasons to call plumber, we’re told, to get vegetables",
     "enumeration": "5"
    },
-   "solution": "LEEKS"
+   "solution": "LEEKS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "LEEKS",
+    "definitions": [
+     {
+      "text": "vegetables",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we’re told",
+      "for": "homophone",
+      "note": "being told something means hearing it spoken, so the sound counts rather than the spelling"
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Reasons to call plumber",
+      "gives": "LEEKS",
+      "soundsLike": "LEAKS",
+      "note": "dripping pipes are what bring a plumber round"
+     }
+    ],
+    "explanation": {
+     "surface": "Apparently you ring a plumber in order to obtain some greens.",
+     "walkthrough": "Leaky pipes and the onion-family vegetable are pronounced identically.",
+     "definitionFit": "Leeks are long green-and-white members of the onion family, eaten as a vegetable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Reasons"
+    }
+   }
   },
   {
    "number": 24,
@@ -413,7 +1683,57 @@
     "text": "Cry when upset, getting an onion or a tulip, say",
     "enumeration": "4"
    },
-   "solution": "BULB"
+   "solution": "BULB",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "BULB",
+    "definitions": [
+     {
+      "text": "an onion or a tulip, say",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down clue, upset means knocked over, so the letters are read bottom to top"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cry",
+      "gives": "BLUB",
+      "note": "to blub is to sob or weep"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BULB"
+     ],
+     "reversals": [
+      {
+       "from": "BLUB",
+       "to": "BULB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone weeps when they get upset over an onion or a flower.",
+     "walkthrough": "'Upset' reads as distressed, fitting the crying, but it is the signal to turn the word over. Blub is British slang for crying.",
+     "definitionFit": "Onions and tulips grow from the swollen underground storage organ of a plant, and 'say' marks them as examples."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 25,
@@ -427,7 +1747,47 @@
     "text": "Some resent our agency supplying group of escorts",
     "enumeration": "9"
    },
-   "solution": "ENTOURAGE"
+   "solution": "ENTOURAGE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ENTOURAGE",
+    "definitions": [
+     {
+      "text": "group of escorts",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some means a part of, so only a stretch of the following letters is used"
+     }
+    ],
+    "linkWords": [
+     "supplying"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "resent our agency",
+      "gives": "ENTOURAGE",
+      "note": "the letters run on unbroken across these words"
+     }
+    ],
+    "explanation": {
+     "surface": "People dislike an escort agency that provides a band of companions.",
+     "walkthrough": "The answer starts after the RES of resent and ends before the NCY of agency.",
+     "definitionFit": "An entourage is the retinue of attendants who accompany an important person, a group that escorts them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "escorts"
+    }
+   }
   },
   {
    "number": 26,
@@ -441,7 +1801,58 @@
     "text": "I litigate about son’s problem",
     "enumeration": "5"
    },
-   "solution": "ISSUE"
+   "solution": "ISSUE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ISSUE",
+    "definitions": [
+     {
+      "text": "problem",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece is placed around another"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I litigate",
+      "gives": "ISUE",
+      "note": "I plus sue, to take legal action"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "S",
+      "SUE"
+     ]
+    },
+    "explanation": {
+     "surface": "A parent takes legal action over their boy's difficulty.",
+     "walkthrough": "I SUE goes around S; the apostrophe-s after son is read as 'is', linking to the definition.",
+     "definitionFit": "An issue is a matter of concern or difficulty, as in 'I have an issue with that'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 27,
@@ -455,7 +1866,57 @@
     "text": "Disturbance ultimately beset Russian capital?",
     "enumeration": "7"
    },
-   "solution": "TROUBLE"
+   "solution": "TROUBLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TROUBLE",
+    "definitions": [
+     {
+      "text": "Disturbance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so only the closing letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beset",
+      "gives": "T",
+      "select": "last",
+      "note": "the final letter of the word"
+     },
+     {
+      "clueFragment": "Russian capital",
+      "gives": "ROUBLE",
+      "note": "the rouble is Russia's currency"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ROUBLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Unrest finally engulfed Moscow.",
+     "walkthrough": "'Russian capital' makes you think of Moscow; the question mark flags that capital means money, the rouble.",
+     "definitionFit": "Trouble in the sense of unrest or fighting, as in 'trouble on the streets', is a disturbance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 28,
@@ -469,7 +1930,62 @@
     "text": "Federal agents in small Spielberg film part",
     "enumeration": "7"
    },
-   "solution": "SEGMENT"
+   "solution": "SEGMENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SEGMENT",
+    "definitions": [
+     {
+      "text": "part",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "being in something means sitting inside it, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     },
+     {
+      "clueFragment": "Spielberg film",
+      "gives": "ET",
+      "note": "E.T. is Steven Spielberg's 1982 film about an alien"
+     },
+     {
+      "clueFragment": "Federal agents",
+      "gives": "GMEN",
+      "note": "G-men is American slang for FBI agents"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "E",
+      "GMEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "FBI agents appear in a minor role in a Spielberg movie.",
+     "walkthrough": "The agents sit inside the film's two-letter title, which follows the abbreviation for small. G-men was 1930s American slang for government agents of the FBI.",
+     "definitionFit": "A segment is one of the pieces into which something is divided, a straight synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "part"
+    }
+   }
   }
  ]
 }
