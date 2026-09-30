@@ -68,6 +68,7 @@ import series as series_meta  # noqa: E402 — what each series IS; see tools/se
 from fetch_puzzle import (  # noqa: E402 — one glob, one reader for every tool
     blog_annotation, has_blog_hints, puzzle_files, read_puzzle_file, with_blog_facts)
 import puzzle_paths  # noqa: E402 — one puzzles/ for every tool
+import parallel  # noqa: E402 — the corpus across the cores
 from stamp_assets import asset_url  # noqa: E402 — content-hashed asset URLs
 # Which clue a puzzle's card shows, and how to describe it. Imported rather than
 # reimplemented: the alt text has to describe the picture that was actually
@@ -94,6 +95,7 @@ def esc(s):
     return html.escape(str(s or ""), quote=True)
 
 
+@functools.cache       # the assets do not change while the pages are built
 def asset(rel):
     """An absolute, content-stamped URL for one of our own static files.
 
@@ -129,19 +131,21 @@ def clue_html_text(clue):
 STUB_KEYS = ("id", "series", "number", "date", "year")
 
 
+def solved_stub(path):
+    """(path, stub) for a listed puzzle with a solution, else None."""
+    p = read_puzzle_file(path)
+    if series_meta.unlisted(p["series"]) or not any(e.get("solution") for e in p["entries"]):
+        return None
+    return path, {k: p[k] for k in STUB_KEYS if k in p}
+
+
 def puzzles():
     """[(path, stub)] for every listed puzzle with a solution, newest first.
 
     Stubs, not puzzles: the corpus does not fit in memory at once. Each puzzle
     is read in full again when its own page is rendered, one at a time.
     """
-    out = []
-    for path in puzzle_files():
-        p = read_puzzle_file(path)
-        if series_meta.unlisted(p["series"]):
-            continue
-        if any(e.get("solution") for e in p["entries"]):
-            out.append((path, {k: p[k] for k in STUB_KEYS if k in p}))
+    out = [t for t in parallel.pmap(solved_stub, puzzle_files()) if t]
     # Chronological, matching fetch_puzzle.reindex(). Sorting on the number was
     # the same thing while every puzzle was a cryptic; now that quiptics (~1,400)
     # sit alongside cryptics (~30,000) it would file every quiptic at the end of
@@ -1659,12 +1663,51 @@ def legacy_redirects(solved):
 
 # ------------------------------------------------------------------------ run
 
-def outputs():
-    """Every generated file as (path, text), one at a time.
+#: (solved, meta, check) for puzzle_page_job(), set by outputs() before its
+#: workers fork.
+_PAGES = None
 
-    A generator because the site does not fit in memory: tens of thousands of
-    puzzle pages, each written and dropped before the next is rendered.
+
+def puzzle_page_job(i):
+    """Render, check and write puzzle page i of the solved list, in a worker.
+
+    Returns (path, stale, blocks, found): whether the file on disk differed,
+    and this page's own clue_blocks() and clue_indicators() candidates, which
+    outputs() merges in page order into exactly what one serial pass builds.
+    The text stays in the worker, so no page crosses a pipe.
     """
+    solved, meta, check = _PAGES
+    puz = with_blog_facts(read_puzzle_file(solved[i][0]))
+    # The list is newest-first, so "next" is the older neighbour.
+    prev_p = solved[i - 1][1] if i > 0 else None
+    next_p = solved[i + 1][1] if i + 1 < len(solved) else None
+    page = puzzle_page(puz, meta.get(puz["id"]), prev_p, next_p)
+    blocks, found = {}, {}
+    clue_blocks(blocks, puz, page)
+    clue_indicators(found, puz, page)
+    path = puzzle_paths.PUZZLE_DIR / puz["id"] / "index.html"
+    return path, write_output(path, relative_links(page, PUZZLE_ROOT), check), blocks, found
+
+
+def write_output(p, text, check):
+    """Check one generated file and write it if it changed; whether it did."""
+    assert_no_root_relative(p, text)
+    if p.exists() and p.read_text(encoding="utf-8") == text:
+        return False
+    if not check:
+        p.parent.mkdir(parents=True, exist_ok=True)
+        p.write_text(text, encoding="utf-8")
+    return True
+
+
+def outputs(check=False):
+    """Every generated file as (path, stale): the puzzle pages first, written
+    across the cores by puzzle_page_job(), then the rest, one at a time.
+
+    Pages are written as they are made and only their paths kept, because the
+    site does not fit in memory: tens of thousands of puzzle pages.
+    """
+    global _PAGES
     idx = index_json()
     meta = {p["id"]: p for p in idx["puzzles"]}
     # The whole-site copy checks go first, so a refusal writes nothing.
@@ -1678,27 +1721,44 @@ def outputs():
     solved = puzzles()
     stubs = [stub for _, stub in solved]
 
+    claimed = set()
+
+    def claim(p):
+        # Before the write for every page but the puzzle pages, whose paths
+        # are their ids and so cannot collide with each other.
+        if p in claimed:
+            raise SystemExit(f"{p.relative_to(ROOT)} is generated twice: two outputs "
+                             "claim one URL, and only one of them could be served")
+        claimed.add(p)
+
     blocks, found = {}, {}
-    for i, (path, stub) in enumerate(solved):
-        puz = with_blog_facts(read_puzzle_file(path))
-        # The list is newest-first, so "next" is the older neighbour.
-        prev_p = stubs[i - 1] if i > 0 else None
-        next_p = stubs[i + 1] if i + 1 < len(stubs) else None
-        page = puzzle_page(puz, meta.get(puz["id"]), prev_p, next_p)
-        clue_blocks(blocks, puz, page)
-        clue_indicators(found, puz, page)
-        yield puzzle_paths.PUZZLE_DIR / puz["id"] / "index.html", relative_links(page, PUZZLE_ROOT)
-    yield from legacy_redirects(stubs)
-    yield from legacy_ids(stubs)
-    yield puzzle_paths.PUZZLE_DIR / "index.html", hub_page(idx)
-    yield from listing_pages(idx)
-    yield ROOT / "learn" / "index.html", learn_page()
-    yield ROOT / "abbreviations" / "index.html", abbreviations_page(blocks)
-    # Relative, like the puzzle pages: nearly four thousand example links.
-    yield ROOT / "indicators" / "index.html", relative_links(indicators_page(found), "../")
-    yield ROOT / "difficulty" / "index.html", difficulty_page(idx)
-    yield ROOT / "sitemap.xml", sitemap(idx)
-    yield home
+    _PAGES = solved, meta, check
+    for path, stale, page_blocks, page_found in parallel.pmap(puzzle_page_job,
+                                                              range(len(solved))):
+        for key, cands in page_blocks.items():
+            blocks.setdefault(key, []).extend(cands)
+        for key, cand in page_found.items():
+            if key not in found or found[key][0] < cand[0]:
+                found[key] = cand
+        claim(path)
+        yield path, stale
+    _PAGES = None
+
+    def rest():
+        yield from legacy_redirects(stubs)
+        yield from legacy_ids(stubs)
+        yield puzzle_paths.PUZZLE_DIR / "index.html", hub_page(idx)
+        yield from listing_pages(idx)
+        yield ROOT / "learn" / "index.html", learn_page()
+        yield ROOT / "abbreviations" / "index.html", abbreviations_page(blocks)
+        # Relative, like the puzzle pages: nearly four thousand example links.
+        yield ROOT / "indicators" / "index.html", relative_links(indicators_page(found), "../")
+        yield ROOT / "difficulty" / "index.html", difficulty_page(idx)
+        yield ROOT / "sitemap.xml", sitemap(idx)
+        yield home
+    for p, text in rest():
+        claim(p)
+        yield p, write_output(p, text, check)
 
 
 # The site root as seen from /puzzles/<id>/, the directory every puzzle page and
@@ -1790,18 +1850,10 @@ def main():
     # Each file is compared, written and dropped as it is made; only the paths
     # are kept, for orphans().
     files, stale = set(), []
-    for p, text in outputs():
-        if p in files:
-            raise SystemExit(f"{p.relative_to(ROOT)} is generated twice: two outputs "
-                             "claim one URL, and only one of them could be served")
+    for p, changed in outputs(check):
         files.add(p)
-        assert_no_root_relative(p, text)
-        if p.exists() and p.read_text(encoding="utf-8") == text:
-            continue
-        stale.append(p)
-        if not check:
-            p.parent.mkdir(parents=True, exist_ok=True)
-            p.write_text(text, encoding="utf-8")
+        if changed:
+            stale.append(p)
     dead, unexpected = orphans(files)
     for d in unexpected:
         print(f"LEFTOVER: {d.relative_to(ROOT)} is not a generated page directory "

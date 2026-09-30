@@ -10,10 +10,28 @@ is whatever was loaded before pmap() was called, and nothing is pickled but
 the items and the results. Results come back in the order of the items, so a
 caller gets exactly what the serial loop would have produced.
 
+A SystemExit in a worker (the tools' way of refusing) is raised again in the
+parent with its message. Left alone it would kill the worker, and Pool.map
+waits forever for a task whose process is gone.
+
   pmap(fn, items)   # [fn(x) for x in items]; fn must be a module-level function
 """
 import multiprocessing
 import os
+
+_FN = None
+
+
+class _Exit:
+    def __init__(self, code):
+        self.code = code
+
+
+def _call(x):
+    try:
+        return _FN(x)
+    except SystemExit as err:
+        return _Exit(err.code)
 
 
 def workers():
@@ -22,9 +40,18 @@ def workers():
 
 
 def pmap(fn, items, chunksize=64):
+    global _FN
     items = list(items)
     n = min(workers(), max(1, len(items) // chunksize))
     if n <= 1 or multiprocessing.current_process().daemon:
         return [fn(x) for x in items]
-    with multiprocessing.get_context("fork").Pool(n) as pool:
-        return pool.map(fn, items, chunksize)
+    _FN = fn
+    try:
+        with multiprocessing.get_context("fork").Pool(n) as pool:
+            out = pool.map(_call, items, chunksize)
+    finally:
+        _FN = None
+    for r in out:
+        if isinstance(r, _Exit):
+            raise SystemExit(r.code)
+    return out
