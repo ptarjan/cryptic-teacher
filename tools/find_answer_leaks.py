@@ -60,6 +60,141 @@ def says(text, answer):
     return False
 
 
+# unname() rewrites a block note that names its answer, when the rewrite needs no
+# judgement, so annotate_check applies it instead of spending a turn on
+# check_block_notes_dont_name_the_answer. Each rule below takes the answer out
+# of one clause and keeps the rest verbatim; a note no rule clears is left for
+# the validator to reject.
+
+# "a grating is a grid of metal bars", "to junk = to throw away": the answer as
+# the subject, the gloss after it.
+OPENER = re.compile(
+    r"^\s*(?:(?:a|an|the|to)\s+)?(?P<subject>[A-Za-z'’ -]+?)\s*"
+    r"(?:\s(?:is|are|was|means|can mean)\s+(?:also\s+)?|[=:—–]\s*|\s-\s+)(?P<rest>.+)$",
+    re.DOTALL)
+# "its middle", "a mean one": a gloss that leans on the subject it lost.
+DANGLING = re.compile(r"^(?:its|their|his|her|one's)\b|\bone\s*[.!]?$")
+# "the pick of the bunch is the cream": the answer as the complement.
+TAIL = re.compile(
+    r"^(?P<head>.+?)\s+(?:is|are|=|means)\s+(?:(?:to|a|an|the|one's|its|their)\s+)?"
+    r"(?P<ans>[A-Za-z' -]+?)(?:\s+(?:it|them|one|out|up|off|down))?\s*[.!]?$", re.DOTALL)
+LOOSE_END = re.compile(r"\b(?:he|she|it|they|you|we|I|and|or|so|that|which|who)\s*$", re.IGNORECASE)
+# "read backwards gives RASH", "C sounds like SEA": the verb that hands over the
+# assembled word, which can hand over "the answer" instead.
+GIVES = re.compile(
+    r"(?:\b(?:gives?|giving|makes?|making|spells?|spelling|produces?|yields?|leaves?|leaving"
+    r"|becomes?|turns? into|sounds? (?:just |exactly )?(?:like|the same as)|said like"
+    r"|pronounced like|reads? \w+ as|to get|to form|forming|to make|it is|you get|we get)"
+    r"|->|→|=>|=)\s*(?P<ans>[A-Za-z' -]+?)\s*[.!]?$")
+ALIKE = re.compile(r"\b(?:and|with)\s+(?P<ans>[A-Za-z' -]+?)\s+(?=sound|are pronounced|rhyme)")
+# "fin(AL PHA)se", "chame-LEO-n", "p ART IS TE mpting": a hidden word displayed
+# in its fodder, which becomes the clue's own words and where the letters start.
+DISPLAY = re.compile(
+    r"(?P<pre>[A-Za-z]*)(?:\((?P<a>[^()]+)\)|-(?P<b>[A-Z][A-Za-z ,'.]*?)-(?=[a-z])"
+    r"|(?<=[a-z]) (?P<c>[A-Z]+(?: [A-Z]+)*) (?=[a-z]))(?P<post>[a-z]*)")
+CLAUSE_BREAK = re.compile(r"(\s*[;:]\s+|\s+[—–]\s+|\s+-\s+|;\s*)")
+
+
+def _words(s):
+    return len(re.findall(r"[A-Za-z]+", s))
+
+
+# "to worst someone is to beat them": words a subject can carry and still be the
+# answer alone. "William Temple was ..." is about the man, and keeps its subject.
+FILLER = {"someone", "something", "somebody", "sth", "sb", "one", "one's", "a", "an", "the",
+          "up", "out", "off", "on", "in", "down", "against", "at", "for", "with", "it", "them"}
+
+
+def _bare(subject, answer):
+    """Is `subject` the answer word, give or take an inflection and FILLER words?"""
+    left = subject.lower()
+    for w in re.findall(r"[A-Za-z]+", answer.lower()):
+        left = re.sub(rf"\b{w}\w{{0,3}}\b", " ", left, count=1)
+    extra = [w for w in re.findall(r"[a-z']+", left) if w not in FILLER]
+    return len(letters(" ".join(extra))) <= 3
+
+
+def _span(clue, run):
+    """(the whole words of `clue` holding the letter run `run`, letters before it)."""
+    idx = [i for i, ch in enumerate(clue) if ch.isalpha()]
+    flat = "".join(clue[i] for i in idx).lower()
+    at = flat.find(run)
+    if not run or at < 0 or flat.find(run, at + 1) >= 0:
+        return None
+    lo, hi = idx[at], idx[at + len(run) - 1] + 1
+    while lo > 0 and clue[lo - 1].isalpha():
+        lo -= 1
+    while hi < len(clue) and clue[hi].isalpha():
+        hi += 1
+    return clue[lo:hi], sum(ch.isalpha() for ch in clue[lo:idx[at]])
+
+
+def _undisplay(clause, answer, clue):
+    for m in DISPLAY.finditer(clause):
+        inner = m["a"] or m["b"] or m["c"]
+        if (letters(inner) != letters(answer) or not (m["pre"] or m["post"])
+                or re.match(r"['’\w]", clause[m.end():m.end() + 1])):
+            continue
+        found = _span(clue, letters(m["pre"] + inner + m["post"]))
+        if found:
+            span, before = found
+            start = before + len(letters(m["pre"])) + 1
+            end = start + len(letters(answer)) - 1
+            return f"{clause[:m.start()]}letters {start}-{end} of '{span}'{clause[m.end():]}"
+    return None
+
+
+def _unname_clause(clause, answer, whole, clue):
+    """`clause` without the answer in it, or None to drop the clause."""
+    m = OPENER.match(clause)
+    if (m and says(m["subject"], answer) and not says(m["rest"], answer)
+            and _bare(m["subject"], answer) and not DANGLING.search(m["rest"])):
+        return m["rest"]
+    # "the answer" is only true of a block that gives the whole answer.
+    for pat in (GIVES, ALIKE) if whole else ():
+        m = pat.search(clause)
+        if m and letters(m["ans"]) == letters(answer):
+            return clause[:m.start("ans")] + "the answer" + clause[m.end("ans"):]
+    m = TAIL.match(clause)
+    if (m and letters(m["ans"]) == letters(answer) and not re.search(r"[,;]", m["head"])
+            and _words(m["head"]) <= 6 and not LOOSE_END.search(m["head"])
+            and not re.search(r"(?:^|\s)['\"‘“]", m["head"])):
+        return m["head"]
+    fixed = _undisplay(clause, answer, clue)
+    if fixed is None and ", " in clause:
+        # Only a trailing run of comma clauses goes: a leading one holds the subject.
+        subs = clause.split(", ")
+        while subs and says(subs[-1], answer):
+            subs.pop()
+        fixed = ", ".join(subs) if 0 < len(subs) <= clause.count(", ") else None
+    return fixed
+
+
+def unname(note, answer, gives=None, clue=""):
+    """`note` rewritten so it no longer names `answer`, or None when that takes
+    judgement. `gives` is the block's letters, `clue` the clue's text."""
+    if not isinstance(note, str) or not says(note, answer):
+        return None
+    whole = gives is None or letters(gives) == letters(answer)
+    parts = CLAUSE_BREAK.split(note)
+    kept = []
+    for clause, sep in zip(parts[0::2], [""] + parts[1::2]):
+        fixed = clause if not says(clause, answer) else _unname_clause(clause, answer, whole, clue)
+        if fixed is not None:
+            kept.append([sep, fixed])
+        elif sep.strip() == ":" and len(kept) > 1 and _words(kept[-1][1]) <= 2:
+            kept.pop()  # "inside: R-EARL-IGHT" loses its label with its display
+    if not kept:
+        return None
+    kept[0][0] = ""
+    new = "".join(s + c for s, c in kept).strip(" ;:,-—–")
+    # What is left must still be a note: not a stub, and most of what was written.
+    if (says(new, answer) or _words(new) < 2 or len(letters(new)) < 6
+            or len(letters(new)) < 0.4 * len(letters(note))):
+        return None
+    return new[0].upper() + new[1:] if note[:1].isupper() else new
+
+
 def leaks(only=()):
     paths = [resolve_puzzle(n) for n in only] if only else puzzle_files()
     for path in paths:
