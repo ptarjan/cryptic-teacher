@@ -5402,14 +5402,18 @@
   // A clue counts once every square of it is right in the save, the test the
   // scorebar makes live. It costs its charged rungs (frozenCharge) plus the
   // letters revealed on it, so a cost of 0 is exactly cleanSolve. When it was
-  // solved is the latest letterAt stamp on its squares.
+  // solved is the latest letterAt stamp on its squares. Its types are its
+  // annotation's, else the blog's: what annOf hands the ladder's type rung.
+  //
+  // Every clue of a loaded puzzle not yet solved is in `open`, the pool the
+  // practice link picks from: a puzzle with no save is all open.
   function clueLedger() {
-    const clues = [], totals = {};
+    const clues = [], open = [], totals = {};
     const saves = savedProgress();
-    Object.keys(saves).forEach((id) => {
+    Object.keys(window.CRYPTIC_PUZZLES).forEach((id) => {
       const puz = window.CRYPTIC_PUZZLES[id];
       if (!puz || !puz.entries) return;
-      const s = saves[id], letters = s.letters || {}, stamps = s.letterAt || {};
+      const s = saves[id] || {}, letters = s.letters || {}, stamps = s.letterAt || {};
       const lead = buildLeaderOf(puz.entries);
       const legs = {};
       puz.entries.forEach((e) => {
@@ -5426,15 +5430,20 @@
             at = Math.max(at, stamps[sq] || 0);
           }
         });
-        if (!solved) return;
+        const head = legs[key].find((e) => entryId(e) === key) || legs[key][0];
+        const types = ((head.annotation || head.blog || {}).type || []).filter((t) => TYPES[t]);
+        if (!solved) {
+          if (head.solution && types.length) open.push({ id, ref: tag(head), types, started: !!saves[id] });
+          return;
+        }
         const hints = frozenCharge(s.solvedWith || {}, legs[key].map(entryId));
         const reveals = (s.revealsUsed || {})[key] || 0;
-        clues.push({ id, key, at: at || s.updated || 0, cost: hints + reveals,
+        clues.push({ id, key, at: at || s.updated || 0, cost: hints + reveals, types,
                      clean: cleanSolve(hints, reveals) });
       });
     });
     clues.sort((a, b) => a.at - b.at);
-    return { clues, totals };
+    return { clues, open, totals };
   }
 
   // Ranks go on clean solves and on how few hints the recent ones took, never
@@ -5500,15 +5509,19 @@
   const oneDp = (x) => (Math.round(x * 10) / 10).toFixed(1);
 
   function solverStats(now) {
-    const { clues, totals } = clueLedger();
+    const { clues, open, totals } = clueLedger();
     const n = { clues: 0, clean: 0, puzzles: 0, cleanPuzzles: 0 };
-    const got = {}, dirty = {};
+    const got = {}, dirty = {}, finished = {};
     const milestones = MILESTONES.map(([label]) => ({ label, at: 0, id: null }));
     clues.forEach((c) => {
       n.clues++;
       if (c.clean) n.clean++; else dirty[c.id] = true;
       got[c.id] = (got[c.id] || 0) + 1;
-      if (got[c.id] === totals[c.id]) { n.puzzles++; if (!dirty[c.id]) n.cleanPuzzles++; }
+      if (got[c.id] === totals[c.id]) {
+        n.puzzles++;
+        if (!dirty[c.id]) n.cleanPuzzles++;
+        finished[c.id] = { at: c.at, clean: !dirty[c.id] };
+      }
       MILESTONES.forEach(([, test], i) => {
         if (!milestones[i].id && test(n)) Object.assign(milestones[i], { at: c.at, id: c.id });
       });
@@ -5528,7 +5541,7 @@
     }
     const last30 = clues.filter((c) => c.at > now - 30 * DAY_MS);
     const prev30 = clues.filter((c) => c.at > now - 60 * DAY_MS && c.at <= now - 30 * DAY_MS);
-    return { clues, n, hist, low, rank, milestones, weeks, streak: puzzleStreak(now),
+    return { clues, open, finished, now, n, hist, low, rank, milestones, weeks, streak: puzzleStreak(now),
              trend: last30.length >= 5 && prev30.length >= 5 ? [perClue(prev30), perClue(last30)] : null };
   }
 
@@ -5597,12 +5610,101 @@
       + reached.map((m) => `<li class="reached">${m.label}<span class="muted">${when(m.at)}</span></li>`).join("")
       + ahead.map((m) => `<li class="ahead">${m.label}</li>`).join("") + `</ul>`;
   }
-  const STATS_SECTIONS = [statsSummaryHTML, statsTrendHTML, statsRankHTML, statsStreakHTML, statsMilestonesHTML];
+  // Per clue type: the share of its solved clues that cost nothing, and hints
+  // per clue. A compound clue counts for each type it is. Only a type with
+  // TYPE_MIN solved clues is ranked, since three clues say nothing about a skill.
+  // The weakest ranked type, lowest clean share and then most hints, gets a
+  // link to an unsolved clue of it in a loaded puzzle, one already started if
+  // there is one: the ?c= deep link a shared clue uses.
+  const TYPE_MIN = 5;
+  function statsTypesHTML(st) {
+    const by = {};
+    st.clues.forEach((c) => c.types.forEach((t) => (by[t] = by[t] || []).push(c)));
+    const rows = Object.keys(by).map((t) => ({ t, list: by[t], share: by[t].filter((c) => c.clean).length / by[t].length }));
+    if (!rows.length) return "";
+    const ranked = rows.filter((r) => r.list.length >= TYPE_MIN)
+      .sort((a, b) => b.share - a.share || perClue(a.list) - perClue(b.list));
+    const few = rows.filter((r) => r.list.length < TYPE_MIN).sort((a, b) => b.list.length - a.list.length);
+    const weakest = ranked.length > 1 ? ranked[ranked.length - 1] : null;
+    const row = (r) => {
+      const pct = Math.round(100 * r.share), rankable = r.list.length >= TYPE_MIN;
+      return `<div class="type-row${rankable ? "" : " few"}${r === weakest ? " weakest" : ""}">`
+        + `<span class="type-label">${esc(TYPES[r.t].label)}</span>`
+        + `<span class="type-track"><span class="type-fill" style="width:${rankable ? pct : 0}%"></span></span>`
+        + `<span class="type-num">${rankable ? pct + "%" : "–"} · ${oneDp(perClue(r.list))}</span>`
+        + `<span class="type-n muted">${r.list.length}</span></div>`;
+    };
+    let practise = "";
+    if (weakest) {
+      const pool = st.open.filter((o) => o.types.includes(weakest.t));
+      const pick = pool.find((o) => o.started) || pool[0];
+      practise = pick
+        ? `<p class="stats-line"><a class="practise" href="${at(`?p=${encodeURIComponent(pick.id)}&c=${pick.ref}`)}">`
+          + `Practise your weakest: ${esc(TYPES[weakest.t].label.toLowerCase())}</a></p>` : "";
+    }
+    return `<h3 class="stats-h">By clue type</h3><div class="types">${ranked.concat(few).map(row).join("")}</div>`
+      + practise
+      + `<p class="muted small-note">Share solved with no hints, then hints per clue, then clues solved. `
+      + `A type is ranked from ${TYPE_MIN} clues.</p>`;
+  }
+
+  // Puzzles finished of those with answers, for each series with a save in it.
+  let seriesSizes = null;
+  function statsShelfHTML(st) {
+    if (!seriesSizes) {
+      seriesSizes = {};
+      INDEX.puzzles.forEach((p) => { if (p.hasSolutions) seriesSizes[p.series] = (seriesSizes[p.series] || 0) + 1; });
+    }
+    const done = {}, touched = {};
+    Object.keys(savedProgress()).forEach((id) => { if (BY_ID[id]) touched[BY_ID[id].series] = true; });
+    Object.keys(st.finished).forEach((id) => { if (BY_ID[id]) done[BY_ID[id].series] = (done[BY_ID[id].series] || 0) + 1; });
+    const list = Object.keys(touched).filter((s) => seriesSizes[s] && SERIES_BADGE[s])
+      .sort((a, b) => (done[b] || 0) / seriesSizes[b] - (done[a] || 0) / seriesSizes[a] || a.localeCompare(b));
+    if (!list.length) return "";
+    return `<h3 class="stats-h">Series</h3><div class="shelf">` + list.map((s) => {
+      const k = done[s] || 0, of = seriesSizes[s];
+      return `<div class="shelf-row">${seriesChip(s)}<span class="type-track"><span class="type-fill" `
+        + `style="width:${k ? `max(2px, ${(100 * k / of).toFixed(1)}%)` : 0}"></span></span>`
+        + `<span class="shelf-n">${k.toLocaleString()} / ${of.toLocaleString()}</span></div>`;
+    }).join("") + `</div>`;
+  }
+
+  // The last 52 weeks, a column a week from Sunday, today in the last column.
+  // A day's shade is the clues solved on it and a ring marks a puzzle finished
+  // with no hints. Local days, as the streak counts them.
+  function statsYearHTML(st) {
+    const count = {}, clean = {};
+    st.clues.forEach((c) => { const k = dayNum(new Date(c.at)); count[k] = (count[k] || 0) + 1; });
+    Object.keys(st.finished).forEach((id) => { if (st.finished[id].clean) clean[dayNum(new Date(st.finished[id].at))] = true; });
+    const today = new Date(st.now);
+    const start = new Date(today.getFullYear(), today.getMonth(), today.getDate() - today.getDay() - 51 * 7);
+    const level = (k) => (!k ? 0 : k < 5 ? 1 : k < 15 ? 2 : k < 30 ? 3 : 4);
+    const fmt = (d) => d.toLocaleDateString(undefined, { day: "numeric", month: "short", year: "numeric" });
+    let cells = "";
+    for (let i = 0; ; i++) {
+      const d = new Date(start.getFullYear(), start.getMonth(), start.getDate() + i);
+      if (d > today) break;
+      const k = dayNum(d), c = count[k] || 0;
+      cells += `<rect x="${Math.floor(i / 7) * 11}" y="${(i % 7) * 11}" width="9" height="9" rx="1.5" `
+        + `class="l${level(c)}${clean[k] ? " clean" : ""}"><title>${fmt(d)}: ${c} clue${c === 1 ? "" : "s"}`
+        + `${clean[k] ? ", a puzzle with no hints" : ""}</title></rect>`;
+    }
+    return `<h3 class="stats-h">Year</h3>`
+      + `<svg class="year" viewBox="0 0 571 76" role="img" aria-label="Clues solved each day for the last 52 weeks">${cells}</svg>`
+      + `<p class="muted small-note">Darker is more clues solved that day. A ring is a puzzle finished with no hints.</p>`;
+  }
+  const STATS_SECTIONS = [statsSummaryHTML, statsTrendHTML, statsRankHTML, statsStreakHTML, statsTypesHTML,
+                          statsYearHTML, statsShelfHTML, statsMilestonesHTML];
 
   // Every started puzzle's file, then `then` once: the ledger needs each
   // puzzle's answers, and a sync pull can bring saves for files never fetched.
-  function whenStartedLoaded(then) {
-    const ids = Object.keys(savedProgress()).filter((id) => BY_ID[id]);
+  // With `fresh`, the newest annotated puzzle not started too, so the practice
+  // link has unsolved clues to pick from when everything started is finished.
+  function whenStartedLoaded(then, fresh) {
+    const saves = savedProgress();
+    const ids = Object.keys(saves).filter((id) => BY_ID[id]);
+    const unstarted = fresh && INDEX.puzzles.find((p) => p.annotated && p.hasSolutions && !saves[p.id]);
+    if (unstarted) ids.push(unstarted.id);
     let left = ids.length + 1;
     const one = () => { if (--left === 0) then(); };
     ids.forEach((id) => loadPuzzle(id, one));
@@ -5615,7 +5717,7 @@
   function toggleStats(show) {
     if (!showPanel("stats-panel", show)) return;
     if (P) flushState();
-    whenStartedLoaded(() => { if (!$("stats-panel").classList.contains("hidden")) renderStats(); });
+    whenStartedLoaded(() => { if (!$("stats-panel").classList.contains("hidden")) renderStats(); }, true);
   }
 
   // A milestone reached by the letter just typed gets one line under the
