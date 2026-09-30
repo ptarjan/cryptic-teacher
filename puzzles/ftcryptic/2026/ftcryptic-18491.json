@@ -24,6 +24,9 @@
   "date": "2026-09-28",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,44 @@
     "text": "Strange individual",
     "enumeration": "8"
    },
-   "solution": "PECULIAR"
+   "solution": "PECULIAR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PECULIAR",
+    "definitions": [
+     {
+      "text": "Strange",
+      "at": 0
+     },
+     {
+      "text": "individual",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Strange",
+      "gives": "PECULIAR",
+      "note": "odd or weird, the everyday sense"
+     },
+     {
+      "clueFragment": "individual",
+      "gives": "PECULIAR",
+      "note": "belonging to one person alone, as in a habit special to someone"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Two words, two senses: the odd one, and the older sense of 'belonging only to', as in 'a custom peculiar to Cornwall'.",
+     "definitionFit": "The word means both odd and particular to one person, so each clue word is a synonym for one sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "individual"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +91,51 @@
     "text": "Suspect crept in on US university",
     "enumeration": "9"
    },
-   "solution": "PRINCETON"
+   "solution": "PRINCETON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PRINCETON",
+    "definitions": [
+     {
+      "text": "US university",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Suspect",
+      "for": "anagram",
+      "note": "as an adjective, suspect means dodgy or not to be trusted, so the letters are not in their proper order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crept in on",
+      "gives": "CREPTINON",
+      "note": "nine letters of fodder, all three words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CREPTINON",
+       "gives": "PRINCETON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A suspect has sneaked onto an American campus.",
+     "walkthrough": "'Suspect' reads as a noun, the intruder, but it is an adjective telling you to rearrange CREPT IN ON.",
+     "definitionFit": "It is the Ivy League institution in New Jersey, an example of an American seat of learning."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Suspect"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +149,50 @@
     "text": "Follow cheat with previous convictions",
     "enumeration": "7"
    },
-   "solution": "CONFORM"
+   "solution": "CONFORM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CONFORM",
+    "definitions": [
+     {
+      "text": "Follow",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cheat",
+      "gives": "CON",
+      "note": "to con someone is to cheat them"
+     },
+     {
+      "clueFragment": "previous convictions",
+      "gives": "FORM",
+      "note": "British slang: someone with form has a criminal record"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "FORM"
+     ]
+    },
+    "explanation": {
+     "surface": "A police warning to keep an eye on a swindler with a criminal record.",
+     "walkthrough": "'Follow' looks like tailing a suspect, but it means going along with rules. In British usage 'form' is a criminal record.",
+     "definitionFit": "To follow rules or custom is to comply with them, a close synonym in the sense of obeying."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Follow"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +206,68 @@
     "text": "A posh girl lying about extremely costly gift",
     "enumeration": "6"
    },
-   "solution": "LEGACY"
+   "solution": "LEGACY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LEGACY",
+    "definitions": [
+     {
+      "text": "gift",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lying about",
+      "for": "reversal",
+      "note": "lying down and turned about suggests something laid flat and facing the other way"
+     },
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two ends, so keep just the outside letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A posh girl",
+      "gives": "AGEL",
+      "note": "A plus GEL, the plummy upper-class pronunciation of girl"
+     },
+     {
+      "clueFragment": "costly",
+      "gives": "CY",
+      "select": "outer",
+      "note": "first and last letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEGA",
+      "CY"
+     ],
+     "reversals": [
+      {
+       "from": "AGEL",
+       "to": "LEGA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A well-bred young woman fibbing about how much an expensive present cost.",
+     "walkthrough": "'Lying' tempts you to think of fibbing, but together with 'about' it turns A GEL round to LEGA. 'Gel' is how a posh English speaker says girl.",
+     "definitionFit": "A bequest left in a will is money or property handed on freely, a kind of present."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lying"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +281,66 @@
     "text": "Bruised old pal’s ego? I express regret",
     "enumeration": "9"
    },
-   "solution": "APOLOGISE"
+   "solution": "APOLOGISE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "APOLOGISE",
+    "definitions": [
+     {
+      "text": "express regret",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Bruised",
+      "for": "anagram",
+      "note": "something bruised has been knocked about and damaged, so its letters are battered out of shape"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "pal’s",
+      "gives": "PALS",
+      "note": "keep the S of the possessive"
+     },
+     {
+      "clueFragment": "ego",
+      "gives": "EGO",
+      "note": "used as it stands"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "used as it stands"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OPALSEGOI",
+       "gives": "APOLOGISE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who has hurt an old friend's pride saying sorry.",
+     "walkthrough": "The 'I' does double work in the surface, as the speaker, but it is anagram fodder with O, PALS and EGO.",
+     "definitionFit": "To say sorry for a wrong is to voice remorse, a straight synonym for the verb phrase."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bruised"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +354,50 @@
     "text": "Cries when wife rings",
     "enumeration": "6"
    },
-   "solution": "WHOOPS"
+   "solution": "WHOOPS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WHOOPS",
+    "definitions": [
+     {
+      "text": "Cries",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "standard abbreviation, as in genealogies"
+     },
+     {
+      "clueFragment": "rings",
+      "gives": "HOOPS",
+      "note": "rings as circular bands"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "HOOPS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone weeps every time their wife phones.",
+     "walkthrough": "'Rings' reads as telephoning, but it is a noun: circles, i.e. hoops.",
+     "definitionFit": "Loud shouts of excitement or delight are plural nouns for shrieks, matching the plural noun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rings"
+    }
+   }
   },
   {
    "number": 5,
@@ -121,7 +411,40 @@
     "text": "Unfortunately his wife’s late",
     "enumeration": "7"
    },
-   "solution": "WIDOWER"
+   "solution": "WIDOWER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "WIDOWER",
+    "definitions": [
+     {
+      "text": "Unfortunately his wife’s late",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Unfortunately his wife’s late",
+      "note": "surface reading: a man grumbling that his wife is behind schedule again"
+     },
+     {
+      "clueFragment": "his wife’s late",
+      "note": "setter's reading: late as in deceased, so this man has lost his spouse"
+     }
+    ],
+    "explanation": {
+     "surface": "A husband irritated that his wife is running late.",
+     "walkthrough": "The whole clue is the definition. 'Late' means dead, as in 'the late Queen', and 'unfortunately' becomes sympathy rather than irritation.",
+     "definitionFit": "A man whose spouse has died is exactly what this noun names, so the sentence describes him."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "late"
+    }
+   }
   },
   {
    "number": 6,
@@ -135,7 +458,54 @@
     "text": "Errant peer loves to stay in bed too long",
     "enumeration": "9"
    },
-   "solution": "OVERSLEEP"
+   "solution": "OVERSLEEP",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OVERSLEEP",
+    "definitions": [
+     {
+      "text": "stay in bed too long",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Errant",
+      "for": "anagram",
+      "note": "errant means straying from the proper course, so the letters wander out of place"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "peer loves",
+      "gives": "PEERLOVES",
+      "note": "nine letters of fodder, both words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PEERLOVES",
+       "gives": "OVERSLEEP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wayward lord who likes a long lie-in.",
+     "walkthrough": "'Peer' looks like a person, a member of the House of Lords, but it is only letters to rearrange with LOVES.",
+     "definitionFit": "Failing to wake at the intended time means lying beyond when you meant to rise, a plain paraphrase."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "peer"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +519,47 @@
     "text": "Grazing land by river",
     "enumeration": "7"
    },
-   "solution": "PASTURE"
+   "solution": "PASTURE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PASTURE",
+    "definitions": [
+     {
+      "text": "Grazing land",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "by",
+      "gives": "PAST",
+      "note": "to go by something is to go past it"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "URE",
+      "note": "the Ure is a river in North Yorkshire, a crossword favourite"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAST",
+      "URE"
+     ]
+    },
+    "explanation": {
+     "surface": "A field for cattle next to a river.",
+     "walkthrough": "'By' reads as 'beside', but here it means 'past'. The Ure is a river in North Yorkshire.",
+     "definitionFit": "Fields where livestock feed on growing grass are what the noun names, a direct synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "by"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +573,50 @@
     "text": "Local providing current news",
     "enumeration": "3"
    },
-   "solution": "INN"
+   "solution": "INN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INN",
+    "definitions": [
+     {
+      "text": "Local",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "providing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "current",
+      "gives": "IN",
+      "note": "fashionable, up to date, as in 'the in thing'"
+     },
+     {
+      "clueFragment": "news",
+      "gives": "N",
+      "note": "read as new's, i.e. new is: N is the standard abbreviation for new, and the 's is dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "The neighbourhood pub is where you hear the latest gossip.",
+     "walkthrough": "A local is British slang for your regular neighbourhood pub. 'Current' suggests electricity (I), but here it means fashionable.",
+     "definitionFit": "The British call their nearest regular pub their local, and a pub or tavern is this kind of establishment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "current"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +630,54 @@
     "text": "Criminal resold guns? That’s unproven",
     "enumeration": "10"
    },
-   "solution": "GROUNDLESS"
+   "solution": "GROUNDLESS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GROUNDLESS",
+    "definitions": [
+     {
+      "text": "unproven",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Criminal",
+      "for": "anagram",
+      "note": "criminal means lawless and wrong, so the letters break the rules of their order"
+     }
+    ],
+    "linkWords": [
+     "That’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "resold guns",
+      "gives": "RESOLDGUNS",
+      "note": "ten letters of fodder, both words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RESOLDGUNS",
+       "gives": "GROUNDLESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lawyer doubts the charge that someone resold firearms.",
+     "walkthrough": "'Criminal' looks like a noun, the gun dealer, but it is an adjective saying the letters of RESOLD GUNS go astray.",
+     "definitionFit": "An accusation without any basis in evidence has not been established, so both mean lacking support."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Criminal"
+    }
+   }
   },
   {
    "number": 10,
@@ -197,7 +697,40 @@
      }
     ]
    },
-   "solution": "CHOOCHOO"
+   "solution": "CHOOCHOO",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CHOO-CHOO",
+    "definitions": [
+     {
+      "text": "Express perhaps in language of the young?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Express perhaps in language of the young",
+      "note": "surface reading: how teenagers might phrase something, their slang"
+     },
+     {
+      "clueFragment": "Express perhaps",
+      "note": "setter's reading: an express is a fast train, and small children have their own nursery word for a train"
+     }
+    ],
+    "explanation": {
+     "surface": "A question about how young people put things into words.",
+     "walkthrough": "'Express' looks like a verb, to put into words, but it is a noun: an express train, named in baby talk.",
+     "definitionFit": "Small children call a railway engine by this imitative nursery word, and an express is one kind of locomotive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Express"
+    }
+   }
   },
   {
    "number": 11,
@@ -217,7 +750,42 @@
      }
     ]
    },
-   "solution": "WISEUP"
+   "solution": "WISEUP",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "WISE UP",
+    "definitions": [
+     {
+      "text": "Get to know",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to an extent",
+      "for": "hidden_word",
+      "note": "only partly, so you want a part of the words that follow rather than the whole"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Kiwi’s euphemisms",
+      "gives": "WISEUP",
+      "note": "the letters run across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Learning to understand the polite phrases New Zealanders use.",
+     "walkthrough": "The run starts inside KIWI'S and ends inside EUPHEMISMS; the apostrophe is ignored.",
+     "definitionFit": "To become aware of the truth is to learn about it, an informal phrasal verb for finding out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -231,7 +799,52 @@
     "text": "Where you might end up, in doctor’s opinion",
     "enumeration": "4"
    },
-   "solution": "TOMB"
+   "solution": "TOMB",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TOMB",
+    "definitions": [
+     {
+      "text": "Where you might end up",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "TO",
+      "note": "with 'opinion' after it, 'in the opinion of' can be put as 'to', as in 'it seems fine to me'"
+     },
+     {
+      "clueFragment": "doctor’s",
+      "gives": "MB",
+      "note": "Bachelor of Medicine, a doctor's qualification"
+     },
+     {
+      "clueFragment": "opinion",
+      "note": "completes the phrase begun by 'in'; it adds no letters of its own"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "MB"
+     ]
+    },
+    "explanation": {
+     "surface": "A patient told by a doctor where they will finish up.",
+     "walkthrough": "MB is Bachelor of Medicine, a doctor's qualification. 'To' carries the sense of 'in the view of', as in 'it seems fine to me'.",
+     "definitionFit": "A burial vault is where a body finally rests, so it is where everyone eventually finishes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "opinion"
+    }
+   }
   },
   {
    "number": 13,
@@ -245,7 +858,50 @@
     "text": "Stop boss getting dope",
     "enumeration": "9"
    },
-   "solution": "BLOCKHEAD"
+   "solution": "BLOCKHEAD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BLOCKHEAD",
+    "definitions": [
+     {
+      "text": "dope",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stop",
+      "gives": "BLOCK",
+      "note": "to stop something is to block it"
+     },
+     {
+      "clueFragment": "boss",
+      "gives": "HEAD",
+      "note": "the head of an organisation is its boss"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BLOCK",
+      "HEAD"
+     ]
+    },
+    "explanation": {
+     "surface": "Preventing the manager from getting hold of drugs.",
+     "walkthrough": "'Dope' reads as drugs, but it is a person: a fool.",
+     "definitionFit": "Both are informal insults for a stupid person, making them synonyms for someone slow-witted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dope"
+    }
+   }
   },
   {
    "number": 14,
@@ -259,7 +915,53 @@
     "text": "Deranged daughter is charged",
     "enumeration": "10"
    },
-   "solution": "DISORDERED"
+   "solution": "DISORDERED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DISORDERED",
+    "definitions": [
+     {
+      "text": "Deranged",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "used as it stands"
+     },
+     {
+      "clueFragment": "charged",
+      "gives": "ORDERED",
+      "note": "to charge someone to do something is to order it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "IS",
+      "ORDERED"
+     ]
+    },
+    "explanation": {
+     "surface": "A disturbed young woman is formally accused of a crime.",
+     "walkthrough": "'Charged' suggests an arrest, but it means 'commanded', as in 'charged with a duty'.",
+     "definitionFit": "Both describe a mind thrown into confusion or disturbance, a synonym for being mentally unbalanced."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "charged"
+    }
+   }
   },
   {
    "number": 15,
@@ -273,7 +975,50 @@
     "text": "Dutiful former pupil given retainer",
     "enumeration": "9"
    },
-   "solution": "OBSERVANT"
+   "solution": "OBSERVANT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OBSERVANT",
+    "definitions": [
+     {
+      "text": "Dutiful",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "given"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "former pupil",
+      "gives": "OB",
+      "note": "old boy, a former pupil of a school"
+     },
+     {
+      "clueFragment": "retainer",
+      "gives": "SERVANT",
+      "note": "a retainer is a long-serving household servant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OB",
+      "SERVANT"
+     ]
+    },
+    "explanation": {
+     "surface": "A loyal old boy has been given a butler.",
+     "walkthrough": "'Retainer' could be a fee or a dental brace; here it is the old word for a domestic servant.",
+     "definitionFit": "Someone who keeps religious rules or customs carefully is conscientious in following them, the sense shared here."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "retainer"
+    }
+   }
   },
   {
    "number": 16,
@@ -287,7 +1032,47 @@
     "text": "Curses mother country",
     "enumeration": "9"
    },
-   "solution": "DAMNATION"
+   "solution": "DAMNATION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DAMNATION",
+    "definitions": [
+     {
+      "text": "Curses",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mother",
+      "gives": "DAM",
+      "note": "a dam is an animal's mother"
+     },
+     {
+      "clueFragment": "country",
+      "gives": "NATION",
+      "note": "a direct synonym"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DAM",
+      "NATION"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone swears at their motherland.",
+     "walkthrough": "'Curses' looks like a verb, but it is the exclamation 'Curses!', which the answer can also be.",
+     "definitionFit": "Both are old-fashioned exclamations of annoyance, interchangeable oaths uttered when something goes wrong."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Curses"
+    }
+   }
   },
   {
    "number": 17,
@@ -307,7 +1092,47 @@
      }
     ]
    },
-   "solution": "NONONSENSE"
+   "solution": "NONONSENSE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NO-NONSENSE",
+    "definitions": [
+     {
+      "text": "Straightforward",
+      "at": 0
+     },
+     {
+      "text": "instruction limerick writer ignored?",
+      "at": 16,
+      "note": "a phrase, an imperative the writer disregarded"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Straightforward",
+      "gives": "NONONSENSE",
+      "note": "plain, businesslike, without frills"
+     },
+     {
+      "clueFragment": "instruction limerick writer ignored",
+      "gives": "NONONSENSE",
+      "note": "Edward Lear popularised the limerick and is famous for his nonsense verse, so he never obeyed a ban on it"
+     }
+    ],
+    "explanation": {
+     "surface": "A plain-speaking rule that a comic poet chose to disregard.",
+     "walkthrough": "Read the answer as two words, an order banning silliness; Edward Lear, the great limerick writer, published 'A Book of Nonsense'.",
+     "definitionFit": "Someone direct and practical, without fuss or frivolity, is described by this compound adjective."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "instruction"
+    }
+   }
   },
   {
    "number": 18,
@@ -321,7 +1146,67 @@
     "text": "Look after Ohio cleric going around diocese",
     "enumeration": "7"
    },
-   "solution": "OVERSEE"
+   "solution": "OVERSEE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "OVERSEE",
+    "definitions": [
+     {
+      "text": "Look after",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going around",
+      "for": "reversal",
+      "note": "to go around is to turn back on yourself, so the word faces the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ohio",
+      "gives": "O",
+      "note": "the postal abbreviation for Ohio is OH; the first letter serves here as a standard short form"
+     },
+     {
+      "clueFragment": "cleric",
+      "gives": "REV",
+      "note": "short for Reverend, a clergyman's title"
+     },
+     {
+      "clueFragment": "diocese",
+      "gives": "SEE",
+      "note": "a bishop's see is his diocese"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "VER",
+      "SEE"
+     ],
+     "reversals": [
+      {
+       "from": "REV",
+       "to": "VER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A priest in Ohio tours his diocese to look after it.",
+     "walkthrough": "A see is the area a bishop governs; the Holy See is the Pope's.",
+     "definitionFit": "To supervise work is to take charge of it and watch over it, a synonym for managing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "going"
+    }
+   }
   },
   {
    "number": 19,
@@ -335,7 +1220,61 @@
     "text": "Nurse American politician briefly, one in upper house",
     "enumeration": "7"
    },
-   "solution": "SENATOR"
+   "solution": "SENATOR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "SENATOR",
+    "definitions": [
+     {
+      "text": "one in upper house",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "briefly means cut short, so the word loses its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nurse",
+      "gives": "SEN",
+      "note": "State Enrolled Nurse, a former British nursing grade"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "TOR",
+      "note": "Tory, a British Conservative, cut to three letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEN",
+      "A",
+      "TOR"
+     ]
+    },
+    "explanation": {
+     "surface": "A nurse and an American politician, one of whom sits in a senate.",
+     "walkthrough": "SEN is the old British grade State Enrolled Nurse; a Tory is a member of the UK Conservative Party.",
+     "definitionFit": "A member of a senate sits in the upper chamber of a legislature, such as the US Congress."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Nurse"
+    }
+   }
   },
   {
    "number": 20,
@@ -349,7 +1288,40 @@
     "text": "Small people carrier",
     "enumeration": "4"
    },
-   "solution": "PRAM"
+   "solution": "PRAM",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "PRAM",
+    "definitions": [
+     {
+      "text": "Small people carrier",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small people carrier",
+      "note": "surface reading: a compact people carrier, the British name for a minivan"
+     },
+     {
+      "clueFragment": "Small people",
+      "note": "setter's reading: small people are babies, and this carries them about"
+     }
+    ],
+    "explanation": {
+     "surface": "A compact family car.",
+     "walkthrough": "A people carrier is British for a minivan. Regroup as 'small-people carrier' and it is a baby's pushchair.",
+     "definitionFit": "A British baby carriage is pushed along carrying infants, who are literally small people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "carrier"
+    }
+   }
   },
   {
    "number": 21,
@@ -369,7 +1341,47 @@
      }
     ]
    },
-   "solution": "RATRACE"
+   "solution": "RATRACE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RAT RACE",
+    "definitions": [
+     {
+      "text": "daily struggle to survive",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Desert",
+      "gives": "RAT",
+      "note": "to rat on someone is to desert or betray them"
+     },
+     {
+      "clueFragment": "people’s",
+      "gives": "RACE",
+      "note": "a race is a people, and the ’s stands for 'is', joining to the definition"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAT",
+      "RACE"
+     ]
+    },
+    "explanation": {
+     "surface": "Nomads of the desert struggle each day just to stay alive.",
+     "walkthrough": "'Desert' reads as sand dunes, but it is a verb: to abandon, which is to rat.",
+     "definitionFit": "The exhausting competitive grind of modern working life is an idiom for relentless, pointless striving."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Desert"
+    }
+   }
   },
   {
    "number": 22,
@@ -383,7 +1395,45 @@
     "text": "Me and my dog?",
     "enumeration": "6"
    },
-   "solution": "SETTER"
+   "solution": "SETTER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SETTER",
+    "definitions": [
+     {
+      "text": "Me",
+      "at": 0
+     },
+     {
+      "text": "my dog",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Me",
+      "gives": "SETTER",
+      "note": "the person who wrote this crossword, speaking of themself"
+     },
+     {
+      "clueFragment": "my dog",
+      "gives": "SETTER",
+      "note": "a breed of gun dog, such as the Irish or English one"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Crossword compilers often refer to themselves in clues as 'me' or 'this setter'; the question mark flags the pun.",
+     "definitionFit": "A crossword compiler and a breed of gun dog share one name, so each half points there."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dog"
+    }
+   }
   },
   {
    "number": 23,
@@ -397,7 +1447,67 @@
     "text": "Judge embarrassed for the most part, no barrister returning",
     "enumeration": "6"
    },
-   "solution": "RECKON"
+   "solution": "RECKON",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "charade"
+    ],
+    "answer": "RECKON",
+    "definitions": [
+     {
+      "text": "Judge",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for the most part",
+      "for": "deletion",
+      "note": "most but not all of a word is kept, so the final letter drops off"
+     },
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "coming back the way it went, so the letters run from the other end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "embarrassed",
+      "gives": "RE",
+      "note": "RED, as a blushing face, minus its last letter"
+     },
+     {
+      "clueFragment": "no barrister",
+      "gives": "NOKC",
+      "note": "NO plus KC, King's Counsel, a senior barrister"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "CKON"
+     ],
+     "reversals": [
+      {
+       "from": "NOKC",
+       "to": "CKON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A judge is red-faced that no barrister has come back to court.",
+     "walkthrough": "'Judge' looks like the person on the bench, but it is a verb: to estimate. KC is King's Counsel, a senior British barrister.",
+     "definitionFit": "To estimate or form an opinion is to consider or calculate, a synonym for the verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Judge"
+    }
+   }
   },
   {
    "number": 24,
@@ -417,7 +1527,54 @@
      }
     ]
    },
-   "solution": "GREENTEA"
+   "solution": "GREENTEA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GREEN TEA",
+    "definitions": [
+     {
+      "text": "healthy drink",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surprisingly",
+      "for": "anagram",
+      "note": "something surprising comes out in an unexpected way, so the letters are unpredictably arranged"
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Teenager",
+      "gives": "TEENAGER",
+      "note": "eight letters of fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TEENAGER",
+       "gives": "GREENTEA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A teenager unexpectedly whips up a wholesome beverage.",
+     "walkthrough": "One word gives all eight letters, which is easy to miss when it looks like the subject of the sentence.",
+     "definitionFit": "Unfermented Chinese brew is widely promoted for antioxidants and wellness benefits, an example of a nourishing beverage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Teenager"
+    }
+   }
   },
   {
    "number": 25,
@@ -431,7 +1588,46 @@
     "text": "Girlfriend giving you an E?",
     "enumeration": "10"
    },
-   "solution": "SWEETHEART"
+   "solution": "SWEETHEART",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SWEETHEART",
+    "definitions": [
+     {
+      "text": "Girlfriend",
+      "at": 0
+     },
+     {
+      "text": "giving you an E?",
+      "at": 11,
+      "note": "a phrase describing what the answer does"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Girlfriend",
+      "gives": "SWEETHEART",
+      "note": "a beloved partner"
+     },
+     {
+      "clueFragment": "giving you an E",
+      "gives": "SWEETHEART",
+      "note": "read as two words: the heart, or middle letter, of the five-letter word SWEET"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "An E could be ecstasy, the drug, which a girlfriend might slip you; really it is the central letter of 'sweet', its heart.",
+     "definitionFit": "A term of affection for a romantic partner, used for the woman someone is courting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "E"
+    }
+   }
   },
   {
    "number": 26,
@@ -445,7 +1641,58 @@
     "text": "Boxer having trouble shifting pounds",
     "enumeration": "3"
    },
-   "solution": "ALI"
+   "solution": "ALI",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ALI",
+    "definitions": [
+     {
+      "text": "Boxer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shifting",
+      "for": "anagram",
+      "note": "to shift is to move to a new place, so one letter changes position in the word"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trouble",
+      "gives": "AIL",
+      "note": "to ail is to trouble, as in 'what ails you'"
+     },
+     {
+      "clueFragment": "pounds",
+      "note": "L, from Latin libra, is the pound; it names the letter that moves, adding nothing new"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AIL",
+       "gives": "ALI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fighter struggling to lose weight before the weigh-in.",
+     "walkthrough": "Muhammad Ali was the heavyweight champion. Move the L (pounds) in AIL one place along.",
+     "definitionFit": "Muhammad Ali, the famous American heavyweight champion, is an example of a prizefighter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pounds"
+    }
+   }
   },
   {
    "number": 27,
@@ -459,7 +1706,47 @@
     "text": "Cambridge college servant seducing one?",
     "enumeration": "6"
    },
-   "solution": "BEDDER"
+   "solution": "BEDDER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BEDDER",
+    "definitions": [
+     {
+      "text": "Cambridge college servant",
+      "at": 0
+     },
+     {
+      "text": "seducing one?",
+      "at": 26,
+      "note": "a phrase for the person doing the seducing"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cambridge college servant",
+      "gives": "BEDDER",
+      "note": "a bedmaker, who cleans students' rooms at Cambridge colleges"
+     },
+     {
+      "clueFragment": "seducing one",
+      "gives": "BEDDER",
+      "note": "whimsically, one who beds someone"
+     }
+    ],
+    "explanation": {
+     "surface": "A college cleaner caught up in a seduction scandal.",
+     "walkthrough": "At Cambridge a bedder is the cleaner who tidies students' rooms; the question mark flags the invented second sense of someone who takes people to bed.",
+     "definitionFit": "The university's domestic staff who make beds are called by this name; to bed someone is to seduce them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "seducing"
+    }
+   }
   },
   {
    "number": 28,
@@ -473,7 +1760,65 @@
     "text": "Medic eating bit of trout and other fish",
     "enumeration": "8"
    },
-   "solution": "STURGEON"
+   "solution": "STURGEON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "STURGEON",
+    "definitions": [
+     {
+      "text": "other fish",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "whatever eats something takes it inside, so one piece swallows another"
+     },
+     {
+      "text": "bit of",
+      "for": "letter_selection",
+      "note": "just a small bit is kept, the opening letter"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Medic",
+      "gives": "SURGEON",
+      "note": "a doctor who operates"
+     },
+     {
+      "clueFragment": "trout",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter only"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "T",
+      "URGEON"
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor dining on some trout and another fish.",
+     "walkthrough": "'Other fish' is the definition: trout is one fish, the answer another. The surface makes 'fish' sound like part of the meal.",
+     "definitionFit": "A large bony fish prized as the source of caviar is a different species from trout."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Medic"
+    }
+   }
   }
  ]
 }
