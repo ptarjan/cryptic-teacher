@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,56 @@
     "text": "Note doctor near the back of vessel getting updated text?",
     "enumeration": "7"
    },
-   "solution": "REDRAFT"
+   "solution": "REDRAFT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REDRAFT",
+    "definitions": [
+     {
+      "text": "updated text?",
+      "at": 44
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Note",
+      "gives": "RE",
+      "note": "re is the second note of the sol-fa scale"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "DR",
+      "note": "Dr is the abbreviation for doctor"
+     },
+     {
+      "clueFragment": "near the back of vessel",
+      "gives": "AFT",
+      "note": "aft is the nautical word for towards the stern of a ship"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "DR",
+      "AFT"
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor jots a note at the stern of a ship while a revised document arrives.",
+     "walkthrough": "RE + DR + AFT gives REDRAFT; 'near the back of vessel' is a whole phrase for one short sailing word, not an instruction to take letters.",
+     "definitionFit": "A redraft is a second, revised version of a piece of writing, hence a text that has been updated; the question mark admits the loose phrasing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Note"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +99,70 @@
     "text": "A poet’s excited to skirt river in coarse grass",
     "enumeration": "7"
    },
-   "solution": "ESPARTO"
+   "solution": "ESPARTO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ESPARTO",
+    "definitions": [
+     {
+      "text": "coarse grass",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "excited",
+      "for": "anagram",
+      "note": "excited things are stirred up and agitated, so the letters are thrown into a new order"
+     },
+     {
+      "text": "to skirt",
+      "for": "container",
+      "note": "to skirt something is to go round its edges, so one piece wraps around another"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A poet’s",
+      "gives": "APOETS",
+      "note": "the letters of these words, ignoring the apostrophe, are the anagram fodder"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the standard abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ESPA",
+      "R",
+      "TO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "APOETS",
+       "gives": "ESPATO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A poet gets worked up enough to walk round a river while standing in rough grass.",
+     "walkthrough": "Rearrange A POETS as ESPATO and slip R inside to make ESPARTO.",
+     "definitionFit": "Esparto is a tough Spanish and North African grass used for making rope, paper and baskets."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "excited"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +176,46 @@
     "text": "Some adore capitalism in summary",
     "enumeration": "5"
    },
-   "solution": "RECAP"
+   "solution": "RECAP",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "RECAP",
+    "definitions": [
+     {
+      "text": "summary",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some of a phrase is only a portion of its letters, so the answer is a run inside the words"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "adore capitalism",
+      "gives": "RECAP",
+      "note": "the letters run across the join of these two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A short account of some people who love the free market.",
+     "walkthrough": "The answer sits across 'adoRE CAPitalism'; 'in' links it to the definition.",
+     "definitionFit": "Recap is a short informal form of recapitulation, a brief restatement of the main points."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Some"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +229,70 @@
     "text": "Trip over a year interrupted by cold? That’s mistaken belief",
     "enumeration": "7"
    },
-   "solution": "FALLACY"
+   "solution": "FALLACY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "FALLACY",
+    "definitions": [
+     {
+      "text": "mistaken belief",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "interrupted by",
+      "for": "container",
+      "note": "something interrupted has another thing break into its middle, so one piece goes inside another"
+     }
+    ],
+    "linkWords": [
+     "That’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trip over",
+      "gives": "FALL",
+      "note": "to trip over is to take a tumble"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "year",
+      "gives": "Y",
+      "note": "Y is the abbreviation for year"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C for cold, as on a tap"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FALL",
+      "A",
+      "C",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone trips, then a year is disrupted by a cold, and it all turns out to be a misunderstanding.",
+     "walkthrough": "FALL, then A and Y with C pushed between them: FALL + A(C)Y = FALLACY.",
+     "definitionFit": "A fallacy is a false idea that many people hold, or an error in reasoning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Trip"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +306,65 @@
     "text": "Scope in confines of grounds for opening moves",
     "enumeration": "7"
    },
-   "solution": "GAMBITS"
+   "solution": "GAMBITS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "GAMBITS",
+    "definitions": [
+     {
+      "text": "opening moves",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "confines of",
+      "for": "letter_selection",
+      "note": "the confines of something are its boundaries, so only its outermost letters are kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "to be in something is to sit within it, so one piece goes inside another"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "grounds",
+      "gives": "GS",
+      "select": "outer",
+      "note": "the first and last letters of the word"
+     },
+     {
+      "clueFragment": "Scope",
+      "gives": "AMBIT",
+      "note": "ambit means scope or extent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "AMBIT",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Looking for room to manoeuvre within the limits of an estate, as a reason for opening up.",
+     "walkthrough": "AMBIT goes between G and S, the edges of 'grounds'.",
+     "definitionFit": "Gambits are the opening sequences in chess where a piece is offered up, and more widely any calculated first move."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "grounds"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +378,68 @@
     "text": "A liberal society overwhelmed by annual test more or less",
     "enumeration": "6"
    },
-   "solution": "ALMOST"
+   "solution": "ALMOST",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ALMOST",
+    "definitions": [
+     {
+      "text": "more or less",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overwhelmed by",
+      "for": "container",
+      "note": "something overwhelmed is engulfed and swallowed up, so one piece is held inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "liberal",
+      "gives": "L",
+      "note": "L is the abbreviation for Liberal"
+     },
+     {
+      "clueFragment": "annual test",
+      "gives": "MOT",
+      "note": "the MOT is the yearly roadworthiness test for British cars over three years old"
+     },
+     {
+      "clueFragment": "society",
+      "gives": "S",
+      "note": "S is the abbreviation for society"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "L",
+      "MO",
+      "S",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A tolerant community swamped by a yearly exam, give or take.",
+     "walkthrough": "The British MOT is a yearly car roadworthiness check, named after the old Ministry of Transport; 'overwhelmed by' puts society inside it.",
+     "definitionFit": "Almost and more or less are both adverbs meaning nearly, approximately, not quite entirely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "test"
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +453,50 @@
     "text": "Extensive group of players making fierce criticism",
     "enumeration": "9"
    },
-   "solution": "BROADSIDE"
+   "solution": "BROADSIDE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BROADSIDE",
+    "definitions": [
+     {
+      "text": "fierce criticism",
+      "at": 34
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Extensive",
+      "gives": "BROAD",
+      "note": "broad means wide or extensive"
+     },
+     {
+      "clueFragment": "group of players",
+      "gives": "SIDE",
+      "note": "a side is a team"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BROAD",
+      "SIDE"
+     ]
+    },
+    "explanation": {
+     "surface": "A large team of performers is producing a harsh attack.",
+     "walkthrough": "'Group of players' suggests actors or musicians, but it is a sporting team.",
+     "definitionFit": "A broadside was a warship firing all guns on one side at once, so figuratively a strong verbal attack."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "players"
+    }
+   }
   },
   {
    "number": 8,
@@ -131,7 +510,63 @@
     "text": "Duties provided by fellow among sailors",
     "enumeration": "7"
    },
-   "solution": "TARIFFS"
+   "solution": "TARIFFS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "TARIFFS",
+    "definitions": [
+     {
+      "text": "Duties",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "among",
+      "for": "container",
+      "note": "to be among a group is to be surrounded by it, so one piece sits inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "provided",
+      "gives": "IF",
+      "note": "if means provided that"
+     },
+     {
+      "clueFragment": "fellow",
+      "gives": "F",
+      "note": "F is the abbreviation for fellow"
+     },
+     {
+      "clueFragment": "sailors",
+      "gives": "TARS",
+      "note": "tar is an old word for a sailor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAR",
+      "IF",
+      "F",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Tasks handed out by a comrade serving in a ship's crew.",
+     "walkthrough": "'Duties' looks like obligations or chores; here it is taxes on goods. 'Provided' is the conjunction meaning on condition that.",
+     "definitionFit": "Tariffs are taxes charged on imports or exports, which are also called customs duties."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Duties"
+    }
+   }
   },
   {
    "number": 9,
@@ -151,7 +586,54 @@
      }
     ]
    },
-   "solution": "EXTENSIONLEAD"
+   "solution": "EXTENSIONLEAD",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EXTENSION LEAD",
+    "definitions": [
+     {
+      "text": "additional cable",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "possibly",
+      "for": "anagram",
+      "note": "possibly signals one arrangement among many that could be made, so the letters may be reordered"
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Anne’s ex toiled",
+      "gives": "ANNESEXTOILED",
+      "note": "the thirteen letters of these words, ignoring the apostrophe"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ANNESEXTOILED",
+       "gives": "EXTENSIONLEAD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Anne's former partner may have laboured hard to acquire some extra wiring.",
+     "walkthrough": "'Anne's ex' reads like a person in a story; it is simply letters to rearrange.",
+     "definitionFit": "An extension lead is a length of flex with a socket that lets an appliance reach further from the wall."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ex"
+    }
+   }
   },
   {
    "number": 10,
@@ -165,7 +647,61 @@
     "text": "Large-scale film following end of empire",
     "enumeration": "4"
    },
-   "solution": "EPIC"
+   "solution": "EPIC",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "EPIC",
+    "definitions": [
+     {
+      "text": "Large-scale",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, so only that one is kept"
+     },
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following means coming after, so one piece is placed behind another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "empire",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of the word"
+     },
+     {
+      "clueFragment": "film",
+      "gives": "PIC",
+      "note": "pic is informal for a picture, a film"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "PIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A sweeping movie made after the fall of an empire.",
+     "walkthrough": "'Large-scale film' looks like the whole definition, since an epic is a film; the definition is just 'Large-scale' and 'film' is PIC.",
+     "definitionFit": "Epic as an adjective means grand, heroic and vast in scope, like the long poems and films it describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "film"
+    }
+   }
   },
   {
    "number": 11,
@@ -179,7 +715,80 @@
     "text": "Glum Rex upset about stench beginning to unsettle landlocked country",
     "enumeration": "10"
    },
-   "solution": "LUXEMBOURG"
+   "solution": "LUXEMBOURG",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "LUXEMBOURG",
+    "definitions": [
+     {
+      "text": "landlocked country",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "something upset is knocked over and disordered, so the letters are jumbled"
+     },
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its first letter, so just that one is kept"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece surrounds another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Glum Rex",
+      "gives": "GLUMREX",
+      "note": "the anagram fodder"
+     },
+     {
+      "clueFragment": "stench",
+      "gives": "BO",
+      "note": "BO is body odour"
+     },
+     {
+      "clueFragment": "unsettle",
+      "gives": "U",
+      "select": "first",
+      "note": "the first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LUXEM",
+      "BO",
+      "U",
+      "RG"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GLUMREX",
+       "gives": "LUXEMRG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gloomy king is annoyed that a bad smell is starting to disturb his little country with no coast.",
+     "walkthrough": "The rearranged letters split into two parts that wrap round the smell and the first letter. Rex is Latin for king, which makes the surface feel royal.",
+     "definitionFit": "Luxembourg is a small European grand duchy bordered by Belgium, France and Germany, with no coastline."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Rex"
+    }
+   }
   },
   {
    "number": 12,
@@ -193,7 +802,67 @@
     "text": "Greek father consuming a soft sort of brandy",
     "enumeration": "6"
    },
-   "solution": "GRAPPA"
+   "solution": "GRAPPA",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "GRAPPA",
+    "definitions": [
+     {
+      "text": "sort of brandy",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "consuming",
+      "for": "container",
+      "note": "consuming means eating up, so one piece is taken inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Greek",
+      "gives": "GR",
+      "note": "Gr is the abbreviation for Greek"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "soft",
+      "gives": "P",
+      "note": "p is piano, soft in music"
+     },
+     {
+      "clueFragment": "father",
+      "gives": "PA",
+      "note": "pa is informal for father"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GR",
+      "A",
+      "P",
+      "PA"
+     ]
+    },
+    "explanation": {
+     "surface": "A Greek dad knocking back a mellow kind of brandy.",
+     "walkthrough": "'Greek father' is read as one unit, and it is that pair of abbreviations together that swallows the other two letters.",
+     "definitionFit": "Grappa is an Italian spirit distilled from the grape skins and pips left after winemaking, a type of brandy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "soft"
+    }
+   }
   },
   {
    "number": 13,
@@ -213,7 +882,61 @@
      }
     ]
    },
-   "solution": "EASEDOFF"
+   "solution": "EASEDOFF",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EASED OFF",
+    "definitions": [
+     {
+      "text": "became less serious",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "behind",
+      "for": "charade",
+      "note": "behind means coming after, so these pieces are placed later in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "facility",
+      "gives": "EASE",
+      "note": "ease and facility both mean effortlessness"
+     },
+     {
+      "clueFragment": "Director",
+      "gives": "D",
+      "note": "D is the abbreviation for director"
+     },
+     {
+      "clueFragment": "on holiday",
+      "gives": "OFF",
+      "note": "someone off is away from work"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EASE",
+      "D",
+      "OFF"
+     ]
+    },
+    "explanation": {
+     "surface": "A company director takes a break away from the plant and lightens up.",
+     "walkthrough": "'Facility' suggests a building; here it means ease, as in 'with great facility'.",
+     "definitionFit": "To ease off is to lessen in intensity or relax, so something that eased off grew milder and less severe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "facility"
+    }
+   }
   },
   {
    "number": 14,
@@ -227,7 +950,55 @@
     "text": "Feeling disinclined to work, I’m so handy when revitalised",
     "enumeration": "9"
    },
-   "solution": "MONDAYISH"
+   "solution": "MONDAYISH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MONDAYISH",
+    "definitions": [
+     {
+      "text": "Feeling disinclined to work",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "revitalised",
+      "for": "anagram",
+      "note": "revitalised means given new life and made over, so the letters are put in a fresh order"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I’m so handy",
+      "gives": "IMSOHANDY",
+      "note": "the letters of these words, ignoring the apostrophe"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IMSOHANDY",
+       "gives": "MONDAYISH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sluggish insists they will be really useful once they have had a boost.",
+     "walkthrough": "The rearranged letters of I'M SO HANDY give the answer, a nicely ironic contrast with the sluggish definition.",
+     "definitionFit": "Mondayish describes the listless reluctance people feel at the start of the working week."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "handy"
+    }
+   }
   },
   {
    "number": 15,
@@ -241,7 +1012,51 @@
     "text": "One building properties loved peer in a corrupt state",
     "enumeration": "9"
    },
-   "solution": "DEVELOPER"
+   "solution": "DEVELOPER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DEVELOPER",
+    "definitions": [
+     {
+      "text": "One building properties",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in a corrupt state",
+      "for": "anagram",
+      "note": "something corrupt is spoiled and garbled, so the letters come out in a broken order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "loved peer",
+      "gives": "LOVEDPEER",
+      "note": "the anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LOVEDPEER",
+       "gives": "DEVELOPER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A builder of houses who was fond of a lord in a crooked country.",
+     "walkthrough": "'A corrupt state' reads as a bent country; it means the letters are corrupted.",
+     "definitionFit": "A property developer buys land and constructs homes or offices on it for sale or rent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "state"
+    }
+   }
   },
   {
    "number": 16,
@@ -255,7 +1070,59 @@
     "text": "Extreme case of stupidity getting mildly drunk",
     "enumeration": "5"
    },
-   "solution": "TIPSY"
+   "solution": "TIPSY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "TIPSY",
+    "definitions": [
+     {
+      "text": "mildly drunk",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "case of",
+      "for": "letter_selection",
+      "note": "a case is an outer casing, so only a word's outside letters are kept"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Extreme",
+      "gives": "TIP",
+      "note": "the tip is the extreme end of something"
+     },
+     {
+      "clueFragment": "stupidity",
+      "gives": "SY",
+      "select": "outer",
+      "note": "the first and last letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIP",
+      "SY"
+     ]
+    },
+    "explanation": {
+     "surface": "A really daft episode of someone becoming slightly merry.",
+     "walkthrough": "'Extreme case' reads as a single phrase; it splits into TIP and the casing of 'stupidity'.",
+     "definitionFit": "Tipsy means slightly intoxicated, a bit unsteady after a few drinks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 17,
@@ -269,7 +1136,43 @@
     "text": "Cooker installed in outpost overnight",
     "enumeration": "5"
    },
-   "solution": "STOVE"
+   "solution": "STOVE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "STOVE",
+    "definitions": [
+     {
+      "text": "Cooker",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "installed in",
+      "for": "hidden_word",
+      "note": "something installed in a place is fitted inside it, so the answer lies within the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "outpost overnight",
+      "gives": "STOVE",
+      "note": "the letters straddle the join of these two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A cooking range gets fitted at a remote station in one night.",
+     "walkthrough": "The answer spans 'outpoST OVErnight'.",
+     "definitionFit": "A stove is an appliance for cooking or heating, the same thing as a cooker."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "installed"
+    }
+   }
   },
   {
    "number": 18,
@@ -289,7 +1192,55 @@
      }
     ]
    },
-   "solution": "TROTOUT"
+   "solution": "TROTOUT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TROT OUT",
+    "definitions": [
+     {
+      "text": "Regurgitate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "espoused by",
+      "for": "container",
+      "note": "to be espoused is to be embraced, so one piece is held within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seller of tickets?",
+      "gives": "TOUT",
+      "note": "a tout resells tickets for events at inflated prices"
+     },
+     {
+      "clueFragment": "rubbish",
+      "gives": "ROT",
+      "note": "rot means nonsense"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ROT",
+      "OUT"
+     ]
+    },
+    "explanation": {
+     "surface": "Repeating nonsense that a ticket seller has adopted as a cause.",
+     "walkthrough": "A tout is someone reselling tickets outside a venue, a scalper; the question mark flags this as a definition by example.",
+     "definitionFit": "To trot out is to repeat stale remarks or excuses mechanically, a figurative sense of regurgitating."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "espoused"
+    }
+   }
   },
   {
    "number": 19,
@@ -309,7 +1260,74 @@
      }
     ]
    },
-   "solution": "SOFTPEDAL"
+   "solution": "SOFTPEDAL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SOFT-PEDAL",
+    "definitions": [
+     {
+      "text": "Avoid emphasising",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "varied",
+      "for": "anagram",
+      "note": "varied means altered, so the letters are changed into another order"
+     },
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "a leader goes at the front, so the first letter is the one kept"
+     },
+     {
+      "text": "encapsulating",
+      "for": "container",
+      "note": "encapsulating means enclosing as if in a capsule, so one piece is wrapped round another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old feats",
+      "gives": "OLDFEATS",
+      "note": "the anagram fodder"
+     },
+     {
+      "clueFragment": "party’s",
+      "gives": "P",
+      "select": "first",
+      "note": "the first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOFT",
+      "P",
+      "EDAL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OLDFEATS",
+       "gives": "SOFTEDAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Playing down the various past achievements of the head of a political party.",
+     "walkthrough": "OLD FEATS rearranged to SOFT...EDAL surrounds P.",
+     "definitionFit": "To soft-pedal, from the piano pedal that quietens the sound, is to play something down or downplay it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "party’s"
+    }
+   }
   },
   {
    "number": 20,
@@ -323,7 +1341,65 @@
     "text": "Tense actor’s representative acquiring new or different line of thought",
     "enumeration": "7"
    },
-   "solution": "TANGENT"
+   "solution": "TANGENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "TANGENT",
+    "definitions": [
+     {
+      "text": "different line of thought",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "acquiring",
+      "for": "container",
+      "note": "acquiring means taking in, so one piece is put inside another"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tense",
+      "gives": "T",
+      "note": "T is the grammatical abbreviation for tense"
+     },
+     {
+      "clueFragment": "actor’s representative",
+      "gives": "AGENT",
+      "note": "an agent handles an actor's bookings"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "A",
+      "N",
+      "GENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A nervous actor's agent picks up a fresh idea, or perhaps a new approach.",
+     "walkthrough": "'Tense' reads as nervous, describing the actor; it is T. Then AGENT takes in N.",
+     "definitionFit": "Going off on a tangent means veering away from the subject, so a tangent is a digression onto another idea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tense"
+    }
+   }
   },
   {
    "number": 21,
@@ -337,7 +1413,64 @@
     "text": "Insult from following in a revolutionary group",
     "enumeration": "7"
    },
-   "solution": "AFFRONT"
+   "solution": "AFFRONT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "AFFRONT",
+    "definitions": [
+     {
+      "text": "Insult",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "to be in something is to be enclosed by it, so one piece sits inside the rest"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "following",
+      "gives": "F",
+      "note": "f is the abbreviation for following, as in page references"
+     },
+     {
+      "clueFragment": "revolutionary group",
+      "gives": "FRONT",
+      "note": "a front is a political or militant movement, as in a liberation front"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "F",
+      "FRONT"
+     ]
+    },
+    "explanation": {
+     "surface": "A slight coming from supporters within a rebel movement.",
+     "walkthrough": "F goes into A FRONT, after the A.",
+     "definitionFit": "An affront is an open insult or slight that causes offence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "following"
+    }
+   }
   },
   {
    "number": 22,
@@ -351,7 +1484,58 @@
     "text": "Begin meal after receiving article",
     "enumeration": "6"
    },
-   "solution": "LAUNCH"
+   "solution": "LAUNCH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LAUNCH",
+    "definitions": [
+     {
+      "text": "Begin",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "receiving",
+      "for": "container",
+      "note": "receiving means taking in, so one piece is placed inside another"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "meal",
+      "gives": "LUNCH",
+      "note": "lunch is a midday meal"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "a is the indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "A",
+      "UNCH"
+     ]
+    },
+    "explanation": {
+     "surface": "Start eating once you have been handed a news story.",
+     "walkthrough": "'Article' looks like a newspaper piece; it is the grammatical article A, put inside LUNCH.",
+     "definitionFit": "To launch is to set something going or start it, as with a project or a ship."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 23,
@@ -371,7 +1555,65 @@
      }
     ]
    },
-   "solution": "ROLLCALL"
+   "solution": "ROLLCALL",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "ROLL CALL",
+    "definitions": [
+     {
+      "text": "list of attendees?",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "reportedly means as spoken or told, so a word is taken by its sound"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Part",
+      "gives": "ROLL",
+      "soundsLike": "ROLE",
+      "note": "a role is an actor's part"
+     },
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "c is the cricket scoring abbreviation for caught"
+     },
+     {
+      "clueFragment": "everyone",
+      "gives": "ALL",
+      "note": "all means everyone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROLL",
+      "C",
+      "ALL"
+     ]
+    },
+    "explanation": {
+     "surface": "An acting part, rumour has it, landed by the whole cast.",
+     "walkthrough": "'Caught by everyone' puts C next to ALL; 'by' here just means beside.",
+     "definitionFit": "A roll call is the reading aloud of a register of names to check who is present, so the question mark allows it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Part"
+    }
+   }
   },
   {
    "number": 24,
@@ -385,7 +1627,69 @@
     "text": "Inform lots essentially if in US city",
     "enumeration": "6"
    },
-   "solution": "NOTIFY"
+   "solution": "NOTIFY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "NOTIFY",
+    "definitions": [
+     {
+      "text": "Inform",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "essentially",
+      "for": "letter_selection",
+      "note": "the essence of something is its core, so only a word's central letters are kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "to be in something is to be enclosed by it, so these pieces sit inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lots",
+      "gives": "OT",
+      "select": "middle",
+      "note": "the two middle letters of the word"
+     },
+     {
+      "clueFragment": "if",
+      "gives": "IF",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "US city",
+      "gives": "NY",
+      "note": "NY is New York"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "OT",
+      "IF",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Tell a lot of people, basically, if you are in an American city.",
+     "walkthrough": "'Essentially' means the heart of the word, here its two central letters, not a single middle letter.",
+     "definitionFit": "To notify someone is to tell them formally, so both verbs mean pass on news."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "essentially"
+    }
+   }
   },
   {
    "number": 25,
@@ -399,7 +1703,46 @@
     "text": "Experiment in court case?",
     "enumeration": "5"
    },
-   "solution": "TRIAL"
+   "solution": "TRIAL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TRIAL",
+    "definitions": [
+     {
+      "text": "Experiment",
+      "at": 0
+     },
+     {
+      "text": "court case?",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Experiment",
+      "note": "first meaning: a test to see how something works"
+     },
+     {
+      "clueFragment": "court case?",
+      "note": "second meaning: the hearing of evidence before a judge"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as a test carried out in a courtroom; the two ideas are separate meanings of one word.",
+     "definitionFit": "The word covers both a scientific or medical test and the formal examination of a charge in a law court."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 26,
@@ -413,7 +1756,54 @@
     "text": "Pay back mean cop set for discharge",
     "enumeration": "10"
    },
-   "solution": "COMPENSATE"
+   "solution": "COMPENSATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "COMPENSATE",
+    "definitions": [
+     {
+      "text": "Pay back",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "discharge",
+      "for": "anagram",
+      "note": "a discharge lets something loose, so the letters are released into a new order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mean cop set",
+      "gives": "MEANCOPSET",
+      "note": "the anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MEANCOPSET",
+       "gives": "COMPENSATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Reimburse a nasty policeman who is about to be dismissed.",
+     "walkthrough": "'Discharge' reads as sacking the officer; it tells you to free the letters of MEAN COP SET.",
+     "definitionFit": "To compensate is to make amends for a loss by giving money, which is repaying someone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "discharge"
+    }
+   }
   },
   {
    "number": 27,
@@ -427,7 +1817,47 @@
     "text": "First person to study devotional painting",
     "enumeration": "4"
    },
-   "solution": "ICON"
+   "solution": "ICON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ICON",
+    "definitions": [
+     {
+      "text": "devotional painting",
+      "at": 22
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "First person",
+      "gives": "I",
+      "note": "I is the first person pronoun"
+     },
+     {
+      "clueFragment": "to study",
+      "gives": "CON",
+      "note": "to con is an old word meaning to study closely"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "CON"
+     ]
+    },
+    "explanation": {
+     "surface": "The first to examine a religious picture.",
+     "walkthrough": "'First person' reads as the earliest individual; it is the grammatical first person.",
+     "definitionFit": "An icon is a painted image of Christ or a saint, venerated especially in Orthodox churches."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "First"
+    }
+   }
   },
   {
    "number": 28,
@@ -441,7 +1871,67 @@
     "text": "Very formal celebrity in front of hotel in Cyprus",
     "enumeration": "7"
    },
-   "solution": "STARCHY"
+   "solution": "STARCHY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "STARCHY",
+    "definitions": [
+     {
+      "text": "Very formal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in front of",
+      "for": "charade",
+      "note": "in front of means placed before, so one piece leads the rest"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "to be in something is to be enclosed by it, so one piece sits inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "celebrity",
+      "gives": "STAR",
+      "note": "a star is a famous person"
+     },
+     {
+      "clueFragment": "hotel",
+      "gives": "H",
+      "note": "H is Hotel in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "Cyprus",
+      "gives": "CY",
+      "note": "CY is the international code for Cyprus"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAR",
+      "C",
+      "H",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A stiff, stuffy famous person standing outside a Cypriot hotel.",
+     "walkthrough": "'In' is doing two jobs in the reader's eye; only the second one, before Cyprus, is the insertion signal, while 'in front of' is placement.",
+     "definitionFit": "Starchy describes stiff, prim manners, likened to a collar stiffened with starch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hotel"
+    }
+   }
   },
   {
    "number": 29,
@@ -455,7 +1945,67 @@
     "text": "Sprinter, perhaps, allowed to enter rearranged heat",
     "enumeration": "7"
    },
-   "solution": "ATHLETE"
+   "solution": "ATHLETE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ATHLETE",
+    "definitions": [
+     {
+      "text": "Sprinter, perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to enter",
+      "for": "container",
+      "note": "to enter is to go inside, so one piece is placed within another"
+     },
+     {
+      "text": "rearranged",
+      "for": "anagram",
+      "note": "rearranged means put in a new order, so these letters are shuffled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "heat",
+      "gives": "HEAT",
+      "note": "the anagram fodder"
+     },
+     {
+      "clueFragment": "allowed",
+      "gives": "LET",
+      "note": "let means allowed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ATH",
+      "LET",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HEAT",
+       "gives": "ATHE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A runner is permitted to join a heat that has been reorganised.",
+     "walkthrough": "'Heat' is a qualifying race, which fits the running surface, but here it is just four letters to rearrange.",
+     "definitionFit": "A sprinter is one kind of athlete, a short-distance runner, so 'perhaps' marks a definition by example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heat"
+    }
+   }
   }
  ]
 }
