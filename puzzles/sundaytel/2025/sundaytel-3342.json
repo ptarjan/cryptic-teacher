@@ -23,6 +23,9 @@
   "date": "2025-11-19",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,52 @@
     "text": "Bush perhaps regrown, it’s wild",
     "enumeration": "10"
    },
-   "solution": "SONGWRITER"
+   "solution": "SONGWRITER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SONGWRITER",
+    "definitions": [
+     {
+      "text": "Bush perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wild",
+      "for": "anagram",
+      "note": "something wild is unruly and out of order, so the letters run free into a new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "regrown, it’s",
+      "gives": "REGROWNITS",
+      "note": "the ten letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REGROWNITS",
+       "gives": "SONGWRITER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shrub that has grown back after pruning is running riot in the garden.",
+     "walkthrough": "'Bush' looks like a garden plant, and 'regrown' supports that picture, but the name is Kate Bush, the English singer who writes her own songs.",
+     "definitionFit": "Kate Bush composes her own music and lyrics, so she is one example of a composer of popular tunes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bush"
+    }
+   }
   },
   {
    "number": 2,
@@ -50,7 +98,43 @@
     "text": "Marine animal, parasite",
     "enumeration": "6"
    },
-   "solution": "SPONGE"
+   "solution": "SPONGE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SPONGE",
+    "definitions": [
+     {
+      "text": "Marine animal",
+      "at": 0
+     },
+     {
+      "text": "parasite",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Marine animal",
+      "note": "first meaning: a simple porous creature living on the sea bed"
+     },
+     {
+      "clueFragment": "parasite",
+      "note": "second meaning: a person who lives off others without paying their way"
+     }
+    ],
+    "explanation": {
+     "surface": "A sea creature that lives off its host is being described.",
+     "walkthrough": "The surface reads as one creature described twice; the two phrases are separate meanings of one word, the second an informal noun for a freeloader.",
+     "definitionFit": "A sponge is an aquatic invertebrate, and informally a person who cadges money or food from friends is also called that."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "parasite"
+    }
+   }
   },
   {
    "number": 3,
@@ -64,7 +148,47 @@
     "text": "Journalist on 1 Down",
     "enumeration": "8"
    },
-   "solution": "REPORTER"
+   "solution": "REPORTER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REPORTER",
+    "definitions": [
+     {
+      "text": "Journalist",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "RE means 'on the subject of', as in a letter heading"
+     },
+     {
+      "clueFragment": "1 Down",
+      "gives": "PORTER",
+      "note": "the answer to 1 Down is a composer of songs, and Cole Porter is a famous one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "PORTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A journalist is writing a piece about a songwriter.",
+     "walkthrough": "The cross-reference must be read as one example of its answer: Cole Porter, the American songwriter of 'Night and Day'.",
+     "definitionFit": "A reporter gathers news and writes stories for a newspaper or broadcaster, a common kind of journalist."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "on"
+    }
+   }
   },
   {
    "number": 4,
@@ -78,7 +202,62 @@
     "text": "Ray has penned end of prayer, sacred phrase",
     "enumeration": "6"
    },
-   "solution": "MANTRA"
+   "solution": "MANTRA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "MANTRA",
+    "definitions": [
+     {
+      "text": "sacred phrase",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, so only that one is kept"
+     },
+     {
+      "text": "has penned",
+      "for": "container",
+      "note": "to pen something is to shut it in an enclosure, so one piece closes round another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ray",
+      "gives": "MANTA",
+      "note": "the manta is a large ray, a flat fish"
+     },
+     {
+      "clueFragment": "prayer",
+      "gives": "R",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MANT",
+      "R",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A man called Ray has written the closing words of a prayer, a holy phrase.",
+     "walkthrough": "'Ray' reads as a man's name, but it is the fish. The single letter sits inside the fish's name after its third letter.",
+     "definitionFit": "A mantra is a word or sound repeated during meditation, originally a holy utterance in Hindu and Buddhist practice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Ray"
+    }
+   }
   },
   {
    "number": 5,
@@ -92,7 +271,56 @@
     "text": "He tours, travelling north – from the opposite direction?",
     "enumeration": "8"
    },
-   "solution": "SOUTHERN"
+   "solution": "SOUTHERN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SOUTHERN",
+    "definitions": [
+     {
+      "text": "from the opposite direction?",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "travelling",
+      "for": "anagram",
+      "note": "things travelling are on the move, so the letters shift out of their order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "He tours",
+      "gives": "HETOURS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "north",
+      "gives": "N",
+      "note": "N is the compass abbreviation for north"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HETOURSN",
+       "gives": "SOUTHERN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller on tour heads north, or perhaps comes the other way.",
+     "walkthrough": "'north' is inside the fodder as one letter; the question mark flags that the definition leans on it, since the opposite of north is south.",
+     "definitionFit": "Southern describes what comes from the south, which is the compass point directly facing north, so the question-marked phrase fits."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "north"
+    }
+   }
   },
   {
    "number": 6,
@@ -106,7 +334,57 @@
     "text": "Symbol in computing, I see, inverted",
     "enumeration": "4"
    },
-   "solution": "SIGN"
+   "solution": "SIGN",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "SIGN",
+    "definitions": [
+     {
+      "text": "Symbol",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the letters sought lie inside the words that follow, spanning their boundary"
+     },
+     {
+      "text": "inverted",
+      "for": "reversal",
+      "note": "turned upside down, so in a down entry the letters read from the bottom"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "computing, I see",
+      "gives": "NGIS",
+      "note": "the tail of the first word, the lone letter, and the head of the last word"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "NGIS",
+       "to": "SIGN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A programmer notices that a symbol on screen has been flipped.",
+     "walkthrough": "'I see' reads as someone understanding, but its letters join the end of 'computing' to form the run that is turned round.",
+     "definitionFit": "A sign is a mark standing for something else, such as a plus or dollar mark, so it is a synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "computing"
+    }
+   }
   },
   {
    "number": 7,
@@ -120,7 +398,55 @@
     "text": "Ring in miniature? Yes!",
     "enumeration": "7"
    },
-   "solution": "WHOOPEE"
+   "solution": "WHOOPEE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "WHOOPEE",
+    "definitions": [
+     {
+      "text": "Yes!",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing placed in another sits inside it, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "miniature",
+      "gives": "WEE",
+      "note": "wee is Scottish and informal British for small"
+     },
+     {
+      "clueFragment": "Ring",
+      "gives": "HOOP",
+      "note": "a hoop is a ring of metal or wood"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "HOOP",
+      "EE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether a tiny ring is on offer and gets an enthusiastic yes.",
+     "walkthrough": "'Ring' is not O here but a four-letter word, and the tiny word wraps it after its first letter.",
+     "definitionFit": "The exclamation is a shout of delight, the same cheer as an excited triumphant yes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Ring"
+    }
+   }
   },
   {
    "number": 7,
@@ -140,7 +466,47 @@
      }
     ]
    },
-   "solution": "WOOLLYMAMMOTH"
+   "solution": "WOOLLYMAMMOTH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WOOLLY MAMMOTH",
+    "definitions": [
+     {
+      "text": "old animal with tusks",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Unspecific",
+      "gives": "WOOLLY",
+      "note": "woolly thinking is vague or muddled"
+     },
+     {
+      "clueFragment": "jumbo",
+      "gives": "MAMMOTH",
+      "note": "both mean huge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WOOLLY",
+      "MAMMOTH"
+     ]
+    },
+    "explanation": {
+     "surface": "A vague mention of a jumbo, an elephant, is followed by an ancient tusked beast.",
+     "walkthrough": "'jumbo' suggests an elephant and so the definition, but it only supplies an adjective meaning enormous.",
+     "definitionFit": "This shaggy extinct relative of the elephant roamed Ice Age tundra and carried long curved ivory tusks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "jumbo"
+    }
+   }
   },
   {
    "number": 8,
@@ -154,7 +520,61 @@
     "text": "Cold, like cola I suspect",
     "enumeration": "7"
    },
-   "solution": "ASOCIAL"
+   "solution": "ASOCIAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "ASOCIAL",
+    "definitions": [
+     {
+      "text": "Cold",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "I suspect",
+      "for": "anagram",
+      "note": "a suspect account is dubious and not straight, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "like",
+      "gives": "AS",
+      "note": "as and like both mean in the manner of"
+     },
+     {
+      "clueFragment": "cola I",
+      "gives": "COLAI",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AS",
+      "OCIAL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "COLAI",
+       "gives": "OCIAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone guesses a chilled drink is like cola.",
+     "walkthrough": "'I suspect' reads as a hedge, but its I joins the fodder while 'suspect' does the shuffling.",
+     "definitionFit": "An asocial person avoids company and is unfriendly, which matches a cold, distant manner toward others."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cold"
+    }
+   }
   },
   {
    "number": 9,
@@ -178,7 +598,51 @@
      }
     ]
    },
-   "solution": "LITTLEBOYBLUE"
+   "solution": "LITTLEBOYBLUE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LITTLE BOY BLUE",
+    "definitions": [
+     {
+      "text": "song for young children",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "belted out means sung loudly, but out also means put out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "You bet I’ll belt",
+      "gives": "YOUBETILLBELT",
+      "note": "the thirteen letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "YOUBETILLBELT",
+       "gives": "LITTLEBOYBLUE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An eager singer promises to belt out a song for toddlers.",
+     "walkthrough": "'belt out' reads as one phrase meaning sing loudly; split it, and 'belt' joins the letters while 'out' signals the rearrangement.",
+     "definitionFit": "Little Boy Blue is a traditional English nursery rhyme about a sleeping shepherd boy, sung to infants."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 10,
@@ -198,7 +662,56 @@
      }
     ]
    },
-   "solution": "ORGANLOFT"
+   "solution": "ORGANLOFT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ORGAN LOFT",
+    "definitions": [
+     {
+      "text": "part of church",
+      "at": 38
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Heart for example",
+      "gives": "ORGAN",
+      "note": "the heart is one of the body's organs"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the standard abbreviation for left"
+     },
+     {
+      "clueFragment": "regularly",
+      "gives": "OFT",
+      "note": "oft is an old word for often"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ORGAN",
+      "L",
+      "OFT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's heart was regularly left behind in a church.",
+     "walkthrough": "'regularly' looks like an instruction to take alternate letters, but here it simply means often.",
+     "definitionFit": "This raised gallery houses the pipes and console of the instrument, often at the west end of a church."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "regularly"
+    }
+   }
   },
   {
    "number": 11,
@@ -212,7 +725,54 @@
     "text": "Rule hard to erase from the web",
     "enumeration": "5"
    },
-   "solution": "TENET"
+   "solution": "TENET",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TENET",
+    "definitions": [
+     {
+      "text": "Rule",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to erase from",
+      "for": "deletion",
+      "note": "erasing wipes something out, so letters are removed from what follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H is the abbreviation for hard, as on pencils"
+     },
+     {
+      "clueFragment": "the web",
+      "gives": "THENET",
+      "note": "the web and the net both name the internet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ENET"
+     ]
+    },
+    "explanation": {
+     "surface": "A regulation proves difficult to wipe off the internet.",
+     "walkthrough": "'hard' reads as difficult, but it is the pencil grade letter taken out of the phrase for the internet.",
+     "definitionFit": "A tenet is a principle or belief held as true, such as a doctrine of a faith or party."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hard"
+    }
+   }
   },
   {
    "number": 12,
@@ -226,7 +786,54 @@
     "text": "Principally leviathans, and regular giants, evidently – so?",
     "enumeration": "5"
    },
-   "solution": "LARGE"
+   "solution": "LARGE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "and_lit"
+    ],
+    "answer": "LARGE",
+    "definitions": [
+     {
+      "text": "Principally leviathans, and regular giants, evidently – so?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Principally",
+      "for": "letter_selection",
+      "note": "principally means chiefly, so each word gives only its chief, leading letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "leviathans, and regular giants, evidently",
+      "gives": "LARGE",
+      "select": "first",
+      "note": "the opening letter of each of the five words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "A",
+      "R",
+      "G",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Sea monsters and giants are clearly big, aren't they?",
+     "walkthrough": "The whole clue does both jobs: its initials spell the answer, and the question asks what leviathans and giants obviously are.",
+     "definitionFit": "Leviathans are sea monsters and giants are huge beings, so the obvious quality they share is great size."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "regular"
+    }
+   }
   },
   {
    "number": 13,
@@ -240,7 +847,64 @@
     "text": "Passage from short story about dancers",
     "enumeration": "9"
    },
-   "solution": "TRAVERSAL"
+   "solution": "TRAVERSAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "TRAVERSAL",
+    "definitions": [
+     {
+      "text": "Passage",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "something short is cut down, so the word loses its final letter"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece surrounds another"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "story",
+      "gives": "TAL",
+      "note": "a tale is a story, cut by a letter"
+     },
+     {
+      "clueFragment": "dancers",
+      "gives": "RAVERS",
+      "note": "ravers dance at raves"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RAVERS",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A passage is quoted from a short story about dancers.",
+     "walkthrough": "'Passage' looks like an extract from a text, and 'from' supports that, but it means a crossing and 'from' only links.",
+     "definitionFit": "A traversal is the act of crossing or travelling across something, so it is a synonym of passage in that sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Passage"
+    }
+   }
   },
   {
    "number": 14,
@@ -260,7 +924,44 @@
      }
     ]
    },
-   "solution": "SECONDHAND"
+   "solution": "SECONDHAND",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SECOND-HAND",
+    "definitions": [
+     {
+      "text": "Worn",
+      "at": 0
+     },
+     {
+      "text": "ticker?",
+      "at": 5,
+      "note": "the answer is a part of a ticker, not the ticker itself; the question mark flags this"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Worn",
+      "note": "first meaning: already used by someone else"
+     },
+     {
+      "clueFragment": "ticker?",
+      "note": "second meaning: the pointer on a watch that sweeps round each minute, as two words"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A ticker is slang for a watch (or a heart); the question mark allows the answer to be a component of the watch rather than the watch.",
+     "definitionFit": "Clothes previously owned are called this, and the fastest pointer on a clock face shares the same spelling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ticker"
+    }
+   }
   },
   {
    "number": 15,
@@ -274,7 +975,68 @@
     "text": "Men’s title inspires a little old bullfighter",
     "enumeration": "7"
    },
-   "solution": "MATADOR"
+   "solution": "MATADOR",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "MATADOR",
+    "definitions": [
+     {
+      "text": "bullfighter",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inspires",
+      "for": "container",
+      "note": "to inspire is literally to breathe in, so one piece draws another inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Men’s title",
+      "gives": "MR",
+      "note": "Mr is the title used before a man's name"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "little",
+      "gives": "TAD",
+      "note": "a tad is a little bit"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "A",
+      "TAD",
+      "O",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A man's honorific gives a little encouragement to an elderly bullfighter.",
+     "walkthrough": "'inspires' reads as encourages, but it is the breathing-in sense that puts three small pieces inside the title.",
+     "definitionFit": "A matador is the performer who kills the bull in a Spanish bullfight, so the term is a direct synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "inspires"
+    }
+   }
   },
   {
    "number": 16,
@@ -288,7 +1050,66 @@
     "text": "I’d a wound, a long wound – slash, say?",
     "enumeration": "8"
    },
-   "solution": "DIAGONAL"
+   "solution": "DIAGONAL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "DIAGONAL",
+    "definitions": [
+     {
+      "text": "slash, say?",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wound",
+      "for": "anagram",
+      "note": "wound here is from wind, meaning twisted round, so the letters are coiled into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I’d a",
+      "gives": "IDA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a long",
+      "gives": "ALONG",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIA",
+      "GONAL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "IDA",
+       "gives": "DIA"
+      },
+      {
+       "fodder": "ALONG",
+       "gives": "GONAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone describes a long wound, perhaps a cut from a slash.",
+     "walkthrough": "Both 'wound's read as injuries to match 'slash', but each is the past tense of wind and twists the words before it.",
+     "definitionFit": "The printed slash mark is a sloping stroke, so it is one example of a slanting line."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "wound"
+    }
+   }
   },
   {
    "number": 17,
@@ -302,7 +1123,74 @@
     "text": "After a little time I see a black taxi",
     "enumeration": "7"
    },
-   "solution": "MINICAB"
+   "solution": "MINICAB",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "MINICAB",
+    "definitions": [
+     {
+      "text": "taxi",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "After",
+      "for": "charade",
+      "note": "what follows is placed after, so the later pieces come second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a little time",
+      "gives": "MIN",
+      "note": "min is short for minute"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "see",
+      "gives": "C",
+      "soundsLike": "SEE",
+      "note": "the letter C is said the same way"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "black",
+      "gives": "B",
+      "note": "B is the abbreviation for black, as on pencils"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MIN",
+      "I",
+      "C",
+      "A",
+      "B"
+     ]
+    },
+    "explanation": {
+     "surface": "After a short wait, someone spots a black London cab.",
+     "walkthrough": "'black taxi' reads as one phrase, the London cab, but 'black' gives a letter and 'taxi' alone defines. A minicab is a British private-hire car booked by phone.",
+     "definitionFit": "A minicab is a car for hire that carries paying passengers, the same service as a taxi though it cannot be hailed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "black"
+    }
+   }
   },
   {
    "number": 17,
@@ -316,7 +1204,56 @@
     "text": "Greek character buried in flash mausoleum, for example",
     "enumeration": "8"
    },
-   "solution": "MONUMENT"
+   "solution": "MONUMENT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MONUMENT",
+    "definitions": [
+     {
+      "text": "mausoleum, for example",
+      "at": 32,
+      "note": "the definition is an example of the answer"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "buried in",
+      "for": "container",
+      "note": "something buried is enclosed underground, so one piece is sunk inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flash",
+      "gives": "MOMENT",
+      "note": "in a flash means in a moment"
+     },
+     {
+      "clueFragment": "Greek character",
+      "gives": "NU",
+      "note": "nu is the thirteenth letter of the Greek alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "NU",
+      "MENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A Greek figure lies buried in a showy tomb.",
+     "walkthrough": "'flash' reads as showy, describing the tomb, but it is a noun meaning an instant.",
+     "definitionFit": "A mausoleum is a grand building housing a tomb, one kind of memorial structure built to commemorate the dead."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "flash"
+    }
+   }
   },
   {
    "number": 18,
@@ -336,7 +1273,51 @@
      }
     ]
    },
-   "solution": "MORTALSIN"
+   "solution": "MORTALSIN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MORTAL SIN",
+    "definitions": [
+     {
+      "text": "vice",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to screw up",
+      "for": "anagram",
+      "note": "to screw something up is to mess it up, so the letters are thrown into disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It’s normal",
+      "gives": "ITSNORMAL",
+      "note": "the nine letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ITSNORMAL",
+       "gives": "MORTALSIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone shrugs that it's only natural to mess up a vice, or a workshop clamp.",
+     "walkthrough": "'It's normal' reads as a comment on human failing, which suits the answer, but all nine letters are the raw material.",
+     "definitionFit": "In Catholic teaching this is a grave wrongdoing that cuts the soul off from grace, a serious form of wickedness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "normal"
+    }
+   }
   },
   {
    "number": 19,
@@ -350,7 +1331,68 @@
     "text": "Player of music thus planting new tree",
     "enumeration": "6"
    },
-   "solution": "STEREO"
+   "solution": "STEREO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "STEREO",
+    "definitions": [
+     {
+      "text": "Player of music",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "something new is remade, so the letters are formed afresh in another order"
+     },
+     {
+      "text": "planting",
+      "for": "container",
+      "note": "planting puts something into the ground, so one piece is set inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "thus",
+      "gives": "SO",
+      "note": "so and thus both mean in this way"
+     },
+     {
+      "clueFragment": "tree",
+      "gives": "TREE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TERE",
+      "O"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TREE",
+       "gives": "TERE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A musician is busy planting a young tree.",
+     "walkthrough": "'Player of music' reads as a performer, but it is a machine that plays records or discs.",
+     "definitionFit": "A stereo is a sound system that plays recordings through two speakers, so it plays music without being a musician."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Player"
+    }
+   }
   },
   {
    "number": 20,
@@ -364,7 +1406,57 @@
     "text": "Splendid characters bordering on dishonesty?",
     "enumeration": "5"
    },
-   "solution": "DANDY"
+   "solution": "DANDY",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "DANDY",
+    "definitions": [
+     {
+      "text": "Splendid",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bordering on",
+      "for": "letter_selection",
+      "note": "the border of a word is its edge, so its outermost letters are the ones meant"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dishonesty",
+      "gives": "DY",
+      "select": "outer",
+      "note": "the two letters at the edges of the word"
+     },
+     {
+      "clueFragment": "characters",
+      "gives": "AND",
+      "note": "the two characters are read as a pair, one letter 'and' the other, so the joining word is spelt out between them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "AND",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Fine-seeming people who are close to being crooks.",
+     "walkthrough": "'characters' suggests people, but it means letters: the two at the edges of 'dishonesty' are 'D and Y'. Dandy is also dated slang for excellent.",
+     "definitionFit": "Dandy is an old-fashioned informal adjective for first-rate or excellent, as in 'fine and dandy'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "characters"
+    }
+   }
   },
   {
    "number": 20,
@@ -378,7 +1470,67 @@
     "text": "Energetic type uplifting legion in effect",
     "enumeration": "6"
    },
-   "solution": "DYNAMO"
+   "solution": "DYNAMO",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "DYNAMO",
+    "definitions": [
+     {
+      "text": "Energetic type",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "uplifting",
+      "for": "reversal",
+      "note": "lifting up turns a down entry to read from the bottom"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another is placed within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "legion",
+      "gives": "MANY",
+      "note": "legion as an adjective means numerous"
+     },
+     {
+      "clueFragment": "effect",
+      "gives": "DO",
+      "note": "to effect a change is to do it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "YNAM",
+      "O"
+     ],
+     "reversals": [
+      {
+       "from": "MANY",
+       "to": "YNAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lively person has a morale-raising influence on a regiment.",
+     "walkthrough": "'in effect' reads as a phrase meaning 'in practice'; split it, as 'effect' is a verb meaning do. 'legion' reads as an army unit but means many.",
+     "definitionFit": "A dynamo is informally a person of tireless drive and vigour, likened to the electrical generator."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "legion"
+    }
+   }
   },
   {
    "number": 21,
@@ -392,7 +1544,50 @@
     "text": "Unpopular party in defeat",
     "enumeration": "5"
    },
-   "solution": "OUTDO"
+   "solution": "OUTDO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OUTDO",
+    "definitions": [
+     {
+      "text": "defeat",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Unpopular",
+      "gives": "OUT",
+      "note": "out means out of fashion"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "DO",
+      "note": "a do is a party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUT",
+      "DO"
+     ]
+    },
+    "explanation": {
+     "surface": "An unpopular political party is heading for defeat.",
+     "walkthrough": "'party' reads as a political party, but it is a social gathering, a British do.",
+     "definitionFit": "To outdo someone is to surpass or beat them, doing better in a contest or comparison."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "party"
+    }
+   }
   },
   {
    "number": 22,
@@ -406,7 +1601,43 @@
     "text": "Probe quite stable, though not entirely",
     "enumeration": "4"
    },
-   "solution": "TEST"
+   "solution": "TEST",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TEST",
+    "definitions": [
+     {
+      "text": "Probe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "though not entirely",
+      "for": "hidden_word",
+      "note": "only part of the phrase is used, so the letters sit within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quite stable",
+      "gives": "TEST",
+      "note": "the end of the first word runs into the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A space probe is fairly steady, though not completely.",
+     "walkthrough": "The run of letters bridges the two words, which is why neither word appears whole.",
+     "definitionFit": "To probe is to investigate or examine closely, which is what an experimental trial or examination does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Probe"
+    }
+   }
   },
   {
    "number": 23,
@@ -420,7 +1651,76 @@
     "text": "With endless ham to cover, men melt processed cheese",
     "enumeration": "9"
    },
-   "solution": "EMMENTHAL"
+   "solution": "EMMENTHAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "container"
+    ],
+    "answer": "EMMENTHAL",
+    "definitions": [
+     {
+      "text": "cheese",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endless",
+      "for": "deletion",
+      "note": "without an end means the last letter is dropped"
+     },
+     {
+      "text": "processed",
+      "for": "anagram",
+      "note": "processed food is broken down and reformed, so the letters are rearranged"
+     },
+     {
+      "text": "to cover",
+      "for": "container",
+      "note": "to cover something is to go around it, so one piece wraps another"
+     }
+    ],
+    "linkWords": [
+     "With"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "men melt",
+      "gives": "MENMELT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ham",
+      "gives": "HA",
+      "note": "the word without its last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMMENT",
+      "HA",
+      "L"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MENMELT",
+       "gives": "EMMENTL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Men melt processed cheese over a ham, as in a toasted sandwich.",
+     "walkthrough": "'processed cheese' reads as one product, but 'processed' shuffles the men and melt letters, which wrap the trimmed ham.",
+     "definitionFit": "Emmenthal is a Swiss hard variety with large holes, one example of a dairy product made from curdled milk."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "processed"
+    }
+   }
   },
   {
    "number": 24,
@@ -434,7 +1734,50 @@
     "text": "Person held as emcee, mature",
     "enumeration": "7"
    },
-   "solution": "HOSTAGE"
+   "solution": "HOSTAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HOSTAGE",
+    "definitions": [
+     {
+      "text": "Person held",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "emcee",
+      "gives": "HOST",
+      "note": "an emcee (MC) hosts a show"
+     },
+     {
+      "clueFragment": "mature",
+      "gives": "AGE",
+      "note": "to mature is to age"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOST",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is kept on as master of ceremonies because they are grown up.",
+     "walkthrough": "'held as' reads as regarded as; the definition stops at 'held', meaning captive.",
+     "definitionFit": "A hostage is someone seized and kept captive as security for demands, so it is a person held."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "held"
+    }
+   }
   },
   {
    "number": 25,
@@ -448,7 +1791,53 @@
     "text": "Certainly not for me, English candidate",
     "enumeration": "7"
    },
-   "solution": "NOMINEE"
+   "solution": "NOMINEE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NOMINEE",
+    "definitions": [
+     {
+      "text": "candidate",
+      "at": 30
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Certainly not",
+      "gives": "NO",
+      "note": "a firm refusal"
+     },
+     {
+      "clueFragment": "for me",
+      "gives": "MINE",
+      "note": "what is for me is mine"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "MINE",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "An English candidate declines the post, saying it is certainly not for them.",
+     "walkthrough": "'Certainly not for me' reads as one refusal, but splits into a flat denial and a word for belonging to me.",
+     "definitionFit": "A nominee is someone put forward for an office or award, so they stand as a contender."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "for"
+    }
+   }
   }
  ]
 }
