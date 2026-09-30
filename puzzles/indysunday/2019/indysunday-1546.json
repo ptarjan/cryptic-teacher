@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,54 @@
     "text": "Purse initially lost? That makes me sore!",
     "enumeration": "4"
    },
-   "solution": "OUCH"
+   "solution": "OUCH",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "OUCH",
+    "definitions": [
+     {
+      "text": "That makes me sore!",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially lost",
+      "for": "deletion",
+      "note": "the purse word loses its initial letter, the one at the very start"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Purse",
+      "gives": "POUCH",
+      "note": "a pouch is a small bag or purse"
+     },
+     {
+      "clueFragment": "initially",
+      "gives": "P",
+      "note": "the opening letter of the purse word, the one that is lost"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUCH"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone has lost their purse and is smarting about it.",
+     "walkthrough": "POUCH minus its P leaves OUCH; the exclamation mark tells you the definition is something said aloud when hurt.",
+     "definitionFit": "Ouch is the cry you make when something hurts, so it is exactly what a sore person would exclaim."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sore"
+    }
+   }
   },
   {
    "number": 1,
@@ -57,7 +107,54 @@
      }
     ]
    },
-   "solution": "OUTOFPLACE"
+   "solution": "OUTOFPLACE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OUT OF PLACE",
+    "definitions": [
+     {
+      "text": "inappropriate",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "composed",
+      "for": "anagram",
+      "note": "the letters of the two words are put together afresh, as a poet composes lines"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Couplet oaf",
+      "gives": "COUPLETOAF",
+      "note": "anagram fodder, 10 letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "COUPLET OAF",
+       "gives": "OUTOFPLACE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clumsy oaf has written a couplet, and it is judged unsuitable.",
+     "walkthrough": "'Composed' fits the poetry surface nicely while quietly telling you to rearrange the letters.",
+     "definitionFit": "Something unsuitable for its setting is said to be out of place, an everyday idiom for inappropriate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "composed"
+    }
+   }
   },
   {
    "number": 2,
@@ -71,7 +168,40 @@
     "text": "Element found in middle of arcade?",
     "enumeration": "7"
    },
-   "solution": "CALCIUM"
+   "solution": "CALCIUM",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CALCIUM",
+    "definitions": [
+     {
+      "text": "Element found in middle of arcade?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Element found in middle of arcade?",
+      "note": "surface reading: some component sitting at the centre of a shopping arcade"
+     },
+     {
+      "clueFragment": "middle of arcade",
+      "note": "setter's reading: the two central letters of 'arcade' are C and A, the chemical symbol of a metallic element"
+     }
+    ],
+    "explanation": {
+     "surface": "Something standing at the heart of a covered shopping arcade.",
+     "walkthrough": "The middle of ARCADE is CA, which is the symbol for CALCIUM, so the element really is found there.",
+     "definitionFit": "Calcium is a chemical element, a metal with the symbol Ca, number twenty in the periodic table."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Element"
+    }
+   }
   },
   {
    "number": 3,
@@ -95,7 +225,51 @@
      }
     ]
    },
-   "solution": "TOONESFACE"
+   "solution": "TOONESFACE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TO ONE'S FACE",
+    "definitions": [
+     {
+      "text": "openly",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abused",
+      "for": "anagram",
+      "note": "abused means badly treated, so the letters are knocked out of their order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ace so often",
+      "gives": "ACESOOFTEN",
+      "note": "anagram fodder, 10 letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ACE SO OFTEN",
+       "gives": "TOONESFACE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A star player, perhaps a tennis ace, is constantly insulted in public.",
+     "walkthrough": "'Openly' looks like it goes with 'abused', but it is the definition standing alone at the end.",
+     "definitionFit": "Saying something to someone's face means doing it directly and without concealment, which is saying it openly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "openly"
+    }
+   }
   },
   {
    "number": 4,
@@ -109,7 +283,67 @@
     "text": "Decorated Antarctic explorer snubbed after inspiring navy",
     "enumeration": "6"
    },
-   "solution": "ORNATE"
+   "solution": "ORNATE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "ORNATE",
+    "definitions": [
+     {
+      "text": "Decorated",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "snubbed",
+      "for": "deletion",
+      "note": "a snub nose is short, so the explorer's name is cut short at its end"
+     },
+     {
+      "text": "inspiring",
+      "for": "container",
+      "note": "to inspire is to breathe in, so the shortened explorer takes 'navy' inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Antarctic explorer",
+      "gives": "OATES",
+      "note": "Captain Lawrence Oates, who died on Scott's polar expedition"
+     },
+     {
+      "clueFragment": "snubbed",
+      "gives": "OATE",
+      "note": "the explorer's surname without its final letter"
+     },
+     {
+      "clueFragment": "navy",
+      "gives": "RN",
+      "note": "RN = Royal Navy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "RN",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A polar explorer who received a medal is being ignored by the navy.",
+     "walkthrough": "'Decorated' reads as 'awarded a medal' in the surface, but it is the definition in its sense of adorned. Oates is the Antarctic explorer famous for 'I may be some time'.",
+     "definitionFit": "Something ornate is elaborately adorned, which is what decorated means when applied to a room or object."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Decorated"
+    }
+   }
   },
   {
    "number": 5,
@@ -123,7 +357,72 @@
     "text": "Lift untested driver, first item in Augusta taken by American golfer",
     "enumeration": "8"
    },
-   "solution": "NICKLAUS"
+   "solution": "NICKLAUS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "NICKLAUS",
+    "definitions": [
+     {
+      "text": "golfer",
+      "at": 62
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first item in",
+      "for": "letter_selection",
+      "note": "the first item of the golf venue's name is simply its opening letter"
+     }
+    ],
+    "linkWords": [
+     "taken by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lift",
+      "gives": "NICK",
+      "note": "to nick is to steal, and lift means the same"
+     },
+     {
+      "clueFragment": "untested driver",
+      "gives": "L",
+      "note": "a learner driver, who has not passed the test, shows an L plate"
+     },
+     {
+      "clueFragment": "Augusta",
+      "gives": "A",
+      "select": "first",
+      "note": "opening letter of the Georgia golf course"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US = American"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NICK",
+      "L",
+      "A",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "A novice driver gets a lift to the Augusta golf course with an American player.",
+     "walkthrough": "'Driver' and 'Augusta' pull you towards golf clubs, but the driver is a learner at the wheel. Jack NICKLAUS won the Masters at Augusta six times.",
+     "definitionFit": "Jack Nicklaus is a famous American professional who won eighteen major championships in the sport."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "driver"
+    }
+   }
   },
   {
    "number": 6,
@@ -137,7 +436,48 @@
     "text": "Take action in hearing for a bit",
     "enumeration": "3"
    },
-   "solution": "SOU"
+   "solution": "SOU",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SOU",
+    "definitions": [
+     {
+      "text": "a bit",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in hearing",
+      "for": "homophone",
+      "note": "in a hearing we attend to sound, so the word for taking legal action is heard, not spelt"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Take action",
+      "gives": "SOU",
+      "soundsLike": "SUE",
+      "note": "to sue is to take legal action against someone"
+     }
+    ],
+    "explanation": {
+     "surface": "Going to court, briefly, as part of a legal hearing.",
+     "walkthrough": "'Take action in hearing' reads like a court case, and 'hearing' does double duty as the sound signal. A SOU was an old small French coin, as in 'not a sou'.",
+     "definitionFit": "A sou is a coin of tiny value, so it stands for a very small amount, like a trifle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "hearing"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +491,64 @@
     "text": "Special constable wearing a tie gets to escape legal process",
     "enumeration": "7"
    },
-   "solution": "ABSCOND"
+   "solution": "ABSCOND",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ABSCOND",
+    "definitions": [
+     {
+      "text": "escape legal process",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wearing",
+      "for": "container",
+      "note": "whoever is wearing something has it around them, so the constable is inside the tie"
+     }
+    ],
+    "linkWords": [
+     "gets to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article, used as is"
+     },
+     {
+      "clueFragment": "tie",
+      "gives": "BOND",
+      "note": "a bond is a tie or connection"
+     },
+     {
+      "clueFragment": "Special constable",
+      "gives": "SC",
+      "note": "SC is the standard abbreviation for special constable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "B",
+      "SC",
+      "OND"
+     ]
+    },
+    "explanation": {
+     "surface": "A volunteer police officer in a tie gets out of being prosecuted.",
+     "walkthrough": "The special constable goes inside the tie word, and A sits in front. A special constable is a part-time volunteer police officer in Britain.",
+     "definitionFit": "To abscond is to run away secretly, typically to avoid arrest or trial, so it means fleeing the law."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wearing"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +562,43 @@
     "text": "Some fear loaded aristocrat",
     "enumeration": "4"
    },
-   "solution": "EARL"
+   "solution": "EARL",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EARL",
+    "definitions": [
+     {
+      "text": "aristocrat",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "'some' asks for just part of the following words, a run of letters across them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fear loaded",
+      "gives": "EARL",
+      "note": "straddles the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A nobleman weighed down with fear.",
+     "walkthrough": "The letters run across the gap: f(EAR L)oaded.",
+     "definitionFit": "An earl is a British nobleman ranking above a viscount, so he is a member of the aristocracy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "loaded"
+    }
+   }
   },
   {
    "number": 9,
@@ -185,7 +618,48 @@
      }
     ]
    },
-   "solution": "WINGMIRROR"
+   "solution": "WINGMIRROR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WING MIRROR",
+    "definitions": [
+     {
+      "text": "something checked near screen?",
+      "at": 36
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Element in party",
+      "gives": "WING",
+      "note": "a wing is a faction within a political party"
+     },
+     {
+      "clueFragment": "that shows image",
+      "gives": "MIRROR",
+      "note": "a mirror shows your reflection"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WING",
+      "MIRROR"
+     ]
+    },
+    "explanation": {
+     "surface": "A party trick with a projector showing images near a screen.",
+     "walkthrough": "The screen is a car's windscreen, not a cinema screen; the question mark flags that sideways definition.",
+     "definitionFit": "Drivers glance at the side-mounted reflector on a car door, next to the windscreen, before changing lanes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "screen"
+    }
+   }
   },
   {
    "number": 10,
@@ -199,7 +673,74 @@
     "text": "Group backed family protecting English author",
     "enumeration": "7"
    },
-   "solution": "TOLKIEN"
+   "solution": "TOLKIEN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "TOLKIEN",
+    "definitions": [
+     {
+      "text": "author",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backed",
+      "for": "reversal",
+      "note": "to back is to move backwards, so the word for group is read from its end"
+     },
+     {
+      "text": "protecting",
+      "for": "container",
+      "note": "what protects something surrounds it, so 'family' wraps around 'English'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Group",
+      "gives": "LOT",
+      "note": "a lot is a group or batch"
+     },
+     {
+      "clueFragment": "family",
+      "gives": "KIN",
+      "note": "kin = family, relatives"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E = English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOL",
+      "KI",
+      "E",
+      "N"
+     ],
+     "reversals": [
+      {
+       "from": "LOT",
+       "to": "TOL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A group supported a family that was sheltering an English writer.",
+     "walkthrough": "'English author' looks like one phrase, but English is wordplay and only 'author' defines.",
+     "definitionFit": "J.R.R. Tolkien wrote The Hobbit and The Lord of the Rings, making him a celebrated novelist."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "backed"
+    }
+   }
   },
   {
    "number": 11,
@@ -213,7 +754,51 @@
     "text": "US actor taken by Republican in large yacht",
     "enumeration": "7"
    },
-   "solution": "CRUISER"
+   "solution": "CRUISER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CRUISER",
+    "definitions": [
+     {
+      "text": "large yacht",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "taken by",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "US actor",
+      "gives": "CRUISE",
+      "note": "Tom Cruise, the Hollywood star"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R = Republican"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRUISE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A Hollywood star is taken out on a Republican's luxury boat.",
+     "walkthrough": "'Taken by' just places the Republican after the actor, and 'in' links to the definition.",
+     "definitionFit": "A cruiser is a sizeable motorboat or yacht with cabins, built for pleasure trips on the water."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "taken"
+    }
+   }
   },
   {
    "number": 12,
@@ -227,7 +812,58 @@
     "text": "Fellow dallied not half in affair",
     "enumeration": "5"
    },
-   "solution": "FLING"
+   "solution": "FLING",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "FLING",
+    "definitions": [
+     {
+      "text": "affair",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not half",
+      "for": "deletion",
+      "note": "only half of the word for dallied survives, the back half being thrown away"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fellow",
+      "gives": "F",
+      "note": "F = fellow"
+     },
+     {
+      "clueFragment": "dallied",
+      "gives": "LINGERED",
+      "note": "to linger is to dally or dawdle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "LING"
+     ]
+    },
+    "explanation": {
+     "surface": "A man who lingered only half-heartedly over a romance.",
+     "walkthrough": "'Not half' is usually British slang for 'very much', but here it is literal: keep only the first half of the word.",
+     "definitionFit": "A fling is a short-lived romantic relationship, the casual sort of liaison also called an affair."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dallied"
+    }
+   }
   },
   {
    "number": 13,
@@ -241,7 +877,59 @@
     "text": "Figure acquiring hotel arranged long fund-raising broadcast",
     "enumeration": "8"
    },
-   "solution": "TELETHON"
+   "solution": "TELETHON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TELETHON",
+    "definitions": [
+     {
+      "text": "long fund-raising broadcast",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "arranged",
+      "for": "anagram",
+      "note": "the combined letters are set out in a new order, as if arranged afresh"
+     }
+    ],
+    "linkWords": [
+     "acquiring"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Figure",
+      "gives": "TEN",
+      "note": "ten is a number, a figure"
+     },
+     {
+      "clueFragment": "hotel",
+      "gives": "HOTEL",
+      "note": "taken as it stands, joining the figure as fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TEN HOTEL",
+       "gives": "TELETHON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A person buys a hotel and sets up a charity event on television.",
+     "walkthrough": "'Acquiring' just joins the two pieces of fodder; 'long' belongs to the definition, not the wordplay.",
+     "definitionFit": "A telethon is a television programme lasting many hours, run to raise money for a charity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Figure"
+    }
+   }
   },
   {
    "number": 14,
@@ -255,7 +943,51 @@
     "text": "Trench coat disguised unelected expert",
     "enumeration": "10"
    },
-   "solution": "TECHNOCRAT"
+   "solution": "TECHNOCRAT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TECHNOCRAT",
+    "definitions": [
+     {
+      "text": "unelected expert",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disguised",
+      "for": "anagram",
+      "note": "something disguised is made to look different, so the letters take on a new appearance"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trench coat",
+      "gives": "TRENCHCOAT",
+      "note": "anagram fodder, 10 letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TRENCH COAT",
+       "gives": "TECHNOCRAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A spy in a trench coat and disguise, posing as an expert.",
+     "walkthrough": "The trench coat fits the spy picture of 'disguised', which is in fact the anagram signal.",
+     "definitionFit": "A technocrat is a specialist given governing power on account of skill, not through a vote."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "disguised"
+    }
+   }
   },
   {
    "number": 15,
@@ -269,7 +1001,66 @@
     "text": "Lad rested uneasily holding front of precarious portable equipment",
     "enumeration": "10"
    },
-   "solution": "STEPLADDER"
+   "solution": "STEPLADDER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "STEPLADDER",
+    "definitions": [
+     {
+      "text": "portable equipment",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "front of",
+      "for": "letter_selection",
+      "note": "the front of a word is its opening letter"
+     },
+     {
+      "text": "uneasily",
+      "for": "anagram",
+      "note": "restless unease leaves the letters shifting out of place"
+     }
+    ],
+    "linkWords": [
+     "holding"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lad rested",
+      "gives": "LADRESTED",
+      "note": "anagram fodder, 9 letters"
+     },
+     {
+      "clueFragment": "precarious",
+      "gives": "P",
+      "select": "first",
+      "note": "opening letter, held within the fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LADRESTED P",
+       "gives": "STEPLADDER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boy lies anxiously on something precarious he has carried with him.",
+     "walkthrough": "'Holding' tells you the P goes in with the other letters before they are shuffled into order.",
+     "definitionFit": "A stepladder is a folding, freestanding set of steps you can carry from room to room."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rested"
+    }
+   }
   },
   {
    "number": 16,
@@ -283,7 +1074,55 @@
     "text": "Clear young troublemaker concealed by hat",
     "enumeration": "6"
    },
-   "solution": "LIMPID"
+   "solution": "LIMPID",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LIMPID",
+    "definitions": [
+     {
+      "text": "Clear",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "concealed by",
+      "for": "container",
+      "note": "what is concealed by a covering sits underneath it, so the troublemaker goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hat",
+      "gives": "LID",
+      "note": "lid is slang for a hat"
+     },
+     {
+      "clueFragment": "young troublemaker",
+      "gives": "IMP",
+      "note": "an imp is a mischievous child"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "IMP",
+      "ID"
+     ]
+    },
+    "explanation": {
+     "surface": "A cheeky child hides under a hat and is found out.",
+     "walkthrough": "'Clear' could be a verb, but it is the adjective, meaning transparent.",
+     "definitionFit": "Limpid water or prose is transparent and unclouded, a literary word for the adjective clear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Clear"
+    }
+   }
   },
   {
    "number": 17,
@@ -297,7 +1136,67 @@
     "text": "Greek character namely on date drunk wine",
     "enumeration": "8"
    },
-   "solution": "MUSCADET"
+   "solution": "MUSCADET",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "MUSCADET",
+    "definitions": [
+     {
+      "text": "wine",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drunk",
+      "for": "anagram",
+      "note": "a drunk staggers about, so the letters of date lurch out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Greek character",
+      "gives": "MU",
+      "note": "mu is the twelfth letter of the Greek alphabet"
+     },
+     {
+      "clueFragment": "namely",
+      "gives": "SC",
+      "note": "sc. (scilicet) is the abbreviation for namely"
+     },
+     {
+      "clueFragment": "date",
+      "gives": "DATE",
+      "note": "anagram fodder, 4 letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MU",
+      "SC",
+      "ADET"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DATE",
+       "gives": "ADET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Greek man on a date gets drunk on wine.",
+     "walkthrough": "'Drunk' and 'wine' sit together so the surface reads naturally, but 'drunk' works on 'date'.",
+     "definitionFit": "Muscadet is a dry white produced in the Loire valley of France, a well-known vintage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drunk"
+    }
+   }
   },
   {
    "number": 18,
@@ -317,7 +1216,65 @@
      }
     ]
    },
-   "solution": "ATLENGTH"
+   "solution": "ATLENGTH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "AT LENGTH",
+    "definitions": [
+     {
+      "text": "fully extended",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "essentially",
+      "for": "letter_selection",
+      "note": "the essence of a word is at its core, so take the central letter of the racecourse"
+     },
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "to cover is to go over and around, so 'a racing measure' encloses the core letter"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A racing measure",
+      "gives": "ALENGTH",
+      "note": "horse races are won by a length, the measure of a horse"
+     },
+     {
+      "clueFragment": "Aintree",
+      "gives": "T",
+      "select": "middle",
+      "note": "the central letter of the seven-letter course"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "T",
+      "LENGTH"
+     ]
+    },
+    "explanation": {
+     "surface": "A racing distance at the Aintree course that is completely stretched out.",
+     "walkthrough": "Aintree is the Liverpool racecourse that hosts the Grand National. The T slips between A and LENGTH.",
+     "definitionFit": "Doing something at length means doing it thoroughly and in full detail, so extensively or fully."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "extended"
+    }
+   }
   },
   {
    "number": 19,
@@ -331,7 +1288,58 @@
     "text": "Singing performances are exposed to view in musical",
     "enumeration": "8"
    },
-   "solution": "CABARETS"
+   "solution": "CABARETS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CABARETS",
+    "definitions": [
+     {
+      "text": "Singing performances",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece sits in the other, so the exposed word goes inside the musical"
+     }
+    ],
+    "linkWords": [
+     "are"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "musical",
+      "gives": "CATS",
+      "note": "Cats is the Andrew Lloyd Webber musical"
+     },
+     {
+      "clueFragment": "exposed to view",
+      "gives": "BARE",
+      "note": "bare = uncovered, open to view"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "BARE",
+      "TS"
+     ]
+    },
+    "explanation": {
+     "surface": "Songs performed in a stage musical are laid out for the audience to see.",
+     "walkthrough": "'Musical' tempts you to think of the show Cabaret itself, but it is Cats; 'are' links definition to wordplay.",
+     "definitionFit": "Cabarets are nightclub entertainments of songs and sketches, so they are shows built around singing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "musical"
+    }
+   }
   },
   {
    "number": 20,
@@ -345,7 +1353,57 @@
     "text": "Speciality followed by husband and father in ME city",
     "enumeration": "7"
    },
-   "solution": "BAGHDAD"
+   "solution": "BAGHDAD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BAGHDAD",
+    "definitions": [
+     {
+      "text": "ME city",
+      "at": 45
+     }
+    ],
+    "linkWords": [
+     "followed by",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Speciality",
+      "gives": "BAG",
+      "note": "'my bag' is slang for my speciality or thing"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "H = husband"
+     },
+     {
+      "clueFragment": "father",
+      "gives": "DAD",
+      "note": "dad = father"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAG",
+      "H",
+      "DAD"
+     ]
+    },
+    "explanation": {
+     "surface": "A family skill passed down from husband and father in a city.",
+     "walkthrough": "ME here is the Middle East, not the first-person pronoun.",
+     "definitionFit": "Baghdad is the capital of Iraq, one of the major urban centres of the Middle East region."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ME"
+    }
+   }
   },
   {
    "number": 21,
@@ -365,7 +1423,47 @@
      }
     ]
    },
-   "solution": "SNAPUP"
+   "solution": "SNAPUP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SNAP UP",
+    "definitions": [
+     {
+      "text": "Eagerly purchase",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "photograph",
+      "gives": "SNAP",
+      "note": "a snap is a quick photograph"
+     },
+     {
+      "clueFragment": "at college",
+      "gives": "UP",
+      "note": "to be up is to be in residence at university"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SNAP",
+      "UP"
+     ]
+    },
+    "explanation": {
+     "surface": "A student keenly buys a photo at university.",
+     "walkthrough": "Being UP at Oxford or Cambridge means attending, a British usage the clue relies on.",
+     "definitionFit": "To snap something up is to grab it quickly, usually a bargain, before others can buy it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "photograph"
+    }
+   }
   },
   {
    "number": 22,
@@ -379,7 +1477,65 @@
     "text": "Secretary with affectation retains love for bag on back",
     "enumeration": "7"
    },
-   "solution": "PAPOOSE"
+   "solution": "PAPOOSE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "PAPOOSE",
+    "definitions": [
+     {
+      "text": "bag on back",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retains",
+      "for": "container",
+      "note": "what retains something holds on to it, so 'affectation' keeps 'love' inside"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Secretary",
+      "gives": "PA",
+      "note": "PA = personal assistant, a secretary"
+     },
+     {
+      "clueFragment": "affectation",
+      "gives": "POSE",
+      "note": "a pose is an affected attitude"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, shaped like O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "PO",
+      "O",
+      "SE"
+     ]
+    },
+    "explanation": {
+     "surface": "A pretentious secretary carries a sweetheart's handbag on her shoulders.",
+     "walkthrough": "The bag carries a baby, so 'bag on back' is a playful description rather than a luggage term.",
+     "definitionFit": "A papoose is a pouch for carrying a baby, strapped to a parent's shoulders like a rucksack."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "bag"
+    }
+   }
   },
   {
    "number": 23,
@@ -393,7 +1549,62 @@
     "text": "Flat almost due for renovation characterised by old service system?",
     "enumeration": "6"
    },
-   "solution": "FEUDAL"
+   "solution": "FEUDAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "FEUDAL",
+    "definitions": [
+     {
+      "text": "characterised by old service system?",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost all of the word, so its final letter is left off"
+     },
+     {
+      "text": "for renovation",
+      "for": "anagram",
+      "note": "renovating a flat means rebuilding it, so the letters are rebuilt in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flat",
+      "gives": "FLAT",
+      "note": "taken literally before its tail is cut"
+     },
+     {
+      "clueFragment": "due",
+      "gives": "DUE",
+      "note": "taken as it stands, part of the fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FLA DUE",
+       "gives": "FEUDAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An apartment is nearly ready for refurbishment by old-fashioned servants.",
+     "walkthrough": "FLA plus DUE is the fodder. The medieval system had vassals serving lords in return for land.",
+     "definitionFit": "The medieval arrangement of land held in return for military service to a lord is called the feudal system."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Flat"
+    }
+   }
   },
   {
    "number": 24,
@@ -407,7 +1618,53 @@
     "text": "Upset a good one-time Conservative politician",
     "enumeration": "8"
    },
-   "solution": "AGGRIEVE"
+   "solution": "AGGRIEVE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AGGRIEVE",
+    "definitions": [
+     {
+      "text": "Upset",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article, used as is"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G = good"
+     },
+     {
+      "clueFragment": "one-time Conservative politician",
+      "gives": "GRIEVE",
+      "note": "Dominic Grieve, former Conservative Attorney General, expelled from the party in 2019"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "G",
+      "GRIEVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A former Tory MP once upset a party colleague.",
+     "walkthrough": "'Upset' reads as the past tense in the surface but is the present-tense verb defining the answer.",
+     "definitionFit": "To aggrieve someone is to distress or wrong them, making them feel resentful and hurt."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Upset"
+    }
+   }
   },
   {
    "number": 25,
@@ -421,7 +1678,51 @@
     "text": "Trophy shown by old man as relief in break?",
     "enumeration": "5"
    },
-   "solution": "CUPPA"
+   "solution": "CUPPA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CUPPA",
+    "definitions": [
+     {
+      "text": "relief in break?",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "shown by",
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trophy",
+      "gives": "CUP",
+      "note": "a cup is a sporting trophy"
+     },
+     {
+      "clueFragment": "old man",
+      "gives": "PA",
+      "note": "pa = father, one's old man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CUP",
+      "PA"
+     ]
+    },
+    "explanation": {
+     "surface": "Father shows off his trophy to relieve the boredom of a holiday.",
+     "walkthrough": "A cuppa is British slang for a cup of tea, the standard comfort in a tea break.",
+     "definitionFit": "A mug of tea drunk during a work pause is the classic British way to rest and recover."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "relief"
+    }
+   }
   },
   {
    "number": 26,
@@ -435,7 +1736,51 @@
     "text": "Sanctimonious type put pressure on doctor",
     "enumeration": "4"
    },
-   "solution": "PRIG"
+   "solution": "PRIG",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PRIG",
+    "definitions": [
+     {
+      "text": "Sanctimonious type",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "put",
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pressure",
+      "gives": "P",
+      "note": "P = pressure, as in physics"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "RIG",
+      "note": "to doctor results is to rig or falsify them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "RIG"
+     ]
+    },
+    "explanation": {
+     "surface": "A self-righteous person leans on a physician.",
+     "walkthrough": "'Doctor' looks like a medic but is the verb to falsify; 'put on' places the P in front.",
+     "definitionFit": "A prig is a self-righteous person who acts morally superior, a smug and holier-than-thou character."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "doctor"
+    }
+   }
   },
   {
    "number": 27,
@@ -455,7 +1800,63 @@
      }
     ]
    },
-   "solution": "REDFLAG"
+   "solution": "REDFLAG",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "RED FLAG",
+    "definitions": [
+     {
+      "text": "Sign one's left",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "having imbibed",
+      "for": "container",
+      "note": "whatever has imbibed something has taken it inside, so the cigarette swallows the litre"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wine",
+      "gives": "RED",
+      "note": "red = red wine"
+     },
+     {
+      "clueFragment": "cigarette",
+      "gives": "FAG",
+      "note": "fag is British slang for a cigarette"
+     },
+     {
+      "clueFragment": "litre",
+      "gives": "L",
+      "note": "L = litre"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RED",
+      "F",
+      "L",
+      "AG"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone signs out and leaves behind a glass of wine and a cigarette.",
+     "walkthrough": "'Left' is political here, not departed: the definition is a banner showing socialist sympathies.",
+     "definitionFit": "The red banner is the traditional emblem of socialism, so waving it shows allegiance to the political wing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 28,
@@ -469,7 +1870,43 @@
     "text": "Small hallowed bottles",
     "enumeration": "3"
    },
-   "solution": "LOW"
+   "solution": "LOW",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "LOW",
+    "definitions": [
+     {
+      "text": "Small",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bottles",
+      "for": "hidden_word",
+      "note": "a bottle holds its contents inside, just as the sacred word holds the answer within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hallowed",
+      "gives": "LOW",
+      "note": "sits in the middle of the word"
+     }
+    ],
+    "explanation": {
+     "surface": "Tiny flasks of holy water.",
+     "walkthrough": "'Bottles' looks like a noun but is the verb to contain: hal(LOW)ed.",
+     "definitionFit": "Low and small both describe something of little size or amount, as in low numbers or small numbers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bottles"
+    }
+   }
   },
   {
    "number": 29,
@@ -483,7 +1920,75 @@
     "text": "A Frenchman enthralled by Canadian singer beginning to dislike US crooner",
     "enumeration": "7"
    },
-   "solution": "DIAMOND"
+   "solution": "DIAMOND",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DIAMOND",
+    "definitions": [
+     {
+      "text": "US crooner",
+      "at": 63
+     }
+    ],
+    "indicators": [
+     {
+      "text": "enthralled by",
+      "for": "container",
+      "note": "something enthralled is held captive, so the singer's name holds the Frenchman"
+     },
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Canadian singer",
+      "gives": "DION",
+      "note": "Celine Dion, the Canadian pop star"
+     },
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "the article, used as is"
+     },
+     {
+      "clueFragment": "Frenchman",
+      "gives": "M",
+      "note": "M = Monsieur"
+     },
+     {
+      "clueFragment": "dislike",
+      "gives": "D",
+      "select": "first",
+      "note": "opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "A",
+      "M",
+      "ON",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A Frenchman is captivated by a Canadian star but has started to dislike an American singer.",
+     "walkthrough": "The whole surface is about singers, so the definition hides among them at the end.",
+     "definitionFit": "Neil Diamond is an American singer-songwriter of ballads such as Sweet Caroline, a classic popular vocalist."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Frenchman"
+    }
+   }
   },
   {
    "number": 30,
@@ -503,7 +2008,42 @@
      }
     ]
    },
-   "solution": "GODOWNHILL"
+   "solution": "GODOWNHILL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GO DOWNHILL",
+    "definitions": [
+     {
+      "text": "Deteriorate",
+      "at": 0
+     },
+     {
+      "text": "as a skier might?",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Deteriorate",
+      "note": "figuratively, to decline in quality or health"
+     },
+     {
+      "clueFragment": "as a skier might?",
+      "note": "literally, to descend a slope"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The same phrase is read figuratively and then literally; the question mark flags the playful second sense.",
+     "definitionFit": "To go downhill is an idiom for getting worse, and literally what someone on skis does descending a slope."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 31,
@@ -517,7 +2057,44 @@
     "text": "Display pottery for speaker",
     "enumeration": "4"
    },
-   "solution": "WEAR"
+   "solution": "WEAR",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "WEAR",
+    "definitions": [
+     {
+      "text": "Display",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for speaker",
+      "for": "homophone",
+      "note": "for someone speaking, only the sound counts, so the pottery word gives a same-sounding one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pottery",
+      "gives": "WEAR",
+      "soundsLike": "WARE",
+      "note": "ware = pottery, as in earthenware"
+     }
+    ],
+    "explanation": {
+     "surface": "Putting ceramics on show for a lecturer.",
+     "walkthrough": "To wear clothes or a smile is to display it.",
+     "definitionFit": "To wear a badge or expression is to show it openly, so the verb means exhibit or display."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "speaker"
+    }
+   }
   }
  ]
 }
