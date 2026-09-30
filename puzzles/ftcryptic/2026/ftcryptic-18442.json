@@ -24,6 +24,9 @@
   "date": "2026-08-03",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,62 @@
     "text": "Lancelot’s tips not needed for Camelot role",
     "enumeration": "5"
    },
-   "solution": "CAMEO"
+   "solution": "CAMEO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "CAMEO",
+    "definitions": [
+     {
+      "text": "role",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tips",
+      "for": "letter_selection",
+      "note": "the tips of a word are its two extremities, its first and last letters"
+     },
+     {
+      "text": "not needed for",
+      "for": "deletion",
+      "note": "what is not needed is thrown out, so those letters are removed from the word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Camelot",
+      "gives": "CAMELOT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Lancelot’s",
+      "gives": "LT",
+      "select": "outer",
+      "note": "the first and last letters of the knight's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAME",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "An Arthurian casting note: Lancelot's advice is not wanted for a part in a Camelot production.",
+     "walkthrough": "Strip L and T out of CAMELOT and CAMEO is left. 'Tips' sounds like advice from Lancelot but means his outer letters.",
+     "definitionFit": "A cameo is a small but distinctive acting part, often played by a famous performer, so it is a kind of role."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tips"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +109,67 @@
     "text": "Voice in opposition to Labour’s principal cuts",
     "enumeration": "9"
    },
-   "solution": "CONTRALTO"
+   "solution": "CONTRALTO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CONTRALTO",
+    "definitions": [
+     {
+      "text": "Voice",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "principal",
+      "for": "letter_selection",
+      "note": "the principal letter of a word is its leading one, the first"
+     },
+     {
+      "text": "cuts",
+      "for": "container",
+      "note": "something that cuts into a thing goes inside it, splitting it in two"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in opposition",
+      "gives": "CONTRA",
+      "note": "contra is Latin-derived for against"
+     },
+     {
+      "clueFragment": "Labour’s",
+      "gives": "L",
+      "select": "first",
+      "note": "the opening letter of Labour"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CONTRA",
+      "L",
+      "TO"
+     ]
+    },
+    "explanation": {
+     "surface": "A political complaint: an opposition voice objecting to cuts made by the Labour leader.",
+     "walkthrough": "'Cuts' looks like a noun about spending but is a verb: the leading letter slices into the middle of 'in opposition to'.",
+     "definitionFit": "A contralto is the lowest female singing voice, so the answer is a type of voice in the musical sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cuts"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +183,63 @@
     "text": "Collectors’ items from Malmo and Iberia needing repair",
     "enumeration": "11"
    },
-   "solution": "MEMORABILIA"
+   "solution": "MEMORABILIA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MEMORABILIA",
+    "definitions": [
+     {
+      "text": "Collectors’ items",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "needing repair",
+      "for": "anagram",
+      "note": "something in need of repair is broken, so the letters must be put back together in a new order"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Malmo",
+      "gives": "MALMO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "and",
+      "note": "joins the two place names"
+     },
+     {
+      "clueFragment": "Iberia",
+      "gives": "IBERIA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MALMOIBERIA",
+       "gives": "MEMORABILIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Souvenirs brought back from a Swedish city and the Spanish peninsula turn out to be damaged.",
+     "walkthrough": "The two place names together supply exactly eleven letters. Malmo is a city in Sweden and Iberia is the peninsula of Spain and Portugal.",
+     "definitionFit": "Memorabilia are objects kept or collected because of their link to famous people or events, the typical goods sought by collectors."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "repair"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +253,68 @@
     "text": "Folding business school taken on by old Rhode Island institute",
     "enumeration": "7"
    },
-   "solution": "ORIGAMI"
+   "solution": "ORIGAMI",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ORIGAMI",
+    "definitions": [
+     {
+      "text": "Folding business",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taken on by",
+      "for": "container",
+      "note": "a firm that takes on a recruit brings them inside, so one piece is held within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the standard abbreviation for old"
+     },
+     {
+      "clueFragment": "Rhode Island",
+      "gives": "RI",
+      "note": "RI is the postal abbreviation for the US state"
+     },
+     {
+      "clueFragment": "school",
+      "gives": "GAM",
+      "note": "a gam is a school of whales"
+     },
+     {
+      "clueFragment": "institute",
+      "gives": "I",
+      "note": "I is the abbreviation for institute"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "RI",
+      "GAM",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A business school folds and is absorbed by an old institute in Rhode Island.",
+     "walkthrough": "'Business school' reads as one phrase, but 'business' belongs with 'Folding' as the definition and 'school' alone gives GAM, a word for a group of whales.",
+     "definitionFit": "Origami is the Japanese art of folding paper into shapes, so it is the craft or business of folding."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Folding"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +328,62 @@
     "text": "Submission requiring house to accept honour for gold",
     "enumeration": "9"
    },
-   "solution": "OBEDIENCE"
+   "solution": "OBEDIENCE",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "OBEDIENCE",
+    "definitions": [
+     {
+      "text": "Submission",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to accept honour for gold",
+      "for": "substitution",
+      "note": "one thing is accepted for another, taking its place in the word"
+     }
+    ],
+    "linkWords": [
+     "requiring"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "house",
+      "gives": "AUDIENCE",
+      "note": "the house is the audience in a theatre"
+     },
+     {
+      "clueFragment": "honour",
+      "gives": "OBE",
+      "note": "the OBE is a British honour, Officer of the Order of the British Empire"
+     },
+     {
+      "clueFragment": "gold",
+      "gives": "AU",
+      "note": "Au is the chemical symbol for gold"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OBE",
+      "DIENCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A parliamentary story: a submission requires the House to accept an honour in place of payment in gold.",
+     "walkthrough": "'House' is a theatre audience, not a parliament; swap its AU for OBE and the answer appears.",
+     "definitionFit": "Submission as a noun means yielding to authority, and obedience is the act of complying with orders, so they are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "house"
+    }
+   }
   },
   {
    "number": 4,
@@ -107,7 +397,52 @@
     "text": "Musketeer, giving priority to love, makes vows",
     "enumeration": "5"
    },
-   "solution": "OATHS"
+   "solution": "OATHS",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "OATHS",
+    "definitions": [
+     {
+      "text": "vows",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "giving priority to love",
+      "for": "cycling",
+      "note": "giving something priority puts it first, so a letter at the end is brought round to the front"
+     }
+    ],
+    "linkWords": [
+     "makes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Musketeer",
+      "gives": "ATHOS",
+      "note": "Athos is one of Dumas's three musketeers; its final O stands for love, zero in tennis"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "ATHS"
+     ]
+    },
+    "explanation": {
+     "surface": "A dashing musketeer puts romance first and swears lover's vows.",
+     "walkthrough": "The O already sits at the end of ATHOS; moving it to the front turns the musketeer into the answer.",
+     "definitionFit": "Vows and oaths are both solemn promises, often sworn formally, so the plural nouns are straightforward synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 5,
@@ -121,7 +456,66 @@
     "text": "Supply gentle hint, mainly to improve understanding",
     "enumeration": "9"
    },
-   "solution": "ENLIGHTEN"
+   "solution": "ENLIGHTEN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ENLIGHTEN",
+    "definitions": [
+     {
+      "text": "improve understanding",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Supply",
+      "for": "anagram",
+      "note": "read as the adverb of supple, it means bent flexibly, so the letters are twisted into a new shape"
+     },
+     {
+      "text": "mainly",
+      "for": "deletion",
+      "note": "mainly means for the most part, so not quite all of the letters are kept"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gentle",
+      "gives": "GENTLE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hint",
+      "gives": "HIN",
+      "note": "the word loses its final letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GENTLEHIN",
+       "gives": "ENLIGHTEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Teaching advice: offer a gentle hint, mostly to help a pupil understand.",
+     "walkthrough": "'Supply' looks like the verb 'provide' but is being read as 'supple-ly', the anagram signal. Drop the T of hint, then rearrange the nine letters.",
+     "definitionFit": "To enlighten someone is to give them knowledge or insight, which is exactly to improve their understanding."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Supply"
+    }
+   }
   },
   {
    "number": 6,
@@ -135,7 +529,67 @@
     "text": "Maiden boosted French milk in Italy",
     "enumeration": "7"
    },
-   "solution": "INITIAL"
+   "solution": "INITIAL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "INITIAL",
+    "definitions": [
+     {
+      "text": "Maiden",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "boosted",
+      "for": "reversal",
+      "note": "in a down clue, boosting something lifts it upwards, so its letters read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Italy",
+      "gives": "I",
+      "note": "I is the international vehicle code for Italy"
+     },
+     {
+      "clueFragment": "French milk",
+      "gives": "LAIT",
+      "note": "lait is French for milk"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "I",
+      "TIAL"
+     ],
+     "reversals": [
+      {
+       "from": "LAIT",
+       "to": "TIAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A young woman is fortified by drinking French milk while in Italy.",
+     "walkthrough": "'Maiden' looks like a noun for a girl, but it is the adjective, as in a maiden voyage.",
+     "definitionFit": "A maiden voyage or speech is the first of its kind, and initial likewise means first or at the beginning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Maiden"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +603,62 @@
     "text": "Lad unknown in the superior parts of Neath",
     "enumeration": "3"
    },
-   "solution": "NYE"
+   "solution": "NYE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "NYE",
+    "definitions": [
+     {
+      "text": "Lad",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the superior parts of",
+      "for": "letter_selection",
+      "note": "in a down clue the superior or upper parts of a word are its opening letters, which sit on top"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one element placed in another goes inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Neath",
+      "gives": "NE",
+      "select": "first",
+      "note": "a first letter and the next one, the top of the Welsh town's name in a down entry"
+     },
+     {
+      "clueFragment": "unknown",
+      "gives": "Y",
+      "note": "algebra uses x, y and z for unknowns"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "Y",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A mysterious boy turns up in the upper part of Neath, a town in South Wales.",
+     "walkthrough": "Nye is a Welsh name, best known from the Labour politician Nye Bevan, which suits the Welsh town in the surface.",
+     "definitionFit": "The definition names a boy, and Nye is a boy's forename, a Welsh short form of Aneurin, so it is one example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "superior"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +672,49 @@
     "text": "Landlord mislays the first key",
     "enumeration": "5"
    },
-   "solution": "ENTER"
+   "solution": "ENTER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ENTER",
+    "definitions": [
+     {
+      "text": "key",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mislays the first",
+      "for": "deletion",
+      "note": "mislaying something means losing it, so the opening letter goes missing"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Landlord",
+      "gives": "RENTER",
+      "note": "a renter can be one who lets property out for rent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A careless landlord loses the first key he was given for the property.",
+     "walkthrough": "'Key' seems to belong to the landlord's door, but it is the definition: the key on a computer keyboard.",
+     "definitionFit": "Enter is the name of a keyboard key used to confirm input or start a new line, so it is one particular key."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "key"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +728,54 @@
     "text": "Setter’s attracted to number game",
     "enumeration": "3"
    },
-   "solution": "NIM"
+   "solution": "NIM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NIM",
+    "definitions": [
+     {
+      "text": "game",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "attracted to",
+      "for": "charade",
+      "note": "being attracted to something means sticking close beside it, so two parts join up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "number",
+      "gives": "N",
+      "note": "N is the abbreviation for number"
+     },
+     {
+      "clueFragment": "Setter’s",
+      "gives": "IM",
+      "note": "the setter refers to themself as I, so the setter's is I'm"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "IM"
+     ]
+    },
+    "explanation": {
+     "surface": "The setter confesses a fondness for a numbers game.",
+     "walkthrough": "The setter speaks as I, and the apostrophe S is read as 'is', giving I'M.",
+     "definitionFit": "Nim is a mathematical strategy game in which players take turns removing objects from heaps, so it is one kind of game."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "attracted"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +789,62 @@
     "text": "Smart little engine almost goes off the rails",
     "enumeration": "11"
    },
-   "solution": "INTELLIGENT"
+   "solution": "INTELLIGENT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "INTELLIGENT",
+    "definitions": [
+     {
+      "text": "Smart",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means nearly all, so the word falls one letter short"
+     },
+     {
+      "text": "goes off the rails",
+      "for": "anagram",
+      "note": "a train going off the rails is wrecked and disordered, so the letters are thrown into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "little",
+      "gives": "LITTLE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "engine",
+      "gives": "ENGIN",
+      "note": "the word without its last letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LITTLEENGIN",
+       "gives": "INTELLIGENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clever little railway engine very nearly derails.",
+     "walkthrough": "The railway picture fits the anagram signal naturally, which disguises it; drop the final E of engine before rearranging.",
+     "definitionFit": "Smart in the sense of clever or quick-witted is a plain synonym of intelligent, both describing mental ability."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Smart"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +858,63 @@
     "text": "Looks again at communists’ screening with reference to Austria",
     "enumeration": "7"
    },
-   "solution": "REREADS"
+   "solution": "REREADS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "REREADS",
+    "definitions": [
+     {
+      "text": "Looks again at",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "screening",
+      "for": "container",
+      "note": "a screen surrounds and shields what it hides, so one part encloses another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "communists’",
+      "gives": "REDS",
+      "note": "Reds is a common nickname for communists"
+     },
+     {
+      "clueFragment": "with reference to",
+      "gives": "RE",
+      "note": "re means concerning, as in a letter heading"
+     },
+     {
+      "clueFragment": "Austria",
+      "gives": "A",
+      "note": "A is the international vehicle code for Austria"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "RE",
+      "A",
+      "DS"
+     ]
+    },
+    "explanation": {
+     "surface": "A cold-war review: someone studies communist film showings a second time, looking for Austrian connections.",
+     "walkthrough": "'Screening' suggests showing films, but here it means hiding something from view. RE is the letter-heading word for 'concerning'.",
+     "definitionFit": "To reread a text is to go through it once more, which is to look again at it; both are verb phrases in the third person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "screening"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +928,63 @@
     "text": "Finally starting second half of raunchy novel that commands attention",
     "enumeration": "7"
    },
-   "solution": "GRIPPER"
+   "solution": "GRIPPER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "charade"
+    ],
+    "answer": "GRIPPER",
+    "definitions": [
+     {
+      "text": "that commands attention",
+      "at": 46,
+      "note": "read as 'something that commands attention'"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Finally",
+      "for": "letter_selection",
+      "note": "finally points to the very end, so only the closing letter is kept"
+     },
+     {
+      "text": "second half of",
+      "for": "deletion",
+      "note": "keeping only the latter half of a phrase means the front half is thrown away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "starting",
+      "gives": "G",
+      "select": "last",
+      "note": "the closing letter of the word"
+     },
+     {
+      "clueFragment": "raunchy novel",
+      "gives": "BODICERIPPER",
+      "note": "a bodice-ripper is a steamy romantic novel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "RIPPER"
+     ]
+    },
+    "explanation": {
+     "surface": "A reader describes finally getting into the racy second half of a page-turner.",
+     "walkthrough": "'Finally starting' reads as 'at last beginning', but it asks for the final letter of 'starting'. Only the second half of the two-word novel type is kept.",
+     "definitionFit": "Something that grips holds an audience's interest tightly, so a gripper is anything that seizes and holds attention."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "starting"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +998,95 @@
     "text": "Pub upset traditional beer lobby with its misguided introduction of siphonic dispensers",
     "enumeration": "11"
    },
-   "solution": "PHARMACISTS"
+   "solution": "PHARMACISTS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "PHARMACISTS",
+    "definitions": [
+     {
+      "text": "dispensers",
+      "at": 77
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down clue, upsetting something tips it over, so it reads from bottom to top"
+     },
+     {
+      "text": "misguided",
+      "for": "anagram",
+      "note": "misguided means led astray, so these letters wander out of order"
+     },
+     {
+      "text": "introduction of",
+      "for": "letter_selection",
+      "note": "the introduction of a word is its opening, so its first letter is taken"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pub",
+      "gives": "PH",
+      "note": "PH is the abbreviation for public house, as on maps"
+     },
+     {
+      "clueFragment": "traditional beer lobby",
+      "gives": "CAMRA",
+      "note": "CAMRA is the Campaign for Real Ale, the British pressure group for traditional beer"
+     },
+     {
+      "clueFragment": "its",
+      "gives": "ITS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "siphonic",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PH",
+      "ARMAC",
+      "ISTS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ITSS",
+       "gives": "ISTS"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "CAMRA",
+       "to": "ARMAC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pub owner is annoyed that the real-ale lobby wrongly brought in siphon-style beer dispensers.",
+     "walkthrough": "'Dispensers' seems to be beer taps, but it means people who dispense medicine. CAMRA is the Campaign for Real Ale, a British consumer group.",
+     "definitionFit": "Pharmacists prepare and hand out prescribed medicines, a job described as dispensing, so they are dispensers of drugs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dispensers"
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +1100,69 @@
     "text": "Grease both sides pinching tube’s lining — I’m incapable",
     "enumeration": "9"
    },
-   "solution": "LUBRICANT"
+   "solution": "LUBRICANT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "LUBRICANT",
+    "definitions": [
+     {
+      "text": "Grease",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lining",
+      "for": "letter_selection",
+      "note": "a lining sits on the inside, so only the inner letters are taken"
+     },
+     {
+      "text": "pinching",
+      "for": "container",
+      "note": "to pinch is to squeeze and hold tight, so one piece grips another inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "both sides",
+      "gives": "LR",
+      "note": "left and right, the two sides, abbreviated L and R"
+     },
+     {
+      "clueFragment": "tube’s",
+      "gives": "UB",
+      "select": "middle",
+      "note": "the two inner letters of the word"
+     },
+     {
+      "clueFragment": "I’m incapable",
+      "gives": "ICANT",
+      "note": "if I am incapable, I can't"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "UB",
+      "R",
+      "ICANT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asked to grease both sides of a tube's lining protests that they are not able to.",
+     "walkthrough": "'Grease' looks like an instruction verb but is the noun definition. L and R hold UB, then I CAN'T follows.",
+     "definitionFit": "Grease is an oily substance used to reduce friction between moving parts, which is what a lubricant is, so the nouns match."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Grease"
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +1176,64 @@
     "text": "Once more losing heart attending tribunal. It’s a battle",
     "enumeration": "9"
    },
-   "solution": "AGINCOURT"
+   "solution": "AGINCOURT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "AGINCOURT",
+    "definitions": [
+     {
+      "text": "battle",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing heart",
+      "for": "deletion",
+      "note": "losing its heart means the middle letter is taken out"
+     },
+     {
+      "text": "attending",
+      "for": "charade",
+      "note": "attending means being present alongside, so one part sits next to another"
+     }
+    ],
+    "linkWords": [
+     "It’s a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Once more",
+      "gives": "AGAIN",
+      "note": "a synonym, with its middle letter to be dropped"
+     },
+     {
+      "clueFragment": "tribunal",
+      "gives": "COURT",
+      "note": "a tribunal is a kind of court"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AGIN",
+      "COURT"
+     ]
+    },
+    "explanation": {
+     "surface": "A dispirited litigant returns to the tribunal yet again, finding the process a real struggle.",
+     "walkthrough": "'It's a battle' sounds like a weary complaint about the tribunal, but it is the definition. AGAIN loses its central A.",
+     "definitionFit": "Agincourt was the 1415 engagement in which Henry V's English army defeated the French, a famous named battle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "battle"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +1247,70 @@
     "text": "Climber in trouble, needing sodium infusion, suffers relapse",
     "enumeration": "5"
    },
-   "solution": "LIANA"
+   "solution": "LIANA",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "LIANA",
+    "definitions": [
+     {
+      "text": "Climber",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "infusion",
+      "for": "container",
+      "note": "an infusion is something poured into another thing, so one part goes inside"
+     },
+     {
+      "text": "suffers relapse",
+      "for": "reversal",
+      "note": "a relapse is a sliding back, so the letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "in",
+     "needing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trouble",
+      "gives": "AIL",
+      "note": "to ail is to trouble, as in 'what ails you?'"
+     },
+     {
+      "clueFragment": "sodium",
+      "gives": "NA",
+      "note": "Na is the chemical symbol for sodium"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIANA"
+     ],
+     "reversals": [
+      {
+       "from": "ANAIL",
+       "to": "LIANA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mountaineer in difficulty needs a salt drip and then gets ill again.",
+     "walkthrough": "'Climber' suggests a mountaineer, but it is a plant. 'Infusion' fits the hospital picture, hiding that it only means putting something inside.",
+     "definitionFit": "A liana is a long woody vine that climbs up trees in tropical forests, so it is a climbing plant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Climber"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +1324,61 @@
     "text": "Claim Trump’s behind old flame being released from trial",
     "enumeration": "9"
    },
-   "solution": "ASSERTION"
+   "solution": "ASSERTION",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ASSERTION",
+    "definitions": [
+     {
+      "text": "Claim",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being released from",
+      "for": "deletion",
+      "note": "being released from something means leaving it, so those letters are taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trump’s behind",
+      "gives": "ASS",
+      "note": "ass is American slang for the backside, fitting an American president"
+     },
+     {
+      "clueFragment": "trial",
+      "gives": "EXERTION",
+      "note": "an exertion is a trying effort, a trial"
+     },
+     {
+      "clueFragment": "old flame",
+      "gives": "EX",
+      "note": "an ex is a former partner"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASS",
+      "ERTION"
+     ]
+    },
+    "explanation": {
+     "surface": "A tabloid claim: Trump stands behind a former lover as she is freed from a court trial.",
+     "walkthrough": "'Trump's behind' reads as 'Trump supports', but it is his rear, in American slang. EX leaves EXERTION.",
+     "definitionFit": "A claim is a statement put forward as true, and an assertion is a confident declaration of the same kind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "behind"
+    }
+   }
   },
   {
    "number": 18,
@@ -303,7 +1392,65 @@
     "text": "Men taking fillies regularly aboard ship",
     "enumeration": "5"
    },
-   "solution": "OILER"
+   "solution": "OILER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "OILER",
+    "definitions": [
+     {
+      "text": "ship",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter is kept"
+     },
+     {
+      "text": "taking",
+      "for": "container",
+      "note": "taking something in holds it, so one part goes inside the other"
+     }
+    ],
+    "linkWords": [
+     "aboard"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Men",
+      "gives": "OR",
+      "note": "OR, other ranks, means soldiers who are not officers"
+     },
+     {
+      "clueFragment": "fillies",
+      "gives": "ILE",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "ILE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Soldiers bring young female horses on board a vessel.",
+     "walkthrough": "'Men' is OR, other ranks, a standard crossword abbreviation. Take the even letters of 'fillies'.",
+     "definitionFit": "An oiler is a tanker vessel that carries oil fuel and refuels other vessels at sea, so it is a type of ship."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fillies"
+    }
+   }
   },
   {
    "number": 19,
@@ -317,7 +1464,57 @@
     "text": "Wine served up in can is terrible",
     "enumeration": "7"
    },
-   "solution": "RETSINA"
+   "solution": "RETSINA",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "RETSINA",
+    "definitions": [
+     {
+      "text": "Wine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the answer is found inside the run of words that follows"
+     },
+     {
+      "text": "served up",
+      "for": "reversal",
+      "note": "in a down clue, serving something up sends it upwards, so it reads from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "can is terrible",
+      "gives": "ANISTER",
+      "note": "a run of letters spanning the three words"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "ANISTER",
+       "to": "RETSINA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that wine served in a can tastes awful.",
+     "walkthrough": "The letters run across 'can is ter', and read upward in the grid. The joke is that this Greek wine has a reputation for tasting of pine resin.",
+     "definitionFit": "Retsina is a Greek white or rosé flavoured with pine resin, so it is one kind of wine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "served"
+    }
+   }
   },
   {
    "number": 20,
@@ -331,7 +1528,57 @@
     "text": "I know nothing amusing or novel",
     "enumeration": "9"
    },
-   "solution": "IGNORAMUS"
+   "solution": "IGNORAMUS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IGNORAMUS",
+    "definitions": [
+     {
+      "text": "I know nothing",
+      "at": 0,
+      "note": "a remark the answer might make, standing for the person"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "novel",
+      "for": "anagram",
+      "note": "novel means new, so the letters take on a new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "amusing",
+      "gives": "AMUSING",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "or",
+      "gives": "OR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AMUSINGOR",
+       "gives": "IGNORAMUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A modest reviewer admits they cannot tell whether a book is funny or original.",
+     "walkthrough": "'Novel' looks like a noun for a book, but it is the adjective meaning new, signalling the rearrangement.",
+     "definitionFit": "An ignoramus is an ignorant, uninformed person, the sort who would honestly have to confess to having no knowledge at all."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "novel"
+    }
+   }
   },
   {
    "number": 21,
@@ -351,7 +1598,66 @@
      }
     ]
    },
-   "solution": "REDDEER"
+   "solution": "REDDEER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "RED DEER",
+    "definitions": [
+     {
+      "text": "Grazer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last bit of",
+      "for": "letter_selection",
+      "note": "the last bit of a word is its final letter"
+     },
+     {
+      "text": "scoffing",
+      "for": "container",
+      "note": "scoffing means eating greedily, and what is eaten ends up inside"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "relatively ashamed",
+      "gives": "REDDER",
+      "note": "more red-faced, the comparative of embarrassed-looking red"
+     },
+     {
+      "clueFragment": "lettuce",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REDD",
+      "E",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "An animal caught gobbling the end of the salad looks rather embarrassed.",
+     "walkthrough": "'Relatively' means comparatively here, turning red into its comparative form.",
+     "definitionFit": "Red deer feed on grass and other plants, and a grazer is any animal that feeds on growing grass, so they are an example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "relatively"
+    }
+   }
   },
   {
    "number": 22,
@@ -365,7 +1671,55 @@
     "text": "Wine company accepts credit cards",
     "enumeration": "7"
    },
-   "solution": "PLASTIC"
+   "solution": "PLASTIC",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PLASTIC",
+    "definitions": [
+     {
+      "text": "credit cards",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accepts",
+      "for": "container",
+      "note": "accepting something means taking it in, so one part goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "company",
+      "gives": "PLC",
+      "note": "plc is a public limited company in Britain"
+     },
+     {
+      "clueFragment": "Wine",
+      "gives": "ASTI",
+      "note": "Asti is an Italian sparkling wine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PL",
+      "ASTI",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "A wine merchant takes payment by card.",
+     "walkthrough": "'Wine company' reads as a single business, but the wine sits inside the company abbreviation, a British public limited company.",
+     "definitionFit": "Plastic is informal shorthand for credit and debit cards collectively, as in 'Do you take plastic?'"
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "accepts"
+    }
+   }
   },
   {
    "number": 22,
@@ -379,7 +1733,56 @@
     "text": "Nutty type about to be confined",
     "enumeration": "5"
    },
-   "solution": "PECAN"
+   "solution": "PECAN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PECAN",
+    "definitions": [
+     {
+      "text": "Nutty type",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be confined",
+      "for": "container",
+      "note": "being confined means being shut in, so one part is enclosed by another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "CA",
+      "note": "ca, short for circa, means about"
+     },
+     {
+      "clueFragment": "confined",
+      "gives": "PEN",
+      "note": "to pen is to confine, and a pen is an enclosure"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PE",
+      "CA",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A crazy person is about to be locked up.",
+     "walkthrough": "'Nutty type' suggests a madman, but it is a kind of nut. 'Confined' does double duty, supplying the enclosure PEN as well as the idea of shutting in.",
+     "definitionFit": "The pecan is a variety of nut from a North American hickory tree, so it is literally one type of nut."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Nutty"
+    }
+   }
   },
   {
    "number": 23,
@@ -393,7 +1796,66 @@
     "text": "Perhaps a slimmer sort of don, not American, found around University College?",
     "enumeration": "7"
    },
-   "solution": "REDUCER"
+   "solution": "REDUCER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "REDUCER",
+    "definitions": [
+     {
+      "text": "Perhaps a slimmer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not means without, so the named letter is removed"
+     },
+     {
+      "text": "found around",
+      "for": "container",
+      "note": "being found around something means surrounding it, so one part encloses another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sort of don",
+      "gives": "READER",
+      "note": "a reader is a senior university lecturer in Britain"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is the abbreviation for American"
+     },
+     {
+      "clueFragment": "University College",
+      "gives": "UC",
+      "note": "the initials of University College"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RED",
+      "UC",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A thin academic, not American, is spotted near a university college.",
+     "walkthrough": "In British universities a reader is a senior academic rank just below professor, so it is a sort of don. The question mark and 'Perhaps' flag the definition as an example.",
+     "definitionFit": "A slimmer is someone trying to lose weight, which is one kind of person who reduces, hence an example of a reducer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "slimmer"
+    }
+   }
   },
   {
    "number": 23,
@@ -407,7 +1869,51 @@
     "text": "Selection of peeled fruit",
     "enumeration": "5"
    },
-   "solution": "RANGE"
+   "solution": "RANGE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RANGE",
+    "definitions": [
+     {
+      "text": "Selection",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "peeled",
+      "for": "deletion",
+      "note": "peeling strips off the outer skin, so the first and last letters go"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fruit",
+      "gives": "ORANGES",
+      "note": "oranges are a citrus fruit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RANGE"
+     ]
+    },
+    "explanation": {
+     "surface": "An assortment of fruit with the skins already removed.",
+     "walkthrough": "Peeling fruit suits oranges in the surface, which hides that the outer letters of the word are being stripped.",
+     "definitionFit": "A range of goods is a selection or assortment of them on offer, as in a shop's product range."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "peeled"
+    }
+   }
   },
   {
    "number": 24,
@@ -421,7 +1927,65 @@
     "text": "Duration of study time suffering 50% cut, by suggestion",
     "enumeration": "11"
    },
-   "solution": "CONTINUANCE"
+   "solution": "CONTINUANCE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "CONTINUANCE",
+    "definitions": [
+     {
+      "text": "Duration",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "suffering 50% cut",
+      "for": "deletion",
+      "note": "undergoing a cut of half means half the letters are lost"
+     }
+    ],
+    "linkWords": [
+     "of",
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "study",
+      "gives": "CON",
+      "note": "to con is an old word for to study"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "TIME",
+      "note": "taken as written, then halved"
+     },
+     {
+      "clueFragment": "suggestion",
+      "gives": "NUANCE",
+      "note": "a nuance is a subtle suggestion or shade of meaning"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "TI",
+      "NUANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A student's hours for study are halved, according to a recommendation.",
+     "walkthrough": "'Suffering' looks like a noun but applies to 'time', which loses its second half.",
+     "definitionFit": "Continuance means the state of lasting or going on, which is how long something continues, i.e. its duration."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "suffering"
+    }
+   }
   },
   {
    "number": 25,
@@ -435,7 +1999,58 @@
     "text": "As things stand, there’s nothing to separate opposing players",
     "enumeration": "3"
    },
-   "solution": "NOW"
+   "solution": "NOW",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NOW",
+    "definitions": [
+     {
+      "text": "As things stand",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to separate",
+      "for": "container",
+      "note": "to separate two things something must come between them"
+     }
+    ],
+    "linkWords": [
+     "there’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "opposing players",
+      "gives": "NW",
+      "note": "in bridge, North and West sit on opposing sides"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "O looks like zero"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "O",
+      "W"
+     ]
+    },
+    "explanation": {
+     "surface": "A commentator notes that at this stage the two teams are level.",
+     "walkthrough": "The surface is a match report with nothing between the sides; the players are bridge seats, where North and West are opponents.",
+     "definitionFit": "'As things stand' means at the present moment, which is what now means as an adverb of present time."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "players"
+    }
+   }
   },
   {
    "number": 26,
@@ -449,7 +2064,54 @@
     "text": "Runner hides apart from East End Poles",
     "enumeration": "3"
    },
-   "solution": "SKI"
+   "solution": "SKI",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SKI",
+    "definitions": [
+     {
+      "text": "Runner",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "apart from",
+      "for": "deletion",
+      "note": "apart from means excluding, so the named letters are left out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hides",
+      "gives": "SKINS",
+      "note": "animal hides are skins"
+     },
+     {
+      "clueFragment": "East End Poles",
+      "gives": "NS",
+      "note": "North and South, the poles, sitting at the right-hand, eastern end of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SKI"
+     ]
+    },
+    "explanation": {
+     "surface": "A fugitive hides out with some Polish people in London's East End.",
+     "walkthrough": "'Runner' is a fugitive in the surface, but it is a thing that runs over snow. The East End here is the right-hand end of the word, not the London district.",
+     "definitionFit": "Sledges and skis are called runners because they slide along the snow, so a ski is one kind of runner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Poles"
+    }
+   }
   },
   {
    "number": 27,
@@ -463,7 +2125,75 @@
     "text": "North Wales sect denied beginning to unsettle city",
     "enumeration": "9"
    },
-   "solution": "NEWCASTLE"
+   "solution": "NEWCASTLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "anagram"
+    ],
+    "answer": "NEWCASTLE",
+    "definitions": [
+     {
+      "text": "city",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "denied beginning",
+      "for": "deletion",
+      "note": "being denied a beginning means the first letter is withheld"
+     },
+     {
+      "text": "unsettle",
+      "for": "anagram",
+      "note": "to unsettle is to disturb, so the letters are knocked out of order"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "North",
+      "gives": "N",
+      "note": "N is the abbreviation for north"
+     },
+     {
+      "clueFragment": "Wales",
+      "gives": "WALES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sect",
+      "gives": "ECT",
+      "note": "the word without its first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "EWCASTLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "WALESECT",
+       "gives": "EWCASTLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A religious sect in North Wales is refused permission to begin unsettling a city.",
+     "walkthrough": "'North Wales' reads as one region, but North gives N on its own while Wales joins the anagram.",
+     "definitionFit": "Newcastle upon Tyne is a major city in north-east England, so the answer is a particular example of a city."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "North"
+    }
+   }
   },
   {
    "number": 28,
@@ -477,7 +2207,43 @@
     "text": "Something aromatic from Benares — incense?",
     "enumeration": "5"
    },
-   "solution": "RESIN"
+   "solution": "RESIN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "RESIN",
+    "definitions": [
+     {
+      "text": "Something aromatic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from",
+      "for": "hidden_word",
+      "note": "taken from the words that follow, so the answer is a run of letters inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Benares — incense",
+      "gives": "RESIN",
+      "note": "a run of letters spanning the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A fragrant offering from the Hindu holy city of Benares, perhaps incense?",
+     "walkthrough": "Benares, now Varanasi, is the Indian holy city on the Ganges, where incense is burned. The question mark hints that resin is only one aromatic possibility.",
+     "definitionFit": "Resins such as frankincense and myrrh are fragrant tree saps burnt for their scent, so a resin is something aromatic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "incense"
+    }
+   }
   }
  ]
 }
