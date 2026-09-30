@@ -23,6 +23,9 @@
   "date": "2018-05-07",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,55 @@
     "text": "Superman’s girl is about to drop Italian dish",
     "enumeration": "7"
    },
-   "solution": "LASAGNE"
+   "solution": "LASAGNE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LASAGNE",
+    "definitions": [
+     {
+      "text": "Italian dish",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is about",
+      "for": "container",
+      "note": "to be about something is to stand around it, so one piece goes round the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Superman’s girl",
+      "gives": "LANE",
+      "note": "Lois Lane is Superman's girlfriend in the comics"
+     },
+     {
+      "clueFragment": "to drop",
+      "gives": "SAG",
+      "note": "to sag is to droop or drop"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LA",
+      "SAG",
+      "NE"
+     ]
+    },
+    "explanation": {
+     "surface": "Lois Lane is about to let an Italian dish fall.",
+     "walkthrough": "'Is about to drop' reads as a single threat of falling; split it, and 'is about' is the holding signal while 'to drop' is a verb in its own right.",
+     "definitionFit": "Lasagne is a baked pasta dish from Italy, layered with sauce and cheese."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drop"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +101,48 @@
     "text": "Green gunk, skimmed",
     "enumeration": "4"
    },
-   "solution": "LIME"
+   "solution": "LIME",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LIME",
+    "definitions": [
+     {
+      "text": "Green",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "skimmed",
+      "for": "deletion",
+      "note": "skimming takes off the top layer, so the first letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gunk",
+      "gives": "SLIME",
+      "note": "slime is sticky gunk"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIME"
+     ]
+    },
+    "explanation": {
+     "surface": "Green scum is being skimmed off the surface of a pond.",
+     "walkthrough": "In a down clue the top is the first letter, so skimming SLIME loses its S.",
+     "definitionFit": "Lime is a bright yellowish shade of the colour, named after the citrus fruit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "skimmed"
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +156,66 @@
     "text": "Having had a few seconds, one brushed up on geometry in the end",
     "enumeration": "7"
    },
-   "solution": "SQUIFFY"
+   "solution": "SQUIFFY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SQUIFFY",
+    "definitions": [
+     {
+      "text": "Having had a few",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in the end",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, so only that letter is kept"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seconds",
+      "gives": "S",
+      "note": "S is the abbreviation for seconds"
+     },
+     {
+      "clueFragment": "one brushed up",
+      "gives": "QUIFF",
+      "note": "a quiff is hair brushed up and back from the forehead"
+     },
+     {
+      "clueFragment": "geometry",
+      "gives": "Y",
+      "select": "last",
+      "note": "final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "QUIFF",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who has had a few seconds to spare revises geometry at the last moment.",
+     "walkthrough": "'A few seconds' looks like a phrase about time, but the definition is 'Having had a few', meaning drinks. Squiffy is British slang for slightly drunk.",
+     "definitionFit": "Someone who has had a few drinks is tipsy, and squiffy is a colloquial word for that tipsy state."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "few"
+    }
+   }
   },
   {
    "number": 3,
@@ -78,7 +229,41 @@
     "text": "Entire amount, repellent",
     "enumeration": "5"
    },
-   "solution": "GROSS"
+   "solution": "GROSS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GROSS",
+    "definitions": [
+     {
+      "text": "Entire amount",
+      "at": 0
+     },
+     {
+      "text": "repellent",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Entire amount",
+      "note": "first meaning: the total before deductions"
+     },
+     {
+      "clueFragment": "repellent",
+      "note": "second meaning: disgusting"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Two unrelated senses of one word sit side by side, separated only by the comma.",
+     "definitionFit": "Gross pay is the whole sum before tax, and something gross is disgusting or revolting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -92,7 +277,69 @@
     "text": "Flag yours truly raised, with America retaining title",
     "enumeration": "8"
    },
-   "solution": "EMERITUS"
+   "solution": "EMERITUS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "EMERITUS",
+    "definitions": [
+     {
+      "text": "retaining title",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "in a down clue, raising something lifts it upwards so it reads from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flag",
+      "gives": "TIRE",
+      "note": "to flag is to tire or weaken"
+     },
+     {
+      "clueFragment": "yours truly",
+      "gives": "ME",
+      "note": "the setter refers to themself"
+     },
+     {
+      "clueFragment": "America",
+      "gives": "US",
+      "note": "abbreviation for the United States"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMERIT",
+      "US"
+     ],
+     "reversals": [
+      {
+       "from": "TIREME",
+       "to": "EMERIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone raises their own flag, with America keeping hold of a title.",
+     "walkthrough": "'Flag' looks like a banner but is the verb meaning to tire. 'Retaining' looks like a container signal but belongs to the definition.",
+     "definitionFit": "An emeritus professor keeps the honorary rank after retiring from the post."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Flag"
+    }
+   }
   },
   {
    "number": 5,
@@ -106,7 +353,43 @@
     "text": "Rubbish plant used as dessert",
     "enumeration": "7"
    },
-   "solution": "RHUBARB"
+   "solution": "RHUBARB",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RHUBARB",
+    "definitions": [
+     {
+      "text": "Rubbish",
+      "at": 0
+     },
+     {
+      "text": "plant used as dessert",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rubbish",
+      "note": "first meaning: nonsense, empty talk"
+     },
+     {
+      "clueFragment": "plant used as dessert",
+      "note": "second meaning: the pink-stalked vegetable stewed in puddings"
+     }
+    ],
+    "explanation": {
+     "surface": "A worthless weed has been served up as pudding.",
+     "walkthrough": "Rhubarb is British slang for nonsense, from actors muttering the word to make background chatter.",
+     "definitionFit": "The plant's sour stalks are cooked with sugar in crumbles and pies, and the word also means nonsense talk."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Rubbish"
+    }
+   }
   },
   {
    "number": 5,
@@ -120,7 +403,58 @@
     "text": "Male feeding horses in book",
     "enumeration": "6"
    },
-   "solution": "ROMANS"
+   "solution": "ROMANS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ROMANS",
+    "definitions": [
+     {
+      "text": "book",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "feeding",
+      "for": "container",
+      "note": "food fed to an animal goes inside it, so one piece is put within another"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Male",
+      "gives": "M",
+      "note": "M is the abbreviation for male"
+     },
+     {
+      "clueFragment": "horses",
+      "gives": "ROANS",
+      "note": "roans are horses with a mixed-coloured coat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RO",
+      "M",
+      "ANS"
+     ]
+    },
+    "explanation": {
+     "surface": "A man feeding horses appears in a book.",
+     "walkthrough": "The book is a biblical one: Paul's Epistle to the Romans in the New Testament.",
+     "definitionFit": "Romans is one of the New Testament books, a letter written by Saint Paul."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "feeding"
+    }
+   }
   },
   {
    "number": 6,
@@ -134,7 +468,61 @@
     "text": "Fun unfortunately suffering for sure",
     "enumeration": "9"
    },
-   "solution": "UNFAILING"
+   "solution": "UNFAILING",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "UNFAILING",
+    "definitions": [
+     {
+      "text": "for sure",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfortunately",
+      "for": "anagram",
+      "note": "something that has gone unfortunately has gone wrong, so the letters come out in a wrong order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fun",
+      "gives": "FUN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "suffering",
+      "gives": "AILING",
+      "note": "ailing means ill or suffering"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNF",
+      "AILING"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FUN",
+       "gives": "UNF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Having fun, unfortunately, means certain suffering later.",
+     "walkthrough": "'Unfortunately' reads as a comment on the fun, but it only rearranges three letters.",
+     "definitionFit": "Something unfailing never lets you down, so it can be relied upon with complete certainty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "unfortunately"
+    }
+   }
   },
   {
    "number": 7,
@@ -148,7 +536,61 @@
     "text": "Way to stuff a European champion",
     "enumeration": "7"
    },
-   "solution": "APOSTLE"
+   "solution": "APOSTLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "APOSTLE",
+    "definitions": [
+     {
+      "text": "champion",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to stuff",
+      "for": "container",
+      "note": "stuffing fills something, so one piece is packed inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "POLE",
+      "note": "a Pole is a person from Poland"
+     },
+     {
+      "clueFragment": "Way",
+      "gives": "ST",
+      "note": "ST is the abbreviation for street"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "PO",
+      "ST",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A route found to fill a European champion with food.",
+     "walkthrough": "'Champion' suggests a sports winner, but here it means someone who promotes a cause.",
+     "definitionFit": "An apostle is a passionate advocate for an idea, just as a champion supports and promotes a cause."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "champion"
+    }
+   }
   },
   {
    "number": 8,
@@ -162,7 +604,62 @@
     "text": "American man crushing queen like a snake",
     "enumeration": "10"
    },
-   "solution": "BUSHMASTER"
+   "solution": "BUSHMASTER",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "BUSHMASTER",
+    "definitions": [
+     {
+      "text": "a snake",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crushing",
+      "for": "container",
+      "note": "crushing something holds it tightly in a grip, so one piece clasps others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American man",
+      "gives": "BUSTER",
+      "note": "buster is an American way of addressing a man"
+     },
+     {
+      "clueFragment": "queen",
+      "gives": "HM",
+      "note": "HM is Her Majesty"
+     },
+     {
+      "clueFragment": "like",
+      "gives": "AS",
+      "note": "as means in the manner of, like"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUS",
+      "HM",
+      "AS",
+      "TER"
+     ]
+    },
+    "explanation": {
+     "surface": "An American man crushes a queen as a snake would.",
+     "walkthrough": "'Like a snake' seems to describe the crushing, but 'like' supplies AS and 'a snake' is the definition. BUSH tempts as the American; it leaves nothing workable.",
+     "definitionFit": "The bushmaster is a large venomous pit viper found in Central and South America."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "like"
+    }
+   }
   },
   {
    "number": 9,
@@ -176,7 +673,67 @@
     "text": "Large tomb, parent bagging a posh one",
     "enumeration": "9"
    },
-   "solution": "MAUSOLEUM"
+   "solution": "MAUSOLEUM",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MAUSOLEUM",
+    "definitions": [
+     {
+      "text": "Large tomb",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bagging",
+      "for": "container",
+      "note": "to bag something is to put it into a bag, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "parent",
+      "gives": "MUM",
+      "note": "mum is mother"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "posh",
+      "gives": "U",
+      "note": "U means upper-class"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "SOLE",
+      "note": "sole means only, single"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "A",
+      "U",
+      "SOLE",
+      "UM"
+     ]
+    },
+    "explanation": {
+     "surface": "A parent secures a grand tomb for one well-to-do person.",
+     "walkthrough": "U for upper-class is a crossword convention from Nancy Mitford's U and non-U usage.",
+     "definitionFit": "A mausoleum is a large stately building housing a burial chamber, named after King Mausolus."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bagging"
+    }
+   }
   },
   {
    "number": 10,
@@ -190,7 +747,47 @@
     "text": "Fine no longer having clean teeth",
     "enumeration": "5"
    },
-   "solution": "FLOSS"
+   "solution": "FLOSS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FLOSS",
+    "definitions": [
+     {
+      "text": "clean teeth",
+      "at": 22
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fine",
+      "gives": "F",
+      "note": "F is the pencil-grade abbreviation for fine"
+     },
+     {
+      "clueFragment": "no longer having",
+      "gives": "LOSS",
+      "note": "loss is the state of no longer having something"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "LOSS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is no longer in good shape because they skipped brushing.",
+     "walkthrough": "'No longer having' looks like a deletion signal, but it is a definition of a noun in its own right.",
+     "definitionFit": "To floss is to clean between the teeth with a waxed thread."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fine"
+    }
+   }
   },
   {
    "number": 11,
@@ -210,7 +807,44 @@
      }
     ]
    },
-   "solution": "FASHIONVICTIM"
+   "solution": "FASHIONVICTIM",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FASHION VICTIM",
+    "definitions": [
+     {
+      "text": "Mink possibly",
+      "at": 0
+     },
+     {
+      "text": "clothing slave",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mink possibly",
+      "note": "first meaning: an animal killed so its fur can be worn, sacrificed to style"
+     },
+     {
+      "clueFragment": "clothing slave",
+      "note": "second meaning: a person in thrall to whatever is currently being worn"
+     }
+    ],
+    "explanation": {
+     "surface": "A mink is killed so its pelt can clothe someone in thrall to trends.",
+     "walkthrough": "The mink is literally sacrificed for clothes, while the person is only figuratively enslaved to them; the question mark flags the animal as an example.",
+     "definitionFit": "The phrase describes someone who follows every trend slavishly, and also a creature literally killed for its pelt."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Mink"
+    }
+   }
   },
   {
    "number": 12,
@@ -224,7 +858,55 @@
     "text": "Flexible parts to deliver, chattering away",
     "enumeration": "10"
    },
-   "solution": "BLITHERING"
+   "solution": "BLITHERING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BLITHERING",
+    "definitions": [
+     {
+      "text": "chattering away",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "parts",
+      "for": "container",
+      "note": "something that parts is split open, letting another piece sit in the gap"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flexible",
+      "gives": "LITHE",
+      "note": "lithe means supple, flexible"
+     },
+     {
+      "clueFragment": "to deliver",
+      "gives": "BRING",
+      "note": "to bring is to deliver"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "LITHE",
+      "RING"
+     ]
+    },
+    "explanation": {
+     "surface": "Supple parts are to be delivered while someone chatters on.",
+     "walkthrough": "'Parts' looks like a plural noun, but it is a verb: the flexible word splits the delivering word apart.",
+     "definitionFit": "To blither is to talk nonsense at length, so blithering is rambling, incessant chatter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "parts"
+    }
+   }
   },
   {
    "number": 13,
@@ -238,7 +920,56 @@
     "text": "Ne’er-do-well has to settle a fight",
     "enumeration": "8"
    },
-   "solution": "LAYABOUT"
+   "solution": "LAYABOUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LAYABOUT",
+    "definitions": [
+     {
+      "text": "Ne’er-do-well",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to settle",
+      "gives": "LAY",
+      "note": "to lay is to set down or settle"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "fight",
+      "gives": "BOUT",
+      "note": "a bout is a boxing match"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAY",
+      "A",
+      "BOUT"
+     ]
+    },
+    "explanation": {
+     "surface": "A good-for-nothing is obliged to end a scrap.",
+     "walkthrough": "'Settle a fight' reads as making peace; instead the words are taken separately, as laying down and a boxing contest.",
+     "definitionFit": "A layabout is an idle, lazy person who avoids work, much like a good-for-nothing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "settle"
+    }
+   }
   },
   {
    "number": 14,
@@ -252,7 +983,48 @@
     "text": "Wind light — it’s a scorcher?",
     "enumeration": "9"
    },
-   "solution": "BLOWTORCH"
+   "solution": "BLOWTORCH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BLOWTORCH",
+    "definitions": [
+     {
+      "text": "it’s a scorcher",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wind",
+      "gives": "BLOW",
+      "note": "wind blows"
+     },
+     {
+      "clueFragment": "light",
+      "gives": "TORCH",
+      "note": "a torch gives light"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BLOW",
+      "TORCH"
+     ]
+    },
+    "explanation": {
+     "surface": "A light breeze arrives on a very hot day.",
+     "walkthrough": "'Wind light' looks like a weather forecast, and 'scorcher' suggests a hot day; the tool is what scorches.",
+     "definitionFit": "A blowtorch produces an intense flame for burning off paint, so it scorches whatever it touches."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "scorcher"
+    }
+   }
   },
   {
    "number": 15,
@@ -266,7 +1038,45 @@
     "text": "Several loons?",
     "enumeration": "6"
    },
-   "solution": "DIVERS"
+   "solution": "DIVERS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DIVERS",
+    "definitions": [
+     {
+      "text": "Several",
+      "at": 0
+     },
+     {
+      "text": "loons",
+      "at": 8,
+      "note": "plural noun, as is the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Several",
+      "note": "first meaning: an old word for various, sundry"
+     },
+     {
+      "clueFragment": "loons",
+      "note": "second meaning: water birds that plunge under the surface"
+     }
+    ],
+    "explanation": {
+     "surface": "A handful of crazy people.",
+     "walkthrough": "'Loons' suggests lunatics, but it is the North American name for the birds British birders call divers.",
+     "definitionFit": "Divers is an archaic adjective for sundry, and it is also the British name for the diving water birds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "loons"
+    }
+   }
   },
   {
    "number": 16,
@@ -280,7 +1090,47 @@
     "text": "Lean man, legal official",
     "enumeration": "8"
    },
-   "solution": "TIPSTAFF"
+   "solution": "TIPSTAFF",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TIPSTAFF",
+    "definitions": [
+     {
+      "text": "legal official",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lean",
+      "gives": "TIP",
+      "note": "to tip is to lean over"
+     },
+     {
+      "clueFragment": "man",
+      "gives": "STAFF",
+      "note": "to man a post is to staff it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIP",
+      "STAFF"
+     ]
+    },
+    "explanation": {
+     "surface": "A thin man works as an officer of the court.",
+     "walkthrough": "'Lean' and 'man' read as adjective and noun, but both are verbs.",
+     "definitionFit": "A tipstaff is a court officer, originally carrying a metal-tipped staff, who enforces orders of arrest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Lean"
+    }
+   }
   },
   {
    "number": 17,
@@ -294,7 +1144,61 @@
     "text": "Excellent advice corporation rejected",
     "enumeration": "6"
    },
-   "solution": "TIPTOP"
+   "solution": "TIPTOP",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TIPTOP",
+    "definitions": [
+     {
+      "text": "Excellent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rejected",
+      "for": "reversal",
+      "note": "something rejected is sent back, so it reads the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "advice",
+      "gives": "TIP",
+      "note": "a tip is a piece of advice"
+     },
+     {
+      "clueFragment": "corporation",
+      "gives": "POT",
+      "note": "corporation is jocular slang for a pot belly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIP",
+      "TOP"
+     ],
+     "reversals": [
+      {
+       "from": "POT",
+       "to": "TOP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A company turned down some first-rate advice.",
+     "walkthrough": "'Corporation' seems to mean a company, but it is old slang for a large paunch, and so for pot.",
+     "definitionFit": "Tiptop is a colloquial word for first-class or of the highest quality."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "corporation"
+    }
+   }
   },
   {
    "number": 18,
@@ -308,7 +1212,50 @@
     "text": "Fast approaching northern English city",
     "enumeration": "7"
    },
-   "solution": "PRESTON"
+   "solution": "PRESTON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PRESTON",
+    "definitions": [
+     {
+      "text": "English city",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "approaching"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fast",
+      "gives": "PRESTO",
+      "note": "presto is the musical term for very fast"
+     },
+     {
+      "clueFragment": "northern",
+      "gives": "N",
+      "note": "N is the abbreviation for northern"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRESTO",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Speeding towards a city in the north of England.",
+     "walkthrough": "'Northern' seems to describe the city but gives only its letter. Preston is a city in Lancashire, north-west England.",
+     "definitionFit": "Preston is the administrative centre of Lancashire and was granted city status in 2002."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "northern"
+    }
+   }
   },
   {
    "number": 19,
@@ -322,7 +1269,70 @@
     "text": "I issued new clasps good for mask",
     "enumeration": "8"
    },
-   "solution": "DISGUISE"
+   "solution": "DISGUISE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "DISGUISE",
+    "definitions": [
+     {
+      "text": "mask",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "something new is made afresh, so the letters are put into a fresh order"
+     },
+     {
+      "text": "clasps",
+      "for": "container",
+      "note": "to clasp is to hold in a grip, so one piece goes round another"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I issued",
+      "gives": "IISSUED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIS",
+      "G",
+      "UISE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "IISSUED",
+       "gives": "DISUISE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hands out new clasps, good ones for a mask.",
+     "walkthrough": "'New clasps' reads as fresh fasteners; 'new' signals the rearrangement and 'clasps' the holding.",
+     "definitionFit": "A disguise hides who you are, just as a mask conceals the face."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "clasps"
+    }
+   }
   },
   {
    "number": 20,
@@ -336,7 +1346,63 @@
     "text": "Trying exotic Eskimo rolls, initially",
     "enumeration": "7"
    },
-   "solution": "IRKSOME"
+   "solution": "IRKSOME",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "IRKSOME",
+    "definitions": [
+     {
+      "text": "Trying",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the opening letter is kept"
+     },
+     {
+      "text": "exotic",
+      "for": "anagram",
+      "note": "something exotic is strange and foreign, so the letters appear in an unfamiliar order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Eskimo",
+      "gives": "ESKIMO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rolls",
+      "gives": "R",
+      "select": "first",
+      "note": "first letter of the word"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ESKIMOR",
+       "gives": "IRKSOME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Attempting fancy kayak rolls, at the start.",
+     "walkthrough": "An Eskimo roll is a kayaking manoeuvre, which makes 'Trying' look like attempting rather than annoying.",
+     "definitionFit": "Something trying tests your patience, and irksome means annoying or tiresome in the same way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Trying"
+    }
+   }
   },
   {
    "number": 21,
@@ -356,7 +1422,51 @@
      }
     ]
    },
-   "solution": "DIMSUM"
+   "solution": "DIMSUM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DIM SUM",
+    "definitions": [
+     {
+      "text": "Chinese food",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "that’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stupid",
+      "gives": "DIM",
+      "note": "dim means slow-witted"
+     },
+     {
+      "clueFragment": "totally",
+      "gives": "SUM",
+      "note": "a sum is a total"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIM",
+      "SUM"
+     ]
+    },
+    "explanation": {
+     "surface": "A Chinese meal that is utterly foolish.",
+     "walkthrough": "The two words are read backwards against the clue: stupid in total, a dim sum.",
+     "definitionFit": "Dim sum are small Cantonese dishes such as dumplings, usually served in bamboo steamers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "totally"
+    }
+   }
   },
   {
    "number": 22,
@@ -376,7 +1486,52 @@
      }
     ]
    },
-   "solution": "ELECTRICSHOCK"
+   "solution": "ELECTRICSHOCK",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ELECTRIC SHOCK",
+    "definitions": [
+     {
+      "text": "a serious jerk",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Silly",
+      "for": "anagram",
+      "note": "something silly is nonsensical, so these letters are jumbled into a new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Eccles thick, or",
+      "gives": "ECCLESTHICKOR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ECCLESTHICKOR",
+       "gives": "ELECTRICSHOCK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A foolish, dim person from Eccles, or just a real idiot?",
+     "walkthrough": "'Jerk' looks like an insult to match 'thick', but it means a sudden spasm. Eccles is a town near Manchester.",
+     "definitionFit": "A current passing through the body makes the muscles twitch violently, a serious involuntary spasm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "jerk"
+    }
+   }
   },
   {
    "number": 23,
@@ -390,7 +1545,56 @@
     "text": "Heart of stone, a shade open",
     "enumeration": "5"
    },
-   "solution": "OVERT"
+   "solution": "OVERT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "OVERT",
+    "definitions": [
+     {
+      "text": "open",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Heart of",
+      "for": "letter_selection",
+      "note": "the heart of a word is its central part, so only the middle letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stone",
+      "gives": "O",
+      "select": "middle",
+      "note": "middle letter of the word"
+     },
+     {
+      "clueFragment": "a shade",
+      "gives": "VERT",
+      "note": "vert is green in heraldry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "VERT"
+     ]
+    },
+    "explanation": {
+     "surface": "A stone-hearted person is slightly more open.",
+     "walkthrough": "'A shade open' reads as slightly open, but 'a shade' is a colour and 'open' stands alone.",
+     "definitionFit": "Overt means done openly and not concealed, the opposite of covert."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "shade"
+    }
+   }
   },
   {
    "number": 24,
@@ -404,7 +1608,50 @@
     "text": "Slip, small, on child",
     "enumeration": "4"
    },
-   "solution": "SKID"
+   "solution": "SKID",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SKID",
+    "definitions": [
+     {
+      "text": "Slip",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     },
+     {
+      "clueFragment": "child",
+      "gives": "KID",
+      "note": "a kid is a child"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "KID"
+     ]
+    },
+    "explanation": {
+     "surface": "A small slip of clothing is put on a child.",
+     "walkthrough": "In a down clue one piece placed on another sits above it.",
+     "definitionFit": "A skid is an uncontrolled slide, as when a wheel slips on ice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Slip"
+    }
+   }
   },
   {
    "number": 25,
@@ -418,7 +1665,52 @@
     "text": "Head of playwright missing, commit to the ground",
     "enumeration": "5"
    },
-   "solution": "INTER"
+   "solution": "INTER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "INTER",
+    "definitions": [
+     {
+      "text": "commit to the ground",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Head of",
+      "for": "deletion",
+      "note": "the head is the first letter, and here it is said to be missing"
+     },
+     {
+      "text": "missing",
+      "for": "deletion",
+      "note": "something missing is absent, so that letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "playwright",
+      "gives": "PINTER",
+      "note": "Harold Pinter was an English playwright"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A headless playwright is being buried.",
+     "walkthrough": "The dramatist is Harold Pinter, author of The Birthday Party and The Caretaker.",
+     "definitionFit": "To inter is to bury a body, placing it in a grave in the earth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -432,7 +1724,40 @@
     "text": "Labouring we do in the beginning?",
     "enumeration": "9"
    },
-   "solution": "SPADEWORK"
+   "solution": "SPADEWORK",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SPADEWORK",
+    "definitions": [
+     {
+      "text": "Labouring we do in the beginning?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Labouring",
+      "note": "surface reading: hard manual toil such as digging"
+     },
+     {
+      "clueFragment": "we do in the beginning",
+      "note": "setter's reading: the dull preparatory effort done before the main task"
+     }
+    ],
+    "explanation": {
+     "surface": "The hard graft we put in at the start of something.",
+     "walkthrough": "The question mark flags that the literal digging sense and the preparation sense are both meant.",
+     "definitionFit": "The word means the groundwork laid before a project, originally the digging done with a garden tool."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Labouring"
+    }
+   }
   },
   {
    "number": 27,
@@ -446,7 +1771,55 @@
     "text": "Material that’s checked poorly leaving Medway town",
     "enumeration": "7"
    },
-   "solution": "GINGHAM"
+   "solution": "GINGHAM",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "GINGHAM",
+    "definitions": [
+     {
+      "text": "Material that’s checked",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "to leave is to depart, so those letters go out of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Medway town",
+      "gives": "GILLINGHAM",
+      "note": "Gillingham is a town on the River Medway in Kent"
+     },
+     {
+      "clueFragment": "poorly",
+      "gives": "ILL",
+      "note": "poorly means unwell, ill"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "INGHAM"
+     ]
+    },
+    "explanation": {
+     "surface": "Fabric that has been checked badly on its way out of a Kent town.",
+     "walkthrough": "'Checked poorly' reads as a sloppy inspection, but 'checked' belongs to the definition and 'poorly' supplies the removed letters.",
+     "definitionFit": "Gingham is a cotton fabric woven in a pattern of small squares, typically white with a colour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "checked"
+    }
+   }
   },
   {
    "number": 28,
@@ -460,7 +1833,59 @@
     "text": "Idiot with fanciful idea penning articles",
     "enumeration": "7"
    },
-   "solution": "FATHEAD"
+   "solution": "FATHEAD",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FATHEAD",
+    "definitions": [
+     {
+      "text": "Idiot",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "penning",
+      "for": "container",
+      "note": "to pen is to shut in an enclosure, so one piece is held inside another"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fanciful idea",
+      "gives": "FAD",
+      "note": "a fad is a passing craze"
+     },
+     {
+      "clueFragment": "articles",
+      "gives": "THEA",
+      "note": "THE and A are the definite and indefinite articles"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FA",
+      "THEA",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A fool with a whimsical notion is writing newspaper pieces.",
+     "walkthrough": "'Penning articles' suggests writing for a paper; here 'penning' means enclosing and the articles are grammatical words.",
+     "definitionFit": "Fathead is an informal insult for a stupid person, a synonym of dolt or dimwit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "penning"
+    }
+   }
   }
  ]
 }
