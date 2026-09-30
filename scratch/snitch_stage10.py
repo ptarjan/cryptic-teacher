@@ -15,6 +15,7 @@ reuses); only the candidates differ. Signs fixed in CANDIDATES before measuring:
                     crossers pin it down
 proper_answers needs nltk's WordNet (see snitch_stage4.py).
 """
+import datetime
 import json
 import math
 import os
@@ -84,7 +85,7 @@ def cand(puz, pats):
             used[(x + dx * i, y + dy * i)] = used.get((x + dx * i, y + dy * i), 0) + 1
     real, linked, caps, amb, prop = 0, 0, 0, [], 0
     for e in ents:
-        clue = D.ENUMERATION.sub("", e["clue"].get("text", "")).strip()
+        clue = e["clue"].get("text", "").strip()
         if re.match(r"(?i)see\b", clue) or XREF.search(clue):
             linked += 1
         sol, words = D.answer_words(e)
@@ -124,7 +125,7 @@ def dump():
                      "index": s["index"] if s else None, "z": s["z"] if s else None,
                      "portable": sum(D.WEIGHTS[k] * z for k, z in pz.items()) / tot if tot else None,
                      "pz": pz, "cand": cand(puz, pats)})
-    CACHE.write_text(json.dumps(rows))
+    CACHE.write_text(json.dumps(rows, default=str))
     print(len(rows), "rows")
 
 
@@ -136,7 +137,7 @@ def margin(rows, key):
 
 
 def test(keys):
-    rows = json.loads(CACHE.read_text())
+    rows = S4.load_rows(CACHE)
     tr = [r for r in rows if r["series"] == "times" and r["nitch"] is not None]
     print(f"margin now {margin(rows, 'index'):+.3f}")
     for name, (bk, wf, sel) in S4.SETS.items():
@@ -148,7 +149,10 @@ def test(keys):
             sign = CANDIDATES[k]
             S4.add(rows, bk, k, sign, weight_of=wf)
             sub = [r for r in tr if sel(r) and r["cand"] and r["cand"].get(k) is not None]
-            f = S4.weekday_resid_target([(r["date"], r["nitch"]) for r in tr], "9", "0")
+            if len(sub) < 30:
+                print(f"  {k:22s} covers {len(sub)} rows of this set, skipped")
+                continue
+            f = S4.weekday_resid_target([(r["date"], r["nitch"]) for r in tr], datetime.date.max, datetime.date.min)
             raw = D._spearman([r["cand"][k] for r in sub], [f(r) for r in sub])
             print(f"  {('+' if sign > 0 else '-') + k:22s} times  {S4.fmt(S4.heldout(rows, 'new', sel))}  raw {raw:+.3f}")
             if name == "annotated":
