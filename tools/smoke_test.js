@@ -2467,6 +2467,8 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
       }
     }
     assert(cds.length, "the corpus still has a cryptic definition to check");
+    const LADDER_PROSE = CLUE_TYPES.families.flatMap(f => [f.blurb, f.label])
+      .map(t => (t || "").replace(/[^A-Za-z]/g, "").toUpperCase()).filter(Boolean);
     for (const cd of cds) {
       const ans = (cd.e.annotation.answer || "").replace(/[^A-Za-z]/g, "").toUpperCase();
       const where = `${cd.id} ${entryId(cd.e)} (${ans})`;
@@ -2483,9 +2485,13 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
         if (/walkthrough/i.test(btn.textContent)) break;
         takeRung(btn);
         // The rung's text, not its markup: tag names are letters too, and
-        // "a spade a spade" + "</span>" reads as SPADES.
-        const bare = registry["hint-body"].innerHTML.replace(/<[^>]*>|&[#\w]+;/g, " ")
-          .replace(/[^A-Za-z]/g, "").toUpperCase();
+        // "a spade a spade" + "</span>" reads as SPADES. The ladder's fixed
+        // prose is cut out, each piece leaving a break: "built from any" reads
+        // as OMAN, and no clue put it there.
+        let bare = registry["hint-body"].innerHTML
+          .replace(/<span class="step-label">[^<]*<\/span>|<div class="legend">[\s\S]*?<\/div>/g, " ")
+          .replace(/<[^>]*>|&[#\w]+;/g, " ").replace(/[^A-Za-z]/g, "").toUpperCase();
+        for (const fixed of LADDER_PROSE) bare = bare.split(fixed).join("-");
         assert(tooShort || !bare.includes(ans),
           `${where}: a rung before the walkthrough spells the answer out — ` +
           registry["hint-body"].innerHTML);
