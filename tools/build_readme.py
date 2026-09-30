@@ -240,6 +240,7 @@ LAYOUT = [
     ("scheduling", "tools/claude_session.sh", "sourced: session ids, so a run that dies is resumed rather than paid for twice"),
     ("scheduling", "tools/weekly_usage.py", "how much of a Claude quota window is spent, and when it resets"),
     ("scheduling", "tools/prereset_backfill.sh", "burns the tail of the weekly quota on backfills, ungated"),
+    ("scheduling", "household-plugins/<name>/plugin.toml", "when and where the household bridge runs each scheduled job (daily, prereset, books, annotate audit); symlinked from ~/.config/household/plugins/<name>, then `tools/plugins.py --write` in the household repo"),
     ("scheduling", "tools/test_annotate_retry.sh", "drives that resume with a fake CLI, so it is not first tried on a night it is needed"),
     ("scheduling", "tools/test_apply_refusal.sh", "a refused annotation write names clue ids and no traceback, so the model does not map entries[N] by hand"),
     ("scheduling", "tools/annotate_postmortem.py", "why an annotation run died, read off its transcript — sent WITH the alert, so the report is not a pointer to a log"),
@@ -379,6 +380,7 @@ LAYOUT_EXEMPT = re.compile(r"""
     | ^tools/data/favourite_grading/(packets|scores)/  # covered by the two directory lines
     | ^tools/data/penguin_partial_fills/            # covered by the directory line
     | ^tools/data/blog_facts/                       # covered by the directory line
+    | ^household-plugins/           # covered by the <name>/plugin.toml line
     | ^og/                          # covered by the og/ line
     | ^vendor/                      # covered by the vendor/ line
     | ^learn/ | ^abbreviations/ | ^indicators/
