@@ -24,6 +24,9 @@
   "date": "2025-10-15",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,62 @@
     "text": "Hedges unlikely to be planted in drained swamps",
     "enumeration": "6"
    },
-   "solution": "STALLS"
+   "solution": "STALLS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "STALLS",
+    "definitions": [
+     {
+      "text": "Hedges",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drained",
+      "for": "letter_selection",
+      "note": "a drained thing has had its contents emptied, leaving only the shell of first and last letters"
+     },
+     {
+      "text": "planted in",
+      "for": "container",
+      "note": "something planted in the ground sits inside it, so one piece goes into another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "swamps",
+      "gives": "SS",
+      "select": "outer",
+      "note": "the word with its middle emptied out"
+     },
+     {
+      "clueFragment": "unlikely",
+      "gives": "TALL",
+      "note": "a tall story is an unlikely one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TALL",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener warns that hedgerows will not take if planted in reclaimed marshland.",
+     "walkthrough": "'Hedges' looks like a noun for garden plants, but it is a verb: someone who hedges avoids giving a straight answer.",
+     "definitionFit": "To hedge is to play for time and evade commitment, which is exactly what someone does when delaying tactically."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Hedges"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +109,43 @@
     "text": "Dye cutting-edge coats",
     "enumeration": "5"
    },
-   "solution": "TINGE"
+   "solution": "TINGE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TINGE",
+    "definitions": [
+     {
+      "text": "Dye",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coats",
+      "for": "hidden_word",
+      "note": "a coat wraps around what lies beneath it, so the letters sit covered inside the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cutting-edge",
+      "gives": "TINGE",
+      "note": "the letters run across the hyphen, from inside the first word into the second"
+     }
+    ],
+    "explanation": {
+     "surface": "An advert for the latest high-tech paint or dye used as a coating.",
+     "walkthrough": "The hyphen joins the two halves of the hidden run: cut-TING-E-dge.",
+     "definitionFit": "Both words mean to give something a slight colour, or the colour itself, as when fabric picks up a faint hue."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "coats"
+    }
+   }
   },
   {
    "number": 3,
@@ -65,7 +159,75 @@
     "text": "Freshen up new house at first for lender",
     "enumeration": "9"
    },
-   "solution": "LIBRARIAN"
+   "solution": "LIBRARIAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "LIBRARIAN",
+    "definitions": [
+     {
+      "text": "lender",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "charade",
+      "note": "placed at first means this piece is put at the front of the answer"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, going up means the letters are read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "house",
+      "gives": "LIBRA",
+      "note": "Libra is one of the twelve houses (signs) of the zodiac"
+     },
+     {
+      "clueFragment": "Freshen",
+      "gives": "AIR",
+      "note": "to air a room is to freshen it"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the standard abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIBRA",
+      "RIA",
+      "N"
+     ],
+     "reversals": [
+      {
+       "from": "AIR",
+       "to": "RIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to redecorate a new home first in order to satisfy a mortgage lender.",
+     "walkthrough": "'Freshen up' reads as one phrasal verb, but 'up' is separately the reversal signal. The 'house' is astrological, not a building.",
+     "definitionFit": "A librarian runs a lending library and hands out books on loan, so the job is to lend."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "house"
+    }
+   }
   },
   {
    "number": 4,
@@ -79,7 +241,82 @@
     "text": "Grand picture house graduate leaves about six, initially uplifted",
     "enumeration": "6"
    },
-   "solution": "SCENIC"
+   "solution": "SCENIC",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "letter_selection",
+     "reversal"
+    ],
+    "answer": "SCENIC",
+    "definitions": [
+     {
+      "text": "Grand",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaves",
+      "for": "deletion",
+      "note": "whoever leaves goes away, so those letters drop out"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points at the opening letter of the next word"
+     },
+     {
+      "text": "uplifted",
+      "for": "reversal",
+      "note": "lifted up in a down clue means the letters now read from the bottom upwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "picture house",
+      "gives": "CINEMA",
+      "note": "a picture house is an old name for a cinema"
+     },
+     {
+      "clueFragment": "graduate",
+      "note": "MA, a Master of Arts, is the graduate removed"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "C stands for circa, Latin for about"
+     },
+     {
+      "clueFragment": "six",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCENIC"
+     ],
+     "reversals": [
+      {
+       "from": "CINECS",
+       "to": "SCENIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A graduate walks out of a grand old picture house at about six o'clock.",
+     "walkthrough": "'Grand picture house' reads as one phrase, but 'Grand' is the definition and 'picture house' is a cinema.",
+     "definitionFit": "Grand scenery is impressive and spectacular to look at, which is what a scenic view offers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Grand"
+    }
+   }
   },
   {
    "number": 5,
@@ -93,7 +330,63 @@
     "text": "Elusive ginger cat in hole near motorway area",
     "enumeration": "8"
    },
-   "solution": "MACAVITY"
+   "solution": "MACAVITY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MACAVITY",
+    "definitions": [
+     {
+      "text": "Elusive ginger cat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "near",
+      "for": "charade",
+      "note": "near means next to, so these pieces sit side by side"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "motorway",
+      "gives": "M",
+      "note": "M as in the M1, a British motorway"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "A is the abbreviation for area"
+     },
+     {
+      "clueFragment": "hole",
+      "gives": "CAVITY",
+      "note": "a cavity is a hole or hollow"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "A",
+      "CAVITY"
+     ]
+    },
+    "explanation": {
+     "surface": "A stray ginger cat has hidden itself in a hole beside the motorway.",
+     "walkthrough": "The cat reads as being in the hole, but 'in' only links; the hole is merely beside the motorway area in the answer.",
+     "definitionFit": "Macavity is the Mystery Cat of T. S. Eliot's poems, a ginger criminal mastermind who is never found at the scene."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +410,59 @@
      }
     ]
    },
-   "solution": "MRTAMBOURINEMAN"
+   "solution": "MRTAMBOURINEMAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MR TAMBOURINE MAN",
+    "definitions": [
+     {
+      "text": "Single",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "something upset has been knocked over and left in a mess, so the letters get rearranged"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mum ran into bar",
+      "gives": "MUMRANINTOBAR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "me",
+      "gives": "ME",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MUMRANINTOBARME",
+       "gives": "MRTAMBOURINEMAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lone mother storms into a pub, angry with the speaker.",
+     "walkthrough": "'Single mum' reads as one phrase, but 'Single' alone is the definition, meaning a record released on its own.",
+     "definitionFit": "Bob Dylan's song was released as a hit record, famously by the Byrds, so it is an example of a pop record release."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Single"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +476,62 @@
     "text": "Chic covering one fine group",
     "enumeration": "8"
    },
-   "solution": "CLASSIFY"
+   "solution": "CLASSIFY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CLASSIFY",
+    "definitions": [
+     {
+      "text": "group",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "to cover something is to wrap around it on the outside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chic",
+      "gives": "CLASSY",
+      "note": "classy means stylish or chic"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "fine",
+      "gives": "F",
+      "note": "F is the pencil-grade abbreviation for fine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CLASS",
+      "I",
+      "F",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Fashion talk: a stylish outfit covering one elegant group of people.",
+     "walkthrough": "'group' looks like a noun, but it is a verb here: to sort things into categories.",
+     "definitionFit": "To group items is to sort them into categories by shared features, which is what sorting into classes means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "group"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +551,39 @@
      }
     ]
    },
-   "solution": "VSIGN"
+   "solution": "VSIGN",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "V-SIGN",
+    "definitions": [
+     {
+      "text": "Binary digital message?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Binary digital message?",
+      "note": "surface reading: a string of ones and zeros sent by computer"
+     },
+     {
+      "clueFragment": "Binary digital message?",
+      "note": "setter's reading: a gesture made with two fingers (digits), carrying a clear meaning"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The computing words hide their plain senses: binary means twofold and digital means done with the fingers. In Britain the gesture, palm inward, is a rude insult.",
+     "definitionFit": "A two-fingered hand gesture signalling victory or, reversed, contempt, is literally a communication made with a pair of digits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "digital"
+    }
+   }
   },
   {
    "number": 8,
@@ -171,7 +603,61 @@
      }
     ]
    },
-   "solution": "TELLAPART"
+   "solution": "TELLAPART",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "TELL APART",
+    "definitions": [
+     {
+      "text": "Pick out",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cracking",
+      "for": "container",
+      "note": "cracking something open lets a piece get in between its parts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Archer",
+      "gives": "TELL",
+      "note": "William Tell, the legendary Swiss archer"
+     },
+     {
+      "clueFragment": "character",
+      "gives": "PART",
+      "note": "a part is a character played by an actor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TELL",
+      "A",
+      "PART"
+     ]
+    },
+    "explanation": {
+     "surface": "Spot a notable character from The Archers, the long-running BBC radio soap.",
+     "walkthrough": "The capital A invites The Archers, a BBC radio soap set in farming country, but the archer is William Tell.",
+     "definitionFit": "To pick someone out from a crowd is to distinguish them, the idiomatic sense of discriminating between similar things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Archer"
+    }
+   }
   },
   {
    "number": 9,
@@ -191,7 +677,66 @@
      }
     ]
    },
-   "solution": "INABSENTIA"
+   "solution": "INABSENTIA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "IN ABSENTIA",
+    "definitions": [
+     {
+      "text": "while away",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abroad",
+      "for": "anagram",
+      "note": "abroad can mean widely scattered, so the letters are spread into a new order"
+     },
+     {
+      "text": "losing sight of",
+      "for": "deletion",
+      "note": "what you lose sight of disappears, so that letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Insane",
+      "gives": "INSANE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "habit",
+      "gives": "ABIT",
+      "note": "taken as written, minus the letter lost"
+     },
+     {
+      "clueFragment": "hotel",
+      "note": "H is hotel in the phonetic alphabet; this is the letter removed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INSANEABIT",
+       "gives": "INABSENTIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller picks up a crazy habit abroad and forgets where the hotel is.",
+     "walkthrough": "'abroad' seems part of the travel story, but it is the signal to rearrange the letters.",
+     "definitionFit": "The Latin legal phrase means in someone's absence, used when a person is tried or sentenced without being present."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "abroad"
+    }
+   }
   },
   {
    "number": 10,
@@ -205,7 +750,52 @@
     "text": "Troubles doctor not to join in with exercises",
     "enumeration": "4"
    },
-   "solution": "ILLS"
+   "solution": "ILLS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ILLS",
+    "definitions": [
+     {
+      "text": "Troubles",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not to join in with",
+      "for": "deletion",
+      "note": "someone who does not join in stays out, so those letters are left out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "doctor",
+      "note": "DR, the abbreviation for doctor, is removed"
+     },
+     {
+      "clueFragment": "exercises",
+      "gives": "DRILLS",
+      "note": "drills are repeated training exercises"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ILLS"
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor declines to take part in the exercise session and causes trouble.",
+     "walkthrough": "The doctor is not a person refusing to exercise; the abbreviation DR is struck off the front of the word.",
+     "definitionFit": "Ills are misfortunes or afflictions, as in the ills of society, plural nouns matching troubles."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "doctor"
+    }
+   }
   },
   {
    "number": 11,
@@ -219,7 +809,66 @@
     "text": "Star writing at home about strict regimen",
     "enumeration": "8"
    },
-   "solution": "VEGANISM"
+   "solution": "VEGANISM",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "VEGANISM",
+    "definitions": [
+     {
+      "text": "strict regimen",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "turning about means facing the opposite way, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Star",
+      "gives": "VEGA",
+      "note": "Vega is a bright star in the constellation Lyra"
+     },
+     {
+      "clueFragment": "writing",
+      "gives": "MS",
+      "note": "MS is manuscript, a piece of writing"
+     },
+     {
+      "clueFragment": "at home",
+      "gives": "IN",
+      "note": "someone at home is in"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VEGA",
+      "NISM"
+     ],
+     "reversals": [
+      {
+       "from": "MSIN",
+       "to": "NISM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A celebrity writes a book at home about following a strict diet.",
+     "walkthrough": "'Star' suggests a celebrity, but it is a real star in the sky.",
+     "definitionFit": "Veganism excludes all animal products from diet and lifestyle, a demanding regime of rules to follow."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Star"
+    }
+   }
   },
   {
    "number": 12,
@@ -233,7 +882,45 @@
     "text": "Wrong headings in report? This shouldn’t be wrong in the paper!",
     "enumeration": "6"
    },
-   "solution": "SYNTAX"
+   "solution": "SYNTAX",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SYNTAX",
+    "definitions": [
+     {
+      "text": "This shouldn’t be wrong in the paper",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in report",
+      "for": "homophone",
+      "note": "a report is something spoken, so the words are said out loud"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wrong headings",
+      "gives": "SYNTAX",
+      "soundsLike": "SIN TACKS",
+      "note": "a sin is a wrong; tacks are headings or courses in sailing"
+     }
+    ],
+    "explanation": {
+     "surface": "Mistaken headlines in a newspaper report; they should not be wrong in print.",
+     "walkthrough": "'headings' suggests newspaper titles, but in sailing a tack is the direction a boat is heading.",
+     "definitionFit": "Grammar and sentence structure should be correct in a printed newspaper; errors in word order are the proofreader's concern."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "headings"
+    }
+   }
   },
   {
    "number": 13,
@@ -247,7 +934,75 @@
     "text": "Mystic provided with universal awareness at last after setback",
     "enumeration": "4"
    },
-   "solution": "SUFI"
+   "solution": "SUFI",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "reversal"
+    ],
+    "answer": "SUFI",
+    "definitions": [
+     {
+      "text": "Mystic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at last",
+      "for": "letter_selection",
+      "note": "at last points at the final letter of the word before it"
+     },
+     {
+      "text": "after setback",
+      "for": "reversal",
+      "note": "a setback sets things going backwards, so the letters are read in reverse"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "provided",
+      "gives": "IF",
+      "note": "if means provided that"
+     },
+     {
+      "clueFragment": "universal",
+      "gives": "U",
+      "note": "U is the film certificate for universal"
+     },
+     {
+      "clueFragment": "awareness",
+      "gives": "S",
+      "select": "last",
+      "note": "the final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUFI"
+     ],
+     "reversals": [
+      {
+       "from": "IFUS",
+       "to": "SUFI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mystic who has gained universal awareness at last after a setback.",
+     "walkthrough": "'provided with' reads as 'given', but 'provided' alone means if, and 'with' only links it to the next piece.",
+     "definitionFit": "A Sufi is a follower of the mystical tradition of Islam, seeking direct experience of the divine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "provided"
+    }
+   }
   },
   {
    "number": 14,
@@ -261,7 +1016,71 @@
     "text": "Order boring new clue to be changed as not acceptable",
     "enumeration": "9"
    },
-   "solution": "UNWELCOME"
+   "solution": "UNWELCOME",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "UNWELCOME",
+    "definitions": [
+     {
+      "text": "not acceptable",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "boring",
+      "for": "container",
+      "note": "to bore is to drill into something, so one piece goes inside"
+     },
+     {
+      "text": "changed",
+      "for": "anagram",
+      "note": "letters that are changed have been altered and rearranged into another sequence"
+     }
+    ],
+    "linkWords": [
+     "to be",
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Order",
+      "gives": "OM",
+      "note": "the Order of Merit, a British honour"
+     },
+     {
+      "clueFragment": "new clue",
+      "gives": "NEWCLUE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNWELC",
+      "OM",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NEWCLUE",
+       "gives": "UNWELCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction that a dull new clue must be rewritten because it will not pass.",
+     "walkthrough": "'boring' looks like a verdict on the clue, but it means drilling into. OM, the Order of Merit, is a British honour.",
+     "definitionFit": "Something unwelcome is not wanted or received gladly, so it is unwanted and cannot be accepted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "boring"
+    }
+   }
   },
   {
    "number": 15,
@@ -281,7 +1100,71 @@
      }
     ]
    },
-   "solution": "OFFBREAK"
+   "solution": "OFFBREAK",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "OFF BREAK",
+    "definitions": [
+     {
+      "text": "ball",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in the middle",
+      "for": "letter_selection",
+      "note": "what is in the middle is the central letter of the word"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hop",
+      "gives": "O",
+      "select": "middle",
+      "note": "the central letter"
+     },
+     {
+      "clueFragment": "following",
+      "gives": "F",
+      "note": "f. is the abbreviation for following, as in page references"
+     },
+     {
+      "clueFragment": "foxtrot",
+      "gives": "F",
+      "note": "Foxtrot is F in the phonetic alphabet"
+     },
+     {
+      "clueFragment": "interrupt",
+      "gives": "BREAK",
+      "note": "to break in is to interrupt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "F",
+      "F",
+      "BREAK"
+     ]
+    },
+    "explanation": {
+     "surface": "Dance-floor talk: a hop, a foxtrot, then cutting in at a ball.",
+     "walkthrough": "'ball' looks like the dance, but it is a cricket delivery. Hop and foxtrot also pull toward dancing.",
+     "definitionFit": "In cricket, an off break is a delivery bowled by a spinner that turns from the off side into the batter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "ball"
+    }
+   }
   },
   {
    "number": 16,
@@ -295,7 +1178,61 @@
     "text": "Day after day, soldier accompanies lady on vacation",
     "enumeration": "9"
    },
-   "solution": "REGULARLY"
+   "solution": "REGULARLY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "REGULARLY",
+    "definitions": [
+     {
+      "text": "Day after day",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accompanies",
+      "for": "charade",
+      "note": "to accompany is to go alongside, so the pieces sit together"
+     },
+     {
+      "text": "on vacation",
+      "for": "letter_selection",
+      "note": "a place on vacation has been vacated and emptied, leaving only its outer letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soldier",
+      "gives": "REGULAR",
+      "note": "a regular is a professional soldier in the standing army"
+     },
+     {
+      "clueFragment": "lady",
+      "gives": "LY",
+      "select": "outer",
+      "note": "the word with its middle emptied"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REGULAR",
+      "LY"
+     ]
+    },
+    "explanation": {
+     "surface": "Every day a soldier escorts a woman who is on holiday.",
+     "walkthrough": "'on vacation' reads as being on holiday, but it means emptied out.",
+     "definitionFit": "Doing something day after day means doing it at fixed, frequent intervals, the adverb of habitual routine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "vacation"
+    }
+   }
   },
   {
    "number": 17,
@@ -309,7 +1246,48 @@
     "text": "Matey and reportedly drunk, make an amorous gesture",
     "enumeration": "8"
    },
-   "solution": "BLOKEISH"
+   "solution": "BLOKEISH",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BLOKEISH",
+    "definitions": [
+     {
+      "text": "Matey",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly drunk",
+      "for": "homophone",
+      "note": "reportedly means as heard, and drunk means slurred, so the words are heard as a tipsy person would say them"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "make an amorous gesture",
+      "gives": "BLOKEISH",
+      "soundsLike": "BLOW KISH",
+      "note": "to blow a kiss, as slurred by someone who has had too much"
+     }
+    ],
+    "explanation": {
+     "surface": "A pally, tipsy person blowing kisses at someone.",
+     "walkthrough": "The drunken slur turns the S of kiss into SH. A bloke is British slang for a man.",
+     "definitionFit": "Blokeish means hearty and laddish in manner, the friendly male camaraderie that matey also describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "drunk"
+    }
+   }
   },
   {
    "number": 18,
@@ -323,7 +1301,70 @@
     "text": "Contemptible person taking in adult now and then, right?",
     "enumeration": "8"
    },
-   "solution": "SWINDLER"
+   "solution": "SWINDLER",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SWINDLER",
+    "definitions": [
+     {
+      "text": "Contemptible person taking in adult now and then, right?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking in",
+      "for": "container",
+      "note": "to take something in is to hold it inside, so one piece goes within another"
+     },
+     {
+      "text": "now and then",
+      "for": "letter_selection",
+      "note": "now and then means only occasionally, so every other letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Contemptible person",
+      "gives": "SWINE",
+      "note": "a swine is a nasty, contemptible person"
+     },
+     {
+      "clueFragment": "adult",
+      "gives": "DL",
+      "select": "alternate",
+      "note": "the second and fourth letters"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SWIN",
+      "DL",
+      "E",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A rogue who occasionally cheats grown-ups: surely that's right?",
+     "walkthrough": "Read whole, the clue also describes the answer: a despicable person who takes in, or dupes, a grown-up from time to time.",
+     "definitionFit": "To take someone in is to deceive them, and a cheat who deceives people for gain is a contemptible fraudster."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 19,
@@ -337,7 +1378,42 @@
     "text": "Greedily eat tripe?",
     "enumeration": "4"
    },
-   "solution": "GUTS"
+   "solution": "GUTS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GUTS",
+    "definitions": [
+     {
+      "text": "Greedily eat",
+      "at": 0
+     },
+     {
+      "text": "tripe",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Greedily eat",
+      "note": "first meaning: to gorge on food, a British slang verb"
+     },
+     {
+      "clueFragment": "tripe",
+      "note": "second meaning: animal stomach and intestines, the offal sold as tripe"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Tripe, cooked cow's stomach, is here taken literally as innards; the question mark flags that it is only an example.",
+     "definitionFit": "Guts means both the entrails of an animal and, in informal British use, to eat food greedily."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tripe"
+    }
+   }
   },
   {
    "number": 20,
@@ -351,7 +1427,69 @@
     "text": "Feature of fancy cravat Charlie put aside for American",
     "enumeration": "6"
    },
-   "solution": "AVATAR"
+   "solution": "AVATAR",
+   "annotation": {
+    "type": [
+     "substitution",
+     "anagram"
+    ],
+    "answer": "AVATAR",
+    "definitions": [
+     {
+      "text": "Feature",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put aside for",
+      "for": "substitution",
+      "note": "one thing put aside for another is swapped out and replaced"
+     },
+     {
+      "text": "fancy",
+      "for": "anagram",
+      "note": "fancy suggests elaborate invention, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cravat",
+      "gives": "CRAVAT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Charlie",
+      "note": "Charlie is C in the phonetic alphabet; this letter is swapped out"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is the abbreviation for American"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AVATAR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ARAVAT",
+       "gives": "AVATAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fashion note: a fancy cravat, discarded by Charlie in favour of an American style.",
+     "walkthrough": "'Feature' seems to mean a detail of the cravat, but it is a feature film.",
+     "definitionFit": "Avatar is James Cameron's 2009 blockbuster, an example of a full-length cinema film."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Feature"
+    }
+   }
   },
   {
    "number": 21,
@@ -365,7 +1503,70 @@
     "text": "Sweetheart briefly in thrall to drink, missing Eastern European",
     "enumeration": "6"
    },
-   "solution": "SLOVAK"
+   "solution": "SLOVAK",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "SLOVAK",
+    "definitions": [
+     {
+      "text": "European",
+      "at": 55
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "cut brief means shortened, so the final letter goes"
+     },
+     {
+      "text": "in thrall to",
+      "for": "container",
+      "note": "one in thrall to another is held in its grip, so that piece sits inside"
+     },
+     {
+      "text": "missing",
+      "for": "deletion",
+      "note": "something missing is absent, so that letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sweetheart",
+      "gives": "LOVE",
+      "note": "love is a term of endearment"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "SAKE",
+      "note": "sake is Japanese rice wine"
+     },
+     {
+      "clueFragment": "Eastern",
+      "note": "E, the abbreviation for Eastern, is removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "LOV",
+      "AK"
+     ]
+    },
+    "explanation": {
+     "surface": "A lover in the grip of alcohol, missing an Eastern European.",
+     "walkthrough": "'Eastern European' reads as the definition, but 'Eastern' is the letter to take away and only 'European' defines.",
+     "definitionFit": "A Slovak is a native of Slovakia, a country in central Europe, so a Slovak is a citizen of Europe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Eastern"
+    }
+   }
   },
   {
    "number": 22,
@@ -379,7 +1580,43 @@
     "text": "Byron delivered this extract from overseas",
     "enumeration": "5"
    },
-   "solution": "VERSE"
+   "solution": "VERSE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "VERSE",
+    "definitions": [
+     {
+      "text": "Byron delivered this",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extract from",
+      "for": "hidden_word",
+      "note": "an extract is a piece taken out of a longer text"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "overseas",
+      "gives": "VERSE",
+      "note": "the letters sit in the middle of the word"
+     }
+    ],
+    "explanation": {
+     "surface": "Lord Byron sent a passage of writing home from abroad.",
+     "walkthrough": "Byron did write much of his work abroad, so 'from overseas' reads as fact rather than the hiding place.",
+     "definitionFit": "Lord Byron was a Romantic poet, so what he produced was poetry, written in lines of metre."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "extract"
+    }
+   }
   },
   {
    "number": 23,
@@ -393,7 +1630,59 @@
     "text": "King, perhaps with knight, arranged violets",
     "enumeration": "8"
    },
-   "solution": "NOVELIST"
+   "solution": "NOVELIST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NOVELIST",
+    "definitions": [
+     {
+      "text": "King, perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "arranged",
+      "for": "anagram",
+      "note": "flowers that are arranged are set out in a new order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "knight",
+      "gives": "N",
+      "note": "N is the chess notation for knight"
+     },
+     {
+      "clueFragment": "violets",
+      "gives": "VIOLETS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NVIOLETS",
+       "gives": "NOVELIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A king and a knight arranging flowers, or chess pieces beside a vase of violets.",
+     "walkthrough": "King and knight pull toward chess or royalty, but King is Stephen King, the horror writer.",
+     "definitionFit": "Stephen King writes best-selling fiction books, so he is one example of an author of long fiction."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "King"
+    }
+   }
   },
   {
    "number": 24,
@@ -407,7 +1696,50 @@
     "text": "Saint Nick is one in no hurry",
     "enumeration": "5"
    },
-   "solution": "SNAIL"
+   "solution": "SNAIL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SNAIL",
+    "definitions": [
+     {
+      "text": "one in no hurry",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Saint",
+      "gives": "S",
+      "note": "S is the abbreviation for saint"
+     },
+     {
+      "clueFragment": "Nick",
+      "gives": "NAIL",
+      "note": "to nick and to nail both mean to catch or arrest"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "NAIL"
+     ]
+    },
+    "explanation": {
+     "surface": "Father Christmas, Saint Nicholas, is never rushed.",
+     "walkthrough": "'Saint Nick' reads as Santa Claus, but the two words split: nick is British slang for arrest.",
+     "definitionFit": "The snail is proverbially the slowest of creatures, so it is the example of something that never rushes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Nick"
+    }
+   }
   },
   {
    "number": 25,
@@ -421,7 +1753,66 @@
     "text": "Square in France – visit when temperature’s dropped",
     "enumeration": "4"
    },
-   "solution": "FOUR"
+   "solution": "FOUR",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "FOUR",
+    "definitions": [
+     {
+      "text": "Square",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "substitution",
+      "note": "coming in means entering the word as the new letter"
+     },
+     {
+      "text": "dropped",
+      "for": "substitution",
+      "note": "what is dropped is let go, making room for its replacement"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "France",
+      "gives": "F",
+      "note": "F is the international vehicle code for France"
+     },
+     {
+      "clueFragment": "visit",
+      "gives": "TOUR",
+      "note": "a tour is a visit to a place"
+     },
+     {
+      "clueFragment": "temperature’s",
+      "note": "T, for temperature, is the letter swapped out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "OUR"
+     ]
+    },
+    "explanation": {
+     "surface": "A tourist plans a visit to a town square in France once the heat has eased.",
+     "walkthrough": "'Square in France' looks like a French place, but 'Square' alone is the definition, a number.",
+     "definitionFit": "Four is two multiplied by itself, making it a perfect square number in arithmetic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Square"
+    }
+   }
   },
   {
    "number": 26,
@@ -435,7 +1826,47 @@
     "text": "This writer’s flannel quite possibly irrelevant",
     "enumeration": "10"
    },
-   "solution": "IMMATERIAL"
+   "solution": "IMMATERIAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IMMATERIAL",
+    "definitions": [
+     {
+      "text": "irrelevant",
+      "at": 37
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "This writer’s",
+      "gives": "IM",
+      "note": "the writer referring to themself: I am, shortened"
+     },
+     {
+      "clueFragment": "flannel quite possibly",
+      "gives": "MATERIAL",
+      "note": "flannel is one kind of cloth, hence 'quite possibly'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IM",
+      "MATERIAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A writer admits their own waffle is probably beside the point.",
+     "walkthrough": "'flannel' suggests waffle, British slang for empty talk, but it is the woollen fabric.",
+     "definitionFit": "Something immaterial has no bearing on the matter at hand, so it does not matter and is beside the point."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "flannel"
+    }
+   }
   },
   {
    "number": 27,
@@ -449,7 +1880,72 @@
     "text": "Two leading tenors sing outside hospital for charity show",
     "enumeration": "8"
    },
-   "solution": "TELETHON"
+   "solution": "TELETHON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "TELETHON",
+    "definitions": [
+     {
+      "text": "charity show",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Two leading",
+      "for": "letter_selection",
+      "note": "the two leading letters are the pair at the front of the word"
+     },
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "to be outside is to surround, so one piece is wrapped around another"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tenors",
+      "gives": "TE",
+      "select": "first",
+      "note": "the opening pair of letters"
+     },
+     {
+      "clueFragment": "sing",
+      "gives": "LETON",
+      "note": "to let on, like to sing, is to reveal a secret to the authorities"
+     },
+     {
+      "clueFragment": "hospital",
+      "gives": "H",
+      "note": "H is the abbreviation for hospital, as on road signs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TE",
+      "LET",
+      "H",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "Two star tenors perform outside a hospital at a fundraising concert.",
+     "walkthrough": "'sing' looks musical, but here it means to inform or confess, the criminal slang sense.",
+     "definitionFit": "A telethon is a long televised broadcast raising money for good causes, so it is a fundraising programme."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sing"
+    }
+   }
   },
   {
    "number": 28,
@@ -463,7 +1959,65 @@
     "text": "Maybe princes greatly impress old Republican, on reflection",
     "enumeration": "6"
    },
-   "solution": "ROYALS"
+   "solution": "ROYALS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ROYALS",
+    "definitions": [
+     {
+      "text": "Maybe princes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on reflection",
+      "for": "reversal",
+      "note": "a reflection in a mirror shows things back to front"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "greatly impress",
+      "gives": "SLAY",
+      "note": "to slay an audience is to impress them hugely"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the abbreviation for Republican"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROYALS"
+     ],
+     "reversals": [
+      {
+       "from": "SLAYOR",
+       "to": "ROYALS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Perhaps princes can win over an old republican opponent, once he thinks it over.",
+     "walkthrough": "Princes and a republican set up a political scene, but the words are just letter sources.",
+     "definitionFit": "Princes are members of a ruling family, so they are examples of members of a monarchy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reflection"
+    }
+   }
   }
  ]
 }
