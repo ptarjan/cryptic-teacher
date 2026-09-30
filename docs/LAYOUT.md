@@ -967,5 +967,17 @@ scratch/blog_solve_times.py                  can fifteensquared / bigdave44 comm
 scratch/blog_solve_times_fetch.py            sample ~200 bigdave44 posts plus every annotated
                                              one; posts' comments (3s crawl delay) into
                                              ~/.cache/blog_solve_times/bigdave44
+scratch/snitch_stage13.py                    stage 13: the YouTube solvers' per-clue winners as
+                                             puzzle components
+scratch/solver_clues.py                      per-clue difficulty features against YouTube
+                                             solvers' waits, held out by puzzle
+tools/push_puzzle_commit.sh                  publish one local commit to origin/master without
+                                             touching the working tree
+tools/test_push_puzzle_commit.sh             does tools/push_puzzle_commit.sh publish a commit
+                                             while another process keeps writing into the same
+                                             working tree, where fetch + rebase --autostash +
+                                             push fails? The burn (tools/prereset_backfill.sh)
+                                             commits and pushes each puzzle while the rest of
+                                             its wave is still writing into that tree
 ```
 <!-- LAYOUT-END -->
