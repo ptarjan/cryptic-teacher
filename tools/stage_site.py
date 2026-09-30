@@ -94,7 +94,7 @@ def check(out, staged):
             if t is not None and t not in staged:
                 missing.append(f"{page} -> {url}")
     index = json.loads((out / "puzzles/index.json").read_text(encoding="utf-8"))
-    for p in index["puzzles"]:
+    for p in index["puzzles"] + index.get("unlisted", []):
         if f"puzzles/{p['file']}" not in staged:
             missing.append(f"puzzles/index.json -> puzzles/{p['file']}")
     return missing

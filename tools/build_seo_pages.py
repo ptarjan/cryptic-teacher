@@ -130,7 +130,7 @@ STUB_KEYS = ("id", "series", "number", "date", "year")
 
 
 def puzzles():
-    """[(path, stub)] for every puzzle with a solution, newest first.
+    """[(path, stub)] for every listed puzzle with a solution, newest first.
 
     Stubs, not puzzles: the corpus does not fit in memory at once. Each puzzle
     is read in full again when its own page is rendered, one at a time.
@@ -138,6 +138,8 @@ def puzzles():
     out = []
     for path in puzzle_files():
         p = read_puzzle_file(path)
+        if series_meta.unlisted(p["series"]):
+            continue
         if any(e.get("solution") for e in p["entries"]):
             out.append((path, {k: p[k] for k in STUB_KEYS if k in p}))
     # Chronological, matching fetch_puzzle.reindex(). Sorting on the number was
