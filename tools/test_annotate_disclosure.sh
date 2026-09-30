@@ -221,6 +221,11 @@ fix.write_text(json.dumps({"2-across": {"type": ["anagram"]}}))
 say("patch_deletes_its_file", AC.patch(pending, fix) is None and not fix.exists()
     and json.loads(pending.read_text())["2-across"] == {"type": ["anagram"]})
 
+# An answer typed with the enumeration's comma is respelt with a space.
+pending.write_text(json.dumps({"1-across": {"answer": "TITUS, ANDRONICUS"}, "2-across": None}))
+say("comma_answer_spaced", AC.respell_answers(pending) == ["1-across"]
+    and json.loads(pending.read_text())["1-across"]["answer"] == "TITUS ANDRONICUS")
+
 # Each validator line names its check, and --explain takes what a run guesses.
 import contextlib, io
 errs = []
@@ -254,7 +259,7 @@ for k in linked_leader_quiet annotated_continuation_flagged \
          reworded_clue_fails retyped_clue_passes missing_keys_filled_null \
          preview_names_validator_errors patch_deletes_its_file \
          line_names_its_check explain_takes_a_field explain_takes_dashed_words \
-         explain_unknown_refused; do
+         explain_unknown_refused comma_answer_spaced; do
   same "$k" "$(grep -c "^$k=yes$" <<<"$out")" "1"
 done
 
