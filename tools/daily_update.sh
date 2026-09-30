@@ -701,9 +701,10 @@ if [ -n "$misses" ] && command -v claude >/dev/null 2>&1; then
     fi
     echo "diagnosing the graded miss $miss_pid $miss_eid with Claude Code... (session ${session:-unknown}%)"
     # shellcheck disable=SC2086 # $miss_cap is a command and its argument, or nothing
-    $miss_cap claude -p "Read tools/solve_miss_prompt.md and follow it exactly. This is the miss it is about:
+    $miss_cap claude -p "Follow tools/solve_miss_prompt.md exactly (it is your system prompt's appendix; do not open the file). This is the miss it is about:
 
 $(python3 tools/solve_misses.py packet "$miss_pid" "$miss_eid" 2>&1)" "${CLAUDE_HEADLESS[@]}" \
+      --append-system-prompt-file tools/solve_miss_prompt.md \
       --model "$ANNOTATE_MODEL" \
       --effort "$ANNOTATE_EFFORT" \
       --allowedTools "Read,Write,Edit,Bash(python3 *),Bash(bash tools/test_*),Bash(grep *)" \
@@ -780,8 +781,9 @@ if [ -n "$unsolved" ] && command -v claude >/dev/null 2>&1; then
     solve_sid=$(session_id) || solve_sid=""
     solve_sess=()
     [ -n "$solve_sid" ] && solve_sess=(--session-id "$solve_sid")
-    claude -p "Solve the cryptic crossword in $(python3 tools/puzzle_paths.py "$num") in this repo. Its answers have not been published, so there is no key: follow tools/solve_prompt.md exactly, write your fill to $fill, and iterate against 'python3 tools/apply_solution.py $num --fill $fill --check-only' until every crossing agrees. Do not write to puzzles/ — the calling script applies the fill." \
+    claude -p "Solve the cryptic crossword in $(python3 tools/puzzle_paths.py "$num") in this repo. Its answers have not been published, so there is no key: follow tools/solve_prompt.md exactly (it is your system prompt's appendix; do not open the file), write your fill to $fill, and iterate against 'python3 tools/apply_solution.py $num --fill $fill --check-only' until every crossing agrees. Do not write to puzzles/ — the calling script applies the fill." \
       "${solve_sess[@]}" "${CLAUDE_HEADLESS[@]}" \
+      --append-system-prompt-file tools/solve_prompt.md \
       --model "$ANNOTATE_MODEL" \
       --effort "$ANNOTATE_EFFORT" \
       --allowedTools "Read,Write,Edit,Bash(python3 *),Bash(node *)" \
@@ -901,7 +903,8 @@ if [ -n "$pending" ]; then
       # that again. --resume replays the transcript and carries on from it.
       ann_sid=$(session_id) || ann_sid=""
       ann_sess=(--session-id "$ann_sid")
-      ann_prompt="$ann_task Follow the instructions in tools/annotate_prompt.md exactly, including running 'python3 tools/annotate_check.py <ID>' until it reports clean. Do not commit — the calling script commits."
+      ann_sys=tools/annotate_prompt.md
+      ann_prompt="$ann_task Follow tools/annotate_prompt.md exactly (it is your system prompt's appendix; do not open the file), including running 'python3 tools/annotate_check.py <ID>' until it reports clean. Do not commit — the calling script commits."
       # This grid may have been solved cold half an hour ago in a conversation
       # that is still on disk. That run derived every answer and the wordplay
       # that reached it, which is exactly what an annotation has to say;
@@ -913,7 +916,10 @@ if [ -n "$pending" ]; then
       if session_exists "$solve_prior"; then
         ann_sid="$solve_prior"
         ann_sess=(--resume "$ann_sid")
-        ann_prompt="You solved this crossword earlier in this conversation, and your fill has since been written into $ann_file. Read the file as it now stands rather than working from memory, then annotate it from the wordplay you used to derive each answer. $ann_prompt"
+        # The solve's system prompt again, so the cached transcript prefix
+        # still matches; the annotation rules come in as a file read instead.
+        ann_sys=tools/solve_prompt.md
+        ann_prompt="You solved this crossword earlier in this conversation, and your fill has since been written into $ann_file. Read the file as it now stands rather than working from memory, then annotate it from the wordplay you used to derive each answer. $ann_task Read tools/annotate_prompt.md and follow it exactly, including running 'python3 tools/annotate_check.py <ID>' until it reports clean. Do not commit — the calling script commits."
         echo "  $num was solved cold tonight — annotating in that same conversation rather than from a cold start"
       fi
       ann_ok=""
@@ -930,6 +936,7 @@ if [ -n "$pending" ]; then
       while :; do
         # shellcheck disable=SC2086
         $ann_cap claude -p "$ann_prompt" "${ann_sess[@]}" "${CLAUDE_HEADLESS[@]}" \
+            --append-system-prompt-file "$ann_sys" \
             --model "$ANNOTATE_MODEL" \
             --effort "$ANNOTATE_EFFORT" \
             --allowedTools "$ann_tools" \
@@ -1089,9 +1096,10 @@ if bad_hints=$(python3 tools/reports.py --since 14 2>&1); then
       else
         fixlog="${TMPDIR:-/tmp}/cryptic-reports.log"
         echo "fixing $(printf '%s' "$bad_hints" | grep -c '^  r:') reported hint(s) with Claude Code... (session ${session:-unknown}%)"
-        claude -p "Read tools/report_fix_prompt.md and follow it exactly. These are the reports it is about:
+        claude -p "Follow tools/report_fix_prompt.md exactly (it is your system prompt's appendix; do not open the file). These are the reports it is about:
 
 $bad_hints" "${CLAUDE_HEADLESS[@]}" \
+          --append-system-prompt-file tools/report_fix_prompt.md \
           --model "$ANNOTATE_MODEL" \
           --effort "$ANNOTATE_EFFORT" \
           --allowedTools "Read,Write,Edit,Bash(python3 *),Bash(node *)" \
