@@ -103,7 +103,10 @@ def finish(puzzle, annotated_by):
         puzzle = provenance.credit_annotator(puzzle, annotated_by, had_hints=False)
     puzzle = provenance.stamp(puzzle, "tools/build_authored_puzzle.py")
     puzzle = puzzle_schema.order(definitions.place_puzzle(puzzle_schema.prune(puzzle)))
-    _, errors, _ = validate_annotations.validate_puzzle(puzzle)
+    _, errors, warnings = validate_annotations.validate_puzzle(puzzle)
+    # The Pages build runs the corpus validator, ratchet included, over this
+    # puzzle; refusing less here would ship a file that fails the deploy.
+    errors += validate_annotations.backlog_errors(puzzle["id"], warnings)
     return puzzle, errors
 
 
