@@ -24,6 +24,9 @@
   "date": "2026-07-29",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -43,7 +46,68 @@
      }
     ]
    },
-   "solution": "JAWBREAKER"
+   "solution": "JAWBREAKER",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "JAW-BREAKER",
+    "definitions": [
+     {
+      "text": "Pronouncement is difficult for this",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "right to",
+      "for": "letter_selection",
+      "note": "the right of a word is its end, so only the last letter is meant"
+     },
+     {
+      "text": "waiving",
+      "for": "deletion",
+      "note": "to waive something is to give it up, so a letter is surrendered from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "judge",
+      "gives": "J",
+      "note": "J is the standard abbreviation for judge"
+     },
+     {
+      "clueFragment": "criminal",
+      "gives": "LAWBREAKER",
+      "note": "a criminal is someone who breaks the law"
+     },
+     {
+      "clueFragment": "counsel",
+      "gives": "L",
+      "select": "last",
+      "note": "last letter, the one given up"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "J",
+      "AWBREAKER"
+     ]
+    },
+    "explanation": {
+     "surface": "A judge notes that a defendant has waived the right to a lawyer, and says so with difficulty.",
+     "walkthrough": "'Right to counsel' sounds like the legal entitlement, but it is only the rightmost letter of 'counsel'. The criminal drops that L, and J goes in front.",
+     "definitionFit": "A jawbreaker is a word so long or awkward that saying it seems to strain the mouth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 2,
@@ -57,7 +121,51 @@
     "text": "Champion of Wimbledon playing a man and a woman",
     "enumeration": "4"
    },
-   "solution": "ASHE"
+   "solution": "ASHE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASHE",
+    "definitions": [
+     {
+      "text": "Champion of Wimbledon",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "playing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "man and a woman",
+      "gives": "SHE",
+      "note": "SHE is a woman, and it contains HE, a man, so one word plays both"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "SHE"
+     ]
+    },
+    "explanation": {
+     "surface": "A tennis champion at Wimbledon plays mixed doubles against a man and a woman.",
+     "walkthrough": "Two routes to the same letters: 'playing a man' is AS HE, acting as him, and 'a woman' is A SHE. Either split works.",
+     "definitionFit": "Arthur Ashe, the American tennis player, won the men's singles title at Wimbledon in 1975."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "playing"
+    }
+   }
   },
   {
    "number": 3,
@@ -71,7 +179,48 @@
     "text": "Woman’s collection robbed of top painting",
     "enumeration": "8"
    },
-   "solution": "ROUSSEAU"
+   "solution": "ROUSSEAU",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ROUSSEAU",
+    "definitions": [
+     {
+      "text": "painting",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "robbed of top",
+      "for": "deletion",
+      "note": "being robbed of the top means losing the first letter, the top of a down entry"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Woman’s collection",
+      "gives": "TROUSSEAU",
+      "note": "a bride's collection of clothes and linen gathered for her marriage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROUSSEAU"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman's art collection has been stolen from the top floor, painting and all.",
+     "walkthrough": "'Woman's collection' looks like an art collection, but it is a trousseau; the painting is the answer, not part of the theft.",
+     "definitionFit": "A painting by Henri Rousseau, the French naive artist, can be called a Rousseau, as a work by Monet is a Monet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "collection"
+    }
+   }
   },
   {
    "number": 4,
@@ -91,7 +240,43 @@
      }
     ]
    },
-   "solution": "OLDNICK"
+   "solution": "OLDNICK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OLD NICK",
+    "definitions": [
+     {
+      "text": "Newgate for one",
+      "at": 0
+     },
+     {
+      "text": "bogy",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Newgate for one",
+      "note": "first meaning: an old prison, since nick is British slang for jail"
+     },
+     {
+      "clueFragment": "bogy",
+      "note": "second meaning: a nickname for the Devil, a bogeyman"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Newgate was a notorious London prison, long since demolished, so it is literally an old nick.",
+     "definitionFit": "Old Nick is a traditional English name for Satan, the frightening figure of folklore; Newgate was a historic jail, and nick means jail."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Newgate"
+    }
+   }
   },
   {
    "number": 5,
@@ -105,7 +290,42 @@
     "text": "Out between “4” and 19 half of 16 17 (and between 2ac and 22 anticlockwise)?",
     "enumeration": "6"
    },
-   "solution": "CAUGHT"
+   "solution": "CAUGHT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CAUGHT",
+    "definitions": [
+     {
+      "text": "Out",
+      "at": 0
+     },
+     {
+      "text": "between “4” and 19 half of 16 17",
+      "at": 4
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Out",
+      "note": "first meaning: dismissed in cricket when a fielder takes the ball on the full"
+     },
+     {
+      "clueFragment": "between “4” and 19 half of 16 17",
+      "note": "second meaning: the word that completes the saying built from other answers in the grid"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "4 is OLD NICK, the devil; 19 is THE DEEP; half of 16 is BLUE and half of 17 is SEA: caught between the devil and the deep blue sea. The bracket points to the other saying, between a rock and a hard place.",
+     "definitionFit": "In cricket a batsman is out when caught, and someone trapped between two bad options is proverbially caught between them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 6,
@@ -125,7 +345,84 @@
      }
     ]
    },
-   "solution": "KNEELENGTH"
+   "solution": "KNEELENGTH",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "KNEE-LENGTH",
+    "definitions": [
+     {
+      "text": "Principles of kilt, negligée etc, sporting leg then?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Principles of",
+      "for": "letter_selection",
+      "note": "principles sound like principals, the leading ones, so only the opening letters count"
+     },
+     {
+      "text": "sporting",
+      "for": "anagram",
+      "note": "sporting can mean playing about, so the letters frolic into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "kilt",
+      "gives": "K",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "negligée",
+      "gives": "N",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "etc",
+      "gives": "E",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "leg then",
+      "gives": "LEGTHEN",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "N",
+      "E",
+      "ELENGTH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LEGTHEN",
+       "gives": "ELENGTH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fashion question: what rules govern kilts and nightdresses that show off a bit of leg?",
+     "walkthrough": "The definition is adjectival: kilts and negligées are typical examples of garments cut to reach the knee.",
+     "definitionFit": "A kilt or a negligée typically hangs down to the knee, making both garments examples of that length."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Principles"
+    }
+   }
   },
   {
    "number": 7,
@@ -139,7 +436,55 @@
     "text": "Genius provided ingredients for popular cocktail drinks",
     "enumeration": "4"
    },
-   "solution": "GIFT"
+   "solution": "GIFT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GIFT",
+    "definitions": [
+     {
+      "text": "Genius",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drinks",
+      "for": "container",
+      "note": "whatever drinks something takes it inside, so one piece swallows the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ingredients for popular cocktail",
+      "gives": "GT",
+      "note": "gin and tonic, a popular mix, is written G and T"
+     },
+     {
+      "clueFragment": "provided",
+      "gives": "IF",
+      "note": "provided that means if"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "IF",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A genius at the bar makes the cocktails provided the right ingredients are there to drink.",
+     "walkthrough": "G and T is the everyday British shorthand for gin and tonic, so its ingredients are the letters G and T.",
+     "definitionFit": "A gift is a natural talent or flair, the same innate ability we call genius."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drinks"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +504,48 @@
      }
     ]
    },
-   "solution": "BARSTOOL"
+   "solution": "BARSTOOL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BAR STOOL",
+    "definitions": [
+     {
+      "text": "Local supporter",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "secures",
+      "gives": "BARS",
+      "note": "to bar a door is to secure it"
+     },
+     {
+      "clueFragment": "gun",
+      "gives": "TOOL",
+      "note": "slang for a firearm"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BARS",
+      "TOOL"
+     ]
+    },
+    "explanation": {
+     "surface": "A fan of the local team gets hold of a gun.",
+     "walkthrough": "'Local supporter' reads as a fan of a home side; in Britain the local is your neighbourhood pub, and a bar stool literally supports drinkers there.",
+     "definitionFit": "A bar stool is a tall seat in a pub, holding up the regulars, so it props people up at their local."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "supporter"
+    }
+   }
   },
   {
    "number": 9,
@@ -173,7 +559,56 @@
     "text": "Abba’s first release that introduced Top of the Pops!",
     "enumeration": "6"
    },
-   "solution": "AUNTIE"
+   "solution": "AUNTIE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "AUNTIE",
+    "definitions": [
+     {
+      "text": "that introduced Top of the Pops",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "the first of a word is its opening letter, so only that is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Abba’s",
+      "gives": "A",
+      "select": "first",
+      "note": "the opening letter of the band's name"
+     },
+     {
+      "clueFragment": "release",
+      "gives": "UNTIE",
+      "note": "to untie is to set free"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "UNTIE"
+     ]
+    },
+    "explanation": {
+     "surface": "Abba's first single was the record that launched the chart show Top of the Pops.",
+     "walkthrough": "'Release' looks like a record release; it is a verb. Auntie is the affectionate British nickname for the BBC, which broadcast Top of the Pops, the weekly pop chart show.",
+     "definitionFit": "The BBC, nicknamed Auntie, launched and broadcast the long-running television chart programme."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "release"
+    }
+   }
   },
   {
    "number": 10,
@@ -187,7 +622,65 @@
     "text": "Religious, Lincoln’s bishop, and special — doubly so",
     "enumeration": "6"
    },
-   "solution": "ABBESS"
+   "solution": "ABBESS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ABBESS",
+    "definitions": [
+     {
+      "text": "Religious",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "doubly so",
+      "for": "container",
+      "note": "doubly means twice over, so each added letter sits beside a twin already there"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lincoln’s",
+      "gives": "ABES",
+      "note": "Abe is Abraham Lincoln's short name, with the possessive S"
+     },
+     {
+      "clueFragment": "bishop",
+      "gives": "B",
+      "note": "B is the chess notation for bishop"
+     },
+     {
+      "clueFragment": "special",
+      "gives": "S",
+      "note": "S is short for special"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "B",
+      "BE",
+      "S",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A religious man, Lincoln's bishop, is special twice over.",
+     "walkthrough": "Lincoln here is Abraham Lincoln, not the English cathedral city. ABE'S already has a B and an S; adding one more of each doubles both.",
+     "definitionFit": "In crossword and church usage a religious is a noun meaning a monk or nun; an abbess heads a convent of nuns."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Lincoln’s"
+    }
+   }
   },
   {
    "number": 11,
@@ -201,7 +694,72 @@
     "text": "Disregards Nigel at the outset and chooses to retain Government",
     "enumeration": "8"
    },
-   "solution": "NEGLECTS"
+   "solution": "NEGLECTS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "NEGLECTS",
+    "definitions": [
+     {
+      "text": "Disregards",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the outset",
+      "for": "letter_selection",
+      "note": "the outset is the very start, so only the opening letter is taken"
+     },
+     {
+      "text": "to retain",
+      "for": "container",
+      "note": "to retain is to keep hold of, so one piece keeps another inside"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nigel",
+      "gives": "N",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "chooses",
+      "gives": "ELECTS",
+      "note": "to elect is to choose"
+     },
+     {
+      "clueFragment": "Government",
+      "gives": "G",
+      "note": "G is the abbreviation for government"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "E",
+      "G",
+      "LECTS"
+     ]
+    },
+    "explanation": {
+     "surface": "A politician ignores Nigel from the start and opts to keep the government in power.",
+     "walkthrough": "'Chooses to retain Government' reads as a vote; ELECTS is what holds the G.",
+     "definitionFit": "To neglect something is to ignore it or fail to attend to it, the same as paying it no heed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Government"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +779,68 @@
      }
     ]
    },
-   "solution": "FEATHERCUT"
+   "solution": "FEATHERCUT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "FEATHER CUT",
+    "definitions": [
+     {
+      "text": "do",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bags",
+      "for": "container",
+      "note": "to bag something is to put it in a sack, so one piece is packed inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "paper",
+      "gives": "FT",
+      "note": "the Financial Times, this puzzle's own newspaper"
+     },
+     {
+      "clueFragment": "Corrode",
+      "gives": "EAT",
+      "note": "to eat away is to corrode"
+     },
+     {
+      "clueFragment": "ship’s",
+      "gives": "HER",
+      "note": "a ship is referred to as she, so what belongs to it is hers"
+     },
+     {
+      "clueFragment": "copper",
+      "gives": "CU",
+      "note": "Cu is the chemical symbol for copper"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "EAT",
+      "HER",
+      "CU",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper's report on hulls: rust eats a ship's copper sheathing.",
+     "walkthrough": "'Do' looks like a verb at the end but is the noun for a hairstyle. The FT is the paper this crossword appears in.",
+     "definitionFit": "A feather cut is a hairstyle with the hair cut in layers; a do (hairdo) is a colloquial word for any styled haircut."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "do"
+    }
+   }
   },
   {
    "number": 13,
@@ -241,7 +860,65 @@
      }
     ]
    },
-   "solution": "TUBTHUMPER"
+   "solution": "TUBTHUMPER",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "TUB-THUMPER",
+    "definitions": [
+     {
+      "text": "Demagogue",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "in a down entry, raising letters lifts them bottom to top, so they run backwards"
+     }
+    ],
+    "linkWords": [
+     "wanting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "objection",
+      "gives": "BUT",
+      "note": "a but is an objection, as in no ifs or buts"
+     },
+     {
+      "clueFragment": "friend to fawn",
+      "gives": "THUMPER",
+      "note": "Thumper is the rabbit who befriends the young deer in Disney's Bambi"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TUB",
+      "THUMPER"
+     ],
+     "reversals": [
+      {
+       "from": "BUT",
+       "to": "TUB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rabble-rouser objects loudly, wanting his friend to grovel before him.",
+     "walkthrough": "'Fawn' looks like a verb meaning to grovel, but it is the young deer Bambi, whose best friend is the rabbit.",
+     "definitionFit": "A tub-thumper is a ranting public speaker, like one pounding a pulpit, which is what a rabble-rousing orator does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "fawn"
+    }
+   }
   },
   {
    "number": 14,
@@ -255,7 +932,46 @@
     "text": "Some feedback from the choir",
     "enumeration": "4"
    },
-   "solution": "ECHO"
+   "solution": "ECHO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ECHO",
+    "definitions": [
+     {
+      "text": "feedback",
+      "at": 5
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some means a portion of, so the letters sit inside a longer run"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the choir",
+      "gives": "ECHO",
+      "note": "letters spanning the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A listener passes on comments about the choir's performance.",
+     "walkthrough": "Feedback sounds like critical comments; here it is sound bouncing back, fitting a choir.",
+     "definitionFit": "An echo is sound reflected back to its source, a kind of acoustic return like the howl of audio feedback."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "feedback"
+    }
+   }
   },
   {
    "number": 15,
@@ -275,7 +991,56 @@
      }
     ]
    },
-   "solution": "HEROICOMIC"
+   "solution": "HEROICOMIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HEROI-COMIC",
+    "definitions": [
+     {
+      "text": "burlesque in the extreme",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Surreal",
+      "for": "anagram",
+      "note": "something surreal is bizarrely distorted, so the letters are jumbled out of their order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "choice",
+      "gives": "CHOICE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Miro",
+      "gives": "MIRO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CHOICEMIRO",
+       "gives": "HEROICOMIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Picking Miró, the Spanish Surrealist painter, as your artist is outrageously over the top.",
+     "walkthrough": "'Surreal' fits Miró the painter so well it hides its job as the anagram signal.",
+     "definitionFit": "Heroi-comic describes writing that mixes heroic grandeur with comedy, the mock-epic style of burlesque pushed to its limit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Surreal"
+    }
+   }
   },
   {
    "number": 16,
@@ -295,7 +1060,71 @@
      }
     ]
    },
-   "solution": "SKYBLUE"
+   "solution": "SKYBLUE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "SKY BLUE",
+    "definitions": [
+     {
+      "text": "a shade lighter",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to split",
+      "for": "deletion",
+      "note": "to split is to leave, so those letters depart from the word"
+     },
+     {
+      "text": "Awfully",
+      "for": "anagram",
+      "note": "awfully means badly done, so the letters end up in a mess"
+     }
+    ],
+    "linkWords": [
+     "this is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bulky",
+      "gives": "BULKY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "case",
+      "gives": "CASE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "CA",
+      "note": "circa, about, abbreviated; these letters leave"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BULKYSE",
+       "gives": "SKYBLUE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A heavy suitcase is about to burst open, which would make it a little lighter.",
+     "walkthrough": "'Lighter' looks like less heavy, fitting the bulky case; it is a colour paler than others. CASE loses CA and what remains is mixed with BULKY.",
+     "definitionFit": "Sky blue is a pale tone of blue, a light shade among colours."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lighter"
+    }
+   }
   },
   {
    "number": 17,
@@ -315,7 +1144,67 @@
      }
     ]
    },
-   "solution": "SEAGIRT"
+   "solution": "SEAGIRT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "SEA-GIRT",
+    "definitions": [
+     {
+      "text": "like literary isle",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from behind",
+      "for": "reversal",
+      "note": "read from behind means from the back end, so the letters run backwards"
+     },
+     {
+      "text": "maintains",
+      "for": "container",
+      "note": "to maintain is to hold on to, so one piece holds another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mansion",
+      "gives": "SEAT",
+      "note": "a country seat is a grand house"
+     },
+     {
+      "clueFragment": "appearance",
+      "gives": "RIG",
+      "note": "a rig is an outfit, how someone is turned out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEA",
+      "GIR",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "RIG",
+       "to": "GIR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stately house keeps up its looks at the back, like an island in a novel.",
+     "walkthrough": "Sea-girt is a poetic word, hence 'literary'; Shakespeare and Milton use it of islands.",
+     "definitionFit": "Sea-girt means surrounded by the sea, a poetic epithet for an island encircled by water."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "appearance"
+    }
+   }
   },
   {
    "number": 18,
@@ -329,7 +1218,61 @@
     "text": "Memorable, very fluent, English in translation",
     "enumeration": "8"
    },
-   "solution": "EVENTFUL"
+   "solution": "EVENTFUL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EVENTFUL",
+    "definitions": [
+     {
+      "text": "Memorable",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in translation",
+      "for": "anagram",
+      "note": "translation turns words into a different form, so the letters are recast"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "very",
+      "gives": "V",
+      "note": "V is the abbreviation for very"
+     },
+     {
+      "clueFragment": "fluent",
+      "gives": "FLUENT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "VFLUENTE",
+       "gives": "EVENTFUL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A translation is praised as memorable, very fluent English.",
+     "walkthrough": "'In translation' looks like praise for a translator; it is the anagram signal, and 'very' and 'English' give their abbreviations.",
+     "definitionFit": "An eventful period is one full of happenings, something worth remembering afterwards."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "translation"
+    }
+   }
   },
   {
    "number": 19,
@@ -349,7 +1292,59 @@
      }
     ]
    },
-   "solution": "THEDEEP"
+   "solution": "THEDEEP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "THE DEEP",
+    "definitions": [
+     {
+      "text": "Remote positions",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points at the end, so only the last letter is kept"
+     }
+    ],
+    "linkWords": [
+     "takes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scottish runner",
+      "gives": "THEDEE",
+      "note": "a river is a runner, and the Dee is a Scottish river"
+     },
+     {
+      "clueFragment": "up",
+      "gives": "P",
+      "select": "last",
+      "note": "last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THEDEE",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "A Scottish athlete moves into far-flung positions at last.",
+     "walkthrough": "'Runner' suggests an athlete; in crosswords it is often a river. The Dee flows through Aberdeenshire.",
+     "definitionFit": "In cricket the deep is the outfield near the boundary, the fielding places furthest from the batsman."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "runner"
+    }
+   }
   },
   {
    "number": 20,
@@ -363,7 +1358,42 @@
     "text": "Main gateway?",
     "enumeration": "4"
    },
-   "solution": "ARCH"
+   "solution": "ARCH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ARCH",
+    "definitions": [
+     {
+      "text": "Main",
+      "at": 0
+     },
+     {
+      "text": "gateway",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Main",
+      "note": "first meaning: chief, as in an archenemy"
+     },
+     {
+      "clueFragment": "gateway",
+      "note": "second meaning: a curved structure one passes through"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Main gateway' reads as the principal entrance; split it and each word is a separate meaning.",
+     "definitionFit": "As a prefix or adjective the word means principal or chief; as a noun it is a curved opening like a portal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Main"
+    }
+   }
   },
   {
    "number": 21,
@@ -377,7 +1407,68 @@
     "text": "Scientist revelling in father inhaling helium",
     "enumeration": "10"
    },
-   "solution": "FAHRENHEIT"
+   "solution": "FAHRENHEIT",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "FAHRENHEIT",
+    "definitions": [
+     {
+      "text": "Scientist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inhaling",
+      "for": "container",
+      "note": "to inhale is to breathe something in, so one piece goes inside another"
+     },
+     {
+      "text": "revelling",
+      "for": "anagram",
+      "note": "revelling is wild partying, so the letters are thrown about"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "father",
+      "gives": "FATHER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "helium",
+      "gives": "HE",
+      "note": "He is the chemical symbol for helium"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INFATHEHER",
+       "gives": "FAHRENHEIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A scientist enjoys himself hugely at his father's expense after breathing in helium.",
+     "walkthrough": "'In' looks like a link word but is part of the anagram fodder.",
+     "definitionFit": "Daniel Gabriel Fahrenheit was the German physicist who devised the temperature scale that bears his name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 21,
@@ -391,7 +1482,48 @@
     "text": "Was searching storage facility at Silverstone?",
     "enumeration": "6"
    },
-   "solution": "FISHED"
+   "solution": "FISHED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FISHED",
+    "definitions": [
+     {
+      "text": "Was searching",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at Silverstone",
+      "gives": "FI",
+      "note": "F1, Formula One, with the digit read as the letter I; Silverstone is the British Grand Prix circuit"
+     },
+     {
+      "clueFragment": "storage facility",
+      "gives": "SHED",
+      "note": "a shed is a simple store"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FI",
+      "SHED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hunted for a garage to keep things in at the Silverstone motor-racing circuit.",
+     "walkthrough": "An F1 shed would be a racing team's store at Silverstone; reading the 1 as I turns it into a single word.",
+     "definitionFit": "To fish for something is to hunt or grope about for it, as when fishing in a pocket for keys."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Silverstone"
+    }
+   }
   },
   {
    "number": 22,
@@ -405,7 +1537,59 @@
     "text": "In Order of Merit, is newspaper chief reduced?",
     "enumeration": "8"
    },
-   "solution": "ATOMISED"
+   "solution": "ATOMISED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ATOMISED",
+    "definitions": [
+     {
+      "text": "reduced",
+      "at": 38
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In",
+      "gives": "AT",
+      "note": "at can mean in, as in at home"
+     },
+     {
+      "clueFragment": "Order of Merit",
+      "gives": "OM",
+      "note": "OM is the abbreviation for the British honour"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "newspaper chief",
+      "gives": "ED",
+      "note": "ed is short for editor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AT",
+      "OM",
+      "IS",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Is a newspaper editor who has been given the Order of Merit now cut down to size?",
+     "walkthrough": "The Order of Merit is a British honour limited to a few distinguished people.",
+     "definitionFit": "To atomise is to break something into tiny particles or a fine spray, turning it into minute fragments."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reduced"
+    }
+   }
   },
   {
    "number": 23,
@@ -419,7 +1603,53 @@
     "text": "Plants warm up, temperature rising maximally",
     "enumeration": "4"
    },
-   "solution": "THEA"
+   "solution": "THEA",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "THEA",
+    "definitions": [
+     {
+      "text": "Plants",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rising maximally",
+      "for": "cycling",
+      "note": "in a down entry, rising as far as possible means climbing all the way to the top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "warm up",
+      "gives": "HEAT",
+      "note": "to heat is to warm up"
+     },
+     {
+      "clueFragment": "temperature",
+      "note": "T, the abbreviation for temperature, is the letter that moves"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "HEA"
+     ]
+    },
+    "explanation": {
+     "surface": "Warm up your plants and the temperature goes up as high as it can.",
+     "walkthrough": "The T at the bottom of HEAT climbs to the top of the entry.",
+     "definitionFit": "Thea is the botanical genus name once given to the tea plant, so the plural 'plants' fits a genus."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rising"
+    }
+   }
   },
   {
    "number": 24,
@@ -433,7 +1663,55 @@
     "text": "Saw through one’s own table?",
     "enumeration": "6"
    },
-   "solution": "TRIPOD"
+   "solution": "TRIPOD",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TRIPOD",
+    "definitions": [
+     {
+      "text": "table",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "through",
+      "for": "container",
+      "note": "something that goes through another passes inside it, so one piece sits within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Saw",
+      "gives": "RIP",
+      "note": "to rip is to saw wood along the grain"
+     },
+     {
+      "clueFragment": "one’s own",
+      "gives": "TOD",
+      "note": "on one's tod is British rhyming slang for alone, from Tod Sloan, a jockey, rhymed with own"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RIP",
+      "OD"
+     ]
+    },
+    "explanation": {
+     "surface": "Would you take a saw to your own table?",
+     "walkthrough": "Cockney rhyming slang: 'on your Tod Sloan' means on your own, shortened to 'on your tod'.",
+     "definitionFit": "A tripod is a three-legged stand, and the word also names a three-legged table or stool."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "own"
+    }
+   }
   },
   {
    "number": 25,
@@ -447,7 +1725,50 @@
     "text": "Check authenticity of each plan",
     "enumeration": "4"
    },
-   "solution": "IDEA"
+   "solution": "IDEA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IDEA",
+    "definitions": [
+     {
+      "text": "plan",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Check authenticity",
+      "gives": "ID",
+      "note": "to ID someone is to check who they are"
+     },
+     {
+      "clueFragment": "each",
+      "gives": "EA",
+      "note": "ea is the abbreviation for each"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ID",
+      "EA"
+     ]
+    },
+    "explanation": {
+     "surface": "Verifying that each scheme is genuine.",
+     "walkthrough": "'Check authenticity' is the verb ID, to check someone's identity.",
+     "definitionFit": "An idea can be a proposal or intention for what to do, the same as a scheme or design."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Check"
+    }
+   }
   },
   {
    "number": 26,
@@ -461,7 +1782,57 @@
     "text": "This woman comes to order lemon cheese",
     "enumeration": "6"
    },
-   "solution": "HELENE"
+   "solution": "HELENE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "HELENE",
+    "definitions": [
+     {
+      "text": "This woman",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to order",
+      "for": "anagram",
+      "note": "putting things to order means arranging them, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lemon cheese",
+      "gives": "LEMONCHEESE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "comes",
+      "gives": "COMES",
+      "note": "the letters that join the name; taking them away leaves the name's letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LENHEE",
+       "gives": "HELENE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman arrives to order some lemon-flavoured cheese.",
+     "walkthrough": "Read in reverse: this woman plus COMES, rearranged, makes LEMON CHEESE. So strike C, O, M, E, S from LEMON CHEESE and rearrange what is left.",
+     "definitionFit": "Hélène is a French female given name, so 'this woman' points to a particular lady by name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "order"
+    }
+   }
   },
   {
    "number": 27,
@@ -485,7 +1856,44 @@
      }
     ]
    },
-   "solution": "EAUDEVIE"
+   "solution": "EAUDEVIE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "EAU DE VIE",
+    "definitions": [
+     {
+      "text": "brandy",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "are you picking up",
+      "for": "homophone",
+      "note": "picking up means catching what is heard, so the words are judged by ear"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cologne No.22",
+      "gives": "EAUDEVIE",
+      "soundsLike": "ODOUR VEE",
+      "note": "cologne gives an odour, and V is the twenty-second letter of the alphabet"
+     }
+    ],
+    "explanation": {
+     "surface": "A shopper at the perfume counter, holding a Cologne numbered 22, is asked if they are also buying spirits.",
+     "walkthrough": "'Cologne No.22' looks like a perfume's name; it is a scent (odour) plus the 22nd letter, V, said together.",
+     "definitionFit": "Eau de vie, French for water of life, is a clear fruit brandy, a distilled spirit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cologne"
+    }
+   }
   }
  ]
 }
