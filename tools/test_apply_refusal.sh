@@ -35,6 +35,22 @@ except puzzle_integrity.RefusedWrite as err:
     check("no entries[N] path left", "entries[" not in msg)
     check("no Traceback", "Traceback" not in msg)
     print(msg)
+
+# A cold solve's stated definition must sit at one end of its clue: the one
+# that defined HALLWAY by the middle words "entrance area" is refused.
+import apply_solution
+hw = fetch_puzzle.read_puzzle_file(fetch_puzzle.resolve_puzzle("everyman-4168"))
+hw = {**hw, "entries": [e for e in hw["entries"] if groups.entry_id(e) == "15-across"]}
+got = apply_solution.check_definitions(hw, {"15-across": "entrance area"})
+check("middle definition refused", len(got) == 1 and "sits in the middle" in got[0])
+check("end definition passes", not apply_solution.check_definitions(hw, {"15-across": "At midpoint"}))
+check("definition not in the clue refused",
+      "not words of the clue" in "".join(apply_solution.check_definitions(hw, {"15-across": "corridor"})))
+answers, defs = apply_solution.split_fill({"15-across": "HALLWAY"})
+check("bare answer string needs a definition",
+      apply_solution.check_definitions(hw, defs) == ["15-across: no definition given"])
+see = {**hw, "entries": [{**hw["entries"][0], "clue": {"text": "See 5"}}]}
+check("a See clue needs none", not apply_solution.check_definitions(see, {}))
 sys.exit(fails)
 PY
 rc=$?

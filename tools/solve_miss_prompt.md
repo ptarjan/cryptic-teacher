@@ -25,23 +25,30 @@ the wrong answer through. It is usually one of these:
 ## Fix the class
 
 Fix what the diagnosis names, at the level where it will catch the next case
-too:
+too. Prefer, in this order:
 
-- a rule in `tools/solve_prompt.md`, stated in general terms and not about this
-  clue. Keep the file's plain style, and put the rule under the heading it
-  belongs to. Only add a rule if one does not already say the same thing; if
-  one does, sharpen it. Every solve pays for every word of that file, so
-  `tools/test_solve_misses.sh` caps it at 500 words: a rule that does not fit
-  must replace or merge with a weaker one;
-- a check in `tools/apply_solution.py`, if the class can be caught
-  mechanically without refusing correct fills. Add a case to
-  `tools/test_apply_refusal.sh` and run that test;
-- nothing, if the honest diagnosis is an obscure word or reference that no
-  rule would have produced. Saying so is a correct outcome. Do not invent a
-  rule to have something to show.
+1. **A check in `tools/apply_solution.py`.** It costs nothing until it fires,
+   while every solve pays for every word of the prompt. It may only use what
+   the fill states (each answer and its definition) plus the puzzle and data
+   already in the repo. Before keeping it, run it over the corpus's correct
+   answers, using their annotations' definitions where it needs one, and count
+   how often it fires: each firing on a correct fill costs the solver a fix
+   turn, so keep it only if that rate is low, and give the numbers in your
+   note. The refusal must say what to reparse. Add a case to
+   `tools/test_apply_refusal.sh` and run that test. If the check replaces a
+   rule in `tools/solve_prompt.md`, delete the rule.
+2. **A rule in `tools/solve_prompt.md`**, only when no check is possible.
+   State it in general terms, not about this clue, in the file's plain style,
+   under the heading it belongs to. Sharpen an existing rule rather than add
+   one that says the same thing. `tools/test_solve_misses.sh` caps the file at
+   500 words, so a rule that does not fit must replace or merge with a weaker
+   one.
+3. **Nothing**, if the honest diagnosis is an obscure word or reference.
+   Saying so is a correct outcome. Do not invent a rule to have something to
+   show.
 
-One clue is a sample. Before adding a rule, satisfy yourself that it would not
-have misled the solve on ordinary clues.
+One clue is a sample. Before adding either, satisfy yourself that it would
+not have misled the solve on ordinary clues.
 
 ## Finishing
 
