@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,55 @@
     "text": "Physio service, 75 cents?",
     "enumeration": "7"
    },
-   "solution": "MASSEUR"
+   "solution": "MASSEUR",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "MASSEUR",
+    "definitions": [
+     {
+      "text": "Physio",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "75 cents",
+      "for": "deletion",
+      "note": "seventy-five cents is three quarters of a hundred, so keep three of the four letters of the currency"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "service",
+      "gives": "MASS",
+      "note": "a Mass is a church service"
+     },
+     {
+      "clueFragment": "75 cents",
+      "gives": "EUR",
+      "note": "three of the four letters of EURO, as 75 cents is three quarters of a euro"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MASS",
+      "EUR"
+     ]
+    },
+    "explanation": {
+     "surface": "A price list for physiotherapy, with some treatment costing just seventy-five cents.",
+     "walkthrough": "The 75 cents is not a price but an instruction: a euro is 100 cents, so take three quarters of its letters.",
+     "definitionFit": "A masseur gives massage, the hands-on body treatment a physiotherapist also offers, so the two roles are loosely equivalent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cents"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +98,55 @@
     "text": "Big fish mostly produce nothing",
     "enumeration": "4"
    },
-   "solution": "MAKO"
+   "solution": "MAKO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "MAKO",
+    "definitions": [
+     {
+      "text": "Big fish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the final letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "produce",
+      "gives": "MAKE",
+      "note": "to produce is to make"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "zero, nothing, looks like the letter O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAK",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A big fish that mostly yields nothing: an angler's disappointing catch.",
+     "walkthrough": "'Produce' reads as a noun, farm goods, but it is the verb to make.",
+     "definitionFit": "The mako is a large, fast shark of warm oceans, prized by sport anglers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "produce"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +160,43 @@
     "text": "Something carried, by girls at Cheltenham?",
     "enumeration": "7"
    },
-   "solution": "SATCHEL"
+   "solution": "SATCHEL",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SATCHEL",
+    "definitions": [
+     {
+      "text": "Something carried",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by",
+      "for": "hidden_word",
+      "note": "read as held by, the words that follow contain and carry the answer within them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "girls at Cheltenham",
+      "gives": "SATCHEL",
+      "note": "run the letters together across the word breaks"
+     }
+    ],
+    "explanation": {
+     "surface": "Something carried by the pupils of Cheltenham Ladies' College, a famous English girls' boarding school.",
+     "walkthrough": "The answer runs across girlS AT CHELtenham; the comma separates the definition, but the whole clue also describes a schoolgirl's bag.",
+     "definitionFit": "A satchel is a school bag worn over the shoulder, so it is literally an item that pupils carry around."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Cheltenham"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +210,66 @@
     "text": "Cast starts to extemporise in a TV show",
     "enumeration": "5"
    },
-   "solution": "EVITA"
+   "solution": "EVITA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "EVITA",
+    "definitions": [
+     {
+      "text": "show",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts to",
+      "for": "letter_selection",
+      "note": "the starts of words are their opening letters, so only initials are kept"
+     },
+     {
+      "text": "Cast",
+      "for": "anagram",
+      "note": "to cast metal is to pour and remould it, so the letters take a new shape"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "extemporise in",
+      "gives": "EI",
+      "select": "first",
+      "note": "the initial letters of the two words"
+     },
+     {
+      "clueFragment": "a TV",
+      "gives": "ATV",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "EIATV",
+       "gives": "EVITA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A television cast is told to start improvising on air.",
+     "walkthrough": "'Cast' looks like the actors, but it is the anagram signal; 'a TV show' reads as one phrase, yet only 'show' defines and 'a TV' is fodder.",
+     "definitionFit": "Evita is the Lloyd Webber and Rice stage musical about Eva Perón, a famous theatre production."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cast"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +289,68 @@
      }
     ]
    },
-   "solution": "ROADHUMP"
+   "solution": "ROADHUMP",
+   "annotation": {
+    "type": [
+     "homophone",
+     "deletion",
+     "charade"
+    ],
+    "answer": "ROAD HUMP",
+    "definitions": [
+     {
+      "text": "making traffic slower",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Dictator's",
+      "for": "homophone",
+      "note": "a dictator here is someone dictating, speaking words for another to write down, so we hear rather than read"
+     },
+     {
+      "text": "saving",
+      "for": "deletion",
+      "note": "saving can mean except, so that element is left out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sat on",
+      "gives": "ROAD",
+      "soundsLike": "RODE",
+      "note": "to sit on a horse is to ride it, past tense rode, which is pronounced the same as a street"
+     },
+     {
+      "clueFragment": "ass",
+      "gives": "CHUMP",
+      "note": "an ass and a chump are both fools"
+     },
+     {
+      "clueFragment": "carbon",
+      "gives": "C",
+      "note": "C is the chemical symbol for carbon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROAD",
+      "HUMP"
+     ]
+    },
+    "explanation": {
+     "surface": "A tyrant rides a donkey through town, holding up all the traffic behind.",
+     "walkthrough": "'Dictator' suggests a tyrant but means one who dictates aloud; the ass is not the donkey being sat on but a fool, CHUMP, which then loses C.",
+     "definitionFit": "A road hump is a raised ridge across a street, built precisely to force vehicles to reduce speed; the definition is descriptive rather than a synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Dictator's"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +364,44 @@
     "text": "Le Petomane's act reportedly gut-related?",
     "enumeration": "7"
    },
-   "solution": "GASTRIC"
+   "solution": "GASTRIC",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "GASTRIC",
+    "definitions": [
+     {
+      "text": "gut-related",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "what is reported is heard spoken, so the sound matters, not the spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Le Petomane's act",
+      "gives": "GASTRIC",
+      "soundsLike": "GAS TRICK",
+      "note": "Le Pétomane was a French music-hall performer who farted on stage, so his act was a trick with wind"
+     }
+    ],
+    "explanation": {
+     "surface": "A comment on the famous Parisian flatulist, whose act clearly relied on his intestines.",
+     "walkthrough": "Le Pétomane (Joseph Pujol) was a professional farter at the Moulin Rouge; his routine was a gas trick, which said together sounds like the answer.",
+     "definitionFit": "Gastric means relating to the stomach, part of the digestive tract, which is what gut-related loosely covers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 5,
@@ -129,7 +421,64 @@
      }
     ]
    },
-   "solution": "GOESON"
+   "solution": "GOESON",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "GOES ON",
+    "definitions": [
+     {
+      "text": "continues",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "in a down clue, lifting something up makes it read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "game",
+      "gives": "GO",
+      "note": "Go is a Japanese board game"
+     },
+     {
+      "clueFragment": "Hooter",
+      "gives": "NOSE",
+      "note": "hooter is slang for the nose"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GO",
+      "ESON"
+     ],
+     "reversals": [
+      {
+       "from": "NOSE",
+       "to": "ESON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A siren or horn sounds after the match, and play carries on regardless.",
+     "walkthrough": "'After' puts the reversed hooter behind the game. Hooter is informal British slang for a nose.",
+     "definitionFit": "To go on is a common phrasal verb meaning to keep going or proceed without stopping."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Hooter"
+    }
+   }
   },
   {
    "number": 6,
@@ -143,7 +492,57 @@
     "text": "Concession on that man's tax for dodgy reason",
     "enumeration": "9"
    },
-   "solution": "SOPHISTRY"
+   "solution": "SOPHISTRY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SOPHISTRY",
+    "definitions": [
+     {
+      "text": "dodgy reason",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "on",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Concession",
+      "gives": "SOP",
+      "note": "a sop is a small concession made to pacify someone"
+     },
+     {
+      "clueFragment": "that man's",
+      "gives": "HIS",
+      "note": "belonging to him"
+     },
+     {
+      "clueFragment": "tax",
+      "gives": "TRY",
+      "note": "to tax someone's patience is to try it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOP",
+      "HIS",
+      "TRY"
+     ]
+    },
+    "explanation": {
+     "surface": "A tax break granted to one man, with suspect justification behind it.",
+     "walkthrough": "Tax is not a levy but a verb: to tax is to strain or try.",
+     "definitionFit": "Sophistry is clever but deceptive argument, reasoning that sounds plausible yet is fallacious, hence dodgy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tax"
+    }
+   }
   },
   {
    "number": 7,
@@ -157,7 +556,64 @@
     "text": "Soldiers claim to protect lives in later edition",
     "enumeration": "7"
    },
-   "solution": "REISSUE"
+   "solution": "REISSUE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "REISSUE",
+    "definitions": [
+     {
+      "text": "later edition",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to protect",
+      "for": "container",
+      "note": "to protect something is to surround it, so one element goes around another"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Soldiers",
+      "gives": "RE",
+      "note": "the Royal Engineers, a British army corps"
+     },
+     {
+      "clueFragment": "claim",
+      "gives": "SUE",
+      "note": "to sue is to make a legal claim"
+     },
+     {
+      "clueFragment": "lives",
+      "gives": "IS",
+      "note": "is alive, exists"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "IS",
+      "SUE"
+     ]
+    },
+    "explanation": {
+     "surface": "Troops make a legal claim to protect lives, recorded in a later printing.",
+     "walkthrough": "'Lives' looks like the plural of life, but it is the verb: he lives, that is, he is.",
+     "definitionFit": "A reissue is a book or record published again after its first release, so a subsequent printing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lives"
+    }
+   }
   },
   {
    "number": 8,
@@ -177,7 +633,51 @@
      }
     ]
    },
-   "solution": "CHAINSMOKE"
+   "solution": "CHAINSMOKE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHAIN SMOKE",
+    "definitions": [
+     {
+      "text": "drag continuously",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shackles",
+      "gives": "CHAINS",
+      "note": "shackles are chains"
+     },
+     {
+      "clueFragment": "a donkey",
+      "gives": "MOKE",
+      "note": "moke is British slang for a donkey"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAINS",
+      "MOKE"
+     ]
+    },
+    "explanation": {
+     "surface": "A donkey in shackles drags its load along without a break.",
+     "walkthrough": "'Drag' suggests hauling, but it is a pull on a cigarette.",
+     "definitionFit": "To chain-smoke is to light one cigarette after another, taking puffs without pause."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "drag"
+    }
+   }
   },
   {
    "number": 9,
@@ -191,7 +691,50 @@
     "text": "Sea creature, according to Spooner a funny sponge?",
     "enumeration": "9"
    },
-   "solution": "KITTIWAKE"
+   "solution": "KITTIWAKE",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "KITTIWAKE",
+    "definitions": [
+     {
+      "text": "Sea creature",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "according to Spooner",
+      "for": "spoonerism",
+      "note": "Spooner was famed for swapping the opening sounds of words, so initial sounds trade places"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "funny sponge",
+      "gives": "KITTIWAKE",
+      "soundsLike": "KITTY WAKE",
+      "note": "funny is witty and a sponge is a cake; witty cake with its first sounds swapped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KITTIWAKE"
+     ]
+    },
+    "explanation": {
+     "surface": "A funny sponge from the sea, in the words of the famously tongue-tied Reverend Spooner.",
+     "walkthrough": "Sponge looks like the sea animal but is a sponge cake; swap the W and K of witty cake.",
+     "definitionFit": "The kittiwake is a small gull that lives far out on the ocean, so a seabird counts as a marine creature."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sponge"
+    }
+   }
   },
   {
    "number": 10,
@@ -205,7 +748,55 @@
     "text": "Italy's first secretary bites lip",
     "enumeration": "5"
    },
-   "solution": "PRIMA"
+   "solution": "PRIMA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PRIMA",
+    "definitions": [
+     {
+      "text": "Italy's first",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bites",
+      "for": "container",
+      "note": "whatever bites takes something between its jaws, so one piece closes around another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "secretary",
+      "gives": "PA",
+      "note": "PA is a personal assistant"
+     },
+     {
+      "clueFragment": "lip",
+      "gives": "RIM",
+      "note": "the lip of a cup is its rim"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "RIM",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Italy's first female secretary gets a bite on the lip.",
+     "walkthrough": "'Italy's first' looks like the letter I, but it is the definition: the Italian word for first.",
+     "definitionFit": "Prima is the feminine Italian for first, familiar from prima donna and prima ballerina."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "first"
+    }
+   }
   },
   {
    "number": 11,
@@ -225,7 +816,67 @@
      }
     ]
    },
-   "solution": "HEATHROBINSON"
+   "solution": "HEATHROBINSON",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "HEATH-ROBINSON",
+    "definitions": [
+     {
+      "text": "Over-involved",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "briefly means cut short, so the final letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "head",
+      "gives": "HEAD",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "beat",
+      "gives": "THROB",
+      "note": "a throb is a beat, as of the heart"
+     },
+     {
+      "clueFragment": "popular",
+      "gives": "IN",
+      "note": "what is in is fashionable"
+     },
+     {
+      "clueFragment": "boy",
+      "gives": "SON",
+      "note": "a son is a boy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HEA",
+      "THROB",
+      "IN",
+      "SON"
+     ]
+    },
+    "explanation": {
+     "surface": "A headteacher, far too involved, quickly strikes a well-liked pupil.",
+     "walkthrough": "HEAD loses its D. W. Heath Robinson was a British cartoonist who drew absurdly elaborate contraptions for simple tasks.",
+     "definitionFit": "Heath-Robinson describes a device that is ridiculously complicated for its purpose, which is what over-involved means here."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Over-involved"
+    }
+   }
   },
   {
    "number": 12,
@@ -249,7 +900,60 @@
      }
     ]
    },
-   "solution": "TBONESTEAK"
+   "solution": "TBONESTEAK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "T-BONE STEAK",
+    "definitions": [
+     {
+      "text": "Cut",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after means coming behind, so the word before it is placed second in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "serious complaint",
+      "gives": "TB",
+      "note": "TB, tuberculosis, is a serious disease"
+     },
+     {
+      "clueFragment": "your",
+      "gives": "ONES",
+      "note": "one's is the impersonal form of your"
+     },
+     {
+      "clueFragment": "tree",
+      "gives": "TEAK",
+      "note": "teak is a hardwood tree"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TB",
+      "ONES",
+      "TEAK"
+     ]
+    },
+    "explanation": {
+     "surface": "A tree surgeon's instruction: cut down your tree after a nasty illness.",
+     "walkthrough": "'After' places the tree behind the rest. 'Your' as in 'one's' is the general-person pronoun.",
+     "definitionFit": "A T-bone steak is a particular cut of beef, taken from the short loin with a T-shaped bone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cut"
+    }
+   }
   },
   {
    "number": 13,
@@ -269,7 +973,54 @@
      }
     ]
    },
-   "solution": "BALLGAME"
+   "solution": "BALLGAME",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BALL GAME",
+    "definitions": [
+     {
+      "text": "Golf, say",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out of place",
+      "for": "anagram",
+      "note": "letters that are out of place are not in their proper order and need rearranging"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "AMG label",
+      "gives": "AMGLABEL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AMGLABEL",
+       "gives": "BALLGAME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Volkswagen Golf fitted with a Mercedes-AMG badge that doesn't belong on it.",
+     "walkthrough": "Golf reads as the car model next to AMG, the Mercedes performance brand, but it is the sport.",
+     "definitionFit": "Golf is played by striking a small ball, so it is one example of a sport using a ball."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Golf"
+    }
+   }
   },
   {
    "number": 14,
@@ -289,7 +1040,43 @@
      }
     ]
    },
-   "solution": "GOODLOOKS"
+   "solution": "GOODLOOKS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GOOD LOOKS",
+    "definitions": [
+     {
+      "text": "Thorough checks",
+      "at": 0
+     },
+     {
+      "text": "an advantage when using Tinder",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Thorough checks",
+      "note": "first meaning: careful inspections, having a proper look"
+     },
+     {
+      "clueFragment": "an advantage when using Tinder",
+      "note": "second meaning: attractiveness, which helps on a dating app where profiles are judged by photos"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Tinder is a dating app on which users swipe according to photographs, so appearance counts.",
+     "definitionFit": "The phrase is both a careful inspection in the plural and a noun for handsome or pretty appearance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "checks"
+    }
+   }
   },
   {
    "number": 15,
@@ -303,7 +1090,62 @@
     "text": "Get from the internet 'vapour' having entered 'term for vapour'",
     "enumeration": "6"
    },
-   "solution": "STREAM"
+   "solution": "STREAM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "STREAM",
+    "definitions": [
+     {
+      "text": "Get from the internet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "term for",
+      "for": "letter_selection",
+      "note": "a term is an end or limit, so only the final letter is taken"
+     },
+     {
+      "text": "having entered",
+      "for": "container",
+      "note": "one thing having something entered into it now holds it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "'vapour'",
+      "gives": "STEAM",
+      "note": "steam is water vapour"
+     },
+     {
+      "clueFragment": "'vapour'",
+      "gives": "R",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "R",
+      "EAM"
+     ]
+    },
+    "explanation": {
+     "surface": "A playful definition of vaping jargon: what you call one sort of vapour inside another.",
+     "walkthrough": "'Term for vapour' reads as 'a word meaning vapour', but term means end: the last letter of vapour goes into STEAM.",
+     "definitionFit": "To stream audio or video is to receive and play it over the internet as it downloads."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "term"
+    }
+   }
   },
   {
    "number": 16,
@@ -317,7 +1159,54 @@
     "text": "Surgeon reformed by a new boss",
     "enumeration": "8"
    },
-   "solution": "SAWBONES"
+   "solution": "SAWBONES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SAWBONES",
+    "definitions": [
+     {
+      "text": "Surgeon",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reformed",
+      "for": "anagram",
+      "note": "something reformed has been made over into a different shape, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a new boss",
+      "gives": "ANEWBOSS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ANEWBOSS",
+       "gives": "SAWBONES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hospital surgeon changes their ways under a new head of department.",
+     "walkthrough": "'By' only links; 'reformed' looks like the surgeon mending their ways but signals the rearrangement.",
+     "definitionFit": "Sawbones is an old humorous slang name for a doctor, especially one who amputates limbs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reformed"
+    }
+   }
   },
   {
    "number": 17,
@@ -331,7 +1220,58 @@
     "text": "Dram nearly £25 in Japan",
     "enumeration": "6"
    },
-   "solution": "NIPPON"
+   "solution": "NIPPON",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "NIPPON",
+    "definitions": [
+     {
+      "text": "Japan",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nearly",
+      "for": "deletion",
+      "note": "nearly means not quite complete, so the final letter goes"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dram",
+      "gives": "NIP",
+      "note": "a nip is a small drink of spirits"
+     },
+     {
+      "clueFragment": "£25",
+      "gives": "PONY",
+      "note": "a pony is British slang for twenty-five pounds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NIP",
+      "PON"
+     ]
+    },
+    "explanation": {
+     "surface": "A whisky costs almost twenty-five pounds in Tokyo.",
+     "walkthrough": "'In' only links the wordplay to the definition. PONY loses its Y.",
+     "definitionFit": "Nippon is the Japanese people's own name for their country, used in English as an alternative."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Dram"
+    }
+   }
   },
   {
    "number": 18,
@@ -345,7 +1285,75 @@
     "text": "Will checking hold up a teacher, initially, during lesson?",
     "enumeration": "7"
    },
-   "solution": "PROBATE"
+   "solution": "PROBATE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "PROBATE",
+    "definitions": [
+     {
+      "text": "Will checking",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the first letter only of the word before it"
+     },
+     {
+      "text": "during",
+      "for": "container",
+      "note": "one thing happening during another sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lesson",
+      "gives": "PE",
+      "note": "PE is physical education, a school lesson"
+     },
+     {
+      "clueFragment": "hold up",
+      "gives": "ROB",
+      "note": "to hold up a bank is to rob it"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "teacher",
+      "gives": "T",
+      "select": "first",
+      "note": "the opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ROB",
+      "A",
+      "T",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A student asks whether a teacher will be mugged in the middle of class.",
+     "walkthrough": "'Will' looks like the future tense but is the legal document, and PE (physical education) is the usual crossword lesson.",
+     "definitionFit": "Probate is the legal process of proving that a deceased person's testament is valid, so it is the checking of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Will"
+    }
+   }
   },
   {
    "number": 19,
@@ -365,7 +1373,65 @@
      }
     ]
    },
-   "solution": "BABYTALK"
+   "solution": "BABYTALK",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "BABY TALK",
+    "definitions": [
+     {
+      "text": "simple speech",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sandwiches",
+      "for": "container",
+      "note": "bread sandwiches a filling by lying on either side of it"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Decline",
+      "gives": "BALK",
+      "note": "to balk is to refuse or decline"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "BY",
+      "note": "by can mean with or beside"
+     },
+     {
+      "clueFragment": "thanks",
+      "gives": "TA",
+      "note": "ta is informal British for thanks"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BA",
+      "BY",
+      "TA",
+      "LK"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone politely turns down the offer of sandwiches, saying thanks in plain words.",
+     "walkthrough": "'Sandwiches' looks like food but means holds between. Ta is everyday British slang for thank you.",
+     "definitionFit": "Baby talk is the simplified language adults use to toddlers or that infants produce, so it is simple speech."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sandwiches"
+    }
+   }
   },
   {
    "number": 20,
@@ -385,7 +1451,61 @@
      }
     ]
    },
-   "solution": "ALEVELS"
+   "solution": "ALEVELS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "A LEVELS",
+    "definitions": [
+     {
+      "text": "three taken by most",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "takes",
+      "for": "container",
+      "note": "to take something in is to hold it inside yourself"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bitter",
+      "gives": "ALE",
+      "note": "bitter is a type of British beer"
+     },
+     {
+      "clueFragment": "golfer",
+      "gives": "ELS",
+      "note": "Ernie Els is a South African golfer"
+     },
+     {
+      "clueFragment": "five",
+      "gives": "V",
+      "note": "V is the Roman numeral for five"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALE",
+      "V",
+      "ELS"
+     ]
+    },
+    "explanation": {
+     "surface": "A disgruntled golfer takes a five on a hole where most players manage three.",
+     "walkthrough": "The golf scores are false: A levels are English school-leaving exams, most students taking three subjects.",
+     "definitionFit": "Students applying to university in England usually sit three of these advanced qualifications, so the definition describes them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "three"
+    }
+   }
   },
   {
    "number": 21,
@@ -399,7 +1519,55 @@
     "text": "Ticket for every child except the last",
     "enumeration": "6"
    },
-   "solution": "PERMIT"
+   "solution": "PERMIT",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "PERMIT",
+    "definitions": [
+     {
+      "text": "Ticket",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "except the last",
+      "for": "deletion",
+      "note": "except the last means leaving off the final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for every",
+      "gives": "PER",
+      "note": "per means for each"
+     },
+     {
+      "clueFragment": "child",
+      "gives": "MITE",
+      "note": "a mite is a small child"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PER",
+      "MIT"
+     ]
+    },
+    "explanation": {
+     "surface": "A family buys admission for every child except the youngest.",
+     "walkthrough": "'The last' looks like the last child, but it is the last letter of MITE, a small child.",
+     "definitionFit": "A permit is a document granting entry or permission, just as a ticket authorises admission."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "last"
+    }
+   }
   },
   {
    "number": 22,
@@ -419,7 +1587,62 @@
      }
     ]
    },
-   "solution": "SHOULDERBLADE"
+   "solution": "SHOULDERBLADE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "SHOULDER BLADE",
+    "definitions": [
+     {
+      "text": "One of our members",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fancy",
+      "for": "anagram",
+      "note": "fancy means elaborate or imaginative, so the letters are dressed up into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ought to",
+      "gives": "SHOULD",
+      "note": "should means ought to"
+     },
+     {
+      "clueFragment": "Dr Beale",
+      "gives": "DRBEALE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHOULD",
+      "ERBLADE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DRBEALE",
+       "gives": "ERBLADE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A club member ought to fall for Dr Beale.",
+     "walkthrough": "'Our members' sounds like a club, but the members are our body parts; fancy is British for being attracted to someone, here the anagram signal.",
+     "definitionFit": "The shoulder blade is a bone forming part of the human body, so it is one of our physical parts, loosely a member."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "members"
+    }
+   }
   },
   {
    "number": 23,
@@ -433,7 +1656,61 @@
     "text": "Dad mounted pictures out of consideration",
     "enumeration": "5"
    },
-   "solution": "APART"
+   "solution": "APART",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "APART",
+    "definitions": [
+     {
+      "text": "out of consideration",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mounted",
+      "for": "reversal",
+      "note": "in a down clue, whatever is mounted climbs upward, so it reads bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dad",
+      "gives": "PA",
+      "note": "pa is an informal word for father"
+     },
+     {
+      "clueFragment": "pictures",
+      "gives": "ART",
+      "note": "pictures are art"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AP",
+      "ART"
+     ],
+     "reversals": [
+      {
+       "from": "PA",
+       "to": "AP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Father framed and hung the pictures without really thinking about it.",
+     "walkthrough": "'Mounted' suggests framing pictures, but it turns the father upside down.",
+     "definitionFit": "As in 'joking apart', the word means set aside or left out, not taken into account."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mounted"
+    }
+   }
   },
   {
    "number": 24,
@@ -447,7 +1724,56 @@
     "text": "Fishy end for puzzle, see",
     "enumeration": "4"
    },
-   "solution": "EELY"
+   "solution": "EELY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "EELY",
+    "definitions": [
+     {
+      "text": "Fishy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end for",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, so only that is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "puzzle",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of the word"
+     },
+     {
+      "clueFragment": "see",
+      "gives": "ELY",
+      "note": "a see is a bishop's diocese; Ely is a cathedral city in Cambridgeshire"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "ELY"
+     ]
+    },
+    "explanation": {
+     "surface": "A crossword with a suspicious ending: look and see for yourself.",
+     "walkthrough": "'See' looks like an instruction to look, but it is a bishop's seat, the usual crossword route to ELY.",
+     "definitionFit": "Eely means like an eel, slippery and wriggling, so it is fishy in both a literal and figurative sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "see"
+    }
+   }
   },
   {
    "number": 25,
@@ -461,7 +1787,56 @@
     "text": "English singer given zero help with the lyrics",
     "enumeration": "5"
    },
-   "solution": "ERATO"
+   "solution": "ERATO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ERATO",
+    "definitions": [
+     {
+      "text": "help with the lyrics",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "given"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "singer",
+      "gives": "RAT",
+      "note": "one who sings to the police is an informer, a rat"
+     },
+     {
+      "clueFragment": "zero",
+      "gives": "O",
+      "note": "zero looks like the letter O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "RAT",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "An English vocalist is offered no assistance with learning the words of a song.",
+     "walkthrough": "The singer is not a vocalist but a grass: to sing is slang for informing on criminals.",
+     "definitionFit": "Erato is the Greek Muse of lyric and love poetry, a source of inspiration for writing verse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "singer"
+    }
+   }
   },
   {
    "number": 26,
@@ -475,7 +1850,64 @@
     "text": "Element of graphic art seen all over the place",
     "enumeration": "9"
    },
-   "solution": "MANGANESE"
+   "solution": "MANGANESE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "MANGANESE",
+    "definitions": [
+     {
+      "text": "Element",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "all over the place",
+      "for": "anagram",
+      "note": "something all over the place is scattered and disordered, so the letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "graphic art",
+      "gives": "MANGA",
+      "note": "manga is Japanese comic-book art"
+     },
+     {
+      "clueFragment": "seen",
+      "gives": "SEEN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MANGA",
+      "NESE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SEEN",
+       "gives": "NESE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A feature of graphic design that turns up everywhere you look.",
+     "walkthrough": "'Element of graphic art' reads as a design feature, but 'Element' alone is the definition and 'graphic art' is the Japanese comic form.",
+     "definitionFit": "Manganese is a metallic chemical element with atomic number 25, used in steelmaking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Element"
+    }
+   }
   },
   {
    "number": 27,
@@ -489,7 +1921,42 @@
     "text": "Parliament showing some weakness: Etonians",
     "enumeration": "7"
    },
-   "solution": "KNESSET"
+   "solution": "KNESSET",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "KNESSET",
+    "definitions": [
+     {
+      "text": "Parliament",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "showing some",
+      "for": "hidden_word",
+      "note": "showing only some of the words means part of their run of letters is displayed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "weakness: Etonians",
+      "gives": "KNESSET",
+      "note": "run the letters together across the word break"
+     }
+    ],
+    "explanation": {
+     "surface": "A dig at a parliament dominated by old boys of Eton, England's most famous private school.",
+     "walkthrough": "Old Etonians are famously common in the British parliament, but the parliament is Israel's, running across weaKNESS ETonians.",
+     "definitionFit": "The Knesset is Israel's national legislature, the country's single-chamber parliament in Jerusalem."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 28,
@@ -503,7 +1970,70 @@
     "text": "Comply with authority, with fist shaken internally",
     "enumeration": "7"
    },
-   "solution": "SATISFY"
+   "solution": "SATISFY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SATISFY",
+    "definitions": [
+     {
+      "text": "Comply with",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shaken",
+      "for": "anagram",
+      "note": "something shaken is jolted about, so its letters fall into a new order"
+     },
+     {
+      "text": "internally",
+      "for": "container",
+      "note": "internally means on the inside, so one part is placed within another"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "authority",
+      "gives": "SAY",
+      "note": "to have the say is to have authority"
+     },
+     {
+      "clueFragment": "fist",
+      "gives": "FIST",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SA",
+      "TISF",
+      "Y"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FIST",
+       "gives": "TISF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone obeys the authorities while shaking their fist in private.",
+     "walkthrough": "The first 'with' belongs to the definition, 'Comply with'; the second is only a link.",
+     "definitionFit": "To satisfy a requirement or condition is to meet or fulfil it, which is complying with it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "authority"
+    }
+   }
   }
  ]
 }
