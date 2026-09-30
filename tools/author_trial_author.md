@@ -68,6 +68,16 @@ Rules:
 4. **Shorter is better.** Targets run 3-6 words.
 5. **Choose the mechanism last**, from material the sentence already contains.
    Never repair it by narrating the wordplay.
+6. **Make the definition carry the joke.** Clues Cracking the Cryptic praised
+   carry a pun 1.3x as often as the rest of their puzzle, and an apt definition
+   1.23x. A definition that merely fits the answer earns nothing.
+7. **Of every five candidates, make one a cryptic definition, &lit or letter
+   substitution.** These are praised 1.8-2x their share; charade, container and
+   anagram only at their share, so the type never earns the praise. The
+   two-per-puzzle cryptic definition cap below still holds.
+8. **Split a phrase the reader can't help reading whole:** "United States" cut
+   for NATIONS, "Winning shot" read as an instruction, not a noun. The praised
+   thing is a word whose surface sense is strong and wrong.
 
 ## The sentence AND the wordplay
 

@@ -105,10 +105,16 @@ def judge_line(cand):
             f"Explanation: {ex.get('walkthrough', '')} {ex.get('definitionFit', '')}")
 
 
+JUDGE_FAULTS = {"real": "not a real sentence",
+                "known": "needs specialist knowledge",
+                "wrong": "no word misleads"}
+
+
 def judge_refusals(cands, model, effort="medium", calls=2):
     """{index: why} for each candidate the clue judge (tools/surface_judge.md)
-    refuses: a surface no native speaker would say or write, or a definition or
-    explanation that needs specialist knowledge. One call judges the whole
+    refuses: a surface no native speaker would say or write, a definition or
+    explanation that needs specialist knowledge, or no word whose surface sense
+    misleads. One call judges the whole
     batch, and a single call refuses sound clues often enough to matter, so a
     candidate is refused only when each of `calls` independent calls refuses it."""
     if not cands:
@@ -122,10 +128,10 @@ def judge_refusals(cands, model, effort="medium", calls=2):
         if set(got) != set(range(len(cands))):
             raise ValueError(f"clue judge returned verdicts for {sorted(got)}, "
                              f"wanted 0..{len(cands) - 1}")
-        now = {i: ("not a real sentence" if v.get("real") is not True else
-                   "needs specialist knowledge") + f": {v.get('why') or ''}"
+        now = {i: f"{JUDGE_FAULTS[k]}: {v.get('why') or ''}"
                for i, v in got.items()
-               if v.get("real") is not True or v.get("known") is not True}
+               for k in [next((k for k in JUDGE_FAULTS if v.get(k) is not True), None)]
+               if k}
         refused = now if refused is None else {i: w for i, w in refused.items() if i in now}
     return refused
 
