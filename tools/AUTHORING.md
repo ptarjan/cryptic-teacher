@@ -351,6 +351,59 @@ the pick step optimises for this grader's taste. And these judges scored the
 same human clues 0.12 lower than round two's did. On our own score alone
 (3.52 against the control's 2.95), the gain is still +0.57.
 
+## What Cracking the Cryptic praises
+
+Mark Goodliffe and Simon Anthony solve Times cryptics aloud on YouTube and say
+when a clue delights them. `tools/ctc_transcripts.py` reads the subtitles of
+their crossword videos, finds each reaction ("brilliant", "what a clue",
+laughter; "unfair", "obscure"), ties it to the clue in our annotated copy of
+the puzzle, and a judge names the reason from the transcript
+(`tools/ctc_reasons_prompt.md`). Lift is the share of praised clues with a
+label over its share among all annotated clues in the same puzzles.
+
+The rules it implies:
+
+1. **Put the definition to work in the joke.** Praised clues carry a pun
+   (`features.joke: pun`) at lift 1.30 and an apt definition at lift 1.23,
+   both p < 0.001 (461 praised clues against 2,909 in the same puzzles). In
+   the judge's words: a neat mechanism 215 times, misdirection 169, a clever
+   definition 94, an unexpected split of the answer 88, a natural surface 75.
+2. **Spend one or two clues per puzzle on the rare types.** Cryptic
+   definitions (lift 1.99, p 0.008), &lits (1.82, p 0.010) and letter
+   substitutions (1.80, p 0.042) are praised well above their rate.
+   Charades, containers, anagrams and deletions are praised at their rate,
+   so the type is not what gets a charade praised.
+3. **Split a phrase the reader cannot help reading whole.** The clues they
+   dwelt on longest cut a fixed phrase against its grain: NATIONS from
+   `I beat back responsibility after leaving United States` ("you have to cut
+   it between United and States"), FANCY DRESS BALL from `Do not say no to
+   bandage on part of foot`.
+4. **Length is not the lever.** Praised clues average 7.5 words against
+   7.2 in the same puzzles.
+5. **They almost never complain,** so this cannot tell us what to avoid:
+   41 of 1,637 judged reactions were complaints, mostly an obscure
+   word or a loose definition.
+
+Our own `features.misdirectedWord` is set on 95% of annotated clues, praised
+or not, so it measures nothing. What they call misdirection is narrower: a
+word whose surface sense is strong and wrong (`strike` in TENPINS, `turn in`
+in LACTATE, a phrase that only looks like anagram fodder in HOROSCOPE).
+
+Clues they singled out:
+
+    These all downed on strike? (7)                            = TENPINS
+    What could indicate eagle making descent? (7)              = LINEAGE   "one of the best clues of the year"
+    Box that might arrive at any time? (6)                     = TARDIS
+    Winning shot from majestic Djokovic? (4)                   = SERB      "winning shot sounds like a noun, but it's an instruction"
+    Artists in a funny way capturing lives? (9)                = SATIRISTS "an absolute banger of a clue"
+    Where riders may be introduced by heartless groom? (6)     = PRENUP
+    Clear skin that's surprising close to your ears (6)        = CORNEA
+    Half undressed, shy about large exercise clothes (7)       = TOPLESS   "the surface is unbelievable"
+
+The full list, with each reason in their words, is `python3
+tools/ctc_transcripts.py report`; the data is `tools/data/ctc_moments.json`
+and `tools/data/ctc_reasons.json`.
+
 ## The surface is a sentence, and it carries a joke
 
 The six worst clues were rewritten under the rule above, and the feedback was:
