@@ -24,6 +24,9 @@
   "date": "2021-12-16",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,65 @@
     "text": "Labour leader welcomed by social class in eg Leeds",
     "enumeration": "6"
    },
-   "solution": "CASTLE"
+   "solution": "CASTLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CASTLE",
+    "definitions": [
+     {
+      "text": "eg Leeds",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "a leader goes at the front, so only the opening letter of the word is wanted"
+     },
+     {
+      "text": "welcomed by",
+      "for": "container",
+      "note": "whoever is welcomed is taken inside, so one piece sits within the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Labour",
+      "gives": "L",
+      "select": "first",
+      "note": "the first letter of the word"
+     },
+     {
+      "clueFragment": "social class",
+      "gives": "CASTE",
+      "note": "a caste is a hereditary social class"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAST",
+      "L",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A Labour politician is received by the local social elite in a northern city.",
+     "walkthrough": "Leeds looks like the city in Yorkshire, but here it is Leeds Castle in Kent; CASTE takes in the L to make CASTLE.",
+     "definitionFit": "Leeds Castle is a famous moated fortress in Kent, so it serves as an example of the answer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Leeds"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +112,62 @@
     "text": "Firm about an offence where bets are placed",
     "enumeration": "6"
    },
-   "solution": "CASINO"
+   "solution": "CASINO",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "CASINO",
+    "definitions": [
+     {
+      "text": "where bets are placed",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "one thing about another goes around it, so the outer piece wraps the inner"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Firm",
+      "gives": "CO",
+      "note": "CO is the abbreviation for company"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "A",
+      "note": "the indefinite article"
+     },
+     {
+      "clueFragment": "offence",
+      "gives": "SIN",
+      "note": "a sin is a moral offence"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "A",
+      "SIN",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A company is caught up in some wrongdoing at a betting venue.",
+     "walkthrough": "'Firm about' reads as 'firm on the subject of'; here the firm's two letters sit on either side of the rest.",
+     "definitionFit": "A casino is a building for gambling, where people stake money on games of chance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Firm"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +181,61 @@
     "text": "It gives information about family certain to go round Vietnam briefly",
     "enumeration": "7"
    },
-   "solution": "SURNAME"
+   "solution": "SURNAME",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "SURNAME",
+    "definitions": [
+     {
+      "text": "It gives information about family",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "to put it briefly is to shorten it, so part of the word is dropped"
+     },
+     {
+      "text": "to go round",
+      "for": "container",
+      "note": "going round something means surrounding it, so one piece encloses the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "certain",
+      "gives": "SURE",
+      "note": "sure means certain"
+     },
+     {
+      "clueFragment": "Vietnam",
+      "gives": "NAM",
+      "note": "'Nam is the familiar short form of the country's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUR",
+      "NAM",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone researching family history is sure to go round Vietnam.",
+     "walkthrough": "The inserted piece does not land in the middle of its host but after its second letter, which is the part solvers tend to miss.",
+     "definitionFit": "A surname is the family name, so it tells you which family a person belongs to."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +249,49 @@
     "text": "Policy of alliance oddly abandoned",
     "enumeration": "4"
    },
-   "solution": "LINE"
+   "solution": "LINE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "LINE",
+    "definitions": [
+     {
+      "text": "Policy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly abandoned",
+      "for": "letter_selection",
+      "note": "if the odd-numbered letters are abandoned, only the even-numbered ones remain"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "alliance",
+      "gives": "LINE",
+      "select": "alternate",
+      "note": "the second, fourth, sixth and eighth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LINE"
+     ]
+    },
+    "explanation": {
+     "surface": "A party's stance on alliances has been bizarrely dropped.",
+     "walkthrough": "'Oddly' sounds like 'strangely', but it means the odd letters, and 'abandoned' says those go.",
+     "definitionFit": "A party line is its official policy or position, the stance members are expected to take."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "oddly"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +305,55 @@
     "text": "Prominently publicise cut restricting parking",
     "enumeration": "6"
    },
-   "solution": "SPLASH"
+   "solution": "SPLASH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SPLASH",
+    "definitions": [
+     {
+      "text": "Prominently publicise",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "restricting",
+      "for": "container",
+      "note": "to restrict is to hem in, so one piece is held within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cut",
+      "gives": "SLASH",
+      "note": "to slash is to cut"
+     },
+     {
+      "clueFragment": "parking",
+      "gives": "P",
+      "note": "P is the road-sign abbreviation for parking"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "P",
+      "LASH"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper trumpets a cut in the parking available.",
+     "walkthrough": "SLASH holds P after its first letter.",
+     "definitionFit": "Newspapers splash a story when they print it big across the front page, giving it maximum prominence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +367,53 @@
     "text": "Host anti-monarchy guy abandoning Religious Education",
     "enumeration": "8"
    },
-   "solution": "PUBLICAN"
+   "solution": "PUBLICAN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "PUBLICAN",
+    "definitions": [
+     {
+      "text": "Host",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abandoning",
+      "for": "deletion",
+      "note": "whatever is abandoned is left behind, so those letters are taken out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "anti-monarchy guy",
+      "gives": "REPUBLICAN",
+      "note": "a republican opposes rule by a monarch"
+     },
+     {
+      "clueFragment": "Religious Education",
+      "gives": "RE",
+      "note": "RE is the school subject abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PUBLICAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A man who opposes the monarchy walks out of a religion class.",
+     "walkthrough": "REPUBLICAN loses its opening RE to leave PUBLICAN.",
+     "definitionFit": "A publican runs a pub and is known as the landlord or host to drinkers there."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Host"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +427,51 @@
     "text": "Performer in plant ignoring outsiders",
     "enumeration": "5"
    },
-   "solution": "ACTOR"
+   "solution": "ACTOR",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ACTOR",
+    "definitions": [
+     {
+      "text": "Performer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ignoring outsiders",
+      "for": "deletion",
+      "note": "outsiders are the letters on the outside, and ignoring them removes the first and last"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "plant",
+      "gives": "FACTORY",
+      "note": "a plant is an industrial works"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ACTOR"
+     ]
+    },
+    "explanation": {
+     "surface": "An entertainer working in a factory keeps clear of strangers.",
+     "walkthrough": "'Plant' suggests something growing, but it is the industrial kind; FACTORY without F and Y gives ACTOR.",
+     "definitionFit": "An actor performs roles on stage or screen, so is one kind of performer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "plant"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +485,50 @@
     "text": "One offered to help with the Spanish for composer",
     "enumeration": "6"
    },
-   "solution": "HANDEL"
+   "solution": "HANDEL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HANDEL",
+    "definitions": [
+     {
+      "text": "composer",
+      "at": 41
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One offered to help",
+      "gives": "HAND",
+      "note": "a hand is a helper, as when someone offers to lend a hand"
+     },
+     {
+      "clueFragment": "the Spanish",
+      "gives": "EL",
+      "note": "el is Spanish for the"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAND",
+      "EL"
+     ]
+    },
+    "explanation": {
+     "surface": "A volunteer assists some Spanish people in finding a composer.",
+     "walkthrough": "'With' simply joins the two parts: HAND + EL.",
+     "definitionFit": "George Frideric Handel wrote Messiah and the Water Music, a famous Baroque composer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "offered"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +542,52 @@
     "text": "Unusual garnets recollected",
     "enumeration": "7"
    },
-   "solution": "STRANGE"
+   "solution": "STRANGE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STRANGE",
+    "definitions": [
+     {
+      "text": "Unusual",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "recollected",
+      "for": "anagram",
+      "note": "re-collected means gathered up again, so the letters are put back together in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "garnets",
+      "gives": "GARNETS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GARNETS",
+       "gives": "STRANGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone remembers some unusual gemstones.",
+     "walkthrough": "'Recollected' reads as remembered; split it as re-collected and it is a gathering again of the letters.",
+     "definitionFit": "Strange and unusual are straightforward synonyms, both meaning odd or out of the ordinary."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "recollected"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +601,55 @@
     "text": "Basic telex with edges missing occupying the mind",
     "enumeration": "9"
    },
-   "solution": "ELEMENTAL"
+   "solution": "ELEMENTAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ELEMENTAL",
+    "definitions": [
+     {
+      "text": "Basic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with edges missing",
+      "for": "deletion",
+      "note": "the edges of a word are its outer letters, and missing means they are gone"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "telex",
+      "gives": "ELE",
+      "note": "the word without its outer letters"
+     },
+     {
+      "clueFragment": "occupying the mind",
+      "gives": "MENTAL",
+      "note": "mental means relating to the mind"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELE",
+      "MENTAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A simple message sent by telex, its edges torn, preoccupies someone.",
+     "walkthrough": "TELEX loses T and X, then MENTAL follows.",
+     "definitionFit": "Elemental describes something fundamental or primary, the most basic level of a thing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "telex"
+    }
+   }
   },
   {
    "number": 10,
@@ -177,7 +663,47 @@
     "text": "Exhortation to continue at crease getting stick?",
     "enumeration": "5"
    },
-   "solution": "BATON"
+   "solution": "BATON",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BATON",
+    "definitions": [
+     {
+      "text": "Exhortation to continue at crease",
+      "at": 0
+     },
+     {
+      "text": "stick",
+      "at": 42
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Exhortation to continue at crease",
+      "note": "first meaning: split into two words, an urging to a cricketer to keep batting"
+     },
+     {
+      "clueFragment": "stick",
+      "note": "second meaning: a short rod, as used by a conductor or relay runner"
+     }
+    ],
+    "explanation": {
+     "surface": "A batsman is urged to keep going while being heckled.",
+     "walkthrough": "The crease is the line a cricket batsman stands at; 'bat on!' tells them to keep batting. Run together, the two words make a single noun.",
+     "definitionFit": "A baton is a short thin rod, carried by conductors, police officers and relay runners."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "stick"
+    }
+   }
   },
   {
    "number": 11,
@@ -191,7 +717,43 @@
     "text": "Orderly scene a teacher takes in",
     "enumeration": "4"
    },
-   "solution": "NEAT"
+   "solution": "NEAT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "NEAT",
+    "definitions": [
+     {
+      "text": "Orderly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "takes in",
+      "for": "hidden_word",
+      "note": "to take something in is to contain it, so the letters sit inside the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "scene a teacher",
+      "gives": "NEAT",
+      "note": "the letters run across the three words"
+     }
+    ],
+    "explanation": {
+     "surface": "A teacher surveys a calm, well-ordered classroom.",
+     "walkthrough": "The letters straddle sceNE A Teacher.",
+     "definitionFit": "Neat and orderly both describe something tidy, arranged with everything in its place."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "takes"
+    }
+   }
   },
   {
    "number": 12,
@@ -205,7 +767,60 @@
     "text": "Pie demolished with greed? It runs in the family!",
     "enumeration": "8"
    },
-   "solution": "PEDIGREE"
+   "solution": "PEDIGREE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PEDIGREE",
+    "definitions": [
+     {
+      "text": "It runs in the family",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "demolished",
+      "for": "anagram",
+      "note": "something demolished is knocked to pieces, so the letters are broken up and rebuilt"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pie",
+      "gives": "PIE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "greed",
+      "gives": "GREED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PIEGREED",
+       "gives": "PEDIGREE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wolfs a pie greedily, a trait apparently inherited from their relatives.",
+     "walkthrough": "The joke is that gluttony runs in the family; the definition works on its own too.",
+     "definitionFit": "A pedigree is a line of ancestry, a record of descent passed down through generations."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "demolished"
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +834,56 @@
     "text": "Using force, get rid of nonsense over female deer, reportedly",
     "enumeration": "8"
    },
-   "solution": "BULLDOZE"
+   "solution": "BULLDOZE",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "BULLDOZE",
+    "definitions": [
+     {
+      "text": "Using force, get rid of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "a report is something told, so the word is taken as it is spoken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nonsense",
+      "gives": "BULL",
+      "note": "bull is slang for nonsense"
+     },
+     {
+      "clueFragment": "female deer",
+      "gives": "DOZE",
+      "soundsLike": "DOES",
+      "note": "does are female deer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BULL",
+      "DOZE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone forcibly clears away rubbish lying over a doe, or so the story goes.",
+     "walkthrough": "In a down clue 'over' puts the first piece above the second: BULL then DOZE.",
+     "definitionFit": "To bulldoze is to flatten or clear away by brute force, like the earth-moving machine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 14,
@@ -233,7 +897,55 @@
     "text": "Untax beer? That could make you full of vitality!",
     "enumeration": "9"
    },
-   "solution": "EXUBERANT"
+   "solution": "EXUBERANT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EXUBERANT",
+    "definitions": [
+     {
+      "text": "full of vitality",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "That could make",
+      "for": "anagram",
+      "note": "what the letters could make is something else built from them, so they are rearranged"
+     }
+    ],
+    "linkWords": [
+     "you"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Untax beer",
+      "gives": "UNTAXBEER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "UNTAXBEER",
+       "gives": "EXUBERANT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Scrapping the duty on beer would put drinkers in high spirits.",
+     "walkthrough": "The whole clue reads as a campaign slogan; the nine letters of the first two words are the fodder.",
+     "definitionFit": "Exuberant means lively and energetic, bursting with high spirits and enthusiasm."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "make"
+    }
+   }
   },
   {
    "number": 15,
@@ -247,7 +959,55 @@
     "text": "Track crossing Virginia, hard work",
     "enumeration": "7"
    },
-   "solution": "TRAVAIL"
+   "solution": "TRAVAIL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TRAVAIL",
+    "definitions": [
+     {
+      "text": "hard work",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crossing",
+      "for": "container",
+      "note": "a path crossing a region runs through it, so one piece lies across the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Track",
+      "gives": "TRAIL",
+      "note": "a trail is a track"
+     },
+     {
+      "clueFragment": "Virginia",
+      "gives": "VA",
+      "note": "VA is the postal abbreviation for the US state"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRA",
+      "VA",
+      "IL"
+     ]
+    },
+    "explanation": {
+     "surface": "A route across Virginia takes a lot of effort to walk.",
+     "walkthrough": "US states are regularly clued by their two-letter postal codes.",
+     "definitionFit": "Travail is an old word for painful or laborious effort, toil that tires you out."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crossing"
+    }
+   }
   },
   {
    "number": 16,
@@ -261,7 +1021,56 @@
     "text": "Runner of errands accommodating learner — one on course?",
     "enumeration": "6"
    },
-   "solution": "GOLFER"
+   "solution": "GOLFER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GOLFER",
+    "definitions": [
+     {
+      "text": "one on course?",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accommodating",
+      "for": "container",
+      "note": "to accommodate is to give room, so one piece is housed inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Runner of errands",
+      "gives": "GOFER",
+      "note": "a gofer is a dogsbody who runs errands"
+     },
+     {
+      "clueFragment": "learner",
+      "gives": "L",
+      "note": "L is the learner-driver plate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GO",
+      "L",
+      "FER"
+     ]
+    },
+    "explanation": {
+     "surface": "An errand boy takes in a trainee to keep them on track.",
+     "walkthrough": "'On course' suggests being on schedule, but the course is a golf course; the question mark flags that.",
+     "definitionFit": "A golfer plays on a golf course, so someone found on the links fits the cryptic hint."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "course"
+    }
+   }
   },
   {
    "number": 17,
@@ -275,7 +1084,54 @@
     "text": "Aid for snooker player as pride’s shattered",
     "enumeration": "6"
    },
-   "solution": "SPIDER"
+   "solution": "SPIDER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SPIDER",
+    "definitions": [
+     {
+      "text": "Aid for snooker player",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shattered",
+      "for": "anagram",
+      "note": "anything shattered breaks into bits, so the letters are scattered and reassembled"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pride’s",
+      "gives": "PRIDES",
+      "note": "taken as written, with the S of the possessive"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PRIDES",
+       "gives": "SPIDER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A snooker player needs help after a humiliating defeat.",
+     "walkthrough": "The apostrophe is ignored, so the fodder is the six letters of PRIDES.",
+     "definitionFit": "A spider is a raised cue rest with long legs that lets a snooker player reach over other balls."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shattered"
+    }
+   }
   },
   {
    "number": 18,
@@ -289,7 +1145,53 @@
     "text": "Old Boy, by himself, note, unfashionable",
     "enumeration": "8"
    },
-   "solution": "OBSOLETE"
+   "solution": "OBSOLETE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OBSOLETE",
+    "definitions": [
+     {
+      "text": "unfashionable",
+      "at": 27
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old Boy",
+      "gives": "OB",
+      "note": "OB is the abbreviation for a former pupil of a school"
+     },
+     {
+      "clueFragment": "by himself",
+      "gives": "SOLE",
+      "note": "sole means alone"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "TE",
+      "note": "te is a note of the sol-fa scale"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OB",
+      "SOLE",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "A lonely former pupil writes a note about being out of fashion.",
+     "walkthrough": "OB + SOLE + TE, three pieces laid end to end.",
+     "definitionFit": "Obsolete means out of date and no longer in use, so it is outmoded or passé."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "note"
+    }
+   }
   },
   {
    "number": 19,
@@ -303,7 +1205,42 @@
     "text": "Alarm mechanism in premises I rented",
     "enumeration": "5"
    },
-   "solution": "SIREN"
+   "solution": "SIREN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SIREN",
+    "definitions": [
+     {
+      "text": "Alarm mechanism",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "something in a phrase is contained within it, so the letters lie inside the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "premises I rented",
+      "gives": "SIREN",
+      "note": "the letters run across the three words"
+     }
+    ],
+    "explanation": {
+     "surface": "A burglar alarm is fitted in a flat someone has leased.",
+     "walkthrough": "The letters straddle premiseS I RENted.",
+     "definitionFit": "A siren is a device making a loud wailing noise to warn of danger, such as an emergency."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -317,7 +1254,68 @@
     "text": "Hire purchase securing a rookie’s first musical instrument",
     "enumeration": "4"
    },
-   "solution": "HARP"
+   "solution": "HARP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "HARP",
+    "definitions": [
+     {
+      "text": "musical instrument",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "the first of a word is its opening letter, which is all that is kept"
+     },
+     {
+      "text": "securing",
+      "for": "container",
+      "note": "to secure something is to hold it fast, so one piece is gripped inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hire purchase",
+      "gives": "HP",
+      "note": "the initial letters of the two words; hire purchase is the British term for buying on instalments"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rookie’s",
+      "gives": "R",
+      "select": "first",
+      "note": "the opening letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "A",
+      "R",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "A beginner buys their first instrument on the instalment plan.",
+     "walkthrough": "'Hire purchase' is the British term for buying on credit and paying in instalments; it wraps A and R.",
+     "definitionFit": "A harp is a large stringed instrument plucked with the fingers, one kind of instrument."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "securing"
+    }
+   }
   },
   {
    "number": 21,
@@ -331,7 +1329,52 @@
     "text": "Initially missed out, angry newbies complain",
     "enumeration": "4"
    },
-   "solution": "MOAN"
+   "solution": "MOAN",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "MOAN",
+    "definitions": [
+     {
+      "text": "complain",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so each word gives up its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "missed out, angry newbies",
+      "gives": "MOAN",
+      "select": "first",
+      "note": "the opening letters of the four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "O",
+      "A",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Beginners who were left out at first are cross and grumble about it.",
+     "walkthrough": "'Initially missed out' reads as a phrase, but 'Initially' applies to each of the next four words.",
+     "definitionFit": "To moan is to grumble or whine, an informal synonym for complaining about something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Initially"
+    }
+   }
   },
   {
    "number": 22,
@@ -345,7 +1388,47 @@
     "text": "Give up supporting attempt",
     "enumeration": "5"
    },
-   "solution": "FORGO"
+   "solution": "FORGO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FORGO",
+    "definitions": [
+     {
+      "text": "Give up",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "supporting",
+      "gives": "FOR",
+      "note": "to be for something is to support it"
+     },
+     {
+      "clueFragment": "attempt",
+      "gives": "GO",
+      "note": "a go is a try"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOR",
+      "GO"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone abandons their backing for an effort.",
+     "walkthrough": "FOR + GO.",
+     "definitionFit": "To forgo is to do without or relinquish something, to surrender a claim to it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "supporting"
+    }
+   }
   },
   {
    "number": 23,
@@ -359,7 +1442,61 @@
     "text": "English musical work cornered by fat cat",
     "enumeration": "7"
    },
-   "solution": "LEOPARD"
+   "solution": "LEOPARD",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "LEOPARD",
+    "definitions": [
+     {
+      "text": "cat",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cornered by",
+      "for": "container",
+      "note": "what is cornered is hemmed in on all sides, so one piece is trapped inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "musical work",
+      "gives": "OP",
+      "note": "op. is short for opus, a numbered composition"
+     },
+     {
+      "clueFragment": "fat",
+      "gives": "LARD",
+      "note": "lard is pig fat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "EOP",
+      "ARD"
+     ]
+    },
+    "explanation": {
+     "surface": "An English composition is trapped by an overweight cat.",
+     "walkthrough": "'Fat cat' reads as a wealthy person; split it, and fat is LARD while cat is the definition.",
+     "definitionFit": "A leopard is a large spotted wild feline of Africa and Asia, one of the big cats."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fat"
+    }
+   }
   },
   {
    "number": 24,
@@ -373,7 +1510,47 @@
     "text": "Heard songbird in French city",
     "enumeration": "6"
    },
-   "solution": "RENNES"
+   "solution": "RENNES",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "RENNES",
+    "definitions": [
+     {
+      "text": "French city",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Heard",
+      "for": "homophone",
+      "note": "what is heard is taken in by the ear, so the spoken form counts, not the spelling"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "songbird",
+      "gives": "RENNES",
+      "soundsLike": "WREN",
+      "note": "a wren is a tiny songbird"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone hears a bird singing in a French town.",
+     "walkthrough": "The French city name is pronounced like the bird, with its double N and final ES silent.",
+     "definitionFit": "Rennes is the capital of Brittany in north-western France, a major regional city."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 25,
@@ -387,7 +1564,62 @@
     "text": "Rage about heel, ultimately scheming type",
     "enumeration": "6"
    },
-   "solution": "ANGLER"
+   "solution": "ANGLER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ANGLER",
+    "definitions": [
+     {
+      "text": "scheming type",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so only the final letter is kept"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "one thing about another goes around it, so the outer piece wraps the inner"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rage",
+      "gives": "ANGER",
+      "note": "anger is rage"
+     },
+     {
+      "clueFragment": "heel",
+      "gives": "L",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANG",
+      "L",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "Fury at a cad who turns out to be a schemer.",
+     "walkthrough": "A heel is a cad, which suits the surface, but here only its last letter counts; ANGER goes round it.",
+     "definitionFit": "Someone who angles for something manoeuvres slyly to get it, so an angler here is a schemer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "heel"
+    }
+   }
   }
  ]
 }
