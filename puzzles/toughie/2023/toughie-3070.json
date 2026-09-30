@@ -24,6 +24,9 @@
   "date": "2023-05-31",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,56 @@
     "text": "This implant ultimately mimics bone",
     "enumeration": "6"
    },
-   "solution": "STAPES"
+   "solution": "STAPES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "STAPES",
+    "definitions": [
+     {
+      "text": "bone",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so only the final letter of each word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "This implant",
+      "gives": "ST",
+      "select": "last",
+      "note": "the last letters of these two words"
+     },
+     {
+      "clueFragment": "mimics",
+      "gives": "APES",
+      "note": "to ape someone is to mimic them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "APES"
+     ]
+    },
+    "explanation": {
+     "surface": "A surgeon's implant made to imitate a bone.",
+     "walkthrough": "The surface is medical, and apt: a stapes prosthesis really is implanted in the ear. 'Ultimately' works on both 'This' and 'implant'.",
+     "definitionFit": "The stapes is the tiny stirrup-shaped bone of the middle ear, the smallest in the human body."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mimics"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +103,64 @@
     "text": "Swimmer finally leaving for Portugal, gets plane",
     "enumeration": "9"
    },
-   "solution": "TURBOPROP"
+   "solution": "TURBOPROP",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "TURBOPROP",
+    "definitions": [
+     {
+      "text": "plane",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally leaving",
+      "for": "deletion",
+      "note": "the final letter departs, so the word loses its end"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Swimmer",
+      "gives": "TURBO",
+      "note": "a turbot is a flatfish, minus its last letter"
+     },
+     {
+      "clueFragment": "for",
+      "gives": "PRO",
+      "note": "pro means in favour of"
+     },
+     {
+      "clueFragment": "Portugal",
+      "gives": "P",
+      "note": "P is the international vehicle code for Portugal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TURBO",
+      "PRO",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "A fish stops swimming and someone flies off to Portugal.",
+     "walkthrough": "'Finally leaving for Portugal' reads as one phrase about a holiday; split it after 'leaving', with 'for' giving PRO.",
+     "definitionFit": "A turboprop is an aircraft driven by a propeller turned by a gas turbine engine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "for"
+    }
+   }
   },
   {
    "number": 3,
@@ -71,7 +180,39 @@
      }
     ]
    },
-   "solution": "PALLBEARERS"
+   "solution": "PALLBEARERS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "PALL-BEARERS",
+    "definitions": [
+     {
+      "text": "They might do the conveyancing for your last move",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "They might do the conveyancing for your last move",
+      "note": "surface reading: solicitors handling the legal paperwork when you move house for the final time"
+     },
+     {
+      "clueFragment": "conveyancing for your last move",
+      "note": "setter's reading: physically conveying you, in a coffin, on your final journey to the grave"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Conveyancing is the British legal work of transferring property when you move house; here it is taken literally as carrying, and the last move is your funeral.",
+     "definitionFit": "Pall-bearers are the people who carry or escort a coffin at a funeral service."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "conveyancing"
+    }
+   }
   },
   {
    "number": 4,
@@ -85,7 +226,44 @@
     "text": "Fashion label",
     "enumeration": "5"
    },
-   "solution": "STYLE"
+   "solution": "STYLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STYLE",
+    "definitions": [
+     {
+      "text": "Fashion",
+      "at": 0
+     },
+     {
+      "text": "label",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fashion",
+      "gives": "STYLE",
+      "note": "the current mode of dress"
+     },
+     {
+      "clueFragment": "label",
+      "gives": "STYLE",
+      "note": "to name or designate something"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Fashion label' reads as one noun phrase, a designer brand; it is two separate definitions, and both can be verbs.",
+     "definitionFit": "To style something is to call it by a particular name, and style also means a prevailing mode of dress."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "label"
+    }
+   }
   },
   {
    "number": 5,
@@ -99,7 +277,53 @@
     "text": "Meet the cost of smooth, hard pavement",
     "enumeration": "8"
    },
-   "solution": "FOOTPATH"
+   "solution": "FOOTPATH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FOOTPATH",
+    "definitions": [
+     {
+      "text": "pavement",
+      "at": 30
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Meet the cost of",
+      "gives": "FOOT",
+      "note": "to foot the bill is to pay it"
+     },
+     {
+      "clueFragment": "smooth",
+      "gives": "PAT",
+      "note": "to pat down is to smooth"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H is the pencil-grade abbreviation for hard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOOT",
+      "PAT",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "Paying to have a pavement laid smooth and hard.",
+     "walkthrough": "'Smooth, hard' looks like a pair of adjectives describing the pavement; both are wordplay, and smooth is a verb.",
+     "definitionFit": "In Britain the pavement is the raised walkway beside a road, which is also called a footpath."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "smooth"
+    }
+   }
   },
   {
    "number": 6,
@@ -113,7 +337,43 @@
     "text": "Conclusion drawn from income gap",
     "enumeration": "5"
    },
-   "solution": "OMEGA"
+   "solution": "OMEGA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "OMEGA",
+    "definitions": [
+     {
+      "text": "Conclusion",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drawn from",
+      "for": "hidden_word",
+      "note": "something drawn from a phrase is pulled out of it intact"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "income gap",
+      "gives": "OMEGA",
+      "note": "sitting across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "An economist's conclusion about the income gap.",
+     "walkthrough": "The letters run from the end of 'income' into 'gap'.",
+     "definitionFit": "Omega is the last letter of the Greek alphabet, hence the end or final part of anything."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Conclusion"
+    }
+   }
   },
   {
    "number": 7,
@@ -127,7 +387,67 @@
     "text": "Topic this writer raised in article",
     "enumeration": "5"
    },
-   "solution": "THEME"
+   "solution": "THEME",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "THEME",
+    "definitions": [
+     {
+      "text": "Topic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "in a down clue, raising something turns it upside down"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing placed in another sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "this writer",
+      "gives": "ME",
+      "note": "the setter referring to themself"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "THE",
+      "note": "the definite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TH",
+      "EM",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "ME",
+       "to": "EM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A writer brings up a topic in an article.",
+     "walkthrough": "'Article' in the surface is a piece of journalism; in the wordplay it is the grammatical article THE.",
+     "definitionFit": "A theme is the subject or main idea of a talk, essay or piece of writing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 8,
@@ -141,7 +461,53 @@
     "text": "Wall in Bosnia’s prime locations provide defence?",
     "enumeration": "5"
    },
-   "solution": "ALIBI"
+   "solution": "ALIBI",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ALIBI",
+    "definitions": [
+     {
+      "text": "provide defence?",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "prime locations",
+      "for": "letter_selection",
+      "note": "prime-numbered positions: the second, third, fifth, seventh and eleventh letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wall in Bosnia",
+      "gives": "ALIBI",
+      "select": "prime",
+      "note": "letters 2, 3, 5, 7 and 11 of the phrase"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "L",
+      "I",
+      "B",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A defensive wall built at strategic sites in Bosnia.",
+     "walkthrough": "Prime locations sound like choice sites for a fortification; they are the letter positions 2, 3, 5, 7 and 11 in 'Wall in Bosnia'. The question mark flags ALIBI used as a verb.",
+     "definitionFit": "To alibi someone is to supply an excuse showing they were elsewhere, a verb meaning to vouch for them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "prime"
+    }
+   }
   },
   {
    "number": 9,
@@ -155,7 +521,55 @@
     "text": "Supply teacher’s area",
     "enumeration": "7"
    },
-   "solution": "HECTARE"
+   "solution": "HECTARE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HECTARE",
+    "definitions": [
+     {
+      "text": "area",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Supply",
+      "for": "anagram",
+      "note": "read as supple-ly, meaning flexibly, so the letters bend into a new shape"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "teacher",
+      "gives": "TEACHER",
+      "note": "the fodder, used whole"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TEACHER",
+       "gives": "HECTARE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A supply teacher's patch of the school.",
+     "walkthrough": "A supply teacher is a British substitute teacher; here 'supply' is an adverb, supple-ly, and the 's means is.",
+     "definitionFit": "A hectare is a metric unit of land measurement equal to ten thousand square metres."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Supply"
+    }
+   }
   },
   {
    "number": 10,
@@ -169,7 +583,55 @@
     "text": "Wind breaks through form of weather protection",
     "enumeration": "6"
    },
-   "solution": "BROLLY"
+   "solution": "BROLLY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BROLLY",
+    "definitions": [
+     {
+      "text": "form of weather protection",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "breaks",
+      "for": "container",
+      "note": "to break into something is to get inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wind",
+      "gives": "ROLL",
+      "note": "to wind something is to roll it up"
+     },
+     {
+      "clueFragment": "through",
+      "gives": "BY",
+      "note": "by means through, as in by way of"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ROLL",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A gale breaking through a weatherproof shelter.",
+     "walkthrough": "Wind here is the verb that rhymes with find, not the weather. BROLLY is British slang for an umbrella.",
+     "definitionFit": "A brolly is an informal British name for an umbrella, which shields you from rain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Wind"
+    }
+   }
   },
   {
    "number": 11,
@@ -183,7 +645,68 @@
     "text": "Church pastor peeled a cold vegetable",
     "enumeration": "8"
    },
-   "solution": "CELERIAC"
+   "solution": "CELERIAC",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "CELERIAC",
+    "definitions": [
+     {
+      "text": "vegetable",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "peeled",
+      "for": "deletion",
+      "note": "peeling removes the skin, so the outermost letters go"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     },
+     {
+      "clueFragment": "pastor",
+      "gives": "LERI",
+      "note": "a cleric, without its first and last letters"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "as printed"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C for cold, as on a tap"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CE",
+      "LERI",
+      "A",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "A church pastor preparing a cold vegetable dish.",
+     "walkthrough": "Peeled belongs to the kitchen picture, but it acts on the pastor, not the vegetable.",
+     "definitionFit": "Celeriac is a variety of celery grown for its large edible knobbly root, eaten raw or cooked."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "peeled"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +730,78 @@
      }
     ]
    },
-   "solution": "GODBLESSAMERICA"
+   "solution": "GODBLESSAMERICA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "anagram"
+    ],
+    "answer": "GOD BLESS AMERICA",
+    "definitions": [
+     {
+      "text": "patriotic song from Berlin",
+      "at": 66
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Lively",
+      "for": "anagram",
+      "note": "something lively jumps around, so its letters move"
+     },
+     {
+      "text": "essentially",
+      "for": "letter_selection",
+      "note": "the essence of a word is its heart, the central letter"
+     },
+     {
+      "text": "releasing",
+      "for": "deletion",
+      "note": "to release something is to let it go, so it drops out"
+     }
+    ],
+    "linkWords": [
+     "over"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "German ladies sob",
+      "gives": "GERMANLADIESSOB",
+      "note": "the main fodder, all fifteen letters"
+     },
+     {
+      "clueFragment": "musicians",
+      "gives": "C",
+      "select": "middle",
+      "note": "the fifth of nine letters"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new, taken out of the fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GERMALADIESSOBC",
+       "gives": "GODBLESSAMERICA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "German women weeping at a performance of an American anthem.",
+     "walkthrough": "Berlin looks like the German capital, fitting the German ladies; it is Irving Berlin, the American songwriter. Add the C, take out one N, then rearrange.",
+     "definitionFit": "Irving Berlin wrote this song in 1918 and revised it in 1938; it became an unofficial American national anthem."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Berlin"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +815,59 @@
     "text": "Ray Harryhausen made you stab skeletons from Olympia, conclusively with animation",
     "enumeration": "7"
    },
-   "solution": "SUNBEAM"
+   "solution": "SUNBEAM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "SUNBEAM",
+    "definitions": [
+     {
+      "text": "Ray",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "conclusively",
+      "for": "letter_selection",
+      "note": "conclusively points to the conclusion, so each word gives its final letter"
+     },
+     {
+      "text": "with animation",
+      "for": "anagram",
+      "note": "animation brings still things to life, so the letters move"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Harryhausen made you stab skeletons from Olympia",
+      "gives": "NEUBSMA",
+      "select": "last",
+      "note": "the final letter of each of the seven words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NEUBSMA",
+       "gives": "SUNBEAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Ray Harryhausen animating sword-fighting skeletons in a film set in ancient Greece.",
+     "walkthrough": "Ray looks like part of the name Ray Harryhausen, the stop-motion animator famous for the skeleton fight in Jason and the Argonauts; it is the definition, standing alone.",
+     "definitionFit": "A sunbeam is a single ray or shaft of sunlight, so the first name doubles as a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Ray"
+    }
+   }
   },
   {
    "number": 14,
@@ -235,7 +881,56 @@
     "text": "West maybe carrying bridge team — one might be 22",
     "enumeration": "5"
    },
-   "solution": "MANSE"
+   "solution": "MANSE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MANSE",
+    "definitions": [
+     {
+      "text": "one might be 22",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "carrying",
+      "for": "container",
+      "note": "to carry something is to hold it within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "West maybe",
+      "gives": "MAE",
+      "note": "Mae West, the Hollywood actress, as one example of a Mae"
+     },
+     {
+      "clueFragment": "bridge team",
+      "gives": "NS",
+      "note": "North and South form a partnership in bridge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "NS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A bridge player sitting West partnering a team, with a cross-reference.",
+     "walkthrough": "West looks like the bridge seat, fitting 'bridge team'; it is Mae West. 22 is HOUSING MINISTER, read as a house for a minister.",
+     "definitionFit": "A manse is the house provided for a Presbyterian or other Nonconformist minister, so it is literally housing a minister."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "West"
+    }
+   }
   },
   {
    "number": 15,
@@ -255,7 +950,62 @@
      }
     ]
    },
-   "solution": "RUBBERSTAMP"
+   "solution": "RUBBERSTAMP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RUBBER STAMP",
+    "definitions": [
+     {
+      "text": "unquestioning approval",
+      "at": 47
+     }
+    ],
+    "linkWords": [
+     "get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "People massaging",
+      "gives": "RUBBERS",
+      "note": "people who rub, as masseurs do"
+     },
+     {
+      "clueFragment": "tense",
+      "gives": "T",
+      "note": "grammar abbreviation"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "MP",
+      "note": "Member of Parliament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RUBBERS",
+      "T",
+      "A",
+      "MP"
+     ]
+    },
+    "explanation": {
+     "surface": "Masseurs loosening up a tense American politician to win approval.",
+     "walkthrough": "Tense reads as a stressed adjective describing the politician; it is the grammar term, giving T.",
+     "definitionFit": "A rubber stamp is automatic sanction given without scrutiny, like a stamp pressed onto every document."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tense"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +1025,74 @@
      }
     ]
    },
-   "solution": "TRIALRUN"
+   "solution": "TRIALRUN",
+   "annotation": {
+    "type": [
+     "charade",
+     "container",
+     "reversal"
+    ],
+    "answer": "TRIAL RUN",
+    "definitions": [
+     {
+      "text": "rehearsal",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "during",
+      "for": "container",
+      "note": "something happening during something else sits within its span"
+     },
+     {
+      "text": "around",
+      "for": "reversal",
+      "note": "turned around means facing the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "theatre",
+      "gives": "NT",
+      "note": "the National Theatre in London, wrapped around what follows"
+     },
+     {
+      "clueFragment": "Address",
+      "gives": "URL",
+      "note": "a web address"
+     },
+     {
+      "clueFragment": "atmosphere",
+      "gives": "AIR",
+      "note": "the air around us"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RIA",
+      "LRU",
+      "N"
+     ],
+     "reversals": [
+      {
+       "from": "NURLAIRT",
+       "to": "TRIALRUN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Talking about the mood backstage at a theatre during a rehearsal.",
+     "walkthrough": "Address is a web address, not a speech, and theatre is the National Theatre, London's state-funded playhouse. The whole string turns back to front at the end.",
+     "definitionFit": "A trial run is a practice test before the real performance or launch, exactly what a rehearsal is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Address"
+    }
+   }
   },
   {
    "number": 17,
@@ -295,7 +1112,60 @@
      }
     ]
    },
-   "solution": "RUNIN"
+   "solution": "RUNIN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "RUN-IN",
+    "definitions": [
+     {
+      "text": "quarrel",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Loveless",
+      "for": "deletion",
+      "note": "love is zero in tennis, which looks like the letter O, and less says take it away"
+     },
+     {
+      "text": "starting",
+      "for": "charade",
+      "note": "starting means going at the front, so this piece leads the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "King",
+      "gives": "R",
+      "note": "R for Rex, Latin for king"
+     },
+     {
+      "clueFragment": "23",
+      "gives": "UNIN",
+      "note": "the answer to 23, with its O removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "UNIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A heartbroken trade union joined by a king at the start of a row.",
+     "walkthrough": "23 is UNION; love is O, the tennis score of nil.",
+     "definitionFit": "A run-in is an argument or confrontation, typically a brief clash with authority or a rival."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Loveless"
+    }
+   }
   },
   {
    "number": 18,
@@ -309,7 +1179,62 @@
     "text": "Attractive priest with cake on the counter",
     "enumeration": "6"
    },
-   "solution": "NUBILE"
+   "solution": "NUBILE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "NUBILE",
+    "definitions": [
+     {
+      "text": "Attractive",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the counter",
+      "for": "reversal",
+      "note": "counter means against or opposite, so the order runs the opposite way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "priest",
+      "gives": "ELI",
+      "note": "Eli, the priest who raised Samuel in the Bible"
+     },
+     {
+      "clueFragment": "cake",
+      "gives": "BUN",
+      "note": "a bun is a small cake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NUB",
+      "ILE"
+     ],
+     "reversals": [
+      {
+       "from": "ELIBUN",
+       "to": "NUBILE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A handsome priest with a cake laid out on a shop counter.",
+     "walkthrough": "The counter looks like a bakery counter where the cake would sit; it means contrary, so the pair is read backwards.",
+     "definitionFit": "Nubile describes a young woman considered sexually attractive, so it serves as a synonym here."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "counter"
+    }
+   }
   },
   {
    "number": 19,
@@ -329,7 +1254,53 @@
      }
     ]
    },
-   "solution": "LATTERDAY"
+   "solution": "LATTERDAY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LATTER-DAY",
+    "definitions": [
+     {
+      "text": "Modern",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "coffee",
+      "gives": "LATTE",
+      "note": "a milky espresso drink"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "DAY",
+      "note": "a day is a time or period, as in 'in my day'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LATTE",
+      "R",
+      "DAY"
+     ]
+    },
+    "explanation": {
+     "surface": "A coffee chain boasting modern service that arrives right on time.",
+     "walkthrough": "'On' just places the second piece after the first in this across-style charade, even though this is a down clue.",
+     "definitionFit": "Latter-day means belonging to recent times, a contemporary version of an older figure or thing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 20,
@@ -343,7 +1314,73 @@
     "text": "Pre-noon power nap’s mostly controlling bad temper",
     "enumeration": "6"
    },
-   "solution": "SPLEEN"
+   "solution": "SPLEEN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container",
+     "charade"
+    ],
+    "answer": "SPLEEN",
+    "definitions": [
+     {
+      "text": "bad temper",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the last letter is dropped"
+     },
+     {
+      "text": "controlling",
+      "for": "container",
+      "note": "to control something is to have it in your grip"
+     },
+     {
+      "text": "Pre-",
+      "for": "charade",
+      "note": "pre means before, so the rest is set in front"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nap",
+      "gives": "SLEE",
+      "note": "sleep, with its last letter cut"
+     },
+     {
+      "clueFragment": "power",
+      "gives": "P",
+      "note": "P for power, as in physics"
+     },
+     {
+      "clueFragment": "noon",
+      "gives": "N",
+      "note": "N for noon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "P",
+      "LEE",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A morning power nap keeping someone's irritability in check.",
+     "walkthrough": "'Power nap' reads as one phrase; split it, with power giving P held inside the shortened nap.",
+     "definitionFit": "Spleen means irritable anger, from the old belief that the organ was the seat of ill humour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "power"
+    }
+   }
   },
   {
    "number": 20,
@@ -357,7 +1394,60 @@
     "text": "Contrived solution discovered after school",
     "enumeration": "7"
    },
-   "solution": "SCHEMED"
+   "solution": "SCHEMED",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "SCHEMED",
+    "definitions": [
+     {
+      "text": "Contrived",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "discovered",
+      "for": "deletion",
+      "note": "dis-covered means with its covering taken off, so the outer letters go"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "coming after means following on behind"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "school",
+      "gives": "SCH",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "solution",
+      "gives": "EMED",
+      "note": "a remedy, minus its first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCH",
+      "EMED"
+     ]
+    },
+    "explanation": {
+     "surface": "A cunning answer found after lessons.",
+     "walkthrough": "Discovered looks like found; it means uncovered.",
+     "definitionFit": "Contrived as a past-tense verb means plotted or devised a plan, often slyly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "discovered"
+    }
+   }
   },
   {
    "number": 21,
@@ -377,7 +1467,76 @@
      }
     ]
    },
-   "solution": "EYETEETH"
+   "solution": "EYETEETH",
+   "annotation": {
+    "type": [
+     "cycling",
+     "charade",
+     "container"
+    ],
+    "answer": "EYE TEETH",
+    "definitions": [
+     {
+      "text": "they’re sometimes capped",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cycled",
+      "for": "cycling",
+      "note": "a cycle goes round, so letters from the front move to the back"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "going around something means enclosing it"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "They",
+      "gives": "EYTH",
+      "note": "the word with its first letter moved to the end"
+     },
+     {
+      "clueFragment": "in France and",
+      "gives": "ET",
+      "note": "French for and"
+     },
+     {
+      "clueFragment": "Spain",
+      "gives": "E",
+      "note": "E is the vehicle code for Spain"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E for energy, as in physics"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EY",
+      "ETEE",
+      "TH"
+     ]
+    },
+    "explanation": {
+     "surface": "Cyclists touring France and Spain energetically, some wearing caps.",
+     "walkthrough": "Cycled suggests a bike tour, and capped a cycling cap; here it cycles letters, and capped means dentally crowned.",
+     "definitionFit": "Eye teeth are the canines of the upper jaw, and dentists sometimes fit crowns over teeth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "capped"
+    }
+   }
   },
   {
    "number": 22,
@@ -397,7 +1556,51 @@
      }
     ]
    },
-   "solution": "HOUSINGMINISTER"
+   "solution": "HOUSINGMINISTER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HOUSING MINISTER",
+    "definitions": [
+     {
+      "text": "Once government position",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "needing correction",
+      "for": "anagram",
+      "note": "a spelling that needs correcting is wrong as it stands, so its order must change"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ruins something — I",
+      "gives": "RUINSSOMETHINGI",
+      "note": "the fodder, three words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RUINSSOMETHINGI",
+       "gives": "HOUSINGMINISTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A former minister admits he wrecked something and needs to put it right.",
+     "walkthrough": "'Once' belongs to the definition: the Housing Minister post has at times sat in the British cabinet and at other times not.",
+     "definitionFit": "The Housing Minister is a British ministerial role overseeing homes and planning policy within government."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ruins"
+    }
+   }
   },
   {
    "number": 23,
@@ -411,7 +1614,54 @@
     "text": "Club working to support college",
     "enumeration": "5"
    },
-   "solution": "UNION"
+   "solution": "UNION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNION",
+    "definitions": [
+     {
+      "text": "Club",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to support",
+      "for": "charade",
+      "note": "in a down clue, supporting something means sitting beneath it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "college",
+      "gives": "UNI",
+      "note": "short for university"
+     },
+     {
+      "clueFragment": "working",
+      "gives": "ON",
+      "note": "a machine that is on is working"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNI",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A club getting to work backing a college.",
+     "walkthrough": "In a down clue the supporting piece goes underneath, so it comes second.",
+     "definitionFit": "A union is an association of members, like a students' union, which is a social club."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 24,
@@ -425,7 +1675,75 @@
     "text": "Perhaps gusset isn’t replaced to cover embarrassment initially",
     "enumeration": "5"
    },
-   "solution": "INSET"
+   "solution": "INSET",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "INSET",
+    "definitions": [
+     {
+      "text": "Perhaps gusset",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "replaced",
+      "for": "anagram",
+      "note": "replaced means put back in a different position, so the letters move"
+     },
+     {
+      "text": "to cover",
+      "for": "container",
+      "note": "to cover something is to go over and around it"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the first letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "isn’t",
+      "gives": "INST",
+      "note": "the four letters without the apostrophe, rearranged"
+     },
+     {
+      "clueFragment": "embarrassment",
+      "gives": "E",
+      "select": "first",
+      "note": "its first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INS",
+      "E",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ISNT",
+       "gives": "INST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gusset that has not been replaced, leaving someone embarrassed.",
+     "walkthrough": "The surface is a wardrobe malfunction; 'Perhaps gusset' is the definition, a gusset being one example of the answer.",
+     "definitionFit": "A gusset is a piece of fabric sewn into a garment to strengthen or enlarge it, one kind of inserted panel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "replaced"
+    }
+   }
   },
   {
    "number": 25,
@@ -439,7 +1757,70 @@
     "text": "Stuck-up men inspired by Harry’s complaint",
     "enumeration": "5"
    },
-   "solution": "GROAN"
+   "solution": "GROAN",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "GROAN",
+    "definitions": [
+     {
+      "text": "complaint",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inspired by",
+      "for": "container",
+      "note": "breathed in, so one piece is drawn inside another"
+     },
+     {
+      "text": "Stuck-up",
+      "for": "reversal",
+      "note": "in a down clue, stuck up means pushed upwards, so it reads bottom to top"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Harry",
+      "gives": "NAG",
+      "note": "to harry is to pester, or nag"
+     },
+     {
+      "clueFragment": "men",
+      "gives": "OR",
+      "note": "other ranks, soldiers who are not officers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "RO",
+      "AN"
+     ],
+     "reversals": [
+      {
+       "from": "NAORG",
+       "to": "GROAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Snooty men inspired by a man called Harry, who complains.",
+     "walkthrough": "Harry looks like a name; it is the verb meaning to pester.",
+     "definitionFit": "A groan is a deep sound of pain or displeasure, and so an expression of grievance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Harry"
+    }
+   }
   },
   {
    "number": 26,
@@ -453,7 +1834,62 @@
     "text": "Gall bladder’s close to bottom? Not at all!",
     "enumeration": "5"
    },
-   "solution": "NEVER"
+   "solution": "NEVER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "charade"
+    ],
+    "answer": "NEVER",
+    "definitions": [
+     {
+      "text": "Not at all!",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "close",
+      "for": "letter_selection",
+      "note": "the close of something is its end, so only its final letter counts"
+     },
+     {
+      "text": "to bottom",
+      "for": "charade",
+      "note": "in a down clue the bottom is the end, so the letter is moved there"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gall",
+      "gives": "NERVE",
+      "note": "gall and nerve both mean cheek or audacity"
+     },
+     {
+      "clueFragment": "bladder",
+      "gives": "R",
+      "select": "last",
+      "note": "its final letter, which already sits in the middle of the word above"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEVE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A medical question about whether the gall bladder lies near the bottom, flatly denied.",
+     "walkthrough": "Gall bladder is one phrase in the surface; Gall is the wordplay and 'bladder's close' is the R, which is shifted from the middle of the word to the bottom.",
+     "definitionFit": "Never means at no time, an emphatic refusal, just as 'Not at all!' is an exclamation of denial."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Gall"
+    }
+   }
   },
   {
    "number": 27,
@@ -467,7 +1903,64 @@
     "text": "Powerful men called first for promotion",
     "enumeration": "8"
    },
-   "solution": "MAILSHOT"
+   "solution": "MAILSHOT",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "MAILSHOT",
+    "definitions": [
+     {
+      "text": "promotion",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "called",
+      "for": "homophone",
+      "note": "something called out is spoken, so it is heard rather than seen"
+     },
+     {
+      "text": "first",
+      "for": "charade",
+      "note": "first means placed at the front of the answer"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "men",
+      "gives": "MAILS",
+      "soundsLike": "MALES",
+      "note": "males are men; said out, it is the plural of post"
+     },
+     {
+      "clueFragment": "Powerful",
+      "gives": "HOT",
+      "note": "hot as in strong or potent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAILS",
+      "HOT"
+     ]
+    },
+    "explanation": {
+     "surface": "Strong men being called up first to be promoted.",
+     "walkthrough": "Powerful men suggests hotshots, but the pieces swap order: the men come first.",
+     "definitionFit": "A mailshot is advertising material posted to many potential customers at once, a form of marketing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "promotion"
+    }
+   }
   },
   {
    "number": 28,
@@ -481,7 +1974,59 @@
     "text": "Six workers wanting hot food",
     "enumeration": "6"
    },
-   "solution": "VIANDS"
+   "solution": "VIANDS",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "VIANDS",
+    "definitions": [
+     {
+      "text": "food",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wanting",
+      "for": "deletion",
+      "note": "wanting means lacking, so something is missing"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Six",
+      "gives": "VI",
+      "note": "Roman numeral"
+     },
+     {
+      "clueFragment": "workers",
+      "gives": "ANDS",
+      "note": "hands, as in farmhands, minus the letter for hot"
+     },
+     {
+      "clueFragment": "hot",
+      "note": "H for hot, the letter taken out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VI",
+      "ANDS"
+     ]
+    },
+    "explanation": {
+     "surface": "Six labourers who would like a hot meal.",
+     "walkthrough": "Wanting reads as desiring hot food; it means lacking, and hot is H.",
+     "definitionFit": "Viands is an old-fashioned word for items of food and provisions, especially choice dishes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wanting"
+    }
+   }
   },
   {
    "number": 29,
@@ -495,7 +2040,62 @@
     "text": "Meaning daughter for example is eating out",
     "enumeration": "8"
    },
-   "solution": "DENOTING"
+   "solution": "DENOTING",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "DENOTING",
+    "definitions": [
+     {
+      "text": "Meaning",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "eating something takes it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "for example",
+      "gives": "EG",
+      "note": "e.g., exempli gratia"
+     },
+     {
+      "clueFragment": "out",
+      "gives": "NOTIN",
+      "note": "not in, as when someone is away from home"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "E",
+      "NOTIN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A daughter who is, for instance, eating out at a restaurant.",
+     "walkthrough": "'Eating out' is one phrase for dining at a restaurant; eating is the container and out is the inner piece.",
+     "definitionFit": "Denoting means signifying or indicating, so it works as the present participle of 'mean'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 30,
@@ -509,7 +2109,65 @@
     "text": "Refunds from agent, when handling unknown",
     "enumeration": "6"
    },
-   "solution": "REPAYS"
+   "solution": "REPAYS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "REPAYS",
+    "definitions": [
+     {
+      "text": "Refunds",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "handling",
+      "for": "container",
+      "note": "to handle something is to hold it in your hands"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "agent",
+      "gives": "REP",
+      "note": "a rep is a sales representative"
+     },
+     {
+      "clueFragment": "when",
+      "gives": "AS",
+      "note": "as in 'as I arrived'"
+     },
+     {
+      "clueFragment": "unknown",
+      "gives": "Y",
+      "note": "algebra's unknowns are x, y and z"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REP",
+      "A",
+      "Y",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Getting refunds from an agent who is handling something unknown.",
+     "walkthrough": "Unknown is the algebra letter Y, held inside the word for when.",
+     "definitionFit": "To repay is to give money back to someone, which is what a business does when it refunds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "unknown"
+    }
+   }
   }
  ]
 }
