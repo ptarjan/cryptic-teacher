@@ -27,6 +27,9 @@ import sys
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import parallel  # noqa: E402 — the pages across the cores
+
 REPO = Path(__file__).resolve().parent.parent
 ORIGIN = "https://cryptic.paultarjan.com"
 
@@ -51,14 +54,16 @@ def stage(src, out):
     """Link PUBLISH into out; the set of paths staged, relative, with /."""
     if out.exists():
         shutil.rmtree(out)
-    staged = set()
+    staged, made = set(), set()
     for pattern in PUBLISH:
         for f in src.glob(pattern):
             if not f.is_file():
                 continue
             rel = f.relative_to(src).as_posix()
             dest = out / rel
-            dest.parent.mkdir(parents=True, exist_ok=True)
+            if dest.parent not in made:
+                dest.parent.mkdir(parents=True, exist_ok=True)
+                made.add(dest.parent)
             try:
                 os.link(f, dest)
             except OSError:
@@ -81,18 +86,32 @@ def target(page, url):
     return posixpath.join(t, "index.html") if path.endswith("/") or not t else t
 
 
+#: (out, staged) for page_missing(), set by check() before its workers fork.
+_CHECK = None
+
+
+def page_missing(page):
+    """The broken links on one staged page, as check() reports them."""
+    out, staged = _CHECK
+    text = (out / page).read_text(encoding="utf-8", errors="replace")
+    missing = []
+    for m in LINK.finditer(text):
+        url = m.group(1) if m.group(1) is not None else m.group(2)
+        t = target(page, url)
+        if t is not None and t not in staged:
+            missing.append(f"{page} -> {url}")
+    return missing
+
+
 def check(out, staged):
     """Every broken link in the staged site, as 'page -> url' lines. A link
     to a directory without its trailing slash counts as broken on purpose:
     Pages answers it with a redirect, not the page."""
-    missing = []
-    for page in sorted(p for p in staged if p.endswith(".html")):
-        text = (out / page).read_text(encoding="utf-8", errors="replace")
-        for m in LINK.finditer(text):
-            url = m.group(1) if m.group(1) is not None else m.group(2)
-            t = target(page, url)
-            if t is not None and t not in staged:
-                missing.append(f"{page} -> {url}")
+    global _CHECK
+    _CHECK = out, staged
+    pages = sorted(p for p in staged if p.endswith(".html"))
+    missing = [line for lines in parallel.pmap(page_missing, pages) for line in lines]
+    _CHECK = None
     index = json.loads((out / "puzzles/index.json").read_text(encoding="utf-8"))
     for p in index["puzzles"] + index.get("unlisted", []):
         if f"puzzles/{p['file']}" not in staged:
