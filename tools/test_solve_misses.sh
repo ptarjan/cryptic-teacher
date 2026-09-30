@@ -1,5 +1,5 @@
 #!/bin/bash
-# Is each graded miss diagnosed exactly once?
+# Is each graded miss diagnosed exactly once, and does the solve prompt stay lean?
 #
 # Drives tools/solve_misses.py against scratch copies of blind_misses.json and
 # diagnosed_misses.json: a miss is pending until a verdict is recorded, a new
@@ -53,5 +53,14 @@ if [ "$(git status --porcelain)" != "$tree_before" ]; then
   rc=1
 else
   echo "  ok: nothing in the checkout was written"
+fi
+# Every solve reads all of solve_prompt.md, so the diagnoses that add rules to
+# it must trade, not append.
+words=$(wc -w < tools/solve_prompt.md)
+if [ "$words" -gt 500 ]; then
+  echo "  FAIL: tools/solve_prompt.md is $words words, over the 500 cap"
+  rc=1
+else
+  echo "  ok: tools/solve_prompt.md is $words words, within the 500 cap"
 fi
 exit $rc
