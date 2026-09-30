@@ -804,6 +804,19 @@ def inside_runs(clue, ann):
 POSITIONAL_TYPES = {"deletion", "letter_selection"}
 
 
+def trimmed_pieces(ann, words):
+    """Whether blocks clue the run's words one by one, each giving its word whole
+    or the front or back a deletion or selection keeps: APE from "a pet" as A +
+    PE(T)."""
+    frags = {letters(b.get("clueFragment")): letters(b.get("gives"))
+             for b in ann.get("blocks") or [] if isinstance(b, dict)}
+    for w in words.split():
+        w, g = letters(w), frags.get(letters(w))
+        if not g or not (w.startswith(g) or w.endswith(g)):
+            return False
+    return True
+
+
 def check_unmarked_hidden_word(tag, ann, clue, errors):
     """An answer that spells itself across a word break in the wordplay is a
     hidden word, and its type says so, unless a block or indicator note says the
@@ -831,13 +844,15 @@ def check_unmarked_hidden_word(tag, ann, clue, errors):
     def fix(direction):
         return ("`hidden_word` and `reversal`" if direction == "reversed"
                 else "`hidden_word`")
+    positional = POSITIONAL_TYPES & types
     for direction, words in hidden_runs(clue, ann):
+        if positional and direction == "forwards" and trimmed_pieces(ann, words):
+            continue
         errors.append(
             f"{tag}: the answer runs {direction} across {words!r}, outside the "
             f"definition, but `type` has no hidden_word. Add {fix(direction)} to "
             f"`type` if the setter hid it there, or say in the note of the block "
             f"holding those words that it is a coincidence")
-    positional = POSITIONAL_TYPES & types
     for direction, word, left, right in inside_runs(clue, ann):
         if positional and (not left or not right or abs(left - right) <= 1):
             continue

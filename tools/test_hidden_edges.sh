@@ -60,10 +60,11 @@ print(f"  ok: {len(cases)} hidden words judged on their edges")
 
 import validate_annotations as v
 
-def unmarked(clue, answer, types, definition, notes=()):
+def unmarked(clue, answer, types, definition, notes=(), blocks=()):
     ann = {"answer": answer, "type": list(types),
            "definitions": [{"text": definition, "at": clue.index(definition)}],
-           "blocks": [{"clueFragment": clue, "gives": answer, "note": n} for n in notes]}
+           "blocks": [{"clueFragment": clue, "gives": answer, "note": n} for n in notes]
+                     + [{"clueFragment": f, "gives": g} for f, g in blocks]}
     errors = []
     v.check_unmarked_hidden_word("1A", ann, clue, errors)
     return errors
@@ -83,6 +84,13 @@ checks = [
               ["the pieces sit side by side, a coincidence the setter does not signal"])),
     ("whole words are not hidden", 0,
      unmarked("It’s a revolution in sparkling wine", "ASTI", ["reversal"], "sparkling wine")),
+    # Across words, a deletion clueing each word as a piece is not hiding it.
+    ("pieces trimmed by a deletion", 0,
+     unmarked("Imitate a pet with no tail", "APE", ["charade", "deletion"], "Imitate",
+              blocks=[("a", "A"), ("pet", "PE")])),
+    ("pieces, but no deletion", 1,
+     unmarked("Imitate a pet with no tail", "APE", ["charade"], "Imitate",
+              blocks=[("a", "A"), ("pet", "PE")])),
     # Inside one word: a deletion or selection keeps a front, back or middle;
     # anywhere else the run is hidden.
     ("inside one word, typed as a selection", 1,
