@@ -6927,3 +6927,99 @@ global.realSetTimeout(() => {
   assert(regular.storage["ct:nux"] === "null",
     "and is marked owed none of them, once: " + regular.storage["ct:nux"]);
 }
+// --- the stats panel is derived from the saves, and only from them ---
+// Booted fresh with saves planted, the way a device that has been solving for
+// a while arrives: every figure has to come out of those saves and nothing the
+// app stored beside them. Three finished puzzles: D forty days ago with three
+// hints on every clue, A two days ago clean, B yesterday with one clue on two
+// hints and one on a revealed letter.
+{
+  const shim = (id) => {
+    const w = { CRYPTIC_PUZZLES: {} };
+    new Function("window", fs.readFileSync(path.join(ROOT, "puzzles", id + ".js"), "utf8"))(w);
+    return w.CRYPTIC_PUZZLES[id];
+  };
+  const noon = (daysAgo) => { const d = new Date(); return new Date(d.getFullYear(), d.getMonth(), d.getDate() - daysAgo, 12).getTime(); };
+  const square = (e, i) => (e.position.x + (e.direction === "across" ? i : 0)) + ","
+    + (e.position.y + (e.direction === "across" ? 0 : i));
+  // A finished save: every square right, each clue charged `cost(e)` rungs.
+  const finished = (puz, at, cost = () => 0, extra = {}) => {
+    const letters = {}, letterAt = {}, solvedWith = {};
+    puz.entries.forEach((e) => {
+      for (let i = 0; i < e.length; i++) { letters[square(e, i)] = e.solution[i]; letterAt[square(e, i)] = at; }
+      solvedWith[entryId(e)] = cost(e);
+    });
+    return JSON.stringify(Object.assign({ letters, letterAt, solvedWith, hintsShown: {}, hintsEarned: {},
+      revealsUsed: {}, timing: { solvedAt: at }, updated: at }, extra));
+  };
+  // Clues, counted the way the scorebar counts them: a linked group is one.
+  const clueCount = (puz) => puz.entries.filter((e) => !puz.entries.some((l) =>
+    l !== e && (l.group || []).slice(1).includes(entryId(e)))).length;
+  const A = shim("cryptic-30066"), B = shim("quiptic-1397"), D = shim("quiptic-1398");
+  const [b1, b2] = B.entries.filter((e) => !e.group);
+  const planted = {
+    "ct:seen": JSON.stringify({ last: "2000-01-01", days: 5 }),
+    "ct:quiptic-1398": finished(D, noon(40), () => 3),
+    "ct:cryptic-30066": finished(A, noon(2)),
+    "ct:quiptic-1397": finished(B, noon(1), (e) => (e === b1 ? 2 : 0), { revealsUsed: { [entryId(b2)]: 1 } }),
+  };
+  const d = require("./fake_dom.js").boot({ query: "?p=quiptic-1396", storage: planted });
+  const reg = d.registry;
+  reg["btn-stats"].onclick();
+  const html = reg["stats-body"].innerHTML;
+  const stat = (label) => (new RegExp(`<strong>([^<]*)</strong><span>${label}</span>`).exec(html) || [])[1];
+  const solved = clueCount(A) + clueCount(B) + clueCount(D), clean = clueCount(A) + clueCount(B) - 2;
+  assert(!reg["stats-panel"].classList.contains("hidden"), "the Stats button opens the stats panel");
+  assert(stat("puzzles finished") === "3", "three finished puzzles: " + stat("puzzles finished"));
+  assert(stat("clues solved") === String(solved), `${solved} clues solved: ` + stat("clues solved"));
+  assert(stat("with no hints") === Math.round(100 * clean / solved) + "%",
+    "clean is the share priced at nothing, by the scorebar's own rule: " + stat("with no hints"));
+  const bars = [...html.matchAll(/<span class="hist-bar"[^>]*>(\d+)<\/span>/g)].map((m) => +m[1]);
+  assert(String(bars) === String([clean, 1, 1, clueCount(D)]),
+    "the histogram buckets clues at 0, 1, 2 and 3+ hints, a revealed letter counting as one: " + bars);
+  assert(/fell from 3\.0 to 0\.\d over 30 days/.test(html),
+    "the trend compares the last 30 days with the 30 before: " + (/Your hints[^<]*/.exec(html) || [])[0]);
+  assert(/<strong>2 days<\/strong> in a row/.test(html) && /best 2 days/.test(html),
+    "yesterday and the day before are a live streak of two, nothing finished today yet");
+  assert(/<strong>2<\/strong>-day streak/.test(reg["streak"].innerHTML),
+    "and the streak shows beside the scorebar, outside the panel: " + reg["streak"].innerHTML);
+  assert(/<li class="reached">First puzzle with no hints/.test(html)
+    && /<li class="reached">First clue solved/.test(html),
+    "milestones reached are listed with their day");
+  assert(!/\b(seconds?|minutes?|hours?|time|speed|fast)\b/i.test(html.replace(/<[^>]*>/g, " ")),
+    "the stats never mention time or speed: the score counts hints");
+  const rank = (/<p class="rank"><strong>(\w+)/.exec(html) || [])[1];
+  assert(rank && rank !== "Novice" && /Next, \w+: /.test(html), "clean solves earn a rank above Novice: " + rank);
+
+  // Ranks count clean and low-hint solves, not volume: the same clues, every
+  // one bought with hints, is still a Novice.
+  const dirty = Object.assign({}, planted, {
+    "ct:cryptic-30066": finished(A, noon(2), () => 2),
+    "ct:quiptic-1397": finished(B, noon(4), () => 3),
+  });
+  const d2 = require("./fake_dom.js").boot({ query: "?p=quiptic-1396", storage: dirty });
+  d2.registry["btn-stats"].onclick();
+  const html2 = d2.registry["stats-body"].innerHTML;
+  assert(/<p class="rank"><strong>Novice/.test(html2), "hints bought never raise the rank: " + html2.slice(0, 80));
+  assert(/<strong>0 days<\/strong> in a row/.test(html2) && /best 1 day\b/.test(html2),
+    "two days since the last finish ends the streak, and apart they are runs of one");
+  assert(d2.registry["streak"].innerHTML === "", "no streak, nothing beside the scorebar");
+
+  // A solve that reaches a milestone says so in one line, and the next solve
+  // that reaches none takes the line away.
+  const d3 = require("./fake_dom.js").boot({ query: "?p=quiptic-1396",
+    storage: { "ct:seen": JSON.stringify({ last: "2000-01-01", days: 5 }) } });
+  const kd = d3.docListeners["keydown"][0];
+  const type = (e) => {
+    d3.registry["clue-" + entryId(e)].listeners.click[0]();
+    e.solution.split("").forEach((c) => kd({ key: c, preventDefault() {}, shiftKey: false, target: d3.registry["kbd"] }));
+  };
+  const Q = global.window.CRYPTIC_PUZZLES["quiptic-1396"];
+  const [q1, q2] = Q.entries.filter((e) => !e.group && e.direction === "across");
+  type(q1);
+  const note = d3.registry["milestone-note"];
+  assert(!note.classList.contains("hidden") && /First clue solved · First clue with no hints/.test(note.innerHTML),
+    "the first clean solve is noted on the solve: " + note.innerHTML);
+  type(q2);
+  assert(note.classList.contains("hidden"), "and the next solve, reaching none, clears it: " + note.innerHTML);
+}
