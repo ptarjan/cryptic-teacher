@@ -238,6 +238,13 @@ say("answer_opener_trimmed", trimmed == ["1-across"]
     and notes_now["1-across"] == "a grid of metal bars over a drain"
     and notes_now["2-across"].startswith("William") and notes_now["3-across"].startswith("a rag"))
 
+# A definition word reused as fodder warns, and says a setter's reuse is left as is,
+# so a run does not go hunting for a field to mark it.
+w = []
+V.check_definition_not_fodder([entry("1-across", annotation={"type": ["charade"],
+    "definitions": [{"text": "rock"}], "blocks": [{"clueFragment": "rock", "gives": "ROC"}]})], [], w)
+say("fodder_reuse_says_leave_it", len(w) == 1 and "leave it" in w[0])
+
 # Each validator line names its check, and --explain takes what a run guesses.
 import contextlib, io
 errs = []
@@ -271,7 +278,8 @@ for k in linked_leader_quiet annotated_continuation_flagged \
          reworded_clue_fails retyped_clue_passes missing_keys_filled_null \
          preview_names_validator_errors patch_deletes_its_file \
          line_names_its_check explain_takes_a_field explain_takes_dashed_words \
-         explain_unknown_refused comma_answer_spaced answer_opener_trimmed; do
+         explain_unknown_refused comma_answer_spaced answer_opener_trimmed \
+         fodder_reuse_says_leave_it; do
   same "$k" "$(grep -c "^$k=yes$" <<<"$out")" "1"
 done
 

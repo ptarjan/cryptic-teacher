@@ -1912,7 +1912,9 @@ def check_definition_not_fodder(entries, errors, warnings):
                     f"{sorted(shared)}, which the definition {' / '.join(definitions.texts(ann))!r} "
                     f"has already claimed. A clue is definition + wordplay, not one "
                     f"phrase doing both — unless the setter reuses the word on "
-                    f"purpose, this parse is faked out of the definition")
+                    f"purpose, this parse is faked out of the definition. If the "
+                    f"reuse is the setter's, leave it: this is a warning, up to "
+                    f"{MAX_DEFINITION_REUSE} a puzzle pass, and nothing marks one as meant")
                 break
     if len(hits) > MAX_DEFINITION_REUSE:
         errors.append(
