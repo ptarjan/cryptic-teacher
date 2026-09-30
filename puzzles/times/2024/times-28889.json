@@ -23,6 +23,9 @@
   "date": "2024-04-12",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,51 @@
     "text": "Got up to make deliveries, which may be under arrangement?",
     "enumeration": "8"
    },
-   "solution": "ROSEBOWL"
+   "solution": "ROSEBOWL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ROSEBOWL",
+    "definitions": [
+     {
+      "text": "which may be under arrangement?",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Got up",
+      "gives": "ROSE",
+      "note": "past tense of rise: got up out of bed"
+     },
+     {
+      "clueFragment": "make deliveries",
+      "gives": "BOWL",
+      "note": "in cricket a bowler delivers the ball, so to bowl is to make deliveries"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROSE",
+      "BOWL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone rises early to do a delivery round, wondering what might be arranged.",
+     "walkthrough": "'Deliveries' suggests post or milk, but in cricket each ball sent down is a delivery. The definition is cryptic: a flower arrangement sits on top of this vase.",
+     "definitionFit": "A rose bowl is a round vase holding cut flowers, so it sits underneath a floral display."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "deliveries"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +97,43 @@
     "text": "Does twist? Bolero often follows this",
     "enumeration": "6"
    },
-   "solution": "RAVELS"
+   "solution": "RAVELS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RAVELS",
+    "definitions": [
+     {
+      "text": "Does twist",
+      "at": 0
+     },
+     {
+      "text": "Bolero often follows this",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Does twist",
+      "note": "first meaning: tangles or entwines, a present-tense verb"
+     },
+     {
+      "clueFragment": "Bolero often follows this",
+      "note": "second meaning: the composer's possessive, as in the famous orchestral piece's full title"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Read as RAVEL'S, the second half is the composer Maurice Ravel: 'Ravel's Bolero' is how the piece is usually named, so his name comes just before it.",
+     "definitionFit": "To ravel is to tangle threads together, and Bolero is the best-known orchestral work by the French composer Maurice Ravel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bolero"
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +147,53 @@
     "text": "One who’s drafted isn’t taking against longhand",
     "enumeration": "6"
    },
-   "solution": "SCRIPT"
+   "solution": "SCRIPT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SCRIPT",
+    "definitions": [
+     {
+      "text": "longhand",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "isn’t taking",
+      "for": "deletion",
+      "note": "declining to take something means leaving it out, so a part is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One who’s drafted",
+      "gives": "CONSCRIPT",
+      "note": "a conscript is someone drafted into military service"
+     },
+     {
+      "clueFragment": "against",
+      "gives": "CON",
+      "note": "con means against, as in pros and cons"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCRIPT"
+     ]
+    },
+    "explanation": {
+     "surface": "A draftee objects to writing things out by hand.",
+     "walkthrough": "'Drafted' hints at writing a draft, but it means called up for military service. Removing CON from CONSCRIPT leaves SCRIPT.",
+     "definitionFit": "Script is handwriting, especially joined-up writing, which is what longhand means as opposed to shorthand or typing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drafted"
+    }
+   }
   },
   {
    "number": 3,
@@ -88,7 +217,65 @@
      }
     ]
    },
-   "solution": "BEALLEARS"
+   "solution": "BEALLEARS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "BE ALL EARS",
+    "definitions": [
+     {
+      "text": "Listen carefully to sounds",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "middle of",
+      "for": "letter_selection",
+      "note": "the middle is the central part, so only the inner letters of a word are kept"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "going around something encloses it, so one piece wraps another"
+     }
+    ],
+    "linkWords": [
+     "[of]"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brooks",
+      "gives": "BEARS",
+      "note": "to brook is to tolerate or bear"
+     },
+     {
+      "clueFragment": "glen",
+      "gives": "ALLE",
+      "select": "middle",
+      "note": "a glen is a VALLEY; its middle four letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "ALLE",
+      "ARS"
+     ]
+    },
+    "explanation": {
+     "surface": "A walker listens to the babbling streams running through a Scottish valley.",
+     "walkthrough": "'Brooks' looks like streams, but here it is the verb: to brook is to put up with. A glen is a Scottish valley.",
+     "definitionFit": "To be all ears is an idiom for paying complete attention, giving your whole hearing to what is being said."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "brooks"
+    }
+   }
   },
   {
    "number": 4,
@@ -102,7 +289,40 @@
     "text": "One staying behind in person?",
     "enumeration": "12"
    },
-   "solution": "WICKETKEEPER"
+   "solution": "WICKETKEEPER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "WICKETKEEPER",
+    "definitions": [
+     {
+      "text": "One staying behind in person?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One staying behind in person?",
+      "note": "surface reading: someone who remains behind personally rather than leaving"
+     },
+     {
+      "clueFragment": "One staying behind",
+      "note": "setter's reading: the cricket fielder who stands behind the stumps all innings, never bowling or batting while fielding"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone who stays back after everyone else has gone, in the flesh.",
+     "walkthrough": "In cricket one fielder crouches directly behind the batter's stumps throughout; 'in person' plays on the gloves-on, always-present role of that player.",
+     "definitionFit": "The fielder in cricket who wears gloves and stands behind the stumps to catch balls the batter misses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "staying"
+    }
+   }
   },
   {
    "number": 5,
@@ -116,7 +336,60 @@
     "text": "Boot[’s] fit needing nine regularly",
     "enumeration": "6"
    },
-   "solution": "WELLIE"
+   "solution": "WELLIE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "WELLIE",
+    "definitions": [
+     {
+      "text": "Boot",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "at regular intervals, so every other letter is kept"
+     }
+    ],
+    "linkWords": [
+     "[’s]",
+     "needing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fit",
+      "gives": "WELL",
+      "note": "fit and healthy: well"
+     },
+     {
+      "clueFragment": "nine",
+      "gives": "IE",
+      "select": "alternate",
+      "note": "second and fourth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WELL",
+      "IE"
+     ]
+    },
+    "explanation": {
+     "surface": "A boot that only fits properly if it is size nine.",
+     "walkthrough": "'Fit' reads as the fit of a shoe, but it means healthy. A wellie is a British rubber boot for wet weather.",
+     "definitionFit": "Short for wellington, the waterproof rubber boot worn in mud and rain, so it is one kind of footwear."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fit"
+    }
+   }
   },
   {
    "number": 6,
@@ -130,7 +403,47 @@
     "text": "Perhaps meet five out of seventeen",
     "enumeration": "5"
    },
-   "solution": "EVENT"
+   "solution": "EVENT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EVENT",
+    "definitions": [
+     {
+      "text": "Perhaps meet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out of",
+      "for": "hidden_word",
+      "note": "taken out of a longer word, so a run of consecutive letters is lifted from it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "five",
+      "note": "tells how many letters to lift"
+     },
+     {
+      "clueFragment": "seventeen",
+      "gives": "EVENT",
+      "note": "five consecutive letters inside this number"
+     }
+    ],
+    "explanation": {
+     "surface": "Picking five items from a set of seventeen, perhaps at a gathering.",
+     "walkthrough": "'Five' is the count of letters taken, not a number to use: s(EVENT)een. 'Perhaps' warns that a meet is only one example.",
+     "definitionFit": "A meet, such as an athletics meeting, is one example of an organised sporting occasion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "five"
+    }
+   }
   },
   {
    "number": 7,
@@ -150,7 +463,43 @@
      }
     ]
    },
-   "solution": "LASTPOST"
+   "solution": "LASTPOST",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LAST POST",
+    "definitions": [
+     {
+      "text": "Call",
+      "at": 0
+     },
+     {
+      "text": "which people hope to make with letters?",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Call",
+      "note": "first meaning: the military bugle call played at the end of the day and at funerals"
+     },
+     {
+      "clueFragment": "which people hope to make with letters?",
+      "note": "second meaning: the final mail collection of the day, which you try to catch"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The bugle call is the British name for the evening call also sounded at remembrance services; the second reading is catching the final collection from a postbox.",
+     "definitionFit": "It names both a military bugle signal and the final daily collection of mail from a British postbox."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "letters"
+    }
+   }
   },
   {
    "number": 8,
@@ -164,7 +513,58 @@
     "text": "Worry king’s trapped by duty",
     "enumeration": "8"
    },
-   "solution": "EXERCISE"
+   "solution": "EXERCISE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EXERCISE",
+    "definitions": [
+     {
+      "text": "Worry",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "trapped by",
+      "for": "container",
+      "note": "something trapped is held inside, so one piece sits within another"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "king",
+      "gives": "ER",
+      "note": "Edward Rex, the royal cipher"
+     },
+     {
+      "clueFragment": "duty",
+      "gives": "EXCISE",
+      "note": "excise is a tax or duty on goods"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "ER",
+      "CISE"
+     ]
+    },
+    "explanation": {
+     "surface": "A king is anxious about being caught by his obligations.",
+     "walkthrough": "'Duty' looks like obligation, but it is a tax. ER stands for Edward Rex (King Edward) as well as the more familiar Elizabeth Regina.",
+     "definitionFit": "To exercise someone is to trouble or preoccupy them, as in being exercised about an issue."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "duty"
+    }
+   }
   },
   {
    "number": 9,
@@ -178,7 +578,60 @@
     "text": "Disagreement heretic enters into versus church",
     "enumeration": "8"
    },
-   "solution": "VARIANCE"
+   "solution": "VARIANCE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "VARIANCE",
+    "definitions": [
+     {
+      "text": "Disagreement",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "enters into",
+      "for": "container",
+      "note": "entering a space means going inside it, so one piece is placed within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "versus",
+      "gives": "V",
+      "note": "the usual abbreviation"
+     },
+     {
+      "clueFragment": "heretic",
+      "gives": "ARIAN",
+      "note": "a follower of Arius, an early Christian heretic"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "Church of England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "ARIAN",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "A heretic's arrival sparks a dispute set against the church.",
+     "walkthrough": "The heretic goes between V and CE. Arians denied the full divinity of Christ, and the name is a crossword favourite.",
+     "definitionFit": "To be at variance with someone is to be in conflict with them, so the noun names a dispute."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -192,7 +645,56 @@
     "text": "Tenant without cover for expense",
     "enumeration": "6"
    },
-   "solution": "LESSEE"
+   "solution": "LESSEE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "LESSEE",
+    "definitions": [
+     {
+      "text": "Tenant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cover for",
+      "for": "letter_selection",
+      "note": "a cover wraps the outside, so only the outermost letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "without",
+      "gives": "LESS",
+      "note": "less means minus or without"
+     },
+     {
+      "clueFragment": "expense",
+      "gives": "EE",
+      "select": "outer",
+      "note": "first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LESS",
+      "EE"
+     ]
+    },
+    "explanation": {
+     "surface": "A renter without insurance cover for costs.",
+     "walkthrough": "'Cover' suggests insurance, but it means the letters on the outside of the word.",
+     "definitionFit": "A lessee holds property under a lease, which makes them the renter paying the landlord."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cover"
+    }
+   }
   },
   {
    "number": 11,
@@ -212,7 +714,56 @@
      }
     ]
    },
-   "solution": "PRINTTHROUGH"
+   "solution": "PRINTTHROUGH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PRINT-THROUGH",
+    "definitions": [
+     {
+      "text": "Magnetic problem with recording",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up the pole",
+      "for": "anagram",
+      "note": "British slang for crazy or confused, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "north",
+      "gives": "NORTH",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "upright",
+      "gives": "UPRIGHT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NORTHUPRIGHT",
+       "gives": "PRINTTHROUGH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A compass needle stands straight up at the North Pole, a magnetic puzzle.",
+     "walkthrough": "'Magnetic', 'north' and 'pole' all push towards compasses; the magnetism is actually in recording tape, and 'up the pole' means mad.",
+     "definitionFit": "On magnetic tape, signal from one wound layer can transfer onto the next, producing faint echoes: a known defect in analogue recording."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pole"
+    }
+   }
   },
   {
    "number": 12,
@@ -226,7 +777,58 @@
     "text": "Feature of jacket [has] lines cut by someone clumsy",
     "enumeration": "5"
    },
-   "solution": "LAPEL"
+   "solution": "LAPEL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LAPEL",
+    "definitions": [
+     {
+      "text": "Feature of jacket",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut by",
+      "for": "container",
+      "note": "something cut is split open, and the thing doing the cutting ends up inside"
+     }
+    ],
+    "linkWords": [
+     "[has]"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lines",
+      "gives": "LL",
+      "note": "L is the abbreviation for line, doubled for plural"
+     },
+     {
+      "clueFragment": "someone clumsy",
+      "gives": "APE",
+      "note": "an ape is a clumsy, oafish person"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "APE",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A tailor's jacket has seams badly cut by a ham-fisted worker.",
+     "walkthrough": "The two Ls are split apart by the clumsy one.",
+     "definitionFit": "The folded-back flap on the front of a jacket or coat, below the collar."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lines"
+    }
+   }
   },
   {
    "number": 13,
@@ -240,7 +842,69 @@
     "text": "Able to live in many places [using] EU railway to choose mostly",
     "enumeration": "9"
    },
-   "solution": "EURYTOPIC"
+   "solution": "EURYTOPIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "EURYTOPIC",
+    "definitions": [
+     {
+      "text": "Able to live in many places",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "most but not all, so the final letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "[using]"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "EU",
+      "gives": "EU",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "railway",
+      "gives": "RY",
+      "note": "RY is an abbreviation for railway"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "choose",
+      "gives": "PICK",
+      "note": "to choose is to pick"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EU",
+      "RY",
+      "TO",
+      "PIC"
+     ]
+    },
+    "explanation": {
+     "surface": "Using European rail to pick where you live lets you settle almost anywhere.",
+     "walkthrough": "A rare scientific word built plainly from its parts; PICK loses its last letter.",
+     "definitionFit": "In ecology a eurytopic species tolerates a wide range of habitats, the opposite of a specialist confined to one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -260,7 +924,43 @@
      }
     ]
    },
-   "solution": "PACKINGCASES"
+   "solution": "PACKINGCASES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PACKING CASES",
+    "definitions": [
+     {
+      "text": "Crates",
+      "at": 0
+     },
+     {
+      "text": "preparing to take off with other holidaymakers?",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Crates",
+      "note": "first meaning: wooden boxes for transporting goods"
+     },
+     {
+      "clueFragment": "preparing to take off with other holidaymakers?",
+      "note": "second meaning: filling suitcases before a flight, read as a verb phrase"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second reading is whimsical: travellers getting ready for a trip are packing their cases.",
+     "definitionFit": "Packing cases are large boxes for shipping goods, and people about to fly off are literally packing suitcases."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "take"
+    }
+   }
   },
   {
    "number": 15,
@@ -274,7 +974,51 @@
     "text": "Church musician upset his rector",
     "enumeration": "9"
    },
-   "solution": "CHORISTER"
+   "solution": "CHORISTER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CHORISTER",
+    "definitions": [
+     {
+      "text": "Church musician",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "something upset is knocked over and disordered, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "his rector",
+      "gives": "HISRECTOR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HISRECTOR",
+       "gives": "CHORISTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A church singer has annoyed the parish priest.",
+     "walkthrough": "'Upset' reads as the musician offending the rector, but it tells you to rearrange the two words after it.",
+     "definitionFit": "A chorister is a singer in a church choir, one kind of musician serving in worship."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 16,
@@ -288,7 +1032,79 @@
     "text": "Counters scuba failing amid rising waters",
     "enumeration": "8"
    },
-   "solution": "ABACUSES"
+   "solution": "ABACUSES",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "reversal"
+    ],
+    "answer": "ABACUSES",
+    "definitions": [
+     {
+      "text": "Counters",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "failing",
+      "for": "anagram",
+      "note": "something failing is breaking down, so its letters fall into a new order"
+     },
+     {
+      "text": "amid",
+      "for": "container",
+      "note": "amid means in the middle of, so one piece sits inside another"
+     },
+     {
+      "text": "rising",
+      "for": "reversal",
+      "note": "in a down clue rising means reading upwards, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "scuba",
+      "gives": "SCUBA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "waters",
+      "gives": "SEA",
+      "note": "the sea is a body of water"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BACUS",
+      "ES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SCUBA",
+       "gives": "BACUS"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "SEA",
+       "to": "AES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Scuba gear breaks down as the tide comes in, a diver's nightmare.",
+     "walkthrough": "'Counters' looks like a verb, but it is a plural noun; the jumbled diving word sits inside the upturned water.",
+     "definitionFit": "An abacus is a frame of beads used for calculating, so these devices are things for reckoning numbers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Counters"
+    }
+   }
   },
   {
    "number": 17,
@@ -308,7 +1124,48 @@
      }
     ]
    },
-   "solution": "LAVALAMP"
+   "solution": "LAVALAMP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LAVA LAMP",
+    "definitions": [
+     {
+      "text": "which forms moving blobs",
+      "at": 23,
+      "note": "a descriptive clause standing for the thing that does this, not a noun"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pumice, perhaps",
+      "gives": "LAVA",
+      "note": "pumice is a type of solidified volcanic rock"
+     },
+     {
+      "clueFragment": "light",
+      "gives": "LAMP",
+      "note": "a lamp is a light"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAVA",
+      "LAMP"
+     ]
+    },
+    "explanation": {
+     "surface": "Pumice stone is light and forms lumps that float and drift.",
+     "walkthrough": "'Light' seems to describe how little pumice weighs; it is a noun for a lamp. 'Perhaps' marks pumice as one example of the rock.",
+     "definitionFit": "A lava lamp is a decorative 1960s light in which heated wax rises and falls in coloured liquid."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "light"
+    }
+   }
   },
   {
    "number": 18,
@@ -328,7 +1185,55 @@
      }
     ]
    },
-   "solution": "BRASSSECTION"
+   "solution": "BRASSSECTION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BRASS SECTION",
+    "definitions": [
+     {
+      "text": "this",
+      "at": 28,
+      "note": "the whole clue points to it: the part of an orchestra containing these instruments"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "playing",
+      "for": "anagram",
+      "note": "playing with something means moving it around freely, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "[in]"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Is bass cornet",
+      "gives": "ISBASSCORNET",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ISBASSCORNET",
+       "gives": "BRASSSECTION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bass cornet is being played in some part of the band?",
+     "walkthrough": "'Playing' is literal in the surface and the anagram signal in the wordplay; 'this' asks which group the cornet belongs to.",
+     "definitionFit": "The cornet is a brass instrument, so it plays in the orchestra or band group made up of trumpets, horns and tubas."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "playing"
+    }
+   }
   },
   {
    "number": 19,
@@ -342,7 +1247,64 @@
     "text": "Took food back to consume best",
     "enumeration": "6"
    },
-   "solution": "DEFEAT"
+   "solution": "DEFEAT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "DEFEAT",
+    "definitions": [
+     {
+      "text": "best",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means travelling the other way, so the letters run in reverse"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Took food",
+      "gives": "FED",
+      "note": "past tense of feed"
+     },
+     {
+      "clueFragment": "consume",
+      "gives": "EAT",
+      "note": "to consume food is to eat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEF",
+      "EAT"
+     ],
+     "reversals": [
+      {
+       "from": "FED",
+       "to": "DEF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone returned the food so they could eat the finest dish.",
+     "walkthrough": "'Best' reads as an adjective for the finest, but it is a verb meaning beat.",
+     "definitionFit": "To best an opponent is to beat or overcome them, the same action as winning against them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "best"
+    }
+   }
   },
   {
    "number": 20,
@@ -356,7 +1318,60 @@
     "text": "Recycled rubbish female has left daughter",
     "enumeration": "6"
    },
-   "solution": "REUSED"
+   "solution": "REUSED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "REUSED",
+    "definitions": [
+     {
+      "text": "Recycled",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has left",
+      "for": "deletion",
+      "note": "someone who has left is gone, so that letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rubbish",
+      "gives": "REFUSE",
+      "note": "refuse is household waste"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "the usual abbreviation"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "the usual abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REUSE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman recycled the rubbish and then her daughter moved out.",
+     "walkthrough": "REFUSE loses F and gains D at the end.",
+     "definitionFit": "Recycled material has been put to use again instead of being thrown out as waste."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 21,
@@ -370,7 +1385,79 @@
     "text": "After noise of display very loudly regret backing driver",
     "enumeration": "9"
    },
-   "solution": "CHAUFFEUR"
+   "solution": "CHAUFFEUR",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade",
+     "reversal"
+    ],
+    "answer": "CHAUFFEUR",
+    "definitions": [
+     {
+      "text": "driver",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "noise of",
+      "for": "homophone",
+      "note": "a noise is what reaches the ear, so the word is chosen by its sound"
+     },
+     {
+      "text": "After",
+      "for": "charade",
+      "note": "coming after means following on, so the later pieces are placed behind the first"
+     },
+     {
+      "text": "backing",
+      "for": "reversal",
+      "note": "backing means moving backwards, so the letters run the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "display",
+      "gives": "CHAU",
+      "soundsLike": "SHOW",
+      "note": "a display is a show; CHAU is spelt the French way but said the same"
+     },
+     {
+      "clueFragment": "very loudly",
+      "gives": "FF",
+      "note": "fortissimo in music notation"
+     },
+     {
+      "clueFragment": "regret",
+      "gives": "RUE",
+      "note": "to rue is to regret"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAU",
+      "FF",
+      "EUR"
+     ],
+     "reversals": [
+      {
+       "from": "RUE",
+       "to": "EUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "After a loud show-off moment, someone bitterly regrets reversing the car.",
+     "walkthrough": "The first syllable of the answer is pronounced like 'show', which is what the display gives. FF is the musical marking for very loud.",
+     "definitionFit": "A chauffeur is a person employed to drive a private car, so the word is a specific kind of driver."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "backing"
+    }
+   }
   },
   {
    "number": 22,
@@ -384,7 +1471,47 @@
     "text": "Peel off fine red pigment",
     "enumeration": "5"
    },
-   "solution": "FLAKE"
+   "solution": "FLAKE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FLAKE",
+    "definitions": [
+     {
+      "text": "Peel off",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fine",
+      "gives": "F",
+      "note": "F is the abbreviation for fine, as on pencil grades"
+     },
+     {
+      "clueFragment": "red pigment",
+      "gives": "LAKE",
+      "note": "lake is a crimson pigment used by painters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "LAKE"
+     ]
+    },
+    "explanation": {
+     "surface": "A fine coat of red paint is starting to come away.",
+     "walkthrough": "Lake here is not water but an artist's crimson dye, a sense solvers may not know.",
+     "definitionFit": "When paint flakes it comes away in thin pieces, which is what peeling off describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "red"
+    }
+   }
   },
   {
    "number": 23,
@@ -398,7 +1525,59 @@
     "text": "Girl[’s] wrath and anger oddly vanishing",
     "enumeration": "5"
    },
-   "solution": "IRENE"
+   "solution": "IRENE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "IRENE",
+    "definitions": [
+     {
+      "text": "Girl",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly vanishing",
+      "for": "letter_selection",
+      "note": "the odd-numbered positions disappear, so only even letters remain"
+     }
+    ],
+    "linkWords": [
+     "[’s]"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wrath",
+      "gives": "IRE",
+      "note": "ire is anger or wrath"
+     },
+     {
+      "clueFragment": "anger",
+      "gives": "NE",
+      "select": "alternate",
+      "note": "second and fourth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IRE",
+      "NE"
+     ]
+    },
+    "explanation": {
+     "surface": "A girl's fury and rage gradually fade away.",
+     "walkthrough": "'Anger' tempts as a second synonym for fury, but its letters are thinned out instead.",
+     "definitionFit": "Irene is a female given name, and crosswords use girl to clue any woman's first name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "anger"
+    }
+   }
   },
   {
    "number": 24,
@@ -412,7 +1591,50 @@
     "text": "Medicine man [using] fake article",
     "enumeration": "6"
    },
-   "solution": "SHAMAN"
+   "solution": "SHAMAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SHAMAN",
+    "definitions": [
+     {
+      "text": "Medicine man",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "[using]"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fake",
+      "gives": "SHAM",
+      "note": "a sham is a fake"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "AN",
+      "note": "the indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHAM",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "A healer who relies on a counterfeit object.",
+     "walkthrough": "'Article' looks like an item, but it is the grammatical article.",
+     "definitionFit": "A shaman is a spiritual healer in traditional societies, the figure often called a witch doctor or medicine man."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 25,
@@ -426,7 +1648,54 @@
     "text": "Lock by only pier",
     "enumeration": "8"
    },
-   "solution": "BUTTRESS"
+   "solution": "BUTTRESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BUTTRESS",
+    "definitions": [
+     {
+      "text": "pier",
+      "at": 13
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by",
+      "for": "charade",
+      "note": "by means next to, so the pieces sit side by side"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "only",
+      "gives": "BUT",
+      "note": "but means only, as in 'but a child'"
+     },
+     {
+      "clueFragment": "Lock",
+      "gives": "TRESS",
+      "note": "a lock of hair is a tress"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUT",
+      "TRESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A canal lock located beside a lone jetty.",
+     "walkthrough": "'Lock' and 'pier' suggest waterways, but the lock is hair and the pier is part of a building.",
+     "definitionFit": "In architecture a pier is a solid supporting column or mass of masonry, like a projecting support against a wall."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Lock"
+    }
+   }
   },
   {
    "number": 26,
@@ -440,7 +1709,54 @@
     "text": "Higher following small meal",
     "enumeration": "6"
    },
-   "solution": "SUPPER"
+   "solution": "SUPPER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SUPPER",
+    "definitions": [
+     {
+      "text": "meal",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following means coming after, so the pieces sit one behind the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small, as in clothing sizes"
+     },
+     {
+      "clueFragment": "Higher",
+      "gives": "UPPER",
+      "note": "upper means higher"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "UPPER"
+     ]
+    },
+    "explanation": {
+     "surface": "A larger portion after a small snack.",
+     "walkthrough": "'Small meal' looks like the definition, but 'small' gives S.",
+     "definitionFit": "Supper is an evening meal, often a light one eaten late in the day."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "small"
+    }
+   }
   },
   {
    "number": 27,
@@ -454,7 +1770,67 @@
     "text": "During interval half of cast, note, needed a drink",
     "enumeration": "8"
    },
-   "solution": "THIRSTED"
+   "solution": "THIRSTED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "THIRSTED",
+    "definitions": [
+     {
+      "text": "needed a drink",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half of",
+      "for": "deletion",
+      "note": "only half survives, so the rest of the word is cut away"
+     },
+     {
+      "text": "During",
+      "for": "container",
+      "note": "during means in the course of, so a piece falls inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "interval",
+      "gives": "THIRD",
+      "note": "in music a third is an interval between notes"
+     },
+     {
+      "clueFragment": "cast",
+      "gives": "ST",
+      "note": "its second half"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "E",
+      "note": "a musical note"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THIR",
+      "ST",
+      "E",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "During the theatre interval half the cast needed a drink.",
+     "walkthrough": "'Interval' suggests the break at the theatre, but it is the musical gap called a third.",
+     "definitionFit": "To thirst is to crave liquid, so having thirsted means you were in need of something to drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "interval"
+    }
+   }
   }
  ]
 }
