@@ -23,6 +23,9 @@
   "date": "2018-01-11",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,47 @@
     "text": "Organisation representing soccer school in London? Wrong",
     "enumeration": "5"
    },
-   "solution": "FALSE"
+   "solution": "FALSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FALSE",
+    "definitions": [
+     {
+      "text": "Wrong",
+      "at": 51
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Organisation representing soccer",
+      "gives": "FA",
+      "note": "the FA is the Football Association, which governs English soccer"
+     },
+     {
+      "clueFragment": "school in London",
+      "gives": "LSE",
+      "note": "the LSE is the London School of Economics"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FA",
+      "LSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A football body's connection with a London school is questioned, with a curt verdict at the end.",
+     "walkthrough": "The question mark makes 'Wrong' look like a reply to a question about the school; it is simply the definition.",
+     "definitionFit": "Something untrue or mistaken is described as incorrect, so the two adjectives are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Wrong"
+    }
+   }
   },
   {
    "number": 1,
@@ -56,7 +99,39 @@
      }
     ]
    },
-   "solution": "FLOATINGCHARGES"
+   "solution": "FLOATINGCHARGES",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "FLOATING CHARGES",
+    "definitions": [
+     {
+      "text": "Liabilities resulting from naval attacks?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Liabilities",
+      "note": "the setter's reading: in finance, a debt secured over a company's changing pool of assets"
+     },
+     {
+      "clueFragment": "resulting from naval attacks?",
+      "note": "the surface reading: assaults made by ships on the water, which rush forward while afloat"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags a pun: a naval attack is a charge that floats, and the finance term for a kind of secured debt uses exactly those words.",
+     "definitionFit": "In company law, this kind of security is a debt obligation hovering over shifting business assets, a liability on the balance sheet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "naval"
+    }
+   }
   },
   {
    "number": 2,
@@ -70,7 +145,68 @@
     "text": "Judge — extremely illiberal — hauled up prisoner",
     "enumeration": "5"
    },
-   "solution": "LIFER"
+   "solution": "LIFER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "reversal"
+    ],
+    "answer": "LIFER",
+    "definitions": [
+     {
+      "text": "prisoner",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two ends, so only its outer letters are kept"
+     },
+     {
+      "text": "hauled up",
+      "for": "reversal",
+      "note": "in a down clue, hauling something up flips it so it reads from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Judge",
+      "gives": "REF",
+      "note": "a referee judges a match"
+     },
+     {
+      "clueFragment": "illiberal",
+      "gives": "IL",
+      "select": "outer",
+      "note": "the first and last letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LI",
+      "FER"
+     ],
+     "reversals": [
+      {
+       "from": "REFIL",
+       "to": "LIFER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An illiberal judge has a convict dragged up before him.",
+     "walkthrough": "REF plus IL gives REFIL, which reads LIFER when turned upside down in the grid.",
+     "definitionFit": "A lifer is someone serving a life sentence, so an inmate of a jail."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hauled"
+    }
+   }
   },
   {
    "number": 3,
@@ -84,7 +220,68 @@
     "text": "One forgives former addict injecting cocaine at first",
     "enumeration": "7"
    },
-   "solution": "EXCUSER"
+   "solution": "EXCUSER",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "EXCUSER",
+    "definitions": [
+     {
+      "text": "One forgives",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "injecting",
+      "for": "container",
+      "note": "to inject is to push something inside, so one piece goes into the other"
+     },
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "what comes at first is the opening letter of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "former",
+      "gives": "EX",
+      "note": "an ex is a former partner, and ex- means former"
+     },
+     {
+      "clueFragment": "addict",
+      "gives": "USER",
+      "note": "a drug user is an addict"
+     },
+     {
+      "clueFragment": "cocaine",
+      "gives": "C",
+      "select": "first",
+      "note": "the first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "C",
+      "USER"
+     ]
+    },
+    "explanation": {
+     "surface": "A merciful soul is a reformed junkie who once shot up cocaine.",
+     "walkthrough": "'injecting' fits the drug-taking surface, but here it just places the cocaine's initial inside the former addict.",
+     "definitionFit": "To excuse is to pardon a fault, so someone who pardons others is one who forgives."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "injecting"
+    }
+   }
   },
   {
    "number": 4,
@@ -98,7 +295,62 @@
     "text": "Maybe a bit like someone sneering about book that’s hard to understand",
     "enumeration": "9"
    },
-   "solution": "GIBBERISH"
+   "solution": "GIBBERISH",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "GIBBERISH",
+    "definitions": [
+     {
+      "text": "that’s hard to understand",
+      "at": 45,
+      "note": "a relative clause meaning 'something that is hard to understand', standing for the noun"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one part wraps round another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "someone sneering",
+      "gives": "GIBER",
+      "note": "one who gibes, or jeers"
+     },
+     {
+      "clueFragment": "Maybe a bit like",
+      "gives": "ISH",
+      "note": "the suffix -ish means somewhat, a bit like"
+     },
+     {
+      "clueFragment": "book",
+      "gives": "B",
+      "note": "B is the abbreviation for book"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GIB",
+      "B",
+      "ERISH"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone vaguely resembling a scoffer mocks an obscure book.",
+     "walkthrough": "GIBER-ISH is 'a bit like someone sneering'; putting B inside gives GIBBERISH, with the second B the inserted book.",
+     "definitionFit": "Gibberish is meaningless or unintelligible speech or writing, which is indeed something hard to understand."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Maybe"
+    }
+   }
   },
   {
    "number": 4,
@@ -112,7 +364,41 @@
     "text": "Peter Sellers, for one, to appear before audience",
     "enumeration": "4"
    },
-   "solution": "GOON"
+   "solution": "GOON",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GOON",
+    "definitions": [
+     {
+      "text": "Peter Sellers, for one",
+      "at": 0
+     },
+     {
+      "text": "to appear before audience",
+      "at": 24
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Peter Sellers, for one",
+      "note": "first meaning: a cast member of a 1950s BBC radio comedy show he starred in"
+     },
+     {
+      "clueFragment": "to appear before audience",
+      "note": "second meaning: read as two words, to take the stage"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The Goon Show was a 1950s BBC radio comedy starring Peter Sellers, Spike Milligan and Harry Secombe, its cast known as the Goons. Split in two, the answer means to walk on stage.",
+     "definitionFit": "Sellers was one of the famous radio comedy troupe, and performers who go on stage appear in front of spectators."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 5,
@@ -136,7 +422,66 @@
      }
     ]
    },
-   "solution": "BESTINSHOW"
+   "solution": "BESTINSHOW",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "BEST IN SHOW",
+    "definitions": [
+     {
+      "text": "top accolade",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nurses",
+      "for": "container",
+      "note": "to nurse is to hold close and cradle, so one piece is held within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Award",
+      "gives": "BESTOW",
+      "note": "to bestow is to award"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     },
+     {
+      "clueFragment": "hospital",
+      "gives": "H",
+      "note": "H is the abbreviation for hospital"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEST",
+      "INSH",
+      "OW"
+     ]
+    },
+    "explanation": {
+     "surface": "A prize is handed to nurses at a little hospital as their highest honour.",
+     "walkthrough": "'Award' looks like a noun but is the verb BESTOW, which holds IN + S + H.",
+     "definitionFit": "At a dog show or similar competition, the overall winner receives the highest prize of the event."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nurses"
+    }
+   }
   },
   {
    "number": 6,
@@ -150,7 +495,56 @@
     "text": "English school: worry it could become government property",
     "enumeration": "7"
    },
-   "solution": "ESCHEAT"
+   "solution": "ESCHEAT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ESCHEAT",
+    "definitions": [
+     {
+      "text": "government property",
+      "at": 38
+     }
+    ],
+    "linkWords": [
+     "it could become"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "school",
+      "gives": "SCH",
+      "note": "SCH is the abbreviation for school"
+     },
+     {
+      "clueFragment": "worry",
+      "gives": "EAT",
+      "note": "to eat someone is to bother them, as in 'what's eating you?'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "SCH",
+      "EAT"
+     ]
+    },
+    "explanation": {
+     "surface": "An English school frets that it may be taken over by the state.",
+     "walkthrough": "'What's eating you?' shows the sense of worry that gives EAT.",
+     "definitionFit": "In law, an estate with no heir reverts to the Crown or state; the lapsed land is itself called by this legal term."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "worry"
+    }
+   }
   },
   {
    "number": 7,
@@ -174,7 +568,59 @@
      }
     ]
    },
-   "solution": "INATRANCE"
+   "solution": "INATRANCE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IN A TRANCE",
+    "definitions": [
+     {
+      "text": "dazed",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Having tussle with",
+      "for": "anagram",
+      "note": "a tussle is a scuffle in which everything is thrown about and jumbled"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rat",
+      "gives": "RAT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "canine",
+      "gives": "CANINE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RATCANINE",
+       "gives": "INATRANCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "After a scrap with a rat, the dog is left stunned.",
+     "walkthrough": "'canine's' reads as a possessive, but the 's is 'is', joining the wordplay to the definition.",
+     "definitionFit": "Someone stupefied or bewildered seems to be in a dreamlike, half-conscious state."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tussle"
+    }
+   }
   },
   {
    "number": 8,
@@ -194,7 +640,70 @@
      }
     ]
    },
-   "solution": "HIGHMAINTENANCE"
+   "solution": "HIGHMAINTENANCE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "HIGH-MAINTENANCE",
+    "definitions": [
+     {
+      "text": "needing much attention",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "refurbishment of",
+      "for": "anagram",
+      "note": "a refurbishment remodels something, so these letters are rebuilt into a new order"
+     }
+    ],
+    "linkWords": [
+     "overseeing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "School",
+      "gives": "HIGH",
+      "note": "a high school"
+     },
+     {
+      "clueFragment": "principal",
+      "gives": "MAIN",
+      "note": "principal as an adjective means chief"
+     },
+     {
+      "clueFragment": "canteen",
+      "gives": "CANTEEN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HIGH",
+      "MAIN",
+      "TENANCE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CANTEEN",
+       "gives": "TENANCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A head teacher supervises the renovation of the school dining hall.",
+     "walkthrough": "'School principal' looks like one person, the head teacher, but it is two separate pieces. In a down clue, 'overseeing' puts them above the rest.",
+     "definitionFit": "A demanding person or thing requires constant care and effort to keep in good order."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "principal"
+    }
+   }
   },
   {
    "number": 9,
@@ -208,7 +717,66 @@
     "text": "Interfering old females: nasty? Not very",
     "enumeration": "9"
    },
-   "solution": "OFFICIOUS"
+   "solution": "OFFICIOUS",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "OFFICIOUS",
+    "definitions": [
+     {
+      "text": "Interfering",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not",
+      "for": "deletion",
+      "note": "'not' says a thing is absent, so those letters are taken out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "females",
+      "gives": "FF",
+      "note": "F is female, doubled for the plural"
+     },
+     {
+      "clueFragment": "nasty",
+      "gives": "VICIOUS",
+      "note": "vicious means nasty"
+     },
+     {
+      "clueFragment": "very",
+      "gives": "V",
+      "note": "V is the abbreviation for very, here removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "FF",
+      "ICIOUS"
+     ]
+    },
+    "explanation": {
+     "surface": "Meddlesome old women: are they nasty? Only mildly.",
+     "walkthrough": "'Not very' reads as a hedged answer, but it tells you to remove V from VICIOUS.",
+     "definitionFit": "An officious person is meddlesome, pushing their help or authority where it is unwanted."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "very"
+    }
+   }
   },
   {
    "number": 10,
@@ -222,7 +790,54 @@
     "text": "Name for male artist surrounded by smoke",
     "enumeration": "5"
    },
-   "solution": "CRAIG"
+   "solution": "CRAIG",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CRAIG",
+    "definitions": [
+     {
+      "text": "Name for male",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surrounded by",
+      "for": "container",
+      "note": "something surrounded sits inside whatever encloses it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "smoke",
+      "gives": "CIG",
+      "note": "a cig is a cigarette, a smoke"
+     },
+     {
+      "clueFragment": "artist",
+      "gives": "RA",
+      "note": "RA is a Royal Academician, an artist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "RA",
+      "IG"
+     ]
+    },
+    "explanation": {
+     "surface": "A man's name for a painter who is always wreathed in smoke.",
+     "walkthrough": "RA, a Royal Academician, is the stock crossword artist.",
+     "definitionFit": "It is a common first name given to boys, so a masculine forename."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -236,7 +851,56 @@
     "text": "Bird heads for trees, having to fly",
     "enumeration": "6"
    },
-   "solution": "THRUSH"
+   "solution": "THRUSH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "THRUSH",
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heads for",
+      "for": "letter_selection",
+      "note": "the head of a word is its opening letter, so each word gives its first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trees, having",
+      "gives": "TH",
+      "select": "first",
+      "note": "first letters of the two words"
+     },
+     {
+      "clueFragment": "to fly",
+      "gives": "RUSH",
+      "note": "to fly is to hurry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TH",
+      "RUSH"
+     ]
+    },
+    "explanation": {
+     "surface": "A bird makes for the trees, needing to take flight.",
+     "walkthrough": "'heads for trees' pretends the bird is making for the woods; it means the first letters of 'trees' and 'having'.",
+     "definitionFit": "The thrush is a songbird, a common garden species with a speckled breast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heads"
+    }
+   }
   },
   {
    "number": 12,
@@ -256,7 +920,62 @@
      }
     ]
    },
-   "solution": "SIDEDRUM"
+   "solution": "SIDEDRUM",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SIDE DRUM",
+    "definitions": [
+     {
+      "text": "Percussion instrument",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so the word's final letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "players",
+      "gives": "SIDE",
+      "note": "a side is a team of players"
+     },
+     {
+      "clueFragment": "showed",
+      "gives": "D",
+      "select": "last",
+      "note": "the last letter of the word"
+     },
+     {
+      "clueFragment": "spirit",
+      "gives": "RUM",
+      "note": "rum is a spirit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SIDE",
+      "D",
+      "RUM"
+     ]
+    },
+    "explanation": {
+     "surface": "The drummers in the band finally displayed some fighting spirit.",
+     "walkthrough": "'Spirit' reads as courage but is the drink RUM.",
+     "definitionFit": "A snare drum, also called by this name, is a small two-headed drum struck with sticks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spirit"
+    }
+   }
   },
   {
    "number": 13,
@@ -270,7 +989,64 @@
     "text": "Welcoming lots of people shortly with very good food",
     "enumeration": "10"
    },
-   "solution": "HOSPITABLE"
+   "solution": "HOSPITABLE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "HOSPITABLE",
+    "definitions": [
+     {
+      "text": "Welcoming",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shortly",
+      "for": "deletion",
+      "note": "cut short means the word loses its final letter"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lots of people",
+      "gives": "HOST",
+      "note": "a host is a large number, as in 'a host of people'"
+     },
+     {
+      "clueFragment": "very good",
+      "gives": "PI",
+      "note": "PI, short for pious, is crosswordese for very good"
+     },
+     {
+      "clueFragment": "food",
+      "gives": "TABLE",
+      "note": "as in 'she keeps a good table', meaning the meals served"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOS",
+      "PI",
+      "TABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Greeting a crowd of guests soon, with excellent food laid on.",
+     "walkthrough": "'shortly' reads as 'soon' but clips the T from HOST.",
+     "definitionFit": "A hospitable person is friendly and generous towards guests, greeting them warmly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shortly"
+    }
+   }
   },
   {
    "number": 14,
@@ -284,7 +1060,73 @@
     "text": "Infamous Conservative briefly installed in Number Ten, useless",
     "enumeration": "9"
    },
-   "solution": "NOTORIOUS"
+   "solution": "NOTORIOUS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container",
+     "charade"
+    ],
+    "answer": "NOTORIOUS",
+    "definitions": [
+     {
+      "text": "Infamous",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "to put something briefly is to shorten it, so a final letter goes"
+     },
+     {
+      "text": "installed in",
+      "for": "container",
+      "note": "something installed is put inside, so one piece sits within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Number",
+      "gives": "NO",
+      "note": "NO is the abbreviation for number"
+     },
+     {
+      "clueFragment": "Conservative",
+      "gives": "TORY",
+      "note": "a Tory is a member of the UK Conservative Party; the Y is dropped"
+     },
+     {
+      "clueFragment": "Ten",
+      "gives": "IO",
+      "note": "ten written as the digits 1 and 0, read as the letters"
+     },
+     {
+      "clueFragment": "useless",
+      "gives": "US",
+      "note": "US is short for unserviceable, meaning useless"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "TOR",
+      "IO",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "A disgraced Tory is briefly put into 10 Downing Street, the prime minister's residence, and proves hopeless.",
+     "walkthrough": "'Number Ten' looks like Downing Street, the prime minister's address, but it is two pieces: an abbreviation and the digits 1 and 0 read as letters, with the shortened Tory between them.",
+     "definitionFit": "Both words describe someone famous for bad deeds, known widely for the wrong reasons."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Ten"
+    }
+   }
   },
   {
    "number": 15,
@@ -298,7 +1140,51 @@
     "text": "Get in RADA for retraining? One might",
     "enumeration": "9"
    },
-   "solution": "TRAGEDIAN"
+   "solution": "TRAGEDIAN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "TRAGEDIAN",
+    "definitions": [
+     {
+      "text": "Get in RADA for retraining? One might",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for retraining",
+      "for": "anagram",
+      "note": "retraining reshapes something from scratch, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Get in RADA",
+      "gives": "GETINRADA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GETINRADA",
+       "gives": "TRAGEDIAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Could you get into drama school to retrain? A certain kind of actor might.",
+     "walkthrough": "RADA is the Royal Academy of Dramatic Art, a London drama school. The whole clue also describes the answer: a tragic actor is someone who might gain a place there.",
+     "definitionFit": "A tragedian is an actor specialising in tragic roles, just the kind of person who studies drama."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 16,
@@ -312,7 +1198,54 @@
     "text": "I hadn’t reviewed paintings",
     "enumeration": "5"
    },
-   "solution": "TONDI"
+   "solution": "TONDI",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "TONDI",
+    "definitions": [
+     {
+      "text": "paintings",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reviewed",
+      "for": "reversal",
+      "note": "to review is to look back, so the letters are read from the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I hadn’t",
+      "gives": "IDNOT",
+      "note": "I hadn't contracts to I'd not"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TONDI"
+     ],
+     "reversals": [
+      {
+       "from": "IDNOT",
+       "to": "TONDI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An art critic admits to not having looked at some pictures.",
+     "walkthrough": "'I hadn't' can be written 'I'd not'; turned round, it gives the plural of tondo.",
+     "definitionFit": "A tondo is a circular painting or relief, a Renaissance format, and this is its Italian plural."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reviewed"
+    }
+   }
   },
   {
    "number": 17,
@@ -326,7 +1259,71 @@
     "text": "Brandy knocked back by first of patients in pain",
     "enumeration": "5"
    },
-   "solution": "CRAMP"
+   "solution": "CRAMP",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CRAMP",
+    "definitions": [
+     {
+      "text": "pain",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "knocked back",
+      "for": "reversal",
+      "note": "a drink knocked back is downed, but read literally it is sent backwards"
+     },
+     {
+      "text": "first of",
+      "for": "letter_selection",
+      "note": "the first of a word is its opening letter"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brandy",
+      "gives": "MARC",
+      "note": "marc is a brandy distilled from grape residue"
+     },
+     {
+      "clueFragment": "patients",
+      "gives": "P",
+      "select": "first",
+      "note": "the first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRAM",
+      "P"
+     ],
+     "reversals": [
+      {
+       "from": "MARC",
+       "to": "CRAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Brandy is downed by the first patient, who is suffering.",
+     "walkthrough": "'knocked back' suggests drinking, fitting the brandy, but here it turns the word round. 'In' joins wordplay to definition.",
+     "definitionFit": "A cramp is a painful involuntary muscle spasm, a sudden ache or twinge."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "knocked"
+    }
+   }
   },
   {
    "number": 18,
@@ -340,7 +1337,66 @@
     "text": "Person, not working, keeping blooming pigeons",
     "enumeration": "7"
    },
-   "solution": "POUTERS"
+   "solution": "POUTERS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "POUTERS",
+    "definitions": [
+     {
+      "text": "pigeons",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "'not' marks something absent, so those letters are removed"
+     },
+     {
+      "text": "keeping",
+      "for": "container",
+      "note": "to keep something is to hold it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Person",
+      "gives": "PERSON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "working",
+      "gives": "ON",
+      "note": "a machine that is on is working; removed here"
+     },
+     {
+      "clueFragment": "blooming",
+      "gives": "OUT",
+      "note": "flowers in bloom are said to be out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "OUT",
+      "ERS"
+     ]
+    },
+    "explanation": {
+     "surface": "An idle person keeps a loft of wretched pigeons.",
+     "walkthrough": "'blooming' looks like a British mild curse word but gives OUT, as flowers are out. PERS holds it.",
+     "definitionFit": "A pouter is a breed of domestic pigeon that inflates its crop, so these are varieties of the bird."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "blooming"
+    }
+   }
   },
   {
    "number": 19,
@@ -354,7 +1410,66 @@
     "text": "Fan of rugby player, one not dropping ball",
     "enumeration": "9"
    },
-   "solution": "PROPONENT"
+   "solution": "PROPONENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "PROPONENT",
+    "definitions": [
+     {
+      "text": "Fan",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dropping",
+      "for": "deletion",
+      "note": "to drop something is to let it fall away, so a letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rugby player",
+      "gives": "PROP",
+      "note": "a prop is a forward in the front row of the scrum"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "ONE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "not",
+      "gives": "NOT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ball",
+      "gives": "O",
+      "note": "a ball is round, like the letter O; removed here"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PROP",
+      "ONE",
+      "NT"
+     ]
+    },
+    "explanation": {
+     "surface": "A supporter of a rugby player who never fumbles the ball.",
+     "walkthrough": "'not dropping ball' sounds like safe handling, but it means NOT loses its O.",
+     "definitionFit": "A proponent is an advocate or supporter of a cause, the same as a devotee or backer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dropping"
+    }
+   }
   },
   {
    "number": 20,
@@ -368,7 +1483,66 @@
     "text": "Opening gold reserve, inserting single key",
     "enumeration": "7"
    },
-   "solution": "ORIFICE"
+   "solution": "ORIFICE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ORIFICE",
+    "definitions": [
+     {
+      "text": "Opening",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inserting",
+      "for": "container",
+      "note": "to insert is to put something inside another thing"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gold",
+      "gives": "OR",
+      "note": "or is gold in heraldry"
+     },
+     {
+      "clueFragment": "reserve",
+      "gives": "ICE",
+      "note": "ice is coolness or reserve of manner"
+     },
+     {
+      "clueFragment": "single",
+      "gives": "I",
+      "note": "I is one, single"
+     },
+     {
+      "clueFragment": "key",
+      "gives": "F",
+      "note": "F is a musical key"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OR",
+      "IF",
+      "ICE"
+     ]
+    },
+    "explanation": {
+     "surface": "Unlocking the gold reserve means using a single key.",
+     "walkthrough": "'reserve' suggests a stockpile of gold, but it is reserve of manner, a cool aloofness. Or is gold in heraldry.",
+     "definitionFit": "An orifice is a hole or aperture, especially one in the body or a vessel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reserve"
+    }
+   }
   },
   {
    "number": 21,
@@ -382,7 +1556,54 @@
     "text": "Just about enough pre-match publicity?",
     "enumeration": "8"
    },
-   "solution": "ADEQUATE"
+   "solution": "ADEQUATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADEQUATE",
+    "definitions": [
+     {
+      "text": "Just about enough",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pre",
+      "for": "charade",
+      "note": "pre means before, so one part is placed ahead of the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "publicity",
+      "gives": "AD",
+      "note": "an ad is an advertisement"
+     },
+     {
+      "clueFragment": "match",
+      "gives": "EQUATE",
+      "note": "to match is to equate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "EQUATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Is the hype before a big game only barely sufficient?",
+     "walkthrough": "'match' looks like a game but is the verb 'to equate', with the ad placed in front of it.",
+     "definitionFit": "Adequate means satisfactory or sufficient, but only barely so."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "match"
+    }
+   }
   },
   {
    "number": 22,
@@ -396,7 +1617,65 @@
     "text": "Note one central line? The reverse, several lines",
     "enumeration": "6"
    },
-   "solution": "SIXAIN"
+   "solution": "SIXAIN",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "SIXAIN",
+    "definitions": [
+     {
+      "text": "several lines",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "The reverse",
+      "for": "reversal",
+      "note": "the reverse of something is its opposite way round, so read the letters backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Note",
+      "gives": "N",
+      "note": "N is the abbreviation for note"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "central line",
+      "gives": "AXIS",
+      "note": "an axis is the line through the centre"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SIXAIN"
+     ],
+     "reversals": [
+      {
+       "from": "NIAXIS",
+       "to": "SIXAIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Jot down one line for the middle, or rather, do the opposite and write a whole verse.",
+     "walkthrough": "'The reverse' looks like a follow-on sentence but it reverses NIAXIS.",
+     "definitionFit": "A sixain is a stanza of six lines of verse, a number fairly described as a handful of lines."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reverse"
+    }
+   }
   },
   {
    "number": 23,
@@ -410,7 +1689,59 @@
     "text": "Article accompanies leaders in Guardian giving report of trouble",
     "enumeration": "5"
    },
-   "solution": "AGGRO"
+   "solution": "AGGRO",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "AGGRO",
+    "definitions": [
+     {
+      "text": "trouble",
+      "at": 57
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaders in",
+      "for": "letter_selection",
+      "note": "a leader goes first, so each word supplies its opening letter"
+     }
+    ],
+    "linkWords": [
+     "accompanies"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Article",
+      "gives": "A",
+      "note": "A is the indefinite article"
+     },
+     {
+      "clueFragment": "Guardian giving report of",
+      "gives": "GGRO",
+      "select": "first",
+      "note": "the first letters of the four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "GGRO"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper article runs with editorials in The Guardian about unrest.",
+     "walkthrough": "'leaders' reads as newspaper editorials, fitting the Guardian, but it means first letters. Aggro is British slang for aggravation or fighting.",
+     "definitionFit": "Aggro is informal British slang for aggressive behaviour or hassle, so a synonym of strife."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leaders"
+    }
+   }
   },
   {
    "number": 24,
@@ -424,7 +1755,55 @@
     "text": "Worry about appearing in newspaper",
     "enumeration": "4"
    },
-   "solution": "FRET"
+   "solution": "FRET",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FRET",
+    "definitions": [
+     {
+      "text": "Worry",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "appearing in",
+      "for": "container",
+      "note": "something appearing in another thing sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "newspaper",
+      "gives": "FT",
+      "note": "the FT is the Financial Times"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "RE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Concern about being featured in the press.",
+     "walkthrough": "'about' looks like it goes with 'Worry', but it is RE, placed inside the Financial Times.",
+     "definitionFit": "To fret is to be anxious or troubled, a direct verb synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 25,
@@ -438,7 +1817,48 @@
     "text": "Beef good, ready for eating",
     "enumeration": "5"
    },
-   "solution": "GRIPE"
+   "solution": "GRIPE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GRIPE",
+    "definitions": [
+     {
+      "text": "Beef",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     },
+     {
+      "clueFragment": "ready for eating",
+      "gives": "RIPE",
+      "note": "ripe fruit is ready to eat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "RIPE"
+     ]
+    },
+    "explanation": {
+     "surface": "The beef is good and ready to be served.",
+     "walkthrough": "'Beef' looks like meat, fitting 'ready for eating', but it is the slang verb or noun for a complaint.",
+     "definitionFit": "To beef is informal for to complain, and a gripe is a grumble or grievance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Beef"
+    }
+   }
   },
   {
    "number": 26,
@@ -458,7 +1878,51 @@
      }
     ]
    },
-   "solution": "BARGINGIN"
+   "solution": "BARGINGIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BARGING IN",
+    "definitions": [
+     {
+      "text": "Gatecrashing",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "wanting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pub",
+      "gives": "BAR",
+      "note": "a bar is a pub"
+     },
+     {
+      "clueFragment": "drinks",
+      "gives": "GINGIN",
+      "note": "two drinks of gin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAR",
+      "GIN",
+      "GIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Muscling into a pub uninvited in search of a drink.",
+     "walkthrough": "The plural 'drinks' gives two measures of the same spirit, one after the other.",
+     "definitionFit": "To gatecrash is to enter uninvited, just as intruding rudely into a place or conversation does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drinks"
+    }
+   }
   },
   {
    "number": 27,
@@ -472,7 +1936,58 @@
     "text": "Going down to get nurse for daughter, ageing",
     "enumeration": "9"
    },
-   "solution": "SENESCENT"
+   "solution": "SENESCENT",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "SENESCENT",
+    "definitions": [
+     {
+      "text": "ageing",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to get",
+      "for": "substitution",
+      "note": "getting one thing in place of another means swapping, so a letter is replaced"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Going down",
+      "gives": "DESCENT",
+      "note": "a descent is a going down"
+     },
+     {
+      "clueFragment": "nurse",
+      "gives": "SEN",
+      "note": "SEN is a State Enrolled Nurse"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the abbreviation for daughter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEN",
+      "ESCENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A decline brings in a nurse in place of the daughter for an elderly parent.",
+     "walkthrough": "SEN, a State Enrolled Nurse, was a former British nursing grade; it replaces the D of DESCENT.",
+     "definitionFit": "Senescent describes biological deterioration with advancing years, the process of growing old."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 28,
@@ -486,7 +2001,45 @@
     "text": "Show feelings, stuck in Portuguese motel",
     "enumeration": "5"
    },
-   "solution": "EMOTE"
+   "solution": "EMOTE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EMOTE",
+    "definitions": [
+     {
+      "text": "Show feelings",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stuck in",
+      "for": "hidden_word",
+      "note": "something stuck in is lodged within other words, so the letters sit inside the phrase"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Portuguese motel",
+      "gives": "EMOTE",
+      "note": "spans the end of the first word and most of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone becomes emotional while trapped in a Portuguese roadside hotel.",
+     "walkthrough": "The letters run across the join between the two words.",
+     "definitionFit": "To emote is to express emotion openly, often theatrically, like an actor."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
