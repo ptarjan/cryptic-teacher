@@ -1,7 +1,10 @@
 #!/bin/bash
 # Does tools/build_authored_puzzle.py refuse a hidden answer that sits inside one
 # word or starts or ends on a word boundary, forwards or reversed, and pass one
-# that crosses a space and begins and ends inside words?
+# that crosses a space and begins and ends inside words? And does
+# tools/validate_annotations.py refuse an annotation whose answer runs across a
+# word break in its wordplay when the type has no hidden_word and no block or
+# indicator note calls it a coincidence?
 #
 #     bash tools/test_hidden_edges.sh
 #
@@ -53,4 +56,38 @@ for f in fails:
 if fails:
     sys.exit(1)
 print(f"  ok: {len(cases)} hidden words judged on their edges")
+
+import validate_annotations as v
+
+def unmarked(clue, answer, types, definition, notes=()):
+    ann = {"answer": answer, "type": list(types),
+           "definitions": [{"text": definition, "at": clue.index(definition)}],
+           "blocks": [{"clueFragment": clue, "gives": answer, "note": n} for n in notes]}
+    errors = []
+    v.check_unmarked_hidden_word("1A", ann, clue, errors)
+    return errors
+
+EGRET = "One likely to wade in after getting pushed around"
+checks = [
+    ("reversed, typed as a cryptic definition", 1,
+     unmarked(EGRET, "EGRET", ["cryptic_definition"], "One likely to wade in")),
+    ("reversed and typed", 0,
+     unmarked(EGRET, "EGRET", ["hidden_word", "reversal"], "One likely to wade in")),
+    ("inside the definition only", 0,
+     unmarked(EGRET, "EGRET", ["cryptic_definition"], EGRET)),
+    ("forwards, typed as a container", 1,
+     unmarked("Soldier out in Egypt bears standard", "ROUTINE", ["container"], "standard")),
+    ("a coincidence the note owns", 0,
+     unmarked("Party food is cold, in short supply", "DISCO", ["charade"], "Party",
+              ["the pieces sit side by side, a coincidence the setter does not signal"])),
+    ("whole words are not hidden", 0,
+     unmarked("It’s a revolution in sparkling wine", "ASTI", ["reversal"], "sparkling wine")),
+]
+bad = [f"{name}: {len(errs)} errors, want {want} {errs}" for name, want, errs in checks
+       if len(errs) != want]
+for f in bad:
+    print("  FAIL:", f)
+if bad:
+    sys.exit(1)
+print(f"  ok: {len(checks)} unmarked hidden words judged")
 PY

@@ -31,7 +31,6 @@ model id that drafted them — and lands in the top-level `annotatedBy`.
 import argparse
 import datetime
 import json
-import re
 import sys
 from pathlib import Path
 
@@ -98,9 +97,7 @@ def build(fill_path, clues_path, number, name, setter, day):
     }
 
 
-# A word, with any apostrophe or hyphen inside it: "friend's" and
-# "ham-fistedly" are one word each.
-WORD = re.compile(r"[^\W\d_]+(?:['’-][^\W\d_]+)*")
+WORD = validate_annotations.HIDDEN_WORD_RE
 
 
 def hidden_edge_errors(puzzle):
