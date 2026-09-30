@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,47 @@
     "text": "Support letters after appointment",
     "enumeration": "4"
    },
-   "solution": "POST"
+   "solution": "POST",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "POST",
+    "definitions": [
+     {
+      "text": "Support",
+      "at": 0
+     },
+     {
+      "text": "letters",
+      "at": 8
+     }
+    ],
+    "linkWords": [
+     "after appointment"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Support",
+      "note": "first meaning: an upright pole that holds something up"
+     },
+     {
+      "clueFragment": "letters",
+      "note": "second meaning: the mail delivered to a house"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone writes letters backing a candidate after they have been given a job.",
+     "walkthrough": "The word has more meanings than two here: 'after' is its Latin sense as a prefix, and an appointment is a job, also this word.",
+     "definitionFit": "A wooden upright holding a fence is one sense; the mail delivered by carriers is the other, common in British usage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "letters"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +90,43 @@
     "text": "Some robes evidently far too heavy",
     "enumeration": "5"
    },
-   "solution": "OBESE"
+   "solution": "OBESE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "OBESE",
+    "definitions": [
+     {
+      "text": "far too heavy",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "only some of the following letters are wanted, so a run inside the words is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "robes evidently",
+      "gives": "OBESE",
+      "note": "the letters run across the end of one word and the start of the next"
+     }
+    ],
+    "explanation": {
+     "surface": "Certain gowns are plainly much too heavy to wear.",
+     "walkthrough": "The answer sits inside rOBES Evidently.",
+     "definitionFit": "Obesity describes a body weight well beyond what is healthy, the medical term for excess fat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Some"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +140,50 @@
     "text": "Reptiles, huge nuisance for cat",
     "enumeration": "13"
    },
-   "solution": "TORTOISESHELL"
+   "solution": "TORTOISESHELL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TORTOISESHELL",
+    "definitions": [
+     {
+      "text": "cat",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Reptiles",
+      "gives": "TORTOISES",
+      "note": "slow shelled reptiles"
+     },
+     {
+      "clueFragment": "huge nuisance",
+      "gives": "HELL",
+      "note": "something that is hell is a great torment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TORTOISES",
+      "HELL"
+     ]
+    },
+    "explanation": {
+     "surface": "Some reptiles are a real menace to a cat.",
+     "walkthrough": "'huge nuisance' is a fair stretch for hell, as in 'the neighbours are hell'; 'for' merely links the wordplay to the cat.",
+     "definitionFit": "A tortoiseshell is a cat whose mottled black, orange and brown coat resembles the reptile's shell."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cat"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +197,50 @@
     "text": "Birds wrangle with noisy arguments",
     "enumeration": "8"
    },
-   "solution": "SPARROWS"
+   "solution": "SPARROWS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SPARROWS",
+    "definitions": [
+     {
+      "text": "Birds",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wrangle",
+      "gives": "SPAR",
+      "note": "to spar is to argue or quarrel"
+     },
+     {
+      "clueFragment": "noisy arguments",
+      "gives": "ROWS",
+      "note": "a row, rhyming with cow, is a loud quarrel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPAR",
+      "ROWS"
+     ]
+    },
+    "explanation": {
+     "surface": "Birds squabble among themselves with loud quarrels.",
+     "walkthrough": "ROWS here is the British word for loud quarrels, not lines of things.",
+     "definitionFit": "Sparrows are small brown songbirds, an example of the class of feathered creatures named."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wrangle"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +254,62 @@
     "text": "Splashed front of parka in river mud",
     "enumeration": "5"
    },
-   "solution": "SPILT"
+   "solution": "SPILT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SPILT",
+    "definitions": [
+     {
+      "text": "Splashed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "front of",
+      "for": "letter_selection",
+      "note": "the front of a word is its opening letter, so just that one is kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing placed in another sits inside it, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "parka",
+      "gives": "P",
+      "select": "first",
+      "note": "opening letter of the coat"
+     },
+     {
+      "clueFragment": "river mud",
+      "gives": "SILT",
+      "note": "silt is the fine mud a river deposits"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "P",
+      "ILT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's parka got splashed at the front while wading in a muddy river.",
+     "walkthrough": "P goes inside SILT after its first letter.",
+     "definitionFit": "Liquid that has been spilt has been slopped over the edge, splashing about, past tense of the verb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Splashed"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +323,55 @@
     "text": "A rugby player’s eating nothing suitable",
     "enumeration": "7"
    },
-   "solution": "APROPOS"
+   "solution": "APROPOS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "APROPOS",
+    "definitions": [
+     {
+      "text": "suitable",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "whatever eats something takes it inside, so one piece swallows another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A rugby player’s",
+      "gives": "APROPS",
+      "note": "A plus PROP'S: a prop is a front-row forward in rugby"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "zero looks like the letter O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "APROP",
+      "O",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A rugby player is off his food, eating nothing at all.",
+     "walkthrough": "The apostrophe S of 'player's' supplies the final S; O slips in just before it.",
+     "definitionFit": "Apropos means fitting or pertinent to the occasion, borrowed from French 'à propos', to the purpose."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "eating"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +385,54 @@
     "text": "New form of an incinerator following refurbishment",
     "enumeration": "13"
    },
-   "solution": "REINCARNATION"
+   "solution": "REINCARNATION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REINCARNATION",
+    "definitions": [
+     {
+      "text": "New form",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following refurbishment",
+      "for": "anagram",
+      "note": "a refurbished thing has been taken apart and rebuilt, so the letters come out rearranged"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "an incinerator",
+      "gives": "ANINCINERATOR",
+      "note": "taken as written, all thirteen letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ANINCINERATOR",
+       "gives": "REINCARNATION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A council's rebuilt incinerator comes back in a new design.",
+     "walkthrough": "The fodder needs the 'an' as well as 'incinerator' to make thirteen letters.",
+     "definitionFit": "Reincarnation is rebirth of a soul in another body, so it is a fresh bodily shape, figuratively any revival."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "refurbishment"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +446,52 @@
     "text": "Why candle almost out in Irish town?",
     "enumeration": "7"
    },
-   "solution": "WICKLOW"
+   "solution": "WICKLOW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WICKLOW",
+    "definitions": [
+     {
+      "text": "Irish town",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "Why",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "candle",
+      "gives": "WICK",
+      "note": "the wick is the burning part of a candle"
+     },
+     {
+      "clueFragment": "almost out",
+      "gives": "LOW",
+      "note": "a flame nearly out is burning low"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WICK",
+      "LOW"
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzled visitor asks why the candles are guttering in an Irish town.",
+     "walkthrough": "The question has a joke answer: why is the candle almost out? Because its WICK is LOW. Wicklow is a town south of Dublin.",
+     "definitionFit": "Wicklow is a coastal town on Ireland's east coast, also giving its name to a county and mountains."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Why"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +505,59 @@
     "text": "More enthusiastic man painting? That is right",
     "enumeration": "8"
    },
-   "solution": "HEARTIER"
+   "solution": "HEARTIER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HEARTIER",
+    "definitions": [
+     {
+      "text": "More enthusiastic",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "man",
+      "gives": "HE",
+      "note": "a man is a he"
+     },
+     {
+      "clueFragment": "painting",
+      "gives": "ART",
+      "note": "painting is a form of art"
+     },
+     {
+      "clueFragment": "That is",
+      "gives": "IE",
+      "note": "i.e. abbreviates Latin id est, that is"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HE",
+      "ART",
+      "IE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A painter gets keener on his work, and someone agrees.",
+     "walkthrough": "'That is right' reads as a comment on the question, but it is two abbreviations.",
+     "definitionFit": "Hearty describes warm, vigorous, wholehearted feeling, so the comparative form means showing greater zeal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "That"
+    }
+   }
   },
   {
    "number": 9,
@@ -159,7 +571,47 @@
     "text": "Creep along in church",
     "enumeration": "4"
    },
-   "solution": "INCH"
+   "solution": "INCH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INCH",
+    "definitions": [
+     {
+      "text": "Creep along",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written; that the letters also run through 'in church' is a coincidence, as the setter uses the abbreviation"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CH",
+      "note": "CH is the abbreviation for church"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "CH"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tiptoes slowly down the aisle of a church.",
+     "walkthrough": "'in' looks like a placement word but is kept as letters.",
+     "definitionFit": "To inch is to move forward by very small steps, slowly and carefully, the verb from the unit of length."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 10,
@@ -173,7 +625,50 @@
     "text": "In two brief months, boil",
     "enumeration": "6"
    },
-   "solution": "DECOCT"
+   "solution": "DECOCT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DECOCT",
+    "definitions": [
+     {
+      "text": "boil",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "In"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "two brief months",
+      "gives": "DEC",
+      "note": "the short form of December, the first of the pair"
+     },
+     {
+      "clueFragment": "two brief months",
+      "gives": "OCT",
+      "note": "the short form of October, the second of the pair"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEC",
+      "OCT"
+     ]
+    },
+    "explanation": {
+     "surface": "Within a couple of short months, something comes to the boil.",
+     "walkthrough": "'brief' tells you to shorten the months to their calendar abbreviations.",
+     "definitionFit": "To decoct is to extract a substance's essence by boiling it down in water, a chemist's or cook's verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "brief"
+    }
+   }
   },
   {
    "number": 10,
@@ -187,7 +682,51 @@
     "text": "Ultimately unsuited to cycling, one walked",
     "enumeration": "3"
    },
-   "solution": "DOG"
+   "solution": "DOG",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "DOG",
+    "definitions": [
+     {
+      "text": "one walked",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so each word gives only its closing letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unsuited to cycling",
+      "gives": "DOG",
+      "select": "last",
+      "note": "closing letters of the three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "O",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone unfit for riding a bike simply went on foot instead.",
+     "walkthrough": "'cycling' looks like an instruction to rotate letters, but it is only one of the three words whose endings are taken.",
+     "definitionFit": "A pet hound is taken out on a lead every day, so it is the creature typically exercised this way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "cycling"
+    }
+   }
   },
   {
    "number": 11,
@@ -201,7 +740,46 @@
     "text": "Preserved vegetables for cheeky child",
     "enumeration": "6"
    },
-   "solution": "PICKLE"
+   "solution": "PICKLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PICKLE",
+    "definitions": [
+     {
+      "text": "Preserved vegetables",
+      "at": 0
+     },
+     {
+      "text": "cheeky child",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Preserved vegetables",
+      "note": "first meaning: vegetables kept in vinegar or brine"
+     },
+     {
+      "clueFragment": "cheeky child",
+      "note": "second meaning: a mischievous youngster"
+     }
+    ],
+    "explanation": {
+     "surface": "Jarred vegetables are served to a naughty child.",
+     "walkthrough": "Calling a mischievous child a 'little pickle' is British and affectionate.",
+     "definitionFit": "Chutney-like relish of vinegar-soaked produce is one sense; an impish, naughty youngster is the informal British other."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "for"
+    }
+   }
   },
   {
    "number": 12,
@@ -225,7 +803,54 @@
      }
     ]
    },
-   "solution": "GRASPATSTRAWS"
+   "solution": "GRASPATSTRAWS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GRASP AT STRAWS",
+    "definitions": [
+     {
+      "text": "seek desperate salvation",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Terrible",
+      "for": "anagram",
+      "note": "something terrible is a dreadful mess, so the letters are thrown into disorder"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "war starts — a GP’s",
+      "gives": "WARSTARTSAGPS",
+      "note": "taken as written, thirteen letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WARSTARTSAGPS",
+       "gives": "GRASPATSTRAWS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dreadful war breaks out, and a family doctor is left hunting for any way out.",
+     "walkthrough": "A GP is a general practitioner, a family doctor in Britain; the letters come in handy as fodder.",
+     "definitionFit": "The idiom comes from a drowning person clutching floating stalks: trying anything, however hopeless, to be rescued."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Terrible"
+    }
+   }
   },
   {
    "number": 13,
@@ -239,7 +864,43 @@
     "text": "Free to take another contract",
     "enumeration": "7"
    },
-   "solution": "RELEASE"
+   "solution": "RELEASE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RELEASE",
+    "definitions": [
+     {
+      "text": "Free",
+      "at": 0
+     },
+     {
+      "text": "to take another contract",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Free",
+      "note": "first meaning: to let go, set at liberty"
+     },
+     {
+      "clueFragment": "to take another contract",
+      "note": "second meaning"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second sense splits the word as RE-LEASE, renting the property once more.",
+     "definitionFit": "Letting a prisoner go is one sense; signing a fresh rental agreement on a flat is the hyphenated other."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Free"
+    }
+   }
   },
   {
    "number": 14,
@@ -253,7 +914,50 @@
     "text": "Degenerate American going to pot",
     "enumeration": "7"
    },
-   "solution": "ATROPHY"
+   "solution": "ATROPHY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ATROPHY",
+    "definitions": [
+     {
+      "text": "Degenerate",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "going to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is the abbreviation for American"
+     },
+     {
+      "clueFragment": "pot",
+      "gives": "TROPHY",
+      "note": "a pot is slang for a sporting cup or prize"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "TROPHY"
+     ]
+    },
+    "explanation": {
+     "surface": "A worthless American is going to seed, taking drugs.",
+     "walkthrough": "'going to pot' is an idiom for decline, but 'pot' here is the silverware won in sport.",
+     "definitionFit": "Muscles that waste away through disuse wither, so as a verb it means decline or deteriorate physically."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pot"
+    }
+   }
   },
   {
    "number": 15,
@@ -267,7 +971,57 @@
     "text": "Aristocrat turning up conceals title",
     "enumeration": "3"
    },
-   "solution": "SIR"
+   "solution": "SIR",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "SIR",
+    "definitions": [
+     {
+      "text": "title",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "conceals",
+      "for": "hidden_word",
+      "note": "what a word conceals is tucked inside it, so the letters are found within"
+     },
+     {
+      "text": "turning up",
+      "for": "reversal",
+      "note": "in a down clue, turning upward means reading from the bottom to the top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Aristocrat",
+      "gives": "RIS",
+      "note": "the second to fourth letters of the word"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "RIS",
+       "to": "SIR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nobleman shows up hiding what rank he holds.",
+     "walkthrough": "'Aristocrat' wants to be the definition; the rank is at the other end of the clue.",
+     "definitionFit": "Sir is the honorific given to a knight or baronet, prefixed to the name, a form of address."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Aristocrat"
+    }
+   }
   },
   {
    "number": 16,
@@ -281,7 +1035,50 @@
     "text": "Charlie no winner, but not so far behind",
     "enumeration": "6"
    },
-   "solution": "CLOSER"
+   "solution": "CLOSER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CLOSER",
+    "definitions": [
+     {
+      "text": "not so far behind",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Charlie",
+      "gives": "C",
+      "note": "Charlie is C in the radio alphabet"
+     },
+     {
+      "clueFragment": "no winner",
+      "gives": "LOSER",
+      "note": "someone who did not win"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LOSER"
+     ]
+    },
+    "explanation": {
+     "surface": "Charlie didn't win the race, but trailed the leader by only a little.",
+     "walkthrough": "Charlie reads as a runner's name; it is the phonetic alphabet's C.",
+     "definitionFit": "Being nearer to someone ahead means the gap is smaller, the comparative of near in distance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Charlie"
+    }
+   }
   },
   {
    "number": 17,
@@ -295,7 +1092,61 @@
     "text": "Friend beginning to recover after earth tremor",
     "enumeration": "6"
    },
-   "solution": "QUAKER"
+   "solution": "QUAKER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "QUAKER",
+    "definitions": [
+     {
+      "text": "Friend",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its opening letter, so only that is taken"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "coming after something means following it, so the piece named first is placed second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "earth tremor",
+      "gives": "QUAKE",
+      "note": "an earthquake, shortened"
+     },
+     {
+      "clueFragment": "recover",
+      "gives": "R",
+      "select": "first",
+      "note": "opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "QUAKE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A friend begins to get better after an earthquake.",
+     "walkthrough": "Capital-F Friend is the crossword's way to a member of the Religious Society of Friends.",
+     "definitionFit": "Quakers belong to the Religious Society of Friends, and call each other by that name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Friend"
+    }
+   }
   },
   {
    "number": 17,
@@ -309,7 +1160,57 @@
     "text": "Almost strange name for band",
     "enumeration": "5"
    },
-   "solution": "QUEEN"
+   "solution": "QUEEN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "QUEEN",
+    "definitions": [
+     {
+      "text": "band",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Almost",
+      "for": "deletion",
+      "note": "almost all of something means it stops just short, so the final letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "strange",
+      "gives": "QUEE",
+      "note": "QUEER, odd, without its last letter"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "N is the abbreviation for name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "QUEE",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone thinks up a rather odd name for their group.",
+     "walkthrough": "The band is the rock group fronted by Freddie Mercury.",
+     "definitionFit": "Queen is the British rock group of Freddie Mercury and Brian May, famous for Bohemian Rhapsody."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -323,7 +1224,71 @@
     "text": "Perfect climbing over base of Everest, go up?",
     "enumeration": "5"
    },
-   "solution": "ERUPT"
+   "solution": "ERUPT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ERUPT",
+    "definitions": [
+     {
+      "text": "go up",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "climbing",
+      "for": "reversal",
+      "note": "in a down clue, climbing means going upward, so the letters read bottom to top"
+     },
+     {
+      "text": "base of",
+      "for": "letter_selection",
+      "note": "the base of a word in a down clue is its bottom, final letter"
+     }
+    ],
+    "linkWords": [
+     "over"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Perfect",
+      "gives": "PURE",
+      "note": "pure means flawless"
+     },
+     {
+      "clueFragment": "Everest",
+      "gives": "T",
+      "select": "last",
+      "note": "final letter of the mountain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ERUP",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "PURE",
+       "to": "ERUP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A perfect ascent begins at Everest's foot: shall we climb?",
+     "walkthrough": "In a down clue 'over' puts the reversed word above the T.",
+     "definitionFit": "A volcano that erupts blows its top, sending lava and ash skyward, which is a question-marked sense of rising."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Perfect"
+    }
+   }
   },
   {
    "number": 19,
@@ -337,7 +1302,42 @@
     "text": "Pheasant, for example, unable to walk properly",
     "enumeration": "4"
    },
-   "solution": "GAME"
+   "solution": "GAME",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GAME",
+    "definitions": [
+     {
+      "text": "Pheasant, for example",
+      "at": 0
+     },
+     {
+      "text": "unable to walk properly",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pheasant, for example",
+      "note": "first meaning: wild birds hunted for sport and food"
+     },
+     {
+      "clueFragment": "unable to walk properly",
+      "note": "second meaning: lame"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second sense is old-fashioned British: a 'game leg' is an injured, limping one.",
+     "definitionFit": "Shot wild fowl like grouse and partridge form one sense; an old adjective meaning lame or crippled is the other."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pheasant"
+    }
+   }
   },
   {
    "number": 20,
@@ -351,7 +1351,55 @@
     "text": "Beloved park in holy surroundings",
     "enumeration": "8"
    },
-   "solution": "PRECIOUS"
+   "solution": "PRECIOUS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PRECIOUS",
+    "definitions": [
+     {
+      "text": "Beloved",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another is enclosed by it, so one piece sits inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "park",
+      "gives": "REC",
+      "note": "a rec is a recreation ground, a British public park"
+     },
+     {
+      "clueFragment": "holy surroundings",
+      "gives": "PIOUS",
+      "note": "pious means devout; 'surroundings' says it wraps round"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "REC",
+      "IOUS"
+     ]
+    },
+    "explanation": {
+     "surface": "A cherished park lies within sacred grounds.",
+     "walkthrough": "'park' reads as the obvious P abbreviation, but it gives the British REC, a recreation ground.",
+     "definitionFit": "Something precious is dearly treasured and held in great affection, highly valued by its owner."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "park"
+    }
+   }
   },
   {
    "number": 21,
@@ -365,7 +1413,79 @@
     "text": "Methodist’s awful news about destruction of Yale",
     "enumeration": "8"
    },
-   "solution": "WESLEYAN"
+   "solution": "WESLEYAN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "WESLEYAN",
+    "definitions": [
+     {
+      "text": "Methodist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "awful",
+      "for": "anagram",
+      "note": "awful means dreadful and messed up, so the letters are jumbled"
+     },
+     {
+      "text": "destruction of",
+      "for": "anagram",
+      "note": "a thing destroyed is broken up, so its letters come out scrambled"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "to be about something is to go around it, enclosing it"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "news",
+      "gives": "NEWS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Yale",
+      "gives": "YALE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WES",
+      "LEYA",
+      "N"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NEWS",
+       "gives": "WESN"
+      },
+      {
+       "fodder": "YALE",
+       "gives": "LEYA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Methodist hears the terrible news that Yale has been destroyed.",
+     "walkthrough": "Both words are scrambled separately, then one goes round the other; the 's stands for 'is'.",
+     "definitionFit": "Wesleyans follow John Wesley, founder of Methodism, so the term names a member of that church."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Yale"
+    }
+   }
   },
   {
    "number": 22,
@@ -379,7 +1499,67 @@
     "text": "Crazy star taking time to make a comeback",
     "enumeration": "4"
    },
-   "solution": "NUTS"
+   "solution": "NUTS",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "NUTS",
+    "definitions": [
+     {
+      "text": "Crazy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking",
+      "for": "container",
+      "note": "taking something in means holding it within, so one piece goes inside"
+     },
+     {
+      "text": "to make a comeback",
+      "for": "reversal",
+      "note": "a comeback is a return, going back the way it came"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "star",
+      "gives": "SUN",
+      "note": "the Sun is a star"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NU",
+      "T",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "STUN",
+       "to": "NUTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A washed-up celebrity takes time out before returning to the stage.",
+     "walkthrough": "T goes inside SUN to make STUN, which is then read backwards.",
+     "definitionFit": "Nuts is informal slang for mad or insane, from the old sense of the head as a nut."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "star"
+    }
+   }
   }
  ]
 }
