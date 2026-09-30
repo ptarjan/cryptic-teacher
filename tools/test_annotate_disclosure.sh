@@ -198,6 +198,28 @@ apply_annotations.apply(path, {entry_id(e): {"type": ["charade"]} for e in real[
                         by="human")
 say("apply_keeps_solutions_detail",
     json.loads(path.read_text()).get("solutions", {}).get("url") == blog)
+
+# A partial _ann file applies as it stands: absent keys become null.
+pending = path.parent / "_ann_cyclops-99998.json"
+pending.write_text(json.dumps({"1-across": {"type": ["charade"]}}))
+filled = AC.fill_missing(path, pending)
+ann = json.loads(pending.read_text())
+say("missing_keys_filled_null", len(filled) == 29 and len(ann) == 30
+    and ann["2-across"] is None and ann["1-across"] == {"type": ["charade"]})
+
+# A refused write still says what the validator thinks, in the same turn.
+ann["1-across"] = {"type": ["charade"], "answer": "ABCD",
+                   "blocks": [{"clueFragment": "Some", "gives": "ABCD", "note": "this is ABCD"}]}
+pending.write_text(json.dumps(ann))
+errs, _ = AC.preview(path, pending)
+say("preview_names_validator_errors", any("names the answer" in e for e in errs)
+    and not any(e.startswith("schema:") for e in errs))
+
+# --patch consumes its file, so the run has nothing to rm afterwards.
+fix = path.parent / "_patch.json"
+fix.write_text(json.dumps({"2-across": {"type": ["anagram"]}}))
+say("patch_deletes_its_file", AC.patch(pending, fix) is None and not fix.exists()
+    and json.loads(pending.read_text())["2-across"] == {"type": ["anagram"]})
 PY
 )
 echo "$out" | sed 's/^/  /'
@@ -214,7 +236,8 @@ for k in linked_leader_quiet annotated_continuation_flagged \
          plain_puzzle_no_notes cd_note likely_note view_has_no_url \
          view_keeps_solutions apply_keeps_solutions_detail \
          fragment_not_in_clue_fails hole_fails_the_run hole_queued_in_corpus \
-         reworded_clue_fails retyped_clue_passes; do
+         reworded_clue_fails retyped_clue_passes missing_keys_filled_null \
+         preview_names_validator_errors patch_deletes_its_file; do
   same "$k" "$(grep -c "^$k=yes$" <<<"$out")" "1"
 done
 

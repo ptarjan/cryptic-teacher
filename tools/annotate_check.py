@@ -6,9 +6,12 @@
     python3 tools/annotate_check.py cryptic-30098 --patch FILE
 
 --patch merges FILE, {"8-down": {"definitionFit": "...", "blocks": [...]}},
-into tools/_ann_<ID>.json first: each named field replaced, null removing it.
-Many clues' fixes are one Write and this one command, not a fix script,
-which these runs cannot get approved.
+into tools/_ann_<ID>.json first: each named field replaced, null removing it,
+and deletes FILE. Many clues' fixes are one Write and this one command, not a
+fix script, which these runs cannot get approved.
+
+An entry the _ann file has no key for is filled in as null (not done yet), so
+a file written a few clues at a time applies as it stands.
 
 Applies tools/_ann_<ID>.json, validates, runs both audit tools, syntax-checks
 the file and refreshes the index — and prints one report with a count at the
@@ -39,6 +42,7 @@ sys.path.insert(0, str(TOOLS))
 
 import blog_post  # noqa: E402
 import clue_types  # noqa: E402
+import definitions  # noqa: E402
 import groups  # noqa: E402
 from groups import entry_id  # noqa: E402
 import series  # noqa: E402
@@ -192,6 +196,10 @@ def patch(pending, fix):
     if unknown:
         return f"{fix.name} names entries {pending.name} lacks: {', '.join(unknown)} (keys look like {next(iter(ann), '1-across')!r})"
     for eid, fields in changes.items():
+        if not isinstance(fields, dict):     # a whole annotation, or null
+            ann[eid] = fields
+            continue
+        ann[eid] = ann[eid] or {}
         for k, v in fields.items():
             if v is None:
                 ann[eid].pop(k, None)
@@ -200,6 +208,56 @@ def patch(pending, fix):
     pending.write_text(json.dumps(ann, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     fix.unlink()
     return None
+
+
+def fill_missing(path, pending):
+    """Write null into `pending` for every entry it has no key for; the ids filled.
+
+    A missing key and a null mean the same thing to the run (not done yet), and
+    refusing the whole file over it costs a turn to type nulls."""
+    try:
+        ann = json.loads(pending.read_text(encoding="utf-8"))
+    except ValueError:
+        return []
+    if not isinstance(ann, dict):
+        return []
+    entries = read_puzzle_file(path)["entries"]
+    continuations = groups.leader_of(entries)
+    missing = [entry_id(e) for e in entries
+               if entry_id(e) not in continuations and entry_id(e) not in ann]
+    if missing:
+        ann.update(dict.fromkeys(missing))
+        pending.write_text(json.dumps(ann, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    return missing
+
+
+def preview(path, pending):
+    """(errors, warnings) the validator would give once `pending` applied.
+
+    When the write is refused, the refusal is only the schema's half of what is
+    wrong; without this the rest arrives one turn later, after the refusal is
+    fixed. Best effort: an annotation too broken to validate yields nothing."""
+    try:
+        puzzle = read_puzzle_file(path)
+        ann = json.loads(pending.read_text(encoding="utf-8"))
+        continuations = groups.leader_of(puzzle["entries"])
+        for e in puzzle["entries"]:
+            if entry_id(e) in continuations:
+                continue
+            if ann.get(entry_id(e)) is None:
+                e.pop("annotation", None)
+            else:
+                e["annotation"] = ann[entry_id(e)]
+        try:
+            definitions.place_puzzle(puzzle)
+        except ValueError as err:
+            return [str(err)], []
+        with contextlib.redirect_stdout(io.StringIO()):
+            _, errors, warnings = validate_annotations.validate_puzzle(puzzle)
+        # The refusal above already names the schema's findings by entry id.
+        return [e for e in errors if not e.startswith("schema:")], warnings
+    except Exception:  # noqa: BLE001 — a preview never hides the refusal itself
+        return [], []
 
 
 def main(argv):
@@ -214,13 +272,20 @@ def main(argv):
     shown = path.relative_to(ROOT) if path.is_relative_to(ROOT) else path
     pending = default_input(path)
     issues = []
+    patched = None
     if argv[1:2] == ["--patch"]:
         err = patch(pending, Path(argv[2]) if len(argv) > 2 else None)
         if err:
             print(f"annotate_check {stem}: STOPPED — {err}")
             return 2
+        patched = Path(argv[2]).name
+        print(f"merged {patched} into {pending.name} and deleted it\n")
 
     if pending.exists():
+        filled = fill_missing(path, pending)
+        if filled:
+            print(f"{pending.name} had no key for {', '.join(filled)}: filled in as null "
+                  f"(not done yet)\n")
         rc, out = run([sys.executable, str(TOOLS / "apply_annotations.py"),
                        stem, str(pending), "--no-validate"])
         print(out)
@@ -228,9 +293,17 @@ def main(argv):
             # Nothing downstream is about this puzzle if the annotations never
             # landed in it, and reporting the old file's state as this run's
             # would be a lie in the direction of "fine".
+            errs, warns = preview(path, pending)
+            if errs or warns:
+                print("\nwhat the validator says about the same annotations, so both "
+                      "lists are fixed in one edit:")
+                for w in warns:
+                    print(f"{validate_annotations.WARN_PREFIX}{w}")
+                for e in errs:
+                    print(f"{validate_annotations.ERROR_PREFIX}{e}")
             print(f"\nannotate_check {stem}: STOPPED — the annotations were not "
-                  f"applied, so everything below would be about the previous "
-                  f"contents of {shown}. Fix {pending.name} and re-run.")
+                  f"applied, so {shown} is unchanged. Fix everything above in "
+                  f"{pending.name} in one edit and re-run.")
             return rc
     else:
         print(f"no {pending.name}, so nothing to apply — checking "
@@ -283,6 +356,11 @@ def main(argv):
              ([f"{warns} warn"] if warns else []) + issues
     print(f"\nannotate_check {stem}: " + (", ".join(counts) if counts else
                                           "clean, index refreshed — done"))
+    if not counts:
+        # The last turn of a clean run was spent trying to `rm` the patch file,
+        # which needs an approval the run cannot give.
+        print("Nothing to tidy up: --patch files are deleted when merged and "
+              "tools/_* is ignored by git. The run is finished.")
     if counts:
         # Two callers: the annotate run, which hands over tools/_ann_<ID>.json,
         # and the field backfills, which edit the puzzle in place. Naming a file
