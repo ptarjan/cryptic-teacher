@@ -705,6 +705,7 @@ if [ -n "$misses" ] && command -v claude >/dev/null 2>&1; then
 
 $(python3 tools/solve_misses.py packet "$miss_pid" "$miss_eid" 2>&1)" "${CLAUDE_HEADLESS[@]}" \
       --append-system-prompt-file tools/solve_miss_prompt.md \
+      --exclude-dynamic-system-prompt-sections \
       --model "$ANNOTATE_MODEL" \
       --effort "$ANNOTATE_EFFORT" \
       --allowedTools "Read,Write,Edit,Bash(python3 *),Bash(bash tools/test_*),Bash(grep *)" \
@@ -784,6 +785,7 @@ if [ -n "$unsolved" ] && command -v claude >/dev/null 2>&1; then
     claude -p "Solve the cryptic crossword in $(python3 tools/puzzle_paths.py "$num") in this repo. Its answers have not been published, so there is no key: follow tools/solve_prompt.md exactly (it is your system prompt's appendix; do not open the file), write your fill to $fill, and iterate against 'python3 tools/apply_solution.py $num --fill $fill --check-only' until every crossing agrees. Do not write to puzzles/ — the calling script applies the fill." \
       "${solve_sess[@]}" "${CLAUDE_HEADLESS[@]}" \
       --append-system-prompt-file tools/solve_prompt.md \
+      --exclude-dynamic-system-prompt-sections \
       --model "$ANNOTATE_MODEL" \
       --effort "$ANNOTATE_EFFORT" \
       --allowedTools "Read,Write,Edit,Bash(python3 *),Bash(node *)" \
@@ -937,6 +939,7 @@ if [ -n "$pending" ]; then
         # shellcheck disable=SC2086
         $ann_cap claude -p "$ann_prompt" "${ann_sess[@]}" "${CLAUDE_HEADLESS[@]}" \
             --append-system-prompt-file "$ann_sys" \
+            --exclude-dynamic-system-prompt-sections \
             --model "$ANNOTATE_MODEL" \
             --effort "$ANNOTATE_EFFORT" \
             --allowedTools "$ann_tools" \
@@ -1100,6 +1103,7 @@ if bad_hints=$(python3 tools/reports.py --since 14 2>&1); then
 
 $bad_hints" "${CLAUDE_HEADLESS[@]}" \
           --append-system-prompt-file tools/report_fix_prompt.md \
+          --exclude-dynamic-system-prompt-sections \
           --model "$ANNOTATE_MODEL" \
           --effort "$ANNOTATE_EFFORT" \
           --allowedTools "Read,Write,Edit,Bash(python3 *),Bash(node *)" \
