@@ -39,7 +39,7 @@ def stub(prompt, model, effort, timeout=1800):
     lines = [l for l in prompt.splitlines() if l[:1].isdigit() and ". " in l]
     return json.dumps({"verdicts": [
         {"n": int(l.split(".")[0]), "real": "stouts" not in l,
-         "known": "nerazzurri" not in l or len(calls) == 1, "why": "stub"} for l in lines]})
+         "known": "nerazzurri" not in l or len(calls) == 1, "wrong": True, "why": "stub"} for l in lines]})
 
 real_claude = author_trial.claude
 author_trial.claude = stub
