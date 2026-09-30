@@ -24,6 +24,9 @@
   "date": "2024-10-07",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,50 @@
     "text": "Invoice company directors for large sign",
     "enumeration": "9"
    },
-   "solution": "BILLBOARD"
+   "solution": "BILLBOARD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BILLBOARD",
+    "definitions": [
+     {
+      "text": "large sign",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Invoice",
+      "gives": "BILL",
+      "note": "An invoice is a bill for goods or work"
+     },
+     {
+      "clueFragment": "company directors",
+      "gives": "BOARD",
+      "note": "A company's directors sit together as its board"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BILL",
+      "BOARD"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is sending the directors a bill for putting up a big sign.",
+     "walkthrough": "The two business words simply join: BILL then BOARD.",
+     "definitionFit": "A billboard is the huge outdoor hoarding that carries advertising posters beside roads."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Invoice"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +97,43 @@
     "text": "Resist horned creature",
     "enumeration": "4"
    },
-   "solution": "BUCK"
+   "solution": "BUCK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BUCK",
+    "definitions": [
+     {
+      "text": "Resist",
+      "at": 0
+     },
+     {
+      "text": "horned creature",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Resist",
+      "gives": "BUCK",
+      "note": "A verb for going against something, as a trend or the system"
+     },
+     {
+      "clueFragment": "horned creature",
+      "gives": "BUCK",
+      "note": "A male deer, which carries antlers"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Two unrelated senses of the same word sit side by side with nothing joining them.",
+     "definitionFit": "The verb means to oppose or go against; the noun is a male deer or antelope."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 2,
@@ -71,7 +153,60 @@
      }
     ]
    },
-   "solution": "LECARRE"
+   "solution": "LECARRE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "LE CARRE",
+    "definitions": [
+     {
+      "text": "Spy novelist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "Reading back means the run of letters is taken from right to left"
+     },
+     {
+      "text": "inside",
+      "for": "hidden_word",
+      "note": "The answer sits inside the phrase terrace lodgings, spanning both words"
+     }
+    ],
+    "linkWords": [
+     "appears"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "terrace lodgings",
+      "gives": "ERRACEL",
+      "note": "The letters straddling the gap between the two words"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "ERRACEL",
+       "to": "LECARRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A thriller writer's name is spotted in a row of terraced digs.",
+     "walkthrough": "Read tERRACE Lodgings from right to left to find LE CARRE.",
+     "definitionFit": "John le Carré wrote Cold War espionage thrillers such as Tinker Tailor Soldier Spy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "terrace"
+    }
+   }
   },
   {
    "number": 3,
@@ -85,7 +220,58 @@
     "text": "Throw away part of pen that’s used up",
     "enumeration": "3"
    },
-   "solution": "BIN"
+   "solution": "BIN",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "BIN",
+    "definitions": [
+     {
+      "text": "Throw away",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "used up",
+      "for": "reversal",
+      "note": "In a down clue, up means the word is written from the bottom upwards"
+     }
+    ],
+    "linkWords": [
+     "that’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "part of pen",
+      "gives": "NIB",
+      "note": "The writing tip of a fountain pen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BIN"
+     ],
+     "reversals": [
+      {
+       "from": "NIB",
+       "to": "BIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Chucking out a worn-out bit of an old pen.",
+     "walkthrough": "Used up looks like exhausted, but in a down clue up turns NIB into BIN.",
+     "definitionFit": "To bin something is the informal British verb for discarding it as rubbish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "used"
+    }
+   }
   },
   {
    "number": 4,
@@ -99,7 +285,54 @@
     "text": "Painter, say, with odd traits",
     "enumeration": "6"
    },
-   "solution": "ARTIST"
+   "solution": "ARTIST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ARTIST",
+    "definitions": [
+     {
+      "text": "Painter, say",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "odd",
+      "for": "anagram",
+      "note": "Odd suggests the letters of traits are in a strange order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "traits",
+      "gives": "TRAITS",
+      "note": "Used as it stands"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TRAITS",
+       "gives": "ARTIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The eccentric painter stereotype: a creative type with strange habits.",
+     "walkthrough": "Say marks the painter as one example of the answer, not a synonym.",
+     "definitionFit": "A painter is one kind of creative person working in the visual arts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "odd"
+    }
+   }
   },
   {
    "number": 5,
@@ -119,7 +352,54 @@
      }
     ]
    },
-   "solution": "DOCTORWHO"
+   "solution": "DOCTORWHO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DOCTOR WHO",
+    "definitions": [
+     {
+      "text": "sci-fi show",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Rowdy",
+      "for": "anagram",
+      "note": "Rowdy suggests the letters of crowd hoot are unruly and scrambled"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crowd hoot",
+      "gives": "CROWDHOOT",
+      "note": "Both words used as they stand"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CROWDHOOT",
+       "gives": "DOCTORWHO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A noisy audience jeering at a science-fiction programme.",
+     "walkthrough": "Rowdy reads as describing the crowd, but it is telling you to scramble the next two words.",
+     "definitionFit": "The long-running BBC television series about a time-travelling alien in a police box."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rowdy"
+    }
+   }
   },
   {
    "number": 6,
@@ -133,7 +413,54 @@
     "text": "Pastry’s price displayed regularly",
     "enumeration": "3"
    },
-   "solution": "PIE"
+   "solution": "PIE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "PIE",
+    "definitions": [
+     {
+      "text": "Pastry",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "displayed regularly",
+      "for": "letter_selection",
+      "note": "Regularly means every other letter of price is shown"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "price",
+      "gives": "PIE",
+      "select": "alternate",
+      "note": "First, third and fifth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "I",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A bakery's price tag for a pastry, shown on the counter.",
+     "walkthrough": "The ’s reads as a possessive but stands for is, joining definition to wordplay.",
+     "definitionFit": "A pie is a baked dish with a crust made of pastry, so the words overlap loosely."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "displayed"
+    }
+   }
   },
   {
    "number": 6,
@@ -147,7 +474,55 @@
     "text": "Wheeze carrying one material for decorating",
     "enumeration": "5"
    },
-   "solution": "PAINT"
+   "solution": "PAINT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PAINT",
+    "definitions": [
+     {
+      "text": "material for decorating",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "carrying",
+      "for": "container",
+      "note": "To carry is to hold, so wheeze holds one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wheeze",
+      "gives": "PANT",
+      "note": "To wheeze is to breathe hard"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "The Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "I",
+      "NT"
+     ]
+    },
+    "explanation": {
+     "surface": "A wheezy decorator hauling a tin of material up the ladder.",
+     "walkthrough": "Wheeze could be a scheme, but here it is breathing: PANT with I inside.",
+     "definitionFit": "Paint is the coloured liquid spread on walls when doing up a room."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Wheeze"
+    }
+   }
   },
   {
    "number": 7,
@@ -161,7 +536,52 @@
     "text": "Blow up general, unfortunately",
     "enumeration": "7"
    },
-   "solution": "ENLARGE"
+   "solution": "ENLARGE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ENLARGE",
+    "definitions": [
+     {
+      "text": "Blow up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfortunately",
+      "for": "anagram",
+      "note": "Unfortunately suggests general has gone wrong and is jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "general",
+      "gives": "GENERAL",
+      "note": "Used as it stands"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GENERAL",
+       "gives": "ENLARGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A regrettable explosion that kills a military general.",
+     "walkthrough": "Blow up suggests explosions, but the definition means make bigger, as with a photograph.",
+     "definitionFit": "To blow up a picture is to make a larger print of it, which is the verb here."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Blow"
+    }
+   }
   },
   {
    "number": 8,
@@ -175,7 +595,50 @@
     "text": "Chanel, say, fanatic for tropical fruit",
     "enumeration": "7"
    },
-   "solution": "COCONUT"
+   "solution": "COCONUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COCONUT",
+    "definitions": [
+     {
+      "text": "tropical fruit",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chanel, say",
+      "gives": "COCO",
+      "note": "Coco Chanel, the French fashion designer"
+     },
+     {
+      "clueFragment": "fanatic",
+      "gives": "NUT",
+      "note": "A nut is an enthusiast, as in a fitness nut"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COCO",
+      "NUT"
+     ]
+    },
+    "explanation": {
+     "surface": "A devoted fashion fan swaps couture for exotic produce.",
+     "walkthrough": "Say shows Chanel is an example of someone named COCO.",
+     "definitionFit": "The coconut is the large hard-shelled seed of a palm grown in hot climates."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Chanel"
+    }
+   }
   },
   {
    "number": 9,
@@ -189,7 +652,55 @@
     "text": "Relax, beginning to climb high ground",
     "enumeration": "5"
    },
-   "solution": "CHILL"
+   "solution": "CHILL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CHILL",
+    "definitions": [
+     {
+      "text": "Relax",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "The beginning of climb means only its opening letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "climb",
+      "gives": "C",
+      "select": "first",
+      "note": "Opening letter"
+     },
+     {
+      "clueFragment": "high ground",
+      "gives": "HILL",
+      "note": "A hill is raised ground"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HILL"
+     ]
+    },
+    "explanation": {
+     "surface": "Taking a breather as you start the ascent of a hill.",
+     "walkthrough": "The comma separates the definition; the rest builds C plus HILL.",
+     "definitionFit": "To chill is slang for unwinding and taking it easy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -203,7 +714,48 @@
     "text": "Coaches ceramicist, one with a track record?",
     "enumeration": "12"
    },
-   "solution": "TRAINSPOTTER"
+   "solution": "TRAINSPOTTER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TRAINSPOTTER",
+    "definitions": [
+     {
+      "text": "one with a track record?",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Coaches",
+      "gives": "TRAINS",
+      "note": "To coach someone is to train them"
+     },
+     {
+      "clueFragment": "ceramicist",
+      "gives": "POTTER",
+      "note": "A ceramicist makes pots"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRAINS",
+      "POTTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A sports coach who also makes pottery, with a proven history of success.",
+     "walkthrough": "Coaches looks like a noun (buses or carriages) but is the verb. The question mark flags the pun: a track here is a railway line.",
+     "definitionFit": "A British railway hobbyist logs locomotive numbers seen, keeping written notes on the railway lines."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Coaches"
+    }
+   }
   },
   {
    "number": 11,
@@ -217,7 +769,50 @@
     "text": "I am someone in hospital, possibly fidgety",
     "enumeration": "9"
    },
-   "solution": "IMPATIENT"
+   "solution": "IMPATIENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IMPATIENT",
+    "definitions": [
+     {
+      "text": "fidgety",
+      "at": 35
+     }
+    ],
+    "linkWords": [
+     "possibly"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I am",
+      "gives": "IM",
+      "note": "I am shortened to I'm"
+     },
+     {
+      "clueFragment": "someone in hospital",
+      "gives": "PATIENT",
+      "note": "A person receiving hospital treatment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IM",
+      "PATIENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A hospital inmate confessing to restlessness.",
+     "walkthrough": "The surface pun: patient in the ward yet anything but patient.",
+     "definitionFit": "Someone restless and unwilling to wait tends to twitch and shift about in their seat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 12,
@@ -231,7 +826,62 @@
     "text": "Drowsy Yankee strips in reverse?",
     "enumeration": "6"
    },
-   "solution": "SLEEPY"
+   "solution": "SLEEPY",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "SLEEPY",
+    "definitions": [
+     {
+      "text": "Drowsy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in reverse?",
+      "for": "reversal",
+      "note": "In reverse tells you to read Yankee and strips backwards together"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Yankee",
+      "gives": "Y",
+      "note": "Y is Yankee in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "strips",
+      "gives": "PEELS",
+      "note": "To strip the skin off fruit is to peel it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SLEEP",
+      "Y"
+     ],
+     "reversals": [
+      {
+       "from": "YPEELS",
+       "to": "SLEEPY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tired American undressing slowly, perhaps backwards.",
+     "walkthrough": "Strips reads as undressing but means peels; the whole Y plus PEELS string is turned round.",
+     "definitionFit": "Both words describe someone heavy-eyed and ready for bed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "strips"
+    }
+   }
   },
   {
    "number": 12,
@@ -245,7 +895,51 @@
     "text": "One studying larch so haphazardly",
     "enumeration": "7"
    },
-   "solution": "SCHOLAR"
+   "solution": "SCHOLAR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SCHOLAR",
+    "definitions": [
+     {
+      "text": "One studying",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "haphazardly",
+      "for": "anagram",
+      "note": "Haphazardly means without order, so larch and so are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "larch so",
+      "gives": "LARCHSO",
+      "note": "Both words used as they stand"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LARCHSO",
+       "gives": "SCHOLAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A botanist making a rather careless study of a larch tree.",
+     "walkthrough": "One studying is a noun phrase, the person who studies, matching the noun answer.",
+     "definitionFit": "A scholar is a learned person or student devoted to academic learning."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "larch"
+    }
+   }
   },
   {
    "number": 13,
@@ -259,7 +953,56 @@
     "text": "Suddenly turn west, interrupting start of rally?",
     "enumeration": "6"
    },
-   "solution": "SWERVE"
+   "solution": "SWERVE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SWERVE",
+    "definitions": [
+     {
+      "text": "Suddenly turn",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "interrupting",
+      "for": "container",
+      "note": "To interrupt is to break into, so west breaks into start of rally"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "west",
+      "gives": "W",
+      "note": "The compass abbreviation"
+     },
+     {
+      "clueFragment": "start of rally?",
+      "gives": "SERVE",
+      "note": "In tennis every rally begins with a serve"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "W",
+      "ERVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A rally driver veering west just after the start of the race.",
+     "walkthrough": "Start of rally looks like an instruction to take R; the question mark signals it is the tennis stroke instead.",
+     "definitionFit": "To swerve is to veer abruptly off one's line, as a car avoiding an obstacle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "rally"
+    }
+   }
   },
   {
    "number": 14,
@@ -273,7 +1016,56 @@
     "text": "Italian dish — it’s roots in a stew",
     "enumeration": "7"
    },
-   "solution": "RISOTTO"
+   "solution": "RISOTTO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RISOTTO",
+    "definitions": [
+     {
+      "text": "Italian dish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in a stew",
+      "for": "anagram",
+      "note": "In a stew means agitated and mixed up, so the letters are stirred"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "Used as it stands"
+     },
+     {
+      "clueFragment": "roots",
+      "gives": "ROOTS",
+      "note": "Used as it stands"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ITROOTS",
+       "gives": "RISOTTO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A recipe note: this Italian dish is root vegetables cooked in a stew.",
+     "walkthrough": "The ’s stands for has, joining it to roots; the misspelling of its is deliberate to make the surface read.",
+     "definitionFit": "Risotto is a rice dish from northern Italy cooked slowly in stock."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stew"
+    }
+   }
   },
   {
    "number": 15,
@@ -287,7 +1079,62 @@
     "text": "Turn away, taking in opening of drink commercial",
     "enumeration": "6"
    },
-   "solution": "ADVERT"
+   "solution": "ADVERT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ADVERT",
+    "definitions": [
+     {
+      "text": "commercial",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking in",
+      "for": "container",
+      "note": "Taking in means turn away holds the opening of drink inside it"
+     },
+     {
+      "text": "opening of",
+      "for": "letter_selection",
+      "note": "The opening of drink means only its first letter is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Turn away",
+      "gives": "AVERT",
+      "note": "To avert your eyes is to turn them away"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "D",
+      "select": "first",
+      "note": "First letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "D",
+      "VERT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone turning away from a drinks commercial on television.",
+     "walkthrough": "Drink commercial reads as one phrase, but the definition is commercial alone.",
+     "definitionFit": "An advert is the British short form for an advertisement, such as a TV ad break spot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drink"
+    }
+   }
   },
   {
    "number": 16,
@@ -307,7 +1154,54 @@
      }
     ]
    },
-   "solution": "HAUNTEDHOUSE"
+   "solution": "HAUNTEDHOUSE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HAUNTED HOUSE",
+    "definitions": [
+     {
+      "text": "spooky location",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "developed",
+      "for": "anagram",
+      "note": "Developed suggests the words have been worked into a new form"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Use handout he",
+      "gives": "USEHANDOUTHE",
+      "note": "All three words used as they stand"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "USEHANDOUTHE",
+       "gives": "HAUNTEDHOUSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man produces a leaflet to advertise a creepy venue.",
+     "walkthrough": "Handout looks like a single meaningful noun; it is just fodder along with use and he.",
+     "definitionFit": "A building said to be visited by ghosts is the classic eerie place of ghost stories."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "handout"
+    }
+   }
   },
   {
    "number": 17,
@@ -321,7 +1215,47 @@
     "text": "Female relative not initially let loose?",
     "enumeration": "5"
    },
-   "solution": "UNTIE"
+   "solution": "UNTIE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "UNTIE",
+    "definitions": [
+     {
+      "text": "let loose?",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not initially",
+      "for": "deletion",
+      "note": "Not initially means the first letter of female relative is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Female relative",
+      "gives": "AUNTIE",
+      "note": "An aunt, informally"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNTIE"
+     ]
+    },
+    "explanation": {
+     "surface": "A female relative who at first was not allowed to run free.",
+     "walkthrough": "AUNTIE loses its A to give UNTIE; the question mark allows the loose definition.",
+     "definitionFit": "To undo knots or bonds is to free something that was tied down or held."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -335,7 +1269,51 @@
     "text": "Golf club missing top and side",
     "enumeration": "4"
    },
-   "solution": "EDGE"
+   "solution": "EDGE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EDGE",
+    "definitions": [
+     {
+      "text": "side",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "missing top",
+      "for": "deletion",
+      "note": "In a down clue the top is the first letter, which golf club loses"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Golf club",
+      "gives": "WEDGE",
+      "note": "A lofted iron for short shots"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EDGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A damaged golf club with its head and one side broken off.",
+     "walkthrough": "WEDGE loses its W. Golf club might suggest a clubhouse; it is the stick.",
+     "definitionFit": "The edge of something is its outer border or boundary, a flank."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "top"
+    }
+   }
   },
   {
    "number": 19,
@@ -349,7 +1327,42 @@
     "text": "Coffee seen in the middle of platter",
     "enumeration": "5"
    },
-   "solution": "LATTE"
+   "solution": "LATTE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "LATTE",
+    "definitions": [
+     {
+      "text": "Coffee",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "seen in the middle of",
+      "for": "hidden_word",
+      "note": "The answer is seen within the inner letters of platter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "platter",
+      "gives": "LATTE",
+      "note": "Drop the outer letters of the word"
+     }
+    ],
+    "explanation": {
+     "surface": "A cup of coffee placed at the centre of a serving tray.",
+     "walkthrough": "pLATTEr: the answer is the inside of the word.",
+     "definitionFit": "A latte is an espresso drink topped up with lots of steamed milk."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -363,7 +1376,46 @@
     "text": "Thrilled former partner gets referenced",
     "enumeration": "7"
    },
-   "solution": "EXCITED"
+   "solution": "EXCITED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXCITED",
+    "definitions": [
+     {
+      "text": "Thrilled",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "former partner",
+      "gives": "EX",
+      "note": "An ex is a former spouse or lover"
+     },
+     {
+      "clueFragment": "referenced",
+      "gives": "CITED",
+      "note": "To cite a source is to reference it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "CITED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone delighted to be mentioned by their former partner.",
+     "walkthrough": "Gets simply joins the two pieces, EX followed by CITED.",
+     "definitionFit": "Both words describe someone full of eager delight and enthusiasm."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -377,7 +1429,51 @@
     "text": "River starts to curve around mountain",
     "enumeration": "3"
    },
-   "solution": "CAM"
+   "solution": "CAM",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "CAM",
+    "definitions": [
+     {
+      "text": "River",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts to",
+      "for": "letter_selection",
+      "note": "Starts means the first letter of each following word is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "curve around mountain",
+      "gives": "CAM",
+      "select": "first",
+      "note": "Initial letters of the three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "A",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "A river beginning to bend its way round a mountain.",
+     "walkthrough": "The River Cam flows through Cambridge, England.",
+     "definitionFit": "The Cam is an English river, famous for punting past the Cambridge colleges."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "curve"
+    }
+   }
   },
   {
    "number": 22,
@@ -391,7 +1487,43 @@
     "text": "Regret street in Paris",
     "enumeration": "3"
    },
-   "solution": "RUE"
+   "solution": "RUE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RUE",
+    "definitions": [
+     {
+      "text": "Regret",
+      "at": 0
+     },
+     {
+      "text": "street in Paris",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Regret",
+      "gives": "RUE",
+      "note": "A literary verb for feeling sorry about something done"
+     },
+     {
+      "clueFragment": "street in Paris",
+      "gives": "RUE",
+      "note": "The French word for street"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "One English verb and one French noun that happen to be spelt alike.",
+     "definitionFit": "The verb means to feel sorrow over; the French noun names a road in a town."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -411,7 +1543,56 @@
      }
     ]
    },
-   "solution": "TOTEMPOLE"
+   "solution": "TOTEMPOLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TOTEM POLE",
+    "definitions": [
+     {
+      "text": "carving",
+      "at": 46
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "To",
+      "gives": "TO",
+      "note": "Used as it stands"
+     },
+     {
+      "clueFragment": "short-term worker",
+      "gives": "TEMP",
+      "note": "A temp is a temporary employee"
+     },
+     {
+      "clueFragment": "cry of appreciation",
+      "gives": "OLE",
+      "note": "The Spanish shout of approval, as at a bullfight"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "TEMP",
+      "OLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Cheering a temporary office worker for their sculpture.",
+     "walkthrough": "Short-term looks like it might mean abbreviate something; it is just part of the phrase for a temp.",
+     "definitionFit": "A tall wooden post carved with figures, made by peoples of the Pacific Northwest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "short-term"
+    }
+   }
   }
  ]
 }
