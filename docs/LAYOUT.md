@@ -481,6 +481,8 @@ tools/build_seo_pages.py                     one static page per puzzle, for sea
                                              unfurls
 tools/build_clue_joints.py                   measures clue_joints.json from published
                                              annotations; the nightly reruns it
+tools/build_fill_floors.py                   measures fill_floors.json from published answers;
+                                             the nightly reruns it
 tools/build_abbreviations.py                 publishes the abbreviations table to the browser
                                              as abbreviations.js, so the solver’s glossary
                                              can’t drift from the clue-writer’s
@@ -788,6 +790,9 @@ tools/data/README.md                         what in tools/data is committed, wh
 tools/data/clue_joints.json                  link words and reversal-axis words published clues
                                              use, measured by build_clue_joints.py and read by
                                              the authoring checks in validate_annotations.py
+tools/data/fill_floors.json                  grid_fill.py's clueability and familiarity floors
+                                             per entry length, the 25th percentile of published
+                                             answers, measured by build_fill_floors.py
 tools/data/abbreviations.json                standard abbreviations: every reading ten or more
                                              clues use, checked by build_abbreviations.py
                                              --check

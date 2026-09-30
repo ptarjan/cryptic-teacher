@@ -90,8 +90,10 @@ importance ranking. The score is used twice:
 
 1. **as an ordering**, so the backtracking search tries the best-hooked word
    first, and
-2. **as a floor** (`--min-clue`, `--min-familiarity`), so a word below it is not
-   a legal fill at all.
+2. **as a floor**, so a word below it is not a legal fill at all. Each entry
+   length has its own pair, measured from published answers (below);
+   `--min-clue` and `--min-familiarity` replace them with one floor for every
+   length.
 
 A human judges the result from the reported score distribution. Fills are
 ranked by their **worst** entry first, then their mean, because one unclueable
@@ -198,16 +200,18 @@ fills and keeps the best.
 
 If a grid will not fill, try these in order: `--seed`, `--fills`, `--restarts`,
 then a lower `--min-clue`. If you keep lowering the floor, the template is the
-problem, not the budget. A grid full of maximum-length entries is hard to fill:
-at the default floors only 38 of the 1,252 thirteen-letter words in the cache
-qualify. The current 13x13 has a longest entry of 7 and fills instantly.
+problem, not the budget.
 
-The default floors (`--min-clue 40 --min-familiarity 25`) were set by hand
-and do not vary with length. Published setters' answers fail them: 37% of
-the 4-letter answers in annotated puzzles pass, and 5% of the 13-letter
-ones. The median familiarity of a published answer is 14-21 at every length,
-below the floor of 25. Treat the floors as a style choice, not as what
-setters do.
+The default floors are per length, in `tools/data/fill_floors.json`:
+`tools/build_fill_floors.py` sets each at the 25th percentile of the
+clueability and of the familiarity of published single-word answers of that
+length, and the nightly rebuilds it. Both scores fall with length (a
+published 4-letter answer has a median clueability of 64, a 13-letter one 34),
+so one flat floor rejected most long answers: the old hand-set 40/25 passed
+45% of published 4-letter answers and 11% of 13-letter ones, and only 38 of
+the 1,252 thirteen-letter words in the cache. At the measured floors about
+60% of published answers pass at every length, and 488 thirteen-letter words
+qualify. `--min-clue 40 --min-familiarity 25` still gives the old fill.
 
 ## What blind grading found
 
