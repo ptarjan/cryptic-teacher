@@ -465,6 +465,16 @@ tools/solve_packet.py                        the clues and the grid’s crossing
 tools/solve_prompt.md                        the method the model follows
 tools/apply_solution.py                      writes a blind solve in only if every crossing
                                              letter agrees
+tools/solve_misses.py                        lists the graded misses no diagnosis has looked
+                                             at, packs one up for it, records the verdict, and
+                                             keeps each cold solve’s output until its key
+                                             arrives
+tools/solve_miss_prompt.md                   the prompt the nightly job follows for each graded
+                                             miss: name the mechanism, fix the class in the
+                                             solve prompt or the checker, or record that
+                                             nothing generalises
+tools/test_solve_misses.sh                   holds that each graded miss is pending until a
+                                             verdict is recorded, and never after
 
 building and checking the site
 tools/build_seo_pages.py                     one static page per puzzle, for search engines and
@@ -814,6 +824,9 @@ tools/fixtures/snitch_archive.html           a saved copy of the SNITCH's archiv
 tools/data/penguin_partial_fills/            answers from a Penguin-book solve that stopped
                                              short; the puzzle itself is filed unsolved for the
                                              nightly cold solve to finish
+tools/data/diagnosed_misses.json             every graded miss the nightly diagnosis has looked
+                                             at, with its verdict and what it changed, so none
+                                             is diagnosed twice
 tools/data/blind_misses.json                 which entries the last blind annotate run got
                                              wrong, the one blank check_every_clue_is_annotated
                                              will not fail on
