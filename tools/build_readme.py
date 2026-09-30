@@ -169,6 +169,7 @@ LAYOUT = [
     ("setting our own puzzles", "tools/build_lexicon.js", "extracts the fillable word list (rank, region, family, phonetics) from the lexicon"),
     ("setting our own puzzles", "tools/build_authored_puzzle.py", "merges a fill and its hand-written clues into a publishable puzzle file"),
     ("setting our own puzzles", "tools/test_build_authored_puzzle.sh", "builds A001 through the real write path into a scratch tree and holds it to the schema, the integrity checks and the annotation rules, since no corpus sweep ever sees it"),
+    ("setting our own puzzles", "tools/test_hidden_edges.sh", "holds the builder's refusal of a hidden answer that sits inside one word or starts or ends on a word boundary, forwards or reversed"),
 
     ("solving the puzzles whose answers aren’t published yet",
      "tools/solve_packet.py", "the clues and the grid’s crossing map, for a cold solve"),
@@ -270,6 +271,8 @@ LAYOUT = [
     ("finding out whether any of it is working", "tools/author_trial.py", "clue-writing trial: an isolated author writes five candidates per answer, a separate run picks one, grade_clues.py judges the picks"),
     ("finding out whether any of it is working", "tools/author_trial_author.md", "author_trial.py's author prompt: five candidate clues for one answer"),
     ("finding out whether any of it is working", "tools/author_trial_select.md", "author_trial.py's selector prompt: pick one clue per answer"),
+    ("finding out whether any of it is working", "tools/surface_judge.md", "author_trial.py's clue judge: is each clue a sentence a native speaker would say or write, and does it lean on nothing a general solver would look up"),
+    ("finding out whether any of it is working", "tools/test_surface_gate.sh", "proves author_trial.py refuses a candidate only when both clue-judge calls do, and, where claude is on PATH, that the judge refuses \"Hacks are on the stouts\" and the nerazzurri INTER and passes A001"),
     ("finding out whether any of it is working", "tools/grade_clues_judge.sh", "runs the blind judges over one round of grade_clues.py packets"),
     ("finding out whether any of it is working", "tools/grade_clues_judge.md", "the judge prompt grade_clues_judge.sh sends: rubric, then packets"),
     ("finding out whether any of it is working", "tools/score_grading.py", "joins the blind scores back to provenance: the ours-vs-human head-to-head"),

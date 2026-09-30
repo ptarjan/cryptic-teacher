@@ -128,6 +128,15 @@ definition is fair.
   whose second sense carries it in `features.misdirectedWord`. There is no joke
   quota. Tag a joke only if there is one; a tag with no joke behind it is worse
   than `null`.
+* **A hidden word crosses a space and starts and ends inside words**: chea-P
+  LEASE-s, not "Che apparel" (starts on a whole word) or "osprey" (one word).
+  The builder refuses the others.
+* **The answer must stand in for the definition exactly as said**, not as half
+  of a set or doubled phrase: "Don't cry!" is "there, there", never THERE.
+* **The surface is a real sentence** a native speaker would say or write. A
+  judge refuses telegrams and word salad ("Hacks are on the stouts").
+* **Nothing a general solver would look up**: no sports clubs or nicknames, no
+  foreign words, no trade or criminal slang ("peter" for a safe), no trivia.
 * Give `assembly` for anything a machine can check: `pieces` (the final chunks
   in answer order) for a charade, container or deletion; `anagrams` as
   `[{"fodder": ..., "gives": ...}]` for every anagram step; `reversals` as
