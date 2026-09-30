@@ -279,8 +279,12 @@ LAYOUT = [
     ("finding out whether any of it is working", "tools/favourite_grading.py", "blind matched pairs of a clue commenters named as a favourite against one from the same puzzle they did not, scored on the five rubric axes; the run finished null, so nothing downstream reads the scores"),
     ("finding out whether any of it is working", "tools/favourite_grading.sh", "grades those packets one claude -p per batch, skipping any batch whose score file already parses"),
     ("finding out whether any of it is working", "tools/favourite_grading_prompt.md", "what the judge is told each axis means"),
+    ("finding out whether any of it is working", "tools/ctc_transcripts.py", "reads Cracking the Cryptic solve transcripts, finds each praised or disliked clue, ties it to our annotated copy, and counts device and feature lift against the same puzzles"),
+    ("finding out whether any of it is working", "tools/ctc_reasons_prompt.md", "what the judge is told when naming why a solver reacted to a clue"),
     ("finding out whether any of it is working", "tools/compare_mc.py", "word-count and shape comparison of our hints against Minute Cryptic’s"),
 
+    ("tables everything else reads", "tools/data/ctc_moments.json", "every reaction ctc_transcripts.py found: video, puzzle, trigger words, a minute of transcript, and the clue it was tied to"),
+    ("tables everything else reads", "tools/data/ctc_reasons.json", "the judge's verdict, reasons and the solver's own words for each reacted-to clue"),
     ("tables everything else reads", "tools/series.py", "the one table of facts about each series: publisher, naming, URL shape"),
     ("tables everything else reads", "tools/kv.py", "the one helper for reaching the sync KV namespace through wrangler"),
     ("tables everything else reads", "tools/vote_tally_backfill.py", "rebuilds each puzzle's `t:` vote tally, which GET /v reads, from the raw `v:` vote keys"),
