@@ -465,6 +465,23 @@ button:disabled:hover { border-color: var(--line); }
 .milestones li.reached span { margin-left: auto; font-size: .8rem; }
 .milestones li.ahead { color: var(--muted); }
 .milestones li.ahead::before { content: "☆"; }
+.type-row, .shelf-row { display: flex; align-items: center; gap: 6px; margin: 3px 0; font-size: .82rem; }
+.type-label { width: 8.5em; }
+.type-track { flex: 1; height: 7px; border-radius: 4px; background: var(--line); overflow: hidden; }
+.type-fill { display: block; height: 100%; background: var(--sel); }
+.type-num { width: 6.5em; text-align: right; }
+.type-n { width: 2.5em; text-align: right; font-size: .75rem; }
+.type-row.few { color: var(--muted); }
+.type-row.weakest .type-label { font-weight: 700; }
+.shelf-row .badge { width: 7.5em; text-align: center; }
+.shelf-n { width: 8em; text-align: right; font-size: .75rem; color: var(--muted); }
+.year { display: block; width: 100%; height: auto; }
+.year rect { fill: var(--line); }
+.year rect.l1 { fill: var(--sel); fill-opacity: .3; }
+.year rect.l2 { fill: var(--sel); fill-opacity: .55; }
+.year rect.l3 { fill: var(--sel); fill-opacity: .8; }
+.year rect.l4 { fill: var(--sel); }
+.year rect.clean { stroke: var(--accent); stroke-width: 1.5; }
 
 /* Finishing the grid used to move one number in the scorebar from 27 to 28 —
    completing the grid deserves some celebration.
