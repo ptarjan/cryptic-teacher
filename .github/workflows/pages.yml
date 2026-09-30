@@ -22,8 +22,9 @@ permissions:
   pages: write
   id-token: write
 
-# One deploy at a time. cancel-in-progress must stay FALSE: a build here takes
-# 6-16 minutes and the annotation backfill pushes a commit per puzzle, so
+# One deploy at a time. cancel-in-progress must stay FALSE: a push takes about
+# 4 minutes to go live, far longer when many social cards are redrawn, and the
+# annotation backfill pushes a commit per puzzle, so
 # cancelling on every push meant no build ever reached the deploy step and the
 # site stopped updating while the corpus grew. There is no pile-up either way —
 # GitHub keeps only the newest PENDING run in a concurrency group and cancels
@@ -35,7 +36,8 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    # A build takes 6-16 minutes, longer when every social card is redrawn.
+    # A build takes about 3.5 minutes, up to ~15 more when a change redraws
+    # a full OG_LIMIT of social cards.
     # Without a cap a hung step holds the pages concurrency group, and so every
     # deploy behind it, for GitHub's 6 hours.
     timeout-minutes: 90
