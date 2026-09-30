@@ -476,7 +476,13 @@ run_claude() {
   # that names the blog, which annotate_check.py discloses only once the run is stuck.
   python3 tools/annotate_check.py --view "$tag" >/dev/null
   # Niced, with everything it runs: a wave shares this machine with the bridge.
+  # The instructions ride in the system prompt, where every run of a wave shares
+  # one cached prefix, instead of costing each run a turn to cat them. The git
+  # status that differs run to run moves out of it into the first message, or
+  # it would split that prefix.
   nice -n 19 claude -p "$prompt" "${sess[@]}" "${CLAUDE_HEADLESS[@]}" \
+    --append-system-prompt-file tools/annotate_prompt.md \
+    --exclude-dynamic-system-prompt-sections \
     --model "$MODEL" \
     --effort "$ANNOTATE_EFFORT" \
     --allowedTools "Read,Write,Edit,Bash(python3 *),Bash(node *),WebSearch,WebFetch" \
@@ -925,7 +931,7 @@ EOF
 
 # Not "Guardian crossword": since 2026-08-05 some of these are the
 # Independent's. The puzzle file records its own series and publisher.
-ANNOTATE_PROMPT="Annotate the crossword @ in this repo, whose clues and answers are in tools/_puzzle_@.json. Follow the instructions in tools/annotate_prompt.md exactly, including running 'python3 tools/annotate_check.py @' until it reports clean. Do not commit — the calling script commits."
+ANNOTATE_PROMPT="Annotate the crossword @ in this repo, whose clues and answers are in tools/_puzzle_@.json. Follow tools/annotate_prompt.md exactly (it is your system prompt's appendix; do not open the file), including running 'python3 tools/annotate_check.py @' until it reports clean. Do not commit — the calling script commits."
 
 # The prompt's Reference section, restated from the code that enforces it. Same
 # reason daily_update.sh does it: the run should not have to grep for a rule.
@@ -992,7 +998,7 @@ print(" ".join(n for n,_ in sorted(d.items(), key=lambda kv: kv[1])))' "$field")
       what="the one name from the clue's own \`type\` whose operation those words signal" ;;
     *) what="the field as tools/annotate_prompt.md describes it" ;;
   esac
-  prompt="In this repo, add the missing $name to every annotated clue in @PATH@ that lacks one. It is $what. Read tools/annotate_prompt.md and STYLE.md for the voice, and read an existing puzzle that already has the field so yours match. This is ADDITIVE: change nothing else, do not rewrite existing hints, types, indicator texts or assembly. Run python3 tools/annotate_check.py @ until it reports clean. Do not commit — the calling script commits."
+  prompt="In this repo, add the missing $name to every annotated clue in @PATH@ that lacks one. It is $what. tools/annotate_prompt.md (appended to your system prompt) and STYLE.md set the voice, and read an existing puzzle that already has the field so yours match. This is ADDITIVE: change nothing else, do not rewrite existing hints, types, indicator texts or assembly. Run python3 tools/annotate_check.py @ until it reports clean. Do not commit — the calling script commits."
   queue=($nums)
   at=0
   while [ "$at" -lt "${#queue[@]}" ]; do
