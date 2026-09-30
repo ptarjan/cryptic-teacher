@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,67 @@
     "text": "24, extremely late after period of 20 hours?",
     "enumeration": "7"
    },
-   "solution": "MONDALE"
+   "solution": "MONDALE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "MONDALE",
+    "definitions": [
+     {
+      "text": "24",
+      "at": 0,
+      "note": "24 is VICE, read here as vice-president"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "of 20 hours?",
+      "for": "deletion",
+      "note": "twenty hours is only five-sixths of a full day, so the day word loses a sixth of its letters"
+     },
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two ends, so only its outermost letters are kept"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "period",
+      "gives": "MONDA",
+      "note": "Monday is a day-long period; cut to five of its six letters it matches a 20-hour stretch"
+     },
+     {
+      "clueFragment": "late",
+      "gives": "LE",
+      "select": "outer",
+      "note": "the first and last letters of 'late'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MONDA",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone turns up very late after a gruelling twenty-hour shift.",
+     "walkthrough": "The theme answer 24 is VICE, and several clues use it for US vice-presidents. The question mark flags the arithmetic: 20 of 24 hours is 5 of the 6 letters of MONDAY, and LE follows ('after').",
+     "definitionFit": "Walter Mondale served as vice-president of the United States under Jimmy Carter from 1977 to 1981."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "period"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +110,62 @@
     "text": "Venom in cobras initially collected by boy, say?",
     "enumeration": "6"
    },
-   "solution": "MALICE"
+   "solution": "MALICE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "MALICE",
+    "definitions": [
+     {
+      "text": "Venom",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "'initially' means at the start, so each word gives up only its opening letter"
+     },
+     {
+      "text": "collected by",
+      "for": "container",
+      "note": "whatever is collected is gathered up and held, so one piece ends up inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boy, say",
+      "gives": "MALE",
+      "note": "a boy is an example of a male, hence 'say'"
+     },
+     {
+      "clueFragment": "in cobras",
+      "gives": "IC",
+      "select": "first",
+      "note": "first letters of 'in' and 'cobras'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAL",
+      "IC",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Cobra venom being gathered up by a boy, perhaps at a snake farm.",
+     "walkthrough": "'in' looks like a container signal but is one of the two words whose first letters are taken; the containment comes from 'collected by'.",
+     "definitionFit": "Venom in its figurative sense is spiteful ill will, which is exactly what malice describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +185,78 @@
      }
     ]
    },
-   "solution": "NOMORE"
+   "solution": "NOMORE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container",
+     "reversal"
+    ],
+    "answer": "NO MORE",
+    "definitions": [
+     {
+      "text": "departed",
+      "at": 60
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abandoning",
+      "for": "deletion",
+      "note": "to abandon something is to leave it behind, so those letters are dropped"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one item placed in another sits inside it"
+     },
+     {
+      "text": "on the rise",
+      "for": "reversal",
+      "note": "in a down entry, rising means reading from the bottom up, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "African country",
+      "gives": "CAMEROON",
+      "note": "the West African country"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "CAM",
+      "note": "the Cam is the river through Cambridge"
+     },
+     {
+      "clueFragment": "A thousand",
+      "gives": "M",
+      "note": "M is the Roman numeral for a thousand"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "M",
+      "ORE"
+     ],
+     "reversals": [
+      {
+       "from": "EROMON",
+       "to": "NOMORE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Money spent in an African country after leaving a river, then gone for good.",
+     "walkthrough": "'river' is not a waterway in the country but a name to be removed from it: the Cam of Cambridge happens to begin the country's name.",
+     "definitionFit": "Something no more has ceased to exist, which is one sense of departed, as in the dear departed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "river"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +270,64 @@
     "text": "Sign reader lost, ergo a lost traveller, ultimately",
     "enumeration": "10"
    },
-   "solution": "ASTROLOGER"
+   "solution": "ASTROLOGER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "ASTROLOGER",
+    "definitions": [
+     {
+      "text": "Sign reader",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lost",
+      "for": "anagram",
+      "note": "something lost has wandered from its proper place, so the letters are out of order"
+     },
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "'ultimately' means in the end, so only the final letter of the word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ergo a lost",
+      "gives": "ERGOALOST",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "traveller",
+      "gives": "R",
+      "select": "last",
+      "note": "last letter of 'traveller'"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ERGOALOSTR",
+       "gives": "ASTROLOGER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A reader of road signs is lost, and so, therefore, is the traveller relying on him.",
+     "walkthrough": "The first 'lost' is the anagram signal; the second is part of the letters to be mixed, along with the last letter of 'traveller'.",
+     "definitionFit": "An astrologer interprets the zodiac signs, so a reader of star signs rather than road signs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Sign"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +341,53 @@
     "text": "Slight mistake: all of Saudi Arabian conclusions",
     "enumeration": "5"
    },
-   "solution": "ELFIN"
+   "solution": "ELFIN",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ELFIN",
+    "definitions": [
+     {
+      "text": "Slight",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "conclusions",
+      "for": "letter_selection",
+      "note": "a conclusion is an ending, so each word contributes just its closing letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mistake: all of Saudi Arabian",
+      "gives": "ELFIN",
+      "select": "last",
+      "note": "last letters of the five words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "L",
+      "F",
+      "I",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A small error: every conclusion the Saudis reached was wrong.",
+     "walkthrough": "The colon suggests 'Slight mistake' is one phrase, but 'Slight' alone is the definition and 'mistake' is the first of the five words.",
+     "definitionFit": "Elfin describes a small, delicate build like an elf's, so it is a synonym of slight."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mistake"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +401,55 @@
     "text": "Project concealing road defect",
     "enumeration": "7"
    },
-   "solution": "FAILING"
+   "solution": "FAILING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FAILING",
+    "definitions": [
+     {
+      "text": "defect",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "concealing",
+      "for": "container",
+      "note": "to conceal is to hide something within, so one piece wraps around another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Project",
+      "gives": "FLING",
+      "note": "to fling is to project or hurl"
+     },
+     {
+      "clueFragment": "road",
+      "gives": "AI",
+      "note": "the A1 is Britain's longest numbered road, written AI in crosswords"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "AI",
+      "LING"
+     ]
+    },
+    "explanation": {
+     "surface": "A building project that is hiding a flaw in the road surface.",
+     "walkthrough": "'Project' reads as a noun but works as a verb, to throw. The A1 is the main road from London to Edinburgh; the digit 1 is written as the letter I.",
+     "definitionFit": "A failing is a weakness or shortcoming in character or design, which is a defect."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Project"
+    }
+   }
   },
   {
    "number": 5,
@@ -129,7 +469,51 @@
      }
     ]
    },
-   "solution": "FIREDRILL"
+   "solution": "FIREDRILL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FIRE DRILL",
+    "definitions": [
+     {
+      "text": "safety procedure",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shoot",
+      "gives": "FIRE",
+      "note": "to shoot a gun is to fire it"
+     },
+     {
+      "clueFragment": "monkey",
+      "gives": "DRILL",
+      "note": "the drill is a West African baboon, related to the mandrill"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FIRE",
+      "DRILL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone shooting a monkey during a safety exercise.",
+     "walkthrough": "'in' looks like a container signal, but nothing goes inside anything; it simply joins wordplay to definition.",
+     "definitionFit": "A practice evacuation of a building is the standard safety exercise against fire."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "monkey"
+    }
+   }
   },
   {
    "number": 6,
@@ -143,7 +527,65 @@
     "text": "One put on gravy, but not to bird",
     "enumeration": "4"
    },
-   "solution": "IBIS"
+   "solution": "IBIS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "IBIS",
+    "definitions": [
+     {
+      "text": "bird",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "but not",
+      "for": "deletion",
+      "note": "'but not' excludes something, so the named letters are taken away"
+     },
+     {
+      "text": "put on",
+      "for": "charade",
+      "note": "in a down entry, what is put on something sits above it, so it comes first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "gravy",
+      "gives": "BISTO",
+      "note": "Bisto is a long-established British brand of gravy granules"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "BIS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone pours gravy on something, though not onto the roast bird.",
+     "walkthrough": "Bisto is the famous British brand of gravy granules, so 'gravy' here is a trade name rather than a sauce.",
+     "definitionFit": "The ibis is a long-legged wading bird with a downcurved bill, sacred in ancient Egypt."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "gravy"
+    }
+   }
   },
   {
    "number": 7,
@@ -157,7 +599,82 @@
     "text": "Pampers: sticky glue in diapers emptied",
     "enumeration": "8"
    },
-   "solution": "INDULGES"
+   "solution": "INDULGES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "INDULGES",
+    "definitions": [
+     {
+      "text": "Pampers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "emptied",
+      "for": "letter_selection",
+      "note": "an emptied word has lost its contents, so only its outer letters remain"
+     },
+     {
+      "text": "sticky",
+      "for": "anagram",
+      "note": "a sticky situation is an awkward mess, so these letters are messed about"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "a thing put in another sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written; it also places the mixed letters"
+     },
+     {
+      "clueFragment": "diapers",
+      "gives": "DS",
+      "select": "outer",
+      "note": "the first and last letters of 'diapers'"
+     },
+     {
+      "clueFragment": "glue",
+      "gives": "GLUE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "D",
+      "ULGE",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GLUE",
+       "gives": "ULGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An advert for Pampers nappies, boasting sticky tabs and emptied diapers.",
+     "walkthrough": "Pampers is a nappy brand, which suits 'diapers' in the surface, but the definition is the verb. The mixed-up GLUE goes into IN plus DS.",
+     "definitionFit": "To pamper someone is to spoil them with luxury, so pampers is a synonym of indulges."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Pampers"
+    }
+   }
   },
   {
    "number": 8,
@@ -171,7 +688,56 @@
     "text": "Passages mob considers, recited",
     "enumeration": "8"
    },
-   "solution": "GANGWAYS"
+   "solution": "GANGWAYS",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "GANGWAYS",
+    "definitions": [
+     {
+      "text": "Passages",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "recited",
+      "for": "homophone",
+      "note": "something recited is spoken out, so it is the pronunciation that counts, not the spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mob",
+      "gives": "GANG",
+      "note": "a mob is a gang"
+     },
+     {
+      "clueFragment": "considers",
+      "gives": "WAYS",
+      "soundsLike": "WEIGHS",
+      "note": "to weigh something up is to consider it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GANG",
+      "WAYS"
+     ]
+    },
+    "explanation": {
+     "surface": "A crowd weighing up a set of passages read out to it.",
+     "walkthrough": "'Passages' suggests texts to be recited, but it means corridors or aisles.",
+     "definitionFit": "Gangways are narrow walkways or aisles, such as those between seats or onto a ship, so passages."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Passages"
+    }
+   }
   },
   {
    "number": 9,
@@ -185,7 +751,55 @@
     "text": "Bound books, note inside",
     "enumeration": "5"
    },
-   "solution": "LIMIT"
+   "solution": "LIMIT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LIMIT",
+    "definitions": [
+     {
+      "text": "Bound",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "'inside' places one thing within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "books",
+      "gives": "LIT",
+      "note": "LIT is short for literature, a body of books"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "MI",
+      "note": "mi is the third note of the sol-fa scale"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LI",
+      "MI",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A set of bound books with a note tucked inside.",
+     "walkthrough": "'Bound books' reads as one phrase about bookbinding, but 'Bound' is the definition, a noun meaning boundary.",
+     "definitionFit": "A bound, as in out of bounds, is a boundary or limit beyond which one may not go."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bound"
+    }
+   }
   },
   {
    "number": 10,
@@ -199,7 +813,65 @@
     "text": "Democrat in backing 24, out of bounds",
     "enumeration": "9"
    },
-   "solution": "FORBIDDEN"
+   "solution": "FORBIDDEN",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "FORBIDDEN",
+    "definitions": [
+     {
+      "text": "out of bounds",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one item placed in another sits inside it"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "backing",
+      "gives": "FOR",
+      "note": "to back a cause is to be for it"
+     },
+     {
+      "clueFragment": "24",
+      "gives": "BIDEN",
+      "note": "24 is VICE; Joe Biden was vice-president under Barack Obama"
+     },
+     {
+      "clueFragment": "Democrat",
+      "gives": "D",
+      "note": "D is the abbreviation for a US Democrat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOR",
+      "BID",
+      "D",
+      "EN"
+     ]
+    },
+    "explanation": {
+     "surface": "A Democrat supporting a vice-president finds himself out of bounds.",
+     "walkthrough": "'backing' suggests a reversal but here simply means supporting. The vice-president in question is himself a Democrat, which makes the surface apt.",
+     "definitionFit": "Out of bounds is an idiom for a place or topic that is not permitted, which is what forbidden means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "backing"
+    }
+   }
   },
   {
    "number": 11,
@@ -213,7 +885,67 @@
     "text": "Bill's encapsulated by combination of corn and bean stew",
     "enumeration": "10"
    },
-   "solution": "CARBONNADE"
+   "solution": "CARBONNADE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "CARBONNADE",
+    "definitions": [
+     {
+      "text": "stew",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "encapsulated by",
+      "for": "container",
+      "note": "a capsule encloses its contents, so one piece is wrapped by the other"
+     },
+     {
+      "text": "combination of",
+      "for": "anagram",
+      "note": "a combination mixes things together, so the letters are blended into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "corn and bean",
+      "gives": "CORNBEAN",
+      "note": "the two words taken together; 'and' just joins them"
+     },
+     {
+      "clueFragment": "Bill",
+      "gives": "AD",
+      "note": "a bill is a poster or advertisement, AD for short"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CARBONN",
+      "AD",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CORNBEAN",
+       "gives": "CARBONNE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dish of corn and beans wrapped around an ingredient called Bill.",
+     "walkthrough": "'Bill's' is 'bill is'; AD goes inside the mixed letters of CORN and BEAN, near the end.",
+     "definitionFit": "Carbonnade is a Belgian beef stew braised in beer with onions, the classic Flemish example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bill"
+    }
+   }
   },
   {
    "number": 12,
@@ -227,7 +959,45 @@
     "text": "By the sound of it, puzzle 5 across",
     "enumeration": "4"
    },
-   "solution": "FLAW"
+   "solution": "FLAW",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "FLAW",
+    "definitions": [
+     {
+      "text": "5 across",
+      "at": 27,
+      "note": "5 across is FAILING, used as a noun"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "By the sound of it",
+      "for": "homophone",
+      "note": "the phrase asks the solver to judge by the ear, so pronunciation matters rather than spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "puzzle",
+      "gives": "FLAW",
+      "soundsLike": "FLOOR",
+      "note": "to floor someone is to baffle or puzzle them"
+     }
+    ],
+    "explanation": {
+     "surface": "A puzzle judged by how it sounds reading 5 across.",
+     "walkthrough": "In non-rhotic British speech FLOOR and the answer sound alike. 'puzzle' is a verb, as in to stump.",
+     "definitionFit": "A failing is a weakness or imperfection, and a flaw is exactly such a defect."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "puzzle"
+    }
+   }
   },
   {
    "number": 13,
@@ -247,7 +1017,45 @@
      }
     ]
    },
-   "solution": "HAIRRAISER"
+   "solution": "HAIRRAISER",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "HAIR-RAISER",
+    "definitions": [
+     {
+      "text": "Terrifying thing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "did you say?",
+      "for": "homophone",
+      "note": "asking what was said points to speech, so only the sound of the words counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that may skin something like a rabbit",
+      "gives": "HAIRRAISER",
+      "soundsLike": "HARE RAZOR",
+      "note": "a razor for a hare, an animal much like a rabbit"
+     }
+    ],
+    "explanation": {
+     "surface": "A frightening blade for skinning rabbits, as the listener seems to have heard.",
+     "walkthrough": "A hare is a rabbit-like animal and a razor could skin it, so HARE RAZOR is what is said aloud.",
+     "definitionFit": "A hair-raiser is a thriller or scary experience, named for hair standing on end with fear."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "skin"
+    }
+   }
   },
   {
    "number": 14,
@@ -261,7 +1069,51 @@
     "text": "Noisy battle developing in stubborn manner",
     "enumeration": "11"
    },
-   "solution": "OBSTINATELY"
+   "solution": "OBSTINATELY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OBSTINATELY",
+    "definitions": [
+     {
+      "text": "in stubborn manner",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "developing",
+      "for": "anagram",
+      "note": "something developing is changing its form, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Noisy battle",
+      "gives": "NOISYBATTLE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NOISYBATTLE",
+       "gives": "OBSTINATELY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A loud battle that is being fought with stubborn determination.",
+     "walkthrough": "'Noisy' reads as a description of the battle, but both words are simply the letters to be mixed.",
+     "definitionFit": "Obstinate is a synonym of stubborn, and the adverb describes acting in that unyielding manner."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Noisy"
+    }
+   }
   },
   {
    "number": 15,
@@ -275,7 +1127,56 @@
     "text": "Old herbivore wiggling ears with gusto",
     "enumeration": "9"
    },
-   "solution": "STEGOSAUR"
+   "solution": "STEGOSAUR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STEGOSAUR",
+    "definitions": [
+     {
+      "text": "Old herbivore",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wiggling",
+      "for": "anagram",
+      "note": "wiggling things are jiggled about, so their letters move into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ears",
+      "gives": "EARS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "gusto",
+      "gives": "GUSTO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "EARSGUSTO",
+       "gives": "STEGOSAUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly plant-eater, perhaps a donkey, enthusiastically waggling its ears.",
+     "walkthrough": "'with' just joins the two words being mixed. 'Old' means prehistoric rather than elderly.",
+     "definitionFit": "The stegosaur was a plated plant-eating dinosaur of the Jurassic period, so an ancient herbivore."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Old"
+    }
+   }
   },
   {
    "number": 16,
@@ -295,7 +1196,62 @@
      }
     ]
    },
-   "solution": "GREENTEA"
+   "solution": "GREENTEA",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "GREEN TEA",
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to feed",
+      "for": "container",
+      "note": "food fed to someone goes inside them, so one piece is put into another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "author",
+      "gives": "GREENE",
+      "note": "Graham Greene, the English novelist"
+     },
+     {
+      "clueFragment": "Time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GREEN",
+      "T",
+      "E",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "It is time to give a writer something to drink.",
+     "walkthrough": "The surface reads 'Time to feed' as 'it is time to', but the T is fed into GREENE, with A added at the end.",
+     "definitionFit": "Green tea is an unfermented tea popular in East Asia, brewed and served as a drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Time"
+    }
+   }
   },
   {
    "number": 17,
@@ -309,7 +1265,56 @@
     "text": "Part of the mind hampered by stress — that's unfortunate",
     "enumeration": "8"
    },
-   "solution": "ACCIDENT"
+   "solution": "ACCIDENT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ACCIDENT",
+    "definitions": [
+     {
+      "text": "that's unfortunate",
+      "at": 38,
+      "note": "the phrase stands for a noun: something unfortunate"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hampered by",
+      "for": "container",
+      "note": "a hamper is a lidded basket, so one piece is packed inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stress",
+      "gives": "ACCENT",
+      "note": "an accent is stress on a syllable"
+     },
+     {
+      "clueFragment": "Part of the mind",
+      "gives": "ID",
+      "note": "in Freud's model the id is the instinctive part of the psyche"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ACC",
+      "ID",
+      "ENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A troubled mind held back by stress, which is a shame.",
+     "walkthrough": "'hampered' sounds like hindered, but a hamper is also a basket, which holds things.",
+     "definitionFit": "An accident is a mishap, an unlucky event that happens without intent, so something unfortunate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "hampered"
+    }
+   }
   },
   {
    "number": 18,
@@ -323,7 +1328,57 @@
     "text": "24, English man on pitch",
     "enumeration": "11"
    },
-   "solution": "ROCKEFELLER"
+   "solution": "ROCKEFELLER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ROCKEFELLER",
+    "definitions": [
+     {
+      "text": "24",
+      "at": 0,
+      "note": "24 is VICE, read here as vice-president"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pitch",
+      "gives": "ROCK",
+      "note": "a ship pitches and rocks at sea"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "man",
+      "gives": "FELLER",
+      "note": "feller is a colloquial spelling of fellow, a man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROCK",
+      "E",
+      "FELLER"
+     ]
+    },
+    "explanation": {
+     "surface": "An Englishman out on the cricket or football pitch.",
+     "walkthrough": "'pitch' suggests a playing field but is the verb for a ship lurching; 'on' means the rest follows it in an across entry.",
+     "definitionFit": "Nelson Rockefeller served as vice-president of the United States under Gerald Ford in the 1970s."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "pitch"
+    }
+   }
   },
   {
    "number": 19,
@@ -337,7 +1392,46 @@
     "text": "24 listening to shrink",
     "enumeration": "6"
    },
-   "solution": "QUAYLE"
+   "solution": "QUAYLE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "QUAYLE",
+    "definitions": [
+     {
+      "text": "24",
+      "at": 0,
+      "note": "24 is VICE, read here as vice-president"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "listening to",
+      "for": "homophone",
+      "note": "listening attends to the ear, so the answer is found by sound, not spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shrink",
+      "gives": "QUAYLE",
+      "soundsLike": "QUAIL",
+      "note": "to quail is to shrink back in fear"
+     }
+    ],
+    "explanation": {
+     "surface": "A vice-president in therapy, listening to his psychiatrist.",
+     "walkthrough": "'shrink' suggests a psychiatrist, but it is the verb, to cower.",
+     "definitionFit": "Dan Quayle served as vice-president of the United States under George H. W. Bush."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "shrink"
+    }
+   }
   },
   {
    "number": 20,
@@ -351,7 +1445,60 @@
     "text": "Everywhere, 24 pinching himself?",
     "enumeration": "6"
    },
-   "solution": "GALORE"
+   "solution": "GALORE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GALORE",
+    "definitions": [
+     {
+      "text": "Everywhere",
+      "at": 0,
+      "note": "adverb meaning in abundance; the answer follows its noun"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pinching",
+      "for": "container",
+      "note": "to pinch is to grip between fingers, so one piece holds another"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "24",
+      "gives": "GORE",
+      "note": "24 is VICE; Al Gore was vice-president under Bill Clinton"
+     },
+     {
+      "clueFragment": "himself",
+      "gives": "AL",
+      "note": "the man himself is Al, Gore's first name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "AL",
+      "ORE"
+     ]
+    },
+    "explanation": {
+     "surface": "A vice-president pinching himself everywhere, perhaps to check he is awake.",
+     "walkthrough": "'himself' refers back to the vice-president, so it gives his own first name, AL, placed inside the surname.",
+     "definitionFit": "Something found galore is in great abundance, turning up all over the place."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "himself"
+    }
+   }
   },
   {
    "number": 21,
@@ -365,7 +1512,55 @@
     "text": "24 last to return",
     "enumeration": "4"
    },
-   "solution": "EVIL"
+   "solution": "EVIL",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "EVIL",
+    "definitions": [
+     {
+      "text": "24",
+      "at": 0,
+      "note": "24 is VICE, read here as wickedness"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to return",
+      "for": "reversal",
+      "note": "returning goes back the way it came, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "last",
+      "gives": "LIVE",
+      "note": "to last is to live on or survive"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVIL"
+     ],
+     "reversals": [
+      {
+       "from": "LIVE",
+       "to": "EVIL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vice-president is the last one to come back.",
+     "walkthrough": "After three vice-presidents, 24 here means VICE in its other sense of wickedness.",
+     "definitionFit": "Vice is immoral or wicked behaviour, and evil is a near synonym for such wickedness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "last"
+    }
+   }
   },
   {
    "number": 22,
@@ -379,7 +1574,56 @@
     "text": "Embellished passage actual, or doubly fanciful",
     "enumeration": "10"
    },
-   "solution": "COLORATURA"
+   "solution": "COLORATURA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "COLORATURA",
+    "definitions": [
+     {
+      "text": "Embellished passage",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fanciful",
+      "for": "anagram",
+      "note": "fanciful means imaginative and fantastical, so the letters are freely reimagined"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "actual",
+      "gives": "ACTUAL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "or doubly",
+      "gives": "OROR",
+      "note": "'or' taken twice, as 'doubly' says"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ACTUALOROR",
+       "gives": "COLORATURA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Deciding whether a decorated passage of text is real or doubly imaginary.",
+     "walkthrough": "'doubly' tells you to use 'or' twice; the two ORs and ACTUAL make the ten letters.",
+     "definitionFit": "Coloratura is elaborate ornamentation in vocal music, runs and trills in a sung passage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "actual"
+    }
+   }
   },
   {
    "number": 23,
@@ -393,7 +1637,47 @@
     "text": "Working class beginning",
     "enumeration": "5"
    },
-   "solution": "ONSET"
+   "solution": "ONSET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ONSET",
+    "definitions": [
+     {
+      "text": "beginning",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Working",
+      "gives": "ON",
+      "note": "a machine that is on is working"
+     },
+     {
+      "clueFragment": "class",
+      "gives": "SET",
+      "note": "a set is a class or group, as in a school set"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ON",
+      "SET"
+     ]
+    },
+    "explanation": {
+     "surface": "The start of the working class, as a social history might put it.",
+     "walkthrough": "'Working class' reads as one social term but splits into two separate pieces.",
+     "definitionFit": "The onset of something is its start, as in the onset of winter or of an illness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "class"
+    }
+   }
   },
   {
    "number": 24,
@@ -407,7 +1691,42 @@
     "text": "Tool 5 across",
     "enumeration": "4"
    },
-   "solution": "VICE"
+   "solution": "VICE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "VICE",
+    "definitions": [
+     {
+      "text": "Tool",
+      "at": 0
+     },
+     {
+      "text": "5 across",
+      "at": 5,
+      "note": "5 across is FAILING, a noun"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tool",
+      "note": "first meaning: a clamp for holding work steady on a bench"
+     },
+     {
+      "clueFragment": "5 across",
+      "note": "second meaning: a moral weakness or bad habit"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "This is the key to the puzzle's theme: its answer is reused as vice-president, and as wickedness, in other clues. The American spelling of the tool is vise.",
+     "definitionFit": "A bench clamp is spelt this way in British English, and a moral weakness or bad habit is also called a failing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -427,7 +1746,85 @@
      }
     ]
    },
-   "solution": "THERIVALS"
+   "solution": "THERIVALS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container",
+     "reversal",
+     "charade"
+    ],
+    "answer": "THE RIVALS",
+    "definitions": [
+     {
+      "text": "play",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "something cut short has lost its end, so the last letter goes"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "a thing placed in another sits inside it"
+     },
+     {
+      "text": "revolutionary",
+      "for": "reversal",
+      "note": "a revolution turns things round, so the letters are read backwards"
+     },
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "what follows comes after, so this piece is placed at the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "this",
+      "gives": "THI",
+      "note": "'this' with its last letter cut"
+     },
+     {
+      "clueFragment": "queen",
+      "gives": "ER",
+      "note": "ER, Elizabeth Regina, is the Queen"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "SLAV",
+      "note": "a Slav is a European of Slavic stock"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TH",
+      "ER",
+      "I",
+      "VALS"
+     ],
+     "reversals": [
+      {
+       "from": "SLAV",
+       "to": "VALS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A European rebel appearing after the queen in a brief stage piece.",
+     "walkthrough": "'short play' looks like the definition, but 'short' belongs to the wordplay and trims 'this'. ER, Elizabeth Regina, is the crossword's usual queen.",
+     "definitionFit": "The Rivals is Richard Brinsley Sheridan's 1775 comedy of manners, home of Mrs Malaprop."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "revolutionary"
+    }
+   }
   },
   {
    "number": 26,
@@ -447,7 +1844,43 @@
      }
     ]
    },
-   "solution": "SAYSO"
+   "solution": "SAYSO",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SAY-SO",
+    "definitions": [
+     {
+      "text": "Authority",
+      "at": 0
+     },
+     {
+      "text": "to get broadcast?",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Authority",
+      "note": "first meaning: the power to decide or permit"
+     },
+     {
+      "clueFragment": "to get broadcast?",
+      "note": "second meaning, read as two words: to put something into words publicly"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Read as a phrase, the second part is the verb 'say so', to announce; the question mark flags the loose fit.",
+     "definitionFit": "Someone's say-so is their permission or command, and to say so is to state a thing out loud."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 27,
@@ -461,7 +1894,82 @@
     "text": "Aardvark — this beast originally coming in close behind start of alphabet",
     "enumeration": "7"
    },
-   "solution": "ANTBEAR"
+   "solution": "ANTBEAR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "ANTBEAR",
+    "definitions": [
+     {
+      "text": "Aardvark",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "'originally' means in the first place, so each word gives up its opening letter"
+     },
+     {
+      "text": "start of",
+      "for": "letter_selection",
+      "note": "the start of a word is its first letter, which alone is kept"
+     },
+     {
+      "text": "coming in",
+      "for": "container",
+      "note": "arriving in something means ending up inside it"
+     },
+     {
+      "text": "behind",
+      "for": "charade",
+      "note": "what is behind comes after, so this piece is placed second"
+     }
+    ],
+    "linkWords": [
+     "—"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "alphabet",
+      "gives": "A",
+      "select": "first",
+      "note": "the first letter of 'alphabet'"
+     },
+     {
+      "clueFragment": "close",
+      "gives": "NEAR",
+      "note": "close by means near"
+     },
+     {
+      "clueFragment": "this beast",
+      "gives": "TB",
+      "select": "first",
+      "note": "first letters of 'this' and 'beast'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AN",
+      "TB",
+      "EAR"
+     ]
+    },
+    "explanation": {
+     "surface": "The aardvark, a beast that comes near the start of any alphabet book.",
+     "walkthrough": "'close' is an adjective, nearby, not the verb to shut. The surface nods to the aardvark heading many dictionaries.",
+     "definitionFit": "Antbear is another name for the aardvark, the African burrowing mammal that feeds on ants and termites."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "close"
+    }
+   }
   },
   {
    "number": 28,
@@ -475,7 +1983,58 @@
     "text": "Mundane letters from listener (retired), sent back",
     "enumeration": "7"
    },
-   "solution": "TERRENE"
+   "solution": "TERRENE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "TERRENE",
+    "definitions": [
+     {
+      "text": "Mundane",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "letters from",
+      "for": "hidden_word",
+      "note": "taking letters from a run of words means the answer is a stretch lifted out of them"
+     },
+     {
+      "text": "sent back",
+      "for": "reversal",
+      "note": "what is sent back travels the opposite way, so it is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "listener (retired)",
+      "gives": "ENERRET",
+      "note": "consecutive letters spanning the two words"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "ENERRET",
+       "to": "TERRENE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Dull correspondence from a retired listener, returned to sender.",
+     "walkthrough": "'letters' suggests correspondence, but it means characters taken from the text; they run across the two words and are then reversed.",
+     "definitionFit": "Terrene means earthly, of this world, which matches mundane in its literal worldly sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "letters"
+    }
+   }
   }
  ]
 }
