@@ -11,7 +11,8 @@ and deletes FILE. Many clues' fixes are one Write and this one command, not a
 fix script, which these runs cannot get approved.
 
 An entry the _ann file has no key for is filled in as null (not done yet), so
-a file written a few clues at a time applies as it stands.
+a file written a few clues at a time applies as it stands, and an `answer`
+typed with the enumeration's commas is respelt with spaces.
 
 Applies tools/_ann_<ID>.json, validates, runs both audit tools, syntax-checks
 the file and refreshes the index — and prints one report with a count at the
@@ -233,6 +234,26 @@ def fill_missing(path, pending):
     return missing
 
 
+def respell_answers(pending):
+    """Rewrite each `answer` typed with the enumeration's commas ("TITUS,
+    ANDRONICUS") in display form, spaced; the entry ids changed.
+
+    The comma is the enumeration's word break, and the letter strip counts it
+    as a square; the separator check then fails on a fix no judgement goes into."""
+    try:
+        ann = json.loads(pending.read_text(encoding="utf-8"))
+    except ValueError:
+        return []
+    changed = []
+    for eid, a in (ann.items() if isinstance(ann, dict) else ()):
+        if isinstance(a, dict) and isinstance(a.get("answer"), str) and "," in a["answer"]:
+            a["answer"] = re.sub(r"\s*,\s*", " ", a["answer"]).strip()
+            changed.append(eid)
+    if changed:
+        pending.write_text(json.dumps(ann, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    return changed
+
+
 def preview(path, pending):
     """(errors, warnings) the validator would give once `pending` applied.
 
@@ -300,6 +321,10 @@ def main(argv):
         print(f"merged {patched} into {pending.name} and deleted it\n")
 
     if pending.exists():
+        spaced = respell_answers(pending)
+        if spaced:
+            print(f"answers written with commas, now spaced in {pending.name}: "
+                  f"{', '.join(spaced)}\n")
         filled = fill_missing(path, pending)
         if filled:
             print(f"{pending.name} had no key for {', '.join(filled)}: filled in as null "
