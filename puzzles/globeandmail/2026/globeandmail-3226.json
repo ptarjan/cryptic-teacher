@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -39,7 +42,50 @@
      }
     ]
    },
-   "solution": "OPTOUT"
+   "solution": "OPTOUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OPT OUT",
+    "definitions": [
+     {
+      "text": "Decline to participate",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "operation",
+      "gives": "OP",
+      "note": "OP is the standard short form of operation, as in a military or surgical op"
+     },
+     {
+      "clueFragment": "seller",
+      "gives": "TOUT",
+      "note": "a tout is someone who sells, often tickets at inflated prices"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OP",
+      "TOUT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone refuses to take part in a sales operation.",
+     "walkthrough": "The word 'with' simply sets the seller beside the operation.",
+     "definitionFit": "To opt out is the idiomatic phrasal verb for choosing not to join something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "operation"
+    }
+   }
   },
   {
    "number": 1,
@@ -53,7 +99,47 @@
     "text": "Protest’s goal",
     "enumeration": "6"
    },
-   "solution": "OBJECT"
+   "solution": "OBJECT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OBJECT",
+    "definitions": [
+     {
+      "text": "Protest",
+      "at": 0
+     },
+     {
+      "text": "goal",
+      "at": 10
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Protest",
+      "gives": "OBJECT",
+      "note": "to protest against something is to raise an objection, a verb"
+     },
+     {
+      "clueFragment": "goal",
+      "gives": "OBJECT",
+      "note": "a goal is an aim or purpose, here a noun"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The apostrophe-s reads as 'is', linking two meanings that are pronounced differently: ob-JECT the verb and OB-ject the noun.",
+     "definitionFit": "The verb means to voice disapproval; the noun means an aim or purpose someone pursues."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Protest"
+    }
+   }
   },
   {
    "number": 2,
@@ -73,7 +159,72 @@
      }
     ]
    },
-   "solution": "TESTPILOT"
+   "solution": "TESTPILOT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "reversal"
+    ],
+    "answer": "TEST PILOT",
+    "definitions": [
+     {
+      "text": "Aviator",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "moving north",
+      "for": "reversal",
+      "note": "in a down entry, moving north means reading from the bottom upward, so the whole string runs backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken literally, as the word itself"
+     },
+     {
+      "clueFragment": "cheek",
+      "gives": "LIP",
+      "note": "lip is insolent talk, as is cheek"
+     },
+     {
+      "clueFragment": "head of tank",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter of tank"
+     },
+     {
+      "clueFragment": "group",
+      "gives": "SET",
+      "note": "a set is a group of people or things"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TESTPILOT"
+     ],
+     "reversals": [
+      {
+       "from": "TOLIPTSET",
+       "to": "TESTPILOT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pilot is told to give some lip to the leader of a tank group heading north.",
+     "walkthrough": "The little word 'to' is not a link here but part of the wordplay, and the whole string is read from the bottom up.",
+     "definitionFit": "A test pilot is a type of aviator who flies new aircraft to evaluate them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cheek"
+    }
+   }
   },
   {
    "number": 3,
@@ -87,7 +238,49 @@
     "text": "Complete roof drainage system without roof!",
     "enumeration": "5"
    },
-   "solution": "UTTER"
+   "solution": "UTTER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "UTTER",
+    "definitions": [
+     {
+      "text": "Complete",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without roof",
+      "for": "deletion",
+      "note": "in a down entry the roof is the top letter, so the drainage system loses its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "roof drainage system",
+      "gives": "GUTTER",
+      "note": "the channel along a roof edge that carries away rainwater"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UTTER"
+     ]
+    },
+    "explanation": {
+     "surface": "An exclamation about installing a full rain gutter on a building that has no roof.",
+     "walkthrough": "Dropping the G from GUTTER leaves UTTER; the second 'roof' is the top of the entry, not the building's.",
+     "definitionFit": "Utter as an adjective means absolute or total, as in 'utter nonsense'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "roof"
+    }
+   }
   },
   {
    "number": 4,
@@ -101,7 +294,44 @@
     "text": "Level part of cricket pitch",
     "enumeration": "6"
    },
-   "solution": "SQUARE"
+   "solution": "SQUARE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SQUARE",
+    "definitions": [
+     {
+      "text": "Level",
+      "at": 0
+     },
+     {
+      "text": "part of cricket pitch",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Level",
+      "gives": "SQUARE",
+      "note": "level in the sense of even, with scores tied"
+     },
+     {
+      "clueFragment": "part of cricket pitch",
+      "gives": "SQUARE",
+      "note": "the closely mown central area of a cricket ground where the strips for play are prepared"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Cricket is a British bat-and-ball game; its square is the prepared middle of the field, of which each match pitch is one strip.",
+     "definitionFit": "Being square means being even or tied; the square is also a named region of a cricket ground."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Level"
+    }
+   }
   },
   {
    "number": 5,
@@ -115,7 +345,63 @@
     "text": "Literary don completely repressing unknown love",
     "enumeration": "7"
    },
-   "solution": "QUIXOTE"
+   "solution": "QUIXOTE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "QUIXOTE",
+    "definitions": [
+     {
+      "text": "Literary don",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "repressing",
+      "for": "container",
+      "note": "to repress is to hold down inside, so 'completely' keeps 'unknown love' within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "completely",
+      "gives": "QUITE",
+      "note": "quite in its sense of fully or entirely"
+     },
+     {
+      "clueFragment": "unknown",
+      "gives": "X",
+      "note": "x is the classic algebraic unknown"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is a zero score in tennis, shaped like O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "QUI",
+      "X",
+      "O",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "An academic is utterly holding back feelings for a mysterious sweetheart.",
+     "walkthrough": "'Don' looks like a university lecturer, but here it is the Spanish title Don, as in Don Quixote.",
+     "definitionFit": "Don Quixote is the famous title character of Cervantes's novel, a knight of Spanish literature."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "don"
+    }
+   }
   },
   {
    "number": 6,
@@ -129,7 +415,51 @@
     "text": "Rescue vessel finishes off undersea repair work",
     "enumeration": "3"
    },
-   "solution": "ARK"
+   "solution": "ARK",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ARK",
+    "definitions": [
+     {
+      "text": "Rescue vessel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finishes off",
+      "for": "letter_selection",
+      "note": "the finishes of the following words are their final letters, which are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "undersea repair work",
+      "gives": "ARK",
+      "select": "last",
+      "note": "the final letter of each of the three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "R",
+      "K"
+     ]
+    },
+    "explanation": {
+     "surface": "A salvage boat completes underwater repairs.",
+     "walkthrough": "'Finishes off' reads like a verb meaning completes, but it selects the tail letters.",
+     "definitionFit": "Noah's Ark saved the animals and his family from the Flood, making it the archetypal vessel of rescue."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "finishes"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +473,43 @@
     "text": "Bury screen Tom broke partially",
     "enumeration": "6"
    },
-   "solution": "ENTOMB"
+   "solution": "ENTOMB",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ENTOMB",
+    "definitions": [
+     {
+      "text": "Bury",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "partially",
+      "for": "hidden_word",
+      "note": "only part of the run of words is used, so the letters sit inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "screen Tom broke",
+      "gives": "ENTOMB",
+      "note": "spans the end of screen, all of Tom and the start of broke"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone asks to hide a screen that a man named Tom partly damaged.",
+     "walkthrough": "'Partially' looks like it describes how Tom broke the screen, but it points to letters spanning three words.",
+     "definitionFit": "To entomb is to place a body in a tomb, which is a way of burying it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "partially"
+    }
+   }
   },
   {
    "number": 8,
@@ -167,7 +533,46 @@
      }
     ]
    },
-   "solution": "JUSTTHETICKET"
+   "solution": "JUSTTHETICKET",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "JUST THE TICKET",
+    "definitions": [
+     {
+      "text": "Perfect",
+      "at": 0
+     },
+     {
+      "text": "packing list for one travelling light?",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Perfect",
+      "gives": "JUSTTHETICKET",
+      "note": "an idiom for exactly what is needed"
+     },
+     {
+      "clueFragment": "packing list for one travelling light?",
+      "gives": "JUSTTHETICKET",
+      "note": "read literally, a minimal traveller packs nothing except their fare"
+     }
+    ],
+    "explanation": {
+     "surface": "A tip on the ideal packing checklist for a minimalist traveller.",
+     "walkthrough": "The question mark flags that the second half is whimsical: the lightest possible luggage is nothing but your ticket.",
+     "definitionFit": "The idiom describes something exactly right or ideal for the purpose."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "light"
+    }
+   }
   },
   {
    "number": 9,
@@ -181,7 +586,51 @@
     "text": "See patron changing artificial language",
     "enumeration": "9"
    },
-   "solution": "ESPERANTO"
+   "solution": "ESPERANTO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ESPERANTO",
+    "definitions": [
+     {
+      "text": "artificial language",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changing",
+      "for": "anagram",
+      "note": "the preceding words are altered in form, so their letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "See patron",
+      "gives": "SEEPATRON",
+      "note": "the fodder taken as printed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SEEPATRON",
+       "gives": "ESPERANTO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Visit a sponsor who is switching to a constructed tongue.",
+     "walkthrough": "'See' looks like an instruction to the reader, but it is just three letters of the fodder.",
+     "definitionFit": "Esperanto was invented by Zamenhof in 1887 as an international auxiliary tongue, so it is constructed rather than natural."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "See"
+    }
+   }
   },
   {
    "number": 10,
@@ -195,7 +644,56 @@
     "text": "Escapade with cloak ending in disaster",
     "enumeration": "5"
    },
-   "solution": "CAPER"
+   "solution": "CAPER",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "CAPER",
+    "definitions": [
+     {
+      "text": "Escapade",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ending in",
+      "for": "letter_selection",
+      "note": "the ending of the next word is its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cloak",
+      "gives": "CAPE",
+      "note": "a cape is a sleeveless cloak"
+     },
+     {
+      "clueFragment": "disaster",
+      "gives": "R",
+      "select": "last",
+      "note": "the final letter of disaster"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAPE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A cloak-and-dagger adventure that ends badly.",
+     "walkthrough": "'With' simply places the cloak before the final letter.",
+     "definitionFit": "A caper is a playful or daring exploit, often a heist, much like an escapade."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "disaster"
+    }
+   }
   },
   {
    "number": 11,
@@ -209,7 +707,62 @@
     "text": "Investigation admitting large and medium difficulty",
     "enumeration": "7"
    },
-   "solution": "PROBLEM"
+   "solution": "PROBLEM",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "PROBLEM",
+    "definitions": [
+     {
+      "text": "difficulty",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "admitting",
+      "for": "container",
+      "note": "to admit is to let in, so 'investigation' takes 'large' inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Investigation",
+      "gives": "PROBE",
+      "note": "a probe is an inquiry"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the clothing size abbreviation"
+     },
+     {
+      "clueFragment": "medium",
+      "gives": "M",
+      "note": "M is the clothing size abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PROB",
+      "L",
+      "E",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "An inquiry confesses to a moderately large hitch.",
+     "walkthrough": "Only 'large' goes inside; 'and medium' is added at the end.",
+     "definitionFit": "A problem and a difficulty are straightforward synonyms for a troublesome matter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "admitting"
+    }
+   }
   },
   {
    "number": 12,
@@ -223,7 +776,51 @@
     "text": "Vehicle oil US mine developed",
     "enumeration": "9"
    },
-   "solution": "LIMOUSINE"
+   "solution": "LIMOUSINE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LIMOUSINE",
+    "definitions": [
+     {
+      "text": "Vehicle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "developed",
+      "for": "anagram",
+      "note": "something developed has been worked into a new form, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "oil US mine",
+      "gives": "OILUSMINE",
+      "note": "the fodder taken as printed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OILUSMINE",
+       "gives": "LIMOUSINE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A car fuelled by an American mine that has been opened up.",
+     "walkthrough": "US is taken as printed, two letters of the fodder rather than a country.",
+     "definitionFit": "A limousine is a large luxurious car, one example of a motor vehicle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "developed"
+    }
+   }
   },
   {
    "number": 13,
@@ -243,7 +840,51 @@
      }
     ]
    },
-   "solution": "LASERBEAM"
+   "solution": "LASERBEAM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LASER BEAM",
+    "definitions": [
+     {
+      "text": "Source of light",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going bust",
+      "for": "anagram",
+      "note": "things that go bust break apart, so the letters are scattered and reformed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "amber ales",
+      "gives": "AMBERALES",
+      "note": "the fodder taken as printed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AMBERALES",
+       "gives": "LASERBEAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A brewery of pale amber beers is going bankrupt.",
+     "walkthrough": "'Light amber ales' pulls 'light' into the beer description, but it belongs with 'Source of'.",
+     "definitionFit": "A laser beam is a narrow concentrated ray that supplies intense illumination."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "light"
+    }
+   }
   },
   {
    "number": 14,
@@ -257,7 +898,51 @@
     "text": "Saw dish get broken",
     "enumeration": "7"
    },
-   "solution": "SIGHTED"
+   "solution": "SIGHTED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SIGHTED",
+    "definitions": [
+     {
+      "text": "Saw",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broken",
+      "for": "anagram",
+      "note": "the preceding words are smashed up, so their letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dish get",
+      "gives": "DISHGET",
+      "note": "the fodder taken as printed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DISHGET",
+       "gives": "SIGHTED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone watched a plate get smashed.",
+     "walkthrough": "'Saw' could be a cutting tool, but it is the past tense of see.",
+     "definitionFit": "Sighted is the past tense of sight, meaning caught a glimpse of or spotted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Saw"
+    }
+   }
   },
   {
    "number": 15,
@@ -271,7 +956,44 @@
     "text": "Rotational force lecture on radio",
     "enumeration": "6"
    },
-   "solution": "TORQUE"
+   "solution": "TORQUE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "TORQUE",
+    "definitions": [
+     {
+      "text": "Rotational force",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on radio",
+      "for": "homophone",
+      "note": "on the radio words are heard, not seen, so the spelling is only by sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lecture",
+      "gives": "TORQUE",
+      "soundsLike": "TALK",
+      "note": "a talk is a lecture; in British speech without a pronounced R the two words sound alike"
+     }
+    ],
+    "explanation": {
+     "surface": "A physics broadcast giving a lecture on rotation.",
+     "walkthrough": "The match works in non-rhotic accents such as standard British English, where the R in the answer is silent.",
+     "definitionFit": "In physics, torque measures the twisting effect that makes an object turn about an axis."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "radio"
+    }
+   }
   },
   {
    "number": 16,
@@ -285,7 +1007,62 @@
     "text": "Holy book contains introduction from erudite Asian",
     "enumeration": "6"
    },
-   "solution": "KOREAN"
+   "solution": "KOREAN",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "KOREAN",
+    "definitions": [
+     {
+      "text": "Asian",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "contains",
+      "for": "container",
+      "note": "the holy book holds the next piece inside itself"
+     },
+     {
+      "text": "introduction from",
+      "for": "letter_selection",
+      "note": "the introduction of a word is its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Holy book",
+      "gives": "KORAN",
+      "note": "the Koran is the holy book of Islam"
+     },
+     {
+      "clueFragment": "erudite",
+      "gives": "E",
+      "select": "first",
+      "note": "the first letter of erudite"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KOR",
+      "E",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "A scripture includes a foreword by a learned scholar from Asia.",
+     "walkthrough": "'Erudite Asian' reads as one learned person, but 'erudite' only lends its first letter and 'Asian' is the definition.",
+     "definitionFit": "A Korean is a person from Korea, a country in East Asia, so an example of an Asian."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "introduction"
+    }
+   }
   },
   {
    "number": 17,
@@ -299,7 +1076,61 @@
     "text": "Company returning to add shape",
     "enumeration": "7"
    },
-   "solution": "OCTAGON"
+   "solution": "OCTAGON",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "OCTAGON",
+    "definitions": [
+     {
+      "text": "shape",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "going back the way it came means the word is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Company",
+      "gives": "CO",
+      "note": "Co. is the abbreviation for company"
+     },
+     {
+      "clueFragment": "to add",
+      "gives": "TAGON",
+      "note": "to tag on is to add something at the end"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OC",
+      "TAGON"
+     ],
+     "reversals": [
+      {
+       "from": "CO",
+       "to": "OC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Guests coming back to join in a gathering.",
+     "walkthrough": "'To add' is taken whole as the phrasal verb TAG ON.",
+     "definitionFit": "An octagon is an eight-sided polygon, one specific geometric figure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Company"
+    }
+   }
   },
   {
    "number": 18,
@@ -313,7 +1144,48 @@
     "text": "Disney character’s heavenly body",
     "enumeration": "5"
    },
-   "solution": "PLUTO"
+   "solution": "PLUTO",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PLUTO",
+    "definitions": [
+     {
+      "text": "Disney character",
+      "at": 0
+     },
+     {
+      "text": "heavenly body",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Disney character",
+      "gives": "PLUTO",
+      "note": "Mickey Mouse's pet dog in the cartoons"
+     },
+     {
+      "clueFragment": "heavenly body",
+      "gives": "PLUTO",
+      "note": "the dwarf planet beyond Neptune"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The apostrophe-s reads as 'is'; 'heavenly body' suggests a glamorous figure, but it is an object in space.",
+     "definitionFit": "Pluto is both the cartoon dog of Mickey Mouse and the dwarf planet, formerly counted as the ninth planet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "heavenly"
+    }
+   }
   },
   {
    "number": 18,
@@ -327,7 +1199,56 @@
     "text": "Writer with extremely nice pasta",
     "enumeration": "5"
    },
-   "solution": "PENNE"
+   "solution": "PENNE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "PENNE",
+    "definitions": [
+     {
+      "text": "pasta",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two end letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Writer",
+      "gives": "PEN",
+      "note": "a pen is an instrument for writing"
+     },
+     {
+      "clueFragment": "nice",
+      "gives": "NE",
+      "select": "outer",
+      "note": "the first and last letters of nice"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PEN",
+      "NE"
+     ]
+    },
+    "explanation": {
+     "surface": "An author enjoying a very pleasant noodle dish.",
+     "walkthrough": "'Extremely nice' reads as very good, but it keeps only the ends of nice.",
+     "definitionFit": "Penne is a kind of short tube-shaped Italian noodle cut on the diagonal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "extremely"
+    }
+   }
   },
   {
    "number": 19,
@@ -341,7 +1262,51 @@
     "text": "Nato enquiries upended survey",
     "enumeration": "13"
    },
-   "solution": "QUESTIONNAIRE"
+   "solution": "QUESTIONNAIRE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "QUESTIONNAIRE",
+    "definitions": [
+     {
+      "text": "survey",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upended",
+      "for": "anagram",
+      "note": "things upended are knocked over and jumbled, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nato enquiries",
+      "gives": "NATOENQUIRIES",
+      "note": "the fodder taken as printed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NATOENQUIRIES",
+       "gives": "QUESTIONNAIRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Questions from the military alliance overturned a review.",
+     "walkthrough": "'Enquiries' is a nice red herring, since the answer is itself a set of questions.",
+     "definitionFit": "A questionnaire is a printed form of questions used to poll people, the tool of a survey."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upended"
+    }
+   }
   },
   {
    "number": 20,
@@ -355,7 +1320,46 @@
     "text": "Some webbing to recede",
     "enumeration": "3"
    },
-   "solution": "EBB"
+   "solution": "EBB",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EBB",
+    "definitions": [
+     {
+      "text": "recede",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "only some of the following word is used, so the letters lie within it"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "webbing",
+      "gives": "EBB",
+      "note": "the second to fourth letters"
+     }
+    ],
+    "explanation": {
+     "surface": "Part of a woven strap is pulling back.",
+     "walkthrough": "The letters sit inside webbing, just after the W.",
+     "definitionFit": "The tide ebbs when it flows back out to sea, so to ebb is to draw back or retreat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "webbing"
+    }
+   }
   },
   {
    "number": 21,
@@ -369,7 +1373,62 @@
     "text": "Personify the setter’s backing group",
     "enumeration": "6"
    },
-   "solution": "EMBODY"
+   "solution": "EMBODY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "EMBODY",
+    "definitions": [
+     {
+      "text": "Personify",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backing",
+      "for": "reversal",
+      "note": "moving back means the preceding piece is read in reverse"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the setter’s",
+      "gives": "ME",
+      "note": "the setter refers to themself as me"
+     },
+     {
+      "clueFragment": "group",
+      "gives": "BODY",
+      "note": "a body is an organised group, as in a governing body"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EM",
+      "BODY"
+     ],
+     "reversals": [
+      {
+       "from": "ME",
+       "to": "EM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The crossword compiler is personally supporting a band.",
+     "walkthrough": "'Backing group' looks like a band behind a singer, but 'backing' reverses the setter and 'group' stands alone.",
+     "definitionFit": "To embody a quality is to give it concrete form, which is what personifying does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "backing"
+    }
+   }
   },
   {
    "number": 22,
@@ -383,7 +1442,56 @@
     "text": "River cut off by mouth of Nile",
     "enumeration": "6"
    },
-   "solution": "SEVERN"
+   "solution": "SEVERN",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SEVERN",
+    "definitions": [
+     {
+      "text": "River",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mouth of",
+      "for": "letter_selection",
+      "note": "a mouth is where something opens, here the opening letter of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cut off",
+      "gives": "SEVER",
+      "note": "to sever is to cut off"
+     },
+     {
+      "clueFragment": "Nile",
+      "gives": "N",
+      "select": "first",
+      "note": "the first letter of Nile"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEVER",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A river blocked off where the Nile meets the sea.",
+     "walkthrough": "'Mouth of Nile' reads as a delta but gives only a letter; the Severn is Britain's longest river, flowing between England and Wales.",
+     "definitionFit": "The Severn is a specific British waterway, so an example of the category named."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mouth"
+    }
+   }
   }
  ]
 }
