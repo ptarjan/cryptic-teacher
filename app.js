@@ -2903,6 +2903,18 @@
     // fragment is doing there. A block left with neither is dropped by
     // `blockShows`, and a rung left with no blocks is never charged for.
     if (wholeWord(b.gives) === wholeWord(b.clueFragment)) return "";
+    // An anagram's result is the solve of that anagram: “Londoners worried” →
+    // ORDNELSON left nothing to do but read it off ("an anagram of LONDONERS
+    // should have made me solve the anagram"). The piece shows its fodder
+    // instead, and nothing when the fodder is words the fragment prints.
+    const shuffled = ((ann.assembly || {}).anagrams || [])
+      .find((a) => wholeWord(a.gives) === wholeWord(b.gives));
+    if (shuffled) {
+      const words = String(b.clueFragment || "").split(/\s+/).map(wholeWord);
+      const fodder = wholeWord(shuffled.fodder);
+      const printed = words.some((w, i) => words.slice(i).some((_, j) => words.slice(i, i + j + 1).join("") === fodder));
+      return printed ? "" : shuffled.fodder;
+    }
     return b.gives;
   }
   // The rung exists when something will RENDER in it, not when the data holds a
