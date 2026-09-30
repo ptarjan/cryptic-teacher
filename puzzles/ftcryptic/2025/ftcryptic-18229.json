@@ -24,6 +24,9 @@
   "date": "2025-12-03",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,46 @@
     "text": "Dismal vitamin deficiency",
     "enumeration": "5"
    },
-   "solution": "BLACK"
+   "solution": "BLACK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BLACK",
+    "definitions": [
+     {
+      "text": "Dismal",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vitamin",
+      "gives": "B",
+      "note": "B is a vitamin (B1, B12 and so on)"
+     },
+     {
+      "clueFragment": "deficiency",
+      "gives": "LACK",
+      "note": "a deficiency is a shortage or want"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "LACK"
+     ]
+    },
+    "explanation": {
+     "walkthrough": "The surface reads as one medical phrase, but it splits cleanly: the vitamin letter, then a word for deficiency.",
+     "definitionFit": "Black can mean gloomy or hopeless, as in a black mood or black outlook, a standard synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "vitamin"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +93,62 @@
     "text": "City nevertheless recalled cleaning equipment",
     "enumeration": "7"
    },
-   "solution": "BATHTUB"
+   "solution": "BATHTUB",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "BATHTUB",
+    "definitions": [
+     {
+      "text": "cleaning equipment",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "recalled",
+      "for": "reversal",
+      "note": "to recall is to call back, so the word for 'nevertheless' comes back to front"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "City",
+      "gives": "BATH",
+      "note": "Bath is a city in Somerset, England"
+     },
+     {
+      "clueFragment": "nevertheless",
+      "gives": "BUT",
+      "note": "'but' can mean nevertheless or however"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BATH",
+      "TUB"
+     ],
+     "reversals": [
+      {
+       "from": "BUT",
+       "to": "TUB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A town council calling back some of its street-cleaning machinery.",
+     "walkthrough": "Bath, the English spa city, supplies the first half; the second half is a simple reversal of a short conjunction.",
+     "definitionFit": "A tub you wash yourself in is, loosely, a piece of kit for getting clean; the definition is deliberately vague."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "City"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +162,61 @@
     "text": "Soul music’s origin embedded in uncovered crazes",
     "enumeration": "5"
    },
-   "solution": "ANIMA"
+   "solution": "ANIMA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "ANIMA",
+    "definitions": [
+     {
+      "text": "Soul",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "uncovered",
+      "for": "deletion",
+      "note": "with its covers taken off, the word for 'crazes' loses its first and last letters"
+     },
+     {
+      "text": "embedded in",
+      "for": "container",
+      "note": "something embedded in another sits inside it, so music's first letter goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "uncovered crazes",
+      "gives": "ANIA",
+      "note": "MANIAS (crazes) with its outer letters stripped"
+     },
+     {
+      "clueFragment": "music’s origin",
+      "gives": "M",
+      "note": "the first letter of 'music'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANI",
+      "M",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A note on how soul music's roots lie hidden in popular fads.",
+     "walkthrough": "'Soul music' looks like one phrase, but 'Soul' alone is the definition and 'music's origin' is just its first letter.",
+     "definitionFit": "Anima is Latin for the soul or life force, a term used in Jungian psychology and philosophy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Soul"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +230,72 @@
     "text": "Joint pair of kings confused with clue about knight",
     "enumeration": "7"
    },
-   "solution": "KNUCKLE"
+   "solution": "KNUCKLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "KNUCKLE",
+    "definitions": [
+     {
+      "text": "Joint",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "confused",
+      "for": "anagram",
+      "note": "the two kings and the word 'clue' are jumbled together into a new order"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "the jumbled letters go about, that is around, the knight"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pair of kings",
+      "gives": "KK",
+      "note": "K is king in chess notation; a pair gives two"
+     },
+     {
+      "clueFragment": "clue",
+      "gives": "CLUE",
+      "note": "the word itself, as anagram fodder"
+     },
+     {
+      "clueFragment": "knight",
+      "gives": "N",
+      "note": "N is the knight in chess notation, since K is already the king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "N",
+      "UCKLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "KKCLUE",
+       "gives": "KUCKLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cryptic solver baffled by a clue full of chess pieces.",
+     "walkthrough": "Both chess abbreviations are needed: K for king, and N for knight because K is taken.",
+     "definitionFit": "A knuckle is a finger joint, one of the hinges between the bones of the hand."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Joint"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +309,70 @@
     "text": "Iguana wandering around estate, say, in Central American republic",
     "enumeration": "9"
    },
-   "solution": "NICARAGUA"
+   "solution": "NICARAGUA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "NICARAGUA",
+    "definitions": [
+     {
+      "text": "Central American republic",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wandering",
+      "for": "anagram",
+      "note": "a lizard that wanders roams off, so its letters stray from their order"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "the scrambled lizard goes around the estate, holding it inside"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Iguana",
+      "gives": "IGUANA",
+      "note": "anagram fodder, six letters"
+     },
+     {
+      "clueFragment": "estate, say",
+      "gives": "CAR",
+      "note": "an estate is a type of car (a station wagon); 'say' marks it as an example"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NI",
+      "CAR",
+      "AGUA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "IGUANA",
+       "gives": "NIAGUA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An iguana roaming a country estate somewhere in Central America.",
+     "walkthrough": "In British English an estate is a car with a large boot and rear door, what Americans call a station wagon.",
+     "definitionFit": "Nicaragua is a country on the Central American isthmus, between Honduras and Costa Rica."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "estate"
+    }
+   }
   },
   {
    "number": 4,
@@ -107,7 +386,45 @@
     "text": "Final fixture in tennis court?",
     "enumeration": "3"
    },
-   "solution": "NET"
+   "solution": "NET",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NET",
+    "definitions": [
+     {
+      "text": "Final",
+      "at": 0
+     },
+     {
+      "text": "fixture in tennis court?",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Final",
+      "gives": "NET",
+      "note": "as in a final figure after deductions"
+     },
+     {
+      "clueFragment": "fixture in tennis court?",
+      "gives": "NET",
+      "note": "the barrier fixed across the middle of the court"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Final fixture' pretends to be the last match of a season; split it, and 'Final' is a sum after deductions while the fixture is the thing fixed across the court.",
+     "definitionFit": "A net figure is the final one after tax and costs; a tennis net is fixed in place across the court."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fixture"
+    }
+   }
   },
   {
    "number": 5,
@@ -127,7 +444,60 @@
      }
     ]
    },
-   "solution": "CRAWLERLANE"
+   "solution": "CRAWLERLANE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CRAWLER LANE",
+    "definitions": [
+     {
+      "text": "one that relieves uphill struggles?",
+      "at": 32
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sycophant",
+      "gives": "CRAWLER",
+      "note": "someone who crawls to the boss, a toady"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "standard abbreviation for left"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "the word itself"
+     },
+     {
+      "clueFragment": "ecstasy",
+      "gives": "E",
+      "note": "E is slang for the drug ecstasy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRAWLER",
+      "L",
+      "AN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A toady who hands out pills to cheer those facing an uphill battle.",
+     "walkthrough": "A crawler lane is a British road term for an extra lane on a steep hill where slow lorries can pull over; the uphill struggles are literal.",
+     "definitionFit": "The extra lane on a steep climb eases congestion by letting slow heavy vehicles labour upward out of the way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "struggles"
+    }
+   }
   },
   {
    "number": 6,
@@ -141,7 +511,67 @@
     "text": "Again put up pound in blighted Beirut",
     "enumeration": "7"
    },
-   "solution": "REBUILT"
+   "solution": "REBUILT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "REBUILT",
+    "definitions": [
+     {
+      "text": "Again put up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "blighted",
+      "for": "anagram",
+      "note": "a blighted city is damaged, so the name of the city is wrecked into a new order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the pound sign is placed in among the city's scrambled letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pound",
+      "gives": "L",
+      "note": "L, from Latin libra, is the pound sign"
+     },
+     {
+      "clueFragment": "Beirut",
+      "gives": "BEIRUT",
+      "note": "anagram fodder, six letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REBUI",
+      "L",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BEIRUT",
+       "gives": "REBUIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pouring money into restoring a war-damaged Beirut.",
+     "walkthrough": "The surface's subject is reconstruction, so the answer fits the picture; 'pound' is the currency, not a hammer blow.",
+     "definitionFit": "To rebuild is to construct or erect a structure a second time, and 'put up' is the everyday phrasal verb for erect."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pound"
+    }
+   }
   },
   {
    "number": 7,
@@ -155,7 +585,68 @@
     "text": "Standing up, old French comedian cracks weighty sink",
     "enumeration": "9"
    },
-   "solution": "GRAVITATE"
+   "solution": "GRAVITATE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "GRAVITATE",
+    "definitions": [
+     {
+      "text": "sink",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Standing up",
+      "for": "reversal",
+      "note": "in a down clue, standing up means reading from bottom to top"
+     },
+     {
+      "text": "cracks",
+      "for": "container",
+      "note": "something that cracks a word breaks into it, sitting inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old French comedian",
+      "gives": "TATI",
+      "note": "Jacques Tati, French film comedian (Monsieur Hulot)"
+     },
+     {
+      "clueFragment": "weighty",
+      "gives": "GRAVE",
+      "note": "grave means serious, weighty"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRAV",
+      "ITAT",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "TATI",
+       "to": "ITAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old French stand-up comic whose jokes crack under their own heaviness.",
+     "walkthrough": "'Standing up' reads as stand-up comedy but is the reversal signal for a down entry.",
+     "definitionFit": "To gravitate is to move downward under gravity, so it can mean to settle or drop, as a sinking object does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Standing"
+    }
+   }
   },
   {
    "number": 8,
@@ -169,7 +660,60 @@
     "text": "Sceptically request social function should ignore Democrat",
     "enumeration": "7"
    },
-   "solution": "ASKANCE"
+   "solution": "ASKANCE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ASKANCE",
+    "definitions": [
+     {
+      "text": "Sceptically",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "should ignore",
+      "for": "deletion",
+      "note": "ignoring a letter leaves it out, so the Democrat is dropped from the social function"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "request",
+      "gives": "ASK",
+      "note": "to request is to ask"
+     },
+     {
+      "clueFragment": "social function",
+      "gives": "DANCE",
+      "note": "a dance is a social event"
+     },
+     {
+      "clueFragment": "Democrat",
+      "gives": "D",
+      "note": "D abbreviates Democrat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASK",
+      "ANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A wary request that a party function keep the Democrats out.",
+     "walkthrough": "The Democrat is taken out of the dance, leaving its last four letters after the request.",
+     "definitionFit": "To look askance is to view something with suspicion or doubt, which is what a sceptic does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "function"
+    }
+   }
   },
   {
    "number": 9,
@@ -183,7 +727,71 @@
     "text": "Arced ornament from Turkey linked to quite eccentric artist",
     "enumeration": "9"
    },
-   "solution": "TRIQUETRA"
+   "solution": "TRIQUETRA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "TRIQUETRA",
+    "definitions": [
+     {
+      "text": "Arced ornament",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eccentric",
+      "for": "anagram",
+      "note": "an eccentric is off-centre and odd, so the letters of 'quite' are set askew"
+     }
+    ],
+    "linkWords": [
+     "from",
+     "linked to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Turkey",
+      "gives": "TR",
+      "note": "TR is the international vehicle code for Turkey"
+     },
+     {
+      "clueFragment": "quite",
+      "gives": "QUITE",
+      "note": "anagram fodder, five letters"
+     },
+     {
+      "clueFragment": "artist",
+      "gives": "RA",
+      "note": "RA, Royal Academician, a stock crossword artist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TR",
+      "IQUET",
+      "RA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "QUITE",
+       "gives": "IQUET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An ornamental arch from Turkey attributed to a rather odd painter.",
+     "walkthrough": "An obscure word, so the wordplay does the work: country code, a five-letter anagram, then the artist.",
+     "definitionFit": "A triquetra is a decorative motif of three interlaced arcs or loops, common in Celtic art."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Turkey"
+    }
+   }
   },
   {
    "number": 10,
@@ -197,7 +805,63 @@
     "text": "Irish currant bread behind grocer’s last jams",
     "enumeration": "5"
    },
-   "solution": "BRACK"
+   "solution": "BRACK",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "BRACK",
+    "definitions": [
+     {
+      "text": "Irish currant bread",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last",
+      "for": "letter_selection",
+      "note": "the grocer's last is the final letter of that word"
+     },
+     {
+      "text": "jams",
+      "for": "container",
+      "note": "to jam is to wedge something in, so the grocer's letter is forced into the word for behind"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "behind",
+      "gives": "BACK",
+      "note": "at the back, behind"
+     },
+     {
+      "clueFragment": "grocer’s last",
+      "gives": "R",
+      "select": "last",
+      "note": "the final letter of 'grocer'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "R",
+      "ACK"
+     ]
+    },
+    "explanation": {
+     "surface": "A grocer's shop where the Irish fruit bread sits behind the jam jars.",
+     "walkthrough": "'Jams' pretends to be preserves beside a bread, but it is a verb: the grocer's letter jams into the word for behind.",
+     "definitionFit": "Brack, or barmbrack, is a traditional Irish yeasted loaf studded with dried fruit such as currants and sultanas."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "jams"
+    }
+   }
   },
   {
    "number": 11,
@@ -211,7 +875,63 @@
     "text": "Nail catches tail of boxer dog",
     "enumeration": "5"
    },
-   "solution": "TRACK"
+   "solution": "TRACK",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TRACK",
+    "definitions": [
+     {
+      "text": "dog",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tail of",
+      "for": "letter_selection",
+      "note": "the tail of a word is its final letter"
+     },
+     {
+      "text": "catches",
+      "for": "container",
+      "note": "the nail catches, that is holds, the boxer's letter inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nail",
+      "gives": "TACK",
+      "note": "a tack is a small nail"
+     },
+     {
+      "clueFragment": "tail of boxer",
+      "gives": "R",
+      "select": "last",
+      "note": "the last letter of 'boxer'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "R",
+      "ACK"
+     ]
+    },
+    "explanation": {
+     "surface": "A nail snagging the tail of a boxer dog.",
+     "walkthrough": "'Boxer dog' is a breed in the surface, but 'dog' is a verb meaning to follow closely.",
+     "definitionFit": "To dog someone is to follow them persistently, just as to track them is to trail and pursue."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "dog"
+    }
+   }
   },
   {
    "number": 12,
@@ -225,7 +945,73 @@
     "text": "Mostly, sheepdog is about working conflict",
     "enumeration": "9"
    },
-   "solution": "COLLISION"
+   "solution": "COLLISION",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "charade"
+    ],
+    "answer": "COLLISION",
+    "definitions": [
+     {
+      "text": "conflict",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the sheepdog breed loses its final letter"
+     },
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "turned about, the little word 'is' faces the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sheepdog",
+      "gives": "COLLI",
+      "note": "COLLIE, a sheepdog breed, minus its last letter"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "the word itself"
+     },
+     {
+      "clueFragment": "working",
+      "gives": "ON",
+      "note": "a machine that is on is working"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COLLI",
+      "SI",
+      "ON"
+     ],
+     "reversals": [
+      {
+       "from": "IS",
+       "to": "SI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A working sheepdog mostly spends its day in a tussle with the flock.",
+     "walkthrough": "'Mostly' belongs to the sheepdog only; the next two words are a reversal and a stock abbreviation for working.",
+     "definitionFit": "A collision is a clash, whether of vehicles or of opposing interests, so it serves for a conflict."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 12,
@@ -239,7 +1025,72 @@
     "text": "Cut into poached, pickled American squid etc",
     "enumeration": "11"
    },
-   "solution": "CEPHALOPODA"
+   "solution": "CEPHALOPODA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "CEPHALOPODA",
+    "definitions": [
+     {
+      "text": "squid etc",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "the word for cut goes into the middle of the pickled letters"
+     },
+     {
+      "text": "pickled",
+      "for": "anagram",
+      "note": "pickled means drunk or in a mess, so the cooking word and the American are scrambled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cut",
+      "gives": "LOP",
+      "note": "to lop is to cut off"
+     },
+     {
+      "clueFragment": "poached",
+      "gives": "POACHED",
+      "note": "anagram fodder"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A abbreviates American"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CEPHA",
+      "LOP",
+      "ODA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "POACHEDA",
+       "gives": "CEPHAODA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cookery note: slice into poached or pickled squid and similar seafood.",
+     "walkthrough": "'Poached' and 'pickled' both look like recipe words, but only the first is fodder; the second is the anagram signal.",
+     "definitionFit": "The Cephalopoda are the class of molluscs including squid, octopus and cuttlefish; 'etc' shows squid is just one member."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pickled"
+    }
+   }
   },
   {
    "number": 13,
@@ -253,7 +1104,63 @@
     "text": "Drink sent round European castle, one tending queen and her entourage?",
     "enumeration": "9"
    },
-   "solution": "BEEKEEPER"
+   "solution": "BEEKEEPER",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "BEEKEEPER",
+    "definitions": [
+     {
+      "text": "one tending queen and her entourage?",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sent round",
+      "for": "container",
+      "note": "the drink is sent round the other two items, enclosing them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drink",
+      "gives": "BEER",
+      "note": "a drink"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E abbreviates European"
+     },
+     {
+      "clueFragment": "castle",
+      "gives": "KEEP",
+      "note": "a keep is the strong central tower of a castle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "E",
+      "KEEP",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "Drinks carried around a European castle by a servant to the royal household.",
+     "walkthrough": "The queen and her entourage are a queen bee and her colony, not royalty; the question mark flags the pun.",
+     "definitionFit": "An apiarist looks after a hive, whose centre is a single queen bee surrounded by her attendant workers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "queen"
+    }
+   }
   },
   {
    "number": 14,
@@ -267,7 +1174,77 @@
     "text": "Be set up over murder, the ultimate in appalling sin",
     "enumeration": "9"
    },
-   "solution": "EVILDOING"
+   "solution": "EVILDOING",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "EVILDOING",
+    "definitions": [
+     {
+      "text": "sin",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "set up",
+      "for": "reversal",
+      "note": "in a down clue, set up means raised so it reads from the bottom upward"
+     },
+     {
+      "text": "the ultimate in",
+      "for": "letter_selection",
+      "note": "the ultimate in a word is its final letter"
+     }
+    ],
+    "linkWords": [
+     "over"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Be",
+      "gives": "LIVE",
+      "note": "to be is to exist, to live"
+     },
+     {
+      "clueFragment": "murder",
+      "gives": "DOIN",
+      "note": "to do in is to murder"
+     },
+     {
+      "clueFragment": "appalling",
+      "gives": "G",
+      "select": "last",
+      "note": "the last letter of 'appalling'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVIL",
+      "DOIN",
+      "G"
+     ],
+     "reversals": [
+      {
+       "from": "LIVE",
+       "to": "EVIL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone framed for a killing, which would be a terrible sin.",
+     "walkthrough": "'Over' just places the reversed verb above the rest in a down entry; 'murder' is the two-word phrasal verb do in.",
+     "definitionFit": "Evildoing is wicked conduct, the committing of wrongs, which is the general sense of sin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Be"
+    }
+   }
   },
   {
    "number": 15,
@@ -281,7 +1258,57 @@
     "text": "Obstructive cartel holds back hint",
     "enumeration": "5"
    },
-   "solution": "TRACE"
+   "solution": "TRACE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "TRACE",
+    "definitions": [
+     {
+      "text": "hint",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holds",
+      "for": "hidden_word",
+      "note": "the two words hold the answer within their joined letters"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "the held letters are read back, from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Obstructive cartel",
+      "gives": "ECART",
+      "note": "the end of 'obstructive' and start of 'cartel' run together"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "ECART",
+       "to": "TRACE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A business cartel stubbornly withholding information.",
+     "walkthrough": "'Holds back' reads as withholding, but splits into a hiding signal and a reversal signal.",
+     "definitionFit": "A trace is a very small amount or slight indication, as in a trace of garlic, much like a hint."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "holds"
+    }
+   }
   },
   {
    "number": 16,
@@ -295,7 +1322,62 @@
     "text": "Instant semi-sweet coffee cleared out",
     "enumeration": "5"
    },
-   "solution": "TRICE"
+   "solution": "TRICE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TRICE",
+    "definitions": [
+     {
+      "text": "Instant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "semi-",
+      "for": "deletion",
+      "note": "semi means half, so only the first half of the dessert word survives"
+     },
+     {
+      "text": "cleared out",
+      "for": "letter_selection",
+      "note": "clearing out a word empties its middle, leaving only the outer letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "semi-sweet",
+      "gives": "TRI",
+      "note": "half of TRIFLE, a British layered sweet or pudding"
+     },
+     {
+      "clueFragment": "coffee cleared out",
+      "gives": "CE",
+      "select": "outer",
+      "note": "the first and last letters of 'coffee'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRI",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "Instant coffee, semi-sweet, with the jar emptied.",
+     "walkthrough": "'Instant coffee' is the obvious phrase but 'Instant' is the definition. In Britain a sweet is a dessert, and trifle is a layered one of sponge, custard and cream.",
+     "definitionFit": "In a trice means in a moment; the noun names a very brief period of time, like an instant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Instant"
+    }
+   }
   },
   {
    "number": 16,
@@ -315,7 +1397,47 @@
      }
     ]
    },
-   "solution": "THROWIN"
+   "solution": "THROWIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "THROW-IN",
+    "definitions": [
+     {
+      "text": "Set play",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "during",
+      "gives": "THRO",
+      "note": "thro', a short form of through, as in 'through the night'"
+     },
+     {
+      "clueFragment": "success",
+      "gives": "WIN",
+      "note": "a win is a success"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THRO",
+      "WIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Something staged during a successful run, like a show put on at the height of its triumph.",
+     "walkthrough": "'Set play' looks like a staged performance but is sport's term for a restart from a dead ball.",
+     "definitionFit": "In football a throw-in restarts the game after the ball leaves the pitch, a routine that teams rehearse as a set piece."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "play"
+    }
+   }
   },
   {
    "number": 17,
@@ -329,7 +1451,55 @@
     "text": "Pressing information stops departure",
     "enumeration": "7"
    },
-   "solution": "EXIGENT"
+   "solution": "EXIGENT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EXIGENT",
+    "definitions": [
+     {
+      "text": "Pressing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stops",
+      "for": "container",
+      "note": "the information stops, or plugs, the departure word by sitting inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "departure",
+      "gives": "EXIT",
+      "note": "an exit is a departure"
+     },
+     {
+      "clueFragment": "information",
+      "gives": "GEN",
+      "note": "gen is British slang for information"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EXI",
+      "GEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Urgent news that halts a flight's departure.",
+     "walkthrough": "Gen is British informal for information, as in 'get the gen on something'.",
+     "definitionFit": "Exigent means urgent or demanding immediate action, the same sense as pressing in 'a pressing need'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stops"
+    }
+   }
   },
   {
    "number": 18,
@@ -357,7 +1527,59 @@
      }
     ]
    },
-   "solution": "ATALOWEBB"
+   "solution": "ATALOWEBB",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AT A LOW EBB",
+    "definitions": [
+     {
+      "text": "Weakened",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broken",
+      "for": "anagram",
+      "note": "a broken arm joint is out of shape, so its letters and the words after are rearranged"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "elbow",
+      "gives": "ELBOW",
+      "note": "anagram fodder"
+     },
+     {
+      "clueFragment": "a bat",
+      "gives": "ABAT",
+      "note": "anagram fodder, added to the arm joint"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ELBOWABAT",
+       "gives": "ATALOWEBB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A batsman whose elbow was smashed, perhaps by his own bat.",
+     "walkthrough": "'Broken' sits inside the fodder's phrase, so the fodder is the arm joint plus the last two words.",
+     "definitionFit": "At a low ebb describes a weak or depleted state, the image being a tide that has run out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bat"
+    }
+   }
   },
   {
    "number": 19,
@@ -371,7 +1593,62 @@
     "text": "Matured beyond extravagant wife that’s good at heart",
     "enumeration": "7"
    },
-   "solution": "OUTGREW"
+   "solution": "OUTGREW",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "OUTGREW",
+    "definitions": [
+     {
+      "text": "Matured beyond",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at heart",
+      "for": "container",
+      "note": "good is placed at the heart, the middle, of the word for extravagant"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "extravagant",
+      "gives": "OUTRE",
+      "note": "outré, French borrowing meaning outlandish or extravagant"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G abbreviates good"
+     },
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "W abbreviates wife"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUT",
+      "G",
+      "RE",
+      "W"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who grew up beyond a flamboyant spouse who is kind underneath.",
+     "walkthrough": "The definition takes two words: 'Matured beyond' means grew too old for something.",
+     "definitionFit": "To outgrow a habit or garment is to develop past it, getting too big or grown-up for it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "extravagant"
+    }
+   }
   },
   {
    "number": 20,
@@ -385,7 +1662,43 @@
     "text": "Whisper, sombre, a theatricism in part",
     "enumeration": "7"
    },
-   "solution": "BREATHE"
+   "solution": "BREATHE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "BREATHE",
+    "definitions": [
+     {
+      "text": "Whisper",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in part",
+      "for": "hidden_word",
+      "note": "only part of the phrase is used, a run of letters lying across its words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sombre, a theatricism",
+      "gives": "BREATHE",
+      "note": "the letters run from the end of 'sombre' through 'a' into 'theatricism'"
+     }
+    ],
+    "explanation": {
+     "surface": "A stage whisper, a gloomy piece of theatrical business.",
+     "walkthrough": "The comma after 'sombre' hides the join; the hidden run crosses three words.",
+     "definitionFit": "To breathe words is to utter them very softly, the same as whispering them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "theatricism"
+    }
+   }
   },
   {
    "number": 21,
@@ -399,7 +1712,69 @@
     "text": "Understand focus of chorus in vulgar opera",
     "enumeration": "9"
    },
-   "solution": "RUDDIGORE"
+   "solution": "RUDDIGORE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "RUDDIGORE",
+    "definitions": [
+     {
+      "text": "opera",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "focus of",
+      "for": "letter_selection",
+      "note": "the focus of a word is its centre, the middle two letters here"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the combined pieces go in the word for vulgar"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vulgar",
+      "gives": "RUDE",
+      "note": "rude means coarse, vulgar"
+     },
+     {
+      "clueFragment": "Understand",
+      "gives": "DIG",
+      "note": "dig is slang for understand, as in 'you dig?'"
+     },
+     {
+      "clueFragment": "focus of chorus",
+      "gives": "OR",
+      "select": "middle",
+      "note": "the two central letters of 'chorus'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RUD",
+      "DIG",
+      "OR",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Trying to make out the chorus in a crude comic opera.",
+     "walkthrough": "The chorus word has six letters, so its middle is two letters. 'Vulgar opera' is fair: the piece was mocked for its original title Ruddygore, rhyming with 'bloody'.",
+     "definitionFit": "Ruddigore is a comic operetta by Gilbert and Sullivan, first staged in London in 1887."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "focus"
+    }
+   }
   },
   {
    "number": 22,
@@ -413,7 +1788,50 @@
     "text": "Dull ceremony’s on time",
     "enumeration": "5"
    },
-   "solution": "TRITE"
+   "solution": "TRITE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TRITE",
+    "definitions": [
+     {
+      "text": "Dull",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T abbreviates time"
+     },
+     {
+      "clueFragment": "ceremony",
+      "gives": "RITE",
+      "note": "a rite is a ceremony"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RITE"
+     ]
+    },
+    "explanation": {
+     "surface": "A tedious ceremony that at least starts punctually.",
+     "walkthrough": "In an across clue 'on' places the ceremony after, so the time comes first.",
+     "definitionFit": "Trite means stale or hackneyed from overuse, so unoriginal and uninteresting, much like dull."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "on"
+    }
+   }
   },
   {
    "number": 23,
@@ -427,7 +1845,53 @@
     "text": "Starts to interview refugee, asking questions in native tongue",
     "enumeration": "5"
    },
-   "solution": "IRAQI"
+   "solution": "IRAQI",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "IRAQI",
+    "definitions": [
+     {
+      "text": "native tongue",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Starts to",
+      "for": "letter_selection",
+      "note": "the starts of the next five words are taken in order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "interview refugee, asking questions in",
+      "gives": "IRAQI",
+      "select": "first",
+      "note": "first letters of the five words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "R",
+      "A",
+      "Q",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "An official interviewing a refugee through questions put in the refugee's own language.",
+     "walkthrough": "The surface paints the scene the answer belongs to: a refugee questioned in their mother tongue.",
+     "definitionFit": "Iraqi Arabic, often just called Iraqi, is the spoken dialect native to Iraq's people."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 24,
@@ -441,7 +1905,61 @@
     "text": "Decree absolute at last appearing on legal document",
     "enumeration": "5"
    },
-   "solution": "WRITE"
+   "solution": "WRITE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "WRITE",
+    "definitions": [
+     {
+      "text": "Decree",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at last",
+      "for": "letter_selection",
+      "note": "at last points to the final letter of the word before it"
+     },
+     {
+      "text": "appearing on",
+      "for": "charade",
+      "note": "in an across clue, appearing on means placed after the legal document"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "legal document",
+      "gives": "WRIT",
+      "note": "a writ is a written court order"
+     },
+     {
+      "clueFragment": "absolute at last",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of 'absolute'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WRIT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A decree absolute, the final divorce order, sitting on top of other legal paperwork.",
+     "walkthrough": "'Decree absolute' is the British court order finalising a divorce, so the phrase looks inseparable; only 'Decree' is the definition.",
+     "definitionFit": "To write something into law, or 'it is written', is to lay it down officially, so write can mean ordain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "absolute"
+    }
+   }
   },
   {
    "number": 25,
@@ -455,7 +1973,51 @@
     "text": "Taking notice of Liberal voters’ ban",
     "enumeration": "9"
    },
-   "solution": "OBSERVANT"
+   "solution": "OBSERVANT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OBSERVANT",
+    "definitions": [
+     {
+      "text": "Taking notice of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Liberal",
+      "for": "anagram",
+      "note": "liberal means free and loose, so the letters are freely rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "voters’ ban",
+      "gives": "VOTERSBAN",
+      "note": "anagram fodder, nine letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "VOTERSBAN",
+       "gives": "OBSERVANT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Paying heed to a ban imposed by Liberal Party voters.",
+     "walkthrough": "'Liberal' with a capital looks like the party, but it is the anagram signal.",
+     "definitionFit": "Observant of the rules means heedful or mindful of them, attentive and taking account."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Liberal"
+    }
+   }
   },
   {
    "number": 26,
@@ -469,7 +2031,63 @@
     "text": "Petition for withdrawing half of London station",
     "enumeration": "3"
    },
-   "solution": "SUE"
+   "solution": "SUE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "SUE",
+    "definitions": [
+     {
+      "text": "Petition",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half of",
+      "for": "deletion",
+      "note": "only half of the station's name is kept, the first three of six letters"
+     },
+     {
+      "text": "withdrawing",
+      "for": "reversal",
+      "note": "withdrawing means drawing back, so the kept half is read backwards"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "half of London station",
+      "gives": "EUS",
+      "note": "the first half of EUSTON, a major London railway terminus"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUE"
+     ],
+     "reversals": [
+      {
+       "from": "EUS",
+       "to": "SUE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A petition to close half of a London railway station.",
+     "walkthrough": "Euston is a main-line railway station in north London.",
+     "definitionFit": "To sue for peace is to appeal or plead for it, so as a verb it means to petition."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "withdrawing"
+    }
+   }
   },
   {
    "number": 27,
@@ -489,7 +2107,79 @@
      }
     ]
    },
-   "solution": "NIGHTSAFE"
+   "solution": "NIGHTSAFE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "reversal",
+     "container"
+    ],
+    "answer": "NIGHT SAFE",
+    "definitions": [
+     {
+      "text": "temporary strongbox",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Cast",
+      "for": "anagram",
+      "note": "cast means thrown or moulded anew, so the door part's letters are reshaped"
+     },
+     {
+      "text": "round",
+      "for": "reversal",
+      "note": "turned round, the word for firm faces the other way"
+     },
+     {
+      "text": "secures",
+      "for": "container",
+      "note": "the recast letters secure, or hold fast, the turned word within them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hinge",
+      "gives": "HINGE",
+      "note": "anagram fodder"
+     },
+     {
+      "clueFragment": "firm",
+      "gives": "FAST",
+      "note": "fast means firmly fixed, as in stuck fast"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NIGH",
+      "TSAF",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HINGE",
+       "gives": "NIGHE"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "FAST",
+       "to": "TSAF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cast-iron hinge keeping a portable safe firmly shut.",
+     "walkthrough": "'Firm' tempts as a company, but here it is an adjective, and 'round' turns it back to front.",
+     "definitionFit": "A night safe is a slot in a bank's outside wall for deposits after hours, holding the money until the bank opens."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "firm"
+    }
+   }
   },
   {
    "number": 28,
@@ -503,7 +2193,56 @@
     "text": "Solvers and setter eating buffet pasty",
     "enumeration": "5"
    },
-   "solution": "WHITE"
+   "solution": "WHITE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "WHITE",
+    "definitions": [
+     {
+      "text": "pasty",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "the solvers and setter eat the blow, taking it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Solvers and setter",
+      "gives": "WE",
+      "note": "you and I together are we"
+     },
+     {
+      "clueFragment": "buffet",
+      "gives": "HIT",
+      "note": "to buffet is to strike repeatedly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "HIT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Crossword people sharing a buffet lunch of pasties.",
+     "walkthrough": "'Buffet' and 'pasty' both look like food; one is a verb for strike and the other an adjective for pale.",
+     "definitionFit": "Pasty describes a pale, unhealthy complexion, the colour of uncooked dough, so it means white-faced."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pasty"
+    }
+   }
   }
  ]
 }
