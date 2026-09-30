@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""What Cracking the Cryptic's solvers praise and complain about, clue by clue.
+"""What YouTube solvers praise, wait on, explain and get unstuck by, clue by clue.
+
+Cracking the Cryptic first, then every channel in CHANNELS, each tagged with
+its solver's skill.
 
 Reads YouTube subtitle files (.vtt) of the channel's crossword solves, finds
 the moments a solver reacts to a clue, and ties each moment to the clue in our
@@ -27,6 +30,9 @@ rate.
   python3 tools/ctc_transcripts.py solvecheck                    # our per-clue difficulty vs those solves
   python3 tools/ctc_transcripts.py parsecheck SUBS_DIR          # our parses vs the solvers' explanations -> tools/data/ctc_parse_check.json
   python3 tools/ctc_transcripts.py unstick SUBS_DIR             # what unlocked each hard solve, against the hint ladder -> tools/data/ctc_unstick.json
+  python3 tools/ctc_transcripts.py --channel SLUG[,SLUG] CMD      # any of the above for other channels; SUBS_DIR defaults to theirs
+  python3 tools/ctc_transcripts.py --channel all solvecheck     # our difficulty vs every channel's waits, by skill -> tools/data/yt_solvers/skill_check.json
+  python3 tools/ctc_transcripts.py --channel all unstick        # unstick per channel, then by skill -> tools/data/yt_solvers/unstick_by_skill.json
 
 Solve times. A clue is read when its number and direction ("ten across") or
 three consecutive words of its text are first said; it is solved at the first
@@ -54,7 +60,9 @@ credits the rung of app.js's ladder that shows it, and every order of the
 rungs is scored by the mean rungs a solver takes to reach one that would have
 unstuck them.
 
-TITLES.tsv is `id<TAB>title` per video, from `yt-dlp --flat-playlist`.
+TITLES.tsv is `id<TAB>title` per video, from `yt-dlp --flat-playlist`; without
+it the titles come from the videos.json playlist dump beside SUBS_DIR. A title's
+series with its date or puzzle number lets a short talk-through match.
 The reasons file maps a moment id to {"reasons": [...], "quote": "..."}.
 """
 import collections
@@ -72,6 +80,69 @@ ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "tools" / "data" / "ctc_moments.json"
 REASONS = ROOT / "tools" / "data" / "ctc_reasons.json"
 PACKETS = Path("/data/home/cache/ctc/packets")
+
+#: Every solve channel: its subtitle cache and its solver's skill, from the
+#: channel's own description and pace (SKILLS lists the levels, best first).
+#: --channel picks one; the default is Cracking the Cryptic, whose files keep
+#: the ctc_ names; the others write tools/data/yt_solvers/<slug>_<kind>.json.
+SKILLS = ("expert", "intermediate", "beginner")
+CHANNELS = {
+    "ctc": ("Cracking the Cryptic", "expert", "/data/home/cache/ctc/subs"),
+    "pat_cousins": ("Pat Cousins", "expert", "/data/home/cache/yt_solvers/pat_cousins/subs"),
+    "cryptics_uncovered": ("Cryptics Uncovered", "intermediate", "/data/home/cache/yt_solvers/cryptics_uncovered/subs"),
+    "lucyverbalist": ("Lucyverbalist", "intermediate", "/data/home/cache/yt_solvers/lucyverbalist/subs"),
+    "dhansak": ("Dhansak Crosswords", "intermediate", "/data/home/cache/yt_solvers/dhansak/subs"),
+    "solving_telegraph_cryptic": ("Solving The Telegraph Cryptic", "beginner",
+                                  "/data/home/cache/yt_solvers/solving_telegraph_cryptic/subs"),
+    "cryptic_mystic": ("The Cryptic Mystic", "beginner", "/data/home/cache/yt_solvers/cryptic_mystic/subs"),
+}
+CHANNEL = "ctc"
+
+
+def data_file(kind, channel=None):
+    """The channel's output file of one kind (moments, solve_times, ...)."""
+    channel = channel or CHANNEL
+    if channel == "ctc":
+        return ROOT / "tools" / "data" / f"ctc_{kind}.json"
+    return ROOT / "tools" / "data" / "yt_solvers" / f"{channel}_{kind}.json"
+
+
+def use_channel(channel):
+    """Point every subcommand's files at one channel."""
+    global CHANNEL, OUT, SOLVES, PARSECHECK, UNSTICK
+    if channel not in CHANNELS:
+        sys.exit(f"unknown channel {channel!r}; one of {', '.join(CHANNELS)}")
+    CHANNEL = channel
+    OUT, SOLVES = data_file("moments"), data_file("solve_times")
+    PARSECHECK, UNSTICK = data_file("parse_check"), data_file("unstick")
+    OUT.parent.mkdir(parents=True, exist_ok=True)
+
+
+def sub_files(subs_dir):
+    """{video id: its .vtt}: the uploaded or translated en track, else the
+    auto-caption original."""
+    out = {}
+    for f in sorted(Path(subs_dir).glob("*.vtt")):
+        vid, track = f.name.split(".")[0], f.name.split(".")[1]
+        if track == "en" or vid not in out:
+            out[vid] = f
+    return out
+
+
+def read_titles(subs_dir, titles_tsv=None):
+    """{video id: title} from TITLES.tsv, else the videos.json playlist dump
+    beside the subs directory."""
+    if titles_tsv:
+        titles = {}
+        for row in Path(titles_tsv).read_text().splitlines():
+            parts = row.rstrip("\n").replace("\\t", "\t").split("\t")
+            if len(parts) >= 2:
+                titles[parts[0]] = parts[1]
+        return titles
+    meta = Path(subs_dir).parent / "videos.json"
+    if not meta.exists():
+        return {}
+    return {v["id"]: v.get("title") or "" for v in json.loads(meta.read_text()).get("entries", [])}
 
 MIN_SHARE = 0.45
 DATED_SHARE = 0.15
@@ -131,8 +202,18 @@ def words_of(solution, enumeration):
     return out
 
 
+_CORPUS = []
+
+
 def load_corpus():
-    """{puzzle_id: puzzle} for every dated puzzle file, and the answer index."""
+    """{puzzle_id: puzzle} for every dated puzzle file, and the answer index;
+    read once per run, so a loop over channels pays for it once."""
+    if not _CORPUS:
+        _CORPUS.append(_read_corpus())
+    return _CORPUS[0]
+
+
+def _read_corpus():
     puzzles, index = {}, collections.defaultdict(set)
     for f in glob.glob(str(ROOT / "puzzles" / "*" / "[12][0-9][0-9][0-9]" / "*.json")):
         try:
@@ -155,24 +236,38 @@ def load_corpus():
 
 MONTHS = {m: i + 1 for i, m in enumerate(
     ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"])}
-TITLE_SERIES = [("sunday times", "sundaytimes"), ("times", "times"), ("guardian", "cryptic"),
-                ("telegraph", "telegraph"), ("toughie", "toughie"), ("independent", "independent"),
-                ("financial times", "ftcryptic"), ("everyman", "everyman")]
+#: (title words, corpus series) in the order tried: a longer name before the
+#: one it contains. A series we hold none of maps to a name with no puzzles.
+TITLE_SERIES = [("sunday times", "sundaytimes"), ("financial times", "ftcryptic"),
+                ("times quick", "timesquick"), ("guardian quick", "guardianquick"),
+                ("guardian qc", "guardianquick"), ("quiptic", "quiptic"), ("everyman", "everyman"),
+                ("times", "times"), ("guardian", "cryptic"), ("sunday telegraph", "sundaytel"),
+                ("toughie", "toughie"), ("telegraph", "telegraph"), ("independent", "independent")]
+TITLE_DATE = (re.compile(r"(\d{1,2})(?:st|nd|rd|th)?\s+([a-z]{3})[a-z]*,?\s+(20\d\d)"),
+              re.compile(r"([a-z]{3})[a-z]*\s+(\d{1,2})(?:st|nd|rd|th)?,?\s+(20\d\d)"),
+              re.compile(r"\b(\d{1,2})/(\d{1,2})/(20\d\d)\b"))
+TITLE_NUMBER = re.compile(r"\b(\d{1,3}(?:,\d{3})+|\d{3,6})\b")
 
 
 def title_facts(title):
-    """(series or None, ISO date or None) named in a video title."""
+    """(series or None, ISO date or None, puzzle number or None) named in a
+    video title. A slashed date is day first (UK channels)."""
     low = title.lower()
     series = next((s for k, s in TITLE_SERIES if k in low), None)
-    m = (re.search(r"(\d{1,2})(?:st|nd|rd|th)?\s+([a-z]{3})[a-z]*,?\s+(20\d\d)", low)
-         or re.search(r"([a-z]{3})[a-z]*\s+(\d{1,2})(?:st|nd|rd|th)?,?\s+(20\d\d)", low))
     date = None
-    if m:
+    for pat in TITLE_DATE:
+        m = pat.search(low)
+        if not m:
+            continue
         a, b, y = m.groups()
         day, mon = (a, b) if a.isdigit() else (b, a)
-        if mon in MONTHS:
-            date = f"{y}-{MONTHS[mon]:02d}-{int(day):02d}"
-    return series, date
+        mon = int(mon) if mon.isdigit() else MONTHS.get(mon)
+        if mon and 1 <= mon <= 12:
+            date = f"{y}-{mon:02d}-{int(day):02d}"
+            low = low[:m.start()] + " " + low[m.end():]
+            break
+    n = TITLE_NUMBER.search(low)
+    return series, date, int(n.group(1).replace(",", "")) if n else None
 
 
 def match_puzzle(text, puzzles, index, title=""):
@@ -181,9 +276,15 @@ def match_puzzle(text, puzzles, index, title=""):
     The best share wins; within 0.1 of it, the series the title names wins,
     then the title's date (the Globe and Mail reprints the Times, so the same
     answers can sit in two files). A puzzle carrying the title's date and
-    series needs only DATED_SHARE: short vlogs talk through a few clues."""
-    t_series, t_date = title_facts(title)
+    series, or the title's series and number, needs only DATED_SHARE: short
+    vlogs talk through a few clues."""
+    t_series, t_date, t_num = title_facts(title)
     padded = " " + text + " "
+    share = lambda pid: sum(1 for x in puzzles[pid]["_phrases"] if " " + x + " " in padded) / max(1, len(puzzles[pid]["_phrases"]))
+    if t_series and t_num and f"{t_series}-{t_num}" in puzzles:
+        s = share(f"{t_series}-{t_num}")
+        if s >= DATED_SHARE:
+            return s, f"{t_series}-{t_num}"
     wordset = set(text.split())
     cands = collections.Counter()
     for w in wordset:
@@ -191,9 +292,8 @@ def match_puzzle(text, puzzles, index, title=""):
             cands[pid] += 1
     scored = []
     for pid, _ in cands.most_common(400):
-        ph = puzzles[pid]["_phrases"]
-        if ph:
-            scored.append((sum(1 for x in ph if " " + x + " " in padded) / len(ph), pid))
+        if puzzles[pid]["_phrases"]:
+            scored.append((share(pid), pid))
     if not scored:
         return 0.0, None
     top = max(s for s, _ in scored)
@@ -251,16 +351,11 @@ def entry_record(e):
     }
 
 
-def extract(subs_dir, titles_tsv):
-    titles = {}
-    for row in Path(titles_tsv).read_text().splitlines():
-        parts = row.rstrip("\n").replace("\\t", "\t").split("\t")
-        if len(parts) >= 2:
-            titles[parts[0]] = parts[1]
+def extract(subs_dir, titles_tsv=None):
+    titles = read_titles(subs_dir, titles_tsv)
     puzzles, index = load_corpus()
     videos, moments = [], []
-    for f in sorted(glob.glob(str(Path(subs_dir) / "*.vtt"))):
-        vid = Path(f).name.split(".")[0]
+    for vid, f in sub_files(subs_dir).items():
         lines = parse_vtt(f)
         text = norm(" ".join(l for _, l in lines))
         share, pid = match_puzzle(text, puzzles, index, titles.get(vid, ""))
@@ -539,12 +634,13 @@ def solves(subs_dir):
     """Per-clue solve moments for every matched video -> SOLVES."""
     data = json.loads(OUT.read_text())
     puzzles, _ = load_corpus()
+    subs = sub_files(subs_dir)
     videos, clues = [], []
     for v in data["videos"]:
         if not v["puzzle"] or v["puzzle"] not in puzzles:
             continue
-        f = Path(subs_dir) / f"{v['video']}.en.vtt"
-        if not f.exists():
+        f = subs.get(v["video"])
+        if not f:
             continue
         rows, facts = time_video(parse_vtt(f), puzzles[v["puzzle"]])
         videos.append({"video": v["video"], "puzzle": v["puzzle"], **facts})
@@ -619,10 +715,9 @@ def solve_table():
     each video so a puzzle's overall difficulty and pace cancel; and CtC
     against the Times for the Times comments' hard/LOI flags on the same
     clues. The tables solvecheck() prints: within-video percentiles, pooled."""
+    import difficulty as D
     import puzzle_paths
     from fetch_puzzle import puzzle_is_annotated, read_puzzle_file
-
-    import difficulty as D
     data = json.loads(SOLVES.read_text())
     tftt = json.loads((ROOT / "tools/data/blog_comment_difficulty.json").read_text())
     rank, blog_defs = D.ranks(), D.blog_definitions()
@@ -894,9 +989,10 @@ def parsecheck(subs_dir, top=15):
     for c in data["clues"]:
         by_video[c["video"]].append(c)
     talks = collections.defaultdict(list)   # (puzzle, entry) -> explanation windows
+    subs = sub_files(subs_dir)
     for vid, rows in by_video.items():
-        f = Path(subs_dir) / f"{vid}.en.vtt"
-        if not f.exists():
+        f = subs.get(vid)
+        if not f:
             continue
         lines = parse_vtt(f)
         reads = sorted(r["read"] for r in rows if r["read"] is not None)
@@ -1098,6 +1194,36 @@ def two_prop_p(k1, n1, k2, n2):
     return math.erfc(abs(k1 / n1 - k2 / n2) / se / math.sqrt(2)) if se else 1.0
 
 
+def summarise(sel, base):
+    """Unlock shares against the quick solves, rung hit rates and rung orders
+    scored, for one set of hard solves."""
+    orders = list(itertools.permutations(LADDER))
+    n, nb = len(sel), len(base) or 1
+    bc = collections.Counter(k for r in base for k in r["unlocks"])
+    uc = collections.Counter(k for r in sel for k in r["unlocks"])
+    ind = collections.Counter(r["unlocks"]["indicator"] for r in sel if "indicator" in r["unlocks"])
+    dev = collections.Counter(r["unlocks"]["device"] for r in sel if "device" in r["unlocks"])
+    rc = collections.Counter(x for r in sel for x in r["rungs"])
+    avail = collections.Counter(x for r in sel for x in r["available"])
+    # A rung's hit rate is over the clues that have it.
+    hit = {x: round(sum(x in r["rungs"] for r in sel if x in r["available"]) / avail[x], 3)
+           for x in LADDER if avail[x]}
+    cur, k = rungs_to_unlock(sel, LADDER)
+    best = min(orders, key=lambda o: (rungs_to_unlock(sel, o)[0] or 99, o != LADDER))
+    return {"clues": n, "classified": sum(bool(r["unlocks"]) for r in sel),
+            "unlocks": {x: {"clues": c, "share": round(c / n, 3), "quick_share": round(bc[x] / nb, 3),
+                            "lift": round(c / n / (bc[x] / nb), 2) if bc[x] else None,
+                            "p": round(two_prop_p(c, n, bc[x], len(base)), 4)}
+                        for x, c in uc.most_common()} if n else {},
+            "quick_clues": len(base),
+            "indicator_types": dict(ind.most_common()), "devices_named": dict(dev.most_common()),
+            "rungs": dict(rc.most_common()), "rung_hit_rate": hit,
+            "best_first_rung": max(hit, key=hit.get) if hit else None,
+            "current_order": {"order": list(LADDER), "mean_rungs": cur, "clues": k},
+            "best_order": {"order": list(best), "mean_rungs": rungs_to_unlock(sel, best)[0]}}
+
+
+
 def unstick(subs_dir):
     """What unlocked each hard CtC solve, by clue type, against the ladder -> UNSTICK."""
     data = json.loads(SOLVES.read_text())
@@ -1105,9 +1231,10 @@ def unstick(subs_dir):
     for c in data["clues"]:
         by_video[c["video"]].append(c)
     rows, quick = [], []
+    subs = sub_files(subs_dir)
     for vid, clues in by_video.items():
-        f = Path(subs_dir) / f"{vid}.en.vtt"
-        if not f.exists():
+        f = subs.get(vid)
+        if not f:
             continue
         lines = parse_vtt(f)
         puz = entries_of(clues[0]["puzzle"])
@@ -1126,33 +1253,6 @@ def unstick(subs_dir):
                          "stuck": c["stuck"], "wait": c["read_to_solve"], "unlocks": u,
                          "available": available_rungs(a), "rungs": sorted(unstick_rungs(a, u))})
     ann = [r for r in rows if r["type"]]
-    orders = list(itertools.permutations(LADDER))
-
-    def summarise(sel, base):
-        n, nb = len(sel), len(base) or 1
-        bc = collections.Counter(k for r in base for k in r["unlocks"])
-        uc = collections.Counter(k for r in sel for k in r["unlocks"])
-        ind = collections.Counter(r["unlocks"]["indicator"] for r in sel if "indicator" in r["unlocks"])
-        dev = collections.Counter(r["unlocks"]["device"] for r in sel if "device" in r["unlocks"])
-        rc = collections.Counter(x for r in sel for x in r["rungs"])
-        avail = collections.Counter(x for r in sel for x in r["available"])
-        # A rung's hit rate is over the clues that have it.
-        hit = {x: round(sum(x in r["rungs"] for r in sel if x in r["available"]) / avail[x], 3)
-               for x in LADDER if avail[x]}
-        cur, k = rungs_to_unlock(sel, LADDER)
-        best = min(orders, key=lambda o: (rungs_to_unlock(sel, o)[0] or 99, o != LADDER))
-        return {"clues": n, "classified": sum(bool(r["unlocks"]) for r in sel),
-                "unlocks": {x: {"clues": c, "share": round(c / n, 3), "quick_share": round(bc[x] / nb, 3),
-                                "lift": round(c / n / (bc[x] / nb), 2) if bc[x] else None,
-                                "p": round(two_prop_p(c, n, bc[x], len(base)), 4)}
-                            for x, c in uc.most_common()} if n else {},
-                "quick_clues": len(base),
-                "indicator_types": dict(ind.most_common()), "devices_named": dict(dev.most_common()),
-                "rungs": dict(rc.most_common()), "rung_hit_rate": hit,
-                "best_first_rung": max(hit, key=hit.get) if hit else None,
-                "current_order": {"order": list(LADDER), "mean_rungs": cur, "clues": k},
-                "best_order": {"order": list(best), "mean_rungs": rungs_to_unlock(sel, best)[0]}}
-
     types = collections.Counter(r["type"] for r in ann)
     summ = {"hard_clues": len(rows), "videos": len({r["video"] for r in rows}),
             "all": summarise(rows, quick), "annotated": summarise(ann, [r for r in quick if r["type"]]),
@@ -1178,30 +1278,176 @@ def unstick(subs_dir):
             f"{h[x]:5.0%}" if x in h else "    -" for x in LADDER)
             + f"  {s['best_first_rung'] or '-':10s}  {s['current_order']['mean_rungs']} -> "
               f"{s['best_order']['mean_rungs']} {'/'.join(x[:3] for x in s['best_order']['order'])}")
+    return rows, quick
+
+
+def unstick_by_skill():
+    """unstick() for every channel with solve times, then what unlocked the
+    hard solves by solver skill; each level's shares are read against its own
+    quick solves, so a talkative tutor's baseline cancels. Unannotated clues
+    count: every unlock but the rungs is read off the transcript alone."""
+    by = {k: ([], []) for k in SKILLS}
+    for ch, (_, skill, subs) in CHANNELS.items():
+        if not data_file("solve_times", ch).exists():
+            continue
+        use_channel(ch)
+        print(f"== {ch} ({skill})")
+        rows, quick = unstick(subs)
+        by[skill][0].extend(rows)
+        by[skill][1].extend(quick)
+    summ = {k: summarise(*v) for k, v in by.items() if v[0]}
+    print("\nhard solves by solver skill: unlock share (vs own quick solves)")
+    kinds = sorted({x for s in summ.values() for x in s["unlocks"]})
+    print(f"  {'skill':12s} {'hard':>5s} {'quick':>5s}  " + "  ".join(f"{x:>17s}" for x in kinds))
+    for k, sm in summ.items():
+        print(f"  {k:12s} {sm['clues']:5d} {sm['quick_clues']:5d}  " + "  ".join(
+            f"{sm['unlocks'][x]['share']:6.0%} vs {sm['unlocks'][x]['quick_share']:4.0%} "
+            f"{'*' if sm['unlocks'][x]['p'] < 0.05 else ' '}" if x in sm["unlocks"] else f"{'-':>17s}" for x in kinds))
+    print("  rung hit rate: " + "; ".join(
+        f"{k} " + " ".join(f"{x[:5]} {sm['rung_hit_rate'].get(x, 0):.0%}" for x in LADDER) for k, sm in summ.items()))
+    lo, hi = SKILLS[-1], SKILLS[0]
+    if lo in summ and hi in summ:
+        a, b = summ[lo], summ[hi]
+        print(f"  {lo} vs {hi}, hard-solve unlock share at p < 0.05: " + ", ".join(
+            f"{x} {a['unlocks'].get(x, {}).get('share', 0):.0%} vs {b['unlocks'].get(x, {}).get('share', 0):.0%}"
+            for x in kinds if two_prop_p(a["unlocks"].get(x, {}).get("clues", 0), a["clues"],
+                                        b["unlocks"].get(x, {}).get("clues", 0), b["clues"]) < 0.05) or "none")
+        for x in LADDER:
+            ka = sum(x in r["rungs"] for r in by[lo][0] if x in r["available"])
+            na = sum(x in r["available"] for r in by[lo][0])
+            kb = sum(x in r["rungs"] for r in by[hi][0] if x in r["available"])
+            nb = sum(x in r["available"] for r in by[hi][0])
+            print(f"  rung {x:10s} {lo} {ka}/{na}  {hi} {kb}/{nb}  p {two_prop_p(ka, na, kb, nb):.3g}")
+    UNSTICK_SKILL.write_text(json.dumps(summ, ensure_ascii=False, indent=1) + "\n")
+    print(f"-> {UNSTICK_SKILL}")
+
+
+SKILLCHECK = ROOT / "tools" / "data" / "yt_solvers" / "skill_check.json"
+UNSTICK_SKILL = ROOT / "tools" / "data" / "yt_solvers" / "unstick_by_skill.json"
+
+
+def wait_percentiles(channel):
+    """{(puzzle, entry): wait percentile within its video} for one channel,
+    a puzzle solved twice averaged."""
+    data = json.loads(data_file("solve_times", channel).read_text())
+    by_video = collections.defaultdict(list)
+    for c in data["clues"]:
+        by_video[c["video"]].append(c)
+    got = collections.defaultdict(list)
+    for rows in by_video.values():
+        w = _ranks([r["read_to_solve"] if r["read_to_solve"] is not None else r["seconds"] for r in rows])
+        for r, x in zip(rows, w):
+            got[(r["puzzle"], r["entry"])].append(x)
+    return {k: sum(v) / len(v) for k, v in got.items()}
+
+
+def fisher_p(r1, n1, r2, n2):
+    """Two-sided p that two correlations are equal (Fisher z)."""
+    z = lambda r: math.atanh(max(-0.999, min(0.999, r)))
+    if n1 < 4 or n2 < 4:
+        return 1.0
+    return math.erfc(abs(z(r1) - z(r2)) / math.sqrt(1 / (n1 - 3) + 1 / (n2 - 3)) / math.sqrt(2))
+
+
+def skillcheck():
+    """Our per-clue difficulty against each channel's waits, per channel, by
+    skill and pooled. Every value is a percentile within its own video, so
+    each solver's pace and each puzzle's hardness cancel before pooling."""
+    out, pooled = {"channels": {}, "skills": {}}, collections.defaultdict(list)
+    for ch, (name, skill, _) in CHANNELS.items():
+        if not data_file("solve_times", ch).exists():
+            continue
+        use_channel(ch)
+        t = solve_table()
+        if len(t.held) < 30:
+            out["channels"][ch] = {"skill": skill, "clues": len(t.held)}
+            continue
+        comp, wait, length = zip(*t.held)
+        r, n, p = _rho_p(comp, wait)
+        pv = sorted(x for rs in t.per_video.values() for x in rs)
+        hard = t.human.get(("ctc_wait", "hard"), [])
+        out["channels"][ch] = {
+            "name": name, "skill": skill, "videos": len(pv), "clues": n,
+            "composite_vs_wait": round(r, 3), "p": float(f"{p:.2g}"),
+            "length_vs_wait": round(_spearman(length, wait), 3),
+            "partial_length_held": round(partial_rho(t.held)[0], 3),
+            "per_video_median": round(pv[len(pv) // 2], 3) if pv else None,
+            "per_video_positive": f"{sum(x > 0 for x in pv)}/{len(pv)}",
+            "times_blog_hard_vs_wait": round(_spearman(*zip(*hard)), 3) if len(hard) >= 30 else None}
+        pooled[skill] += t.held
+        pooled["all"] += t.held
+    for k, held in pooled.items():
+        r, n, p = _rho_p([h[0] for h in held], [h[1] for h in held])
+        out["skills"][k] = {"clues": n, "composite_vs_wait": round(r, 3), "p": float(f"{p:.2g}"),
+                            "length_vs_wait": round(_spearman([h[2] for h in held], [h[1] for h in held]), 3)}
+    lo, hi = SKILLS[-1], SKILLS[0]
+    if lo in out["skills"] and hi in out["skills"]:
+        a, b = out["skills"][lo], out["skills"][hi]
+        out["beginner_vs_expert_p"] = float(f"{fisher_p(a['composite_vs_wait'], a['clues'], b['composite_vs_wait'], b['clues']):.2g}")
+    # solvers against each other on the clues both timed
+    waits = {ch: wait_percentiles(ch) for ch in out["channels"]}
+    out["agreement"] = {}
+    for a, b in itertools.combinations(waits, 2):
+        both = sorted(set(waits[a]) & set(waits[b]))
+        if len(both) >= 30:
+            r, n, p = _rho_p([waits[a][k] for k in both], [waits[b][k] for k in both])
+            out["agreement"][f"{a}~{b}"] = {"clues": n, "rho": round(r, 3), "p": float(f"{p:.2g}")}
+    SKILLCHECK.parent.mkdir(parents=True, exist_ok=True)
+    SKILLCHECK.write_text(json.dumps(out, indent=1) + "\n")
+    print(f"{'channel':26s} {'skill':12s} {'vids':>4s} {'clues':>5s}  ours~wait  (p)      len~wait  partial  median/video  blog-hard~wait")
+    for ch, c in out["channels"].items():
+        if "composite_vs_wait" not in c:
+            print(f"{ch:26s} {c['skill']:12s} {'':4s} {c['clues']:5d}  too few timed clues")
+            continue
+        print(f"{ch:26s} {c['skill']:12s} {c['videos']:4d} {c['clues']:5d}  {c['composite_vs_wait']:+.3f}  ({c['p']:.2g})  "
+              f"{c['length_vs_wait']:+.3f}   {c['partial_length_held']:+.3f}   {c['per_video_median']:+.3f} {c['per_video_positive']:>7s}  "
+              f"{c['times_blog_hard_vs_wait'] if c['times_blog_hard_vs_wait'] is not None else '-'}")
+    for k, c in out["skills"].items():
+        print(f"pooled {k:12s} clues {c['clues']:5d}  ours~wait {c['composite_vs_wait']:+.3f} (p={c['p']:.2g})  len~wait {c['length_vs_wait']:+.3f}")
+    if "beginner_vs_expert_p" in out:
+        print(f"beginner vs expert rho differ: p={out['beginner_vs_expert_p']}")
+    for k, c in out["agreement"].items():
+        print(f"solver agreement {k}: wait rho {c['rho']:+.3f} over {c['clues']} shared clues (p={c['p']:.2g})")
+    print(f"-> {SKILLCHECK}")
 
 
 if __name__ == "__main__":
-    cmd = sys.argv[1] if len(sys.argv) > 1 else ""
-    if cmd == "solves":
-        solves(sys.argv[2])
-        sys.exit()
-    if cmd == "unstick":
-        unstick(sys.argv[2])
-        sys.exit()
-    if cmd == "parsecheck":
-        parsecheck(sys.argv[2])
-        sys.exit()
-    if cmd == "solvecheck":
+    args = sys.argv[1:]
+    channel = "ctc"
+    if "--channel" in args:
+        k = args.index("--channel")
+        channel = args[k + 1]
+        del args[k:k + 2]
+    cmd = args[0] if args else ""
+    if channel == "all" and cmd in ("solvecheck", "unstick"):
         sys.path.insert(0, str(ROOT / "tools"))
-        solvecheck()
+        (skillcheck if cmd == "solvecheck" else unstick_by_skill)()
         sys.exit()
-    if cmd == "extract":
-        extract(sys.argv[2], sys.argv[3])
-    elif cmd == "packets":
-        packets(int(sys.argv[2]))
-    elif cmd == "merge":
-        merge()
-    elif cmd == "report":
-        report()
-    else:
-        sys.exit(__doc__)
+    todo = list(CHANNELS) if channel == "all" else channel.split(",")
+    for ch in todo:
+        use_channel(ch)
+        if len(args) > 1 and "," not in channel and channel != "all":
+            subs = args[1]
+        else:
+            subs = CHANNELS[CHANNEL][2]
+        if len(todo) > 1:
+            print(f"== {CHANNEL}")
+        if cmd == "solves":
+            solves(subs)
+        elif cmd == "unstick":
+            unstick(subs)
+        elif cmd == "parsecheck":
+            parsecheck(subs)
+        elif cmd == "solvecheck":
+            sys.path.insert(0, str(ROOT / "tools"))
+            solvecheck()
+        elif cmd == "extract":
+            extract(subs, args[2] if len(args) > 2 else None)
+        elif cmd == "packets":
+            packets(int(args[1]))
+        elif cmd == "merge":
+            merge()
+        elif cmd == "report":
+            report()
+        else:
+            sys.exit(__doc__)
