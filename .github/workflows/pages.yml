@@ -69,6 +69,16 @@ jobs:
       # file://. The two are one step rather than two because the index hashes
       # the shim bytes, so indexing without building is not a thing that can be
       # correct.
+      # Our own puzzle is built from its clues rather than committed (see
+      # tools/test_build_authored_puzzle.sh). Its series is unlisted in
+      # tools/series.py, so the reindex below files it where only ?p=authored-1
+      # finds it. Before the reindex, which builds its shim.
+      - name: Build the authored puzzle
+        run: >-
+          python3 tools/build_authored_puzzle.py
+          --clues tools/data/authored_A001_clues.json --number 1
+          --name "Cryptic Teacher No 1" --date 2026-07-29
+          --annotated-by claude-opus-5-5
       - name: Build the puzzle shims and reindex
         run: python3 tools/fetch_puzzle.py --reindex
       # The cards are ~110MB of PNGs that change a few files a night, so they are

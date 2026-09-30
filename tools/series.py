@@ -71,6 +71,8 @@ SERIES = {
         "kind": "Cryptic",
         "publisher": "Cryptic Teacher",
         "setter": "Cryptic Teacher",
+        # Reachable at ?p=<id> but listed nowhere (see unlisted()).
+        "unlisted": True,
     },
     "independent": {
         "kind": "Cryptic",
@@ -398,6 +400,17 @@ DEFAULT = SERIES["cryptic"]
 
 def meta(series):
     return SERIES.get(series or "cryptic", DEFAULT)
+
+
+def unlisted(series):
+    """Whether this series' puzzles open only by a direct ?p=<id> link.
+
+    fetch_puzzle.reindex() files them under the index's `unlisted` key instead
+    of `puzzles`, so every page, sitemap, listing, picker and notification that
+    walks `puzzles` never sees them; build_seo_pages.py writes them no page, and
+    app.js marks them noindex when one is open.
+    """
+    return bool(meta(series).get("unlisted"))
 
 
 def kind(series, number=None):

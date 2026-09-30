@@ -2192,6 +2192,8 @@ def reindex():
     # opens with the paper that printed it ("Guardian cryptic crossword,
     # Penguin book 5 No 18"), so CTNotify.title() has nothing to add and adds
     # nothing.
+    unlisted = [dict(p, unlisted=True) for p in puzzles if series_meta.unlisted(p["series"])]
+    puzzles = [p for p in puzzles if not series_meta.unlisted(p["series"])]
     papers = {s: series_meta.publisher(s)
               for s in sorted({p["series"] for p in puzzles})}
     # The picker's heading for each series, beside `papers` rather than in it:
@@ -2210,7 +2212,7 @@ def reindex():
     index = {"latest": puzzles[0]["id"] if puzzles else None,
              "papers": papers, "groups": groups, "books": books,
              "clueTypes": clue_types.DATA,
-             "snitchRanges": snitch, "puzzles": puzzles}
+             "snitchRanges": snitch, "puzzles": puzzles, "unlisted": unlisted}
     compact = json.dumps(index, ensure_ascii=False, separators=COMPACT)
     (puzzle_paths.PUZZLE_DIR / "index.json").write_text(compact + "\n", encoding="utf-8")
     (puzzle_paths.PUZZLE_DIR / "index.js").write_text(

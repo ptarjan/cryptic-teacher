@@ -696,6 +696,11 @@
     // would orphan a grid somebody is halfway through.
     legacyIds(p).forEach((was) => { ALIAS[was] = p.id; });
   });
+  // Opened only by ?p=<id>: resolvable here, in INDEX.puzzles nowhere.
+  (INDEX.unlisted || []).forEach((p) => { IS_ID[p.id] = 1; BY_ID[p.id] = p; });
+  // Whether /puzzles/<id>/ exists: build_seo_pages.py writes one for every
+  // listed puzzle with answers.
+  const hasPage = (p) => !!(p && p.hasSolutions && !p.unlisted);
   const canonicalId = (id) => {
     const s = String(id == null ? "" : id);
     return IS_ID[s] ? s : (ALIAS[s] || BY_NUMBER[s] || s);
@@ -6064,8 +6069,8 @@
   // an unannotated puzzle has no static page, and ?p= is then the only address
   // that opens anything.
   function shareUrl(id, ref) {
-    const p = INDEX.puzzles.find((q) => q.id === id);
-    if (p && p.hasSolutions) {
+    const p = BY_ID[id];
+    if (hasPage(p)) {
       return new URL(`puzzles/${p.id}/${ref ? `?c=${ref}` : ""}`, homeUrl()).href;
     }
     return `?p=${encodeURIComponent(id)}${ref ? `&c=${ref}` : ""}`;
@@ -6073,7 +6078,7 @@
 
   let urlNamesPuzzle = !!new URLSearchParams(location.search).get("p");
   function pointUrlAtPuzzle(id) {
-    const p = INDEX.puzzles.find((q) => q.id === id);
+    const p = BY_ID[id];
     urlNamesPuzzle = true;
     if (window.history && window.history.replaceState) {
       window.history.replaceState(null, "", shareUrl(id, null));
@@ -6089,12 +6094,21 @@
     // deserves that credit is the write-up at /puzzles/30054/, which says the same
     // things without needing JavaScript. Point at it, but only when it exists:
     // an unannotated puzzle has no static page, and the homepage is then honest.
+    let robots = document.querySelector('meta[name="robots"]');
+    if (p && p.unlisted && !robots) {
+      robots = document.createElement("meta");
+      robots.name = "robots";
+      robots.content = "noindex";
+      document.head.appendChild(robots);
+    } else if (robots && !(p && p.unlisted)) {
+      robots.remove();
+    }
     const link = document.querySelector('link[rel="canonical"]');
     if (!link) return;
     // Resolved against the ORIGINAL canonical, captured once: after the first
     // switch link.href is itself a /puzzles/<n>/ URL, and resolving the next
     // puzzle against that nests one inside the other.
-    link.href = p && p.hasSolutions
+    link.href = hasPage(p)
       ? new URL(`puzzles/${p.id}/`, homeUrl()).href : homeUrl();
   }
 
@@ -6107,7 +6121,7 @@
       return;
     }
     P = puzzle;
-    meta = INDEX.puzzles.find((p) => p.id === id) || { annotated: false };
+    meta = BY_ID[id] || { annotated: false };
     store.set("ct:last", id);
     if (chosen) pointUrlAtPuzzle(id);
     buildModel();
