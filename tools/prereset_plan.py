@@ -45,6 +45,7 @@ bought everything it could.
 
 Reads only, except the --observe flags, which write .prereset_rate/.prereset_yield.
 """
+import json
 import math
 import os
 import sys
@@ -52,7 +53,7 @@ import time
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-import weekly_usage  # noqa: E402
+import weekly_usage
 
 REPO = Path(__file__).resolve().parent.parent
 
@@ -689,11 +690,24 @@ def cover_self_test(covers):
     return bad
 
 
+def ctc_puzzles():
+    """Puzzles Cracking the Cryptic solved on video (tools/ctc_transcripts.py).
+    Their praise is our only human signal of what makes a clue good, and a
+    praised clue teaches the setting prompt nothing until it is annotated."""
+    path = REPO / "tools/data/ctc_moments.json"
+    if not path.exists():
+        return set()
+    return {v["puzzle"] for v in json.loads(path.read_text())["videos"] if v["puzzle"]}
+
+
 def cover_first(pinned):
-    """The ids on stdin, reordered: pinned first, then the indicator cover, then
-    the rest as they came. The summary goes to stderr, which is the burn's log."""
+    """The ids on stdin, reordered: pinned first, then Cracking the Cryptic's
+    puzzles, then the indicator cover, then the rest as they came. The summary
+    goes to stderr, which is the burn's log."""
     import indicator_cover
     queue = sys.stdin.read().split()
+    ctc = ctc_puzzles()
+    pinned = pinned + [pid for pid in queue if pid in ctc and pid not in pinned]
     ordered, picks, weight = indicator_cover.plan(queue, pinned)
     reached = set().union(*(m for _, m in picks))
     head = ", ".join(f"{pid} ({len(m)})" for pid, m in picks[:4])
