@@ -108,8 +108,6 @@ jobs:
         run: bash tools/make_og.sh --pages
       - name: Stamp the assets
         run: python3 tools/stamp_assets.py
-      - name: Check the annotations
-        run: python3 tools/validate_annotations.py
       # Only the site goes up, not the checkout: tools/stage_site.py links what
       # it names into _site/ and fails if any page links a file left out.
       - name: Stage the site
@@ -118,8 +116,30 @@ jobs:
         with:
           path: _site
 
+  # Its own job so it runs beside the build instead of in front of the
+  # staging: it reads only the puzzle sources and tools/data, none of what the
+  # build generates. deploy needs it, so a failing check still ships nothing.
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      # The authored puzzle is built from its clues, not committed, and the
+      # check covers it like any other puzzle.
+      - name: Build the authored puzzle
+        run: >-
+          python3 tools/build_authored_puzzle.py
+          --clues tools/data/authored_A001_clues.json --number 1
+          --name "Cryptic Teacher No 1" --date 2026-07-29
+          --annotated-by claude-opus-5-5
+      - name: Check the annotations
+        run: python3 tools/validate_annotations.py
+
   deploy:
-    needs: build
+    needs: [build, validate]
     runs-on: ubuntu-latest
     environment:
       name: github-pages
