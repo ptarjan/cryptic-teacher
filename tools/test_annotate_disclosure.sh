@@ -226,17 +226,29 @@ pending.write_text(json.dumps({"1-across": {"answer": "TITUS, ANDRONICUS"}, "2-a
 say("comma_answer_spaced", AC.respell_answers(pending) == ["1-across"]
     and json.loads(pending.read_text())["1-across"]["answer"] == "TITUS ANDRONICUS")
 
-# A block note opening "<answer> is ..." keeps only what follows; one naming
-# the answer anywhere else, or as part of a longer subject, is left alone.
+# A block note naming its answer is rewritten without it when no judgement goes
+# into that; one naming it mid-thought is left for the validator.
 pending.write_text(json.dumps({
     "1-across": {"answer": "GRATING", "blocks": [{"note": "a grating is a grid of metal bars over a drain"}]},
     "2-across": {"answer": "TEMPLE", "blocks": [{"note": "William Temple was Archbishop of Canterbury"}]},
     "3-across": {"answer": "DAILY", "blocks": [{"note": "a rag is a newspaper, and one out every day is a daily"}]}}))
-trimmed = AC.trim_answer_openers(pending)
+unnamed = AC.unname_block_notes(path, pending)
 notes_now = {k: v["blocks"][0]["note"] for k, v in json.loads(pending.read_text()).items()}
-say("answer_opener_trimmed", trimmed == ["1-across"]
+say("answer_opener_trimmed", unnamed == ["1-across"]
     and notes_now["1-across"] == "a grid of metal bars over a drain"
     and notes_now["2-across"].startswith("William") and notes_now["3-across"].startswith("a rag"))
+from find_answer_leaks import unname
+say("unname_gives_the_answer", unname("noaHS ARk; read backwards gives RASH", "RASH")
+    == "noaHS ARk; read backwards gives the answer")
+say("unname_partial_block_drops_clause",
+    unname("AN, the article, removed from UNCLEAN, gives UNCLE", "UNCLE", gives="UNCLEAN")
+    == "AN, the article, removed from UNCLEAN"
+    and unname("E = European; SH+E inside AN: A(SHE)N", "ASHEN", gives="ASHEN")
+    == "E = European; SH+E inside AN")
+say("unname_hidden_display", unname("fin(AL PHA)se", "ALPHA", clue="Top dog in final phase (5)")
+    == "letters 4-8 of 'final phase'")
+say("unname_leaves_mid_thought", unname("a dormant animal may be sleeping through winter", "DORMANT")
+    is None and unname("an archer aims for the bull, so is a bull's hitter", "ARCHER") is None)
 
 # A definition word reused as fodder warns, and says a setter's reuse is left as is,
 # so a run does not go hunting for a field to mark it.
@@ -279,6 +291,8 @@ for k in linked_leader_quiet annotated_continuation_flagged \
          preview_names_validator_errors patch_deletes_its_file \
          line_names_its_check explain_takes_a_field explain_takes_dashed_words \
          explain_unknown_refused comma_answer_spaced answer_opener_trimmed \
+         unname_gives_the_answer unname_partial_block_drops_clause \
+         unname_hidden_display unname_leaves_mid_thought \
          fodder_reuse_says_leave_it; do
   same "$k" "$(grep -c "^$k=yes$" <<<"$out")" "1"
 done
