@@ -3927,7 +3927,7 @@
       });
       if (span.length) spans.push({ text: t, tokens: span });
     };
-    const kinds = { definition: ["def", "def2"], indicators: ["ind"] }[rung];
+    const kinds = { definition: ["def", "def2"], indicators: ["ind"], link: ["link"] }[rung];
     if (kinds) {
       placedFragments(e).filter((f) => kinds.includes(f.kind)).forEach((f) => add(f.text, f.i));
     } else if (rung === "blocks") {
@@ -4103,6 +4103,7 @@
     // what lets a pick be graded phrase by phrase.
     return { prompt, target, tokens, known, gives, step: at,
              edge: rungEdges(e, rung, at),
+             free: rung === "definition" ? rungTokens(e, "link").filter((n) => target.indexOf(n) < 0) : [],
              spans: rungSpans(e, rung, at).map((s) => s.tokens) };
   }
 
@@ -4430,7 +4431,10 @@
   // because "wrong" with no account of it is the least useful thing a teacher
   // can say.
   function gradeGuess(ask) {
-    const picked = guessing.picked.slice().sort((a, b) => a - b);
+    // A link word picked along with the definition is no mistake: it only joins
+    // the definition to the wordplay, and the rung shows it either way.
+    const free = ask.free || [];
+    const picked = guessing.picked.filter((x) => free.indexOf(x) < 0).sort((a, b) => a - b);
     const target = ask.target.slice().sort((a, b) => a - b);
     // The three sets, not just their sizes: guessHTML paints them onto the words.
     const hit = picked.filter((x) => target.indexOf(x) >= 0);

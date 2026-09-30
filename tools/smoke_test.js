@@ -4849,6 +4849,37 @@ global.realSetTimeout(() => {
     "the page loads the list, the same file the Worker validates against");
 }
 
+// --- a link word picked with the definition costs nothing ---
+// "which words define it" is answered by the definition; the link word next to
+// it only joins it to the wordplay, and the rung paints it anyway.
+{
+  const puzzles = global.window.CRYPTIC_PUZZLES;
+  let found = null;
+  for (const id of Object.keys(puzzles).sort()) {
+    for (const e of puzzles[id].entries || []) {
+      const defs = defTexts(e.annotation);
+      const link = ((e.annotation && e.annotation.linkWords) || [])[0];
+      if (defs.length !== 1 || !link || /\s/.test(link)) continue;
+      const words = clueText(e).split(/\s+/);
+      const n = defs[0].trim().split(/\s+/).length;
+      if (!clueText(e).startsWith(defs[0] + " " + link + " ") || n + 1 >= words.length) continue;
+      found = { id, e, n };
+      break;
+    }
+    if (found) break;
+  }
+  assert(found, "some clue opens with its definition then a link word");
+  registry["btn-picker"].onclick();
+  pickerRowFor(found.id).children[0].onclick();
+  registry["reset-puzzle"].onclick();
+  registry["clue-" + entryId(found.e)].listeners.click[0]();
+  registry["hint-next"].children.find((b) => /definition/i.test(b.textContent || "") && !b.disabled).onclick();
+  for (let i = 0; i <= found.n; i++) registry["gw-" + i].onclick();
+  registry["guess-check"].onclick();
+  assert(panelHTML().includes("guess-verdict right"),
+    `the definition plus its link word is right (${found.id}): ` + panelHTML());
+}
+
 // --- point at the words before the rung names them ---
 // Three rungs ask first and tell second. Two things have to hold and they pull
 // apart: the rung must still arrive whatever you answer (this is a lesson, not
