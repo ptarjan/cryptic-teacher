@@ -24,6 +24,9 @@
   "date": "2025-03-29",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,47 @@
     "text": "Assume the setter’s optimistic?",
     "enumeration": "8"
    },
-   "solution": "POSITIVE"
+   "solution": "POSITIVE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "POSITIVE",
+    "definitions": [
+     {
+      "text": "optimistic",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Assume",
+      "gives": "POSIT",
+      "note": "to posit is to assume or put forward as fact"
+     },
+     {
+      "clueFragment": "the setter’s",
+      "gives": "IVE",
+      "note": "the setter says 'I', so 'the setter has' is I'VE"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POSIT",
+      "IVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A solver asks whether the setter is taking an upbeat view of things.",
+     "walkthrough": "The apostrophe-s reads as 'is', but here it stands for 'has': the setter has = I've, giving POSIT + I'VE.",
+     "definitionFit": "Someone positive expects good outcomes and looks on the bright side, which is being hopeful."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "setter’s"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +94,47 @@
     "text": "Quietly mentions compliments",
     "enumeration": "7"
    },
-   "solution": "PRAISES"
+   "solution": "PRAISES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PRAISES",
+    "definitions": [
+     {
+      "text": "compliments",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quietly",
+      "gives": "P",
+      "note": "p (piano) is the musical marking for quietly"
+     },
+     {
+      "clueFragment": "mentions",
+      "gives": "RAISES",
+      "note": "to raise a point is to mention it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "RAISES"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone murmurs a few flattering remarks under their breath.",
+     "walkthrough": "P for quietly comes from music notation, where piano means soft.",
+     "definitionFit": "Praises and compliments are both plural nouns for admiring remarks expressing approval of someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mentions"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +148,58 @@
     "text": "Aggrieved about hotel in coastal area",
     "enumeration": "5"
    },
-   "solution": "SHORE"
+   "solution": "SHORE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SHORE",
+    "definitions": [
+     {
+      "text": "coastal area",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "to be about something is to surround it, so one piece goes around another"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Aggrieved",
+      "gives": "SORE",
+      "note": "sore can mean resentful or aggrieved"
+     },
+     {
+      "clueFragment": "hotel",
+      "gives": "H",
+      "note": "H is hotel in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "H",
+      "ORE"
+     ]
+    },
+    "explanation": {
+     "surface": "A guest is annoyed about the hotel they stayed at by the sea.",
+     "walkthrough": "SORE wraps around H.",
+     "definitionFit": "The shore is the strip of land bordering the sea, the edge of any coast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +213,63 @@
     "text": "Maybe film exotic vale route, Greece’s first?",
     "enumeration": "10"
    },
-   "solution": "TRAVELOGUE"
+   "solution": "TRAVELOGUE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "TRAVELOGUE",
+    "definitions": [
+     {
+      "text": "Maybe film",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "exotic",
+      "for": "anagram",
+      "note": "something exotic is strange and foreign, so these letters take an unfamiliar arrangement"
+     },
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "the first of a word is its opening letter, so only that letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vale route",
+      "gives": "VALEROUTE",
+      "note": "taken as written, as anagram fodder"
+     },
+     {
+      "clueFragment": "Greece’s",
+      "gives": "G",
+      "select": "first",
+      "note": "the opening letter of Greece"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "VALEROUTEG",
+       "gives": "TRAVELOGUE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A documentary might follow a picturesque valley road through Greece.",
+     "walkthrough": "'Maybe' flags that a film is only one example of the answer, which can also be a book or talk.",
+     "definitionFit": "A travelogue is a film, lecture or book describing a journey and the places visited, so a film is one example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "exotic"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +283,49 @@
     "text": "Initially very edgy, lets visitor examine tendentious material",
     "enumeration": "6"
    },
-   "solution": "VELVET"
+   "solution": "VELVET",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "VELVET",
+    "definitions": [
+     {
+      "text": "material",
+      "at": 54
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so each word gives up its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "very edgy, lets visitor examine tendentious",
+      "gives": "VELVET",
+      "select": "first",
+      "note": "the opening letters of these six words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VELVET"
+     ]
+    },
+    "explanation": {
+     "surface": "A nervous host allows a guest to look over some biased documents.",
+     "walkthrough": "'Material' looks like the documents being examined, but it is the definition, meaning fabric.",
+     "definitionFit": "Velvet is a soft fabric with a dense pile, a kind of cloth or textile."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "material"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +339,50 @@
     "text": "Good boy is happy",
     "enumeration": "4"
    },
-   "solution": "GLAD"
+   "solution": "GLAD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GLAD",
+    "definitions": [
+     {
+      "text": "happy",
+      "at": 12
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Good",
+      "gives": "G",
+      "note": "G is the standard abbreviation for good"
+     },
+     {
+      "clueFragment": "boy",
+      "gives": "LAD",
+      "note": "a lad is a boy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "LAD"
+     ]
+    },
+    "explanation": {
+     "surface": "A well-behaved child is a cheerful one.",
+     "walkthrough": "G for good is a common crossword abbreviation.",
+     "definitionFit": "Glad and happy are simple synonyms for feeling pleased or cheerful."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Good"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +396,71 @@
     "text": "One spotted sign of expected standard on top of door?",
     "enumeration": "7"
    },
-   "solution": "LEOPARD"
+   "solution": "LEOPARD",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "LEOPARD",
+    "definitions": [
+     {
+      "text": "One spotted",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down answer, one piece sitting on another means it comes directly above it"
+     },
+     {
+      "text": "top of",
+      "for": "letter_selection",
+      "note": "the top of a word in a down answer is its first letter, so only that is kept"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sign",
+      "gives": "LEO",
+      "note": "Leo is a sign of the zodiac"
+     },
+     {
+      "clueFragment": "expected standard",
+      "gives": "PAR",
+      "note": "par is the expected or normal standard, as in golf"
+     },
+     {
+      "clueFragment": "door",
+      "gives": "D",
+      "select": "first",
+      "note": "the first letter of door"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEO",
+      "PAR",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone notices a mark showing the required quality on a door frame.",
+     "walkthrough": "'One spotted' reads as 'someone noticed', but it means an animal with spots.",
+     "definitionFit": "The leopard is a big cat famous for its spotted coat, hence a creature covered in spots."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "spotted"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +474,58 @@
     "text": "Parent penning note — that’s unfashionable",
     "enumeration": "5"
    },
-   "solution": "DATED"
+   "solution": "DATED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DATED",
+    "definitions": [
+     {
+      "text": "unfashionable",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "penning",
+      "for": "container",
+      "note": "to pen something is to shut it in, as animals in a pen, so one piece is enclosed"
+     }
+    ],
+    "linkWords": [
+     "that’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Parent",
+      "gives": "DAD",
+      "note": "a dad is a parent"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "TE",
+      "note": "te is a note of the sol-fa scale"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DA",
+      "TE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A child complains that a parent writing a letter is behind the times.",
+     "walkthrough": "'Penning' suggests writing, but it means enclosing.",
+     "definitionFit": "Something dated belongs to an earlier time and now seems old-fashioned or out of style."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "penning"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +539,62 @@
     "text": "Charming commercial to cheer finally — clever",
     "enumeration": "8"
    },
-   "solution": "ADORABLE"
+   "solution": "ADORABLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ADORABLE",
+    "definitions": [
+     {
+      "text": "Charming",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally means at the end, so each word keeps only its closing letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "commercial",
+      "gives": "AD",
+      "note": "an ad is a commercial"
+     },
+     {
+      "clueFragment": "to cheer",
+      "gives": "OR",
+      "select": "last",
+      "note": "the closing letters of both words"
+     },
+     {
+      "clueFragment": "clever",
+      "gives": "ABLE",
+      "note": "able means capable or clever"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "OR",
+      "ABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A viewer praises a delightful advert that ends on an upbeat, witty note.",
+     "walkthrough": "'Finally' applies to both 'to' and 'cheer', not just the nearer word.",
+     "definitionFit": "Adorable and charming both describe someone or something delightful and very easy to like."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "to"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +608,43 @@
     "text": "Memo attached showing defensive feature",
     "enumeration": "4"
    },
-   "solution": "MOAT"
+   "solution": "MOAT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "MOAT",
+    "definitions": [
+     {
+      "text": "defensive feature",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "showing",
+      "for": "hidden_word",
+      "note": "showing means on display, so the letters are visible within the words themselves"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Memo attached",
+      "gives": "MOAT",
+      "note": "spans the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "An office memo comes with a note about the building's safety measures.",
+     "walkthrough": "The letters run across 'meMO ATtached'.",
+     "definitionFit": "A moat is a water-filled ditch dug around a castle to keep attackers out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "showing"
+    }
+   }
   },
   {
    "number": 10,
@@ -177,7 +658,66 @@
     "text": "Collection of quips maybe about cheeky Oscar — anger follows",
     "enumeration": "10"
    },
-   "solution": "REPERTOIRE"
+   "solution": "REPERTOIRE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REPERTOIRE",
+    "definitions": [
+     {
+      "text": "Collection of quips maybe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "follows",
+      "for": "charade",
+      "note": "to follow is to come after, so this piece is placed at the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     },
+     {
+      "clueFragment": "cheeky",
+      "gives": "PERT",
+      "note": "pert means cheeky or saucy"
+     },
+     {
+      "clueFragment": "Oscar",
+      "gives": "O",
+      "note": "O is Oscar in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "anger",
+      "gives": "IRE",
+      "note": "ire is anger"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "PERT",
+      "O",
+      "IRE"
+     ]
+    },
+    "explanation": {
+     "surface": "A comic's stock of jokes about an impudent Oscar Wilde gets someone cross.",
+     "walkthrough": "'Maybe' flags that quips are only one kind of thing a performer can have a stock of.",
+     "definitionFit": "A repertoire is the full range of pieces, songs or jokes a performer is ready to deliver."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Oscar"
+    }
+   }
   },
   {
    "number": 11,
@@ -191,7 +731,43 @@
     "text": "National vegetable",
     "enumeration": "5"
    },
-   "solution": "SWEDE"
+   "solution": "SWEDE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SWEDE",
+    "definitions": [
+     {
+      "text": "National",
+      "at": 0
+     },
+     {
+      "text": "vegetable",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "National",
+      "note": "first meaning"
+     },
+     {
+      "clueFragment": "vegetable",
+      "note": "second meaning: a large yellow-fleshed root, called rutabaga in North America"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The two words read as one phrase, a country's signature vegetable, but they are separate meanings.",
+     "definitionFit": "A national is a citizen of a country, and a Swede is a citizen of Sweden; the swede is also a turnip-like root crop."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "National"
+    }
+   }
   },
   {
    "number": 12,
@@ -205,7 +781,51 @@
     "text": "Mere lad potentially a gem?",
     "enumeration": "7"
    },
-   "solution": "EMERALD"
+   "solution": "EMERALD",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EMERALD",
+    "definitions": [
+     {
+      "text": "a gem",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "potentially",
+      "for": "anagram",
+      "note": "potentially means what something could become, so the letters could be rearranged into something else"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mere lad",
+      "gives": "MERELAD",
+      "note": "taken as written, as anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MERELAD",
+       "gives": "EMERALD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wonders whether a mere boy might turn out to be a treasure.",
+     "walkthrough": "'A gem' also means a wonderful person, which is why the lad fits the surface.",
+     "definitionFit": "An emerald is a precious green stone, one of the classic jewels."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "potentially"
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +839,51 @@
     "text": "Programme cost I’m working out",
     "enumeration": "6"
    },
-   "solution": "SITCOM"
+   "solution": "SITCOM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SITCOM",
+    "definitions": [
+     {
+      "text": "Programme",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "working out",
+      "for": "anagram",
+      "note": "working something out means processing and reorganising it, so the letters are reworked"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cost I’m",
+      "gives": "COSTIM",
+      "note": "taken as written, as anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "COSTIM",
+       "gives": "SITCOM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A producer is calculating the budget for a TV show.",
+     "walkthrough": "The apostrophe in 'I'm' is ignored, leaving the letters I and M.",
+     "definitionFit": "A sitcom, or situation comedy, is a type of television or radio show."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 14,
@@ -233,7 +897,70 @@
     "text": "Be of use after right upset in Labour?",
     "enumeration": "7"
    },
-   "solution": "TRAVAIL"
+   "solution": "TRAVAIL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "TRAVAIL",
+    "definitions": [
+     {
+      "text": "Labour",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "upset means turned over, and in a down answer that turns the letters back to front"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "one piece coming after another sets the order in which they are joined"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "right",
+      "gives": "RT",
+      "note": "RT is an abbreviation for right"
+     },
+     {
+      "clueFragment": "Be of use",
+      "gives": "AVAIL",
+      "note": "to avail is to be of use or benefit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TR",
+      "AVAIL"
+     ],
+     "reversals": [
+      {
+       "from": "RT",
+       "to": "TR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A voter wonders whether a right-wing shock could help the Labour Party.",
+     "walkthrough": "The capital L makes 'Labour' look like the British political party; it is hard work.",
+     "definitionFit": "Travail is an old word for painful, strenuous effort, including the labour of childbirth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Labour"
+    }
+   }
   },
   {
    "number": 15,
@@ -247,7 +974,61 @@
     "text": "Dull scenes essentially fronted by principal actor",
     "enumeration": "6"
    },
-   "solution": "LEADEN"
+   "solution": "LEADEN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LEADEN",
+    "definitions": [
+     {
+      "text": "Dull",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "essentially",
+      "for": "letter_selection",
+      "note": "the essence of something is its core, so only the central letters are kept"
+     },
+     {
+      "text": "fronted by",
+      "for": "charade",
+      "note": "being fronted by something means having it placed in front, which sets the order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "principal actor",
+      "gives": "LEAD",
+      "note": "the lead is the main actor in a production"
+     },
+     {
+      "clueFragment": "scenes",
+      "gives": "EN",
+      "select": "middle",
+      "note": "the two central letters of the six-letter word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEAD",
+      "EN"
+     ]
+    },
+    "explanation": {
+     "surface": "A critic complains that a play's boring scenes are dominated by its star.",
+     "walkthrough": "With six letters, the middle of 'scenes' is its third and fourth letters.",
+     "definitionFit": "Leaden literally means made of lead, and figuratively heavy, sluggish and lifeless."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fronted"
+    }
+   }
   },
   {
    "number": 16,
@@ -261,7 +1042,60 @@
     "text": "Growth area in North Surrey refurbished",
     "enumeration": "7"
    },
-   "solution": "NURSERY"
+   "solution": "NURSERY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NURSERY",
+    "definitions": [
+     {
+      "text": "Growth area",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "refurbished",
+      "for": "anagram",
+      "note": "something refurbished has been done up and remade, so the letters are rebuilt in a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "North",
+      "gives": "N",
+      "note": "N is the abbreviation for north"
+     },
+     {
+      "clueFragment": "Surrey",
+      "gives": "SURREY",
+      "note": "taken as written, as anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NSURREY",
+       "gives": "NURSERY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A developing district in the north of Surrey, an English county near London, has been done up.",
+     "walkthrough": "'Growth area' sounds like economic development, but it is a place where plants are grown.",
+     "definitionFit": "A plant nursery is where young plants and trees are raised for sale or planting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Growth"
+    }
+   }
   },
   {
    "number": 17,
@@ -275,7 +1109,51 @@
     "text": "No opening for beginner as breadwinner",
     "enumeration": "6"
    },
-   "solution": "EARNER"
+   "solution": "EARNER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EARNER",
+    "definitions": [
+     {
+      "text": "breadwinner",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "No opening",
+      "for": "deletion",
+      "note": "with no opening, a word loses its first letter"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beginner",
+      "gives": "LEARNER",
+      "note": "a learner is a beginner"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EARNER"
+     ]
+    },
+    "explanation": {
+     "surface": "A newcomer finds no job openings to support the family.",
+     "walkthrough": "'No opening' suggests a lack of jobs, but it removes the first letter, L.",
+     "definitionFit": "A breadwinner is the person who earns money to support a household."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "opening"
+    }
+   }
   },
   {
    "number": 18,
@@ -289,7 +1167,68 @@
     "text": "Something in kitchen quarrel you heard? “Not half lazy!”",
     "enumeration": "7"
    },
-   "solution": "SPATULA"
+   "solution": "SPATULA",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone",
+     "deletion"
+    ],
+    "answer": "SPATULA",
+    "definitions": [
+     {
+      "text": "Something in kitchen",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heard",
+      "for": "homophone",
+      "note": "something heard is taken by ear, so the sound counts rather than the spelling"
+     },
+     {
+      "text": "Not half",
+      "for": "deletion",
+      "note": "not half means half is removed, so only one half of the word remains"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quarrel",
+      "gives": "SPAT",
+      "note": "a spat is a petty quarrel"
+     },
+     {
+      "clueFragment": "you",
+      "gives": "U",
+      "soundsLike": "YOU",
+      "note": "the letter U is pronounced like the word you"
+     },
+     {
+      "clueFragment": "lazy",
+      "gives": "LAZY",
+      "note": "taken as written, then cut in half"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPAT",
+      "U",
+      "LA"
+     ]
+    },
+    "explanation": {
+     "surface": "During a row in the kitchen, someone calls another bone idle.",
+     "walkthrough": "Removing half of LAZY leaves LA.",
+     "definitionFit": "A spatula is a flat-bladed utensil for lifting, turning or spreading food while cooking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "half"
+    }
+   }
   },
   {
    "number": 18,
@@ -303,7 +1242,53 @@
     "text": "Dish, second, our people welcome",
     "enumeration": "5"
    },
-   "solution": "SUSHI"
+   "solution": "SUSHI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SUSHI",
+    "definitions": [
+     {
+      "text": "Dish",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     },
+     {
+      "clueFragment": "our people",
+      "gives": "US",
+      "note": "us refers to ourselves"
+     },
+     {
+      "clueFragment": "welcome",
+      "gives": "HI",
+      "note": "hi is a greeting of welcome"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "US",
+      "HI"
+     ]
+    },
+    "explanation": {
+     "surface": "A host serves a second course that the family greets warmly.",
+     "walkthrough": "'Welcome' looks like a verb but gives the greeting HI.",
+     "definitionFit": "Sushi is a Japanese preparation of vinegared rice with raw fish, served as a meal or course."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "welcome"
+    }
+   }
   },
   {
    "number": 19,
@@ -317,7 +1302,55 @@
     "text": "On return, did exam second time? That could be stunning",
     "enumeration": "5"
    },
-   "solution": "TASER"
+   "solution": "TASER",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "TASER",
+    "definitions": [
+     {
+      "text": "That could be stunning",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "On return",
+      "for": "reversal",
+      "note": "a return is a journey back, so the letters are read the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "did exam second time",
+      "gives": "RESAT",
+      "note": "to resit an exam is to take it again"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TASER"
+     ],
+     "reversals": [
+      {
+       "from": "RESAT",
+       "to": "TASER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A student back from a trip retakes a test and hopes the result will be brilliant.",
+     "walkthrough": "'Stunning' suggests an outstanding result, but it means delivering an electric shock.",
+     "definitionFit": "A Taser is a weapon that fires electrified darts to incapacitate a person with a shock."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "stunning"
+    }
+   }
   },
   {
    "number": 20,
@@ -331,7 +1364,44 @@
     "text": "For listeners, remained formal",
     "enumeration": "5"
    },
-   "solution": "STAID"
+   "solution": "STAID",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "STAID",
+    "definitions": [
+     {
+      "text": "formal",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "For listeners",
+      "for": "homophone",
+      "note": "listeners take in sound, so the word is identified by how it is spoken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "remained",
+      "gives": "STAID",
+      "soundsLike": "STAYED",
+      "note": "remained means stayed"
+     }
+    ],
+    "explanation": {
+     "surface": "An audience notes that someone kept things strictly proper.",
+     "walkthrough": "Two words of the same pronunciation: the past tense of stay and an adjective.",
+     "definitionFit": "Staid describes someone sedate, respectable and unadventurous, stiffly correct in manner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "listeners"
+    }
+   }
   },
   {
    "number": 21,
@@ -345,7 +1415,50 @@
     "text": "Items robbed from Devon maybe, silver",
     "enumeration": "4"
    },
-   "solution": "SWAG"
+   "solution": "SWAG",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SWAG",
+    "definitions": [
+     {
+      "text": "Items robbed",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Devon maybe",
+      "gives": "SW",
+      "note": "Devon, an English county, lies in the South West, abbreviated SW"
+     },
+     {
+      "clueFragment": "silver",
+      "gives": "AG",
+      "note": "Ag is the chemical symbol for silver"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SW",
+      "AG"
+     ]
+    },
+    "explanation": {
+     "surface": "Burglars in Devon make off with the family silver.",
+     "walkthrough": "'Maybe' flags Devon as one example of a region in the South West of England.",
+     "definitionFit": "Swag is slang for stolen goods, the loot carried off by thieves."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Devon"
+    }
+   }
   },
   {
    "number": 22,
@@ -359,7 +1472,42 @@
     "text": "Secret hint",
     "enumeration": "8"
    },
-   "solution": "INTIMATE"
+   "solution": "INTIMATE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "INTIMATE",
+    "definitions": [
+     {
+      "text": "Secret",
+      "at": 0
+     },
+     {
+      "text": "hint",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Secret",
+      "note": "first meaning, an adjective: private and personal"
+     },
+     {
+      "clueFragment": "hint",
+      "note": "second meaning, a verb: to suggest indirectly"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The two meanings are pronounced differently: the adjective ends in -mut, the verb in -mate.",
+     "definitionFit": "Intimate details are private and confidential, while to intimate something is to imply it indirectly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Secret"
+    }
+   }
   },
   {
    "number": 23,
@@ -373,7 +1521,54 @@
     "text": "Change in deli not working",
     "enumeration": "4"
    },
-   "solution": "IDLE"
+   "solution": "IDLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IDLE",
+    "definitions": [
+     {
+      "text": "not working",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Change",
+      "for": "anagram",
+      "note": "to change something is to alter its form, so these letters take a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "deli",
+      "gives": "DELI",
+      "note": "taken as written, as anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DELI",
+       "gives": "IDLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A customer notes the delicatessen's till isn't giving out coins.",
+     "walkthrough": "'Change' looks like coins in the till, but it tells you to rearrange.",
+     "definitionFit": "A machine or person that is idle is inactive, doing nothing, out of action."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Change"
+    }
+   }
   },
   {
    "number": 24,
@@ -387,7 +1582,67 @@
     "text": "Like some matches after Friday finish, extremely lively",
     "enumeration": "8"
    },
-   "solution": "FRIENDLY"
+   "solution": "FRIENDLY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "FRIENDLY",
+    "definitions": [
+     {
+      "text": "Like some matches",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "one piece coming after another fixes the order in which they are joined"
+     },
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two ends, so only its outer letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Friday",
+      "gives": "FRI",
+      "note": "the first three letters of Friday, its usual short form on calendars"
+     },
+     {
+      "clueFragment": "finish",
+      "gives": "END",
+      "note": "an end is a finish"
+     },
+     {
+      "clueFragment": "lively",
+      "gives": "LY",
+      "select": "outer",
+      "note": "the first and last letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FRI",
+      "END",
+      "LY"
+     ]
+    },
+    "explanation": {
+     "surface": "Games played after the working week ends on Friday are full of energy.",
+     "walkthrough": "A friendly is a sports fixture played for no competitive stake, so some matches are friendly.",
+     "definitionFit": "A friendly match is an unofficial game where nothing like league points or a trophy is at stake."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "matches"
+    }
+   }
   }
  ]
 }
