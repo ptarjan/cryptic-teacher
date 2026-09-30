@@ -271,7 +271,7 @@ LAYOUT = [
     ("finding out whether any of it is working", "tools/author_trial.py", "clue-writing trial: an isolated author writes five candidates per answer, a separate run picks one, grade_clues.py judges the picks"),
     ("finding out whether any of it is working", "tools/author_trial_author.md", "author_trial.py's author prompt: five candidate clues for one answer"),
     ("finding out whether any of it is working", "tools/author_trial_select.md", "author_trial.py's selector prompt: pick one clue per answer"),
-    ("finding out whether any of it is working", "tools/surface_judge.md", "author_trial.py's clue judge: is each clue a sentence a native speaker would say or write, and does it lean on nothing a general solver would look up"),
+    ("finding out whether any of it is working", "tools/surface_judge.md", "author_trial.py's clue judge: is each clue a sentence a native speaker would say or write, does it lean on nothing a general solver would look up, and does one word mislead"),
     ("finding out whether any of it is working", "tools/test_surface_gate.sh", "proves author_trial.py refuses a candidate only when both clue-judge calls do, and, where claude is on PATH, that the judge refuses \"Hacks are on the stouts\" and the nerazzurri INTER and passes A001"),
     ("finding out whether any of it is working", "tools/grade_clues_judge.sh", "runs the blind judges over one round of grade_clues.py packets"),
     ("finding out whether any of it is working", "tools/grade_clues_judge.md", "the judge prompt grade_clues_judge.sh sends: rubric, then packets"),

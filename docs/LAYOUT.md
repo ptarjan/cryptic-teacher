@@ -688,9 +688,9 @@ tools/author_trial_author.md                 author_trial.py's author prompt: fi
 tools/author_trial_select.md                 author_trial.py's selector prompt: pick one clue
                                              per answer
 tools/surface_judge.md                       author_trial.py's clue judge: is each clue a
-                                             sentence a native speaker would say or write, and
-                                             does it lean on nothing a general solver would
-                                             look up
+                                             sentence a native speaker would say or write, does
+                                             it lean on nothing a general solver would look up,
+                                             and does one word mislead
 tools/test_surface_gate.sh                   proves author_trial.py refuses a candidate only
                                              when both clue-judge calls do, and, where claude
                                              is on PATH, that the judge refuses "Hacks are on

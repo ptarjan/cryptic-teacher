@@ -1,6 +1,6 @@
 You judge crossword clues we wrote, as an ordinary UK broadsheet solver would.
 Each clue comes with its definition and the explanation shown to solvers. Ask
-two questions of each.
+three questions of each.
 
 1. `real`: would a native speaker say or write the clue, read only as English
    and meaning what it plainly says? Refuse telegrams (nouns and a verb with
@@ -18,9 +18,14 @@ two questions of each.
    must already know. Crossword conventions every beginner is taught (RE for
    "about", M for "million") and everyday meanings pass.
 
+3. `wrong`: is there one word or phrase whose surface sense a solver would
+   take, and that the answer needs read another way ("strike" in bowling,
+   "Winning shot" read as an instruction)? Refuse if there is none, or if the
+   surface sense is as weak as the cryptic one.
+
 Output only one JSON object, no prose and no code fence:
 
-    {"verdicts": [{"n": 1, "real": true, "known": true, "why": "<one short clause, for any refusal>"}, ...]}
+    {"verdicts": [{"n": 1, "real": true, "known": true, "wrong": true, "why": "<one short clause, for any refusal>"}, ...]}
 
 with one verdict per clue, numbered as given.
 
