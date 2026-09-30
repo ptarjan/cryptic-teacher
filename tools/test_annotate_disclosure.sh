@@ -220,6 +220,21 @@ fix = path.parent / "_patch.json"
 fix.write_text(json.dumps({"2-across": {"type": ["anagram"]}}))
 say("patch_deletes_its_file", AC.patch(pending, fix) is None and not fix.exists()
     and json.loads(pending.read_text())["2-across"] == {"type": ["anagram"]})
+
+# Each validator line names its check, and --explain takes what a run guesses.
+import contextlib, io
+errs = []
+V.check_block_notes_dont_name_the_answer("3D", {"answer": "ABCD", "blocks": [{"note": "gives ABCD"}]}, errs, [])
+named = AC.name_checks(V.ERROR_PREFIX + errs[0])
+say("line_names_its_check", named.endswith("[check_block_notes_dont_name_the_answer]"))
+def explained(name):
+    buf = io.StringIO()
+    with contextlib.redirect_stdout(buf):
+        rc = V.explain(name)
+    return rc, buf.getvalue()
+say("explain_takes_a_field", explained("definitionFit")[1].count("def check_definition_fit(") == 1)
+say("explain_takes_dashed_words", "def check_cryptic_definition_cap(" in explained("cryptic-definition-cap")[1])
+say("explain_unknown_refused", explained("zzqx")[0] == 1)
 PY
 )
 echo "$out" | sed 's/^/  /'
@@ -237,7 +252,9 @@ for k in linked_leader_quiet annotated_continuation_flagged \
          view_keeps_solutions apply_keeps_solutions_detail \
          fragment_not_in_clue_fails hole_fails_the_run hole_queued_in_corpus \
          reworded_clue_fails retyped_clue_passes missing_keys_filled_null \
-         preview_names_validator_errors patch_deletes_its_file; do
+         preview_names_validator_errors patch_deletes_its_file \
+         line_names_its_check explain_takes_a_field explain_takes_dashed_words \
+         explain_unknown_refused; do
   same "$k" "$(grep -c "^$k=yes$" <<<"$out")" "1"
 done
 

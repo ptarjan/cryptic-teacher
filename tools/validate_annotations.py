@@ -2836,20 +2836,53 @@ def explain(name=None):
             print(f"  {key}\n      {doc.split(chr(10))[0] or '(no docstring)'}")
         return 0
 
-    node = named.get(name)
-    if node is None:
-        near = [k for k in named if name.lower() in k.lower()]
-        print(f"no `{name}` in {Path(__file__).name}."
-              + (f" Did you mean: {', '.join(sorted(near))}?" if near else
-                 " Run --explain with no name for the list."))
+    found = explain_matches(name, named, lines)
+    if not found:
+        print(f"no `{name}` in {Path(__file__).name}. Run --explain with no name for the list.")
         return 1
-    # The comment block immediately above a definition is this file's habit for
-    # saying why it exists, so it is part of the answer.
-    start = node.lineno - 1
-    while start and lines[start - 1].lstrip().startswith("#"):
-        start -= 1
-    print("\n".join(lines[start:node.end_lineno]))
+    if len(found) > EXPLAIN_AT_MOST:
+        print(f"`{name}` is not a check's name; {len(found)} checks use it: "
+              f"{', '.join(found)}. `--explain <one of these>` prints it.")
+        return 0
+    if found != [name]:
+        print(f"# `{name}` is not a name here; the closest: {', '.join(found)}\n")
+    for key in found:
+        node = named[key]
+        # The comment block immediately above a definition is this file's habit
+        # for saying why it exists, so it is part of the answer.
+        start = node.lineno - 1
+        while start and lines[start - 1].lstrip().startswith("#"):
+            start -= 1
+        print("\n".join(lines[start:node.end_lineno]) + "\n")
     return 0
+
+
+EXPLAIN_AT_MOST = 3
+
+
+def explain_matches(name, named, lines):
+    """The definitions `--explain name` means, best first.
+
+    Runs pass what they saw, not a function name: a message's words
+    (`definition-overlap`), a field (`definitionFit`), a type
+    (`double_definition`). A refusal costs them a turn, so the name is taken
+    as exact, then as part of a name, then as words every one of which the
+    check's source contains."""
+    key = re.sub(r"[-\s]+", "_", name.strip()).strip("_")
+    for exact in (name, key, f"check_{key}", f"check_{key.lower()}"):
+        if exact in named:
+            return [exact]
+    checks = [k for k in named if k.startswith("check_")]
+    part = [k for k in checks if key.lower() in k.lower()]
+    if part:
+        return sorted(part, key=len)
+    words = [w.lower().rstrip("s") for w in re.split(r"[_\W]+", re.sub(r"([a-z])([A-Z])", r"\1_\2", key)) if w]
+    words = [w for w in words if w != "check"]
+    if not words:
+        return []
+    source = {k: "\n".join(lines[named[k].lineno - 1:named[k].end_lineno]).lower() for k in checks}
+    return sorted((k for k in checks if all(w in source[k] for w in words)),
+                  key=lambda k: -sum(source[k].count(w) for w in words))
 
 
 def backlog_errors(stem, warnings, allowed=None):
