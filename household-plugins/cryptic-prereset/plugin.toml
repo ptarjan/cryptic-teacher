@@ -1,0 +1,22 @@
+about    = "Spend the tail of the weekly usage window on annotation backfills"
+room     = "cryptic-crosswords"
+# Hourly, and almost always a sub-second no-op: it reads the reset time from
+# the usage API and exits unless the window is about to turn over. A fixed hour
+# of the day was wrong seven nights a week — the reasoning is in the script's
+# own header. Do not put a time of day back in here.
+schedule = "5 * * * *"
+where    = "container"
+run      = "/Users/pt/github/cryptic-teacher/tools/prereset_backfill.sh"
+log      = "/Users/pt/github/cryptic-teacher/.prereset.log"
+# No limit: on the one hour a week it does fire, the whole point is to burn
+# until the reset.
+timeout  = 0
+
+[env]
+XDG_CONFIG_HOME  = "/Users/pt/.config"
+CT_WORKTREE_ROOT = "/Users/pt/.cryptic-teacher"
+# Paul, 2026-09-30: fill every five-hour window completely; he resets the
+# weekly meter when it reaches 100%. A deadline an hour before the weekly reset
+# runs every wave at full width with no bridge reserve. weekly_usage.py ignores
+# it once it has passed.
+CT_SPEND_BY = "2026-10-07T10:00:00Z"
