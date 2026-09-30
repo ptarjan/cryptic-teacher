@@ -194,6 +194,7 @@ Usage:
   python3 tools/difficulty.py --validate # does it agree with anything external?
 """
 
+import bisect
 import functools
 import gzip
 import json
@@ -891,7 +892,7 @@ def all_scores(base=None):
     # change as puzzles arrive. The band above it stays put; only this moves.
     idx = sorted(s["index"] for s in out.values())
     for s in out.values():
-        below = sum(1 for i in idx if i < s["index"])
+        below = bisect.bisect_left(idx, s["index"])
         s["percentile"] = round(100 * below / max(len(idx) - 1, 1)) if len(idx) > 1 else None
     return out
 
