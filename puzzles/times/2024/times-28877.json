@@ -23,6 +23,9 @@
   "date": "2024-03-29",
   "check": "grid rebuilt from the blog's light list (unique after crossings); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,55 @@
     "text": "Sawyer’s rubbish leg-pull? On the contrary!",
     "enumeration": "6"
    },
-   "solution": "OFFCUT"
+   "solution": "OFFCUT",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "OFFCUT",
+    "definitions": [
+     {
+      "text": "Sawyer’s rubbish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "On the contrary!",
+      "for": "substitution",
+      "note": "asks for the opposite of each part, so every element is swapped for its counterpart"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "leg",
+      "gives": "OFF",
+      "note": "in cricket the leg side is also the on side; its opposite is the off side"
+     },
+     {
+      "clueFragment": "pull",
+      "gives": "CUT",
+      "note": "the pull is a cricket stroke to the leg side; the cut is its counterpart to the off side"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OFF",
+      "CUT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether a sawyer's joke is rubbish, then flips the question around.",
+     "walkthrough": "Leg-pull looks like a practical joke, but read it as cricket: leg side and a pull shot. Reverse both into their off-side equivalents and you get an off cut.",
+     "definitionFit": "A sawyer cuts timber, and the leftover waste pieces trimmed away are called offcuts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "leg-pull"
+    }
+   }
   },
   {
    "number": 2,
@@ -50,7 +101,66 @@
     "text": "Tehran’s ready to turn up in support of feminine talent",
     "enumeration": "5"
    },
-   "solution": "FLAIR"
+   "solution": "FLAIR",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "FLAIR",
+    "definitions": [
+     {
+      "text": "talent",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to turn up",
+      "for": "reversal",
+      "note": "in a down entry, turning something up flips its letters so they read from bottom to top"
+     },
+     {
+      "text": "in support of",
+      "for": "charade",
+      "note": "in a down clue, a support sits underneath, so one part goes below the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "feminine",
+      "gives": "F",
+      "note": "F is the standard abbreviation for feminine"
+     },
+     {
+      "clueFragment": "Tehran’s ready",
+      "gives": "RIAL",
+      "note": "ready means cash, and the rial is Iran's currency"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "LAIR"
+     ],
+     "reversals": [
+      {
+       "from": "RIAL",
+       "to": "LAIR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone in Iran's capital is set to champion women's abilities.",
+     "walkthrough": "Ready is slang for money, so Tehran's ready is Iranian money, the rial; flipped upward it sits beneath F.",
+     "definitionFit": "A flair is a natural aptitude or knack for something, close in meaning to a gift or talent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ready"
+    }
+   }
   },
   {
    "number": 3,
@@ -64,7 +174,72 @@
     "text": "Normandy favourite arrived right on time to receive honour",
     "enumeration": "9"
    },
-   "solution": "CAMEMBERT"
+   "solution": "CAMEMBERT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CAMEMBERT",
+    "definitions": [
+     {
+      "text": "Normandy favourite",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down clue, one item placed on another sits directly above it"
+     },
+     {
+      "text": "to receive",
+      "for": "container",
+      "note": "receiving something means taking it inside, so one part goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "arrived",
+      "gives": "CAME",
+      "note": "came is a synonym of arrived"
+     },
+     {
+      "clueFragment": "honour",
+      "gives": "MBE",
+      "note": "the MBE is a British honour, Member of the Order of the British Empire"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAME",
+      "MBE",
+      "R",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A popular figure from Normandy turned up punctually to be decorated.",
+     "walkthrough": "The MBE is an honour awarded in Britain. In a down entry 'right on time' stacks R above T, and that pair wraps round the honour.",
+     "definitionFit": "This soft cheese comes from Normandy in France, and is one of the region's best-loved products."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "favourite"
+    }
+   }
   },
   {
    "number": 4,
@@ -78,7 +253,41 @@
     "text": "Little / squiffy?",
     "enumeration": "6"
    },
-   "solution": "TIDDLY"
+   "solution": "TIDDLY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TIDDLY",
+    "definitions": [
+     {
+      "text": "Little",
+      "at": 0
+     },
+     {
+      "text": "squiffy",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Little",
+      "note": "first meaning: tiny, a British informal word for very small"
+     },
+     {
+      "clueFragment": "squiffy",
+      "note": "second meaning: slightly drunk, British slang"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Both are British informal words: one sense means very small, the other means a bit tipsy.",
+     "definitionFit": "The same colloquial adjective covers both being very small and being slightly drunk from alcohol."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -92,7 +301,67 @@
     "text": "Charming, animated young explorer visits Italian island on the way back",
     "enumeration": "8"
    },
-   "solution": "ADORABLE"
+   "solution": "ADORABLE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "ADORABLE",
+    "definitions": [
+     {
+      "text": "Charming",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the way back",
+      "for": "reversal",
+      "note": "going back along a route means travelling in the opposite direction, so letters read backwards"
+     },
+     {
+      "text": "visits",
+      "for": "container",
+      "note": "a visitor goes inside a place, so one part is put within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "animated young explorer",
+      "gives": "DORA",
+      "note": "Dora the Explorer is a children's cartoon heroine"
+     },
+     {
+      "clueFragment": "Italian island",
+      "gives": "ELBA",
+      "note": "Elba is the Italian island where Napoleon was exiled"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "DORA",
+      "BLE"
+     ],
+     "reversals": [
+      {
+       "from": "ELBA",
+       "to": "ABLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cartoon adventurer stops at an Italian island while heading home, and it's delightful.",
+     "walkthrough": "The explorer is the heroine of the children's cartoon Dora the Explorer; she lands just after the first letter of the island, read backwards.",
+     "definitionFit": "Adorable describes someone sweet and delightful, a near synonym of charming or endearing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "animated"
+    }
+   }
   },
   {
    "number": 5,
@@ -120,7 +389,52 @@
      }
     ]
    },
-   "solution": "ASTUDYINSCARLET"
+   "solution": "ASTUDYINSCARLET",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "A STUDY IN SCARLET",
+    "definitions": [
+     {
+      "text": "a book case for a violinist",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ordered",
+      "for": "anagram",
+      "note": "to order things is to put them into a new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Saturday’s client",
+      "gives": "SATURDAYSCLIENT",
+      "note": "taken as written, apostrophe dropped"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SATURDAYSCLIENT",
+       "gives": "ASTUDYINSCARLET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A weekend customer has requested a bookcase built for a fiddle player.",
+     "walkthrough": "'Book case' wants to be a piece of furniture; it is a case told in a book. The violinist is Sherlock Holmes.",
+     "definitionFit": "This Conan Doyle novel is the first case of Sherlock Holmes, the detective who plays the violin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 6,
@@ -140,7 +454,56 @@
      }
     ]
    },
-   "solution": "ONPARADE"
+   "solution": "ONPARADE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ON PARADE",
+    "definitions": [
+     {
+      "text": "Making show",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "potentially",
+      "for": "anagram",
+      "note": "potentially means what something could become, so these letters may be rearranged into something else"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "and",
+      "gives": "AND",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "opera",
+      "gives": "OPERA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ANDOPERA",
+       "gives": "ONPARADE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Putting on a spectacle, and maybe an opera too.",
+     "walkthrough": "The definition is adjectival: someone on parade is making a show of themselves.",
+     "definitionFit": "To be on parade is to be displayed publicly, showing off in front of onlookers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "potentially"
+    }
+   }
   },
   {
    "number": 7,
@@ -154,7 +517,54 @@
     "text": "Guardian article on haircare product",
     "enumeration": "5"
    },
-   "solution": "ANGEL"
+   "solution": "ANGEL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ANGEL",
+    "definitions": [
+     {
+      "text": "Guardian",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down clue, one item placed on another sits directly above it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "article",
+      "gives": "AN",
+      "note": "an is the indefinite article"
+     },
+     {
+      "clueFragment": "haircare product",
+      "gives": "GEL",
+      "note": "gel is used to style hair"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AN",
+      "GEL"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper runs a feature about a hair styling product.",
+     "walkthrough": "The capital G makes Guardian look like the newspaper; it is a protective spirit.",
+     "definitionFit": "A guardian angel is a spirit believed to watch over and protect a person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Guardian"
+    }
+   }
   },
   {
    "number": 8,
@@ -168,7 +578,56 @@
     "text": "Learning about key battleground at the eastern front",
     "enumeration": "9"
    },
-   "solution": "LENINGRAD"
+   "solution": "LENINGRAD",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LENINGRAD",
+    "definitions": [
+     {
+      "text": "battleground at the eastern front",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "about can mean around or roughly, so the letters are turned around into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Learning",
+      "gives": "LEARNING",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "key",
+      "gives": "D",
+      "note": "D is a musical key"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LEARNINGD",
+       "gives": "LENINGRAD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Studying a crucial battlefield on the Eastern Front.",
+     "walkthrough": "Key looks like an adjective meaning crucial; here it is a musical key, one of A to G.",
+     "definitionFit": "The Soviet city endured a long German siege during the Second World War on the Eastern Front."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "key"
+    }
+   }
   },
   {
    "number": 9,
@@ -192,7 +651,65 @@
      }
     ]
    },
-   "solution": "HAMMEDITUP"
+   "solution": "HAMMEDITUP",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HAMMED IT UP",
+    "definitions": [
+     {
+      "text": "Exaggerated performance",
+      "at": 0,
+      "note": "the definition is a noun phrase, the answer a verb phrase meaning 'gave an exaggerated performance'"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "something off has gone wrong or bad, so the letters are out of their proper order"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dame",
+      "gives": "DAME",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "put",
+      "gives": "PUT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "him",
+      "gives": "HIM",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DAMEPUTHIM",
+       "gives": "HAMMEDITUP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An actor was turned off by a pantomime dame's overacting.",
+     "walkthrough": "A pantomime dame is a man in drag playing a comic older woman in British Christmas shows, famous for overacting.",
+     "definitionFit": "To ham it up is to overact deliberately, giving a showy, theatrical performance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 10,
@@ -206,7 +723,51 @@
     "text": "Sticky stuff starts to get under new keyboard",
     "enumeration": "4"
    },
-   "solution": "GUNK"
+   "solution": "GUNK",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "GUNK",
+    "definitions": [
+     {
+      "text": "Sticky stuff",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts to",
+      "for": "letter_selection",
+      "note": "the start of a word is its first letter, so each word contributes its opening"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "get under new keyboard",
+      "gives": "GUNK",
+      "select": "first",
+      "note": "the initial letters of these four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "U",
+      "N",
+      "K"
+     ]
+    },
+    "explanation": {
+     "surface": "Grime has begun to collect beneath a new keyboard.",
+     "walkthrough": "Anyone who has cleaned a keyboard knows what lurks under the keys.",
+     "definitionFit": "Gunk is informal for unpleasant, sticky or greasy residue that builds up somewhere."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -220,7 +781,49 @@
     "text": "Conservative, having been found out, fell to pieces",
     "enumeration": "8"
    },
-   "solution": "CRUMBLED"
+   "solution": "CRUMBLED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CRUMBLED",
+    "definitions": [
+     {
+      "text": "fell to pieces",
+      "at": 37
+     }
+    ],
+    "linkWords": [
+     "having been"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C is the abbreviation for Conservative"
+     },
+     {
+      "clueFragment": "found out",
+      "gives": "RUMBLED",
+      "note": "rumbled is British informal for discovered or exposed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "RUMBLED"
+     ]
+    },
+    "explanation": {
+     "surface": "A Tory politician, once exposed, went to pieces.",
+     "walkthrough": "To be rumbled, in British slang, is to have your deception discovered.",
+     "definitionFit": "Crumbled means broke apart into fragments, or figuratively collapsed under pressure."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -234,7 +837,43 @@
     "text": "Soften some Lahore lentils",
     "enumeration": "6"
    },
-   "solution": "RELENT"
+   "solution": "RELENT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "RELENT",
+    "definitions": [
+     {
+      "text": "Soften",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "some means only a part, so the letters are a portion of the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lahore lentils",
+      "gives": "RELENT",
+      "note": "found running across the end of the first word and start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "Cooking a portion of lentils from Lahore until they go soft.",
+     "walkthrough": "Soften sounds culinary next to lentils, but it means to give way.",
+     "definitionFit": "To relent is to become less strict or harsh, figuratively softening one's stance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Soften"
+    }
+   }
   },
   {
    "number": 13,
@@ -248,7 +887,53 @@
     "text": "Rodent, one escaping from silky fabric",
     "enumeration": "4"
    },
-   "solution": "VOLE"
+   "solution": "VOLE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "VOLE",
+    "definitions": [
+     {
+      "text": "Rodent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "escaping from",
+      "for": "deletion",
+      "note": "something escaping leaves, so a letter is removed from the word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     },
+     {
+      "clueFragment": "silky fabric",
+      "gives": "VOILE",
+      "note": "voile is a thin, light fabric"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VO",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A mouse-like creature wriggles out of a piece of fine cloth.",
+     "walkthrough": "Take the I out of VOILE.",
+     "definitionFit": "A vole is a small mouse-like mammal, one of the rodent family."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -262,7 +947,75 @@
     "text": "Pop called each day within confines of office",
     "enumeration": "9"
    },
-   "solution": "ORANGEADE"
+   "solution": "ORANGEADE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "ORANGEADE",
+    "definitions": [
+     {
+      "text": "Pop",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "confines of",
+      "for": "letter_selection",
+      "note": "confines are boundaries, so only the outermost letters are kept"
+     },
+     {
+      "text": "within",
+      "for": "container",
+      "note": "within means inside, so these pieces go inside the kept letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "office",
+      "gives": "OE",
+      "select": "outer",
+      "note": "the first and last letters of the word"
+     },
+     {
+      "clueFragment": "called",
+      "gives": "RANG",
+      "note": "rang means telephoned, called"
+     },
+     {
+      "clueFragment": "each",
+      "gives": "EA",
+      "note": "EA is the abbreviation for each"
+     },
+     {
+      "clueFragment": "day",
+      "gives": "D",
+      "note": "D is the abbreviation for day"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "RANG",
+      "EA",
+      "D",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Dad phoned every day from inside the office walls.",
+     "walkthrough": "Pop reads as father; it is fizzy drink. 'Confines of' keeps only the first and last letters of the next word.",
+     "definitionFit": "Pop is a British informal term for a fizzy soft drink, and orangeade is one flavour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Pop"
+    }
+   }
   },
   {
    "number": 15,
@@ -276,7 +1029,65 @@
     "text": "Elected Republican in Springfield is hard work",
     "enumeration": "8"
    },
-   "solution": "INDUSTRY"
+   "solution": "INDUSTRY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "INDUSTRY",
+    "definitions": [
+     {
+      "text": "hard work",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means inside, so one letter goes within the other part"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Elected",
+      "gives": "IN",
+      "note": "a candidate who is elected is in"
+     },
+     {
+      "clueFragment": "Springfield",
+      "gives": "DUSTY",
+      "note": "Dusty Springfield was a British pop singer"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the abbreviation for Republican"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "DUST",
+      "R",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A newly elected Republican finds serving the town of Springfield demanding.",
+     "walkthrough": "Springfield sounds like an American town; it is the singer Dusty Springfield, who supplies her first name.",
+     "definitionFit": "Industry can mean diligence, sustained effort and application, as in a person's industry."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Springfield"
+    }
+   }
   },
   {
    "number": 16,
@@ -290,7 +1101,42 @@
     "text": "Stretches / grammatical constructions",
     "enumeration": "9"
    },
-   "solution": "SENTENCES"
+   "solution": "SENTENCES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SENTENCES",
+    "definitions": [
+     {
+      "text": "Stretches",
+      "at": 0
+     },
+     {
+      "text": "grammatical constructions",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stretches",
+      "note": "first meaning: prison terms, as in a stretch inside"
+     },
+     {
+      "clueFragment": "grammatical constructions",
+      "note": "second meaning: complete units of written language"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A stretch is slang for a spell in prison.",
+     "definitionFit": "The word means both terms of imprisonment handed down by a judge and complete units of grammar."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Stretches"
+    }
+   }
   },
   {
    "number": 17,
@@ -304,7 +1150,60 @@
     "text": "Florida witch doctor exorcising a bully",
     "enumeration": "8"
    },
-   "solution": "FLASHMAN"
+   "solution": "FLASHMAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "FLASHMAN",
+    "definitions": [
+     {
+      "text": "a bully",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "exorcising",
+      "for": "deletion",
+      "note": "to exorcise is to drive a spirit out, so a letter is expelled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Florida",
+      "gives": "FLA",
+      "note": "Fla is an abbreviation for Florida"
+     },
+     {
+      "clueFragment": "witch doctor",
+      "gives": "SHAMAN",
+      "note": "a shaman is a tribal healer or witch doctor"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FLA",
+      "SHMAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A Florida witch doctor drives the evil out of a tormentor.",
+     "walkthrough": "'A bully' is the definition, but the A also does the work of the letter removed from SHAMAN. Flashman is the bully of Tom Brown's Schooldays, a Victorian English school novel.",
+     "definitionFit": "Flashman is the notorious tormentor of younger boys at Rugby School in Thomas Hughes's classic novel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "exorcising"
+    }
+   }
   },
   {
    "number": 18,
@@ -318,7 +1217,73 @@
     "text": "Reportedly nothing large eaten by one American sea creature",
     "enumeration": "8"
    },
-   "solution": "NAUTILUS"
+   "solution": "NAUTILUS",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade",
+     "container"
+    ],
+    "answer": "NAUTILUS",
+    "definitions": [
+     {
+      "text": "sea creature",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reportedly",
+      "for": "homophone",
+      "note": "what is reported is heard said, so the word is taken by its sound"
+     },
+     {
+      "text": "eaten by",
+      "for": "container",
+      "note": "whatever is eaten ends up inside the eater, so one letter goes within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nothing",
+      "gives": "NAUT",
+      "soundsLike": "NOUGHT",
+      "note": "nought means nothing; the spelling here matches its sound"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the abbreviation for large"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US means American"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NAUT",
+      "I",
+      "L",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "Apparently an American swallowed nothing big when eating a sea creature.",
+     "walkthrough": "L sits between I and US.",
+     "definitionFit": "The nautilus is a marine mollusc with a spiral chambered shell, living in the Indo-Pacific."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -332,7 +1297,53 @@
     "text": "100ml drained from head swelling",
     "enumeration": "4"
    },
-   "solution": "NODE"
+   "solution": "NODE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "NODE",
+    "definitions": [
+     {
+      "text": "swelling",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drained from",
+      "for": "deletion",
+      "note": "draining removes contents, so these letters are taken out of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "100ml",
+      "gives": "DL",
+      "note": "100 millilitres is a decilitre, abbreviated dl"
+     },
+     {
+      "clueFragment": "head",
+      "gives": "NODDLE",
+      "note": "noddle is an old informal word for the head"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOD",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A small amount of fluid is drawn off a lump on the head.",
+     "walkthrough": "Remove the DL from NODDLE. The surface sounds medical, which helps the definition hide.",
+     "definitionFit": "A node is a small lump or knot of tissue, such as a swollen lymph node."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -346,7 +1357,42 @@
     "text": "Rhubarb / cake",
     "enumeration": "6"
    },
-   "solution": "WAFFLE"
+   "solution": "WAFFLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WAFFLE",
+    "definitions": [
+     {
+      "text": "Rhubarb",
+      "at": 0
+     },
+     {
+      "text": "cake",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rhubarb",
+      "note": "first meaning: nonsense, empty talk"
+     },
+     {
+      "clueFragment": "cake",
+      "note": "second meaning: a crisp batter cake with a grid pattern"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Rhubarb and cake read like a pudding; rhubarb is also British slang for nonsense, the word actors mutter to sound like a crowd.",
+     "definitionFit": "The word means both wordy, meaningless talk and a griddled batter cake served with syrup."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rhubarb"
+    }
+   }
   },
   {
    "number": 21,
@@ -360,7 +1406,52 @@
     "text": "Monstrous female pair denied promotion",
     "enumeration": "6"
    },
-   "solution": "OGRESS"
+   "solution": "OGRESS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "OGRESS",
+    "definitions": [
+     {
+      "text": "Monstrous female",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "denied",
+      "for": "deletion",
+      "note": "to be denied something is to be deprived of it, so letters are taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pair",
+      "gives": "PR",
+      "note": "PR is the abbreviation for pair"
+     },
+     {
+      "clueFragment": "promotion",
+      "gives": "PROGRESS",
+      "note": "progress means advancement, promotion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OGRESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A frightful woman and her partner are refused a step up at work.",
+     "walkthrough": "Strip PR from the front of PROGRESS.",
+     "definitionFit": "An ogress is a female ogre, a monstrous giant of folklore."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -374,7 +1465,62 @@
     "text": "What about time in charge of moral code?",
     "enumeration": "5"
    },
-   "solution": "ETHIC"
+   "solution": "ETHIC",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ETHIC",
+    "definitions": [
+     {
+      "text": "moral code",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one part surrounds another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What",
+      "gives": "EH",
+      "note": "eh is a way of saying what? when you have not heard"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "in charge",
+      "gives": "IC",
+      "note": "IC is the abbreviation for in charge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "T",
+      "H",
+      "IC"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks how long a moral code will stay in force.",
+     "walkthrough": "What looks like the start of a question; it supplies EH, which wraps around T.",
+     "definitionFit": "An ethic is a set of principles of right conduct, such as the work ethic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "What"
+    }
+   }
   },
   {
    "number": 23,
@@ -388,7 +1534,55 @@
     "text": "Literary fragments smart guy introduced to workers",
     "enumeration": "8"
    },
-   "solution": "ANALECTS"
+   "solution": "ANALECTS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ANALECTS",
+    "definitions": [
+     {
+      "text": "Literary fragments",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "introduced to",
+      "for": "container",
+      "note": "someone introduced to a group is brought in among them, so one part goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "workers",
+      "gives": "ANTS",
+      "note": "worker ants: workers is a crossword stock for ants"
+     },
+     {
+      "clueFragment": "smart guy",
+      "gives": "ALEC",
+      "note": "a smart alec is a know-all"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AN",
+      "ALEC",
+      "TS"
+     ]
+    },
+    "explanation": {
+     "surface": "Scraps of literature from a clever fellow are shown to the staff.",
+     "walkthrough": "The smart guy is a smart alec, so the name alone is needed.",
+     "definitionFit": "Analects are collected extracts or sayings from an author, as in the Analects of Confucius."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "workers"
+    }
+   }
   },
   {
    "number": 24,
@@ -402,7 +1596,58 @@
     "text": "Slithy character burying Romeo[’s] valuable collection",
     "enumeration": "5"
    },
-   "solution": "TROVE"
+   "solution": "TROVE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TROVE",
+    "definitions": [
+     {
+      "text": "valuable collection",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "burying",
+      "for": "container",
+      "note": "to bury something is to put it inside, so one letter goes within"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Slithy character",
+      "gives": "TOVE",
+      "note": "the slithy toves are creatures in Lewis Carroll's Jabberwocky"
+     },
+     {
+      "clueFragment": "Romeo",
+      "gives": "R",
+      "note": "Romeo is R in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "R",
+      "OVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A slippery villain hides Romeo's treasures.",
+     "walkthrough": "'Twas brillig, and the slithy toves: the Jabberwocky opening line supplies the character.",
+     "definitionFit": "A trove, as in treasure trove, is a store of precious or valuable things discovered."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Slithy"
+    }
+   }
   },
   {
    "number": 25,
@@ -416,7 +1661,68 @@
     "text": "American uncle knocked back first of home brew",
     "enumeration": "4"
    },
-   "solution": "MASH"
+   "solution": "MASH",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "MASH",
+    "definitions": [
+     {
+      "text": "brew",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "knocked back",
+      "for": "reversal",
+      "note": "knocked back means pushed backwards, so the letters run in reverse"
+     },
+     {
+      "text": "first of",
+      "for": "letter_selection",
+      "note": "the first of a word is its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American uncle",
+      "gives": "SAM",
+      "note": "Uncle Sam personifies the United States"
+     },
+     {
+      "clueFragment": "home",
+      "gives": "H",
+      "select": "first",
+      "note": "the opening letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAS",
+      "H"
+     ],
+     "reversals": [
+      {
+       "from": "SAM",
+       "to": "MAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An American uncle downed the first glass of homemade beer.",
+     "walkthrough": "Knocked back suggests drinking, which fits the brewing surface nicely.",
+     "definitionFit": "Mash is the mixture of malt and hot water steeped in brewing, or any brew for fermenting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "knocked"
+    }
+   }
   },
   {
    "number": 26,
@@ -430,7 +1736,61 @@
     "text": "Criminal force probes chap instructed by director",
     "enumeration": "10"
    },
-   "solution": "MALEFACTOR"
+   "solution": "MALEFACTOR",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "MALEFACTOR",
+    "definitions": [
+     {
+      "text": "Criminal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "probes",
+      "for": "container",
+      "note": "a probe pushes into something, so this letter goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chap",
+      "gives": "MALE",
+      "note": "a chap is a man, a male"
+     },
+     {
+      "clueFragment": "force",
+      "gives": "F",
+      "note": "F is the physics symbol for force"
+     },
+     {
+      "clueFragment": "instructed by director",
+      "gives": "ACTOR",
+      "note": "an actor takes directions from a director"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MALE",
+      "F",
+      "ACTOR"
+     ]
+    },
+    "explanation": {
+     "surface": "A crooked police force investigates a man acting on orders from above.",
+     "walkthrough": "'Criminal force' wants to be a phrase; criminal is the definition, and force is the letter that pushes between the chap and the performer.",
+     "definitionFit": "A malefactor is someone who does wrong or commits a crime, an offender."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "force"
+    }
+   }
   },
   {
    "number": 27,
@@ -444,7 +1804,45 @@
     "text": "Seaside fanatic, we hear, that’s brown dressed in shell suit",
     "enumeration": "8"
    },
-   "solution": "BEECHNUT"
+   "solution": "BEECHNUT",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BEECHNUT",
+    "definitions": [
+     {
+      "text": "that’s brown dressed in shell suit",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "what we hear is a sound, so the words are taken as spoken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Seaside fanatic",
+      "gives": "BEECHNUT",
+      "soundsLike": "BEACH NUT",
+      "note": "a beach nut would be a fan of the seaside"
+     }
+    ],
+    "explanation": {
+     "surface": "A beach lover is seen wearing a brown shell suit.",
+     "walkthrough": "A shell suit is a shiny nylon tracksuit, a British fashion of the 1980s and 90s; here it is a nut's actual shell.",
+     "definitionFit": "The beech tree's fruit is a small brown nut enclosed in a prickly husk, its shell casing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "suit"
+    }
+   }
   },
   {
    "number": 28,
@@ -458,7 +1856,46 @@
     "text": "English daisy festival",
     "enumeration": "6"
    },
-   "solution": "EASTER"
+   "solution": "EASTER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EASTER",
+    "definitions": [
+     {
+      "text": "festival",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "daisy",
+      "gives": "ASTER",
+      "note": "the aster is a daisy-like flower"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "ASTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A celebration of English daisies.",
+     "walkthrough": "The aster belongs to the daisy family.",
+     "definitionFit": "Easter is the Christian spring festival celebrating the resurrection of Christ."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
