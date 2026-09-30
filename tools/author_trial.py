@@ -16,7 +16,10 @@ A candidate is validated by swapping it into --base (a clue set for the same
 fill that already passes) and running the build-time validator, so every error
 belongs to the candidate. Failures go back to the author with the errors, up
 to --repairs times; a candidate still failing is dropped, and the count is
-printed. Every stage writes its output under --out and is skipped if that
+printed. A candidate the validator passes still has to read as a real
+sentence and lean on nothing a general solver would have to look up: two
+batched judge calls (tools/surface_judge.md) per author reply refuse where both
+agree, and those refusals go back as errors too. Every stage writes its output under --out and is skipped if that
 output already parses, so a killed run resumes.
 
 Writes <out>/author/<entry>.json, <out>/select.json and <out>/picks.json (the
@@ -41,6 +44,7 @@ import build_authored_puzzle
 ROOT = Path(__file__).resolve().parent.parent
 AUTHOR_MD = ROOT / "tools/author_trial_author.md"
 SELECT_MD = ROOT / "tools/author_trial_select.md"
+SURFACE_MD = ROOT / "tools/surface_judge.md"
 RUBRIC = ROOT / "tools/data/grading_rubric.md"
 FILL = ROOT / "tools/data/sample_fill_11.json"
 
@@ -91,6 +95,41 @@ def validate_set(clues):
     return errors
 
 
+def judge_line(cand):
+    """One candidate as the clue judge reads it: the clue, its definitions and
+    the explanation a solver is shown."""
+    a = cand.get("annotation") or {}
+    ex = a.get("explanation") or {}
+    defs = "; ".join(d.get("text", "") for d in a.get("definitions") or [])
+    return (f"{cand['clue']['text']} -> {a.get('answer')}. Definition: {defs}. "
+            f"Explanation: {ex.get('walkthrough', '')} {ex.get('definitionFit', '')}")
+
+
+def judge_refusals(cands, model, effort="medium", calls=2):
+    """{index: why} for each candidate the clue judge (tools/surface_judge.md)
+    refuses: a surface no native speaker would say or write, or a definition or
+    explanation that needs specialist knowledge. One call judges the whole
+    batch, and a single call refuses sound clues often enough to matter, so a
+    candidate is refused only when each of `calls` independent calls refuses it."""
+    if not cands:
+        return {}
+    prompt = SURFACE_MD.read_text() + "".join(
+        f"{n}. {judge_line(c)}\n" for n, c in enumerate(cands, 1))
+    refused = None
+    for _ in range(calls):
+        verdicts = parse_object(claude(prompt, model, effort)).get("verdicts") or []
+        got = {int(v["n"]) - 1: v for v in verdicts if isinstance(v, dict) and "n" in v}
+        if set(got) != set(range(len(cands))):
+            raise ValueError(f"clue judge returned verdicts for {sorted(got)}, "
+                             f"wanted 0..{len(cands) - 1}")
+        now = {i: ("not a real sentence" if v.get("real") is not True else
+                   "needs specialist knowledge") + f": {v.get('why') or ''}"
+               for i, v in got.items()
+               if v.get("real") is not True or v.get("known") is not True}
+        refused = now if refused is None else {i: w for i, w in refused.items() if i in now}
+    return refused
+
+
 def candidate_errors(base, entry, cand):
     trial = copy.deepcopy(base)
     trial[entry] = {"clue": cand.get("clue"), "annotation": cand.get("annotation")}
@@ -111,6 +150,11 @@ def author_one(entry, answer, enum, base, out, model, effort, repairs):
     for attempt in range(repairs + 1):
         cands = reply.get("candidates") or []
         errs = {i: candidate_errors(base, entry, c) for i, c in enumerate(cands)}
+        clean = [i for i, e in errs.items() if not e]
+        refused = judge_refusals([cands[i] for i in clean], model)
+        for k, why in refused.items():
+            errs[clean[k]].append(f"the clue judge refused it ({why}); write a real "
+                                  "sentence any solver could follow without looking anything up")
         bad = {i: e for i, e in errs.items() if e}
         history.append({"reply": reply, "errors": {str(i): e for i, e in bad.items()}})
         if not bad or attempt == repairs:

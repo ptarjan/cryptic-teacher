@@ -13,7 +13,10 @@ special cases: the id is <series>-<number> like every other puzzle's, and the
 source names us as publisher with no url, since nothing was fetched. It
 refuses to write a puzzle tools/validate_annotations.py has an ERROR for, so
 the authoring rules (a stated scene on every clue, a joke on half of them)
-cannot be skipped by not running the validator.
+cannot be skipped by not running the validator. It also refuses a hidden
+answer that sits inside one word or starts or ends on a word boundary
+(hidden_edge_errors), a rule for
+clues we set that the corpus validator does not hold published clues to.
 
   python3 tools/build_authored_puzzle.py \
       --fill tools/data/sample_fill_11.json \
@@ -28,6 +31,7 @@ model id that drafted them — and lands in the top-level `annotatedBy`.
 import argparse
 import datetime
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -94,6 +98,47 @@ def build(fill_path, clues_path, number, name, setter, day):
     }
 
 
+# A word, with any apostrophe or hyphen inside it: "friend's" and
+# "ham-fistedly" are one word each.
+WORD = re.compile(r"[^\W\d_]+(?:['’-][^\W\d_]+)*")
+
+
+def hidden_edge_errors(puzzle):
+    """A hidden answer, read forwards or reversed, must take letters from two or
+    more words and neither start nor end on a word boundary: CHEAP in "Che
+    apparel" starts on the whole word "Che", and PREY in "Osprey" sits inside
+    one word and ends where it does. Of 2,591 published forward hidden words, 2
+    start on a boundary and 2 end on one; 267 sit inside one word, a device we
+    do not use. An answer found more than once passes if any one run does."""
+    errors = []
+    for e in puzzle["entries"]:
+        ann = e.get("annotation") or {}
+        types = set(ann.get("type") or [])
+        if "hidden_word" not in types or not types <= {"hidden_word", "reversal"}:
+            continue
+        letters, word = [], []
+        for n, w in enumerate(WORD.findall(e["clue"]["text"])):
+            for c in w:
+                if c.isalpha():
+                    letters.append(c.upper())
+                    word.append(n)
+        text = "".join(letters)
+        target = e["solution"][::-1] if "reversal" in types else e["solution"]
+        runs = [i for i in range(len(text)) if text.startswith(target, i)]
+        inside = [i for i in runs
+                  if 0 < i and word[i - 1] == word[i]
+                  and i + len(target) < len(text)
+                  and word[i + len(target)] == word[i + len(target) - 1]
+                  and word[i] != word[i + len(target) - 1]]
+        if not inside:
+            where = ("is not in the clue" if not runs else
+                     "starts or ends on a word boundary, or sits inside one word")
+            errors.append(f"{e['number']}-{e['direction']}: hidden {target} {where}; "
+                          "a hidden answer must cross a space and begin and end inside words "
+                          "(tools/author_trial_author.md, hidden words)")
+    return errors
+
+
 def finish(puzzle, annotated_by):
     """The built puzzle as write_puzzle_file will write it, and its validator
     ERRORs. The refusal must judge the written form: the schema requires the
@@ -107,7 +152,7 @@ def finish(puzzle, annotated_by):
     # The Pages build runs the corpus validator, ratchet included, over this
     # puzzle; refusing less here would ship a file that fails the deploy.
     errors += validate_annotations.backlog_errors(puzzle["id"], warnings)
-    return puzzle, errors
+    return puzzle, errors + hidden_edge_errors(puzzle)
 
 
 def main():

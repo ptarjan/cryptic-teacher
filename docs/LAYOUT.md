@@ -455,6 +455,9 @@ tools/test_build_authored_puzzle.sh          builds A001 through the real write 
                                              scratch tree and holds it to the schema, the
                                              integrity checks and the annotation rules, since
                                              no corpus sweep ever sees it
+tools/test_hidden_edges.sh                   holds the builder's refusal of a hidden answer
+                                             that sits inside one word or starts or ends on a
+                                             word boundary, forwards or reversed
 
 solving the puzzles whose answers aren’t published yet
 tools/solve_packet.py                        the clues and the grid’s crossing map, for a cold
@@ -684,6 +687,15 @@ tools/author_trial_author.md                 author_trial.py's author prompt: fi
                                              clues for one answer
 tools/author_trial_select.md                 author_trial.py's selector prompt: pick one clue
                                              per answer
+tools/surface_judge.md                       author_trial.py's clue judge: is each clue a
+                                             sentence a native speaker would say or write, and
+                                             does it lean on nothing a general solver would
+                                             look up
+tools/test_surface_gate.sh                   proves author_trial.py refuses a candidate only
+                                             when both clue-judge calls do, and, where claude
+                                             is on PATH, that the judge refuses "Hacks are on
+                                             the stouts" and the nerazzurri INTER and passes
+                                             A001
 tools/grade_clues_judge.sh                   runs the blind judges over one round of
                                              grade_clues.py packets
 tools/grade_clues_judge.md                   the judge prompt grade_clues_judge.sh sends:
