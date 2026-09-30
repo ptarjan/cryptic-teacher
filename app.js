@@ -2839,34 +2839,6 @@
     return String(text || "").replace(new RegExp(`\\b(?:${alts.join("|")})\\b`, "gi"), "\u2026");
   }
 
-  // Whether an indicator's note names a building block, by its letters or by
-  // the clue words that give it. The indicators rung is a tier below the
-  // blocks, and a note written as the operation happens hands them over:
-  // "STARTING grips, holds, the L" on telegraph-31356 11A ("It gives away the
-  // blocks in the indicator"), and "the lips' letters come first, before TEND"
-  // on 17D ("Tend is given away"), where blanking TEND still left 'lips' named
-  // as the front piece. Such a note is not shown; the rung says what the
-  // indicator's operation is instead. A capitalised word is how an annotation
-  // writes letters, so one that is a block's `gives` counts, unless the block's
-  // letters are its own clue words; a lone A or I is left as English. Clue words
-  // count when they belong to a block and not to this indicator, and are not
-  // short joining words.
-  const NOTE_JOINERS = new Set(("the this these those its one such for from with that and are was " +
-                                 "not but his her their").split(" "));
-  function noteNamesBlock(note, ann, ind) {
-    const bare = (s) => String(s || "").replace(/[^A-Za-z]/g, "").toUpperCase();
-    const words = (s) => String(s || "").toLowerCase().replace(/['\u2019]s\b/g, "").match(/[a-z]+/g) || [];
-    const blocks = ann.blocks || [];
-    const hidden = new Set(blocks
-      .filter((b) => bare(b.gives) && bare(b.gives) !== bare(b.clueFragment))
-      .map((b) => bare(b.gives)));
-    if ((String(note || "").match(/\b[A-Z]+\b/g) || []).some((w) => hidden.has(w) && w !== "A" && w !== "I")) return true;
-    const own = new Set(words(ind.text));
-    const named = new Set(blocks.reduce((a, b) => a.concat(words(b.clueFragment)), [])
-      .filter((w) => w.length >= 3 && !NOTE_JOINERS.has(w) && !own.has(w)));
-    return words(note).some((w) => named.has(w));
-  }
-
   // The letters a block may show, "" when it may show none.
   //
   // A cryptic definition has no building blocks — having none is what makes it
@@ -3631,7 +3603,7 @@
       // cannot be.
       const said = (i) => {
         const op = INDICATOR_OPS.find(([o]) => o === i.for);
-        return i.note && !noteNamesBlock(i.note, ann, i) ? i.note : (op ? `tells you to ${op[1]}` : "");
+        return i.note || (op ? `tells you to ${op[1]}` : "");
       };
       const written = inds.filter(said);
       const noteList = `<ul class="ind-notes">${written.map((i) =>

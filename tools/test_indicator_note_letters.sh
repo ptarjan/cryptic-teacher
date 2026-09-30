@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
-# An indicator note may not write a block's letters: the indicator rung is
-# shown before the blocks.
+# An indicator note names no block, by its letters or its clue words: the
+# indicator rung is shown before the blocks, and every note in the corpus is
+# held to it.
 set -euo pipefail
 cd "$(dirname "$0")"
 python3 - <<'PY'
@@ -13,30 +14,28 @@ def check(name, want, got):
     fails += not ok
     print(("ok  " if ok else "FAIL"), name, "" if ok else f"want {want!r}, got {got!r}")
 
-def warned(note, gives=("EH", "S"), answer="HES"):
-    ann = {"answer": answer, "blocks": [{"clueFragment": "x", "gives": g} for g in gives],
-           "indicators": [{"text": "about", "for": "reversal", "note": note}]}
-    warnings = []
-    v.check_indicator_notes_dont_give_blocks("1A", ann, warnings)
-    return len(warnings)
-
-check("block letters in capitals", 1, warned("'about' as in turned about, so EH is read backwards"))
-check("described in words", 0, warned("'about' as in turned about, so the exclamation is read backwards"))
-check("inside a longer word", 0, warned("so THEHOUSE is read backwards"))
-check("a one-letter block", 0, warned("so S goes last"))
-check("the whole answer is another check's", 0, warned("so HES appears", gives=("HES",)))
-check("marker counts toward the backlog", 1,
-      v.count_backlog(["1A: indicator note on 'about' writes a block's letters (EH)"])["indicators.noteLetters"])
 ann = {"blocks": [{"clueFragment": "cracked lips", "gives": "SPLI"},
                   {"clueFragment": "Nurse", "gives": "TEND"}]}
 at_first = {"text": "at first"}
-check("new note: a block's clue words", ["lips"],
+check("a block's clue words", ["lips"],
       v.blocks_named_in("the lips come first", ann, at_first))
-check("new note: letters and clue words", ["TEND", "lips"],
+check("letters and clue words", ["TEND", "lips"],
       v.blocks_named_in("the lips' letters come first, before TEND", ann, at_first))
-check("new note: the indicator's own words", [],
+check("the indicator's own words", [],
       v.blocks_named_in("cracked things are broken up", ann, {"text": "cracked"}))
-check("new note: what the word does", [],
+check("what the word does", [],
       v.blocks_named_in("puts the piece after it at the front", ann, at_first))
+check("a block's letters", ["EH"],
+      v.blocks_named_in("so EH is read backwards", {"blocks": [{"clueFragment": "what", "gives": "EH"}]},
+                        {"text": "about"}))
+check("letters inside a longer word", [],
+      v.blocks_named_in("so THEHOUSE is read backwards", {"blocks": [{"clueFragment": "what", "gives": "EH"}]},
+                        {"text": "about"}))
+puzzle = {"id": "x-1", "entries": [{"number": 1, "direction": "across", "annotation": {
+    "blocks": [{"clueFragment": "Nurse", "gives": "TEND"}],
+    "indicators": [{"text": "at first", "note": "the lips come first, before TEND"}]}}]}
+errors = []
+v.check_indicator_notes_name_no_block("1A", puzzle["entries"][0]["annotation"], errors)
+check("an error on any note, not only a new one", 1, len(errors))
 raise SystemExit(fails)
 PY

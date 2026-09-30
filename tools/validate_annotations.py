@@ -1031,25 +1031,6 @@ def check_block_notes_dont_name_the_answer(tag, ann, errors, warnings):
                 f"which convention is in play — and let the walkthrough spell it.")
 
 
-def check_indicator_notes_dont_give_blocks(tag, ann, warnings):
-    """The indicator rung comes before the building blocks, so a note that
-    writes a block's letters ("so EH is read backwards") sells that block for
-    the price of the indicator. Say what the indicator does to the piece in
-    words ("so the exclamation is read backwards"); the blocks rung spells it.
-    Grandfathered per puzzle through BACKLOG_MARKERS, since most notes written
-    before this rule do it."""
-    answer = re.sub(r"[^A-Z]", "", str(ann.get("answer") or "").upper())
-    gives = {g for b in ann.get("blocks") or []
-             if len(g := re.sub(r"[^A-Z]", "", str(b.get("gives") or "").upper())) >= 2 and g != answer}
-    for ind in ann.get("indicators") or []:
-        note = str(ind.get("note") or "")
-        hit = sorted(g for g in gives if re.search(rf"(?<![A-Za-z]){g}(?![A-Za-z])", note))
-        if hit:
-            warnings.append(f"{tag}: indicator note on {ind.get('text')!r} writes a block's letters "
-                            f"({', '.join(hit)}), and the indicator rung comes before the blocks. "
-                            f"Describe the piece in words; the blocks rung spells it")
-
-
 # An indicator rung that names the words and not the reason is the rung solvers
 # keep saying is not worth paying for ("Spot the indicator words shouldn't be
 # content free clues… they would explain like minute cryptic", 2026-08-02; and
@@ -2393,10 +2374,9 @@ def check_clue_unchanged(puzzle, path, errors):
 # read "STARTING grips, holds, the L" ("It gives away the blocks in the
 # indicator", 2026-09-29), and 17D's "at first" read "the lips' letters come
 # first, before TEND" ("Tend is given away", 2026-09-30). Naming a piece by its
-# clue words gives it away as surely as by its letters. app.js hides such a note
-# (noteNamesBlock, the same rule as below), so a note says what the indicator's
-# words mean and do, and names no piece. Checked on the entries a run wrote, the
-# way check_clue_unchanged is, so the committed corpus stays the app's job.
+# clue words gives it away as surely as by its letters. So a note says what the
+# indicator's words mean and do, and names no piece. Every note in the corpus
+# is held to it, so the app renders a note as written.
 NOTE_JOINERS = {"the", "this", "these", "those", "its", "one", "such", "for", "from", "with",
                 "that", "and", "are", "was", "not", "but", "his", "her", "their"}
 
@@ -2418,26 +2398,21 @@ def blocks_named_in(note, ann, ind):
             + [w for w in words(note) if w in named])
 
 
-def check_indicator_notes_hide_blocks(puzzle, path, errors):
-    """A new or changed annotation's indicator notes name no block."""
-    committed = committed_entries(path) or {}
-    for e in puzzle["entries"]:
-        ann = e.get("annotation")
-        if not isinstance(ann, dict) or ann == (committed.get(entry_id(e)) or {}).get("annotation"):
+def check_indicator_notes_name_no_block(tag, ann, errors):
+    """An indicator note names no block, by its letters or its clue words."""
+    for ind in ann.get("indicators") or []:
+        if not isinstance(ind, dict):
             continue
-        for ind in ann.get("indicators") or []:
-            if not isinstance(ind, dict):
-                continue
-            named = blocks_named_in(ind.get("note"), ann, ind)
-            if named:
-                errors.append(
-                    f"{entry_id(e)}: note on indicator {ind.get('text')!r} names the "
-                    f"blocks by {', '.join(dict.fromkeys(named))} — {ind.get('note')!r}. "
-                    f"The indicators rung comes before the blocks, so say what these "
-                    f"words mean and what they do, naming no piece by its letters or "
-                    f"its clue words: \"to grip is to hold, so one piece holds "
-                    f"another\", not \"STARTING grips the L\" or \"'beginning' "
-                    f"holds 'learner'\"")
+        named = blocks_named_in(ind.get("note"), ann, ind)
+        if named:
+            errors.append(
+                f"{tag}: note on indicator {ind.get('text')!r} names the "
+                f"blocks by {', '.join(dict.fromkeys(named))} — {ind.get('note')!r}. "
+                f"The indicators rung comes before the blocks, so say what these "
+                f"words mean and what they do, naming no piece by its letters or "
+                f"its clue words: \"to grip is to hold, so one piece holds "
+                f"another\", not \"STARTING grips the L\" or \"'beginning' "
+                f"holds 'learner'\"")
 
 
 # A selector is an indicator: "capital of Bahrain" giving B is the indicator
@@ -2447,7 +2422,7 @@ def check_indicator_notes_hide_blocks(puzzle, path, errors):
 # corpus uses to take a word's first, last or middle letters; a block is held to
 # the rule only when its letters are that selection of the words left over, so
 # "head of state" giving some other piece is not caught. Checked on the entries
-# a run wrote, the way check_indicator_notes_hide_blocks is.
+# a run wrote, the way check_clue_unchanged is.
 SELECT_NOUNS = {
     "first": "first|capital|head|heads|leader|leaders|start|starts|beginning|beginnings"
              "|opening|openings|top|front|source|origin|origins|onset|starter|starters"
@@ -2667,7 +2642,7 @@ def validate_puzzle(puzzle, corpus=False):
         check_indicators(tag, ann, clue, errors, warnings)
         check_no_answer_in_early_rungs(tag, ann, errors, warnings)
         check_block_notes_dont_name_the_answer(tag, ann, errors, warnings)
-        check_indicator_notes_dont_give_blocks(tag, ann, warnings)
+        check_indicator_notes_name_no_block(tag, ann, errors)
         check_cryptic_definition_blocks(tag, ann, errors, warnings)
 
         check_coverage(tag, ann, clue, warnings)
@@ -2781,7 +2756,6 @@ BACKLOG_MARKERS = {
     "indicators.for": ("lack `for`",),
     "features": ("no features",),
     "explanation.surface": ("no explanation.surface",),
-    "indicators.noteLetters": ("writes a block's letters",),
 }
 
 
@@ -2926,7 +2900,6 @@ def main(argv):
         annotated, errors, warnings = validate_puzzle(puzzle, corpus=full_run)
         if not full_run:        # a run's own puzzles; the corpus is HEAD already
             check_clue_unchanged(puzzle, path, errors)
-            check_indicator_notes_hide_blocks(puzzle, path, errors)
             check_selectors_are_indicators(puzzle, path, errors)
         total = len(puzzle["entries"])
         if annotated == 0 and not argv:
