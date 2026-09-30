@@ -226,6 +226,18 @@ pending.write_text(json.dumps({"1-across": {"answer": "TITUS, ANDRONICUS"}, "2-a
 say("comma_answer_spaced", AC.respell_answers(pending) == ["1-across"]
     and json.loads(pending.read_text())["1-across"]["answer"] == "TITUS ANDRONICUS")
 
+# A block note opening "<answer> is ..." keeps only what follows; one naming
+# the answer anywhere else, or as part of a longer subject, is left alone.
+pending.write_text(json.dumps({
+    "1-across": {"answer": "GRATING", "blocks": [{"note": "a grating is a grid of metal bars over a drain"}]},
+    "2-across": {"answer": "TEMPLE", "blocks": [{"note": "William Temple was Archbishop of Canterbury"}]},
+    "3-across": {"answer": "DAILY", "blocks": [{"note": "a rag is a newspaper, and one out every day is a daily"}]}}))
+trimmed = AC.trim_answer_openers(pending)
+notes_now = {k: v["blocks"][0]["note"] for k, v in json.loads(pending.read_text()).items()}
+say("answer_opener_trimmed", trimmed == ["1-across"]
+    and notes_now["1-across"] == "a grid of metal bars over a drain"
+    and notes_now["2-across"].startswith("William") and notes_now["3-across"].startswith("a rag"))
+
 # Each validator line names its check, and --explain takes what a run guesses.
 import contextlib, io
 errs = []
@@ -259,7 +271,7 @@ for k in linked_leader_quiet annotated_continuation_flagged \
          reworded_clue_fails retyped_clue_passes missing_keys_filled_null \
          preview_names_validator_errors patch_deletes_its_file \
          line_names_its_check explain_takes_a_field explain_takes_dashed_words \
-         explain_unknown_refused comma_answer_spaced; do
+         explain_unknown_refused comma_answer_spaced answer_opener_trimmed; do
   same "$k" "$(grep -c "^$k=yes$" <<<"$out")" "1"
 done
 

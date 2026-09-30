@@ -52,7 +52,7 @@ import series  # noqa: E402
 import validate_annotations  # noqa: E402
 from apply_annotations import default_input  # noqa: E402
 from fetch_puzzle import read_puzzle_file, resolve_puzzle  # noqa: E402
-from find_answer_leaks import leaks  # noqa: E402
+from find_answer_leaks import leaks, says  # noqa: E402
 from find_renarration import scan  # noqa: E402
 
 
@@ -254,6 +254,40 @@ def respell_answers(pending):
     return changed
 
 
+# "a grating is a grid of metal bars": a block note that opens by defining the
+# answer word, where everything after the verb is the note it should have been.
+ANSWER_OPENER = re.compile(
+    r"^\s*(?:(?:a|an|the|to)\s+)?(?P<subject>[A-Za-z'\u2019 -]+?)\s+"
+    r"(?:is|are|was|means|can mean)\s+(?:also\s+)?(?P<rest>.+)$", re.DOTALL)
+
+
+def trim_answer_openers(pending):
+    """Drop "<answer> is" from the front of a block note that names the answer
+    only there; the entry ids changed. check_block_notes_dont_name_the_answer
+    fails the first check of most runs, and this shape of it (a third) has a
+    fix with nothing to decide."""
+    try:
+        ann = json.loads(pending.read_text(encoding="utf-8"))
+    except ValueError:
+        return []
+    changed = []
+    for eid, a in (ann.items() if isinstance(ann, dict) else ()):
+        if not isinstance(a, dict) or not isinstance(a.get("answer"), str):
+            continue
+        for block in a.get("blocks") or []:
+            note = block.get("note") if isinstance(block, dict) else None
+            m = ANSWER_OPENER.match(note) if isinstance(note, str) else None
+            if (m and says(m["subject"], a["answer"]) and not says(m["rest"], a["answer"])
+                    and len(re.sub(r"[^A-Za-z]", "", m["subject"]))
+                    <= len(re.sub(r"[^A-Za-z]", "", a["answer"])) + 3
+                    and len(m["rest"]) >= 12):
+                block["note"] = m["rest"]
+                changed.append(eid)
+    if changed:
+        pending.write_text(json.dumps(ann, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    return sorted(set(changed), key=changed.index)
+
+
 def preview(path, pending):
     """(errors, warnings) the validator would give once `pending` applied.
 
@@ -325,6 +359,10 @@ def main(argv):
         if spaced:
             print(f"answers written with commas, now spaced in {pending.name}: "
                   f"{', '.join(spaced)}\n")
+        trimmed = trim_answer_openers(pending)
+        if trimmed:
+            print(f"block notes that opened \"<answer> is ...\", trimmed to what follows in "
+                  f"{pending.name}: {', '.join(trimmed)}\n")
         filled = fill_missing(path, pending)
         if filled:
             print(f"{pending.name} had no key for {', '.join(filled)}: filled in as null "
