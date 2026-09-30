@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,62 @@
     "text": "Politicians in London broadcast across German city",
     "enumeration": "7"
    },
-   "solution": "GLASGOW"
+   "solution": "GLASGOW",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "GLASGOW",
+    "definitions": [
+     {
+      "text": "city",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "across",
+      "for": "container",
+      "note": "one thing laid across another spans it, so these letters straddle the one inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Politicians in London",
+      "gives": "GLA",
+      "note": "the Greater London Authority, the body of elected politicians running London"
+     },
+     {
+      "clueFragment": "broadcast",
+      "gives": "SOW",
+      "note": "to broadcast seed is to scatter it, to sow"
+     },
+     {
+      "clueFragment": "German",
+      "gives": "G",
+      "note": "G is the standard abbreviation for German"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GLA",
+      "S",
+      "G",
+      "OW"
+     ]
+    },
+    "explanation": {
+     "surface": "London politicians broadcasting a message across to a city in Germany.",
+     "walkthrough": "'German city' reads as one phrase, but German only supplies G and the definition is just 'city', which turns out to be Scottish.",
+     "definitionFit": "Glasgow is the largest urban centre in Scotland, an example of the category named."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "German"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +105,55 @@
     "text": "Ring woman in Paris entertained by filth",
     "enumeration": "7"
    },
-   "solution": "GROMMET"
+   "solution": "GROMMET",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GROMMET",
+    "definitions": [
+     {
+      "text": "Ring",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entertained by",
+      "for": "container",
+      "note": "a host who entertains a guest has them inside the house, so one set of letters goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "filth",
+      "gives": "GROT",
+      "note": "grot is British slang for dirt or rubbish"
+     },
+     {
+      "clueFragment": "woman in Paris",
+      "gives": "MME",
+      "note": "Mme is the abbreviation for Madame, a French woman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRO",
+      "MME",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A Parisian woman wearing a ring finds herself entertained in squalor.",
+     "walkthrough": "'Ring woman' tempts you to read ring as a verb, as in phoning her; it is the definition, a noun.",
+     "definitionFit": "A grommet is a metal or rubber eyelet reinforcing a hole, a small circular fitting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Ring"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +167,51 @@
     "text": "Cruelly fed tramp a choking hazard",
     "enumeration": "9"
    },
-   "solution": "AFTERDAMP"
+   "solution": "AFTERDAMP",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AFTERDAMP",
+    "definitions": [
+     {
+      "text": "choking hazard",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Cruelly",
+      "for": "anagram",
+      "note": "cruel treatment knocks something about, so these letters are roughed up into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fed tramp a",
+      "gives": "FEDTRAMPA",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FEDTRAMPA",
+       "gives": "AFTERDAMP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone cruelly feeds a vagrant something he might choke on.",
+     "walkthrough": "The surface suggests food lodged in a throat; the answer is a mining term, rare enough that the anagram letters are the surest route.",
+     "definitionFit": "Afterdamp is the suffocating gas, mostly carbon monoxide, left in a mine after an explosion of firedamp."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "choking"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +225,61 @@
     "text": "Greens periodically supported by two brilliant people",
     "enumeration": "5"
    },
-   "solution": "GENII"
+   "solution": "GENII",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "GENII",
+    "definitions": [
+     {
+      "text": "brilliant people",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "periodically",
+      "for": "letter_selection",
+      "note": "something done periodically happens at regular intervals, so only every other letter is kept"
+     },
+     {
+      "text": "supported by",
+      "for": "charade",
+      "note": "in a down clue what is supported sits on top, so the first part goes above the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Greens",
+      "gives": "GEN",
+      "select": "alternate",
+      "note": "first, third and fifth letters of the word"
+     },
+     {
+      "clueFragment": "two",
+      "gives": "II",
+      "note": "two in Roman numerals"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GEN",
+      "II"
+     ]
+    },
+    "explanation": {
+     "surface": "Environmental politicians backed by a pair of clever supporters.",
+     "walkthrough": "Greens looks like the party or vegetables; it is only raw material for alternate letters.",
+     "definitionFit": "Genii is an old plural of genius, people of exceptional intellect or talent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Greens"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +293,81 @@
     "text": "Washington police finally arresting target involved in scandal",
     "enumeration": "9"
    },
-   "solution": "WATERGATE"
+   "solution": "WATERGATE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "WATERGATE",
+    "definitions": [
+     {
+      "text": "scandal",
+      "at": 55
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "charade",
+      "note": "finally points to the end of the word, whose closing letter joins the rest"
+     },
+     {
+      "text": "arresting",
+      "for": "container",
+      "note": "to arrest someone is to hold them, so the outer letters grip what goes inside"
+     },
+     {
+      "text": "involved",
+      "for": "anagram",
+      "note": "something involved is tangled or intricate, so these letters are twisted into a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Washington",
+      "gives": "WA",
+      "note": "WA is the postal abbreviation for Washington State"
+     },
+     {
+      "clueFragment": "target",
+      "gives": "TARGET",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "police",
+      "gives": "E",
+      "note": "last letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WA",
+      "TERGAT",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TARGET",
+       "gives": "TERGAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Washington police finally arrest their target, who was involved in a scandal.",
+     "walkthrough": "The surface fits the answer's own story of Washington and arrests; WA and the E from police wrap round a jumble of target.",
+     "definitionFit": "Watergate was the 1970s US political affair of break-ins and cover-up that forced President Nixon to resign."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "involved"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +381,69 @@
     "text": "Money taken from country club certainly not brought back",
     "enumeration": "7"
    },
-   "solution": "REVENUE"
+   "solution": "REVENUE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "REVENUE",
+    "definitions": [
+     {
+      "text": "Money taken",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brought back",
+      "for": "reversal",
+      "note": "bringing something back returns it the way it came, so the letters run in the opposite direction"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "country club",
+      "gives": "EU",
+      "note": "the European Union, a club whose members are countries"
+     },
+     {
+      "clueFragment": "certainly not",
+      "gives": "NEVER",
+      "note": "an emphatic refusal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REVEN",
+      "UE"
+     ],
+     "reversals": [
+      {
+       "from": "NEVER",
+       "to": "REVEN"
+      },
+      {
+       "from": "EU",
+       "to": "UE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Funds taken from a country club that will certainly never be returned.",
+     "walkthrough": "'Country club' suggests golf and membership fees; it is the EU, a club of nations.",
+     "definitionFit": "Revenue is income received, the sum a business or government collects."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "club"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +457,58 @@
     "text": "Once river has risen, catches flightless birds",
     "enumeration": "5"
    },
-   "solution": "RHEAS"
+   "solution": "RHEAS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "RHEAS",
+    "definitions": [
+     {
+      "text": "flightless birds",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has risen",
+      "for": "deletion",
+      "note": "in a down entry something that has risen has left its place and floated up, so a letter departs from where it sat"
+     }
+    ],
+    "linkWords": [
+     "Once"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the usual abbreviation for river"
+     },
+     {
+      "clueFragment": "catches",
+      "gives": "HEARS",
+      "note": "to catch a remark is to hear it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "HEAS"
+     ]
+    },
+    "explanation": {
+     "surface": "When the river rises, it traps some large birds that cannot fly away.",
+     "walkthrough": "Start from HEARS and move its R, the river, up to the top of the down entry.",
+     "definitionFit": "Rheas are large South American ratites resembling small ostriches, unable to fly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "catches"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +522,79 @@
     "text": "I start to cry, overwhelmed by thrashing saviour suffered for another",
     "enumeration": "9"
    },
-   "solution": "VICARIOUS"
+   "solution": "VICARIOUS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "VICARIOUS",
+    "definitions": [
+     {
+      "text": "suffered for another",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "start to",
+      "for": "charade",
+      "note": "the start of a word is its opening letter, which is all that is taken"
+     },
+     {
+      "text": "overwhelmed by",
+      "for": "container",
+      "note": "to be overwhelmed is to be engulfed, so these letters are swallowed inside the others"
+     },
+     {
+      "text": "thrashing",
+      "for": "anagram",
+      "note": "a thrashing beats something about, so these letters are knocked into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "saviour",
+      "gives": "SAVIOUR",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cry",
+      "gives": "C",
+      "note": "first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "I",
+      "C",
+      "ARIOUS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SAVIOUR",
+       "gives": "VARIOUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone begins to weep, overcome by a saviour who is thrashed and suffers for others.",
+     "walkthrough": "The Christian surface of a saviour suffering for others doubles as the definition; the anagram of saviour gives VARIOUS, which opens to take I and C.",
+     "definitionFit": "Vicarious suffering is endured in place of someone else, as a substitute bearing their pain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "thrashing"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +608,59 @@
     "text": "Note European drug detective's obligations",
     "enumeration": "5"
    },
-   "solution": "NEEDS"
+   "solution": "NEEDS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NEEDS",
+    "definitions": [
+     {
+      "text": "obligations",
+      "at": 31
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Note",
+      "gives": "N",
+      "note": "N is an abbreviation for note"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     },
+     {
+      "clueFragment": "drug",
+      "gives": "E",
+      "note": "E is slang for the drug ecstasy"
+     },
+     {
+      "clueFragment": "detective",
+      "gives": "DS",
+      "note": "DS is a detective sergeant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "E",
+      "E",
+      "DS"
+     ]
+    },
+    "explanation": {
+     "surface": "A note records a European drug detective's duties.",
+     "walkthrough": "Four abbreviations in a row; the 's attaches the definition to the detective.",
+     "definitionFit": "Needs are requirements, things one is bound to supply or must have."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Note"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +674,56 @@
     "text": "In literature, delightful cathedral city's giant's content",
     "enumeration": "7"
    },
-   "solution": "ELYSIAN"
+   "solution": "ELYSIAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ELYSIAN",
+    "definitions": [
+     {
+      "text": "In literature, delightful",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "content",
+      "for": "letter_selection",
+      "note": "the content of a container is what lies inside, so only the inner letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cathedral city's",
+      "gives": "ELYS",
+      "note": "Ely is a small cathedral city in Cambridgeshire, plus the possessive S"
+     },
+     {
+      "clueFragment": "giant",
+      "gives": "IAN",
+      "select": "middle",
+      "note": "the word without its first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELYS",
+      "IAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A literary description of a lovely cathedral city and the giant living there.",
+     "walkthrough": "'In literature' flags a literary usage of the definition; Ely is a small English cathedral city near Cambridge.",
+     "definitionFit": "Elysian, from the blissful Elysian Fields of Greek myth, is a poetic word for heavenly or blissful."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "content"
+    }
+   }
   },
   {
    "number": 9,
@@ -173,7 +737,57 @@
     "text": "Cabinet fought over housing many times",
     "enumeration": "5"
    },
-   "solution": "OFTEN"
+   "solution": "OFTEN",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "OFTEN",
+    "definitions": [
+     {
+      "text": "many times",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "to turn something over is to flip it, so the letters run backwards"
+     },
+     {
+      "text": "housing",
+      "for": "hidden_word",
+      "note": "a house holds its occupants within, so the letters sit inside the clue words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cabinet fought",
+      "gives": "NETFO",
+      "note": "the tail of the first word and the head of the second"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "NETFO",
+       "to": "OFTEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Cabinet ministers have argued about the matter repeatedly.",
+     "walkthrough": "The letters straddle the two words and read right to left; Cabinet is not a synonym to be found.",
+     "definitionFit": "Often means frequently, on numerous occasions."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "housing"
+    }
+   }
   },
   {
    "number": 10,
@@ -197,7 +811,75 @@
      }
     ]
    },
-   "solution": "TREACHERY"
+   "solution": "TREACHERY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "TREACHERY",
+    "definitions": [
+     {
+      "text": "Betrayal",
+      "at": 63
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lead",
+      "for": "letter_selection",
+      "note": "the lead is the one out in front, so just the opening letter is taken"
+     },
+     {
+      "text": "features in",
+      "for": "container",
+      "note": "to feature in something is to appear inside it, so one piece goes within another"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "coming after means placed later, so this piece is added at the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one who might be Educating",
+      "gives": "TEACHER",
+      "note": "someone educating others is a teacher"
+     },
+     {
+      "clueFragment": "Rita",
+      "gives": "R",
+      "select": "first",
+      "note": "first letter of the name"
+     },
+     {
+      "clueFragment": "Years",
+      "gives": "Y",
+      "note": "Y is the abbreviation for years"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "R",
+      "EACHER",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A theatre note: the star of Educating Rita appears in a production of Betrayal years later.",
+     "walkthrough": "The italics make Educating Rita and Betrayal look like titles of plays (Willy Russell's and Harold Pinter's), but Educating is read as a plain verb and Betrayal is the definition.",
+     "definitionFit": "Treachery is disloyal deceit, breaking faith with someone who trusted you."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Educating"
+    }
+   }
   },
   {
    "number": 11,
@@ -217,7 +899,73 @@
      }
     ]
    },
-   "solution": "MARDIGRAS"
+   "solution": "MARDIGRAS",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "MARDI GRAS",
+    "definitions": [
+     {
+      "text": "carnival",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occupying",
+      "for": "container",
+      "note": "to occupy a place is to be inside it, so these letters go within the others"
+     },
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "what follows comes later, so this part is placed after the earlier ones"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old lady",
+      "gives": "MA",
+      "note": "one's old lady is informally one's mother, Ma"
+     },
+     {
+      "clueFragment": "runs",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for runs"
+     },
+     {
+      "clueFragment": "lodgings",
+      "gives": "DIGS",
+      "note": "digs is British slang for rented lodgings"
+     },
+     {
+      "clueFragment": "Artist",
+      "gives": "RA",
+      "note": "RA is a Royal Academician"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "R",
+      "DIG",
+      "RA",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "An artist renting rooms from an elderly landlady runs a festival.",
+     "walkthrough": "'Runs' looks like the verb of the sentence but only gives R; RA, a Royal Academician, is the stock crossword artist.",
+     "definitionFit": "Mardi Gras is the Shrove Tuesday festival, a famous street celebration in New Orleans and Rio."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "runs"
+    }
+   }
   },
   {
    "number": 12,
@@ -231,7 +979,69 @@
     "text": "Eggs prepared - that is always lacking in English dish",
     "enumeration": "5"
    },
-   "solution": "ROSTI"
+   "solution": "ROSTI",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ROSTI",
+    "definitions": [
+     {
+      "text": "dish",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "always lacking",
+      "for": "deletion",
+      "note": "lacking something every time means each occurrence is removed wherever it appears"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Eggs",
+      "gives": "ROE",
+      "note": "roe is fish eggs"
+     },
+     {
+      "clueFragment": "prepared",
+      "gives": "SET",
+      "note": "a table prepared for dinner is set"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e., id est, Latin for that is"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E for English, the letter struck out of every piece"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RO",
+      "ST",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "Eggs are prepared, but this dish never appears on an English menu.",
+     "walkthrough": "Each of the three pieces loses its E: roe, set and i.e. become RO, ST and I.",
+     "definitionFit": "Rosti is a Swiss fried cake of grated potato, served as a meal or side."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "English"
+    }
+   }
   },
   {
    "number": 13,
@@ -245,7 +1055,65 @@
     "text": "Play guitar, tense, pale, and close to crying",
     "enumeration": "5"
    },
-   "solution": "TWANG"
+   "solution": "TWANG",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "TWANG",
+    "definitions": [
+     {
+      "text": "Play guitar",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its end, so only the final letter is used"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tense",
+      "gives": "T",
+      "note": "T is the grammatical abbreviation for tense"
+     },
+     {
+      "clueFragment": "pale",
+      "gives": "WAN",
+      "note": "wan means pale and sickly"
+     },
+     {
+      "clueFragment": "crying",
+      "gives": "G",
+      "select": "last",
+      "note": "last letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "WAN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A nervous guitarist, tense and pale, plays while on the verge of tears.",
+     "walkthrough": "Tense and pale read as a musician's nerves; they are an abbreviation and a synonym.",
+     "definitionFit": "To twang is to pluck a string so it gives a sharp ringing sound, as on a guitar."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tense"
+    }
+   }
   },
   {
    "number": 14,
@@ -259,7 +1127,59 @@
     "text": "Spice Girl and Irishman barely aged",
     "enumeration": "9"
    },
-   "solution": "GERIATRIC"
+   "solution": "GERIATRIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "GERIATRIC",
+    "definitions": [
+     {
+      "text": "aged",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "barely",
+      "for": "letter_selection",
+      "note": "something barely covered is stripped nearly bare, so its outermost letters are shed"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spice Girl",
+      "gives": "GERI",
+      "note": "Geri Halliwell, Ginger Spice of the 1990s pop group"
+     },
+     {
+      "clueFragment": "Irishman",
+      "gives": "ATRIC",
+      "select": "middle",
+      "note": "Patrick, a typical Irish name, without its first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GERI",
+      "ATRIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A Spice Girl and an Irishman who have barely aged at all.",
+     "walkthrough": "'Barely aged' reads as looking young; barely strips PATRICK, the stock Irishman, and aged is the definition.",
+     "definitionFit": "Geriatric describes old people, strictly their medical care, and informally anything elderly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "barely"
+    }
+   }
   },
   {
    "number": 15,
@@ -273,7 +1193,66 @@
     "text": "A new singer avoiding current presenter",
     "enumeration": "9"
    },
-   "solution": "ANCHORMAN"
+   "solution": "ANCHORMAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ANCHORMAN",
+    "definitions": [
+     {
+      "text": "presenter",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "avoiding",
+      "for": "deletion",
+      "note": "to avoid something is to keep clear of it, so this letter is left out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "singer",
+      "gives": "CHOIRMAN",
+      "note": "a man who sings in a choir"
+     },
+     {
+      "clueFragment": "current",
+      "gives": "I",
+      "note": "I is the physics symbol for electric current"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "N",
+      "CHORMAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A fresh singer steering clear of today's hosts.",
+     "walkthrough": "'Current presenter' suggests a present-day host; current is only I, taken out of CHOIRMAN.",
+     "definitionFit": "An anchorman is the lead newsreader who fronts a broadcast and links its reports."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "current"
+    }
+   }
   },
   {
    "number": 16,
@@ -287,7 +1266,62 @@
     "text": "What are you doing about promise broken by Rachel's on-off partner?",
     "enumeration": "9"
    },
-   "solution": "CROSSWORD"
+   "solution": "CROSSWORD",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CROSSWORD",
+    "definitions": [
+     {
+      "text": "What are you doing",
+      "at": 0,
+      "note": "a question; the answer is the thing being done, a noun"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broken by",
+      "for": "container",
+      "note": "something broken by an intruder is split open by it, so one piece is wedged into the middle of the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "C is circa, Latin for about"
+     },
+     {
+      "clueFragment": "Rachel's on-off partner",
+      "gives": "ROSS",
+      "note": "in the US sitcom Friends, Rachel and Ross keep breaking up and getting back together"
+     },
+     {
+      "clueFragment": "promise",
+      "gives": "WORD",
+      "note": "to give your word is to promise"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ROSS",
+      "WORD"
+     ]
+    },
+    "explanation": {
+     "surface": "An exasperated question to someone breaking a promise because of an on-again, off-again lover.",
+     "walkthrough": "The question sounds like a rebuke, but its honest reply is the activity the solver is engaged in right now.",
+     "definitionFit": "Anyone reading this clue is at that moment solving a crossword, so the puzzle itself answers the question."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "doing"
+    }
+   }
   },
   {
    "number": 17,
@@ -301,7 +1335,68 @@
     "text": "Unremarkable cheese matures, drunk with port when half-cut",
     "enumeration": "9"
    },
-   "solution": "MOUSETRAP"
+   "solution": "MOUSETRAP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "MOUSETRAP",
+    "definitions": [
+     {
+      "text": "Unremarkable cheese",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drunk",
+      "for": "anagram",
+      "note": "someone drunk staggers all over the place, so these letters lurch into a new order"
+     },
+     {
+      "text": "half-cut",
+      "for": "letter_selection",
+      "note": "cut in half leaves only one half, here the front part of the word"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "matures",
+      "gives": "MATURES",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "port",
+      "gives": "PO",
+      "select": "first",
+      "note": "the first half of the word"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MATURESPO",
+       "gives": "MOUSETRAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dull cheese ripens and is eaten with port by someone already tipsy.",
+     "walkthrough": "Half-cut is British slang for drunk, a second anagram-sounding word, but here it literally halves port.",
+     "definitionFit": "Mousetrap is British slang for cheap, bland cheddar, the sort fit only for baiting a trap."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "half-cut"
+    }
+   }
   },
   {
    "number": 18,
@@ -315,7 +1410,76 @@
     "text": "American recalled a woman's love for comic character",
     "enumeration": "9"
    },
-   "solution": "SUPERHERO"
+   "solution": "SUPERHERO",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "SUPERHERO",
+    "definitions": [
+     {
+      "text": "comic character",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "recalled",
+      "for": "reversal",
+      "note": "to recall is to call back, so these letters go backwards"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US for American"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "PER",
+      "note": "a, as in twice a day, means per"
+     },
+     {
+      "clueFragment": "woman's",
+      "gives": "HER",
+      "note": "the possessive pronoun for a woman"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, which looks like O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SU",
+      "PER",
+      "HER",
+      "O"
+     ],
+     "reversals": [
+      {
+       "from": "US",
+       "to": "SU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An American remembers a woman's fondness for a cartoon figure.",
+     "walkthrough": "The little word a is easy to pass over, but it stands for PER, as in miles per hour.",
+     "definitionFit": "A superhero such as Superman is a costumed figure with special powers from comic books."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "a"
+    }
+   }
   },
   {
    "number": 18,
@@ -335,7 +1499,72 @@
      }
     ]
    },
-   "solution": "STLUCIA"
+   "solution": "STLUCIA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ST LUCIA",
+    "definitions": [
+     {
+      "text": "country",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "obsessed with",
+      "for": "charade",
+      "note": "a crowd fixated on something takes its name from it, so that object is placed in front as a label"
+     },
+     {
+      "text": "set up",
+      "for": "reversal",
+      "note": "in a down entry something set up is raised, so the letters read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ChatGPT perhaps",
+      "gives": "AI",
+      "note": "ChatGPT is an example of artificial intelligence"
+     },
+     {
+      "clueFragment": "Groups",
+      "gives": "CULTS",
+      "note": "cults are devoted groups"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "LUC",
+      "IA"
+     ],
+     "reversals": [
+      {
+       "from": "CULTS",
+       "to": "STLUC"
+      },
+      {
+       "from": "AI",
+       "to": "IA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fanatical groups devoted to chatbots have founded their own state.",
+     "walkthrough": "The whole phrase gives AI CULTS, cults fixated on AI, which then read upwards.",
+     "definitionFit": "St Lucia is an independent island nation in the eastern Caribbean."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "set"
+    }
+   }
   },
   {
    "number": 19,
@@ -349,7 +1578,47 @@
     "text": "Slightly damage second part of shirt",
     "enumeration": "5"
    },
-   "solution": "SCUFF"
+   "solution": "SCUFF",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SCUFF",
+    "definitions": [
+     {
+      "text": "Slightly damage",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     },
+     {
+      "clueFragment": "part of shirt",
+      "gives": "CUFF",
+      "note": "the band at the end of a sleeve"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CUFF"
+     ]
+    },
+    "explanation": {
+     "surface": "A small tear in the second piece of a shirt.",
+     "walkthrough": "'Second part' looks like a phrase about order, but second is simply S.",
+     "definitionFit": "To scuff is to mark or scrape a surface lightly, leaving minor wear."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "second"
+    }
+   }
   },
   {
    "number": 20,
@@ -363,7 +1632,73 @@
     "text": "Rugby union team provided support after France beaten at last",
     "enumeration": "7"
    },
-   "solution": "FIFTEEN"
+   "solution": "FIFTEEN",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "FIFTEEN",
+    "definitions": [
+     {
+      "text": "Rugby union team",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "coming after means placed later, so these pieces follow the first"
+     },
+     {
+      "text": "at last",
+      "for": "letter_selection",
+      "note": "last means the final position, so only the closing letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "France",
+      "gives": "F",
+      "note": "F is the international vehicle code for France"
+     },
+     {
+      "clueFragment": "provided",
+      "gives": "IF",
+      "note": "provided, as in provided that, means if"
+     },
+     {
+      "clueFragment": "support",
+      "gives": "TEE",
+      "note": "a tee supports the ball in golf or a rugby kick"
+     },
+     {
+      "clueFragment": "beaten",
+      "gives": "N",
+      "select": "last",
+      "note": "last letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "IF",
+      "TEE",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A rugby side gave backing once France were finally defeated.",
+     "walkthrough": "'Provided support' reads as giving help, but the phrase splits in two; F for France is the international vehicle code.",
+     "definitionFit": "A rugby union side fields that many players, so the number itself names the team."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "provided"
+    }
+   }
   },
   {
    "number": 21,
@@ -377,7 +1712,50 @@
     "text": "Left with novel proposition",
     "enumeration": "5"
    },
-   "solution": "LEMMA"
+   "solution": "LEMMA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LEMMA",
+    "definitions": [
+     {
+      "text": "proposition",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "novel",
+      "gives": "EMMA",
+      "note": "Emma is a novel by Jane Austen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "EMMA"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone was left holding a fresh suggestion.",
+     "walkthrough": "Novel looks like an adjective meaning new; it is a noun, one particular book.",
+     "definitionFit": "In mathematics a lemma is a subsidiary theorem proved on the way to a larger result."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "novel"
+    }
+   }
   },
   {
    "number": 22,
@@ -391,7 +1769,74 @@
     "text": "Group of intelligence analysts discontented about being subordinate to soldiers",
     "enumeration": "5"
    },
-   "solution": "MENSA"
+   "solution": "MENSA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "charade"
+    ],
+    "answer": "MENSA",
+    "definitions": [
+     {
+      "text": "Group of intelligence",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "discontented",
+      "for": "letter_selection",
+      "note": "with its contents gone a word keeps only its shell, the first and last letters"
+     },
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "turning about faces the other way, so the letters are flipped"
+     },
+     {
+      "text": "being subordinate to",
+      "for": "charade",
+      "note": "in a down entry what is subordinate sits below, so this piece comes second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soldiers",
+      "gives": "MEN",
+      "note": "soldiers are men in the ranks"
+     },
+     {
+      "clueFragment": "analysts",
+      "gives": "AS",
+      "select": "outer",
+      "note": "first and last letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MEN",
+      "SA"
+     ],
+     "reversals": [
+      {
+       "from": "AS",
+       "to": "SA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Unhappy intelligence analysts resent being placed under army command.",
+     "walkthrough": "'Group of intelligence analysts' reads as a spy unit, but the definition stops at intelligence.",
+     "definitionFit": "Mensa is the society for people who score very highly on IQ tests."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "intelligence"
+    }
+   }
   },
   {
    "number": 23,
@@ -415,7 +1860,55 @@
      }
     ]
    },
-   "solution": "INSPITEOF"
+   "solution": "INSPITEOF",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IN SPITE OF",
+    "definitions": [
+     {
+      "text": "Notwithstanding",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrecked",
+      "for": "anagram",
+      "note": "a wreck is something smashed apart, so these letters are broken up and rebuilt"
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fines, I opt",
+      "gives": "FINESIOPT",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FINESIOPT",
+       "gives": "INSPITEOF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Despite the penalties, someone chooses to get very drunk.",
+     "walkthrough": "Wrecked is also British slang for very drunk, which the surface uses.",
+     "definitionFit": "Both are prepositions meaning despite, regardless of something that might prevent it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "wrecked"
+    }
+   }
   },
   {
    "number": 23,
@@ -429,7 +1922,56 @@
     "text": "Left captivated by my part of Scotland",
     "enumeration": "5"
    },
-   "solution": "ISLAY"
+   "solution": "ISLAY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ISLAY",
+    "definitions": [
+     {
+      "text": "part of Scotland",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "captivated by",
+      "for": "container",
+      "note": "someone captivated is held captive, so this letter is held inside the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "my",
+      "gives": "ISAY",
+      "note": "my! and I say! are both exclamations of surprise"
+     },
+     {
+      "clueFragment": "Left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "S",
+      "L",
+      "AY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who stayed behind was charmed by their corner of Scotland.",
+     "walkthrough": "My looks like a possessive; it is the exclamation, as in 'My, how you've grown!'",
+     "definitionFit": "Islay is an island of the Inner Hebrides off western Scotland, known for whisky."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "my"
+    }
+   }
   },
   {
    "number": 24,
@@ -443,7 +1985,66 @@
     "text": "In the military, I help part of this country after revolution",
     "enumeration": "5"
    },
-   "solution": "INDIA"
+   "solution": "INDIA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "INDIA",
+    "definitions": [
+     {
+      "text": "In the military, I",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after revolution",
+      "for": "reversal",
+      "note": "a revolution turns something round, so the letters come out backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "help",
+      "gives": "AID",
+      "note": "aid means help"
+     },
+     {
+      "clueFragment": "part of this country",
+      "gives": "NI",
+      "note": "Northern Ireland, part of the UK where the paper is published"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "DIA"
+     ],
+     "reversals": [
+      {
+       "from": "NI",
+       "to": "IN"
+      },
+      {
+       "from": "AID",
+       "to": "DIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier says they help one region of the country after an uprising.",
+     "walkthrough": "The answer looks as if it should be a country, but the definition is the military spelling alphabet, where the letter I is said as a word.",
+     "definitionFit": "In the NATO phonetic alphabet used by armed forces, each letter has a code word, and that is the one for I."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "country"
+    }
+   }
   },
   {
    "number": 25,
@@ -457,7 +2058,67 @@
     "text": "One's scored highly against test upon leaving institute",
     "enumeration": "9"
    },
-   "solution": "CONTRALTO"
+   "solution": "CONTRALTO",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "CONTRALTO",
+    "definitions": [
+     {
+      "text": "One's scored highly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "when something leaves it is no longer there, so this letter is taken out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "against",
+      "gives": "CON",
+      "note": "pros and cons are arguments for and against"
+     },
+     {
+      "clueFragment": "test",
+      "gives": "TRIAL",
+      "note": "a trial is a test"
+     },
+     {
+      "clueFragment": "upon",
+      "gives": "TO",
+      "note": "to can mean on or against, as in setting shoulder to the wheel"
+     },
+     {
+      "clueFragment": "institute",
+      "gives": "I",
+      "note": "I is the abbreviation for institute"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "TRAL",
+      "TO"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone scored well against a test after dropping out of college.",
+     "walkthrough": "'Scored highly' reads as exam marks; it means written in a high register of music, since a woman's lowest voice still sits above most men's.",
+     "definitionFit": "A contralto is a female singer with the lowest range, whose part is written on the treble side of the score."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "scored"
+    }
+   }
   },
   {
    "number": 26,
@@ -471,7 +2132,65 @@
     "text": "Gloomy song for one free to return",
     "enumeration": "5"
    },
-   "solution": "DIRGE"
+   "solution": "DIRGE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "DIRGE",
+    "definitions": [
+     {
+      "text": "Gloomy song",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to return",
+      "for": "reversal",
+      "note": "returning means going back the way you came, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for one",
+      "gives": "EG",
+      "note": "e.g., for example, as in for one"
+     },
+     {
+      "clueFragment": "free",
+      "gives": "RID",
+      "note": "to rid is to free of something"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIR",
+      "GE"
+     ],
+     "reversals": [
+      {
+       "from": "RID",
+       "to": "DIR"
+      },
+      {
+       "from": "EG",
+       "to": "GE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mournful tune about a man set free to come home.",
+     "walkthrough": "'For one free' sounds like a prisoner's release; 'for one' is the standard crossword signal for an example, e.g.",
+     "definitionFit": "A dirge is a lament sung at a funeral, a slow mournful piece of music."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "free"
+    }
+   }
   },
   {
    "number": 27,
@@ -485,7 +2204,62 @@
     "text": "Area chief stopping New York's state of lawlessness",
     "enumeration": "7"
    },
-   "solution": "ANARCHY"
+   "solution": "ANARCHY",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ANARCHY",
+    "definitions": [
+     {
+      "text": "state of lawlessness",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stopping",
+      "for": "container",
+      "note": "a stopper plugs a gap, so this piece is inserted into the middle of the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Area",
+      "gives": "A",
+      "note": "A is the abbreviation for area"
+     },
+     {
+      "clueFragment": "chief",
+      "gives": "ARCH",
+      "note": "arch means chief, as in archenemy"
+     },
+     {
+      "clueFragment": "New York",
+      "gives": "NY",
+      "note": "NY is the abbreviation for New York"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "N",
+      "ARCH",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A regional police boss halting New York's slide into chaos.",
+     "walkthrough": "Chief looks like a noun for a police boss, but ARCH is the adjective, as in archbishop.",
+     "definitionFit": "Anarchy is disorder arising from the absence of government or law."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "chief"
+    }
+   }
   },
   {
    "number": 28,
@@ -499,7 +2273,59 @@
     "text": "Expressionless and very plain, oddly",
     "enumeration": "7"
    },
-   "solution": "DEADPAN"
+   "solution": "DEADPAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "DEADPAN",
+    "definitions": [
+     {
+      "text": "Expressionless",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly",
+      "for": "letter_selection",
+      "note": "oddly points to the odd positions, first, third and fifth, as the ones kept"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "very",
+      "gives": "DEAD",
+      "note": "dead can mean very, as in dead easy"
+     },
+     {
+      "clueFragment": "plain",
+      "gives": "PAN",
+      "select": "alternate",
+      "note": "first, third and fifth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEAD",
+      "PAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A description of a face that is blank and very plain, in a strange way.",
+     "walkthrough": "Very looks like an intensifier for plain; it is DEAD, as in dead right.",
+     "definitionFit": "A deadpan face shows no emotion, especially while delivering a joke."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "very"
+    }
+   }
   }
  ]
 }
