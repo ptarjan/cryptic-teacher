@@ -23,6 +23,9 @@
   "date": "2019-01-22",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,54 @@
     "text": "Law enforcer repeated phrase on book",
     "enumeration": "7"
    },
-   "solution": "SHERIFF"
+   "solution": "SHERIFF",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SHERIFF",
+    "definitions": [
+     {
+      "text": "Law enforcer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across clue one thing on another is written after it, so this word fixes the order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "book",
+      "gives": "SHE",
+      "note": "She is the famous adventure novel by H. Rider Haggard"
+     },
+     {
+      "clueFragment": "repeated phrase",
+      "gives": "RIFF",
+      "note": "a riff is a short musical phrase played over and over"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHE",
+      "RIFF"
+     ]
+    },
+    "explanation": {
+     "surface": "A police officer keeps reciting the same line about a book.",
+     "walkthrough": "In an across clue 'on' means placed after, so the phrase follows the book. SHE is a classic crossword book, Haggard's novel.",
+     "definitionFit": "A sheriff is a county officer responsible for keeping the peace, especially in American counties."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "book"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +100,65 @@
     "text": "Old poet taking sherry regularly, dipping quills?",
     "enumeration": "7"
    },
-   "solution": "SPENSER"
+   "solution": "SPENSER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SPENSER",
+    "definitions": [
+     {
+      "text": "Old poet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "doing something regularly means at even intervals, so only every other letter is kept"
+     },
+     {
+      "text": "dipping",
+      "for": "container",
+      "note": "to dip into something is to go inside it, so one piece sinks into the other"
+     }
+    ],
+    "linkWords": [
+     "taking"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sherry",
+      "gives": "SER",
+      "select": "alternate",
+      "note": "the first, third and fifth letters of sherry"
+     },
+     {
+      "clueFragment": "quills",
+      "gives": "PENS",
+      "note": "quills were once the standard writing pens"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PENS",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "An old poet sipping sherry while dipping his quill pens in the ink.",
+     "walkthrough": "The pens go inside the kept letters of sherry, between S and ER. The question mark admits that quills here are pens, not feathers.",
+     "definitionFit": "Edmund Spenser was the Elizabethan poet who wrote The Faerie Queene, so he fits an old poet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dipping"
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +172,91 @@
     "text": "Queen after tipsy fellow drinking wine up — this flavour?",
     "enumeration": "11"
    },
-   "solution": "ELDERFLOWER"
+   "solution": "ELDERFLOWER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "ELDERFLOWER",
+    "definitions": [
+     {
+      "text": "this flavour?",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tipsy",
+      "for": "anagram",
+      "note": "a tipsy person staggers about, so the letters lurch into a new order"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue going up means reading from the bottom, so the letters run backwards"
+     },
+     {
+      "text": "drinking",
+      "for": "container",
+      "note": "whatever is drinking takes something inside itself"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "placed after means this piece comes later in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fellow",
+      "gives": "FELLOW",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "wine",
+      "gives": "RED",
+      "note": "red is a kind of wine"
+     },
+     {
+      "clueFragment": "Queen",
+      "gives": "ER",
+      "note": "ER, Elizabeth Regina, is the usual crossword queen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EL",
+      "DER",
+      "FLOW",
+      "ER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FELLOW",
+       "gives": "ELFLOW"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "RED",
+       "to": "DER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drunk man knocks back wine and the queen follows; what flavour is it?",
+     "walkthrough": "'Tipsy' and 'drinking' fit the pub picture, so they read as story rather than signals. The question mark marks a definition by example.",
+     "definitionFit": "Elderflower is a popular flavouring for cordials and drinks, so it is one example of a flavour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tipsy"
+    }
+   }
   },
   {
    "number": 3,
@@ -78,7 +270,71 @@
     "text": "Peninsula where river boat is, starts to the north",
     "enumeration": "6"
    },
-   "solution": "IBERIA"
+   "solution": "IBERIA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "reversal"
+    ],
+    "answer": "IBERIA",
+    "definitions": [
+     {
+      "text": "Peninsula",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts",
+      "for": "letter_selection",
+      "note": "the starts of words are their opening letters"
+     },
+     {
+      "text": "to the north",
+      "for": "reversal",
+      "note": "in a down entry heading north means reading upwards, so everything runs backwards"
+     }
+    ],
+    "linkWords": [
+     "where"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "river",
+      "gives": "AIRE",
+      "note": "the Aire is a river in Yorkshire, England"
+     },
+     {
+      "clueFragment": "boat is",
+      "gives": "BI",
+      "select": "first",
+      "note": "the first letters of these two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IB",
+      "ERIA"
+     ],
+     "reversals": [
+      {
+       "from": "AIREBI",
+       "to": "IBERIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Directions to a peninsula: the river where the boat is moored lies to the north.",
+     "walkthrough": "The Aire flows through Leeds in northern England. River plus the two initials are written upwards in the grid.",
+     "definitionFit": "The Iberian Peninsula, holding Spain and Portugal, is the landmass the answer names in Europe's south-west."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "starts"
+    }
+   }
   },
   {
    "number": 4,
@@ -98,7 +354,47 @@
      }
     ]
    },
-   "solution": "FLASHHARRY"
+   "solution": "FLASHHARRY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FLASH HARRY",
+    "definitions": [
+     {
+      "text": "Vulgar type",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "instant",
+      "gives": "FLASH",
+      "note": "in a flash means in an instant"
+     },
+     {
+      "clueFragment": "trouble",
+      "gives": "HARRY",
+      "note": "to harry is to harass or trouble"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FLASH",
+      "HARRY"
+     ]
+    },
+    "explanation": {
+     "surface": "A crude person spells immediate bother.",
+     "walkthrough": "Flash Harry is British slang for a showy, loud man who flaunts his money or clothes.",
+     "definitionFit": "The slang name describes an ostentatious, flashily dressed man, so vulgar in the sense of tasteless showiness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "instant"
+    }
+   }
   },
   {
    "number": 5,
@@ -112,7 +408,56 @@
     "text": "Cake special, French produce outstanding",
     "enumeration": "7"
    },
-   "solution": "BROWNIE"
+   "solution": "BROWNIE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BROWNIE",
+    "definitions": [
+     {
+      "text": "Cake",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outstanding",
+      "for": "container",
+      "note": "read as out-standing: standing outside something, so one piece wraps round the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "special",
+      "gives": "OWN",
+      "note": "your own is something special or particular to you"
+     },
+     {
+      "clueFragment": "French produce",
+      "gives": "BRIE",
+      "note": "Brie is a French cheese"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BR",
+      "OWN",
+      "IE"
+     ]
+    },
+    "explanation": {
+     "surface": "A bakery boast: this special cake is as outstanding as the finest French produce.",
+     "walkthrough": "'Outstanding' looks like praise but splits as out-standing, so the cheese stands outside the other piece.",
+     "definitionFit": "A brownie is a small square of dense chocolate cake, usually with nuts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "outstanding"
+    }
+   }
   },
   {
    "number": 5,
@@ -126,7 +471,42 @@
     "text": "Resist US cash",
     "enumeration": "4"
    },
-   "solution": "BUCK"
+   "solution": "BUCK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BUCK",
+    "definitions": [
+     {
+      "text": "Resist",
+      "at": 0
+     },
+     {
+      "text": "US cash",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Resist",
+      "note": "first meaning: to oppose, as in going against a trend"
+     },
+     {
+      "clueFragment": "US cash",
+      "note": "second meaning: American slang for a dollar"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface reads like refusing American money, but the two parts are separate meanings.",
+     "definitionFit": "The verb means to oppose or go against, and the noun is informal American slang for a dollar."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Resist"
+    }
+   }
   },
   {
    "number": 6,
@@ -146,7 +526,62 @@
      }
     ]
    },
-   "solution": "ONPARADE"
+   "solution": "ONPARADE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ON PARADE",
+    "definitions": [
+     {
+      "text": "Showing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "passed round",
+      "for": "container",
+      "note": "something passed round goes all the way about, enclosing what is in the middle"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a number",
+      "gives": "ONE",
+      "note": "one is a number"
+     },
+     {
+      "clueFragment": "standard",
+      "gives": "PAR",
+      "note": "par is the standard or normal level"
+     },
+     {
+      "clueFragment": "plug",
+      "gives": "AD",
+      "note": "a plug is a piece of advertising, an ad"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ON",
+      "PAR",
+      "AD",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "An advertising plug for a standard product, passed round to viewers.",
+     "walkthrough": "A plug is informal for a piece of promotion. The number splits so its last letter lands at the very end of the answer.",
+     "definitionFit": "Things on parade are on display for all to see, so the phrase means being shown."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "plug"
+    }
+   }
   },
   {
    "number": 7,
@@ -160,7 +595,54 @@
     "text": "Egg container overturned",
     "enumeration": "3"
    },
-   "solution": "NIT"
+   "solution": "NIT",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "NIT",
+    "definitions": [
+     {
+      "text": "Egg",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overturned",
+      "for": "reversal",
+      "note": "turning something over flips it end to end, so the letters read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "container",
+      "gives": "TIN",
+      "note": "a tin is a metal container"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NIT"
+     ],
+     "reversals": [
+      {
+       "from": "TIN",
+       "to": "NIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An egg box has been knocked over.",
+     "walkthrough": "'Egg container' suggests an egg box, but the two words split: one is the definition, the other the wordplay.",
+     "definitionFit": "A nit is the egg of a louse, often found in children's hair."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Egg"
+    }
+   }
   },
   {
    "number": 8,
@@ -174,7 +656,56 @@
     "text": "Point or points to support",
     "enumeration": "7"
    },
-   "solution": "ENDORSE"
+   "solution": "ENDORSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ENDORSE",
+    "definitions": [
+     {
+      "text": "support",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Point",
+      "gives": "END",
+      "note": "the point of something can be its end or tip"
+     },
+     {
+      "clueFragment": "or",
+      "gives": "OR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "points",
+      "gives": "SE",
+      "note": "S and E are compass points, south and east"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "END",
+      "OR",
+      "SE"
+     ]
+    },
+    "explanation": {
+     "surface": "A debater uses one point, or several points, to support an argument.",
+     "walkthrough": "The plural 'points' gives two compass letters, a very common crossword device.",
+     "definitionFit": "To endorse a plan or candidate is to back it publicly, giving approval and backing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "points"
+    }
+   }
   },
   {
    "number": 9,
@@ -188,7 +719,49 @@
     "text": "Festival — Easter is different, primarily",
     "enumeration": "3"
    },
-   "solution": "EID"
+   "solution": "EID",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "EID",
+    "definitions": [
+     {
+      "text": "Festival",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so only the opening letters are used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Easter is different",
+      "gives": "EID",
+      "select": "first",
+      "note": "the first letters of these three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EID"
+     ]
+    },
+    "explanation": {
+     "surface": "A remark comparing festivals: Easter stands apart from the others.",
+     "walkthrough": "Easter pulls toward Christian feasts, but it only lends its initial to a Muslim one.",
+     "definitionFit": "Eid is a Muslim religious celebration, marking the end of Ramadan or the pilgrimage season."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Easter"
+    }
+   }
   },
   {
    "number": 10,
@@ -202,7 +775,51 @@
     "text": "Troubled mind at peace, set free",
     "enumeration": "11"
    },
-   "solution": "EMANCIPATED"
+   "solution": "EMANCIPATED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EMANCIPATED",
+    "definitions": [
+     {
+      "text": "set free",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Troubled",
+      "for": "anagram",
+      "note": "something troubled is disturbed and agitated, so the letters are stirred up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mind at peace",
+      "gives": "MINDATPEACE",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MINDATPEACE",
+       "gives": "EMANCIPATED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A troubled mind finds peace at last and feels liberated.",
+     "walkthrough": "The irony is that a mind at peace should not be troubled; 'Troubled' is the signal, not a description.",
+     "definitionFit": "To emancipate is to release from bondage or restriction, as with slaves given liberty."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Troubled"
+    }
+   }
   },
   {
    "number": 11,
@@ -216,7 +833,65 @@
     "text": "Way correct for grasping a hand",
     "enumeration": "8"
    },
-   "solution": "STRAIGHT"
+   "solution": "STRAIGHT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STRAIGHT",
+    "definitions": [
+     {
+      "text": "hand",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "grasping",
+      "for": "container",
+      "note": "to grasp is to hold tightly, so one piece is held within another"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Way",
+      "gives": "ST",
+      "note": "ST is the abbreviation for street, a way"
+     },
+     {
+      "clueFragment": "correct",
+      "gives": "RIGHT",
+      "note": "right means correct"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "R",
+      "A",
+      "IGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions on the proper way to shake someone's hand.",
+     "walkthrough": "'Hand' suggests a body part but it is a poker hand. RIGHT holds the A after its first letter.",
+     "definitionFit": "In poker a straight is a set of five cards in sequence, one of the ranked card combinations."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hand"
+    }
+   }
   },
   {
    "number": 12,
@@ -230,7 +905,60 @@
     "text": "Couple ending on floor — that drink’s stimulating!",
     "enumeration": "6"
    },
-   "solution": "BRACER"
+   "solution": "BRACER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BRACER",
+    "definitions": [
+     {
+      "text": "that drink’s stimulating",
+      "at": 25,
+      "note": "the definition is a descriptive phrase: a drink that stimulates"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ending",
+      "for": "letter_selection",
+      "note": "an ending is the last part, so only the final letter is kept"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Couple",
+      "gives": "BRACE",
+      "note": "a brace is a pair, as of game birds"
+     },
+     {
+      "clueFragment": "floor",
+      "gives": "R",
+      "select": "last",
+      "note": "the final letter of floor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRACE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A pair end up on the floor after a strong drink.",
+     "walkthrough": "The couple collapsing on the floor is a drunken image, but a brace is simply two of something.",
+     "definitionFit": "A bracer is a strong drink taken to fortify or refresh someone, often alcoholic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Couple"
+    }
+   }
   },
   {
    "number": 13,
@@ -250,7 +978,52 @@
      }
     ]
    },
-   "solution": "CHINESEBURN"
+   "solution": "CHINESEBURN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CHINESE BURN",
+    "definitions": [
+     {
+      "text": "Evidence of torture",
+      "at": 0,
+      "note": "the burn names the red mark left on the skin"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "using",
+      "for": "anagram",
+      "note": "using can mean ill-treating, and letters roughly used are knocked into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "birch, unseen",
+      "gives": "BIRCHUNSEEN",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BIRCHUNSEEN",
+       "gives": "CHINESEBURN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Proof that someone was flogged with a birch rod out of sight.",
+     "walkthrough": "A birch is a bundle of twigs once used for flogging, which makes the torture picture convincing.",
+     "definitionFit": "A Chinese burn is a playground torment of twisting the skin of someone's forearm, leaving a red stinging mark."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "birch"
+    }
+   }
   },
   {
    "number": 14,
@@ -264,7 +1037,51 @@
     "text": "I agree to use all, by recycling",
     "enumeration": "10"
    },
-   "solution": "ABSOLUTELY"
+   "solution": "ABSOLUTELY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ABSOLUTELY",
+    "definitions": [
+     {
+      "text": "I agree",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "recycling",
+      "for": "anagram",
+      "note": "recycled material is broken down and remade into something new"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to use all, by",
+      "gives": "TOUSEALLBY",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TOUSEALLBY",
+       "gives": "ABSOLUTELY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone agrees to use up everything by recycling it.",
+     "walkthrough": "The green surface makes 'recycling' look like part of the story, but it is the signal to rework the letters.",
+     "definitionFit": "Said as a reply, the word is an emphatic way of expressing full assent to someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "recycling"
+    }
+   }
   },
   {
    "number": 15,
@@ -278,7 +1095,46 @@
     "text": "Stream runs poorly",
     "enumeration": "4"
    },
-   "solution": "RILL"
+   "solution": "RILL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RILL",
+    "definitions": [
+     {
+      "text": "Stream",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "runs",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for runs"
+     },
+     {
+      "clueFragment": "poorly",
+      "gives": "ILL",
+      "note": "feeling poorly means unwell"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ILL"
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'Runs' goes naturally with a stream, but here it is the scorecard abbreviation.",
+     "definitionFit": "A rill is a small brook or rivulet of running water."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "runs"
+    }
+   }
   },
   {
    "number": 16,
@@ -298,7 +1154,43 @@
      }
     ]
    },
-   "solution": "BARBEDWIRE"
+   "solution": "BARBEDWIRE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BARBED WIRE",
+    "definitions": [
+     {
+      "text": "Message that’s wounding?",
+      "at": 0
+     },
+     {
+      "text": "This sitting on the fence?",
+      "at": 25
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Message that’s wounding?",
+      "note": "first meaning, playful: a wire is a telegram, and a barbed one is cutting"
+     },
+     {
+      "clueFragment": "This sitting on the fence?",
+      "note": "second meaning: the spiky strands stretched along the top of a fence"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Sitting on the fence' suggests indecision, but it is taken literally. A wire is an old word for a telegram, and barbed remarks hurt.",
+     "definitionFit": "Barbed describes hurtful words, a wire is a telegram, and the phrase is also the literal spiky fencing strand."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sitting"
+    }
+   }
   },
   {
    "number": 17,
@@ -312,7 +1204,62 @@
     "text": "Live current in force, one supposes",
     "enumeration": "8"
    },
-   "solution": "BELIEVER"
+   "solution": "BELIEVER",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "BELIEVER",
+    "definitions": [
+     {
+      "text": "one supposes",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "being in something means sitting inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Live",
+      "gives": "BE",
+      "note": "to be is to exist or live"
+     },
+     {
+      "clueFragment": "force",
+      "gives": "LEVER",
+      "note": "to lever is to force, as in levering a lid open"
+     },
+     {
+      "clueFragment": "current",
+      "gives": "I",
+      "note": "I is the symbol for electric current"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "L",
+      "I",
+      "EVER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone presumes a live current is flowing at full force.",
+     "walkthrough": "'Live current' reads as an electrical phrase, but the two words give separate pieces. The definition means 'one who supposes'.",
+     "definitionFit": "A believer is a person who holds something to be true, someone who supposes or trusts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Live"
+    }
+   }
   },
   {
    "number": 18,
@@ -332,7 +1279,63 @@
      }
     ]
    },
-   "solution": "POWDERROOM"
+   "solution": "POWDERROOM",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "POWDER ROOM",
+    "definitions": [
+     {
+      "text": "Can",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "going into something puts it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prisoner",
+      "gives": "POW",
+      "note": "POW stands for prisoner of war"
+     },
+     {
+      "clueFragment": "ruin",
+      "gives": "DOOM",
+      "note": "doom is ruin or destruction"
+     },
+     {
+      "clueFragment": "wander",
+      "gives": "ERR",
+      "note": "to err originally meant to stray or wander"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POW",
+      "D",
+      "ERR",
+      "OOM"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about whether a prisoner might stray into disaster.",
+     "walkthrough": "'Can' looks like a helping verb opening the question, but it is the noun: American slang for a toilet.",
+     "definitionFit": "A powder room is a polite name for a women's lavatory, and can is slang for a toilet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Can"
+    }
+   }
   },
   {
    "number": 18,
@@ -346,7 +1349,67 @@
     "text": "Animal caught in field, hiding in grass",
     "enumeration": "7"
    },
-   "solution": "POLECAT"
+   "solution": "POLECAT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "POLECAT",
+    "definitions": [
+     {
+      "text": "Animal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "caught in",
+      "for": "container",
+      "note": "something caught in a place is trapped inside it"
+     },
+     {
+      "text": "hiding in",
+      "for": "container",
+      "note": "whatever hides in something is concealed within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "grass",
+      "gives": "POT",
+      "note": "grass and pot are both slang for cannabis"
+     },
+     {
+      "clueFragment": "field",
+      "gives": "LEA",
+      "note": "a lea is a meadow or field"
+     },
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "C is the cricket abbreviation for caught"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PO",
+      "LE",
+      "C",
+      "A",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A creature caught in a field, lying low in the long grass.",
+     "walkthrough": "Grass means meadow plants in the surface, but it is drug slang. Two containers nest: the smallest piece sits in the field, and both sit in the grass.",
+     "definitionFit": "The polecat is a dark-furred European mammal of the weasel family, so it is an animal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "grass"
+    }
+   }
   },
   {
    "number": 19,
@@ -360,7 +1423,57 @@
     "text": "Great being in Greece, where crisis was once reversible",
     "enumeration": "4"
    },
-   "solution": "ZEUS"
+   "solution": "ZEUS",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "ZEUS",
+    "definitions": [
+     {
+      "text": "Great being in Greece",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reversible",
+      "for": "reversal",
+      "note": "reversible means able to be turned back to front"
+     }
+    ],
+    "linkWords": [
+     "was once"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "where crisis",
+      "gives": "SUEZ",
+      "note": "the Suez Crisis of 1956 took place over the canal in Egypt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ZEUS"
+     ],
+     "reversals": [
+      {
+       "from": "SUEZ",
+       "to": "ZEUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A reflection on Greece, a great nation whose financial crisis was once thought reversible.",
+     "walkthrough": "Greece's debt crisis is the obvious reading, but the crisis meant is the 1956 one over the Suez Canal.",
+     "definitionFit": "Zeus was king of the Olympian gods in Greek mythology, a supreme divine being."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "crisis"
+    }
+   }
   },
   {
    "number": 20,
@@ -374,7 +1487,52 @@
     "text": "Gannet possibly going to pot, braised",
     "enumeration": "7"
    },
-   "solution": "SEABIRD"
+   "solution": "SEABIRD",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SEABIRD",
+    "definitions": [
+     {
+      "text": "Gannet possibly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going to pot",
+      "for": "anagram",
+      "note": "going to pot means falling apart, so the letters break up and regroup"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "braised",
+      "gives": "BRAISED",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BRAISED",
+       "gives": "SEABIRD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gannet heading for the cooking pot to be braised.",
+     "walkthrough": "The cooking picture makes 'pot' literal, but 'going to pot' is the signal. 'Possibly' marks a definition by example.",
+     "definitionFit": "The gannet is a large diving bird of coastal waters, one example of the general category."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pot"
+    }
+   }
   },
   {
    "number": 21,
@@ -388,7 +1546,46 @@
     "text": "Country in the money?",
     "enumeration": "6"
    },
-   "solution": "GUINEA"
+   "solution": "GUINEA",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GUINEA",
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     },
+     {
+      "text": "the money",
+      "at": 11
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Country",
+      "note": "first meaning: a nation in West Africa"
+     },
+     {
+      "clueFragment": "the money",
+      "note": "second meaning: an old British gold coin worth twenty-one shillings"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'In the money' means rich, but the country's name is also that of an old British coin, still used in horse racing prices.",
+     "definitionFit": "Guinea is a West African republic, and the guinea was a British coin worth one pound one shilling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "money"
+    }
+   }
   },
   {
    "number": 22,
@@ -402,7 +1599,47 @@
     "text": "Bit of fun deputising for poet",
     "enumeration": "6"
    },
-   "solution": "LARKIN"
+   "solution": "LARKIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LARKIN",
+    "definitions": [
+     {
+      "text": "poet",
+      "at": 26
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bit of fun",
+      "gives": "LARK",
+      "note": "a lark is a bit of fun or mischief"
+     },
+     {
+      "clueFragment": "deputising for",
+      "gives": "IN",
+      "note": "someone standing in for another is deputising"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LARK",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "A bit of light entertainment standing in for a poet at a reading.",
+     "walkthrough": "'Deputising for' reads as the link to the definition, but it supplies the IN of 'in for'.",
+     "definitionFit": "Philip Larkin was an English twentieth-century poet, author of The Whitsun Weddings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "deputising"
+    }
+   }
   },
   {
    "number": 23,
@@ -416,7 +1653,78 @@
     "text": "Instrument, sort of light, twice recalled, with zeal played",
     "enumeration": "8"
    },
-   "solution": "VUVUZELA"
+   "solution": "VUVUZELA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "charade"
+    ],
+    "answer": "VUVUZELA",
+    "definitions": [
+     {
+      "text": "Instrument",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "recalled",
+      "for": "reversal",
+      "note": "to recall is to call back, so the letters come back the other way"
+     },
+     {
+      "text": "played",
+      "for": "anagram",
+      "note": "played with means toyed with, so the letters are moved about"
+     },
+     {
+      "text": "with",
+      "for": "charade",
+      "note": "with means alongside, so the pieces are joined"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sort of light, twice",
+      "gives": "UVUV",
+      "note": "UV is ultraviolet light, written twice"
+     },
+     {
+      "clueFragment": "zeal",
+      "gives": "ZEAL",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VUVU",
+      "ZELA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ZEAL",
+       "gives": "ZELA"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "UVUV",
+       "to": "VUVU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A musician recalls playing an instrument twice with great enthusiasm and light effects.",
+     "walkthrough": "UV is the usual abbreviation for ultraviolet. Doubled and turned round it makes the noisy opening of the word.",
+     "definitionFit": "A vuvuzela is a long plastic horn blown by football fans, famously at the 2010 World Cup."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "light"
+    }
+   }
   },
   {
    "number": 24,
@@ -430,7 +1738,54 @@
     "text": "Cart not far uphill?",
     "enumeration": "4"
    },
-   "solution": "DRAY"
+   "solution": "DRAY",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "DRAY",
+    "definitions": [
+     {
+      "text": "Cart",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "uphill",
+      "for": "reversal",
+      "note": "in a down entry going uphill means reading upwards, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not far",
+      "gives": "YARD",
+      "note": "something only a yard away is not far off"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DRAY"
+     ],
+     "reversals": [
+      {
+       "from": "YARD",
+       "to": "DRAY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cart hauled only a short way up a slope.",
+     "walkthrough": "A yard is about ninety centimetres, so 'not far' is a playful way to reach it; the question mark flags that looseness.",
+     "definitionFit": "A dray is a low, heavy cart without sides, traditionally used by brewers for barrels."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "uphill"
+    }
+   }
   },
   {
    "number": 25,
@@ -450,7 +1805,64 @@
      }
     ]
    },
-   "solution": "CAPEVERDEAN"
+   "solution": "CAPEVERDEAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CAPE VERDEAN",
+    "definitions": [
+     {
+      "text": "islander",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "impressed",
+      "for": "container",
+      "note": "something impressed is pressed into another thing, so it goes inside"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Top",
+      "gives": "CAP",
+      "note": "a cap is a top or lid"
+     },
+     {
+      "clueFragment": "college official",
+      "gives": "DEAN",
+      "note": "a dean is a senior university or college official"
+     },
+     {
+      "clueFragment": "always",
+      "gives": "EVER",
+      "note": "ever means always, as in for ever"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAP",
+      "EVER",
+      "DEAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A senior university official has always made a strong impression on a man from the islands.",
+     "walkthrough": "'Top college official' looks like one phrase for a head of college, but it splits into two pieces with a third pressed between them.",
+     "definitionFit": "Cape Verde is an Atlantic island nation off West Africa, so its native is an islander."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "impressed"
+    }
+   }
   },
   {
    "number": 26,
@@ -464,7 +1876,51 @@
     "text": "Seed in fruit not reaching the ground?",
     "enumeration": "3"
    },
-   "solution": "PEA"
+   "solution": "PEA",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "PEA",
+    "definitions": [
+     {
+      "text": "Seed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not reaching the ground",
+      "for": "deletion",
+      "note": "in a down entry the ground is the bottom, so falling short of it loses the last letter"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fruit",
+      "gives": "PEAR",
+      "note": "a fruit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PEA"
+     ]
+    },
+    "explanation": {
+     "surface": "A seed inside a fruit hanging high above the ground.",
+     "walkthrough": "The fruit stops one letter short of the bottom of the grid. The question mark admits the down-clue trick.",
+     "definitionFit": "A pea is the round edible seed that grows inside a pod of the pea plant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ground"
+    }
+   }
   },
   {
    "number": 27,
@@ -478,7 +1934,43 @@
     "text": "Division of junior educational establishment",
     "enumeration": "3"
    },
-   "solution": "UNI"
+   "solution": "UNI",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "UNI",
+    "definitions": [
+     {
+      "text": "educational establishment",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Division of",
+      "for": "hidden_word",
+      "note": "a division is a part split off, so the letters are a section of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "junior",
+      "gives": "UNI",
+      "note": "the middle three letters of this word"
+     }
+    ],
+    "explanation": {
+     "surface": "One department of a junior school.",
+     "walkthrough": "'Junior educational establishment' suggests a primary school, yet the answer is the most senior kind.",
+     "definitionFit": "Uni is the informal short form for university, a place of higher learning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "junior"
+    }
+   }
   },
   {
    "number": 28,
@@ -498,7 +1990,51 @@
      }
     ]
    },
-   "solution": "TEATRAY"
+   "solution": "TEATRAY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TEA TRAY",
+    "definitions": [
+     {
+      "text": "Carrier of crockery",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "needing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "milk container",
+      "gives": "TEAT",
+      "note": "a teat holds and delivers milk"
+     },
+     {
+      "clueFragment": "a little light",
+      "gives": "RAY",
+      "note": "a ray is a thin beam of light"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEAT",
+      "RAY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone carrying crockery needs the milk jug, and it is fairly light.",
+     "walkthrough": "'Milk container' points at a jug, but it is the anatomical kind; 'light' is a noun, not weight.",
+     "definitionFit": "A tea tray is a flat board with raised edges for bringing cups, saucers and pot to the table."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "light"
+    }
+   }
   },
   {
    "number": 29,
@@ -512,7 +2048,66 @@
     "text": "Did long study, returning after some time",
     "enumeration": "7"
    },
-   "solution": "YEARNED"
+   "solution": "YEARNED",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "YEARNED",
+    "definitions": [
+     {
+      "text": "Did long",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means going back, so the letters travel the opposite way"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "coming after means placed later in the sequence"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "some time",
+      "gives": "YEAR",
+      "note": "a year is a period of time"
+     },
+     {
+      "clueFragment": "study",
+      "gives": "DEN",
+      "note": "a den is a private study or workroom"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YEAR",
+      "NED"
+     ],
+     "reversals": [
+      {
+       "from": "DEN",
+       "to": "NED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A student studied for a long time and came back after a while.",
+     "walkthrough": "'Did long study' reads as studying at length; the split is after 'long', with 'study' as the room.",
+     "definitionFit": "To long for something is to crave or pine for it, so a past act of longing fits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "long"
+    }
+   }
   }
  ]
 }
