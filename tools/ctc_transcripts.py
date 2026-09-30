@@ -25,6 +25,7 @@ rate.
   python3 tools/ctc_transcripts.py report                        # counts, needs tools/data/ctc_reasons.json
   python3 tools/ctc_transcripts.py solves SUBS_DIR              # -> tools/data/ctc_solve_times.json
   python3 tools/ctc_transcripts.py solvecheck                    # our per-clue difficulty vs those solves
+  python3 tools/ctc_transcripts.py parsecheck SUBS_DIR          # our parses vs the solvers' explanations -> tools/data/ctc_parse_check.json
 
 Solve times. A clue is read when its number and direction ("ten across") or
 three consecutive words of its text are first said; it is solved at the first
@@ -35,6 +36,14 @@ are the gap since the previous solve, its wait the time from reading to
 solving; the last STUCK_TAIL of a video's solves, or a solve beside "last
 one" / "stuck" in its second half, is stuck. solvecheck ranks everything
 within each video, so a puzzle's pace cancels.
+
+Parse check. A clue's explanation is what is said from just before its solve
+to EXPLAIN_TAIL_S after, cut where the solver turns to another clue (says its
+number or reads three words of it). Each annotated clue gets agree, disagree
+or unknown per field: definition (clue words the solver calls the
+definition), type (a device named that we lack, or one of ours named),
+fodder (the clue words said after "anagram of") and pieces (a short block's
+letters heard beside its clue words). Silence is unknown, never agreement.
 
 TITLES.tsv is `id<TAB>title` per video, from `yt-dlp --flat-playlist`.
 The reasons file maps a moment id to {"reasons": [...], "quote": "..."}.
@@ -692,10 +701,246 @@ def solvecheck():
         print(f"  {k[0]:11s} vs {k[1]:4s} rho {r:+.3f} (n={n}, p={p:.2g})")
 
 
+PARSECHECK = ROOT / "tools" / "data" / "ctc_parse_check.json"
+#: A clue's explanation runs from EXPLAIN_LEAD_S before its solve to
+#: EXPLAIN_TAIL_S after, cut at the next clue read after the solve.
+EXPLAIN_LEAD_S, EXPLAIN_TAIL_S = 5, 30
+#: Words a solver names a device by, per clue type. A device named while
+#: explaining that our annotation lacks is a disagreement only for the types
+#: in NAMED_STRONG; the rest are said too loosely ("around", "without").
+TYPE_CUES = {
+    "anagram": r"ANAGRAM\w*|REARRANG\w*",
+    "hidden_word": r"HIDDEN|LURKING|SPELT OUT|SPELLED OUT",
+    "homophone": r"HOMOPHONE\w*|SOUNDS LIKE",
+    "double_definition": r"DOUBLE DEF\w*|TWO DEFINITIONS",
+    "cryptic_definition": r"CRYPTIC DEF\w*",
+    "spoonerism": r"SPOONER\w*",
+    "reversal": r"BACKWARDS|REVERS\w*",
+    "and_lit": r"AND ?LIT|ALL IN ONE",
+    "container": r"INSIDE|AROUND|CONTAIN\w*|SURROUND\w*|OUTSIDE|WITHIN",
+    "deletion": r"WITHOUT|LOS[EI]\w*|REMOV\w*|TAKE AWAY|DROP\w*|MINUS|DELET\w*",
+    "letter_selection": r"FIRST LETTERS?|LAST LETTERS?|INITIAL\w*|ALTERNATE|ODD LETTERS|EVEN LETTERS",
+}
+NAMED_STRONG = {"anagram": r"ANAGRAM\w*", "hidden_word": r"HIDDEN WORD|A HIDDEN|HIDDEN IN",
+                "homophone": r"HOMOPHONE\w*", "double_definition": r"DOUBLE DEF\w*",
+                "cryptic_definition": r"CRYPTIC DEF\w*", "spoonerism": r"SPOONER\w*",
+                "reversal": r"BACKWARDS|REVERS\w*"}
+HEDGES = {"IF", "MIGHT", "COULD", "MAYBE", "WONDERING", "THOUGHT", "PERHAPS", "SOMETIMES", "WHETHER"}
+NEGATORS = {"NOT", "ISNT", "DONT", "NO", "CANT", "WASNT", "DOESNT", "ARENT"}
+DEF_SAID = re.compile(
+    r"\bDEFINITION (?:HERE |THERE )?(?:IS|BEING|WOULD BE|MUST BE) (?P<after>(?:[A-Z]+ ?){1,4})|"
+    r"\bMY DEFINITION (?P<after2>(?:[A-Z]+ ?){1,3})|"
+    r"(?P<before>(?:[A-Z]+ ){1,4})(?:IS|BEING|WAS|WOULD BE|AS) (?:THE|MY|OUR) DEFINITION\b")
+SPELT = re.compile(r"\b(?:[A-Z] ){1,}[A-Z]\b")
+PIECE_SAYS = r"\b(?:IS|FOR|GIVES|GIVING|GIVE|AS|MEANS|BECOMES)\b"
+
+
+def _named(tokens_str, cue, clue_words):
+    """Cue matches in the string not negated and not merely the clue read aloud."""
+    hits = []
+    for m in re.finditer(r"\b(?:" + cue + r")\b", tokens_str):
+        if set(m.group(0).split()) & clue_words:
+            continue
+        before = tokens_str[:m.start()].split()[-4:]
+        if (NEGATORS | HEDGES) & set(before):
+            continue
+        hits.append(m)
+    return hits
+
+
+def _content(text):
+    return {w for w in norm(re.sub(r"<[^>]+>", " ", text)).split() if len(w) >= 3 and w not in STOP}
+
+
+def _letters(s):
+    return re.sub(r"[^A-Z]", "", s.upper())
+
+
+def check_clue(e, talk):
+    """{field: (verdict, evidence)} for one annotated clue against what the
+    solver said explaining it; a verdict is agree, disagree or unknown."""
+    a = e["annotation"]
+    clue = e["clue"].get("text", "")
+    cw = _content(clue)
+    ans = set(e["_phrase"].split())
+    out = {}
+    # definition: the clue words a solver names as the definition ("the
+    # definition is X", "X being the definition") fall in ours or elsewhere.
+    ours = set().union(*(_content(d["text"]) for d in a.get("definitions") or [])) - ans
+    rest = cw - ours - ans
+    toks = talk.split()
+    in_def = in_rest = 0
+    ev = []
+    for m in DEF_SAID.finditer(talk):
+        if NEGATORS & set(talk[:m.start()].split()[-2:]):
+            continue
+        near = set((m.group("after") or m.group("after2") or m.group("before") or "").split())
+        in_def += len(near & ours)
+        in_rest += len(near & rest)
+        if near & (ours | rest):
+            ev.append(m.group(0))
+    if not ours or in_def == in_rest:
+        out["definition"] = ("unknown", ev[:1])
+    else:
+        out["definition"] = ("agree" if in_def > in_rest else "disagree", ev[:2])
+    # type: each of our types the solver names agrees; a strong type named
+    # that we lack disagrees.
+    types = set(a.get("type") or [])
+    said = {t for t, c in TYPE_CUES.items() if _named(talk, c, cw | ans)}
+    strong = {t: h for t, c in NAMED_STRONG.items() if t not in types and (h := _named(talk, c, cw | ans))}
+    if strong:
+        ev = []
+        for t, h in strong.items():
+            i = len(talk[:h[0].start()].split())
+            ev.append(f"{t}: " + " ".join(toks[max(0, i - 6):i + 8]))
+        out["type"] = ("disagree", ev[:2])
+    elif types & said:
+        out["type"] = ("agree", sorted(types & said))
+    else:
+        out["type"] = ("unknown", [])
+    # fodder: the clue words the solver calls anagram fodder, against ours.
+    fod = set()
+    for b in a.get("blocks") or []:
+        f, g = b.get("clueFragment", ""), b.get("gives") or ""
+        if g and sorted(_letters(f)) == sorted(_letters(g)) and _letters(f) != _letters(g):
+            fod |= _content(f)
+    for an in (a.get("assembly") or {}).get("anagrams") or []:
+        fod |= _content(an.get("fodder", "")) & cw
+    said_fod = set()
+    fod_ev = []
+    for m in re.finditer(r"\bANAGRAM(?:MING)?(?: OF)(?: THE LETTERS OF| THE)?((?: [A-Z]+){1,4})", talk):
+        said_fod |= set(m.group(1).split()) & (cw - ans)
+        fod_ev.append(m.group(0))
+    if not said_fod:
+        out["fodder"] = ("unknown", [])
+    elif not fod:
+        out["fodder"] = ("disagree" if "anagram" not in types else "unknown", fod_ev[:2])
+    else:
+        out["fodder"] = ("agree" if said_fod & fod else "disagree", fod_ev[:2])
+    # pieces: each short block that turns clue words into other letters (an
+    # abbreviation or short synonym) is heard, or a fragment is said to give
+    # other spelt letters.
+    agree, dis = [], []
+    for b in a.get("blocks") or []:
+        f, g = b.get("clueFragment", ""), _letters(b.get("gives") or "")
+        fw = _content(f) - ans
+        if not g or not fw or len(g) > 4 or sorted(_letters(f)) == sorted(g) or g in _letters(f):
+            continue
+        heard = re.search(r"\b" + " ?".join(g) + r"\b", talk) or re.search(r"\b" + g + r"\b", talk)
+        if heard and any(w in toks for w in fw):
+            agree.append(f"{f}={g}")
+            continue
+        for w in fw:
+            for m in re.finditer(r"\b" + w + r" " + PIECE_SAYS + r" ((?:[A-Z] )*[A-Z])\b", talk):
+                got = m.group(1).replace(" ", "")
+                if set(got) - {"A", "I"} and got not in _letters(e["solution"]):
+                    dis.append(f"{f}={g}, said: {m.group(0)}")
+    out["pieces"] = (("disagree", dis[:2]) if dis else ("agree", agree) if agree else ("unknown", []))
+    return out
+
+
+_ENTRIES = {}
+
+
+def entries_of(pid):
+    """{entry id: entry} of a corpus puzzle, each with its spoken `_phrase`."""
+    if pid not in _ENTRIES:
+        sys.path.insert(0, str(ROOT / "tools"))
+        import puzzle_paths
+        p = json.loads(Path(puzzle_paths.find(pid)).read_text())
+        for e in p["entries"]:
+            e["_phrase"] = " ".join(words_of(e.get("solution", "").upper(), e["clue"].get("enumeration")))
+        _ENTRIES[pid] = {f"{e['number']}-{e['direction']}": e for e in p["entries"]}
+    return _ENTRIES[pid]
+
+
+def own_talk(lines, eid, puz):
+    """The window's words up to where the solver turns to another clue: says
+    its number and direction, or reads three words of its text."""
+    grams = set()
+    for other, e in puz.items():
+        if other == eid:
+            continue
+        cw = norm(re.sub(r"<[^>]+>", " ", e["clue"].get("text", ""))).split()
+        grams |= {tuple(cw[i:i + 3]) for i in range(len(cw) - 2)
+                  if any(len(w) >= 4 and w not in STOP for w in cw[i:i + 3])}
+    out = []
+    for _, line in lines:
+        m = CLUE_REF.search(line)
+        if m:
+            num = m.group(1).lower()
+            n = int(num) if num.isdigit() else NUMBER_WORDS[re.sub(r"[\s-]+", " ", num)]
+            if f"{n}-{'down' if m.group(2).lower() == 'down' else 'across'}" != eid:
+                break
+        out += norm(line).split()
+        if any(tuple(out[i:i + 3]) in grams for i in range(max(0, len(out) - len(norm(line).split()) - 2), len(out) - 2)):
+            break
+    return " ".join(out)
+
+
+def parsecheck(subs_dir, top=15):
+    """Our annotations' parses against the solvers' spoken explanations -> PARSECHECK."""
+    data = json.loads(SOLVES.read_text())
+    by_video = collections.defaultdict(list)
+    for c in data["clues"]:
+        by_video[c["video"]].append(c)
+    talks = collections.defaultdict(list)   # (puzzle, entry) -> explanation windows
+    for vid, rows in by_video.items():
+        f = Path(subs_dir) / f"{vid}.en.vtt"
+        if not f.exists():
+            continue
+        lines = parse_vtt(f)
+        reads = sorted(r["read"] for r in rows if r["read"] is not None)
+        puz = entries_of(rows[0]["puzzle"])
+        for r in rows:
+            t0 = r["t"] - EXPLAIN_LEAD_S
+            t1 = min([r["t"] + EXPLAIN_TAIL_S] + [x for x in reads if x > r["t"] + 2])
+            talks[(r["puzzle"], r["entry"])].append(
+                own_talk([(t, l) for t, l in lines if t0 <= t <= t1], r["entry"], puz))
+    rows = []
+    for (pid, eid), ws in talks.items():
+        e = entries_of(pid).get(eid)
+        if not e or not e.get("annotation"):
+            continue
+        talk = " ".join(re.sub(r"\s+", " ", w).strip() for w in ws)
+        res = check_clue(e, talk)
+        rows.append({"puzzle": pid, "entry": eid, "clue": e["clue"].get("text", ""), "answer": e["solution"],
+                     "types": e["annotation"].get("type") or [],
+                     "definitions": [d["text"] for d in e["annotation"].get("definitions") or []],
+                     **{k: v[0] for k, v in res.items()},
+                     "evidence": {k: v[1] for k, v in res.items() if v[0] == "disagree"}})
+    fields = ("definition", "type", "fodder", "pieces")
+    summ = {"clues": len(rows), "by_field": {}, "by_type": {}}
+    for f in fields:
+        c = collections.Counter(r[f] for r in rows)
+        judged = c["agree"] + c["disagree"]
+        summ["by_field"][f] = {**c, "disagree_rate": round(c["disagree"] / judged, 3) if judged else None}
+    for ty in sorted({t for r in rows for t in r["types"][:1]}):
+        sel = [r for r in rows if r["types"][:1] == [ty]]
+        d = sum(any(r[f] == "disagree" for f in fields) for r in sel)
+        j = sum(any(r[f] != "unknown" for f in fields) for r in sel)
+        summ["by_type"][ty] = {"clues": len(sel), "judged": j, "any_disagree": d,
+                               "rate": round(d / j, 3) if j else None}
+    summ["top"] = {f: [f"{r['puzzle']} {r['entry']} {r['answer']}" for r in rows if r[f] == "disagree"][:top]
+                   for f in fields}
+    row = lambda x: json.dumps(x, ensure_ascii=False, separators=(",", ":"))
+    PARSECHECK.write_text('{"summary":' + json.dumps(summ, ensure_ascii=False, indent=1)
+                          + ',\n"clues":[\n' + ",\n".join(map(row, rows)) + "\n]}\n")
+    print(f"{len(rows)} annotated clues with a spoken explanation -> {PARSECHECK}")
+    for f, s in summ["by_field"].items():
+        print(f"  {f:10s} agree {s.get('agree', 0):5d}  disagree {s.get('disagree', 0):4d}  "
+              f"unknown {s.get('unknown', 0):5d}  disagree rate {s['disagree_rate']}")
+    for ty, s in sorted(summ["by_type"].items(), key=lambda x: -x[1]["clues"]):
+        print(f"  {ty:20s} {s['clues']:5d} clues, {s['judged']:5d} judged, {s['any_disagree']:4d} disagree ({s['rate']})")
+
+
 if __name__ == "__main__":
     cmd = sys.argv[1] if len(sys.argv) > 1 else ""
     if cmd == "solves":
         solves(sys.argv[2])
+        sys.exit()
+    if cmd == "parsecheck":
+        parsecheck(sys.argv[2])
         sys.exit()
     if cmd == "solvecheck":
         sys.path.insert(0, str(ROOT / "tools"))
