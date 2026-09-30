@@ -667,6 +667,62 @@ lost_ids=""
 spend_weekly_before=$(python3 tools/weekly_usage.py --group weekly 2>/dev/null)
 spend_session_before=$(python3 tools/weekly_usage.py --group session 2>/dev/null)
 
+# --- 2c. learn from the misses step 2 graded ---
+# A graded miss is a sample of a class: the reading, rule or check that let a
+# wrong answer through will let the next one through too. Each miss gets one
+# bounded run of tools/solve_miss_prompt.md, which fixes the class in
+# tools/solve_prompt.md or tools/apply_solution.py, or records that nothing
+# generalises. Here, ahead of 3a, so a fix already governs tonight's solves; the
+# fix rides tonight's commit.
+#
+# The payload is the gate: tools/solve_misses.py pending lists only misses with
+# no record in tools/data/diagnosed_misses.json, so a quiet night costs nothing
+# and no miss is bought twice. A run that ends without recording a verdict is
+# recorded as unfinished, alerted, and not retried: the same packet would buy
+# the same failure.
+SOLVE_MISS_MAX_MINUTES="${SOLVE_MISS_MAX_MINUTES:-30}"
+misses=$(python3 tools/solve_misses.py pending)
+if [ -n "$misses" ] && command -v claude >/dev/null 2>&1; then
+  miss_cap="timeout ${SOLVE_MISS_MAX_MINUTES}m"
+  command -v timeout >/dev/null 2>&1 || miss_cap=""
+  misslog="$(mktemp "${TMPDIR:-/tmp}/cryptic-miss.XXXXXX")"
+  while read -r miss_pid miss_eid; do
+    [ -n "$miss_pid" ] || continue
+    session=$(python3 tools/weekly_usage.py --group session)
+    if [ -n "$session" ] && [ "$session" -gt "$ANNOTATE_MAX_SESSION_PCT" ]; then
+      echo "miss diagnosis: five-hour window ${session}% spent (limit ${ANNOTATE_MAX_SESSION_PCT}%) — the rest wait for tomorrow"
+      break
+    fi
+    if [ "$(python3 tools/weekly_usage.py --gate "$ANNOTATE_MAX_WEEKLY_PCT" 2>/dev/null)" != spend ]; then
+      echo "miss diagnosis: weekly window not under ${ANNOTATE_MAX_WEEKLY_PCT}% — the rest wait for the reset"
+      break
+    fi
+    echo "diagnosing the graded miss $miss_pid $miss_eid with Claude Code... (session ${session:-unknown}%)"
+    # shellcheck disable=SC2086 # $miss_cap is a command and its argument, or nothing
+    $miss_cap claude -p "Read tools/solve_miss_prompt.md and follow it exactly. This is the miss it is about:
+
+$(python3 tools/solve_misses.py packet "$miss_pid" "$miss_eid" 2>&1)" "${CLAUDE_HEADLESS[@]}" \
+      --model "$ANNOTATE_MODEL" \
+      --effort "$ANNOTATE_EFFORT" \
+      --allowedTools "Read,Write,Edit,Bash(python3 *),Bash(bash tools/test_*),Bash(grep *)" \
+      </dev/null >"$misslog" 2>&1
+    miss_rc=$?
+    tail -20 "$misslog"
+    miss_verdict=$(python3 tools/solve_misses.py verdict "$miss_pid" "$miss_eid")
+    if [ -n "$miss_verdict" ]; then
+      echo "  $miss_pid $miss_eid $miss_verdict"
+    else
+      miss_why="the run exited $miss_rc without recording a verdict"
+      [ "$miss_rc" = 124 ] && miss_why="the run passed ${SOLVE_MISS_MAX_MINUTES}m and was stopped"
+      python3 tools/solve_misses.py record "$miss_pid" "$miss_eid" --verdict unfinished --note "$miss_why"
+      alert "diagnosing the graded miss $miss_pid $miss_eid failed: $miss_why. It is recorded as unfinished and will not be retried. Its last words:"$'\n'"\`\`\`"$'\n'"$(grep -v '^[[:space:]]*$' "$misslog" | tail -6 | cut -c1-200)"$'\n'"\`\`\`"
+    fi
+  done <<MISSES
+$misses
+MISSES
+  rm -f "$misslog"
+fi
+
 # --- 3a. solve the unsolved, so step 3b has something to annotate ---
 # Runs before the annotation loop and feeds it: a grid solved tonight joins the
 # front of the capped backlog queue (`pending`, behind `fresh`), because it is
@@ -765,6 +821,9 @@ if [ -n "$unsolved" ] && command -v claude >/dev/null 2>&1; then
         alert "solving $num failed and will not be tried again until its clues, tools/solve_prompt.md or tools/apply_solution.py change — the puzzle ships hintless until then or until the paper publishes its key. The applier said:"$'\n'"\`\`\`"$'\n'"$(tail -8 "$verdict" | cut -c1-200)"$'\n'"\`\`\`"$'\n'"and the solver's last words were:"$'\n'"\`\`\`"$'\n'"$(tail -6 "$solvelog" | cut -c1-200)"$'\n'"\`\`\`"
       fi
     fi
+    # The solver's own account outlives the night, for step 2c to read when
+    # the paper's key grades it.
+    [ "$applied" -eq 0 ] && python3 tools/solve_misses.py keep-log "$num" "$solvelog"
     rm -f "$fill" "$solvelog" "$verdict"
   done
   # The backlog budget is still ANNOTATE_MAX puzzles, cold solves included.
