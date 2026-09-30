@@ -32,9 +32,8 @@ does not, the parse is wrong, so rethink it rather than stretch it.
 
 ## Schema
 
-`puzzles/cryptic/2026/cryptic-30066.json` is a fully worked example. A puzzle's
-file is `puzzles/<series>/<year>/<id>.json`; `python3 tools/puzzle_paths.py <id>`
-prints it.
+Two worked annotations close this file. A puzzle's file is
+`puzzles/<series>/<year>/<id>.json`; `python3 tools/puzzle_paths.py <id>` prints it.
 
 ```json
 {
@@ -198,5 +197,38 @@ rung; a compound type's family is the FIRST row below that it uses.
 
 `letter_selection` says which letters on the block that keeps them, as
 `"select"`: `"first"`, `"last"`, `"middle"`, `"outer"`, `"alternate"`, `"regular"`, `"prime"`, or a number n for the nth letter (`2` for the second).
+
+### Worked annotations
+
+Copied from the corpus; both pass every check. `at` is left out, as in yours.
+
+quiptic-619 11-across, "Fake folio made by a conservative is libellous" (10), solution DEFAMATORY:
+
+```json
+{"11-across": {
+  "type": ["anagram", "charade"],
+  "answer": "DEFAMATORY",
+  "definitions": [{"text": "libellous"}],
+  "indicators": [{"text": "Fake", "for": "anagram", "note": "something fake is invented or concocted, so these letters are reworked into a new arrangement"}],
+  "linkWords": ["by", "is"],
+  "blocks": [{"clueFragment": "folio", "gives": "F", "note": "F is the abbreviation for folio"}, {"clueFragment": "made", "gives": "MADE", "note": "taken as written"}, {"clueFragment": "a", "gives": "A", "note": "taken as written"}, {"clueFragment": "conservative", "gives": "TORY", "note": "a Tory is a member of the UK Conservative Party"}],
+  "assembly": {"pieces": ["DEFAM", "A", "TORY"], "anagrams": [{"fodder": "FMADE", "gives": "DEFAM"}]},
+  "explanation": {"surface": "A forged document produced by a Tory politician is defamatory.", "walkthrough": "'Fake' looks like an adjective describing the folio, but it is the anagram signal. Tory is the everyday name for a member of Britain's Conservative Party.", "definitionFit": "Libel is written defamation, so a libellous statement is one that damages a reputation falsely."},
+  "features": {"answerInScene": true, "aptDefinition": false, "misdirectedWord": "Fake"}
+}}
+```
+
+quiptic-619 10-across, "Excellent penalty!" (4), solution FINE:
+
+```json
+{"10-across": {
+  "type": ["double_definition"],
+  "answer": "FINE",
+  "definitions": [{"text": "Excellent"}, {"text": "penalty"}],
+  "blocks": [{"clueFragment": "Excellent", "note": "first meaning: very good, of high quality"}, {"clueFragment": "penalty", "note": "second meaning: a sum of money paid as punishment"}],
+  "explanation": {"walkthrough": "The exclamation mark makes it sound like cheering a penalty in a match; the two words are separate meanings of one short word.", "definitionFit": "The word works both as an adjective for high quality and as a noun for a monetary punishment imposed by a court."},
+  "features": {"answerInScene": false, "aptDefinition": false, "joke": "pun", "misdirectedWord": "penalty"}
+}}
+```
 
 <!-- REFERENCE-END -->

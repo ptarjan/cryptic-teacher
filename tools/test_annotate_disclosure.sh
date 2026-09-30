@@ -278,6 +278,17 @@ done
 echo "the prompt no longer names the blog, and the run's inputs no longer carry it"
 same "the run reads the copy" "$(grep -c 'tools/_puzzle_@\.json' tools/prereset_backfill.sh)" "1"
 same "the nightly reads the copy" "$(grep -c 'ann_file=\$(python3 tools/annotate_check.py --view' tools/daily_update.sh)" "1"
+same "the burn hands the prompt over in the system prompt" "$(grep -c -- '--append-system-prompt-file tools/annotate_prompt.md' tools/prereset_backfill.sh)" "1"
+same "the prompt's worked annotations pass every check" "$(PYTHONPATH=tools python3 -c '
+import build_annotate_prompt as B, validate_annotations as V
+from fetch_puzzle import read_puzzle_file, resolve_puzzle
+bad = 0
+for pid, eid in B.EXAMPLES:
+    p = read_puzzle_file(resolve_puzzle(pid))
+    _, errs, warns = V.validate_puzzle(p)
+    num, _, d = eid.partition("-")
+    bad += sum(x.startswith(f"{num}{d[0].upper()}:") for x in errs + warns)
+print(bad)')" "0"
 same "no blog in the prompt" "$(grep -ci 'fifteensquared\|timesforthetimes' tools/annotate_prompt.md)" "0"
 
 if [ "$fails" -gt 0 ]; then echo "FAILED: $fails"; exit 1; fi
