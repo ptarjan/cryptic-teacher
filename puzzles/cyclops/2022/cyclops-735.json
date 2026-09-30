@@ -24,6 +24,9 @@
   "date": "2022-09-05",
   "check": "29 entries verified against the grid (lengths, crossings, linked-clue mapping)"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,75 @@
     "text": "Sex up hen bash by flexing cane",
     "enumeration": "7"
    },
-   "solution": "ENHANCE"
+   "solution": "ENHANCE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ENHANCE",
+    "definitions": [
+     {
+      "text": "Sex up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bash",
+      "for": "anagram",
+      "note": "to bash something is to batter it out of shape, so these letters get knocked into a new order"
+     },
+     {
+      "text": "flexing",
+      "for": "anagram",
+      "note": "flexing bends a thing into a different shape, so the letters are rearranged"
+     },
+     {
+      "text": "by",
+      "for": "charade",
+      "note": "by means next to, so one worked piece sits beside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hen",
+      "gives": "HEN",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "cane",
+      "gives": "CANE",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENH",
+      "ANCE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HEN",
+       "gives": "ENH"
+      },
+      {
+       "fodder": "CANE",
+       "gives": "ANCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hen party turns racy when someone starts flexing a cane.",
+     "walkthrough": "'Hen bash' reads as one phrase, a hen party, but the bash works only on the word before it; each small anagram is done separately and the two results are joined.",
+     "definitionFit": "To sex up a report or story is to make it more exciting, which is to improve or heighten it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "bash"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +122,66 @@
     "text": "Lax peer or eccentric, one going for a Burton?",
     "enumeration": "8"
    },
-   "solution": "EXPLORER"
+   "solution": "EXPLORER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "EXPLORER",
+    "definitions": [
+     {
+      "text": "a Burton?",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going",
+      "for": "deletion",
+      "note": "something going is leaving, so that letter drops out of the mix"
+     },
+     {
+      "text": "eccentric",
+      "for": "anagram",
+      "note": "eccentric means off-centre and odd, so the letters are thrown into an unusual order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lax peer or",
+      "gives": "LAXPEEROR",
+      "note": "the letters of these three words, taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "one is A, as in a single thing; this letter is the one removed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LXPEEROR",
+       "gives": "EXPLORER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A careless, odd aristocrat is about to go for a Burton, meaning to die or come to grief.",
+     "walkthrough": "'Going for a Burton' is British slang for being killed or ruined, but here the Burton is Sir Richard Burton, the Victorian explorer of Africa and Arabia; the question mark flags a definition by example.",
+     "definitionFit": "Sir Richard Burton travelled to Mecca and searched for the Nile's source, so he is one example of a traveller into unknown lands."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Burton"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +209,65 @@
     "text": "Critical hacks collectively against 'trendy' Grauniad leader",
     "enumeration": "8"
    },
-   "solution": "PRESSING"
+   "solution": "PRESSING",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "PRESSING",
+    "definitions": [
+     {
+      "text": "Critical",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "a leader goes in front, so only the opening letter is kept"
+     }
+    ],
+    "linkWords": [
+     "against"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hacks collectively",
+      "gives": "PRESS",
+      "note": "journalists as a body are the press"
+     },
+     {
+      "clueFragment": "'trendy'",
+      "gives": "IN",
+      "note": "fashionable things are in"
+     },
+     {
+      "clueFragment": "Grauniad",
+      "gives": "G",
+      "select": "first",
+      "note": "its first letter; the word is Private Eye's nickname for the Guardian"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRESS",
+      "IN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "Journalists as a group are criticising a fashionable editor at the Guardian.",
+     "walkthrough": "The Grauniad is Private Eye's nickname for the Guardian newspaper, mocking its old reputation for misprints. 'Critical' looks like part of the surface about attacking hacks, but it is the definition.",
+     "definitionFit": "A pressing matter is urgent and demands immediate attention, just as a critical one does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Critical"
+    }
+   }
   },
   {
    "number": 5,
@@ -93,7 +281,67 @@
     "text": "A party indiscretion, backing 'pretty boy'",
     "enumeration": "6"
    },
-   "solution": "ADONIS"
+   "solution": "ADONIS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ADONIS",
+    "definitions": [
+     {
+      "text": "'pretty boy'",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backing",
+      "for": "reversal",
+      "note": "backing means moving backwards, so the letters run in the opposite direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "DO",
+      "note": "a do is a party"
+     },
+     {
+      "clueFragment": "indiscretion",
+      "gives": "SIN",
+      "note": "a sin is a moral lapse or indiscretion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "DO",
+      "NIS"
+     ],
+     "reversals": [
+      {
+       "from": "SIN",
+       "to": "NIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something embarrassing happened at a party, involving support for a good-looking young man.",
+     "walkthrough": "Only the indiscretion is turned round; A and the party stay as they are.",
+     "definitionFit": "Adonis was the beautiful youth loved by Aphrodite, and his name is used for any handsome young man."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "backing"
+    }
+   }
   },
   {
    "number": 6,
@@ -107,7 +355,43 @@
     "text": "Rearing and being sick?",
     "enumeration": "10"
    },
-   "solution": "UPBRINGING"
+   "solution": "UPBRINGING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "UPBRINGING",
+    "definitions": [
+     {
+      "text": "Rearing",
+      "at": 0
+     },
+     {
+      "text": "being sick",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rearing",
+      "note": "first meaning: the raising of a child"
+     },
+     {
+      "clueFragment": "being sick",
+      "note": "second meaning, read as two words: bringing food back up, split and reordered"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second sense is a joke reading: 'bringing up' is vomiting, and the answer is those two words swapped round; the question mark admits the liberty.",
+     "definitionFit": "Upbringing is the way a child is raised and taught, which is what rearing a child means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sick"
+    }
+   }
   },
   {
    "number": 7,
@@ -121,7 +405,55 @@
     "text": "Marry Ginger to get in line?",
     "enumeration": "6"
    },
-   "solution": "SPLICE"
+   "solution": "SPLICE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SPLICE",
+    "definitions": [
+     {
+      "text": "Marry",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to get in",
+      "for": "container",
+      "note": "one thing getting in something else ends up inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ginger",
+      "gives": "SPICE",
+      "note": "ginger is a spice; also Ginger Spice of the Spice Girls"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L is the abbreviation for line"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SP",
+      "L",
+      "ICE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether marrying Ginger is a way to fall into line.",
+     "walkthrough": "Ginger looks like a person's name or nickname, but it is the spice.",
+     "definitionFit": "To get spliced is informal British slang for getting married, joined together like two ropes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Ginger"
+    }
+   }
   },
   {
    "number": 8,
@@ -135,7 +467,56 @@
     "text": "A victim of defamation blowing top in a row",
     "enumeration": "7"
    },
-   "solution": "ALIGNED"
+   "solution": "ALIGNED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ALIGNED",
+    "definitions": [
+     {
+      "text": "in a row",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "blowing top",
+      "for": "deletion",
+      "note": "to blow one's top is to lose it, so the first letter is lost"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "victim of defamation",
+      "gives": "MALIGNED",
+      "note": "someone defamed has been maligned"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "LIGNED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who has been defamed loses their temper in an argument.",
+     "walkthrough": "'In a row' suggests a quarrel, which fits the angry surface, but it means in a line. The top of the second word goes, leaving its other seven letters.",
+     "definitionFit": "Things aligned are arranged straight along one line, so they stand in a row."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "row"
+    }
+   }
   },
   {
    "number": 9,
@@ -155,7 +536,39 @@
      }
     ]
    },
-   "solution": "NEXTWORLD"
+   "solution": "NEXTWORLD",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "NEXT WORLD",
+    "definitions": [
+     {
+      "text": "It could be hellish, Mars?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It could be hellish",
+      "note": "surface reading: a gloomy remark about how bad some place might be"
+     },
+     {
+      "clueFragment": "Mars?",
+      "note": "setter's reading: the afterlife may be hell, and Mars may be where humanity settles after Earth"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Two readings meet in one phrase: the life after death, which could be hell, and literally the planet we go to after this one, such as Mars.",
+     "definitionFit": "The phrase normally names the afterlife, heaven or hell, but read literally it can mean another planet humans might colonise."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Mars"
+    }
+   }
   },
   {
    "number": 10,
@@ -169,7 +582,41 @@
     "text": "Eye feature you'd expect to find in a school",
     "enumeration": "5"
    },
-   "solution": "PUPIL"
+   "solution": "PUPIL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PUPIL",
+    "definitions": [
+     {
+      "text": "Eye feature",
+      "at": 0
+     },
+     {
+      "text": "you'd expect to find in a school",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Eye feature",
+      "note": "first meaning: the dark opening in the centre of the eye"
+     },
+     {
+      "clueFragment": "you'd expect to find in a school",
+      "note": "second meaning: a child being taught"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second definition is a description rather than a synonym: the thing you would expect to find in a school.",
+     "definitionFit": "The word names both the black aperture in the iris and a child who is taught at a school."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -189,7 +636,61 @@
      }
     ]
    },
-   "solution": "ALLEYES"
+   "solution": "ALLEYES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ALL EYES",
+    "definitions": [
+     {
+      "text": "very attentive",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pissed",
+      "for": "anagram",
+      "note": "pissed is British slang for drunk, and a drunk's letters stagger into a new order"
+     }
+    ],
+    "linkWords": [
+     "taking",
+     "apart",
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sally",
+      "gives": "SALLY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "drugs",
+      "gives": "EE",
+      "note": "E is ecstasy, so two doses of the drug give two Es"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SALLYEE",
+       "gives": "ALLEYES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sally is drunk and on drugs, yet somehow keenly alert.",
+     "walkthrough": "'Sally's' is Sally is, and the drunkenness applies to her name; the two Es end up apart, one in each word of the answer.",
+     "definitionFit": "Someone who is all eyes is watching intently, missing nothing, so they are paying close attention."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pissed"
+    }
+   }
   },
   {
    "number": 12,
@@ -203,7 +704,61 @@
     "text": "Career over, confess \"A job with crap pay!\"",
     "enumeration": "7"
    },
-   "solution": "NURSING"
+   "solution": "NURSING",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "NURSING",
+    "definitions": [
+     {
+      "text": "A job with crap pay!",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "over can mean turned over, so the word is flipped end to end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Career",
+      "gives": "RUN",
+      "note": "to career is to rush along, to run"
+     },
+     {
+      "clueFragment": "confess",
+      "gives": "SING",
+      "note": "criminals who confess sing to the police"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NUR",
+      "SING"
+     ],
+     "reversals": [
+      {
+       "from": "RUN",
+       "to": "NUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone quitting their career admits their job paid terribly.",
+     "walkthrough": "'Career' looks like a noun about a working life, but it is the verb meaning to rush. The definition is a pointed description, and the exclamation mark signals the satire.",
+     "definitionFit": "Private Eye's jab at low wages for caring for patients in hospitals, a vocation famously underpaid."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Career"
+    }
+   }
   },
   {
    "number": 13,
@@ -217,7 +772,55 @@
     "text": "Balls trailing dog –much better!",
     "enumeration": "5"
    },
-   "solution": "CURED"
+   "solution": "CURED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CURED",
+    "definitions": [
+     {
+      "text": "much better!",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "trailing",
+      "for": "charade",
+      "note": "trailing means following behind, so one piece comes after the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dog",
+      "gives": "CUR",
+      "note": "a cur is a mongrel dog"
+     },
+     {
+      "clueFragment": "Balls",
+      "gives": "ED",
+      "note": "Ed Balls, the Labour politician"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CUR",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A dog chasing after balls seems to have recovered.",
+     "walkthrough": "Balls is not the toy but Ed Balls, a former Labour shadow chancellor, so his first name is the piece that follows.",
+     "definitionFit": "Someone who is cured has recovered from illness, so they are feeling a great deal better."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Balls"
+    }
+   }
   },
   {
    "number": 14,
@@ -231,7 +834,75 @@
     "text": "Swapping speed initially for cocaine, slip inside deviously, as whips do",
     "enumeration": "10"
    },
-   "solution": "DISCIPLINE"
+   "solution": "DISCIPLINE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "substitution",
+     "anagram"
+    ],
+    "answer": "DISCIPLINE",
+    "definitions": [
+     {
+      "text": "as whips do",
+      "at": 61
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so the first letter alone is used"
+     },
+     {
+      "text": "Swapping",
+      "for": "substitution",
+      "note": "swapping one thing for another puts the second where the first stood"
+     },
+     {
+      "text": "deviously",
+      "for": "anagram",
+      "note": "deviously means by winding, crooked routes, so the letters take a twisted order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "speed",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of speed, which is swapped out"
+     },
+     {
+      "clueFragment": "cocaine",
+      "gives": "C",
+      "note": "C is slang shorthand for cocaine, and it comes in"
+     },
+     {
+      "clueFragment": "slip inside",
+      "gives": "SLIPINSIDE",
+      "note": "the letters of these two words, one S of which is replaced"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CLIPINSIDE",
+       "gives": "DISCIPLINE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Drug talk of speed and cocaine gives way to sneaking in, cracking the whip.",
+     "walkthrough": "Whips are party officials in Parliament who keep MPs voting as told; the definition is a verb phrase, what whips do.",
+     "definitionFit": "Parliamentary whips enforce party loyalty, punishing and controlling rebel members, which is to keep them in order."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "whips"
+    }
+   }
   },
   {
    "number": 15,
@@ -245,7 +916,59 @@
     "text": "Elected wrong Conservative before – hypocritical",
     "enumeration": "9"
    },
-   "solution": "INSINCERE"
+   "solution": "INSINCERE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INSINCERE",
+    "definitions": [
+     {
+      "text": "hypocritical",
+      "at": 36
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Elected",
+      "gives": "IN",
+      "note": "a candidate who is elected gets in"
+     },
+     {
+      "clueFragment": "wrong",
+      "gives": "SIN",
+      "note": "a sin is a wrong"
+     },
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C is the abbreviation for Conservative"
+     },
+     {
+      "clueFragment": "before",
+      "gives": "ERE",
+      "note": "ere is an old word for before"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "SIN",
+      "C",
+      "ERE"
+     ]
+    },
+    "explanation": {
+     "surface": "Voters picked the wrong Tory last time, and he turned out to be two-faced.",
+     "walkthrough": "Every word before the dash supplies a piece in turn; 'wrong' is a noun here, not an adjective describing the Conservative.",
+     "definitionFit": "A hypocrite pretends to feelings or beliefs they lack, and insincere means not genuinely meaning what one says."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wrong"
+    }
+   }
   },
   {
    "number": 16,
@@ -263,7 +986,60 @@
    "group": [
     "16-across",
     "23-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RESIGNATION SPEECH",
+    "definitions": [
+     {
+      "text": "given by an unapologetic Boris",
+      "at": 46,
+      "note": "a description of the answer, the address Boris Johnson gave on quitting"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Daft",
+      "for": "anagram",
+      "note": "daft means silly or crazy, so the letters are scrambled senselessly"
+     }
+    ],
+    "linkWords": [
+     "about"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "search engine tips",
+      "gives": "SEARCHENGINETIPS",
+      "note": "the letters of these three words"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis scores, and zero looks like O"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SEARCHENGINETIPSO",
+       "gives": "RESIGNATIONSPEECH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Silly online love advice sits oddly beside Boris Johnson refusing to say sorry.",
+     "walkthrough": "The answer runs across two lights, 16 across and 23 down. Boris Johnson's 2022 exit address blamed the 'herd instinct' and offered no apology.",
+     "definitionFit": "When Johnson quit as prime minister in 2022 he made a farewell statement outside Downing Street without admitting fault."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "tips"
+    }
+   }
   },
   {
    "number": 17,
@@ -277,7 +1053,65 @@
     "text": "From reduced circumstances to Republican, one who's relatively ancient",
     "enumeration": "8"
    },
-   "solution": "ANCESTOR"
+   "solution": "ANCESTOR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ANCESTOR",
+    "definitions": [
+     {
+      "text": "one who's relatively ancient",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reduced",
+      "for": "deletion",
+      "note": "reduced means cut down in size, so most of the word is chopped away"
+     }
+    ],
+    "linkWords": [
+     "From"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "circumstances",
+      "gives": "CIRCUMSTANCES",
+      "note": "taken as written, then cut down to its tail"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the abbreviation for Republican"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANCES",
+      "TO",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone goes from poverty to joining the Republicans.",
+     "walkthrough": "'Reduced circumstances' is an idiom for poverty, but here the word is literally reduced, keeping only its last five letters.",
+     "definitionFit": "A forebear is a relative from long ago, so the pun is that they are both related to you and old."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "reduced"
+    }
+   }
   },
   {
    "number": 18,
@@ -291,7 +1125,64 @@
     "text": "Rex involved with action about drug",
     "enumeration": "8"
    },
-   "solution": "NARCOTIC"
+   "solution": "NARCOTIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NARCOTIC",
+    "definitions": [
+     {
+      "text": "drug",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involved",
+      "for": "anagram",
+      "note": "involved means tangled up, so the letters are jumbled together"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rex",
+      "gives": "R",
+      "note": "R stands for Rex, Latin for king"
+     },
+     {
+      "clueFragment": "action",
+      "gives": "ACTION",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "c. is the abbreviation for circa, meaning about"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RACTIONC",
+       "gives": "NARCOTIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man called Rex is caught up in a police operation concerning drugs.",
+     "walkthrough": "'About' looks like part of the surface, but it is circa, abbreviated to C, and joins the jumble.",
+     "definitionFit": "A narcotic is a substance such as opium or heroin that dulls the senses, a type of drug."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 19,
@@ -305,7 +1196,52 @@
     "text": "Sex aid not right as means of instructing player",
     "enumeration": "7"
    },
-   "solution": "VIBRATO"
+   "solution": "VIBRATO",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "VIBRATO",
+    "definitions": [
+     {
+      "text": "means of instructing player",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not right",
+      "for": "deletion",
+      "note": "not right says that the letter for right is taken out"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sex aid",
+      "gives": "VIBRATOR",
+      "note": "a buzzing sex toy; its final letter is then removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VIBRATO"
+     ]
+    },
+    "explanation": {
+     "surface": "A sex toy is not the correct way to teach an actor, or a lover, their part.",
+     "walkthrough": "R is right, so it leaves from the end. Vibrato is an Italian term written on scores, telling the musician how to play.",
+     "definitionFit": "Vibrato is a marking in sheet music instructing a performer to add a pulsating wobble in pitch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "player"
+    }
+   }
   },
   {
    "number": 20,
@@ -319,7 +1255,43 @@
     "text": "Not a drifter liked by creditors",
     "enumeration": "7"
    },
-   "solution": "SETTLER"
+   "solution": "SETTLER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SETTLER",
+    "definitions": [
+     {
+      "text": "Not a drifter",
+      "at": 0
+     },
+     {
+      "text": "liked by creditors",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Not a drifter",
+      "note": "first meaning: someone who has put down roots in a place"
+     },
+     {
+      "clueFragment": "liked by creditors",
+      "note": "second meaning: someone who pays off debts"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second meaning is a description, and it also turns the verb 'settle', to pay a bill, into a noun for the person who pays.",
+     "definitionFit": "A colonist stays put in one place, unlike a wanderer, and one who pays an account in full pleases lenders."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "creditors"
+    }
+   }
   },
   {
    "number": 21,
@@ -333,7 +1305,46 @@
     "text": "In print: 'R' in SICK-ROOM – essential",
     "enumeration": "9"
    },
-   "solution": "INTRINSIC"
+   "solution": "INTRINSIC",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "INTRINSIC",
+    "definitions": [
+     {
+      "text": "essential",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "hidden_word",
+      "note": "in says what is wanted lies inside the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "print: 'R' in SICK",
+      "note": "the letters run on across these words, ignoring punctuation"
+     },
+     {
+      "clueFragment": "ROOM",
+      "note": "surface padding completing the word sick-room"
+     }
+    ],
+    "explanation": {
+     "surface": "A newspaper printing a letter R in the word SICK-ROOM is essential, like a misprint that matters.",
+     "walkthrough": "The capitals and quote marks make it look like a proofreading note, but the answer runs straight through 'print R in sick' once the punctuation is ignored.",
+     "definitionFit": "Something intrinsic belongs to a thing's basic nature, which is what essential means in the sense of inherent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "print"
+    }
+   }
   },
   {
    "number": 22,
@@ -347,7 +1358,70 @@
     "text": "The lead milk producer lacks name for drink",
     "enumeration": "6"
    },
-   "solution": "TIPPLE"
+   "solution": "TIPPLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "charade"
+    ],
+    "answer": "TIPPLE",
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lead",
+      "for": "letter_selection",
+      "note": "the lead is what goes first, so only the opening letter is kept"
+     },
+     {
+      "text": "lacks",
+      "for": "deletion",
+      "note": "to lack something is to be without it, so that letter goes"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The",
+      "gives": "T",
+      "select": "first",
+      "note": "the opening letter of the word"
+     },
+     {
+      "clueFragment": "milk producer",
+      "gives": "NIPPLE",
+      "note": "a nipple is where milk comes out"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "N is the abbreviation for name; it is removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "IPPLE"
+     ]
+    },
+    "explanation": {
+     "surface": "The prize cow is producing no milk, and it goes by a drink's name.",
+     "walkthrough": "'The lead' sounds like the main one of something, but it asks for the first letter of 'The'.",
+     "definitionFit": "A tipple is an alcoholic drink, especially a person's usual favourite, so the noun matches drink."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lead"
+    }
+   }
   },
   {
    "number": 23,
@@ -375,7 +1449,66 @@
     "text": "Bush's ex-vice president welcoming shit-head",
     "enumeration": "5"
    },
-   "solution": "GORSE"
+   "solution": "GORSE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "GORSE",
+    "definitions": [
+     {
+      "text": "Bush",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head",
+      "for": "letter_selection",
+      "note": "the head of a word is its top, so just the opening letter is used"
+     },
+     {
+      "text": "welcoming",
+      "for": "container",
+      "note": "to welcome someone is to take them in, so one piece goes inside another"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ex-vice president",
+      "gives": "GORE",
+      "note": "Al Gore was Clinton's vice-president and lost the 2000 election to George W Bush"
+     },
+     {
+      "clueFragment": "shit",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GOR",
+      "S",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A former US vice-president greets a nasty character.",
+     "walkthrough": "'Bush' does double duty: it points to George W Bush's era, but it is also the definition, the shrub. Strictly Gore was Clinton's deputy and Bush's rival.",
+     "definitionFit": "Gorse is a spiny yellow-flowered shrub common on British heaths, so it is a kind of bush."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bush"
+    }
+   }
   },
   {
    "number": 25,
@@ -389,7 +1522,77 @@
     "text": "Snub Mr Bean (not married, but accepting head from Edith)?",
     "enumeration": "7"
    },
-   "solution": "REPULSE"
+   "solution": "REPULSE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "REPULSE",
+    "definitions": [
+     {
+      "text": "Snub",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not married",
+      "for": "deletion",
+      "note": "not married means the letter standing for married is taken away"
+     },
+     {
+      "text": "head",
+      "for": "letter_selection",
+      "note": "the head of a word is its top, so just the opening letter is used"
+     },
+     {
+      "text": "accepting",
+      "for": "container",
+      "note": "to accept something is to take it in, so one piece goes inside"
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mr",
+      "gives": "MR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Edith",
+      "gives": "E",
+      "select": "first",
+      "note": "the opening letter of the name"
+     },
+     {
+      "clueFragment": "Bean",
+      "gives": "PULSE",
+      "note": "a bean is a pulse, an edible seed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "E",
+      "PULSE"
+     ]
+    },
+    "explanation": {
+     "surface": "Rowan Atkinson's bachelor character Mr Bean gets oral sex from Edith, and rebuffs someone.",
+     "walkthrough": "Mr Bean is a British TV comedy character, but here the title and surname split: M for married leaves the title, and the bean is a pulse.",
+     "definitionFit": "To repulse an approach or advance is to reject it coldly, which is to snub or rebuff it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bean"
+    }
+   }
   },
   {
    "number": 26,
@@ -403,7 +1606,57 @@
     "text": "Son sporting an erection, left to get a brace",
     "enumeration": "7"
    },
-   "solution": "SUPPORT"
+   "solution": "SUPPORT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SUPPORT",
+    "definitions": [
+     {
+      "text": "a brace",
+      "at": 38
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     },
+     {
+      "clueFragment": "sporting an erection",
+      "gives": "UP",
+      "note": "something erect is up"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "PORT",
+      "note": "port is the left side of a ship"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "UP",
+      "PORT"
+     ]
+    },
+    "explanation": {
+     "surface": "A young man with an erection leaves to get medical strapping.",
+     "walkthrough": "'Brace' might suggest a pair, but here it is a supporting device, and 'left' is the nautical side rather than departed.",
+     "definitionFit": "A brace holds up or strengthens a weak joint or structure, so it is a kind of prop."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 27,
@@ -421,7 +1674,56 @@
    "group": [
     "27-down",
     "3-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PASS AWAY",
+    "definitions": [
+     {
+      "text": "Pop off",
+      "at": 9
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "defile",
+      "gives": "PASS",
+      "note": "a defile is a narrow mountain pass"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "street",
+      "gives": "WAY",
+      "note": "a way is a road or street"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PASS",
+      "A",
+      "WAY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone nips out and dirties a road.",
+     "walkthrough": "The answer runs across two lights, 27 down then 3 down. 'Defile' looks like the verb to pollute, but it is the noun for a narrow valley.",
+     "definitionFit": "To pop off is jokey slang for dying, and the phrase is a gentle euphemism for the same thing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "defile"
+    }
+   }
   },
   {
    "number": 28,
@@ -435,7 +1737,66 @@
     "text": "Tory leader, virtually unaccompanied, gets the crooked finger",
     "enumeration": "5"
    },
-   "solution": "TALON"
+   "solution": "TALON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "charade"
+    ],
+    "answer": "TALON",
+    "definitions": [
+     {
+      "text": "the crooked finger",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "a leader goes in front, so only the opening letter is kept"
+     },
+     {
+      "text": "virtually",
+      "for": "deletion",
+      "note": "virtually means almost but not quite, so the final letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tory",
+      "gives": "T",
+      "select": "first",
+      "note": "the opening letter of the word"
+     },
+     {
+      "clueFragment": "unaccompanied",
+      "gives": "ALONE",
+      "note": "someone unaccompanied is alone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ALON"
+     ]
+    },
+    "explanation": {
+     "surface": "A lonely Conservative leader is given a rude gesture.",
+     "walkthrough": "'Gets the finger' is slang for being given a rude gesture, but the crooked finger is the definition itself.",
+     "definitionFit": "A talon is the hooked claw of a bird of prey, likened here to a bent digit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "finger"
+    }
+   }
   },
   {
    "number": 29,
@@ -449,7 +1810,50 @@
     "text": "Being pissed off, dismiss lively exchange",
     "enumeration": "9"
    },
-   "solution": "CROSSFIRE"
+   "solution": "CROSSFIRE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CROSSFIRE",
+    "definitions": [
+     {
+      "text": "lively exchange",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "Being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pissed off",
+      "gives": "CROSS",
+      "note": "someone annoyed is cross"
+     },
+     {
+      "clueFragment": "dismiss",
+      "gives": "FIRE",
+      "note": "to fire someone is to dismiss them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CROSS",
+      "FIRE"
+     ]
+    },
+    "explanation": {
+     "surface": "An angry boss sacks someone after a heated argument.",
+     "walkthrough": "Here 'pissed off' means angry, not the British drunk sense of 'pissed'.",
+     "definitionFit": "Crossfire is the rapid back-and-forth of arguments or remarks, like gunfire from two sides, a heated exchange."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Being"
+    }
+   }
   }
  ]
 }
