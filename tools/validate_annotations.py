@@ -2440,6 +2440,98 @@ def check_indicator_notes_hide_blocks(puzzle, path, errors):
                     f"holds 'learner'\"")
 
 
+# A selector is an indicator: "capital of Bahrain" giving B is the indicator
+# "capital of" and the block "Bahrain" (telegraph-31356 24D, "capital should be
+# an indicator", 2026-09-30). A block that swallows its selector teaches the
+# letters with the instruction hidden inside them. The phrases are the ones the
+# corpus uses to take a word's first, last or middle letters; a block is held to
+# the rule only when its letters are that selection of the words left over, so
+# "head of state" giving some other piece is not caught. Checked on the entries
+# a run wrote, the way check_indicator_notes_hide_blocks is.
+SELECT_NOUNS = {
+    "first": "first|capital|head|heads|leader|leaders|start|starts|beginning|beginnings"
+             "|opening|openings|top|front|source|origin|origins|onset|starter|starters"
+             "|introduction|tip|foremost|entrance|face",
+    "last": "last|end|ends|ending|close|back|tail|rear|finish|conclusion|finale|bottom"
+            "|edge|terminal|ultimate",
+    "middle": "middle|centre|center|heart|core|focus|inside",
+}
+SELECT_ADVERBS = {
+    "first": "initially|originally|primarily|principally|firstly|at first|first of all"
+             "|first|to begin with|for starters|at the outset|in the beginning|to start"
+             "|beginning to|starting to|starts to|start to|first to|heading for|heading to"
+             "|head for|leading",
+    "last": "finally|ultimately|at last|lastly|in the end|at the end|eventually|last",
+    "middle": "essentially|centrally|at heart|at the centre",
+}
+
+
+def _select_groups(table):
+    return "|".join(f"(?P<{k}>{v})" for k, v in table.items())
+
+
+SELECTOR_LEADS = [
+    re.compile(r"^(?P<sel>(?:the\s+)?(?:" + _select_groups(SELECT_NOUNS)
+               + r")\s+(?:of|to|for|in|from))\s+(?P<rest>.+)$", re.IGNORECASE),
+    re.compile(r"^(?P<sel>" + _select_groups(SELECT_ADVERBS) + r"),?\s+(?P<rest>.+)$",
+               re.IGNORECASE),
+]
+SELECTOR_TAIL_WORDS = _select_groups(
+    {k: f"{SELECT_ADVERBS[k]}|(?:(?:at|in|to)\\s+(?:the\\s+)?)?(?:{SELECT_NOUNS[k]})"
+     for k in SELECT_NOUNS})
+SELECTOR_TAIL = re.compile(
+    r"^(?P<rest>.+?)(?:['\u2019]s)?,?\s+(?P<sel>" + SELECTOR_TAIL_WORDS + r")$",
+    re.IGNORECASE)
+SELECTOR_ALONE = re.compile(r"^(?:" + SELECTOR_TAIL_WORDS + r")$", re.IGNORECASE)
+
+
+def selector_in_block(block):
+    """(selector words, source words) when `block`'s clue words are a letter
+    selector plus the words it selects from and its letters are that selection
+    (a first, last or middle letter, or one from each word); else None."""
+    bare = lambda s: re.sub(r"[^A-Za-z]", "", str(s or "")).upper()
+    fragment = str(block.get("clueFragment") or "").strip()
+    gives = bare(block.get("gives"))
+    if not gives or len(fragment.split()) < 2 or SELECTOR_ALONE.match(fragment):
+        return None
+    for pattern in [*SELECTOR_LEADS, SELECTOR_TAIL]:
+        m = pattern.match(fragment)
+        if not m:
+            continue
+        where = next(k for k in SELECT_NOUNS if m.group(k))
+        words = [bare(w) for w in m.group("rest").split() if bare(w)]
+        run = "".join(words)
+        if not run:
+            continue
+        kept = {"first": {run[0], "".join(w[0] for w in words)},
+                "last": {run[-1], "".join(w[-1] for w in words)},
+                "middle": {run[(len(run) - 1) // 2:len(run) // 2 + 1]}}[where]
+        if gives in kept:
+            return m.group("sel").strip(" ,"), m.group("rest").strip(" ,")
+    return None
+
+
+def check_selectors_are_indicators(puzzle, path, errors):
+    """A new or changed annotation's letter-selection block holds only the
+    words it selects from; the selector is an indicator."""
+    committed = committed_entries(path) or {}
+    for e in puzzle["entries"]:
+        ann = e.get("annotation")
+        if not isinstance(ann, dict) or ann == (committed.get(entry_id(e)) or {}).get("annotation"):
+            continue
+        for b in ann.get("blocks") or []:
+            found = isinstance(b, dict) and selector_in_block(b)
+            if found:
+                sel, rest = found
+                errors.append(
+                    f"{entry_id(e)}: block {b.get('clueFragment')!r} gives "
+                    f"{b.get('gives')!r} with its selector inside it. {sel!r} is the "
+                    f"instruction, so it is an indicator ({{\"text\": {sel!r}, \"for\": "
+                    f"\"letter_selection\"}}, letter_selection in type), and the block "
+                    f"is the source alone: {{\"clueFragment\": {rest!r}, \"gives\": "
+                    f"{b.get('gives')!r}, \"select\": ...}}")
+
+
 def validate_puzzle(puzzle, corpus=False):
     errors, warnings = [], []
     # The file's shape first: tools/fetch_puzzle.write_puzzle_file refuses to
@@ -2786,6 +2878,24 @@ def explain(name=None):
     return 0
 
 
+def backlog_errors(stem, warnings, allowed=None):
+    """The ratchet's ERRORs for one puzzle: it may be short exactly as many
+    notes as the backlog file records for it, and a puzzle absent from the file
+    (anything annotated from now on, and every authored puzzle) is allowed 0."""
+    allowed = load_backlog() if allowed is None else allowed
+    errors = []
+    for field, n in count_backlog(warnings).items():
+        if field not in allowed:
+            continue
+        cap = allowed[field].get(stem, 0)
+        if n > cap:
+            errors.append(
+                f"{n} warning(s) for {field}, and this puzzle is allowed {cap} — "
+                f"{field} is required on everything annotated since it was added. "
+                f"The warnings above name them and say what to write.")
+    return errors
+
+
 def main(argv):
     global FORCE_AUTHORED_CHECKS
     if "--explain" in argv:
@@ -2817,6 +2927,7 @@ def main(argv):
         if not full_run:        # a run's own puzzles; the corpus is HEAD already
             check_clue_unchanged(puzzle, path, errors)
             check_indicator_notes_hide_blocks(puzzle, path, errors)
+            check_selectors_are_indicators(puzzle, path, errors)
         total = len(puzzle["entries"])
         if annotated == 0 and not argv:
             # Nothing to check about annotations that do not exist yet — but
@@ -2828,20 +2939,8 @@ def main(argv):
                 print(f"{ERROR_PREFIX}{err}")
             failed = failed or bool(errors)
             continue
-        # The ratchet: this puzzle may be short exactly as many notes as the
-        # file already records for it. Everything annotated from now on is
-        # absent from the file, so its allowance is zero and the rule bites.
-        counts = count_backlog(warnings)
-        observed[path.stem] = counts
-        for field, n in counts.items():
-            if field not in allowed:
-                continue
-            cap = allowed[field].get(path.stem, 0)
-            if n > cap:
-                errors.append(
-                    f"{n} warning(s) for {field}, and this puzzle is allowed {cap} — "
-                    f"{field} is required on everything annotated since it was added. "
-                    f"The warnings above name them and say what to write.")
+        observed[path.stem] = count_backlog(warnings)
+        errors += backlog_errors(path.stem, warnings, allowed)
         status = "OK" if not errors else "FAIL"
         by = f" ({puzzle['setter']})" if puzzle.get("setter") else ""
         print(f"{puzzle['id']}{by}: {annotated}/{total} annotated — {status}")

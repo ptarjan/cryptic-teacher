@@ -85,9 +85,14 @@ def resolve_puzzle(arg):
 
     A bare number resolves only while it names exactly one puzzle; an ambiguous
     one is an error naming the candidates, never a guess — guessing would
-    annotate one paper's grid from another paper's clues.
+    annotate one paper's grid from another paper's clues. A path to a .json
+    file is that file.
     """
     arg = str(arg)
+    if arg.endswith(".json"):
+        if Path(arg).is_file():
+            return Path(arg)
+        raise SystemExit(f"no puzzle file {arg}")
     series, _ = series_meta.parse_id(arg)
     if series:
         hit = find(arg)

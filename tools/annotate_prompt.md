@@ -46,7 +46,7 @@ prints it.
   "linkWords": ["exact substring joining definition to wordplay, e.g. 'to locate'"],
   "blocks": [
     {"clueFragment": "exact words from the clue", "gives": "LETTERS", "note": "why"},
-    {"clueFragment": "for letter_selection", "gives": "THE KEPT LETTERS", "select": "first", "note": "why"},
+    {"clueFragment": "the source words alone; the selector is an indicator", "gives": "THE KEPT LETTERS", "select": "first", "note": "why"},
     {"clueFragment": "for homophones/spoonerisms", "soundsLike": "WHAT YOU SAY ALOUD", "gives": "HOW IT IS SPELT", "note": "why"}
   ],
   "assembly": {
