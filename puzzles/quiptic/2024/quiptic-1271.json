@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,93 @@
     "text": "It’s Irish coming back following catastrophic start with epic finish for commentator",
     "enumeration": "6"
    },
-   "solution": "CRITIC"
+   "solution": "CRITIC",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "charade"
+    ],
+    "answer": "CRITIC",
+    "definitions": [
+     {
+      "text": "commentator",
+      "at": 73
+     }
+    ],
+    "indicators": [
+     {
+      "text": "start",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter, so only that one is kept"
+     },
+     {
+      "text": "coming back",
+      "for": "reversal",
+      "note": "something coming back travels the other way, so the letters run right to left"
+     },
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "one thing following another comes after it, so the earlier piece leads"
+     },
+     {
+      "text": "finish",
+      "for": "letter_selection",
+      "note": "the finish of a word is its closing letter, so only that one is kept"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "catastrophic",
+      "gives": "C",
+      "select": "first",
+      "note": "first letter of catastrophic"
+     },
+     {
+      "clueFragment": "It",
+      "gives": "IT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Irish",
+      "gives": "IR",
+      "note": "IR is the standard abbreviation for Irish"
+     },
+     {
+      "clueFragment": "epic",
+      "gives": "C",
+      "select": "last",
+      "note": "last letter of epic"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "RITI",
+      "C"
+     ],
+     "reversals": [
+      {
+       "from": "ITIR",
+       "to": "RITI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pundit describes an Irish team's awful start and grand ending to a match.",
+     "walkthrough": "The 's is just glue between the two words that turn round. IR is the usual abbreviation for Irish.",
+     "definitionFit": "A reviewer who passes judgement on books, films or plays is a commentator on them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "commentator"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +136,61 @@
     "text": "Almost certain to block acting ruler re-emerging",
     "enumeration": "9"
    },
-   "solution": "RESURGENT"
+   "solution": "RESURGENT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "RESURGENT",
+    "definitions": [
+     {
+      "text": "re-emerging",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the word loses its last letter"
+     },
+     {
+      "text": "to block",
+      "for": "container",
+      "note": "to block something is to sit in its way, so one piece is lodged inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "acting ruler",
+      "gives": "REGENT",
+      "note": "a regent rules on behalf of an absent or underage monarch"
+     },
+     {
+      "clueFragment": "certain",
+      "gives": "SUR",
+      "note": "sure, cut short by one letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "SUR",
+      "GENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A near-certain move to stop a stand-in ruler from making a comeback.",
+     "walkthrough": "'Acting ruler' sounds like a temporary official; a regent is precisely one who rules in the monarch's place.",
+     "definitionFit": "Something resurgent is rising again after a decline, much like reviving or coming back into view."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "block"
+    }
+   }
   },
   {
    "number": 3,
@@ -67,7 +210,67 @@
      }
     ]
    },
-   "solution": "TOOKON"
+   "solution": "TOOKON",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TOOK ON",
+    "definitions": [
+     {
+      "text": "Tackled",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tangled",
+      "for": "anagram",
+      "note": "a tangled thread is twisted out of order, so the letters are jumbled"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "to go round something is to encircle it, so one piece wraps the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "knot",
+      "gives": "KNOT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ducks",
+      "gives": "OO",
+      "note": "a duck is a score of nought in cricket, and nought looks like O; two of them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "OO",
+      "KON"
+     ],
+     "anagrams": [
+      {
+       "fodder": "KNOT",
+       "gives": "TKON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wrestles with a tangled knot while ducks swim about.",
+     "walkthrough": "The jumbled knot becomes T...KON, which wraps the pair of Os.",
+     "definitionFit": "To take someone on is to confront or challenge them, which is to tackle them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ducks"
+    }
+   }
   },
   {
    "number": 4,
@@ -91,7 +294,79 @@
      }
     ]
    },
-   "solution": "CUTATOOTH"
+   "solution": "CUTATOOTH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "CUT A TOOTH",
+    "definitions": [
+     {
+      "text": "Get chopper",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heading",
+      "for": "letter_selection",
+      "note": "the heading of a word is its top, so only the opening letter is kept"
+     },
+     {
+      "text": "hosted by",
+      "for": "container",
+      "note": "a guest hosted by someone is inside their home, so one piece goes inside another"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Charlie",
+      "gives": "C",
+      "note": "Charlie is C in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "state",
+      "gives": "UTAH",
+      "note": "Utah is a US state"
+     },
+     {
+      "clueFragment": "also",
+      "gives": "TOO",
+      "note": "too is a synonym for also"
+     },
+     {
+      "clueFragment": "trip",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter of trip"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "UTA",
+      "TOO",
+      "T",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone buys an axe, plus a phone-alphabet friend, before a trip around a state.",
+     "walkthrough": "'Chopper' is not an axe or helicopter but slang for a tooth, and 'Get chopper' is the whole definition.",
+     "definitionFit": "Chopper is informal slang for a tooth, so gaining one describes a baby's new tooth breaking through the gum."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "chopper"
+    }
+   }
   },
   {
    "number": 5,
@@ -105,7 +380,60 @@
     "text": "Appreciated priest reading me last letter",
     "enumeration": "6"
    },
-   "solution": "PRIZED"
+   "solution": "PRIZED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PRIZED",
+    "definitions": [
+     {
+      "text": "Appreciated",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reading",
+      "for": "charade",
+      "note": "one thing reading another sits beside it in a line, so the pieces run one after the next"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "priest",
+      "gives": "PR",
+      "note": "PR is an abbreviation for priest"
+     },
+     {
+      "clueFragment": "me",
+      "gives": "I",
+      "note": "the speaker refers to themselves as I"
+     },
+     {
+      "clueFragment": "last letter",
+      "gives": "ZED",
+      "note": "zed is the British name for the final letter of the alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PR",
+      "I",
+      "ZED"
+     ]
+    },
+    "explanation": {
+     "surface": "A cherished priest reads out a final letter addressed to the speaker.",
+     "walkthrough": "The last letter is of the alphabet, not of a word; British speakers call it zed rather than zee.",
+     "definitionFit": "Something prized is valued highly, treasured, which is what being appreciated amounts to."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "letter"
+    }
+   }
   },
   {
    "number": 5,
@@ -119,7 +447,45 @@
     "text": "Read aloud basic flier",
     "enumeration": "5"
    },
-   "solution": "PLANE"
+   "solution": "PLANE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "PLANE",
+    "definitions": [
+     {
+      "text": "flier",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Read aloud",
+      "for": "homophone",
+      "note": "reading aloud turns text into speech, so the word is identified by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "basic",
+      "gives": "PLANE",
+      "soundsLike": "PLAIN",
+      "note": "plain means simple or basic"
+     }
+    ],
+    "explanation": {
+     "surface": "An instruction to recite a simple leaflet out loud.",
+     "walkthrough": "'Flier' suggests a handbill to be read, but here it is something that flies.",
+     "definitionFit": "An aeroplane is a machine that travels through the air, so it is a flier."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flier"
+    }
+   }
   },
   {
    "number": 6,
@@ -139,7 +505,65 @@
      }
     ]
    },
-   "solution": "INCLOVER"
+   "solution": "INCLOVER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "IN CLOVER",
+    "definitions": [
+     {
+      "text": "Enjoying happy days",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "opening",
+      "for": "letter_selection",
+      "note": "the opening of a word is where it begins, so only the first letter is kept"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at home",
+      "gives": "IN",
+      "note": "someone at home is in"
+     },
+     {
+      "clueFragment": "champagne",
+      "gives": "C",
+      "select": "first",
+      "note": "first letter of champagne"
+     },
+     {
+      "clueFragment": "partner",
+      "gives": "LOVER",
+      "note": "a lover is a romantic partner"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "C",
+      "LOVER"
+     ]
+    },
+    "explanation": {
+     "surface": "A contented couple popping champagne at home together.",
+     "walkthrough": "'Opening champagne' looks like a celebration, but it only supplies a single C.",
+     "definitionFit": "The idiom describes living in comfort and prosperity, as cattle do in a rich field, so someone enjoying good times."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "opening"
+    }
+   }
   },
   {
    "number": 7,
@@ -153,7 +577,76 @@
     "text": "Consumer gets special rate after last time",
     "enumeration": "5"
    },
-   "solution": "EATER"
+   "solution": "EATER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "EATER",
+    "definitions": [
+     {
+      "text": "Consumer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "special",
+      "for": "anagram",
+      "note": "something special is made out of the ordinary, so the letters are rearranged"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "coming after something means following it, so one piece is placed behind the other"
+     },
+     {
+      "text": "last",
+      "for": "letter_selection",
+      "note": "the last of a word is its final letter, so only that is kept"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time",
+      "gives": "E",
+      "select": "last",
+      "note": "last letter of time"
+     },
+     {
+      "clueFragment": "rate",
+      "gives": "RATE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "ATER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RATE",
+       "gives": "ATER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shopper is offered a special deal at the last minute.",
+     "walkthrough": "'Special rate' reads as a discount, but special tells you to scramble RATE, which then follows the E.",
+     "definitionFit": "Someone who eats food consumes it, so a diner is literally a consumer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "special"
+    }
+   }
   },
   {
    "number": 8,
@@ -173,7 +666,55 @@
      }
     ]
    },
-   "solution": "LASHOUT"
+   "solution": "LASHOUT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LASH OUT",
+    "definitions": [
+     {
+      "text": "Have a go at",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "getting hold of",
+      "for": "container",
+      "note": "to get hold of something is to grasp it, so one piece is held inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hooligan",
+      "gives": "LOUT",
+      "note": "a lout is a rough, aggressive young man"
+     },
+     {
+      "clueFragment": "tree",
+      "gives": "ASH",
+      "note": "the ash is a common tree"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "ASH",
+      "OUT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tries to stop a thug who has grabbed hold of a tree.",
+     "walkthrough": "'Have a go at' is British idiom for attacking someone, not making an attempt at something.",
+     "definitionFit": "In British idiom, to have a go at someone is to attack them verbally or physically, the same as striking out."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "go"
+    }
+   }
   },
   {
    "number": 8,
@@ -197,7 +738,96 @@
      }
     ]
    },
-   "solution": "LAPOFLUXURY"
+   "solution": "LAPOFLUXURY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "deletion",
+     "charade"
+    ],
+    "answer": "LAP OF LUXURY",
+    "definitions": [
+     {
+      "text": "Comfort",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "in a down clue, over means turned upside down, so the letters run backwards"
+     },
+     {
+      "text": "play",
+      "for": "anagram",
+      "note": "to play with something is to move it around, so the letters are reshuffled"
+     },
+     {
+      "text": "disregarding",
+      "for": "deletion",
+      "note": "disregarding something means leaving it out, so a letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "friend",
+      "gives": "PAL",
+      "note": "a pal is a friend"
+     },
+     {
+      "clueFragment": "foul",
+      "gives": "FOUL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "by",
+      "gives": "X",
+      "note": "X is the multiplication sign, read as 'by' in measurements like 3 by 4"
+     },
+     {
+      "clueFragment": "jury",
+      "gives": "JURY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "judge",
+      "gives": "J",
+      "note": "J is the abbreviation for judge; this is the letter removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAP",
+      "OFLU",
+      "X",
+      "URY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FOUL",
+       "gives": "OFLU"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "PAL",
+       "to": "LAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Consoling a friend after a trial wrecked by a jury ignoring the judge.",
+     "walkthrough": "'Foul play' looks like a crime, but only play is an instruction: it reshuffles foul. X for 'by' is a crossword staple.",
+     "definitionFit": "The phrase describes a state of great ease and luxury, which is what comfort means as a noun here."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "by"
+    }
+   }
   },
   {
    "number": 9,
@@ -211,7 +841,79 @@
     "text": "Strict-living sect discovered imprisoned by revolutionary spies",
     "enumeration": "7"
    },
-   "solution": "ASCETIC"
+   "solution": "ASCETIC",
+   "annotation": {
+    "type": [
+     "anagram",
+     "reversal",
+     "container"
+    ],
+    "answer": "ASCETIC",
+    "definitions": [
+     {
+      "text": "Strict-living",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "discovered",
+      "for": "anagram",
+      "note": "read as dis-covered, the word loses its original form, so its letters are rearranged"
+     },
+     {
+      "text": "imprisoned by",
+      "for": "container",
+      "note": "a prisoner is held within walls, so one piece sits inside another"
+     },
+     {
+      "text": "revolutionary",
+      "for": "reversal",
+      "note": "a revolution turns something right round, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spies",
+      "gives": "CIA",
+      "note": "the CIA is the US intelligence agency"
+     },
+     {
+      "clueFragment": "sect",
+      "gives": "SECT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "SCET",
+      "IC"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SECT",
+       "gives": "SCET"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "CIA",
+       "to": "AIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An austere religious group is uncovered and locked up by rebel secret agents.",
+     "walkthrough": "The spy agency turns round to AIC, and the reworked sect goes between A and IC.",
+     "definitionFit": "An ascetic life is one of severe self-denial and discipline, avoiding all indulgence and pleasure."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "discovered"
+    }
+   }
   },
   {
    "number": 10,
@@ -235,7 +937,75 @@
      }
     ]
    },
-   "solution": "CREATEASTIR"
+   "solution": "CREATEASTIR",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "CREATE A STIR",
+    "definitions": [
+     {
+      "text": "Indicate concern",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ramble",
+      "for": "anagram",
+      "note": "a ramble wanders aimlessly, so the letters stray from their order"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "coming after something means following it, so one piece is placed behind the other"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "King",
+      "gives": "CR",
+      "note": "CR stands for Carolus Rex, King Charles"
+     },
+     {
+      "clueFragment": "lunch",
+      "gives": "EAT",
+      "note": "to lunch is to eat"
+     },
+     {
+      "clueFragment": "tries a",
+      "gives": "TRIESA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CR",
+      "EAT",
+      "EASTIR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TRIESA",
+       "gives": "EASTIR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A monarch goes for a walk after lunch, raising worries among his staff.",
+     "walkthrough": "The tempting abbreviation for King is R, but the answer needs CR, the royal cipher of a King Charles.",
+     "definitionFit": "Causing a fuss or commotion is how public alarm or disquiet becomes visible."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lunch"
+    }
+   }
   },
   {
    "number": 11,
@@ -263,7 +1033,65 @@
      }
     ]
    },
-   "solution": "PARFORTHECOURSE"
+   "solution": "PARFORTHECOURSE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "PAR FOR THE COURSE",
+    "definitions": [
+     {
+      "text": "just as expected",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is upset",
+      "for": "anagram",
+      "note": "upset means knocked over and disordered, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Part of her",
+      "gives": "PARTOFHER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "studies",
+      "gives": "COURSE",
+      "note": "a course is a programme of study"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PARFORTHE",
+      "COURSE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PARTOFHER",
+       "gives": "PARFORTHE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "One side of her is upset about her studies going exactly as predicted.",
+     "walkthrough": "'Part of her' tempts you to hunt for a hidden word, but all nine letters are the anagram fodder.",
+     "definitionFit": "From golf, the idiom means normal or typical, the result one would predict."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Part"
+    }
+   }
   },
   {
    "number": 12,
@@ -277,7 +1105,45 @@
     "text": "Disease picked up, passed quickly",
     "enumeration": "4"
    },
-   "solution": "FLEW"
+   "solution": "FLEW",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "FLEW",
+    "definitions": [
+     {
+      "text": "passed quickly",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "picked up",
+      "for": "homophone",
+      "note": "to pick up a sound is to hear it, so the word is identified by how it is spoken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Disease",
+      "gives": "FLEW",
+      "soundsLike": "FLU",
+      "note": "flu is influenza, a common disease"
+     }
+    ],
+    "explanation": {
+     "surface": "An illness is caught and then gone in no time.",
+     "walkthrough": "'Picked up' pairs naturally with catching a disease, but it signals hearing.",
+     "definitionFit": "Time that flew went by rapidly, so the past tense of fly fits passed quickly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "picked"
+    }
+   }
   },
   {
    "number": 13,
@@ -297,7 +1163,70 @@
      }
     ]
    },
-   "solution": "LOSEWEIGHT"
+   "solution": "LOSEWEIGHT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "LOSE WEIGHT",
+    "definitions": [
+     {
+      "text": "Get in shape",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "a new version is remade, so the letters are rebuilt in a different order"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sole",
+      "gives": "SOLE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "women’s",
+      "gives": "W",
+      "note": "W is the abbreviation for women's, as on clothing sizes"
+     },
+     {
+      "clueFragment": "rowing crew",
+      "gives": "EIGHT",
+      "note": "an eight is a racing boat crewed by eight rowers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOSE",
+      "W",
+      "EIGHT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SOLE",
+       "gives": "LOSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Joining a fresh women's rowing team as a way to get fit.",
+     "walkthrough": "Sole is not the fish or the shoe here, merely letters to scramble.",
+     "definitionFit": "Slimming down by shedding pounds is a common way of improving one's figure and fitness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sole"
+    }
+   }
   },
   {
    "number": 14,
@@ -311,7 +1240,56 @@
     "text": "Very pleased with former taxi worker",
     "enumeration": "9"
    },
-   "solution": "EXUBERANT"
+   "solution": "EXUBERANT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXUBERANT",
+    "definitions": [
+     {
+      "text": "Very pleased",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "former",
+      "gives": "EX",
+      "note": "ex- means former"
+     },
+     {
+      "clueFragment": "taxi",
+      "gives": "UBER",
+      "note": "Uber is the ride-hailing taxi service"
+     },
+     {
+      "clueFragment": "worker",
+      "gives": "ANT",
+      "note": "the worker ant is the crossword's favourite worker"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "UBER",
+      "ANT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is delighted with a person who used to drive a cab.",
+     "walkthrough": "'Taxi worker' reads as one person, a cab driver, but taxi and worker are separate pieces.",
+     "definitionFit": "Exuberance is lively high spirits and cheerful enthusiasm, the look of someone thoroughly delighted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "worker"
+    }
+   }
   },
   {
    "number": 15,
@@ -331,7 +1309,61 @@
      }
     ]
    },
-   "solution": "GLOBETROT"
+   "solution": "GLOBETROT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GLOBE-TROT",
+    "definitions": [
+     {
+      "text": "Travel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "anagram",
+      "note": "moving letters around changes their positions, so they are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "blog",
+      "gives": "BLOG",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "tore",
+      "gives": "TORE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Thailand",
+      "gives": "T",
+      "note": "T is the international vehicle code for Thailand"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BLOGTORET",
+       "gives": "GLOBETROT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A travel blogger raced around Thailand.",
+     "walkthrough": "'Tore' looks like the anagram signal, but it is fodder; around does the rearranging.",
+     "definitionFit": "To globetrot is to journey widely around the world, making it a lively verb for going places."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tore"
+    }
+   }
   },
   {
    "number": 16,
@@ -345,7 +1377,43 @@
     "text": "Accommodation divides into four",
     "enumeration": "8"
    },
-   "solution": "QUARTERS"
+   "solution": "QUARTERS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "QUARTERS",
+    "definitions": [
+     {
+      "text": "Accommodation",
+      "at": 0
+     },
+     {
+      "text": "divides into four",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Accommodation",
+      "note": "first meaning: lodgings, especially for soldiers or servants"
+     },
+     {
+      "clueFragment": "divides into four",
+      "note": "second meaning: splits into four equal parts"
+     }
+    ],
+    "explanation": {
+     "surface": "Housing being split up into four units.",
+     "walkthrough": "One word serves as a plural noun for lodgings and a verb for cutting into four.",
+     "definitionFit": "Living spaces such as barracks or staff rooms are called this, and the verb means cutting something into fourths."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Accommodation"
+    }
+   }
   },
   {
    "number": 17,
@@ -359,7 +1427,73 @@
     "text": "Lying article in Paris Match heartily hurtful rubbish",
     "enumeration": "10"
    },
-   "solution": "UNTRUTHFUL"
+   "solution": "UNTRUTHFUL",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "UNTRUTHFUL",
+    "definitions": [
+     {
+      "text": "Lying",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heartily",
+      "for": "letter_selection",
+      "note": "the heart of a word is its centre, so only the middle letter is kept"
+     },
+     {
+      "text": "rubbish",
+      "for": "anagram",
+      "note": "rubbish is a verb for trashing, so the letters are wrecked and rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "article in Paris",
+      "gives": "UN",
+      "note": "un is the French for a"
+     },
+     {
+      "clueFragment": "Match",
+      "gives": "T",
+      "select": "middle",
+      "note": "middle letter of match"
+     },
+     {
+      "clueFragment": "hurtful",
+      "gives": "HURTFUL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "TRUTHFUL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "THURTFUL",
+       "gives": "TRUTHFUL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dishonest piece in the French magazine Paris Match spreads spiteful nonsense.",
+     "walkthrough": "Paris Match is a real French magazine, so the surface reads naturally, but Match only lends its central T.",
+     "definitionFit": "Someone lying is not telling the truth, which is exactly what the adjective describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Match"
+    }
+   }
   },
   {
    "number": 18,
@@ -373,7 +1507,42 @@
     "text": "Tokyo gangsters showing physical and mental discipline",
     "enumeration": "4"
    },
-   "solution": "YOGA"
+   "solution": "YOGA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "YOGA",
+    "definitions": [
+     {
+      "text": "physical and mental discipline",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "showing",
+      "for": "hidden_word",
+      "note": "to show something is to let it be seen, so the letters are on display in the text"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tokyo gangsters",
+      "note": "the letters sit across the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "Japanese gangsters displaying great bodily and mental self-control.",
+     "walkthrough": "The answer runs from Tokyo into gangsters.",
+     "definitionFit": "This Indian practice combines postures, breathing and meditation to train both body and mind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "gangsters"
+    }
+   }
   },
   {
    "number": 19,
@@ -387,7 +1556,42 @@
     "text": "In combat manhandled masked superhero",
     "enumeration": "6"
    },
-   "solution": "BATMAN"
+   "solution": "BATMAN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "BATMAN",
+    "definitions": [
+     {
+      "text": "masked superhero",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "hidden_word",
+      "note": "something found in a phrase lies inside it, so the letters are within the text"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "combat manhandled",
+      "note": "the letters straddle the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A caped crusader roughed up in a fight.",
+     "walkthrough": "The answer spans the end of combat and the start of manhandled.",
+     "definitionFit": "The DC Comics crime fighter wears a cowl hiding his face, making him a classic caped vigilante."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "In"
+    }
+   }
   },
   {
    "number": 20,
@@ -407,7 +1611,65 @@
      }
     ]
    },
-   "solution": "UNDERCOVERAGENT"
+   "solution": "UNDERCOVERAGENT",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "UNDERCOVER AGENT",
+    "definitions": [
+     {
+      "text": "Spy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to comprehend",
+      "for": "container",
+      "note": "to comprehend once meant to take in or include, so one piece is held within another"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not old enough",
+      "gives": "UNDERAGE",
+      "note": "underage means too young"
+     },
+     {
+      "clueFragment": "obscure",
+      "gives": "COVER",
+      "note": "to obscure is to cover"
+     },
+     {
+      "clueFragment": "books",
+      "gives": "NT",
+      "note": "NT is the New Testament, a set of books of the Bible"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNDER",
+      "COVER",
+      "AGE",
+      "NT"
+     ]
+    },
+    "explanation": {
+     "surface": "A spy is too young to understand difficult reading matter.",
+     "walkthrough": "Comprehend here has its older sense of contain, not understand; 'books' is the New Testament, a crossword staple.",
+     "definitionFit": "An operative working in secret under a false identity is a secret agent gathering intelligence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "comprehend"
+    }
+   }
   },
   {
    "number": 21,
@@ -421,7 +1683,61 @@
     "text": "Male bird finally spotted on garden tool",
     "enumeration": "5"
    },
-   "solution": "DRAKE"
+   "solution": "DRAKE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DRAKE",
+    "definitions": [
+     {
+      "text": "Male bird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the end of a word, so only its last letter is kept"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down clue, one thing on another sits above it, so the pieces stack in order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spotted",
+      "gives": "D",
+      "select": "last",
+      "note": "last letter of spotted"
+     },
+     {
+      "clueFragment": "garden tool",
+      "gives": "RAKE",
+      "note": "a rake is a toothed garden tool"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "RAKE"
+     ]
+    },
+    "explanation": {
+     "surface": "A cock bird is finally seen perched on a garden implement.",
+     "walkthrough": "D goes above RAKE, since this is a down entry.",
+     "definitionFit": "The term is used for a male duck, as opposed to the female duck."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spotted"
+    }
+   }
   },
   {
    "number": 22,
@@ -435,7 +1751,56 @@
     "text": "Strangely not even lazy on vacation",
     "enumeration": "5"
    },
-   "solution": "ODDLY"
+   "solution": "ODDLY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ODDLY",
+    "definitions": [
+     {
+      "text": "Strangely",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on vacation",
+      "for": "letter_selection",
+      "note": "a vacated building is emptied out, so the word loses its inside and keeps its ends"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not even",
+      "gives": "ODD",
+      "note": "odd numbers are not even"
+     },
+     {
+      "clueFragment": "lazy",
+      "gives": "LY",
+      "select": "outer",
+      "note": "outer letters of lazy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ODD",
+      "LY"
+     ]
+    },
+    "explanation": {
+     "surface": "Curiously, someone is anything but idle while on holiday.",
+     "walkthrough": "'On vacation' pairs with lazy as a holiday mood, but it means emptied, leaving L and Y.",
+     "definitionFit": "Both adverbs describe something happening in a peculiar, unusual or unexpected manner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "vacation"
+    }
+   }
   },
   {
    "number": 23,
@@ -455,7 +1820,68 @@
      }
     ]
    },
-   "solution": "YEAREND"
+   "solution": "YEAREND",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "YEAR-END",
+    "definitions": [
+     {
+      "text": "when accounts close",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Finally",
+      "for": "letter_selection",
+      "note": "finally points to the end of a word, so only its last letter is kept"
+     },
+     {
+      "text": "gross",
+      "for": "anagram",
+      "note": "something gross is disgusting and mangled, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "certify",
+      "gives": "Y",
+      "select": "last",
+      "note": "last letter of certify"
+     },
+     {
+      "clueFragment": "earned",
+      "gives": "EARNED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "Y",
+      "EAREND"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EARNED",
+       "gives": "EAREND"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An accountant signs off the gross earnings at the close of the books.",
+     "walkthrough": "'Gross earned' reads as a figure in the accounts, but gross is the anagram signal.",
+     "definitionFit": "The end of the financial year is the point at which the books are balanced and closed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "gross"
+    }
+   }
   },
   {
    "number": 24,
@@ -469,7 +1895,74 @@
     "text": "Read out note Romeo’s hidden inside fan",
     "enumeration": "7"
    },
-   "solution": "ADMIRER"
+   "solution": "ADMIRER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade",
+     "container"
+    ],
+    "answer": "ADMIRER",
+    "definitions": [
+     {
+      "text": "fan",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out can mean out of order, so the letters are rearranged"
+     },
+     {
+      "text": "hidden inside",
+      "for": "container",
+      "note": "something hidden inside is enclosed, so one piece is tucked within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Read",
+      "gives": "READ",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "MI",
+      "note": "mi is the third note of the sol-fa scale"
+     },
+     {
+      "clueFragment": "Romeo",
+      "gives": "R",
+      "note": "Romeo is R in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "MI",
+      "R",
+      "ER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "READ",
+       "gives": "ADER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone reads aloud Romeo's love letter, concealed in a folding fan.",
+     "walkthrough": "'Read out' looks like a sound-alike signal, but out is the anagram signal, and 'hidden inside' is a container rather than a hidden word.",
+     "definitionFit": "A fan is an enthusiast or devotee, someone who looks up to and adores another."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 25,
@@ -483,7 +1976,77 @@
     "text": "Jumper has ruined front, covered in Jeyes fluid",
     "enumeration": "6"
    },
-   "solution": "JERSEY"
+   "solution": "JERSEY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "JERSEY",
+    "definitions": [
+     {
+      "text": "Jumper",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "front",
+      "for": "letter_selection",
+      "note": "the front of a word is its opening, so only the first letter is kept"
+     },
+     {
+      "text": "covered in",
+      "for": "container",
+      "note": "something covered in a substance is enclosed by it, so one piece goes inside another"
+     },
+     {
+      "text": "fluid",
+      "for": "anagram",
+      "note": "a fluid thing flows and changes shape, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jeyes",
+      "gives": "JEYES",
+      "note": "taken as written; Jeyes Fluid is a British brand of disinfectant"
+     },
+     {
+      "clueFragment": "ruined",
+      "gives": "R",
+      "select": "first",
+      "note": "first letter of ruined"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JE",
+      "R",
+      "SEY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "JEYES",
+       "gives": "JESEY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sweater's front has been spoilt by being splashed with disinfectant.",
+     "walkthrough": "Jeyes Fluid is a British household disinfectant, so the surface hangs together, but fluid is the anagram signal. A jumper is a British word for a sweater.",
+     "definitionFit": "A knitted pullover sweater is called a jumper in Britain, the same garment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fluid"
+    }
+   }
   },
   {
    "number": 26,
@@ -503,7 +2066,71 @@
      }
     ]
    },
-   "solution": "TENDTO"
+   "solution": "TENDTO",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "TEND TO",
+    "definitions": [
+     {
+      "text": "Care for",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "between",
+      "for": "charade",
+      "note": "something between two things sits in the middle of a row, so the pieces line up in that order"
+     },
+     {
+      "text": "going out",
+      "for": "deletion",
+      "note": "something going out leaves, so a letter departs from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "10",
+      "gives": "TEN",
+      "note": "the number written as a word"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the abbreviation for daughter"
+     },
+     {
+      "clueFragment": "2",
+      "gives": "TWO",
+      "note": "the number written as a word"
+     },
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "W is the abbreviation for wife; this is the letter removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEN",
+      "D",
+      "TO"
+     ]
+    },
+    "explanation": {
+     "surface": "Looking after a daughter from ten until two while the wife is out.",
+     "walkthrough": "The numbers look like clock times, but they are spelt out as words; W is the standard abbreviation for wife.",
+     "definitionFit": "To look after or attend to someone's needs is to nurse or mind them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "10"
+    }
+   }
   }
  ]
 }
