@@ -6988,6 +6988,59 @@ global.realSetTimeout(() => {
     "milestones reached are listed with their day");
   assert(!/\b(seconds?|minutes?|hours?|time|speed|fast)\b/i.test(html.replace(/<[^>]*>/g, " ")),
     "the stats never mention time or speed: the score counts hints");
+  // By clue type: each solved clue under every type its annotation names, the
+  // clean share and hints per clue recounted here from the same saves.
+  const typeOf = (e) => ((e.annotation || e.blog || {}).type || []);
+  const leaders = (puz) => puz.entries.filter((e) => !puz.entries.some((l) =>
+    l !== e && (l.group || []).slice(1).includes(entryId(e))));
+  const byType = {};
+  [[A, () => 0], [B, (e) => (e === b1 ? 2 : e === b2 ? 1 : 0)], [D, () => 3]].forEach(([puz, cost]) =>
+    leaders(puz).forEach((e) => typeOf(e).forEach((t) => {
+      const r = byType[t] = byType[t] || { n: 0, clean: 0, cost: 0 };
+      r.n++; r.cost += cost(e); if (!cost(e)) r.clean++;
+    })));
+  const typeRows = [...html.matchAll(/<div class="type-row([^"]*)"><span class="type-label">([^<]*)<\/span>.*?<span class="type-num">([^<]*)<\/span>/g)]
+    .map((m) => ({ cls: m[1], label: m[2], num: m[3] }));
+  const labelOf = Object.fromEntries(global.CRYPTIC_INDEX.clueTypes.types.map((t) => [t.name, t.label]));
+  assert(typeRows.length === Object.keys(byType).length, "a row per clue type solved: " + JSON.stringify(typeRows));
+  Object.entries(byType).forEach(([t, r]) => {
+    const row = typeRows.find((x) => x.label === labelOf[t]);
+    const want = (r.n >= 5 ? Math.round(100 * r.clean / r.n) + "%" : "–") + " · " + (Math.round(10 * r.cost / r.n) / 10).toFixed(1);
+    assert(row && row.num === want, `${t}: ${want}, fewer than 5 clues unranked: ` + JSON.stringify(row));
+    assert(row.cls.includes("few") === (r.n < 5), `${t} is marked few exactly when under 5 clues`);
+  });
+  const ranked = Object.entries(byType).filter(([, r]) => r.n >= 5)
+    .sort(([, a], [, b]) => b.clean / b.n - a.clean / a.n || a.cost / a.n - b.cost / b.n);
+  const weakest = ranked[ranked.length - 1][0];
+  assert(typeRows.find((x) => x.cls.includes("weakest")).label === labelOf[weakest],
+    "the weakest is the ranked type with the lowest clean share: " + weakest);
+  const practise = /<a class="practise" href="[^"]*\?p=([^&"]+)&c=(\d+[AD])">Practise your weakest/.exec(html);
+  assert(practise, "a practise link names a puzzle and a clue: " + (/<a class="practise[^>]*>/.exec(html) || [])[0]);
+  const [, pid, pref] = practise;
+  const target = global.window.CRYPTIC_PUZZLES[decodeURIComponent(pid)];
+  const clue = target && target.entries.find((e) => e.number + (e.direction === "across" ? "A" : "D") === pref);
+  assert(clue && typeOf(clue).includes(weakest) && !planted["ct:" + decodeURIComponent(pid)],
+    `and it opens an unsolved ${weakest} clue: ${pid} ${pref}`);
+
+  // The shelf: finished of the puzzles with answers, only series with a save.
+  const size = (series) => global.CRYPTIC_INDEX.puzzles.filter((p) => p.series === series && p.hasSolutions).length;
+  const shelf = [...html.matchAll(/<div class="shelf-row">[\s\S]*?<span class="shelf-n">([^<]*)<\/span>/g)].map((m) => m[1]);
+  assert(String(shelf.sort()) === String([`1 / ${size("cryptic").toLocaleString()}`, `2 / ${size("quiptic").toLocaleString()}`].sort()),
+    "the shelf holds cryptic 1 and quiptic 2 finished, and no series untouched: " + shelf);
+
+  // The year: a cell per local day since the Sunday 51 weeks back, shaded by
+  // clues solved, a clean finish ringed.
+  const cells = [...html.matchAll(/<rect [^>]*class="(l\d)( clean)?"><title>([^<]*)<\/title>/g)];
+  assert(cells.length === 51 * 7 + new Date().getDay() + 1, "52 weeks of days up to today: " + cells.length);
+  const dayLabel = (t) => new Date(t).toLocaleDateString(undefined, { day: "numeric", month: "short", year: "numeric" });
+  const cellOn = (t) => cells.find((m) => m[3].startsWith(dayLabel(t) + ":"));
+  assert(cellOn(noon(2))[3].startsWith(`${dayLabel(noon(2))}: ${clueCount(A)} clues`) && cellOn(noon(2))[2],
+    "two days ago holds A's clues and is ringed for its clean finish: " + cellOn(noon(2))[0]);
+  assert(cellOn(noon(1))[3].includes(`${clueCount(B)} clues`) && !cellOn(noon(1))[2],
+    "yesterday holds B's clues, not ringed, B having needed hints: " + cellOn(noon(1))[0]);
+  assert(cellOn(noon(3))[1] === "l0", "a day with nothing solved is unshaded");
+  assert(cells[cells.length - 1][3].startsWith(dayLabel(Date.now()) + ":"), "the last cell is today");
+
   const rank = (/<p class="rank"><strong>(\w+)/.exec(html) || [])[1];
   assert(rank && rank !== "Novice" && /Next, \w+: /.test(html), "clean solves earn a rank above Novice: " + rank);
 
