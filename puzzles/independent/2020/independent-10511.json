@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,60 @@
    "group": [
     "1-down",
     "2-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "DATABASE",
+    "definitions": [
+     {
+      "text": "Information",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hiding",
+      "for": "hidden_word",
+      "note": "something hiding sits concealed inside something else, so the letters lie inside a run of clue words"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue 'up' means read from bottom to top, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "caves a bat adopted",
+      "gives": "ESABATAD",
+      "note": "the run of letters sitting across these words, read as printed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DATABASE"
+     ],
+     "reversals": [
+      {
+       "from": "ESABATAD",
+       "to": "DATABASE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A report on a colony of bats that has made its home deep in some caves.",
+     "walkthrough": "Read cavES A BAT ADopted backwards and DATABASE appears; the answer is split across the two linked lights 1 and 2.",
+     "definitionFit": "A database is an organised store of facts and records, so the word stands for stored information."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hiding"
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +120,62 @@
     "text": "Stock gift containing lead free pen",
     "enumeration": "8"
    },
-   "solution": "BOUILLON"
+   "solution": "BOUILLON",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "BOUILLON",
+    "definitions": [
+     {
+      "text": "Stock",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lead free",
+      "for": "deletion",
+      "note": "free of its lead means without its leading letter, so the front letter is dropped"
+     },
+     {
+      "text": "containing",
+      "for": "container",
+      "note": "to contain is to hold within, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gift",
+      "gives": "BOON",
+      "note": "a boon is a blessing or gift"
+     },
+     {
+      "clueFragment": "pen",
+      "gives": "UILL",
+      "note": "a quill is an old writing pen; without its first letter it leaves these four"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BO",
+      "UILL",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A shareholder receives a present of a pen that uses no lead in its ink.",
+     "walkthrough": "'Lead free pen' reads like an eco-friendly writing instrument; it is QUILL losing its lead letter, which then sits inside BOON.",
+     "definitionFit": "Bouillon is the French word for a clear broth, which is the liquid cooks call stock."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Stock"
+    }
+   }
   },
   {
    "number": 4,
@@ -78,7 +189,71 @@
     "text": "Two cups overturned following half Arabic source of fizz",
     "enumeration": "6"
    },
-   "solution": "BICARB"
+   "solution": "BICARB",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "charade"
+    ],
+    "answer": "BICARB",
+    "definitions": [
+     {
+      "text": "source of fizz",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half",
+      "for": "letter_selection",
+      "note": "taking half of a word keeps one equal portion of its letters and discards the rest"
+     },
+     {
+      "text": "overturned",
+      "for": "reversal",
+      "note": "something overturned is flipped upside down, so in a down entry its letters run the other way"
+     }
+    ],
+    "linkWords": [
+     "following"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Arabic",
+      "gives": "BIC",
+      "select": "last",
+      "note": "the second half of the six letters"
+     },
+     {
+      "clueFragment": "Two cups",
+      "gives": "BRA",
+      "note": "a bra has two cups"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BIC",
+      "ARB"
+     ],
+     "reversals": [
+      {
+       "from": "BRA",
+       "to": "ARB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Coffee cups knocked over in a café, with half the Arabic coffee lost as it fizzes.",
+     "walkthrough": "'Two cups' is a bra, a crossword favourite; turned over it sits after the back half of ARABIC.",
+     "definitionFit": "Bicarb, short for bicarbonate of soda, releases carbon dioxide bubbles, so it is the thing that makes drinks and powders fizz."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "cups"
+    }
+   }
   },
   {
    "number": 5,
@@ -102,7 +277,77 @@
      }
     ]
    },
-   "solution": "ASKFORIT"
+   "solution": "ASKFORIT",
+   "annotation": {
+    "type": [
+     "cycling",
+     "container"
+    ],
+    "answer": "ASK FOR IT",
+    "definitions": [
+     {
+      "text": "court trouble",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Cycle",
+      "for": "cycling",
+      "note": "to cycle is to go round, so the last letter comes round to the front"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece placed in another sits inside it"
+     }
+    ],
+    "linkWords": [
+     "leads to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "squat",
+      "gives": "SIT",
+      "note": "to squat is to sit on one's haunches"
+     },
+     {
+      "clueFragment": "fork",
+      "gives": "FORK",
+      "note": "taken as written before being cycled"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "S",
+      "KFOR",
+      "IT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FORK",
+       "gives": "KFOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A broken bicycle fork left in a squat ends up with someone being taken to court.",
+     "walkthrough": "'Cycle fork' reads as a bike part, but 'cycle' is an instruction: the last letter rotates round to the front before the result goes inside.",
+     "definitionFit": "To court trouble is to invite it by reckless behaviour, which is exactly what the idiom about provoking consequences means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Cycle"
+    }
+   }
   },
   {
    "number": 6,
@@ -116,7 +361,59 @@
     "text": "After singer departs for church",
     "enumeration": "6"
    },
-   "solution": "BEYOND"
+   "solution": "BEYOND",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "BEYOND",
+    "definitions": [
+     {
+      "text": "After",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for",
+      "for": "substitution",
+      "note": "X for Y means X put in place of Y, so one piece takes over another's slot"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "singer",
+      "gives": "BEYONCE",
+      "note": "Beyoncé, the American pop star"
+     },
+     {
+      "clueFragment": "departs",
+      "gives": "D",
+      "note": "D is the abbreviation for departs on timetables"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEYON",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Once the singer has left, everyone heads off to church.",
+     "walkthrough": "The final CE of BEYONCE is swapped for D. 'Departs' looks like a verb about the singer leaving; it is the timetable abbreviation.",
+     "definitionFit": "Beyond can mean later than a point in time, as in 'beyond midnight', matching a preposition meaning later."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "departs"
+    }
+   }
   },
   {
    "number": 7,
@@ -136,7 +433,52 @@
      }
     ]
    },
-   "solution": "CONTINUE"
+   "solution": "CONTINUE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CONTINUE",
+    "definitions": [
+     {
+      "text": "Carry On",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Doctor",
+      "for": "anagram",
+      "note": "to doctor is to tamper with or falsify, so the letters are altered into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in one cut",
+      "gives": "INONECUT",
+      "note": "the eight letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INONECUT",
+       "gives": "CONTINUE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The 1967 comedy film Carry On Doctor, released in a single uncut version.",
+     "walkthrough": "The italic title Carry On Doctor hides both the definition and the anagram signal; Carry On films were a long-running series of British comedy movies.",
+     "definitionFit": "To carry on is to keep going without stopping, the ordinary meaning of the verb to persist."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Doctor"
+    }
+   }
   },
   {
    "number": 8,
@@ -150,7 +492,56 @@
     "text": "A European railway's cheating",
     "enumeration": "8"
    },
-   "solution": "ADULTERY"
+   "solution": "ADULTERY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADULTERY",
+    "definitions": [
+     {
+      "text": "cheating",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "ADULT",
+      "note": "A was the British film certificate for adult viewing"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the standard abbreviation for European"
+     },
+     {
+      "clueFragment": "railway",
+      "gives": "RY",
+      "note": "RY is the abbreviation for railway"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ADULT",
+      "E",
+      "RY"
+     ]
+    },
+    "explanation": {
+     "surface": "A continental train company has been caught fiddling its accounts or its tickets.",
+     "walkthrough": "'A' looks like the article, but it expands to ADULT, from the old British A film certificate.",
+     "definitionFit": "Adultery is being unfaithful to a spouse, which in everyday speech is called cheating on a partner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "A"
+    }
+   }
   },
   {
    "number": 9,
@@ -170,7 +561,60 @@
      }
     ]
    },
-   "solution": "ANABOLICSTEROID"
+   "solution": "ANABOLICSTEROID",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ANABOLIC STEROID",
+    "definitions": [
+     {
+      "text": "it helped Johnson win once",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "worked up",
+      "for": "anagram",
+      "note": "worked up means agitated or stirred, so the letters are churned into a new order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "No Deal act, Boris",
+      "gives": "NODEALACTBORIS",
+      "note": "the letters of the first part of the fodder"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NODEALACTBORISI",
+       "gives": "ANABOLICSTEROID"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Brexit politics: a No Deal act, with Boris Johnson and the speaker getting agitated over it.",
+     "walkthrough": "The surface points at Boris Johnson; the definition's Johnson is Ben Johnson, the sprinter stripped of his 1988 Olympic 100m gold after testing positive for steroids.",
+     "definitionFit": "Ben Johnson won the 1988 Olympic sprint while using a performance-enhancing drug of this class, later disqualified for it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Johnson"
+    }
+   }
   },
   {
    "number": 10,
@@ -184,7 +628,67 @@
     "text": "Country accepted organised crime ace",
     "enumeration": "7"
    },
-   "solution": "AMERICA"
+   "solution": "AMERICA",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "AMERICA",
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "organised",
+      "for": "anagram",
+      "note": "to organise is to arrange, so these letters are put into a new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "accepted",
+      "gives": "A",
+      "note": "A is the abbreviation for accepted"
+     },
+     {
+      "clueFragment": "crime",
+      "gives": "CRIME",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "ace",
+      "gives": "A",
+      "note": "A is ace on a playing card"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MERIC",
+      "A"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CRIME",
+       "gives": "MERIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nation has come to accept organised crime as something it excels at.",
+     "walkthrough": "'Organised crime' reads as one phrase, the Mafia; split it, and 'organised' is the signal to rearrange CRIME.",
+     "definitionFit": "America is commonly used as the name of the United States, a nation state."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "organised"
+    }
+   }
   },
   {
    "number": 11,
@@ -198,7 +702,67 @@
     "text": "Saw a team keeping two metres apart",
     "enumeration": "5"
    },
-   "solution": "MAXIM"
+   "solution": "MAXIM",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MAXIM",
+    "definitions": [
+     {
+      "text": "Saw",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeping",
+      "for": "container",
+      "note": "to keep something is to hold it, so one piece holds the other"
+     },
+     {
+      "text": "apart",
+      "for": "container",
+      "note": "things held apart are separated, with something placed between them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "two metres",
+      "gives": "MM",
+      "note": "M is the abbreviation for metre, twice"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "team",
+      "gives": "XI",
+      "note": "a team of eleven, as in cricket or football, is an XI"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "A",
+      "XI",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "A team spotted keeping two metres apart, as under social-distancing rules.",
+     "walkthrough": "The two Ms are the 'apart' ones, holding A XI between them. 'Saw' looks like a past tense verb but is a noun.",
+     "definitionFit": "A saw is an old saying or proverb, and a maxim is a short statement of a general truth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Saw"
+    }
+   }
   },
   {
    "number": 12,
@@ -212,7 +776,49 @@
     "text": "Regularly ignored forlorn St Paul's altar hanging",
     "enumeration": "7"
    },
-   "solution": "FRONTAL"
+   "solution": "FRONTAL",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "FRONTAL",
+    "definitions": [
+     {
+      "text": "altar hanging",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Regularly ignored",
+      "for": "letter_selection",
+      "note": "ignoring at a regular interval skips every other letter, keeping the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "forlorn St Paul's",
+      "gives": "FRONTAL",
+      "select": "alternate",
+      "note": "the first, third, fifth letters and so on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FRONTAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A neglected, sorry-looking hanging on the altar of St Paul's Cathedral.",
+     "walkthrough": "Taking the odd letters of FoRlOrN sT pAuLs spells the answer; St Paul's is London's cathedral.",
+     "definitionFit": "A frontal is a decorated cloth panel covering the front of a church altar."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ignored"
+    }
+   }
   },
   {
    "number": 13,
@@ -226,7 +832,44 @@
     "text": "Old character voiced legendary blade",
     "enumeration": "9"
    },
-   "solution": "EXCALIBUR"
+   "solution": "EXCALIBUR",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "EXCALIBUR",
+    "definitions": [
+     {
+      "text": "legendary blade",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "voiced",
+      "for": "homophone",
+      "note": "something voiced is spoken, so the result is judged by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old character",
+      "gives": "EXCALIBUR",
+      "soundsLike": "EX CALIBRE",
+      "note": "old gives ex, as in former, and character gives calibre, meaning quality"
+     }
+    ],
+    "explanation": {
+     "surface": "An old character actor provided the voice of a mythical warrior's sword.",
+     "walkthrough": "EX (old) plus CALIBRE (character) spoken together sound like the sword's name.",
+     "definitionFit": "Excalibur is King Arthur's sword in the Arthurian legends, drawn from the stone or given by the Lady of the Lake."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 14,
@@ -240,7 +883,60 @@
     "text": "Social distance one street away",
     "enumeration": "5"
    },
-   "solution": "DANCE"
+   "solution": "DANCE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "DANCE",
+    "definitions": [
+     {
+      "text": "Social",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "away",
+      "for": "deletion",
+      "note": "whatever is away is gone, so those letters are taken out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "distance",
+      "gives": "DISTANCE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "street",
+      "gives": "ST",
+      "note": "ST is the abbreviation for street"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "Social distancing: stay a street's length away from anyone else.",
+     "walkthrough": "'Social distance' reads as one pandemic phrase; 'Social' alone is the definition, a noun meaning a party.",
+     "definitionFit": "A social is an informal party or gathering, and a dance is exactly such an evening event."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Social"
+    }
+   }
   },
   {
    "number": 15,
@@ -254,7 +950,68 @@
     "text": "Influence Independent politician in General Election initially",
     "enumeration": "7"
    },
-   "solution": "IMPINGE"
+   "solution": "IMPINGE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "IMPINGE",
+    "definitions": [
+     {
+      "text": "Influence",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the opening letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Independent",
+      "gives": "I",
+      "note": "I is the abbreviation for Independent"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "MP",
+      "note": "an MP is a Member of Parliament"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "General Election",
+      "gives": "GE",
+      "select": "first",
+      "note": "the first letter of each word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "MP",
+      "IN",
+      "GE"
+     ]
+    },
+    "explanation": {
+     "surface": "How much sway can an independent candidate have at a general election?",
+     "walkthrough": "'In' looks like a container signal but is simply part of the string.",
+     "definitionFit": "To impinge on something is to have an effect on it, so the verb works as a synonym for influence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 15,
@@ -274,7 +1031,58 @@
      }
     ]
    },
-   "solution": "ICECREAM"
+   "solution": "ICECREAM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ICE CREAM",
+    "definitions": [
+     {
+      "text": "sweet course",
+      "at": 38
+     }
+    ],
+    "linkWords": [
+     "over",
+     "it's a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Formality",
+      "gives": "ICE",
+      "note": "ice is cold reserve or stiffness of manner"
+     },
+     {
+      "clueFragment": "college",
+      "gives": "C",
+      "note": "C is the abbreviation for college"
+     },
+     {
+      "clueFragment": "paper",
+      "gives": "REAM",
+      "note": "a ream is 500 sheets of paper"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ICE",
+      "C",
+      "REAM"
+     ]
+    },
+    "explanation": {
+     "surface": "The fuss about a university essay is described as an easy option for students.",
+     "walkthrough": "In a down clue 'over' places the first piece above the rest.",
+     "definitionFit": "Ice cream is served as a dessert, the sweet course at the end of a meal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "course"
+    }
+   }
   },
   {
    "number": 16,
@@ -294,7 +1102,70 @@
      }
     ]
    },
-   "solution": "POLKADOT"
+   "solution": "POLKADOT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "POLKA DOT",
+    "definitions": [
+     {
+      "text": "spot",
+      "at": 62
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lacking finishers",
+      "for": "deletion",
+      "note": "lacking their finishers means the words lose their final letters"
+     },
+     {
+      "text": "looking towards the top",
+      "for": "reversal",
+      "note": "in a down entry, facing the top means reading from bottom to top, backwards"
+     }
+    ],
+    "linkWords": [
+     "is",
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Today",
+      "gives": "TODA",
+      "note": "the word without its last letter"
+     },
+     {
+      "clueFragment": "Klopp",
+      "gives": "KLOP",
+      "note": "the name without its last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POLKADOT"
+     ],
+     "reversals": [
+      {
+       "from": "TODAKLOP",
+       "to": "POLKADOT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Jürgen Klopp's Liverpool are missing strikers today yet still eyeing first place in the league.",
+     "walkthrough": "'Top spot' looks like the definition, a league position; only 'spot' defines, and 'the top' belongs to the reversal signal.",
+     "definitionFit": "A polka dot is one of the round dots in a regular pattern on fabric, so it is a spot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "finishers"
+    }
+   }
   },
   {
    "number": 17,
@@ -308,7 +1179,75 @@
     "text": "Turned up noise to conceal Military Intelligence - special release",
     "enumeration": "8"
    },
-   "solution": "EMISSION"
+   "solution": "EMISSION",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "EMISSION",
+    "definitions": [
+     {
+      "text": "release",
+      "at": 59
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Turned up",
+      "for": "reversal",
+      "note": "turned up in a down clue means flipped to read from the bottom, so backwards"
+     },
+     {
+      "text": "to conceal",
+      "for": "container",
+      "note": "to conceal is to hide within, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "noise",
+      "gives": "NOISE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Military Intelligence",
+      "gives": "MI",
+      "note": "MI is the standard abbreviation"
+     },
+     {
+      "clueFragment": "special",
+      "gives": "S",
+      "note": "S is the abbreviation for special"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "MI",
+      "S",
+      "SION"
+     ],
+     "reversals": [
+      {
+       "from": "NOISE",
+       "to": "ESION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A loud noise covers up a secret intelligence operation's special release of information.",
+     "walkthrough": "'Turned up noise' reads as volume being raised; in a down clue it means the word read upwards, with the spy agency and special slipped in after its first letter.",
+     "definitionFit": "An emission is something given off or discharged, the same sense as a release of gas or light."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Turned"
+    }
+   }
   },
   {
    "number": 18,
@@ -322,7 +1261,56 @@
     "text": "Attempt to take in old play",
     "enumeration": "7"
    },
-   "solution": "TRAGEDY"
+   "solution": "TRAGEDY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TRAGEDY",
+    "definitions": [
+     {
+      "text": "play",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to take in",
+      "for": "container",
+      "note": "to take in is to admit inside, so one piece holds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Attempt",
+      "gives": "TRY",
+      "note": "a try is an attempt"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "AGED",
+      "note": "aged means old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TR",
+      "AGED",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tries to go and see a classic piece of theatre.",
+     "walkthrough": "'Take in' sounds like going to see a show; it is the signal for TRY to hold AGED.",
+     "definitionFit": "A tragedy is a drama with a sorrowful ending, one kind of stage play."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "take"
+    }
+   }
   },
   {
    "number": 19,
@@ -336,7 +1324,68 @@
     "text": "Obvious answer pages are not vacuous",
     "enumeration": "8"
    },
-   "solution": "APPARENT"
+   "solution": "APPARENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "APPARENT",
+    "definitions": [
+     {
+      "text": "Obvious",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "vacuous",
+      "for": "letter_selection",
+      "note": "vacuous means empty, so the word loses its insides and keeps its two ends"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "answer",
+      "gives": "A",
+      "note": "A is the abbreviation for answer"
+     },
+     {
+      "clueFragment": "pages",
+      "gives": "PP",
+      "note": "pp is the abbreviation for pages"
+     },
+     {
+      "clueFragment": "are",
+      "gives": "ARE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "not",
+      "gives": "NT",
+      "select": "outer",
+      "note": "just the first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "PP",
+      "ARE",
+      "NT"
+     ]
+    },
+    "explanation": {
+     "surface": "The answer is plain to see: these pages are far from empty-headed.",
+     "walkthrough": "'Not vacuous' reads as meaning full or meaningful; 'vacuous' empties NOT down to its ends.",
+     "definitionFit": "Apparent means clearly visible or plain to understand, a direct synonym for evident."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "vacuous"
+    }
+   }
   },
   {
    "number": 20,
@@ -350,7 +1399,69 @@
     "text": "Lag finally escaped lock-up",
     "enumeration": "5"
    },
-   "solution": "DELAY"
+   "solution": "DELAY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "charade"
+    ],
+    "answer": "DELAY",
+    "definitions": [
+     {
+      "text": "Lag",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally means at the end, so only the closing letter is kept"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue 'up' means reading from the bottom, so backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "escaped",
+      "gives": "D",
+      "select": "last",
+      "note": "the final letter"
+     },
+     {
+      "clueFragment": "lock",
+      "gives": "YALE",
+      "note": "Yale is a well-known brand of lock"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ELAY"
+     ],
+     "reversals": [
+      {
+       "from": "YALE",
+       "to": "ELAY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old convict has at last broken out of the prison where he was locked up.",
+     "walkthrough": "'Lag' is British slang for a convict, which drives the prison story; 'lock-up' is not a jail but a lock read upwards.",
+     "definitionFit": "A lag is a gap in time between events, the same sense as a hold-up or wait."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Lag"
+    }
+   }
   },
   {
    "number": 21,
@@ -364,7 +1475,60 @@
     "text": "Naked pecs? Add muscle for striking effect",
     "enumeration": "5"
    },
-   "solution": "ECLAT"
+   "solution": "ECLAT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ECLAT",
+    "definitions": [
+     {
+      "text": "striking effect",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Naked",
+      "for": "letter_selection",
+      "note": "naked means stripped of coverings, so the word loses its outer letters"
+     }
+    ],
+    "linkWords": [
+     "for",
+     "Add"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pecs",
+      "gives": "EC",
+      "select": "middle",
+      "note": "the letters left inside"
+     },
+     {
+      "clueFragment": "muscle",
+      "gives": "LAT",
+      "note": "the lats are the latissimus dorsi back muscles"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EC",
+      "LAT"
+     ]
+    },
+    "explanation": {
+     "surface": "A bodybuilder posing shirtless adds muscle definition for a more impressive look.",
+     "walkthrough": "Stripping PECS to EC and adding LAT, a gym word for a back muscle, gives the French borrowing.",
+     "definitionFit": "Éclat is brilliant show or dazzling success, a flourish that creates a strong impression."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Naked"
+    }
+   }
   },
   {
    "number": 22,
@@ -378,7 +1542,66 @@
     "text": "This number's dry without singer's introduction",
     "enumeration": "6"
    },
-   "solution": "THIRTY"
+   "solution": "THIRTY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "THIRTY",
+    "definitions": [
+     {
+      "text": "This number",
+      "at": 0,
+      "note": "self-referential: the clue's own number"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "introduction",
+      "for": "letter_selection",
+      "note": "an introduction comes at the start, so only the opening letter is kept"
+     },
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so a letter is taken out"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dry",
+      "gives": "THIRSTY",
+      "note": "thirsty means dry, in need of a drink"
+     },
+     {
+      "clueFragment": "singer's",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THIR",
+      "TY"
+     ]
+    },
+    "explanation": {
+     "surface": "A singer complains that this song feels flat without a proper introduction.",
+     "walkthrough": "'Number' looks like a song; it is simply a number word. 'This' is loose, as the clue's own number is 22, not the answer.",
+     "definitionFit": "Thirty is a cardinal numeral, three times ten, so it is a number in the counting sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "number's"
+    }
+   }
   },
   {
    "number": 23,
@@ -392,7 +1615,77 @@
     "text": "Useless sailor emptied latrine after panic at sea",
     "enumeration": "9"
    },
-   "solution": "INCAPABLE"
+   "solution": "INCAPABLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "INCAPABLE",
+    "definitions": [
+     {
+      "text": "Useless",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at sea",
+      "for": "anagram",
+      "note": "at sea means confused and all over the place, so the letters are jumbled"
+     },
+     {
+      "text": "emptied",
+      "for": "letter_selection",
+      "note": "an emptied word has lost its contents, keeping only its two ends"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "panic",
+      "gives": "PANIC",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "sailor",
+      "gives": "AB",
+      "note": "AB is an able-bodied seaman"
+     },
+     {
+      "clueFragment": "latrine",
+      "gives": "LE",
+      "select": "outer",
+      "note": "the first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INCAP",
+      "AB",
+      "LE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PANIC",
+       "gives": "INCAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hopeless deckhand cleans out the ship's toilet after everyone panics during a storm.",
+     "walkthrough": "'At sea' fits the naval picture but is the anagram signal, and 'after' means the jumbled word comes first, before the sailor and the emptied toilet.",
+     "definitionFit": "Incapable means lacking the ability to do something, so a useless person is incapable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sea"
+    }
+   }
   },
   {
    "number": 24,
@@ -406,7 +1699,47 @@
     "text": "Inferior, firm rump",
     "enumeration": "6"
    },
-   "solution": "COARSE"
+   "solution": "COARSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COARSE",
+    "definitions": [
+     {
+      "text": "Inferior",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "firm",
+      "gives": "CO",
+      "note": "Co is the abbreviation for company"
+     },
+     {
+      "clueFragment": "rump",
+      "gives": "ARSE",
+      "note": "arse is British slang for backside"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "ARSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A cut of meat described as a poor-quality, tough piece of rump.",
+     "walkthrough": "'Firm' reads as describing the rump's texture; it is a business, CO.",
+     "definitionFit": "Coarse means rough and of low quality, as in coarse cloth, so it matches second-rate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "firm"
+    }
+   }
   },
   {
    "number": 25,
@@ -420,7 +1753,67 @@
     "text": "Stage crew run over crazy ideas",
     "enumeration": "7"
    },
-   "solution": "ROADIES"
+   "solution": "ROADIES",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ROADIES",
+    "definitions": [
+     {
+      "text": "Stage crew",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crazy",
+      "for": "anagram",
+      "note": "something crazy is disordered, so these letters are thrown into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "run",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for run"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O is the cricket abbreviation for over"
+     },
+     {
+      "clueFragment": "ideas",
+      "gives": "IDEAS",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "O",
+      "ADIES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "IDEAS",
+       "gives": "ADIES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The backstage team goes over some wild ideas before the show.",
+     "walkthrough": "'Run over' looks like rehearsing; it is two cricket abbreviations, from scorecards.",
+     "definitionFit": "Roadies travel with touring bands, setting up and dismantling the equipment used in concerts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "run"
+    }
+   }
   },
   {
    "number": 26,
@@ -434,7 +1827,57 @@
     "text": "Master follows athletic sidekick to find Tardis, say",
     "enumeration": "7"
    },
-   "solution": "ACRONYM"
+   "solution": "ACRONYM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ACRONYM",
+    "definitions": [
+     {
+      "text": "Tardis, say",
+      "at": 41
+     }
+    ],
+    "linkWords": [
+     "follows",
+     "to find"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "athletic",
+      "gives": "A",
+      "note": "A is an abbreviation for athletic, as in team names"
+     },
+     {
+      "clueFragment": "sidekick",
+      "gives": "CRONY",
+      "note": "a crony is a close companion"
+     },
+     {
+      "clueFragment": "Master",
+      "gives": "M",
+      "note": "M is the abbreviation for master"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "CRONY",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "Doctor Who's arch-enemy the Master trails the Doctor's sporty companion to locate the time machine.",
+     "walkthrough": "The Master, the companion and the Tardis all come from Doctor Who, the BBC science-fiction series; 'follows' puts M after the rest.",
+     "definitionFit": "TARDIS stands for Time And Relative Dimension In Space, a word formed from initial letters, so it is an example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Master"
+    }
+   }
   },
   {
    "number": 27,
@@ -458,7 +1901,51 @@
    "group": [
     "27-down",
     "28-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NEAR MISS",
+    "definitions": [
+     {
+      "text": "close shave",
+      "at": 13
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Local",
+      "gives": "NEAR",
+      "note": "local means close by"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "MISS",
+      "note": "a miss is a young woman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEAR",
+      "MISS"
+     ]
+    },
+    "explanation": {
+     "surface": "A young woman from the neighbourhood gets a very clean shave at the barber's.",
+     "walkthrough": "'Close shave' reads as barbering; it is the idiom for a narrow escape.",
+     "definitionFit": "A close shave is an idiom for a narrow escape from disaster, the same thing as an accident that nearly happened."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "shave"
+    }
+   }
   },
   {
    "number": 28,
@@ -499,7 +1986,52 @@
      }
     ]
    },
-   "solution": "AMONTHOFSUNDAYS"
+   "solution": "AMONTHOFSUNDAYS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "A MONTH OF SUNDAYS",
+    "definitions": [
+     {
+      "text": "for ages",
+      "at": 29,
+      "note": "the answer is a noun phrase meaning a very long time; 'for' is folded into the idiom"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broadcast",
+      "for": "anagram",
+      "note": "to broadcast is to scatter widely, so the letters are strewn into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Famous host, Danny",
+      "gives": "FAMOUSHOSTDANNY",
+      "note": "the fifteen letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FAMOUSHOSTDANNY",
+       "gives": "AMONTHOFSUNDAYS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A well-known presenter called Danny has been on the air for a very long time.",
+     "walkthrough": "'Broadcast' fits the presenter picture but is the anagram signal.",
+     "definitionFit": "The idiom means an extremely long time, as in 'not in a month of Sundays', the same as ages."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
+   }
   }
  ]
 }
