@@ -5438,7 +5438,8 @@
         }
         const hints = frozenCharge(s.solvedWith || {}, legs[key].map(entryId));
         const reveals = (s.revealsUsed || {})[key] || 0;
-        clues.push({ id, key, at: at || s.updated || 0, cost: hints + reveals, types,
+        const t = s.timing || {};
+        clues.push({ id, key, at: at || t.solvedAt || t.lastAt || s.updated || 0, cost: hints + reveals, types,
                      clean: cleanSolve(hints, reveals) });
       });
     });
@@ -5603,7 +5604,8 @@
       + ` · best ${days(st.streak.best)}</p>`;
   }
   function statsMilestonesHTML(st) {
-    const when = (t) => new Date(t).toLocaleDateString(undefined, { day: "numeric", month: "short", year: "numeric" });
+    // 0 is a save from before letters were stamped: the day is unknown, not 1970.
+    const when = (t) => t ? new Date(t).toLocaleDateString(undefined, { day: "numeric", month: "short", year: "numeric" }) : "";
     const reached = st.milestones.filter((m) => m.id);
     const ahead = st.milestones.filter((m) => !m.id).slice(0, 3);
     return `<h3 class="stats-h">Milestones</h3><ul class="milestones">`
