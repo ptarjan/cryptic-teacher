@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,67 @@
     "text": "Greek hero cool in receding waters",
     "enumeration": "8"
    },
-   "solution": "ACHILLES"
+   "solution": "ACHILLES",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "ACHILLES",
+    "definitions": [
+     {
+      "text": "Greek hero",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "receding",
+      "for": "reversal",
+      "note": "something receding draws back the way it came, so the letters run backwards"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing sitting in another means it is placed within the other's letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "waters",
+      "gives": "SEA",
+      "note": "a sea is a body of water"
+     },
+     {
+      "clueFragment": "cool",
+      "gives": "CHILL",
+      "note": "to chill is to cool"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "CHILL",
+      "ES"
+     ],
+     "reversals": [
+      {
+       "from": "SEA",
+       "to": "AES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hero of Greek myth keeps his composure as the tide goes out.",
+     "walkthrough": "'Cool' sounds like a description of the hero's temperament, but it is a verb meaning to make cold; 'waters' is the setting that wraps around it.",
+     "definitionFit": "Achilles is the great warrior of the Trojan War in Homer's Iliad, so he is an example of a legendary figure from Greece."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "receding"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +110,55 @@
     "text": "First murderer grabbing fit leader",
     "enumeration": "7"
    },
-   "solution": "CAPTAIN"
+   "solution": "CAPTAIN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CAPTAIN",
+    "definitions": [
+     {
+      "text": "leader",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "grabbing",
+      "for": "container",
+      "note": "to grab is to take hold of, so one set of letters clasps another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "First murderer",
+      "gives": "CAIN",
+      "note": "in Genesis Cain kills his brother Abel, the first murder"
+     },
+     {
+      "clueFragment": "fit",
+      "gives": "APT",
+      "note": "apt means fitting or suitable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "APT",
+      "AIN"
+     ]
+    },
+    "explanation": {
+     "surface": "The Bible's first killer seizes a leader who is in good shape.",
+     "walkthrough": "'Fit' suggests physical health, but here it is the adjective meaning suitable. The container goes in just after the first letter.",
+     "definitionFit": "A captain is the person in charge of a team, ship or unit, so the word is a synonym for someone who heads a group."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fit"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +172,43 @@
     "text": "Still inside container terminal",
     "enumeration": "5"
    },
-   "solution": "INERT"
+   "solution": "INERT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "INERT",
+    "definitions": [
+     {
+      "text": "Still",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "hidden_word",
+      "note": "the letters wanted lie inside the run of text that follows, spanning a word break"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "container terminal",
+      "gives": "INERT",
+      "note": "the end of the first word joined to the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "Something is still sitting inside a shipping container at a port terminal.",
+     "walkthrough": "'Still' looks like an adverb meaning 'yet', but it is the adjective meaning motionless; the answer runs across contaINER Terminal.",
+     "definitionFit": "Something inert has no power of movement or action, so it is motionless, the adjective sense of the clue's first word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Still"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +222,46 @@
     "text": "Cheek and mouth part",
     "enumeration": "3"
    },
-   "solution": "LIP"
+   "solution": "LIP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LIP",
+    "definitions": [
+     {
+      "text": "Cheek",
+      "at": 0
+     },
+     {
+      "text": "mouth part",
+      "at": 10
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cheek",
+      "note": "first meaning: insolent talk, impudence"
+     },
+     {
+      "clueFragment": "mouth part",
+      "note": "second meaning: one of the fleshy edges of the mouth"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Cheek' reads as the side of the face, next to the mouth, but here it means sauciness.",
+     "definitionFit": "Giving someone lip is backchat or impudence, and the same word names either fleshy rim around the opening of the face."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Cheek"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +275,51 @@
     "text": "Tiger seen roaming Tanzanian reserve",
     "enumeration": "9"
    },
-   "solution": "SERENGETI"
+   "solution": "SERENGETI",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SERENGETI",
+    "definitions": [
+     {
+      "text": "Tanzanian reserve",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "roaming",
+      "for": "anagram",
+      "note": "roaming means wandering freely, so the letters wander out of their order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tiger seen",
+      "gives": "TIGERSEEN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TIGERSEEN",
+       "gives": "SERENGETI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone on safari spots a big cat wandering through an East African park.",
+     "walkthrough": "Tigers are Asian and not found in Tanzania, a small hint that the animal is only there for its letters.",
+     "definitionFit": "The Serengeti is a famous national park and wildlife area in northern Tanzania, known for its great migration of animals."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "roaming"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +333,42 @@
     "text": "Considerate sort",
     "enumeration": "4"
    },
-   "solution": "KIND"
+   "solution": "KIND",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "KIND",
+    "definitions": [
+     {
+      "text": "Considerate",
+      "at": 0
+     },
+     {
+      "text": "sort",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Considerate",
+      "note": "first meaning: thoughtful and caring towards others"
+     },
+     {
+      "clueFragment": "sort",
+      "note": "second meaning: a type or category"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as 'a considerate type of person', but the two words are separate meanings, one adjective and one noun.",
+     "definitionFit": "The word is both an adjective for gentle, generous behaviour and a noun for a class or variety of things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sort"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +382,50 @@
     "text": "Writer to sleep with Heather",
     "enumeration": "7"
    },
-   "solution": "KIPLING"
+   "solution": "KIPLING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "KIPLING",
+    "definitions": [
+     {
+      "text": "Writer",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to sleep",
+      "gives": "KIP",
+      "note": "kip is British slang for a sleep or to sleep"
+     },
+     {
+      "clueFragment": "Heather",
+      "gives": "LING",
+      "note": "ling is another name for common heather"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KIP",
+      "LING"
+     ]
+    },
+    "explanation": {
+     "surface": "An author settles down for a nap with a woman called Heather.",
+     "walkthrough": "The capital H makes Heather look like a woman's name; it is the moorland plant, also called ling.",
+     "definitionFit": "Rudyard Kipling was a British author of The Jungle Book and Just So Stories, so he is an example of a literary figure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Heather"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +439,55 @@
     "text": "Earl received by lovely relative",
     "enumeration": "5"
    },
-   "solution": "NIECE"
+   "solution": "NIECE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NIECE",
+    "definitions": [
+     {
+      "text": "relative",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "received by",
+      "for": "container",
+      "note": "what is received is taken in, so one set of letters is taken inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Earl",
+      "gives": "E",
+      "note": "E is the abbreviation for earl"
+     },
+     {
+      "clueFragment": "lovely",
+      "gives": "NICE",
+      "note": "nice means pleasant or lovely"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NI",
+      "E",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "A nobleman is welcomed into the home of a charming family member.",
+     "walkthrough": "E sits inside NICE, between its I and C.",
+     "definitionFit": "A niece is the daughter of one's brother or sister, so she is a family member by blood or marriage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lovely"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +501,58 @@
     "text": "Son breaks mirror in church recess",
     "enumeration": "4"
    },
-   "solution": "APSE"
+   "solution": "APSE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "APSE",
+    "definitions": [
+     {
+      "text": "church recess",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "breaks",
+      "for": "container",
+      "note": "to break into something is to force a way inside it, so one letter goes within the others"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     },
+     {
+      "clueFragment": "mirror",
+      "gives": "APE",
+      "note": "to ape is to mimic or mirror someone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AP",
+      "S",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A boy smashes a looking glass inside an alcove of a church.",
+     "walkthrough": "'Mirror' looks like a noun for a glass that could be broken, but it is the verb meaning copy.",
+     "definitionFit": "An apse is the rounded or vaulted alcove usually at the east end of a church, beyond the altar."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mirror"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +572,43 @@
      }
     ]
    },
-   "solution": "PORKPIES"
+   "solution": "PORKPIES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PORK PIES",
+    "definitions": [
+     {
+      "text": "Lies",
+      "at": 0
+     },
+     {
+      "text": "some might gladly swallow",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lies",
+      "note": "first meaning: Cockney rhyming slang, where the phrase rhymes with lies"
+     },
+     {
+      "clueFragment": "some might gladly swallow",
+      "note": "second meaning: savoury pastries that people happily eat"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Swallowing lies means believing them, but here the swallowing is literal eating. In Cockney rhyming slang a word is replaced by a phrase that rhymes with it; 'porkies' is common British slang for fibs.",
+     "definitionFit": "A pork pie is a British cold pastry filled with pork, and in rhyming slang the plural stands for untruths or fibs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "swallow"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +622,53 @@
     "text": "Pole, old fellow, beast once",
     "enumeration": "8"
    },
-   "solution": "MASTODON"
+   "solution": "MASTODON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MASTODON",
+    "definitions": [
+     {
+      "text": "beast once",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pole",
+      "gives": "MAST",
+      "note": "a mast is a tall pole on a ship"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "fellow",
+      "gives": "DON",
+      "note": "a don is a fellow of a university college"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAST",
+      "O",
+      "DON"
+     ]
+    },
+    "explanation": {
+     "surface": "A Polish man, an elderly chap, used to be something of an animal.",
+     "walkthrough": "The capital P makes 'Pole' look like a Polish person; it is a long post.",
+     "definitionFit": "The mastodon was a large elephant-like mammal that is now extinct, so it is an animal that existed in the past."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Pole"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +682,55 @@
     "text": "Passed around yet pure",
     "enumeration": "9"
    },
-   "solution": "DISTILLED"
+   "solution": "DISTILLED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DISTILLED",
+    "definitions": [
+     {
+      "text": "pure",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "going around something encloses it, so these letters wrap the next ones"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Passed",
+      "gives": "DIED",
+      "note": "passed, as in passed away, means died"
+     },
+     {
+      "clueFragment": "yet",
+      "gives": "STILL",
+      "note": "still can mean yet, as in 'still to come'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "STILL",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Something was handed round the room and is nonetheless untainted.",
+     "walkthrough": "'Passed around' reads as one phrase meaning circulated, but 'Passed' is the euphemism for died and 'around' is the wrapping signal.",
+     "definitionFit": "Distilled liquid has been purified by boiling and condensing, so the word describes something refined and free of impurities."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Passed"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +744,42 @@
     "text": "Concept used in tide analysis",
     "enumeration": "4"
    },
-   "solution": "IDEA"
+   "solution": "IDEA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "IDEA",
+    "definitions": [
+     {
+      "text": "Concept",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "used in",
+      "for": "hidden_word",
+      "note": "something used in a thing forms part of it, so the letters sit within the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tide analysis",
+      "gives": "IDEA",
+      "note": "the letters run across the gap between the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A notion is applied when studying the ebb and flow of the sea.",
+     "walkthrough": "The answer runs across tIDE Analysis.",
+     "definitionFit": "An idea is a thought or notion formed in the mind, a direct synonym for a mental conception."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +793,52 @@
     "text": "Nubia’s barking deity",
     "enumeration": "6"
    },
-   "solution": "ANUBIS"
+   "solution": "ANUBIS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ANUBIS",
+    "definitions": [
+     {
+      "text": "deity",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "barking",
+      "for": "anagram",
+      "note": "barking is British slang for mad, and crazy letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nubia’s",
+      "gives": "NUBIAS",
+      "note": "taken as written, with the apostrophe ignored"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NUBIAS",
+       "gives": "ANUBIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A god of the Nile region is heard howling like a dog.",
+     "walkthrough": "'Barking' fits the jackal-headed god as if it described him, but it is the British slang for crazy ('barking mad') that signals the rearrangement. Nubia is the ancient land along the Nile south of Egypt.",
+     "definitionFit": "Anubis is the ancient Egyptian god of the dead and embalming, shown with a jackal's head, so he is a god."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "barking"
+    }
+   }
   },
   {
    "number": 14,
@@ -235,7 +852,62 @@
     "text": "Country carnivore devouring large American",
     "enumeration": "7"
    },
-   "solution": "BELARUS"
+   "solution": "BELARUS",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "BELARUS",
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "devouring",
+      "for": "container",
+      "note": "to devour is to swallow whole, so one set of letters takes in another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "carnivore",
+      "gives": "BEAR",
+      "note": "a bear is a meat-eating animal"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the abbreviation for large, as on clothing sizes"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US is short for American, as in United States"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "L",
+      "AR",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "A meat-eater from the countryside wolfs down a big American.",
+     "walkthrough": "'Country' could be an adjective meaning rural, but it is the definition: a nation. The size letter sits inside the animal and the American follows.",
+     "definitionFit": "Belarus is a landlocked nation in Eastern Europe, bordering Russia, Poland and Ukraine, so it is an example of a state."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Country"
+    }
+   }
   },
   {
    "number": 15,
@@ -249,7 +921,71 @@
     "text": "Down covers bad leg in young bird",
     "enumeration": "6"
    },
-   "solution": "EAGLET"
+   "solution": "EAGLET",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "EAGLET",
+    "definitions": [
+     {
+      "text": "young bird",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bad",
+      "for": "anagram",
+      "note": "something bad is damaged or out of shape, so these letters are rearranged"
+     },
+     {
+      "text": "covers",
+      "for": "container",
+      "note": "a cover goes all round what it protects, so one set of letters encloses another"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Down",
+      "gives": "EAT",
+      "note": "to down food or drink is to eat or swallow it"
+     },
+     {
+      "clueFragment": "leg",
+      "gives": "LEG",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EA",
+      "GLE",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LEG",
+       "gives": "GLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fluffy feathers protect an injured limb on a chick.",
+     "walkthrough": "'Down' looks like the soft first feathers of a chick, which suits the scene, but it is the verb for swallowing food or drink.",
+     "definitionFit": "An eaglet is the offspring of an eagle, a chick of that large bird of prey not yet fully grown."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Down"
+    }
+   }
   },
   {
    "number": 16,
@@ -263,7 +999,52 @@
     "text": "Blind doctor sees Ely",
     "enumeration": "7"
    },
-   "solution": "EYELESS"
+   "solution": "EYELESS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EYELESS",
+    "definitions": [
+     {
+      "text": "Blind",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "doctor",
+      "for": "anagram",
+      "note": "to doctor something is to tamper with it, so these letters are altered in order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sees Ely",
+      "gives": "SEESELY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SEESELY",
+       "gives": "EYELESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A physician who cannot see still manages to look at a cathedral city.",
+     "walkthrough": "'Doctor' reads as a physician, a subject for the sentence, but it is the verb meaning tamper with. Ely is a small cathedral city in eastern England.",
+     "definitionFit": "Having no eyes means being unable to see, so the adjective is a literal way of describing sightlessness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "doctor"
+    }
+   }
   },
   {
    "number": 17,
@@ -277,7 +1058,46 @@
     "text": "Bouncer perhaps for dance",
     "enumeration": "4"
    },
-   "solution": "BALL"
+   "solution": "BALL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BALL",
+    "definitions": [
+     {
+      "text": "Bouncer perhaps",
+      "at": 0
+     },
+     {
+      "text": "dance",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bouncer perhaps",
+      "note": "first meaning: a rubber sphere, one example of something that bounces"
+     },
+     {
+      "clueFragment": "dance",
+      "note": "second meaning: a formal social gathering for dancing"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A bouncer suggests a doorman guarding a dance venue; here it is simply a thing that bounces. In cricket a bouncer is also a short-pitched delivery.",
+     "definitionFit": "The round toy that springs off the floor shares its name with a grand evening event where people waltz."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bouncer"
+    }
+   }
   },
   {
    "number": 18,
@@ -291,7 +1111,62 @@
     "text": "A row about motorway management",
     "enumeration": "5"
    },
-   "solution": "ADMIN"
+   "solution": "ADMIN",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ADMIN",
+    "definitions": [
+     {
+      "text": "management",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so these letters go round another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "row",
+      "gives": "DIN",
+      "note": "a row, rhyming with cow, is a noisy racket, a din"
+     },
+     {
+      "clueFragment": "motorway",
+      "gives": "M",
+      "note": "British motorways are numbered M1, M4 and so on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "D",
+      "M",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "An argument breaks out about how a highway is run.",
+     "walkthrough": "A motorway is a British highway, labelled with M. M goes inside DIN, after A.",
+     "definitionFit": "Admin is the informal short form of administration, the running and organising of an office or business."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "row"
+    }
+   }
   },
   {
    "number": 19,
@@ -311,7 +1186,52 @@
      }
     ]
    },
-   "solution": "IRISHSEA"
+   "solution": "IRISHSEA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IRISH SEA",
+    "definitions": [
+     {
+      "text": "Man’s situation",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ruined",
+      "for": "anagram",
+      "note": "something ruined is wrecked and broken up, so these letters are scattered into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is as heir",
+      "gives": "ISASHEIR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ISASHEIR",
+       "gives": "IRISHSEA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man's circumstances are that he is an heir who has lost everything.",
+     "walkthrough": "The capital M on 'Man' is the clue: it is the Isle of Man, an island between Britain and Ireland, not a person.",
+     "definitionFit": "The Isle of Man lies in the Irish Sea, so that stretch of water is where the island is located."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Man’s"
+    }
+   }
   },
   {
    "number": 20,
@@ -331,7 +1251,46 @@
      }
     ]
    },
-   "solution": "HORSE"
+   "solution": "HORSE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HORSE",
+    "definitions": [
+     {
+      "text": "Smack",
+      "at": 0
+     },
+     {
+      "text": "Pony",
+      "at": 10
+     }
+    ],
+    "linkWords": [
+     "the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Smack",
+      "note": "first meaning: slang for heroin, which is also called by this animal's name"
+     },
+     {
+      "clueFragment": "Pony",
+      "note": "second meaning: a pony is a small breed of the animal"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The italics mark Smack the Pony, a British TV sketch comedy show. Smack and the answer are both drug-world slang for heroin.",
+     "definitionFit": "Heroin has street names including smack and this word, and a pony is a small member of that equine species."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Smack"
+    }
+   }
   },
   {
    "number": 21,
@@ -345,7 +1304,39 @@
     "text": "One held up in bad weather?",
     "enumeration": "8"
    },
-   "solution": "UMBRELLA"
+   "solution": "UMBRELLA",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "UMBRELLA",
+    "definitions": [
+     {
+      "text": "One held up in bad weather?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One held up in bad weather?",
+      "note": "surface reading: a traveller delayed by storms, stuck at an airport"
+     },
+     {
+      "clueFragment": "held up",
+      "note": "setter's reading: something literally raised above the head when it rains"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Held up' means delayed in the surface; the answer is an object carried aloft over your head.",
+     "definitionFit": "This rain shield is lifted over the head on a handle to keep a person dry during a downpour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "held"
+    }
+   }
   },
   {
    "number": 22,
@@ -359,7 +1350,50 @@
     "text": "Answer Roman Catholic in Bow",
     "enumeration": "3"
    },
-   "solution": "ARC"
+   "solution": "ARC",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ARC",
+    "definitions": [
+     {
+      "text": "Bow",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Answer",
+      "gives": "A",
+      "note": "A is the abbreviation for answer"
+     },
+     {
+      "clueFragment": "Roman Catholic",
+      "gives": "RC",
+      "note": "RC is the standard abbreviation for Roman Catholic"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "RC"
+     ]
+    },
+    "explanation": {
+     "surface": "A Catholic priest gives a reply while in Bow, a district of East London.",
+     "walkthrough": "The capital B makes Bow look like the London district; it is a curve.",
+     "definitionFit": "A bow is a curved shape, like the curve of a bent stick, and an arc is a curved line, so they are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bow"
+    }
+   }
   },
   {
    "number": 23,
@@ -373,7 +1407,63 @@
     "text": "Bank charge right to be reversed",
     "enumeration": "4"
    },
-   "solution": "REEF"
+   "solution": "REEF",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "REEF",
+    "definitions": [
+     {
+      "text": "Bank",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reversed",
+      "for": "reversal",
+      "note": "reversed means turned the other way, so the letters are read backwards"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "charge",
+      "gives": "FEE",
+      "note": "a fee is a charge for a service"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REEF"
+     ],
+     "reversals": [
+      {
+       "from": "FEER",
+       "to": "REEF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A customer feels a bank's service fee ought to be cancelled.",
+     "walkthrough": "'Bank charge' reads as one financial phrase, but 'Bank' is the definition on its own.",
+     "definitionFit": "A reef is a ridge of rock, coral or sand near the water's surface, and bank is another term for such a raised shoal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bank"
+    }
+   }
   },
   {
    "number": 24,
@@ -387,7 +1477,43 @@
     "text": "Burden we must carry?",
     "enumeration": "4"
    },
-   "solution": "ONUS"
+   "solution": "ONUS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ONUS",
+    "definitions": [
+     {
+      "text": "Burden",
+      "at": 0
+     },
+     {
+      "text": "we must carry",
+      "at": 7,
+      "note": "a phrase, 'on us', meaning our responsibility"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Burden",
+      "note": "first meaning: a duty or responsibility"
+     },
+     {
+      "clueFragment": "we must carry",
+      "note": "second meaning, split in two"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Split the answer as ON US: what we must carry is on us.",
+     "definitionFit": "An onus is an obligation or responsibility that weighs on someone, as in the onus of proof."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 25,
@@ -401,7 +1527,55 @@
     "text": "Bring down when blocking edict",
     "enumeration": "8"
    },
-   "solution": "DECREASE"
+   "solution": "DECREASE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DECREASE",
+    "definitions": [
+     {
+      "text": "Bring down",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "blocking",
+      "for": "container",
+      "note": "to block is to stand in the way, so one piece sits in the middle of another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "edict",
+      "gives": "DECREE",
+      "note": "a decree is an official order or edict"
+     },
+     {
+      "clueFragment": "when",
+      "gives": "AS",
+      "note": "as can mean when, as in 'as I left'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DECRE",
+      "AS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A government is overthrown at the moment it tries to obstruct an official order.",
+     "walkthrough": "'When' is a small word easily read as a link, but it supplies letters; it goes in before the final letter of the order.",
+     "definitionFit": "To decrease something is to reduce or lower it, a synonym for making numbers or amounts fall."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bring"
+    }
+   }
   }
  ]
 }
