@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,43 @@
     "text": "Fall to the ground (touch of hydrophobia)",
     "enumeration": "4"
    },
-   "solution": "DROP"
+   "solution": "DROP",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "DROP",
+    "definitions": [
+     {
+      "text": "Fall to the ground",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "touch of",
+      "for": "hidden_word",
+      "note": "a touch is only a small part, so just a short run of consecutive letters from inside the next word is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hydrophobia",
+      "gives": "DROP",
+      "note": "the letters run consecutively from the second letter of this word"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone collapses, perhaps from a bout of rabies, whose old name is hydrophobia.",
+     "walkthrough": "The brackets make the second half look like a medical aside, but they hold the wordplay: the answer sits inside hy-DROP-hobia.",
+     "definitionFit": "To drop is to fall, especially straight down onto the floor or earth below."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "touch"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +86,44 @@
     "text": "Chicken pieces, as seen in steel pan",
     "enumeration": "10"
    },
-   "solution": "DRUMSTICKS"
+   "solution": "DRUMSTICKS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DRUMSTICKS",
+    "definitions": [
+     {
+      "text": "Chicken pieces",
+      "at": 0
+     },
+     {
+      "text": "as seen in steel pan",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chicken pieces",
+      "note": "first meaning: the lower legs of a cooked bird"
+     },
+     {
+      "clueFragment": "as seen in steel pan",
+      "note": "second meaning: the sticks a player strikes a steel drum with"
+     }
+    ],
+    "explanation": {
+     "surface": "A cook explains that the chicken legs are frying in a steel pan.",
+     "walkthrough": "'Steel pan' reads as kitchen equipment, but it is the Caribbean steel drum, played with sticks.",
+     "definitionFit": "The lower leg joints of poultry share their name with the beaters used to play percussion instruments."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pan"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +137,65 @@
     "text": "Begins and gives a speech having consumed one drink",
     "enumeration": "10"
    },
-   "solution": "ORIGINATES"
+   "solution": "ORIGINATES",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ORIGINATES",
+    "definitions": [
+     {
+      "text": "Begins",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "having consumed",
+      "for": "container",
+      "note": "whatever has consumed something holds it inside, so one part is placed within another"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gives a speech",
+      "gives": "ORATES",
+      "note": "to orate is to deliver a formal speech"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "GIN",
+      "note": "a spirit, a common drink"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OR",
+      "I",
+      "GIN",
+      "ATES"
+     ]
+    },
+    "explanation": {
+     "surface": "A speaker has a drink before starting their speech.",
+     "walkthrough": "'One drink' looks like a single item, but it splits in two: the numeral and the spirit, both swallowed by the speechmaking verb.",
+     "definitionFit": "Something that originates starts or comes into being, so the verb matches begins as a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "consumed"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +209,51 @@
     "text": "Extremely dark sweatshirt worn",
     "enumeration": "10"
    },
-   "solution": "SWARTHIEST"
+   "solution": "SWARTHIEST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SWARTHIEST",
+    "definitions": [
+     {
+      "text": "Extremely dark",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "worn",
+      "for": "anagram",
+      "note": "something worn is battered out of its original shape, so the letters lose their order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sweatshirt",
+      "gives": "SWEATSHIRT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SWEATSHIRT",
+       "gives": "SWARTHIEST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A very dark sweatshirt is being worn.",
+     "walkthrough": "'Worn' seems to describe the garment on someone's back; it signals rearranging the ten letters of the garment itself.",
+     "definitionFit": "Swarthy means dark-complexioned, and the superlative form expresses the greatest degree, as extremely does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "worn"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +267,66 @@
     "text": "Dash with money from the South to get to Houston?",
     "enumeration": "7"
    },
-   "solution": "WHITNEY"
+   "solution": "WHITNEY",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "WHITNEY",
+    "definitions": [
+     {
+      "text": "to get to Houston?",
+      "at": 31,
+      "note": "a cryptic hint: the first name that leads to the surname Houston"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from the South",
+      "for": "reversal",
+      "note": "in a down clue, coming from the south means reading upward, back to front"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dash",
+      "gives": "WHIT",
+      "note": "a whit and a dash both mean a tiny amount"
+     },
+     {
+      "clueFragment": "money",
+      "gives": "YEN",
+      "note": "Japanese currency"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WHIT",
+      "NEY"
+     ],
+     "reversals": [
+      {
+       "from": "YEN",
+       "to": "NEY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone rushes with cash from the southern states to reach Houston, Texas.",
+     "walkthrough": "Houston looks like the Texan city, but it is the singer Whitney Houston: her first name is what gets you to her surname.",
+     "definitionFit": "The singer's full name is Whitney Houston, so her forename is the word that comes before and leads to Houston."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Houston"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +340,67 @@
     "text": "Initially playing for time, intones instructions",
     "enumeration": "7"
    },
-   "solution": "RECIPES"
+   "solution": "RECIPES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "substitution"
+    ],
+    "answer": "RECIPES",
+    "definitions": [
+     {
+      "text": "instructions",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the opening letter of the word is kept"
+     },
+     {
+      "text": "for",
+      "for": "substitution",
+      "note": "one thing standing for another replaces it, so a letter is swapped out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "playing",
+      "gives": "P",
+      "select": "first",
+      "note": "the first letter of the word"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the standard abbreviation for time"
+     },
+     {
+      "clueFragment": "intones",
+      "gives": "RECITES",
+      "note": "to intone is to recite in a chanting voice"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RECI",
+      "P",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "A priest stalls by slowly chanting his directions.",
+     "walkthrough": "In RECITES the T is replaced by P, giving the answer.",
+     "definitionFit": "Recipes are sets of cooking directions, so the plural noun matches instructions as a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "playing"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +414,65 @@
     "text": "Big beast close to Arctic, barking a kind of oath",
     "enumeration": "11"
    },
-   "solution": "HIPPOCRATIC"
+   "solution": "HIPPOCRATIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "HIPPOCRATIC",
+    "definitions": [
+     {
+      "text": "a kind of oath",
+      "at": 35,
+      "note": "the answer is an adjective describing that kind of oath"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "barking",
+      "for": "anagram",
+      "note": "barking is British slang for mad, and mad letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "close to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Big beast",
+      "gives": "HIPPO",
+      "note": "a hippopotamus is a very large animal"
+     },
+     {
+      "clueFragment": "Arctic",
+      "gives": "ARCTIC",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HIPPO",
+      "CRATIC"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ARCTIC",
+       "gives": "CRATIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A large animal near the North Pole is making barking noises.",
+     "walkthrough": "'Close to' tempts you to take the last letter of Arctic, but it only means next to; all of Arctic is rearranged.",
+     "definitionFit": "Doctors traditionally swear the Hippocratic oath, named after the Greek physician Hippocrates, promising ethical medical practice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "barking"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +486,70 @@
     "text": "In earliest stages (elsewise, romantically), Ireland's name?",
     "enumeration": "4"
    },
-   "solution": "ERIN"
+   "solution": "ERIN",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ERIN",
+    "definitions": [
+     {
+      "text": "Ireland's name?",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In earliest stages",
+      "for": "letter_selection",
+      "note": "the earliest stage of a word is its opening letter, so only each word's first letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "elsewise",
+      "gives": "E",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "romantically",
+      "gives": "R",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "Ireland's",
+      "gives": "I",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "select": "first",
+      "note": "first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "R",
+      "I",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A wistful question about what Ireland was called, poetically, in its early days.",
+     "walkthrough": "The last two words do double duty, supplying two letters and also the definition.",
+     "definitionFit": "Erin is the poetic or romantic old name for Ireland, from the Irish Éire."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "stages"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +563,43 @@
     "text": "Reportedly, players proliferate",
     "enumeration": "4"
    },
-   "solution": "TEEM"
+   "solution": "TEEM",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "TEEM",
+    "definitions": [
+     {
+      "text": "proliferate",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reportedly",
+      "for": "homophone",
+      "note": "what is reported is passed on by word of mouth, so the sound matters, not the spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "players",
+      "gives": "TEEM",
+      "soundsLike": "TEAM",
+      "note": "a side of players is a team"
+     }
+    ],
+    "explanation": {
+     "surface": "News reports say the number of players is growing fast.",
+     "walkthrough": "A team of players sounds identical to TEEM, the spelling the grid needs.",
+     "definitionFit": "To teem is to be present in huge, swarming numbers, which is what things that proliferate do."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -159,7 +613,54 @@
     "text": "Soldiers, Italian, following peacekeepers",
     "enumeration": "4"
    },
-   "solution": "UNIT"
+   "solution": "UNIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNIT",
+    "definitions": [
+     {
+      "text": "Soldiers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following means coming after, so one piece is placed behind the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "peacekeepers",
+      "gives": "UN",
+      "note": "the UN sends forces to keep the peace"
+     },
+     {
+      "clueFragment": "Italian",
+      "gives": "IT",
+      "note": "IT is the abbreviation for Italian"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "Italian troops march behind the peacekeeping force.",
+     "walkthrough": "Soldiers looks like part of the scene, but it is the definition; a group of troops is the answer.",
+     "definitionFit": "A unit is a military formation, a body of troops organised as a group."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Italian"
+    }
+   }
   },
   {
    "number": 10,
@@ -173,7 +674,45 @@
     "text": "Teach a lesson in specialist area",
     "enumeration": "10"
    },
-   "solution": "DISCIPLINE"
+   "solution": "DISCIPLINE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DISCIPLINE",
+    "definitions": [
+     {
+      "text": "Teach a lesson",
+      "at": 0
+     },
+     {
+      "text": "specialist area",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Teach a lesson",
+      "note": "first meaning: to punish someone to correct them"
+     },
+     {
+      "clueFragment": "specialist area",
+      "note": "second meaning: a field of study"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Teach a lesson' sounds like classroom teaching, but here it is the punishing sense.",
+     "definitionFit": "The word means both to punish in order to correct behaviour and a branch of academic knowledge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Teach"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +732,57 @@
      }
     ]
    },
-   "solution": "SWIMMINGPOOL"
+   "solution": "SWIMMINGPOOL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SWIMMING POOL",
+    "definitions": [
+     {
+      "text": "sports venue",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "before",
+      "for": "charade",
+      "note": "before means placed ahead of, so the first piece goes in front"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Feeling giddy",
+      "gives": "SWIMMING",
+      "note": "a head that is swimming feels dizzy"
+     },
+     {
+      "clueFragment": "stakes amassed",
+      "gives": "POOL",
+      "note": "a pool is money staked by several people collected together"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SWIMMING",
+      "POOL"
+     ]
+    },
+    "explanation": {
+     "surface": "A gambler feels dizzy as the bets pile up at a stadium.",
+     "walkthrough": "When your head is swimming you feel giddy; a pool is the pot of money gamblers put in together.",
+     "definitionFit": "A pool built for swimming races and lessons is a place where sport takes place."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stakes"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +802,46 @@
      }
     ]
    },
-   "solution": "MAINCOURSES"
+   "solution": "MAINCOURSES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MAIN COURSES",
+    "definitions": [
+     {
+      "text": "Seaways",
+      "at": 0
+     },
+     {
+      "text": "larger things to eat",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "offering"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Seaways",
+      "note": "first meaning, read cryptically: the main is the sea, and courses are ways"
+     },
+     {
+      "clueFragment": "larger things to eat",
+      "note": "second meaning: the substantial dishes of a meal"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'The main' is an old literary word for the open sea, and a course is a route, so the first definition is a cryptic split.",
+     "definitionFit": "The principal dishes of a meal are bigger than starters or desserts, making them the larger items served."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Seaways"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +861,57 @@
      }
     ]
    },
-   "solution": "NOELCOWARD"
+   "solution": "NOELCOWARD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NOEL COWARD",
+    "definitions": [
+     {
+      "text": "Playwright",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after means coming behind, so the second piece follows the first"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Christmas",
+      "gives": "NOEL",
+      "note": "Noel is another word for Christmas"
+     },
+     {
+      "clueFragment": "chicken",
+      "gives": "COWARD",
+      "note": "a chicken is slang for someone timid"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOEL",
+      "COWARD"
+     ]
+    },
+    "explanation": {
+     "surface": "A dramatist eats leftover chicken after the Christmas feast.",
+     "walkthrough": "Chicken reads as food but is the slang for a coward.",
+     "definitionFit": "Sir Noël Coward was an English dramatist famous for plays such as Private Lives and Blithe Spirit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "chicken"
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +925,56 @@
     "text": "Once again, blows up ten flares ... I digress",
     "enumeration": "10"
    },
-   "solution": "REINFLATES"
+   "solution": "REINFLATES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REINFLATES",
+    "definitions": [
+     {
+      "text": "Once again, blows up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "digress",
+      "for": "anagram",
+      "note": "to digress is to wander off course, so the letters stray from their order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ten flares",
+      "gives": "TENFLARES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TENFLARESI",
+       "gives": "REINFLATES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rambling speaker says ten flares explode again, then admits wandering off topic.",
+     "walkthrough": "'I digress' looks like a throwaway aside, but the I is part of the letters and digress rearranges them.",
+     "definitionFit": "Inflating something is blowing it up, and the re- prefix adds the sense of doing it a second time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "digress"
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +988,66 @@
     "text": "Madness without Suggs at the front? It's meaningless",
     "enumeration": "7"
    },
-   "solution": "INANITY"
+   "solution": "INANITY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "INANITY",
+    "definitions": [
+     {
+      "text": "meaningless",
+      "at": 41,
+      "note": "the answer is a noun, the quality of being meaningless"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so a letter is taken away"
+     },
+     {
+      "text": "at the front",
+      "for": "letter_selection",
+      "note": "the front of a word is its first letter, so only that letter is used"
+     }
+    ],
+    "linkWords": [
+     "It's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Madness",
+      "gives": "INSANITY",
+      "note": "madness is insanity"
+     },
+     {
+      "clueFragment": "Suggs",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "ANITY"
+     ]
+    },
+    "explanation": {
+     "surface": "Madness, the British ska band, without their frontman Suggs would be pointless.",
+     "walkthrough": "Suggs is the lead singer of the 1980s British band Madness, so 'at the front' is a double joke. Removing S from INSANITY leaves the answer.",
+     "definitionFit": "Inanity is silliness or emptiness of meaning, the state of something that is pointless and says nothing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Madness"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +1061,56 @@
     "text": "Twisted conceit: Tolkien's monster's a meanie",
     "enumeration": "7"
    },
-   "solution": "SCROOGE"
+   "solution": "SCROOGE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SCROOGE",
+    "definitions": [
+     {
+      "text": "a meanie",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Twisted",
+      "for": "anagram",
+      "note": "something twisted is bent out of shape, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "conceit",
+      "gives": "EGO",
+      "note": "conceit is an inflated ego"
+     },
+     {
+      "clueFragment": "Tolkien's monster's",
+      "gives": "ORCS",
+      "note": "orcs are the goblin-like creatures of Tolkien's Middle-earth, plus the S"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "EGOORCS",
+       "gives": "SCROOGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A warped vanity makes Tolkien's creature a mean-spirited villain.",
+     "walkthrough": "The possessive S on 'monster's' is part of the letters, so ORCS plus EGO is rearranged.",
+     "definitionFit": "Ebenezer Scrooge, the miser of Dickens's A Christmas Carol, gives his name to any stingy person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "conceit"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +1124,59 @@
     "text": "Ape with neck out of shape: it's a bone",
     "enumeration": "7"
    },
-   "solution": "KNEECAP"
+   "solution": "KNEECAP",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "KNEECAP",
+    "definitions": [
+     {
+      "text": "a bone",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out of shape",
+      "for": "anagram",
+      "note": "a thing out of shape has lost its proper form, so the letters are reformed"
+     }
+    ],
+    "linkWords": [
+     "it's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ape",
+      "gives": "APE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "neck",
+      "gives": "NECK",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "APENECK",
+       "gives": "KNEECAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An ape with a deformed neck has a bone problem.",
+     "walkthrough": "'With' simply joins the two words whose letters are mixed together.",
+     "definitionFit": "The kneecap, or patella, is the small flat bone at the front of the knee joint."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shape"
+    }
+   }
   },
   {
    "number": 18,
@@ -303,7 +1190,47 @@
     "text": "Quietly confuses those propelling a boat",
     "enumeration": "7"
    },
-   "solution": "PADDLES"
+   "solution": "PADDLES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PADDLES",
+    "definitions": [
+     {
+      "text": "those propelling a boat",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quietly",
+      "gives": "P",
+      "note": "p, piano, is the musical direction for quietly"
+     },
+     {
+      "clueFragment": "confuses",
+      "gives": "ADDLES",
+      "note": "to addle is to muddle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ADDLES"
+     ]
+    },
+    "explanation": {
+     "surface": "Rowers are silently baffled.",
+     "walkthrough": "'Those' sounds like people, but the definition means objects.",
+     "definitionFit": "Paddles are short oars used to drive a canoe or small craft through the water."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "those"
+    }
+   }
   },
   {
    "number": 19,
@@ -317,7 +1244,42 @@
     "text": "A little ecstatic at a language that's spoken in Iberia",
     "enumeration": "7"
    },
-   "solution": "CATALAN"
+   "solution": "CATALAN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "CATALAN",
+    "definitions": [
+     {
+      "text": "language that's spoken in Iberia",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "A little",
+      "for": "hidden_word",
+      "note": "a little means only a small portion, so a short stretch of consecutive letters is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ecstatic at a language",
+      "gives": "CATALAN",
+      "note": "the run starts at the last letter of the first word"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is slightly thrilled at hearing a tongue of the Spanish peninsula.",
+     "walkthrough": "The word language both hides the last three letters and begins the definition.",
+     "definitionFit": "Catalan is the Romance tongue of Catalonia in north-east Spain, also used in Andorra and the Balearics."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -331,7 +1293,59 @@
     "text": "Urge to tuck into something sugary that's spicy",
     "enumeration": "7"
    },
-   "solution": "CAYENNE"
+   "solution": "CAYENNE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CAYENNE",
+    "definitions": [
+     {
+      "text": "spicy",
+      "at": 42,
+      "note": "the answer is a noun, a spicy pepper"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to tuck into",
+      "for": "container",
+      "note": "to tuck into is to go inside, so one piece is placed within another"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Urge",
+      "gives": "YEN",
+      "note": "a yen is a longing"
+     },
+     {
+      "clueFragment": "something sugary",
+      "gives": "CANE",
+      "note": "sugar cane"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "YEN",
+      "NE"
+     ]
+    },
+    "explanation": {
+     "surface": "A craving to bite into a sweet treat that turns out to be hot.",
+     "walkthrough": "'Tuck into' suggests eating, but here it means go inside.",
+     "definitionFit": "Cayenne is a hot red chilli pepper powder, a fiery seasoning used in cooking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tuck"
+    }
+   }
   },
   {
    "number": 20,
@@ -351,7 +1365,54 @@
      }
     ]
    },
-   "solution": "SUNDAYSCHOOL"
+   "solution": "SUNDAYSCHOOL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SUNDAY SCHOOL",
+    "definitions": [
+     {
+      "text": "place of learning",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disposition",
+      "for": "anagram",
+      "note": "a disposition is an arrangement, so the letters are set out anew"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Son has cloudy",
+      "gives": "SONHASCLOUDY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SONHASCLOUDY",
+       "gives": "SUNDAYSCHOOL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boy has a gloomy temperament at school.",
+     "walkthrough": "Disposition reads as temperament, but its sense of arrangement is the signal.",
+     "definitionFit": "A Sunday school gives children religious instruction, typically attached to a church, so it is somewhere lessons happen."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "disposition"
+    }
+   }
   },
   {
    "number": 21,
@@ -365,7 +1426,64 @@
     "text": "Work's over; drink up",
     "enumeration": "4"
    },
-   "solution": "OPUS"
+   "solution": "OPUS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "OPUS",
+    "definitions": [
+     {
+      "text": "Work",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, going up means reading from bottom to top, back to front"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O is the cricket scoring abbreviation for an over"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "SUP",
+      "note": "to sup is to drink"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "PUS"
+     ],
+     "reversals": [
+      {
+       "from": "SUP",
+       "to": "PUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The working day has ended, so finish your drink.",
+     "walkthrough": "'Work's over' reads as knocking-off time, but over is the cricket O, placed before SUP turned upward.",
+     "definitionFit": "An opus is a creative composition, especially a numbered piece of music by a composer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 22,
@@ -379,7 +1497,58 @@
     "text": "A passing diversion, Everyman's beginning to lose freshness",
     "enumeration": "4"
    },
-   "solution": "FADE"
+   "solution": "FADE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "FADE",
+    "definitions": [
+     {
+      "text": "lose freshness",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning",
+      "for": "letter_selection",
+      "note": "a beginning is the opening, so only the first letter is kept"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A passing diversion",
+      "gives": "FAD",
+      "note": "a fad is a short-lived craze"
+     },
+     {
+      "clueFragment": "Everyman's",
+      "gives": "E",
+      "select": "first",
+      "note": "first letter of the setter's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FAD",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "The setter admits a temporary craze is losing its appeal.",
+     "walkthrough": "Everyman is the setter's own name, so its first letter E ends the answer after FAD.",
+     "definitionFit": "Colours and flowers that fade become dull and wilted, losing their brightness and bloom over time."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -399,7 +1568,52 @@
      }
     ]
    },
-   "solution": "PLAYSALONG"
+   "solution": "PLAYSALONG",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PLAYS ALONG",
+    "definitions": [
+     {
+      "text": "pretends to enjoy it",
+      "at": 42
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Actors' performances",
+      "gives": "PLAYS",
+      "note": "stage works performed by actors"
+     },
+     {
+      "clueFragment": "amateur",
+      "gives": "A",
+      "note": "A is the abbreviation for amateur"
+     },
+     {
+      "clueFragment": "drawn out",
+      "gives": "LONG",
+      "note": "long means lengthy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLAYS",
+      "A",
+      "LONG"
+     ]
+    },
+    "explanation": {
+     "surface": "Stuck at a long amateur theatre show, someone smiles through it.",
+     "walkthrough": "Three pieces run in clue order: PLAYS, A, LONG.",
+     "definitionFit": "Someone who plays along cooperates and feigns agreement or enthusiasm to avoid spoiling things for others."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 24,
@@ -413,7 +1627,41 @@
     "text": "Is unable to sermonise",
     "enumeration": "4"
    },
-   "solution": "CANT"
+   "solution": "CANT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CANT",
+    "definitions": [
+     {
+      "text": "Is unable",
+      "at": 0
+     },
+     {
+      "text": "to sermonise",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Is unable",
+      "note": "first meaning: the contraction of cannot, with its apostrophe dropped"
+     },
+     {
+      "clueFragment": "to sermonise",
+      "note": "second meaning: to preach in a hypocritically pious way"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Crosswords ignore punctuation, so can't and cant fill the same squares.",
+     "definitionFit": "Cant as a verb means preaching sanctimoniously, while the contraction means cannot, expressing inability."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -427,7 +1675,54 @@
     "text": "Priest's set off to find relative",
     "enumeration": "10"
    },
-   "solution": "STEPSISTER"
+   "solution": "STEPSISTER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STEPSISTER",
+    "definitions": [
+     {
+      "text": "relative",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "something off has gone wrong or is out of order, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "to find"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Priest's set",
+      "gives": "PRIESTSSET",
+      "note": "taken as written, including the S of the possessive"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PRIESTSSET",
+       "gives": "STEPSISTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clergyman sets out to track down a family member.",
+     "walkthrough": "'Set off' looks like a phrasal verb meaning depart, but set belongs to the letters and off rearranges them.",
+     "definitionFit": "A stepsister is a daughter of one's step-parent, a kin connection through marriage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 26,
@@ -441,7 +1736,48 @@
     "text": "Naked, bashful, praiseful verses",
     "enumeration": "4"
    },
-   "solution": "ODES"
+   "solution": "ODES",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ODES",
+    "definitions": [
+     {
+      "text": "praiseful verses",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Naked",
+      "for": "deletion",
+      "note": "naked means stripped of its covering, so the outside letters are removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bashful",
+      "gives": "MODEST",
+      "note": "modest means shy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ODES"
+     ]
+    },
+    "explanation": {
+     "surface": "Unclothed, shy, and full of compliments in poetry.",
+     "walkthrough": "Strip the first and last letters from MODEST.",
+     "definitionFit": "An ode is a lyric poem addressed to and celebrating a person, object, or idea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Naked"
+    }
+   }
   }
  ]
 }
