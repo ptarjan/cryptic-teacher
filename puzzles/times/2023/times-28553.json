@@ -23,6 +23,9 @@
   "date": "2023-03-17",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -42,7 +45,52 @@
      }
     ]
    },
-   "solution": "CREAMBUN"
+   "solution": "CREAMBUN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "CREAM BUN",
+    "definitions": [
+     {
+      "text": "It’d be out of place in crab menu",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out of place",
+      "for": "anagram",
+      "note": "letters that are out of place are not where they belong, so they must be rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crab menu",
+      "gives": "CRABMENU",
+      "note": "the eight letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CRABMENU",
+       "gives": "CREAMBUN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A diner scans a seafood menu and spots something that clearly does not belong there.",
+     "walkthrough": "The whole clue does double duty: rearranged, CRAB MENU becomes CREAM BUN, and a sweet cake would indeed be out of place on a crab menu.",
+     "definitionFit": "A sugary cake filled with whipped dairy topping is a dessert item that no seafood restaurant would list among its crustacean dishes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd"
+    }
+   }
   },
   {
    "number": 1,
@@ -56,7 +104,62 @@
     "text": "Particular church rings Stepney’s boundaries",
     "enumeration": "6"
    },
-   "solution": "CHOOSY"
+   "solution": "CHOOSY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "CHOOSY",
+    "definitions": [
+     {
+      "text": "Particular",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "boundaries",
+      "for": "letter_selection",
+      "note": "a boundary is the edge of something, so only the outermost letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "church",
+      "gives": "CH",
+      "note": "CH is the standard abbreviation for church"
+     },
+     {
+      "clueFragment": "rings",
+      "gives": "OO",
+      "note": "each ring is shaped like the letter O"
+     },
+     {
+      "clueFragment": "Stepney’s",
+      "gives": "SY",
+      "select": "outer",
+      "note": "first and last letters of the London district"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CH",
+      "OO",
+      "SY"
+     ]
+    },
+    "explanation": {
+     "surface": "A certain church has bells ringing out across the bounds of Stepney, a district in London's East End.",
+     "walkthrough": "'Rings' looks like a verb for bells, but it is a plural noun giving two O shapes.",
+     "definitionFit": "Someone particular is fussy and hard to please, exactly what a choosy person is; the two are straightforward synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rings"
+    }
+   }
   },
   {
    "number": 2,
@@ -70,7 +173,45 @@
     "text": "Seen in context, remedy is immoderate",
     "enumeration": "7"
    },
-   "solution": "EXTREME"
+   "solution": "EXTREME",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EXTREME",
+    "definitions": [
+     {
+      "text": "immoderate",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Seen in",
+      "for": "hidden_word",
+      "note": "something seen in a phrase is visible inside it, sitting within its letters"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "context, remedy",
+      "gives": "EXTREME",
+      "note": "runs across the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A pharmacist warns that, taken in context, a certain remedy goes too far.",
+     "walkthrough": "The letters straddle the comma: the tail of 'context' joins the head of 'remedy'.",
+     "definitionFit": "Both words describe going well beyond reasonable limits; immoderate and extreme are plain synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -84,7 +225,66 @@
     "text": "Mum more properly binds leg for one in the long run",
     "enumeration": "10"
    },
-   "solution": "MARATHONER"
+   "solution": "MARATHONER",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "MARATHONER",
+    "definitions": [
+     {
+      "text": "one in the long run",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "binds",
+      "for": "container",
+      "note": "to bind is to wrap round something, so one piece encloses another"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mum",
+      "gives": "MA",
+      "note": "an informal word for mother"
+     },
+     {
+      "clueFragment": "more properly",
+      "gives": "RATHER",
+      "note": "as in 'or rather', meaning to put it more correctly"
+     },
+     {
+      "clueFragment": "leg",
+      "gives": "ON",
+      "note": "in cricket the leg side is also called the on side"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "RATH",
+      "ON",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A child corrects their mother's grammar while bandaging her leg for a long race.",
+     "walkthrough": "LEG = ON comes from cricket, where the leg side of the field is also called the on side.",
+     "definitionFit": "A runner of 26-mile races is literally a participant in a long run, with a pun on the idiom 'in the long run'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "leg"
+    }
+   }
   },
   {
    "number": 4,
@@ -98,7 +298,42 @@
     "text": "Low-key coronation may be so / rude",
     "enumeration": "13"
    },
-   "solution": "UNCEREMONIOUS"
+   "solution": "UNCEREMONIOUS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "UNCEREMONIOUS",
+    "definitions": [
+     {
+      "text": "Low-key coronation may be so",
+      "at": 0
+     },
+     {
+      "text": "rude",
+      "at": 31
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Low-key coronation may be so",
+      "note": "first meaning, whimsically: a crowning without pomp lacks ceremony"
+     },
+     {
+      "clueFragment": "rude",
+      "note": "second meaning: abrupt and discourteous"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The first half is a playful literal reading: a coronation done quietly would lack ceremony. The second is the usual meaning.",
+     "definitionFit": "The word usually means brusque or discourteous, as in an abrupt dismissal, matching rude in the sense of impolite."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 5,
@@ -112,7 +347,67 @@
     "text": "Ingredient in plaster put over spot in face",
     "enumeration": "6"
    },
-   "solution": "GYPSUM"
+   "solution": "GYPSUM",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "GYPSUM",
+    "definitions": [
+     {
+      "text": "Ingredient in plaster",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing placed in another is enclosed by it"
+     },
+     {
+      "text": "put over",
+      "for": "reversal",
+      "note": "something put over is turned upside down, so its order is flipped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "face",
+      "gives": "MUG",
+      "note": "mug is slang for face"
+     },
+     {
+      "clueFragment": "spot",
+      "gives": "SPY",
+      "note": "to spot is to catch sight of, to spy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "YPS",
+      "UM"
+     ],
+     "reversals": [
+      {
+       "from": "MUSPYG",
+       "to": "GYPSUM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone dabs plaster over a blemish on their face.",
+     "walkthrough": "'Spot' reads as a pimple but is the verb 'to see'; 'face' is the slang MUG.",
+     "definitionFit": "Plaster of Paris is made by heating a soft calcium sulphate mineral, so that mineral is its chief component."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spot"
+    }
+   }
   },
   {
    "number": 6,
@@ -126,7 +421,59 @@
     "text": "Perhaps Klein bottle volume with positive sign?",
     "enumeration": "4"
    },
-   "solution": "YVES"
+   "solution": "YVES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "YVES",
+    "definitions": [
+     {
+      "text": "Perhaps Klein",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bottle",
+      "for": "container",
+      "note": "to bottle something is to hold it inside, so one piece is enclosed"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "volume",
+      "gives": "V",
+      "note": "V is the abbreviation for volume"
+     },
+     {
+      "clueFragment": "positive sign",
+      "gives": "YES",
+      "note": "an affirmative answer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "Y",
+      "V",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "It reads like maths: the volume of a Klein bottle, a one-sided surface, given a plus sign.",
+     "walkthrough": "Klein bottle is a famous mathematical shape, but here 'bottle' is a verb. Yves Klein was a French artist famous for his blue.",
+     "definitionFit": "The French artist Yves Klein is one example of a man bearing this first name, hence 'perhaps' before the surname."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bottle"
+    }
+   }
   },
   {
    "number": 7,
@@ -140,7 +487,55 @@
     "text": "Temporary odds, absorbing for golfers?",
     "enumeration": "7"
    },
-   "solution": "STOPGAP"
+   "solution": "STOPGAP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STOPGAP",
+    "definitions": [
+     {
+      "text": "Temporary",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "absorbing",
+      "for": "container",
+      "note": "to absorb is to take something inside, so one piece swallows another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "odds",
+      "gives": "SP",
+      "note": "SP is starting price, the odds at the start of a race"
+     },
+     {
+      "clueFragment": "for golfers",
+      "gives": "TOPGA",
+      "note": "TO plus PGA, the Professional Golfers' Association"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TOPGA",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "A bookmaker offers temporary odds for golfers in a tournament.",
+     "walkthrough": "'For' is 'to' in the sense of going to someone, and the golfers are their association, the PGA.",
+     "definitionFit": "Used attributively, as in a makeshift measure, the word describes something filling a need only until a proper solution arrives."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "odds"
+    }
+   }
   },
   {
    "number": 8,
@@ -154,7 +549,61 @@
     "text": "Protective one’s maintaining alternative line",
     "enumeration": "8"
    },
-   "solution": "MOTHERLY"
+   "solution": "MOTHERLY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "MOTHERLY",
+    "definitions": [
+     {
+      "text": "Protective",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "maintaining",
+      "for": "container",
+      "note": "to maintain is to hold or keep, so one piece holds others inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one’s",
+      "gives": "MY",
+      "note": "said by oneself, 'one's' is 'my'"
+     },
+     {
+      "clueFragment": "alternative",
+      "gives": "OTHER",
+      "note": "the other option"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L is the abbreviation for line"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "OTHER",
+      "L",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A guardian sticks to a different line of defence.",
+     "walkthrough": "'One's' is the speaker's own, so it becomes MY, which wraps the other two pieces.",
+     "definitionFit": "A mother is the classic guardian of her young, so behaviour like a mother's is caring and defensive of those in one's charge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -168,7 +617,48 @@
     "text": "Settle amount in empty beer glass?",
     "enumeration": "3"
    },
-   "solution": "OPT"
+   "solution": "OPT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OPT",
+    "definitions": [
+     {
+      "text": "Settle",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "amount in empty",
+      "gives": "O",
+      "note": "the quantity held by an empty glass is zero, O"
+     },
+     {
+      "clueFragment": "beer glass",
+      "gives": "PT",
+      "note": "a pint, abbreviated PT as a unit of measure"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "PT"
+     ]
+    },
+    "explanation": {
+     "surface": "A drinker queries what they owe for an empty pint glass.",
+     "walkthrough": "The question mark flags the joke: an empty pint glass holds 0 PT, zero pints. 'Settle' is 'settle on', not 'pay'.",
+     "definitionFit": "To settle on something is to choose it, and to opt is likewise to make a choice between alternatives."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Settle"
+    }
+   }
   },
   {
    "number": 10,
@@ -192,7 +682,71 @@
      }
     ]
    },
-   "solution": "ROCKTHEBOAT"
+   "solution": "ROCKTHEBOAT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ROCK THE BOAT",
+    "definitions": [
+     {
+      "text": "are troublemakers",
+      "at": 49,
+      "note": "the answer is a verb phrase; 'those who rock the boat are troublemakers'"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "insiders",
+      "for": "letter_selection",
+      "note": "insiders are those within, so only the inner letters are kept"
+     },
+     {
+      "text": "interrupting",
+      "for": "container",
+      "note": "to interrupt is to break into the middle of something, so one piece goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one of Stones",
+      "gives": "ROCK",
+      "note": "a stone is a rock"
+     },
+     {
+      "clueFragment": "Bebop’s",
+      "gives": "EBO",
+      "select": "middle",
+      "note": "the jazz style without its first and last letters"
+     },
+     {
+      "clueFragment": "who",
+      "gives": "THAT",
+      "note": "both are relative pronouns"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROCK",
+      "TH",
+      "EBO",
+      "AT"
+     ]
+    },
+    "explanation": {
+     "surface": "Jazz insiders gatecrash a Rolling Stones gig and cause a stir.",
+     "walkthrough": "'Stones' suggests the band, but one of them is simply a rock. 'Who' is the relative pronoun, swapped for THAT.",
+     "definitionFit": "To upset a calm situation by causing disruption is what troublemakers do, so the idiom works as the action of such people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Stones"
+    }
+   }
   },
   {
    "number": 11,
@@ -206,7 +760,52 @@
     "text": "Strange sins or original one",
     "enumeration": "13"
    },
-   "solution": "TRANSGRESSION"
+   "solution": "TRANSGRESSION",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "TRANSGRESSION",
+    "definitions": [
+     {
+      "text": "Strange sins or original one",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "original",
+      "for": "anagram",
+      "note": "something original is newly made, so the letters are formed afresh"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Strange sins or",
+      "gives": "STRANGESINSOR",
+      "note": "thirteen letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "STRANGESINSOR",
+       "gives": "TRANSGRESSION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A preacher lists unusual sins alongside the first sin of all.",
+     "walkthrough": "'Strange' looks like the anagram signal but is part of the letters; the signal is 'original'. Read whole, the clue also describes the answer, whether odd sins or original sin.",
+     "definitionFit": "Any sin, including Adam's first disobedience in Eden, is a breaking of a moral law, which is what the word means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "original"
+    }
+   }
   },
   {
    "number": 12,
@@ -220,7 +819,59 @@
     "text": "For an audience, musical collection bore a small organ",
     "enumeration": "10"
    },
-   "solution": "SWEETBREAD"
+   "solution": "SWEETBREAD",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SWEETBREAD",
+    "definitions": [
+     {
+      "text": "small organ",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "For an audience",
+      "for": "homophone",
+      "note": "what is put on for an audience is heard rather than read, so go by the sound"
+     }
+    ],
+    "linkWords": [
+     "a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "musical collection",
+      "gives": "SWEET",
+      "soundsLike": "SUITE",
+      "note": "a suite is a set of musical pieces"
+     },
+     {
+      "clueFragment": "bore",
+      "gives": "BREAD",
+      "soundsLike": "BRED",
+      "note": "bore and bred both mean produced young"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SWEET",
+      "BREAD"
+     ]
+    },
+    "explanation": {
+     "surface": "An audience sits through a collection of music that bored them, played on a little organ.",
+     "walkthrough": "'Bore' looks like 'was tedious' but is the past tense of bear, as in bore children, which matches BRED.",
+     "definitionFit": "Butchers use this name for the thymus or pancreas of a calf or lamb, a small gland eaten as offal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bore"
+    }
+   }
   },
   {
    "number": 13,
@@ -234,7 +885,57 @@
     "text": "Oh, endless joy to behold with desire",
     "enumeration": "4"
    },
-   "solution": "OGLE"
+   "solution": "OGLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "OGLE",
+    "definitions": [
+     {
+      "text": "behold with desire",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endless",
+      "for": "deletion",
+      "note": "without an end means the final letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Oh",
+      "gives": "O",
+      "note": "the exclamation written as a single letter"
+     },
+     {
+      "clueFragment": "joy",
+      "gives": "GLEE",
+      "note": "glee is delight"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "GLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sighs with delight at a sight they long for.",
+     "walkthrough": "GLEE loses its last E before joining O.",
+     "definitionFit": "To look at someone with obvious lust or longing is exactly what it means to eye them lecherously."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -248,7 +949,65 @@
     "text": "More than one older lamb chop lasagne’s crust’s not kept well",
     "enumeration": "10"
    },
-   "solution": "RAMSHACKLE"
+   "solution": "RAMSHACKLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "RAMSHACKLE",
+    "definitions": [
+     {
+      "text": "not kept well",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crust",
+      "for": "letter_selection",
+      "note": "a crust is the outside of something, so only the outer letters are kept"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "More than one older lamb",
+      "gives": "RAMS",
+      "note": "a grown male lamb becomes a ram, and there are several"
+     },
+     {
+      "clueFragment": "chop",
+      "gives": "HACK",
+      "note": "to hack is to chop"
+     },
+     {
+      "clueFragment": "lasagne’s",
+      "gives": "LE",
+      "select": "outer",
+      "note": "first and last letters of the pasta dish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAMS",
+      "HACK",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A cook complains that the mutton chops and the lasagne topping have gone off.",
+     "walkthrough": "'Chop' looks like a cut of meat beside 'lamb', but it is the verb.",
+     "definitionFit": "A dilapidated building that has fallen into disrepair is one that has been badly maintained over the years."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "chop"
+    }
+   }
   },
   {
    "number": 15,
@@ -262,7 +1021,67 @@
     "text": "Mutilate man’s title from edition being recalled",
     "enumeration": "6"
    },
-   "solution": "DEFORM"
+   "solution": "DEFORM",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "DEFORM",
+    "definitions": [
+     {
+      "text": "Mutilate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being recalled",
+      "for": "reversal",
+      "note": "to recall is to call back, so the letters are read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "man’s title",
+      "gives": "MR",
+      "note": "Mr is the title for a man"
+     },
+     {
+      "clueFragment": "from",
+      "gives": "OF",
+      "note": "as in 'made of' or 'from'"
+     },
+     {
+      "clueFragment": "edition",
+      "gives": "ED",
+      "note": "ED is the abbreviation for edition"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "FOR",
+      "M"
+     ],
+     "reversals": [
+      {
+       "from": "MROFED",
+       "to": "DEFORM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A publisher defaces a gentleman's title in a recalled edition of a book.",
+     "walkthrough": "'From' is not a link here but the word OF, in the sense of 'made of'.",
+     "definitionFit": "To mutilate something is to spoil its shape by damaging it, which is what distorting its form does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "recalled"
+    }
+   }
   },
   {
    "number": 16,
@@ -276,7 +1095,61 @@
     "text": "Incisor’s coating of enamel seen on outside of head",
     "enumeration": "7"
    },
-   "solution": "SCALPEL"
+   "solution": "SCALPEL",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SCALPEL",
+    "definitions": [
+     {
+      "text": "Incisor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coating",
+      "for": "letter_selection",
+      "note": "a coating is the surface layer wrapped around something, so only the edge letters are kept"
+     }
+    ],
+    "linkWords": [
+     "’s",
+     "seen on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "outside of head",
+      "gives": "SCALP",
+      "note": "the skin covering the top of the skull"
+     },
+     {
+      "clueFragment": "of enamel",
+      "gives": "EL",
+      "select": "outer",
+      "note": "first and last letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCALP",
+      "EL"
+     ]
+    },
+    "explanation": {
+     "surface": "A dentist describes the enamel on a front tooth, visible outside the gums.",
+     "walkthrough": "'Incisor' reads as a tooth, but here it is literally something that makes incisions, a surgeon's knife.",
+     "definitionFit": "An incisor in this playful sense is anything that makes cuts, and the surgeon's small sharp blade does exactly that."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Incisor"
+    }
+   }
   },
   {
    "number": 17,
@@ -290,7 +1163,41 @@
     "text": "Of operations, precise as military ones",
     "enumeration": "8"
    },
-   "solution": "SURGICAL"
+   "solution": "SURGICAL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SURGICAL",
+    "definitions": [
+     {
+      "text": "Of operations",
+      "at": 0
+     },
+     {
+      "text": "precise as military ones",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Of operations",
+      "note": "first meaning: relating to surgery"
+     },
+     {
+      "clueFragment": "precise as military ones",
+      "note": "second meaning: pinpoint, as in a strike aimed at one target"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Both halves use 'operations', first medical and then military, where the word describes strikes that hit only their target.",
+     "definitionFit": "The adjective relates to surgery, and by extension describes highly accurate military strikes that avoid damage beyond the target."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -304,7 +1211,65 @@
     "text": "Innumerable other ranks including private following uniform",
     "enumeration": "7"
    },
-   "solution": "UMPTEEN"
+   "solution": "UMPTEEN",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "UMPTEEN",
+    "definitions": [
+     {
+      "text": "Innumerable",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "including",
+      "for": "container",
+      "note": "to include is to hold within, so one piece sits inside another"
+     }
+    ],
+    "linkWords": [
+     "following"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "uniform",
+      "gives": "U",
+      "note": "U is Uniform in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "other ranks",
+      "gives": "MEN",
+      "note": "the ordinary soldiers as opposed to officers"
+     },
+     {
+      "clueFragment": "private",
+      "gives": "PTE",
+      "note": "PTE is the abbreviation for the army rank"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "M",
+      "PTE",
+      "EN"
+     ]
+    },
+    "explanation": {
+     "surface": "Countless enlisted soldiers, a private among them, march in uniform.",
+     "walkthrough": "'Following' places the soldiers after U, so the uniform comes first.",
+     "definitionFit": "Informally the word means a very large but unspecified number, too many to count, which is what innumerable means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "uniform"
+    }
+   }
   },
   {
    "number": 19,
@@ -318,7 +1283,72 @@
     "text": "Fire survivor’s tool ultimately seen in photos",
     "enumeration": "7"
    },
-   "solution": "PHOENIX"
+   "solution": "PHOENIX",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PHOENIX",
+    "definitions": [
+     {
+      "text": "Fire survivor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so only the final letter is kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing placed in another is enclosed by it"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "photos",
+      "gives": "PIX",
+      "note": "slang plural of picture"
+     },
+     {
+      "clueFragment": "tool",
+      "gives": "HOE",
+      "note": "a garden tool"
+     },
+     {
+      "clueFragment": "seen",
+      "gives": "N",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "HOE",
+      "N",
+      "IX"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who escaped a blaze finds the tool they saved pictured in the photographs.",
+     "walkthrough": "'Seen' looks like part of 'seen in', but it supplies its own last letter, leaving 'in' to do the enclosing.",
+     "definitionFit": "In myth the fabulous bird burns itself up and rises reborn from its own ashes, so it survives the flames."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "seen"
+    }
+   }
   },
   {
    "number": 20,
@@ -332,7 +1362,70 @@
     "text": "Time lost to abacus at last in turning beads",
     "enumeration": "6"
    },
-   "solution": "ROSARY"
+   "solution": "ROSARY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "substitution"
+    ],
+    "answer": "ROSARY",
+    "definitions": [
+     {
+      "text": "beads",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at last",
+      "for": "letter_selection",
+      "note": "at last means at the very end, so the final letter is taken"
+     },
+     {
+      "text": "lost to",
+      "for": "substitution",
+      "note": "one thing lost to another gives way to it, so a letter is swapped out"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "abacus",
+      "gives": "S",
+      "select": "last",
+      "note": "the final letter of the counting frame"
+     },
+     {
+      "clueFragment": "turning",
+      "gives": "ROTARY",
+      "note": "rotary means turning, as a rotary engine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RO",
+      "S",
+      "ARY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone abandons their abacus for prayer beads, turning them through their fingers.",
+     "walkthrough": "In ROTARY the T gives way to S, the last letter of abacus.",
+     "definitionFit": "Catholics count prayers on a string of beads, and the string itself shares the name of the devotion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "turning"
+    }
+   }
   },
   {
    "number": 21,
@@ -346,7 +1439,60 @@
     "text": "Maximally delay start of demonstration to shout from here?",
     "enumeration": "7"
    },
-   "solution": "ROOFTOP"
+   "solution": "ROOFTOP",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "ROOFTOP",
+    "definitions": [
+     {
+      "text": "shout from here?",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Maximally delay start",
+      "for": "cycling",
+      "note": "putting off the opening letter as long as possible moves it to the very end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "demonstration",
+      "gives": "PROOF",
+      "note": "a demonstration that something is true"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROOFTO",
+      "P"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PROOFTO",
+       "gives": "ROOFTOP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An organiser postpones the start of a protest to give the crowd time to shout.",
+     "walkthrough": "PROOF plus TO has its opening P shifted to the end. The definition leans on the idiom 'shout it from the rooftops', to announce publicly.",
+     "definitionFit": "People proclaiming news loudly are said to shout it from the tops of buildings, so the high perch is the place to shout from."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "demonstration"
+    }
+   }
   },
   {
    "number": 22,
@@ -360,7 +1506,47 @@
     "text": "Not quite saying what’ll reduce cholesterol",
     "enumeration": "6"
    },
-   "solution": "STATIN"
+   "solution": "STATIN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "STATIN",
+    "definitions": [
+     {
+      "text": "what’ll reduce cholesterol",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not quite",
+      "for": "deletion",
+      "note": "not quite all of it means the word stops one letter short"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "saying",
+      "gives": "STATING",
+      "note": "stating is saying"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STATIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor hesitates to say what will bring cholesterol down.",
+     "walkthrough": "STATING loses its last letter.",
+     "definitionFit": "These widely prescribed drugs lower levels of fat in the blood, so they are the standard medicine for high cholesterol."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -374,7 +1560,61 @@
     "text": "Reflection of petrifying monster would show no such spirit",
     "enumeration": "4"
    },
-   "solution": "GROG"
+   "solution": "GROG",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion"
+    ],
+    "answer": "GROG",
+    "definitions": [
+     {
+      "text": "spirit",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reflection of",
+      "for": "reversal",
+      "note": "a mirror reflection shows things back to front"
+     },
+     {
+      "text": "would show no such",
+      "for": "deletion",
+      "note": "the flipped word begins with 'no' and then displays the answer, so that opening is set aside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "petrifying monster",
+      "gives": "GORGON",
+      "note": "a Gorgon such as Medusa turned onlookers to stone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GROG"
+     ],
+     "reversals": [
+      {
+       "from": "GORGON",
+       "to": "NOGROG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mirror held up to Medusa would reveal a monster without any fighting spirit.",
+     "walkthrough": "Written backwards, GORGON reads NO GROG, so the reflection literally shows 'no' followed by the answer.",
+     "definitionFit": "Grog is rum diluted with water, once the sailors' ration, so it is a drink made from spirits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "spirit"
+    }
+   }
   },
   {
    "number": 24,
@@ -388,7 +1628,61 @@
     "text": "Oil rig labourer to supplant sailor in rabble",
     "enumeration": "10"
    },
-   "solution": "ROUSTABOUT"
+   "solution": "ROUSTABOUT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ROUSTABOUT",
+    "definitions": [
+     {
+      "text": "Oil rig labourer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing placed in another is enclosed by it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rabble",
+      "gives": "ROUT",
+      "note": "a rout is an old word for a disorderly crowd"
+     },
+     {
+      "clueFragment": "to supplant",
+      "gives": "OUST",
+      "note": "to oust is to push out and replace"
+     },
+     {
+      "clueFragment": "sailor",
+      "gives": "AB",
+      "note": "AB is an able-bodied seaman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "OUST",
+      "AB",
+      "OUT"
+     ]
+    },
+    "explanation": {
+     "surface": "A rig worker muscles a sailor out of his place in an unruly crowd.",
+     "walkthrough": "The verb and the sailor go together inside ROUT, splitting it after its first letter.",
+     "definitionFit": "The term names an unskilled manual worker, especially one doing general labour on an offshore drilling platform."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -402,7 +1696,43 @@
     "text": "Digs / away from hills?",
     "enumeration": "4"
    },
-   "solution": "FLAT"
+   "solution": "FLAT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FLAT",
+    "definitions": [
+     {
+      "text": "Digs",
+      "at": 0
+     },
+     {
+      "text": "away from hills?",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Digs",
+      "note": "first meaning: lodgings, a place to live"
+     },
+     {
+      "clueFragment": "away from hills?",
+      "note": "second meaning: level ground, where there are no hills"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Digs' looks like a verb but is British slang for lodgings. The question mark admits the second half is playful: land away from hills is level.",
+     "definitionFit": "An apartment is rented accommodation like lodgings, and level terrain without slopes is the opposite of hilly country."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Digs"
+    }
+   }
   },
   {
    "number": 26,
@@ -416,7 +1746,65 @@
     "text": "Light support of container in case carried by Richard",
     "enumeration": "11"
    },
-   "solution": "CANDLESTICK"
+   "solution": "CANDLESTICK",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CANDLESTICK",
+    "definitions": [
+     {
+      "text": "Light support",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "carried by",
+      "for": "container",
+      "note": "what is carried is held inside, so one piece sits within another"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "container",
+      "gives": "CAN",
+      "note": "a can is a container"
+     },
+     {
+      "clueFragment": "Richard",
+      "gives": "DICK",
+      "note": "Dick is a short form of Richard"
+     },
+     {
+      "clueFragment": "in case",
+      "gives": "LEST",
+      "note": "lest means in case, as in 'lest we forget'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAN",
+      "D",
+      "LEST",
+      "ICK"
+     ]
+    },
+    "explanation": {
+     "surface": "A man called Richard carries a little support for a container in its case.",
+     "walkthrough": "'Case' tempts as a container, but 'in case' is a phrase meaning LEST.",
+     "definitionFit": "The holder that keeps a wax taper upright is a stand that supports a source of light."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 27,
@@ -430,7 +1818,42 @@
     "text": "A child — count / some 23?",
     "enumeration": "3"
    },
-   "solution": "TOT"
+   "solution": "TOT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TOT",
+    "definitions": [
+     {
+      "text": "A child — count",
+      "at": 0
+     },
+     {
+      "text": "some 23?",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A child — count",
+      "note": "first meanings: a toddler, and to add up figures"
+     },
+     {
+      "clueFragment": "some 23?",
+      "note": "second meaning: a small measure of the spirit that answers 23 Across"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The word has three senses here: a toddler, to add up, and a small dram. 23 refers to the answer at 23 Across, a rum drink.",
+     "definitionFit": "The word means a toddler, a verb for adding up figures, and a small measure of rum or other liquor."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "count"
+    }
+   }
   },
   {
    "number": 28,
@@ -444,7 +1867,58 @@
     "text": "No tension in parishioners clutching cross",
     "enumeration": "6"
    },
-   "solution": "LAXITY"
+   "solution": "LAXITY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LAXITY",
+    "definitions": [
+     {
+      "text": "No tension",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "clutching",
+      "for": "container",
+      "note": "to clutch is to hold tightly, so one piece is gripped inside another"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "parishioners",
+      "gives": "LAITY",
+      "note": "the lay members of a church, as opposed to clergy"
+     },
+     {
+      "clueFragment": "cross",
+      "gives": "X",
+      "note": "X is shaped like a cross"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LA",
+      "X",
+      "ITY"
+     ]
+    },
+    "explanation": {
+     "surface": "Churchgoers holding a crucifix feel calm and relaxed.",
+     "walkthrough": "'Cross' looks like 'angry', setting up a contrast with 'no tension', but it is the shape X.",
+     "definitionFit": "Slackness, the state of being loose rather than taut, is a lack of tension in a rope or in discipline."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cross"
+    }
+   }
   },
   {
    "number": 29,
@@ -458,7 +1932,47 @@
     "text": "Maybe use too few items plucked from cushion or bolster",
     "enumeration": "8"
    },
-   "solution": "UNDERPIN"
+   "solution": "UNDERPIN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "UNDERPIN",
+    "definitions": [
+     {
+      "text": "Maybe use too few items plucked from cushion",
+      "at": 0
+     },
+     {
+      "text": "bolster",
+      "at": 48
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Maybe use too few items plucked from cushion",
+      "note": "first meaning, whimsically: to supply too few of what sits in a pincushion"
+     },
+     {
+      "clueFragment": "bolster",
+      "note": "second meaning: to support or strengthen"
+     }
+    ],
+    "explanation": {
+     "surface": "A seamstress takes too few pins from a pillow or a long cushion.",
+     "walkthrough": "The cushion is a pincushion, so the first half splits the answer as UNDER plus PIN. 'Bolster' is a verb, not a pillow.",
+     "definitionFit": "To bolster an argument or structure is to strengthen it from beneath, which is what supporting its foundations does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bolster"
+    }
+   }
   }
  ]
 }
