@@ -46,6 +46,19 @@ def candidates(text, clue):
     return [i for i in found if whole(i)] or found
 
 
+# Typed quotes differ from printed ones; each maps one code point to one, so a
+# folded match sits at the same offsets in the real clue.
+QUOTES = str.maketrans("\u2018\u2019\u201c\u201d", "''\"\"")
+
+
+def respell(text, clue):
+    """`text` spelt as `clue` prints it, when they differ only in quote marks."""
+    if not text or text in clue:
+        return text
+    i = clue.translate(QUOTES).find(text.translate(QUOTES))
+    return clue[i:i + len(text)] if i >= 0 else text
+
+
 def _at_an_end(clue, i, n):
     return not re.search(r"\w", clue[:i]) or not re.search(r"\w", clue[i + n:])
 
@@ -56,6 +69,9 @@ def place(definitions, clue):
     An `at` that already points at its text is kept. Raises ValueError naming
     each text that is not in the clue or that the rules leave ambiguous."""
     defs = [dict(d) for d in definitions]
+    for d in defs:
+        if isinstance(d.get("text"), str):
+            d["text"] = respell(d["text"], clue)
     todo = {k: candidates(d.get("text") or "", clue)
             for k, d in enumerate(defs) if not span_ok(d, clue)}
     for k in todo:
