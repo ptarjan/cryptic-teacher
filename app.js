@@ -4266,21 +4266,25 @@
       swallowClick = moved;
       if (moved) renderHintPanel();
     });
-    // A cancelled pointer is the browser taking the gesture away to scroll with
-    // — .gw is touch-action: pan-y, so a vertical pan on a word is a page scroll
-    // that has already fired a few pointermoves. Whatever those picked was never
-    // meant, so it goes back, and the click flag is cleared with it: a scroll
-    // that ends anywhere but on a word never delivers the click that would have
-    // cleared it, and it sat there latched, eating the next real tap ("if you
-    // start a scroll then you can't select words", on an iPad).
+    // Once a drag is under way the finger owns the gesture: a slide up or down
+    // off the words must not become a page scroll, because the browser would
+    // cancel the pointer mid-drag. Before that, pan-y still scrolls the page.
+    document.addEventListener("touchmove", (ev) => {
+      if (drag && drag.moved && ev.cancelable) ev.preventDefault();
+    }, { passive: false });
+    // A cancelled pointer is the browser taking the gesture away. A drag that
+    // had already crossed words keeps its picks, since sliding off the words is
+    // not taking them back; the pointermove guard above has already dropped a
+    // gesture that set out as a scroll. The click flag is cleared either way: a
+    // cancelled gesture never delivers the click that would have cleared it,
+    // and it sat there latched, eating the next real tap ("if you start a
+    // scroll then you can't select words", on an iPad).
     document.addEventListener("pointercancel", () => {
       if (!drag) return;
-      if (guessing && drag.moved) {
-        guessing.picked = drag.base.slice();
-        paintPicked(drag.ask);
-      }
+      const moved = drag.moved;
       drag = null;
       swallowClick = false;
+      if (guessing && moved) renderHintPanel();
     });
   }
 
@@ -4417,6 +4421,19 @@
       const words = missed.map((x) => ask.tokens[x].text).join(" ");
       return { hit: target, spare, missed: [], right: true,
                said: `Yes — solvers disagree on whether “${words}” is part of the definition, so either way counts.` };
+    }
+    // Either half of a double definition defines the answer on its own, so
+    // pointing at one of them, whole and nothing else, answers the question.
+    // The other half is painted in with the verdict.
+    if (guessing.rung === "definition" && !spare.length && hit.length && ask.spans && ask.spans.length > 1) {
+      const one = ask.spans.find((sp) => picked.every((x) => sp.indexOf(x) >= 0)
+        && sp.every((x) => picked.indexOf(x) >= 0 || edge.indexOf(x) >= 0));
+      if (one) {
+        const rest = ask.spans.filter((sp) => sp !== one)
+          .map((sp) => sp.map((x) => ask.tokens[x].text).join(" "));
+        return { hit: target, spare, missed: [], right: true,
+                 said: `Yes — that’s one definition, and “${rest.join("” and “")}” is the other.` };
+      }
     }
     // An indicator is a phrase, and which of its words carry the instruction is
     // not the lesson: "according to Spooner", "for Spooner" and "Spooner" all
