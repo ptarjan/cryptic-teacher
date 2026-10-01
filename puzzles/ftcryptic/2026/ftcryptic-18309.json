@@ -24,6 +24,9 @@
   "date": "2026-03-04",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,45 @@
     "text": "Say Nelson’s military formation…",
     "enumeration": "6"
    },
-   "solution": "COLUMN"
+   "solution": "COLUMN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "COLUMN",
+    "definitions": [
+     {
+      "text": "Say Nelson’s",
+      "at": 0,
+      "note": "an example-style hint: Nelson's ___ names the monument, so it points at the noun rather than defining it"
+     },
+     {
+      "text": "military formation",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Say Nelson’s",
+      "note": "first meaning: the monument in Trafalgar Square, London, topped by a statue of Admiral Nelson"
+     },
+     {
+      "clueFragment": "military formation",
+      "note": "second meaning: troops drawn up in a long file, several abreast"
+     }
+    ],
+    "explanation": {
+     "surface": "An admiral's troops drawn up in battle order, the sentence trailing off into the next clue.",
+     "walkthrough": "Nelson's Column is the famous London monument. The ellipsis carries on into 4 Across, so the two answers together make 'column inches', the newspaper measure of coverage.",
+     "definitionFit": "A column is a narrow formation of soldiers marching in file, and also the tall pillar commemorating the admiral."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Nelson’s"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +92,62 @@
     "text": "They specialise in cooking finches",
     "enumeration": "5"
    },
-   "solution": "CHEFS"
+   "solution": "CHEFS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "CHEFS",
+    "definitions": [
+     {
+      "text": "They",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "specialise",
+      "for": "deletion",
+      "note": "to specialise is to narrow down, so a word is pared to fewer letters by dropping the word that follows"
+     },
+     {
+      "text": "cooking",
+      "for": "anagram",
+      "note": "cooking mixes and transforms ingredients, so the remaining letters are stirred into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "finches",
+      "gives": "FINCHES",
+      "note": "the small songbirds, taken as written"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "the two letters removed from the birds"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FCHES",
+       "gives": "CHEFS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some kitchen specialists whose speciality is preparing small birds for the table.",
+     "walkthrough": "Strip IN from FINCHES to leave FCHES, then rearrange. The clue reads almost as a description of the answer, which is why 'They' alone can serve as the definition.",
+     "definitionFit": "Chefs are professional cooks, the people who specialise in cooking, so the plural pronoun stands for them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "finches"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +161,69 @@
     "text": "Cat person’s first to get into terrible ordeal",
     "enumeration": "7"
    },
-   "solution": "LEOPARD"
+   "solution": "LEOPARD",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "anagram"
+    ],
+    "answer": "LEOPARD",
+    "definitions": [
+     {
+      "text": "Cat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "the first of a word means only its opening letter is wanted"
+     },
+     {
+      "text": "to get into",
+      "for": "container",
+      "note": "getting into something means going inside it, so one piece sits within another"
+     },
+     {
+      "text": "terrible",
+      "for": "anagram",
+      "note": "something terrible is in a dreadful state, so its letters are thrown into disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "person’s",
+      "gives": "P",
+      "select": "first",
+      "note": "opening letter of the word"
+     },
+     {
+      "clueFragment": "ordeal",
+      "gives": "ORDEAL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ORDEALP",
+       "gives": "LEOPARD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who loves cats finds themselves caught up in a dreadful experience.",
+     "walkthrough": "'Cat person' looks like one phrase for a cat lover, but the break comes after 'Cat'. Put P into ORDEAL and rearrange the seven letters.",
+     "definitionFit": "The leopard is a large spotted wild member of the cat family found in Africa and Asia."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "person’s"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +237,61 @@
     "text": "Mother buries goldfish in stately tomb",
     "enumeration": "9"
    },
-   "solution": "MAUSOLEUM"
+   "solution": "MAUSOLEUM",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "MAUSOLEUM",
+    "definitions": [
+     {
+      "text": "stately tomb",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "buries",
+      "for": "container",
+      "note": "to bury something is to put it inside and cover it, so one piece is enclosed by another"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mother",
+      "gives": "MUM",
+      "note": "an informal word for mother"
+     },
+     {
+      "clueFragment": "goldfish",
+      "gives": "AUSOLE",
+      "note": "split in two: AU, the chemical symbol for gold, then the sole, a flatfish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "AU",
+      "SOLE",
+      "UM"
+     ]
+    },
+    "explanation": {
+     "surface": "A mother lays the family goldfish to rest in a grand tomb.",
+     "walkthrough": "'Goldfish' splits into two pieces, gold and fish, which go inside MUM together.",
+     "definitionFit": "A mausoleum is a large, imposing building housing a tomb or tombs, named after the monument of King Mausolus."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "goldfish"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +305,44 @@
     "text": "…slowly moves a short distance",
     "enumeration": "6"
    },
-   "solution": "INCHES"
+   "solution": "INCHES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "INCHES",
+    "definitions": [
+     {
+      "text": "slowly moves",
+      "at": 1
+     },
+     {
+      "text": "a short distance",
+      "at": 14,
+      "note": "singular phrase for a plural noun; the answer as a noun means several small distances"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "slowly moves",
+      "note": "first meaning: creeps forward little by little"
+     },
+     {
+      "clueFragment": "a short distance",
+      "note": "second meaning: small units of length, twelve to the foot"
+     }
+    ],
+    "explanation": {
+     "surface": "Carrying on from 1 Across, a military column creeps forward only a little way.",
+     "walkthrough": "Read with 1 Across the pair spells 'column inches', the amount of newspaper space a story gets.",
+     "definitionFit": "To inch is to advance gradually, as a verb; as a noun an inch is a small imperial unit of length."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +356,70 @@
     "text": "Awkward rising desire to run around road",
     "enumeration": "5"
    },
-   "solution": "NERDY"
+   "solution": "NERDY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "NERDY",
+    "definitions": [
+     {
+      "text": "Awkward",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rising",
+      "for": "reversal",
+      "note": "in a down clue something rising reads from bottom to top, the opposite way"
+     },
+     {
+      "text": "run around",
+      "for": "container",
+      "note": "to run around something is to encircle it, so one piece is wrapped round another"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "desire",
+      "gives": "YEN",
+      "note": "a yen is a longing or desire"
+     },
+     {
+      "clueFragment": "road",
+      "gives": "RD",
+      "note": "RD is the abbreviation for road"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NE",
+      "RD",
+      "Y"
+     ],
+     "reversals": [
+      {
+       "from": "YEN",
+       "to": "NEY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An unwelcome urge to go jogging round the street.",
+     "walkthrough": "Yen is an everyday word for a longing. In a down entry 'rising' means read upward, and the result is split open to hold the road abbreviation.",
+     "definitionFit": "Nerdy describes someone socially awkward and obsessively studious, so the adjective awkward fits it loosely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rising"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +433,59 @@
     "text": "Where one lives is to some extent in Panama?",
     "enumeration": "7"
    },
-   "solution": "HABITAT"
+   "solution": "HABITAT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HABITAT",
+    "definitions": [
+     {
+      "text": "Where one lives",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "being in something means sitting inside it, so one piece goes within another"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Panama?",
+      "gives": "HAT",
+      "note": "a Panama is a type of straw hat; the question mark flags the example"
+     },
+     {
+      "clueFragment": "to some extent",
+      "gives": "ABIT",
+      "note": "'a bit' means to some extent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "ABIT",
+      "AT"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about whether someone's home is partly in the Central American country.",
+     "walkthrough": "Panama looks like the country, but it is the straw hat. The phrase 'to some extent' becomes A BIT, which sits inside HAT.",
+     "definitionFit": "A habitat is the natural home or environment of an animal or plant, the place it lives."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Panama"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +499,64 @@
     "text": "Working as tailor is about right",
     "enumeration": "9"
    },
-   "solution": "SARTORIAL"
+   "solution": "SARTORIAL",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "SARTORIAL",
+    "definitions": [
+     {
+      "text": "Working as tailor",
+      "at": 0,
+      "note": "an adjectival phrase describing the work of a tailor"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Working",
+      "for": "anagram",
+      "note": "something being worked is shaped and reshaped, so the letters are kneaded into a new order"
+     },
+     {
+      "text": "is about",
+      "for": "container",
+      "note": "to be about something is to surround it, so the letters wrap round the next piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "as tailor",
+      "gives": "ASTAILOR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ASTAILORR",
+       "gives": "SARTORIAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone employed as a tailor is doing the proper thing.",
+     "walkthrough": "The words AS TAILOR go round R and the nine letters are rearranged; the opening phrase does double duty as both signal and description of the answer.",
+     "definitionFit": "Sartorial means relating to tailoring, clothes or the way a person dresses, from the Latin word for a tailor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +570,64 @@
     "text": "Cryptic code with strange elegance",
     "enumeration": "7"
    },
-   "solution": "DECORUM"
+   "solution": "DECORUM",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "DECORUM",
+    "definitions": [
+     {
+      "text": "elegance",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Cryptic",
+      "for": "anagram",
+      "note": "cryptic means puzzling and obscure, so the letters are disguised in a muddled order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "code",
+      "gives": "CODE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "strange",
+      "gives": "RUM",
+      "note": "rum is British slang for odd or strange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DECO",
+      "RUM"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CODE",
+       "gives": "DECO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A secret cipher that has an odd kind of grace about it.",
+     "walkthrough": "'Strange' looks like another anagram signal, but it supplies RUM, an old-fashioned British word for peculiar.",
+     "definitionFit": "Decorum is proper, dignified behaviour and good taste, close in sense to refined grace or polish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cryptic"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +641,87 @@
     "text": "Corruption of cheese containing a bit of blue with bits of red & yellow",
     "enumeration": "7"
    },
-   "solution": "BRIBERY"
+   "solution": "BRIBERY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "BRIBERY",
+    "definitions": [
+     {
+      "text": "Corruption",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "containing",
+      "for": "container",
+      "note": "containing means holding inside, so one piece is enclosed by another"
+     },
+     {
+      "text": "a bit of",
+      "for": "letter_selection",
+      "note": "a bit of a word is a small part of it, here its opening letter"
+     },
+     {
+      "text": "bits of",
+      "for": "letter_selection",
+      "note": "bits of two words are small parts of each, here their opening letters"
+     }
+    ],
+    "linkWords": [
+     "of",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cheese",
+      "gives": "BRIE",
+      "note": "Brie is a soft French cheese"
+     },
+     {
+      "clueFragment": "blue",
+      "gives": "B",
+      "select": "first",
+      "note": "opening letter of the colour"
+     },
+     {
+      "clueFragment": "red",
+      "gives": "R",
+      "select": "first",
+      "note": "opening letter of the colour"
+     },
+     {
+      "clueFragment": "yellow",
+      "gives": "Y",
+      "select": "first",
+      "note": "opening letter of the colour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRI",
+      "B",
+      "E",
+      "R",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A cheese going off, with spots of blue, red and yellow mould appearing.",
+     "walkthrough": "'Corruption' suggests decay in the cheese, but it is the definition. B goes into BRIE, then R and Y follow.",
+     "definitionFit": "Bribery is corrupt practice: paying or offering something to influence an official improperly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Corruption"
+    }
+   }
   },
   {
    "number": 10,
@@ -177,7 +735,47 @@
     "text": "Book draws gimmicks",
     "enumeration": "9"
    },
-   "solution": "NOVELTIES"
+   "solution": "NOVELTIES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NOVELTIES",
+    "definitions": [
+     {
+      "text": "gimmicks",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Book",
+      "gives": "NOVEL",
+      "note": "a novel is a book of fiction"
+     },
+     {
+      "clueFragment": "draws",
+      "gives": "TIES",
+      "note": "draws are tied games, so ties"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOVEL",
+      "TIES"
+     ]
+    },
+    "explanation": {
+     "surface": "A book that attracts readers through tricks and stunts.",
+     "walkthrough": "'Draws' reads as a verb, attracts, but it is a plural noun: matches ending level.",
+     "definitionFit": "Novelties are cheap trinkets or new tricks meant to attract attention, much like gimmicks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "draws"
+    }
+   }
   },
   {
    "number": 11,
@@ -191,7 +789,60 @@
     "text": "Regularly used seasick excuse for getting out of a bind",
     "enumeration": "10"
    },
-   "solution": "ESCAPOLOGY"
+   "solution": "ESCAPOLOGY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ESCAPOLOGY",
+    "definitions": [
+     {
+      "text": "getting out of a bind",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Regularly used",
+      "for": "letter_selection",
+      "note": "using something at regular intervals means taking every other letter"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seasick",
+      "gives": "ESC",
+      "select": "alternate",
+      "note": "second, fourth and sixth letters"
+     },
+     {
+      "clueFragment": "excuse",
+      "gives": "APOLOGY",
+      "note": "an apology can be an excuse or justification"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ESC",
+      "APOLOGY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone routinely pleads seasickness to wriggle out of an awkward situation.",
+     "walkthrough": "Take the even letters of the sickness word, then add a word for a defence or excuse.",
+     "definitionFit": "Escapology is the art of escaping from chains, ropes and locks, as Houdini performed, literally freeing oneself from bonds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bind"
+    }
+   }
   },
   {
    "number": 12,
@@ -205,7 +856,44 @@
     "text": "You could make five hundred",
     "enumeration": "4"
    },
-   "solution": "THOU"
+   "solution": "THOU",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "THOU",
+    "definitions": [
+     {
+      "text": "You",
+      "at": 0
+     },
+     {
+      "text": "could make five hundred",
+      "at": 4,
+      "note": "a playful phrase rather than a synonym: two five hundreds make the thousand this word means"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "You",
+      "note": "first meaning: the archaic singular form of you"
+     },
+     {
+      "clueFragment": "could make five hundred",
+      "note": "second meaning: slang for a thousand, which is double five hundred"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The archaic pronoun is also informal slang for a thousand pounds; the second half teases that it is a pair of five hundreds.",
+     "definitionFit": "Thou is the old second-person singular pronoun, and a thou is colloquially one thousand, especially a thousand pounds or dollars."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "make"
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +907,42 @@
     "text": "Tamper with candy",
     "enumeration": "5"
    },
-   "solution": "FUDGE"
+   "solution": "FUDGE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FUDGE",
+    "definitions": [
+     {
+      "text": "Tamper with",
+      "at": 0
+     },
+     {
+      "text": "candy",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tamper with",
+      "note": "first meaning: to fiddle or falsify figures"
+     },
+     {
+      "clueFragment": "candy",
+      "note": "second meaning: a soft sugary sweet"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests meddling with sweets; the two halves are separate meanings, one verb and one noun.",
+     "definitionFit": "To fudge results is to manipulate or fake them, and fudge is also a soft confection made from sugar, butter and milk."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Tamper"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +956,56 @@
     "text": "Conventional shape, uniform and secular",
     "enumeration": "9"
    },
-   "solution": "FORMULAIC"
+   "solution": "FORMULAIC",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FORMULAIC",
+    "definitions": [
+     {
+      "text": "Conventional",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shape",
+      "gives": "FORM",
+      "note": "form is shape"
+     },
+     {
+      "clueFragment": "uniform",
+      "gives": "U",
+      "note": "U is Uniform in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "secular",
+      "gives": "LAIC",
+      "note": "laic means lay, not of the clergy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FORM",
+      "U",
+      "LAIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A standard silhouette, regulation-issue and non-religious, perhaps of clothing.",
+     "walkthrough": "'Uniform' looks like an adjective, same throughout, but it is the radio code word for U.",
+     "definitionFit": "Formulaic means following a set pattern or stock method, lacking originality, so predictable and conventional."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "uniform"
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +1019,67 @@
     "text": "Compassionate way to probe experimental mice",
     "enumeration": "8"
    },
-   "solution": "EMPATHIC"
+   "solution": "EMPATHIC",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "EMPATHIC",
+    "definitions": [
+     {
+      "text": "Compassionate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to probe",
+      "for": "container",
+      "note": "to probe is to push into something, so one piece goes inside another"
+     },
+     {
+      "text": "experimental",
+      "for": "anagram",
+      "note": "experimental means trying things out in new ways, so the letters are tried in a different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "way",
+      "gives": "PATH",
+      "note": "a path is a way"
+     },
+     {
+      "clueFragment": "mice",
+      "gives": "MICE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EM",
+      "PATH",
+      "IC"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MICE",
+       "gives": "EMIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A kinder method for examining laboratory mice.",
+     "walkthrough": "MICE is rearranged to EMIC first, and PATH is then pushed into the middle.",
+     "definitionFit": "Empathic means able to share and understand another's feelings, close in sense to sympathetic and caring."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "experimental"
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +1093,48 @@
     "text": "Outstanding standard sum",
     "enumeration": "9"
    },
-   "solution": "PARAMOUNT"
+   "solution": "PARAMOUNT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PARAMOUNT",
+    "definitions": [
+     {
+      "text": "Outstanding",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "standard",
+      "gives": "PAR",
+      "note": "par is the standard or norm"
+     },
+     {
+      "clueFragment": "sum",
+      "gives": "AMOUNT",
+      "note": "a sum is an amount"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAR",
+      "AMOUNT"
+     ]
+    },
+    "explanation": {
+     "surface": "A sum of money that is still owed at the usual rate.",
+     "walkthrough": "'Outstanding' suggests a debt still unpaid, but it means supreme.",
+     "definitionFit": "Paramount means chief or of supreme importance, ranking above everything else, so preeminent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Outstanding"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +1148,62 @@
     "text": "Send tram finally through passage",
     "enumeration": "8"
    },
-   "solution": "TRANSMIT"
+   "solution": "TRANSMIT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TRANSMIT",
+    "definitions": [
+     {
+      "text": "Send",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the very end, so only the closing letter is kept"
+     },
+     {
+      "text": "through",
+      "for": "container",
+      "note": "going through something puts it inside, so one piece sits within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tram",
+      "gives": "M",
+      "select": "last",
+      "note": "closing letter"
+     },
+     {
+      "clueFragment": "passage",
+      "gives": "TRANSIT",
+      "note": "transit is passage from one place to another"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRANS",
+      "M",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions to dispatch a tram at last through a tunnel.",
+     "walkthrough": "The last letter of the vehicle goes inside a word for passage or conveyance.",
+     "definitionFit": "To transmit is to pass on or convey something from one place to another, as a signal is broadcast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "passage"
+    }
+   }
   },
   {
    "number": 17,
@@ -295,7 +1223,52 @@
      }
     ]
    },
-   "solution": "NOHOPER"
+   "solution": "NOHOPER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NO-HOPER",
+    "definitions": [
+     {
+      "text": "dismal failure",
+      "at": 10
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Poor",
+      "for": "anagram",
+      "note": "something poor is in bad condition, so its letters are in a broken, jumbled state"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Poor hen",
+      "gives": "POORHEN",
+      "note": "both words taken as written; the first also signals the rearrangement"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "POORHEN",
+       "gives": "NOHOPER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sad chicken that has utterly failed.",
+     "walkthrough": "'Poor' is both the signal and part of the fodder: the letters of POOR and HEN together are rearranged.",
+     "definitionFit": "A no-hoper is a person with no chance of success, an informal term for a hopeless failure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Poor"
+    }
+   }
   },
   {
    "number": 18,
@@ -309,7 +1282,54 @@
     "text": "From the East, beer fit for a king",
     "enumeration": "5"
    },
-   "solution": "REGAL"
+   "solution": "REGAL",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "REGAL",
+    "definitions": [
+     {
+      "text": "fit for a king",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "From the East",
+      "for": "reversal",
+      "note": "in an across entry, coming from the east means reading from right to left, backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beer",
+      "gives": "LAGER",
+      "note": "lager is a type of beer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REGAL"
+     ],
+     "reversals": [
+      {
+       "from": "LAGER",
+       "to": "REGAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An imported Oriental brew good enough to serve royalty.",
+     "walkthrough": "'From the East' suggests an Asian import, but on a grid East is the right-hand side, so the word runs right to left.",
+     "definitionFit": "Regal means royal, befitting a monarch in splendour and dignity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "East"
+    }
+   }
   },
   {
    "number": 19,
@@ -323,7 +1343,67 @@
     "text": "Get around last controversial branch of psychology",
     "enumeration": "7"
    },
-   "solution": "GESTALT"
+   "solution": "GESTALT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "GESTALT",
+    "definitions": [
+     {
+      "text": "branch of psychology",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means surrounding, so the outer piece is split to wrap another"
+     },
+     {
+      "text": "controversial",
+      "for": "anagram",
+      "note": "something controversial stirs things up, so these letters are disturbed into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Get",
+      "gives": "GET",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "last",
+      "gives": "LAST",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GE",
+      "STAL",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LAST",
+       "gives": "STAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Finally coming to terms with a disputed area of psychology.",
+     "walkthrough": "'Get around' reads as a phrasal verb meaning to circumvent, but the first word is taken literally and split open; 'last' is fodder, not an end-letter signal.",
+     "definitionFit": "Gestalt psychology is a school that studies perception as organised wholes rather than separate parts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "controversial"
+    }
+   }
   },
   {
    "number": 20,
@@ -337,7 +1417,59 @@
     "text": "Oddly loud, then quiet and sensuous",
     "enumeration": "4"
    },
-   "solution": "LUSH"
+   "solution": "LUSH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LUSH",
+    "definitions": [
+     {
+      "text": "sensuous",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Oddly",
+      "for": "letter_selection",
+      "note": "oddly means taking the odd-numbered positions, the first and third letters"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "loud",
+      "gives": "LU",
+      "select": "alternate",
+      "note": "first and third letters"
+     },
+     {
+      "clueFragment": "then quiet",
+      "gives": "SH",
+      "note": "sh is a call for quiet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LU",
+      "SH"
+     ]
+    },
+    "explanation": {
+     "surface": "Music that is strangely loud, then soft and seductive.",
+     "walkthrough": "'Then' simply orders the pieces, and SH is the noise made to call for silence.",
+     "definitionFit": "Lush describes something luxurious and rich, appealing to the senses, as in lush music or velvet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Oddly"
+    }
+   }
   },
   {
    "number": 21,
@@ -351,7 +1483,57 @@
     "text": "Deliver parent and children who are found in lodge",
     "enumeration": "10"
    },
-   "solution": "FREEMASONS"
+   "solution": "FREEMASONS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FREEMASONS",
+    "definitions": [
+     {
+      "text": "who are found in lodge",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Deliver",
+      "gives": "FREE",
+      "note": "to deliver is to set free"
+     },
+     {
+      "clueFragment": "parent",
+      "gives": "MA",
+      "note": "ma is mother, a parent"
+     },
+     {
+      "clueFragment": "children",
+      "gives": "SONS",
+      "note": "sons are children"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FREE",
+      "MA",
+      "SONS"
+     ]
+    },
+    "explanation": {
+     "surface": "A family dropped off at a holiday lodge.",
+     "walkthrough": "'Lodge' suggests a holiday cabin, but it is the local branch and meeting place of the fraternal order.",
+     "definitionFit": "Freemasons meet in branches called lodges, so they are the people found there, members of the secretive fraternity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lodge"
+    }
+   }
   },
   {
    "number": 21,
@@ -365,7 +1547,48 @@
     "text": "Most do not recall fake",
     "enumeration": "5"
    },
-   "solution": "FORGE"
+   "solution": "FORGE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "FORGE",
+    "definitions": [
+     {
+      "text": "fake",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Most",
+      "for": "deletion",
+      "note": "most of something is nearly all of it, so the final letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "do not recall",
+      "gives": "FORGET",
+      "note": "to forget is not to recall"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FORGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Most people can't remember the counterfeit.",
+     "walkthrough": "'Most' reads as most people, but it trims the last letter from the verb for failing to remember.",
+     "definitionFit": "To forge is to make a fraudulent copy of a signature, banknote or document, so to fake it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Most"
+    }
+   }
   },
   {
    "number": 22,
@@ -379,7 +1602,64 @@
     "text": "Mark is lifting heavyweight taps",
     "enumeration": "5"
    },
-   "solution": "NOTCH"
+   "solution": "NOTCH",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "NOTCH",
+    "definitions": [
+     {
+      "text": "Mark",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lifting",
+      "for": "reversal",
+      "note": "in a down entry, lifting something raises it so it reads bottom to top"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "heavyweight",
+      "gives": "TON",
+      "note": "a ton is a heavy weight"
+     },
+     {
+      "clueFragment": "taps",
+      "gives": "CH",
+      "note": "C and H label the cold and hot taps"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOT",
+      "CH"
+     ],
+     "reversals": [
+      {
+       "from": "TON",
+       "to": "NOT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man called Mark is weightlifting and tapping a rhythm.",
+     "walkthrough": "'Mark' looks like a man's name. Taps on a basin are marked C and H, for cold and hot.",
+     "definitionFit": "A notch is a small V-shaped cut or nick, a mark made to keep count or record something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "taps"
+    }
+   }
   },
   {
    "number": 23,
@@ -393,7 +1673,49 @@
     "text": "A kind of music and wine relationship",
     "enumeration": "7"
    },
-   "solution": "RAPPORT"
+   "solution": "RAPPORT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RAPPORT",
+    "definitions": [
+     {
+      "text": "relationship",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A kind of music",
+      "gives": "RAP",
+      "note": "rap is a musical genre"
+     },
+     {
+      "clueFragment": "wine",
+      "gives": "PORT",
+      "note": "port is a fortified wine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAP",
+      "PORT"
+     ]
+    },
+    "explanation": {
+     "surface": "Pairing music with wine, as in a tasting evening.",
+     "walkthrough": "The surface reads as one pairing; split it as genre then drink.",
+     "definitionFit": "Rapport is a close, harmonious connection between people who understand each other well."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -407,7 +1729,45 @@
     "text": "Arab spells ‘qat’ out loud",
     "enumeration": "7"
    },
-   "solution": "KUWAITI"
+   "solution": "KUWAITI",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "KUWAITI",
+    "definitions": [
+     {
+      "text": "Arab",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out loud",
+      "for": "homophone",
+      "note": "saying something out loud means the answer is matched by its sound, not its spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spells ‘qat’",
+      "gives": "KUWAITI",
+      "soundsLike": "KYOO AY TEE",
+      "note": "the three letters Q, A, T named one by one"
+     }
+    ],
+    "explanation": {
+     "surface": "A man from Arabia spelling out the name of the stimulant leaf people chew.",
+     "walkthrough": "Qat is a leaf chewed as a stimulant in Arabia. Say its letters Q-A-T, and they run together into the nationality.",
+     "definitionFit": "A Kuwaiti is a native of Kuwait, a Gulf state, and so an Arab."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "spells"
+    }
+   }
   },
   {
    "number": 25,
@@ -421,7 +1781,57 @@
     "text": "Demonstrate practicalities about maintaining floor cover",
     "enumeration": "6"
    },
-   "solution": "CARPET"
+   "solution": "CARPET",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "CARPET",
+    "definitions": [
+     {
+      "text": "floor cover",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "maintaining",
+      "for": "hidden_word",
+      "note": "maintaining means holding, so the words hold the answer within their letters"
+     },
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "turned about means facing the other way, so the letters read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Demonstrate practicalities",
+      "gives": "TEPRAC",
+      "note": "the letters straddling the two words"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "TEPRAC",
+       "to": "CARPET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Show how to look after a rug in practical terms.",
+     "walkthrough": "The letters run from the end of the first word into the start of the second, read right to left.",
+     "definitionFit": "A carpet is a thick woven textile laid over a floor, so it is a covering for floors."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "maintaining"
+    }
+   }
   },
   {
    "number": 26,
@@ -435,7 +1845,46 @@
     "text": "Surgeon does this for pain",
     "enumeration": "6"
    },
-   "solution": "STITCH"
+   "solution": "STITCH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STITCH",
+    "definitions": [
+     {
+      "text": "Surgeon does this",
+      "at": 0
+     },
+     {
+      "text": "pain",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Surgeon does this",
+      "note": "first meaning: sews up a wound"
+     },
+     {
+      "clueFragment": "pain",
+      "note": "second meaning: a sharp ache in the side from running"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as what a surgeon does to relieve pain; the halves are separate meanings, a verb and a noun.",
+     "definitionFit": "Surgeons close incisions with sutures, and a sudden sharp side ache during exercise shares the same name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pain"
+    }
+   }
   }
  ]
 }
