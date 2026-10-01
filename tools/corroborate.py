@@ -273,6 +273,15 @@ def _georgeho_index():
 
 
 _georgeho = []
+#: What georgeho's scrape stores where a row has no answer (pandas' missing
+#: value, mostly a "See 4" continuation). Lowercase only: NAN the bread is
+#: stored in capitals like every other answer.
+GEORGEHO_MISSING = "nan"
+
+
+def georgeho_answer(answer):
+    """answer_letters() of a georgeho answer cell, None for a missing one."""
+    return None if answer == GEORGEHO_MISSING else answer_letters(answer)
 
 
 def georgeho(puzzle):
@@ -295,7 +304,7 @@ def georgeho(puzzle):
         key = light_key(number)
         if key is None:
             continue
-        got = answer_letters(answer)
+        got = georgeho_answer(answer)
         if got:
             rec.answers.setdefault(key, got)
         if clue and clue.strip():

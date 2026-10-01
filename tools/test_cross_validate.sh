@@ -91,6 +91,55 @@ same("a note's sentences that are only a link are not kept",
       fp.preamble("For a printable version of this crossword, click here."),
       fp.preamble("To see the clues please click here Method: fit them in.")],
      ["Eight solutions are of a kind.", None, "To see the clues please click here Method: fit them in."])
+
+INDY = b"""<?xml version="1.0" encoding="UTF-8"?>
+<crossword-compiler xmlns="http://crossword.info/xml/crossword-compiler">
+<rectangular-puzzle xmlns="http://crossword.info/xml/rectangular-puzzle">
+<metadata><title>No. 12,001 by Tester</title><creator>Tester</creator></metadata>
+<crossword><grid width="3" height="3">
+<cell x="1" y="1" solution="C"/><cell x="2" y="1" solution="A"/><cell x="3" y="1" solution="T"/>
+<cell x="1" y="2" solution="A"/><cell x="2" y="2" type="block"/><cell x="3" y="2" solution="O"/>
+<cell x="1" y="3" solution="B"/><cell x="2" y="3" solution="E"/><cell x="3" y="3" solution="E"/>
+</grid>
+<word id="1" x="1-3" y="1"/><word id="2" x="1" y="1-3"/>
+<word id="3" x="3" y="1-3"><cells x="1-3" y="3"/></word>
+<clues><title>Across</title>
+<clue word="1" number="1" format="3"><i>Tom</i>&#8217;s pet</clue>
+<clue word="3" number="3" is-link="1">See 2</clue></clues>
+<clues><title>Down</title>
+<clue word="2" number="1" format="3">Taxi</clue>
+<clue word="3" number="2/3" format="3.3">Digit and buzzer</clue></clues>
+</crossword></rectangular-puzzle></crossword-compiler>"""
+import fetch_independent as fi
+indy = cv.independent_shape(INDY, "260105")
+same("the feed's XML is read without the converter: id, linked runs, a See stub, the count",
+     (indy["id"], [(e["number"], e["direction"], e["solution"], e["clue"]["enumeration"])
+                   for e in indy["entries"]]),
+     ("independent-12001", [(1, "across", "CAT", "3"), (1, "down", "CAB", "3"),
+                            (2, "down", "TOE", "3,3"), (3, "across", "BEE", None)]))
+same("the converter and the separate reader agree on a clean feed day",
+     cv.diff(fi.parse(INDY, "260105"), indy), [])
+
+import corroborate
+same("georgeho's missing-answer cell is no answer (it voted NAN)",
+     [corroborate.georgeho_answer(a) for a in ("nan", "NAN", "Gets-ready")],
+     [None, "NAN", "GETSREADY"])
+
+blog = corroborate.Record("fifteensquared", "fifteensquared",
+                          answers={(1, "across"): "CAT", (3, "across"): "BEEF"})
+saved = (corroborate.fifteensquared, corroborate.georgeho, cv.read_puzzle_file)
+corroborate.fifteensquared, corroborate.georgeho = (lambda p: [blog]), (lambda p: [])
+cv.read_puzzle_file = lambda path: copy.deepcopy(base)
+got = cv.IndyBlog().puzzle("unused")
+corroborate.fifteensquared, corroborate.georgeho, cv.read_puzzle_file = saved
+same("the blog witnesses only an answer that fills the light, and nothing else",
+     ([e["solution"] for e in got["entries"]], cv.diff(base, got)),
+     (["CAT", None, None, None], []))
+
+known = {"id": "independent-10038", "entries": [
+    {"number": 1, "direction": "down", "solution": "CAMEUPTOSCRATCH"}]}
+same("a known error in the source's key is put right before the diff (SOURCE_ANSWER_WRONG)",
+     cv.witness(known)["entries"][0]["solution"], "COMEUPTOSCRATCH")
 print("FAILED:", fails if fails else "none")
 sys.exit(1 if fails else 0)
 PY
