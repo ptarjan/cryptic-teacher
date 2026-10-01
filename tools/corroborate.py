@@ -73,7 +73,10 @@ DATA = Path.home() / "cryptic-setter-data"
 GEORGEHO = DATA / "georgeho" / "data.db"
 GEORGEHO_URL = "https://cryptics.georgeho.org/data.db"
 # Our own rows out of GEORGEHO, keyed by puzzle id; rebuilt when data.db changes.
-GEORGEHO_INDEX = DATA / "georgeho" / "ours.db"
+# The version names the index's shape and title tables (GEORGEHO_SOURCES): a
+# table that learns a series bumps it, so no reader takes the old index for it.
+GEORGEHO_INDEX_VERSION = 2
+GEORGEHO_INDEX = DATA / "georgeho" / f"ours-v{GEORGEHO_INDEX_VERSION}.db"
 FIFTEENSQUARED_POSTS = DATA / "fifteensquared" / "posts"
 FIFTEENSQUARED_INDEX = DATA / "fifteensquared" / "by_puzzle.json"
 LEDGER = TOOLS / "data" / "corroboration_ledger.json"
@@ -170,11 +173,23 @@ BLOG_SERIES = (
 )
 # times-xwd-times, the Times for the Times blog's LiveJournal years.
 TIMES_SERIES = (
-    (re.compile(r"mephisto|club|\btls\b|extra|listener", re.IGNORECASE), None),
+    (re.compile(r"extra|listener", re.IGNORECASE), None),
+    (re.compile(r"mephisto", re.IGNORECASE), "mephisto"),
+    (re.compile(r"\bclub\b", re.IGNORECASE), "timesclub"),
+    (re.compile(r"\btls\b", re.IGNORECASE), "tls"),
     (re.compile(r"quick|\bqcc?\s*\d", re.IGNORECASE), "timesquick"),
     (re.compile(r"jumbo", re.IGNORECASE), "timesjumbo"),
     (re.compile(r"sunday times", re.IGNORECASE), "sundaytimes"),
     (re.compile(r"\bt\w?mes\b", re.IGNORECASE), "times"),
+)
+# bigdave44.com: the Telegraph's own four; NTSPP, Rookie Corner, MPP and the
+# rest are readers' puzzles, and a Double Toughie's 1000xx is not a Toughie's.
+BIGDAVE_SERIES = (
+    (re.compile(r"ntspp|rookie|\bmpp\b|\bqpp\b|\bsp\b|xtra|double", re.IGNORECASE), None),
+    (re.compile(r"sunday\W+toughie", re.IGNORECASE), "sundaytough"),
+    (re.compile(r"toughie", re.IGNORECASE), "toughie"),
+    (re.compile(r"sunday\W+telegraph", re.IGNORECASE), "sundaytel"),
+    (re.compile(r"telegraph", re.IGNORECASE), "telegraph"),
 )
 NUMBER = re.compile(r"(\d{1,2},\d{3}|\d+)")
 
@@ -243,6 +258,14 @@ def download_georgeho():
     part.rename(GEORGEHO)
 
 
+#: Per georgeho source: our id's title table, and the origin it is a copy of.
+GEORGEHO_SOURCES = {
+    "fifteensquared": (BLOG_SERIES, "fifteensquared"),
+    "times_xwd_times": (TIMES_SERIES, "timesforthetimes"),
+    "bigdave44": (BIGDAVE_SERIES, "bigdave44"),
+}
+
+
 def _georgeho_index():
     if not GEORGEHO.exists():
         return None
@@ -254,14 +277,15 @@ def _georgeho_index():
         out.execute("create table clue (pid text, source text, url text, name text, "
                     "clue_number text, clue text, answer text)")
         src = sqlite3.connect(f"file:{GEORGEHO}?mode=ro", uri=True)
-        tables = {"fifteensquared": BLOG_SERIES, "times_xwd_times": TIMES_SERIES}
         ids = {}
+        marks = ",".join("?" * len(GEORGEHO_SOURCES))
         rows = src.execute("select source, source_url, puzzle_name, clue_number, clue, answer "
-                           "from clues where source in ('fifteensquared', 'times_xwd_times')")
+                           f"from clues where source in ({marks}) order by rowid",
+                           tuple(GEORGEHO_SOURCES))
         for source, url, name, number, clue, answer in rows:
             key = (source, url, name)
             if key not in ids:
-                ids[key] = blog_puzzle_id(name, tables[source])
+                ids[key] = blog_puzzle_id(name, GEORGEHO_SOURCES[source][0])
             if ids[key]:
                 out.execute("insert into clue values (?,?,?,?,?,?,?)",
                             (ids[key], source, url, name, number, clue, answer))
@@ -285,7 +309,7 @@ def georgeho_answer(answer):
 
 
 def georgeho(puzzle):
-    """georgeho.org's scrape of fifteensquared and times-xwd-times (ODbL)."""
+    """georgeho.org's scrape of fifteensquared, times-xwd-times and bigdave44 (ODbL)."""
     pid = puzzle["id"]
     if not _georgeho:
         _georgeho.append(_georgeho_index())
@@ -294,11 +318,11 @@ def georgeho(puzzle):
         return []
     by_url = {}
     for source, url, name, number, clue, answer in db.execute(
-            "select source, url, name, clue_number, clue, answer from clue where pid = ?",
-            (pid,)):
+            "select source, url, name, clue_number, clue, answer from clue where pid = ? "
+            "order by rowid", (pid,)):
         rec = by_url.get(url)
         if rec is None:
-            origin = "fifteensquared" if source == "fifteensquared" else "timesforthetimes"
+            origin = GEORGEHO_SOURCES[source][1]
             rec = by_url[url] = Record(f"georgeho:{source}", origin, url,
                                        setter=blog_setter(name), date=title_date(name))
         key = light_key(number)

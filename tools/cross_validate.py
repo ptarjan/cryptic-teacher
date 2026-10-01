@@ -12,6 +12,7 @@
     python3 tools/cross_validate.py globe --fetch --limit 60
     python3 tools/cross_validate.py globe                  # the Times Quick against the Globe's print
     python3 tools/cross_validate.py ft                     # the FT cryptic against the FT's PDFs
+    python3 tools/cross_validate.py georgeho               # 17 series against georgeho's blog clues
 
 Most of the corpus came off a blog: the blogger retyped the clues, a parser
 read the post, and tools/reconstruct_grid.py rebuilt the grid from the light
@@ -627,7 +628,116 @@ def ft_shape(pdf, ours=None):
     return {"id": f"ftcryptic-{pdf['number']}", "dimensions": dims, "entries": entries}
 
 
-ADAPTERS = {a.name: a for a in (Telegraph, Guardian, Independent, IndyBlog, Globe, FT)}
+class GeorgeHo(Adapter):
+    """georgeho.org's ODbL database of blog clues (fifteensquared,
+    times-xwd-times, bigdave44), read through tools/corroborate.py's index of
+    our own rows. Offline and frozen (built 2023-07-15); --fetch is a no-op.
+
+    The blog prints no grid, so the source puzzle is ours with each light the
+    blog writes up given the blog's answer (where it fills the light), clue
+    and count; a light the blog does not write up keeps no clue or answer and
+    witnesses nothing. A light the blog numbers that we lack is MISSING. The
+    blogger retyped the clue, so CLUE compares words, never punctuation, and
+    any one difference is a lead for a third copy, not a verdict. A blog that
+    prints no count witnesses none, and a row the scrape filed under another
+    light (misfiled()) witnesses nothing."""
+    name = "georgeho"
+    series = ("cryptic", "quiptic", "everyman", "independent", "indysunday", "cyclops",
+              "times", "timesquick", "timesjumbo", "sundaytimes", "mephisto", "timesclub",
+              "tls", "telegraph", "sundaytel", "toughie", "sundaytough")
+
+    def ids(self):
+        import corroborate
+        db = corroborate._georgeho_index()
+        if db is None:
+            raise SystemExit(f"no {corroborate.GEORGEHO}: corroborate.py --download")
+        return {pid: pid for (pid,) in db.execute("select distinct pid from clue")}
+
+    def fetch_one(self, pid):
+        return False
+
+    def puzzle(self, pid, ours=None):
+        import copy
+
+        import corroborate
+        ours = ours or read_puzzle_file(held_paths((pid.rsplit("-", 1)[0],))[pid])
+        recs = corroborate.georgeho(ours)
+        if not recs:
+            return None
+        lights = {(e["number"], e["direction"]): e for e in ours["entries"]}
+
+        held_answers = {e.get("solution") for e in ours["entries"]}
+
+        def agree(rec):
+            # By answer, not light: the scrape files some posts' downs as acrosses.
+            return [got in held_answers for got in rec.answers.values()]
+        # Two posts under one title (a blogger's typo for the next number):
+        # the copy of ours is the one that agrees with it.
+        rec = max(recs, key=lambda r: sum(agree(r)))
+        same = agree(rec)
+        if len(same) >= 4 and sum(same) * 2 < len(same):
+            return dict(ours, id=f"another puzzle: {sum(same)} of {len(same)} answers "
+                                 f"held, {rec.url}")
+        rows = blog_rows(rec)
+        theirs = copy.deepcopy(ours)
+        answers = {e.get("solution") for e in ours["entries"]}
+        clues = {norm_text((e.get("clue") or {}).get("text")) for e in ours["entries"]}
+        for e in theirs["entries"]:
+            key = (e["number"], e["direction"])
+            got = rows.pop(key, None)
+            if got is None or misfiled(got, e, answers, clues):
+                e["clue"], e["solution"] = {}, None
+                continue
+            text, enum, answer = got
+            e["clue"] = {"text": text, "enumeration": enum or e["clue"].get("enumeration")}
+            e["solution"] = answer if answer and len(answer) == e["length"] else None
+        theirs["unplaced"] = [{"class": "MISSING", "light": groups.entry_id(
+                                   {"number": n, "direction": d}), "theirs": got[2]}
+                              for (n, d), got in sorted(rows.items())
+                              if (n, d) not in lights and got[2] not in answers]
+        return theirs
+
+    def load(self, where):
+        return read_puzzle_file(where)
+
+
+def misfiled(got, ours, answers, clues):
+    """Whether the blog's row for `ours`'s light is some other light's row:
+    its answer or its clue is one we hold against another light. The scrape
+    shifts rows past a linked clue; that is the scrape's defect, no witness."""
+    text, _, answer = got
+    if answer and answer != ours.get("solution") and answer in answers:
+        return True
+    words = norm_text(text)
+    return bool(words) and words != norm_text((ours.get("clue") or {}).get("text")) \
+        and words in clues
+
+
+#: What the scrape leaves before a clue: the rest of a linked clue's number
+#: (", 26.", "/18 ") or the light's direction letter ("a Ship retiring").
+BLOG_PREFIX = re.compile(r"^(?:\s*[,/&]\s*\d+\s*[ad]?\b\.?)+\s*|^(?:[ad]|ac|dn)\.?\s+(?=[A-Z0-9'‘\"“])")
+#: A clue the scrape split at its leading number ("25, left defender?" kept as
+#: ", left defender?"): its words are short of ours, no witness.
+BLOG_HEADLESS = re.compile(r"^\s*[,;:.]")
+ENUM_TAIL = re.compile(r"\s*\(([\d\s,.\-–'’]+(?:\s*words?)?)\)\s*$")
+
+
+def blog_rows(rec):
+    """{(number, direction): (clue words, enumeration or None, answer)} of one
+    corroborate.Record, the enumeration taken off the clue's tail."""
+    out = {}
+    for key, clue in rec.clues.items():
+        m = ENUM_TAIL.search(clue)
+        text, enum = (clue[:m.start()], m.group(1)) if m else (clue, None)
+        text = "" if BLOG_HEADLESS.match(BLOG_PREFIX.sub("", text)) else BLOG_PREFIX.sub("", text)
+        out[key] = (text.strip(), enum and re.sub(r"[\s.’']", "", enum).replace("–", "-"),
+                    rec.answers.get(key))
+    for key, answer in rec.answers.items():
+        out.setdefault(key, ("", None, answer))
+    return out
+
+
+ADAPTERS = {a.name: a for a in (Telegraph, Guardian, Independent, IndyBlog, Globe, FT, GeorgeHo)}
 
 
 def held(adapter):
@@ -790,6 +900,7 @@ def diff(ours, theirs, exact=False):
         if same_words(oc.get("text")) != same_words(tc.get("text")):
             out.append({"class": "CLUE", "light": light,
                         "ours": oc.get("text"), "theirs": tc.get("text")})
+    out.extend(theirs.get("unplaced", ()))
     return out
 
 
@@ -820,7 +931,8 @@ def run(adapter, only=None):
             skipped[ours.get("unfilable") or "taken from this source"] += 1
             continue
         try:
-            theirs = adapter.puzzle(keys[pid])
+            theirs = (adapter.puzzle(keys[pid], ours) if isinstance(adapter, GeorgeHo)
+                      else adapter.puzzle(keys[pid]))
         except Exception as err:  # noqa: BLE001 — a source page we cannot read is reported
             skipped["source unreadable"] += 1
             rows.append({"id": pid, "unreadable": str(err)})
