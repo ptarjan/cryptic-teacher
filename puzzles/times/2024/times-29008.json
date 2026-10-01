@@ -23,6 +23,9 @@
   "date": "2024-08-29",
   "check": "grid rebuilt from the blog's light list (unique after crossings); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,46 @@
     "text": "Here’s our phone number — is that corny?",
     "enumeration": "6"
    },
-   "solution": "CALLUS"
+   "solution": "CALLUS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CALLUS",
+    "definitions": [
+     {
+      "text": "Here’s our phone number",
+      "at": 0,
+      "note": "a phrase, read as two words of instruction"
+     },
+     {
+      "text": "corny",
+      "at": 34,
+      "note": "adjective in the clue, noun answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Here’s our phone number",
+      "note": "first reading: what a firm prints beside its number, telling you to ring them"
+     },
+     {
+      "clueFragment": "is that corny?",
+      "note": "second reading: a hardened patch of skin on the foot, akin to a corn"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone sees a company's cheesy 'here's our number' line and asks whether it's a bit naff.",
+     "walkthrough": "Split as CALL US it is the line under a phone number; run together it is a patch of hard skin. 'Corny' looks like 'trite' but points to corns on the feet.",
+     "definitionFit": "A corn is a small, hard thickening of skin, a type of the broader thickened-skin patch named by the answer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "corny"
+    }
+   }
   },
   {
    "number": 2,
@@ -50,7 +92,55 @@
     "text": "Hoover, say, has got stuck in like US president",
     "enumeration": "5"
    },
-   "solution": "ADAMS"
+   "solution": "ADAMS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ADAMS",
+    "definitions": [
+     {
+      "text": "US president",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has got stuck in",
+      "for": "container",
+      "note": "a thing stuck in something else sits wedged inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "like",
+      "gives": "AS",
+      "note": "'as' means 'like', in the sense of resembling"
+     },
+     {
+      "clueFragment": "Hoover, say",
+      "gives": "DAM",
+      "note": "the Hoover Dam is an example of a dam"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "DAM",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A vacuum cleaner jammed into something, oddly compared to an American president.",
+     "walkthrough": "Hoover suggests the vacuum cleaner or J. Edgar or Herbert Hoover the president; here it is the dam on the Colorado River.",
+     "definitionFit": "John Adams and John Quincy Adams were the second and sixth holders of the American presidency."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Hoover"
+    }
+   }
   },
   {
    "number": 3,
@@ -74,7 +164,43 @@
      }
     ]
    },
-   "solution": "LIKEASHOT"
+   "solution": "LIKEASHOT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LIKE A SHOT",
+    "definitions": [
+     {
+      "text": "So fired",
+      "at": 0
+     },
+     {
+      "text": "without hesitation",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "So fired",
+      "note": "first meaning: in the manner of something fired from a gun"
+     },
+     {
+      "clueFragment": "without hesitation",
+      "note": "second meaning: very quickly and eagerly"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'So fired' reads like sacking someone on the spot; it is the literal sense of the phrase, the manner of a bullet leaving a gun.",
+     "definitionFit": "The idiom means at once and willingly, as in agreeing to an offer immediately, with no pause for thought."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "fired"
+    }
+   }
   },
   {
    "number": 4,
@@ -88,7 +214,51 @@
     "text": "Drink: Warhol should can it!",
     "enumeration": "6"
    },
-   "solution": "SHANDY"
+   "solution": "SHANDY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SHANDY",
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "should"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "can it",
+      "gives": "SH",
+      "note": "'can it!' means 'be quiet!', which is 'sh!'"
+     },
+     {
+      "clueFragment": "Warhol",
+      "gives": "ANDY",
+      "note": "Andy Warhol, the pop artist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SH",
+      "ANDY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tells Andy Warhol to put a drink in a can, or to shut up about it.",
+     "walkthrough": "Telling Andy Warhol to can it is 'Sh, Andy'. Warhol's soup cans make 'can' look literal. A shandy is beer mixed with lemonade, a British pub drink.",
+     "definitionFit": "Shandy is a beverage of beer topped up with lemonade or ginger beer, popular in British pubs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "can"
+    }
+   }
   },
   {
    "number": 5,
@@ -102,7 +272,52 @@
     "text": "Venture by enchanting company in English city",
     "enumeration": "8"
    },
-   "solution": "COVENTRY"
+   "solution": "COVENTRY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COVENTRY",
+    "definitions": [
+     {
+      "text": "English city",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "by",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "enchanting company",
+      "gives": "COVEN",
+      "note": "a coven is a gathering of witches, who cast spells"
+     },
+     {
+      "clueFragment": "Venture",
+      "gives": "TRY",
+      "note": "to venture is to try or attempt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COVEN",
+      "TRY"
+     ]
+    },
+    "explanation": {
+     "surface": "A business venture by a charming firm based in some English city.",
+     "walkthrough": "'Enchanting company' reads as a delightful firm; enchanting here means casting spells, so the company is witches.",
+     "definitionFit": "Coventry is a large cathedral city in the West Midlands of England, known for its car industry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "enchanting"
+    }
+   }
   },
   {
    "number": 5,
@@ -130,7 +345,51 @@
      }
     ]
    },
-   "solution": "COMERAINORSHINE"
+   "solution": "COMERAINORSHINE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "COME RAIN OR SHINE",
+    "definitions": [
+     {
+      "text": "Whatever",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "horsing around",
+      "for": "anagram",
+      "note": "horsing around is fooling about, so the letters are played with and jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "racehorse I’m on in",
+      "gives": "RACEHORSEIMONIN",
+      "note": "the fifteen letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RACEHORSEIMONIN",
+       "gives": "COMERAINORSHINE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A jockey declares they don't care which mount they get, all while larking about.",
+     "walkthrough": "'Whatever' at the front looks like part of the jockey's speech; it is the definition, meaning regardless of circumstances.",
+     "definitionFit": "The idiom means regardless of conditions or whatever happens, from the idea of going ahead in any weather."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "horsing"
+    }
+   }
   },
   {
    "number": 6,
@@ -144,7 +403,53 @@
     "text": "Front I dispensed with, gone",
     "enumeration": "8"
    },
-   "solution": "VANISHED"
+   "solution": "VANISHED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "VANISHED",
+    "definitions": [
+     {
+      "text": "gone",
+      "at": 24
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Front",
+      "gives": "VAN",
+      "note": "the van is the front, as in vanguard"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "dispensed with",
+      "gives": "SHED",
+      "note": "to shed something is to get rid of it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VAN",
+      "I",
+      "SHED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone abandoned a front or pretence, and now it has disappeared.",
+     "walkthrough": "VAN for the front comes from vanguard, the leading part of an army.",
+     "definitionFit": "Something that has disappeared from sight or existence is described with either word, both past participles."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Front"
+    }
+   }
   },
   {
    "number": 7,
@@ -158,7 +463,45 @@
     "text": "I say I don’t want them near me, dark clouds",
     "enumeration": "5"
    },
-   "solution": "NIMBI"
+   "solution": "NIMBI",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "NIMBI",
+    "definitions": [
+     {
+      "text": "dark clouds",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "I say",
+      "for": "homophone",
+      "note": "what I say is heard, so the spoken form counts, not the spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I don’t want them near me",
+      "gives": "NIMBI",
+      "soundsLike": "NIMBY",
+      "note": "NIMBY stands for 'not in my back yard', the protest against nearby development"
+     }
+    ],
+    "explanation": {
+     "surface": "A grumpy resident objects to something looming nearby, likened to gathering storm clouds.",
+     "walkthrough": "A NIMBY is someone who objects to development near their own home.",
+     "definitionFit": "Nimbi is the plural of nimbus, the term for a dark grey rain-bearing cloud layer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "clouds"
+    }
+   }
   },
   {
    "number": 8,
@@ -178,7 +521,39 @@
      }
     ]
    },
-   "solution": "ROUGHHEWN"
+   "solution": "ROUGHHEWN",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ROUGH-HEWN",
+    "definitions": [
+     {
+      "text": "Crude",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Crude",
+      "note": "surface reading: an adjective for something roughly made"
+     },
+     {
+      "clueFragment": "when by inference?",
+      "note": "setter's reading: the answer, read as an instruction, says a jumbled version of the letters of 'when' gives the second word"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone asks how they're meant to deduce a vague time.",
+     "walkthrough": "A reverse clue: the second word is an anagram of WHEN, and the first word is an anagram signal, so the answer describes how to get WHEN from it.",
+     "definitionFit": "Something roughly shaped by axe or chisel and left unfinished is crude in form, unpolished and unrefined."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "inference"
+    }
+   }
   },
   {
    "number": 9,
@@ -192,7 +567,50 @@
     "text": "Help cheat in game",
     "enumeration": "10"
    },
-   "solution": "BACKGAMMON"
+   "solution": "BACKGAMMON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BACKGAMMON",
+    "definitions": [
+     {
+      "text": "game",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Help",
+      "gives": "BACK",
+      "note": "to back someone is to support them"
+     },
+     {
+      "clueFragment": "cheat",
+      "gives": "GAMMON",
+      "note": "to gammon is an old word for to hoax or deceive"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BACK",
+      "GAMMON"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone assisting a player to cheat during a game.",
+     "walkthrough": "GAMMON as a verb for to humbug is old British slang; it is also a winning margin in this board game.",
+     "definitionFit": "Backgammon is an ancient board game for two players moving counters by dice throws."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cheat"
+    }
+   }
   },
   {
    "number": 10,
@@ -206,7 +624,68 @@
     "text": "Attack in African country briefly stopped by leader in uprising",
     "enumeration": "4"
    },
-   "solution": "MAUL"
+   "solution": "MAUL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "MAUL",
+    "definitions": [
+     {
+      "text": "Attack",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "made brief, the word is cut short by its final letter"
+     },
+     {
+      "text": "leader in",
+      "for": "letter_selection",
+      "note": "the leader is the one at the front, so only the opening letter is wanted"
+     },
+     {
+      "text": "stopped by",
+      "for": "container",
+      "note": "a gap that is stopped is plugged, with something filling the middle"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "African country",
+      "gives": "MAL",
+      "note": "Mali, in West Africa, without its last letter"
+     },
+     {
+      "clueFragment": "uprising",
+      "gives": "U",
+      "select": "first",
+      "note": "the opening letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "U",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A violent assault in an African nation was swiftly halted by the head of a rebellion.",
+     "walkthrough": "'Briefly' looks like it modifies 'stopped', a short-lived attack, but it trims Mali.",
+     "definitionFit": "To savage or batter someone fiercely, as a bear or a lion does, is a form of violent physical assault."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "briefly"
+    }
+   }
   },
   {
    "number": 11,
@@ -220,7 +699,52 @@
     "text": "Cuban for example who has been vilified by me",
     "enumeration": "8"
    },
-   "solution": "ISLANDER"
+   "solution": "ISLANDER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ISLANDER",
+    "definitions": [
+     {
+      "text": "Cuban for example",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "who has been",
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "me",
+      "gives": "I",
+      "note": "the speaker refers to themself"
+     },
+     {
+      "clueFragment": "vilified",
+      "gives": "SLANDER",
+      "note": "to vilify is to slander, read here as the present-tense verb"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "SLANDER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone from Cuba whom the speaker has repeatedly badmouthed.",
+     "walkthrough": "The wordplay is a whole thought: if I SLANDER you, you have been vilified by me. Read as one word, it is someone from an island.",
+     "definitionFit": "Cuba is a Caribbean island nation, so any Cuban is an inhabitant of an island, an example of the category."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Cuban"
+    }
+   }
   },
   {
    "number": 12,
@@ -234,7 +758,50 @@
     "text": "Small and delicate — so?",
     "enumeration": "6"
    },
-   "solution": "SLIGHT"
+   "solution": "SLIGHT",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "charade"
+    ],
+    "answer": "SLIGHT",
+    "definitions": [
+     {
+      "text": "Small and delicate — so?",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "S is the abbreviation for small, as on clothing labels"
+     },
+     {
+      "clueFragment": "delicate",
+      "gives": "LIGHT",
+      "note": "light means delicate, as in a light touch"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "LIGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone describes a dainty little thing and shrugs, asking what of it.",
+     "walkthrough": "The '— so?' says the pieces S and LIGHT, put together, also describe the answer, which is small and delicate itself.",
+     "definitionFit": "A slight figure is slender and frail-looking, so the adjective covers both little size and fragile build."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -248,7 +815,42 @@
     "text": "Touch zip",
     "enumeration": "4"
    },
-   "solution": "DASH"
+   "solution": "DASH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DASH",
+    "definitions": [
+     {
+      "text": "Touch",
+      "at": 0
+     },
+     {
+      "text": "zip",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Touch",
+      "note": "first meaning: a small amount, as a touch of salt"
+     },
+     {
+      "clueFragment": "zip",
+      "note": "second meaning: energy and verve, or a fast run"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Both words look like verbs, touching and fastening a zip; both are nouns here.",
+     "definitionFit": "A tiny added quantity of an ingredient and lively spirit or a sudden sprint are both senses of the word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "zip"
+    }
+   }
   },
   {
    "number": 14,
@@ -262,7 +864,70 @@
     "text": "A military alliance secure when set up in part of 28 across, say?",
     "enumeration": "9"
    },
-   "solution": "ANATOLIAN"
+   "solution": "ANATOLIAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ANATOLIAN",
+    "definitions": [
+     {
+      "text": "in part of 28 across, say",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "set up",
+      "for": "reversal",
+      "note": "in a down clue, set up means raised, so the letters read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "military alliance",
+      "gives": "NATO",
+      "note": "the North Atlantic Treaty Organization"
+     },
+     {
+      "clueFragment": "secure",
+      "gives": "NAIL",
+      "note": "to nail something is to fix it firmly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "NATO",
+      "LIAN"
+     ],
+     "reversals": [
+      {
+       "from": "NAIL",
+       "to": "LIAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A defence pact shores up its position in a region of a neighbouring country.",
+     "walkthrough": "28 across is TURKEY; Anatolia is its large Asian part. The 'say' allows that someone from there is one example of the description.",
+     "definitionFit": "Anatolia is the peninsula forming most of modern Turkey, so a resident or thing from there is located within that region."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "secure"
+    }
+   }
   },
   {
    "number": 15,
@@ -282,7 +947,67 @@
      }
     ]
    },
-   "solution": "ICESHEET"
+   "solution": "ICESHEET",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ICE SHEET",
+    "definitions": [
+     {
+      "text": "Something frozen",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "melting",
+      "for": "anagram",
+      "note": "melting changes form and runs, so the letters lose their shape and reform"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cheese",
+      "gives": "CHEESE",
+      "note": "taken as written, then jumbled"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written, split around the jumble"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "CESHEE",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CHEESE",
+       "gives": "CESHEE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some frozen food with cheese melting inside it, like a ready meal.",
+     "walkthrough": "'Melting' sits awkwardly beside 'frozen', which makes the surface read as cooking rather than an anagram signal.",
+     "definitionFit": "A vast layer of glacial ice covering land, as in Greenland or Antarctica, is a large frozen expanse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "melting"
+    }
+   }
   },
   {
    "number": 16,
@@ -302,7 +1027,43 @@
      }
     ]
    },
-   "solution": "HOLDWATER"
+   "solution": "HOLDWATER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HOLD WATER",
+    "definitions": [
+     {
+      "text": "Stand up",
+      "at": 0
+     },
+     {
+      "text": "as might pitcher?",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stand up",
+      "note": "first meaning: of an argument, to survive scrutiny"
+     },
+     {
+      "clueFragment": "as might pitcher?",
+      "note": "second meaning: what a jug does with its liquid contents"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Pitcher' suggests the baseball player; it is a jug. 'Stand up' is about an argument surviving examination, not rising to your feet.",
+     "definitionFit": "An argument that bears scrutiny is said to be sound, and a jug's job is literally containing liquid without leaking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pitcher"
+    }
+   }
   },
   {
    "number": 17,
@@ -316,7 +1077,43 @@
     "text": "Introduce American hero?",
     "enumeration": "8"
    },
-   "solution": "SANDWICH"
+   "solution": "SANDWICH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SANDWICH",
+    "definitions": [
+     {
+      "text": "Introduce",
+      "at": 0
+     },
+     {
+      "text": "American hero",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Introduce",
+      "note": "first meaning: to fit something in between two others"
+     },
+     {
+      "clueFragment": "American hero",
+      "note": "second meaning: in the US a hero is a long filled roll"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Hero' looks like a brave American; in American English it is a long submarine roll with fillings.",
+     "definitionFit": "To squeeze an item between two others is to insert it, and a hero sub is a type of filled bread roll."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hero"
+    }
+   }
   },
   {
    "number": 18,
@@ -330,7 +1127,56 @@
     "text": "Capital adversary invested in cereal",
     "enumeration": "8"
    },
-   "solution": "SANTIAGO"
+   "solution": "SANTIAGO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SANTIAGO",
+    "definitions": [
+     {
+      "text": "Capital",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "invested in",
+      "for": "container",
+      "note": "money invested in something is put inside it, so one piece is placed within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "adversary",
+      "gives": "ANTI",
+      "note": "an anti is someone opposed to something"
+     },
+     {
+      "clueFragment": "cereal",
+      "gives": "SAGO",
+      "note": "sago is a starchy grain-like food from palm pith"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ANTI",
+      "AGO"
+     ]
+    },
+    "explanation": {
+     "surface": "An opponent puts money into a breakfast-cereal firm.",
+     "walkthrough": "'Capital' looks like money, fitting 'invested'; it is a capital city.",
+     "definitionFit": "Santiago is the seat of government of Chile, a capital city in South America."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Capital"
+    }
+   }
   },
   {
    "number": 19,
@@ -344,7 +1190,62 @@
     "text": "Flooring material in centre of oblong houses",
     "enumeration": "4"
    },
-   "solution": "LINO"
+   "solution": "LINO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "LINO",
+    "definitions": [
+     {
+      "text": "Flooring material",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "centre of",
+      "for": "letter_selection",
+      "note": "the centre is the middle, so only the two central letters are kept"
+     },
+     {
+      "text": "houses",
+      "for": "container",
+      "note": "to house something is to hold it within, so one piece encloses another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "oblong",
+      "gives": "LO",
+      "select": "middle",
+      "note": "the middle two of the six letters"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "IN",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "The floor covering found in the middle of rectangular homes.",
+     "walkthrough": "'Houses' reads as a noun, buildings; it is a verb meaning holds. 'In' looks like a link word but is a piece.",
+     "definitionFit": "Lino is short for linoleum, a hard-wearing sheet floor covering made from linseed oil and cork."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "houses"
+    }
+   }
   },
   {
    "number": 20,
@@ -358,7 +1259,43 @@
     "text": "Drive away, passing through Faro in truck",
     "enumeration": "6"
    },
-   "solution": "AROINT"
+   "solution": "AROINT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "AROINT",
+    "definitions": [
+     {
+      "text": "Drive away",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "passing through",
+      "for": "hidden_word",
+      "note": "something passing through spans parts of several words, so the answer runs across them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Faro in truck",
+      "gives": "AROINT",
+      "note": "letters running from the town into the vehicle"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone drives off in a lorry, travelling through Faro in Portugal.",
+     "walkthrough": "Faro is a city in the Algarve. The answer is an archaic Shakespearean word, best known from 'Aroint thee, witch!' in Macbeth.",
+     "definitionFit": "The old imperative means begone, so it is a command used to send someone off or banish them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Drive"
+    }
+   }
   },
   {
    "number": 21,
@@ -378,7 +1315,61 @@
      }
     ]
    },
-   "solution": "NOGOOD"
+   "solution": "NOGOOD",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "NO-GOOD",
+    "definitions": [
+     {
+      "text": "Lazy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "something going into a place ends up inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the standard abbreviation for old"
+     },
+     {
+      "clueFragment": "walk",
+      "gives": "GO",
+      "note": "to go is to move, as on foot"
+     },
+     {
+      "clueFragment": "land of sleep",
+      "gives": "NOD",
+      "note": "the land of Nod is the realm of sleep"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "OGO",
+      "OD"
+     ]
+    },
+    "explanation": {
+     "surface": "An idle old person strolls off to bed.",
+     "walkthrough": "The land of Nod is a jokey English phrase for sleep, from nodding off.",
+     "definitionFit": "A worthless good-for-nothing person, idle and useless, is described with this hyphenated adjective."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "walk"
+    }
+   }
   },
   {
    "number": 22,
@@ -392,7 +1383,53 @@
     "text": "Two bovines, the second with head slightly back in lake",
     "enumeration": "5"
    },
-   "solution": "OXBOW"
+   "solution": "OXBOW",
+   "annotation": {
+    "type": [
+     "charade",
+     "substitution"
+    ],
+    "answer": "OXBOW",
+    "definitions": [
+     {
+      "text": "lake",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the second with head slightly back",
+      "for": "substitution",
+      "note": "the first letter of the latter item moves one step back through the alphabet, replacing it"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Two bovines",
+      "gives": "OXCOW",
+      "note": "an ox and a cow, both cattle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OX",
+      "BOW"
+     ]
+    },
+    "explanation": {
+     "surface": "A pair of cattle, one tossing its head back while wading in a lake.",
+     "walkthrough": "'Slightly back' means one letter earlier in the alphabet: C becomes B, so COW turns into BOW.",
+     "definitionFit": "An oxbow is a curved lake left behind when a meandering river cuts off one of its loops, short for oxbow lake."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 23,
@@ -412,7 +1449,65 @@
      }
     ]
    },
-   "solution": "STRAWHAT"
+   "solution": "STRAWHAT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "STRAW HAT",
+    "definitions": [
+     {
+      "text": "Boater",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backwards",
+      "for": "reversal",
+      "note": "going backwards means reading from the end to the start"
+     }
+    ],
+    "linkWords": [
+     "has taken"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "more than one craft",
+      "gives": "ARTS",
+      "note": "crafts are arts, plural"
+     },
+     {
+      "clueFragment": "eh",
+      "gives": "WHAT",
+      "note": "'eh?' asks 'what?'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STRA",
+      "WHAT"
+     ],
+     "reversals": [
+      {
+       "from": "ARTS",
+       "to": "STRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rower has piloted several boats, but reversing them, puzzled.",
+     "walkthrough": "'Boater' and 'craft' paint a boating scene; craft here is skill, and a boater is a hat.",
+     "definitionFit": "A boater is a flat-topped stiff hat woven from straw with a ribbon band, once worn for punting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Boater"
+    }
+   }
   },
   {
    "number": 24,
@@ -426,7 +1521,47 @@
     "text": "A nozzle evolved",
     "enumeration": "5"
    },
-   "solution": "AROSE"
+   "solution": "AROSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AROSE",
+    "definitions": [
+     {
+      "text": "evolved",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "nozzle",
+      "gives": "ROSE",
+      "note": "the perforated spray head on a watering can or shower shares its name with a flower"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "ROSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A spray nozzle that developed over time.",
+     "walkthrough": "The rose is the sprinkler head of a watering can, not the flower.",
+     "definitionFit": "Something that emerged or came into being gradually can be said to have developed or come about."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "nozzle"
+    }
+   }
   },
   {
    "number": 25,
@@ -440,7 +1575,49 @@
     "text": "Fin, say, scales stripped off",
     "enumeration": "4"
    },
-   "solution": "LIMB"
+   "solution": "LIMB",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LIMB",
+    "definitions": [
+     {
+      "text": "Fin, say",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stripped off",
+      "for": "deletion",
+      "note": "stripping removes the outside layer, so the first and last letters go"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "scales",
+      "gives": "CLIMBS",
+      "note": "to scale a wall is to climb it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIMB"
+     ]
+    },
+    "explanation": {
+     "surface": "A fish's fin with its scales removed.",
+     "walkthrough": "'Scales' looks like the fish's skin, matching 'fin'; it is the verb, climbs.",
+     "definitionFit": "A fin serves as a fish's appendage for moving, comparable to an arm or leg, hence the 'say' for an example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "scales"
+    }
+   }
   },
   {
    "number": 26,
@@ -454,7 +1631,71 @@
     "text": "Launch one past it into country east of India",
     "enumeration": "10"
    },
-   "solution": "INITIATION"
+   "solution": "INITIATION",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "INITIATION",
+    "definitions": [
+     {
+      "text": "Launch",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "something put into another thing ends up inside it"
+     }
+    ],
+    "linkWords": [
+     "past",
+     "east of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "India",
+      "gives": "I",
+      "note": "India is I in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "country",
+      "gives": "NATION",
+      "note": "a nation is a country"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "N",
+      "ITI",
+      "ATION"
+     ]
+    },
+    "explanation": {
+     "surface": "Launching someone past it into a country beyond India, as in a send-off.",
+     "walkthrough": "In an across answer, east of a piece means after it, so the country follows the India letter; 'one past it' puts I after IT.",
+     "definitionFit": "The start or beginning of a project or scheme is its commencement, and both nouns name that first step."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "India"
+    }
+   }
   },
   {
    "number": 27,
@@ -468,7 +1709,72 @@
     "text": "Show one off that’s attached to heel in blizzards?",
     "enumeration": "8"
    },
-   "solution": "SNOWSHOE"
+   "solution": "SNOWSHOE",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SNOWSHOE",
+    "definitions": [
+     {
+      "text": "Show one off that’s attached to heel in blizzards?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "something gone off has gone wrong, so the letters are out of order"
+     },
+     {
+      "text": "heel in",
+      "for": "letter_selection",
+      "note": "the heel is the back end, so only the last letter is kept"
+     }
+    ],
+    "linkWords": [
+     "that’s attached to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Show one",
+      "gives": "SHOWONE",
+      "note": "the seven letters to rearrange"
+     },
+     {
+      "clueFragment": "blizzards",
+      "gives": "S",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "NOWSHOE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SHOWONE",
+       "gives": "NOWSHOE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Showing off an item you strap to your boot heel in heavy snow.",
+     "walkthrough": "The whole clue doubles as a description: the answer is shown off, attached at the heel, in blizzards. 'Heel' is both the boot part and a last letter.",
+     "definitionFit": "This broad racket-shaped frame fastened under a boot spreads weight over deep snow, so it is strapped on for walking in storms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "heel"
+    }
+   }
   },
   {
    "number": 28,
@@ -482,7 +1788,64 @@
     "text": "Reversal of dreary practice critical for country",
     "enumeration": "6"
    },
-   "solution": "TURKEY"
+   "solution": "TURKEY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "TURKEY",
+    "definitions": [
+     {
+      "text": "country",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reversal of",
+      "for": "reversal",
+      "note": "a reversal turns the order around, reading from the end"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dreary practice",
+      "gives": "RUT",
+      "note": "a rut is a boring, unvarying routine"
+     },
+     {
+      "clueFragment": "critical",
+      "gives": "KEY",
+      "note": "key means vital or crucial"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TUR",
+      "KEY"
+     ],
+     "reversals": [
+      {
+       "from": "RUT",
+       "to": "TUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Ending a dull routine is vital for a nation's prospects.",
+     "walkthrough": "'Reversal of' looks like it governs the whole phrase, but it applies only to the dull routine.",
+     "definitionFit": "Turkey is a nation straddling south-eastern Europe and western Asia, with Ankara as its capital."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Reversal"
+    }
+   }
   }
  ]
 }
