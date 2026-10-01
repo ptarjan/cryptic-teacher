@@ -75,11 +75,14 @@ class Source:
     `tool` is the filer, recorded as the puzzle's acquirer. `target(row)` is (series
     key, dated?), where a dated series falls back to the post date when
     `print_dates(recs, renumbered)` -- ({(series, number): date}, [notes]) --
-    proves none. `setter(rec, series)` is the byline or None."""
+    proves none. `setter(rec, series)` is the byline or None. `run(row)`
+    names the numbering a row belongs to, for a series that renumbered: each
+    is held to its own sequence."""
     tool: str
     target: Callable
     print_dates: Callable
     setter: Callable
+    run: Callable = lambda row: None
 
 
 DAY = datetime.timedelta(days=1)
@@ -474,10 +477,10 @@ def run(source, grids, parsed, write=True, newest=None):
         if not row.get("number"):
             skipped["no puzzle number"] += 1
             continue
-        sources[(row["series"], *source.target(row))].append(row)
+        sources[(row["series"], *source.target(row), source.run(row))].append(row)
     claims = collections.defaultdict(list)
     strays = []
-    for (_, series, dated), group in sources.items():
+    for (_, series, dated, _), group in sources.items():
         fits = sequence_window(group)
         for row in group:
             if fits(row["date"], row["number"]):
@@ -485,7 +488,7 @@ def run(source, grids, parsed, write=True, newest=None):
             else:
                 strays.append((series, dated, fits, row))
     taken = collections.defaultdict(set)
-    for (_, series, _), group in sources.items():
+    for (_, series, _, _), group in sources.items():
         taken[series] |= {r["number"] for r in group}
     for series, dated, fits, row in strays:
         number = retyped(row, fits, taken[series])

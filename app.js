@@ -5887,6 +5887,14 @@
       clues are a little more playful and inventive while keeping the Times's
       fairness. Grid rebuilt and answers taken from the “Times for the Times”
       blog.`],
+    timesclub: ["times club", `The Times Crossword Club's Monthly Special: a
+      15x15 cryptic made for club members, tougher than the daily, with rarer
+      words and longer, more intricate wordplay that still plays fair. Grid
+      rebuilt and answers taken from the “Times for the Times” blog.`],
+    tls: ["TLS", `The Times Literary Supplement's weekly crossword, by named
+      setters: a cryptic steeped in books, with authors, characters and
+      quotations in the answers and clues that reward a well-read solver.
+      Grid rebuilt and answers taken from the “Times for the Times” blog.`],
     ftcryptic: ["FT", `The Financial Times cryptic, Monday to Saturday, from a
       stable of named setters — Io, Mudd, Julius, Jason — many of them familiar
       from other papers under other names (Mudd is the Guardian's Paul). Pitched

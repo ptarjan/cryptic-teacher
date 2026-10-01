@@ -10,12 +10,13 @@ must pass. What is the Times's is here: which series a row is, its setter,
 its print date.
 
 The date is the print date, from print_dates below: the Quick's is its post
-date; the prize puzzles (Saturday's Times, the Jumbo, the Sunday Times) are
-blogged after entries close, so theirs comes from the Times's own listing
-(tools/fetch_times_listing.py), the post's slug, and the paper's cadence
-between them, and stays null where those prove nothing.
+date; the prize puzzles (Saturday's Times, the Jumbo, the Sunday Times, the
+TLS on Fridays) are blogged after entries close, so theirs comes from the
+Times's own listing (tools/fetch_times_listing.py), the post's slug, and the
+paper's cadence between them, and stays null where those prove nothing. The
+Club Monthly Special's stays null.
 
-The setter of a Quick or Sunday Times puzzle is the one the post's title
+The setter of a Quick, Sunday Times or TLS puzzle is the one the post's title
 names, or failing that SETTERS_FROM_COMMENTS; the Times Cryptic and the Jumbo
 stay anonymous.
 """
@@ -48,7 +49,7 @@ SUNDAY_TIMES_BELOW = 10_000
 
 #: The series whose blog titles name the setter. The Times Cryptic and the
 #: Jumbo are anonymous: a "by" in their titles is the blogger's prose.
-BYLINED = {"timesquick", "sundaytimes"}
+BYLINED = {"timesquick", "sundaytimes", "tls"}
 
 
 #: Setters of bylined puzzles whose post title names nobody, keyed by post_id.
@@ -73,6 +74,23 @@ def setter(rec, series):
     return named or series_meta.default_setter(series)
 
 
+#: The blog's series labels this files. The Club Monthly Special prints no
+#: date and keeps a null one (series.py datedFromNeighbours).
+LABELS = ("Quick Cryptic", "Daily Cryptic", "Jumbo Cryptic", "Weekend Cryptic",
+          "Monthly Club Special", "TLS Crossword")
+
+
+#: The Club Monthly Special ran from 20,000 to 20,278 (November 2023), and the
+#: blog numbers it from 274 (May 2024) on: two sequences in one series.
+CLUB_RENUMBERED_BELOW = 20_000
+
+
+def numbering(row):
+    """Which of a series' numberings a row is in, for the sequence check."""
+    return (row["series"] == "Monthly Club Special"
+            and row["number"] < CLUB_RENUMBERED_BELOW)
+
+
 def target(row):
     """(series key, dated?) for one grid row."""
     label = row["series"]
@@ -84,6 +102,10 @@ def target(row):
         return "timesjumbo", False
     if label == "Weekend Cryptic":
         return ("sundaytimes" if row["number"] < SUNDAY_TIMES_BELOW else "times"), False
+    if label == "Monthly Club Special":
+        return "timesclub", False
+    if label == "TLS Crossword":
+        return "tls", False
     raise ValueError(f"post {row['post_id']}: no series for {label!r}")
 
 
@@ -95,7 +117,7 @@ def target(row):
 # post date is no print date at all. Every date below is a fact or follows from
 # facts by the paper's cadence; a number nothing proves stays undated.
 
-SATURDAY, SUNDAY = 5, 6
+FRIDAY, SATURDAY, SUNDAY = 4, 5, 6
 DAY = datetime.timedelta(days=1)
 WEEK = datetime.timedelta(days=7)
 
@@ -109,7 +131,8 @@ PRINT_DATES = {
     ("timesjumbo", 1559): datetime.date(2022, 6, 2),
 }
 
-PRIZE_DAY = {"times": SATURDAY, "timesjumbo": SATURDAY, "sundaytimes": SUNDAY}
+PRIZE_DAY = {"times": SATURDAY, "timesjumbo": SATURDAY, "sundaytimes": SUNDAY,
+             "tls": FRIDAY}
 
 MONTHS = {m: i for i, m in enumerate(
     ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"], 1)}
@@ -462,8 +485,7 @@ def print_dates(recs, listing=None, renumbered=None):
     for rec in recs:
         if rec.get("post_id") in renumbered:
             rec = dict(rec, number=renumbered[rec["post_id"]])
-        if rec.get("number") and rec.get("series") in (
-                "Quick Cryptic", "Daily Cryptic", "Jumbo Cryptic", "Weekend Cryptic"):
+        if rec.get("number") and rec.get("series") in LABELS:
             groups[target(rec)].append(rec)
     posts = collections.defaultdict(dict)  # (series, dated) -> {number: rec}
     for key, group in groups.items():
@@ -505,7 +527,7 @@ def run(grids=tg.OUT, parsed=tg.PARSED, write=True, listing=None, newest=None):
     source = file_blog_puzzles.Source(
         tool="tools/file_times_puzzles.py", target=target,
         print_dates=lambda recs, renumbered: print_dates(recs, listing, renumbered),
-        setter=setter)
+        setter=setter, run=numbering)
     return file_blog_puzzles.run(source, grids, parsed, write=write, newest=newest)
 
 

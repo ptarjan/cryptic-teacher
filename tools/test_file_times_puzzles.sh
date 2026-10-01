@@ -342,4 +342,16 @@ check "a post filed under a retyped number is dated from its neighbours" "2022-0
 check "listing cards: year off the capture, weekday checked" \
   "[('sundaytimes', 5078, '2023-09-24'), ('times', 29000, '2023-12-26'), ('sundaytimes', 5142, '2023-12-31')]" "$(got CARDS)"
 
+# The Club Monthly Special and the TLS file as series of their own; the TLS is
+# a Friday paper, so its title's date is read on Fridays.
+check "Club and TLS rows file under their own series; a TLS title dates it on a Friday" \
+  "timesclub False|tls False|Talos|2016-05-06" \
+  "$(PYTHONPATH="$REPO/tools" python3 -c '
+import file_times_puzzles as F
+row = lambda label: {"post_id": 1, "series": label, "number": 1124}
+rec = {"date": "2016-05-27", "slug": "tls-crossword-1124-by-talos-may-6-2016",
+       "title": "TLS Crossword 1124 by Talos - May 6, 2016"}
+print("|".join(["%s %s" % F.target(row("Monthly Club Special")), "%s %s" % F.target(row("TLS Crossword")),
+                F.setter(rec, "tls"), str(F.blog_date(rec, "tls"))]))')"
+
 [ "$fails" -eq 0 ] && echo "all passed" || { echo "$fails failed"; exit 1; }

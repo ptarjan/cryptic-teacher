@@ -44,14 +44,17 @@ OUT = CACHE / "grids.jsonl"
 #: the puzzles a restart repeats are exactly the ones it can least afford.
 ATTEMPTS = CACHE / "attempts.jsonl"
 
-#: Blocked grids only, and their size. Mephisto and the Club Monthly are
-#: BARRED puzzles — thick lines between cells, no black squares at all — so
-#: numbering is not a function of anything this module can invert.
+#: Blocked grids only, and their size. Mephisto is a BARRED puzzle — thick
+#: lines between cells, no black squares at all — so numbering is not a
+#: function of anything this module can invert. The Club Monthly Special and
+#: the TLS crossword are blocked 15x15s.
 SIZE = {
     "Daily Cryptic": 15,
     "Quick Cryptic": 13,
     "Weekend Cryptic": 15,
     "Jumbo Cryptic": 23,
+    "Monthly Club Special": 15,
+    "TLS Crossword": 15,
     # fifteensquared's category, for tools/ft_puzzles.py.
     "FT": 15,
     # tools/indy_puzzles.py's series keys, off the same blog.
@@ -63,6 +66,19 @@ SIZE = {
     "sundaytel": 15,
     "sundaytough": 15,
 }
+
+
+#: A 15x15 holds at most this many lights; a Weekend post with more is the
+#: Sunday Times's Christmas Jumbo, printed at the Jumbo's 23x23.
+MOST_LIGHTS_15 = 38
+
+
+def size(rec):
+    """The grid's side for this record: its series', but a Weekend post with
+    more entries than a 15x15 holds is a Jumbo."""
+    if rec["series"] == "Weekend Cryptic" and len(rec["entries"]) > MOST_LIGHTS_15:
+        return SIZE["Jumbo Cryptic"]
+    return SIZE[rec["series"]]
 
 
 def printed(rec):
@@ -257,7 +273,10 @@ def _fixes(cells, known, blogged, entry, leaders, vocab):
     """The words one wrong light can be. `known` holds the letters its correct
     crossings put in it; every other letter is the blogger's own -- at the same
     place when the blogged answer has the light's length, and in the same order
-    when it does not. Only real words that match the enumeration count.
+    when it does not. Only real words that match the enumeration count; a
+    phrase is real when each of its words is. An enumeration that counts the
+    blogged answer, not the light, was typed over the same slip and says
+    nothing.
 
     The one other correction taken is two adjacent letters typed the wrong way
     round (PHAROAH, GYLPH), and only as the blogger typed every letter: the
@@ -270,7 +289,17 @@ def _fixes(cells, known, blogged, entry, leaders, vocab):
             blogged[:i] + blogged[i + 1] + blogged[i] + blogged[i + 2:]
             for i in range(n - 1)]
     else:
-        pool = vocab.get(n, ())
+        pool = set(vocab.get(n, ()))
+        # One letter dropped: the lexicon has no phrases, so TAKES STOCK under
+        # TAKESTOCK is built from the blogged letters, not looked up.
+        if n == len(blogged) + 1:
+            pool |= {blogged[:i] + c + blogged[i:] for i in range(n)
+                     for c in "ABCDEFGHIJKLMNOPQRSTUVWXYZ"}
+    # A count typed over the same short answer -- THEOREM (7) in an
+    # eight-letter light -- is the blogger's slip twice, not the paper's count.
+    enum = entry.get("enumeration") or ""
+    trust_enum = not (len(blogged) != n
+                      and sum(int(d) for d in re.findall(r"\d+", enum)) == len(blogged))
     out = set()
     for w in pool:
         if len(w) != n or any(w[i] != c for i, c in fixed.items()):
@@ -278,10 +307,36 @@ def _fixes(cells, known, blogged, entry, leaders, vocab):
         if len(blogged) != n and not _subsequence(
                 [w[i] for i in range(n) if i not in fixed], blogged):
             continue
-        if w in vocab.get(n, ()) and parser.enum_agrees(dict(entry, answer=w),
-                                                       leaders) is not False:
+        if not _real(w, _word_count(entry), vocab):
+            continue
+        if not trust_enum or parser.enum_agrees(dict(entry, answer=w),
+                                                leaders) is not False:
             out.add(w)
     return out
+
+
+def _word_count(entry):
+    """How many words the blog wrote the answer as: its spacing, else its count."""
+    spaced = entry.get("answer_spaced")
+    if spaced:
+        return len(re.findall(r"[A-Z']+", spaced.upper()))
+    return max(1, len(re.findall(r"\d+", entry.get("enumeration") or "")))
+
+
+def _real(w, words, vocab):
+    """Is `w` a real word, or a phrase of `words` real words (TAKES STOCK)?
+    The lexicon holds no phrases, so a phrase is read word by word."""
+    if w in vocab.get(len(w), ()):
+        return True
+    if words < 2:
+        return False
+
+    def split(rest, k):
+        if k == 1:
+            return rest in vocab.get(len(rest), ())
+        return any(rest[:i] in vocab.get(i, ()) and split(rest[i:], k - 1)
+                   for i in range(2, len(rest) - 1))
+    return split(w, words)
 
 
 def settle(grid, rec, vocab):
@@ -387,7 +442,7 @@ def solve(rec, limit=50, max_nodes=DEFAULT_MAX_NODES):
     freed. A grid with no symmetry at all is never taken: every one this
     module rebuilt was built round a light the parser had not read.
     """
-    n = SIZE[rec["series"]]
+    n = size(rec)
     lights = triples(rec)
     words = [e["answer"] for e in printed(rec)]
     try:

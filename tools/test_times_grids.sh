@@ -184,6 +184,16 @@ print("FIX_UNCHECKED", show(fixes(rec_of(DIAG, **{"5d": "EJTY"}))))
 print("FIX_NOT_A_WORD", show(fixes(rec_of(DIAG, **{"5d": "EXOTY"}), {5: set()})))
 print("FIX_EITHER", show(fixes(rec_of(DIAG, **{"5d": "EXOTY"}), {5: {"EJOTY", "FGHIX"}})))
 print("FIX_TWO_WORDS", show(fixes(rec_of(DIAG, **{"5d": "EOJTY"}), {5: {"EJOTY", "EJJTY", "FGHIO"}})))
+# A count typed over the same short answer -- THEOREM (7) in an eight-letter
+# light -- is the blogger's slip twice, so it cannot veto the correction; a
+# phrase the lexicon only knows word by word (TAKES STOCK) is still real.
+def counted(blog, enum):
+    r = rec_of(DIAG, **{"5d": blog})
+    next(e for e in r["entries"] if (e["number"], e["direction"]) == (5, "down"))["enumeration"] = enum
+    return r
+print("FIX_DROPPED_COUNT", show(fixes(counted("EOTY", "4"))))
+print("FIX_PHRASE", show(fixes(counted("EOTY", "2,2"), {2: {"EJ"}, 3: {"OTY"}})))
+print("FIX_PHRASE_ONE_WORD", show(fixes(counted("EOTY", "4"), {2: {"EJ"}, 3: {"OTY"}})))
 print("FIX_WRONG_GRID", show(T.settle(TINY, rec_of(DIAG), vocab))[:39])
 
 # The job itself applies it: a run writes the corrections into the grid row,
@@ -235,6 +245,12 @@ print("RESETTLE", [(r["post_id"], len(r.get("corrections", []))) for r in map(js
 # are parsed and then deliberately not sized here; a typo in the name would
 # look identical, so check both halves.
 print("BARRED", sorted(s for s in P.SERIES.values() if s not in T.SIZE))
+# The Sunday Times's Christmas puzzle is a Jumbo in the weekly's numbering:
+# the entry count, not the label, sizes it.
+many = lambda series, k: {"series": series, "entries": [{}] * k}
+print("SIZE", T.size(many("Weekend Cryptic", 30)), T.size(many("Weekend Cryptic", 60)),
+      T.size(many("Daily Cryptic", 60)), T.size(many("Monthly Club Special", 30)),
+      T.size(many("TLS Crossword", 30)))
 e = {"number": 1, "direction": "across", "answer": "AB"}
 print("CLUES", T.has_clues({"entries": [dict(e, clue="Clue (2)")] * 10}),
       T.has_clues({"entries": [dict(e, clue="")] * 10}))
@@ -284,6 +300,12 @@ check "two corrections that are both words are refused" \
       "refused: answers correct 5 down EJOTY or 6 across FGHIX" "$(field FIX_EITHER)"
 check "a light that could be either of two words is refused, whatever else fits" \
       "refused: answers correct 5 down EJJTY or EJOTY or 6 across FGHIO" "$(field FIX_TWO_WORDS)"
+check "a count typed over the dropped letter does not veto the correction" \
+      "5d:EOTY>EJOTY" "$(field FIX_DROPPED_COUNT)"
+check "a phrase is a real word when each of its words is" \
+      "5d:EOTY>EJOTY" "$(field FIX_PHRASE)"
+check "but only when the blog wrote it as that many words" \
+      "refused: 5 down EOTY fits no word" "$(field FIX_PHRASE_ONE_WORD)"
 check "a grid its answers do not number is refused, not corrected" \
       "refused: lights differ from the grid at" "$(field FIX_WRONG_GRID)"
 check "a run writes the corrected answer into the grid row" \
@@ -295,7 +317,9 @@ check "a wordplay-settled answer rebuilds a refused puzzle, as a correction" \
 check "--resettle corrects the grids already written and refuses the rest" \
       "[(1, 1)] [4]" "$(field RESETTLE)"
 check "barred series are excluded, by their parsed names" \
-      "['Mephisto', 'Monthly Club Special', 'Other Crosswords']" "$(field BARRED)"
+      "['Mephisto', 'Other Crosswords']" "$(field BARRED)"
+check "a Weekend post with a Jumbo's entries is rebuilt at 23x23; the Club and TLS at 15x15" \
+      "15 23 15 15 15" "$(field SIZE)"
 check "a post that gives only the answers is not searched" "True False" "$(field CLUES)"
 
 if [ "$fails" -gt 0 ]; then echo "$fails FAILURE(S)"; exit 1; fi

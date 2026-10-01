@@ -392,6 +392,43 @@ m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
 print(m.puzzle_number({"id": 50707, "slug": "50707-2", "title": {"rendered": "Times 27,365: Candy"}}),
       m.puzzle_number({"id": 9, "slug": "times-quick-cryptic-no-2162-by-tracy", "title": {"rendered": ""}}))')"
 
+# WordPress fixes the slug from the first title typed, so a title one slip
+# from the slug is the blogger's correction; any other title number is not.
+check "a title one typing slip from the slug wins; a title further off does not" "28443 28476 28445" \
+  "$(REPO="$REPO" python3 -c '
+import os, importlib.util
+spec = importlib.util.spec_from_file_location("p", os.path.join(os.environ["REPO"], "tools", "parse_timesforthetimes.py"))
+m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
+post = lambda slug, title: {"id": 1, "slug": slug, "title": {"rendered": title}}
+print(m.puzzle_number(post("times-28445", "Times 28443 – get your pads on")),
+      m.puzzle_number(post("times-cryptic-no-28475-saturday", "Times Cryptic No 28476 – Saturday")),
+      m.puzzle_number(post("times-28445", "Times 27,000 or so")))')"
+
+# The TLS is blogged under Other Crosswords and sometimes Daily; a daily that
+# only mentions it stays a daily. A Times Jumbo filed as a Weekend post moves
+# back; the Sunday Times's own Jumbo, numbered with the weekly, does not.
+check "TLS and misfiled Jumbo posts are filed by their titles" \
+  "TLS Crossword|TLS Crossword|Daily Cryptic|Jumbo Cryptic|Weekend Cryptic" \
+  "$(REPO="$REPO" python3 -c '
+import os, importlib.util
+spec = importlib.util.spec_from_file_location("p", os.path.join(os.environ["REPO"], "tools", "parse_timesforthetimes.py"))
+m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
+t = lambda s: {"title": {"rendered": s}}
+print("|".join([m.filed_series(t("TLS Crossword 1124 by Talos"), "Other Crosswords", 1124),
+                m.filed_series(t("TLS 857 (26 Nov)"), "Daily Cryptic", 857),
+                m.filed_series(t("Times 28107 – it’s not the TLS"), "Daily Cryptic", 28107),
+                m.filed_series(t("Times Cryptic Jumbo No 1309 (Saturday)"), "Weekend Cryptic", 1309),
+                m.filed_series(t("Sunday Times Jumbo Cryptic No. 5038"), "Weekend Cryptic", 5038)]))')"
+
+check "a Weekend post may have a Jumbo-sized entry count; a daily may not" "True True False" \
+  "$(REPO="$REPO" python3 -c '
+import os, importlib.util
+spec = importlib.util.spec_from_file_location("p", os.path.join(os.environ["REPO"], "tools", "parse_timesforthetimes.py"))
+m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
+r = lambda s, k: {"series": s, "entries": [{}] * k}
+print(m.plausible(r("Weekend Cryptic", 30)), m.plausible(r("Weekend Cryptic", 60)),
+      m.plausible(r("Daily Cryptic", 60)))')"
+
 # The category is set by hand; the number moves a misfiled post back, and a
 # daily whose title number reads short stays put unless its title says Quick.
 check "a misfiled series is corrected by the puzzle number, and only then" \
