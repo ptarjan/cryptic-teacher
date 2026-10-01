@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -39,7 +42,51 @@
      }
     ]
    },
-   "solution": "NEWORLEANS"
+   "solution": "NEWORLEANS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NEW ORLEANS",
+    "definitions": [
+     {
+      "text": "US city",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrecked",
+      "for": "anagram",
+      "note": "something wrecked is smashed apart, so the letters before it are broken up and rebuilt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Son, we learn",
+      "gives": "SONWELEARN",
+      "note": "the ten letters of the three words, punctuation ignored"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SONWELEARN",
+       "gives": "NEWORLEANS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A son hears news that an American city has been devastated.",
+     "walkthrough": "'Son, we learn' reads like a parent breaking bad news, but it is just the raw letters to be rearranged.",
+     "definitionFit": "The Louisiana jazz port is a major American city, so the place name directly fits the plain description."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "learn"
+    }
+   }
   },
   {
    "number": 1,
@@ -53,7 +100,55 @@
     "text": "Fool visited by new relative",
     "enumeration": "5"
    },
-   "solution": "NANNA"
+   "solution": "NANNA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NANNA",
+    "definitions": [
+     {
+      "text": "relative",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "visited by",
+      "for": "container",
+      "note": "a home visited by guests has them inside it, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fool",
+      "gives": "NANA",
+      "note": "a nana is an informal word for a silly person"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the standard abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NA",
+      "N",
+      "NA"
+     ]
+    },
+    "explanation": {
+     "surface": "A silly person receives a call from a recently acquired in-law.",
+     "walkthrough": "Nana as a fool is a British informal usage ('don't be a nana'); N slips into its middle.",
+     "definitionFit": "Nanna is an affectionate family word for a grandmother, so it names a kind of relative."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "visited"
+    }
+   }
   },
   {
    "number": 2,
@@ -73,7 +168,68 @@
      }
     ]
    },
-   "solution": "WHITEMEAT"
+   "solution": "WHITEMEAT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "WHITE MEAT",
+    "definitions": [
+     {
+      "text": "Choice of turkey",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cooked",
+      "for": "anagram",
+      "note": "cooking transforms ingredients, so the letters are mixed into a new order"
+     },
+     {
+      "text": "tucking in",
+      "for": "container",
+      "note": "to tuck something in is to put it inside, so one piece is placed within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "with tea",
+      "gives": "WITHTEA",
+      "note": "the letters of both words, to be rearranged"
+     },
+     {
+      "clueFragment": "yours truly",
+      "gives": "ME",
+      "note": "'yours truly' is the setter referring to themselves"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WHITE",
+      "ME",
+      "AT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "WITHTEA",
+       "gives": "WHITEAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Turkey is prepared alongside a pot of tea while the writer eats heartily.",
+     "walkthrough": "'Tucking in' suggests eating, which suits the turkey, but it means inserting; 'yours truly' is the setter speaking of themselves.",
+     "definitionFit": "Turkey is served as either light breast portions or darker leg portions, so the pale cut is one option at the carving."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tucking"
+    }
+   }
   },
   {
    "number": 3,
@@ -87,7 +243,44 @@
     "text": "Vertical part of flight in error is erased",
     "enumeration": "5"
    },
-   "solution": "RISER"
+   "solution": "RISER",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "RISER",
+    "definitions": [
+     {
+      "text": "Vertical part of flight",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the answer sits literally inside the run of words that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "error is erased",
+      "gives": "RISER",
+      "note": "spans the end of the first word, all of the second, and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "Part of an aeroplane flight was wiped out because of a mistake.",
+     "walkthrough": "'Flight' suggests air travel, but it is a flight of stairs; the answer runs across erroR IS ERased.",
+     "definitionFit": "On a staircase each step has a flat tread and an upright board between treads, which carpenters call by this name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flight"
+    }
+   }
   },
   {
    "number": 4,
@@ -101,7 +294,46 @@
     "text": "What may resemble cauliflower and some corn?",
     "enumeration": "3"
    },
-   "solution": "EAR"
+   "solution": "EAR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "EAR",
+    "definitions": [
+     {
+      "text": "What may resemble cauliflower",
+      "at": 0
+     },
+     {
+      "text": "some corn",
+      "at": 34
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What may resemble cauliflower",
+      "note": "first meaning: a boxer's or rugby player's swollen organ of hearing"
+     },
+     {
+      "clueFragment": "some corn",
+      "note": "second meaning: the seed-bearing head of a cereal plant"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The pairing reads like a vegetable quiz; one meaning is the injury called 'cauliflower ear', the other a head of corn.",
+     "definitionFit": "Repeated blows make the outer organ of hearing lumpy like the vegetable, and a cob of maize is also called by the same word."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cauliflower"
+    }
+   }
   },
   {
    "number": 5,
@@ -115,7 +347,52 @@
     "text": "Present and present again or not present at all?",
     "enumeration": "7"
    },
-   "solution": "NOWHERE"
+   "solution": "NOWHERE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NOWHERE",
+    "definitions": [
+     {
+      "text": "not present at all",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "and",
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Present",
+      "gives": "NOW",
+      "note": "present in time: at this moment"
+     },
+     {
+      "clueFragment": "present again",
+      "gives": "HERE",
+      "note": "present in place: in attendance, the word's second sense"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOW",
+      "HERE"
+     ]
+    },
+    "explanation": {
+     "surface": "A riddle asking how something can be present twice over yet completely absent.",
+     "walkthrough": "'Present' is used once for time and once for place, and the two words joined mean the opposite of both.",
+     "definitionFit": "Something found in no place whatever is entirely absent, which is exactly what the adverb describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "again"
+    }
+   }
   },
   {
    "number": 6,
@@ -129,7 +406,76 @@
     "text": "Element in posh revolutionary with power over Egyptian god",
     "enumeration": "10"
    },
-   "solution": "PHOSPHORUS"
+   "solution": "PHOSPHORUS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "PHOSPHORUS",
+    "definitions": [
+     {
+      "text": "Element",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "revolutionary",
+      "for": "anagram",
+      "note": "a revolution overturns the established order, so these letters are rearranged"
+     },
+     {
+      "text": "over",
+      "for": "charade",
+      "note": "in a down entry, being over something means coming above it, so this piece comes first"
+     }
+    ],
+    "linkWords": [
+     "in",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "posh",
+      "gives": "POSH",
+      "note": "the letters of the word, to be rearranged"
+     },
+     {
+      "clueFragment": "power",
+      "gives": "P",
+      "note": "P is the physics symbol for power"
+     },
+     {
+      "clueFragment": "Egyptian god",
+      "gives": "HORUS",
+      "note": "Horus is the falcon-headed sky god of ancient Egypt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PHOS",
+      "P",
+      "HORUS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "POSH",
+       "gives": "PHOS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A posh rebel teams up with power above an Egyptian deity, as if in an ancient political drama.",
+     "walkthrough": "'Revolutionary' looks like a noun for a rebel, but it is an adjective telling you to rearrange the word before it.",
+     "definitionFit": "Phosphorus is chemical element number 15, a substance named on the periodic table."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "revolutionary"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +489,51 @@
     "text": "Deer with one tongue",
     "enumeration": "5"
    },
-   "solution": "HINDI"
+   "solution": "HINDI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HINDI",
+    "definitions": [
+     {
+      "text": "tongue",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Deer",
+      "gives": "HIND",
+      "note": "the female of the red deer"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HIND",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A deer with a single tongue, a slightly absurd biological observation.",
+     "walkthrough": "'Tongue' sounds anatomical, but it means a language.",
+     "definitionFit": "Tongue is an old word for language, and Hindi is the major language spoken across northern India."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tongue"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +553,48 @@
      }
     ]
    },
-   "solution": "SCREWUP"
+   "solution": "SCREWUP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SCREW UP",
+    "definitions": [
+     {
+      "text": "drop a brick",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fastener",
+      "gives": "SCREW",
+      "note": "a screw is a threaded fastener"
+     },
+     {
+      "clueFragment": "in the air",
+      "gives": "UP",
+      "note": "something in the air is aloft"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCREW",
+      "UP"
+     ]
+    },
+    "explanation": {
+     "surface": "A workman drops a fastener and then a brick from a height.",
+     "walkthrough": "To 'drop a brick' is a British idiom for making an embarrassing blunder, not literally letting masonry fall.",
+     "definitionFit": "Both phrases mean to make a clumsy mistake; the definition is the British idiom, the solution its everyday slang equivalent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "brick"
+    }
+   }
   },
   {
    "number": 9,
@@ -183,7 +614,51 @@
      }
     ]
    },
-   "solution": "PAGETURNER"
+   "solution": "PAGETURNER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PAGE TURNER",
+    "definitions": [
+     {
+      "text": "Good book",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "where",
+     "meets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "attendant",
+      "gives": "PAGE",
+      "note": "a page is a young attendant"
+     },
+     {
+      "clueFragment": "artist",
+      "gives": "TURNER",
+      "note": "J. M. W. Turner was the English landscape painter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAGE",
+      "TURNER"
+     ]
+    },
+    "explanation": {
+     "surface": "A novel in which a servant encounters a painter.",
+     "walkthrough": "TURNER is J. M. W. Turner, the English painter of stormy seascapes; 'Good book' is not the Bible here.",
+     "definitionFit": "A gripping read that keeps you flipping onward is praised with this phrase, making it a compelling story."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Good"
+    }
+   }
   },
   {
    "number": 10,
@@ -203,7 +678,51 @@
      }
     ]
    },
-   "solution": "SNAREDRUM"
+   "solution": "SNAREDRUM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SNARE DRUM",
+    "definitions": [
+     {
+      "text": "instrument",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wobbly",
+      "for": "anagram",
+      "note": "something wobbly is unsteady and out of shape, so the letters lose their order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Arms under",
+      "gives": "ARMSUNDER",
+      "note": "the nine letters of both words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ARMSUNDER",
+       "gives": "SNAREDRUM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone holds their arms beneath an unsteady musical instrument.",
+     "walkthrough": "'Wobbly instrument' reads as a phrase, but 'wobbly' works on the two words before it.",
+     "definitionFit": "This shallow drum with rattling wires across its underside is a percussion instrument in bands and orchestras."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wobbly"
+    }
+   }
   },
   {
    "number": 11,
@@ -217,7 +736,50 @@
     "text": "Canteen in decline, sending a note",
     "enumeration": "9"
    },
-   "solution": "MESSAGING"
+   "solution": "MESSAGING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MESSAGING",
+    "definitions": [
+     {
+      "text": "sending a note",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Canteen",
+      "gives": "MESS",
+      "note": "a mess is a military dining hall"
+     },
+     {
+      "clueFragment": "in decline",
+      "gives": "AGING",
+      "note": "growing old, the American spelling"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MESS",
+      "AGING"
+     ]
+    },
+    "explanation": {
+     "surface": "A failing cafeteria writes to announce its troubles.",
+     "walkthrough": "The spelling AGING without an E is the North American form, natural in a Canadian puzzle.",
+     "definitionFit": "Messaging is the act of transmitting a written communication, as in texting someone a short note."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Canteen"
+    }
+   }
   },
   {
    "number": 12,
@@ -231,7 +793,56 @@
     "text": "Something to eat for one dining, finally",
     "enumeration": "3"
    },
-   "solution": "EGG"
+   "solution": "EGG",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "EGG",
+    "definitions": [
+     {
+      "text": "Something to eat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the end, so only the closing letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for one",
+      "gives": "EG",
+      "note": "e.g. means 'for example', so 'for one'"
+     },
+     {
+      "clueFragment": "dining",
+      "gives": "G",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EG",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "Something to eat for a person dining alone, at last.",
+     "walkthrough": "'For one' looks like a meal for a single diner, but it is the abbreviation EG, as in 'for one instance'.",
+     "definitionFit": "A boiled or fried hen's product is a common breakfast food, so it is plainly an edible item."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "one"
+    }
+   }
   },
   {
    "number": 13,
@@ -245,7 +856,60 @@
     "text": "Game where white has energy drained",
     "enumeration": "6"
    },
-   "solution": "HOCKEY"
+   "solution": "HOCKEY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "HOCKEY",
+    "definitions": [
+     {
+      "text": "Game",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drained",
+      "for": "letter_selection",
+      "note": "a drained vessel is emptied, so the inner letters go and only the outside pair stays"
+     }
+    ],
+    "linkWords": [
+     "where",
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "white",
+      "gives": "HOCK",
+      "note": "hock is a German white wine"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "EY",
+      "select": "outer",
+      "note": "the word with its middle removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOCK",
+      "EY"
+     ]
+    },
+    "explanation": {
+     "surface": "A sporting contest in which the white side has run out of steam.",
+     "walkthrough": "'White' suggests chess or a team colour, but it is white wine: hock is the British name for Rhine wine.",
+     "definitionFit": "Ice hockey is Canada's national winter sport, a team contest played with sticks and a puck."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "white"
+    }
+   }
   },
   {
    "number": 14,
@@ -259,7 +923,67 @@
     "text": "Coin, gold, on head of roc, mythical beast",
     "enumeration": "7"
    },
-   "solution": "CENTAUR"
+   "solution": "CENTAUR",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "CENTAUR",
+    "definitions": [
+     {
+      "text": "mythical beast",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "the head is the top, so only the opening letter is taken"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down entry, one thing on another sits above it, so the earlier pieces come first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Coin",
+      "gives": "CENT",
+      "note": "a cent is a coin"
+     },
+     {
+      "clueFragment": "gold",
+      "gives": "AU",
+      "note": "Au is the chemical symbol for gold"
+     },
+     {
+      "clueFragment": "roc",
+      "gives": "R",
+      "select": "first",
+      "note": "the first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CENT",
+      "AU",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A gold coin is placed on the head of a roc, itself a mythical giant bird.",
+     "walkthrough": "The roc is a legendary bird, which makes 'mythical beast' seem to describe it; the definition is separate.",
+     "definitionFit": "In Greek legend a creature with a man's torso on a horse's body is a classic fabulous monster."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "roc"
+    }
+   }
   },
   {
    "number": 15,
@@ -273,7 +997,46 @@
     "text": "Nod when despatched",
     "enumeration": "6"
    },
-   "solution": "ASSENT"
+   "solution": "ASSENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASSENT",
+    "definitions": [
+     {
+      "text": "Nod",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "when",
+      "gives": "AS",
+      "note": "as in 'as I arrived', meaning at the time that"
+     },
+     {
+      "clueFragment": "despatched",
+      "gives": "SENT",
+      "note": "sent off"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AS",
+      "SENT"
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'Nod' looks like a verb, but here it is the noun for a sign of approval.",
+     "definitionFit": "A nod of the head signals agreement, and agreement or approval given is a synonym for the answer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Nod"
+    }
+   }
   },
   {
    "number": 16,
@@ -287,7 +1050,42 @@
     "text": "Manage marathon, say",
     "enumeration": "3"
    },
-   "solution": "RUN"
+   "solution": "RUN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RUN",
+    "definitions": [
+     {
+      "text": "Manage",
+      "at": 0
+     },
+     {
+      "text": "marathon, say",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Manage",
+      "note": "first meaning: to be in charge of, as a business"
+     },
+     {
+      "clueFragment": "marathon, say",
+      "note": "second meaning: a race on foot, with the marathon an example"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests organising a marathon; 'say' flags the marathon as one example of the second meaning.",
+     "definitionFit": "One verb means to operate or direct something, and the same word as a noun is a long-distance race."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Manage"
+    }
+   }
   },
   {
    "number": 17,
@@ -307,7 +1105,54 @@
      }
     ]
    },
-   "solution": "TAPDANCER"
+   "solution": "TAPDANCER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TAP DANCER",
+    "definitions": [
+     {
+      "text": "Someone wearing metal-tipped shoes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ruined",
+      "for": "anagram",
+      "note": "something ruined is wrecked and spoiled, so the letters are thrown out of order"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "and carpet",
+      "gives": "ANDCARPET",
+      "note": "the nine letters of both words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ANDCARPET",
+       "gives": "TAPDANCER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A person in metal-tipped shoes has wrecked the carpet.",
+     "walkthrough": "The definition is a long description; the wordplay hides in the last three words.",
+     "definitionFit": "Performers of this rhythmic dance wear shoes with metal plates on heel and toe to click on the floor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "carpet"
+    }
+   }
   },
   {
    "number": 18,
@@ -321,7 +1166,64 @@
     "text": "Cycle exercise has boy going uphill",
     "enumeration": "5"
    },
-   "solution": "PEDAL"
+   "solution": "PEDAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "PEDAL",
+    "definitions": [
+     {
+      "text": "Cycle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going uphill",
+      "for": "reversal",
+      "note": "in a down entry, moving uphill means travelling bottom to top, so the letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "exercise",
+      "gives": "PE",
+      "note": "PE is physical education, school exercise"
+     },
+     {
+      "clueFragment": "boy",
+      "gives": "LAD",
+      "note": "a lad is a boy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PE",
+      "DAL"
+     ],
+     "reversals": [
+      {
+       "from": "LAD",
+       "to": "DAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cycling workout in which a boy rides up a hill.",
+     "walkthrough": "'Cycle' looks like a noun for a bike, but it is the verb meaning to ride one.",
+     "definitionFit": "To ride a bicycle you push the foot levers round, so pedalling is a way of saying to cycle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cycle"
+    }
+   }
   },
   {
    "number": 19,
@@ -335,7 +1237,55 @@
     "text": "Price including a cruise",
     "enumeration": "5"
    },
-   "solution": "COAST"
+   "solution": "COAST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "COAST",
+    "definitions": [
+     {
+      "text": "cruise",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "including",
+      "for": "container",
+      "note": "a thing including something holds it within, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Price",
+      "gives": "COST",
+      "note": "the price is the cost"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "A",
+      "ST"
+     ]
+    },
+    "explanation": {
+     "surface": "A travel deal where the fare includes a cruise.",
+     "walkthrough": "'Cruise' suggests a holiday at sea, but it is the verb meaning to move along without effort.",
+     "definitionFit": "To glide along with little effort, as a car rolling downhill without power, is to move easily or freewheel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cruise"
+    }
+   }
   },
   {
    "number": 20,
@@ -349,7 +1299,79 @@
     "text": "Ebbing river was filled with last of the algae",
     "enumeration": "7"
    },
-   "solution": "SEAWEED"
+   "solution": "SEAWEED",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "letter_selection"
+    ],
+    "answer": "SEAWEED",
+    "definitions": [
+     {
+      "text": "algae",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Ebbing",
+      "for": "reversal",
+      "note": "an ebbing tide flows back the way it came, so the letters run backwards"
+     },
+     {
+      "text": "filled with",
+      "for": "container",
+      "note": "something filled has contents put inside it, so a letter goes into the middle"
+     },
+     {
+      "text": "last of",
+      "for": "letter_selection",
+      "note": "the last is the end, so only the closing letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "river",
+      "gives": "DEE",
+      "note": "the Dee is a river in Britain"
+     },
+     {
+      "clueFragment": "was",
+      "gives": "WAS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "E",
+      "AWEED"
+     ],
+     "reversals": [
+      {
+       "from": "DEEWAS",
+       "to": "SAWEED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "As the river recedes, its bed is left clogged with algae.",
+     "walkthrough": "The reversal covers both 'river' and 'was', giving SAW then EED; the E from 'the' then goes inside.",
+     "definitionFit": "Large marine algae such as kelp and wrack are commonly called by this name, so it is a collective term."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Ebbing"
+    }
+   }
   },
   {
    "number": 21,
@@ -363,7 +1385,42 @@
     "text": "Yikes, some weekend!",
     "enumeration": "3"
    },
-   "solution": "EEK"
+   "solution": "EEK",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EEK",
+    "definitions": [
+     {
+      "text": "Yikes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "some means a portion, so the answer is a part of the following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "weekend",
+      "gives": "EEK",
+      "note": "the second to fourth letters"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The clue reads like a groan about a hectic weekend; the exclamation sits inside the word.",
+     "definitionFit": "Both are interjections of alarm or surprise, the kind of startled cry made on seeing a mouse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "some"
+    }
+   }
   },
   {
    "number": 22,
@@ -377,7 +1434,61 @@
     "text": "Judge beyond indignant at first — furious!",
     "enumeration": "5"
    },
-   "solution": "IRATE"
+   "solution": "IRATE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "IRATE",
+    "definitions": [
+     {
+      "text": "furious",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first points to the start, so only the opening letter is kept"
+     },
+     {
+      "text": "beyond",
+      "for": "charade",
+      "note": "beyond means further along, so this piece follows the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "indignant",
+      "gives": "I",
+      "select": "first",
+      "note": "the first letter of the word"
+     },
+     {
+      "clueFragment": "Judge",
+      "gives": "RATE",
+      "note": "to rate is to assess or judge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "RATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A judge has gone past indignation into full fury.",
+     "walkthrough": "'Judge' looks like a person in court, but it is the verb meaning to assess.",
+     "definitionFit": "Someone furious is extremely angry, and the solution is a standard synonym for very angry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Judge"
+    }
+   }
   },
   {
    "number": 23,
@@ -397,7 +1508,58 @@
      }
     ]
    },
-   "solution": "BRAKELIGHT"
+   "solution": "BRAKELIGHT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BRAKE LIGHT",
+    "definitions": [
+     {
+      "text": "found at rear of vehicle",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one piece wraps around the other"
+     }
+    ],
+    "linkWords": [
+     "that’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Curse",
+      "gives": "BLIGHT",
+      "note": "a blight is a curse or plague"
+     },
+     {
+      "clueFragment": "tool",
+      "gives": "RAKE",
+      "note": "a rake is a garden tool"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "RAKE",
+      "LIGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone swears about a garden tool left in the back of the car.",
+     "walkthrough": "The definition is the descriptive phrase at the end, not a single word.",
+     "definitionFit": "The red lamp at the back of a car glows when the driver slows, so it is a fixture located on a car's back."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tool"
+    }
+   }
   }
  ]
 }
