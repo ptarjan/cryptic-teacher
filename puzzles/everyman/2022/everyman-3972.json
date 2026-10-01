@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,66 @@
     "text": "Smug observation, not involving me, to take place",
     "enumeration": "10"
    },
-   "solution": "COMPLACENT"
+   "solution": "COMPLACENT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "COMPLACENT",
+    "definitions": [
+     {
+      "text": "Smug",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not involving",
+      "for": "deletion",
+      "note": "something not involved is left out, so those letters are struck from the longer word"
+     },
+     {
+      "text": "to take",
+      "for": "container",
+      "note": "to take something in is to receive it inside, so one piece is lodged within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "observation",
+      "gives": "COMMENT",
+      "note": "a comment is a remark or observation"
+     },
+     {
+      "clueFragment": "me",
+      "gives": "ME",
+      "note": "taken as written, then removed"
+     },
+     {
+      "clueFragment": "place",
+      "gives": "PLACE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COM",
+      "PLACE",
+      "NT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone makes a self-satisfied remark that doesn't concern the speaker at all.",
+     "walkthrough": "'Take place' looks like a single phrase meaning happen, but it splits: 'take' is the instruction to insert, and the second word goes in as written.",
+     "definitionFit": "Complacent describes someone pleased with themselves and uncritical, which is exactly being smug."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "take"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +109,47 @@
     "text": "Actors in shed",
     "enumeration": "4"
    },
-   "solution": "CAST"
+   "solution": "CAST",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CAST",
+    "definitions": [
+     {
+      "text": "Actors",
+      "at": 0
+     },
+     {
+      "text": "shed",
+      "at": 10
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Actors",
+      "note": "first meaning: the performers in a play or film"
+     },
+     {
+      "clueFragment": "shed",
+      "note": "second meaning: threw off, as a snake does its skin"
+     }
+    ],
+    "explanation": {
+     "surface": "Performers sheltering in a garden outbuilding.",
+     "walkthrough": "'Shed' reads as a hut, but here it is the verb meaning discarded, as a snake does with its old skin.",
+     "definitionFit": "The word names a theatre company's performers collectively and is also a past tense for throwing off or discarding."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "shed"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +163,45 @@
     "text": "Spirit, to those listening, sounded like a cow",
     "enumeration": "4"
    },
-   "solution": "MOOD"
+   "solution": "MOOD",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "MOOD",
+    "definitions": [
+     {
+      "text": "Spirit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to those listening",
+      "for": "homophone",
+      "note": "an audience hears rather than reads, so the spelling only has to match in speech"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sounded like a cow",
+      "gives": "MOOD",
+      "soundsLike": "MOOED",
+      "note": "a cow lows with a 'moo', so having made that noise it mooed"
+     }
+    ],
+    "explanation": {
+     "surface": "A ghost whose voice resembled the lowing of cattle.",
+     "walkthrough": "'Spirit' tempts as a ghost, but it means frame of mind, as in 'in good spirits'.",
+     "definitionFit": "A person's spirits or temper at a given time is their state of feeling, their emotional disposition."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Spirit"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +221,51 @@
      }
     ]
    },
-   "solution": "LATENTPERIOD"
+   "solution": "LATENTPERIOD",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LATENT PERIOD",
+    "definitions": [
+     {
+      "text": "stretch of inactivity",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "questionable",
+      "for": "anagram",
+      "note": "something questionable is doubtful and not to be taken as it stands, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Interpolated",
+      "gives": "INTERPOLATED",
+      "note": "taken as written, all twelve letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INTERPOLATED",
+       "gives": "LATENTPERIOD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dubious stretch of time inserted into something, perhaps a text or a schedule.",
+     "walkthrough": "The first word looks like a verb in the definition, but it supplies every letter of the answer.",
+     "definitionFit": "In medicine and biology this is the interval before symptoms or a reaction appear, a quiet, dormant phase."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Interpolated"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +279,47 @@
     "text": "Challenge Conservative nurse",
     "enumeration": "7"
    },
-   "solution": "CONTEND"
+   "solution": "CONTEND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CONTEND",
+    "definitions": [
+     {
+      "text": "Challenge",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conservative",
+      "gives": "CON",
+      "note": "Con is the standard abbreviation for a Conservative"
+     },
+     {
+      "clueFragment": "nurse",
+      "gives": "TEND",
+      "note": "to nurse a patient is to tend them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "TEND"
+     ]
+    },
+    "explanation": {
+     "surface": "A call to take on a Tory-voting nurse.",
+     "walkthrough": "'Nurse' looks like a noun, but it is the verb meaning look after.",
+     "definitionFit": "To contend is to dispute or compete against, which is what challenging a person or claim involves."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "nurse"
+    }
+   }
   },
   {
    "number": 5,
@@ -115,7 +339,56 @@
      }
     ]
    },
-   "solution": "NONSLIP"
+   "solution": "NONSLIP",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NON-SLIP",
+    "definitions": [
+     {
+      "text": "less likely to cause accidents",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Cleared up",
+      "for": "anagram",
+      "note": "clearing up means sorting and putting in order, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "slop",
+      "gives": "SLOP",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "inn",
+      "gives": "INN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SLOPINN",
+       "gives": "NONSLIP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Mopping up spilt drinks makes a pub floor safer to walk on.",
+     "walkthrough": "The surface is a single tidy scene of a pub being made safe; 'Cleared up' sounds literal but signals rearranging the letters of the two words after it.",
+     "definitionFit": "A non-slip surface or sole is designed to grip, reducing falls and so reducing mishaps."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Cleared"
+    }
+   }
   },
   {
    "number": 6,
@@ -129,7 +402,40 @@
     "text": "Four letters demanding one reply?",
     "enumeration": "4"
    },
-   "solution": "RSVP"
+   "solution": "RSVP",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "RSVP",
+    "definitions": [
+     {
+      "text": "Four letters demanding one reply?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Four letters demanding one reply?",
+      "note": "surface reading: four pieces of correspondence all pressing the recipient to write back"
+     },
+     {
+      "clueFragment": "Four letters",
+      "note": "setter's reading: an abbreviation of four alphabet letters printed on invitations asking for an answer"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone receives four pushy letters, each demanding an answer.",
+     "walkthrough": "'Letters' means pieces of mail in the surface, but alphabet letters in the answer; the abbreviation is French, répondez s'il vous plaît.",
+     "definitionFit": "The initials on an invitation ask guests to respond, telling the host whether they will attend."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "letters"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +455,54 @@
      }
     ]
    },
-   "solution": "STRONGARMS"
+   "solution": "STRONGARMS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STRONG-ARMS",
+    "definitions": [
+     {
+      "text": "bullies",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "something gone off has spoiled and is no longer in its proper state, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "seeing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gran storms",
+      "gives": "GRANSTORMS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GRANSTORMS",
+       "gives": "STRONGARMS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Grandmother marches out angrily after witnessing some bullies.",
+     "walkthrough": "'Storms off' reads as one phrasal verb, but 'storms' belongs to the letters and 'off' signals the rearrangement; 'bullies' is a verb here.",
+     "definitionFit": "To strong-arm someone is to coerce them with force or threats, which is what a person who bullies does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +516,67 @@
     "text": "After rotting, erupt with odour – becoming this?",
     "enumeration": "10"
    },
-   "solution": "PUTRESCENT"
+   "solution": "PUTRESCENT",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "anagram",
+     "charade"
+    ],
+    "answer": "PUTRESCENT",
+    "definitions": [
+     {
+      "text": "After rotting, erupt with odour – becoming this?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rotting",
+      "for": "anagram",
+      "note": "rotting things decompose and break down, so the letters fall apart and recombine"
+     }
+    ],
+    "linkWords": [
+     "After",
+     "with",
+     "becoming this?"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "erupt",
+      "gives": "ERUPT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "odour",
+      "gives": "SCENT",
+      "note": "a scent is a smell or odour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PUTRE",
+      "SCENT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ERUPT",
+       "gives": "PUTRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something that has decayed bursts out with a smell, and the question is what state it is in.",
+     "walkthrough": "The whole clue is both the wordplay and the definition: something rotting that gives off a smell is exactly what the answer describes.",
+     "definitionFit": "Putrescent means decaying and foul-smelling, the condition of matter that has rotted and stinks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "rotting"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +590,45 @@
     "text": "Making a prune a cake's ingredient",
     "enumeration": "10"
    },
-   "solution": "SHORTENING"
+   "solution": "SHORTENING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SHORTENING",
+    "definitions": [
+     {
+      "text": "Making a prune",
+      "at": 0,
+      "note": "a verbal phrase for the -ing form of a verb"
+     },
+     {
+      "text": "a cake's ingredient",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Making a prune",
+      "note": "first meaning: making a cut, trimming something to reduce its length"
+     },
+     {
+      "clueFragment": "a cake's ingredient",
+      "note": "second meaning: fat such as lard or butter used in baking"
+     }
+    ],
+    "explanation": {
+     "surface": "Dried plums being turned into an ingredient for a cake.",
+     "walkthrough": "'Prune' looks like the dried fruit going into the cake, but it is a cut, as in pruning a hedge.",
+     "definitionFit": "The word is both the act of cutting something down in length and the baker's term for fat that makes pastry crumbly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "prune"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +642,53 @@
     "text": "Far from sweet, Shakespearean turncoat you and I rejected",
     "enumeration": "4"
    },
-   "solution": "BRUT"
+   "solution": "BRUT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "BRUT",
+    "definitions": [
+     {
+      "text": "Far from sweet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rejected",
+      "for": "deletion",
+      "note": "what is rejected is thrown out, so those letters are dropped from the name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shakespearean turncoat",
+      "gives": "BRUTUS",
+      "note": "Brutus betrays Caesar in Shakespeare's Julius Caesar"
+     },
+     {
+      "clueFragment": "you and I",
+      "gives": "US",
+      "note": "you and I together are us"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRUT"
+     ]
+    },
+    "explanation": {
+     "surface": "A bitter Shakespearean traitor whom the speaker and listener have spurned.",
+     "walkthrough": "Removing US from the end of BRUTUS leaves the answer. 'Far from sweet' sounds like a description of the traitor's character, but it is a wine term.",
+     "definitionFit": "Brut is the label for the driest style of champagne and sparkling wine, the opposite of a sweet one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "sweet"
+    }
+   }
   },
   {
    "number": 11,
@@ -215,7 +712,51 @@
      }
     ]
    },
-   "solution": "AGOODINNINGS"
+   "solution": "AGOODINNINGS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "A GOOD INNINGS",
+    "definitions": [
+     {
+      "text": "Instance of longevity",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upsets",
+      "for": "anagram",
+      "note": "to upset something is to knock it over and disorder it, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "diagnosing no",
+      "gives": "DIAGNOSINGNO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DIAGNOSINGNO",
+       "gives": "AGOODINNINGS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor finds no health problems in someone who has lived a very long time.",
+     "walkthrough": "An innings is a batsman's turn in cricket, so a long, successful life is said in British English to have been a good one.",
+     "definitionFit": "The idiom describes a long life, usually said of someone who has died at a ripe old age."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upsets"
+    }
+   }
   },
   {
    "number": 12,
@@ -229,7 +770,39 @@
     "text": "What's sought by Smiley and Scarecrow?",
     "enumeration": "12"
    },
-   "solution": "INTELLIGENCE"
+   "solution": "INTELLIGENCE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "INTELLIGENCE",
+    "definitions": [
+     {
+      "text": "What's sought by Smiley and Scarecrow?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Smiley",
+      "note": "George Smiley, John le Carré's spymaster, whose work is gathering secret information"
+     },
+     {
+      "clueFragment": "Scarecrow",
+      "note": "the Scarecrow in The Wizard of Oz goes to the wizard to ask for a brain"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The two names sound like a pair of cartoon characters, but one is a fictional spy and the other a character wanting brains; the answer suits both senses.",
+     "definitionFit": "The word means both secret information gathered by spies and the capacity for thought and understanding."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Smiley"
+    }
+   }
   },
   {
    "number": 13,
@@ -243,7 +816,63 @@
     "text": "Young American on benefits given small amount of money",
     "enumeration": "10"
    },
-   "solution": "ADOLESCENT"
+   "solution": "ADOLESCENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADOLESCENT",
+    "definitions": [
+     {
+      "text": "Young",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "on",
+     "given"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is a standard abbreviation for American"
+     },
+     {
+      "clueFragment": "benefits",
+      "gives": "DOLE",
+      "note": "the dole is British slang for state unemployment benefit"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small, as on clothing labels"
+     },
+     {
+      "clueFragment": "amount of money",
+      "gives": "CENT",
+      "note": "a cent is a coin, a small sum of money"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "DOLE",
+      "S",
+      "CENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A young person from the US living on welfare and handed a little cash.",
+     "walkthrough": "'Young American' reads as one unit, but 'Young' alone is the definition. Being 'on the dole' is British for claiming unemployment benefit.",
+     "definitionFit": "Adolescent as an adjective describes someone in their teens, not yet adult, so youthful."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "American"
+    }
+   }
   },
   {
    "number": 14,
@@ -263,7 +892,47 @@
      }
     ]
    },
-   "solution": "TOPBANANAS"
+   "solution": "TOPBANANAS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TOP BANANAS",
+    "definitions": [
+     {
+      "text": "bigwigs",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Outdo",
+      "gives": "TOP",
+      "note": "to top something is to better it"
+     },
+     {
+      "clueFragment": "frantic",
+      "gives": "BANANAS",
+      "note": "going bananas is slang for going wild or crazy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOP",
+      "BANANAS"
+     ]
+    },
+    "explanation": {
+     "surface": "An order to get the better of some panicking important people.",
+     "walkthrough": "'Frantic' looks like it describes the bigwigs, but it supplies the second word in its slang form.",
+     "definitionFit": "Top banana is slang for the leader or most important person in a group, so the plural names a set of big shots."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "frantic"
+    }
+   }
   },
   {
    "number": 15,
@@ -277,7 +946,55 @@
     "text": "Lost energy having run out, took performance-enhancing drugs",
     "enumeration": "7"
    },
-   "solution": "DROOPED"
+   "solution": "DROOPED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DROOPED",
+    "definitions": [
+     {
+      "text": "Lost energy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "having",
+      "for": "container",
+      "note": "to have something is to hold it, so one word holds the other inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "took performance-enhancing drugs",
+      "gives": "DOPED",
+      "note": "an athlete who doped took banned drugs"
+     },
+     {
+      "clueFragment": "run out",
+      "gives": "RO",
+      "note": "RO is the cricket scorecard abbreviation for run out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "RO",
+      "OPED"
+     ]
+    },
+    "explanation": {
+     "surface": "An athlete flagged after the effect wore off, having cheated with banned substances.",
+     "walkthrough": "'Run out' looks like 'ran out of energy', but it is a cricket dismissal, abbreviated RO on scorecards; it goes inside DOPED.",
+     "definitionFit": "To droop is to sag or flag through tiredness, which is what happens when someone loses their vigour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "run"
+    }
+   }
   },
   {
    "number": 16,
@@ -291,7 +1008,73 @@
     "text": "Routine spies' operation, capturing resistance that's turned",
     "enumeration": "7"
    },
-   "solution": "PROSAIC"
+   "solution": "PROSAIC",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "PROSAIC",
+    "definitions": [
+     {
+      "text": "Routine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "capturing",
+      "for": "container",
+      "note": "to capture is to seize and hold, so one piece is enclosed by another"
+     },
+     {
+      "text": "that's turned",
+      "for": "reversal",
+      "note": "turning round makes something face the other way, so the whole string is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spies'",
+      "gives": "CIAS",
+      "note": "the CIA is the US spy agency, and the possessive adds S"
+     },
+     {
+      "clueFragment": "operation",
+      "gives": "OP",
+      "note": "op is short for operation"
+     },
+     {
+      "clueFragment": "resistance",
+      "gives": "R",
+      "note": "R is the symbol for electrical resistance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "R",
+      "O",
+      "SAIC"
+     ],
+     "reversals": [
+      {
+       "from": "CIASORP",
+       "to": "PROSAIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A standard espionage mission seizes members of a resistance movement who have defected.",
+     "walkthrough": "OP takes in R to make ORP, which follows CIAS; the whole string is then read backwards. 'Resistance' suggests a wartime underground, but it is the physics symbol.",
+     "definitionFit": "Prosaic means dull and commonplace, lacking excitement, which is what routine as an adjective describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "resistance"
+    }
+   }
   },
   {
    "number": 17,
@@ -305,7 +1088,44 @@
     "text": "Impertinent behaviour that's commemorated by a statue",
     "enumeration": "7"
    },
-   "solution": "LIBERTY"
+   "solution": "LIBERTY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LIBERTY",
+    "definitions": [
+     {
+      "text": "Impertinent behaviour",
+      "at": 0
+     },
+     {
+      "text": "that's commemorated by a statue",
+      "at": 22
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Impertinent behaviour",
+      "note": "first meaning: an overfamiliar act, as in taking one"
+     },
+     {
+      "clueFragment": "that's commemorated by a statue",
+      "note": "second meaning: freedom, honoured by the famous New York statue"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone's cheeky conduct has been immortalised in a monument.",
+     "walkthrough": "The surface pictures cheek being honoured; the second half points to the statue in New York harbour that personifies freedom.",
+     "definitionFit": "The word means freedom and also an impudent act, as in the phrase 'taking a liberty' with someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "statue"
+    }
+   }
   },
   {
    "number": 18,
@@ -319,7 +1139,64 @@
     "text": "More mouth-watering – Yankee with fewer teeth – not good!",
     "enumeration": "7"
    },
-   "solution": "YUMMIER"
+   "solution": "YUMMIER",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "YUMMIER",
+    "definitions": [
+     {
+      "text": "More mouth-watering",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "'not' excludes what follows, so that letter is taken away"
+     }
+    ],
+    "linkWords": [
+     "–"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Yankee",
+      "gives": "Y",
+      "note": "Yankee is Y in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "with fewer teeth",
+      "gives": "GUMMIER",
+      "note": "someone who has lost teeth shows more of their gums"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "Y",
+      "UMMIER"
+     ]
+    },
+    "explanation": {
+     "surface": "A toothless American finds food tastier, though that is not a good thing.",
+     "walkthrough": "GUMMIER loses its G and follows Y. 'Yankee' looks like an American person, but it is the radio code word for the letter.",
+     "definitionFit": "Yummy is informal for delicious, so the comparative describes food that is more appetising."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Yankee"
+    }
+   }
   },
   {
    "number": 19,
@@ -339,7 +1216,55 @@
      }
     ]
    },
-   "solution": "RAINMAN"
+   "solution": "RAINMAN",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "letter_selection"
+    ],
+    "answer": "RAIN MAN",
+    "definitions": [
+     {
+      "text": "Initially 'Raymond', autistic, in notable movie also named ...?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Initially",
+      "for": "letter_selection",
+      "note": "'initially' points to what comes at the start, so only the opening letters count"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "'Raymond', autistic, in notable movie also named",
+      "gives": "RAINMAN",
+      "select": "first",
+      "note": "the leading letter of each of the seven words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "A",
+      "I",
+      "N",
+      "M",
+      "A",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about a famous film whose autistic hero, Raymond, gives it a nickname.",
+     "walkthrough": "The whole clue defines the answer: in the 1988 film, Dustin Hoffman's autistic character Raymond is the one his brother calls by this name.",
+     "definitionFit": "The Oscar-winning film takes its title from Charlie's childhood mispronunciation of his brother Raymond's name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 19,
@@ -353,7 +1278,44 @@
     "text": "Discovered truth about what neglected corporation may have done",
     "enumeration": "7"
    },
-   "solution": "RUMBLED"
+   "solution": "RUMBLED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RUMBLED",
+    "definitions": [
+     {
+      "text": "Discovered truth about",
+      "at": 0
+     },
+     {
+      "text": "what neglected corporation may have done",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Discovered truth about",
+      "note": "first meaning: found out or saw through someone, in British slang"
+     },
+     {
+      "clueFragment": "what neglected corporation may have done",
+      "note": "second meaning: what an empty, hungry belly does"
+     }
+    ],
+    "explanation": {
+     "surface": "Investigators uncovered what a badly run company had been up to.",
+     "walkthrough": "'Corporation' reads as a company, but it is old British humorous slang for a large belly, which growls when not fed. To be rumbled is to be found out.",
+     "definitionFit": "In British slang to rumble someone is to see through them; it is also the growling noise of an empty stomach."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "corporation"
+    }
+   }
   },
   {
    "number": 20,
@@ -373,7 +1335,65 @@
      }
     ]
    },
-   "solution": "SENIORMOMENT"
+   "solution": "SENIORMOMENT",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SENIOR MOMENT",
+    "definitions": [
+     {
+      "text": "Forgetful episode",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "having ingested",
+      "for": "container",
+      "note": "what has been swallowed ends up inside, so one piece goes within another"
+     }
+    ],
+    "linkWords": [
+     "meets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spaniard",
+      "gives": "SENOR",
+      "note": "señor is the Spanish for a man, Mr"
+     },
+     {
+      "clueFragment": "iodine",
+      "gives": "I",
+      "note": "I is the chemical symbol for iodine"
+     },
+     {
+      "clueFragment": "consequence",
+      "gives": "MOMENT",
+      "note": "a matter of moment is one of importance or consequence"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEN",
+      "I",
+      "OR",
+      "MOMENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A Spanish man swallows iodine, suffers the result, and has a lapse of memory.",
+     "walkthrough": "'Consequence' tempts as a result, but here it means importance, which moment also means in 'of great moment'.",
+     "definitionFit": "The phrase is a jokey name for a lapse of memory, the kind of absent-minded slip associated with getting older."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "consequence"
+    }
+   }
   },
   {
    "number": 21,
@@ -387,7 +1407,51 @@
     "text": "Short day, then Everyman's in dingy drinking den",
     "enumeration": "4"
    },
-   "solution": "DIVE"
+   "solution": "DIVE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DIVE",
+    "definitions": [
+     {
+      "text": "dingy drinking den",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "then",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Short day",
+      "gives": "D",
+      "note": "D is the abbreviation for day"
+     },
+     {
+      "clueFragment": "Everyman's",
+      "gives": "IVE",
+      "note": "the setter Everyman refers to himself, so 'Everyman has' is I have, contracted"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "IVE"
+     ]
+    },
+    "explanation": {
+     "surface": "After a brief working day, the setter heads for a grubby bar.",
+     "walkthrough": "'Everyman's' looks possessive, but it is short for 'Everyman has'; setters refer to themselves by name, so it becomes I've.",
+     "definitionFit": "A dive is informal for a seedy, disreputable bar or club with a poor reputation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Everyman's"
+    }
+   }
   },
   {
    "number": 22,
@@ -407,7 +1471,45 @@
      }
     ]
    },
-   "solution": "ALOT"
+   "solution": "ALOT",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "A LOT",
+    "definitions": [
+     {
+      "text": "lashings",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Verbally",
+      "for": "homophone",
+      "note": "spoken words are judged by their sound, so the spelling may differ"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mete out",
+      "gives": "ALOT",
+      "soundsLike": "ALLOT",
+      "note": "to mete out is to distribute or allot shares"
+     }
+    ],
+    "explanation": {
+     "surface": "Hand out a whipping by word of mouth.",
+     "walkthrough": "'Lashings' suggests a flogging to go with 'mete out', but it is British for plenty, as in lashings of cream.",
+     "definitionFit": "Lashings is informal British for a large quantity, so it means a great deal, plenty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lashings"
+    }
+   }
   },
   {
    "number": 23,
@@ -421,7 +1523,46 @@
     "text": "Some Cabernet and a bird",
     "enumeration": "4"
    },
-   "solution": "ERNE"
+   "solution": "ERNE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ERNE",
+    "definitions": [
+     {
+      "text": "a bird",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "'some' means only a portion, so a part of the word is taken"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cabernet",
+      "gives": "ERNE",
+      "note": "the run of letters in the middle of the wine name"
+     }
+    ],
+    "explanation": {
+     "surface": "A glass of red wine and a bird, perhaps a dinner order.",
+     "walkthrough": "Cabernet is a red wine grape; the answer sits in its middle letters.",
+     "definitionFit": "An erne is a sea eagle, a large bird of prey, and a crossword regular."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bird"
+    }
+   }
   },
   {
    "number": 24,
@@ -435,7 +1576,51 @@
     "text": "Member of 'Generation Y' converted a linen mill",
     "enumeration": "10"
    },
-   "solution": "MILLENNIAL"
+   "solution": "MILLENNIAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MILLENNIAL",
+    "definitions": [
+     {
+      "text": "Member of 'Generation Y'",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "converted",
+      "for": "anagram",
+      "note": "converting something changes its form, so the letters take a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a linen mill",
+      "gives": "ALINENMILL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ALINENMILL",
+       "gives": "MILLENNIAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A young person has turned an old textile factory into something new, perhaps flats.",
+     "walkthrough": "'Converted' reads like the property-developer sense of turning a mill into homes, but it signals rearranging the letters.",
+     "definitionFit": "Generation Y is the cohort born roughly 1981 to 1996, now usually called millennials because they came of age around 2000."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "converted"
+    }
+   }
   },
   {
    "number": 25,
@@ -449,7 +1634,43 @@
     "text": "Sample a slice of white sturgeon",
     "enumeration": "4"
    },
-   "solution": "TEST"
+   "solution": "TEST",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TEST",
+    "definitions": [
+     {
+      "text": "Sample",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a slice of",
+      "for": "hidden_word",
+      "note": "a slice is a cut piece from within, so part of the words is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "white sturgeon",
+      "gives": "TEST",
+      "note": "letters running across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "An invitation to taste a piece of a big pale fish.",
+     "walkthrough": "'Sample' sounds like tasting food, which fits the fish, but it means try out; the answer spans the join of the two words.",
+     "definitionFit": "To sample something is to try it out to judge its quality, which is to test it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "slice"
+    }
+   }
   },
   {
    "number": 26,
@@ -463,7 +1684,57 @@
     "text": "I travel on trail that's glittering",
     "enumeration": "10"
    },
-   "solution": "IRIDESCENT"
+   "solution": "IRIDESCENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IRIDESCENT",
+    "definitions": [
+     {
+      "text": "glittering",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "on",
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "travel",
+      "gives": "RIDE",
+      "note": "to ride is to travel on a horse or in a vehicle"
+     },
+     {
+      "clueFragment": "trail",
+      "gives": "SCENT",
+      "note": "a scent is the trail an animal leaves for hounds to follow"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "RIDE",
+      "SCENT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone journeys along a sparkling path.",
+     "walkthrough": "'Trail' looks like a path, but it is the smell a hunted animal leaves behind.",
+     "definitionFit": "Iridescent describes a surface shimmering with shifting rainbow colours, so sparkling and lustrous."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "trail"
+    }
+   }
   }
  ]
 }
