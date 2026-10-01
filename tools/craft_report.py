@@ -269,6 +269,9 @@ def grid_mechanics(puz):
         dx, dy = (1, 0) if e["direction"] == "across" else (0, 1)
         for i in range(e["length"]):
             used[(x + dx * i, y + dy * i)] += 1
+    for light in puz.get("unclued") or []:   # an unclued light checks the squares it shares
+        for c in light["cells"]:
+            used[(c["x"], c["y"])] += 1
 
     weak = 0
     longest = 0

@@ -97,5 +97,32 @@ PY
 )
 same "the checked-cell floor counts unclued lights as lights" "$ratio" "BARE NOLIT"
 
+# Every reader of "which squares are white" or "which are checked" counts an
+# unclued light, and with it removed gives the old answer (the mirror).
+cnt=$(PYTHONPATH=tools python3 - <<'PY'
+import copy
+import fetch_puzzle as fetcher
+import craft_report, difficulty, grid_rules
+real = fetcher.read_puzzle_file(fetcher.resolve_puzzle("cryptic-30066"))
+e = next(e for e in real["entries"] if e["direction"] == "across"
+         and e["position"]["x"] + e["length"] < real["dimensions"]["cols"])
+x0, y = e["position"]["x"], e["position"]["y"]
+p = copy.deepcopy(real)
+from collections import Counter
+used = Counter((q["position"]["x"] + (i if q["direction"] == "across" else 0),
+                q["position"]["y"] + (i if q["direction"] == "down" else 0))
+               for q in real["entries"] for i in range(q["length"]))
+lone = next(c for c, n in sorted(used.items()) if n == 1)   # a square only one entry checks
+p["unclued"] = [{"cells": [{"x": x0 + e["length"], "y": y}, {"x": lone[0], "y": lone[1]}], "solution": "QQ"}]
+white = lambda q: sum(map(sum, grid_rules.mask(q)[0]))
+print("MASK", white(p) - white(real))
+print("CHECKING", difficulty.checking(p) < difficulty.checking(real))
+print("CRAFT", craft_report.grid_mechanics(p)["weak_checking"] <= craft_report.grid_mechanics(real)["weak_checking"])
+PY
+)
+same "grid_rules.mask draws an unclued-only square white" "$(grep '^MASK' <<<"$cnt")" "MASK 1"
+same "difficulty.checking counts the squares an unclued light checks" "$(grep '^CHECKING' <<<"$cnt")" "CHECKING True"
+same "craft_report.grid_mechanics counts them too" "$(grep '^CRAFT' <<<"$cnt")" "CRAFT True"
+
 if [ "$fails" -gt 0 ]; then echo "unclued_printed: $fails check(s) failed"; exit 1; fi
 echo "unclued_printed: all checks passed"

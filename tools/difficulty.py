@@ -466,6 +466,9 @@ def checking(puz):
         dx, dy = (1, 0) if e["direction"] == "across" else (0, 1)
         for i in range(e["length"]):
             used[(x + dx * i, y + dy * i)] = used.get((x + dx * i, y + dy * i), 0) + 1
+    for light in puz.get("unclued") or []:   # an unclued light checks the squares it shares
+        for c in light["cells"]:
+            used[(c["x"], c["y"])] = used.get((c["x"], c["y"]), 0) + 1
     fracs = []
     for e in puz["entries"]:
         x, y = e["position"]["x"], e["position"]["y"]

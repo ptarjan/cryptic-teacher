@@ -39,7 +39,7 @@ def load(number):
 
 
 def mask(puz):
-    """True where a letter goes. Cells no entry passes through are blocks."""
+    """True where a letter goes. Cells no entry and no unclued light passes through are blocks."""
     cols, rows = puz["dimensions"]["cols"], puz["dimensions"]["rows"]
     white = [[False] * cols for _ in range(rows)]
     lit = set()
@@ -50,6 +50,9 @@ def mask(puz):
             white[cy][cx] = True
             if entry_id(e) == HIGHLIGHT:
                 lit.add((cx, cy))
+    for light in puz.get("unclued") or []:
+        for c in light["cells"]:
+            white[c["y"]][c["x"]] = True
     return white, lit
 
 

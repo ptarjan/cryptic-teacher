@@ -577,6 +577,8 @@ tools/test_solve_clock.js                    walks away from a puzzle and comes 
                                              as solving
 tools/test_paper_mode.js                     paper mode hides every right/wrong signal until
                                              "I'm done", then hands it all back
+tools/test_unclued_squares.js                a square only an unclued light covers can be
+                                             revealed, and the picker asks for it
 tools/ci_shards.js                           splits the test scripts across the workflow’s
                                              parallel jobs, so the suite takes as long as its
                                              slowest single script rather than all of them
