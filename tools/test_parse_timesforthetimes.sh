@@ -213,7 +213,8 @@ spec = importlib.util.spec_from_file_location(
 mod = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(mod)
 html = """<p>Across</p><p>23a Convert got holy urge (8)</p><p>THEOLOGY &#8211; anagram</p>
-<p>24d Being a witness (6)</p><p>SEEING &#8211; charade</p>
+<p>24d           Being a witness (6)</p><p>SEEING &#8211; charade</p>
+<p>25d. A trust broken (6)</p><p>STUART &#8211; anagram</p>
 <p>Down</p><p>1d Jewellery (8)</p><p>BRACELET &#8211; charade</p>"""
 rec = mod.parse_post({"id": 1, "date": "2020-01-01T00:00:00", "slug": "times-25184-x",
                       "link": "x", "categories": [11], "content": {"rendered": html}})
@@ -221,7 +222,7 @@ print(" ".join(f"{e['number']}{e['direction'][0]}:{e.get('heading')}" for e in r
 PY
 )
 check "a suffix against its heading keeps the suffix and records the heading" \
-  "23a:None 24d:across 1d:None" "$got"
+  "23a:None 24d:across 25d:across 1d:None" "$got"
 
 # REFUSALS. The blog does not always say where the light break is, and a wrong
 # split reconstructs a wrong grid that nobody can see is wrong. Each of these

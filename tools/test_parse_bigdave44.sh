@@ -198,4 +198,12 @@ L = ["13a,14a and 17a are on my podium", "Across Clues",
 e, _ = tftt.read_entries(pb.headed(L))
 print(" ".join("%d%s:%s" % (x["number"], x["direction"][0], x["answer"]) for x in e))' 2>&1 | tail -1)"
 
+check "a suffix against the post's own heading stays under it, the heading recorded" \
+  "23a:None 24d:across 1d:None" "$(PYTHONPATH="$REPO/tools" python3 -c '
+import parse_bigdave44 as pb, parse_timesforthetimes as tftt
+L = ["Across", "23a Convert got holy urge (8)", "THEOLOGY – anagram",
+     "24d Being a witness (6)", "SEEING – charade", "Down", "1d Jewellery (8)", "BRACELET – x"]
+e, _ = tftt.read_entries(pb.headed(L))
+print(" ".join("%d%s:%s" % (x["number"], x["direction"][0], x.get("heading")) for x in e))' 2>&1 | tail -1)"
+
 [ $fails -eq 0 ] && echo "all passed" || { echo "$fails failed"; exit 1; }
