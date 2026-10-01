@@ -6912,6 +6912,8 @@ global.realSetTimeout(() => {
     "and it gives them the answer to type, so the lesson is where it goes: " + nuxLine(press.registry));
   assert(/walk-point/.test(press.registry["hint-pattern"].innerHTML || ""),
     "and the boxes lit are the strip in the panel, beside the pieces they are worked out from");
+  assert(!/walk-point/.test(press.registry["hint-body"].innerHTML || ""),
+    "and nothing else in the panel is pointed at: the line has given the answer");
   assert(!press.registry["spotlight"].classList.contains("hidden"),
     "with the scrim still up around them — the walk lightboxes every step it has");
   for (let i = 0; i < 12 && Number(press.storage["ct:nux"]) < 2; i += 1) {
