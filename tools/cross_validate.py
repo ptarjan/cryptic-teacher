@@ -4,6 +4,8 @@
     python3 tools/cross_validate.py telegraph --fetch      # top up the source cache
     python3 tools/cross_validate.py telegraph              # diff from the cache, write the report
     python3 tools/cross_validate.py telegraph --show telegraph-28936
+    python3 tools/cross_validate.py guardian --fetch --refile --limit 1500
+                                                           # cache 1500 more pages, diff, refile
 
 Most of the corpus came off a blog: the blogger retyped the clues, a parser
 read the post, and tools/reconstruct_grid.py rebuilt the grid from the light
@@ -29,6 +31,10 @@ by class:
 
 The report goes to ~/cryptic-setter-data/cross-validate/<source>.jsonl, one
 line per puzzle with mismatches, and a tally prints per class.
+
+--refile (the guardian adapter) then rewrites, from the page, each file whose
+only differences are CLUE, ENUMERATION or ANSWER, and each clean file taken
+from somewhere other than the page; see refile_guardian().
 """
 import argparse
 import html
@@ -157,7 +163,96 @@ class Telegraph(Adapter):
         return (ours.get("source") or {}).get("acquiredBy") != "tools/fetch_telegraph.py"
 
 
-ADAPTERS = {a.name: a for a in (Telegraph,)}
+class Guardian(Adapter):
+    """theguardian.com's own crossword pages, the CrosswordComponent data
+    tools/fetch_puzzle.py reads, for every series published there.
+
+    The page is already where almost all of these came from, so the copy here
+    is read independently of fetch_puzzle.convert(): tags stripped, entities
+    unescaped, a trailing bracket of counts taken as the enumeration, the
+    answer as served. What differs is then what our converter or a later edit
+    did to the paper's data, plus the files taken from elsewhere (the Wayback
+    Machine, observer.co.uk) for numbers the Guardian also serves.
+    """
+    name = "guardian"
+    series = ("cryptic", "quiptic", "everyman")
+    #: More than two at once draws 429s from theguardian.com.
+    delay = 0.25
+    workers = 2
+
+    def ids(self):
+        import fetch_puzzle as fp
+        out = {}
+        for pid, path in held(self).items():
+            series, _, num = pid.rpartition("-")
+            num = int(num)
+            if series == "cryptic" and num in fp.NUMBER_URL_FIXES:
+                out[pid] = fp.NUMBER_URL_FIXES[num][0].format(num=num)
+                continue
+            url = (read_puzzle_file(path).get("source") or {}).get("url") or ""
+            if not url.startswith("https://www.theguardian.com/crosswords/"):
+                if series != "everyman" or not fp.EVERYMAN_FLOOR <= num <= 4096:
+                    continue
+                url = f"https://www.theguardian.com/crosswords/everyman/{num}"
+            out[pid] = url
+        return out
+
+    def raw_file(self, url):
+        return self.cache / (url.split("/crosswords/", 1)[1] + ".json")
+
+    def fetch_one(self, url):
+        import fetch_puzzle as fp
+        path = self.raw_file(url)
+        if path.exists() or path.with_suffix(".404").exists():
+            return False
+        path.parent.mkdir(parents=True, exist_ok=True)
+        try:
+            page = fp.http_get(url)
+        except urllib.error.HTTPError as err:
+            if err.code in (403, 404, 410):
+                path.with_suffix(".404").write_text(str(err.code))
+                return True
+            raise
+        path.write_text(json.dumps(fp.extract_crossword_data(page), ensure_ascii=False),
+                        encoding="utf-8")
+        return True
+
+    def puzzle(self, url):
+        path = self.raw_file(url)
+        if not path.exists():
+            return None
+        return guardian_shape(json.loads(path.read_text(encoding="utf-8")), url)
+
+
+GUARDIAN_TAIL = re.compile(r"\s*\(\s*(\d(?:[\d\s,.\-–—'’]| and )*(?:words?)?)\s*\)\s*$")
+
+
+def guardian_shape(data, url):
+    """The Guardian's CrosswordComponent data in our shape, read without
+    fetch_puzzle's converter."""
+    import fetch_puzzle as fp
+    series = fp.series_of(data["id"])
+    num = int(url.rstrip("/").rsplit("/", 1)[1])
+    num = next((want for want, (page, forced) in fp.NUMBER_URL_FIXES.items()
+                if forced and page.format(num=want) == url), num)
+    entries = []
+    for e in data["entries"]:
+        s = html.unescape(re.sub(r"<[^>]*>", "", e.get("clue") or ""))
+        s = " ".join("".join(c for c in s if unicodedata.category(c) != "Cf").split())
+        m = GUARDIAN_TAIL.search(s)
+        text, enum = (s[:m.start()], m.group(1)) if m else (s, None)
+        entries.append({"number": e["number"], "direction": e["direction"],
+                        "position": e["position"], "length": e["length"],
+                        "clue": {"text": text, "enumeration": enum},
+                        "solution": "".join(c for c in unicodedata.normalize(
+                            "NFKD", e.get("solution") or "").upper()
+                            if not unicodedata.combining(c)) or None})
+    return {"id": f"{series}-{num}" if data.get("number") == num or num in fp.NUMBER_URL_FIXES
+            else f"{series}-{data.get('number')}",
+            "dimensions": data["dimensions"], "entries": entries}
+
+
+ADAPTERS = {a.name: a for a in (Telegraph, Guardian)}
 
 
 def held(adapter):
@@ -294,7 +389,8 @@ def diff(ours, theirs):
         if norm_enum(oc.get("enumeration")) != norm_enum(tc.get("enumeration")):
             out.append({"class": "ENUMERATION", "light": light,
                         "ours": oc.get("enumeration"), "theirs": tc.get("enumeration")})
-        if norm_text(oc.get("text")) != norm_text(tc.get("text")):
+        # A source that printed no words is no witness to ours.
+        if norm_text(tc.get("text")) and norm_text(oc.get("text")) != norm_text(tc.get("text")):
             out.append({"class": "CLUE", "light": light,
                         "ours": oc.get("text"), "theirs": tc.get("text")})
     return out
@@ -350,10 +446,97 @@ def run(adapter, only=None):
     return rows
 
 
+#: The classes a refile from the Guardian's page settles. A grid, numbering or
+#: light the page disagrees about is the page's own defect as often as ours
+#: (everyman-3792's page numbers its 18-across 16), so those are reported only.
+REFILED = {"CLUE", "ENUMERATION", "ANSWER"}
+
+
+def refile_guardian(adapter, pid, path, url, found):
+    """Refile one puzzle from the Guardian's page through fetch_puzzle.convert().
+    Returns notes, or None when the puzzle is left alone.
+
+    The page wins as fetch_telegraph.refile() lets the Telegraph bucket win: its
+    clue unless it misspells or garbles ours, its count unless it fails to count
+    its own answer, and an annotation only while its answer and words still fit.
+    An answer is the page's only where the crossing letters back it and not
+    ours, because the Guardian's key can be wrong (cryptic-23053)."""
+    import fetch_puzzle as fp
+    import fetch_telegraph as ft
+    classes = {m["class"] for m in found}
+    old = read_puzzle_file(path)
+    from_page = (old.get("source") or {}).get("acquiredBy") == "tools/fetch_puzzle.py"
+    if classes - REFILED or (from_page and not classes):
+        return None
+    if (old.get("solutions") or {}).get("origin") != "published":
+        return None
+    data = json.loads(adapter.raw_file(url).read_text(encoding="utf-8"))
+    data["number"] = int(pid.rsplit("-", 1)[1])
+    new = fp.convert(data)
+    if new["id"] != pid or not all(e.get("solution") for e in new["entries"]):
+        return None
+    fp.carry_recovered_clues(new, old)
+    notes = []
+    held = {where(e): e for e in old["entries"]}
+    for row in diff(old, new):
+        if row["class"] != "ANSWER":
+            continue
+        checked, agree = row["theirsCross"]
+        ours_checked, ours_agree = row.get("oursCross") or (0, 0)
+        if checked and agree == checked and ours_agree < ours_checked:
+            notes.append(f"{row['light']}: the page's {row['theirs']} over our "
+                         f"{row['ours']}, the crossings agree")
+            continue
+        for e in new["entries"]:
+            if groups.entry_id(e) == row["light"]:
+                e["solution"] = held[where(e)]["solution"]
+        notes.append(f"{row['light']}: kept our {row['ours']} over the page's "
+                     f"{row['theirs']}, the crossings do not back it")
+    notes_by = {groups.entry_id(e): e["clue"].get("missingNote") for e in old["entries"]}
+    for e in new["entries"]:
+        if notes_by.get(groups.entry_id(e)):
+            e["clue"]["missingNote"] = notes_by[groups.entry_id(e)]
+    new, more = ft.refile(new, old)
+    fp.write_puzzle_file(path, new, generator="tools/fetch_puzzle.py")
+    return notes + more
+
+
+def refile(adapter, limit=None):
+    """Refile every puzzle the last report names whose differences refile
+    settles, and every clean copy taken from elsewhere, up to `limit`."""
+    if adapter.name != "guardian":
+        raise SystemExit("--refile: only the guardian adapter refiles here; the "
+                         "Telegraph's is tools/fetch_telegraph.py --holes")
+    keys = adapter.ids()
+    disk = held(adapter)
+    report = REPORTS / f"{adapter.name}.jsonl"
+    found = {r["id"]: r.get("mismatches") for r in map(json.loads, report.open(encoding="utf-8"))}
+    done = Counter()
+    for pid in sorted(keys):
+        if limit is not None and done["refiled"] >= limit:
+            break
+        if not adapter.raw_file(keys[pid]).exists() or found.get(pid, []) is None:
+            continue
+        try:
+            notes = refile_guardian(adapter, pid, disk[pid], keys[pid], found.get(pid, []))
+        except Exception as err:  # noqa: BLE001 — one refused write, named, not the run
+            print(f"{pid}: not refiled: {err}")
+            done["refused"] += 1
+            continue
+        if notes is None:
+            continue
+        done["refiled"] += 1
+        print(f"refiled {pid}" + "".join(f"\n  {n}" for n in notes))
+    print(f"refile: {dict(done)}")
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("source", choices=sorted(ADAPTERS))
     ap.add_argument("--fetch", action="store_true", help="top up the cache first")
+    ap.add_argument("--limit", type=int, help="fetch or refile at most this many")
+    ap.add_argument("--refile", action="store_true",
+                    help="refile from the source what the last report found (guardian)")
     ap.add_argument("--show", nargs="+", metavar="ID", help="diff these puzzles and print")
     args = ap.parse_args(argv)
     adapter = ADAPTERS[args.source]()
@@ -363,13 +546,18 @@ def main(argv=None):
         todo = [keys[p] for p in sorted(disk) if p in keys
                 and adapter.covers(read_puzzle_file(disk[p]))]
         print(f"{len(todo)} puzzles held that {adapter.name} also serves", flush=True)
+        if args.limit is not None and hasattr(adapter, "raw_file"):
+            todo = [k for k in todo if not adapter.raw_file(k).exists()
+                    and not adapter.raw_file(k).with_suffix(".404").exists()][:args.limit]
         fetch(adapter, todo)
     if args.show:
         for row in run(adapter, only=args.show):
             print(json.dumps(row, ensure_ascii=False, indent=1))
         return 0
-    if not args.fetch:
+    if not args.fetch or args.refile:
         run(adapter)
+    if args.refile:
+        refile(adapter, args.limit)
     return 0
 
 
