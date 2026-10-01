@@ -15,6 +15,7 @@
     python3 tools/cross_validate.py georgeho               # 17 series against georgeho's blog clues
     python3 tools/cross_validate.py bigdave44              # the Telegraph's app files against the blog
     python3 tools/cross_validate.py timesforthetimes       # the Globe's files against the Times blog
+    python3 tools/cross_validate.py archiveorg             # the Times 1974-99 against its print
     python3 tools/cross_validate.py all --apply --limit 10000
                                                            # every copy at once; a majority fixes ours
     python3 tools/cross_validate.py all --apply --new      # the same over tonight's filings
@@ -938,8 +939,75 @@ def blog_rows(rec):
     return out
 
 
+class ArchiveOrg(Adapter):
+    """The Times as printed, 1974-99: tools/file_archive_org_puzzles.py's
+    reading of each daily cryptic in archive.org's scans, kept in
+    ~/cryptic-setter-data/archiveorg-source/times-<No>.json whether or not it
+    was filed. It votes on the times-<No> file a blog or book gave us, and on
+    each canberra file whose source names it as the Times puzzle it reprints
+    (reprintOf). A file the archive.org filer wrote is that reading, and is
+    not compared with itself. Offline: the filer fills the cache."""
+    name = "archiveorg"
+    series = ("times", "canberra")
+    offline = True
+    filer = "tools/file_archive_org_puzzles.py"
+
+    @property
+    def cache(self):
+        return DATA / "archiveorg-source"
+
+    def ids(self):
+        out = {p.stem: (p.stem, p) for p in sorted(self.cache.glob("times-*.json"))}
+        for pid, times_id in reprints().items():
+            if times_id in out:
+                out[pid] = (pid, out[times_id][1])
+        return out
+
+    def fetch_one(self, key):
+        return False
+
+    def puzzle(self, key):
+        pid, path = key
+        return dict(json.loads(path.read_text(encoding="utf-8")), id=pid)
+
+    def covers(self, ours):
+        return (ours.get("source") or {}).get("acquiredBy") != self.filer
+
+
+class CanberraReprint(Adapter):
+    """The Canberra Times's reprint of a London Times cryptic (Trove's scans,
+    tools/file_trove_puzzles.py) as a copy of the times-<No> it reprints:
+    the canberra file's source names it (reprintOf, matched by clue set in
+    tools/file_archive_org_puzzles.py --match-canberra)."""
+    name = "canberra"
+    series = ("times",)
+    offline = True
+
+    def ids(self):
+        paths = held_paths(("canberra",))
+        return {times_id: (times_id, paths[pid]) for pid, times_id in reprints().items()
+                if pid in paths}
+
+    def fetch_one(self, key):
+        return False
+
+    def puzzle(self, key):
+        times_id, path = key
+        return dict(read_puzzle_file(path), id=times_id)
+
+
+def reprints():
+    """{canberra id: the times id it reprints}, from the canberra files."""
+    out = {}
+    for pid, path in held_paths(("canberra",)).items():
+        times_id = (json.loads(path.read_text(encoding="utf-8")).get("source") or {}).get("reprintOf")
+        if times_id:
+            out[pid] = times_id
+    return out
+
+
 ADAPTERS = {a.name: a for a in (Telegraph, Guardian, Independent, FifteenSquared, Globe, FT,
-                                 GeorgeHo, BigDave44, TimesBlog)}
+                                 GeorgeHo, BigDave44, TimesBlog, ArchiveOrg, CanberraReprint)}
 
 
 def held(adapter):
