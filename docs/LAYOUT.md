@@ -146,8 +146,7 @@ tools/puzzle_paths.js                        the same rule for node, for the har
 tools/puzzle_schema.py                       checks every puzzle file against
                                              tools/data/puzzle.schema.json, and prunes null and
                                              empty values on every write: an absent key means
-                                             empty, and a gridless puzzle has neither
-                                             `dimensions` nor any `position`
+                                             empty
 tools/enumeration.py                         a clue's printed enumeration: split() cuts a
                                              printed line into the clue's `text` and
                                              `enumeration` for every writer, printed() joins
@@ -243,16 +242,6 @@ tools/test_blank_clue_carry.sh               proves a re-fetch cannot empty a pu
                                              old site, that the paper still wins wherever it
                                              prints words, and that the sixteen recovered prize
                                              puzzles still carry every clue
-tools/test_gridless.sh                       holds a puzzle filed from its clues alone to the
-                                             write gate: written with no dimensions, positions
-                                             or gridOrigin, every half state refused, a grid
-                                             added later accepted and taken away refused, a
-                                             blog record with no grid filed by
-                                             file_blog_puzzles.build, and the solver and
-                                             difficulty taking it as it is
-tools/fixtures/bigdave44/27605.json          a bigdave44 post's parsed record whose answers no
-                                             grid holds, the gridless filing test_gridless.sh
-                                             reads
 tools/test_unclued_printed.sh                holds a puzzle's unclued lights and printed
                                              letters to its grid at the write gate: on the
                                              board, one letter per square, no square twice, and
@@ -398,8 +387,7 @@ tools/fetch_times_listing.py                 caches the Wayback Machine's copies
 tools/file_blog_puzzles.py                   files a blog's rebuilt grids as puzzles with the
                                              blog's answers — only complete, correctly numbered
                                              ones — and never rewrites a filed one but for its
-                                             date; what the blog filers share. build() also
-                                             files a record with no grid as a gridless puzzle
+                                             date; what the blog filers share
 tools/file_times_puzzles.py                  files the Times grids through it, dated by print
                                              day; the nightly top-up
 tools/file_telegraph_puzzles.py              files the Telegraph grids through it, with the
@@ -617,8 +605,6 @@ tools/test_solve_clock.js                    walks away from a puzzle and comes 
                                              as solving
 tools/test_paper_mode.js                     paper mode hides every right/wrong signal until
                                              "I'm done", then hands it all back
-tools/test_gridless_page.js                  a gridless puzzle draws no grid and is played from
-                                             its clue list, each clue with its own letter boxes
 tools/test_unclued_squares.js                a square only an unclued light covers can be
                                              revealed, and the picker asks for it
 tools/ci_shards.js                           splits the test scripts across the workflow’s

@@ -81,7 +81,7 @@ with tempfile.TemporaryDirectory() as d:
 
 
 def refused(solutions, want):
-    p = {"id": "cryptic-30066", "number": 30066, "series": "cryptic", "dimensions": {"cols": 15, "rows": 15},
+    p = {"id": "cryptic-30066", "number": 30066, "series": "cryptic",
          "source": {"publisher": "Guardian", "url": "https://x/",
                     "retrievedFrom": "publisher",
                     "acquiredBy": "tools/fetch_puzzle.py",
@@ -93,7 +93,7 @@ def refused(solutions, want):
 WRITEUP = {"origin": "writeup", "blog": "fifteensquared", "url": "https://f/",
            "date": "2026-09-01", "check": "1 entry"}
 print("OK_WRITEUP", provenance.check({
-    "id": "cryptic-30066", "number": 30066, "series": "cryptic", "dimensions": {"cols": 15, "rows": 15},
+    "id": "cryptic-30066", "number": 30066, "series": "cryptic",
     "source": {"publisher": "Guardian", "url": "https://x/",
                "retrievedFrom": "publisher", "acquiredBy": "tools/fetch_puzzle.py",
                "acquiredOn": "2026-09-01", "gridOrigin": "published"},

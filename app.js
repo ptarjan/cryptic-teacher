@@ -761,27 +761,6 @@
   // waiting and is never asked for again, because a loader that retries on
   // missing is a loader that spins.
   const puzzleLoad = {};
-  // A gridless puzzle (filed from its clues alone) is given a grid of its own
-  // here, so typing, checking and saves work on squares as they do everywhere:
-  // each light on squares no other light touches, from row GRIDLESS_ROW down,
-  // a row no published grid reaches. Saves are keyed by square, so a real grid
-  // filed later starts clean instead of inheriting letters in the wrong place.
-  // The grid is never drawn; the clue list is the board (renderClues).
-  const GRIDLESS_ROW = 100;
-  function layOutGridless(puz) {
-    if (!puz || puz.dimensions || !puz.entries) return puz;
-    const order = (a, b) => a.number - b.number;
-    const across = puz.entries.filter((e) => e.direction === "across").sort(order);
-    const down = puz.entries.filter((e) => e.direction === "down").sort(order);
-    const wide = across.reduce((m, e) => Math.max(m, e.length), 0);
-    across.forEach((e, i) => { e.position = { x: 0, y: GRIDLESS_ROW + i }; });
-    down.forEach((e, j) => { e.position = { x: wide + 1 + j, y: GRIDLESS_ROW }; });
-    const tall = down.reduce((m, e) => Math.max(m, e.length), 0);
-    puz.dimensions = { cols: wide + 1 + down.length, rows: GRIDLESS_ROW + Math.max(across.length, tall) };
-    puz.gridless = true;
-    return puz;
-  }
-
   function loadPuzzle(id, done) {
     const q = puzzleLoad[id];
     if (q === 1 || window.CRYPTIC_PUZZLES[id]) return done();
@@ -793,7 +772,6 @@
     // ?v=<content hash> so an updated puzzle is never served from cache
     s.src = at("puzzles/" + p.file + (p.v ? "?v=" + p.v : ""));
     s.onload = s.onerror = () => {
-      layOutGridless(window.CRYPTIC_PUZZLES[id]);
       const waiting = puzzleLoad[id];
       puzzleLoad[id] = 1;
       waiting.forEach((f) => f());
@@ -1943,8 +1921,7 @@
         const li = document.createElement("li");
         li.id = "clue-" + entryId(e);
         li.innerHTML = `<span class="clue-num">${e.number}</span><span class="clue-text"></span>` +
-          `<span class="checkers"></span>` +
-          (P.gridless ? `<span class="clue-pat pattern"></span>` : "");
+          `<span class="checkers"></span>`;
         // No focusKbd: picking a clue off the list is not a decision to type,
         // so it must not raise a keyboard over half the screen. See the
         // mousedown handler on these lists for the other half of that rule.
@@ -1957,18 +1934,10 @@
         // crossing clue sometimes double clicks and reselects the first selected
         // clue", on an iPad). Nobody picks two clues a third of a
         // second apart on purpose, so the second one is the accident.
-        li.addEventListener("click", (ev) => {
+        li.addEventListener("click", () => {
           if (clueTapIsAnAccident()) return;
           lastClueTap = Date.now();
           selectEntry(e, true);
-          // A gridless clue's own letter boxes: a tap on one is a decision to
-          // type there, as a tap on a grid square is.
-          const box = ev && ev.target && ev.target.dataset ? ev.target : null;
-          const idx = box && box.dataset.i !== undefined ? Number(box.dataset.i) : NaN;
-          if (!P.gridless || !Number.isInteger(idx)) return;
-          const c = cellAt(e, Math.max(0, Math.min(e.length - 1, idx)));
-          cur.x = c.x; cur.y = c.y; cur.dir = e.direction;
-          focusKbd(); refreshAll();
         });
         ol.appendChild(li);
       });
@@ -2215,11 +2184,6 @@
       // Nothing to tell you about a clue you have finished — the row greys out
       // and a full row of dots would just be noise on every solved line.
       li.querySelector(".checkers").innerHTML = solved ? "" : checkerDots(e);
-      const pat = P.gridless && li.querySelector(".clue-pat");
-      if (pat) {
-        const html = patternHTML(e);
-        if (pat.innerHTML !== html) pat.innerHTML = html;
-      }
       li.classList.toggle("active", !!curE && entryKey(curE) === entryKey(e));
       li.classList.toggle("solved", solved);
       // The gold star is a standing fact about how this clue was solved, not a
@@ -5674,7 +5638,7 @@
     const clues = [], open = [], totals = {};
     const saves = savedProgress();
     Object.keys(window.CRYPTIC_PUZZLES).forEach((id) => {
-      const puz = layOutGridless(window.CRYPTIC_PUZZLES[id]);
+      const puz = window.CRYPTIC_PUZZLES[id];
       if (!puz || !puz.entries) return;
       const s = saves[id] || {}, letters = s.letters || {}, stamps = s.letterAt || {};
       const lead = buildLeaderOf(puz.entries);
@@ -6251,7 +6215,7 @@
     const prog = savedProgress()[p.id];
     const letters = (prog && prog.letters) || {};
     const filled = Object.keys(letters).length;
-    const puz = layOutGridless(window.CRYPTIC_PUZZLES[p.id]);
+    const puz = window.CRYPTIC_PUZZLES[p.id];
     if (!filled || !puz) return { filled, total: 0, done: false };
     const want = {};   // "x,y" -> the letter that belongs there
     puz.entries.forEach((e) => {
@@ -6805,12 +6769,8 @@
       if (puzzleLoad[id] !== 1) loadPuzzle(id, () => openPuzzle(id, chosen));
       return;
     }
-    P = layOutGridless(puzzle);
+    P = puzzle;
     meta = BY_ID[id] || { annotated: false };
-    // No grid to draw: the clue list, each clue with its own letter boxes, is
-    // the board (renderClues).
-    $("app").classList.toggle("gridless", !!P.gridless);
-    $("grid-wrap").classList.toggle("hidden", !!P.gridless);
     store.set("ct:last", id);
     if (chosen) pointUrlAtPuzzle(id);
     buildModel();

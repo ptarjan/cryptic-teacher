@@ -935,16 +935,6 @@ def series_of(page_id):
     return "cryptic"
 
 
-def reading_order(entry):
-    """Sort key putting lights in the grid's reading order: by first cell, row
-    by row, or on a gridless puzzle by clue number, which a grid hands out in
-    that same order."""
-    pos = entry.get("position")
-    if pos:
-        return (0, pos["y"], pos["x"], 0)
-    return (1, entry["number"], DIRECTIONS.index(entry["direction"]), 0)
-
-
 def _cuts_into(counts, lengths):
     """Can `counts` be cut into consecutive runs summing to each of `lengths`?
 
@@ -1083,7 +1073,8 @@ def reconcile_groups(entries):
                   + " + ".join(keep), file=sys.stderr)
             continue
 
-        rest = sorted(members - leads, key=lambda m: reading_order(by_id[m]))
+        rest = sorted(members - leads, key=lambda m: (by_id[m]["position"]["y"],
+                                                      by_id[m]["position"]["x"]))
         if not leads:
             continue
         lead = leads.pop()
@@ -1566,7 +1557,8 @@ def reconstruct_groups(entries, series):
                 order = [entry_id(lead), *orders[0]]
             else:
                 order = [entry_id(lead), *tail,
-                         *sorted(extra, key=lambda m: reading_order(by_id[m]))]
+                         *sorted(extra, key=lambda m: (by_id[m]["position"]["y"],
+                                                       by_id[m]["position"]["x"]))]
             claimed[entry_id(lead)] = (order, extra)
 
     # One light, one answer. Two leading clues whose enumerations both reach the

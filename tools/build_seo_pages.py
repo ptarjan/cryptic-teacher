@@ -573,11 +573,8 @@ def puzzle_page(puz, meta, prev_p, next_p):
         facts.append(f'<a href="{BASE}/difficulty/">Difficulty</a>: '
                      f'<strong class="diff-{esc(diff["band"].lower())}">'
                      f'{esc(diff["band"])}</strong>{esc(extra)}')
-    if puz.get("dimensions"):
-        facts.append(f'Grid: <strong>{puz["dimensions"]["cols"]}&times;'
-                     f'{puz["dimensions"]["rows"]}</strong> squares')
-    else:
-        facts.append("Grid: <strong>none yet</strong>, clues only")
+    facts.append(f'Grid: <strong>{puz["dimensions"]["cols"]}&times;'
+                 f'{puz["dimensions"]["rows"]}</strong> squares')
 
     # The neighbours are this puzzle's own series (see series_neighbours); the
     # link names the paper all the same, since a book shelf spans volumes.
