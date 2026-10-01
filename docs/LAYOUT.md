@@ -980,5 +980,12 @@ tools/test_push_puzzle_commit.sh             does tools/push_puzzle_commit.sh pu
                                              push fails? The burn (tools/prereset_backfill.sh)
                                              commits and pushes each puzzle while the rest of
                                              its wave is still writing into that tree
+tools/test_link_words.sh                     does tools/validate_annotations.py refuse a link
+                                             word that app.js would place on top of an
+                                             indicator, wholly or in part, and pass one with a
+                                             free copy? The placement is app.js
+                                             placedFragments(), so these are the clues that
+                                             reached the screen with a bought indicator
+                                             half-erased
 ```
 <!-- LAYOUT-END -->
