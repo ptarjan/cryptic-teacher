@@ -119,6 +119,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
+      # Before the network is cut: the scan readers (trove_grid, the Cyclops
+      # filer) need them.
+      - run: pip install numpy pillow
+        shell: bash
       # The loop globs both of the repo's test-file spellings and asks
       # tools/ci_shards.js for this shard's slice. An item is a script, or
       # "<script> i/n" for one slice of a script too heavy for a single job.
