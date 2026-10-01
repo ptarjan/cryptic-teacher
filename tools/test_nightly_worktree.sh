@@ -85,6 +85,20 @@ check "and the live run's uncommitted edit survives" \
   "$(grep -c inflight "$tmp/trees/faketask/tools/faketask.sh")" "1"
 git -C "$tmp/trees/faketask" checkout -q -- tools/faketask.sh
 
+# 2c. Starting the job from inside its worktree, or in place, skips the reset
+#     but writes to the same tree, so it needs the same lease. A hand start of
+#     the burn that bypassed it lost 11 of 14 annotations on 2026-09-30.
+exec 8>"$tmp/main/.faketask.tree.lock"
+flock -n 8
+for how in CT_IN_WORKTREE CT_NO_WORKTREE; do
+  out="$(env "$how=1" ALERT_ENV_FILE=/nonexistent \
+    bash "$tmp/trees/faketask/tools/faketask.sh" 2>&1)"
+  check "a $how=1 start leaves a held tree alone" "$(echo "$out" | grep -c '^RAN IN ')" "0"
+done
+exec 8>&-
+out="$(CT_IN_WORKTREE=1 ALERT_ENV_FILE=/nonexistent bash "$tmp/trees/faketask/tools/faketask.sh" 2>&1)"
+check "and runs once the lease is free" "$(echo "$out" | grep '^RAN IN ')" "RAN IN $tmp/trees/faketask"
+
 # 3. With no worktree to be had, nothing runs. The main checkout is the only
 #    other tree, and it is refused in the state that looks safest too: clean and
 #    at origin/master is a snapshot, and says nothing about the edit that lands
