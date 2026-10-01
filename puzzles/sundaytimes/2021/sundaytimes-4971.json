@@ -24,6 +24,9 @@
   "date": "2021-09-11",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,45 @@
     "text": "Volume of moans gently audible",
     "enumeration": "4"
    },
-   "solution": "SIZE"
+   "solution": "SIZE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SIZE",
+    "definitions": [
+     {
+      "text": "Volume",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "audible",
+      "for": "homophone",
+      "note": "something audible is heard rather than read, so the sound of the phrase matters, not its spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "moans gently",
+      "gives": "SIZE",
+      "soundsLike": "SIGHS",
+      "note": "to moan gently is to sigh, and the plural verb is said just like the answer"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone describing a quiet groaning that can only just be heard.",
+     "walkthrough": "'Volume' looks like loudness, matching the soft moans, but it is the bulk or extent of something; SIGHS and SIZE sound the same.",
+     "definitionFit": "Volume can mean the amount of space a thing occupies, its magnitude or bulk."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Volume"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +92,51 @@
     "text": "Making a connection after dropping large hint",
     "enumeration": "7"
    },
-   "solution": "INKLING"
+   "solution": "INKLING",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INKLING",
+    "definitions": [
+     {
+      "text": "hint",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after dropping large",
+      "for": "anagram",
+      "note": "the letter for large is dropped further down the word, so the order of the letters changes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Making a connection",
+      "gives": "LINKING",
+      "note": "joining things up"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LINKING",
+       "gives": "INKLING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone takes a clue from another person's mention of something large and works out a link.",
+     "walkthrough": "'Dropping' looks like a deletion, but the L for large is not lost: it is moved lower down, from first place to fourth, turning LINKING into INKLING.",
+     "definitionFit": "An inkling is a slight suspicion or vague notion, much like a hint of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dropping"
+    }
+   }
   },
   {
    "number": 3,
@@ -65,7 +150,49 @@
     "text": "Lacking capital, one paying for room and board",
     "enumeration": "5"
    },
-   "solution": "ENTER"
+   "solution": "ENTER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ENTER",
+    "definitions": [
+     {
+      "text": "board",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Lacking capital",
+      "for": "deletion",
+      "note": "the capital is the initial letter of a word, and lacking it means that first letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one paying for room",
+      "gives": "RENTER",
+      "note": "a tenant pays rent for a room"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A cash-strapped lodger who pays for bed and meals.",
+     "walkthrough": "'Room and board' reads as a lodging phrase, but the definition is just 'board', meaning get on a ship or train; RENTER loses its first letter.",
+     "definitionFit": "A plain synonym in the travel sense: passengers boarding a ship, train or plane are getting on and going inside it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "board"
+    }
+   }
   },
   {
    "number": 4,
@@ -79,7 +206,65 @@
     "text": "Joke made by working class about Labour’s leader",
     "enumeration": "10"
    },
-   "solution": "PLEASANTRY"
+   "solution": "PLEASANTRY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PLEASANTRY",
+    "definitions": [
+     {
+      "text": "Joke",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "a leader goes in front, so only the opening letter is wanted"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "to be about something is to surround it, so one piece goes around another"
+     }
+    ],
+    "linkWords": [
+     "made by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "working class",
+      "gives": "PEASANTRY",
+      "note": "the agricultural labouring class"
+     },
+     {
+      "clueFragment": "Labour’s",
+      "gives": "L",
+      "select": "first",
+      "note": "first letter of Labour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "L",
+      "EASANTRY"
+     ]
+    },
+    "explanation": {
+     "surface": "A political quip made by workers at the expense of the Labour Party leader.",
+     "walkthrough": "Labour here is Britain's Labour Party; its leader is just its first letter, slipped in after the P of PEASANTRY.",
+     "definitionFit": "A pleasantry is a light humorous remark or joking comment made in conversation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +278,48 @@
     "text": "Plough on a grave",
     "enumeration": "9"
    },
-   "solution": "PERSEVERE"
+   "solution": "PERSEVERE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PERSEVERE",
+    "definitions": [
+     {
+      "text": "Plough on",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "PER",
+      "note": "per means 'a' as in 'ten pounds a head'"
+     },
+     {
+      "clueFragment": "grave",
+      "gives": "SEVERE",
+      "note": "grave and severe both mean serious"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PER",
+      "SEVERE"
+     ]
+    },
+    "explanation": {
+     "surface": "A farmer ploughing on top of a burial plot.",
+     "walkthrough": "'Plough' and 'grave' suggest a field or churchyard, but 'Plough on' is a phrasal verb for keeping going; 'a' is PER, as in so much per day.",
+     "definitionFit": "To plough on is to continue steadily despite difficulty, which is to persist doggedly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "grave"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +333,65 @@
     "text": "Some insects are ruinous to rugs",
     "enumeration": "7"
    },
-   "solution": "EARWIGS"
+   "solution": "EARWIGS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "EARWIGS",
+    "definitions": [
+     {
+      "text": "Some insects",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ruinous",
+      "for": "anagram",
+      "note": "something ruinous wrecks things, so these letters are knocked out of shape"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "are",
+      "gives": "ARE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rugs",
+      "gives": "WIGS",
+      "note": "rug is slang for a wig or toupee"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EAR",
+      "WIGS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ARE",
+       "gives": "EAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A warning that certain bugs destroy carpets.",
+     "walkthrough": "'Rugs' looks like carpets, but in slang a rug is a hairpiece, giving WIGS.",
+     "definitionFit": "Earwigs are a familiar kind of pincer-tailed garden bug, so they are some insects."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "rugs"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +405,69 @@
     "text": "One’s lifted to accompany raga primarily",
     "enumeration": "5"
    },
-   "solution": "SITAR"
+   "solution": "SITAR",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SITAR",
+    "definitions": [
+     {
+      "text": "One’s lifted to accompany raga primarily",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lifted",
+      "for": "reversal",
+      "note": "in a down clue, lifting raises the letters, so they read from bottom to top"
+     },
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so only the opening letters count"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One’s",
+      "gives": "IS",
+      "note": "one is I, plus the 's"
+     },
+     {
+      "clueFragment": "to accompany raga",
+      "gives": "TAR",
+      "select": "first",
+      "note": "first letters of to, accompany and raga"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SI",
+      "TAR"
+     ],
+     "reversals": [
+      {
+       "from": "IS",
+       "to": "SI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A musician picks up an instrument to play along with an Indian raga.",
+     "walkthrough": "The whole clue is both definition and wordplay: the instrument is lifted up to play with a raga, and the letters come from I'S reversed plus initials.",
+     "definitionFit": "The sitar is the long-necked plucked lute that traditionally performs ragas in Indian classical music."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "lifted"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +481,61 @@
     "text": "Telling people a bishop is visiting",
     "enumeration": "9"
    },
-   "solution": "NARRATION"
+   "solution": "NARRATION",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NARRATION",
+    "definitions": [
+     {
+      "text": "Telling",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is visiting",
+      "for": "container",
+      "note": "a visitor goes into someone else's place, so one piece sits inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "people",
+      "gives": "NATION",
+      "note": "a people is a nation"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bishop",
+      "gives": "RR",
+      "note": "Right Reverend, the title of a bishop"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "A",
+      "RR",
+      "ATION"
+     ]
+    },
+    "explanation": {
+     "surface": "Informing the congregation that a bishop has come to call.",
+     "walkthrough": "'Telling people' reads as one phrase, but 'people' belongs to the wordplay; RR (Right Reverend) is the conventional bishop.",
+     "definitionFit": "Narration is the act of recounting a story, so it is a telling of events."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "people"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +549,80 @@
     "text": "Poem don sent in about a university",
     "enumeration": "7"
    },
-   "solution": "RONDEAU"
+   "solution": "RONDEAU",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "RONDEAU",
+    "definitions": [
+     {
+      "text": "Poem",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sent",
+      "for": "anagram",
+      "note": "sent can mean carried away or sent flying, so the letters are thrown into a new order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece goes in another, held inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "don",
+      "gives": "DON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means concerning"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "OND",
+      "E",
+      "A",
+      "U"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DON",
+       "gives": "OND"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A university lecturer submits a poem about his college.",
+     "walkthrough": "'Don' looks like an Oxbridge tutor but is just its own letters, jumbled and put inside RE.",
+     "definitionFit": "A rondeau is a French verse form of thirteen or fifteen lines with a refrain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sent"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +636,59 @@
     "text": "One shifting around ice as fish start to rot",
     "enumeration": "6"
    },
-   "solution": "SKATER"
+   "solution": "SKATER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SKATER",
+    "definitions": [
+     {
+      "text": "One shifting around ice",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "start to",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter, so only that one is kept"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fish",
+      "gives": "SKATE",
+      "note": "a skate is a flat ray-like fish"
+     },
+     {
+      "clueFragment": "rot",
+      "gives": "R",
+      "select": "first",
+      "note": "first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SKATE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone moving ice around while the fish begins to go off.",
+     "walkthrough": "The surface suggests a fishmonger keeping stock cold, but 'shifting around ice' is gliding over a rink.",
+     "definitionFit": "A skater moves about on a rink's frozen surface, gliding on blades."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "shifting"
+    }
+   }
   },
   {
    "number": 10,
@@ -177,7 +702,72 @@
     "text": "Reserved band after soldiers backed it",
     "enumeration": "8"
    },
-   "solution": "RETIRING"
+   "solution": "RETIRING",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "RETIRING",
+    "definitions": [
+     {
+      "text": "Reserved",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backed",
+      "for": "reversal",
+      "note": "going backwards means the letters run from end to start"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "one piece follows another in sequence"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soldiers",
+      "gives": "RE",
+      "note": "Royal Engineers"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "band",
+      "gives": "RING",
+      "note": "a ring is a band"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "TI",
+      "RING"
+     ],
+     "reversals": [
+      {
+       "from": "IT",
+       "to": "TI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A music group booked after the army supported the idea.",
+     "walkthrough": "'Reserved band' suggests a booked group of musicians; RE, the Royal Engineers, is the usual crossword soldiers.",
+     "definitionFit": "A retiring person is shy and reticent, keeping to themselves, just as a reserved one is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "band"
+    }
+   }
   },
   {
    "number": 11,
@@ -191,7 +781,50 @@
     "text": "Departs from Eilat, maybe in the late PM",
     "enumeration": "8"
    },
-   "solution": "DISRAELI"
+   "solution": "DISRAELI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DISRAELI",
+    "definitions": [
+     {
+      "text": "the late PM",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Departs",
+      "gives": "D",
+      "note": "the timetable abbreviation for departs"
+     },
+     {
+      "clueFragment": "from Eilat, maybe",
+      "gives": "ISRAELI",
+      "note": "Eilat is a port city in Israel, so someone from there is an example of an Israeli"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ISRAELI"
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller leaves the Red Sea resort of Eilat while a prime minister has just died.",
+     "walkthrough": "'Maybe' flags that someone from Eilat is just one example of an Israeli; D is the abbreviation on departure boards.",
+     "definitionFit": "Benjamin Disraeli was a Victorian British prime minister, long dead, so a late PM."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Departs"
+    }
+   }
   },
   {
    "number": 12,
@@ -205,7 +838,68 @@
     "text": "A case of rare wine bottles brought up",
     "enumeration": "6"
    },
-   "solution": "REARED"
+   "solution": "REARED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "REARED",
+    "definitions": [
+     {
+      "text": "brought up",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "case of",
+      "for": "letter_selection",
+      "note": "a case is the outside of something, so only the outermost letters are kept"
+     },
+     {
+      "text": "bottles",
+      "for": "container",
+      "note": "to bottle something is to keep it shut inside, so one piece is held within the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rare",
+      "gives": "RE",
+      "select": "outer",
+      "note": "first and last letters"
+     },
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "wine",
+      "gives": "RED",
+      "note": "red is the usual crossword wine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "A",
+      "RED"
+     ]
+    },
+    "explanation": {
+     "surface": "A crate of fine wine with its bottles carried up from the cellar.",
+     "walkthrough": "'Case' and 'bottles' look like wine packaging; together, the outside of 'rare' and the wine form the casing that holds A between them.",
+     "definitionFit": "To rear a child is to raise them, so reared means raised or nurtured from infancy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bottles"
+    }
+   }
   },
   {
    "number": 13,
@@ -225,7 +919,74 @@
      }
     ]
    },
-   "solution": "GLUTEUSMAXIMUS"
+   "solution": "GLUTEUSMAXIMUS",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "GLUTEUS MAXIMUS",
+    "definitions": [
+     {
+      "text": "It’s some cheek",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece placed in another sits inside it"
+     },
+     {
+      "text": "trails",
+      "for": "charade",
+      "note": "to trail is to follow behind, so this piece comes last"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "surpluses",
+      "gives": "GLUTS",
+      "note": "gluts are excesses of supply"
+     },
+     {
+      "clueFragment": "EU",
+      "gives": "EU",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "saying",
+      "gives": "MAXIM",
+      "note": "a maxim is a proverb"
+     },
+     {
+      "clueFragment": "America",
+      "gives": "US",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GLUT",
+      "EU",
+      "S",
+      "MAXIM",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "A trade complaint: it is a bit rich of the Americans to say Europe is behind on surpluses.",
+     "walkthrough": "'Some cheek' looks like impudence, but a cheek is also a buttock, and this muscle is a large part of it.",
+     "definitionFit": "The biggest muscle of the buttock forms much of each buttock, playfully called a cheek."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cheek"
+    }
+   }
   },
   {
    "number": 14,
@@ -239,7 +1000,51 @@
     "text": "Make the speech that’s longest and greatest",
     "enumeration": "9"
    },
-   "solution": "UTTERMOST"
+   "solution": "UTTERMOST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UTTERMOST",
+    "definitions": [
+     {
+      "text": "longest",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "that’s",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Make the speech",
+      "gives": "UTTER",
+      "note": "to utter is to speak"
+     },
+     {
+      "clueFragment": "greatest",
+      "gives": "MOST",
+      "note": "most means greatest in amount"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UTTER",
+      "MOST"
+     ]
+    },
+    "explanation": {
+     "surface": "A boast about giving the biggest and best address of all.",
+     "walkthrough": "'Longest' looks like it describes the speech, but it is the definition, in the sense of furthest or most extreme.",
+     "definitionFit": "Uttermost means farthest or most extreme in degree or distance, the furthest reach."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "longest"
+    }
+   }
   },
   {
    "number": 15,
@@ -253,7 +1058,58 @@
     "text": "Articles name Scotsmen as foreign capitalists?",
     "enumeration": "9"
    },
-   "solution": "ATHENIANS"
+   "solution": "ATHENIANS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ATHENIANS",
+    "definitions": [
+     {
+      "text": "foreign capitalists?",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Articles",
+      "gives": "ATHE",
+      "note": "the indefinite and definite articles, A and THE"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "Scotsmen",
+      "gives": "IANS",
+      "note": "Ian is the stock Scottish man's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "THE",
+      "N",
+      "IANS"
+     ]
+    },
+    "explanation": {
+     "surface": "Newspaper pieces label Scots as overseas financiers.",
+     "walkthrough": "'Capitalists' suggests investors, but the question mark signals a pun: people living in a capital city abroad.",
+     "definitionFit": "Citizens of Athens live in the Greek capital, so to a British solver they are residents of an overseas seat of government."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "capitalists"
+    }
+   }
   },
   {
    "number": 16,
@@ -273,7 +1129,51 @@
      }
     ]
    },
-   "solution": "WHITEELEPHANTS"
+   "solution": "WHITEELEPHANTS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "WHITE ELEPHANTS",
+    "definitions": [
+     {
+      "text": "Useless stuff",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "repaired",
+      "for": "anagram",
+      "note": "repairing something puts it back together in working order, so these letters are rebuilt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "with a teen’s help",
+      "gives": "WITHATEENSHELP",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WITHATEENSHELP",
+       "gives": "WHITEELEPHANTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Broken junk gets fixed up with the help of a young person.",
+     "walkthrough": "The surface suggests a teenager mending things; in fact every letter of the last four words is reshuffled.",
+     "definitionFit": "A white elephant is a burdensome possession that is costly or pointless to keep, hence useless clutter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "repaired"
+    }
+   }
   },
   {
    "number": 17,
@@ -293,7 +1193,64 @@
      }
     ]
    },
-   "solution": "HIGHTEA"
+   "solution": "HIGHTEA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "HIGH TEA",
+    "definitions": [
+     {
+      "text": "Meal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfortunately",
+      "for": "anagram",
+      "note": "something unfortunate has gone wrong, so the letters are put out of order"
+     }
+    ],
+    "linkWords": [
+     "that’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bad",
+      "gives": "HIGH",
+      "note": "meat or game that is high has gone off"
+     },
+     {
+      "clueFragment": "eat",
+      "gives": "EAT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HIGH",
+      "TEA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EAT",
+       "gives": "TEA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint about a dinner too off to be eaten.",
+     "walkthrough": "High here means smelly and off, as with game left to hang; high tea is a British early-evening meal with a hot dish.",
+     "definitionFit": "High tea is a substantial early-evening meal, often with cooked food, in parts of Britain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bad"
+    }
+   }
   },
   {
    "number": 18,
@@ -307,7 +1264,56 @@
     "text": "Slips by left-winger in England failures",
     "enumeration": "7"
    },
-   "solution": "ELAPSES"
+   "solution": "ELAPSES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ELAPSES",
+    "definitions": [
+     {
+      "text": "Slips by",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "left-winger in",
+      "for": "letter_selection",
+      "note": "the left wing of a written word is its leftmost letter, so only that one is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "England",
+      "gives": "E",
+      "select": "first",
+      "note": "leftmost letter"
+     },
+     {
+      "clueFragment": "failures",
+      "gives": "LAPSES",
+      "note": "lapses are slips or failings"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "LAPSES"
+     ]
+    },
+    "explanation": {
+     "surface": "Mistakes by a left-sided player in the England team's defeats.",
+     "walkthrough": "'Left-winger' suggests a footballer or a socialist; it is just the first letter on the left of the word England.",
+     "definitionFit": "Time that elapses passes or goes by, quietly slipping away."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "left-winger"
+    }
+   }
   },
   {
    "number": 19,
@@ -321,7 +1327,62 @@
     "text": "Small measure of salt coating a vegetable",
     "enumeration": "7"
    },
-   "solution": "SPINACH"
+   "solution": "SPINACH",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SPINACH",
+    "definitions": [
+     {
+      "text": "vegetable",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coating",
+      "for": "container",
+      "note": "a coating covers all round, so one piece wraps around another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "measure of salt",
+      "gives": "PINCH",
+      "note": "a pinch is a small amount of salt"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PIN",
+      "A",
+      "CH"
+     ]
+    },
+    "explanation": {
+     "surface": "A little salt sprinkled over some greens.",
+     "walkthrough": "'Small measure of salt' reads as one unit, but 'Small' gives its own S before the PINCH.",
+     "definitionFit": "Spinach is a leafy green plant eaten cooked or raw as a vegetable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Small"
+    }
+   }
   },
   {
    "number": 20,
@@ -335,7 +1396,67 @@
     "text": "Meeting places of old men having a chat outside",
     "enumeration": "6"
    },
-   "solution": "AGORAS"
+   "solution": "AGORAS",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "AGORAS",
+    "definitions": [
+     {
+      "text": "Meeting places of old",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "having",
+      "for": "container",
+      "note": "to have something is to hold it, so one piece is held inside another"
+     },
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "one piece goes outside, enclosing the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "chat",
+      "gives": "GAS",
+      "note": "to gas is to chatter"
+     },
+     {
+      "clueFragment": "men",
+      "gives": "OR",
+      "note": "other ranks, ordinary soldiers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "G",
+      "OR",
+      "AS"
+     ]
+    },
+    "explanation": {
+     "surface": "Elderly men gossiping outdoors at their usual haunts.",
+     "walkthrough": "'Old men' reads as a phrase, but 'of old' completes the definition and 'men' is OR, the other ranks of the army.",
+     "definitionFit": "An agora was a public square used for assemblies and markets in ancient Greek cities."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "old"
+    }
+   }
   },
   {
    "number": 21,
@@ -349,7 +1470,62 @@
     "text": "Wine bar hides Barolo at the back",
     "enumeration": "5"
    },
-   "solution": "SOAVE"
+   "solution": "SOAVE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SOAVE",
+    "definitions": [
+     {
+      "text": "Wine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the back",
+      "for": "letter_selection",
+      "note": "the back of a word is its end, so its final letter is kept"
+     },
+     {
+      "text": "hides",
+      "for": "container",
+      "note": "to hide something is to keep it inside, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bar",
+      "gives": "SAVE",
+      "note": "bar and save both mean except"
+     },
+     {
+      "clueFragment": "Barolo",
+      "gives": "O",
+      "select": "last",
+      "note": "last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "O",
+      "AVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A wine bar keeps its Barolo tucked away at the rear.",
+     "walkthrough": "'Wine bar' looks like a single place, but 'Wine' is the definition and 'bar' is SAVE, as in 'all save one'.",
+     "definitionFit": "Soave is a dry white Italian wine from the Veneto region, named after its home town."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bar"
+    }
+   }
   },
   {
    "number": 22,
@@ -363,7 +1539,54 @@
     "text": "Sceptical or acting so anyhow",
     "enumeration": "8"
    },
-   "solution": "AGNOSTIC"
+   "solution": "AGNOSTIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AGNOSTIC",
+    "definitions": [
+     {
+      "text": "Sceptical",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "anyhow",
+      "for": "anagram",
+      "note": "anyhow means in a careless, disordered way, so these letters come out any which way"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "acting so",
+      "gives": "ACTINGSO",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ACTINGSO",
+       "gives": "AGNOSTIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Either genuinely doubtful or merely pretending to be, either way.",
+     "walkthrough": "'Anyhow' reads as 'in any case', but it means haphazardly here.",
+     "definitionFit": "An agnostic doubts that God's existence can be known, a doubting or questioning stance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "anyhow"
+    }
+   }
   },
   {
    "number": 23,
@@ -377,7 +1600,43 @@
     "text": "Ways to leave clothes item worn by clergy",
     "enumeration": "5"
    },
-   "solution": "STOLE"
+   "solution": "STOLE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "STOLE",
+    "definitions": [
+     {
+      "text": "item worn by clergy",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "clothes",
+      "for": "hidden_word",
+      "note": "read as a verb, to clothe is to cover or wrap, so these words wrap the letters wanted"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ways to leave",
+      "gives": "STOLE",
+      "note": "the letters run across the end of the first word and into the next two"
+     }
+    ],
+    "explanation": {
+     "surface": "Exit routes for a garment that priests wear.",
+     "walkthrough": "'Clothes' looks like a noun going with 'item', but it is a verb: the first three words clothe the answer, spread across waYS TO LEave.",
+     "definitionFit": "A stole is a long silk scarf-like vestment that priests wear over the shoulders during services."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "clothes"
+    }
+   }
   },
   {
    "number": 24,
@@ -391,7 +1650,61 @@
     "text": "Bloke swamped by too much huge furniture",
     "enumeration": "8"
    },
-   "solution": "OTTOMANS"
+   "solution": "OTTOMANS",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "OTTOMANS",
+    "definitions": [
+     {
+      "text": "furniture",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swamped by",
+      "for": "container",
+      "note": "something swamped is engulfed, so one piece is surrounded by the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "too much",
+      "gives": "OTT",
+      "note": "over the top"
+     },
+     {
+      "clueFragment": "huge",
+      "gives": "OS",
+      "note": "outsize, the clothing size"
+     },
+     {
+      "clueFragment": "Bloke",
+      "gives": "MAN",
+      "note": "a bloke is a man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OTTO",
+      "MAN",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A man overwhelmed by far too many enormous items of furniture.",
+     "walkthrough": "'Huge furniture' reads as one phrase, but 'huge' is the clothing-size abbreviation for outsize; bloke is everyday British slang for a man.",
+     "definitionFit": "Ottomans are low padded seats or footstools, often with storage inside, pieces of household furnishing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "huge"
+    }
+   }
   },
   {
    "number": 25,
@@ -405,7 +1718,45 @@
     "text": "Oath I for one said out loud",
     "enumeration": "6"
    },
-   "solution": "AVOWAL"
+   "solution": "AVOWAL",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "AVOWAL",
+    "definitions": [
+     {
+      "text": "Oath",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "said out loud",
+      "for": "homophone",
+      "note": "spoken words are heard, so the sound counts rather than the spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I for one",
+      "gives": "AVOWAL",
+      "soundsLike": "A VOWEL",
+      "note": "the letter I is an example of one of the five vowels"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone swearing an oath, saying 'I' aloud as they do so.",
+     "walkthrough": "'I for one' sounds like a person agreeing, but it treats I as a letter: an example of a vowel.",
+     "definitionFit": "An avowal is a solemn open declaration or affirmation, much like a sworn promise."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "I"
+    }
+   }
   },
   {
    "number": 26,
@@ -419,7 +1770,56 @@
     "text": "Religious believers curtailed underwear thefts",
     "enumeration": "10"
    },
-   "solution": "PANTHEISTS"
+   "solution": "PANTHEISTS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "PANTHEISTS",
+    "definitions": [
+     {
+      "text": "Religious believers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "curtailed",
+      "for": "deletion",
+      "note": "curtailing cuts off the tail, so the last letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "underwear",
+      "gives": "PANTS",
+      "note": "pants are underpants in Britain"
+     },
+     {
+      "clueFragment": "thefts",
+      "gives": "HEISTS",
+      "note": "heists are robberies"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PANT",
+      "HEISTS"
+     ]
+    },
+    "explanation": {
+     "surface": "Pious folk who lost out when their undies were stolen.",
+     "walkthrough": "In British English pants are underpants, not trousers; dock the final S.",
+     "definitionFit": "Pantheists hold that God and the universe are identical, a religious creed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "curtailed"
+    }
+   }
   },
   {
    "number": 27,
@@ -433,7 +1833,66 @@
     "text": "Real turnaround for the boxing clubs",
     "enumeration": "4"
    },
-   "solution": "ECHT"
+   "solution": "ECHT",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "ECHT",
+    "definitions": [
+     {
+      "text": "Real",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "boxing",
+      "for": "container",
+      "note": "boxing in means enclosing, so one piece is put inside another"
+     },
+     {
+      "text": "turnaround for",
+      "for": "reversal",
+      "note": "a turnaround faces the other way, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "clubs",
+      "gives": "C",
+      "note": "card-suit abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ECHT"
+     ],
+     "reversals": [
+      {
+       "from": "THCE",
+       "to": "ECHT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A genuine change of fortune for boxing clubs.",
+     "walkthrough": "'Boxing clubs' looks like gyms; boxing is the container signal and clubs is the card suit C.",
+     "definitionFit": "Echt is a German loanword in English meaning authentic or genuine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "boxing"
+    }
+   }
   }
  ]
 }
