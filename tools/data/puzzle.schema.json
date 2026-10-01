@@ -436,9 +436,10 @@
    "additionalProperties": false,
    "properties": {
     "text": {
-     "description": "The clue's words exactly as printed, without the enumeration that follows them, e.g. \"Moscow politician revolting in style\". About 9,500 clues print no enumeration, or a cross-reference (\"See 5\") that is text. Absent when the paper printed no words (then `missing` is true). Offsets into it (`italics`, annotation `definitions[].at`) count Unicode code points.",
+     "description": "The clue's words exactly as printed, without the enumeration that follows them, e.g. \"Moscow politician revolting in style\". About 9,500 clues print no enumeration, or a cross-reference (\"See 5\") that is text. Absent when the paper printed no words (then `missing` is true). Offsets into it (`italics`, annotation `definitions[].at`) count Unicode code points. No space at either end: a space the page printed in front of the words is not one of them.",
      "type": "string",
-     "minLength": 1
+     "minLength": 1,
+     "pattern": "^\\S(?:[\\s\\S]*\\S)?$"
     },
     "enumeration": {
      "description": "The letter counts printed in brackets after the words, without the brackets: \"5,4\", \"2-3,4\", \"4'1\", \"6 and 5\". Marks are unspaced, dashes are \"-\" and apostrophes \"'\"; a lone space between counts is printed as one (\"1 4\"). On a linked answer the leader prints the whole answer's count and continuations usually print none (Private Eye counts each light). Stored, not derived from `separators`: a leader's count spans its group, and some prints (\"6 and 5\") say what separators cannot. Absent when the clue printed none. `text` then ` (enumeration)` is the printed line.",
