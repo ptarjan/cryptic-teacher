@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,54 @@
     "text": "Male winner not married?",
     "enumeration": "4"
    },
-   "solution": "CHAP"
+   "solution": "CHAP",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CHAP",
+    "definitions": [
+     {
+      "text": "Male",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "'not' tells you the following abbreviation is absent from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "winner",
+      "gives": "CHAMP",
+      "note": "a winner is a champ, short for champion"
+     },
+     {
+      "clueFragment": "married",
+      "gives": "M",
+      "note": "M is the standard abbreviation for married"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHA",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzled question about whether some victorious man is single.",
+     "walkthrough": "Take M out of CHAMP to leave CHAP.",
+     "definitionFit": "A chap is an informal word for a man, so it works as the noun sense of a male person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "married"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +97,70 @@
     "text": "Sprinter occasionally runs wearing cyclist's underwear",
     "enumeration": "7"
    },
-   "solution": "HOSIERY"
+   "solution": "HOSIERY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "HOSIERY",
+    "definitions": [
+     {
+      "text": "underwear",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occasionally",
+      "for": "letter_selection",
+      "note": "something done occasionally happens only now and then, so only some letters at intervals are used"
+     },
+     {
+      "text": "wearing",
+      "for": "container",
+      "note": "what is worn sits inside clothing, so one part is enclosed by another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sprinter",
+      "gives": "SIE",
+      "select": "regular",
+      "note": "every third letter: S, I, E"
+     },
+     {
+      "clueFragment": "runs",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for runs"
+     },
+     {
+      "clueFragment": "cyclist's",
+      "gives": "HOY",
+      "note": "Sir Chris Hoy is a famous British track cyclist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HO",
+      "SIE",
+      "R",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "An athlete is caught wearing a bike rider's undergarments.",
+     "walkthrough": "Sir Chris Hoy is a Scottish Olympic track cycling champion, a name crosswords lean on. Taking every third letter of Sprinter is the 'occasionally'.",
+     "definitionFit": "Hosiery is the trade word for stockings, tights and socks, garments worn next to the skin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Sprinter"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +174,56 @@
     "text": "Prince chased King for a joke",
     "enumeration": "5"
    },
-   "solution": "PRANK"
+   "solution": "PRANK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PRANK",
+    "definitions": [
+     {
+      "text": "joke",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "for a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prince",
+      "gives": "P",
+      "note": "P is the abbreviation for prince"
+     },
+     {
+      "clueFragment": "chased",
+      "gives": "RAN",
+      "note": "to chase someone is to run after them; past tense ran"
+     },
+     {
+      "clueFragment": "King",
+      "gives": "K",
+      "note": "K is the chess abbreviation for king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "RAN",
+      "K"
+     ]
+    },
+    "explanation": {
+     "surface": "A young royal runs after the monarch just for a laugh.",
+     "walkthrough": "P plus RAN plus K.",
+     "definitionFit": "A prank is a practical joke or trick played on someone for amusement."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "chased"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +237,63 @@
     "text": "Interpreter of God — one protecting books",
     "enumeration": "5"
    },
-   "solution": "RABBI"
+   "solution": "RABBI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RABBI",
+    "definitions": [
+     {
+      "text": "Interpreter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "protecting",
+      "for": "charade",
+      "note": "a protector often stands guard behind what it shields, so this piece comes after the one before it"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "God",
+      "gives": "RA",
+      "note": "Ra is the Egyptian sun god"
+     },
+     {
+      "clueFragment": "books",
+      "gives": "BB",
+      "note": "B is the abbreviation for book, doubled for the plural"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RA",
+      "BB",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A religious scholar who reads divine will and guards the holy texts.",
+     "walkthrough": "'Protecting' puts the one behind the books, guarding them from the rear. The clue reads as 'Interpreter of God' as a whole, but only 'Interpreter' is the definition.",
+     "definitionFit": "A rabbi is a Jewish scholar and teacher whose role is expounding and explaining religious law."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "God"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +307,55 @@
     "text": "Rule briefly troubled Surrey town",
     "enumeration": "7"
    },
-   "solution": "REIGATE"
+   "solution": "REIGATE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "REIGATE",
+    "definitions": [
+     {
+      "text": "Surrey town",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "briefly means cut short, so the final letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rule",
+      "gives": "REIGN",
+      "note": "to rule is to reign"
+     },
+     {
+      "clueFragment": "troubled",
+      "gives": "ATE",
+      "note": "as in 'what's eating you?', to eat is to trouble"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REIG",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A short period of government upset a commuter town south of London.",
+     "walkthrough": "Surrey is a county just south of London; Reigate is one of its towns. 'Ate' for troubled comes from 'what's eating him?'.",
+     "definitionFit": "Reigate is a market town in the English county of Surrey, so it is an example of the category."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "troubled"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +369,62 @@
     "text": "Jewellery originally listed in search engine",
     "enumeration": "5"
    },
-   "solution": "BLING"
+   "solution": "BLING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "BLING",
+    "definitions": [
+     {
+      "text": "Jewellery",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "originally means at the origin, so just the first letter is wanted"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'in' places one part inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "listed",
+      "gives": "L",
+      "select": "first",
+      "note": "first letter of listed"
+     },
+     {
+      "clueFragment": "search engine",
+      "gives": "BING",
+      "note": "Bing is Microsoft's search engine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "L",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "Jewellery that first appeared in an internet search.",
+     "walkthrough": "L goes inside BING after its first letter.",
+     "definitionFit": "Bling is slang for flashy, showy jewellery, especially chunky gold chains and diamonds."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "listed"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +438,64 @@
     "text": "Setter's test millions entered is not good",
     "enumeration": "7"
    },
-   "solution": "IMMORAL"
+   "solution": "IMMORAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "IMMORAL",
+    "definitions": [
+     {
+      "text": "not good",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entered",
+      "for": "container",
+      "note": "something that has entered has gone inside, so one part goes between others"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Setter's",
+      "gives": "IM",
+      "note": "the setter refers to themselves as I; setter's = I'm, 'I am'"
+     },
+     {
+      "clueFragment": "millions",
+      "gives": "M",
+      "note": "M is the abbreviation for millions"
+     },
+     {
+      "clueFragment": "test",
+      "gives": "ORAL",
+      "note": "an oral is a spoken examination"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IM",
+      "M",
+      "ORAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzle-maker's exam has been corrupted by a flood of cash.",
+     "walkthrough": "Setters call themselves I or ME, so setter's means 'I am'; the millions go between that and the test.",
+     "definitionFit": "Immoral describes behaviour that breaks ethical principles, which is the moral sense of being bad."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "test"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +509,52 @@
     "text": "Record of tiny bone discovered",
     "enumeration": "4"
    },
-   "solution": "TAPE"
+   "solution": "TAPE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TAPE",
+    "definitions": [
+     {
+      "text": "Record",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "discovered",
+      "for": "deletion",
+      "note": "dis-covered means having the cover taken off, so the outer letters are stripped"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tiny bone",
+      "gives": "STAPES",
+      "note": "the stapes is the tiny stirrup bone in the middle ear"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAPE"
+     ]
+    },
+    "explanation": {
+     "surface": "Documentation of a minute bone that has been unearthed.",
+     "walkthrough": "Read 'discovered' as 'dis-covered': STAPES loses its outer S and S.",
+     "definitionFit": "To tape something is to record it, as on audio or video cassette."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "discovered"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +568,46 @@
     "text": "Singer's repetitive to some extent",
     "enumeration": "3"
    },
-   "solution": "TIT"
+   "solution": "TIT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TIT",
+    "definitions": [
+     {
+      "text": "Singer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to some extent",
+      "for": "hidden_word",
+      "note": "to some extent means only partly, so just a portion of a word is used"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "repetitive",
+      "gives": "TIT",
+      "note": "inside repeTITive"
+     }
+    ],
+    "explanation": {
+     "surface": "A vocalist is described as monotonous, at least partly.",
+     "walkthrough": "The 's is 'is', linking the definition to the wordplay. A singer in crosswords is often a songbird.",
+     "definitionFit": "A tit is a small songbird, such as the blue tit, so it is a bird that sings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Singer's"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +621,54 @@
     "text": "Bring about course of action sacking journalist",
     "enumeration": "7"
    },
-   "solution": "PROCURE"
+   "solution": "PROCURE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "PROCURE",
+    "definitions": [
+     {
+      "text": "Bring about",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sacking",
+      "for": "deletion",
+      "note": "sacking is dismissing someone, so a part is thrown out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "course of action",
+      "gives": "PROCEDURE",
+      "note": "a procedure is a set course of action"
+     },
+     {
+      "clueFragment": "journalist",
+      "gives": "ED",
+      "note": "ED is short for editor, the standard crossword journalist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PROC",
+      "URE"
+     ]
+    },
+    "explanation": {
+     "surface": "Firing a reporter as a way of getting results.",
+     "walkthrough": "Remove ED from the middle of PROCEDURE.",
+     "definitionFit": "To procure can mean to cause or effect something, as well as to obtain it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sacking"
+    }
+   }
   },
   {
    "number": 9,
@@ -173,7 +682,69 @@
     "text": "Many consonants originally forgotten by whimsical translated language",
     "enumeration": "7"
    },
-   "solution": "SWAHILI"
+   "solution": "SWAHILI",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "anagram"
+    ],
+    "answer": "SWAHILI",
+    "definitions": [
+     {
+      "text": "language",
+      "at": 61
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "originally means at the origin, so only the initial letters are wanted"
+     },
+     {
+      "text": "forgotten by",
+      "for": "deletion",
+      "note": "what is forgotten is left out, so those letters are removed from the following word"
+     },
+     {
+      "text": "translated",
+      "for": "anagram",
+      "note": "translation turns words into another form, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Many consonants",
+      "gives": "MC",
+      "select": "first",
+      "note": "initial letters of the two words"
+     },
+     {
+      "clueFragment": "whimsical",
+      "gives": "WHIMSICAL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WHISIAL",
+       "gives": "SWAHILI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tongue that drops lots of consonants, rendered in a fanciful way.",
+     "walkthrough": "Strip M and C from WHIMSICAL, leaving WHISIAL, then rearrange.",
+     "definitionFit": "Swahili is a Bantu tongue spoken widely across East Africa, so it is one example of a language."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "consonants"
+    }
+   }
   },
   {
    "number": 10,
@@ -187,7 +758,47 @@
     "text": "Measure gold that's found in space",
     "enumeration": "6"
    },
-   "solution": "METEOR"
+   "solution": "METEOR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "METEOR",
+    "definitions": [
+     {
+      "text": "that's found in space",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Measure",
+      "gives": "METE",
+      "note": "to mete is to measure out"
+     },
+     {
+      "clueFragment": "gold",
+      "gives": "OR",
+      "note": "OR is gold in heraldry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "METE",
+      "OR"
+     ]
+    },
+    "explanation": {
+     "surface": "Assessing gold deposits discovered out in the cosmos.",
+     "walkthrough": "METE plus OR. The definition is a description, 'something found in space'.",
+     "definitionFit": "A meteor is a rock from outer space that burns up as a shooting star in the atmosphere."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Measure"
+    }
+   }
   },
   {
    "number": 11,
@@ -201,7 +812,54 @@
     "text": "Clothe Republican no longer in rubbish",
     "enumeration": "4"
    },
-   "solution": "DECK"
+   "solution": "DECK",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "DECK",
+    "definitions": [
+     {
+      "text": "Clothe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "no longer in",
+      "for": "deletion",
+      "note": "something no longer in a place has left it, so a letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the abbreviation for Republican"
+     },
+     {
+      "clueFragment": "rubbish",
+      "gives": "DRECK",
+      "note": "dreck is a Yiddish-derived word for trash"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ECK"
+     ]
+    },
+    "explanation": {
+     "surface": "Dressing a politician who has been dumped among the garbage.",
+     "walkthrough": "Remove R from DRECK.",
+     "definitionFit": "To deck someone out is to dress or adorn them, as in 'decked out in finery'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Republican"
+    }
+   }
   },
   {
    "number": 12,
@@ -215,7 +873,48 @@
     "text": "Irritate majority of French city",
     "enumeration": "5"
    },
-   "solution": "ANGER"
+   "solution": "ANGER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ANGER",
+    "definitions": [
+     {
+      "text": "Irritate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "majority of",
+      "for": "deletion",
+      "note": "the majority is most but not all, so the last letter is cut"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "French city",
+      "gives": "ANGERS",
+      "note": "A city in the Loire valley"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANGER"
+     ]
+    },
+    "explanation": {
+     "surface": "Annoying most of the population of a city in France.",
+     "walkthrough": "Angers is a city in western France; drop its final S.",
+     "definitionFit": "To anger someone is to make them cross, a stronger version of annoying them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "majority"
+    }
+   }
   },
   {
    "number": 13,
@@ -229,7 +928,69 @@
     "text": "Sauce base's ordinary recipe sent back by wife",
     "enumeration": "4"
    },
-   "solution": "ROUX"
+   "solution": "ROUX",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ROUX",
+    "definitions": [
+     {
+      "text": "Sauce base",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sent back",
+      "for": "reversal",
+      "note": "something sent back returns the way it came, so its order is turned round"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ordinary",
+      "gives": "O",
+      "note": "O is the abbreviation for ordinary"
+     },
+     {
+      "clueFragment": "recipe",
+      "gives": "R",
+      "note": "R is the abbreviation for recipe, as on prescriptions"
+     },
+     {
+      "clueFragment": "wife",
+      "gives": "UX",
+      "note": "UXOR is Latin for wife; its last two letters are already supplied by the preceding pair"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RO",
+      "UX"
+     ],
+     "reversals": [
+      {
+       "from": "OR",
+       "to": "RO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cook's sauce foundation: a plain recipe the wife has returned.",
+     "walkthrough": "Wife is UXOR (Latin, common in legal use). Its OR is the 'ordinary recipe'; send it back to the front, reversed, and UXOR becomes ROUX.",
+     "definitionFit": "A roux is flour cooked in butter, the thickening starting point for white sauces and gravies."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "recipe"
+    }
+   }
   },
   {
    "number": 13,
@@ -243,7 +1004,59 @@
     "text": "Large beast with horn I shot",
     "enumeration": "5"
    },
-   "solution": "RHINO"
+   "solution": "RHINO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RHINO",
+    "definitions": [
+     {
+      "text": "Large beast",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shot",
+      "for": "anagram",
+      "note": "something shot is wrecked, so the letters are broken up and reassembled"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "horn",
+      "gives": "HORN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HORNI",
+       "gives": "RHINO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hunter boasts of bagging a big horned animal.",
+     "walkthrough": "The animal's horn is in the fodder, so the surface describes the answer itself.",
+     "definitionFit": "A rhinoceros is a huge thick-skinned African or Asian mammal, a clear example of a big animal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shot"
+    }
+   }
   },
   {
    "number": 14,
@@ -263,7 +1076,45 @@
      }
     ]
    },
-   "solution": "AYEAYE"
+   "solution": "AYEAYE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "AYE AYE",
+    "definitions": [
+     {
+      "text": "agreement to captain",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reported",
+      "for": "homophone",
+      "note": "something reported is passed on by word of mouth, so we want how it is spoken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Umpire repeatedly",
+      "gives": "AYEAYE",
+      "soundsLike": "I I",
+      "note": "Umpire is this puzzle's setter, so the setter is I; twice over gives I, I"
+     }
+    ],
+    "explanation": {
+     "surface": "A cricket official keeps relaying his consent to the team captain.",
+     "walkthrough": "Umpire is the setter's pseudonym, and setters refer to themselves as I or ME. 'Umpire' and 'captain' make a cricket picture, but the captain is a ship's.",
+     "definitionFit": "Sailors answer a ship's captain's orders with this naval phrase meaning yes, understood and will comply."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Umpire"
+    }
+   }
   },
   {
    "number": 15,
@@ -277,7 +1128,60 @@
     "text": "Discuss American doctor disappearing from morgue",
     "enumeration": "5"
    },
-   "solution": "ARGUE"
+   "solution": "ARGUE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ARGUE",
+    "definitions": [
+     {
+      "text": "Discuss",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disappearing from",
+      "for": "deletion",
+      "note": "what disappears from somewhere is no longer there, so letters are taken out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is the abbreviation for American"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "MO",
+      "note": "MO is a medical officer"
+     },
+     {
+      "clueFragment": "morgue",
+      "gives": "MORGUE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "RGUE"
+     ]
+    },
+    "explanation": {
+     "surface": "Talking about a US physician who vanished from a mortuary.",
+     "walkthrough": "A plus MORGUE minus MO.",
+     "definitionFit": "To argue a case is to debate or set out reasons about it, close to discussing it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "doctor"
+    }
+   }
   },
   {
    "number": 16,
@@ -291,7 +1195,69 @@
     "text": "One will start to leave restaurant at first sign of Mad Hatter",
     "enumeration": "8"
    },
-   "solution": "MILLINER"
+   "solution": "MILLINER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "charade"
+    ],
+    "answer": "MILLINER",
+    "definitions": [
+     {
+      "text": "Hatter",
+      "at": 56
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first sign of",
+      "for": "letter_selection",
+      "note": "the first sign of something is the first thing seen of it, its initial letter"
+     },
+     {
+      "text": "start to leave",
+      "for": "deletion",
+      "note": "the start leaving means the opening letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mad",
+      "gives": "M",
+      "select": "first",
+      "note": "first letter of Mad"
+     },
+     {
+      "clueFragment": "One will",
+      "gives": "ILL",
+      "note": "one is I, and will contracts to 'll, so I'll"
+     },
+     {
+      "clueFragment": "restaurant",
+      "gives": "DINER",
+      "note": "a diner is a small restaurant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ILL",
+      "INER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone vows to walk out of the eatery at the first hint of the tea-party lunatic.",
+     "walkthrough": "'Mad Hatter' reads as one name from Alice in Wonderland, but 'Mad' supplies M and 'Hatter' alone is the definition.",
+     "definitionFit": "A milliner makes and sells women's hats, so the trade is the same as a hatter's."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Mad"
+    }
+   }
   },
   {
    "number": 16,
@@ -305,7 +1271,64 @@
     "text": "Royal Mail put up with small writing at top of letter, perhaps",
     "enumeration": "3"
    },
-   "solution": "MRS"
+   "solution": "MRS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "MRS",
+    "definitions": [
+     {
+      "text": "writing at top of letter, perhaps",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put up",
+      "for": "reversal",
+      "note": "in a down answer, putting something up makes it read bottom to top"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Royal Mail",
+      "gives": "RM",
+      "note": "the initial letters of Royal and Mail, Britain's postal service"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MR",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "RM",
+       "to": "MR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The postal service tolerated scrawled handwriting at the head of a letter.",
+     "walkthrough": "Royal Mail is Britain's postal service. 'Put up with' looks like 'tolerated', but 'put up' is the reversal and 'with' just joins.",
+     "definitionFit": "A title of address for a married woman appears in the salutation or address line heading a letter, hence 'perhaps'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "put"
+    }
+   }
   },
   {
    "number": 17,
@@ -319,7 +1342,75 @@
     "text": "They cause firing of pianist finally performing Grieg at Royal Society",
     "enumeration": "8"
    },
-   "solution": "TRIGGERS"
+   "solution": "TRIGGERS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "TRIGGERS",
+    "definitions": [
+     {
+      "text": "They cause firing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally means at the end, so the last letter is taken"
+     },
+     {
+      "text": "performing",
+      "for": "anagram",
+      "note": "a performance is a rendering of a piece, so the letters are rendered in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pianist",
+      "gives": "T",
+      "select": "last",
+      "note": "last letter of pianist"
+     },
+     {
+      "clueFragment": "Grieg",
+      "gives": "GRIEG",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Royal Society",
+      "gives": "RS",
+      "note": "RS is the abbreviation for the Royal Society"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RIGGE",
+      "RS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GRIEG",
+       "gives": "RIGGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pianist was dismissed after a recital of Grieg before the learned society.",
+     "walkthrough": "'Firing' looks like sacking the pianist, but it is the firing of a gun. The Royal Society is Britain's national science academy.",
+     "definitionFit": "Pulling the trigger is what discharges a gun, so these levers set off the shot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "firing"
+    }
+   }
   },
   {
    "number": 18,
@@ -333,7 +1424,68 @@
     "text": "Short musical composition beginning to raise commotion about touching love",
     "enumeration": "7"
    },
-   "solution": "RONDINO"
+   "solution": "RONDINO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "RONDINO",
+    "definitions": [
+     {
+      "text": "Short musical composition",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "raise",
+      "gives": "R",
+      "select": "first",
+      "note": "first letter of raise"
+     },
+     {
+      "clueFragment": "touching",
+      "gives": "ON",
+      "note": "touching means on, as in resting on"
+     },
+     {
+      "clueFragment": "commotion",
+      "gives": "DIN",
+      "note": "a din is a loud commotion"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, which looks like O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ON",
+      "DIN",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A little piece of music that opens by stirring up a fuss about tender feelings.",
+     "walkthrough": "'About' here is only a loose positional link setting the commotion beside 'touching'. A rondo is a musical form, and the Italian -ino makes it small.",
+     "definitionFit": "A rondino is a brief rondo, a short instrumental piece built on a recurring theme."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 19,
@@ -347,7 +1499,67 @@
     "text": "One with incredible memory individually recalled long name",
     "enumeration": "7"
    },
-   "solution": "EIDETIC"
+   "solution": "EIDETIC",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "EIDETIC",
+    "definitions": [
+     {
+      "text": "One with incredible memory",
+      "at": 0,
+      "note": "the answer is usually an adjective; here it is used as a noun for a person with such recall"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "individually recalled",
+      "for": "reversal",
+      "note": "recalled means called back, and individually means each separately, so each word is turned round on its own"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "long",
+      "gives": "DIE",
+      "note": "to long for something is to be dying for it"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "CITE",
+      "note": "to name a source is to cite it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EID",
+      "ETIC"
+     ],
+     "reversals": [
+      {
+       "from": "DIE",
+       "to": "EID"
+      },
+      {
+       "from": "CITE",
+       "to": "ETIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone with a remarkable memory recalled each long name one by one.",
+     "walkthrough": "Reversing the whole phrase gives the wrong order; 'individually' means DIE and CITE are each reversed separately, staying in clue order.",
+     "definitionFit": "Eidetic memory is photographic recall, vivid and exact imagery of things once seen."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "recalled"
+    }
+   }
   },
   {
    "number": 20,
@@ -361,7 +1573,56 @@
     "text": "Gathered dog died being sent to the Far East",
     "enumeration": "6"
    },
-   "solution": "POOLED"
+   "solution": "POOLED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "POOLED",
+    "definitions": [
+     {
+      "text": "Gathered",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being sent to the Far East",
+      "for": "charade",
+      "note": "east is the right-hand side of a map, so in an across entry a letter sent far east moves to the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dog",
+      "gives": "POODLE",
+      "note": "a poodle is a breed of dog"
+     },
+     {
+      "clueFragment": "died",
+      "gives": "D",
+      "note": "D is the abbreviation for died"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POOLE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A dog that died while being shipped to Asia was collected up.",
+     "walkthrough": "The D in POODLE is moved from inside to the very end. 'Far East' looks like Asia but is the right-hand edge of the entry.",
+     "definitionFit": "Pooled means combined or brought together into a common fund or supply."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "East"
+    }
+   }
   },
   {
    "number": 20,
@@ -375,7 +1636,62 @@
     "text": "Sick bishop overcome by disease where medicine might be found",
     "enumeration": "7"
    },
-   "solution": "PILLBOX"
+   "solution": "PILLBOX",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PILLBOX",
+    "definitions": [
+     {
+      "text": "where medicine might be found",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overcome by",
+      "for": "container",
+      "note": "to be overcome is to be swamped, so one part is engulfed by another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sick",
+      "gives": "ILL",
+      "note": "sick means ill"
+     },
+     {
+      "clueFragment": "bishop",
+      "gives": "B",
+      "note": "B is the chess abbreviation for bishop"
+     },
+     {
+      "clueFragment": "disease",
+      "gives": "POX",
+      "note": "pox is a disease"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ILL",
+      "B",
+      "OX"
+     ]
+    },
+    "explanation": {
+     "surface": "An unwell clergyman laid low by illness, near where his medicine is kept.",
+     "walkthrough": "The disease surrounds both the sick part and the bishop. The definition is descriptive rather than a synonym.",
+     "definitionFit": "A pillbox is a small container for tablets, so medication is kept inside it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bishop"
+    }
+   }
   },
   {
    "number": 21,
@@ -389,7 +1705,54 @@
     "text": "Incensed by thrown grenade",
     "enumeration": "7"
    },
-   "solution": "ENRAGED"
+   "solution": "ENRAGED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ENRAGED",
+    "definitions": [
+     {
+      "text": "Incensed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "thrown",
+      "for": "anagram",
+      "note": "something thrown is tossed about, so its letters land in a new order"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "grenade",
+      "gives": "GRENADE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GRENADE",
+       "gives": "ENRAGED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone made furious by an explosive lobbed at them.",
+     "walkthrough": "'Thrown' seems natural for a grenade, but it signals rearranging the letters.",
+     "definitionFit": "Incensed and enraged both mean extremely angry, so they are straightforward synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "thrown"
+    }
+   }
   },
   {
    "number": 22,
@@ -403,7 +1766,48 @@
     "text": "King born — one bowed to show respect",
     "enumeration": "4"
    },
-   "solution": "KNEE"
+   "solution": "KNEE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "KNEE",
+    "definitions": [
+     {
+      "text": "one bowed to show respect",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "King",
+      "gives": "K",
+      "note": "K is the chess abbreviation for king"
+     },
+     {
+      "clueFragment": "born",
+      "gives": "NEE",
+      "note": "née means born, used before a maiden name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "NEE"
+     ]
+    },
+    "explanation": {
+     "surface": "A newborn monarch, before whom people bow in deference.",
+     "walkthrough": "'Bowed' suggests a bowing person, but it is a body part that is bent.",
+     "definitionFit": "People kneel or bend the knee before royalty, so it is the joint that bends in homage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "one"
+    }
+   }
   },
   {
    "number": 23,
@@ -417,7 +1821,61 @@
     "text": "Pin we stuck in short puppet",
     "enumeration": "5"
    },
-   "solution": "DOWEL"
+   "solution": "DOWEL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "DOWEL",
+    "definitions": [
+     {
+      "text": "Pin",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "short means cut off, so the last letter is dropped"
+     },
+     {
+      "text": "stuck in",
+      "for": "container",
+      "note": "something stuck in is lodged inside, so one part goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "puppet",
+      "gives": "DOLL",
+      "note": "a doll is a toy figure, like a puppet"
+     },
+     {
+      "clueFragment": "we",
+      "gives": "WE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "WE",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "We pushed a pin into a little marionette.",
+     "walkthrough": "'Short' trims the toy's final letter before 'we' is lodged inside.",
+     "definitionFit": "A dowel is a wooden peg used to join two pieces of timber, a kind of pin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Pin"
+    }
+   }
   },
   {
    "number": 24,
@@ -431,7 +1889,44 @@
     "text": "Earth turned rapidly, by the sound of it",
     "enumeration": "5"
    },
-   "solution": "WORLD"
+   "solution": "WORLD",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "WORLD",
+    "definitions": [
+     {
+      "text": "Earth",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by the sound of it",
+      "for": "homophone",
+      "note": "judging by the sound means we go on how the word is pronounced"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "turned rapidly",
+      "gives": "WORLD",
+      "soundsLike": "WHIRLED",
+      "note": "to whirl is to spin quickly"
+     }
+    ],
+    "explanation": {
+     "surface": "The planet spun fast, or so it seemed from the noise.",
+     "walkthrough": "In a non-rhotic British accent the two words sound alike.",
+     "definitionFit": "Earth is our planet, the world we live on, so the two are synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 25,
@@ -445,7 +1940,56 @@
     "text": "Measure a corset with regular trimming?",
     "enumeration": "4"
    },
-   "solution": "ACRE"
+   "solution": "ACRE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ACRE",
+    "definitions": [
+     {
+      "text": "Measure",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with regular trimming",
+      "for": "letter_selection",
+      "note": "trimming at regular intervals cuts away every other letter, keeping alternates"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "corset",
+      "gives": "CRE",
+      "select": "alternate",
+      "note": "letters 1, 3 and 5"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "CRE"
+     ]
+    },
+    "explanation": {
+     "surface": "Taking the size of a corset that keeps being taken in.",
+     "walkthrough": "'Measure' looks like a verb for fitting the corset, but it is the noun definition.",
+     "definitionFit": "An acre is a unit of land area, 4,840 square yards, so it is a kind of measure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Measure"
+    }
+   }
   },
   {
    "number": 25,
@@ -459,7 +2003,59 @@
     "text": "Italy swamped by troubles for so long",
     "enumeration": "5"
    },
-   "solution": "ADIOS"
+   "solution": "ADIOS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ADIOS",
+    "definitions": [
+     {
+      "text": "so long",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swamped by",
+      "for": "container",
+      "note": "something swamped is engulfed, so one part is surrounded by another"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "troubles",
+      "gives": "ADOS",
+      "note": "ados are fusses or troubles"
+     },
+     {
+      "clueFragment": "Italy",
+      "gives": "I",
+      "note": "I is the international vehicle code for Italy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "I",
+      "OS"
+     ]
+    },
+    "explanation": {
+     "surface": "Italy has been overwhelmed by problems for ages.",
+     "walkthrough": "'For so long' reads as 'for such a long time', but 'so long' is the farewell.",
+     "definitionFit": "So long is an informal goodbye, and adios is the Spanish farewell borrowed into English."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "long"
+    }
+   }
   },
   {
    "number": 26,
@@ -473,7 +2069,66 @@
     "text": "Baby investigator allowed to infiltrate government? On the contrary!",
     "enumeration": "6"
    },
-   "solution": "PIGLET"
+   "solution": "PIGLET",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PIGLET",
+    "definitions": [
+     {
+      "text": "Baby",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to infiltrate",
+      "for": "container",
+      "note": "to infiltrate is to get inside, so one part goes within another"
+     },
+     {
+      "text": "On the contrary!",
+      "for": "container",
+      "note": "on the contrary flips the stated roles, so the would-be infiltrator becomes the one surrounding"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "investigator",
+      "gives": "PI",
+      "note": "PI is a private investigator"
+     },
+     {
+      "clueFragment": "allowed",
+      "gives": "LET",
+      "note": "let means allowed"
+     },
+     {
+      "clueFragment": "government",
+      "gives": "G",
+      "note": "G is the abbreviation for government"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PI",
+      "G",
+      "LET"
+     ]
+    },
+    "explanation": {
+     "surface": "A young detective is allowed to work undercover in government.",
+     "walkthrough": "'On the contrary!' reverses the roles: G goes inside PILET rather than the other way round.",
+     "definitionFit": "A piglet is a young pig, so it is a baby animal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Baby"
+    }
+   }
   },
   {
    "number": 27,
@@ -487,7 +2142,51 @@
     "text": "Cover of outdoor pool finally removed",
     "enumeration": "3"
    },
-   "solution": "LID"
+   "solution": "LID",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LID",
+    "definitions": [
+     {
+      "text": "Cover",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally removed",
+      "for": "deletion",
+      "note": "removed at the end means the last letter is taken away"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "outdoor pool",
+      "gives": "LIDO",
+      "note": "a lido is a public open-air swimming pool"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LID"
+     ]
+    },
+    "explanation": {
+     "surface": "The tarpaulin over an open-air swimming pool was at last taken off.",
+     "walkthrough": "A lido is a public outdoor swimming pool in Britain; drop its last letter.",
+     "definitionFit": "A lid is a top that closes a container, so it is a cover."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cover"
+    }
+   }
   },
   {
    "number": 28,
@@ -501,7 +2200,74 @@
     "text": "Stealing from Queen in tears — spouse's beginning to leave",
     "enumeration": "7"
    },
-   "solution": "ROBBING"
+   "solution": "ROBBING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "substitution"
+    ],
+    "answer": "ROBBING",
+    "definitions": [
+     {
+      "text": "Stealing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "substitution",
+      "note": "'in' brings one letter into the word, and paired with a letter leaving it is a swap"
+     },
+     {
+      "text": "beginning",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its opening letter"
+     },
+     {
+      "text": "to leave",
+      "for": "substitution",
+      "note": "a letter that leaves makes room for the incoming one"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Queen",
+      "gives": "R",
+      "note": "R is for Regina, Latin for queen"
+     },
+     {
+      "clueFragment": "tears",
+      "gives": "SOBBING",
+      "note": "being in tears is sobbing"
+     },
+     {
+      "clueFragment": "spouse's",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter of spouse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "OBBING"
+     ]
+    },
+    "explanation": {
+     "surface": "A theft from the monarch leaves her weeping as her husband begins to walk out.",
+     "walkthrough": "In SOBBING the S goes and R comes in its place.",
+     "definitionFit": "Robbing is taking property unlawfully, so it is a synonym for stealing in the present participle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tears"
+    }
+   }
   },
   {
    "number": 29,
@@ -515,7 +2281,50 @@
     "text": "Try to win affection of daughter in forest",
     "enumeration": "4"
    },
-   "solution": "WOOD"
+   "solution": "WOOD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WOOD",
+    "definitions": [
+     {
+      "text": "forest",
+      "at": 36
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Try to win affection of",
+      "gives": "WOO",
+      "note": "to woo is to court someone"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the abbreviation for daughter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WOO",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A suitor courts a young woman in a woodland setting.",
+     "walkthrough": "'In' looks like it places one piece inside another, but here it just joins the wordplay to the definition.",
+     "definitionFit": "A wood is a stretch of land covered with trees, a smaller kind of forest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 30,
@@ -529,7 +2338,66 @@
     "text": "Handwritten book medic returned written by former partner",
     "enumeration": "5"
    },
-   "solution": "CODEX"
+   "solution": "CODEX",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "CODEX",
+    "definitions": [
+     {
+      "text": "Handwritten book",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returned",
+      "for": "reversal",
+      "note": "something returned goes back the way it came, so the letters run backwards"
+     },
+     {
+      "text": "written by",
+      "for": "charade",
+      "note": "written by means set down alongside, so one piece is placed next to the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "medic",
+      "gives": "DOC",
+      "note": "a doc is a doctor"
+     },
+     {
+      "clueFragment": "former partner",
+      "gives": "EX",
+      "note": "an ex is a former partner"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COD",
+      "EX"
+     ],
+     "reversals": [
+      {
+       "from": "DOC",
+       "to": "COD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor sent back a manuscript penned by an old flame.",
+     "walkthrough": "'Written by' suggests authorship but just means placed next to.",
+     "definitionFit": "A codex is an ancient manuscript bound in book form rather than a scroll."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "medic"
+    }
+   }
   },
   {
    "number": 31,
@@ -543,7 +2411,44 @@
     "text": "Team expressed relief audibly",
     "enumeration": "4"
    },
-   "solution": "SIDE"
+   "solution": "SIDE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SIDE",
+    "definitions": [
+     {
+      "text": "Team",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "audibly",
+      "for": "homophone",
+      "note": "audibly means so it can be heard, so the sound of the phrase counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "expressed relief",
+      "gives": "SIDE",
+      "soundsLike": "SIGHED",
+      "note": "a sigh expresses relief"
+     }
+    ],
+    "explanation": {
+     "surface": "The players let out an audible breath of relief.",
+     "walkthrough": "A side is a team in British sporting usage.",
+     "definitionFit": "In sport a side is one of the two competing teams, such as a football side."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "relief"
+    }
+   }
   }
  ]
 }
