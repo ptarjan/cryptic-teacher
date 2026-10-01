@@ -162,6 +162,9 @@ RETRIEVAL_CHANNELS = {
                "address, which now 404s",
     "blog": "read from a third party's write-up rather than the publisher",
     "book": "read off a scanned and OCR'd printed book, not a web page at all",
+    "newspaper": "read off a library's scan of the printed newspaper page (the "
+                 "National Library of Australia's Trove): clue text from its OCR, "
+                 "the grid from the page image. source.url is the article there",
     "authored": "not retrieved from anywhere — set in this repo",
     "unknown": "the corpus cannot say which of the above it was",
 }
@@ -213,6 +216,11 @@ ACQUIRED_BY = {
         "what": "a scanned and OCR'd Penguin book (tools/fetch_ia_book.py -> "
                 "tools/parse_penguin_book.py -> tools/reconstruct_grid.py -> "
                 "a model solve)"},
+    "tools/file_trove_puzzles.py": {
+        "channel": "newspaper",
+        "what": "a Canberra Times page on Trove (tools/fetch_trove.py): clues from "
+                "the OCR, the grid read off the scan by tools/trove_grid.py or, "
+                "where the scan disagrees with the clues, rebuilt from them"},
     "tools/file_times_puzzles.py": {
         "channel": "blog",
         "what": "a times-for-the-times write-up's clue list and answers, the "
@@ -283,6 +291,7 @@ ACQUISITION_BY_SOURCE = {
     ("globeandmail", "www.theglobeandmail.com"): ("tools/fetch_globeandmail.py",),
     ("metro", "metro.co.uk"): ("tools/fetch_metro.py",
                                "tools/fetch_metro.py --wayback"),
+    ("canberra", "trove.nla.gov.au"): ("tools/file_trove_puzzles.py",),
     # Ours: set in this repo and never fetched, so there is no url and no host.
     ("authored", ""): ("tools/build_authored_puzzle.py",),
 }
@@ -309,6 +318,9 @@ for _series in series_table.SERIES:
 # a grid the source shipped, and puzzle_integrity.py's use of reconstruct_grid
 # is a check on geometry that already exists, not a source of it.
 GRID_ORIGIN_BY_SERIES = {"authored": "authored"}
+#: Series whose filer says per puzzle whether the grid was read off the page or
+#: rebuilt from the clues, so the file's own gridOrigin is kept.
+GRID_ORIGIN_PER_PUZZLE = {"canberra"}
 
 # ------------------------------------------------------ book-sourced puzzles
 #
@@ -480,7 +492,9 @@ def derive(puzzle, claimed, acquired_on, previously=None):
         "retrievedFrom": channel_of(tool),
         "acquiredBy": tool,
         "acquiredOn": acquired_on if acquired_on else "unknown",
-        "gridOrigin": grid_origin(series, old_source.get("url")),
+        "gridOrigin": (old_source["gridOrigin"] if series in GRID_ORIGIN_PER_PUZZLE
+                       and old_source.get("gridOrigin") in GRID_ORIGINS
+                       else grid_origin(series, old_source.get("url"))),
         "feedId": old_source.get("feedId"),
     }
     book = book_of(series, puzzle["number"]) if is_book(series) else None
@@ -637,7 +651,9 @@ def check(puzzle):
                         f"date or \"unknown\"")
 
     expected_grid = grid_origin(series, source.get("url"))
-    if source.get("gridOrigin") not in (expected_grid, "unknown"):
+    allowed_grid = ({"published", "reconstructed"} if series in GRID_ORIGIN_PER_PUZZLE
+                    else {expected_grid})
+    if source.get("gridOrigin") not in allowed_grid | {"unknown"}:
         findings.append(f"source.gridOrigin is {source.get('gridOrigin')!r} but "
                         f"{series!r} grids are {expected_grid!r}")
 
