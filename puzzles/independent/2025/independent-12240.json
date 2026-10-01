@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,56 @@
     "text": "51 ladies' men regularly making contact",
     "enumeration": "6"
    },
-   "solution": "LIAISE"
+   "solution": "LIAISE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LIAISE",
+    "definitions": [
+     {
+      "text": "making contact",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "something done regularly happens at even intervals, so every second letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "51",
+      "gives": "LI",
+      "note": "LI is 51 in Roman numerals"
+     },
+     {
+      "clueFragment": "ladies' men",
+      "gives": "AISE",
+      "select": "alternate",
+      "note": "the even letters of these two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LI",
+      "AISE"
+     ]
+    },
+    "explanation": {
+     "surface": "A number of womanisers getting in touch with people on a regular basis.",
+     "walkthrough": "The opening number is not a quantity of men but a Roman numeral, and the even letters of the next two words follow it.",
+     "definitionFit": "To liaise is to keep in touch and cooperate with another party, which is what making contact describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "regularly"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +99,77 @@
     "text": "Prince is banished, retiring conclusively – hence King can relax",
     "enumeration": "6"
    },
-   "solution": "LOUNGE"
+   "solution": "LOUNGE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "reversal",
+     "charade"
+    ],
+    "answer": "LOUNGE",
+    "definitions": [
+     {
+      "text": "relax",
+      "at": 59
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is banished",
+      "for": "deletion",
+      "note": "the two letters spelling 'is' are sent away from the name they sit in"
+     },
+     {
+      "text": "conclusively",
+      "for": "letter_selection",
+      "note": "conclusively means at the conclusion, so only the final letter of each word counts"
+     },
+     {
+      "text": "retiring",
+      "for": "reversal",
+      "note": "to retire is to withdraw or fall back, so the letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "can"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prince",
+      "gives": "LOUIS",
+      "note": "Louis is a common name for a French prince or king"
+     },
+     {
+      "clueFragment": "hence King can",
+      "gives": "ENN",
+      "select": "last",
+      "note": "the last letters of these three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOU",
+      "NGE"
+     ],
+     "reversals": [
+      {
+       "from": "EGN",
+       "to": "NGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A prince is exiled and steps down, leaving the king free to unwind.",
+     "walkthrough": "LOUIS loses its IS to leave LOU; the final letters E, G, N of 'hence King can' are then read backwards as NGE.",
+     "definitionFit": "To lounge is to recline lazily and take things easy, a synonym for unwinding."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "retiring"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +183,73 @@
     "text": "Something offering support under a broken leg – its problems are largely symbolic",
     "enumeration": "7"
    },
-   "solution": "ALGEBRA"
+   "solution": "ALGEBRA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ALGEBRA",
+    "definitions": [
+     {
+      "text": "its problems are largely symbolic",
+      "at": 48,
+      "note": "a description of the answer rather than a synonym"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broken",
+      "for": "anagram",
+      "note": "a thing that is broken is smashed and reassembled out of its proper order"
+     },
+     {
+      "text": "under",
+      "for": "charade",
+      "note": "in a down clue, being underneath means coming later in the column"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "leg",
+      "gives": "LEG",
+      "note": "taken as written, ready to be rearranged with the A"
+     },
+     {
+      "clueFragment": "Something offering support",
+      "gives": "BRA",
+      "note": "a bra is an undergarment that supports"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALGE",
+      "BRA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ALEG",
+       "gives": "ALGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A splint or brace beneath a fractured leg, followed by a remark about symbolism.",
+     "walkthrough": "The support is not medical but a piece of underwear, placed below the rearranged A LEG.",
+     "definitionFit": "Algebra is the branch of mathematics whose problems are worked with letters and symbols standing for numbers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "support"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +263,51 @@
     "text": "Writer has turned darker",
     "enumeration": "9"
    },
-   "solution": "SWARTHIER"
+   "solution": "SWARTHIER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SWARTHIER",
+    "definitions": [
+     {
+      "text": "darker",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned",
+      "for": "anagram",
+      "note": "a thing that is turned gets twisted round into a new shape or order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Writer has",
+      "gives": "WRITERHAS",
+      "note": "taken as written, nine letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WRITERHAS",
+       "gives": "SWARTHIER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An author has become gloomier, or perhaps more tanned.",
+     "walkthrough": "'Writer' looks like it wants a synonym such as PEN, but the two words together supply exactly the nine letters needed.",
+     "definitionFit": "Swarthy means dark in complexion, so its comparative form matches the comparative adjective."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Writer"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +321,58 @@
     "text": "That woman taking drugs outside is escorting",
     "enumeration": "8"
    },
-   "solution": "USHERING"
+   "solution": "USHERING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "USHERING",
+    "definitions": [
+     {
+      "text": "escorting",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "one piece sits on the outside of another, wrapping round it"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "taking drugs",
+      "gives": "USING",
+      "note": "using is slang for taking drugs"
+     },
+     {
+      "clueFragment": "That woman",
+      "gives": "HER",
+      "note": "a pronoun for a female person"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "US",
+      "HER",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman doing drugs out in the street while working as an escort.",
+     "walkthrough": "'Taking drugs' suggests a noun such as USER, but the participle is needed so it can be split open around the pronoun.",
+     "definitionFit": "Ushering means guiding or showing someone the way, which is what escorting a person involves."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "escorting"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +392,79 @@
      }
     ]
    },
-   "solution": "SPRINGGREENS"
+   "solution": "SPRINGGREENS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SPRING GREENS",
+    "definitions": [
+     {
+      "text": "Young leaves",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the opening letter is wanted"
+     },
+     {
+      "text": "to support",
+      "for": "charade",
+      "note": "in a down clue a supporting piece sits underneath, so it comes later"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "coming after means being placed later in the sequence"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small, as on clothing labels"
+     },
+     {
+      "clueFragment": "Paul",
+      "gives": "P",
+      "select": "first",
+      "note": "the first letter of the name"
+     },
+     {
+      "clueFragment": "band",
+      "gives": "RING",
+      "note": "a ring is a circular band"
+     },
+     {
+      "clueFragment": "Money",
+      "gives": "GREENS",
+      "note": "green and greens are slang for money, from the colour of dollar bills"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "P",
+      "RING",
+      "GREENS"
+     ]
+    },
+    "explanation": {
+     "surface": "Cash to keep a little group going once Paul Young, the 1980s pop singer, has left.",
+     "walkthrough": "Paul Young is a real singer, but here 'Young leaves' is the definition, cutting the name in half. S and RING are split by P.",
+     "definitionFit": "Spring greens are young cabbage plants picked before hearts form, eaten as tender leafy vegetables."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Young"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +478,50 @@
     "text": "Go into hospital department with medical drama",
     "enumeration": "5"
    },
-   "solution": "ENTER"
+   "solution": "ENTER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ENTER",
+    "definitions": [
+     {
+      "text": "Go into",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hospital department",
+      "gives": "ENT",
+      "note": "ENT is the ear, nose and throat department"
+     },
+     {
+      "clueFragment": "medical drama",
+      "gives": "ER",
+      "note": "ER was an American television series set in an emergency room"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENT",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "Being admitted to a hospital ward amid scenes worthy of a TV drama.",
+     "walkthrough": "ER is the long-running US hospital series; ENT is the standard hospital abbreviation.",
+     "definitionFit": "To enter a place is simply to go inside it, a direct synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drama"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +535,51 @@
     "text": "One doesn't believe in field manoeuvres",
     "enumeration": "7"
    },
-   "solution": "INFIDEL"
+   "solution": "INFIDEL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INFIDEL",
+    "definitions": [
+     {
+      "text": "One doesn't believe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "manoeuvres",
+      "for": "anagram",
+      "note": "manoeuvres are moves that shift things around into new positions"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in field",
+      "gives": "INFIELD",
+      "note": "taken as written, seven letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INFIELD",
+       "gives": "INFIDEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sceptic who doubts the value of military exercises in the field.",
+     "walkthrough": "'In' reads as part of the phrase 'believe in', but it belongs to the letters being rearranged.",
+     "definitionFit": "An infidel is a person without religious faith, someone who rejects a given creed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +593,73 @@
     "text": "All in good time – assuming this writer's in shopping arcade",
     "enumeration": "8"
    },
-   "solution": "GALLERIA"
+   "solution": "GALLERIA",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "GALLERIA",
+    "definitions": [
+     {
+      "text": "shopping arcade",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "assuming",
+      "for": "container",
+      "note": "to assume something is to take it on, so one piece takes in another"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "being in something means sitting inside its letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     },
+     {
+      "clueFragment": "All",
+      "gives": "ALL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "ERA",
+      "note": "an era is a period of time"
+     },
+     {
+      "clueFragment": "this writer",
+      "gives": "I",
+      "note": "the setter referring to themselves"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "ALL",
+      "ER",
+      "I",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Telling someone to wait patiently while the writer is busy at the mall.",
+     "walkthrough": "'All in good time' is a stock phrase meaning be patient, which disguises the instruction to place one word inside another.",
+     "definitionFit": "A galleria is a covered passage or mall lined with shops, from the Italian word for gallery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "time"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +673,67 @@
     "text": "General making son finally abandon biting of nails",
     "enumeration": "6"
    },
-   "solution": "UNGUAL"
+   "solution": "UNGUAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "substitution"
+    ],
+    "answer": "UNGUAL",
+    "definitions": [
+     {
+      "text": "of nails",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the end, so the last letter of each word is kept"
+     },
+     {
+      "text": "making",
+      "for": "substitution",
+      "note": "to make someone do something is to force a change, here one letter giving way to others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "General",
+      "gives": "USUAL",
+      "note": "general and usual both mean common or normal"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     },
+     {
+      "clueFragment": "abandon biting",
+      "gives": "NG",
+      "select": "last",
+      "note": "the last letters of these two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "NG",
+      "UAL"
+     ]
+    },
+    "explanation": {
+     "surface": "An army general who has his son quit the habit of chewing his fingernails.",
+     "walkthrough": "In USUAL the S for son is dropped and NG put in its place. 'Biting of nails' looks like one phrase, but 'of nails' is the definition.",
+     "definitionFit": "Ungual is a technical adjective meaning relating to a nail, claw or hoof, from Latin unguis."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "biting"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +747,72 @@
     "text": "Appreciative of, say, charcoal going on fireplace – less smoke at last",
     "enumeration": "8"
    },
-   "solution": "GRATEFUL"
+   "solution": "GRATEFUL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "charade"
+    ],
+    "answer": "GRATEFUL",
+    "definitions": [
+     {
+      "text": "Appreciative of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at last",
+      "for": "letter_selection",
+      "note": "at last points to the end, so only the final letter is wanted"
+     },
+     {
+      "text": "less",
+      "for": "deletion",
+      "note": "less means minus, so a letter is taken away"
+     },
+     {
+      "text": "going on",
+      "for": "charade",
+      "note": "going on means being placed after, added onto the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fireplace",
+      "gives": "GRATE",
+      "note": "a grate is the metal frame holding a fire"
+     },
+     {
+      "clueFragment": "say, charcoal",
+      "gives": "FUEL",
+      "note": "charcoal is an example of fuel"
+     },
+     {
+      "clueFragment": "smoke",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter, which is removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRATE",
+      "FUL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone thankful for a smokeless fuel being put on the hearth.",
+     "walkthrough": "'Less smoke' sounds like smokeless fuel, but it asks for the last letter of 'smoke' to be dropped.",
+     "definitionFit": "Grateful for something means thankful or appreciative of it; the 'of' stands in for the preposition 'for'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "smoke"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +826,52 @@
     "text": "Flashy item couriers supply",
     "enumeration": "12"
    },
-   "solution": "MERETRICIOUS"
+   "solution": "MERETRICIOUS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MERETRICIOUS",
+    "definitions": [
+     {
+      "text": "Flashy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "supply",
+      "for": "anagram",
+      "note": "read as the adverb of supple, it means bendily, so the letters are bent into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "item couriers",
+      "gives": "ITEMCOURIERS",
+      "note": "taken as written, twelve letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ITEMCOURIERS",
+       "gives": "MERETRICIOUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A showy product delivered by a parcel service.",
+     "walkthrough": "'Supply' looks like a verb meaning deliver, but it is the adverb from supple, the signal to rearrange.",
+     "definitionFit": "Meretricious means showily attractive but cheap and lacking real value, close to gaudy or flashy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "supply"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +891,70 @@
      }
     ]
    },
-   "solution": "GOBETWEEN"
+   "solution": "GOBETWEEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GO-BETWEEN",
+    "definitions": [
+     {
+      "text": "Agent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across clue, sitting on something means coming after it"
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "game",
+      "gives": "GO",
+      "note": "Go is a Japanese board game"
+     },
+     {
+      "clueFragment": "gamble",
+      "gives": "BET",
+      "note": "a bet is a wager"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "WEE",
+      "note": "wee is Scottish for small"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "N",
+      "note": "N is the abbreviation for note"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GO",
+      "BET",
+      "WEE",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A secret agent wagers on a match, leaving a short message.",
+     "walkthrough": "Go is the ancient Japanese board game, a crossword favourite for 'game'.",
+     "definitionFit": "A go-between acts as an intermediary on behalf of others, which is what an agent does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Agent"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +968,64 @@
     "text": "Line raised for example by director briefly when turning over",
     "enumeration": "5"
    },
-   "solution": "RIDGE"
+   "solution": "RIDGE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "RIDGE",
+    "definitions": [
+     {
+      "text": "Line raised",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when turning over",
+      "for": "reversal",
+      "note": "turning something over flips it, so the letters run the other way"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for example",
+      "gives": "EG",
+      "note": "EG is the abbreviation of exempli gratia, for example"
+     },
+     {
+      "clueFragment": "director briefly",
+      "gives": "DIR",
+      "note": "DIR is the short form of director"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RID",
+      "GE"
+     ],
+     "reversals": [
+      {
+       "from": "EGDIR",
+       "to": "RIDGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A film director, say, raising a line of dialogue while flipping through the script.",
+     "walkthrough": "The two abbreviations are joined first and only then is the whole string read backwards.",
+     "definitionFit": "A ridge is a long narrow raised strip, such as a crest of hills or a raised line on a surface."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "director"
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +1045,71 @@
      }
     ]
    },
-   "solution": "GALILEOGALILEI"
+   "solution": "GALILEOGALILEI",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "GALILEO GALILEI",
+    "definitions": [
+     {
+      "text": "Astronomer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "essentially",
+      "for": "letter_selection",
+      "note": "the essence of something is its heart, so the central letter is kept"
+     },
+     {
+      "text": "working",
+      "for": "anagram",
+      "note": "letters set working are put into action and moved about into a new order"
+     }
+    ],
+    "linkWords": [
+     "to cover"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "19",
+      "gives": "ILLEGAL",
+      "note": "the answer to 19-down"
+     },
+     {
+      "clueFragment": "20",
+      "gives": "GOALIE",
+      "note": "the answer to 20-down"
+     },
+     {
+      "clueFragment": "eclipse",
+      "gives": "I",
+      "select": "middle",
+      "note": "the middle letter of this seven-letter word"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ILLEGALGOALIEI",
+       "gives": "GALILEOGALILEI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An astronomer and two other clues are put to work on covering a solar eclipse.",
+     "walkthrough": "The numbers point to the answers of 19 and 20; their thirteen letters are rearranged around the central I.",
+     "definitionFit": "Galileo Galilei was the Italian scientist who first turned a telescope on the heavens and championed heliocentrism."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "eclipse"
+    }
+   }
   },
   {
    "number": 15,
@@ -267,7 +1129,67 @@
      }
     ]
    },
-   "solution": "LAGERLOUT"
+   "solution": "LAGERLOUT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LAGER LOUT",
+    "definitions": [
+     {
+      "text": "hooligan?",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tail of",
+      "for": "letter_selection",
+      "note": "the tail of a word is its end, so only the final letter is wanted"
+     },
+     {
+      "text": "to follow",
+      "for": "charade",
+      "note": "following means coming after in the sequence"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stella maybe",
+      "gives": "LAGER",
+      "note": "Stella Artois is a brand of Belgian beer"
+     },
+     {
+      "clueFragment": "football",
+      "gives": "L",
+      "select": "last",
+      "note": "the final letter of this word"
+     },
+     {
+      "clueFragment": "determined",
+      "gives": "OUT",
+      "note": "to be out to do something is to be determined to do it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAGER",
+      "L",
+      "OUT"
+     ]
+    },
+    "explanation": {
+     "surface": "A drinker of Stella bent on trailing a football thug.",
+     "walkthrough": "Stella looks like a woman's name but is the beer. The question mark signals that the definition is broad: a lager lout is a specific kind of hooligan.",
+     "definitionFit": "A lager lout is British slang for a young man who becomes rowdy and violent after heavy beer drinking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Stella"
+    }
+   }
   },
   {
    "number": 16,
@@ -287,7 +1209,55 @@
      }
     ]
    },
-   "solution": "NEWTOWNS"
+   "solution": "NEWTOWNS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NEW TOWNS",
+    "definitions": [
+     {
+      "text": "relatively recent settlements",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "adopting",
+      "for": "container",
+      "note": "to adopt is to take in and make part of the family, so one piece is taken inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "amphibians",
+      "gives": "NEWTS",
+      "note": "newts are small amphibians"
+     },
+     {
+      "clueFragment": "Has",
+      "gives": "OWN",
+      "note": "to own something is to have it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEWT",
+      "OWN",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone keeps frogs and newts in recently built housing estates.",
+     "walkthrough": "New towns were planned British towns built after the Second World War, such as Milton Keynes and Stevenage.",
+     "definitionFit": "New towns are planned communities built from scratch in the mid twentieth century, so they are comparatively young places."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "adopting"
+    }
+   }
   },
   {
    "number": 17,
@@ -307,7 +1277,67 @@
      }
     ]
    },
-   "solution": "EMPERORPENGUIN"
+   "solution": "EMPERORPENGUIN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "charade"
+    ],
+    "answer": "EMPEROR PENGUIN",
+    "definitions": [
+     {
+      "text": "bird",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "failing at the start",
+      "for": "deletion",
+      "note": "failing at the start means the opening letter gives out and is lost"
+     },
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "about means around or all over the place, so the letters are scattered into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Humour",
+      "gives": "TEMPER",
+      "note": "humour in the sense of mood or temperament"
+     },
+     {
+      "clueFragment": "ignore pun",
+      "gives": "IGNOREPUN",
+      "note": "taken as written, nine letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMPER",
+      "ORPENGUIN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "IGNOREPUN",
+       "gives": "ORPENGUIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A joke falls flat at the outset, so skip the wordplay and get to the bird.",
+     "walkthrough": "'Humour' points to mood, as in 'in a good humour', not to jokes. TEMPER loses its T.",
+     "definitionFit": "The emperor penguin is the largest species of penguin, a flightless bird of Antarctica."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Humour"
+    }
+   }
   },
   {
    "number": 18,
@@ -321,7 +1351,56 @@
     "text": "Celebrated using timeshare arrangement constituent secured",
     "enumeration": "7"
    },
-   "solution": "PARTIED"
+   "solution": "PARTIED",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "PARTIED",
+    "definitions": [
+     {
+      "text": "Celebrated",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "using timeshare arrangement",
+      "for": "deletion",
+      "note": "a timeshare has two parties sharing one property, so here two pieces share a single T"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "constituent",
+      "gives": "PART",
+      "note": "a part is a component or constituent"
+     },
+     {
+      "clueFragment": "secured",
+      "gives": "TIED",
+      "note": "tied means fastened or secured"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PART",
+      "IED"
+     ]
+    },
+    "explanation": {
+     "surface": "Throwing a party on securing a holiday timeshare deal.",
+     "walkthrough": "PART ends with T and TIED starts with it; 'timeshare' tells you the two words overlap on that single T rather than doubling it.",
+     "definitionFit": "To have partied is to have celebrated at a social gathering, the past tense matching."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "timeshare"
+    }
+   }
   },
   {
    "number": 19,
@@ -335,7 +1414,68 @@
     "text": "Criminal and murderer scratching walls on prison – nothing escapes",
     "enumeration": "7"
    },
-   "solution": "ILLEGAL"
+   "solution": "ILLEGAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ILLEGAL",
+    "definitions": [
+     {
+      "text": "Criminal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "scratching walls",
+      "for": "deletion",
+      "note": "the walls of a word are its outer letters, and scratching them out removes them"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down clue, sitting on top means coming first"
+     },
+     {
+      "text": "nothing escapes",
+      "for": "deletion",
+      "note": "nothing is the letter O, and escaping means it gets out and goes"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "murderer",
+      "gives": "KILLER",
+      "note": "a killer is a murderer"
+     },
+     {
+      "clueFragment": "prison",
+      "gives": "GAOL",
+      "note": "gaol is the British spelling of jail"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ILLE",
+      "GAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A killer clawing at the walls of his cell, and nobody gets out.",
+     "walkthrough": "KILLER loses K and R to give ILLE; GAOL loses its O to give GAL.",
+     "definitionFit": "Illegal and criminal both describe something against the law, a straightforward synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "scratching"
+    }
+   }
   },
   {
    "number": 20,
@@ -349,7 +1489,75 @@
     "text": "American cutting record up, specifically number one?",
     "enumeration": "6"
    },
-   "solution": "GOALIE"
+   "solution": "GOALIE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "GOALIE",
+    "definitions": [
+     {
+      "text": "number one?",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, going up means the letters read from bottom to top"
+     },
+     {
+      "text": "cutting",
+      "for": "container",
+      "note": "cutting into something means going inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "record",
+      "gives": "LOG",
+      "note": "a log is a written record"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is the abbreviation for American"
+     },
+     {
+      "clueFragment": "specifically",
+      "gives": "IE",
+      "note": "IE, id est, means that is, or specifically"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GO",
+      "A",
+      "L",
+      "IE"
+     ],
+     "reversals": [
+      {
+       "from": "LOG",
+       "to": "GOL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An American smashing a record, being, specifically, the top person.",
+     "walkthrough": "The goalkeeper traditionally wears the number 1 shirt; the question mark flags that the definition works by example.",
+     "definitionFit": "A goalie is the goalkeeper, the player in football who customarily takes the first squad number."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "record"
+    }
+   }
   },
   {
    "number": 21,
@@ -363,7 +1571,62 @@
     "text": "Beat hour to book tours",
     "enumeration": "5"
    },
-   "solution": "THROB"
+   "solution": "THROB",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "THROB",
+    "definitions": [
+     {
+      "text": "Beat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tours",
+      "for": "container",
+      "note": "to tour a place is to go all round it, so one piece goes around another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hour",
+      "gives": "HR",
+      "note": "HR is the abbreviation for hour"
+     },
+     {
+      "clueFragment": "book",
+      "gives": "B",
+      "note": "B is the abbreviation for book"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "HR",
+      "O",
+      "B"
+     ]
+    },
+    "explanation": {
+     "surface": "The time to reserve a sightseeing trip is coming up fast.",
+     "walkthrough": "'To' is not a link word here; it is the piece that goes round the hour.",
+     "definitionFit": "A throb is a strong regular pulse, a beat of the heart or of music."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tours"
+    }
+   }
   },
   {
    "number": 22,
@@ -377,7 +1640,47 @@
     "text": "Located immoral diamonds",
     "enumeration": "5"
    },
-   "solution": "BASED"
+   "solution": "BASED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BASED",
+    "definitions": [
+     {
+      "text": "Located",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "immoral",
+      "gives": "BASE",
+      "note": "base means low or morally unworthy"
+     },
+     {
+      "clueFragment": "diamonds",
+      "gives": "D",
+      "note": "D is the abbreviation for the card suit diamonds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BASE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tracked down some illicit gems.",
+     "walkthrough": "Diamonds suggests jewels, but in crosswords it often means the card suit.",
+     "definitionFit": "Being based somewhere means being situated or positioned there, close to located."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "diamonds"
+    }
+   }
   },
   {
    "number": 23,
@@ -397,7 +1700,77 @@
      }
     ]
    },
-   "solution": "CONTRALTO"
+   "solution": "CONTRALTO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "CONTRALTO",
+    "definitions": [
+     {
+      "text": "Voice",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "biggest characters",
+      "for": "letter_selection",
+      "note": "the biggest characters in a title are its capital letters"
+     },
+     {
+      "text": "Daffy",
+      "for": "anagram",
+      "note": "daffy means silly or crazy, so the letters go haywire"
+     },
+     {
+      "text": "appearing in",
+      "for": "container",
+      "note": "appearing in something means showing up inside it"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cartoon",
+      "gives": "CARTOON",
+      "note": "taken as written, seven letters to rearrange"
+     },
+     {
+      "clueFragment": "Looney Tunes'",
+      "gives": "LT",
+      "select": "first",
+      "note": "the first letter of each word, the two capitals of the title"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CONTRA",
+      "LT",
+      "O"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CARTOON",
+       "gives": "CONTRAO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Who voices the big Looney Tunes stars in a Daffy Duck short?",
+     "walkthrough": "Daffy Duck is a Looney Tunes star, so 'Daffy' hides as a name while signalling the shuffle. The capitals L and T sit inside the rearranged CARTOON.",
+     "definitionFit": "A contralto is the lowest female singing voice, so it is a type of voice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Daffy"
+    }
+   }
   },
   {
    "number": 24,
@@ -411,7 +1784,59 @@
     "text": "Rod's sorry – as Spooner told panel",
     "enumeration": "8"
    },
-   "solution": "WAINSCOT"
+   "solution": "WAINSCOT",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "WAINSCOT",
+    "definitions": [
+     {
+      "text": "panel",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "as Spooner told",
+      "for": "spoonerism",
+      "note": "William Spooner was famous for swapping the opening sounds of words"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rod's",
+      "gives": "WAINS",
+      "soundsLike": "CANE'S",
+      "note": "a rod is a cane; its opening sound is swapped with that of the next word"
+     },
+     {
+      "clueFragment": "sorry",
+      "gives": "COT",
+      "soundsLike": "WHAT",
+      "note": "'sorry?' asks the same as 'what?'; its opening sound is swapped with that of the previous word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WAINS",
+      "COT"
+     ]
+    },
+    "explanation": {
+     "surface": "Rod apologising, retold in the style of a tongue-tied clergyman.",
+     "walkthrough": "Swap the opening sounds of the two spoken words, C and W, and the rod and the question become a single wooden word.",
+     "definitionFit": "Wainscot is wooden panelling lining the lower part of a room's walls, so a panel is a fair definition."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sorry"
+    }
+   }
   },
   {
    "number": 25,
@@ -425,7 +1850,77 @@
     "text": "Genghis Khan was one second before 12 noon and a little lunch",
     "enumeration": "6"
    },
-   "solution": "MONGOL"
+   "solution": "MONGOL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "MONGOL",
+    "definitions": [
+     {
+      "text": "Genghis Khan was one",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a little",
+      "for": "letter_selection",
+      "note": "a little of something is just a small bit, here its first letter"
+     },
+     {
+      "text": "before",
+      "for": "charade",
+      "note": "before means placed in front in the sequence"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "second",
+      "gives": "MO",
+      "note": "a mo is a moment or second"
+     },
+     {
+      "clueFragment": "noon",
+      "gives": "N",
+      "note": "N is the abbreviation for noon"
+     },
+     {
+      "clueFragment": "12",
+      "gives": "GO",
+      "note": "12-across is GO-BETWEEN, read as an instruction to set GO between two pieces"
+     },
+     {
+      "clueFragment": "lunch",
+      "gives": "L",
+      "select": "first",
+      "note": "the opening letter of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "N",
+      "GO",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "The great Khan grabbing a quick snack just before midday.",
+     "walkthrough": "'12 noon' reads as midday, but 12 points to the answer of 12-across, GO-BETWEEN, so GO goes between N and L.",
+     "definitionFit": "Genghis Khan founded the Mongol Empire and was a member of the Mongol people of central Asia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "12"
+    }
+   }
   },
   {
    "number": 26,
@@ -445,7 +1940,64 @@
      }
     ]
    },
-   "solution": "SIDEDISH"
+   "solution": "SIDEDISH",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "SIDE DISH",
+    "definitions": [
+     {
+      "text": "supplementary fare",
+      "at": 54
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for",
+      "for": "substitution",
+      "note": "one thing in place of another, as in swapping X for Y"
+     }
+    ],
+    "linkWords": [
+     "resulting in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scandinavian",
+      "gives": "SWEDISH",
+      "note": "Swedish describes someone from Sweden"
+     },
+     {
+      "clueFragment": "passport – perhaps",
+      "gives": "ID",
+      "note": "a passport is an example of ID"
+     },
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "W is the abbreviation for wife"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ID",
+      "EDISH"
+     ]
+    },
+    "explanation": {
+     "surface": "A Swedish wife's passport leads to an extra charge on a ticket.",
+     "walkthrough": "In SWEDISH, the W for wife is replaced by ID. 'Fare' suggests a travel ticket, but it means food.",
+     "definitionFit": "A side dish is food served alongside the main course, an extra helping of fare in the food sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fare"
+    }
+   }
   },
   {
    "number": 27,
@@ -459,7 +2011,61 @@
     "text": "Former PM keeping dry in a shelter",
     "enumeration": "6"
    },
-   "solution": "ATTLEE"
+   "solution": "ATTLEE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ATTLEE",
+    "definitions": [
+     {
+      "text": "Former PM",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeping",
+      "for": "container",
+      "note": "to keep something is to hold it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "dry",
+      "gives": "TT",
+      "note": "TT is teetotal, abstaining from alcohol"
+     },
+     {
+      "clueFragment": "shelter",
+      "gives": "LEE",
+      "note": "the lee is the sheltered side away from the wind"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "TT",
+      "LEE"
+     ]
+    },
+    "explanation": {
+     "surface": "An ex-prime minister staying out of the rain in a bus shelter.",
+     "walkthrough": "TT is the standard abbreviation for teetotal. Clement Attlee was the British Labour prime minister from 1945 to 1951.",
+     "definitionFit": "Attlee led the British government after the Second World War, so he is a past prime minister."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dry"
+    }
+   }
   }
  ]
 }
