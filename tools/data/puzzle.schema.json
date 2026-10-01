@@ -117,6 +117,87 @@
    },
    "description": "Who wrote the hints, in the order the runs happened: exact model ids, or tools/provenance.py ANNOTATORS. Present exactly when an entry has an annotation."
   },
+  "unclued": {
+   "description": "Lights the setter fills with no clue, such as a shaded quotation round a ring of squares. Their squares are white even where no entry covers them, and the player fills them like any light. A square shared with an entry holds the same letter in both (tools/puzzle_integrity.py check_extra_cells).",
+   "type": "array",
+   "minItems": 1,
+   "items": {
+    "type": "object",
+    "required": [
+     "cells",
+     "solution"
+    ],
+    "additionalProperties": false,
+    "properties": {
+     "cells": {
+      "description": "The light's squares, 0-based from the top left, in the order its answer is read; a ring turns corners, so every square is listed. No square twice.",
+      "type": "array",
+      "minItems": 2,
+      "items": {
+       "type": "object",
+       "required": [
+        "x",
+        "y"
+       ],
+       "additionalProperties": false,
+       "properties": {
+        "x": {
+         "type": "integer",
+         "minimum": 0
+        },
+        "y": {
+         "type": "integer",
+         "minimum": 0
+        }
+       }
+      }
+     },
+     "solution": {
+      "description": "The answer, one letter per square of `cells`.",
+      "type": "string",
+      "pattern": "^[A-Z]+$"
+     },
+     "enumeration": {
+      "description": "The letter counts of the answer's words, spelled as a clue's `enumeration`. Absent when the puzzle prints none.",
+      "type": "string",
+      "pattern": "^\\d+(?:(?:[,\\-.;:/']| | and )\\d+)*$"
+     },
+     "note": {
+      "description": "What the puzzle says the light is, shown in its place in the clue list: \"Shaded quotation round the grid\".",
+      "type": "string",
+      "minLength": 1
+     }
+    }
+   }
+  },
+  "printed": {
+   "description": "Letters the setter printed in the grid, which the player is given rather than asked for. Each is on a white square, an entry's or an unclued light's, 0-based from the top left, and is the solution's letter there (tools/puzzle_integrity.py check_extra_cells).",
+   "type": "array",
+   "minItems": 1,
+   "items": {
+    "type": "object",
+    "required": [
+     "x",
+     "y",
+     "letter"
+    ],
+    "additionalProperties": false,
+    "properties": {
+     "x": {
+      "type": "integer",
+      "minimum": 0
+     },
+     "y": {
+      "type": "integer",
+      "minimum": 0
+     },
+     "letter": {
+      "type": "string",
+      "pattern": "^[A-Z]$"
+     }
+    }
+   }
+  },
   "entries": {
    "type": "array",
    "minItems": 1,

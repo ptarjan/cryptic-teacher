@@ -212,6 +212,10 @@ tools/test_blank_clue_carry.sh               proves a re-fetch cannot empty a pu
                                              old site, that the paper still wins wherever it
                                              prints words, and that the sixteen recovered prize
                                              puzzles still carry every clue
+tools/test_unclued_printed.sh                holds a puzzle's unclued lights and printed
+                                             letters to its grid at the write gate: on the
+                                             board, one letter per square, no square twice, and
+                                             the same letter as every crossing entry
 tools/test_empty_keys.sh                     holds the rule that a puzzle file never writes a
                                              key that says nothing: the fetchers omit an empty
                                              clue.separators and an un-written annotation, a
