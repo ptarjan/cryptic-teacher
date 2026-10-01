@@ -130,7 +130,7 @@ blog = corroborate.Record("fifteensquared", "fifteensquared",
 saved = (corroborate.fifteensquared, corroborate.georgeho, cv.read_puzzle_file)
 corroborate.fifteensquared, corroborate.georgeho = (lambda p: [blog]), (lambda p: [])
 cv.read_puzzle_file = lambda path: copy.deepcopy(base)
-got = cv.IndyBlog().puzzle("unused")
+got = cv.FifteenSquared().puzzle("unused")
 corroborate.fifteensquared, corroborate.georgeho, cv.read_puzzle_file = saved
 same("the blog witnesses only an answer that fills the light, and nothing else",
      ([e["solution"] for e in got["entries"]], cv.diff(base, got)),
@@ -292,6 +292,63 @@ same("georgeho: a Mephisto count's words are no clue, and no witness to the spli
 corroborate.georgeho = lambda puzzle: [mistitled]
 same("georgeho: a post holding none of our answers is another puzzle",
      gh.puzzle("telegraph-1", copy.deepcopy(base))["id"].split(":")[0], "another puzzle")
+# corroborate_all: a majority of three or more copies settles a light; two
+# copies that disagree, or a split, leave ours and log a lead.
+class Fake(cv.Adapter):
+    def __init__(self, name, origin=None, votes=cv.VOTED, exact=False):
+        self.name, self.origin, self.votes, self.exact_clues = name, origin or name, votes, exact
+
+
+def bee(sol="BEE", text="Buzzer", enum=None, ann=None):
+    p = copy.deepcopy(base)
+    e = p["entries"][3]
+    e["solution"], e["clue"]["text"] = sol, text
+    if enum:
+        e["clue"]["enumeration"] = enum
+    if ann:
+        e["annotation"] = ann
+    return p
+
+
+def verdict(ours, *held, write=True):
+    vs, _ = cv.majority(ours, list(held))
+    new = cv.apply_majority(ours, vs) if write else ours
+    return [(v["class"], v["light"], v["fixed"]) for v in vs], new
+
+
+# 3-across's middle cell is checked by no down light, so BYE crosses nothing.
+vs, new = verdict(bee("BYE"), (Fake("a"), bee()), (Fake("b"), bee()))
+same("majority: two other origins against ours, ours is fixed",
+     (vs, new["entries"][3]["solution"]), ([("ANSWER", "3-across", True)], "BEE"))
+vs, new = verdict(bee("BYE"), (Fake("a"), bee()))
+same("majority: two copies that disagree change nothing and are a lead",
+     (vs, new["entries"][3]["solution"]), ([("ANSWER", "3-across", False)], "BYE"))
+vs, new = verdict(bee("BYE"), (Fake("a", "blog"), bee()), (Fake("b", "blog"), bee()))
+same("majority: two reads of one origin are one vote",
+     (vs, new["entries"][3]["solution"]), ([("ANSWER", "3-across", False)], "BYE"))
+vs, _ = verdict(bee("BYE"), (Fake("a", "blog"), bee()), (Fake("b", "blog"), bee("BOE")),
+                (Fake("c"), bee()))
+same("majority: two reads of one origin that disagree abstain", vs,
+     [("ANSWER", "3-across", False)])
+vs, _ = verdict(bee("BYE"), (Fake("a"), bee("BOE")), (Fake("b"), bee()))
+same("majority: three copies, three answers, is a lead", vs, [("ANSWER", "3-across", False)])
+vs, _ = verdict(bee(text="Hummer"), (Fake("a", votes=("ANSWER",)), bee()),
+                (Fake("b", votes=("ANSWER",)), bee()))
+same("majority: a copy of ours with only answers swapped votes on no clue", vs, [])
+vs, new = verdict(bee(text="Hummer"), (Fake("a"), bee(text="Buzzer!")),
+                  (Fake("b", exact=True), bee(text="Buzzer.")))
+same("majority: a clue is fixed from the paper's own print",
+     (vs, new["entries"][3]["clue"]["text"]), ([("CLUE", "3-across", True)], "Buzzer."))
+vs, new = verdict(bee(text="Hummer", ann="Hummer: a car"), (Fake("a"), bee()), (Fake("b"), bee()))
+same("majority: a clue an annotation quotes stays ours",
+     (vs, new["entries"][3]["clue"]["text"]), ([("CLUE", "3-across", False)], "Hummer"))
+vs, new = verdict(bee(enum="1,2"), (Fake("a"), bee()), (Fake("b"), bee()))
+same("majority: a count is fixed", new["entries"][3]["clue"]["enumeration"], "3")
+vs, new = verdict(bee(), (Fake("a"), bee("TEE")), (Fake("b"), bee("TEE")))
+same("majority: an answer that would cross a letter it does not share stays ours",
+     (vs, new["entries"][3]["solution"]), ([("ANSWER", "3-across", False)], "BEE"))
+vs, _ = verdict(bee(), (Fake("a"), bee(text="Buzzer (3)")), (Fake("b"), bee(text="Buzzer (3) (3)")))
+same("majority: a count left at a copy's clue tail is no other word", vs, [])
 print("FAILED:", fails if fails else "none")
 sys.exit(1 if fails else 0)
 PY
