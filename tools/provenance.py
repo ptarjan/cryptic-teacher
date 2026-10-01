@@ -219,6 +219,10 @@ ACQUIRED_BY = {
         "channel": "blog",
         "what": "a fifteensquared write-up's clue list and answers, the grid "
                 "rebuilt from them by tools/times_grids.py's search"},
+    "tools/indy_puzzles.py": {
+        "channel": "blog",
+        "what": "a fifteensquared write-up of an Independent puzzle older than "
+                "its feed, the grid rebuilt by tools/times_grids.py's search"},
     "tools/build_authored_puzzle.py": {
         "channel": "authored", "what": "set here, not fetched"},
     "unknown": {
@@ -251,6 +255,9 @@ ACQUISITION_BY_SOURCE = {
     ("everyman", "observer.co.uk"): ("tools/fetch_observer.py",),
     ("independent", "puzzles.independent.co.uk"): ("tools/fetch_independent.py",),
     ("indysunday", "puzzles.independent.co.uk"): ("tools/fetch_independent.py",),
+    # Before the feed began (No 8,978) the only clue lists are fifteensquared's.
+    ("independent", "fifteensquared.net"): ("tools/indy_puzzles.py",),
+    ("indysunday", "fifteensquared.net"): ("tools/indy_puzzles.py",),
     ("cyclops", "www.private-eye.co.uk"): ("tools/fetch_privateeye.py",),
     ("globeandmail", "www.theglobeandmail.com"): ("tools/fetch_globeandmail.py",),
     ("metro", "metro.co.uk"): ("tools/fetch_metro.py",
@@ -409,10 +416,13 @@ def solution_origin_from_file(puzzle):
     return None
 
 
-def grid_origin(series):
+def grid_origin(series, url=None):
     """A book or blog puzzle's geometry was worked out from its clue list;
-    everything else arrives with the grid the source published."""
-    if is_book(series) or "blog" in series_table.meta(series):
+    everything else arrives with the grid the source published. A series
+    whose own feed ships grids can still hold puzzles read off a blog (the
+    Independent before its feed began), so the source's host decides too."""
+    if (is_book(series) or "blog" in series_table.meta(series)
+            or host_of(url) in BLOG_FILER):
         return "reconstructed"
     return GRID_ORIGIN_BY_SERIES.get(series, "published")
 
@@ -444,7 +454,7 @@ def derive(puzzle, claimed, acquired_on, previously=None):
         "retrievedFrom": channel_of(tool),
         "acquiredBy": tool,
         "acquiredOn": acquired_on if acquired_on else "unknown",
-        "gridOrigin": grid_origin(series),
+        "gridOrigin": grid_origin(series, old_source.get("url")),
         "feedId": old_source.get("feedId"),
     }
     book = book_of(series, puzzle["number"]) if is_book(series) else None
@@ -600,7 +610,7 @@ def check(puzzle):
         findings.append(f"source.acquiredOn is {acquired_on!r} — want an ISO "
                         f"date or \"unknown\"")
 
-    expected_grid = grid_origin(series)
+    expected_grid = grid_origin(series, source.get("url"))
     if source.get("gridOrigin") not in (expected_grid, "unknown"):
         findings.append(f"source.gridOrigin is {source.get('gridOrigin')!r} but "
                         f"{series!r} grids are {expected_grid!r}")
