@@ -23,6 +23,9 @@
   "date": "2026-03-27",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,64 @@
     "text": "Losing Head of Recruitment employed in Surrey town",
     "enumeration": "6"
    },
-   "solution": "WOKING"
+   "solution": "WOKING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "WOKING",
+    "definitions": [
+     {
+      "text": "Surrey town",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Head of",
+      "for": "letter_selection",
+      "note": "the head of anything is its top, so only the opening letter of the next word is wanted"
+     },
+     {
+      "text": "Losing",
+      "for": "deletion",
+      "note": "to lose something is to be left without it, so a letter drops out of the word"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "employed",
+      "gives": "WORKING",
+      "note": "someone employed is in work, or working"
+     },
+     {
+      "clueFragment": "Recruitment",
+      "gives": "R",
+      "select": "first",
+      "note": "the opening letter of the word, which is the one to remove"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WO",
+      "KING"
+     ]
+    },
+    "explanation": {
+     "surface": "A firm in a commuter town loses the person who runs its hiring.",
+     "walkthrough": "The capitals on Head of Recruitment are for show. WORKING without its R leaves WOKING, a commuter town in Surrey, a county just south-west of London.",
+     "definitionFit": "Woking is a large commuter settlement in that English county, so it is an example of the category named."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Head"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +110,57 @@
     "text": "Not all cadets awkwardly turned up drunk",
     "enumeration": "6"
    },
-   "solution": "WASTED"
+   "solution": "WASTED",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "WASTED",
+    "definitions": [
+     {
+      "text": "drunk",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not all",
+      "for": "hidden_word",
+      "note": "only part of the run of words is used, so the letters sit inside them"
+     },
+     {
+      "text": "turned up",
+      "for": "reversal",
+      "note": "in a down entry, turning letters upwards makes them read from the bottom to the top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cadets awkwardly",
+      "gives": "DETSAW",
+      "note": "six consecutive letters spanning the gap between the two words"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "DETSAW",
+       "to": "WASTED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Clumsy cadets stagger in from a night out the worse for drink.",
+     "walkthrough": "'awkwardly' looks like an anagram signal, but the letters are hidden: caDETS AWkwardly, read upwards, gives WASTED.",
+     "definitionFit": "Wasted is common slang for very intoxicated, a close synonym of the adjective used here."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "awkwardly"
+    }
+   }
   },
   {
    "number": 2,
@@ -74,7 +184,74 @@
      }
     ]
    },
-   "solution": "KNOWITALL"
+   "solution": "KNOWITALL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "KNOW-IT-ALL",
+    "definitions": [
+     {
+      "text": "Clever clogs",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fancy",
+      "for": "anagram",
+      "note": "fancy as an adjective means elaborate or ornamented, so the letters are dressed up in a new order"
+     },
+     {
+      "text": "defending",
+      "for": "container",
+      "note": "defenders surround what they protect, so one piece is put around another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Kelvin",
+      "gives": "K",
+      "note": "K is the symbol for the kelvin, the unit of temperature"
+     },
+     {
+      "clueFragment": "will not",
+      "gives": "WILLNOT",
+      "note": "taken as written, ready to be rearranged"
+     },
+     {
+      "clueFragment": "answer",
+      "gives": "A",
+      "note": "A is the usual abbreviation for answer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "NOWIT",
+      "A",
+      "LL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "WILLNOT",
+       "gives": "NOWITLL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A smug clever person named Kelvin refuses to like the reply he is given.",
+     "walkthrough": "'will not fancy' reads as refusing to like something, but 'fancy' rearranges WILL NOT around A, all after K. Clever clogs is a British phrase for a show-off who thinks they know everything.",
+     "definitionFit": "Both phrases describe a person who parades their supposed knowledge, so they are informal synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "fancy"
+    }
+   }
   },
   {
    "number": 3,
@@ -88,7 +265,62 @@
     "text": "Developing perfume after snag is discovered",
     "enumeration": "7"
    },
-   "solution": "NASCENT"
+   "solution": "NASCENT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "NASCENT",
+    "definitions": [
+     {
+      "text": "Developing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is discovered",
+      "for": "letter_selection",
+      "note": "to dis-cover is to take off the covering, so the outside letters are stripped and the middle kept"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "the piece named first goes behind the piece named second, reversing the clue's order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "snag",
+      "gives": "NA",
+      "select": "middle",
+      "note": "the word with its first and last letters removed"
+     },
+     {
+      "clueFragment": "perfume",
+      "gives": "SCENT",
+      "note": "a perfume is a scent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NA",
+      "SCENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A new fragrance in development runs into a problem when its secret leaks.",
+     "walkthrough": "'discovered' suggests finding something out; here it means uncovered, so snag loses its outer letters.",
+     "definitionFit": "Nascent describes something just coming into being and beginning to grow, which matches developing as an adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "discovered"
+    }
+   }
   },
   {
    "number": 4,
@@ -102,7 +334,54 @@
     "text": "Defamatory speech by one resident of Anglesey?",
     "enumeration": "8"
    },
-   "solution": "ISLANDER"
+   "solution": "ISLANDER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ISLANDER",
+    "definitions": [
+     {
+      "text": "resident of Anglesey?",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by",
+      "for": "charade",
+      "note": "beside means placed next to, here at the front, so the piece named second leads"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "Defamatory speech",
+      "gives": "SLANDER",
+      "note": "spoken defamation is the legal term for it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "SLANDER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone from a Welsh island is accused of saying damaging things about another.",
+     "walkthrough": "Anglesey is an island off the north-west coast of Wales; the question mark flags that its resident is only one example.",
+     "definitionFit": "Anyone living on an island is an islander, and Anglesey is one, so this is a definition by example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "by"
+    }
+   }
   },
   {
    "number": 5,
@@ -116,7 +395,57 @@
     "text": "Stall displaying seafood that's rather cold",
     "enumeration": "11"
    },
-   "solution": "STANDOFFISH"
+   "solution": "STANDOFFISH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STANDOFFISH",
+    "definitions": [
+     {
+      "text": "rather cold",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stall",
+      "gives": "STAND",
+      "note": "a market stall is a stand"
+     },
+     {
+      "clueFragment": "displaying",
+      "gives": "OF",
+      "note": "a stall displaying goods is a stand of them"
+     },
+     {
+      "clueFragment": "seafood",
+      "gives": "FISH",
+      "note": "fish is the main kind of seafood"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAND",
+      "OF",
+      "FISH"
+     ]
+    },
+    "explanation": {
+     "surface": "A fishmonger's display at the market is kept chilled.",
+     "walkthrough": "The surface suggests chilled seafood, but 'cold' describes a manner, not a temperature; 'displaying' is a loose stand-in for OF.",
+     "definitionFit": "A standoffish person is distant and unfriendly, which is what a cold manner means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cold"
+    }
+   }
   },
   {
    "number": 6,
@@ -130,7 +459,60 @@
     "text": "Takes for granted Number 10 shortly will have reshuffle",
     "enumeration": "7"
    },
-   "solution": "ASSUMES"
+   "solution": "ASSUMES",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ASSUMES",
+    "definitions": [
+     {
+      "text": "Takes for granted",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shortly",
+      "for": "deletion",
+      "note": "made short, so the word loses its final letter"
+     },
+     {
+      "text": "reshuffle",
+      "for": "anagram",
+      "note": "a reshuffle reorganises a set of members, so the letters are put in a new order"
+     }
+    ],
+    "linkWords": [
+     "will have"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Number 10",
+      "gives": "MASSEUSE",
+      "note": "the answer to the clue numbered 10 in this grid"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MASSEUS",
+       "gives": "ASSUMES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The Prime Minister, at Number 10 Downing Street, will soon reorganise the Cabinet.",
+     "walkthrough": "Number 10 looks like Downing Street but points to 10 across, MASSEUSE. Cut short to MASSEUS, its letters rearrange into ASSUMES.",
+     "definitionFit": "To assume something is to accept it as true without proof, so the verbs are direct synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Number"
+    }
+   }
   },
   {
    "number": 7,
@@ -144,7 +526,55 @@
     "text": "Old priest completed enthralling game",
     "enumeration": "5"
    },
-   "solution": "DRUID"
+   "solution": "DRUID",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DRUID",
+    "definitions": [
+     {
+      "text": "Old priest",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "enthralling",
+      "for": "container",
+      "note": "to enthral is to hold captive, so one piece holds another inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "completed",
+      "gives": "DID",
+      "note": "did is to have completed a task"
+     },
+     {
+      "clueFragment": "game",
+      "gives": "RU",
+      "note": "RU is rugby union, the standard crossword game"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "RU",
+      "ID"
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly clergyman finished a game that had him gripped.",
+     "walkthrough": "'enthralling' reads as describing the game, but it tells you DID holds RU.",
+     "definitionFit": "Druids were the priestly class of the ancient Celts, so an old priest is a fair description."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "enthralling"
+    }
+   }
   },
   {
    "number": 8,
@@ -158,7 +588,52 @@
     "text": "White wine Sir Nigel ordered",
     "enumeration": "8"
    },
-   "solution": "RIESLING"
+   "solution": "RIESLING",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RIESLING",
+    "definitions": [
+     {
+      "text": "White wine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ordered",
+      "for": "anagram",
+      "note": "put into order, so the letters are arranged afresh"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sir Nigel",
+      "gives": "SIRNIGEL",
+      "note": "the letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SIRNIGEL",
+       "gives": "RIESLING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A titled diner asks for a glass of white wine.",
+     "walkthrough": "'ordered' looks like requesting a drink; it actually reorders the letters of SIR NIGEL.",
+     "definitionFit": "Riesling is a grape variety and the white wine made from it, typical of Germany and Alsace."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "ordered"
+    }
+   }
   },
   {
    "number": 9,
@@ -172,7 +647,65 @@
     "text": "Wife maybe put pickle over pizza originally",
     "enumeration": "6"
    },
-   "solution": "SPOUSE"
+   "solution": "SPOUSE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SPOUSE",
+    "definitions": [
+     {
+      "text": "Wife maybe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "the origin of a word is its beginning, so its opening letter is taken"
+     },
+     {
+      "text": "over",
+      "for": "container",
+      "note": "something put over another covers it, so one piece wraps round the other"
+     }
+    ],
+    "linkWords": [
+     "put"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pickle",
+      "gives": "SOUSE",
+      "note": "to souse is to pickle in brine or vinegar"
+     },
+     {
+      "clueFragment": "pizza",
+      "gives": "P",
+      "select": "first",
+      "note": "the first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "P",
+      "OUSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A wife puts pickle on top of a pizza.",
+     "walkthrough": "SOUSE goes over P. 'maybe' marks the definition as an example: a wife is one kind of spouse.",
+     "definitionFit": "A wife is one example of a marriage partner; the qualifier makes the example fair for the general term."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pickle"
+    }
+   }
   },
   {
    "number": 10,
@@ -186,7 +719,64 @@
     "text": "Spain blocks widespread employment producing rubber",
     "enumeration": "8"
    },
-   "solution": "MASSEUSE"
+   "solution": "MASSEUSE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MASSEUSE",
+    "definitions": [
+     {
+      "text": "rubber",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "blocks",
+      "for": "container",
+      "note": "a block stands in the way, so one piece sits inside another and obstructs it"
+     }
+    ],
+    "linkWords": [
+     "producing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "widespread",
+      "gives": "MASS",
+      "note": "mass as an adjective means large-scale"
+     },
+     {
+      "clueFragment": "employment",
+      "gives": "USE",
+      "note": "employment of something is its use"
+     },
+     {
+      "clueFragment": "Spain",
+      "gives": "E",
+      "note": "E is the international vehicle code for Spain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MASS",
+      "E",
+      "USE"
+     ]
+    },
+    "explanation": {
+     "surface": "Spain stands in the way of mass use of rubber.",
+     "walkthrough": "'rubber' looks like the material; it means a person who rubs. E for Spain comes from international car registration plates.",
+     "definitionFit": "A masseuse gives massages, kneading and stroking clients, so she is one who rubs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rubber"
+    }
+   }
   },
   {
    "number": 11,
@@ -200,7 +790,73 @@
     "text": "Proved last month this writer's about to pen study",
     "enumeration": "9"
    },
-   "solution": "EVIDENCED"
+   "solution": "EVIDENCED",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "container"
+    ],
+    "answer": "EVIDENCED",
+    "definitions": [
+     {
+      "text": "Proved",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "turned about means facing the other way, so the letters run backwards"
+     },
+     {
+      "text": "to pen",
+      "for": "container",
+      "note": "a pen encloses animals, so one piece encloses another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "last month",
+      "gives": "DEC",
+      "note": "December, the last month of the year, abbreviated"
+     },
+     {
+      "clueFragment": "this writer's",
+      "gives": "IVE",
+      "note": "the setter saying 'I have', contracted"
+     },
+     {
+      "clueFragment": "study",
+      "gives": "DEN",
+      "note": "a den is a private room for work, a study"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVI",
+      "DEN",
+      "CED"
+     ],
+     "reversals": [
+      {
+       "from": "DECIVE",
+       "to": "EVICED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A writer claims last month to be about to write a piece that proves something.",
+     "walkthrough": "'this writer' is the setter speaking of themself, a common crossword device; the first two pieces are reversed together before the third goes inside.",
+     "definitionFit": "To evidence a claim is to show it is true by supplying support, so the past forms are synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "study"
+    }
+   }
   },
   {
    "number": 12,
@@ -214,7 +870,69 @@
     "text": "Watch perhaps number cutting metal, they're periodically visible",
     "enumeration": "11"
    },
-   "solution": "CHRONOMETER"
+   "solution": "CHRONOMETER",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CHRONOMETER",
+    "definitions": [
+     {
+      "text": "Watch perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cutting",
+      "for": "container",
+      "note": "a blade cutting into something goes inside it, so one piece is inserted in another"
+     },
+     {
+      "text": "periodically visible",
+      "for": "letter_selection",
+      "note": "something seen only at intervals shows every other letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "metal",
+      "gives": "CHROME",
+      "note": "chrome is chromium, a metal used in plating"
+     },
+     {
+      "clueFragment": "number",
+      "gives": "NO",
+      "note": "NO is the abbreviation for number"
+     },
+     {
+      "clueFragment": "they're",
+      "gives": "TER",
+      "select": "alternate",
+      "note": "the first, third and fifth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHRO",
+      "NO",
+      "ME",
+      "TER"
+     ]
+    },
+    "explanation": {
+     "surface": "A watch whose numbers, cut into metal, can be seen only now and then.",
+     "walkthrough": "'number' looks like a numeral on a watch face but is the abbreviation, and 'they're' is used purely for its letters.",
+     "definitionFit": "A chronometer is a very accurate timepiece, and a watch is one example of a timepiece, hence the qualifier."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 13,
@@ -228,7 +946,42 @@
     "text": "Exemplary type",
     "enumeration": "5"
    },
-   "solution": "MODEL"
+   "solution": "MODEL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MODEL",
+    "definitions": [
+     {
+      "text": "Exemplary",
+      "at": 0
+     },
+     {
+      "text": "type",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Exemplary",
+      "note": "first meaning: serving as a perfect example to copy"
+     },
+     {
+      "clueFragment": "type",
+      "note": "second meaning: a version or design of a product, as of a car"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The two words look like a phrase for a well-behaved person, but they are separate meanings of one word.",
+     "definitionFit": "As an adjective it means worthy of imitation, as a noun a particular design or version of something manufactured."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "type"
+    }
+   }
   },
   {
    "number": 14,
@@ -252,7 +1005,53 @@
      }
     ]
    },
-   "solution": "AFTERAFASHION"
+   "solution": "AFTERAFASHION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AFTER A FASHION",
+    "definitions": [
+     {
+      "text": "to a certain extent",
+      "at": 26
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Following",
+      "gives": "AFTER",
+      "note": "following means coming after"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is the abbreviation for American"
+     },
+     {
+      "clueFragment": "trend",
+      "gives": "FASHION",
+      "note": "a trend is a fashion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AFTER",
+      "A",
+      "FASHION"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone partly follows an American trend.",
+     "walkthrough": "The surface reads as one person following a trend; it is three pieces end to end.",
+     "definitionFit": "The idiom means somewhat or in a rough way, not fully or well, so it matches the limiting phrase."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Following"
+    }
+   }
   },
   {
    "number": 15,
@@ -266,7 +1065,61 @@
     "text": "Aim to involve nun, not half demanding attention",
     "enumeration": "9"
    },
-   "solution": "INSISTENT"
+   "solution": "INSISTENT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "INSISTENT",
+    "definitions": [
+     {
+      "text": "demanding attention",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not half",
+      "for": "deletion",
+      "note": "without half of it, so the word loses its second half"
+     },
+     {
+      "text": "to involve",
+      "for": "container",
+      "note": "to involve is to take in, so one piece contains another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Aim",
+      "gives": "INTENT",
+      "note": "an aim is an intent"
+     },
+     {
+      "clueFragment": "nun",
+      "gives": "SIS",
+      "note": "a nun is a sister, and half of that word is kept"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "SIS",
+      "TENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A plan to involve a nun who wants attention.",
+     "walkthrough": "A nun is addressed as Sister, and halving that title leaves the piece that goes inside.",
+     "definitionFit": "Insistent describes someone who keeps pressing a demand and will not be ignored, matching the adjectival phrase."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Aim"
+    }
+   }
   },
   {
    "number": 16,
@@ -280,7 +1133,54 @@
     "text": "Times are flexible for airline",
     "enumeration": "8"
    },
-   "solution": "EMIRATES"
+   "solution": "EMIRATES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EMIRATES",
+    "definitions": [
+     {
+      "text": "airline",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flexible",
+      "for": "anagram",
+      "note": "something flexible can be bent into other shapes, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Times are",
+      "gives": "TIMESARE",
+      "note": "the letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TIMESARE",
+       "gives": "EMIRATES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An airline offers flexible departure times.",
+     "walkthrough": "'flexible' sounds like a selling point for flight times; it rearranges TIMES ARE.",
+     "definitionFit": "Emirates is the international airline based in Dubai, so it is a named example of the category."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "flexible"
+    }
+   }
   },
   {
    "number": 17,
@@ -294,7 +1194,61 @@
     "text": "Married Lois in Israel, amazingly wealthy lady",
     "enumeration": "13"
    },
-   "solution": "MILLIONAIRESS"
+   "solution": "MILLIONAIRESS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "MILLIONAIRESS",
+    "definitions": [
+     {
+      "text": "wealthy lady",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "amazingly",
+      "for": "anagram",
+      "note": "something amazing is astonishing and out of the ordinary, so the letters are thrown into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Married",
+      "gives": "M",
+      "note": "M is the abbreviation for married"
+     },
+     {
+      "clueFragment": "Lois in Israel",
+      "gives": "LOISINISRAEL",
+      "note": "the letters taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ILLIONAIRESS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LOISINISRAEL",
+       "gives": "ILLIONAIRESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Lois got married in Israel and amazingly turned out to be a very rich woman.",
+     "walkthrough": "'in' looks like a link but is part of the letters to rearrange, after M for married.",
+     "definitionFit": "A millionairess is a woman worth over a million, which is a precise form of a rich woman."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 18,
@@ -308,7 +1262,58 @@
     "text": "Whole of Bury for instance to visit",
     "enumeration": "7"
    },
-   "solution": "INTEGER"
+   "solution": "INTEGER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "INTEGER",
+    "definitions": [
+     {
+      "text": "Whole",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to visit",
+      "for": "container",
+      "note": "a visitor goes inside someone else's home, so one piece goes inside another"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bury",
+      "gives": "INTER",
+      "note": "to inter is to bury a body"
+     },
+     {
+      "clueFragment": "for instance",
+      "gives": "EG",
+      "note": "e.g. is the abbreviation for 'for example'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INT",
+      "EG",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "The whole town of Bury, a place in Greater Manchester, is to have visitors.",
+     "walkthrough": "Bury looks like the English town; here it is the verb, INTER. 'Whole' works as a noun, a whole thing or whole number.",
+     "definitionFit": "An integer is a whole number, and in older usage any complete entity or whole, so the noun senses coincide."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bury"
+    }
+   }
   },
   {
    "number": 19,
@@ -328,7 +1333,51 @@
      }
     ]
    },
-   "solution": "ENROUTE"
+   "solution": "ENROUTE",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "EN ROUTE",
+    "definitions": [
+     {
+      "text": "on the way",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Broadcast",
+      "for": "homophone",
+      "note": "a broadcast is heard over the air, so the words are judged by their sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "EN",
+      "soundsLike": "ON",
+      "note": "about can mean on, concerning a subject"
+     },
+     {
+      "clueFragment": "England cricketer",
+      "gives": "ROUTE",
+      "soundsLike": "ROOT",
+      "note": "Joe Root is a leading England batsman"
+     }
+    ],
+    "explanation": {
+     "surface": "A radio commentary about an England cricketer travelling to the ground.",
+     "walkthrough": "ON ROOT, said aloud, gives the French-derived phrase, with ROUTE pronounced 'root' in British English. Joe Root is a former England Test captain.",
+     "definitionFit": "The borrowed French phrase means in the course of a journey, so it is an exact synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Broadcast"
+    }
+   }
   },
   {
    "number": 20,
@@ -342,7 +1391,62 @@
     "text": "Train conks out - closure of Circle Line!",
     "enumeration": "6"
    },
-   "solution": "DIESEL"
+   "solution": "DIESEL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DIESEL",
+    "definitions": [
+     {
+      "text": "Train",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "closure of",
+      "for": "letter_selection",
+      "note": "the closure of something is its end, so only the last letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "conks out",
+      "gives": "DIES",
+      "note": "a machine that conks out stops working, or dies"
+     },
+     {
+      "clueFragment": "Circle",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of the word"
+     },
+     {
+      "clueFragment": "Line",
+      "gives": "L",
+      "note": "L is the abbreviation for line"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIES",
+      "E",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A train breaks down, shutting London's Circle Line.",
+     "walkthrough": "The Circle Line is a London Underground route; the capitals are surface dressing, and 'Train' is the definition.",
+     "definitionFit": "A diesel is a locomotive or train driven by a diesel engine, a common shorthand in railway talk."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Circle"
+    }
+   }
   },
   {
    "number": 21,
@@ -356,7 +1460,50 @@
     "text": "Genuine lamp changing hands",
     "enumeration": "5"
    },
-   "solution": "RIGHT"
+   "solution": "RIGHT",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "RIGHT",
+    "definitions": [
+     {
+      "text": "Genuine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changing hands",
+      "for": "substitution",
+      "note": "each hand has a one-letter abbreviation, so the letter standing for one hand is exchanged for the other's"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lamp",
+      "gives": "LIGHT",
+      "note": "a lamp is a light"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "IGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "A real antique lamp is sold to a new owner.",
+     "walkthrough": "'changing hands' suggests a sale, but means swapping L (left) for R (right) in LIGHT.",
+     "definitionFit": "Right can mean proper or authentic, as in the right stuff, matching genuine as an adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "hands"
+    }
+   }
   },
   {
    "number": 22,
@@ -370,7 +1517,39 @@
     "text": "Person with a stable job?",
     "enumeration": "5"
    },
-   "solution": "GROOM"
+   "solution": "GROOM",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "GROOM",
+    "definitions": [
+     {
+      "text": "Person with a stable job?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Person with a stable job",
+      "note": "surface reading: someone in secure, steady employment"
+     },
+     {
+      "clueFragment": "stable job?",
+      "note": "setter's reading: work done in a stable, looking after horses"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'stable' means secure in the surface, but it is a building for horses, and the question mark flags the pun.",
+     "definitionFit": "A groom is employed to care for horses, feeding and brushing them, so the work is literally in a stable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "stable"
+    }
+   }
   },
   {
    "number": 23,
@@ -384,7 +1563,71 @@
     "text": "Retired actor meets a PM and Hindu teacher",
     "enumeration": "9"
    },
-   "solution": "MAHARISHI"
+   "solution": "MAHARISHI",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "MAHARISHI",
+    "definitions": [
+     {
+      "text": "Hindu teacher",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Retired",
+      "for": "reversal",
+      "note": "to retire is to withdraw or go back, so the letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "meets",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "actor",
+      "gives": "HAM",
+      "note": "a ham is a bad, overacting actor"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "PM",
+      "gives": "RISHI",
+      "note": "Rishi Sunak was the UK Prime Minister from 2022 to 2024"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAH",
+      "A",
+      "RISHI"
+     ],
+     "reversals": [
+      {
+       "from": "HAM",
+       "to": "MAH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A retired actor meets a Prime Minister and a guru.",
+     "walkthrough": "'Retired' reads as no longer working; it turns HAM round. The PM is named by his first name, Rishi.",
+     "definitionFit": "A maharishi is a Hindu sage or spiritual guide, literally a great seer, so a teacher in that faith."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Retired"
+    }
+   }
   },
   {
    "number": 24,
@@ -398,7 +1641,59 @@
     "text": "Allowing vacuous teenagers to give opinions",
     "enumeration": "8"
    },
-   "solution": "THOUGHTS"
+   "solution": "THOUGHTS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "THOUGHTS",
+    "definitions": [
+     {
+      "text": "opinions",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "vacuous",
+      "for": "letter_selection",
+      "note": "vacuous means empty, so the word is emptied and only its outside letters kept"
+     }
+    ],
+    "linkWords": [
+     "to give"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Allowing",
+      "gives": "THOUGH",
+      "note": "allowing that, or granting, can mean though"
+     },
+     {
+      "clueFragment": "teenagers",
+      "gives": "TS",
+      "select": "outer",
+      "note": "the first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THOUGH",
+      "TS"
+     ]
+    },
+    "explanation": {
+     "surface": "Letting empty-headed teenagers have their say.",
+     "walkthrough": "'vacuous' looks like an insult to teenagers, but it empties the word, leaving TS. 'Allowing' as a conjunction, granting that, means though.",
+     "definitionFit": "A person's thoughts on a subject are their views or opinions, so the plural nouns are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "vacuous"
+    }
+   }
   },
   {
    "number": 25,
@@ -412,7 +1707,46 @@
     "text": "Where in New York one can see Cats?",
     "enumeration": "6"
    },
-   "solution": "QUEENS"
+   "solution": "QUEENS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "QUEENS",
+    "definitions": [
+     {
+      "text": "Where in New York",
+      "at": 0
+     },
+     {
+      "text": "Cats",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "one can see"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where in New York",
+      "note": "first meaning: one of the five boroughs of the city"
+     },
+     {
+      "clueFragment": "Cats",
+      "note": "second meaning: female cats, as breeders call them"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests the musical Cats on Broadway; the capital C hides plain female cats.",
+     "definitionFit": "Queens is a borough of New York City, and a queen is the term for an adult female cat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Cats"
+    }
+   }
   },
   {
    "number": 26,
@@ -426,7 +1760,61 @@
     "text": "Dark gold round hat",
     "enumeration": "8"
    },
-   "solution": "SOMBRERO"
+   "solution": "SOMBRERO",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "SOMBRERO",
+    "definitions": [
+     {
+      "text": "hat",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "reversal",
+      "note": "turned round means facing the other way, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dark",
+      "gives": "SOMBRE",
+      "note": "sombre means dark or gloomy"
+     },
+     {
+      "clueFragment": "gold",
+      "gives": "OR",
+      "note": "or is the heraldic word for gold"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOMBRE",
+      "RO"
+     ],
+     "reversals": [
+      {
+       "from": "OR",
+       "to": "RO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dark hat with a round golden trim.",
+     "walkthrough": "'round' looks like the shape of the hat, but it turns the heraldic gold back to front.",
+     "definitionFit": "A sombrero is a wide-brimmed Mexican hat, so it is a specific example of the general headwear term."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 27,
@@ -440,7 +1828,75 @@
     "text": "Type of surgeon, name former Democrat holds back",
     "enumeration": "6"
    },
-   "solution": "DENTAL"
+   "solution": "DENTAL",
+   "annotation": {
+    "type": [
+     "container",
+     "charade",
+     "reversal"
+    ],
+    "answer": "DENTAL",
+    "definitions": [
+     {
+      "text": "Type of surgeon",
+      "at": 0,
+      "note": "the answer is an adjective; the clue names the kind of surgeon it describes, as in dental surgeon"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holds",
+      "for": "container",
+      "note": "to hold is to keep within, so one piece goes inside another"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means travelling the other way, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "former",
+      "gives": "LATE",
+      "note": "late can mean former, as in the late chairman"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "N is the abbreviation for name"
+     },
+     {
+      "clueFragment": "Democrat",
+      "gives": "D",
+      "note": "D is the abbreviation for Democrat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "E",
+      "N",
+      "TAL"
+     ],
+     "reversals": [
+      {
+       "from": "LATNED",
+       "to": "DENTAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A surgeon is named whom a former Democrat keeps on.",
+     "walkthrough": "LATE holds N, D follows, and the whole is read backwards.",
+     "definitionFit": "A dental surgeon works on teeth, so dental is the adjective naming that kind of surgeon."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "holds"
+    }
+   }
   }
  ]
 }
