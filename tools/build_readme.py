@@ -480,6 +480,7 @@ SERIES_NAMES = {
     "tls": "TLS crossword",
     "mephisto": "Times Mephisto",
     "listener": "Listener crossword",
+    "canberra": "Canberra Times cryptic",
     "ftcryptic": "Financial Times cryptic",
     "telegraph": "Telegraph cryptic",
     "toughie": "Telegraph Toughie",
