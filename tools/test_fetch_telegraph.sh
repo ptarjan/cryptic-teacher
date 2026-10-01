@@ -162,6 +162,10 @@ same("a garbled bucket clue keeps ours, and its annotation",
 same("a bucket typo keeps our spelling", g["3-across"]["clue"]["text"], "Buzzing insect")
 same("an enumeration not counting its answer keeps ours", g["3-across"]["clue"]["enumeration"], "3")
 same("each kept or dropped thing is noted", len(notes), 4)
+same("a link word that left the clue sinks the annotation, one still there keeps it",
+     [ft.annotation_fits({"answer": "TWO", "linkWords": ["seeing"]}, "Couple observing", "TWO"),
+      ft.annotation_fits({"answer": "TWO", "linkWords": ["observing"]}, "Couple observing", "TWO")],
+     [False, True])
 same("the bucket's era is its own", [ft.served("telegraph", 27737), ft.served("telegraph", 27738),
                                      ft.served("toughie", 2486), ft.served("times", 30000)],
      [False, True, True, False])
