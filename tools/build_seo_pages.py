@@ -816,6 +816,48 @@ BADGE_KEY = ("<strong>full hints</strong>: every clue explained. "
              'how it is judged</a>).')
 
 
+STRIP_BINS, STRIP_MIN = 20, 10
+
+
+def difficulty_strip(name, ps):
+    """Where a series' rated puzzles fall on the site-wide difficulty
+    percentile: one bar per twentieth, coloured by the band most of its puzzles
+    in that bar carry, scaled to the series' own tallest bar so it shows shape
+    and never size, with the median puzzle marked. Every series is drawn on the
+    same 0-100 axis, so they compare down the page. Empty for a series with
+    fewer than STRIP_MIN rated puzzles, too few for a shape."""
+    rated = sorted((d["percentile"], d["band"]) for p in ps
+                   if (d := p.get("difficulty") or {}).get("percentile") is not None
+                   and d.get("band"))
+    if len(rated) < STRIP_MIN:
+        return ""
+    bins = [{} for _ in range(STRIP_BINS)]
+    for pct, band in rated:
+        b = bins[min(int(pct * STRIP_BINS / 100), STRIP_BINS - 1)]
+        b[band] = b.get(band, 0) + 1
+    top = max(sum(b.values()) for b in bins)
+    W, H, step = 300, 24, 300 / STRIP_BINS
+    body = [f'<line class="axis" x1="0" y1="{H + .5}" x2="{W}" y2="{H + .5}"/>']
+    for i, b in enumerate(bins):
+        if b:
+            h = H * sum(b.values()) / top
+            band = max(b, key=b.get)
+            body.append(f'<rect class="band diff-{esc(band.lower())}" x="{i * step + .5:.1f}" '
+                        f'y="{H - h:.1f}" width="{step - 1:.1f}" height="{h:.1f}"/>')
+    med_pct, med_band = rated[len(rated) // 2]
+    x = W * med_pct / 100
+    body.append(f'<line class="median" x1="{x:.1f}" y1="0" x2="{x:.1f}" y2="{H + 4}"/>'
+                f'<text x="0" y="{H + 15}">easier</text>'
+                f'<text x="{W}" y="{H + 15}" text-anchor="end">harder</text>')
+    band = med_band.lower()
+    label = (f"{name}: its typical puzzle is {band}, harder than {med_pct}% of the rated "
+             "puzzles on this site.")
+    return (f'<figure class="chart strip"><svg viewBox="0 -2 {W} {H + 19}" role="img" '
+            f'aria-label="{esc(label)}">{"".join(body)}</svg>'
+            f'<figcaption>Typical puzzle <span class="badge diff diff-{esc(band)}">{esc(band)}'
+            f'</span>, harder than {med_pct}% of rated puzzles here.</figcaption></figure>')
+
+
 def hub_page(idx):
     who = papers(idx)                 # "Guardian, Independent and Observer"
     n_all = sum(1 for p in idx["puzzles"] if p.get("hasSolutions"))
@@ -829,7 +871,6 @@ def hub_page(idx):
     sections = []
     for s, years in listings(idx).items():
         every = [p for ps in years.values() for p in ps]
-        n = len(every)
         links = " &middot; ".join(
             f'<a href="{site_url(listing_path(s, y))}">{esc(y)}</a> ({len(ps):,})'
             for y, ps in years.items())
@@ -838,7 +879,8 @@ def hub_page(idx):
             f'<h2>{esc(series_name(s))} <span class="badge series">'
             f'{esc(series_meta.badge(s))}</span></h2>'
             + (f'<p>{esc(b)}</p>' if (b := series_blurb(s, every)) else "")
-            + f'<p class="muted">{n:,} puzzle{"s" if n != 1 else ""}. Pick a year:</p>'
+            + difficulty_strip(series_name(s), every)
+            + '<p class="muted">Pick a year:</p>'
             f'<p class="s-years">{links}</p></section>')
 
     list_ld = {"@context": "https://schema.org", "@type": "CollectionPage",
@@ -856,6 +898,8 @@ def hub_page(idx):
         "<p class=\"muted small-note\" id=\"difficulty\">Difficulty runs Gentle, Moderate, "
         "Tough, Brutal. It compares each puzzle with the others on this site, from its grid, "
         f'clues and answers: <a href="{BASE}/difficulty/">how difficulty is rated</a>. '
+        "Under each paper, the bars show where its rated puzzles fall from easiest to "
+        "hardest, coloured by band, and the line marks its middle puzzle. "
         f'New to cryptic crosswords? <a href="{BASE}/learn/">Start with how the clues work</a>.</p>',
         *sections,
         "</main>",

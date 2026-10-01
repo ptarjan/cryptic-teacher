@@ -218,6 +218,7 @@ LAYOUT = [
     ("building and checking the site", "tools/page_card.py", "fills og_page_card.html from a page’s title and description; build_seo_pages.head() links one for every page"),
     ("building and checking the site", "tools/test_og_tags.js", "every generated page carries a full, valid social card, and no non-puzzle page borrows the site card"),
     ("building and checking the site", "tools/test_difficulty_page.sh", "can /difficulty/ describe a rating other than the one the badges show? It must refuse to build when its prose and difficulty.WEIGHTS name different components, quote the scorecard only while it matches today's weights, and leave no {{placeholder}} unfilled"),
+    ("building and checking the site", "tools/test_series_hub.sh", "does /puzzles/ describe each series without counting it? A series blurb with a count or puzzle number must be refused, the hub must not print a series' puzzle total, and each series with enough rated puzzles gets a difficulty strip whose median sits where its middle puzzle is"),
 
     ("syncing between devices and telling them about new puzzles, with no login and no accounts",
      "sync/worker.js", "the Cloudflare Worker: merges saves and events in KV, and pushes each new puzzle to whoever asked for its paper"),

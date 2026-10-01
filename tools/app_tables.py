@@ -16,6 +16,9 @@ import sys
 from pathlib import Path
 
 APP = Path(__file__).resolve().parent.parent / "app.js"
+# A count or a puzzle number: three digits or more, or digits grouped by a comma.
+# Grid sizes (13x13) and a place in a book (No 18) stay writable.
+COUNT = re.compile(r"\d[\d,]*\d{2}|\d,\d")
 
 
 def _block(src, opener, closer):
@@ -56,6 +59,12 @@ def series_blurbs(src=None):
            re.findall(r'^\s{4}(\w+): \["[^"]*",\s*`([^`]*)`\]', block, re.M)}
     if not out:
         raise SystemExit("app_tables: SERIES_BADGE parsed empty")
+    for key, blurb in out.items():
+        if m := COUNT.search(blurb):
+            raise SystemExit(f"app_tables: SERIES_BADGE.{key} says {m.group(0)!r}. A blurb "
+                             "says what the series is like, never how many puzzles or "
+                             "issues it has: we hold part of each archive, so a count "
+                             "describes our shelf, and a puzzle number goes stale.")
     return out
 
 
