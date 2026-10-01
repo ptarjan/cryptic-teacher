@@ -37,7 +37,7 @@ import file_times_puzzles as ftp
 import ft_puzzles as ft
 import puzzle_integrity
 import times_grids as tg
-from fetch_puzzle import puzzle_path, write_puzzle_file
+from fetch_puzzle import puzzle_files, puzzle_path, read_puzzle_file, write_puzzle_file
 
 CATEGORY = "Independent"
 CACHE = fsq.CACHE / "independent"
@@ -198,8 +198,29 @@ def sunday_dates(rows):
     return out
 
 
+def retext_held(write=True):
+    """Tidy the clues of every file this tool wrote as the parser now reads
+    them (ft.tidy, file_blog_puzzles.retext). A held number's post is never
+    parsed again, so this walks the files, not the rows. Returns how many."""
+    tidied = 0
+    for path in puzzle_files():
+        if path.parent.parent.name not in (DAILY, SUNDAY):
+            continue
+        held = read_puzzle_file(path)
+        if (held.get("source") or {}).get("acquiredBy") != GENERATOR:
+            continue
+        new, n = file_blog_puzzles.retext(held, ft.tidy)
+        if n:
+            tidied += 1
+            if write:
+                write_puzzle_file(path, new)
+    return tidied
+
+
 def file(posted, write=True, limit=None):
     """File every grid row not yet in puzzles/, newest first; (filed, skipped)."""
+    skipped = collections.Counter()
+    skipped["already filed, clues tidied"] = retext_held(write)
     recs = {r["post_id"]: r for r in map(json.loads, (CACHE / "parsed.jsonl").open(encoding="utf-8"))}
     rows = [json.loads(line) for line in (CACHE / "grids.jsonl").open(encoding="utf-8")]
     rows.sort(key=lambda r: (r["date"], r["post_id"]), reverse=True)
@@ -212,7 +233,7 @@ def file(posted, write=True, limit=None):
              SUNDAY: sunday_dates([p for p in by_series[SUNDAY]
                                    if fits[SUNDAY](p["date"], p["number"])])}
     claims = collections.Counter((p["series"], p["number"]) for p in posted)
-    skipped, filed = collections.Counter(), []
+    filed = []
     on_disk = {}
     for row in rows:
         rec = recs.get(row["post_id"])

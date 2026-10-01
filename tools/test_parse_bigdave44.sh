@@ -184,4 +184,9 @@ None" "$(got NOTE)"
 check "the parser stores the clue cut at its enumeration" \
   "Whitish heraldic stripe (4)|4" "$(got NOTED)"
 
+check "the filer tidies a held file's clues as the parser now reads them" \
+  "Voice pipe (5)" "$(PYTHONPATH="$REPO/tools" python3 -c '
+import file_telegraph_puzzles as f
+print(f.SOURCE.tidy("Voice / pipe (5)"))' 2>&1 | tail -1)"
+
 [ $fails -eq 0 ] && echo "all passed" || { echo "$fails failed"; exit 1; }
