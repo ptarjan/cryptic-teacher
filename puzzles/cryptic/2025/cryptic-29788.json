@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,58 @@
     "text": "Rent, perhaps, around quarter in centre of city",
     "enumeration": "8"
    },
-   "solution": "DOWNTOWN"
+   "solution": "DOWNTOWN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DOWNTOWN",
+    "definitions": [
+     {
+      "text": "centre of city",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "to go around something is to encircle it, so one piece wraps the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rent, perhaps",
+      "gives": "DONTOWN",
+      "note": "a renter, perhaps, is someone who doesn't own their home: DON'T OWN, apostrophe dropped"
+     },
+     {
+      "clueFragment": "quarter",
+      "gives": "W",
+      "note": "a quarter is a compass point; W is west"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "W",
+      "NTOWN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone paying rent for a place in a central district of town.",
+     "walkthrough": "'Rent' looks like a noun for money paid, but here it describes what tenants do: they DON'T OWN. Slip the west point in after DO to get DOWNTOWN.",
+     "definitionFit": "Chiefly American usage for a city's central business district, the heart of town where shops and offices cluster."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Rent"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +101,55 @@
     "text": "Part of ship that’s unaffected by overturning",
     "enumeration": "4"
    },
-   "solution": "POOP"
+   "solution": "POOP",
+   "annotation": {
+    "type": [
+     "palindrome"
+    ],
+    "answer": "POOP",
+    "definitions": [
+     {
+      "text": "Part of ship",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "that’s unaffected by overturning",
+      "for": "palindrome",
+      "note": "a word that stays the same when flipped end to end reads identically in both directions"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Part of ship",
+      "gives": "POOP",
+      "note": "the raised deck at the stern of a ship; the definition doubles as the word to test, since a palindrome clue has nothing else to turn"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POOP"
+     ],
+     "reversals": [
+      {
+       "from": "POOP",
+       "to": "POOP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A piece of a vessel that stays put even if the boat capsizes.",
+     "walkthrough": "'Overturning' suggests a capsized ship, but it means reversing the word's letters; POOP reads the same backwards.",
+     "definitionFit": "The poop deck is the raised rear deck of an old sailing vessel, so it is one section of the hull's structure."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "overturning"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +163,50 @@
     "text": "Sally’s kind, in other words",
     "enumeration": "6"
    },
-   "solution": "SORTIE"
+   "solution": "SORTIE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SORTIE",
+    "definitions": [
+     {
+      "text": "Sally",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "kind",
+      "gives": "SORT",
+      "note": "a kind is a sort or type"
+     },
+     {
+      "clueFragment": "in other words",
+      "gives": "IE",
+      "note": "i.e. abbreviates Latin id est, 'that is', used to rephrase"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SORT",
+      "IE"
+     ]
+    },
+    "explanation": {
+     "surface": "Describing a woman called Sally as kind, to put it another way.",
+     "walkthrough": "Sally is not a woman's name here but a military term, and the apostrophe-s stands for 'is'.",
+     "definitionFit": "A sally is a sudden attack by troops breaking out from a besieged position, which is exactly a sortie."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sally"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +220,66 @@
     "text": "Minor ways in which Fourth of July is captured by women in US",
     "enumeration": "7"
    },
-   "solution": "BYROADS"
+   "solution": "BYROADS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "BYROADS",
+    "definitions": [
+     {
+      "text": "Minor ways",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Fourth of",
+      "for": "letter_selection",
+      "note": "asks for the letter in fourth position of the following word"
+     },
+     {
+      "text": "is captured by",
+      "for": "container",
+      "note": "something captured is held inside its captor, so one piece sits within another"
+     }
+    ],
+    "linkWords": [
+     "in which"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "women in US",
+      "gives": "BROADS",
+      "note": "broads is American slang for women"
+     },
+     {
+      "clueFragment": "July",
+      "gives": "Y",
+      "select": 4,
+      "note": "fourth letter of the month's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "Y",
+      "ROADS"
+     ]
+    },
+    "explanation": {
+     "surface": "Small-town American streets where women take part in Independence Day celebrations.",
+     "walkthrough": "'Fourth of July' reads as the US holiday, but it only supplies the fourth letter of July. 'Broads' is dated American slang for women.",
+     "definitionFit": "Byroads are secondary or side roads, less important routes away from main highways, so they are lesser roads."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Fourth"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +293,70 @@
     "text": "Plenty of power in short book, securing upturn of payment",
     "enumeration": "8"
    },
-   "solution": "MEGAWATT"
+   "solution": "MEGAWATT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "MEGAWATT",
+    "definitions": [
+     {
+      "text": "Plenty of power",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upturn of",
+      "for": "reversal",
+      "note": "in a down clue turning something upward makes it read from bottom to top"
+     },
+     {
+      "text": "securing",
+      "for": "container",
+      "note": "to secure is to hold firmly, so one piece holds another inside"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "short book",
+      "gives": "MATT",
+      "note": "Matt is a shortened form of Matthew, a book of the New Testament"
+     },
+     {
+      "clueFragment": "payment",
+      "gives": "WAGE",
+      "note": "a wage is a payment for work"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "EGAW",
+      "ATT"
+     ],
+     "reversals": [
+      {
+       "from": "WAGE",
+       "to": "EGAW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A concise book packed with energy, thanks to a pay rise.",
+     "walkthrough": "'Upturn of payment' sounds like a pay rise, but it turns the wage upside down. The abbreviated gospel goes round it.",
+     "definitionFit": "A megawatt is a unit of a million watts, a large amount of electrical output by everyday standards."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "upturn"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +370,63 @@
     "text": "Small points about attack – it’s unfair to blame them",
     "enumeration": "10"
    },
-   "solution": "SCAPEGOATS"
+   "solution": "SCAPEGOATS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SCAPEGOATS",
+    "definitions": [
+     {
+      "text": "it’s unfair to blame them",
+      "at": 28,
+      "note": "a descriptive clause standing for the plural noun"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece surrounds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     },
+     {
+      "clueFragment": "points",
+      "gives": "CAPES",
+      "note": "capes are headlands, points of land jutting into the sea"
+     },
+     {
+      "clueFragment": "attack",
+      "gives": "GOAT",
+      "note": "to go at someone is to attack them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CAPE",
+      "GOAT",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Minor objections to an offensive move, with a protest that the blame is unfair.",
+     "walkthrough": "'Points' suggests arguments, but it means headlands; GO AT sits inside CAPES after the S.",
+     "definitionFit": "Scapegoats are people made to carry the blame for others' faults, so faulting them is unjust."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "points"
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +440,60 @@
     "text": "Utter a diatribe, repeating its beginning",
     "enumeration": "6"
    },
-   "solution": "ARRANT"
+   "solution": "ARRANT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ARRANT",
+    "definitions": [
+     {
+      "text": "Utter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "repeating",
+      "for": "charade",
+      "note": "to repeat something is to say it again, so a letter is written twice over"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "its beginning",
+      "gives": "R",
+      "note": "the first letter of the diatribe word, used an extra time"
+     },
+     {
+      "clueFragment": "diatribe",
+      "gives": "RANT",
+      "note": "a diatribe is an angry tirade"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "R",
+      "RANT"
+     ]
+    },
+    "explanation": {
+     "surface": "Deliver a tirade, saying its opening words twice over.",
+     "walkthrough": "'Utter' looks like a verb meaning to speak, but it is the adjective meaning complete. The R of RANT appears twice.",
+     "definitionFit": "Both are intensifying adjectives meaning complete or downright, as in arrant nonsense or utter nonsense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Utter"
+    }
+   }
   },
   {
    "number": 8,
@@ -131,7 +507,71 @@
     "text": "Ploy contrived by Dr. No that eliminates the competition",
     "enumeration": "8"
    },
-   "solution": "MONOPOLY"
+   "solution": "MONOPOLY",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "MONOPOLY",
+    "definitions": [
+     {
+      "text": "that eliminates the competition",
+      "at": 25,
+      "note": "a descriptive clause standing for the noun"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "contrived",
+      "for": "anagram",
+      "note": "something contrived is artificially arranged, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dr.",
+      "gives": "MO",
+      "note": "MO is a medical officer, a doctor"
+     },
+     {
+      "clueFragment": "No",
+      "gives": "NO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Ploy",
+      "gives": "POLY",
+      "note": "letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "NO",
+      "POLY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PLOY",
+       "gives": "POLY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Bond villain's scheme to wipe out his rivals.",
+     "walkthrough": "Dr No is the James Bond villain, but here the doctor and the word split. Monopoly is also the board game, part of the theme.",
+     "definitionFit": "A monopoly is exclusive control of a market by one supplier, so it shuts out any rival businesses."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Dr."
+    }
+   }
   },
   {
    "number": 9,
@@ -145,7 +585,53 @@
     "text": "Muffed her cue that involves up to three other players",
     "enumeration": "6"
    },
-   "solution": "EUCHRE"
+   "solution": "EUCHRE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EUCHRE",
+    "definitions": [
+     {
+      "text": "that involves up to three other players",
+      "at": 15,
+      "note": "a descriptive clause standing for the name of a card game"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Muffed",
+      "for": "anagram",
+      "note": "muffing something means botching it, so the letters come out jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "her cue",
+      "gives": "HERCUE",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HERCUE",
+       "gives": "EUCHRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An actress fluffs her cue in a scene with up to three other actors.",
+     "walkthrough": "'Players' suggests actors on stage, but they are card players.",
+     "definitionFit": "Euchre is a trick-taking card game for two to four people, played chiefly in North America."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "players"
+    }
+   }
   },
   {
    "number": 10,
@@ -159,7 +645,45 @@
     "text": "Shoot and fracture",
     "enumeration": "4"
    },
-   "solution": "SNAP"
+   "solution": "SNAP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SNAP",
+    "definitions": [
+     {
+      "text": "Shoot",
+      "at": 0
+     },
+     {
+      "text": "fracture",
+      "at": 10
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shoot",
+      "note": "first meaning: take a photograph"
+     },
+     {
+      "clueFragment": "fracture",
+      "note": "second meaning: break suddenly"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Shoot' suggests gunfire causing a fracture, but it means taking a photo. Snap is also a children's card game, part of the theme.",
+     "definitionFit": "A snap is a quick photograph, and to snap is to break cleanly with a crack, as a bone or stick might."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Shoot"
+    }
+   }
   },
   {
    "number": 11,
@@ -191,7 +715,39 @@
    "group": [
     "11-across",
     "23-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "TWO CAN PLAY AT THAT GAME",
+    "definitions": [
+     {
+      "text": "Retaliatory principle",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Retaliatory principle",
+      "note": "surface reading: a saying justifying paying someone back in kind"
+     },
+     {
+      "clueFragment": "that applies to surrounding solutions",
+      "note": "setter's reading: the neighbouring across entries are all games that can be played by a pair"
+     }
+    ],
+    "explanation": {
+     "surface": "A tit-for-tat rule that somehow governs the answers around it.",
+     "walkthrough": "The saying is literally true of the theme: across answers like Monopoly, Scrabble, Snap and Draughts are games for two players.",
+     "definitionFit": "The proverb warns an opponent that you will answer their tactics in kind, a principle of tit-for-tat revenge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 12,
@@ -205,7 +761,58 @@
     "text": "Be astounded finding trunk filled with goods?",
     "enumeration": "6"
    },
-   "solution": "BOGGLE"
+   "solution": "BOGGLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BOGGLE",
+    "definitions": [
+     {
+      "text": "Be astounded",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "filled with",
+      "for": "container",
+      "note": "something filled has contents placed inside it"
+     }
+    ],
+    "linkWords": [
+     "finding"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trunk",
+      "gives": "BOLE",
+      "note": "a bole is the trunk of a tree"
+     },
+     {
+      "clueFragment": "goods",
+      "gives": "GG",
+      "note": "G stands for good, doubled for the plural"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BO",
+      "GG",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "Being amazed to discover a travel trunk crammed with merchandise.",
+     "walkthrough": "'Trunk' suggests luggage, but it is a tree trunk. G for good is a common grading abbreviation. Boggle is also a word game, part of the theme.",
+     "definitionFit": "When the mind boggles it is overwhelmed with amazement, unable to take something in."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "trunk"
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +826,66 @@
     "text": "Firm, for instance, set up painful new version of hide-and-seek?",
     "enumeration": "10"
    },
-   "solution": "GEOCACHING"
+   "solution": "GEOCACHING",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "GEOCACHING",
+    "definitions": [
+     {
+      "text": "new version of hide-and-seek?",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "set up",
+      "for": "reversal",
+      "note": "in a down clue raising something makes it read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Firm",
+      "gives": "CO",
+      "note": "CO is short for company, a firm"
+     },
+     {
+      "clueFragment": "for instance",
+      "gives": "EG",
+      "note": "e.g. means for example"
+     },
+     {
+      "clueFragment": "painful",
+      "gives": "ACHING",
+      "note": "aching means sore or painful"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GEOC",
+      "ACHING"
+     ],
+     "reversals": [
+      {
+       "from": "COEG",
+       "to": "GEOC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A company launching a painful updated take on a children's game.",
+     "walkthrough": "'Set up' suggests a company establishing something, but it flips the company and example abbreviations.",
+     "definitionFit": "Geocaching is a modern outdoor pastime of hiding containers and finding them using GPS coordinates, a high-tech treasure hunt."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "set"
+    }
+   }
   },
   {
    "number": 14,
@@ -233,7 +899,46 @@
     "text": "Swallows in air currents",
     "enumeration": "8"
    },
-   "solution": "DRAUGHTS"
+   "solution": "DRAUGHTS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DRAUGHTS",
+    "definitions": [
+     {
+      "text": "Swallows",
+      "at": 0
+     },
+     {
+      "text": "air currents",
+      "at": 12
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Swallows",
+      "note": "first meaning: gulps of drink"
+     },
+     {
+      "clueFragment": "air currents",
+      "note": "second meaning: cold streams of air in a room"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface pictures birds riding the wind, but swallows are mouthfuls of drink. Draughts is the British name for checkers, part of the theme.",
+     "definitionFit": "A draught is a single gulp of liquid, and also a current of cool air blowing through a gap."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Swallows"
+    }
+   }
   },
   {
    "number": 15,
@@ -253,7 +958,39 @@
      }
     ]
    },
-   "solution": "ONBOARD"
+   "solution": "ONBOARD",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ON BOARD",
+    "definitions": [
+     {
+      "text": "Place for mate, in more ways than one",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Place for mate",
+      "note": "surface reading: where a ship's officer or a companion belongs"
+     },
+     {
+      "clueFragment": "in more ways than one",
+      "note": "setter's reading: checkmate happens on a chessboard, and a ship's mate serves aboard a vessel"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Mate is both the chess finish and a ship's officer; both are found in the same spot.",
+     "definitionFit": "Checkmate is delivered on the chessboard, while a ship's first mate works aboard the vessel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "mate"
+    }
+   }
   },
   {
    "number": 16,
@@ -267,7 +1004,67 @@
     "text": "Replace workers in advance, putting boot dreadfully in",
     "enumeration": "8"
    },
-   "solution": "ROBOTISE"
+   "solution": "ROBOTISE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ROBOTISE",
+    "definitions": [
+     {
+      "text": "Replace workers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dreadfully",
+      "for": "anagram",
+      "note": "something done dreadfully is done badly, so the letters end up out of order"
+     },
+     {
+      "text": "putting",
+      "for": "container",
+      "note": "putting something in places it inside another piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boot",
+      "gives": "OBOT",
+      "note": "letters rearranged"
+     },
+     {
+      "clueFragment": "advance",
+      "gives": "RISE",
+      "note": "a rise is an advance or increase"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "OBOT",
+      "ISE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BOOT",
+       "gives": "OBOT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sacking staff ahead of time, cruelly putting the boot in.",
+     "walkthrough": "'In advance' reads as 'beforehand', but advance is RISE, and the jumbled boot goes in it.",
+     "definitionFit": "To robotise is to automate a job so that machines take over tasks once done by human staff."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "advance"
+    }
+   }
   },
   {
    "number": 17,
@@ -287,7 +1084,39 @@
      }
     ]
    },
-   "solution": "ATTABLE"
+   "solution": "ATTABLE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "AT TABLE",
+    "definitions": [
+     {
+      "text": "Location for people holding hands and eating",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Location for people holding hands",
+      "note": "surface reading: a spot where people link hands, perhaps couples or a seance"
+     },
+     {
+      "clueFragment": "holding hands and eating",
+      "note": "setter's reading: card players hold hands of cards, and diners sit to eat"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Holding hands' suggests affection, but a hand is a set of playing cards; card players and diners both sit in the same spot.",
+     "definitionFit": "Both card games and meals take place with people seated around a raised flat piece of furniture."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hands"
+    }
+   }
   },
   {
    "number": 18,
@@ -307,7 +1136,56 @@
      }
     ]
    },
-   "solution": "LONGLEGS"
+   "solution": "LONGLEGS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LONG-LEGS",
+    "definitions": [
+     {
+      "text": "Flies",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "a piece placed in another sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pants",
+      "gives": "LONGS",
+      "note": "longs are long trousers, which Americans call pants"
+     },
+     {
+      "clueFragment": "part of journey",
+      "gives": "LEG",
+      "note": "a leg is one stage of a journey"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LONG",
+      "LEG",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Insects get in someone's trousers partway through a trip.",
+     "walkthrough": "'Flies' could be a verb about air travel or the zip on trousers, but it is the insects: daddy-long-legs, or crane flies.",
+     "definitionFit": "Long-legs is a name for the crane fly, the thin gangly insect also called daddy-long-legs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Flies"
+    }
+   }
   },
   {
    "number": 19,
@@ -321,7 +1199,58 @@
     "text": "Gag about mother’s chance to get even",
     "enumeration": "7"
    },
-   "solution": "REMATCH"
+   "solution": "REMATCH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REMATCH",
+    "definitions": [
+     {
+      "text": "chance to get even",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece surrounds the other"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gag",
+      "gives": "RETCH",
+      "note": "to gag is to retch"
+     },
+     {
+      "clueFragment": "mother",
+      "gives": "MA",
+      "note": "ma is an informal word for mother"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "MA",
+      "TCH"
+     ]
+    },
+    "explanation": {
+     "surface": "A joke about Mum's opportunity for revenge.",
+     "walkthrough": "'Gag' looks like a joke, but it is the verb meaning to heave; the apostrophe-s stands for 'is'.",
+     "definitionFit": "A rematch is a second contest that lets the loser of the first try to level the score."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Gag"
+    }
+   }
   },
   {
    "number": 20,
@@ -335,7 +1264,60 @@
     "text": "Caught in small mob, use claws",
     "enumeration": "8"
    },
-   "solution": "SCRABBLE"
+   "solution": "SCRABBLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SCRABBLE",
+    "definitions": [
+     {
+      "text": "use claws",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "a piece placed in another sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Caught",
+      "gives": "C",
+      "note": "c is the cricket scorecard abbreviation for caught"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     },
+     {
+      "clueFragment": "mob",
+      "gives": "RABBLE",
+      "note": "a rabble is a disorderly mob"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "C",
+      "RABBLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Trapped in a little crowd, someone fights with their nails.",
+     "walkthrough": "The catch goes between the small S and the mob. Scrabble is also the word game, part of the theme.",
+     "definitionFit": "To scrabble is to scratch or grope about frantically with the fingers or claws."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Caught"
+    }
+   }
   },
   {
    "number": 21,
@@ -349,7 +1331,57 @@
     "text": "Boat in sea – in sound, say",
     "enumeration": "6"
    },
-   "solution": "CUTTER"
+   "solution": "CUTTER",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "CUTTER",
+    "definitions": [
+     {
+      "text": "Boat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in sound",
+      "for": "homophone",
+      "note": "taking a word by how it is pronounced rather than spelt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sea",
+      "gives": "C",
+      "soundsLike": "SEE",
+      "note": "the letter name C is pronounced like the word sea"
+     },
+     {
+      "clueFragment": "say",
+      "gives": "UTTER",
+      "note": "to utter is to say"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "UTTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A vessel out at sea, perhaps in a strait or channel.",
+     "walkthrough": "'Sound' looks like a body of water to go with sea, but it signals the letter that is pronounced like sea.",
+     "definitionFit": "A cutter is a small fast single-masted sailing vessel, also used for patrol craft."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sound"
+    }
+   }
   },
   {
    "number": 22,
@@ -363,7 +1395,53 @@
     "text": "A coin’s tossed in gambling scene",
     "enumeration": "6"
    },
-   "solution": "CASINO"
+   "solution": "CASINO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CASINO",
+    "definitions": [
+     {
+      "text": "gambling scene",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tossed",
+      "for": "anagram",
+      "note": "something tossed is thrown about, so these letters land in a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A coin’s",
+      "gives": "ACOINS",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ACOINS",
+       "gives": "CASINO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone flips a coin while betting.",
+     "walkthrough": "Casino is also the name of a card game, part of the theme.",
+     "definitionFit": "A casino is a venue where people bet money on cards, dice and roulette wheels."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -377,7 +1455,55 @@
     "text": "Service provider moved around in circle",
     "enumeration": "6"
    },
-   "solution": "CLERIC"
+   "solution": "CLERIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CLERIC",
+    "definitions": [
+     {
+      "text": "Service provider",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "moved around",
+      "for": "anagram",
+      "note": "letters moved around are shifted into a different order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "circle",
+      "gives": "CIRCLE",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CIRCLE",
+       "gives": "CLERIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A utility firm's engineer travels a circular route.",
+     "walkthrough": "'Service provider' sounds like a utility or internet company, but the service is a church service.",
+     "definitionFit": "A cleric is a member of the clergy, who leads religious worship such as church services."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Service"
+    }
+   }
   },
   {
    "number": 23,
@@ -414,7 +1540,57 @@
     "text": "What follows foxtrot on radio brings beat back",
     "enumeration": "4"
    },
-   "solution": "GOLF"
+   "solution": "GOLF",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "GOLF",
+    "definitions": [
+     {
+      "text": "What follows foxtrot on radio",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means running in the opposite direction, right to left"
+     }
+    ],
+    "linkWords": [
+     "brings"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beat",
+      "gives": "FLOG",
+      "note": "to flog is to beat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GOLF"
+     ],
+     "reversals": [
+      {
+       "from": "FLOG",
+       "to": "GOLF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A radio station plays a foxtrot dance tune that brings back an old rhythm.",
+     "walkthrough": "Foxtrot reads as a dance, but it is F in the radio alphabet (Alpha, Bravo...), which is followed by Golf for G.",
+     "definitionFit": "In the NATO phonetic alphabet used in radio communication, the code word after Foxtrot is Golf."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "foxtrot"
+    }
+   }
   },
   {
    "number": 24,
@@ -428,7 +1604,61 @@
     "text": "Nasty remark greatly upset European",
     "enumeration": "4"
    },
-   "solution": "GIBE"
+   "solution": "GIBE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "GIBE",
+    "definitions": [
+     {
+      "text": "Nasty remark",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "something upset is knocked over, so in a down clue it reads bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "greatly",
+      "gives": "BIG",
+      "note": "big, as in 'think big', means on a grand scale"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GIB",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "BIG",
+       "to": "GIB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cruel comment deeply hurt someone from Europe.",
+     "walkthrough": "'Greatly upset' reads as 'very distressed', but greatly gives BIG and upset flips it.",
+     "definitionFit": "A gibe is a taunting or mocking comment intended to hurt, so it is an insult."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 25,
@@ -442,7 +1672,65 @@
     "text": "Activity in court that makes offence clear? Just the opposite",
     "enumeration": "6"
    },
-   "solution": "TENNIS"
+   "solution": "TENNIS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TENNIS",
+    "definitions": [
+     {
+      "text": "Activity in court",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Just the opposite",
+      "for": "reversal",
+      "note": "the opposite order puts the whole string back to front"
+     }
+    ],
+    "linkWords": [
+     "that makes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "offence",
+      "gives": "SIN",
+      "note": "a sin is an offence"
+     },
+     {
+      "clueFragment": "clear",
+      "gives": "NET",
+      "note": "to net is to clear as profit after deductions"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEN",
+      "NIS"
+     ],
+     "reversals": [
+      {
+       "from": "SINNET",
+       "to": "TENNIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A courtroom procedure that clarifies a crime, or perhaps the reverse.",
+     "walkthrough": "'Court' suggests a law court, but it is a tennis court. 'Just the opposite' tells you to read the offence-then-clear string backwards rather than as written.",
+     "definitionFit": "Tennis is a racket sport played on a court, so it is a sporting pastime played there."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "court"
+    }
+   }
   },
   {
    "number": 26,
@@ -456,7 +1744,59 @@
     "text": "Copy book ahead of time as popular local activity",
     "enumeration": "8"
    },
-   "solution": "CRIBBAGE"
+   "solution": "CRIBBAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CRIBBAGE",
+    "definitions": [
+     {
+      "text": "popular local activity",
+      "at": 27,
+      "note": "'local' is British slang for a pub"
+     }
+    ],
+    "linkWords": [
+     "ahead of",
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Copy",
+      "gives": "CRIB",
+      "note": "to crib is to copy someone else's work"
+     },
+     {
+      "clueFragment": "book",
+      "gives": "B",
+      "note": "B is the abbreviation for book"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "AGE",
+      "note": "an age is a period of time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRIB",
+      "B",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Reserving early for a well-liked community event.",
+     "walkthrough": "'Copy book' suggests a schoolbook, and 'book ahead' suggests reserving; in Britain a 'local' is one's neighbourhood pub, where cribbage is traditionally played.",
+     "definitionFit": "Cribbage is a card game scored with pegs on a board, long a fixture of British pub life."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "local"
+    }
+   }
   }
  ]
 }
