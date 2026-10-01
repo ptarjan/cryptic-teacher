@@ -20,9 +20,11 @@ Only the clues are mandatory:
     the reading. A disagreement means the picture is not used, never that it
     is forced to fit: the grid is then rebuilt from the clue list by
     tools/reconstruct_grid.py, and filed only when that rebuild is unique.
-  - The answers are left out: the SOLUTION articles' letters are too small to
-    read reliably, so the nightly cold solve (tools/daily_update.sh, step 3a)
-    fills them in.
+  - The answers are read off the paper's printed solution grid by
+    tools/trove_solution_ocr.py, a light only when every letter is read
+    surely and no crossing disagrees; the rest stay None for the nightly
+    cold solve (tools/daily_update.sh, step 3a). A puzzle filed before its
+    solution was fetched gets its answers on a later run.
 
 Series and numbers: one series, `canberra`, numbered by print date as YYMMDD
 (No 720601 is Thursday 1 June 1972). The London Times number is printed once
@@ -55,6 +57,7 @@ import enumeration
 import reconstruct_grid as rg
 import series as series_meta
 import trove_grid
+import trove_solution_ocr
 from fetch_puzzle import puzzle_path, write_puzzle_file
 from file_penguin_puzzle import separators
 from groups import entry_id
@@ -64,7 +67,7 @@ CACHE = Path(os.path.expanduser("~/.cache/trove"))
 TOOL = "tools/file_trove_puzzles.py"
 ARTICLE = "https://trove.nla.gov.au/newspaper/article/{}"
 #: The code whose change makes every article worth reading again.
-CODE = [Path(__file__), TOOLS / "trove_grid.py"]
+CODE = [Path(__file__), TOOLS / "trove_grid.py", TOOLS / "trove_solution_ocr.py"]
 #: How hard reconstruct_grid may try before a clue list counts as not pinning
 #: its grid down: its own cap, ~10s on a 15x15.
 REBUILD_NODES = rg.DEFAULT_MAX_NODES
@@ -554,6 +557,9 @@ def consider(d, taken):
         verdict["skip"] = f"already held as {held}"
         return verdict, None
     puzzle = build(meta["id"], meta, ocr, grid, how, laid, day)
+    answers, info = trove_solution_ocr.answers_for(d, grid, day, d.parent)
+    verdict["answersRead"] = trove_solution_ocr.fill(puzzle, answers)
+    verdict["answersFrom"] = info.get("ocr")
     if puzzle["id"] in taken and taken[puzzle["id"]] != meta["id"]:
         verdict["refused"] = f"{puzzle['id']} is article {taken[puzzle['id']]}'s"
         return verdict, None
@@ -636,6 +642,8 @@ def main(argv=None):
         return 0
     run(args.cache, write=not args.dry_run, ledger=args.ledger, puzzles=args.out,
         limit=args.limit)
+    if not args.out:
+        trove_solution_ocr.fill_corpus(args.cache, write=not args.dry_run)
     return 0
 
 
