@@ -294,14 +294,15 @@ def clean_xml_bytes(data):
 def metadata_title(title):
     """(setter, number text) off <metadata><title>, or None if it isn't one.
 
-    Hand-typed, and it arrives mistyped in four ways: "No." dropped entirely
+    Hand-typed, and it arrives mistyped in five ways: "No." dropped entirely
     ("1,514 by Raich"), a comma for its period ("No, 10,407 by Knut"), a stray
-    pipe in front of it ("|No. 10,242 by Serpent"), and a space inside the
-    digits ("No. 1, 661 by Hoskins"). All are source-side typos, not format
-    changes, so the pipe, the prefix and its punctuation and whitespace inside
-    the digits are all optional. "1388 - Hypnos" puts a dash where "by" goes.
+    pipe in front of it ("|No. 10,242 by Serpent"), a space inside the digits
+    ("No. 1, 661 by Hoskins") and a comma after them ("No. 11078, by Phi").
+    All are source-side typos, not format changes, so the pipe, the prefix and
+    its punctuation, whitespace inside the digits and a comma after them are
+    all optional. "1388 - Hypnos" puts a dash where "by" goes.
     """
-    m = re.match(r"\|?\s*(?:No[.,]?\s*)?(\d[\d,\s]*\d|\d)\s*(?:(?:by|-)\s*(.+))?$", title)
+    m = re.match(r"\|?\s*(?:No[.,]?\s*)?(\d[\d,\s]*\d|\d)[\s,]*(?:(?:by|-)\s*(.+))?$", title)
     if m:
         return (m.group(2) or "").strip() or None, m.group(1)
     # A fifth, older shape drops "No." AND "by" both and just reverses the
