@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -39,7 +42,69 @@
      }
     ]
    },
-   "solution": "BARGRAPH"
+   "solution": "BARGRAPH",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "BAR GRAPH",
+    "definitions": [
+     {
+      "text": "Chart",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stocking",
+      "for": "container",
+      "note": "a shop stocking goods keeps them inside, so the outer letters hold the inner ones"
+     },
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the word loses its final letter"
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pub",
+      "gives": "BAR",
+      "note": "a bar is a pub"
+     },
+     {
+      "clueFragment": "pinot, perhaps",
+      "gives": "GRAP",
+      "note": "pinot is a kind of grape; without its last letter"
+     },
+     {
+      "clueFragment": "hotel",
+      "gives": "H",
+      "note": "H is hotel in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAR",
+      "GRAP",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "A wine list or sales chart for a pub and hotel well supplied with pinot noir.",
+     "walkthrough": "Pinot is a grape variety, which is why 'perhaps' is there: it gives an example, so the solver must supply the category.",
+     "definitionFit": "A bar graph is a type of chart that shows quantities as rectangular columns of differing heights."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stocking"
+    }
+   }
   },
   {
    "number": 1,
@@ -53,7 +118,43 @@
     "text": "It's used in snooker game",
     "enumeration": "6"
    },
-   "solution": "BRIDGE"
+   "solution": "BRIDGE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BRIDGE",
+    "definitions": [
+     {
+      "text": "It's used in snooker",
+      "at": 0
+     },
+     {
+      "text": "game",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It's used in snooker",
+      "note": "first meaning: the rest a player uses to support the cue for a hard-to-reach shot"
+     },
+     {
+      "clueFragment": "game",
+      "note": "second meaning: the card game for four players in partnerships"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface reads as one phrase, 'snooker game', but the split comes after 'snooker'. In snooker, the bridge is the cue rest, or the hand position supporting the cue.",
+     "definitionFit": "The same word names a cue rest in snooker and a well-known trick-taking card game played with partners."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "game"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +168,42 @@
     "text": "Take out a degree of indirectness",
     "enumeration": "6"
    },
-   "solution": "REMOVE"
+   "solution": "REMOVE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "REMOVE",
+    "definitions": [
+     {
+      "text": "Take out",
+      "at": 0
+     },
+     {
+      "text": "a degree of indirectness",
+      "at": 9,
+      "note": "noun sense, as in 'at one remove'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Take out",
+      "note": "first meaning: the verb, to take something away"
+     },
+     {
+      "clueFragment": "a degree of indirectness",
+      "note": "second meaning: the noun, a step of distance"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The verb and the noun share a spelling; the noun survives mostly in the phrase 'at one remove', meaning indirectly.",
+     "definitionFit": "As a verb it means extract or withdraw; as a noun it means one step or stage of separation from something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +217,63 @@
     "text": "They're seldom seen: essentially drab grim items of neckwear",
     "enumeration": "8"
    },
-   "solution": "RARITIES"
+   "solution": "RARITIES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "RARITIES",
+    "definitions": [
+     {
+      "text": "They're seldom seen",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "essentially",
+      "for": "letter_selection",
+      "note": "the essence of a word is its core, so only the central letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drab",
+      "gives": "RA",
+      "select": "middle",
+      "note": "the two central letters"
+     },
+     {
+      "clueFragment": "grim",
+      "gives": "RI",
+      "select": "middle",
+      "note": "the two central letters"
+     },
+     {
+      "clueFragment": "items of neckwear",
+      "gives": "TIES",
+      "note": "ties are worn round the neck"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RA",
+      "RI",
+      "TIES"
+     ]
+    },
+    "explanation": {
+     "surface": "A fashion verdict: dull, gloomy ties are something you rarely spot.",
+     "walkthrough": "'Essentially' governs both drab and grim, taking the middle pair from each.",
+     "definitionFit": "Rarities are uncommon things, which by nature are only occasionally encountered or found."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "essentially"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +287,46 @@
     "text": "Illustrated talk giving position of baby in the womb",
     "enumeration": "12"
    },
-   "solution": "PRESENTATION"
+   "solution": "PRESENTATION",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PRESENTATION",
+    "definitions": [
+     {
+      "text": "Illustrated talk",
+      "at": 0
+     },
+     {
+      "text": "position of baby in the womb",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "giving"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Illustrated talk",
+      "note": "first meaning: a talk given with slides or pictures"
+     },
+     {
+      "clueFragment": "position of baby in the womb",
+      "note": "second meaning: the obstetric term for how a baby lies before birth, such as breech"
+     }
+    ],
+    "explanation": {
+     "surface": "A lecture about how an unborn baby lies in the womb.",
+     "walkthrough": "The second sense is medical: midwives speak of breech or head-first presentation.",
+     "definitionFit": "The word covers both a lecture with visual aids and the obstetric term for which part of a fetus leads at birth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "giving"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +340,51 @@
     "text": "150 snakes offering embraces",
     "enumeration": "6"
    },
-   "solution": "CLASPS"
+   "solution": "CLASPS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CLASPS",
+    "definitions": [
+     {
+      "text": "embraces",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "offering"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "150",
+      "gives": "CL",
+      "note": "CL is 150 in Roman numerals"
+     },
+     {
+      "clueFragment": "snakes",
+      "gives": "ASPS",
+      "note": "asps are venomous snakes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CL",
+      "ASPS"
+     ]
+    },
+    "explanation": {
+     "surface": "A pit of a hundred and fifty snakes offering hugs, an alarming welcome.",
+     "walkthrough": "Roman numerals are a crossword staple: C is 100 and L is 50.",
+     "definitionFit": "To clasp someone is to hold them tightly in the arms, the same as hugging them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "embraces"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +398,44 @@
     "text": "Loudly compare fungus and alga",
     "enumeration": "6"
    },
-   "solution": "LICHEN"
+   "solution": "LICHEN",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "LICHEN",
+    "definitions": [
+     {
+      "text": "fungus and alga",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Loudly",
+      "for": "homophone",
+      "note": "something said loudly is heard, so the word is judged by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "compare",
+      "gives": "LICHEN",
+      "soundsLike": "LIKEN",
+      "note": "to liken is to compare"
+     }
+    ],
+    "explanation": {
+     "surface": "A biology teacher loudly comparing a fungus with an alga.",
+     "walkthrough": "The definition is botanically precise: the organism is a partnership of the two.",
+     "definitionFit": "A lichen is a composite organism formed by a fungus living in symbiosis with an alga."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "compare"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +455,70 @@
      }
     ]
    },
-   "solution": "STARWARS"
+   "solution": "STARWARS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "STAR WARS",
+    "definitions": [
+     {
+      "text": "Film",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stuck up",
+      "for": "reversal",
+      "note": "in a down clue, sticking up means reading from bottom to top"
+     },
+     {
+      "text": "hiding",
+      "for": "container",
+      "note": "to hide something is to put it inside, so one piece goes within another"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "leads",
+      "gives": "STARS",
+      "note": "the stars are the leading actors"
+     },
+     {
+      "clueFragment": "icy",
+      "gives": "RAW",
+      "note": "raw weather is bitterly cold"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAR",
+      "WAR",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "RAW",
+       "to": "WAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A review complaining that a film's lead actors seem cold and aloof.",
+     "walkthrough": "'Leads' looks like first letters but means the stars of the film; RAW, turned upward, sits inside them.",
+     "definitionFit": "Star Wars is the famous 1977 space-opera film by George Lucas and the franchise that followed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leads"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +532,51 @@
     "text": "Distracted stingray wandering off",
     "enumeration": "8"
    },
-   "solution": "STRAYING"
+   "solution": "STRAYING",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STRAYING",
+    "definitions": [
+     {
+      "text": "wandering off",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Distracted",
+      "for": "anagram",
+      "note": "a distracted mind is scattered, so the letters are thrown into disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stingray",
+      "gives": "STINGRAY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "STINGRAY",
+       "gives": "STRAYING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stingray losing focus and drifting away from where it should be.",
+     "walkthrough": "'Distracted' looks like a description of the stingray, but it signals the letter rearrangement.",
+     "definitionFit": "Straying is moving away from the right place or path, the same as wandering off."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Distracted"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +590,52 @@
     "text": "Placed in water, bananas simmered",
     "enumeration": "8"
    },
-   "solution": "IMMERSED"
+   "solution": "IMMERSED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IMMERSED",
+    "definitions": [
+     {
+      "text": "Placed in water",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bananas",
+      "for": "anagram",
+      "note": "bananas is slang for crazy, so the letters go wild into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "simmered",
+      "gives": "SIMMERED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SIMMERED",
+       "gives": "IMMERSED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A recipe step: bananas dropped into water and gently simmered.",
+     "walkthrough": "'Bananas' looks like the food being cooked, but it is slang for crazy and signals the rearrangement.",
+     "definitionFit": "To immerse something is to plunge or dip it fully under a liquid."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bananas"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +649,70 @@
     "text": "Sent back kind of pudding the French consumed: it's very rich and creamy",
     "enumeration": "6"
    },
-   "solution": "ECLAIR"
+   "solution": "ECLAIR",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "ECLAIR",
+    "definitions": [
+     {
+      "text": "it's very rich and creamy",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Sent back",
+      "for": "reversal",
+      "note": "returning something sends it back the way it came, so the letters run backwards"
+     },
+     {
+      "text": "consumed",
+      "for": "container",
+      "note": "what is consumed ends up inside the eater, so one piece swallows the other"
+     }
+    ],
+    "linkWords": [
+     ":"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "kind of pudding",
+      "gives": "RICE",
+      "note": "rice pudding is a kind of pudding"
+     },
+     {
+      "clueFragment": "the French",
+      "gives": "LA",
+      "note": "la is the French feminine for 'the'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EC",
+      "LA",
+      "IR"
+     ],
+     "reversals": [
+      {
+       "from": "RICE",
+       "to": "ECIR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dessert returned to the kitchen at a French restaurant for being too rich.",
+     "walkthrough": "The definition is a description: a cream-filled choux pastry fits 'very rich and creamy'.",
+     "definitionFit": "An eclair is a choux pastry finger filled with cream and topped with chocolate, so indulgent and creamy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "pudding"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +726,51 @@
     "text": "Listen to a man performing Old Testament book",
     "enumeration": "12"
    },
-   "solution": "LAMENTATIONS"
+   "solution": "LAMENTATIONS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LAMENTATIONS",
+    "definitions": [
+     {
+      "text": "Old Testament book",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "performing",
+      "for": "anagram",
+      "note": "performing means putting on an act, so the letters are made to put on a different show"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Listen to a man",
+      "gives": "LISTENTOAMAN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LISTENTOAMAN",
+       "gives": "LAMENTATIONS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An invitation to hear a man reading aloud from the Bible.",
+     "walkthrough": "'Listen to' looks like an instruction, but those words are part of the letters to rearrange.",
+     "definitionFit": "Lamentations is the book of the Hebrew Bible mourning the fall of Jerusalem, traditionally attributed to Jeremiah."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Listen"
+    }
+   }
   },
   {
    "number": 12,
@@ -227,7 +798,42 @@
      }
     ]
    },
-   "solution": "GIVETHEGAMEAWAY"
+   "solution": "GIVETHEGAMEAWAY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GIVE THE GAME AWAY",
+    "definitions": [
+     {
+      "text": "Divulge",
+      "at": 0
+     },
+     {
+      "text": "what they do in 'Danny, the Champion of the World'",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Divulge",
+      "note": "first meaning: the idiom for revealing a secret"
+     },
+     {
+      "clueFragment": "what they do in 'Danny, the Champion of the World'",
+      "note": "second meaning: in Roald Dahl's novel, the poached pheasants are handed out to the villagers"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In Roald Dahl's children's book, Danny and his father poach a wood's worth of pheasants and end up sharing them out, so 'game' is literal.",
+     "definitionFit": "The idiom means to reveal a secret or plan, while literally it describes handing over shot birds such as pheasants."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 13,
@@ -247,7 +853,64 @@
      }
     ]
    },
-   "solution": "TESTBED"
+   "solution": "TESTBED",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TEST BED",
+    "definitions": [
+     {
+      "text": "experimental environment",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to return",
+      "for": "reversal",
+      "note": "returning means going back the way you came, so the letters read backwards"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Liability",
+      "gives": "DEBT",
+      "note": "a debt is a financial liability"
+     },
+     {
+      "clueFragment": "set",
+      "gives": "SET",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEST",
+      "BED"
+     ],
+     "reversals": [
+      {
+       "from": "DEBTSET",
+       "to": "TESTBED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A financial liability poised to come back in an experimental setting.",
+     "walkthrough": "Both words are written out in clue order and the whole string is then read backwards.",
+     "definitionFit": "A test bed is a platform or setting where new technology or ideas are tried out under controlled conditions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "set"
+    }
+   }
   },
   {
    "number": 14,
@@ -261,7 +924,45 @@
     "text": "Elderly relative's fragrant (to some extent)",
     "enumeration": "4"
    },
-   "solution": "GRAN"
+   "solution": "GRAN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "GRAN",
+    "definitions": [
+     {
+      "text": "Elderly relative",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "(to some extent)",
+      "for": "hidden_word",
+      "note": "to some extent means partly, so only part of the next word is used"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fragrant",
+      "gives": "GRAN",
+      "note": "sits inside the word"
+     }
+    ],
+    "explanation": {
+     "surface": "A gentle remark that grandmother smells rather nice.",
+     "walkthrough": "The bracketed phrase reads like a hedge on 'fragrant', but it tells you only part of that word is needed.",
+     "definitionFit": "Gran is an informal name for a grandmother, a relative of an older generation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -275,7 +976,58 @@
     "text": "Opposed to puncturing starch in the City",
     "enumeration": "8"
    },
-   "solution": "SANTIAGO"
+   "solution": "SANTIAGO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SANTIAGO",
+    "definitions": [
+     {
+      "text": "City",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "puncturing",
+      "for": "container",
+      "note": "to puncture is to pierce through, so one piece is pushed into another"
+     }
+    ],
+    "linkWords": [
+     "in the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "starch",
+      "gives": "SAGO",
+      "note": "sago is a starch from palm pith"
+     },
+     {
+      "clueFragment": "Opposed to",
+      "gives": "ANTI",
+      "note": "anti means against"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ANTI",
+      "AGO"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone objecting to starchy food in the City of London.",
+     "walkthrough": "'The City' suggests London's financial district, but the definition is just any city, here Chile's capital.",
+     "definitionFit": "Santiago is the capital of Chile, and the name of several other cities in Spanish-speaking countries."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "City"
+    }
+   }
   },
   {
    "number": 16,
@@ -295,7 +1047,65 @@
      }
     ]
    },
-   "solution": "PINKGINS"
+   "solution": "PINKGINS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PINK GINS",
+    "definitions": [
+     {
+      "text": "booze",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sporting",
+      "for": "container",
+      "note": "to sport something is to wear it, so the outer word wraps around the inner"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flowers",
+      "gives": "PINKS",
+      "note": "pinks are garden flowers, a kind of dianthus"
+     },
+     {
+      "clueFragment": "Serviceman",
+      "gives": "GI",
+      "note": "a GI is a US soldier"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PINK",
+      "GI",
+      "N",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A young soldier with a buttonhole of flowers and a few drinks inside him.",
+     "walkthrough": "'Sporting flowers' looks like the soldier wearing them; in fact the flowers wear the soldier. A pink gin is gin with Angostura bitters, a old naval drink.",
+     "definitionFit": "Pink gins are alcoholic drinks of gin flavoured with bitters, and booze is informal for alcoholic drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sporting"
+    }
+   }
   },
   {
    "number": 17,
@@ -309,7 +1119,50 @@
     "text": "Programmer's dearest material",
     "enumeration": "8"
    },
-   "solution": "LOVELACE"
+   "solution": "LOVELACE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LOVELACE",
+    "definitions": [
+     {
+      "text": "Programmer",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dearest",
+      "gives": "LOVE",
+      "note": "love is a term of endearment, as in 'my love'"
+     },
+     {
+      "clueFragment": "material",
+      "gives": "LACE",
+      "note": "lace is a delicate fabric"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOVE",
+      "LACE"
+     ]
+    },
+    "explanation": {
+     "surface": "A coder's favourite fabric.",
+     "walkthrough": "'Programmer's' reads as possessive, but the 's is 'is', joining definition to wordplay.",
+     "definitionFit": "Ada Lovelace wrote notes on Babbage's Analytical Engine and is often called the first computer programmer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Programmer's"
+    }
+   }
   },
   {
    "number": 18,
@@ -323,7 +1176,74 @@
     "text": "A little sad, Everyman's a rejected novelist",
     "enumeration": "4"
    },
-   "solution": "AMIS"
+   "solution": "AMIS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "reversal"
+    ],
+    "answer": "AMIS",
+    "definitions": [
+     {
+      "text": "novelist",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "A little",
+      "for": "letter_selection",
+      "note": "a little of a word is just a small bit of it, its opening letter"
+     },
+     {
+      "text": "rejected",
+      "for": "reversal",
+      "note": "something rejected is sent back, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sad",
+      "gives": "S",
+      "select": "first",
+      "note": "opening letter"
+     },
+     {
+      "clueFragment": "Everyman's",
+      "gives": "IM",
+      "note": "the setter, Everyman, refers to himself: 'Everyman is' becomes I'M"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MI",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "SIMA",
+       "to": "AMIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The setter confesses to feeling a little down after being turned away, like a rejected novelist.",
+     "walkthrough": "A setter naming himself means 'I' or 'me'; with the 's it is I'M. Martin and Kingsley Amis are both British novelists.",
+     "definitionFit": "Kingsley Amis wrote Lucky Jim and his son Martin wrote Money, so either fits as a writer of fiction."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rejected"
+    }
+   }
   },
   {
    "number": 19,
@@ -337,7 +1257,43 @@
     "text": "Perhaps Victoria, perhaps Dave",
     "enumeration": "7"
    },
-   "solution": "STATION"
+   "solution": "STATION",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STATION",
+    "definitions": [
+     {
+      "text": "Perhaps Victoria",
+      "at": 0
+     },
+     {
+      "text": "perhaps Dave",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Perhaps Victoria",
+      "note": "first meaning: London Victoria is a major railway terminus"
+     },
+     {
+      "clueFragment": "perhaps Dave",
+      "note": "second meaning: Dave is a British TV channel"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The two names look like people. Victoria is a London railway terminus, and Dave is a British comedy TV channel.",
+     "definitionFit": "The word means both a railway stop and a broadcasting channel, and each name is an example of one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Dave"
+    }
+   }
   },
   {
    "number": 20,
@@ -351,7 +1307,55 @@
     "text": "Terminating in Gulf, river irrigating Sumer, primarily?",
     "enumeration": "6"
    },
-   "solution": "TIGRIS"
+   "solution": "TIGRIS",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "letter_selection"
+    ],
+    "answer": "TIGRIS",
+    "definitions": [
+     {
+      "text": "Terminating in Gulf, river irrigating Sumer, primarily?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so each word gives its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Terminating in Gulf, river irrigating Sumer",
+      "gives": "TIGRIS",
+      "select": "first",
+      "note": "the initial letter of each of the six words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "I",
+      "G",
+      "R",
+      "I",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A geography note on a river that ends in the Gulf and watered ancient Sumer.",
+     "walkthrough": "The whole clue also describes the answer: the river flows into the Persian Gulf (via the Shatt al-Arab) and watered Mesopotamia, where Sumer lay.",
+     "definitionFit": "The Tigris flows through Iraq to the Persian Gulf, and with the Euphrates it irrigated ancient Sumerian farmland."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "primarily"
+    }
+   }
   },
   {
    "number": 21,
@@ -365,7 +1369,45 @@
     "text": "Some singers some paper reported",
     "enumeration": "6"
    },
-   "solution": "CHOIRS"
+   "solution": "CHOIRS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "CHOIRS",
+    "definitions": [
+     {
+      "text": "Some singers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reported",
+      "for": "homophone",
+      "note": "what is reported is passed on by word of mouth, so the sound counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "paper",
+      "gives": "CHOIRS",
+      "soundsLike": "QUIRES",
+      "note": "'some paper' is a quire, a set of 24 or 25 sheets"
+     }
+    ],
+    "explanation": {
+     "surface": "A newspaper story about a group of singers.",
+     "walkthrough": "A quire is an old measure of paper: 24 or 25 sheets.",
+     "definitionFit": "A choir is an organised group of singers, so the plural fits 'some singers'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "paper"
+    }
+   }
   },
   {
    "number": 22,
@@ -379,7 +1421,67 @@
     "text": "Arising, well-groomed entertaining knight prepares for investiture",
     "enumeration": "6"
    },
-   "solution": "KNEELS"
+   "solution": "KNEELS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "KNEELS",
+    "definitions": [
+     {
+      "text": "prepares for investiture",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Arising",
+      "for": "reversal",
+      "note": "in a down clue, rising means reading from the bottom upwards"
+     },
+     {
+      "text": "entertaining",
+      "for": "container",
+      "note": "a host entertaining a guest has them inside the house, so one piece holds another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "well-groomed",
+      "gives": "SLEEK",
+      "note": "sleek means neat and glossy"
+     },
+     {
+      "clueFragment": "knight",
+      "gives": "N",
+      "note": "N is knight in chess notation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "N",
+      "EELS"
+     ],
+     "reversals": [
+      {
+       "from": "SLEEK",
+       "to": "KEELS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A smartly dressed knight-to-be getting up for the ceremony at which he is knighted.",
+     "walkthrough": "'Knight' looks like the person being honoured but supplies only N, the chess symbol (K is the king).",
+     "definitionFit": "Someone being knighted kneels before the monarch, so going down on one knee is getting ready for the ceremony."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Arising"
+    }
+   }
   },
   {
    "number": 23,
@@ -411,7 +1513,69 @@
      }
     ]
    },
-   "solution": "TAKEITONTHECHIN"
+   "solution": "TAKEITONTHECHIN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TAKE IT ON THE CHIN",
+    "definitions": [
+     {
+      "text": "accept defeat",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "resolved",
+      "for": "anagram",
+      "note": "something resolved is broken down and worked out afresh, so the letters are reworked"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "No",
+      "gives": "NO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hit', twice",
+      "gives": "HITHIT",
+      "note": "the word taken two times over"
+     },
+     {
+      "clueFragment": "Kent",
+      "gives": "KENT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ace",
+      "gives": "ACE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NOHITHITKENTACE",
+       "gives": "TAKEITONTHECHIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Kent cricket bowler, twice failing to make contact, determined to bear the setback.",
+     "walkthrough": "'Twice' doubles only 'hit', not 'No'. Kent is an English county with a well-known cricket side.",
+     "definitionFit": "To take it on the chin is an idiom for bearing a blow or setback stoically, without complaint."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "resolved"
+    }
+   }
   },
   {
    "number": 24,
@@ -425,7 +1589,61 @@
     "text": "Not very quiet birdhouse – it's full of bees",
     "enumeration": "6"
    },
-   "solution": "APIARY"
+   "solution": "APIARY",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "APIARY",
+    "definitions": [
+     {
+      "text": "it's full of bees",
+      "at": 27,
+      "note": "a description of the answer rather than a synonym"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not very quiet",
+      "for": "substitution",
+      "note": "'not this but that' swaps one letter for another: the very letter goes and the quiet one comes in"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "birdhouse",
+      "gives": "AVIARY",
+      "note": "an aviary is an enclosure for birds"
+     },
+     {
+      "clueFragment": "quiet",
+      "gives": "P",
+      "note": "p is piano, the musical marking for quiet"
+     },
+     {
+      "clueFragment": "very",
+      "gives": "V",
+      "note": "V is the abbreviation for very"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "P",
+      "IARY"
+     ]
+    },
+    "explanation": {
+     "surface": "A noisy birdhouse that turns out to be swarming with bees.",
+     "walkthrough": "'Not very quiet' looks like a complaint about noise; read as 'not V but P', it swaps one letter in the bird enclosure.",
+     "definitionFit": "An apiary is a place where beehives are kept, so it holds colonies of honey-making insects."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "very"
+    }
+   }
   },
   {
    "number": 25,
@@ -439,7 +1657,65 @@
     "text": "Romeo, gutted; teardrops, perhaps – for his love?",
     "enumeration": "8"
    },
-   "solution": "ROSALINE"
+   "solution": "ROSALINE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ROSALINE",
+    "definitions": [
+     {
+      "text": "his love",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gutted",
+      "for": "letter_selection",
+      "note": "a gutted fish has its insides removed, so only the outer letters remain"
+     },
+     {
+      "text": "perhaps",
+      "for": "charade",
+      "note": "perhaps marks the clue word as one example of a wider category, so the category word is wanted"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Romeo",
+      "gives": "RO",
+      "select": "outer",
+      "note": "first and last letters"
+     },
+     {
+      "clueFragment": "teardrops",
+      "gives": "SALINE",
+      "note": "tears are a salt solution, i.e. saline"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RO",
+      "SALINE"
+     ]
+    },
+    "explanation": {
+     "surface": "Romeo devastated and weeping over the woman he loves.",
+     "walkthrough": "Juliet springs to mind, but 'his love' is Romeo's earlier love in Shakespeare's play, the one he pines over before meeting Juliet.",
+     "definitionFit": "In Romeo and Juliet, Rosaline is the woman Romeo adores at the start of the play, before he meets Juliet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "gutted"
+    }
+   }
   },
   {
    "number": 26,
@@ -453,7 +1729,54 @@
     "text": "'Horrible Bosses' to occupy one's thoughts",
     "enumeration": "6"
    },
-   "solution": "OBSESS"
+   "solution": "OBSESS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OBSESS",
+    "definitions": [
+     {
+      "text": "occupy one's thoughts",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Horrible",
+      "for": "anagram",
+      "note": "something horrible is a mess, so the letters are thrown into a different order"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bosses",
+      "gives": "BOSSES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BOSSES",
+       "gives": "OBSESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who can't stop thinking about the comedy film Horrible Bosses.",
+     "walkthrough": "The quotation marks make it a film title; broken apart, 'Horrible' is the instruction and 'Bosses' the letters.",
+     "definitionFit": "To obsess is to fill or dominate the mind continually, preoccupying a person completely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Horrible"
+    }
+   }
   },
   {
    "number": 27,
@@ -467,7 +1790,42 @@
     "text": "Rates some classes' sessions",
     "enumeration": "8"
    },
-   "solution": "ASSESSES"
+   "solution": "ASSESSES",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ASSESSES",
+    "definitions": [
+     {
+      "text": "Rates",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "some means only a portion, so the letters are found within the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "classes' sessions",
+      "gives": "ASSESSES",
+      "note": "runs across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "An inspector grading some lessons in a school.",
+     "walkthrough": "The apostrophe is ignored; the letters run from inside the first word into the second.",
+     "definitionFit": "To rate something is to evaluate or judge its quality, which is what an assessor does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
