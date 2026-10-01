@@ -6113,8 +6113,9 @@
       named. The bars are rebuilt and the answers taken from the “Times for the
       Times” blog.`],
     listener: ["listener", `The Listener crossword, the oldest of the thematic
-      puzzles: a barred grid with a preamble that sets a trick, printed by the
-      BBC's magazine from 1930 and by the Times on Saturdays since 1991. The
+      puzzles: a barred grid with a preamble that sets a trick, printed first by
+      the BBC's magazine it is named for and, since that closed, by the Times
+      on Saturdays. The
       earliest ones are general-knowledge puzzles rather than cryptics. Grid,
       bars and answers come from the Listener Team's archive at
       listenercrossword.com, and only puzzles whose answers go into the grid
