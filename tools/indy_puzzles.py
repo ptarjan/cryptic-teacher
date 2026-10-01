@@ -22,6 +22,7 @@ A title and a number that disagree are left alone.
 import argparse
 import collections
 import datetime
+import functools
 import html
 import json
 import re
@@ -57,18 +58,53 @@ DATED = re.compile(r"\([^)]*\)|\b(?:sat(?:urday)?|sun(?:day)?)\b(?:\s+prize\s+(?
                    re.IGNORECASE)
 
 
+#: "by Glowworm", "by Hypnos/Nitsy": the byline, wherever the title puts it.
+BYLINE = re.compile(r"\bby\s+([A-Z][\w'’\-]*(?:/[A-Z][\w'’\-]*)?)")
+SETTER_FIELD = re.compile(r'"setter":\s*"([^"]+)"')
+#: "Independent 6634 (Glow-Worm)", "Independent 7321, Sat 3 April – Merlin",
+#: "Independent 6540\\Virgilius": a lone name in brackets or after the last mark.
+LONE_NAME = re.compile(r"\(([A-Z][\w'’\-]+)\)|[\-–—/\\]\s*([A-Z][\w'’\-]+)\s*$")
+MONTH = re.compile(r"(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)", re.IGNORECASE)
+
+
+@functools.lru_cache(maxsize=1)
+def known_setters():
+    """{lowercased name: name} for every setter filed under either paper."""
+    out = {}
+    for series in (DAILY, SUNDAY):
+        for f in (TOOLS.parent / "puzzles" / series).glob("*/*.json"):
+            with f.open(encoding="utf-8") as fh:
+                m = SETTER_FIELD.search(fh.read(600))
+            if m and not re.search(r"\d", m.group(1)):
+                out.setdefault(m.group(1).lower(), m.group(1))
+    return out
+
+
 def setter_of(title):
     """The setter a title names, or None: "Independent 8925 Sat 23-May-2015
-    Monk" is Monk, "IoS 1,102 / Poins. Heart to heart" is Poins."""
+    Monk" is Monk, "IoS 1,102 / Poins. Heart to heart" is Poins,
+    "Independent on Sunday 1106, by Glowworm" is Glowworm. A title with no
+    byline is searched for a setter either paper has already filed."""
     m = ft.NUMBER.search(title)
     if not m:
         return None
+    known = known_setters()
+    by = BYLINE.search(title)
+    if by and not MONTH.fullmatch(by.group(1)[:3]):
+        return known.get(by.group(1).lower(), by.group(1))
     rest = DATED.sub(" ", title[m.end():])
     name = ft.post_setter(title[:m.end()] + " " + rest.strip())
-    name = name and re.split(r"\.\s", name)[0].strip()
-    if not name or re.search(r"\d", name) or name.lower().startswith(("prize", "independent", "on sunday")):
-        return None
-    return name
+    name = name and re.split(r"\.\s|\s{2,}", name)[0].strip()
+    if name and not re.search(r"\d", name) and not name.lower().startswith(
+            ("prize", "independent", "on sunday", "saturday")):
+        return known.get(name.lower(), name)
+    hits = [(w.start(), known[w.group(0).lower()])
+            for w in re.finditer(r"[A-Za-z][\w'’\-]*", title) if w.group(0).lower() in known]
+    if hits:
+        return min(hits)[1]
+    lone = LONE_NAME.search(title)
+    name = lone and (lone.group(1) or lone.group(2))
+    return known.get(name.lower(), name) if name and not MONTH.match(name) else None
 
 
 def series_of(title, number):

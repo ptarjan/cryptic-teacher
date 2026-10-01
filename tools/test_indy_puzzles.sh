@@ -41,6 +41,18 @@ print("SETTER", [I.setter_of(t) for t in (
     "Independent on Sunday 1,102 / Poins. Heart to heart",
     "Independent 7,700 Saturday Prize Puzzle")])
 
+# Titles with no "/" or dash before the setter. The setters filed on disk are
+# stubbed: a title that names one anywhere is read for it.
+I.known_setters = lambda: {"hypnos": "Hypnos", "phi": "Phi", "glow-worm": "Glow-worm"}
+print("BYLINE", [I.setter_of(t) for t in (
+    "Independent on Sunday 1106, by Glowworm",
+    "Independent on Sunday 1017 by Quixote  9 Aug 2009",
+    "Independent Prize Crossword 8847 by Anax, 21/02/15",
+    "Independent 6622 (Hypnos)", "Independent 6634 (Glow-Worm)",
+    "Independent 6692 Phi / Weekend Warm Up",
+    "Independent 7321, Sat 3 April – Merlin", "Independent 6540\\Virgilius",
+    "Independent on Sunday 1,521/21 April", "Independent 9077")])
+
 rows = [{"number": 1218, "date": "2013-06-30"},   # a Sunday: itself
         {"number": 1219, "date": "2013-07-09"},   # blogged late: the Sunday before
         {"number": 1220, "date": "2013-07-03"}]   # a date that falls back is dropped
@@ -55,6 +67,8 @@ check "Sunday titles go to the Sunday paper" "['indysunday', 'indysunday']" "$(f
 check "a disagreeing title or another puzzle goes nowhere" "[None, None, None, None]" "$(field NONE)"
 check "a print date in the title is not the setter" \
   "['Monk', 'Monk', 'Morph', 'Mordred', 'Poins', None]" "$(field SETTER)"
+check "a byline anywhere, a filed setter's name, a lone name in brackets" \
+  "['Glowworm', 'Quixote', 'Anax', 'Hypnos', 'Glow-worm', 'Phi', 'Merlin', 'Virgilius', None, None]" "$(field BYLINE)"
 check "Sunday dates rise with the numbers" \
   "{1218: '2013-06-30', 1219: '2013-07-07', 1220: None}" "$(field DATES)"
 
