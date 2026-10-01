@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,44 @@
     "text": "Part of a big organisation that is wooden",
     "enumeration": "6"
    },
-   "solution": "BRANCH"
+   "solution": "BRANCH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BRANCH",
+    "definitions": [
+     {
+      "text": "Part of a big organisation",
+      "at": 0
+     },
+     {
+      "text": "that is wooden",
+      "at": 27
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Part of a big organisation",
+      "note": "first meaning: a local office or division of a bank or chain"
+     },
+     {
+      "clueFragment": "that is wooden",
+      "note": "second meaning: a limb of a tree, which is made of wood"
+     }
+    ],
+    "explanation": {
+     "surface": "Some department of a large company is described as stiff and wooden.",
+     "walkthrough": "'That is wooden' reads like a jibe at a dull department, but it simply describes a tree limb.",
+     "definitionFit": "A bank or shop chain has local offices called by this name, and a tree's woody limb shares it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "wooden"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +87,51 @@
     "text": "Able lad composed poetic work",
     "enumeration": "7"
    },
-   "solution": "BALLADE"
+   "solution": "BALLADE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BALLADE",
+    "definitions": [
+     {
+      "text": "poetic work",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "composed",
+      "for": "anagram",
+      "note": "to compose is to put together or arrange, so the letters are set in a fresh order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Able lad",
+      "gives": "ABLELAD",
+      "note": "the letters of these two words, taken together"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ABLELAD",
+       "gives": "BALLADE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A talented boy wrote a poem.",
+     "walkthrough": "'Composed' looks like the verb for writing the poem; it signals the rearrangement of the first two words.",
+     "definitionFit": "A ballade is a verse form of three stanzas plus an envoi, each ending with the same refrain line."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "composed"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +145,56 @@
     "text": "Monk and a couple of bishops with holy books",
     "enumeration": "5"
    },
-   "solution": "ABBOT"
+   "solution": "ABBOT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABBOT",
+    "definitions": [
+     {
+      "text": "Monk",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "couple of bishops",
+      "gives": "BB",
+      "note": "B is the chess abbreviation for bishop, twice"
+     },
+     {
+      "clueFragment": "holy books",
+      "gives": "OT",
+      "note": "OT is the Old Testament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BB",
+      "OT"
+     ]
+    },
+    "explanation": {
+     "surface": "A monk and two bishops are carrying scriptures.",
+     "walkthrough": "Strictly the monk is the definition and the rest builds him: one A, two Bs and the Old Testament.",
+     "definitionFit": "The head of a monastery is himself a monk, so the general word stands for this senior example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +208,50 @@
     "text": "Pardon prisoner that has cheated",
     "enumeration": "7"
    },
-   "solution": "CONDONE"
+   "solution": "CONDONE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CONDONE",
+    "definitions": [
+     {
+      "text": "Pardon",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "that"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prisoner",
+      "gives": "CON",
+      "note": "a con is a convict"
+     },
+     {
+      "clueFragment": "has cheated",
+      "gives": "DONE",
+      "note": "to have done someone is to have swindled them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "DONE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks for a pardon for an inmate who has been dishonest.",
+     "walkthrough": "'Done' in the sense of cheated is informal British usage: 'I've been done' means 'I've been swindled'.",
+     "definitionFit": "To overlook or forgive an offence, letting it pass without punishment, is a near synonym of excusing it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pardon"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +265,58 @@
     "text": "Try to block drop of rain with plug",
     "enumeration": "6"
    },
-   "solution": "SPIGOT"
+   "solution": "SPIGOT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SPIGOT",
+    "definitions": [
+     {
+      "text": "plug",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to block",
+      "for": "container",
+      "note": "a blockage sits inside a passage, so one piece is lodged within the other"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Try",
+      "gives": "GO",
+      "note": "to have a go is to try"
+     },
+     {
+      "clueFragment": "drop of rain",
+      "gives": "SPIT",
+      "note": "light rain is said to spit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPI",
+      "GO",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone attempts to stop a raindrop leaking by using a stopper.",
+     "walkthrough": "When it is 'spitting', only a few drops of rain are falling, so a spit is a single drop.",
+     "definitionFit": "A small peg or stopper used to close the vent hole of a cask is exactly a plug."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drop"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +330,49 @@
     "text": "Teller of horror stories to attempt verse",
     "enumeration": "6"
    },
-   "solution": "POETRY"
+   "solution": "POETRY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "POETRY",
+    "definitions": [
+     {
+      "text": "verse",
+      "at": 36
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Teller of horror stories",
+      "gives": "POE",
+      "note": "Edgar Allan Poe wrote tales of terror"
+     },
+     {
+      "clueFragment": "attempt",
+      "gives": "TRY",
+      "note": "a try is an attempt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POE",
+      "TRY"
+     ]
+    },
+    "explanation": {
+     "surface": "A writer of horror stories decides to have a go at writing verse.",
+     "walkthrough": "Poe also wrote poems such as The Raven, which makes the surface plausible.",
+     "definitionFit": "Verse is metrical writing in lines, the general term for poems as opposed to prose."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +386,50 @@
     "text": "Set to spark off explosive material",
     "enumeration": "9"
    },
-   "solution": "GELIGNITE"
+   "solution": "GELIGNITE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GELIGNITE",
+    "definitions": [
+     {
+      "text": "explosive material",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Set",
+      "gives": "GEL",
+      "note": "a jelly sets or gels"
+     },
+     {
+      "clueFragment": "spark off",
+      "gives": "IGNITE",
+      "note": "to ignite is to set alight"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GEL",
+      "IGNITE"
+     ]
+    },
+    "explanation": {
+     "surface": "Something is primed to set off a load of explosives.",
+     "walkthrough": "'Set' looks like 'ready', but it is the jelly sense of firming up.",
+     "definitionFit": "This is a blasting compound made of nitroglycerine in a jelly base, used in quarrying and demolition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Set"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +443,40 @@
     "text": "Hide in this processing plant",
     "enumeration": "7"
    },
-   "solution": "TANNERY"
+   "solution": "TANNERY",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "TANNERY",
+    "definitions": [
+     {
+      "text": "Hide in this processing plant",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hide in this",
+      "note": "surface reading: an invitation to take cover inside a factory"
+     },
+     {
+      "clueFragment": "processing plant",
+      "note": "setter's reading: hide is animal skin, and this is where skins are processed into leather"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is told to conceal themselves in a factory.",
+     "walkthrough": "'Hide' reads as a verb telling you to conceal yourself; it is the noun for an animal's skin.",
+     "definitionFit": "Raw skins are treated with tannin there to turn them into leather, so it is a plant processing them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Hide"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +496,56 @@
      }
     ]
    },
-   "solution": "SWEETCAROLINE"
+   "solution": "SWEETCAROLINE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SWEET CAROLINE",
+    "definitions": [
+     {
+      "text": "a song for the spectators?",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Fantastic",
+      "for": "anagram",
+      "note": "something fantastic is fanciful and unreal, so the letters take an imagined new form"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Leicester won",
+      "gives": "LEICESTERWON",
+      "note": "the letters of these two words"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written, added to the mix"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LEICESTERWONA",
+       "gives": "SWEETCAROLINE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A football fan celebrates Leicester's amazing win and asks what the crowd should sing.",
+     "walkthrough": "'A' belongs to the letters being rearranged, not to the definition. The question mark marks the definition as an example: the crowd song is one of many.",
+     "definitionFit": "Neil Diamond's hit is a stadium singalong, belted out by crowds at football grounds and ballparks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Fantastic"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +559,46 @@
     "text": "Card for social organisation",
     "enumeration": "4"
    },
-   "solution": "CLUB"
+   "solution": "CLUB",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CLUB",
+    "definitions": [
+     {
+      "text": "Card",
+      "at": 0
+     },
+     {
+      "text": "social organisation",
+      "at": 9
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Card",
+      "note": "first meaning: a playing card of the suit with a black trefoil"
+     },
+     {
+      "clueFragment": "social organisation",
+      "note": "second meaning: a society of members who meet together"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like a membership card for a society; the two nouns are separate meanings of one word.",
+     "definitionFit": "The word names both one of the four playing-card suits and a society whose members meet for a shared interest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Card"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +618,71 @@
      }
     ]
    },
-   "solution": "NEWZEALAND"
+   "solution": "NEWZEALAND",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "NEW ZEALAND",
+    "definitions": [
+     {
+      "text": "country",
+      "at": 58
+     }
+    ],
+    "indicators": [
+     {
+      "text": "introduction to",
+      "for": "letter_selection",
+      "note": "an introduction comes at the very start, so only the opening letter is kept"
+     }
+    ],
+    "linkWords": [
+     "comes with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fresh",
+      "gives": "NEW",
+      "note": "fresh means new"
+     },
+     {
+      "clueFragment": "enthusiasm",
+      "gives": "ZEAL",
+      "note": "zeal is eager enthusiasm"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "delightful",
+      "gives": "D",
+      "select": "first",
+      "note": "the opening letter of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEW",
+      "ZEAL",
+      "AN",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller arriving in a lovely country feels a renewed burst of keenness.",
+     "walkthrough": "'Delightful country' looks like the definition, but 'delightful' only lends its first letter.",
+     "definitionFit": "This Pacific island nation, made up of two main islands south-east of Australia, is a country."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "delightful"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +696,64 @@
     "text": "Socialist leader, a sort disturbed by Conservative",
     "enumeration": "6"
    },
-   "solution": "CASTRO"
+   "solution": "CASTRO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "CASTRO",
+    "definitions": [
+     {
+      "text": "Socialist leader",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disturbed",
+      "for": "anagram",
+      "note": "things disturbed are knocked out of place, so these letters are moved around"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C is the abbreviation for Conservative"
+     },
+     {
+      "clueFragment": "a sort",
+      "gives": "ASORT",
+      "note": "the letters of these two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ASTRO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ASORT",
+       "gives": "ASTRO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A left-wing leader is described as the type to be upset by a right-winger.",
+     "walkthrough": "The abbreviation goes first even though 'Conservative' comes last in the clue: 'by' only means 'next to'.",
+     "definitionFit": "Fidel Castro led Cuba's communist revolution and ran the country for decades as a socialist head of state."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "disturbed"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +773,62 @@
      }
     ]
    },
-   "solution": "EARLGREY"
+   "solution": "EARLGREY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "EARL GREY",
+    "definitions": [
+     {
+      "text": "Tea",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to come in",
+      "for": "container",
+      "note": "whatever comes in enters something else, so these letters go inside the outer word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about, concerning"
+     },
+     {
+      "clueFragment": "before expected time",
+      "gives": "EARLY",
+      "note": "early means ahead of time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EARL",
+      "G",
+      "RE",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A host offers tea and is pleased that a guest is coming in ahead of schedule.",
+     "walkthrough": "The definition is just the first word; 'about' is the abbreviation RE, as in letter headings, not a sign of reversal.",
+     "definitionFit": "This blend of black leaves flavoured with bergamot oil is a well-known variety of the drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +842,64 @@
     "text": "Remorse of English fool interrupting Trump's no.2",
     "enumeration": "9"
    },
-   "solution": "PENITENCE"
+   "solution": "PENITENCE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PENITENCE",
+    "definitions": [
+     {
+      "text": "Remorse",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "interrupting",
+      "for": "container",
+      "note": "to interrupt is to break into the middle of something, so these letters split the outer word"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fool",
+      "gives": "NIT",
+      "note": "a nit is a nitwit, a fool"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "Trump's no.2",
+      "gives": "PENCE",
+      "note": "Mike Pence was vice-president in Trump's first term"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PE",
+      "NIT",
+      "E",
+      "NCE"
+     ]
+    },
+    "explanation": {
+     "surface": "An English idiot butts in on the US vice-president, then feels sorry about it.",
+     "walkthrough": "The vice-president's surname is broken after its first two letters to admit the other pieces.",
+     "definitionFit": "Sorrow and regret for wrongdoing, the feeling of repentance, is the same as remorse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +913,56 @@
     "text": "Not well, say, with friend going against the law",
     "enumeration": "9"
    },
-   "solution": "ILLEGALLY"
+   "solution": "ILLEGALLY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ILLEGALLY",
+    "definitions": [
+     {
+      "text": "going against the law",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Not well",
+      "gives": "ILL",
+      "note": "not well means sick"
+     },
+     {
+      "clueFragment": "say",
+      "gives": "EG",
+      "note": "e.g. means for example, as does say"
+     },
+     {
+      "clueFragment": "friend",
+      "gives": "ALLY",
+      "note": "an ally is a friend"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ILL",
+      "EG",
+      "ALLY"
+     ]
+    },
+    "explanation": {
+     "surface": "A sick person and a pal are breaking the law together.",
+     "walkthrough": "'Say' is the usual crossword signal for EG, both meaning 'for example'.",
+     "definitionFit": "Acting in a manner forbidden by statute is acting unlawfully, contrary to the legal rules."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "say"
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +976,58 @@
     "text": "Very small container by end of alleyway",
     "enumeration": "4"
    },
-   "solution": "TINY"
+   "solution": "TINY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "TINY",
+    "definitions": [
+     {
+      "text": "Very small",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end is the final part, so just the closing letter is kept"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "container",
+      "gives": "TIN",
+      "note": "a tin is a container"
+     },
+     {
+      "clueFragment": "alleyway",
+      "gives": "Y",
+      "select": "last",
+      "note": "the closing letter of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIN",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A little box sits at the far end of a narrow lane.",
+     "walkthrough": "'Very small' looks as if it describes the container; it is the definition.",
+     "definitionFit": "Something minute or minuscule is extremely little, the same sense as the two-word phrase."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +1041,54 @@
     "text": "Metal left inside idol",
     "enumeration": "4"
    },
-   "solution": "GOLD"
+   "solution": "GOLD",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GOLD",
+    "definitions": [
+     {
+      "text": "Metal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside places one thing within another, so a letter sits in the middle of a word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "idol",
+      "gives": "GOD",
+      "note": "an idol is a false god"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GO",
+      "L",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A metal object has been placed within a statue of a deity.",
+     "walkthrough": "The golden idol of the surface hints at the answer, which is fitting.",
+     "definitionFit": "This yellow precious element is one of the metals, prized for jewellery and coinage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -289,7 +1102,63 @@
     "text": "Somehow hairy dog ate end of the stew",
     "enumeration": "7"
    },
-   "solution": "GOATEED"
+   "solution": "GOATEED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection"
+    ],
+    "answer": "GOATEED",
+    "definitions": [
+     {
+      "text": "hairy",
+      "at": 8
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Somehow",
+      "for": "anagram",
+      "note": "somehow means in some unknown manner, so the letters come out in an unexpected arrangement"
+     },
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end is the final part, so only the closing letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dog ate",
+      "gives": "DOGATE",
+      "note": "the letters of these two words"
+     },
+     {
+      "clueFragment": "the stew",
+      "gives": "E",
+      "select": "last",
+      "note": "the closing letter of the phrase"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DOGATEE",
+       "gives": "GOATEED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shaggy dog has somehow managed to eat the last of the stew.",
+     "walkthrough": "'Hairy' looks like it describes the dog, but it is the definition, in an unusual sense: having a chin beard.",
+     "definitionFit": "Someone wearing a small pointed tuft of beard on the chin is literally hairy there, an adjective formed from that beard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "hairy"
+    }
+   }
   },
   {
    "number": 17,
@@ -309,7 +1178,55 @@
      }
     ]
    },
-   "solution": "DRAGGEDON"
+   "solution": "DRAGGEDON",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DRAGGED ON",
+    "definitions": [
+     {
+      "text": "kept going for ages",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going round",
+      "for": "container",
+      "note": "to go round something is to encircle it, so one piece surrounds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fellow",
+      "gives": "DON",
+      "note": "a don is a fellow of a university college"
+     },
+     {
+      "clueFragment": "Worn out",
+      "gives": "RAGGED",
+      "note": "ragged means worn and tattered"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "RAGGED",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A tired man goes on his rounds after working for a very long time.",
+     "walkthrough": "'Worn out fellow' wants to be read as one tired man; the fellow is an academic who wraps around the tatters.",
+     "definitionFit": "A meeting that continued tediously for far too long is said to have done this, an idiom for tedious prolonging."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fellow"
+    }
+   }
   },
   {
    "number": 18,
@@ -323,7 +1240,56 @@
     "text": "Cook's device beginning to give problem?",
     "enumeration": "7"
    },
-   "solution": "GRIDDLE"
+   "solution": "GRIDDLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "GRIDDLE",
+    "definitions": [
+     {
+      "text": "Cook's device",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "a beginning is the start of something, so only the opening letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "give",
+      "gives": "G",
+      "select": "first",
+      "note": "the opening letter of this word"
+     },
+     {
+      "clueFragment": "problem",
+      "gives": "RIDDLE",
+      "note": "a riddle is a puzzle or problem"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "RIDDLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A chef wonders whether their kitchen gadget is starting to play up.",
+     "walkthrough": "'Beginning to give problem' reads as a machine starting to fail; it is the first letter of 'give' plus a puzzle.",
+     "definitionFit": "A flat iron plate heated for making pancakes and flatbreads is a piece of kitchen equipment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "beginning"
+    }
+   }
   },
   {
    "number": 19,
@@ -337,7 +1303,50 @@
     "text": "Survive as final batter to get dismissed",
     "enumeration": "7"
    },
-   "solution": "OUTLAST"
+   "solution": "OUTLAST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OUTLAST",
+    "definitions": [
+     {
+      "text": "Survive",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to get dismissed",
+      "gives": "OUT",
+      "note": "a dismissed batter is out"
+     },
+     {
+      "clueFragment": "final batter",
+      "gives": "LAST",
+      "note": "the final one in the batting order is the last"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUT",
+      "LAST"
+     ]
+    },
+    "explanation": {
+     "surface": "A cricketer hangs on as the last batter before the innings ends.",
+     "walkthrough": "In cricket the batter who is out last has stayed longer than all the others, so the wordplay also hints at the meaning.",
+     "definitionFit": "To live or last longer than someone else is to survive them, a close synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dismissed"
+    }
+   }
   },
   {
    "number": 20,
@@ -357,7 +1366,42 @@
      }
     ]
    },
-   "solution": "INHAND"
+   "solution": "INHAND",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "IN HAND",
+    "definitions": [
+     {
+      "text": "Like the proverbial bird you want",
+      "at": 0
+     },
+     {
+      "text": "being dealt with",
+      "at": 34
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Like the proverbial bird you want",
+      "note": "first meaning: 'a bird in the hand is worth two in the bush', so the bird worth having is held"
+     },
+     {
+      "clueFragment": "being dealt with",
+      "note": "second meaning: a matter under control and being handled"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The proverb says a sure thing you already hold beats two uncertain ones still out in the bush.",
+     "definitionFit": "The phrase means both held in your grasp, as the proverb's bird is, and currently under attention or control."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "bird"
+    }
+   }
   },
   {
    "number": 21,
@@ -371,7 +1415,67 @@
     "text": "False alarm – drinking spirit insignificant",
     "enumeration": "8"
    },
-   "solution": "MARGINAL"
+   "solution": "MARGINAL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "MARGINAL",
+    "definitions": [
+     {
+      "text": "insignificant",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "False",
+      "for": "anagram",
+      "note": "something false is not genuine, so these letters are a counterfeit arrangement"
+     },
+     {
+      "text": "drinking",
+      "for": "container",
+      "note": "a drinker takes something in, so one piece swallows the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "alarm",
+      "gives": "ALARM",
+      "note": "the letters of this word"
+     },
+     {
+      "clueFragment": "spirit",
+      "gives": "GIN",
+      "note": "gin is a spirit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAR",
+      "GIN",
+      "AL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ALARM",
+       "gives": "MARAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A false alarm caused by someone's drinking proves to be of no importance.",
+     "walkthrough": "'False alarm' reads as a set phrase, but 'False' works on the letters of the second word.",
+     "definitionFit": "Something minor or of small importance, only at the edges of what matters, is unimportant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "False"
+    }
+   }
   },
   {
    "number": 22,
@@ -385,7 +1489,44 @@
     "text": "Move home location, from what we hear",
     "enumeration": "6"
    },
-   "solution": "INCITE"
+   "solution": "INCITE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "INCITE",
+    "definitions": [
+     {
+      "text": "Move",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from what we hear",
+      "for": "homophone",
+      "note": "what we hear is spoken, so the letters are written as they sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "home location",
+      "gives": "INCITE",
+      "soundsLike": "IN SITE",
+      "note": "home is IN, a location is a SITE"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone moves house and reports a rumour about the new place.",
+     "walkthrough": "'Move home' looks like a phrase about relocating, but 'Move' alone is the definition in the sense of stirring someone up.",
+     "definitionFit": "To stir or urge people into action is to provoke them, one sense of the verb meaning to rouse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Move"
+    }
+   }
   },
   {
    "number": 23,
@@ -399,7 +1540,47 @@
     "text": "Cold maiden? Provide blanket maybe",
     "enumeration": "5"
    },
-   "solution": "COVER"
+   "solution": "COVER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COVER",
+    "definitions": [
+     {
+      "text": "Provide blanket maybe",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cold",
+      "gives": "C",
+      "note": "C is the abbreviation for cold, as on taps"
+     },
+     {
+      "clueFragment": "maiden",
+      "gives": "OVER",
+      "note": "in cricket a maiden is an over with no runs scored"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "OVER"
+     ]
+    },
+    "explanation": {
+     "surface": "A chilly young woman needs someone to give her a blanket.",
+     "walkthrough": "'Maiden' suggests a girl, but in cricket a maiden is a scoreless set of six balls.",
+     "definitionFit": "Laying a blanket over someone is one example of shielding them, hence 'maybe' in the definition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "maiden"
+    }
+   }
   },
   {
    "number": 24,
@@ -419,7 +1600,48 @@
      }
     ]
    },
-   "solution": "WELLEARNED"
+   "solution": "WELLEARNED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WELL-EARNED",
+    "definitions": [
+     {
+      "text": "rest may be this",
+      "at": 34
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "We",
+      "gives": "WE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "p-picked up some information",
+      "gives": "LLEARNED",
+      "note": "picked up information means learned, and the stammered 'p-p' tells us to stammer the first letter too"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WE",
+      "LLEARNED"
+     ]
+    },
+    "explanation": {
+     "surface": "We stammer that after picking up knowledge, a break must be due.",
+     "walkthrough": "The stutter in 'p-picked' is the instruction: the word for picked up is said with its first letter doubled.",
+     "definitionFit": "A rest after hard work is one deserved by effort, which is what the adjective describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "p-picked"
+    }
+   }
   },
   {
    "number": 25,
@@ -433,7 +1655,44 @@
     "text": "Have a look – find hidden meat",
     "enumeration": "4"
    },
-   "solution": "VEAL"
+   "solution": "VEAL",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "VEAL",
+    "definitions": [
+     {
+      "text": "meat",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hidden",
+      "for": "hidden_word",
+      "note": "something concealed is tucked away within other words, waiting to be uncovered"
+     }
+    ],
+    "linkWords": [
+     "find"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Have a look",
+      "note": "the letters run across the last two of 'Have', 'a' and the first of 'look'"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone peers around and discovers some meat that was stashed away.",
+     "walkthrough": "The answer straddles three words, starting inside the first and ending with the start of the last.",
+     "definitionFit": "The flesh of a calf eaten as food is a kind of meat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -447,7 +1706,49 @@
     "text": "Dull commercials showing nymphs",
     "enumeration": "6"
    },
-   "solution": "DRYADS"
+   "solution": "DRYADS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DRYADS",
+    "definitions": [
+     {
+      "text": "nymphs",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dull",
+      "gives": "DRY",
+      "note": "dry means dull, uninteresting"
+     },
+     {
+      "clueFragment": "commercials",
+      "gives": "ADS",
+      "note": "ads are advertisements"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DRY",
+      "ADS"
+     ]
+    },
+    "explanation": {
+     "surface": "Boring television adverts feature woodland spirits.",
+     "walkthrough": "'Showing' looks like part of the advertising picture, but it only joins wordplay to definition.",
+     "definitionFit": "In Greek myth these were tree spirits, a class of nymph living in woods and oaks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -461,7 +1762,67 @@
     "text": "City brute running wild – one to be caught",
     "enumeration": "6"
    },
-   "solution": "BEIRUT"
+   "solution": "BEIRUT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "BEIRUT",
+    "definitions": [
+     {
+      "text": "City",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "running wild",
+      "for": "anagram",
+      "note": "running wild means out of control, so these letters scatter into a new order"
+     },
+     {
+      "text": "to be caught",
+      "for": "container",
+      "note": "whatever is caught is held inside, so a letter is enclosed by the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brute",
+      "gives": "BRUTE",
+      "note": "the letters of this word"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "I",
+      "RUT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BRUTE",
+       "gives": "BERUT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A savage is rampaging through a city and must be captured.",
+     "walkthrough": "'One to be caught' sounds like a wanted criminal; it is the numeral placed inside the jumbled letters.",
+     "definitionFit": "This is the capital of Lebanon, a Mediterranean port and a major city of the Middle East."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "running"
+    }
+   }
   }
  ]
 }
