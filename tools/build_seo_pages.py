@@ -132,9 +132,11 @@ STUB_KEYS = ("id", "series", "number", "date", "year")
 
 
 def solved_stub(path):
-    """(path, stub) for a listed puzzle with a solution, else None."""
+    """(path, stub) for a listed puzzle with every solution, else None: the
+    rule fetch_puzzle.reindex() uses for hasSolutions, which decides whether
+    the listing page a puzzle page links to exists."""
     p = read_puzzle_file(path)
-    if series_meta.unlisted(p["series"]) or not any(e.get("solution") for e in p["entries"]):
+    if series_meta.unlisted(p["series"]) or not all(e.get("solution") for e in p["entries"]):
         return None
     return path, {k: p[k] for k in STUB_KEYS if k in p}
 
