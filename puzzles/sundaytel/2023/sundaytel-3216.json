@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,42 @@
     "text": "Ask for amount of electricity",
     "enumeration": "6"
    },
-   "solution": "CHARGE"
+   "solution": "CHARGE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CHARGE",
+    "definitions": [
+     {
+      "text": "Ask for",
+      "at": 0
+     },
+     {
+      "text": "amount of electricity",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ask for",
+      "note": "first meaning: to ask a price for goods or a service"
+     },
+     {
+      "clueFragment": "amount of electricity",
+      "note": "second meaning: the quantity of electricity stored in a battery or carried by a particle"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like a utility bill demanding payment for power used; the two halves are separate senses of one word.",
+     "definitionFit": "The verb names setting a price for something, and the noun is the physics term for stored electrical energy in a battery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "for"
+    }
+   }
   },
   {
    "number": 2,
@@ -46,7 +84,56 @@
     "text": "Price on grotty old sheep’s cheese",
     "enumeration": "8"
    },
-   "solution": "PECORINO"
+   "solution": "PECORINO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PECORINO",
+    "definitions": [
+     {
+      "text": "sheep’s cheese",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "grotty",
+      "for": "anagram",
+      "note": "grotty means shabby or in a poor state, so the letters arrive in a messed-up order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Price on",
+      "gives": "PRICEON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the standard abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PRICEONO",
+       "gives": "PECORINO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shopper balks at the price tag on a tired-looking old wedge of cheese.",
+     "walkthrough": "'Grotty' seems to describe the cheese, but it is the signal to rearrange; 'old' adds the extra letter, grotty being British slang for nasty or shabby.",
+     "definitionFit": "Pecorino is an Italian hard cheese made from ewe's milk, its name coming from the Italian word pecora for a ewe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "grotty"
+    }
+   }
   },
   {
    "number": 3,
@@ -74,7 +161,43 @@
      }
     ]
    },
-   "solution": "GONEWITHTHEWIND"
+   "solution": "GONEWITHTHEWIND",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GONE WITH THE WIND",
+    "definitions": [
+     {
+      "text": "Film",
+      "at": 0
+     },
+     {
+      "text": "lost in hurricane?",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Film",
+      "note": "first meaning: the 1939 epic movie set in the American Civil War"
+     },
+     {
+      "clueFragment": "lost in hurricane?",
+      "note": "second meaning, read literally: something carried off and lost when a great storm blows"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags the playful second reading: the famous film title taken literally describes anything blown away by a storm.",
+     "definitionFit": "The title names a classic Hollywood picture, and the same words literally describe belongings swept off by violent gales."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lost"
+    }
+   }
   },
   {
    "number": 4,
@@ -88,7 +211,42 @@
     "text": "Dismiss bank worker",
     "enumeration": "7"
    },
-   "solution": "CASHIER"
+   "solution": "CASHIER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CASHIER",
+    "definitions": [
+     {
+      "text": "Dismiss",
+      "at": 0
+     },
+     {
+      "text": "bank worker",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dismiss",
+      "note": "first meaning: to discharge someone in disgrace, especially from the armed forces"
+     },
+     {
+      "clueFragment": "bank worker",
+      "note": "second meaning: the person who pays out and takes in money at a counter"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface reads as an instruction to sack a teller; the verb sense is the formal word for expelling an officer in disgrace.",
+     "definitionFit": "As a verb it means to discharge from service dishonourably; as a noun it is the teller handling cash at a counter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Dismiss"
+    }
+   }
   },
   {
    "number": 5,
@@ -120,7 +278,51 @@
      }
     ]
    },
-   "solution": "ANYPORTINASTORM"
+   "solution": "ANYPORTINASTORM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ANY PORT IN A STORM",
+    "definitions": [
+     {
+      "text": "take what help you can get!",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "confusing",
+      "for": "anagram",
+      "note": "something confusing is jumbled and muddled, so the preceding letters must be sorted into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Astronomy in part",
+      "gives": "ASTRONOMYINPART",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ASTRONOMYINPART",
+       "gives": "ANYPORTINASTORM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A student admits stargazing is partly baffling and resolves to accept any assistance going.",
+     "walkthrough": "'In part' looks like a qualifier meaning 'partly', but both words are letters to rearrange along with the science.",
+     "definitionFit": "The proverb says that in a crisis any refuge will do, so you accept whatever assistance is offered."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "part"
+    }
+   }
   },
   {
    "number": 6,
@@ -134,7 +336,69 @@
     "text": "Have a go at munching a starter of Irish sausage",
     "enumeration": "6"
    },
-   "solution": "SALAMI"
+   "solution": "SALAMI",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SALAMI",
+    "definitions": [
+     {
+      "text": "sausage",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "munching",
+      "for": "container",
+      "note": "to munch something is to take it into your mouth, so one piece swallows another"
+     },
+     {
+      "text": "starter of",
+      "for": "letter_selection",
+      "note": "the starter is what comes first, so only the opening letter is wanted"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Have a go at",
+      "gives": "SLAM",
+      "note": "to slam is to criticise harshly, to have a go at someone"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Irish",
+      "gives": "I",
+      "select": "first",
+      "note": "the first letter of Irish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "A",
+      "LAM",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tucks into an Irish appetiser while being nagged, or is the sausage the thing being attacked?",
+     "walkthrough": "'Have a go at' looks like 'try', but it is the British idiom for attacking someone verbally.",
+     "definitionFit": "Salami is a cured, spiced Italian sausage, usually served sliced cold, so the general term covers it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "go"
+    }
+   }
   },
   {
    "number": 7,
@@ -148,7 +412,48 @@
     "text": "Singer dismissing case of English composer",
     "enumeration": "4"
    },
-   "solution": "ALTO"
+   "solution": "ALTO",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ALTO",
+    "definitions": [
+     {
+      "text": "Singer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dismissing case of",
+      "for": "deletion",
+      "note": "the case is the outside, and dismissing it sends away the first and last letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English composer",
+      "gives": "WALTON",
+      "note": "William Walton, English composer of Façade and Belshazzar's Feast"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALTO"
+     ]
+    },
+    "explanation": {
+     "surface": "A vocalist refuses to perform anything by a particular English composer.",
+     "walkthrough": "William Walton was a twentieth-century English composer; strip his outer letters to leave the voice part.",
+     "definitionFit": "An alto is a vocalist with the lowest female or highest adult male voice range, so a kind of singer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 8,
@@ -162,7 +467,45 @@
     "text": "Footwear on your bike, did you say?",
     "enumeration": "4"
    },
-   "solution": "SHOE"
+   "solution": "SHOE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SHOE",
+    "definitions": [
+     {
+      "text": "Footwear",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "did you say?",
+      "for": "homophone",
+      "note": "asking what someone said points to the sound of a word rather than its spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on your bike",
+      "gives": "SHOE",
+      "soundsLike": "SHOO",
+      "note": "'On your bike!' is a British way of telling someone to go away, as is 'shoo!'"
+     }
+    ],
+    "explanation": {
+     "surface": "A cyclist is asked whether a boot or trainer belongs on their bicycle.",
+     "walkthrough": "'On your bike' looks like it is about cycling, but it is British slang for 'clear off', which is the meaning of the dismissive 'shoo'.",
+     "definitionFit": "A shoe is the standard item worn on the foot, the most common kind of footwear people buy and wear."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bike"
+    }
+   }
   },
   {
    "number": 9,
@@ -176,7 +519,51 @@
     "text": "Female cells in Govan neither opening nor closing",
     "enumeration": "3"
    },
-   "solution": "OVA"
+   "solution": "OVA",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "OVA",
+    "definitions": [
+     {
+      "text": "Female cells",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "neither opening nor closing",
+      "for": "deletion",
+      "note": "removing both the opening and the closing letter leaves only the interior of the word"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Govan",
+      "gives": "GOVAN",
+      "note": "Govan is a district of Glasgow, taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVA"
+     ]
+    },
+    "explanation": {
+     "surface": "Prison cells for women in a Glasgow district have doors that neither open nor shut.",
+     "walkthrough": "Govan is a district of Glasgow; 'cells' looks like prison cells, but these are biological ones.",
+     "definitionFit": "Ova are egg cells, the female reproductive cells produced by the ovaries of animals and humans."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cells"
+    }
+   }
   },
   {
    "number": 10,
@@ -190,7 +577,55 @@
     "text": "Nobleman coming in to New York, not far off",
     "enumeration": "6"
    },
-   "solution": "NEARLY"
+   "solution": "NEARLY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NEARLY",
+    "definitions": [
+     {
+      "text": "not far off",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coming in to",
+      "for": "container",
+      "note": "something coming in enters the inside of another, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "New York",
+      "gives": "NY",
+      "note": "the standard abbreviation for New York"
+     },
+     {
+      "clueFragment": "Nobleman",
+      "gives": "EARL",
+      "note": "an earl is a British nobleman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "EARL",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "An aristocrat's transatlantic arrival at New York is close at hand.",
+     "walkthrough": "'Not far off' seems to describe the arrival in time or distance, but it is the definition, meaning 'almost'.",
+     "definitionFit": "Saying something is almost the case means it is close to being so, the same idea as only a short distance short."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "coming"
+    }
+   }
   },
   {
    "number": 11,
@@ -204,7 +639,55 @@
     "text": "Poet skint, zero pocketed",
     "enumeration": "6"
    },
-   "solution": "BROOKE"
+   "solution": "BROOKE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BROOKE",
+    "definitions": [
+     {
+      "text": "Poet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pocketed",
+      "for": "container",
+      "note": "a pocket holds something inside it, so one piece is tucked within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "skint",
+      "gives": "BROKE",
+      "note": "skint is British slang for having no money"
+     },
+     {
+      "clueFragment": "zero",
+      "gives": "O",
+      "note": "zero looks like the letter O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRO",
+      "O",
+      "KE"
+     ]
+    },
+    "explanation": {
+     "surface": "A penniless poet with nothing at all in his pocket, a familiar stereotype.",
+     "walkthrough": "Rupert Brooke was the English poet of 'The Soldier'; skint is British slang for penniless.",
+     "definitionFit": "Rupert Brooke was an English poet best known for his First World War sonnets, so the surname names a poet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pocketed"
+    }
+   }
   },
   {
    "number": 12,
@@ -218,7 +701,62 @@
     "text": "Figure crack in the pan fixed",
     "enumeration": "8"
    },
-   "solution": "HEPTAGON"
+   "solution": "HEPTAGON",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "HEPTAGON",
+    "definitions": [
+     {
+      "text": "Figure",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "a word placed in another sits inside it before the letters are worked"
+     },
+     {
+      "text": "fixed",
+      "for": "anagram",
+      "note": "fixed in the sense of repaired or rigged, so the letters are put together in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crack",
+      "gives": "GO",
+      "note": "to have a crack at something is to have a go"
+     },
+     {
+      "clueFragment": "the pan",
+      "gives": "THEPAN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THGOEPAN",
+       "gives": "HEPTAGON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crack in a saucepan has been mended.",
+     "walkthrough": "'Crack' looks like a break in the pan, but it means an attempt; 'figure' is a geometric shape, not a number or a person.",
+     "definitionFit": "A heptagon is a plane shape with seven straight sides, and geometry calls any such shape a figure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "crack"
+    }
+   }
   },
   {
    "number": 13,
@@ -238,7 +776,51 @@
      }
     ]
    },
-   "solution": "DEFINITEARTICLE"
+   "solution": "DEFINITEARTICLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DEFINITE ARTICLE",
+    "definitions": [
+     {
+      "text": "The",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ground",
+      "for": "anagram",
+      "note": "ground as in crushed or milled, so the letters are broken up and reformed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ain’t electrified",
+      "gives": "AINTELECTRIFIED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AINTELECTRIFIED",
+       "gives": "DEFINITEARTICLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An electrician assures you the earth wire is not live.",
+     "walkthrough": "'The ground' reads as earth in a wiring sense, but 'The' alone is the definition and 'ground' signals the anagram.",
+     "definitionFit": "Grammar calls the word 'the' the definite article, as opposed to the indefinite 'a' or 'an'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "ground"
+    }
+   }
   },
   {
    "number": 14,
@@ -252,7 +834,54 @@
     "text": "Drink buddy knocked up",
     "enumeration": "3"
    },
-   "solution": "LAP"
+   "solution": "LAP",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "LAP",
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "knocked up",
+      "for": "reversal",
+      "note": "in a down clue, something sent upwards is read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "buddy",
+      "gives": "PAL",
+      "note": "a pal is a friend or buddy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAP"
+     ],
+     "reversals": [
+      {
+       "from": "PAL",
+       "to": "LAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A friend has knocked back a drink, or perhaps has been roused for a drink.",
+     "walkthrough": "'Knocked up' is British for woken by a knock at the door, but here it simply means sent upward in the grid.",
+     "definitionFit": "To lap is to drink with the tongue, as a cat or dog takes up milk or water from a bowl."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "knocked"
+    }
+   }
   },
   {
    "number": 15,
@@ -266,7 +895,42 @@
     "text": "Country put into trouble, so thoughtless",
     "enumeration": "7"
    },
-   "solution": "LESOTHO"
+   "solution": "LESOTHO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "LESOTHO",
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put into",
+      "for": "hidden_word",
+      "note": "something put into the following words is contained within them, sitting inside their run of letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trouble, so thoughtless",
+      "note": "the run of letters across these three words contains the country"
+     }
+    ],
+    "explanation": {
+     "surface": "A careless government has landed its nation in a mess.",
+     "walkthrough": "The surface invites a search for a word meaning thoughtless; instead the country sits across the end of 'trouble', all of 'so' and the start of 'thoughtless'.",
+     "definitionFit": "Lesotho is a small mountainous kingdom in southern Africa, entirely surrounded by South Africa."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "thoughtless"
+    }
+   }
   },
   {
    "number": 16,
@@ -280,7 +944,51 @@
     "text": "Priest evidently leading Israelites, initially",
     "enumeration": "3"
    },
-   "solution": "ELI"
+   "solution": "ELI",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ELI",
+    "definitions": [
+     {
+      "text": "Priest",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the beginning, so the opening letter of each word is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "evidently leading Israelites",
+      "gives": "ELI",
+      "select": "first",
+      "note": "the first letters of these three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "L",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A priest plainly guiding the people of Israel.",
+     "walkthrough": "The surface suits the Old Testament, where Eli was the priest at Shiloh who raised Samuel.",
+     "definitionFit": "Eli is the Old Testament priest of Shiloh who trained the young prophet Samuel in the First Book of Samuel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leading"
+    }
+   }
   },
   {
    "number": 17,
@@ -294,7 +1002,50 @@
     "text": "Tap out wrong letters in slightly obscure exercise",
     "enumeration": "7"
    },
-   "solution": "MISTYPE"
+   "solution": "MISTYPE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MISTYPE",
+    "definitions": [
+     {
+      "text": "Tap out wrong letters",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "slightly obscure",
+      "gives": "MISTY",
+      "note": "misty means hazy, slightly hidden from view"
+     },
+     {
+      "clueFragment": "exercise",
+      "gives": "PE",
+      "note": "PE is physical education, school exercise"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MISTY",
+      "PE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hits the wrong keys during a vague, half-explained workout.",
+     "walkthrough": "'Letters' suggests post or a letter-selection device, but here it means characters typed on a keyboard.",
+     "definitionFit": "To mistype is to hit the wrong keys when typing, producing errors in the text you key in."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "letters"
+    }
+   }
   },
   {
    "number": 18,
@@ -314,7 +1065,59 @@
      }
     ]
    },
-   "solution": "TAPWATER"
+   "solution": "TAPWATER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TAP WATER",
+    "definitions": [
+     {
+      "text": "running liquid",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mixed",
+      "for": "anagram",
+      "note": "things mixed together are stirred up, so the letters lose their original order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A part",
+      "gives": "APART",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "wet",
+      "gives": "WET",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "APARTWET",
+       "gives": "TAPWATER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A recipe instruction: blend one portion with something damp to make a flowing liquid.",
+     "walkthrough": "'Running' belongs to the definition: running water is what comes from a tap.",
+     "definitionFit": "Tap water is the supply that flows from household faucets, the familiar running water of a home."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "running"
+    }
+   }
   },
   {
    "number": 19,
@@ -328,7 +1131,58 @@
     "text": "Look inside trophy for shell",
     "enumeration": "7"
    },
-   "solution": "SCALLOP"
+   "solution": "SCALLOP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SCALLOP",
+    "definitions": [
+     {
+      "text": "shell",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "to be inside is to be held within, so one piece goes into the other"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trophy",
+      "gives": "SCALP",
+      "note": "a scalp taken from a defeated enemy was a trophy of victory"
+     },
+     {
+      "clueFragment": "Look",
+      "gives": "LO",
+      "note": "lo is an old word meaning look or behold"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCAL",
+      "LO",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "Peer into a prize cup and you might find a seashell.",
+     "walkthrough": "'Trophy' suggests a cup, but it is a scalp, the grisly prize of a warrior; 'lo' is the archaic 'behold'.",
+     "definitionFit": "A scallop is a bivalve mollusc with a fan-shaped ribbed shell, and the word also names that shell."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "trophy"
+    }
+   }
   },
   {
    "number": 20,
@@ -352,7 +1206,43 @@
      }
     ]
    },
-   "solution": "LIKETHECLAPPERS"
+   "solution": "LIKETHECLAPPERS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LIKE THE CLAPPERS",
+    "definitions": [
+     {
+      "text": "Fast",
+      "at": 0
+     },
+     {
+      "text": "as crowd on feet?",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fast",
+      "note": "first meaning: British idiom for very quickly"
+     },
+     {
+      "clueFragment": "as crowd on feet?",
+      "note": "second meaning, read literally: an audience standing up applauding, like people who clap"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Like the clappers' is British slang for very fast; the question mark flags the literal reading of a standing ovation, the crowd behaving like people clapping.",
+     "definitionFit": "The idiom means at great speed, as in running to catch a train, so it matches the adverb sense of quickly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Fast"
+    }
+   }
   },
   {
    "number": 21,
@@ -366,7 +1256,62 @@
     "text": "Whole testament I put in before",
     "enumeration": "6"
    },
-   "solution": "ENTIRE"
+   "solution": "ENTIRE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ENTIRE",
+    "definitions": [
+     {
+      "text": "Whole",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put in",
+      "for": "container",
+      "note": "something put in is placed inside another, so the earlier pieces go within the last"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "testament",
+      "gives": "NT",
+      "note": "NT is the New Testament"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "before",
+      "gives": "ERE",
+      "note": "ere is a poetic word for before"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "NT",
+      "I",
+      "RE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone inserted the whole of a will at the head of a document.",
+     "walkthrough": "'Testament' suggests a will, but it is the New Testament abbreviated; 'ere' is the archaic word for before.",
+     "definitionFit": "Entire and whole are synonyms describing something complete, with no part missing or left out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "testament"
+    }
+   }
   },
   {
    "number": 22,
@@ -380,7 +1325,43 @@
     "text": "Fairly sure thing!",
     "enumeration": "6"
    },
-   "solution": "RATHER"
+   "solution": "RATHER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RATHER",
+    "definitions": [
+     {
+      "text": "Fairly",
+      "at": 0
+     },
+     {
+      "text": "sure thing!",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fairly",
+      "note": "first meaning: somewhat, to a moderate degree"
+     },
+     {
+      "clueFragment": "sure thing!",
+      "note": "second meaning: an old-fashioned British exclamation of emphatic agreement"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Fairly sure' looks like one phrase of mild confidence, but it splits in two; 'Rather!' is a dated British exclamation meaning 'yes indeed'.",
+     "definitionFit": "As an adverb it means somewhat, and as an interjection it expresses enthusiastic agreement, like saying absolutely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sure"
+    }
+   }
   },
   {
    "number": 23,
@@ -394,7 +1375,55 @@
     "text": "Wisest hunter hosts a presentation",
     "enumeration": "8"
    },
-   "solution": "BESTOWAL"
+   "solution": "BESTOWAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BESTOWAL",
+    "definitions": [
+     {
+      "text": "presentation",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hosts",
+      "for": "container",
+      "note": "a host takes guests in, so one piece is welcomed inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wisest hunter",
+      "gives": "BESTOWL",
+      "note": "the owl is the proverbially wise hunter, so the wisest one is the best owl"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BESTOW",
+      "A",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "The cleverest hunter is the guest of honour at an awards ceremony.",
+     "walkthrough": "The owl is the wise bird of fable and a night hunter, so the wisest of them is the best owl.",
+     "definitionFit": "A bestowal is the act of conferring a gift or honour, which is what a formal presentation does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hunter"
+    }
+   }
   },
   {
    "number": 24,
@@ -408,7 +1437,63 @@
     "text": "Highest note raised in test",
     "enumeration": "4"
    },
-   "solution": "EXAM"
+   "solution": "EXAM",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "EXAM",
+    "definitions": [
+     {
+      "text": "test",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "in a down clue, raising something lifts it so it reads from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Highest",
+      "gives": "MAX",
+      "note": "max is short for maximum, the highest"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "E",
+      "note": "E is a musical note"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EXAM"
+     ],
+     "reversals": [
+      {
+       "from": "MAXE",
+       "to": "EXAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A singer reaches the top note during an audition.",
+     "walkthrough": "The surface suggests a singing test, but 'Highest note' is two pieces, the second a musical letter, read upward in the grid.",
+     "definitionFit": "An exam is a formal test of knowledge or skill, so the two words are everyday synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "raised"
+    }
+   }
   },
   {
    "number": 25,
@@ -422,7 +1507,62 @@
     "text": "Delicious eats heading for oven, very warm",
     "enumeration": "6"
    },
-   "solution": "TOASTY"
+   "solution": "TOASTY",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "TOASTY",
+    "definitions": [
+     {
+      "text": "very warm",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eats",
+      "for": "container",
+      "note": "whatever is eaten ends up inside the eater, so one piece is swallowed by another"
+     },
+     {
+      "text": "heading for",
+      "for": "letter_selection",
+      "note": "a heading is at the top, so only the first letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Delicious",
+      "gives": "TASTY",
+      "note": "tasty means delicious"
+     },
+     {
+      "clueFragment": "oven",
+      "gives": "O",
+      "select": "first",
+      "note": "the first letter of oven"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "O",
+      "ASTY"
+     ]
+    },
+    "explanation": {
+     "surface": "Tasty food headed for a hot oven, nicely warmed through.",
+     "walkthrough": "'Eats' looks like a noun meaning food, but it is the verb that puts one piece inside another.",
+     "definitionFit": "Toasty is an informal word for comfortably hot, as a room feels by a fire on a cold night."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "eats"
+    }
+   }
   },
   {
    "number": 26,
@@ -436,7 +1576,46 @@
     "text": "Boy in underground network?",
     "enumeration": "6"
    },
-   "solution": "WARREN"
+   "solution": "WARREN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WARREN",
+    "definitions": [
+     {
+      "text": "Boy",
+      "at": 0
+     },
+     {
+      "text": "underground network?",
+      "at": 7
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boy",
+      "note": "first meaning: a boy's first name"
+     },
+     {
+      "clueFragment": "underground network?",
+      "note": "second meaning: the connected burrows of a rabbit colony"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Underground network' suggests a subway system, but the question mark points to rabbit tunnels.",
+     "definitionFit": "The name is a common male first name, and the noun names a system of interconnecting rabbit burrows below ground."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "underground"
+    }
+   }
   },
   {
    "number": 27,
@@ -450,7 +1629,48 @@
     "text": "Blade has sliced head from swine",
     "enumeration": "3"
    },
-   "solution": "OAR"
+   "solution": "OAR",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "OAR",
+    "definitions": [
+     {
+      "text": "Blade",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has sliced head from",
+      "for": "deletion",
+      "note": "slicing off the head removes the top, so the first letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "swine",
+      "gives": "BOAR",
+      "note": "a boar is a wild swine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A knife has decapitated a pig, a gruesome butcher's scene.",
+     "walkthrough": "'Blade' looks like the cutting tool, but it is the flat end of a rowing pole, and by extension the whole thing.",
+     "definitionFit": "Rowers call an oar a blade, after its flat broad end that pushes against the water."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Blade"
+    }
+   }
   },
   {
    "number": 28,
@@ -464,7 +1684,48 @@
     "text": "Biblical garden in Gethsemane deadly, looking back",
     "enumeration": "4"
    },
-   "solution": "EDEN"
+   "solution": "EDEN",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "EDEN",
+    "definitions": [
+     {
+      "text": "Biblical garden",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in means contained within, so the answer lies inside the following words"
+     },
+     {
+      "text": "looking back",
+      "for": "reversal",
+      "note": "looking back means facing the other way, so the letters read from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gethsemane deadly",
+      "note": "the end of the first word and the start of the second, read right to left"
+     }
+    ],
+    "explanation": {
+     "surface": "A grim reflection on a fatal episode in a biblical garden.",
+     "walkthrough": "Gethsemane is itself a biblical garden, a tempting decoy; the answer is the other one, found backwards across the two words.",
+     "definitionFit": "Eden is the garden in Genesis where Adam and Eve lived before the Fall, so a biblical garden."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Gethsemane"
+    }
+   }
   }
  ]
 }
