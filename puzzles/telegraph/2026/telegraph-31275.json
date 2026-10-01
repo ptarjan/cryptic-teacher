@@ -23,6 +23,9 @@
   "date": "2026-06-25",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,62 @@
     "text": "Smooth seed oddly ignored near bird",
     "enumeration": "9"
    },
-   "solution": "SANDPIPER"
+   "solution": "SANDPIPER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SANDPIPER",
+    "definitions": [
+     {
+      "text": "bird",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly ignored",
+      "for": "letter_selection",
+      "note": "skipping the odd-numbered positions leaves only the second and fourth letters of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Smooth",
+      "gives": "SAND",
+      "note": "to sand wood is to smooth it"
+     },
+     {
+      "clueFragment": "seed",
+      "gives": "PIP",
+      "note": "a pip is the seed of an apple or orange"
+     },
+     {
+      "clueFragment": "near",
+      "gives": "ER",
+      "select": "alternate",
+      "note": "the even letters of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAND",
+      "PIP",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone smoothing ground, scattering seed unevenly beside a bird.",
+     "walkthrough": "'Smooth' looks like an adjective but works as a verb, as with sandpaper. 'Oddly ignored' keeps only the even letters.",
+     "definitionFit": "A sandpiper is a small wading shorebird found along beaches and mudflats."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Smooth"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +108,46 @@
     "text": "Laughing uproariously seeing Carry On film?",
     "enumeration": "9"
    },
-   "solution": "SCREAMING"
+   "solution": "SCREAMING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SCREAMING",
+    "definitions": [
+     {
+      "text": "Laughing uproariously",
+      "at": 0
+     },
+     {
+      "text": "Carry On film",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "seeing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Laughing uproariously",
+      "note": "first meaning: in fits of loud laughter"
+     },
+     {
+      "clueFragment": "Carry On film",
+      "note": "second meaning: the title word of a 1966 entry in the Carry On series"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The Carry On films are a long-running series of bawdy British comedies; one is called Carry On Screaming!, a horror spoof.",
+     "definitionFit": "Someone helpless with laughter is said to be screaming, and the comedy title supplies the same word as a proper name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "seeing"
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +161,57 @@
     "text": "At no time software vendor is saving for retirement",
     "enumeration": "5"
    },
-   "solution": "NEVER"
+   "solution": "NEVER",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "NEVER",
+    "definitions": [
+     {
+      "text": "At no time",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is saving",
+      "for": "hidden_word",
+      "note": "to save something is to keep it inside, so the letters are held within the words"
+     },
+     {
+      "text": "for retirement",
+      "for": "reversal",
+      "note": "retiring means withdrawing or going back, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "software vendor",
+      "gives": "REVEN",
+      "note": "the end of the first word and start of the second"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "REVEN",
+       "to": "NEVER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tech company that never puts money into its staff pension fund.",
+     "walkthrough": "'Saving for retirement' reads as pension planning, but it splits into a hidden indicator and a reversal indicator: the letters sit across softwaRE VENdor, read backwards.",
+     "definitionFit": "Both the phrase and the adverb mean on no occasion whatsoever, an exact synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "retirement"
+    }
+   }
   },
   {
    "number": 3,
@@ -78,7 +225,61 @@
     "text": "Criticise revolutionary adopting American style",
     "enumeration": "7"
    },
-   "solution": "PANACHE"
+   "solution": "PANACHE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PANACHE",
+    "definitions": [
+     {
+      "text": "style",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "adopting",
+      "for": "container",
+      "note": "to adopt is to take in and give a home, so one piece is taken inside the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Criticise",
+      "gives": "PAN",
+      "note": "critics pan a show they dislike"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is the abbreviation for American"
+     },
+     {
+      "clueFragment": "revolutionary",
+      "gives": "CHE",
+      "note": "Che Guevara, the Argentine-born revolutionary"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAN",
+      "A",
+      "CHE"
+     ]
+    },
+    "explanation": {
+     "surface": "Attacking a radical who has taken on an American way of doing things.",
+     "walkthrough": "Che Guevara is the crossword's favourite revolutionary; the American slips in between the criticism and him.",
+     "definitionFit": "Panache is flamboyant confidence and flair, the same quality as stylishness in manner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "adopting"
+    }
+   }
   },
   {
    "number": 4,
@@ -92,7 +293,77 @@
     "text": "Sumptuous large Indian dish, not starter, and drink served up",
     "enumeration": "8"
    },
-   "solution": "PALATIAL"
+   "solution": "PALATIAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "reversal"
+    ],
+    "answer": "PALATIAL",
+    "definitions": [
+     {
+      "text": "Sumptuous",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not starter",
+      "for": "deletion",
+      "note": "without its starter means the opening letter is dropped"
+     },
+     {
+      "text": "served up",
+      "for": "reversal",
+      "note": "in a down clue, anything served up is brought upwards, so the letters read bottom to top"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the clothing-size abbreviation for large"
+     },
+     {
+      "clueFragment": "Indian dish",
+      "gives": "AITA",
+      "note": "raita, the yoghurt side dish, minus its first letter"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "LAP",
+      "note": "a cat will lap up milk"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAL",
+      "ATIA",
+      "L"
+     ],
+     "reversals": [
+      {
+       "from": "LAITALAP",
+       "to": "PALATIAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lavish curry-house order: a big side dish without its starter course, with a drink brought up.",
+     "walkthrough": "Raita is a cooling yoghurt-and-cucumber dish served with curries. Everything from 'large' to 'drink' is joined, then the whole string is read upwards.",
+     "definitionFit": "Palatial means like a palace, splendid and luxurious, so it matches lavishly grand surroundings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "starter"
+    }
+   }
   },
   {
    "number": 5,
@@ -106,7 +377,47 @@
     "text": "Lax about way of addressing schoolteacher",
     "enumeration": "6"
    },
-   "solution": "REMISS"
+   "solution": "REMISS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REMISS",
+    "definitions": [
+     {
+      "text": "Lax",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means concerning, as in a letter heading"
+     },
+     {
+      "clueFragment": "way of addressing schoolteacher",
+      "gives": "MISS",
+      "note": "pupils call a female teacher Miss"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "MISS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone being casual about how pupils speak to their teacher.",
+     "walkthrough": "'About' is the Latin-derived RE, not a container or reversal indicator here.",
+     "definitionFit": "Being remiss is being careless or negligent about one's duties, which is slack behaviour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 6,
@@ -120,7 +431,63 @@
     "text": "Chunk of wood cut after turning",
     "enumeration": "4"
    },
-   "solution": "SLAB"
+   "solution": "SLAB",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "SLAB",
+    "definitions": [
+     {
+      "text": "Chunk",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut",
+      "for": "deletion",
+      "note": "cutting something short trims off its final letter"
+     },
+     {
+      "text": "turning",
+      "for": "reversal",
+      "note": "turning round makes the letters face the other way"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wood",
+      "gives": "BALSA",
+      "note": "balsa is a very light wood used by model-makers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SLAB"
+     ],
+     "reversals": [
+      {
+       "from": "BALS",
+       "to": "SLAB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A block of timber trimmed after being turned on a lathe.",
+     "walkthrough": "'Chunk of wood' looks like the definition, but 'wood' is the wordplay: shortened balsa, then flipped.",
+     "definitionFit": "A slab is a thick flat piece of material, a broad lump or block."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turning"
+    }
+   }
   },
   {
    "number": 7,
@@ -134,7 +501,57 @@
     "text": "What MPs do when member is deceased?",
     "enumeration": "9"
    },
-   "solution": "LEGISLATE"
+   "solution": "LEGISLATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LEGISLATE",
+    "definitions": [
+     {
+      "text": "What MPs do",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "member",
+      "gives": "LEG",
+      "note": "a limb is a member of the body"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "deceased",
+      "gives": "LATE",
+      "note": "the late Mr Smith is the deceased one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEG",
+      "IS",
+      "LATE"
+     ]
+    },
+    "explanation": {
+     "surface": "What Parliament does when one of its members dies, such as holding a by-election.",
+     "walkthrough": "'Member' plays on Member of Parliament, but here it is a body part.",
+     "definitionFit": "Members of Parliament make laws, which is exactly the job of passing legislation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "member"
+    }
+   }
   },
   {
    "number": 8,
@@ -148,7 +565,70 @@
     "text": "Times runs number that’s upset poet",
     "enumeration": "5"
    },
-   "solution": "BYRON"
+   "solution": "BYRON",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "BYRON",
+    "definitions": [
+     {
+      "text": "poet",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "upset means tipped over, which in a down clue turns the letters upside down"
+     }
+    ],
+    "linkWords": [
+     "that’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Times",
+      "gives": "BY",
+      "note": "three by four means three times four"
+     },
+     {
+      "clueFragment": "runs",
+      "gives": "R",
+      "note": "R is the cricket scorecard abbreviation for runs"
+     },
+     {
+      "clueFragment": "number",
+      "gives": "NO",
+      "note": "No. is the abbreviation for number"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BY",
+      "R",
+      "ON"
+     ],
+     "reversals": [
+      {
+       "from": "NO",
+       "to": "ON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper story about a poet getting upset.",
+     "walkthrough": "'Times' looks like the newspaper but is multiplication.",
+     "definitionFit": "Lord Byron was the Romantic poet who wrote Don Juan, a famous example of the type."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Times"
+    }
+   }
   },
   {
    "number": 9,
@@ -162,7 +642,55 @@
     "text": "Manages entertaining live artist",
     "enumeration": "6"
    },
-   "solution": "RUBENS"
+   "solution": "RUBENS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RUBENS",
+    "definitions": [
+     {
+      "text": "artist",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entertaining",
+      "for": "container",
+      "note": "a host entertaining guests has them inside the house"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Manages",
+      "gives": "RUNS",
+      "note": "to run a business is to manage it"
+     },
+     {
+      "clueFragment": "live",
+      "gives": "BE",
+      "note": "to be is to exist or live"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RU",
+      "BE",
+      "NS"
+     ]
+    },
+    "explanation": {
+     "surface": "An agent who handles a performing artist's live shows.",
+     "walkthrough": "'Live' suggests a gig but is the verb to exist.",
+     "definitionFit": "Peter Paul Rubens was a Flemish Baroque painter, an example of the category."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "live"
+    }
+   }
   },
   {
    "number": 10,
@@ -176,7 +704,72 @@
     "text": "Split with pal discovered smuggling valuables primarily",
     "enumeration": "5"
    },
-   "solution": "RIVEN"
+   "solution": "RIVEN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "RIVEN",
+    "definitions": [
+     {
+      "text": "Split",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "discovered",
+      "for": "deletion",
+      "note": "dis-covered means with its covering taken off, so the outer letters go"
+     },
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means in the first place, so only the opening letter is wanted"
+     },
+     {
+      "text": "smuggling",
+      "for": "container",
+      "note": "smuggled goods are hidden inside something, so one piece is carried within another"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pal",
+      "gives": "FRIEND",
+      "note": "a pal is a friend"
+     },
+     {
+      "clueFragment": "valuables",
+      "gives": "V",
+      "select": "first",
+      "note": "the opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RI",
+      "V",
+      "EN"
+     ]
+    },
+    "explanation": {
+     "surface": "A falling-out with a friend who was caught smuggling valuables.",
+     "walkthrough": "'Split with pal' reads as a break-up, but 'with' is only a link: the definition is 'Split' alone, and the pal loses both ends before taking in the V.",
+     "definitionFit": "Riven is the old past participle of rive, meaning torn apart or divided, so it means cleft."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "discovered"
+    }
+   }
   },
   {
    "number": 11,
@@ -190,7 +783,61 @@
     "text": "Flexible, purchasing for the most part fancy cheese",
     "enumeration": "9"
    },
-   "solution": "LIMBURGER"
+   "solution": "LIMBURGER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "LIMBURGER",
+    "definitions": [
+     {
+      "text": "cheese",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "purchasing",
+      "for": "container",
+      "note": "purchasing means taking hold of and acquiring, so one piece gets held inside another"
+     },
+     {
+      "text": "for the most part",
+      "for": "deletion",
+      "note": "only most of the word is used, so its final letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flexible",
+      "gives": "LIMBER",
+      "note": "limber means supple"
+     },
+     {
+      "clueFragment": "fancy",
+      "gives": "URGE",
+      "note": "a fancy for something is a desire or urge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIMB",
+      "URG",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A supple shopper buying mostly fancy cheeses.",
+     "walkthrough": "'Fancy' looks like an adjective describing the cheese, but it is a noun meaning desire, shortened and tucked into the word for supple.",
+     "definitionFit": "Limburger is a soft, notoriously smelly Belgian cheese, so it is one example of the dairy product."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fancy"
+    }
+   }
   },
   {
    "number": 12,
@@ -204,7 +851,65 @@
     "text": "Pound off exotic tropical fruit",
     "enumeration": "7"
    },
-   "solution": "APRICOT"
+   "solution": "APRICOT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "APRICOT",
+    "definitions": [
+     {
+      "text": "fruit",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "deletion",
+      "note": "off means taken away, so that letter is removed"
+     },
+     {
+      "text": "exotic",
+      "for": "anagram",
+      "note": "something exotic is strange and unusual, so the letters take an unfamiliar arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pound",
+      "gives": "L",
+      "note": "L is the abbreviation for a pound sterling, from Latin libra"
+     },
+     {
+      "clueFragment": "tropical",
+      "gives": "TROPICAL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "APRICOT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TROPICA",
+       "gives": "APRICOT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shop knocking a pound off the price of exotic tropical fruit.",
+     "walkthrough": "'Pound off' reads as a discount, but it means remove the L. 'Tropical fruit' looks like one phrase, yet 'tropical' is the fodder.",
+     "definitionFit": "An apricot is a small orange stone fruit, an example of the general class."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Pound"
+    }
+   }
   },
   {
    "number": 13,
@@ -224,7 +929,44 @@
      }
     ]
    },
-   "solution": "STEPSON"
+   "solution": "STEPSON",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STEP-SON",
+    "definitions": [
+     {
+      "text": "Crushes",
+      "at": 0,
+      "note": "a verb phrase in the third person, split as two words"
+     },
+     {
+      "text": "spouse’s offspring",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Crushes",
+      "note": "first meaning: treads on, squashing underfoot"
+     },
+     {
+      "clueFragment": "spouse’s offspring",
+      "note": "second meaning: a husband's or wife's boy from an earlier relationship"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests a parent dealing with a partner's child; the same letters split two ways give a verb phrase and a family relation.",
+     "definitionFit": "Treading on something squashes it, and a husband's or wife's son by another partner is a stepchild."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Crushes"
+    }
+   }
   },
   {
    "number": 14,
@@ -248,7 +990,72 @@
      }
     ]
    },
-   "solution": "INTHERAW"
+   "solution": "INTHERAW",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "anagram"
+    ],
+    "answer": "IN THE RAW",
+    "definitions": [
+     {
+      "text": "Naked",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last of",
+      "for": "letter_selection",
+      "note": "the last of a word is its final letter"
+     },
+     {
+      "text": "removing",
+      "for": "deletion",
+      "note": "removing means taking out, so that letter is struck from the fodder"
+     },
+     {
+      "text": "loose",
+      "for": "anagram",
+      "note": "loose means not held in place, so the letters are free to move around"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "alluring",
+      "gives": "G",
+      "select": "last",
+      "note": "the final letter"
+     },
+     {
+      "clueFragment": "nightwear",
+      "gives": "NIGHTWEAR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INTHERAW"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NIHTWEAR",
+       "gives": "INTHERAW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone shedding seductive, loose-fitting nightclothes and ending up naked.",
+     "walkthrough": "'Alluring loose nightwear' reads as a negligee, but 'alluring' only supplies its G, which comes out of the nightwear before the rest is rearranged.",
+     "definitionFit": "Being in the raw is an informal idiom for wearing no clothes at all."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "alluring"
+    }
+   }
   },
   {
    "number": 15,
@@ -262,7 +1069,55 @@
     "text": "Sign he’s invested in something a setter uses",
     "enumeration": "9"
    },
-   "solution": "THESAURUS"
+   "solution": "THESAURUS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "THESAURUS",
+    "definitions": [
+     {
+      "text": "something a setter uses",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "invested in",
+      "for": "container",
+      "note": "money invested in a firm is put inside it, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "he’s",
+      "gives": "HES",
+      "note": "taken as written, apostrophe dropped"
+     },
+     {
+      "clueFragment": "Sign",
+      "gives": "TAURUS",
+      "note": "Taurus the bull is a sign of the zodiac"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "HES",
+      "AURUS"
+     ]
+    },
+    "explanation": {
+     "surface": "An astrology column hinting that a certain man has put money into a crossword setter's tools.",
+     "walkthrough": "The apostrophe in 'he’s' is ignored, so the letters HES go inside the star sign.",
+     "definitionFit": "A setter hunting for synonyms reaches for a reference book listing words of similar meaning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "invested"
+    }
+   }
   },
   {
    "number": 16,
@@ -276,7 +1131,43 @@
     "text": "Handle entry of mine",
     "enumeration": "5"
    },
-   "solution": "SHAFT"
+   "solution": "SHAFT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SHAFT",
+    "definitions": [
+     {
+      "text": "Handle",
+      "at": 0
+     },
+     {
+      "text": "entry of mine",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Handle",
+      "note": "first meaning: the long stem of a tool such as a spade or golf club"
+     },
+     {
+      "clueFragment": "entry of mine",
+      "note": "second meaning: the vertical passage leading down into a pit"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Handle' looks like a verb and 'mine' like a possessive pronoun, as if someone manages their own entry; both are nouns.",
+     "definitionFit": "A tool's long gripping pole and the vertical access tunnel into a colliery share this one word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "mine"
+    }
+   }
   },
   {
    "number": 17,
@@ -290,7 +1181,45 @@
     "text": "Poor Richard and Georgia, say, put emojis in emails?",
     "enumeration": "9"
    },
-   "solution": "TYPEFACES"
+   "solution": "TYPEFACES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TYPEFACES",
+    "definitions": [
+     {
+      "text": "Poor Richard and Georgia, say",
+      "at": 0,
+      "note": "an example of the plural class"
+     },
+     {
+      "text": "put emojis in emails?",
+      "at": 31
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Poor Richard and Georgia, say",
+      "note": "first meaning: two computer fonts named for people"
+     },
+     {
+      "clueFragment": "put emojis in emails?",
+      "note": "second meaning, read as a verb phrase: keying in little smiling pictures"
+     }
+    ],
+    "explanation": {
+     "surface": "A pair of people, one hard-up, using smileys in their email.",
+     "walkthrough": "Poor Richard and Georgia read as two people but are both font names. The question mark flags the playful second reading: you type faces when you add emojis.",
+     "definitionFit": "Fonts are designs of lettering, and keying in smiley icons is literally keyboarding little heads."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Georgia"
+    }
+   }
   },
   {
    "number": 18,
@@ -304,7 +1233,62 @@
     "text": "Convict peeping Tom, filled with scorn at intervals",
     "enumeration": "8"
    },
-   "solution": "PRISONER"
+   "solution": "PRISONER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PRISONER",
+    "definitions": [
+     {
+      "text": "Convict",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "filled with",
+      "for": "container",
+      "note": "something filled with stuff has it packed inside"
+     },
+     {
+      "text": "at intervals",
+      "for": "letter_selection",
+      "note": "taking letters at intervals means every other one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "peeping Tom",
+      "gives": "PRIER",
+      "note": "a peeping Tom pries into others' lives"
+     },
+     {
+      "clueFragment": "scorn",
+      "gives": "SON",
+      "select": "alternate",
+      "note": "the first, third and fifth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRI",
+      "SON",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A voyeur found guilty and despised by everyone.",
+     "walkthrough": "'Convict' could be the verb, but it is the noun: a peeping Tom is a nosy person, one who pries.",
+     "definitionFit": "A convict is someone serving a sentence in jail, an inmate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Convict"
+    }
+   }
   },
   {
    "number": 19,
@@ -318,7 +1302,44 @@
     "text": "Horses eat grass audibly",
     "enumeration": "5"
    },
-   "solution": "GREYS"
+   "solution": "GREYS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "GREYS",
+    "definitions": [
+     {
+      "text": "Horses",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "audibly",
+      "for": "homophone",
+      "note": "audibly means as heard, so the word is identified by its sound rather than its spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "eat grass",
+      "gives": "GREYS",
+      "soundsLike": "GRAZE",
+      "note": "cattle and horses graze in a field"
+     }
+    ],
+    "explanation": {
+     "surface": "Horses munching grass in a field, noisily.",
+     "walkthrough": "'Horses eat grass' is a plain picture; 'Horses' is the definition and the rest is the sound.",
+     "definitionFit": "Grey horses, white or pale-coated animals, are called greys, like the Royal Scots Greys cavalry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "audibly"
+    }
+   }
   },
   {
    "number": 20,
@@ -332,7 +1353,61 @@
     "text": "Booted partner from clubs, maybe extremely enraged",
     "enumeration": "6"
    },
-   "solution": "SUITED"
+   "solution": "SUITED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SUITED",
+    "definitions": [
+     {
+      "text": "Booted partner",
+      "at": 0,
+      "note": "describes the word that pairs with booted, not a synonym of it"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two ends"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clubs, maybe",
+      "gives": "SUIT",
+      "note": "clubs is one of the four card suits"
+     },
+     {
+      "clueFragment": "enraged",
+      "gives": "ED",
+      "select": "outer",
+      "note": "its first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUIT",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A furious club member throws out their partner.",
+     "walkthrough": "'Booted' suggests being kicked out, but it points to the phrase suited and booted, meaning smartly dressed; the answer is booted's partner in that phrase.",
+     "definitionFit": "In the British expression suited and booted, describing someone dressed up, the two words always appear together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Booted"
+    }
+   }
   },
   {
    "number": 21,
@@ -352,7 +1427,69 @@
      }
     ]
    },
-   "solution": "DREDGEUP"
+   "solution": "DREDGEUP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "DREDGE UP",
+    "definitions": [
+     {
+      "text": "Recall",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "vacuously",
+      "for": "letter_selection",
+      "note": "vacuous means empty, so the inside is emptied and just the outer letters stay"
+     },
+     {
+      "text": "interrupts",
+      "for": "container",
+      "note": "something that interrupts breaks into the middle of another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "party at Westminster",
+      "gives": "DUP",
+      "note": "the Democratic Unionist Party of Northern Ireland, which has MPs at Westminster"
+     },
+     {
+      "clueFragment": "socialist",
+      "gives": "RED",
+      "note": "red is the colour of socialism"
+     },
+     {
+      "clueFragment": "George",
+      "gives": "GE",
+      "select": "outer",
+      "note": "first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "RED",
+      "GE",
+      "UP"
+     ]
+    },
+    "explanation": {
+     "surface": "A socialist MP called George heckling a party conference in Parliament with empty remarks.",
+     "walkthrough": "Westminster is the UK Parliament; the DUP is a Northern Irish party sitting there. 'Recall' sounds like a political recall petition, but it means bring back to mind.",
+     "definitionFit": "To dredge up a memory is to haul it back from the depths, an idiom for remembering."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Recall"
+    }
+   }
   },
   {
    "number": 22,
@@ -372,7 +1509,59 @@
      }
     ]
    },
-   "solution": "DIEHARD"
+   "solution": "DIEHARD",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DIE HARD",
+    "definitions": [
+     {
+      "text": "Film",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being remade",
+      "for": "anagram",
+      "note": "remaking something means building it again in a new form"
+     }
+    ],
+    "linkWords": [
+     "about"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hotel",
+      "gives": "H",
+      "note": "H is hotel in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "I dread",
+      "gives": "IDREAD",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HIDREAD",
+       "gives": "DIEHARD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A critic afraid that a movie set in a hotel is getting a remake.",
+     "walkthrough": "'Being remade' fits films, which is the misdirection: it shuffles the letters. 'About' is only a link meaning concerning.",
+     "definitionFit": "Die Hard is the 1988 Bruce Willis action movie, an example of the general category."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "remade"
+    }
+   }
   },
   {
    "number": 23,
@@ -386,7 +1575,60 @@
     "text": "Raised spray-can, it apparently maintains sheen",
     "enumeration": "6"
    },
-   "solution": "PATINA"
+   "solution": "PATINA",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "PATINA",
+    "definitions": [
+     {
+      "text": "sheen",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Raised",
+      "for": "reversal",
+      "note": "in a down clue, raising letters makes them read bottom to top"
+     },
+     {
+      "text": "maintains",
+      "for": "hidden_word",
+      "note": "to maintain is to hold, so the letters are held within the phrase"
+     }
+    ],
+    "linkWords": [
+     "apparently"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spray-can, it apparently",
+      "gives": "ANITAP",
+      "note": "spanning the end of the first, the middle word and the start of the last"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "ANITAP",
+       "to": "PATINA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An aerosol held up, supposedly keeping a shine on something.",
+     "walkthrough": "The letters run across spray-cAN IT APparently, read upwards. 'Apparently' does double duty, contributing its first letters as well as the surface.",
+     "definitionFit": "A patina is the glossy film that forms on old bronze or polished wood, a surface lustre."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Raised"
+    }
+   }
   },
   {
    "number": 24,
@@ -400,7 +1642,82 @@
     "text": "Energy of creatures heading west, needing time for meal finally",
     "enumeration": "7"
    },
-   "solution": "STAMINA"
+   "solution": "STAMINA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "substitution"
+    ],
+    "answer": "STAMINA",
+    "definitions": [
+     {
+      "text": "Energy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heading west",
+      "for": "reversal",
+      "note": "in an across clue, going west is moving right to left"
+     },
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally means at the end, so only the closing letter counts"
+     },
+     {
+      "text": "needing time for",
+      "for": "substitution",
+      "note": "needing one thing in place of another means a swap"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "creatures",
+      "gives": "ANIMALS",
+      "note": "animals are creatures"
+     },
+     {
+      "clueFragment": "meal",
+      "gives": "L",
+      "select": "last",
+      "note": "final letter"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "T",
+      "AMINA"
+     ],
+     "reversals": [
+      {
+       "from": "ANIMALS",
+       "to": "SLAMINA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Migrating animals needing their final meal to keep going.",
+     "walkthrough": "The animals reversed give SLAMINA; then the L from meal makes way for T.",
+     "definitionFit": "Stamina is staying power, the physical capacity to keep going, close to vigour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "meal"
+    }
+   }
   },
   {
    "number": 24,
@@ -414,7 +1731,66 @@
     "text": "Muscle stitch, pinching pain Dad overlooked",
     "enumeration": "5"
    },
-   "solution": "SINEW"
+   "solution": "SINEW",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "SINEW",
+    "definitions": [
+     {
+      "text": "Muscle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pinching",
+      "for": "container",
+      "note": "to pinch is to grip between fingers, so one piece is held within another"
+     },
+     {
+      "text": "overlooked",
+      "for": "deletion",
+      "note": "something overlooked is left out, so those letters are dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stitch",
+      "gives": "SEW",
+      "note": "to stitch is to sew"
+     },
+     {
+      "clueFragment": "pain",
+      "gives": "PAIN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Dad",
+      "gives": "PA",
+      "note": "pa is a word for father"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "IN",
+      "EW"
+     ]
+    },
+    "explanation": {
+     "surface": "A muscle stitch, a sharp pain Dad ignored while running.",
+     "walkthrough": "'Muscle stitch' reads as one phrase about a runner's cramp; 'stitch' is the wordplay, not part of the definition.",
+     "definitionFit": "Sinew is tendon, the tissue joining muscle to bone, and loosely means muscular strength."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stitch"
+    }
+   }
   },
   {
    "number": 25,
@@ -428,7 +1804,61 @@
     "text": "Western peacekeeper lacking cover marshals international forces",
     "enumeration": "7"
    },
-   "solution": "SHERIFF"
+   "solution": "SHERIFF",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "SHERIFF",
+    "definitions": [
+     {
+      "text": "Western peacekeeper",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lacking cover",
+      "for": "deletion",
+      "note": "with its cover gone, a word has lost its outer layer, its first and last letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "marshals",
+      "gives": "USHERS",
+      "note": "to marshal people is to usher them"
+     },
+     {
+      "clueFragment": "international",
+      "gives": "I",
+      "note": "I is the abbreviation for international"
+     },
+     {
+      "clueFragment": "forces",
+      "gives": "FF",
+      "note": "F stands for force, doubled for the plural"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHER",
+      "I",
+      "FF"
+     ]
+    },
+    "explanation": {
+     "surface": "A cowboy lawman without backup gathering an international force.",
+     "walkthrough": "'Marshals' tempts as a lawman synonym, but it is a verb meaning ushers; the definition is 'Western peacekeeper'.",
+     "definitionFit": "In cowboy films the sheriff is the town lawman who keeps order in the Wild West."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "marshals"
+    }
+   }
   },
   {
    "number": 26,
@@ -442,7 +1872,70 @@
     "text": "Parking behind this writer’s Tesla regularly in drive",
     "enumeration": "5"
    },
-   "solution": "IMPEL"
+   "solution": "IMPEL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "IMPEL",
+    "definitions": [
+     {
+      "text": "drive",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "behind",
+      "for": "charade",
+      "note": "behind means coming after, so this piece is placed following the other in the answer"
+     },
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even spacing, so every second letter is taken"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "this writer’s",
+      "gives": "IM",
+      "note": "the setter speaking: I am, shortened"
+     },
+     {
+      "clueFragment": "Parking",
+      "gives": "P",
+      "note": "P is the road-sign abbreviation for parking"
+     },
+     {
+      "clueFragment": "Tesla",
+      "gives": "EL",
+      "select": "alternate",
+      "note": "the second and fourth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IM",
+      "P",
+      "EL"
+     ]
+    },
+    "explanation": {
+     "surface": "A columnist parking behind their own electric car in the driveway.",
+     "walkthrough": "'This writer’s' is the setter saying I'M, and P goes behind it. 'Drive' looks like the driveway but is a verb.",
+     "definitionFit": "To impel is to push or urge forward, the same as to propel someone into action."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drive"
+    }
+   }
   },
   {
    "number": 27,
@@ -456,7 +1949,51 @@
     "text": "European in on wager that’s improper",
     "enumeration": "9"
    },
-   "solution": "NORWEGIAN"
+   "solution": "NORWEGIAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NORWEGIAN",
+    "definitions": [
+     {
+      "text": "European",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "that’s improper",
+      "for": "anagram",
+      "note": "improper means not correct, so the letters are in the wrong order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in on wager",
+      "gives": "INONWAGER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INONWAGER",
+       "gives": "NORWEGIAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A continental involved in a dodgy bet.",
+     "walkthrough": "'European' could be any nationality; the nine letters of the wager phrase settle which.",
+     "definitionFit": "A person from Norway is a Scandinavian, and so belongs to the continent's peoples."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "improper"
+    }
+   }
   },
   {
    "number": 28,
@@ -470,7 +2007,64 @@
     "text": "Bill takes turn briefly making jelly",
     "enumeration": "5"
    },
-   "solution": "ASPIC"
+   "solution": "ASPIC",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "ASPIC",
+    "definitions": [
+     {
+      "text": "jelly",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "takes",
+      "for": "container",
+      "note": "to take something in is to hold it inside"
+     },
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "said briefly means cut short, so the final letter goes"
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bill",
+      "gives": "AC",
+      "note": "AC is short for account, a bill"
+     },
+     {
+      "clueFragment": "turn",
+      "gives": "SPIN",
+      "note": "a spin is a turn"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "SPI",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone named Bill having a quick go at making a jelly.",
+     "walkthrough": "'Bill' looks like a man's name but is an account, abbreviated AC. 'Turn' is a rotation, not a go.",
+     "definitionFit": "Aspic is a savoury gelatine made from meat stock, used to set cold dishes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bill"
+    }
+   }
   },
   {
    "number": 29,
@@ -484,7 +2078,57 @@
     "text": "Originally wartime remains bear investigation",
     "enumeration": "4"
    },
-   "solution": "WASH"
+   "solution": "WASH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "WASH",
+    "definitions": [
+     {
+      "text": "bear investigation",
+      "at": 27,
+      "note": "a verb phrase meaning stand up to scrutiny"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Originally",
+      "for": "letter_selection",
+      "note": "originally means at the origin or start, so the opening letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wartime",
+      "gives": "W",
+      "select": "first",
+      "note": "the opening letter"
+     },
+     {
+      "clueFragment": "remains",
+      "gives": "ASH",
+      "note": "ashes are what remains after burning or cremation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "ASH"
+     ]
+    },
+    "explanation": {
+     "surface": "Wartime human remains being examined by investigators.",
+     "walkthrough": "'Remains' reads as a verb or as bodies, but means ash. The definition is idiomatic: an excuse that won't wash fails to convince.",
+     "definitionFit": "A story that washes holds up when examined, an idiom for being believable under scrutiny."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "remains"
+    }
+   }
   },
   {
    "number": 30,
@@ -498,7 +2142,54 @@
     "text": "Ladies are crazy for dogs",
     "enumeration": "9"
    },
-   "solution": "AIREDALES"
+   "solution": "AIREDALES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AIREDALES",
+    "definitions": [
+     {
+      "text": "dogs",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crazy",
+      "for": "anagram",
+      "note": "crazy means wild and disordered, so the letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ladies are",
+      "gives": "LADIESARE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LADIESARE",
+       "gives": "AIREDALES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Women who are mad about their pet dogs.",
+     "walkthrough": "'Crazy for' reads as mad about; 'crazy' is the anagram signal and 'for' a link.",
+     "definitionFit": "Airedales are large terriers from Yorkshire, an example of canine breeds."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Ladies"
+    }
+   }
   }
  ]
 }
