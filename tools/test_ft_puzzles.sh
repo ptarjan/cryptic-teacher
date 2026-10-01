@@ -168,6 +168,7 @@ F.puzzle_path = lambda series, number: tmp / f"{series}-{number}.json"
 F.ftp.build = lambda rec, row, series, day: (built(row["number"], "Old clue (5)" if row["number"] == 300 else "New clue (5)"), None)
 F.held_by_content = lambda: {F.puzzle_integrity.content_hash(built(100, "Old clue (5)")): "ftcryptic-100"}
 filed, skipped = F.file(write=False)
+print("BRACKETS", F.tidy("Having paid, he [he] recovers (6)"), "|", F.tidy("Mark character [sic] as weary (7)"))
 print("REPRINT", filed, sorted(k for k in skipped if k.startswith("reprint")))
 
 # A file written before the parser tidied clues is tidied on the next run:
@@ -185,7 +186,10 @@ F.file(write=True)
 e = written["ftcryptic-300.json"]["entries"][0]
 print("RETEXT", e["clue"]["text"], "|", e["annotation"]["definition"])
 held["source"]["acquiredBy"] = "tools/ft_pdf_puzzles.py"
+held["date"] = "2026-09-01"
 written.clear()
+import datetime
+F.print_dates = lambda recs: {300: datetime.date(2026, 9, 2)}
 F.file(write=True)
 print("RETEXT_OTHER", "ftcryptic-300.json" in written)
 PY
@@ -216,9 +220,12 @@ check "an answer not in capitals read off the clue's count" \
 check "a clue held only in the answer's title is the clue, never the vote link; the slash goes" \
   "9a=CONTRACT|Shrink’s terms of employment (8); 10a=EMBALM|Preserve postgrad qualification in wood (6)" \
   "$(field TITLED)"
+check "an FT blogger's bracketed words stay bracketed; an aside goes" \
+  "Having paid, he [he] recovers (6) | Mark character as weary (7)" "$(field BRACKETS)"
 check "a held file of this tool's is tidied, its annotation's quotation with it" \
   "Withdraw cash | Withdraw" "$(field RETEXT)"
-check "a held file another tool wrote is not tidied" "False" "$(field RETEXT_OTHER)"
+check "a held file another tool wrote (the PDF's, dated by the FT's page) is neither tidied nor redated" \
+  "False" "$(field RETEXT_OTHER)"
 check "number and setter off each title shape" \
   "[(18489, 'Xela'), (18480, 'Mudd'), (18484, 'Julius'), (16342, 'Rosa Klebb')]" "$(field TITLE)"
 check "a linked answer shared out at the grid's light break" \
