@@ -27,6 +27,7 @@ not a convention is taken out by adding it to REJECT.
 """
 import json
 import re
+from html import escape
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -86,9 +87,8 @@ def render():
 
 # Sets a solver learns whole, shown above the A-to-Z list. Each member names
 # its word and letters; families() refuses one the table does not hold, so a
-# family can only show what the hints themselves teach. Families, and the
-# members within one that has no natural order, run most-used first by the
-# clue counts in LEXICON, so the page opens on what a solver meets most.
+# family can only show what the hints themselves teach. families_html() ranks
+# the families, and the members within each, by the clue counts in LEXICON.
 FAMILIES = [
     ("Nationalities", "english E, european E, american A, british B, american US, "
                       "german G, irish IR, italian IT, dutch D, greek GR, french FR, "
@@ -172,12 +172,54 @@ def families():
     return out
 
 
+def usage():
+    """LEXICON as {(letters_of(clue word), letters): clues}, spellings merged."""
+    global _USAGE
+    if _USAGE is None:
+        _USAGE = {}
+        for word, readings in json.loads(LEXICON.read_text()).items():
+            for k, n in readings.items():
+                key = (letters_of(word), k)
+                _USAGE[key] = _USAGE.get(key, 0) + n
+    return _USAGE
+
+
+_USAGE = None
+
+
+def clues(word, letters):
+    """How many clues read word as letters, 0 for none."""
+    return usage().get((letters_of(word), letters), 0)
+
+
+def count_html(n):
+    """A clue count beside a reading, as /learn/ shows one beside an indicator."""
+    return f'&nbsp;<span class="muted n">{n:,}</span>' if n else ""
+
+
+def ranked(pairs):
+    """(word, letters) pairs most used first; unused ones keep their order, last."""
+    return sorted(pairs, key=lambda p: -clues(*p))
+
+
+def common_html(senses, n=40):
+    """The n readings the table holds that most clues use, each with its count."""
+    top = ranked(sorted((w, k) for w, ks in senses.items() for k in ks))[:n]
+    return '<p class="glossary-common">' + ", ".join(
+        f'<a href="#{anchor(w)}">{w}</a> <strong>{k}</strong>{count_html(clues(w, k))}'
+        for w, k in top) + "</p>"
+
+
 def families_html():
-    """families() as one line each, every word linked to its A-to-Z entry."""
+    """families() as one line each, the family most clues use first and its
+    members likewise, every word linked to its A-to-Z entry."""
+    fams = sorted(((sum(clues(*m) for m in members), name, ranked(members))
+                   for name, members in families()), key=lambda f: -f[0])
     return '<dl class="glossary-families">\n' + "\n".join(
-        f"<div><dt>{name}</dt><dd>" + " &middot; ".join(
-            f'<a href="#{anchor(w)}">{w}</a> <strong>{k}</strong>' for w, k in members)
-        + "</dd></div>" for name, members in families()) + "\n</dl>"
+        f"<div><dt>{name}{count_html(total)}</dt><dd>" + " &middot; ".join(
+            f'<a href="#{anchor(w)}">{w}</a> <strong>{k}</strong>{count_html(clues(w, k))}'
+            for w, k in members)
+        + "</dd></div>" for total, name, members in fams) + "\n</dl>"
 
 
 def anchor(word):
@@ -298,7 +340,8 @@ def table_html(senses, links=None, rare=None):
 
     `links` maps a word to a clue that uses it. `rare` maps a word to its
     readings() as (letters, clues, why), which join the same row in muted type:
-    one list, looked up the same way, with the table's readings first.
+    one list, looked up the same way. A row's readings run most used first,
+    each with how many clues use it.
     """
     links, rare = links or {}, rare or {}
     by_anchor = {anchor(w): w for w in senses}
@@ -317,11 +360,12 @@ def table_html(senses, links=None, rare=None):
     for head, words in groups.items():
         out.append(f'<h3 id="abbr-{head[0].lower()}-">{head}</h3>\n<dl class="glossary">')
         for w in words:
-            letters = sorted(senses.get(w, [])) + [
-                f'<span class="muted" title="seen in {n:,} clues{f": {why}" if why else ""}">'
-                f'{k}</span>' for k, n, why in rare.get(w, [])]
+            letters = [(clues(w, k), k, k) for k in senses.get(w, [])] + [
+                (n, k, f'<span class="muted"{f' title="{escape(why)}"' if why else ""}>{k}</span>') for k, n, why in rare.get(w, [])]
+            letters.sort(key=lambda r: (-r[0], r[1]))
             word = f'<a href="{links[w]}">{w}</a>' if w in links else w
-            out.append(f'<div id="{anchor(w)}"><dt>{word}</dt><dd>{", ".join(letters)}</dd></div>')
+            out.append(f'<div id="{anchor(w)}"><dt>{word}</dt><dd>' + " &middot; ".join(
+                html + count_html(n) for n, _, html in letters) + "</dd></div>")
         out.append("</dl>")
     return "\n".join(out)
 

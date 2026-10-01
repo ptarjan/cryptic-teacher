@@ -1310,6 +1310,11 @@ def clue_links(senses, blocks):
     return out
 
 
+# How many readings the "Most common" list shows: the head a new solver should
+# learn first. The rest are in the A-to-Z list below it, each with its count.
+COMMON_TOP = 40
+
+
 def abbreviations_page(blocks):
     """The glossary as a document of its own.
 
@@ -1356,7 +1361,8 @@ def abbreviations_page(blocks):
         "pieces: <em>check</em> + <em>weapon</em> gives CH + ARM, which is CHARM. Some words "
         "stand for more than one set of letters. Try each one until the pieces build a word "
         "that matches the definition.</p>",
-        f"<p>Find the word from your clue; the letters it stands for are next to it. "
+        f"<p>Find the word from your clue; the letters it stands for are next to it, "
+        "most used first, each with the number of clues in these puzzles that use it. "
         f"The {n} in plain type are the standard ones: every reading "
         f"{build_abbreviations.SEEN_MIN} or more solved "
         f"clues use, and the sets below. The {len(seen)} in grey are standard ones put "
@@ -1364,9 +1370,13 @@ def abbreviations_page(blocks):
         "see how.</p>",
         f"<p>{len(links)} of the words are links to a real clue that uses that "
         "abbreviation, explained step by step.</p>",
+        '<h2 id="most-common">Most common</h2>',
+        f"<p>The {COMMON_TOP} abbreviations clues use most, with how many clues used "
+        "each. Learn these first.</p>",
+        build_abbreviations.common_html(senses, COMMON_TOP),
         '<h2 id="families">Families to learn whole</h2>',
         "<p>Some abbreviations come in sets. Learn the set once and you know every "
-        "member.</p>",
+        "member. The sets, and the members of each, run most used first.</p>",
         build_abbreviations.families_html(),
         '<h2 id="a-to-z">A to Z</h2>',
         build_abbreviations.table_html(senses, links, rare),
