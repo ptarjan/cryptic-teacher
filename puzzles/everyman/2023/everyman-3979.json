@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,60 @@
     "text": "Either side of dayroom offering somewhere to sleep",
     "enumeration": "4"
    },
-   "solution": "DORM"
+   "solution": "DORM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "DORM",
+    "definitions": [
+     {
+      "text": "somewhere to sleep",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "side of",
+      "for": "letter_selection",
+      "note": "each side of a word is one of its ends, so only the outermost letters are kept"
+     }
+    ],
+    "linkWords": [
+     "offering"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dayroom",
+      "gives": "DM",
+      "select": "outer",
+      "note": "the two outside letters of the word"
+     },
+     {
+      "clueFragment": "Either",
+      "gives": "OR",
+      "note": "either ... or: the partner word of the pair"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "OR",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "A hospital or care-home dayroom with a bed in it for anyone who needs a nap.",
+     "walkthrough": "'Either side of' reads as one phrase, but 'Either' supplies OR, which sits between the two sides of the dayroom.",
+     "definitionFit": "A dorm, short for dormitory, is a shared bedroom in a school or hostel, a place where people sleep."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Either"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +103,55 @@
     "text": "Increase access to students engaged in worship",
     "enumeration": "10"
    },
-   "solution": "DECLASSIFY"
+   "solution": "DECLASSIFY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DECLASSIFY",
+    "definitions": [
+     {
+      "text": "Increase access to",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "engaged in",
+      "for": "container",
+      "note": "to be engaged in something is to be occupied inside it, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "worship",
+      "gives": "DEIFY",
+      "note": "to deify is to worship as a god"
+     },
+     {
+      "clueFragment": "students",
+      "gives": "CLASS",
+      "note": "a class is a group of students"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "CLASS",
+      "IFY"
+     ]
+    },
+    "explanation": {
+     "surface": "A plea for more students to be allowed into religious services.",
+     "walkthrough": "'Access' and 'worship' suggest letting students into church, but the definition is about secret files, and the worship word is split around the students.",
+     "definitionFit": "To declassify documents is to remove their secret status, so more people are allowed to read them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "access"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +171,54 @@
      }
     ]
    },
-   "solution": "READYMEALS"
+   "solution": "READYMEALS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "READY MEALS",
+    "definitions": [
+     {
+      "text": "Convenience food",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "modified",
+      "for": "anagram",
+      "note": "something modified has been changed, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Alarmed? Yes",
+      "gives": "ALARMEDYES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ALARMEDYES",
+       "gives": "READYMEALS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is told their microwave dinner has been altered and gasps that yes, they are alarmed.",
+     "walkthrough": "The 's after food stands for 'is', joining definition to wordplay; the punctuation of 'Alarmed? Yes!' is just disguise for the letters.",
+     "definitionFit": "Ready meals are pre-cooked dishes bought and reheated, the classic example of convenience food in supermarkets."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Alarmed"
+    }
+   }
   },
   {
    "number": 3,
@@ -87,7 +238,62 @@
      }
     ]
    },
-   "solution": "HENRYMOORE"
+   "solution": "HENRYMOORE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "HENRY MOORE",
+    "definitions": [
+     {
+      "text": "sculptor",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "imprisoning",
+      "for": "container",
+      "note": "to imprison is to shut something inside, so one piece is placed within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "King",
+      "gives": "HENRY",
+      "note": "a name shared by eight English kings"
+     },
+     {
+      "clueFragment": "further",
+      "gives": "MORE",
+      "note": "further, as in additional"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the standard abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HENRY",
+      "MO",
+      "O",
+      "RE"
+     ]
+    },
+    "explanation": {
+     "surface": "A monarch locking up an elderly artist, a tale from a history book.",
+     "walkthrough": "'King' could be R or K, but here it is the name of a king; the container works on the second word only.",
+     "definitionFit": "Henry Moore was a twentieth-century English artist famous for large bronze reclining figures."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "further"
+    }
+   }
   },
   {
    "number": 4,
@@ -101,7 +307,62 @@
     "text": "Finally, above all, American crossword setter's hard to understand",
     "enumeration": "7"
    },
-   "solution": "ELUSIVE"
+   "solution": "ELUSIVE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ELUSIVE",
+    "definitions": [
+     {
+      "text": "hard to understand",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Finally",
+      "for": "letter_selection",
+      "note": "finally points to the end, so only the closing letter of each word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "above all",
+      "gives": "EL",
+      "select": "last",
+      "note": "the closing letter of each of these two words"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US is short for the United States, so American"
+     },
+     {
+      "clueFragment": "crossword setter's",
+      "gives": "IVE",
+      "note": "the setter speaks as 'I', and setter's means setter has, so I've"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EL",
+      "US",
+      "IVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that, more than anything, a puzzle compiler from the States writes baffling clues.",
+     "walkthrough": "'Above all' looks like an idiom meaning 'most of all', but its two words simply donate their last letters. A setter refers to themself as I, and the 's is 'has', so I'VE.",
+     "definitionFit": "Something elusive escapes the grasp, so an elusive meaning is difficult to pin down or comprehend."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "above"
+    }
+   }
   },
   {
    "number": 5,
@@ -115,7 +376,58 @@
     "text": "To once again experience entertaining earl's release",
     "enumeration": "7"
    },
-   "solution": "RELIEVE"
+   "solution": "RELIEVE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RELIEVE",
+    "definitions": [
+     {
+      "text": "release",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entertaining",
+      "for": "container",
+      "note": "to entertain a guest is to have them inside your home, so one piece holds another"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "To once again experience",
+      "gives": "RELIVE",
+      "note": "to relive is to experience again"
+     },
+     {
+      "clueFragment": "earl",
+      "gives": "E",
+      "note": "E is the abbreviation for earl"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RELI",
+      "E",
+      "VE"
+     ]
+    },
+    "explanation": {
+     "surface": "Reliving the fun of hosting an aristocrat is described as a kind of liberation.",
+     "walkthrough": "The 's means 'is', linking the wordplay to the definition at the end.",
+     "definitionFit": "To relieve someone of a burden or duty is to free them from it, so the two verbs match."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "entertaining"
+    }
+   }
   },
   {
    "number": 6,
@@ -135,7 +447,51 @@
      }
     ]
    },
-   "solution": "MOUNTAINBIKE"
+   "solution": "MOUNTAINBIKE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MOUNTAIN BIKE",
+    "definitions": [
+     {
+      "text": "form of transport",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unusual",
+      "for": "anagram",
+      "note": "unusual means out of the normal order, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ken, I'm in U-boat",
+      "gives": "KENIMINUBOAT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "KENIMINUBOAT",
+       "gives": "MOUNTAINBIKE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tells Ken they are travelling by submarine, an odd way to get around.",
+     "walkthrough": "The surface ends with 'unusual form of transport' as one phrase, but 'unusual' belongs to the wordplay and only 'form of transport' defines.",
+     "definitionFit": "A mountain bike is a sturdy bicycle built for rough off-road tracks, one kind of vehicle for getting about."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unusual"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +505,46 @@
     "text": "Darts player stands here in part of Rochester",
     "enumeration": "4"
    },
-   "solution": "OCHE"
+   "solution": "OCHE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "OCHE",
+    "definitions": [
+     {
+      "text": "Darts player stands here",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "part of",
+      "for": "hidden_word",
+      "note": "a part of a word is a run of its letters, so the answer sits inside the next word"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rochester",
+      "gives": "OCHE",
+      "note": "letters two to five of the town name"
+     }
+    ],
+    "explanation": {
+     "surface": "A darts player in a pub somewhere in the Kent town of Rochester.",
+     "walkthrough": "Rochester is a town in Kent; the answer runs inside its name, rOCHEster.",
+     "definitionFit": "The oche is the marked line on the floor behind which a darts thrower must stand when throwing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "part"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +558,66 @@
     "text": "Everyman's beginning to get doddery, regularly in a spin",
     "enumeration": "4"
    },
-   "solution": "EDDY"
+   "solution": "EDDY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "EDDY",
+    "definitions": [
+     {
+      "text": "a spin",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning",
+      "for": "letter_selection",
+      "note": "a beginning is the start, so only the opening letter is kept"
+     },
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so letters are taken at a fixed spacing"
+     }
+    ],
+    "linkWords": [
+     "to get",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Everyman's",
+      "gives": "E",
+      "select": "first",
+      "note": "the opening letter of the setter's name"
+     },
+     {
+      "clueFragment": "doddery",
+      "gives": "DDY",
+      "select": "regular",
+      "note": "every third letter, the first, fourth and seventh"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "DDY"
+     ]
+    },
+    "explanation": {
+     "surface": "The setter admits to getting shaky and giddy, often in a whirl.",
+     "walkthrough": "The regular step here is every third letter of the shaky word, not every other one.",
+     "definitionFit": "An eddy is a whirling current of water or air, so it is a swirl or circular movement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spin"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +631,49 @@
     "text": "Primarily, country harbouring African desert?",
     "enumeration": "4"
    },
-   "solution": "CHAD"
+   "solution": "CHAD",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "and_lit"
+    ],
+    "answer": "CHAD",
+    "definitions": [
+     {
+      "text": "Primarily, country harbouring African desert?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so only opening letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "country harbouring African desert",
+      "gives": "CHAD",
+      "select": "first",
+      "note": "the opening letters of the four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAD"
+     ]
+    },
+    "explanation": {
+     "surface": "A geography quiz question about a nation containing part of an African desert.",
+     "walkthrough": "The whole clue does double duty: its first letters spell the answer, and the clue read straight describes it.",
+     "definitionFit": "Chad is a landlocked nation in north-central Africa whose northern half lies within the Sahara."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +687,58 @@
     "text": "Signed off work in posh coat, cultivated, heading off",
     "enumeration": "10"
    },
-   "solution": "FURLOUGHED"
+   "solution": "FURLOUGHED",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "FURLOUGHED",
+    "definitions": [
+     {
+      "text": "Signed off work",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heading off",
+      "for": "deletion",
+      "note": "with its head off, a word loses its opening letter"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "posh coat",
+      "gives": "FUR",
+      "note": "a fur is a luxurious coat"
+     },
+     {
+      "clueFragment": "cultivated",
+      "gives": "PLOUGHED",
+      "note": "land is cultivated by ploughing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FUR",
+      "LOUGHED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone goes on leave from their job dressed in an expensive coat, a refined figure leaving.",
+     "walkthrough": "'Cultivated' suggests refined, to go with 'posh', but it means farmed: ploughed, with its first letter dropped.",
+     "definitionFit": "Furloughed staff are temporarily laid off or given leave, so they have been stood down from their jobs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cultivated"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +752,54 @@
     "text": "Professional's sin: 'blue skies' condemned",
     "enumeration": "12"
    },
-   "solution": "BUSINESSLIKE"
+   "solution": "BUSINESSLIKE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BUSINESSLIKE",
+    "definitions": [
+     {
+      "text": "Professional",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "condemned",
+      "for": "anagram",
+      "note": "something condemned is wrecked or ruined, so these letters are broken up and rearranged"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sin: 'blue skies'",
+      "gives": "SINBLUESKIES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SINBLUESKIES",
+       "gives": "BUSINESSLIKE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An expert denounces 'blue-sky thinking' as a sin, office jargon under attack.",
+     "walkthrough": "'Blue skies' calls up blue-sky thinking, but the words are just letters to rearrange with 'sin'.",
+     "definitionFit": "Being businesslike means efficient and systematic, the manner expected of a professional at work."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "condemned"
+    }
+   }
   },
   {
    "number": 12,
@@ -233,7 +827,43 @@
      }
     ]
    },
-   "solution": "ASYOULIKEIT"
+   "solution": "ASYOULIKEIT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "AS YOU LIKE IT",
+    "definitions": [
+     {
+      "text": "Play in a forest",
+      "at": 0
+     },
+     {
+      "text": "in a way that makes one happy",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Play in a forest",
+      "note": "first meaning: a Shakespeare comedy set in the Forest of Arden"
+     },
+     {
+      "clueFragment": "in a way that makes one happy",
+      "note": "second meaning: an idiom for done to your taste"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Play' suggests children running about among trees; here it is a stage play.",
+     "definitionFit": "The title is Shakespeare's comedy of exiles in the woods of Arden, and the phrase also means exactly to someone's taste."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Play"
+    }
+   }
   },
   {
    "number": 13,
@@ -247,7 +877,55 @@
     "text": "Reorganise nuts and fruits' location",
     "enumeration": "10"
    },
-   "solution": "ORANGERIES"
+   "solution": "ORANGERIES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ORANGERIES",
+    "definitions": [
+     {
+      "text": "fruits' location",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nuts",
+      "for": "anagram",
+      "note": "nuts means crazy, so these letters go wild and land in a new order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Reorganise",
+      "gives": "REORGANISE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REORGANISE",
+       "gives": "ORANGERIES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to rearrange the nuts and the fruit, as in a greengrocer's display.",
+     "walkthrough": "'Reorganise' looks like the anagram signal and 'nuts' like fodder, but it is the other way round.",
+     "definitionFit": "Orangeries are glass-fronted garden buildings where citrus trees were grown, places where such fruit is kept."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "nuts"
+    }
+   }
   },
   {
    "number": 14,
@@ -261,7 +939,51 @@
     "text": "Saint fasts, stirring visionaries",
     "enumeration": "10"
    },
-   "solution": "FANTASISTS"
+   "solution": "FANTASISTS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FANTASISTS",
+    "definitions": [
+     {
+      "text": "visionaries",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stirring",
+      "for": "anagram",
+      "note": "stirring mixes things up, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Saint fasts",
+      "gives": "SAINTFASTS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SAINTFASTS",
+       "gives": "FANTASISTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A holy figure's fasting inspires those who see visions.",
+     "walkthrough": "'Stirring' reads as an adjective meaning inspiring, but it is the mixing signal.",
+     "definitionFit": "Fantasists are dreamers who live in imagined worlds, much as visionaries see things others cannot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stirring"
+    }
+   }
   },
   {
    "number": 15,
@@ -275,7 +997,43 @@
     "text": "Dry piece of oyster I left",
     "enumeration": "7"
    },
-   "solution": "STERILE"
+   "solution": "STERILE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "STERILE",
+    "definitions": [
+     {
+      "text": "Dry",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "piece of",
+      "for": "hidden_word",
+      "note": "a piece is a fragment, so the answer is a run of letters inside the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "oyster I left",
+      "gives": "STERILE",
+      "note": "the letters run across the three words"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone leaves a bit of shrivelled oyster on the plate.",
+     "walkthrough": "The answer runs across the words: oySTER I LEft.",
+     "definitionFit": "Dry can mean barren or unproductive, and sterile land or debate yields nothing, so the adjectives match."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Dry"
+    }
+   }
   },
   {
    "number": 16,
@@ -289,7 +1047,65 @@
     "text": "Retire in resort, a Red Sea destination",
     "enumeration": "7"
    },
-   "solution": "ERITREA"
+   "solution": "ERITREA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ERITREA",
+    "definitions": [
+     {
+      "text": "Red Sea destination",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "resort",
+      "for": "anagram",
+      "note": "read as re-sort, it means sort again, so these letters are put in a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Retire",
+      "gives": "RETIRE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ERITRE",
+      "A"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RETIRE",
+       "gives": "ERITRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone choosing to retire to a seaside holiday town on the Red Sea.",
+     "walkthrough": "'Resort' looks like a holiday town but is read as re-sort.",
+     "definitionFit": "Eritrea is an East African country with a long Red Sea coastline, a place one could travel to."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "resort"
+    }
+   }
   },
   {
    "number": 17,
@@ -303,7 +1119,47 @@
     "text": "Stationery for origami practitioners?",
     "enumeration": "7"
    },
-   "solution": "FOLDERS"
+   "solution": "FOLDERS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FOLDERS",
+    "definitions": [
+     {
+      "text": "Stationery",
+      "at": 0
+     },
+     {
+      "text": "origami practitioners?",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stationery",
+      "note": "first meaning: card wallets for holding loose papers"
+     },
+     {
+      "clueFragment": "origami practitioners",
+      "note": "second meaning: people who crease paper into shapes"
+     }
+    ],
+    "explanation": {
+     "surface": "An office supplies catalogue offering products aimed at paper-craft hobbyists.",
+     "walkthrough": "The question mark flags the playful second sense: anyone who creases paper is literally one who bends it over.",
+     "definitionFit": "Card wallets sold as office stationery share their name with people who crease and bend paper, as origami artists do."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "practitioners"
+    }
+   }
   },
   {
    "number": 18,
@@ -317,7 +1173,57 @@
     "text": "Sculptures honouring people's laws? Not a third time",
     "enumeration": "7"
    },
-   "solution": "STATUES"
+   "solution": "STATUES",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "STATUES",
+    "definitions": [
+     {
+      "text": "Sculptures honouring people",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not",
+      "for": "deletion",
+      "note": "not means without, so a letter is removed"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "laws",
+      "gives": "STATUTES",
+      "note": "statutes are written laws"
+     },
+     {
+      "clueFragment": "a third time",
+      "gives": "T",
+      "note": "T is the abbreviation for time; the word has three of them and the third goes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STATU",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "Monuments to the people whose laws should not be rewritten a third time.",
+     "walkthrough": "The 's means 'is'. 'A third time' sounds like 'on the third occasion' but picks out the third T in the laws.",
+     "definitionFit": "Statues are carved or cast figures, often erected to commemorate famous individuals."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "third"
+    }
+   }
   },
   {
    "number": 19,
@@ -331,7 +1237,43 @@
     "text": "Politicians' furniture",
     "enumeration": "7"
    },
-   "solution": "CABINET"
+   "solution": "CABINET",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CABINET",
+    "definitions": [
+     {
+      "text": "Politicians'",
+      "at": 0
+     },
+     {
+      "text": "furniture",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Politicians'",
+      "note": "first meaning: the senior ministers who form a government"
+     },
+     {
+      "clueFragment": "furniture",
+      "note": "second meaning: a cupboard with shelves or drawers"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like the chairs in parliament; the possessive is a separate sense, the politicians' own body.",
+     "definitionFit": "The word names both the group of top government ministers and a piece of storage furniture with doors."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "furniture"
+    }
+   }
   },
   {
    "number": 19,
@@ -345,7 +1287,49 @@
     "text": "Lawbreaking with an inhabitant of Yalta?",
     "enumeration": "7"
    },
-   "solution": "CRIMEAN"
+   "solution": "CRIMEAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CRIMEAN",
+    "definitions": [
+     {
+      "text": "inhabitant of Yalta",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lawbreaking",
+      "gives": "CRIME",
+      "note": "crime is breaking the law"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRIME",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "An accusation of illegal acts against someone living in a Black Sea resort.",
+     "walkthrough": "Yalta is a city on the Crimean peninsula in the Black Sea.",
+     "definitionFit": "Someone living in Yalta lives on the Crimean peninsula, so they are a native of that region."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -359,7 +1343,39 @@
     "text": "What may make you green in the blue?",
     "enumeration": "11"
    },
-   "solution": "SEASICKNESS"
+   "solution": "SEASICKNESS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SEASICKNESS",
+    "definitions": [
+     {
+      "text": "What may make you green in the blue?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "green in the blue",
+      "note": "surface reading: a riddle about colours mixing"
+     },
+     {
+      "clueFragment": "What may make you green",
+      "note": "setter's reading: nausea at sea turns a face green, and the blue is the ocean"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The colours are a trick: green is how a queasy face looks, and the blue is the sea.",
+     "definitionFit": "Motion sickness on a boat makes passengers look pale and greenish while out on the open ocean."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "blue"
+    }
+   }
   },
   {
    "number": 21,
@@ -373,7 +1389,54 @@
     "text": "Blows up box",
     "enumeration": "4"
    },
-   "solution": "SPAR"
+   "solution": "SPAR",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "SPAR",
+    "definitions": [
+     {
+      "text": "box",
+      "at": 9
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, going up means reading from the bottom, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Blows",
+      "gives": "RAPS",
+      "note": "raps are sharp knocks"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPAR"
+     ],
+     "reversals": [
+      {
+       "from": "RAPS",
+       "to": "SPAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something explodes a container.",
+     "walkthrough": "'Blows up' looks like a phrasal verb meaning explodes, but 'up' is separate and turns the knocks around.",
+     "definitionFit": "To spar is to box for practice, trading punches with a partner in training rather than a real fight."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 22,
@@ -387,7 +1450,43 @@
     "text": "Musicians prohibited, we're told",
     "enumeration": "4"
    },
-   "solution": "BAND"
+   "solution": "BAND",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BAND",
+    "definitions": [
+     {
+      "text": "Musicians",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we're told",
+      "for": "homophone",
+      "note": "being told something means hearing it, so the word is taken by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prohibited",
+      "gives": "BAND",
+      "soundsLike": "BANNED",
+      "note": "prohibited means forbidden by a ban"
+     }
+    ],
+    "explanation": {
+     "surface": "A report that some performers have been barred.",
+     "walkthrough": "The past tense of ban is pronounced the same as the group of players.",
+     "definitionFit": "A band is a group of musicians who play together, such as a rock group or brass ensemble."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -401,7 +1500,50 @@
     "text": "Misguidedly stipulated inanities",
     "enumeration": "10"
    },
-   "solution": "PLATITUDES"
+   "solution": "PLATITUDES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PLATITUDES",
+    "definitions": [
+     {
+      "text": "inanities",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Misguidedly",
+      "for": "anagram",
+      "note": "misguided means led the wrong way, so these letters go astray into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stipulated",
+      "gives": "STIPULATED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "STIPULATED",
+       "gives": "PLATITUDES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pointless remarks that someone wrongly laid down as rules.",
+     "walkthrough": "The definition sits at the end; the first word only tells you to rearrange the second.",
+     "definitionFit": "Platitudes are trite, empty remarks, stale sayings with nothing fresh in them, which is what inanities are."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -415,7 +1557,54 @@
     "text": "Cut back parts of brooches",
     "enumeration": "4"
    },
-   "solution": "PINS"
+   "solution": "PINS",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "PINS",
+    "definitions": [
+     {
+      "text": "parts of brooches",
+      "at": 9
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means travelling the wrong way, so the letters are read in reverse"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cut",
+      "gives": "SNIP",
+      "note": "a snip is a small cut"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PINS"
+     ],
+     "reversals": [
+      {
+       "from": "SNIP",
+       "to": "PINS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to trim down the decorations on some jewellery.",
+     "walkthrough": "'Cut back' reads as one phrasal verb meaning reduce; split it, and the cut is turned around.",
+     "definitionFit": "A brooch is fastened to clothing with a sharp metal pin and clasp on its back."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 25,
@@ -429,7 +1618,43 @@
     "text": "Compensating, adding more oil and vinegar?",
     "enumeration": "10"
    },
-   "solution": "REDRESSING"
+   "solution": "REDRESSING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "REDRESSING",
+    "definitions": [
+     {
+      "text": "Compensating",
+      "at": 0
+     },
+     {
+      "text": "adding more oil and vinegar?",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Compensating",
+      "note": "first meaning: putting right a wrong"
+     },
+     {
+      "clueFragment": "adding more oil and vinegar",
+      "note": "second meaning: putting a salad's sauce on again"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second meaning splits the word as re-dressing, giving a salad another coat of vinaigrette; the question mark flags the play.",
+     "definitionFit": "Redressing a grievance means making amends for it, and oil with vinegar is the classic salad dressing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "vinegar"
+    }
+   }
   },
   {
    "number": 26,
@@ -443,7 +1668,48 @@
     "text": "Requests wine containers, unopened",
     "enumeration": "4"
    },
-   "solution": "ASKS"
+   "solution": "ASKS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ASKS",
+    "definitions": [
+     {
+      "text": "Requests",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unopened",
+      "for": "deletion",
+      "note": "something unopened has not been started, so the opening letter is missing"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wine containers",
+      "gives": "CASKS",
+      "note": "casks are barrels for wine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASKS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks for barrels of wine left sealed.",
+     "walkthrough": "'Unopened' sounds like sealed barrels, but it drops the opening letter.",
+     "definitionFit": "To ask is to put a request, so the third-person verb form matches the plural noun or verb requests."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unopened"
+    }
+   }
   }
  ]
 }
