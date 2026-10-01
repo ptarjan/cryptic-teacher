@@ -24,6 +24,9 @@
   "date": "2024-12-09",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,47 @@
     "text": "Suspect vapour corrosion",
     "enumeration": "8"
    },
-   "solution": "MISTRUST"
+   "solution": "MISTRUST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MISTRUST",
+    "definitions": [
+     {
+      "text": "Suspect",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vapour",
+      "gives": "MIST",
+      "note": "mist is fine water vapour hanging in the air"
+     },
+     {
+      "clueFragment": "corrosion",
+      "gives": "RUST",
+      "note": "rust is the corrosion of iron"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MIST",
+      "RUST"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone suspects that fumes are causing corrosion of some metal.",
+     "walkthrough": "'Suspect' reads as an adjective describing the vapour, but it is the verb that defines the answer.",
+     "definitionFit": "To suspect someone is to doubt their honesty, a close synonym of the verb meaning to lack trust."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Suspect"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +94,51 @@
     "text": "Remove top of picture for sorcerer",
     "enumeration": "4"
    },
-   "solution": "MAGE"
+   "solution": "MAGE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "MAGE",
+    "definitions": [
+     {
+      "text": "sorcerer",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Remove top of",
+      "for": "deletion",
+      "note": "in a down clue the top is the first letter, and removing it drops that letter"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "picture",
+      "gives": "IMAGE",
+      "note": "an image is a picture"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAGE"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to crop a picture so it suits a wizard.",
+     "walkthrough": "IMAGE loses its first letter I to leave MAGE; 'top' fits because this is a down entry.",
+     "definitionFit": "A mage is an old word for a magician or wizard, a direct synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "top"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +152,50 @@
     "text": "Gun with small nose",
     "enumeration": "7"
    },
-   "solution": "SHOOTER"
+   "solution": "SHOOTER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SHOOTER",
+    "definitions": [
+     {
+      "text": "Gun",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the standard abbreviation for small, as on clothing labels"
+     },
+     {
+      "clueFragment": "nose",
+      "gives": "HOOTER",
+      "note": "hooter is British slang for a nose"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "HOOTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A description of a small-nosed firearm, as if guns had faces.",
+     "walkthrough": "A hooter is a jokey British slang word for a nose, especially a big one.",
+     "definitionFit": "Shooter is informal slang for a firearm, especially a handgun, so it means a gun."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nose"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +209,57 @@
     "text": "Sorrel seems strangely savage",
     "enumeration": "11"
    },
-   "solution": "REMORSELESS"
+   "solution": "REMORSELESS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REMORSELESS",
+    "definitions": [
+     {
+      "text": "savage",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "strangely",
+      "for": "anagram",
+      "note": "something done strangely is done in an odd way, so the letters come out in an odd order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sorrel",
+      "gives": "SORREL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "seems",
+      "gives": "SEEMS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SORRELSEEMS",
+       "gives": "REMORSELESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sorrel horse, or the herb, appears oddly fierce.",
+     "walkthrough": "Sorrel is a reddish-brown horse or a sour-leaved herb; here it only lends its letters.",
+     "definitionFit": "A savage attack is pitiless and without mercy, which is what being without pity or regret describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Sorrel"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +273,47 @@
     "text": "Thinly slice second piece of offal",
     "enumeration": "6"
    },
-   "solution": "SLIVER"
+   "solution": "SLIVER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SLIVER",
+    "definitions": [
+     {
+      "text": "Thinly slice",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     },
+     {
+      "clueFragment": "piece of offal",
+      "gives": "LIVER",
+      "note": "liver is one of the organs sold as offal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "LIVER"
+     ]
+    },
+    "explanation": {
+     "surface": "A cooking instruction: cut the next bit of offal into thin slices.",
+     "walkthrough": "'Second piece' reads as the next piece in a sequence, but 'second' is just S and 'piece of offal' is one organ.",
+     "definitionFit": "As a verb, the word means to cut or split into thin narrow strips, which matches slicing finely."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "second"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +327,50 @@
     "text": "Fragment caught by joint",
     "enumeration": "4"
    },
-   "solution": "CHIP"
+   "solution": "CHIP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHIP",
+    "definitions": [
+     {
+      "text": "Fragment",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "C is the cricket scorecard abbreviation for caught"
+     },
+     {
+      "clueFragment": "joint",
+      "gives": "HIP",
+      "note": "the hip is a joint of the body"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HIP"
+     ]
+    },
+    "explanation": {
+     "surface": "A broken-off bit of bone lodged in a joint.",
+     "walkthrough": "'Caught by' looks like a container, but here it simply places C beside the joint.",
+     "definitionFit": "A chip is a small piece broken off something, such as wood or stone, so it is a fragment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "caught"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +384,47 @@
     "text": "Back one language",
     "enumeration": "5"
    },
-   "solution": "HINDI"
+   "solution": "HINDI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HINDI",
+    "definitions": [
+     {
+      "text": "language",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Back",
+      "gives": "HIND",
+      "note": "hind means rear or back, as in hind legs"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HIND",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "Sounds like support for a single tongue.",
+     "walkthrough": "'Back' looks like a verb meaning support, but it is the adjective, as in the hind legs of an animal.",
+     "definitionFit": "Hindi is a major language of northern India, an example of the general category named."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Back"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +438,51 @@
     "text": "Redesigned sleepers beyond compare",
     "enumeration": "8"
    },
-   "solution": "PEERLESS"
+   "solution": "PEERLESS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PEERLESS",
+    "definitions": [
+     {
+      "text": "beyond compare",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Redesigned",
+      "for": "anagram",
+      "note": "a thing redesigned has its parts laid out afresh, so the letters take a new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sleepers",
+      "gives": "SLEEPERS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SLEEPERS",
+       "gives": "PEERLESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Railway sleepers or sleeper trains given a new design that is unmatched.",
+     "walkthrough": "Sleepers are the beams under railway track, or night trains; the word only supplies letters.",
+     "definitionFit": "Something without equal has no peers to rival it, so it is unmatched and beyond comparison."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sleepers"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +496,43 @@
     "text": "Smarten up stable hand",
     "enumeration": "5"
    },
-   "solution": "GROOM"
+   "solution": "GROOM",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GROOM",
+    "definitions": [
+     {
+      "text": "Smarten up",
+      "at": 0
+     },
+     {
+      "text": "stable hand",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Smarten up",
+      "note": "first meaning: to make neat and tidy in appearance"
+     },
+     {
+      "clueFragment": "stable hand",
+      "note": "second meaning: a person who looks after horses"
+     }
+    ],
+    "explanation": {
+     "surface": "Telling a scruffy stable worker to tidy themselves up.",
+     "walkthrough": "The surface reads as an order to a stable worker; the two halves are separate meanings, verb and noun.",
+     "definitionFit": "The verb means to brush and tidy oneself or an animal; the noun is a servant who tends horses."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +546,41 @@
     "text": "Scent anger",
     "enumeration": "7"
    },
-   "solution": "INCENSE"
+   "solution": "INCENSE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "INCENSE",
+    "definitions": [
+     {
+      "text": "Scent",
+      "at": 0
+     },
+     {
+      "text": "anger",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scent",
+      "note": "first meaning: a substance burned for its fragrant smoke"
+     },
+     {
+      "clueFragment": "anger",
+      "note": "second meaning: to make furious, stressed on the second syllable"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The two meanings are pronounced differently: the noun stresses the first syllable, the verb the second.",
+     "definitionFit": "Fragrant smoke from burning resin is a perfume, and to enrage someone is the verb sense of the same spelling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -177,7 +594,71 @@
     "text": "Disaster as endless pot and ecstasy is introduced by jazz fan",
     "enumeration": "11"
    },
-   "solution": "CATASTROPHE"
+   "solution": "CATASTROPHE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "CATASTROPHE",
+    "definitions": [
+     {
+      "text": "Disaster",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endless",
+      "for": "deletion",
+      "note": "without an end means the final letter is cut off"
+     }
+    ],
+    "linkWords": [
+     "is introduced by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "jazz fan",
+      "gives": "CAT",
+      "note": "cat is old jazz slang for an enthusiast or musician"
+     },
+     {
+      "clueFragment": "as",
+      "gives": "AS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "pot",
+      "gives": "TROPHY",
+      "note": "a pot is sporting slang for a trophy cup"
+     },
+     {
+      "clueFragment": "ecstasy",
+      "gives": "E",
+      "note": "E is the drug slang abbreviation for ecstasy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAT",
+      "AS",
+      "TROPH",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A drug-fuelled jazz party, with pot and ecstasy, ending in disaster.",
+     "walkthrough": "'Pot' and 'ecstasy' look like a pair of drugs, but pot is the sporting cup, TROPHY, docked to TROPH. 'Introduced by jazz fan' puts CAT at the front.",
+     "definitionFit": "A catastrophe is a sudden calamity causing great damage, a straight synonym for a disaster."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pot"
+    }
+   }
   },
   {
    "number": 11,
@@ -191,7 +672,65 @@
     "text": "Worldly former sovereign having break during test",
     "enumeration": "11"
    },
-   "solution": "TERRESTRIAL"
+   "solution": "TERRESTRIAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "TERRESTRIAL",
+    "definitions": [
+     {
+      "text": "Worldly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "during",
+      "for": "container",
+      "note": "what happens during something falls within its span, so these letters sit inside another word"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "former sovereign",
+      "gives": "ER",
+      "note": "ER is Elizabeth Regina, the late queen"
+     },
+     {
+      "clueFragment": "break",
+      "gives": "REST",
+      "note": "a rest is a break from work"
+     },
+     {
+      "clueFragment": "test",
+      "gives": "TRIAL",
+      "note": "a trial is a test"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ER",
+      "REST",
+      "RIAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A worldly ex-monarch takes a break in the middle of an exam.",
+     "walkthrough": "Elizabeth Regina is the crossword's usual queen, and 'former' fits since she died in 2022. 'Worldly' suggests sophistication, but here it means of the earth.",
+     "definitionFit": "Terrestrial means relating to the earth rather than the heavens, a fair match for the earthly sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Worldly"
+    }
+   }
   },
   {
    "number": 12,
@@ -205,7 +744,47 @@
     "text": "Trustworthy about having exposure to risk",
     "enumeration": "8"
    },
-   "solution": "RELIABLE"
+   "solution": "RELIABLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RELIABLE",
+    "definitions": [
+     {
+      "text": "Trustworthy",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re is Latin for concerning, as in business letters"
+     },
+     {
+      "clueFragment": "having exposure to risk",
+      "gives": "LIABLE",
+      "note": "liable means likely to suffer or be subject to something"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "LIABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A dependable person who is somehow taking chances.",
+     "walkthrough": "The surface pulls against itself: trustworthy yet exposed to risk; the second phrase is only a long gloss for one word.",
+     "definitionFit": "Someone reliable can be depended upon consistently, the same as being worthy of trust."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +798,46 @@
     "text": "Bit of beer I eradicated for stranger",
     "enumeration": "6"
    },
-   "solution": "EERIER"
+   "solution": "EERIER",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EERIER",
+    "definitions": [
+     {
+      "text": "stranger",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Bit of",
+      "for": "hidden_word",
+      "note": "a bit of something is only part of it, so the result is a run of letters taken from inside the words"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beer I eradicated",
+      "gives": "EERIER",
+      "note": "the letters run across the three words, after the first letter"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone has wiped out a portion of beer, to the bafflement of a newcomer.",
+     "walkthrough": "'Bit of beer' looks like it wants a single letter from beer, but the run continues through 'I eradicated': b-EER I ER-adicated.",
+     "definitionFit": "Both are comparative adjectives describing something more unsettling and odd than another thing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stranger"
+    }
+   }
   },
   {
    "number": 14,
@@ -233,7 +851,47 @@
     "text": "Like group’s property",
     "enumeration": "6"
    },
-   "solution": "ASSETS"
+   "solution": "ASSETS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASSETS",
+    "definitions": [
+     {
+      "text": "property",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Like",
+      "gives": "AS",
+      "note": "as means like, as in 'white as snow'"
+     },
+     {
+      "clueFragment": "group’s",
+      "gives": "SET'S",
+      "note": "a set is a group, with the possessive kept"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AS",
+      "SETS"
+     ]
+    },
+    "explanation": {
+     "surface": "Something resembling a collective's belongings.",
+     "walkthrough": "The apostrophe in the clue survives into SET'S and is simply dropped in the grid.",
+     "definitionFit": "Assets are items of value owned by a person or company, which is what property collectively means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Like"
+    }
+   }
   },
   {
    "number": 15,
@@ -247,7 +905,67 @@
     "text": "Refined film about strange angel",
     "enumeration": "7"
    },
-   "solution": "ELEGANT"
+   "solution": "ELEGANT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ELEGANT",
+    "definitions": [
+     {
+      "text": "Refined",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "to go about something is to surround it, so one piece wraps the other"
+     },
+     {
+      "text": "strange",
+      "for": "anagram",
+      "note": "a strange version is an unusual one, so the letters appear in an unusual order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "film",
+      "gives": "ET",
+      "note": "E.T. is Spielberg's 1982 film about an alien"
+     },
+     {
+      "clueFragment": "angel",
+      "gives": "ANGEL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "LEGAN",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ANGEL",
+       "gives": "LEGAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tasteful movie about an unusual heavenly being.",
+     "walkthrough": "Spielberg's 1982 alien film is a crossword favourite whenever a clue says just 'film'.",
+     "definitionFit": "Elegant describes graceful, stylish taste and manners, a straightforward synonym of refined."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "film"
+    }
+   }
   },
   {
    "number": 16,
@@ -261,7 +979,53 @@
     "text": "Partial to posh, European dish",
     "enumeration": "6"
    },
-   "solution": "FONDUE"
+   "solution": "FONDUE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FONDUE",
+    "definitions": [
+     {
+      "text": "dish",
+      "at": 26
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Partial to",
+      "gives": "FOND",
+      "note": "fond of and partial to both mean liking"
+     },
+     {
+      "clueFragment": "posh",
+      "gives": "U",
+      "note": "U means upper-class, from the old U and non-U usage labels"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOND",
+      "U",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who likes a smart Continental meal.",
+     "walkthrough": "'Partial' suggests a part of something, but 'partial to' is the idiom for liking.",
+     "definitionFit": "Fondue is a Swiss meal of melted cheese into which bread is dipped, an example of a dish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Partial"
+    }
+   }
   },
   {
    "number": 17,
@@ -285,7 +1049,56 @@
      }
     ]
    },
-   "solution": "INDUECOURSE"
+   "solution": "INDUECOURSE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IN DUE COURSE",
+    "definitions": [
+     {
+      "text": "over time",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "developed",
+      "for": "anagram",
+      "note": "something developed has been worked into a new form, so the letters are rebuilt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Curious",
+      "gives": "CURIOUS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "need",
+      "gives": "NEED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CURIOUSNEED",
+       "gives": "INDUECOURSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An odd requirement that grew up gradually.",
+     "walkthrough": "'Curious' looks like the anagram signal, but it is fodder; 'developed' is the signal.",
+     "definitionFit": "The phrase means eventually, at the appropriate moment, which matches something happening with the passing of hours and days."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Curious"
+    }
+   }
   },
   {
    "number": 18,
@@ -299,7 +1112,49 @@
     "text": "Mostly modest object",
     "enumeration": "5"
    },
-   "solution": "DEMUR"
+   "solution": "DEMUR",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "DEMUR",
+    "definitions": [
+     {
+      "text": "object",
+      "at": 14
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Mostly",
+      "for": "deletion",
+      "note": "most but not all means one letter at the end is left out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "modest",
+      "gives": "DEMURE",
+      "note": "demure means modest and reserved"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEMUR"
+     ]
+    },
+    "explanation": {
+     "surface": "Describing a mostly unassuming item.",
+     "walkthrough": "'Object' looks like a noun, a thing, but it is the verb meaning protest.",
+     "definitionFit": "To demur is to raise doubts or show reluctance, a formal synonym for the verb meaning to protest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "object"
+    }
+   }
   },
   {
    "number": 19,
@@ -313,7 +1168,47 @@
     "text": "That woman had rudimentary dwelling",
     "enumeration": "4"
    },
-   "solution": "SHED"
+   "solution": "SHED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SHED",
+    "definitions": [
+     {
+      "text": "rudimentary dwelling",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "That woman",
+      "gives": "SHE",
+      "note": "she is the pronoun for that woman"
+     },
+     {
+      "clueFragment": "had",
+      "gives": "D",
+      "note": "'d is the contracted form of had"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman who once lived in a very basic home.",
+     "walkthrough": "The contraction she'd for she had gives the whole answer at once.",
+     "definitionFit": "A shed is a simple wooden hut, so as a basic shelter it is a crude, minimal kind of dwelling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "had"
+    }
+   }
   },
   {
    "number": 20,
@@ -327,7 +1222,56 @@
     "text": "Puzzled birds in sack",
     "enumeration": "7"
    },
-   "solution": "BEMUSED"
+   "solution": "BEMUSED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BEMUSED",
+    "definitions": [
+     {
+      "text": "Puzzled",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "a thing in another is placed inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "birds",
+      "gives": "EMUS",
+      "note": "emus are large flightless Australian birds"
+     },
+     {
+      "clueFragment": "sack",
+      "gives": "BED",
+      "note": "the sack is slang for bed, as in hitting the sack"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "EMUS",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Birds stuffed in a bag look confused.",
+     "walkthrough": "'Sack' looks like a bag, but it is the slang word for bed.",
+     "definitionFit": "Bemused means bewildered or confused, a synonym of being puzzled."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "sack"
+    }
+   }
   },
   {
    "number": 21,
@@ -341,7 +1285,56 @@
     "text": "Start to peel every single fruit",
     "enumeration": "5"
    },
-   "solution": "PEACH"
+   "solution": "PEACH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PEACH",
+    "definitions": [
+     {
+      "text": "fruit",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Start to",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter, which is all that is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "peel",
+      "gives": "P",
+      "select": "first",
+      "note": "the opening letter of the word"
+     },
+     {
+      "clueFragment": "every single",
+      "gives": "EACH",
+      "note": "each means every single one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "EACH"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to begin peeling every one of the fruit.",
+     "walkthrough": "'Start to peel' reads as begin peeling, but it means only the first letter of 'peel'.",
+     "definitionFit": "A peach is a soft, furry-skinned stone fruit, an example of the broad category named."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Start"
+    }
+   }
   },
   {
    "number": 22,
@@ -355,7 +1348,51 @@
     "text": "Peer is almost ahead of schedule",
     "enumeration": "4"
    },
-   "solution": "EARL"
+   "solution": "EARL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EARL",
+    "definitions": [
+     {
+      "text": "Peer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the final letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ahead of schedule",
+      "gives": "EARLY",
+      "note": "early means before the planned time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EARL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone peering at something is very nearly early.",
+     "walkthrough": "'Peer' looks like a verb, to look closely, but it is the noun for a member of the nobility.",
+     "definitionFit": "An earl is a rank of the British nobility, and every titled noble sitting in the Lords is called a peer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Peer"
+    }
+   }
   },
   {
    "number": 23,
@@ -369,7 +1406,62 @@
     "text": "Crazy act involving people with time",
     "enumeration": "8"
    },
-   "solution": "DEMENTED"
+   "solution": "DEMENTED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "DEMENTED",
+    "definitions": [
+     {
+      "text": "Crazy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involving",
+      "for": "container",
+      "note": "to involve is to take in, so one piece is held inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "act",
+      "gives": "DEED",
+      "note": "a deed is an act"
+     },
+     {
+      "clueFragment": "people",
+      "gives": "MEN",
+      "note": "men are people"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "MEN",
+      "T",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A mad stunt dragging in people with a clock running.",
+     "walkthrough": "'Act' could suggest a stage performance, but it is a plain synonym for a thing done; the people and the time sit together inside it.",
+     "definitionFit": "Demented means behaving irrationally or wildly, which matches the everyday sense of being mad."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "act"
+    }
+   }
   }
  ]
 }
