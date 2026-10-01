@@ -2,8 +2,8 @@
 """How wide the pre-reset backfill runs, and in what order it takes the queue.
 
 The job's goal is every five-hour window spent to 100%: quota left on a window
-when it turns over is gone. Each wave runs the width that would spend the
-window's remainder by its reset, at the per-run rate the burn measures off its
+when it turns over is gone. The burn keeps in flight the width that would
+spend the window's remainder by its reset, at the per-run rate the burn measures off its
 own log, capped by what the machine can hold right now: free memory over the
 size of a run, and no growth while the CPU is saturated.
 
@@ -26,9 +26,9 @@ REPO = Path(__file__).resolve().parent.parent
 
 # Running wider than the need only spends the window early and then idles until
 # its reset, so the need sets the width. The margin covers the per-run rate,
-# which is measured within about ±10% wave to wave.
+# which is measured within about ±10% interval to interval.
 NEED_MARGIN = 1.25
-# The width when neither the meter nor the last wave's width can be read.
+# The width when neither the meter nor the last logged width can be read.
 DEFAULT_WIDTH = 14
 # The ceiling when memory cannot be read: ~6 GB of runs.
 DEFAULT_CEILING = 28
@@ -46,29 +46,37 @@ PSI_FULL, PSI_OVER = 40.0, 70.0
 LOAD_FULL, LOAD_OVER = 1.0, 2.0
 
 # Five-hour points one run in flight spends per hour. Measured off the burn's own
-# per-wave lines in .prereset.log (see per_run_rate); this is the fallback when
-# too few are readable: 27 points an hour at width 14 over 60 waves.
+# meter lines in .prereset.log (see per_run_rate); this is the fallback when
+# too few are readable: 27 points an hour at width 14 over 60 intervals.
 PER_RUN_RATE = 1.95
-WAVE_LINE = re.compile(r"five-hour (\d+)% -> (\d+)% in ([\d.]+)h at width (\d+)")
-WAVE_START = re.compile(r"^--- wave of (\d+):")
-RATE_WAVES = 60
-RATE_MIN_WAVES = 10
+# The meter line after_wave logs at every pool checkpoint:
+#   five-hour 68% -> 70% in 0.083h at width 12.40 (pool of 14)
+# where the width is the runs in flight on average over the interval, measured.
+# A line from the wave scheduler ("at width 14", every run in flight for the
+# whole wave) reads the same way.
+METER_LINE = re.compile(r"five-hour (\d+)% -> (\d+)% in ([\d.]+)h at width (\d+(?:\.\d+)?)")
+# The width the burn last ran at: "--- pool of 14: ..." at every checkpoint,
+# or "--- wave of 14: ..." from the wave scheduler.
+WIDTH_LINE = re.compile(r"^--- (?:pool|wave) of (\d+):")
+RATE_LINES = 60
+RATE_MIN_LINES = 10
 
 
 def per_run_rate(lines):
-    """Five-hour points per run-hour over the last RATE_WAVES waves logged.
-    A wave whose meter fell crossed a reset and says nothing, so it is skipped."""
+    """Five-hour points per run-hour over the last RATE_LINES meter lines logged.
+    An interval whose meter fell crossed a reset and says nothing, so it is
+    skipped."""
     points = run_hours = 0.0
-    waves = [m for m in map(WAVE_LINE.search, lines) if m][-RATE_WAVES:]
+    meters = [m for m in map(METER_LINE.search, lines) if m][-RATE_LINES:]
     used = 0
-    for m in waves:
-        before, after, hours, width = int(m[1]), int(m[2]), float(m[3]), int(m[4])
+    for m in meters:
+        before, after, hours, width = int(m[1]), int(m[2]), float(m[3]), float(m[4])
         if after < before or hours <= 0 or width <= 0:
             continue
         points += after - before
         run_hours += hours * width
         used += 1
-    if used < RATE_MIN_WAVES or points <= 0:
+    if used < RATE_MIN_LINES or points <= 0:
         return PER_RUN_RATE
     return points / run_hours
 
@@ -122,14 +130,14 @@ def width_for(runs_needed, mem, cpu, current):
 
 
 def current_width(arg, lines):
-    """The width the burn runs now: its argument, else the last wave logged."""
+    """The width the burn runs now: its argument, else the last one logged."""
     try:
         if int(arg) > 0:
             return int(arg)
     except (TypeError, ValueError):
         pass
     for line in reversed(lines):
-        m = WAVE_START.match(line)
+        m = WIDTH_LINE.match(line)
         if m and int(m[1]) > 0:
             return int(m[1])
     return None
@@ -161,7 +169,7 @@ def burn_rss_kb():
 
 
 def width(arg=None):
-    """The width for the next wave, from the live five-hour meter and reset, the
+    """The width to keep in flight, from the live five-hour meter and reset, the
     log's rate and last width, and the machine. The inputs go to stderr."""
     log = Path(os.environ.get("CT_MAIN_CHECKOUT") or REPO) / ".prereset.log"
     lines = (_read(log) or "").splitlines()
@@ -208,7 +216,7 @@ def self_test():
     ]
     bad = cover_self_test(covers) + width_self_test()
     n = (len(covers) + len(WIDTH_CASES) + len(NEED_CASES) + len(MEM_CASES)
-         + len(CPU_CASES) + 8)
+         + len(CPU_CASES) + 14)
     print(f"prereset plan self-test FAILED: {bad} of {n}" if bad
           else f"prereset plan self-test: {n} cases pass")
     return 1 if bad else 0
@@ -274,14 +282,26 @@ def width_self_test():
             bad += 1
     line = "  weekly 1% -> 1%, five-hour {}% -> {}% in 0.1h at width 14"
     logged = [line.format(i, i + 3) for i in range(12)] + [line.format(90, 2)]
-    for lines, want in [(logged, 3 / 1.4), (logged[:3], PER_RUN_RATE)]:
+    # pool lines: 0.5h at 12.5 in flight on average is 6.25 run-hours
+    pool = "  weekly 1% -> 1%, five-hour {}% -> {}% in 0.5h at width 12.50 (pool of 14)"
+    pooled = [pool.format(i, i + 5) for i in range(12)]
+    # old and new lines together: 12 x 3 + 12 x 5 points over 12 x (1.4 + 6.25)
+    mixed = logged[:12] + pooled
+    for lines, want in [(logged, 3 / 1.4), (logged[:3], PER_RUN_RATE),
+                        (pooled, 5 / 6.25), (mixed, 96 / (12 * 7.65)),
+                        # an interval with nothing in flight says nothing
+                        (pooled[:9] + [pool.format(5, 9).replace("12.50", "0.00")],
+                         PER_RUN_RATE)]:
         if abs(per_run_rate(lines) - want) > 1e-9:
             print(f"FAIL per_run_rate of {len(lines)} lines = {per_run_rate(lines)} "
                   f"(want {want})", file=sys.stderr)
             bad += 1
     waves = ["--- wave of 14: a b ---", "x", "--- wave of 9: c ---", "  weekly ..."]
+    pools = waves + ["--- pool of 11: 3 in flight, 40 queued ---", "  [a] started"]
     for arg, lines, want in [("12", waves, 12), (None, waves, 9), ("0", waves, 9),
-                             ("x", [], None), (None, ["--- wave of 0: ---"], None)]:
+                             ("x", [], None), (None, ["--- wave of 0: ---"], None),
+                             (None, pools, 11), ("7", pools, 7),
+                             (None, ["--- pool of 0: ---"], None)]:
         if current_width(arg, lines) != want:
             print(f"FAIL current_width({arg!r}, {lines}) = {current_width(arg, lines)} "
                   f"(want {want})", file=sys.stderr)
