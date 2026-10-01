@@ -268,9 +268,9 @@ class Independent(Adapter):
     feed its primary source."""
     name = "independent"
     series = ("independent", "indysunday")
-    #: The CDN is quick; one request a second each from two workers is polite.
+    #: A CDN: a request a second from each of three workers is polite.
     delay = 1.0
-    workers = 2
+    workers = 3
 
     def ids(self):
         import fetch_independent as fi
