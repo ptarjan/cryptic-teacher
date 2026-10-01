@@ -268,7 +268,19 @@ fi
 # articles it has not read yet (its ledger makes the rest free), unsolved, so
 # step 3a solves them. Bounded: a grid rebuilt from the clues is ~10s.
 TROVE_PER_NIGHT="${TROVE_PER_NIGHT:-300}"
+# A clue list no grid fits waits on the page scan's clue columns
+# (tools/trove_clue_ocr.py); fetching them is ~30 Trove requests an article,
+# spaced 2s, so a capped few a night, before the filer reads them.
+TROVE_CLUES_PER_NIGHT="${TROVE_CLUES_PER_NIGHT:-15}"
 if [ -d "$HOME/.cache/trove" ]; then
+  clues_out="$(mktemp "${TMPDIR:-/tmp}/cryptic-trove-clues.XXXXXX")"
+  if python3 tools/trove_clue_ocr.py --fetch-pending "$TROVE_CLUES_PER_NIGHT" >"$clues_out" 2>&1; then
+    cat "$clues_out"
+  else
+    cat "$clues_out"
+    alert "tools/trove_clue_ocr.py --fetch-pending failed, so pending Canberra Times clue lists get no clue columns:"$'\n'"\`\`\`"$'\n'"$(tail -12 "$clues_out" | cut -c1-200)"$'\n'"\`\`\`"
+  fi
+  rm -f "$clues_out"
   trove_out="$(mktemp "${TMPDIR:-/tmp}/cryptic-trove.XXXXXX")"
   if python3 tools/file_trove_puzzles.py --limit "$TROVE_PER_NIGHT" >"$trove_out" 2>&1; then
     cat "$trove_out"
