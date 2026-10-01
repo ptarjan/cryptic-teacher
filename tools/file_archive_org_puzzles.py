@@ -406,6 +406,11 @@ def reconcile(laid, stream):
             blank[lid] = "another clue's number inside it"
             out[lid] = ("", enum, group)
             continue
+        if re.match(r"[a-z]", text or ""):
+            # Lower case first: the clue's opening ("23s about") was lost.
+            blank[lid] = "starts mid-clue"
+            out[lid] = ("", enum, group)
+            continue
         if enum is None:
             # The count lost with the clue's end: the words may be cut short.
             blank[lid] = "no count read"
@@ -679,7 +684,7 @@ def read_solution(sol, grid):
     answers, stats = trove_solution_ocr.read_answers(path, grid)
     if stats["blocks"] < SOLUTION_BLOCKS:
         return {}, {**stats, "refused": "its blocks are not the puzzle's"}
-    return answers, stats
+    return {f"{n}-{d}": w for (n, d), w in answers.items()}, stats
 
 
 # ------------------------------------------------------------ the run
