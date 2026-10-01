@@ -386,6 +386,17 @@ tools/indy_puzzles.py                        the same pipeline on fifteensquared
                                              never a number already on disk
 tools/test_indy_puzzles.sh                   holds its title routing to both papers' post
                                              titles and its Sunday dates to their order
+tools/ft_pdf_puzzles.py                      files the FT cryptic of 2007-2012 from the FT's
+                                             own printable PDFs, found through Wayback's copies
+                                             of ft.com/arts/crossword: clues and the grid's
+                                             black squares read from the PDF, answers from
+                                             fifteensquared, filed only when the grid's
+                                             numbering matches the clue list and every answer
+                                             crosses
+tools/test_ft_pdf_puzzles.sh                 holds that reader to a hand-drawn grid of
+                                             content-stream rectangles, a wrapped clue list and
+                                             an answers-only post, because a misread block
+                                             renumbers the whole grid
 tools/test_ft_puzzles.sh                     holds that parser to each layout fifteensquared
                                              prints an FT post in, and the filer to a
                                              hand-built grid, because a misread answer becomes
