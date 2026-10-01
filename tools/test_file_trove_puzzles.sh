@@ -106,5 +106,34 @@ print(F.closest(('.....', '.#.##'))([a, b]) == a, F.closest(('.....', '##.##'))(
 check "uncertain numbers and counts go in unknown; the grid still rebuilds" \
   "(['.....', '.#.#.', '.....', '.#.#.', '.....'], None)
 True None None" "$got"
+# The solution grid's pairing and numbering need no OCR engine.
+got=$(cd "$REPO/tools" && python3 -c "
+import datetime, trove_solution_ocr as O
+sat = datetime.date(1970, 12, 19)
+print(O.lag_allowed('the crossword published today', 0, sat),
+      O.lag_allowed('the crossword published today', 1, sat),
+      O.lag_allowed('published on , Saturday,', 2, sat),
+      O.lag_allowed('published on , Saturday,', 1, sat + datetime.timedelta(1)))
+print(sorted(O.lights(['...', '.#.', '...'])))")
+check "solution pairing and light numbering" "True False True False
+[(1, 'across'), (1, 'down'), (2, 'down'), (3, 'across')]" "$got"
+
+# Reading the 2 June 1972 solution against that day's grid: whatever it
+# accepts fits its light and is one of the answers a person reads off the
+# scan. Skipped where the OCR engine is not installed (CI's test job).
+got=$(cd "$REPO/tools" && python3 -c "
+import json, trove_solution_ocr as O
+if O.available():
+    print('skip'); raise SystemExit
+p = json.load(open('$REPO/puzzles/canberra/1972/canberra-720602.json'))
+grid = O.puzzle_grid(p)
+acc, st = O.read_answers('$FIX/102024518/grid.jpg', grid)
+hand = {(1, 'across'): 'FOOTPAD', (5, 'across'): 'ALMANAC', (9, 'across'): 'INTERESTS',
+        (10, 'across'): 'LIGHT', (1, 'down'): 'FRIDAY'}
+lts = O.lights(grid)
+bad = [k for k, w in acc.items() if len(w) != len(lts[k]) or (k in hand and hand[k] != w)]
+print('ok' if not bad and st['sureClashes'] <= st['sureCrossings'] else bad)")
+[ "$got" = skip ] && echo "skip solution OCR: rapidocr-onnxruntime not installed" || \
+  check "solution OCR accepts only fitting, hand-checked answers" "ok" "$got"
 
 [ "$fails" -eq 0 ] && echo "all passed" || { echo "$fails failed"; exit 1; }
