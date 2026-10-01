@@ -431,8 +431,15 @@
 
   // Named, because the walk both says it and acts on it: saying it is what
   // sends the eye to the grid, so the two cannot be allowed to drift apart.
-  const TYPE_IT_LINE = "You have every piece now. Put them together and type the answer"
-    + " into the highlighted squares in the grid \u2014 typing it in yourself is the only way to finish a clue without using a hint.";
+  // The tour hands over the answer itself: the lesson at this step is where the
+  // answer goes and that typing it costs nothing, not whether a newcomer can
+  // assemble their first clue unaided.
+  function typeItLine(e) {
+    const answer = String((annOf(e) || {}).answer || "").trim();
+    return (answer ? "You have every piece now, and they make " + answer + ". Type it"
+                   : "You have every piece now. Put them together and type the answer")
+      + " into the highlighted squares — typing it in yourself finishes a clue without using a hint.";
+  }
 
   function nuxDraw() {
     const el = $("nux");
@@ -449,7 +456,7 @@
     const telling = nuxAsk()
       ? "Answer this question yourself and the hint costs you nothing \u2014 tap what is lit up."
       : typeIt
-      ? TYPE_IT_LINE
+      ? typeItLine(currentEntry())
       : "";
     const text = telling || ((line && line.again && nuxWalked) ? line.again : (line ? line.text : ""));
     // The id alone is not the identity of what is on screen: the ladder line
