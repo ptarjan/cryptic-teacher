@@ -60,6 +60,7 @@ broken("TWICE", lambda p: p["unclued"][0]["cells"].__setitem__(-1, dict(own[0]))
 broken("BLACK", lambda p: p.__setitem__("unclued", [{"cells": own, "solution": e["solution"]}]))
 broken("WRONG", lambda p: p["printed"][1].__setitem__(
     "letter", "Z" if e["solution"][0] != "Z" else "Y"))
+broken("UNSOLVED", lambda p: p["unclued"][0].pop("solution") and p["printed"].pop(0))
 broken("SHAPE", lambda p: p["unclued"][0].__setitem__("cells", own[:1]) or
        p["unclued"][0].__setitem__("solution", e["solution"][0]))
 PY
@@ -76,6 +77,8 @@ has CLASH "but the entry crossing it has" "an unclued letter that clashes with a
 has TWICE "lists a square twice" "an unclued light listing a square twice is refused"
 has BLACK "is not on a white square" "a printed letter on a black square is refused"
 has WRONG "but the solution there is" "a printed letter that is not the solution is refused"
+same "an unclued light with no solution files unsolved" \
+  "$(grep '^UNSOLVED ' <<<"$out")" "UNSOLVED accepted"
 has SHAPE "SCHEMA" "an unclued light of one square fails the schema"
 
 # An unclued light checks the entries it crosses: a grid whose clued entries
