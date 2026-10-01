@@ -415,6 +415,13 @@ tools/ft_pdf_puzzles.py                      files the FT cryptic of 2007-2012 f
                                              fifteensquared, filed only when the grid's
                                              numbering matches the clue list and every answer
                                              crosses
+tools/listener_puzzles.py                    files the Listener crossword from the Listener
+                                             Team's archive PDFs: clues, bars and letters read
+                                             from the vector pages, and a puzzle whose entries
+                                             go in altered left out by name
+tools/test_listener_puzzles.sh               holds that reader to hand-drawn cell sides and a
+                                             two-column clue page whose right-hand numbers sit
+                                             on the left's lines
 tools/test_ft_pdf_puzzles.sh                 holds that reader to a hand-drawn grid of
                                              content-stream rectangles, a wrapped clue list and
                                              an answers-only post, because a misread block

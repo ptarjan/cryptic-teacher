@@ -226,6 +226,16 @@ SERIES = {
         "perLightEnumeration": True,
         "datedFromNeighbours": True,
     },
+    # The Listener: barred and thematic, its trick in a preamble, printed by
+    # the BBC's magazine from 1930 and by the Times since 1991. Filed from the
+    # Listener Team's archive PDFs (tools/listener_puzzles.py); a puzzle whose
+    # entries go in altered is never filed (its SKIP table).
+    "listener": {
+        "kind": "Listener",
+        "publisher": "Listener",
+        "group": "Times",
+        "badge": "listener",
+    },
     # The FT prints no grid a script can reach, so tools/ft_puzzles.py files
     # these from fifteensquared's write-ups, the grid rebuilt from their clue
     # numbers as the Times' is. Saturday's prize shares the weekday numbering.

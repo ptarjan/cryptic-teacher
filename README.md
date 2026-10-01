@@ -143,7 +143,7 @@ Shape:
 }
 ```
 
-A barred grid (the Mephisto) also has `bars`, a string per row with a character per cell:
+A barred grid (the Mephisto, the Listener) also has `bars`, a string per row with a character per cell:
 `r` for a bar on the cell's right, `b` for one below it, `+` for both, `.` for neither. A blocked grid
 has no `bars`, and its black squares are the cells that no entry covers.
 

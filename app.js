@@ -6112,6 +6112,13 @@
       spell out a word you may never have met, letter by letter. Setters are
       named. The bars are rebuilt and the answers taken from the “Times for the
       Times” blog.`],
+    listener: ["listener", `The Listener crossword, the oldest of the thematic
+      puzzles: a barred grid with a preamble that sets a trick, printed by the
+      BBC's magazine from 1930 and by the Times on Saturdays since 1991. The
+      earliest ones are general-knowledge puzzles rather than cryptics. Grid,
+      bars and answers come from the Listener Team's archive at
+      listenercrossword.com, and only puzzles whose answers go into the grid
+      unchanged are here.`],
     ftcryptic: ["FT", `The Financial Times cryptic, Monday to Saturday, from a
       stable of named setters — Io, Mudd, Julius, Jason — many of them familiar
       from other papers under other names (Mudd is the Guardian's Paul). Pitched
