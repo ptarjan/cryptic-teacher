@@ -252,9 +252,10 @@ LAYOUT = [
     ("scheduling", "tools/test_push_conflict.sh","proves the nightly push rebuilds a generated file the remote also rebuilt, and refuses to resolve anything else"),
     ("scheduling", "tools/test_push_race.sh", "a push that loses the shared ref-lock race to another worktree is retried; any other failure is not"),
     ("scheduling", "tools/prereset_plan.py", "how many annotations the burn runs at once, and the order it takes the queue in"),
-    ("scheduling", "tools/indicator_cover.py", "puts first the backlog puzzles whose blog-named indicators no annotation of ours links yet on /indicators/: a greedy set cover weighted by each indicator's clue count, re-planned every wave through prereset_plan.py --cover-first"),
+    ("scheduling", "tools/indicator_cover.py", "puts first the backlog puzzles whose blog-named indicators no annotation of ours links yet on /indicators/: a greedy set cover weighted by each indicator's clue count, re-planned at every pool checkpoint through prereset_plan.py --cover-first"),
     ("scheduling", "tools/backlog_burndown.py", "the annotation backlog over time, rebuilt from git history, and how long the rest will take at that pace"),
     ("scheduling", "tools/test_prereset_paths.sh", "resolves the bridge path the burn's alerts build at runtime, instead of matching the text of the line that builds it"),
+    ("scheduling", "tools/test_prereset_pool.sh", "drives the burn's rolling pool with a stub run: never past the width, a freed slot refilled at once, launches spaced, a width change taking effect"),
     ("scheduling", "tools/test_alert_claimed.sh", "runs a real failing run past alert.sh, so the catch-all cannot report a failure somebody already alerted on a second time"),
 
     ("finding out whether any of it is working", "tools/reports.py", "reads and clears the bad-hint reports solvers sent in"),

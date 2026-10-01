@@ -5,14 +5,14 @@
 # over. daily_update.sh deliberately refuses to annotate above
 # ANNOTATE_MAX_WEEKLY_PCT because a crossword backlog is never worth being
 # rate-limited for real work; this job is the other half and runs with NO usage
-# gate. Every wave runs as wide as spends the five-hour window by its reset
-# (tools/prereset_plan.py --width), from the moment it starts until the week
-# resets.
+# gate. It keeps as many runs in flight as spends the five-hour window by its
+# reset (tools/prereset_plan.py --width), from the moment it starts until the
+# week resets: a rolling pool, where a finished run's slot is refilled at once.
 #
 # The only stops are the meters and the reset itself:
 #   - the FIVE-hour limit: saturate it and nothing more can be bought until it
-#     turns over, so a lockout is waited out and the next wave picks up where
-#     the last one stopped;
+#     turns over, so a lockout is waited out and the pool picks up where it
+#     stopped;
 #   - the weekly meter at EXHAUSTED: the run stops (Paul resets it);
 #   - the weekly reset: the run stops five minutes short of it rather than spend
 #     the next week's quota, and the next hourly fire starts the new week.
@@ -31,10 +31,10 @@
 #      forever. The fields are read from the file, so this job needs no edit
 #      when the next rule lands.
 #
-# A failed wave is read off the meters, never off the CLI's words: past
+# A failed run is read off the meters, never off the CLI's words: past
 # EXHAUSTED weekly the job stops, past LOCKOUT_PCT five-hour it waits for the
-# window to turn over, and below both the runs failed for reasons of their own,
-# so those puzzles are dropped and the queue carries on. See after_wave.
+# window to turn over, and below both the run failed for reasons of its own,
+# so that puzzle is dropped and the queue carries on. See after_wave.
 #
 # Install: a line in the bridge container's tools/crontab (household repo), at
 # :05 every hour, and that line is the only schedule this job has. `flock -n`
@@ -43,6 +43,11 @@
 # have to be launchctl instead, never as well — see daily_update.sh's header.
 
 set -uo pipefail
+# The pool reaps whichever run finishes first with `wait -n -p`, which is bash 5.1.
+if (( BASH_VERSINFO[0] * 100 + BASH_VERSINFO[1] < 501 )); then
+  echo "ERROR: tools/prereset_backfill.sh needs bash 5.1+ for wait -n -p; this is $BASH_VERSION"
+  exit 1
+fi
 # A checkout of its own, so days of unmetered annotation cannot collide with
 # the 04:45 job or with somebody editing the repo. See tools/nightly_worktree.sh.
 . "$(dirname "$0")/nightly_worktree.sh"
@@ -77,7 +82,7 @@ exec > >(tee -a "$RUN_LOG") 2>&1
 ANNOTATE_MODEL="${ANNOTATE_MODEL:-opus}"
 MODEL="$ANNOTATE_MODEL"
 ANNOTATE_EFFORT="${ANNOTATE_EFFORT:-medium}"  # see daily_update.sh
-# Runs in flight for the next wave, asked before each one with the width now:
+# Runs to keep in flight, asked at every pool checkpoint with the width now:
 # what spends the five-hour window by its reset, capped by free memory and CPU
 # pressure (tools/prereset_plan.py, which logs its inputs). If it prints no
 # width the current one stands.
@@ -99,7 +104,7 @@ EXHAUSTED="${EXHAUSTED:-99}"
 # Below this on the five-hour meter a failed run was not locked out: the window
 # had room, so waiting for it to turn over buys nothing.
 LOCKOUT_PCT="${LOCKOUT_PCT:-90}"
-# DRY_RUN=1 walks the whole job — queue order, waves, deadline —
+# DRY_RUN=1 walks the whole job — queue order, the pool, deadline —
 # without calling claude, touching git or rebuilding anything. This job spends
 # ungated inference in parallel and cannot be rehearsed any other way; the first
 # version of it ran seven ungated nights a week and read as healthy in the log.
@@ -173,7 +178,7 @@ if [ -f "$LANDING_FILE" ]; then
     rm -f "$LANDING_FILE"
     echo "the weekly window turned over with the meter at ${landed}%"
     awk -v l="${landed:-100}" -v ok="$LANDING_OK" 'BEGIN{exit !(l < ok)}' &&
-      alert "the weekly window turned over with the meter at ${landed}% — $(awk -v l="$landed" 'BEGIN{printf "%d", 100 - l}')% of the week expired unspent. The backfill stopped or stalled before the reset; .prereset.log has the wave-by-wave meters."
+      alert "the weekly window turned over with the meter at ${landed}% — $(awk -v l="$landed" 'BEGIN{printf "%d", 100 - l}')% of the week expired unspent. The backfill stopped or stalled before the reset; .prereset.log has the meters at every pool checkpoint."
   fi
 fi
 
@@ -198,15 +203,9 @@ past_deadline() {
   [ "$(date +%s)" -ge "$STOP_AT" ]
 }
 # One nap per five-hour window left in the week is the plan, not a failure, so
-# the allowance is that count with slack. It only bounds waves failing fast for
+# the allowance is that count with slack. It only bounds runs failing fast for
 # some reason other than a lockout; each nap is capped at the deadline anyway.
 MAX_NAPS=$(awk -v h="$resets_in" 'BEGIN{printf "%d", h / 5 + 3}')
-
-# Hours between two epoch seconds. A function because both callers used to build
-# the awk program by string interpolation and both got it wrong the same way.
-hours_between() {
-  awk -v a="$1" -v b="$2" 'BEGIN{printf "%.3f", (b - a) / 3600}'
-}
 
 # Minutes until the five-hour window turns over. Empty when it cannot be read.
 session_left_min() {
@@ -221,6 +220,8 @@ session_left_min() {
 #
 # Once each. A puzzle failing for its own reasons — a clue the model cannot solve
 # — must not be able to hold the queue open, and MAX_NAPS bounds the rest.
+# WAVE_FAILED_IDS is the runs that failed since the last pool checkpoint;
+# WAVE_WHAT the commit message prefix of the pool running now.
 WAVE_FAILED_IDS=()
 WAVE_WHAT=""
 NAPPED=0
@@ -278,8 +279,8 @@ run_claude() {
   # The annotate prompt names this copy, which leaves out the solutions detail:
   # that names the blog, which annotate_check.py discloses only once the run is stuck.
   python3 tools/annotate_check.py --view "$tag" >/dev/null
-  # Niced, with everything it runs: a wave shares this machine with the bridge.
-  # The instructions ride in the system prompt, where every run of a wave shares
+  # Niced, with everything it runs: the pool shares this machine with the bridge.
+  # The instructions ride in the system prompt, where every run of the pool shares
   # one cached prefix, instead of costing each run a turn to cat them. The git
   # status that differs run to run moves out of it into the first message, or
   # it would split that prefix.
@@ -311,65 +312,211 @@ discard_puzzle() {
   git clean -qf -- "$(puzzle_spec "$1")"
 }
 
-# Run a wave of puzzles at once and commit the ones that survive validation.
+# A run that failed. One cut off by a lockout usually leaves real work behind:
+# some clues annotated, the rest untouched, and that file still validates.
+# Throwing it away means paying for those clues again. Only a half-written one —
+# the run died mid-edit — is worth nothing and goes back.
+#
+# Either way it leaves a note for the retry, which resumes this same
+# conversation (see run_claude) — so the note only has to say what changed
+# under it while it was stopped, not restate the job.
+#   $1 the puzzle id  $2 the commit message prefix
+handle_failed_run() {
+  local id="$1" what="$2" seen
+  # What the retry is told to look at: the annotate run's copy, never the
+  # puzzle itself, which names the blog (see run_claude).
+  seen=$(python3 tools/puzzle_paths.py "$id")
+  [ "$what" = Annotate ] && seen="tools/_puzzle_$id.json"
+  if [ -n "$(git status --porcelain -- "$(puzzle_spec "$id")")" ] &&
+     python3 tools/validate_annotations.py "$id" >/dev/null 2>&1; then
+    echo "  [$id] run failed — keeping what it finished, the file still validates"
+    printf '%s\n' "You were cut off by a usage limit. The limit has since cleared and your edits to $seen are exactly as you left them. Pick up where you stopped, finish the task you were given, and run python3 tools/annotate_check.py $id until it reports clean. Do not commit." >"/tmp/ct-prereset-$id.resume"
+  else
+    echo "  [$id] run failed — discarding its changes"
+    discard_puzzle "$id"
+    printf '%s\n' "You were cut off by a usage limit, mid-edit, so $seen was rolled back to how it was before you started — check it before you assume anything about its contents. The limit has since cleared. You already did the solving, so write out what you had worked out rather than working it out again, finish the task you were given, and run python3 tools/annotate_check.py $id until it reports clean. Do not commit." >"/tmp/ct-prereset-$id.resume"
+  fi
+}
+
+# --- the rolling pool ----------------------------------------------------------
+# Up to $wide claude runs in flight over queue[at..]. Whenever one finishes it is
+# handled — committed, or noted for a retry — and the next queued id starts, so
+# no slot waits on the slowest run. The claude runs are the only thing that
+# happens in parallel: every git command runs in this shell, one at a time,
+# because a second process staging its own file mid-commit swallows it into ours.
+#
+# Launches are POOL_LAUNCH_GAP seconds apart, so the runs' setup and validators
+# do not all hit the CPU in the same second.
+POOL_LAUNCH_GAP_US=$(awk -v s="${POOL_LAUNCH_GAP:-5}" 'BEGIN{printf "%d", s * 1000000}')
+# A checkpoint (pool_checkpoint) logs the meters, judges failures, re-reads the
+# width and re-plans the queue. It runs this often, and at once after any failed
+# run, so a lockout stops the refilling within one run.
+POOL_CHECK_SECS="${POOL_CHECK_SECS:-300}"
+# The rebase that brings in origin's changes needs a tree no annotator is writing
+# (sync_wave), so this often the pool stops refilling, drains and syncs.
+POOL_SYNC_SECS="${POOL_SYNC_SECS:-3600}"
+declare -A POOL_RUNS=()  # pid -> puzzle id, every run in flight
+POOL_RUN_US=0            # run-microseconds in flight since the checkpoint
+POOL_MARK_US=0           # when POOL_RUN_US was last brought up to date
+POOL_STARTED_US=0        # when the interval since the last checkpoint began
+POOL_SYNCED_US=${EPOCHREALTIME/[.,]/}
+POOL_LAUNCHED_US=0
+POOL_DONE=0              # runs finished since the checkpoint
+POOL_FIXING=0            # 1 while commit_puzzle's fix run holds this shell
+
+# Bring POOL_RUN_US up to now. Called before every change to the runs going, so
+# the average in flight a checkpoint logs is measured rather than the nominal
+# width.
+pool_mark() {
+  local now=${EPOCHREALTIME/[.,]/}
+  POOL_RUN_US=$(( POOL_RUN_US + (${#POOL_RUNS[@]} + POOL_FIXING) * (now - POOL_MARK_US) ))
+  POOL_MARK_US=$now
+}
+
+pool_launch() {
+  local id="$1" prompt wait_us
+  wait_us=$(( POOL_LAUNCHED_US + POOL_LAUNCH_GAP_US - ${EPOCHREALTIME/[.,]/} ))
+  [ "$wait_us" -gt 0 ] && sleep "$(printf '%d.%06d' $((wait_us / 1000000)) $((wait_us % 1000000)))"
+  local again=""
+  [ -s "/tmp/ct-prereset-$id.resume" ] && again=", picking up its cut-off conversation"
+  prompt="${POOL_TMPL//@PATH@/$(python3 tools/puzzle_paths.py "$id")}"
+  pool_mark
+  run_claude "$id" "${prompt//@/$id}" &
+  POOL_RUNS[$!]="$id"
+  POOL_LAUNCHED_US=${EPOCHREALTIME/[.,]/}
+  echo "  [$id] started$again (${#POOL_RUNS[@]} of $wide in flight)"
+}
+
+# Wait for whichever run finishes first, and commit it or note it for a retry.
+pool_reap() {
+  local pid="" rc id p
+  while :; do
+    # A finished run bash has already cleaned out of its job table is invisible
+    # to wait -n ("no such job"), though plain wait still returns its status. So
+    # finished runs are looked for first, and wait -n only blocks on live ones.
+    for p in "${!POOL_RUNS[@]}"; do
+      kill -0 "$p" 2>/dev/null && continue
+      pid=$p
+      wait "$p"
+      rc=$?
+      break
+    done
+    [ -n "$pid" ] && break
+    wait -n -p pid "${!POOL_RUNS[@]}" 2>/dev/null
+    rc=$?
+    pid=${pid:-}
+    [ -n "$pid" ] && break
+    # One finished between the scan and wait -n: the next scan finds it.
+    sleep 1
+  done
+  if [ -z "${POOL_RUNS[$pid]:-}" ]; then
+    alert "pre-reset backfill lost track of its runs: wait -n returned $rc for pid '${pid}' with ${!POOL_RUNS[*]} in flight. Forgetting them and carrying on."
+    pool_mark
+    POOL_RUNS=()
+    return
+  fi
+  pool_mark
+  id="${POOL_RUNS[$pid]}"
+  unset "POOL_RUNS[$pid]"
+  POOL_DONE=$((POOL_DONE + 1))
+  if [ "$rc" -eq 0 ]; then
+    tail -3 "/tmp/ct-prereset-$id.txt" | sed "s/^/  [$id] /"
+    commit_puzzle "$id" "$WAVE_WHAT"
+  else
+    handle_failed_run "$id" "$WAVE_WHAT"
+    WAVE_FAILED_IDS+=("$id")
+  fi
+}
+
+# Let every run in flight finish, then sync the quiet tree.
+pool_drain() {
+  while [ ${#POOL_RUNS[@]} -gt 0 ]; do pool_reap; done
+  sync_wave
+  POOL_SYNCED_US=${EPOCHREALTIME/[.,]/}
+}
+
+# Start an interval: the meters it is measured from, the width to keep in
+# flight, and (annotate pools) the queue re-planned so the indicator cover
+# shrinks as annotations land.
+pool_interval_start() {
+  WAVE_FAILED_IDS=()
+  POOL_DONE=0
+  POOL_BEFORE=$(python3 tools/weekly_usage.py 2>/dev/null || echo 0)
+  POOL_BEFORE_S=$(python3 tools/weekly_usage.py --group session 2>/dev/null || echo 0)
+  wide=$(wave_width)
+  # Ahead of the round-robin: Cracking the Cryptic's puzzles, then the puzzles
+  # that give an indicator on /indicators/ its first annotated clue
+  # (tools/indicator_cover.py). Cut-off puzzles stay first. Anything but a whole
+  # permutation back leaves the order as it was. A dry run plans once.
+  if [ "$POOL_REORDER" = 1 ] && [ "$at" -lt "${#queue[@]}" ] &&
+     { [ "$DRY_RUN" = 0 ] || [ "$POOL_PLANNED" = 0 ]; }; then
+    POOL_PLANNED=1
+    local reordered
+    reordered=($(printf '%s\n' "${queue[@]:$at}" \
+      | python3 tools/prereset_plan.py --cover-first "$requeued" || true))
+    [ "${#reordered[@]}" -eq $(( ${#queue[@]} - at )) ] \
+      && queue=("${queue[@]:0:$at}" "${reordered[@]}")
+  fi
+  pool_mark
+  POOL_RUN_US=0
+  POOL_STARTED_US=$POOL_MARK_US
+  echo "--- pool of $wide: ${#POOL_RUNS[@]} in flight, $(( ${#queue[@]} - at )) queued${queue[$at]:+, next ${queue[*]:$at:3}} ---"
+}
+
+# End the interval: after_wave logs the meters and decides on its failures,
+# requeue_failed puts back what a lockout cut off, and the next interval starts.
+# Returns non-zero when the caller should stop.
+pool_checkpoint() {
+  local elapsed hours avg
+  pool_mark
+  elapsed=$(( POOL_MARK_US - POOL_STARTED_US ))
+  hours=$(awk -v e="$elapsed" 'BEGIN{printf "%.3f", e / 3.6e9}')
+  avg=$(awk -v r="$POOL_RUN_US" -v e="$elapsed" 'BEGIN{printf "%.2f", (e > 0 ? r / e : 0)}')
+  after_wave "$POOL_BEFORE" "$hours" "$avg" "${#WAVE_FAILED_IDS[@]}" "$POOL_BEFORE_S" "$wide" ||
+    return 1
+  requeue_failed
+  pool_interval_start
+}
+
+# Run the pool over queue[at..] until it is spent.
 #   $1   commit message prefix, e.g. "Annotate"
 #   $2   the prompt, with every @ standing for the puzzle id and every
 #        @PATH@ for its file (tools/puzzle_paths.py)
-#   $3+  the ids
-# Returns how many runs failed, and names them in WAVE_FAILED_IDS so the caller
-# can put them back in the queue instead of losing them to a lockout that has
-# since cleared. The claude runs are the only thing that happens
-# in parallel: every git command below runs in this shell, one at a time, because
-# a second process staging its own file mid-commit swallows it into ours.
-run_wave() {
-  local what="$1" tmpl="$2"; shift 2
-  local ids=("$@") pids=() i failed=0
-  WAVE_FAILED_IDS=()
-  WAVE_WHAT="$what"
-  echo "--- wave of ${#ids[@]}: ${ids[*]} ---"
-  local again=()
-  for i in "${!ids[@]}"; do
-    [ -s "/tmp/ct-prereset-${ids[$i]}.resume" ] && again+=("${ids[$i]}")
-  done
-  [ ${#again[@]} -gt 0 ] && echo "  picking up the cut-off conversations for: ${again[*]}"
-  for i in "${!ids[@]}"; do
-    local prompt="${tmpl//@PATH@/$(python3 tools/puzzle_paths.py "${ids[$i]}")}"
-    run_claude "${ids[$i]}" "${prompt//@/${ids[$i]}}" &
-    pids+=($!)
-  done
-  for i in "${!ids[@]}"; do
-    if wait "${pids[$i]}"; then
-      tail -3 "/tmp/ct-prereset-${ids[$i]}.txt" | sed "s/^/  [${ids[$i]}] /"
-      commit_puzzle "${ids[$i]}" "$what"
-    else
-      # A run cut off by a lockout usually leaves real work behind: some clues
-      # annotated, the rest untouched, and that file still validates. Throwing
-      # it away means paying for those clues again. Only a half-written one —
-      # the run died mid-edit — is worth nothing and goes back.
-      #
-      # Either way it leaves a note for the retry, which resumes this same
-      # conversation (see run_claude) — so the note only has to say what changed
-      # under it while it was stopped, not restate the job.
-      # What the retry is told to look at: the annotate run's copy, never the
-      # puzzle itself, which names the blog (see run_claude).
-      local seen
-      seen=$(python3 tools/puzzle_paths.py "${ids[$i]}")
-      [ "$what" = Annotate ] && seen="tools/_puzzle_${ids[$i]}.json"
-      if [ -n "$(git status --porcelain -- "$(puzzle_spec "${ids[$i]}")")" ] &&
-         python3 tools/validate_annotations.py "${ids[$i]}" >/dev/null 2>&1; then
-        echo "  [${ids[$i]}] run failed — keeping what it finished, the file still validates"
-        printf '%s\n' "You were cut off by a usage limit. The limit has since cleared and your edits to $seen are exactly as you left them. Pick up where you stopped, finish the task you were given, and run python3 tools/annotate_check.py ${ids[$i]} until it reports clean. Do not commit." >"/tmp/ct-prereset-${ids[$i]}.resume"
-      else
-        echo "  [${ids[$i]}] run failed — discarding its changes"
-        discard_puzzle "${ids[$i]}"
-        printf '%s\n' "You were cut off by a usage limit, mid-edit, so $seen was rolled back to how it was before you started — check it before you assume anything about its contents. The limit has since cleared. You already did the solving, so write out what you had worked out rather than working it out again, finish the task you were given, and run python3 tools/annotate_check.py ${ids[$i]} until it reports clean. Do not commit." >"/tmp/ct-prereset-${ids[$i]}.resume"
-      fi
-      WAVE_FAILED_IDS+=("${ids[$i]}")
-      failed=$((failed + 1))
+#   $3   1 to re-plan the queue's order at every checkpoint
+# Returns non-zero when the run should stop: the deadline, or after_wave said so.
+# Either way no new run starts and the ones in flight finish and are handled.
+run_pool() {
+  WAVE_WHAT="$1" POOL_TMPL="$2" POOL_REORDER="${3:-0}" POOL_PLANNED=0
+  local stop=0
+  pool_interval_start
+  while :; do
+    if [ "$stop" = 0 ] && past_deadline; then echo "deadline reached — stopping"; stop=1; fi
+    if [ "$stop" = 0 ] &&
+       [ $(( ${EPOCHREALTIME/[.,]/} - POOL_SYNCED_US )) -ge $(( POOL_SYNC_SECS * 1000000 )) ]; then
+      pool_drain
+      if [ "$POOL_DONE" -gt 0 ]; then pool_checkpoint || stop=1; fi
+      continue
     fi
+    while [ "$stop" = 0 ] && [ ${#POOL_RUNS[@]} -lt "$wide" ] && [ "$at" -lt "${#queue[@]}" ]; do
+      pool_launch "${queue[$at]}"
+      at=$((at + 1))
+    done
+    if [ ${#POOL_RUNS[@]} -gt 0 ]; then
+      pool_reap
+      [ "$stop" = 0 ] || continue
+      [ ${#WAVE_FAILED_IDS[@]} -eq 0 ] &&
+        [ $(( ${EPOCHREALTIME/[.,]/} - POOL_STARTED_US )) -lt $(( POOL_CHECK_SECS * 1000000 )) ] &&
+        continue
+    else
+      # Nothing in flight and nothing left to start: one last checkpoint for the
+      # runs since the previous one, which may requeue what a lockout cut off.
+      [ "$stop" = 0 ] && [ "$POOL_DONE" -gt 0 ] || break
+    fi
+    pool_checkpoint || stop=1
   done
   sync_wave
-  return $failed
+  POOL_SYNCED_US=${EPOCHREALTIME/[.,]/}
+  return $stop
 }
 
 # One try at rebasing this tree onto origin/master and pushing whatever it then
@@ -381,22 +528,29 @@ sync_attempt() {
     if [ -n "$(git rev-list origin/master..HEAD)" ]; then git push -q origin HEAD:master; fi
 }
 
+# The glossary rows the runs added (tools/add_abbreviation.py writes them whole,
+# under a lock), committed and pushed the way a puzzle is, so safe with runs in
+# flight. Published at every checkpoint rather than at the republish, so the
+# puzzles already pushed validate on master, and a burn that is killed does not
+# lose them to nightly_worktree.sh's reset --hard.
+publish_abbreviations() {
+  [ "$DRY_RUN" = 1 ] && return 0
+  [ -n "$(git status --porcelain -- tools/data/abbreviations.json)" ] || return 0
+  git add -- tools/data/abbreviations.json
+  git commit -q -m "$(printf 'Abbreviations from the pre-reset backfill\n\n%s' "$(python3 tools/provenance.py trailer)")"
+  tools/push_puzzle_commit.sh ||
+    alert "pre-reset backfill committed new abbreviations but could not push them — the next sync retries. See .prereset.log."
+}
+
 # Bring this tree up to origin/master, and publish anything the per-puzzle
-# pushes could not. Only here, with every run of the wave waited on: a rebase
-# with an annotator still writing fails on its clean-tree check, and an
-# autostash taken then holds that sibling's finished puzzle hostage. Planner and
-# code changes reach the burn through this rebase, and the local copies of
-# puzzles push_puzzle_commit.sh already published drop out as patch-identical.
+# pushes could not. Only with no run in flight (pool_drain): a rebase with an
+# annotator still writing fails on its clean-tree check, and an autostash taken
+# then holds that sibling's finished puzzle hostage. Planner and code changes
+# reach the burn through this rebase, and the local copies of puzzles
+# push_puzzle_commit.sh already published drop out as patch-identical.
 sync_wave() {
   [ "$DRY_RUN" = 1 ] && return 0
-  # The glossary rows this wave's runs added (tools/add_abbreviation.py writes
-  # them whole, under a lock). Published now rather than at the republish, so
-  # the puzzles already pushed validate on master, and a burn that is killed
-  # does not lose them to nightly_worktree.sh's reset --hard.
-  if [ -n "$(git status --porcelain -- tools/data/abbreviations.json)" ]; then
-    git add -- tools/data/abbreviations.json
-    git commit -q -m "$(printf 'Abbreviations from the pre-reset backfill\n\n%s' "$(python3 tools/provenance.py trailer)")"
-  fi
+  publish_abbreviations
   # Nothing generated survives the rebase, because nothing generated is worth
   # carrying: the republish step rewrites every one of these files wholesale
   # from the puzzle sources, so the copy sitting in the tree right now is
@@ -425,23 +579,29 @@ sync_wave() {
   fi
 }
 
-# Record where a finished wave left the meters, and decide whether to go on.
-#   $1 percent used before the wave  $2 hours it took  $3 how wide it was
-#   $4 how many of its runs failed  $5 five-hour percent before the wave
+# Record where a pool interval left the meters, and decide whether to go on.
+#   $1 weekly percent at its start  $2 hours it took
+#   $3 runs in flight on average over it, measured
+#   $4 how many runs failed in it  $5 five-hour percent at its start
+#   $6 the pool's width at its end
 # Returns non-zero when the caller should stop.
+#
+# The meter line is what tools/prereset_plan.py per_run_rate reads: five-hour
+# points over hours times the average in flight is points per run-hour.
 after_wave() {
-  local before="$1" hours="$2" wide="$3" failed="$4" before_s="$5" now now_s s_read=1
+  local before="$1" hours="$2" avg="$3" failed="$4" before_s="$5" pool="$6" now now_s s_read=1
   NAPPED=0
+  publish_abbreviations
   now=$(python3 tools/weekly_usage.py 2>/dev/null || echo "$before")
   now_s=$(python3 tools/weekly_usage.py --group session 2>/dev/null) || { now_s="$before_s"; s_read=0; }
-  echo "  weekly ${before}% -> ${now}%, five-hour ${before_s}% -> ${now_s}% in ${hours}h at width ${wide}"
+  echo "  weekly ${before}% -> ${now}%, five-hour ${before_s}% -> ${now_s}% in ${hours}h at width ${avg} (pool of ${pool})"
   # Where the weekly meter stood, and when it turns over. The meter reads 0% the
   # instant it does, so a week that landed at 100% and one that landed at 54%
   # look identical the morning after; the landing report above reads this back
   # on the first fire after the reset and says the number out loud.
   echo "$now $RESET_AT" > "$LANDING_FILE"
   [ "${failed:-1}" -eq 0 ] && return 0
-  # A failed wave with room still on the weekly clock is the FIVE-hour limit
+  # A failed run with room still on the weekly clock is the FIVE-hour limit
   # only when that meter says so, and that clears by itself. Only the seven-day
   # number gets to end the run. awk -v, never string interpolation: an empty
   # reading spliced into the program is a syntax error, not a missing number.
@@ -462,8 +622,11 @@ after_wave() {
     return 1
   fi
   # Sleep until the five-hour window actually turns over, asked rather than
-  # guessed: a nap shorter than the lockout spends a nap on a wave that was
-  # always going to fail.
+  # guessed: a nap shorter than the lockout spends a nap on runs that were
+  # always going to fail. The runs still in flight finish first (into the
+  # lockout, so they mostly fail and are requeued with the rest), because a nap
+  # with runs going would leave them unreaped and the tree unsynced.
+  pool_drain
   local nap room left_min
   left_min=$(session_left_min)
   nap=$(awk -v h="$left_min" 'BEGIN{printf "%d", (h == "" ? 1 : h / 60) * 3600 + 120}')
@@ -476,7 +639,7 @@ after_wave() {
   return 0
 }
 
-# Drop the puzzles a wave failed on for reasons of their own. Resuming their
+# Drop the puzzles that failed for reasons of their own. Resuming their
 # conversations only replays the failure, so the session, the resume note and
 # the half-done edit all go; the queue has already walked past them and
 # requeue_failed only runs after a nap, so this run does not come back to them.
@@ -504,7 +667,7 @@ drop_failed() {
 commit_puzzle() {
   local num="$1" what="$2" attempt="${3:-first}"   # num is a puzzle ID, e.g. cryptic-30089
   if [ "$DRY_RUN" = 1 ]; then echo "  would commit $what $num"; return 0; fi
-  # This puzzle only. A whole-tree run would fail for a sibling in the same wave
+  # This puzzle only. A whole-tree run would fail for a sibling in the pool
   # that is still mid-write, and discard a good annotation to punish it.
   if ! python3 tools/validate_annotations.py "$num" >/tmp/ct-prereset-validate.txt 2>&1; then
     # A puzzle is twenty-odd clues of solving and a validation failure is
@@ -524,7 +687,9 @@ commit_puzzle() {
       echo "  [$num] did not validate — handing the errors back rather than discarding the puzzle"
       # Even a fix run the limit cuts off may have landed its edit, so the
       # second pass runs either way and decides on what is on disk.
+      pool_mark; POOL_FIXING=1
       run_claude "$num" "$(cat "/tmp/ct-prereset-$num.resume")" || true
+      pool_mark; POOL_FIXING=0
       commit_puzzle "$num" "$what" retry
       return $?
     fi
@@ -555,10 +720,10 @@ commit_puzzle() {
     # a rename rather than as a new copy beside the old one.
     git add -A -- "$(puzzle_spec "$num")"
     git commit -q -m "$(printf '%s %s\n\n%s' "$what" "$num" "$(python3 tools/provenance.py trailer)")"
-    # Straight to origin/master without touching the tree: siblings in this
-    # wave are still writing here. The tree catches up in sync_wave.
+    # Straight to origin/master without touching the tree: siblings in the
+    # pool are still writing here. The tree catches up in sync_wave.
     tools/push_puzzle_commit.sh ||
-      alert "pre-reset backfill committed $what $num but could not push it — the site will not show it until the end of this wave retries. See .prereset.log."
+      alert "pre-reset backfill committed $what $num but could not push it — the site will not show it until the pool's next sync retries. See .prereset.log."
     echo "committed $what $num"
   else
     echo "$what $num produced no change"
@@ -580,7 +745,7 @@ python3 tools/fetch_puzzle.py --reindex >/dev/null
 # backwards until the queue is deeper than the best week this job has had.
 #
 # Here rather than when the queue runs dry: the queue is read once below, and
-# fetching mid-wave would race the reindex the running annotators read through.
+# fetching mid-pool would race the reindex the running annotators read through.
 #
 # Never fatal. A paper being down is a smaller problem than not annotating.
 if [ "$DRY_RUN" = 1 ]; then
@@ -600,7 +765,7 @@ sys.path.insert(0, "tools")
 from series import puzzle_day
 idx = json.load(open("puzzles/index.json"))
 # Selection here is by date and nothing else, so a puzzle that fails is the
-# newest un-annotated puzzle again on the next wave and on tomorrow's run, and
+# newest un-annotated puzzle again at the next checkpoint and on tomorrow's run, and
 # is solved from scratch at a full puzzle's price each time — everyman-4110 was
 # bought three times over one word its setter never wrote. The nightly job has
 # skipped these since tools/failed_inputs.py; this is the same queue and
@@ -630,7 +795,7 @@ if only:
 # whole of the deepest paper's recent archive before the shallowest paper's
 # newest gap, and the backlog is always deeper than one window of quota. This
 # way no series can starve another and every series' newest gap is reached
-# inside the first wave.
+# within the pool's first round.
 #
 # Not by number, either: each paper numbers from its own 1, so a number sort is
 # a series sort wearing a disguise.
@@ -642,13 +807,13 @@ for p in todo:
 # day. Undated sorts last
 # inside its lane — "newest first" has nothing to say about a puzzle with no when — and
 # never raises: this key crashed the whole listing, which is read with $(...),
-# so one None emptied the queue and the wave spent itself on definitionFit
+# so one None emptied the queue and the pool spent itself on definitionFit
 # instead of on the backlog it exists to clear.
 for lane in lanes.values():
     lane.sort(key=lambda p: puzzle_day(p) or date.min, reverse=True)
-# Series order within a wave, so a window cut short by a lockout has spent
+# Series order within a round, so a window cut short by a lockout has spent
 # itself on the papers people search for most. This ranks SERIES, never
-# puzzles: every entry in a wave is already its own lane's newest gap. A series
+# puzzles: every entry in a round is already its own lane's newest gap. A series
 # missing from this list still runs; it just goes at the back of each cycle.
 BY_DEMAND = ["everyman", "indysunday", "quiptic", "cryptic", "independent"]
 cycle = sorted(lanes, key=lambda s: (BY_DEMAND.index(s) if s in BY_DEMAND
@@ -682,30 +847,9 @@ python3 "$REPO/tools/build_annotate_prompt.py"
 naps=0
 queue=($todo)
 at=0
-while [ "$at" -lt "${#queue[@]}" ]; do
-  if past_deadline; then echo "deadline reached — stopping"; break; fi
-  before=$(python3 tools/weekly_usage.py 2>/dev/null || echo 0)
-  before_s=$(python3 tools/weekly_usage.py --group session 2>/dev/null || echo 0)
-  wide=$(wave_width)
-  # Ahead of the round-robin: Cracking the Cryptic's puzzles, then the puzzles
-  # that give an indicator on /indicators/
-  # its first annotated clue (tools/indicator_cover.py), re-planned every wave so
-  # the cover shrinks as annotations land. Cut-off puzzles stay first. Anything
-  # but a whole permutation back leaves the order as it was. A dry run plans once.
-  if [ "$DRY_RUN" = 0 ] || [ "$at" = 0 ]; then
-    reordered=($(printf '%s\n' "${queue[@]:$at}" \
-      | python3 tools/prereset_plan.py --cover-first "$requeued" || true))
-    [ "${#reordered[@]}" -eq $(( ${#queue[@]} - at )) ] \
-      && queue=("${queue[@]:0:$at}" "${reordered[@]}")
-  fi
-  started=$(date +%s)
-  run_wave "Annotate" "$ANNOTATE_PROMPT" "${queue[@]:$at:$wide}"
-  failed=$?
-  at=$((at + wide))
-  after_wave "$before" "$(hours_between "$started" "$(date +%s)")" \
-    "$wide" "$failed" "$before_s" || break
-  requeue_failed
-done
+# Reordered at every checkpoint (pool_interval_start). A stop here still runs
+# the backfills below, which stop at once if it was the deadline.
+[ ${#queue[@]} -gt 0 ] && run_pool "Annotate" "$ANNOTATE_PROMPT" 1
 
 # --- 2. grandfathered-field backfill ------------------------------------------
 # Additive only: these puzzles are already annotated and their hints are fine,
@@ -738,19 +882,9 @@ print(" ".join(n for n,_ in sorted(d.items(), key=lambda kv: kv[1])))' "$field")
   prompt="In this repo, add the missing $name to every annotated clue in @PATH@ that lacks one. It is $what. tools/annotate_prompt.md (appended to your system prompt) and STYLE.md set the voice, and read an existing puzzle that already has the field so yours match. This is ADDITIVE: change nothing else, do not rewrite existing hints, types, indicator texts or assembly. Run python3 tools/annotate_check.py @ until it reports clean. Do not commit — the calling script commits."
   queue=($nums)
   at=0
-  while [ "$at" -lt "${#queue[@]}" ]; do
-    if past_deadline; then echo "deadline reached — stopping"; break 2; fi
-    before=$(python3 tools/weekly_usage.py 2>/dev/null || echo 0)
-    before_s=$(python3 tools/weekly_usage.py --group session 2>/dev/null || echo 0)
-    wide=$(wave_width)
-    started=$(date +%s)
-    run_wave "Backfill $field for" "$prompt" "${queue[@]:$at:$wide}"
-    failed=$?
-    at=$((at + wide))
-    after_wave "$before" "$(hours_between "$started" "$(date +%s)")" \
-      "$wide" "$failed" "$before_s" || break 2
-    requeue_failed
-  done
+  if [ ${#queue[@]} -gt 0 ]; then
+    run_pool "Backfill $field for" "$prompt" || break
+  fi
 done
 
 if [ "$DRY_RUN" = 1 ]; then
@@ -796,7 +930,7 @@ fi
 # word on whether the app still boots against what we just wrote.
 python3 tools/fetch_puzzle.py --reindex
 # The glossary is generated too, and annotating is what adds to it: leaving it
-# out meant a wave that learned a new abbreviation committed a tree whose
+# out meant a pool that learned a new abbreviation committed a tree whose
 # abbreviations.js no longer matched its own JSON.
 python3 tools/build_abbreviations.py
 # The README's corpus counts are generated too, and annotating is what moves
