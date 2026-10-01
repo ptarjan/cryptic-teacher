@@ -200,6 +200,12 @@ def by_enumeration(rec):
     puts the fodder where the answer goes and "(4)" is right, while "(6-3)"
     over RUNNER-UP is the enumeration mistyped. So this is a second try, taken
     only when the answers as blogged fit no grid.
+
+    An answer shorter than a phrase's count, and no shorter than its first
+    word, was cut off at a break (georgeho stores WORST for WORST-CASE
+    SCENARIO, GET ONE for GET ONE'S KNICKERS IN A TWIST): its letters still
+    start the light. Unwritten, a Jumbo's three long lights leave a search
+    with too few letters to finish (timesjumbo-1428).
     """
     if not any(e.get("enumeration") for e in rec["entries"]):
         return None
@@ -208,8 +214,10 @@ def by_enumeration(rec):
     for e in printed(rec):
         length, word = len(e["answer"]), e["answer"]
         if parser.enum_agrees(e, leaders) is False:
-            length = sum(int(n) for n in re.findall(r"\d+", e["enumeration"]))
-            word, changed = None, True
+            parts = [int(n) for n in re.findall(r"\d+", e["enumeration"])]
+            length, changed = sum(parts), True
+            cut = len(parts) > 1 and parts[0] <= len(word) < length
+            word = word if cut else None
         lights.append((e["number"], e["direction"], length))
         words.append(word)
     return (lights, words) if changed else None
