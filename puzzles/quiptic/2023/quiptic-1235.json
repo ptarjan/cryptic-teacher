@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,62 @@
     "text": "It's not unusual to hold a position",
     "enumeration": "7"
    },
-   "solution": "STATION"
+   "solution": "STATION",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "STATION",
+    "definitions": [
+     {
+      "text": "position",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unusual",
+      "for": "anagram",
+      "note": "what is unusual is out of its normal shape, so these letters take an uncommon order"
+     },
+     {
+      "text": "to hold",
+      "for": "container",
+      "note": "to hold something is to have it inside, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It's not",
+      "gives": "ITSNOT",
+      "note": "taken as written, apostrophe dropped"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ITSNOTA",
+       "gives": "STATION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A remark that occupying some post or stance is a perfectly ordinary thing.",
+     "walkthrough": "'It's not unusual' reads as a stock phrase (and a Tom Jones song), but 'It's not' is the raw material and 'unusual' stirs it once the A is held inside.",
+     "definitionFit": "A station is a place or post someone occupies, as in a station in life or a guard's assigned post."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "unusual"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +105,61 @@
     "text": "Tutor hurt during school session cut short",
     "enumeration": "7"
    },
-   "solution": "TEACHER"
+   "solution": "TEACHER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "TEACHER",
+    "definitions": [
+     {
+      "text": "Tutor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "during",
+      "for": "container",
+      "note": "something happening during a period sits within it, so one piece goes inside another"
+     },
+     {
+      "text": "cut short",
+      "for": "deletion",
+      "note": "cutting something short removes its tail, so the final letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hurt",
+      "gives": "ACHE",
+      "note": "to ache is to hurt"
+     },
+     {
+      "clueFragment": "school session",
+      "gives": "TERM",
+      "note": "a term is a period of the school year"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TE",
+      "ACHE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A tutor suffers some injury during a school term that ends early.",
+     "walkthrough": "'School session' is the British school term, a third of the academic year, and 'cut short' clips only its last letter.",
+     "definitionFit": "A tutor is someone who instructs pupils, which is exactly what a teacher does in a classroom or privately."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hurt"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +173,40 @@
     "text": "Short digital sketch?",
     "enumeration": "9"
    },
-   "solution": "THUMBNAIL"
+   "solution": "THUMBNAIL",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "THUMBNAIL",
+    "definitions": [
+     {
+      "text": "Short digital sketch?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Short digital sketch?",
+      "note": "surface reading: a quick, brief drawing, perhaps made on a computer"
+     },
+     {
+      "clueFragment": "digital",
+      "note": "setter's reading: 'digital' means to do with a finger, so think of a part of a digit, combined with the term for a small brief outline"
+     }
+    ],
+    "explanation": {
+     "surface": "A quick sketch made on a computer or tablet.",
+     "walkthrough": "'Digital' suggests computers, but a digit is also a finger; the answer is both a brief sketch and part of a digit.",
+     "definitionFit": "A brief outline or small preview image is called this, and the word literally names a hard covering on the end of the shortest finger."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "digital"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +220,57 @@
     "text": "Trespasser goes climbing, carrying this unpleasant specimen",
     "enumeration": "6"
    },
-   "solution": "OGRESS"
+   "solution": "OGRESS",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "OGRESS",
+    "definitions": [
+     {
+      "text": "this unpleasant specimen",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "carrying",
+      "for": "hidden_word",
+      "note": "words carrying something hold it inside them, so the letters lie within the run of the clue"
+     },
+     {
+      "text": "climbing",
+      "for": "reversal",
+      "note": "in a down clue, climbing means going upward, so the letters are read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trespasser goes",
+      "gives": "SSERGO",
+      "note": "the letters spanning the end of the first word and the start of the second"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "SSERGO",
+       "to": "OGRESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An intruder scaling a wall with some nasty sample in tow.",
+     "walkthrough": "The letters are inside 'trespaSSER GOes' and read upward in the down entry. 'This' points at the hidden word itself.",
+     "definitionFit": "A female ogre is a monstrous woman, and the term is used of any cruel or frightening female person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "climbing"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +290,51 @@
      }
     ]
    },
-   "solution": "PEPTALK"
+   "solution": "PEPTALK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PEP TALK",
+    "definitions": [
+     {
+      "text": "that's intentionally encouraging",
+      "at": 28,
+      "note": "a relative clause standing for the noun: something that is meant to encourage"
+     }
+    ],
+    "linkWords": [
+     "attending"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Guardiola",
+      "gives": "PEP",
+      "note": "Pep Guardiola, the football manager"
+     },
+     {
+      "clueFragment": "lecture",
+      "gives": "TALK",
+      "note": "a lecture is a talk"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PEP",
+      "TALK"
+     ]
+    },
+    "explanation": {
+     "surface": "The football manager sits in on a lecture designed to motivate his squad.",
+     "walkthrough": "Pep Guardiola is a famous Spanish football manager, which suits the motivating speech; 'attending' just places the two parts side by side.",
+     "definitionFit": "A short speech delivered to rouse and motivate listeners, typically a coach to a team before a match."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "attending"
+    }
+   }
   },
   {
    "number": 6,
@@ -115,7 +354,70 @@
      }
     ]
    },
-   "solution": "EGOTRIPS"
+   "solution": "EGOTRIPS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "EGO TRIPS",
+    "definitions": [
+     {
+      "text": "selfish activities",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cavorting",
+      "for": "anagram",
+      "note": "to cavort is to leap about wildly, so the letters jump into a new order"
+     },
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "one thing outside another surrounds it, so a piece goes inside"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Leave",
+      "gives": "GO",
+      "note": "to leave is to go"
+     },
+     {
+      "clueFragment": "priest",
+      "gives": "PRIEST",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "GO",
+      "TRIPS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PRIEST",
+       "gives": "ETRIPS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A priest prancing about outdoors is told to leave off his self-indulgent pursuits.",
+     "walkthrough": "'Leave' looks like an order to the priest, but it is a verb meaning depart, sitting inside the rearranged churchman.",
+     "definitionFit": "Ego trips are actions undertaken mainly to boost one's own self-importance, a clear instance of self-centred behaviour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Leave"
+    }
+   }
   },
   {
    "number": 7,
@@ -129,7 +431,45 @@
     "text": "Comforting words available repeatedly in that place",
     "enumeration": "5"
    },
-   "solution": "THERE"
+   "solution": "THERE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "THERE",
+    "definitions": [
+     {
+      "text": "Comforting words available repeatedly",
+      "at": 0,
+      "note": "a cryptic hint: the word meaning available, said twice, is a phrase of comfort"
+     },
+     {
+      "text": "in that place",
+      "at": 38
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Comforting words available repeatedly",
+      "note": "first meaning: a word for available or present which, doubled, soothes someone upset"
+     },
+     {
+      "clueFragment": "in that place",
+      "note": "second meaning: the adverb for a location away from the speaker"
+     }
+    ],
+    "explanation": {
+     "surface": "Soothing phrases always on hand somewhere else.",
+     "walkthrough": "'There, there' is what you say to comfort someone, and 'there' alone also means available, as in 'I'll be there for you'.",
+     "definitionFit": "As an adverb the word points to a location away from the speaker, the opposite of here."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "available"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +489,58 @@
      }
     ]
    },
-   "solution": "LAIDOUT"
+   "solution": "LAIDOUT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LAID OUT",
+    "definitions": [
+     {
+      "text": "Arranged",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to accept",
+      "for": "container",
+      "note": "to accept something is to take it in, so one piece goes inside another"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "aggressive young man",
+      "gives": "LOUT",
+      "note": "a lout is a rough, uncouth young man"
+     },
+     {
+      "clueFragment": "help",
+      "gives": "AID",
+      "note": "aid is help"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "AID",
+      "OUT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone organised for a thuggish youth to take some assistance.",
+     "walkthrough": "'Arranged for' wants to be read together, but 'for' is only a link between the definition and the wordplay.",
+     "definitionFit": "To lay out goods or plans is to set them in order, so the past participle means set out in order or organised."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Arranged"
+    }
+   }
   },
   {
    "number": 9,
@@ -173,7 +564,51 @@
      }
     ]
    },
-   "solution": "DEBTTOSOCIETY"
+   "solution": "DEBTTOSOCIETY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DEBT TO SOCIETY",
+    "definitions": [
+     {
+      "text": "it must be settled by criminal",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Engineer",
+      "for": "anagram",
+      "note": "to engineer is to construct or contrive, so these letters are built into a new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boycotted site",
+      "gives": "BOYCOTTEDSITE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BOYCOTTEDSITE",
+       "gives": "DEBTTOSOCIETY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An engineer avoided a building site, and the dispute must be resolved by a crook.",
+     "walkthrough": "'Engineer' looks like the subject of the sentence, but it is the verb telling you to rebuild the letters.",
+     "definitionFit": "A convicted offender is said to repay the community through punishment, which is the obligation the phrase names."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Engineer"
+    }
+   }
   },
   {
    "number": 10,
@@ -187,7 +622,55 @@
     "text": "Old English queen full of fever? Not so certain",
     "enumeration": "6"
    },
-   "solution": "VAGUER"
+   "solution": "VAGUER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "VAGUER",
+    "definitions": [
+     {
+      "text": "Not so certain",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "full of",
+      "for": "container",
+      "note": "something full of a thing holds it inside, so one piece fills another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old English queen",
+      "gives": "VR",
+      "note": "Victoria Regina, Queen Victoria's royal cipher"
+     },
+     {
+      "clueFragment": "fever",
+      "gives": "AGUE",
+      "note": "ague is an old word for a malarial fever"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "AGUE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A historic English monarch is feverish, and doubtful about it.",
+     "walkthrough": "VR, Victoria Regina, appears on postboxes from her reign; ague is a fever with shivering fits.",
+     "definitionFit": "The comparative adjective means more uncertain or less clearly defined, matching a phrase of reduced sureness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Old"
+    }
+   }
   },
   {
    "number": 11,
@@ -201,7 +684,54 @@
     "text": "Secret ice store is in pieces",
     "enumeration": "8"
    },
-   "solution": "ESOTERIC"
+   "solution": "ESOTERIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ESOTERIC",
+    "definitions": [
+     {
+      "text": "Secret",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in pieces",
+      "for": "anagram",
+      "note": "something in pieces has been broken up, so its letters are reassembled differently"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ice store",
+      "gives": "ICESTORE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ICESTORE",
+       "gives": "ESOTERIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hidden freezer facility has been smashed up.",
+     "walkthrough": "'Secret ice store' reads as one noun phrase, but 'Secret' is the definition standing alone.",
+     "definitionFit": "Esoteric knowledge is understood only by a small initiated circle, so it is private or arcane to outsiders."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Secret"
+    }
+   }
   },
   {
    "number": 12,
@@ -215,7 +745,52 @@
     "text": "Withdraw from dire pub job in the end",
     "enumeration": "3"
    },
-   "solution": "EBB"
+   "solution": "EBB",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "EBB",
+    "definitions": [
+     {
+      "text": "Withdraw",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in the end",
+      "for": "letter_selection",
+      "note": "the end of each word is its last letter, so only those letters are kept"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dire pub job",
+      "gives": "EBB",
+      "select": "last",
+      "note": "final letters of three consecutive words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EBB"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone quits a miserable bar job eventually.",
+     "walkthrough": "'Withdraw from' reads as quitting the job, but 'from' just links the definition to the last letters of 'dire pub job'.",
+     "definitionFit": "The tide's ebb is its retreat, so as a verb it means recede or fall back."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Withdraw"
+    }
+   }
   },
   {
    "number": 13,
@@ -229,7 +804,50 @@
     "text": "Old city that's almost perfect",
     "enumeration": "6"
    },
-   "solution": "THEBES"
+   "solution": "THEBES",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "THEBES",
+    "definitions": [
+     {
+      "text": "Old city",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the last letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "perfect",
+      "gives": "THEBEST",
+      "note": "the very best is perfect"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THEBES"
+     ]
+    },
+    "explanation": {
+     "surface": "An ancient city described as nearly flawless.",
+     "walkthrough": "'The best' loses its final T.",
+     "definitionFit": "Thebes was a major city of ancient Egypt, and another of ancient Greece, both long gone as powers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +867,47 @@
      }
     ]
    },
-   "solution": "TURNEDON"
+   "solution": "TURNEDON",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TURNED ON",
+    "definitions": [
+     {
+      "text": "Suddenly criticised",
+      "at": 0
+     },
+     {
+      "text": "being aroused",
+      "at": 24,
+      "note": "the clue's participle phrase matches the answer's past participle sense"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Suddenly criticised",
+      "note": "first meaning: attacked someone without warning"
+     },
+     {
+      "clueFragment": "being aroused",
+      "note": "second meaning: excited, especially sexually"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is abruptly attacked for showing excitement.",
+     "walkthrough": "The phrasal verb has two unrelated senses: to round on someone and to switch on or excite.",
+     "definitionFit": "To round on someone is to attack them abruptly, and someone switched on in desire is excited or stimulated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "for"
+    }
+   }
   },
   {
    "number": 15,
@@ -263,7 +921,58 @@
     "text": "Fear is no longer maintaining resistance",
     "enumeration": "5"
    },
-   "solution": "DREAD"
+   "solution": "DREAD",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DREAD",
+    "definitions": [
+     {
+      "text": "Fear",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "maintaining",
+      "for": "container",
+      "note": "to maintain is to hold and keep, so one piece holds the other inside"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "no longer",
+      "gives": "DEAD",
+      "note": "something dead no longer exists"
+     },
+     {
+      "clueFragment": "resistance",
+      "gives": "R",
+      "note": "R is the symbol for electrical resistance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "R",
+      "EAD"
+     ]
+    },
+    "explanation": {
+     "surface": "A statement that fright stops holding back opposition.",
+     "walkthrough": "'No longer' looks like an adverb on 'maintaining', but it stands for DEAD, which then holds R.",
+     "definitionFit": "Both words name great anxiety about something bad that may happen, so they are simple synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "longer"
+    }
+   }
   },
   {
    "number": 16,
@@ -277,7 +986,62 @@
     "text": "Work with someone managing to secure zero energy charge",
     "enumeration": "9"
    },
-   "solution": "COOPERATE"
+   "solution": "COOPERATE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "COOPERATE",
+    "definitions": [
+     {
+      "text": "Work with someone",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to secure",
+      "for": "container",
+      "note": "to secure something is to hold it fast, so one piece is held inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "managing",
+      "gives": "COPE",
+      "note": "to cope is to manage"
+     },
+     {
+      "clueFragment": "zero",
+      "gives": "O",
+      "note": "zero looks like the letter O"
+     },
+     {
+      "clueFragment": "energy charge",
+      "gives": "RATE",
+      "note": "a charge, such as the tariff for energy, is a rate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "O",
+      "OPE",
+      "RATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Team up with a manager to get free electricity.",
+     "walkthrough": "'Energy' looks like the usual E, but an E is already supplied by the managing word, so it is best read as part of the tariff phrase.",
+     "definitionFit": "To collaborate is to act jointly with another person towards a shared aim, which is what the verb means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "managing"
+    }
+   }
   },
   {
    "number": 17,
@@ -297,7 +1061,51 @@
      }
     ]
    },
-   "solution": "ROASTBEEF"
+   "solution": "ROASTBEEF",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ROAST BEEF",
+    "definitions": [
+     {
+      "text": "food rejected by vegetarians",
+      "at": 36
+     }
+    ],
+    "linkWords": [
+     "about"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Seriously criticise",
+      "gives": "ROAST",
+      "note": "to roast someone is to criticise them severely"
+     },
+     {
+      "clueFragment": "complaint",
+      "gives": "BEEF",
+      "note": "a beef is slang for a grievance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROAST",
+      "BEEF"
+     ]
+    },
+    "explanation": {
+     "surface": "Slam a grumble about the meat that vegetarians refuse.",
+     "walkthrough": "Both halves are informal: to roast someone is to tear into them, and a beef is a complaint.",
+     "definitionFit": "Roast beef is a classic meat dish, so anyone who avoids eating animals will turn it down."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "complaint"
+    }
+   }
   },
   {
    "number": 18,
@@ -311,7 +1119,39 @@
     "text": "… which gets pulled after chicken dinner",
     "enumeration": "8"
    },
-   "solution": "WISHBONE"
+   "solution": "WISHBONE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "WISHBONE",
+    "definitions": [
+     {
+      "text": "which gets pulled after chicken dinner",
+      "at": 2
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "… which gets pulled after chicken dinner",
+      "note": "surface reading: following on from the roast, something dragged out once the meal is over"
+     },
+     {
+      "clueFragment": "pulled",
+      "note": "setter's reading: the forked bone of a bird that two people tug apart, the one with the longer piece making a wish"
+     }
+    ],
+    "explanation": {
+     "surface": "Continuing from the meat dish, something tugged after a roast chicken meal.",
+     "walkthrough": "The ellipsis links to the previous clue, a vegetarian-unfriendly theme; the tradition is two people pulling the forked bone, the larger piece granting a wish.",
+     "definitionFit": "The forked bone between a bird's neck and breast is broken by two people in a tradition after poultry is eaten."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "pulled"
+    }
+   }
   },
   {
    "number": 19,
@@ -331,7 +1171,46 @@
      }
     ]
    },
-   "solution": "PAULSIMON"
+   "solution": "PAULSIMON",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PAUL SIMON",
+    "definitions": [
+     {
+      "text": "Early Christian duo",
+      "at": 0,
+      "note": "two names, together forming the answer"
+     },
+     {
+      "text": "wrote many songs",
+      "at": 20,
+      "note": "a verb phrase standing for the person who did it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Early Christian duo",
+      "note": "first meaning: two apostles, the missionary of Tarsus and the fisherman also called Peter"
+     },
+     {
+      "clueFragment": "wrote many songs",
+      "note": "second meaning: the American songwriter of Simon and Garfunkel"
+     }
+    ],
+    "explanation": {
+     "surface": "Two early Christians who composed a lot of hymns.",
+     "walkthrough": "The two saints' names in sequence give the singer, and 'duo' also nods to Simon and Garfunkel, the pair he wrote for.",
+     "definitionFit": "The American musician composed most of Simon and Garfunkel's catalogue and a long solo career's worth of hits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "duo"
+    }
+   }
   },
   {
    "number": 20,
@@ -345,7 +1224,44 @@
     "text": "Country centrally engaged in crusade",
     "enumeration": "7"
    },
-   "solution": "AMERICA"
+   "solution": "AMERICA",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "AMERICA",
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     },
+     {
+      "text": "centrally engaged in crusade",
+      "at": 8,
+      "note": "a cryptic pointer: the middle of crusade spells the country's abbreviation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Country",
+      "note": "first meaning: a nation"
+     },
+     {
+      "clueFragment": "centrally engaged in crusade",
+      "note": "second meaning: the three letters at the heart of crUSAde abbreviate this nation's name"
+     }
+    ],
+    "explanation": {
+     "surface": "A nation deeply committed to a holy war.",
+     "walkthrough": "The middle of 'crusade' is USA, not the answer itself but another name for it; the answer is the longer name.",
+     "definitionFit": "The United States of America is commonly shortened to the final word of its official name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "engaged"
+    }
+   }
   },
   {
    "number": 21,
@@ -359,7 +1275,66 @@
     "text": "In central Iraq once, Fahad established a large farm",
     "enumeration": "5"
    },
-   "solution": "RANCH"
+   "solution": "RANCH",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "RANCH",
+    "definitions": [
+     {
+      "text": "a large farm",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In central",
+      "for": "letter_selection",
+      "note": "the centre of a word is its middle, so only the middle letters are kept"
+     }
+    ],
+    "linkWords": [
+     "established"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Iraq",
+      "gives": "RA",
+      "select": "middle",
+      "note": "the middle two letters"
+     },
+     {
+      "clueFragment": "once",
+      "gives": "NC",
+      "select": "middle",
+      "note": "the middle two letters"
+     },
+     {
+      "clueFragment": "Fahad",
+      "gives": "H",
+      "select": "middle",
+      "note": "the middle letter of five"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RA",
+      "NC",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "A man named Fahad once set up a big farm in the middle of Iraq.",
+     "walkthrough": "Even-length words give their middle two letters, odd-length ones their single centre letter.",
+     "definitionFit": "A ranch is an extensive agricultural estate, especially one for raising cattle in the Americas."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "central"
+    }
+   }
   },
   {
    "number": 22,
@@ -373,7 +1348,57 @@
     "text": "Attendant losing time working as messenger",
     "enumeration": "7"
    },
-   "solution": "COURIER"
+   "solution": "COURIER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "COURIER",
+    "definitions": [
+     {
+      "text": "messenger",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing",
+      "for": "deletion",
+      "note": "to lose something is to be without it, so a letter is removed"
+     }
+    ],
+    "linkWords": [
+     "working as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Attendant",
+      "gives": "COURTIER",
+      "note": "a courtier attends a monarch at court"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COUR",
+      "IER"
+     ]
+    },
+    "explanation": {
+     "surface": "A servant who no longer has hours to spare now delivers messages.",
+     "walkthrough": "COURTIER drops its T.",
+     "definitionFit": "A courier carries letters and packages from sender to recipient, the job of any messenger."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Attendant"
+    }
+   }
   },
   {
    "number": 23,
@@ -387,7 +1412,48 @@
     "text": "Easy task, they say, to find such cheeses",
     "enumeration": "6"
    },
-   "solution": "BREEZE"
+   "solution": "BREEZE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BREEZE",
+    "definitions": [
+     {
+      "text": "Easy task",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "they say",
+      "for": "homophone",
+      "note": "what they say is what is heard, so the answer matches a spoken word"
+     }
+    ],
+    "linkWords": [
+     "to find"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "such cheeses",
+      "gives": "BREEZE",
+      "soundsLike": "BRIES",
+      "note": "Brie is a soft French cheese; its plural is pronounced the same"
+     }
+    ],
+    "explanation": {
+     "surface": "A simple job, people claim, to locate these cheeses.",
+     "walkthrough": "'Such cheeses' asks for a type of cheese in the plural: Bries.",
+     "definitionFit": "Something done without effort is informally called a breeze, as in 'the exam was a breeze'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "find"
+    }
+   }
   },
   {
    "number": 24,
@@ -407,7 +1473,65 @@
      }
     ]
    },
-   "solution": "FENGSHUI"
+   "solution": "FENGSHUI",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "FENG SHUI",
+    "definitions": [
+     {
+      "text": "It might enhance domestic harmony",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "differently",
+      "for": "anagram",
+      "note": "done differently means in another way, so these letters take another order"
+     }
+    ],
+    "linkWords": [
+     "if"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "iron",
+      "gives": "FE",
+      "note": "Fe is the chemical symbol for iron"
+     },
+     {
+      "clueFragment": "is hung",
+      "gives": "ISHUNG",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FE",
+      "NGSHUI"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ISHUNG",
+       "gives": "NGSHUI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Rehanging the household iron might bring peace to a home.",
+     "walkthrough": "The domestic iron of the surface is the chemical element; 'if' is only a link.",
+     "definitionFit": "This Chinese practice arranges rooms and furniture to balance energy, supposedly bringing harmony to a household."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "iron"
+    }
+   }
   },
   {
    "number": 25,
@@ -421,7 +1545,55 @@
     "text": "Composer about to enter live performance",
     "enumeration": "5"
    },
-   "solution": "GREIG"
+   "solution": "GREIG",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GREIG",
+    "definitions": [
+     {
+      "text": "Composer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to enter",
+      "for": "container",
+      "note": "to enter is to go inside, so one piece is placed within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     },
+     {
+      "clueFragment": "live performance",
+      "gives": "GIG",
+      "note": "a gig is a live music performance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "RE",
+      "IG"
+     ]
+    },
+    "explanation": {
+     "surface": "A composer is about to walk on stage for a concert.",
+     "walkthrough": "'About to' reads as 'on the point of', but 'about' is RE and 'to enter' the instruction.",
+     "definitionFit": "Edvard Grieg was a Norwegian composer, known for the Peer Gynt suite and his Piano Concerto."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 26,
@@ -441,7 +1613,50 @@
      }
     ]
    },
-   "solution": "RATRUN"
+   "solution": "RATRUN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RAT RUN",
+    "definitions": [
+     {
+      "text": "a faster way to work",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "it's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "grass",
+      "gives": "RAT",
+      "note": "to grass and to rat are both British slang for informing on someone"
+     },
+     {
+      "clueFragment": "Stretch",
+      "gives": "RUN",
+      "note": "a run is a stretch, as in a run of luck"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAT",
+      "RUN"
+     ]
+    },
+    "explanation": {
+     "surface": "Lying on the lawn is a better use of one's time than commuting.",
+     "walkthrough": "'On' puts the stretch after the grass in an across answer. A rat run is a British term for a shortcut through side streets used to avoid traffic.",
+     "definitionFit": "Commuters take a rat run through minor residential roads to dodge congestion and reach their jobs quicker."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "grass"
+    }
+   }
   },
   {
    "number": 27,
@@ -455,7 +1670,53 @@
     "text": "Heavies regularly protecting first lady",
     "enumeration": "3"
    },
-   "solution": "EVE"
+   "solution": "EVE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "EVE",
+    "definitions": [
+     {
+      "text": "first lady",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "something done regularly happens at even intervals, so every other letter is kept"
+     }
+    ],
+    "linkWords": [
+     "protecting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Heavies",
+      "gives": "EVE",
+      "select": "alternate",
+      "note": "second, fourth and sixth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVE"
+     ]
+    },
+    "explanation": {
+     "surface": "Bodyguards guarding the President's wife.",
+     "walkthrough": "'First lady' suggests a President's spouse, but it means the first woman in the Bible.",
+     "definitionFit": "In Genesis, Eve is the first woman created, so she is literally the original female human."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lady"
+    }
+   }
   },
   {
    "number": 28,
@@ -475,7 +1736,50 @@
      }
     ]
    },
-   "solution": "MINEHOST"
+   "solution": "MINEHOST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MINE HOST",
+    "definitions": [
+     {
+      "text": "Landlord",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "deposit",
+      "gives": "MINE",
+      "note": "a mineral deposit is worked as a mine"
+     },
+     {
+      "clueFragment": "lots",
+      "gives": "HOST",
+      "note": "a host is a great number"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MINE",
+      "HOST"
+     ]
+    },
+    "explanation": {
+     "surface": "A property owner who has plenty of money in the bank.",
+     "walkthrough": "'On' puts the lots after the deposit; 'landlord' here is a pub landlord, not one who rents out property.",
+     "definitionFit": "The phrase is a jocular old-fashioned way of addressing the keeper of an inn or British pub."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "deposit"
+    }
+   }
   },
   {
    "number": 29,
@@ -489,7 +1793,49 @@
     "text": "Cover on centre intended to protect pupil",
     "enumeration": "6"
    },
-   "solution": "EYELID"
+   "solution": "EYELID",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EYELID",
+    "definitions": [
+     {
+      "text": "intended to protect pupil",
+      "at": 16,
+      "note": "a descriptive phrase standing for the noun it describes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "centre",
+      "gives": "EYE",
+      "note": "the eye of a storm is its centre"
+     },
+     {
+      "clueFragment": "Cover",
+      "gives": "LID",
+      "note": "a lid covers a container"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EYE",
+      "LID"
+     ]
+    },
+    "explanation": {
+     "surface": "A covering over the middle meant to shield a student.",
+     "walkthrough": "In an across answer 'on' puts the cover after the centre; 'pupil' is the dark opening of the eye, not a schoolchild.",
+     "definitionFit": "The fold of skin closes over the eyeball, shielding the dark opening at its centre from dust and light."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pupil"
+    }
+   }
   },
   {
    "number": 30,
@@ -503,7 +1849,46 @@
     "text": "North African city proving more spicy?",
     "enumeration": "7"
    },
-   "solution": "TANGIER"
+   "solution": "TANGIER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TANGIER",
+    "definitions": [
+     {
+      "text": "North African city",
+      "at": 0
+     },
+     {
+      "text": "more spicy",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "proving"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "North African city",
+      "note": "first meaning: the Moroccan port on the Strait of Gibraltar"
+     },
+     {
+      "clueFragment": "more spicy",
+      "note": "second meaning: the comparative of tangy"
+     }
+    ],
+    "explanation": {
+     "surface": "A Moroccan city turns out to have hotter food.",
+     "walkthrough": "Spelt the same, the city and the comparative are pronounced differently.",
+     "definitionFit": "Tangy means sharp or piquant in flavour, so its comparative describes something with a stronger zing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 31,
@@ -517,7 +1902,47 @@
     "text": "Act in accordance with class",
     "enumeration": "7"
    },
-   "solution": "PERFORM"
+   "solution": "PERFORM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PERFORM",
+    "definitions": [
+     {
+      "text": "Act",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in accordance with",
+      "gives": "PER",
+      "note": "per means according to, as in 'per instructions'"
+     },
+     {
+      "clueFragment": "class",
+      "gives": "FORM",
+      "note": "a form is a school class"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PER",
+      "FORM"
+     ]
+    },
+    "explanation": {
+     "surface": "Behave according to your social rank.",
+     "walkthrough": "A form is the British word for a school class or year group.",
+     "definitionFit": "To act on stage is to perform, playing a role before an audience."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "class"
+    }
+   }
   }
  ]
 }
