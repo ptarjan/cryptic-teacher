@@ -24,6 +24,9 @@
   "date": "2020-01-20",
   "check": "32 entries verified against the grid (lengths, crossings, linked-clue mapping)"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,60 @@
     "text": "Celeb wants sources of Viagra, extra fast!",
     "enumeration": "6"
    },
-   "solution": "STARVE"
+   "solution": "STARVE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "STARVE",
+    "definitions": [
+     {
+      "text": "fast",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sources of",
+      "for": "letter_selection",
+      "note": "a source is where something begins, so only the opening letters of the following words are used"
+     }
+    ],
+    "linkWords": [
+     "wants"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Celeb",
+      "gives": "STAR",
+      "note": "a celebrity is a star"
+     },
+     {
+      "clueFragment": "Viagra, extra",
+      "gives": "VE",
+      "select": "first",
+      "note": "the opening letters of these two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAR",
+      "VE"
+     ]
+    },
+    "explanation": {
+     "surface": "A celebrity demands an urgent supply of Viagra, on the double.",
+     "walkthrough": "'fast!' reads as an adverb urging speed, but it is the verb meaning to go without food.",
+     "definitionFit": "To fast is to go without eating, which is what one does when deprived of food entirely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "fast"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +107,69 @@
     "text": "\"Making very fast progress is no possibility\" (Corbyn's opening)",
     "enumeration": "5"
    },
-   "solution": "SONIC"
+   "solution": "SONIC",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SONIC",
+    "definitions": [
+     {
+      "text": "Making very fast progress",
+      "at": 1,
+      "note": "the answer is an adjective (at the speed of sound); the definition is a participial phrase"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "possibility",
+      "for": "anagram",
+      "note": "a possibility is one of several ways things could be arranged, so the letters may take a different order"
+     },
+     {
+      "text": "opening",
+      "for": "letter_selection",
+      "note": "an opening is where something starts, so only the first letter is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is no",
+      "gives": "ISNO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Corbyn",
+      "gives": "C",
+      "select": "first",
+      "note": "the first letter of the Labour leader's surname"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SONI",
+      "C"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ISNO",
+       "gives": "SONI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A quote, attributed to Jeremy Corbyn, claiming rapid progress is impossible.",
+     "walkthrough": "Jeremy Corbyn was the Labour Party leader when this ran; only his initial is used.",
+     "definitionFit": "Sonic speed is the speed of sound, a byword for travelling extremely quickly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "possibility"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +183,57 @@
     "text": "A spider possibly could metamorphose into parrot? D'oh!",
     "enumeration": "9"
    },
-   "solution": "ARTHROPOD"
+   "solution": "ARTHROPOD",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ARTHROPOD",
+    "definitions": [
+     {
+      "text": "A spider possibly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "could metamorphose into",
+      "for": "anagram",
+      "note": "metamorphosis is a complete change of form, so the letters are reshaped into something new"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "parrot",
+      "gives": "PARROT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "D'oh",
+      "gives": "DOH",
+      "note": "Homer Simpson's exclamation, taken as written without the apostrophe"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PARROTDOH",
+       "gives": "ARTHROPOD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wonders whether a spider might somehow turn into a parrot, then realises the stupidity.",
+     "walkthrough": "Metamorphosis is a biology word, which fits the creatures in the scene while signalling a rearrangement.",
+     "definitionFit": "Spiders belong to the invertebrate phylum with jointed legs and external skeletons; 'possibly' marks them as one example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "metamorphose"
+    }
+   }
   },
   {
    "number": 3,
@@ -93,7 +261,67 @@
     "text": "Gym exercises piss Ross off – \"clubs should replace power\"",
     "enumeration": "8"
    },
-   "solution": "SCISSORS"
+   "solution": "SCISSORS",
+   "annotation": {
+    "type": [
+     "substitution",
+     "anagram"
+    ],
+    "answer": "SCISSORS",
+    "definitions": [
+     {
+      "text": "Gym exercises",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "should replace",
+      "for": "substitution",
+      "note": "to replace something is to put another thing in its place, so one letter swaps out for another"
+     },
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "something that has gone off is spoiled, so these letters are no longer in their proper order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "piss Ross",
+      "gives": "PISSROSS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "clubs",
+      "gives": "C",
+      "note": "C is the card-suit abbreviation for clubs"
+     },
+     {
+      "clueFragment": "power",
+      "gives": "P",
+      "note": "P is the physics symbol for power; this is the letter swapped out"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CISSROSS",
+       "gives": "SCISSORS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A command to annoy someone called Ross, with a political-sounding slogan about clubs and power.",
+     "walkthrough": "First swap the P for C, giving CISSROSS, then rearrange. 'Piss off' is British slang for annoy or go away.",
+     "definitionFit": "Scissor kicks and scissor jumps are standard workout moves in which the legs cross like blades."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "clubs"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +335,57 @@
     "text": "Stick to Dominic ultimately, not Remain!",
     "enumeration": "6"
    },
-   "solution": "CLEAVE"
+   "solution": "CLEAVE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CLEAVE",
+    "definitions": [
+     {
+      "text": "Stick to",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so only the final letter of the name is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dominic",
+      "gives": "C",
+      "select": "last",
+      "note": "the final letter of the name"
+     },
+     {
+      "clueFragment": "not Remain",
+      "gives": "LEAVE",
+      "note": "in the Brexit referendum the alternative to Remain was Leave"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LEAVE"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to stay loyal to Dominic Cummings and back Brexit.",
+     "walkthrough": "Dominic Cummings ran the Vote Leave campaign in the UK's 2016 EU referendum. The answer also means to split, but here it means to adhere.",
+     "definitionFit": "This verb has two opposite senses; the older one is to adhere closely or remain faithful."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Remain"
+    }
+   }
   },
   {
    "number": 6,
@@ -127,7 +405,76 @@
      }
     ]
    },
-   "solution": "SAFETYPINS"
+   "solution": "SAFETYPINS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "SAFETY PINS",
+    "definitions": [
+     {
+      "text": "removed by soldiers hoping for a bang",
+      "at": 50,
+      "note": "a descriptive phrase standing for the plural noun"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "top",
+      "for": "letter_selection",
+      "note": "the top of a down word is its first letter, so only the opening is kept"
+     },
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two ends, so only first and last letters are kept"
+     },
+     {
+      "text": "frantically",
+      "for": "anagram",
+      "note": "frantic movement is wild and disordered, so the letters are thrown into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stretch",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of this word"
+     },
+     {
+      "clueFragment": "panties",
+      "gives": "PANTIES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "fancy",
+      "gives": "FY",
+      "select": "outer",
+      "note": "the two end letters of this word"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SPANTIESFY",
+       "gives": "SAFETYPINS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Elastic-topped knickers are torn off in a hurry by squaddies hoping for sex.",
+     "walkthrough": "'A bang' looks like sex in this saucy surface, but it is a grenade going off: the pin must be pulled first.",
+     "definitionFit": "A hand grenade has a pin that stops it detonating; a soldier pulls it out before throwing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bang"
+    }
+   }
   },
   {
    "number": 7,
@@ -141,7 +488,60 @@
     "text": "Port – love it as liquid!",
     "enumeration": "5"
    },
-   "solution": "OSTIA"
+   "solution": "OSTIA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OSTIA",
+    "definitions": [
+     {
+      "text": "Port",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "liquid",
+      "for": "anagram",
+      "note": "a liquid flows and takes any shape, so the letters run into a different arrangement"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, which looks like the letter O"
+     },
+     {
+      "clueFragment": "it as",
+      "gives": "ITAS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OITAS",
+       "gives": "OSTIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wine lover says they enjoy port when it is drunk.",
+     "walkthrough": "'Port' suggests the fortified wine, a liquid, but it is a harbour town; 'as' belongs to the letters being rearranged.",
+     "definitionFit": "Ostia was the ancient harbour city at the mouth of the Tiber serving Rome."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Port"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +565,68 @@
      }
     ]
    },
-   "solution": "SHAKEALEG"
+   "solution": "SHAKEALEG",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SHAKE A LEG",
+    "definitions": [
+     {
+      "text": "get a move on!",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "casually",
+      "for": "anagram",
+      "note": "done casually means done carelessly, so the letters are not kept in their tidy order"
+     },
+     {
+      "text": "inserted during",
+      "for": "container",
+      "note": "to insert something during another thing is to put it in the middle, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A leek",
+      "gives": "ALEEK",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bonk",
+      "gives": "SHAG",
+      "note": "both are British slang for having sex"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHA",
+      "KEALE",
+      "G"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ALEEK",
+       "gives": "KEALE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone casually slips a vegetable into proceedings during sex and urges haste.",
+     "walkthrough": "The rearranged leek sits between the A and G of the four-letter slang word.",
+     "definitionFit": "The idiom is an informal command telling someone to hurry up and stop dawdling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "bonk"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +640,68 @@
     "text": "Head from Hugh Laurie's dodgy truck driver?",
     "enumeration": "7"
    },
-   "solution": "HAULIER"
+   "solution": "HAULIER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "HAULIER",
+    "definitions": [
+     {
+      "text": "truck driver?",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Head from",
+      "for": "letter_selection",
+      "note": "the head of a word is its first letter, so only that one is taken"
+     },
+     {
+      "text": "dodgy",
+      "for": "anagram",
+      "note": "dodgy means unreliable or crooked, so the letters are bent out of their order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hugh",
+      "gives": "H",
+      "select": "first",
+      "note": "the first letter of this name"
+     },
+     {
+      "clueFragment": "Laurie",
+      "gives": "LAURIE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "AULIER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LAURIE",
+       "gives": "AULIER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Hugh Laurie's shady lorry driver is the subject of a question.",
+     "walkthrough": "The 's in Laurie's is ignored. The question mark covers the definition: the word usually names a road-freight firm rather than a driver.",
+     "definitionFit": "A haulier transports goods by road, so someone who drives freight lorries for a living fits loosely."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dodgy"
+    }
+   }
   },
   {
    "number": 10,
@@ -203,7 +725,61 @@
      }
     ]
    },
-   "solution": "NOTATRACE"
+   "solution": "NOTATRACE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NOT A TRACE",
+    "definitions": [
+     {
+      "text": "No hint",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "screwing",
+      "for": "anagram",
+      "note": "screwing means twisting round, so the letters are twisted into a new order"
+     }
+    ],
+    "linkWords": [
+     "of",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "actor",
+      "gives": "ACTOR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Nate",
+      "gives": "NATE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ACTORNATE",
+       "gives": "NOTATRACE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gossip column denies any suggestion that an actor is sleeping with someone named Nate.",
+     "walkthrough": "'Screwing' is a sexual verb in the surface; in the wordplay it means twisting the letters.",
+     "definitionFit": "Saying there is nothing at all, not the slightest sign, is the same as saying there is no hint."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "screwing"
+    }
+   }
   },
   {
    "number": 11,
@@ -217,7 +793,47 @@
     "text": "Gross Washington death sentence?",
     "enumeration": "5"
    },
-   "solution": "FATWA"
+   "solution": "FATWA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FATWA",
+    "definitions": [
+     {
+      "text": "death sentence?",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gross",
+      "gives": "FAT",
+      "note": "gross means obese"
+     },
+     {
+      "clueFragment": "Washington",
+      "gives": "WA",
+      "note": "WA is the postal abbreviation for Washington state"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FAT",
+      "WA"
+     ]
+    },
+    "explanation": {
+     "surface": "An outrageous capital sentence handed down in Washington.",
+     "walkthrough": "'Gross' looks like 'appalling', but it means fat. The question mark admits that not every one of these rulings condemns someone to death.",
+     "definitionFit": "An Islamic legal ruling, famously the one issued against Salman Rushdie calling for his killing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Gross"
+    }
+   }
   },
   {
    "number": 12,
@@ -235,7 +851,65 @@
    "group": [
     "12-across",
     "3-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "CARD VOTE",
+    "definitions": [
+     {
+      "text": "In which one raised hand might represent thousands",
+      "at": 9
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "going into something means entering it, so one piece is placed inside another"
+     },
+     {
+      "text": "nuts",
+      "for": "anagram",
+      "note": "nuts means crazy, so the letters go wild and are rearranged"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "very",
+      "gives": "V",
+      "note": "v is the standard abbreviation for very"
+     },
+     {
+      "clueFragment": "art deco",
+      "gives": "ARTDECO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ARTVDECO",
+       "gives": "CARDVOTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A description of some arty enthusiasts mad keen on 1920s design, with a raised hand.",
+     "walkthrough": "At Labour and trade-union conferences a delegate holds up a card carrying the votes of thousands of members.",
+     "definitionFit": "In this block system each delegate's raised card counts for the whole membership they represent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "nuts"
+    }
+   }
   },
   {
    "number": 13,
@@ -255,7 +929,39 @@
      }
     ]
    },
-   "solution": "SLAVETRADE"
+   "solution": "SLAVETRADE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SLAVE TRADE",
+    "definitions": [
+     {
+      "text": "Labour deal which should quite rightly be abolished",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Labour deal",
+      "note": "surface reading: an agreement struck by the Labour Party that critics want scrapped"
+     },
+     {
+      "clueFragment": "Labour deal which should quite rightly be abolished",
+      "note": "setter's reading: commerce in forced workers, which was outlawed in the nineteenth century"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Capital L 'Labour' points to the political party; here it means toil, and the 'deal' is the buying and selling of people.",
+     "definitionFit": "Traffic in human beings as forced workers is literally a business in labour, and it was abolished by law."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Labour"
+    }
+   }
   },
   {
    "number": 14,
@@ -275,7 +981,57 @@
      }
     ]
    },
-   "solution": "EYECONTACT"
+   "solution": "EYECONTACT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EYE CONTACT",
+    "definitions": [
+     {
+      "text": "Looking directly at",
+      "at": 0,
+      "note": "the answer is a noun phrase; the definition is a verb phrase describing the act"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "organ",
+      "gives": "EYE",
+      "note": "the eye is an organ of the body"
+     },
+     {
+      "clueFragment": "study",
+      "gives": "CON",
+      "note": "to con is an old word for to study or learn by heart"
+     },
+     {
+      "clueFragment": "discretion",
+      "gives": "TACT",
+      "note": "tact is diplomatic discretion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EYE",
+      "CON",
+      "TACT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stares at a body part and examines it discreetly, a cheeky Private Eye image.",
+     "walkthrough": "'Organ' hints at something rude, but it is simply the eye. Con meaning study is a crossword favourite from older English.",
+     "definitionFit": "Meeting someone's gaze means two people looking straight into each other's eyes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "organ"
+    }
+   }
   },
   {
    "number": 15,
@@ -299,7 +1055,61 @@
    "group": [
     "15-across",
     "24-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HAPPY NEW YEAR",
+    "definitions": [
+     {
+      "text": "rather optimistic message at this time?",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "about can mean turned around or scattered, so the letters are moved into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "PAYE",
+      "gives": "PAYE",
+      "note": "Pay As You Earn, the British income-tax system, taken as written"
+     },
+     {
+      "clueFragment": "hype",
+      "gives": "HYPE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "warn",
+      "gives": "WARN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PAYEHYPEWARN",
+       "gives": "HAPPYNEWYEAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Commentary on tax-system hype, warning against a too-cheerful seasonal greeting.",
+     "walkthrough": "PAYE is the UK system where tax is deducted from wages. The clue appeared around New Year, hence 'at this time'.",
+     "definitionFit": "A seasonal greeting exchanged at the turn of January, called 'rather optimistic' given the gloomy news."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 15,
@@ -313,7 +1123,61 @@
     "text": "Bottle each piss-poor sorrow",
     "enumeration": "9"
    },
-   "solution": "HEARTACHE"
+   "solution": "HEARTACHE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "HEARTACHE",
+    "definitions": [
+     {
+      "text": "sorrow",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "piss-poor",
+      "for": "anagram",
+      "note": "piss-poor means shoddily done, so the letters are badly ordered and need fixing"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bottle",
+      "gives": "HEART",
+      "note": "bottle is British slang for courage, as is heart"
+     },
+     {
+      "clueFragment": "each",
+      "gives": "EACH",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HEART",
+      "ACHE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EACH",
+       "gives": "ACHE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Each wretched bottle of drink brings misery.",
+     "walkthrough": "'Bottle' suggests drink; in British slang it means nerve or courage.",
+     "definitionFit": "Emotional pain or grief, especially over love, is a deep and lasting sorrow."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bottle"
+    }
+   }
   },
   {
    "number": 16,
@@ -327,7 +1191,77 @@
     "text": "Request clumsy ape to get into lap dancing",
     "enumeration": "6"
    },
-   "solution": "APPEAL"
+   "solution": "APPEAL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "APPEAL",
+    "definitions": [
+     {
+      "text": "Request",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "clumsy",
+      "for": "anagram",
+      "note": "clumsy movement is awkward and disordered, so the letters are jumbled"
+     },
+     {
+      "text": "to get into",
+      "for": "container",
+      "note": "getting into something means entering it, so one piece goes inside another"
+     },
+     {
+      "text": "dancing",
+      "for": "anagram",
+      "note": "dancing letters move about and change places"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ape",
+      "gives": "APE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "lap",
+      "gives": "LAP",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AP",
+      "PEA",
+      "L"
+     ],
+     "anagrams": [
+      {
+       "fodder": "APE",
+       "gives": "PEA"
+      },
+      {
+       "fodder": "LAP",
+       "gives": "APL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A request for an awkward oaf to get into lap dancing.",
+     "walkthrough": "Both three-letter words are rearranged; the first sits inside the second, between its P and L.",
+     "definitionFit": "An appeal is an earnest plea or formal request for something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "ape"
+    }
+   }
   },
   {
    "number": 17,
@@ -341,7 +1275,56 @@
     "text": "\"Where the earth started moving on a big scale\" – some dish, getting end away",
     "enumeration": "9"
    },
-   "solution": "EPICENTRE"
+   "solution": "EPICENTRE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "EPICENTRE",
+    "definitions": [
+     {
+      "text": "Where the earth started moving",
+      "at": 1
+     }
+    ],
+    "indicators": [
+     {
+      "text": "getting end away",
+      "for": "deletion",
+      "note": "sending the end away means its last letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on a big scale",
+      "gives": "EPIC",
+      "note": "something epic is on a grand scale"
+     },
+     {
+      "clueFragment": "some dish",
+      "gives": "ENTREE",
+      "note": "an entrée is a dish served at a meal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EPIC",
+      "ENTRE"
+     ]
+    },
+    "explanation": {
+     "surface": "A saucy line about the earth moving during sex, plus an attractive person getting their end away.",
+     "walkthrough": "'Getting one's end away' is British slang for having sex; 'dish' suggests a sexy person. Here they cut the last E off a course of a meal.",
+     "definitionFit": "The point on the surface directly above an earthquake's origin is where the ground shaking begins."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dish"
+    }
+   }
   },
   {
    "number": 18,
@@ -355,7 +1338,61 @@
     "text": "Moreover, Dior creation depressed Marvin, for one",
     "enumeration": "7"
    },
-   "solution": "ANDROID"
+   "solution": "ANDROID",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ANDROID",
+    "definitions": [
+     {
+      "text": "depressed Marvin, for one",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "creation",
+      "for": "anagram",
+      "note": "a creation is something newly made, so the letters are made into a new shape"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Moreover",
+      "gives": "AND",
+      "note": "and also means moreover"
+     },
+     {
+      "clueFragment": "Dior",
+      "gives": "DIOR",
+      "note": "the fashion house's name, taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AND",
+      "ROID"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DIOR",
+       "gives": "ROID"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Dior fashion design left someone called Marvin depressed.",
+     "walkthrough": "Marvin the Paranoid Android is the gloomy robot in Douglas Adams's The Hitchhiker's Guide to the Galaxy.",
+     "definitionFit": "Marvin is a famously miserable humanoid robot, which is what this science-fiction term means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "creation"
+    }
+   }
   },
   {
    "number": 19,
@@ -369,7 +1406,77 @@
     "text": "Take pathetically bad union leader before court",
     "enumeration": "6"
    },
-   "solution": "ABDUCT"
+   "solution": "ABDUCT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ABDUCT",
+    "definitions": [
+     {
+      "text": "Take",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pathetically",
+      "for": "anagram",
+      "note": "done pathetically means done feebly and badly, so the letters are out of order"
+     },
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "the leader of a word is its first letter, so only that is kept"
+     }
+    ],
+    "linkWords": [
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bad",
+      "gives": "BAD",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "union",
+      "gives": "U",
+      "select": "first",
+      "note": "the first letter of this word"
+     },
+     {
+      "clueFragment": "court",
+      "gives": "CT",
+      "note": "CT is the standard abbreviation for court"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ABD",
+      "U",
+      "CT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BAD",
+       "gives": "ABD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A useless trade-union boss is hauled before the courts.",
+     "walkthrough": "'Union leader' reads as a trade-union chief, but it is just the first letter of union.",
+     "definitionFit": "To take someone away by force or kidnap them is to carry them off illegally."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 20,
@@ -383,7 +1490,70 @@
     "text": "Large body and rear ... gin-sozzled ... forever going on",
     "enumeration": "8"
    },
-   "solution": "UNENDING"
+   "solution": "UNENDING",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "UNENDING",
+    "definitions": [
+     {
+      "text": "forever going on",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sozzled",
+      "for": "anagram",
+      "note": "sozzled means very drunk, so the letters stagger into a new order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Large body",
+      "gives": "UN",
+      "note": "the United Nations is a large international body"
+     },
+     {
+      "clueFragment": "rear",
+      "gives": "END",
+      "note": "the rear is the back end"
+     },
+     {
+      "clueFragment": "gin",
+      "gives": "GIN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "END",
+      "ING"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GIN",
+       "gives": "ING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fat drunk's backside and gin-soaked ramblings that never stop.",
+     "walkthrough": "'Large body' suggests an overweight person; it is the United Nations, a crossword staple.",
+     "definitionFit": "Something that never stops or reaches a conclusion continues forever."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "body"
+    }
+   }
   },
   {
    "number": 21,
@@ -397,7 +1567,42 @@
     "text": "Brothel madam protecting a female's name",
     "enumeration": "6"
    },
-   "solution": "THELMA"
+   "solution": "THELMA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "THELMA",
+    "definitions": [
+     {
+      "text": "a female's name",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "protecting",
+      "for": "hidden_word",
+      "note": "to protect is to hold inside and shield, so the letters sit within the words around them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brothel madam",
+      "note": "the letters run across the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A brothel keeper shields a woman's identity.",
+     "walkthrough": "'Protecting' suggests a madam guarding her workers, but it only signals letters held inside the phrase.",
+     "definitionFit": "It is a woman's given name, as in the film Thelma and Louise."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "protecting"
+    }
+   }
   },
   {
    "number": 22,
@@ -417,7 +1622,48 @@
      }
     ]
    },
-   "solution": "TAKENSHORT"
+   "solution": "TAKENSHORT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TAKEN SHORT",
+    "definitions": [
+     {
+      "text": "Desperately needing relief",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "snatched",
+      "gives": "TAKEN",
+      "note": "something snatched has been grabbed"
+     },
+     {
+      "clueFragment": "a drink of spirits",
+      "gives": "SHORT",
+      "note": "a short is a small measure of spirits, as opposed to a long drink"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAKEN",
+      "SHORT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone desperate for comfort grabs a stiff drink.",
+     "walkthrough": "'Relief' reads as comfort, but the British idiom for being taken short means urgently needing a toilet.",
+     "definitionFit": "The British idiom means suddenly needing to urinate or defecate with no lavatory close by."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "relief"
+    }
+   }
   },
   {
    "number": 23,
@@ -431,7 +1677,59 @@
     "text": "Writing stuff with protection of state – that's perverted",
     "enumeration": "5"
    },
-   "solution": "KINKY"
+   "solution": "KINKY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "KINKY",
+    "definitions": [
+     {
+      "text": "perverted",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with protection of",
+      "for": "container",
+      "note": "protection wraps around and encloses, so one piece is placed inside another"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Writing stuff",
+      "gives": "INK",
+      "note": "ink is the stuff you write with"
+     },
+     {
+      "clueFragment": "state",
+      "gives": "KY",
+      "note": "KY is the postal abbreviation for Kentucky"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "INK",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Writing material that enjoys state protection is called depraved.",
+     "walkthrough": "The joke: KY is also a well-known brand of sexual lubricant, which suits a clue about perversion.",
+     "definitionFit": "Kinky describes unconventional sexual tastes, the same as perverted in casual use."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "state"
+    }
+   }
   },
   {
    "number": 24,
@@ -463,7 +1761,56 @@
    "group": [
     "25-down",
     "26-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RURAL DEAN",
+    "definitions": [
+     {
+      "text": "member of the clergy",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Corrupt",
+      "for": "anagram",
+      "note": "corrupt means spoiled or altered from its true form, so the letters are changed around"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ruler",
+      "gives": "RULER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "and a",
+      "gives": "ANDA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RULERANDA",
+       "gives": "RURALDEAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crooked monarch and a priest are in league together.",
+     "walkthrough": "'Corrupt ruler' looks like a crooked leader, but 'and a' joins the letters being rearranged too.",
+     "definitionFit": "In the Church of England this priest supervises a group of parishes within a diocese."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Corrupt"
+    }
+   }
   },
   {
    "number": 26,
@@ -491,7 +1838,53 @@
     "text": "Line dance scam – good one",
     "enumeration": "5"
    },
-   "solution": "CONGA"
+   "solution": "CONGA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CONGA",
+    "definitions": [
+     {
+      "text": "Line dance",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "scam",
+      "gives": "CON",
+      "note": "a con is a scam"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "a means one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "G",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A dance craze is dismissed as a scam, but a nice one.",
+     "walkthrough": "'Good one' reads as praise, but it splits into two separate small pieces.",
+     "definitionFit": "Dancers form a long snaking queue holding the hips of the person ahead, kicking out sideways."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "one"
+    }
+   }
   },
   {
    "number": 28,
@@ -505,7 +1898,72 @@
     "text": "Labour leader has shameful secret, i.e. being a favourite of the Queen",
     "enumeration": "9"
    },
-   "solution": "LEICESTER"
+   "solution": "LEICESTER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "LEICESTER",
+    "definitions": [
+     {
+      "text": "a favourite of the Queen",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "a word's leader is its first letter, so only that is kept"
+     },
+     {
+      "text": "shameful",
+      "for": "anagram",
+      "note": "something shameful is disgraceful and wrong, so the letters are put in disarray"
+     }
+    ],
+    "linkWords": [
+     "has",
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Labour",
+      "gives": "L",
+      "select": "first",
+      "note": "the first letter of this word"
+     },
+     {
+      "clueFragment": "secret, i.e.",
+      "gives": "SECRETIE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "EICESTER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SECRETIE",
+       "gives": "EICESTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The Labour leader hides a disgraceful secret: being a royal pet.",
+     "walkthrough": "Robert Dudley, Earl of Leicester, was the favourite of Elizabeth I; 'the Queen' is not the modern monarch.",
+     "definitionFit": "The Earl of Leicester was Elizabeth I's close companion and rumoured lover, her best-known courtier."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Queen"
+    }
+   }
   },
   {
    "number": 29,
@@ -519,7 +1977,57 @@
     "text": "Concerning the country's inept gay movement",
     "enumeration": "8"
    },
-   "solution": "EGYPTIAN"
+   "solution": "EGYPTIAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EGYPTIAN",
+    "definitions": [
+     {
+      "text": "Concerning the country's",
+      "at": 0,
+      "note": "an adjective meaning of a particular North African country"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "movement",
+      "for": "anagram",
+      "note": "a movement shifts things from their places, so the letters are moved around"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "inept",
+      "gives": "INEPT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "gay",
+      "gives": "GAY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INEPTGAY",
+       "gives": "EGYPTIAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A worry about a national gay-rights movement being badly run.",
+     "walkthrough": "'Movement' looks like a political campaign; it signals rearrangement. The definition is vague: 'the country' is the one the letters point to.",
+     "definitionFit": "The adjective describes anything belonging to or relating to Egypt, a nation on the Nile."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "movement"
+    }
+   }
   },
   {
    "number": 30,
@@ -533,7 +2041,50 @@
     "text": "Bad example of international co-operation before Spring",
     "enumeration": "6"
    },
-   "solution": "UNWELL"
+   "solution": "UNWELL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNWELL",
+    "definitions": [
+     {
+      "text": "Bad",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "example of international co-operation",
+      "gives": "UN",
+      "note": "the United Nations is an example of nations working together"
+     },
+     {
+      "clueFragment": "Spring",
+      "gives": "WELL",
+      "note": "a spring is a source of water, as is a well"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "WELL"
+     ]
+    },
+    "explanation": {
+     "surface": "A poor showing of global cooperation ahead of the springtime season.",
+     "walkthrough": "Capital S 'Spring' suggests the season, but it is a water source. 'Bad' here means feeling ill.",
+     "definitionFit": "Feeling bad in the sense of being poorly or sick is the same as being ill."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Spring"
+    }
+   }
   }
  ]
 }
