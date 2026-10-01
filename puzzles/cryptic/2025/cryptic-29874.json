@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,61 @@
     "text": "Baboon juvenile male breaks a great deal of equipment",
     "enumeration": "6"
    },
-   "solution": "GELADA"
+   "solution": "GELADA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "GELADA",
+    "definitions": [
+     {
+      "text": "Baboon",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a great deal of",
+      "for": "deletion",
+      "note": "a great deal is most but not all, so the word loses its final letter"
+     },
+     {
+      "text": "breaks",
+      "for": "container",
+      "note": "to break into something is to get inside it, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "equipment",
+      "gives": "GEAR",
+      "note": "gear is kit or equipment"
+     },
+     {
+      "clueFragment": "juvenile male",
+      "gives": "LAD",
+      "note": "a lad is a boy or young man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GE",
+      "LAD",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A young male baboon smashes most of the kit at a research station.",
+     "walkthrough": "'Baboon juvenile male' reads as one creature, but the definition stops at 'Baboon'; the young male is separate wordplay.",
+     "definitionFit": "The gelada is a grass-eating primate of the Ethiopian highlands, usually classed as a kind of baboon."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "breaks"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +104,57 @@
     "text": "Fine particle in sample lunar geologists picked up",
     "enumeration": "7"
    },
-   "solution": "GRANULE"
+   "solution": "GRANULE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "GRANULE",
+    "definitions": [
+     {
+      "text": "Fine particle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the letters sit inside the run of words that follows, spanning the word breaks"
+     },
+     {
+      "text": "picked up",
+      "for": "reversal",
+      "note": "in a down entry, something picked up is lifted from the bottom, so the letters read upwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sample lunar geologists",
+      "gives": "ELUNARG",
+      "note": "the tail of the first word, all of the second and the start of the third"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "ELUNARG",
+       "to": "GRANULE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Scientists collect a tiny speck of moon rock from their sample.",
+     "walkthrough": "'Picked up' looks like the geologists' action, but in a down clue it tells you to read the hidden letters bottom to top.",
+     "definitionFit": "A granule is a small grain or speck of material, exactly a fine particle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "picked"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +168,55 @@
     "text": "Mostly generous old Bond villain",
     "enumeration": "5"
    },
-   "solution": "LARGO"
+   "solution": "LARGO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "LARGO",
+    "definitions": [
+     {
+      "text": "Bond villain",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the word drops its last letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "generous",
+      "gives": "LARGE",
+      "note": "large can mean generous or lavish, as in a large tip"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the standard abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LARG",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A comment that an old James Bond baddie was largely open-handed.",
+     "walkthrough": "LARGE without its last letter gives LARG, then O for old.",
+     "definitionFit": "Emilio Largo is the eyepatched SPECTRE villain of Thunderball, an antagonist of James Bond."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "generous"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +230,51 @@
     "text": "Blue duo fell out",
     "enumeration": "7"
    },
-   "solution": "DOLEFUL"
+   "solution": "DOLEFUL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DOLEFUL",
+    "definitions": [
+     {
+      "text": "Blue",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out can mean wrong or disordered, so these letters must be rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "duo fell",
+      "gives": "DUOFELL",
+      "note": "the letters as printed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DUOFELL",
+       "gives": "DOLEFUL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sad pair who have quarrelled and are no longer friends.",
+     "walkthrough": "'Fell out' reads as a quarrel, but only 'out' is the signal and 'fell' is fodder.",
+     "definitionFit": "Blue means sad or low in spirits, and doleful means mournful, a direct synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fell"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +288,74 @@
     "text": "Mark learned about limiting inane gaming",
     "enumeration": "6"
    },
-   "solution": "DAGGER"
+   "solution": "DAGGER",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "DAGGER",
+    "definitions": [
+     {
+      "text": "Mark",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about can mean turned around, so the word runs backwards"
+     },
+     {
+      "text": "inane",
+      "for": "letter_selection",
+      "note": "inane literally means empty, so the word is emptied of its middle and only its edges stay"
+     },
+     {
+      "text": "limiting",
+      "for": "container",
+      "note": "to limit is to bound on both sides, so one piece encloses the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "learned",
+      "gives": "READ",
+      "note": "to have read a subject is to have learned it"
+     },
+     {
+      "clueFragment": "gaming",
+      "gives": "GG",
+      "select": "outer",
+      "note": "the first and last letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DA",
+      "GG",
+      "ER"
+     ],
+     "reversals": [
+      {
+       "from": "READ",
+       "to": "DAER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone called Mark, well read, disapproves of pointless video gaming.",
+     "walkthrough": "READ turns round to DAER, and the empty shell of 'gaming' goes inside it. 'Mark' looks like a name but is a printer's symbol.",
+     "definitionFit": "The dagger (†) is a typographical symbol used to flag a footnote, so it is a printed mark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Mark"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +375,60 @@
      }
     ]
    },
-   "solution": "ANDHOW"
+   "solution": "ANDHOW",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AND HOW",
+    "definitions": [
+     {
+      "text": "Certainly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "boards",
+      "for": "container",
+      "note": "to board a ship is to go on and inside it, so one letter enters the other pieces"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "first-class",
+      "gives": "A",
+      "note": "A is the top grade, as in A-rated"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "N is the abbreviation for name"
+     },
+     {
+      "clueFragment": "Arab sailing vessel",
+      "gives": "DHOW",
+      "note": "a dhow is a lateen-rigged Arab boat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "N",
+      "DHOW"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone confirms that a named passenger is boarding a fine Arab sailing boat.",
+     "walkthrough": "N climbs aboard between A and DHOW. 'Boards' fits the ship picture neatly, which hides that it is the insertion signal.",
+     "definitionFit": "And how! is an emphatic exclamation of agreement, meaning very much so or absolutely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "boards"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +442,63 @@
     "text": "Age-old British pastime is good, getting tougher without husband",
     "enumeration": "9"
    },
-   "solution": "GARDENING"
+   "solution": "GARDENING",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "GARDENING",
+    "definitions": [
+     {
+      "text": "Age-old British pastime",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so a letter is taken away"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     },
+     {
+      "clueFragment": "getting tougher",
+      "gives": "HARDENING",
+      "note": "hardening is becoming harder or tougher"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "H is the abbreviation for husband"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "ARDENING"
+     ]
+    },
+    "explanation": {
+     "surface": "A claim that a traditional British hobby is good for you and toughens you up.",
+     "walkthrough": "G is followed by HARDENING with its H removed.",
+     "definitionFit": "Tending a garden has long been a favourite leisure activity in Britain, a national hobby."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tougher"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +512,54 @@
     "text": "Scottish crime novelist joins European physicist",
     "enumeration": "7"
    },
-   "solution": "RANKINE"
+   "solution": "RANKINE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RANKINE",
+    "definitions": [
+     {
+      "text": "physicist",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "joins",
+      "for": "charade",
+      "note": "to join is to link up end to end, so the pieces go side by side"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scottish crime novelist",
+      "gives": "RANKIN",
+      "note": "Ian Rankin is the Edinburgh author of the Rebus crime novels"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RANKIN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A Scottish thriller writer teams up with a scientist from the Continent.",
+     "walkthrough": "The novelist plus E gives another Scot, from a different century and field.",
+     "definitionFit": "William Rankine was a nineteenth-century Scottish engineer and physicist, remembered for the Rankine temperature scale and cycle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "European"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +579,67 @@
      }
     ]
    },
-   "solution": "GUARDIANANGEL"
+   "solution": "GUARDIANANGEL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "GUARDIAN ANGEL",
+    "definitions": [
+     {
+      "text": "Vigilante",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "violent",
+      "for": "anagram",
+      "note": "violent suggests turbulent disorder, so these letters are thrown into a new arrangement"
+     },
+     {
+      "text": "stops",
+      "for": "container",
+      "note": "a stopper plugs a gap, so one piece is wedged inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gang rule",
+      "gives": "GANGRULE",
+      "note": "the letters as printed"
+     },
+     {
+      "clueFragment": "huntress",
+      "gives": "DIANA",
+      "note": "Diana is the Roman goddess of the hunt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GUAR",
+      "DIANA",
+      "NGEL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GANGRULE",
+       "gives": "GUARNGEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lone avenger, a woman with a bow, puts an end to a thuggish gang's reign.",
+     "walkthrough": "GANG RULE is rearranged into GUARNGEL and the goddess DIANA is put in the middle.",
+     "definitionFit": "The Guardian Angels are a volunteer street patrol group founded in New York, so a member is a self-appointed vigilante."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "huntress"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +653,51 @@
     "text": "Abandoning front, dash in retreat",
     "enumeration": "4"
    },
-   "solution": "LAIR"
+   "solution": "LAIR",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LAIR",
+    "definitions": [
+     {
+      "text": "retreat",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Abandoning front",
+      "for": "deletion",
+      "note": "abandoning the front means leaving the first position empty, so the opening letter goes"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dash",
+      "gives": "FLAIR",
+      "note": "dash means stylish panache, which is flair"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAIR"
+     ]
+    },
+    "explanation": {
+     "surface": "Troops give up the front line and run for it in a retreat.",
+     "walkthrough": "'Dash' and 'retreat' both look like running away; dash is the noun meaning style.",
+     "definitionFit": "A lair is a hidden den or hideaway, a private place to withdraw to, which is a retreat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dash"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +711,64 @@
     "text": "Washing articles abroad in middle of night",
     "enumeration": "10"
    },
-   "solution": "LAUNDERING"
+   "solution": "LAUNDERING",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "LAUNDERING",
+    "definitions": [
+     {
+      "text": "Washing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "middle of",
+      "for": "letter_selection",
+      "note": "the middle of a word is its central letter, the only one kept here"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "articles abroad",
+      "gives": "LAUNDER",
+      "note": "three foreign articles: French LA, French UN and German DER"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "night",
+      "gives": "G",
+      "select": "middle",
+      "note": "the central letter of the five"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LA",
+      "UN",
+      "DER",
+      "IN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "Doing the laundry at midnight while staying overseas.",
+     "walkthrough": "'Articles abroad' asks for foreign words for 'the' and 'a': two from French and one from German.",
+     "definitionFit": "To launder is to wash and iron clothes, so laundering is the act of washing them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "articles"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +788,64 @@
      }
     ]
    },
-   "solution": "PUTOFF"
+   "solution": "PUTOFF",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "PUT OFF",
+    "definitions": [
+     {
+      "text": "delay",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means short of complete, so the word loses its last letter"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means encircling, so one piece wraps the other"
+     }
+    ],
+    "linkWords": [
+     "causes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gust",
+      "gives": "PUFF",
+      "note": "a puff is a brief gust of wind"
+     },
+     {
+      "clueFragment": "summit",
+      "gives": "TOP",
+      "note": "the top of a mountain is its summit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PU",
+      "TO",
+      "FF"
+     ]
+    },
+    "explanation": {
+     "surface": "A gale near a mountain peak holds up the climbers.",
+     "walkthrough": "The enumeration (3,3) points to a phrasal verb, which helps pin down the definition at the end.",
+     "definitionFit": "To put off something is to postpone it to a later time, a phrasal verb for delay."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Gust"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +859,68 @@
     "text": "Raised extravagantly, bored by house in British colony once",
     "enumeration": "8"
    },
-   "solution": "RHODESIA"
+   "solution": "RHODESIA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "RHODESIA",
+    "definitions": [
+     {
+      "text": "British colony once",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extravagantly",
+      "for": "anagram",
+      "note": "extravagantly means wildly or without restraint, so these letters are scattered into a new order"
+     },
+     {
+      "text": "bored by",
+      "for": "container",
+      "note": "to be bored is to have a hole drilled in, so something else is driven inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Raised",
+      "gives": "RAISED",
+      "note": "the letters as printed"
+     },
+     {
+      "clueFragment": "house",
+      "gives": "HO",
+      "note": "HO is the abbreviation for house"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "HO",
+      "DESIA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RAISED",
+       "gives": "RDESIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A child brought up in luxury, bored stiff at home in an old colony.",
+     "walkthrough": "'Bored' looks like ennui, but it means pierced, as with a drill.",
+     "definitionFit": "Rhodesia was the British-ruled territory in southern Africa that became Zimbabwe and Zambia, so a former colony."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bored"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +934,64 @@
     "text": "Disheartened indifferent US soldier with a nervous disorder",
     "enumeration": "9"
    },
-   "solution": "NEURALGIA"
+   "solution": "NEURALGIA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "NEURALGIA",
+    "definitions": [
+     {
+      "text": "nervous disorder",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Disheartened",
+      "for": "deletion",
+      "note": "the heart of a word is its centre, so losing heart removes the middle letter"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "indifferent",
+      "gives": "NEUTRAL",
+      "note": "neutral means taking no side, indifferent"
+     },
+     {
+      "clueFragment": "US soldier",
+      "gives": "GI",
+      "note": "GI is the familiar term for an American soldier"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEURAL",
+      "GI",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A dispirited, apathetic American soldier suffering from a nervous disorder.",
+     "walkthrough": "'Disheartened' looks like a mood, but it means losing the central letter; GI is the everyday name for an American soldier.",
+     "definitionFit": "Neuralgia is sharp pain along the course of a nerve, a medical condition of the nervous system."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Disheartened"
+    }
+   }
   },
   {
    "number": 14,
@@ -253,7 +1011,64 @@
      }
     ]
    },
-   "solution": "RAINGAUGE"
+   "solution": "RAINGAUGE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "RAIN GAUGE",
+    "definitions": [
+     {
+      "text": "volume-measuring apparatus",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the sides",
+      "for": "letter_selection",
+      "note": "the sides of a word are its two ends, so only first and last letters are kept"
+     },
+     {
+      "text": "damaged",
+      "for": "anagram",
+      "note": "something damaged is knocked out of shape, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Repeatedly aiming",
+      "gives": "AGAG",
+      "select": "outer",
+      "note": "the ends of the word, taken twice because of 'repeatedly'"
+     },
+     {
+      "clueFragment": "urine",
+      "gives": "URINE",
+      "note": "the letters as printed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AGAGURINE",
+       "gives": "RAINGAUGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone keeps missing the pot and has wrecked some measuring equipment.",
+     "walkthrough": "The ends of 'aiming' give AG, doubled to AGAG; with URINE these are rearranged to give the answer.",
+     "definitionFit": "A rain gauge collects falling rain so the amount of precipitation can be read off, so it measures a volume."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "urine"
+    }
+   }
   },
   {
    "number": 15,
@@ -267,7 +1082,58 @@
     "text": "Square opening, partly round",
     "enumeration": "4"
    },
-   "solution": "NINE"
+   "solution": "NINE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "NINE",
+    "definitions": [
+     {
+      "text": "Square",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "partly",
+      "for": "hidden_word",
+      "note": "partly means in part, so only a stretch of the next word is used"
+     },
+     {
+      "text": "round",
+      "for": "reversal",
+      "note": "to turn round is to face the other way, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "opening",
+      "gives": "ENIN",
+      "note": "the middle stretch of the word"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "ENIN",
+       "to": "NINE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A description of a square hole or window that is partly rounded.",
+     "walkthrough": "'Square opening' reads as a shape; 'Square' alone is the definition, in the number sense.",
+     "definitionFit": "Nine is three multiplied by itself, so it is a square number in arithmetic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Square"
+    }
+   }
   },
   {
    "number": 16,
@@ -281,7 +1147,63 @@
     "text": "Help to keep Rudolph’s nose dry",
     "enumeration": "4"
    },
-   "solution": "ARID"
+   "solution": "ARID",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ARID",
+    "definitions": [
+     {
+      "text": "dry",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nose",
+      "for": "letter_selection",
+      "note": "the nose is at the very front, so only the leading letter is kept"
+     },
+     {
+      "text": "to keep",
+      "for": "container",
+      "note": "to keep something is to hold it, so one piece holds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Help",
+      "gives": "AID",
+      "note": "aid is help"
+     },
+     {
+      "clueFragment": "Rudolph’s",
+      "gives": "R",
+      "select": "first",
+      "note": "the first letter of the reindeer's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "R",
+      "ID"
+     ]
+    },
+    "explanation": {
+     "surface": "A plea for help keeping the red-nosed reindeer's famous nose from getting wet.",
+     "walkthrough": "AID holds R. Rudolph is famous for his red nose, which makes the letter selection look like story detail.",
+     "definitionFit": "Arid describes land or climate with very little rainfall, a direct synonym for dry."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "nose"
+    }
+   }
   },
   {
    "number": 16,
@@ -295,7 +1217,85 @@
     "text": "Tanks in a former Arabic union checked by, at the very least, Qatar, Iraq and Afghanistan",
     "enumeration": "7"
    },
-   "solution": "AQUARIA"
+   "solution": "AQUARIA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "AQUARIA",
+    "definitions": [
+     {
+      "text": "Tanks",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the very least",
+      "for": "letter_selection",
+      "note": "the very least of a word is a single letter, taken here from the front"
+     },
+     {
+      "text": "checked by",
+      "for": "container",
+      "note": "something checked is halted partway, so a letter breaks into the run"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Qatar",
+      "gives": "Q",
+      "select": "first",
+      "note": "first letter of the country"
+     },
+     {
+      "clueFragment": "former Arabic union",
+      "gives": "UAR",
+      "note": "the United Arab Republic, the 1958 union of Egypt and Syria"
+     },
+     {
+      "clueFragment": "Iraq",
+      "gives": "I",
+      "select": "first",
+      "note": "first letter of the country"
+     },
+     {
+      "clueFragment": "Afghanistan",
+      "gives": "A",
+      "select": "first",
+      "note": "first letter of the country"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "Q",
+      "UAR",
+      "I",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Military tanks in a defunct Arab alliance are inspected in three Middle Eastern war zones.",
+     "walkthrough": "The Q interrupts A UAR, and the initials of Iraq and Afghanistan finish it. 'Tanks' suggests armour but means fish tanks.",
+     "definitionFit": "Aquaria is the Latin plural of aquarium, the glass containers for keeping fish, which are also called tanks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Tanks"
+    }
+   }
   },
   {
    "number": 17,
@@ -309,7 +1309,73 @@
     "text": "University somehow gained odd bits of land without any agreement?",
     "enumeration": "9"
    },
-   "solution": "UNALIGNED"
+   "solution": "UNALIGNED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "UNALIGNED",
+    "definitions": [
+     {
+      "text": "without any agreement?",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "somehow",
+      "for": "anagram",
+      "note": "somehow means in some unspecified way, so the letters come out in a new arrangement"
+     },
+     {
+      "text": "odd bits of",
+      "for": "letter_selection",
+      "note": "the odd bits are the first, third and so on, so alternate letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "University",
+      "gives": "U",
+      "note": "U is the abbreviation for university"
+     },
+     {
+      "clueFragment": "gained",
+      "gives": "GAINED",
+      "note": "the letters as printed"
+     },
+     {
+      "clueFragment": "land",
+      "gives": "LN",
+      "select": "alternate",
+      "note": "the first and third letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "NALIGNED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GAINEDLN",
+       "gives": "NALIGNED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A university acquired scattered plots of land without any contract.",
+     "walkthrough": "U comes first; GAINED and the odd letters of 'land' are rearranged behind it. 'Agreement' sounds legal but means alignment.",
+     "definitionFit": "Unaligned means not in line or not allied with any side, so in no alliance or accord; the question mark flags the stretch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "agreement"
+    }
+   }
   },
   {
    "number": 18,
@@ -333,7 +1399,74 @@
      }
     ]
    },
-   "solution": "LETITBE"
+   "solution": "LETITBE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LET IT BE",
+    "definitions": [
+     {
+      "text": "song",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changed",
+      "for": "anagram",
+      "note": "changed means altered in form, so the letters take a new order"
+     },
+     {
+      "text": "cover of",
+      "for": "letter_selection",
+      "note": "a cover wraps the outside, so the outermost letters are kept"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down entry, one thing on another sits above it, so the first piece comes first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Title",
+      "gives": "TITLE",
+      "note": "the letters as printed"
+     },
+     {
+      "clueFragment": "boogie-woogie",
+      "gives": "BE",
+      "select": "outer",
+      "note": "first and last letters of the hyphenated word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LETIT",
+      "BE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TITLE",
+       "gives": "LETIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A song gets a new name when covered in a boogie-woogie style.",
+     "walkthrough": "'Cover' is a music word that fits the surface perfectly, but here it means the outside letters.",
+     "definitionFit": "Let It Be is the 1970 Beatles single and title track of their final album, a famous song."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cover"
+    }
+   }
   },
   {
    "number": 19,
@@ -347,7 +1480,69 @@
     "text": "Edgbaston extremely happy to host new national team",
     "enumeration": "7"
    },
-   "solution": "ENGLAND"
+   "solution": "ENGLAND",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "ENGLAND",
+    "definitions": [
+     {
+      "text": "national team",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two ends, so only first and last letters stay"
+     },
+     {
+      "text": "to host",
+      "for": "container",
+      "note": "a host takes a guest inside, so one piece holds another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Edgbaston",
+      "gives": "EN",
+      "select": "outer",
+      "note": "first and last letters"
+     },
+     {
+      "clueFragment": "happy",
+      "gives": "GLAD",
+      "note": "glad means happy"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "GLA",
+      "N",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Edgbaston, a Birmingham cricket ground, is delighted to stage a match for a new national side.",
+     "walkthrough": "Edgbaston is a Test cricket ground in Birmingham, so the setting fits the answer perfectly while only its ends are used.",
+     "definitionFit": "England fields a national side in cricket, football and rugby, which regularly plays Test matches at Edgbaston."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Edgbaston"
+    }
+   }
   },
   {
    "number": 20,
@@ -361,7 +1556,71 @@
     "text": "One of two kings died charging English hill, not getting over",
     "enumeration": "6"
    },
-   "solution": "EDMUND"
+   "solution": "EDMUND",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "EDMUND",
+    "definitions": [
+     {
+      "text": "One of two kings",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "charging",
+      "for": "charade",
+      "note": "one who charges rushes in from behind, so this piece comes after the one it chases"
+     },
+     {
+      "text": "not getting",
+      "for": "deletion",
+      "note": "not getting something means going without it, so a letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "died",
+      "gives": "D",
+      "note": "D is the abbreviation for died, as in genealogies"
+     },
+     {
+      "clueFragment": "hill",
+      "gives": "MOUND",
+      "note": "a mound is a small hill"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O is the abbreviation for over in cricket scoring"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "D",
+      "MUND"
+     ]
+    },
+    "explanation": {
+     "surface": "A king died leading a charge up an English hill, never reaching the top.",
+     "walkthrough": "E and D are followed by MOUND without its O. 'Over' looks like reaching the summit; it is the letter O.",
+     "definitionFit": "Two Anglo-Saxon kings of England were called Edmund: Edmund I and Edmund II, known as Ironside."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 21,
@@ -381,7 +1640,69 @@
      }
     ]
    },
-   "solution": "GUNGADIN"
+   "solution": "GUNGADIN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "GUNGA DIN",
+    "definitions": [
+     {
+      "text": "Kipling poem",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the end, so only the last letter is kept"
+     },
+     {
+      "text": "enters",
+      "for": "container",
+      "note": "to enter a room is to go inside it, so this is an insertion signal"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "piece",
+      "gives": "GUN",
+      "note": "a piece is slang for a gun"
+     },
+     {
+      "clueFragment": "Bard",
+      "gives": "D",
+      "select": "last",
+      "note": "the final letter"
+     },
+     {
+      "clueFragment": "improve",
+      "gives": "GAIN",
+      "note": "to gain is to improve or get better"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GUN",
+      "GA",
+      "D",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "Shakespeare finally submits a piece meant to better a Kipling poem.",
+     "walkthrough": "'Piece' and 'Bard' suggest writing, but a piece is slang for a firearm and the Bard only lends his last letter.",
+     "definitionFit": "Gunga Din is Rudyard Kipling's 1890 ballad about an Indian water-carrier serving British troops."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "piece"
+    }
+   }
   },
   {
    "number": 22,
@@ -395,7 +1716,59 @@
     "text": "Sorting out gear – it’s daft",
     "enumeration": "6"
    },
-   "solution": "TRIAGE"
+   "solution": "TRIAGE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TRIAGE",
+    "definitions": [
+     {
+      "text": "Sorting out",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "daft",
+      "for": "anagram",
+      "note": "daft means crazy or senseless, so these letters go into a crazy new order"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gear",
+      "gives": "GEAR",
+      "note": "the letters as printed"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "the letters as printed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GEARIT",
+       "gives": "TRIAGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone complains that tidying up all this kit is pointless.",
+     "walkthrough": "'Sorting out gear' reads as one phrase, but 'gear' is fodder and 'Sorting out' is the definition.",
+     "definitionFit": "Triage is the process of sorting patients or tasks by urgency, especially in emergency medicine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "gear"
+    }
+   }
   },
   {
    "number": 23,
@@ -409,7 +1782,61 @@
     "text": "Country where diva hosts Victor?",
     "enumeration": "5"
    },
-   "solution": "INDIA"
+   "solution": "INDIA",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "INDIA",
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hosts",
+      "for": "deletion",
+      "note": "read backwards, the word only becomes what is printed once it takes in a guest, so the guest must be taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "where",
+      "gives": "IN",
+      "note": "in means at the place where"
+     },
+     {
+      "clueFragment": "diva",
+      "gives": "DIVA",
+      "note": "the word as printed"
+     },
+     {
+      "clueFragment": "Victor",
+      "gives": "V",
+      "note": "Victor is the radio alphabet word for V"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "DIA"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about which country an opera star welcomed a guest called Victor.",
+     "walkthrough": "Read in reverse: IN DIA becomes 'in diva' once DIA hosts V. Fittingly, India and Victor are both radio alphabet words.",
+     "definitionFit": "India is a large nation of South Asia, so it is simply an example of a country."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Victor"
+    }
+   }
   },
   {
    "number": 24,
@@ -423,7 +1850,72 @@
     "text": "Dishonest foreign wife with depression about guilt, off and on",
     "enumeration": "10"
    },
-   "solution": "FRAUDULENT"
+   "solution": "FRAUDULENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "FRAUDULENT",
+    "definitions": [
+     {
+      "text": "Dishonest",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off and on",
+      "for": "letter_selection",
+      "note": "off and on describes something intermittent, so alternate letters are kept"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one piece goes round the other"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "foreign wife",
+      "gives": "FRAU",
+      "note": "Frau is German for wife"
+     },
+     {
+      "clueFragment": "depression",
+      "gives": "DENT",
+      "note": "a dent is a hollow or depression"
+     },
+     {
+      "clueFragment": "guilt",
+      "gives": "UL",
+      "select": "alternate",
+      "note": "the second and fourth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FRAU",
+      "D",
+      "UL",
+      "ENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A deceitful wife from abroad suffers bouts of depression over her guilt.",
+     "walkthrough": "'Depression' looks emotional but means a hollow, and 'off and on' looks like the bouts of it.",
+     "definitionFit": "Fraudulent means obtained or acting by deception, so it is a stronger synonym for dishonest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "depression"
+    }
+   }
   },
   {
    "number": 25,
@@ -437,7 +1929,57 @@
     "text": "Minister eschewing care of college fellow",
     "enumeration": "4"
    },
-   "solution": "DEAN"
+   "solution": "DEAN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "DEAN",
+    "definitions": [
+     {
+      "text": "college fellow",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eschewing",
+      "for": "deletion",
+      "note": "to eschew is to avoid or abstain from, so some letters are left out"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Minister",
+      "gives": "DEACON",
+      "note": "a deacon is a minister in many churches"
+     },
+     {
+      "clueFragment": "care",
+      "gives": "CO",
+      "note": "c/o is the abbreviation for care of on an address"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "A clergyman neglects his pastoral duty towards a member of the college.",
+     "walkthrough": "DEACON without CO. The 'of' in 'care of' does double duty in the surface, but only 'care' gives letters.",
+     "definitionFit": "A dean is a senior fellow of a college who oversees discipline or studies, an academic office holder."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "care"
+    }
+   }
   },
   {
    "number": 26,
@@ -451,7 +1993,56 @@
     "text": "Programme objective penned by Eastern commander",
     "enumeration": "6"
    },
-   "solution": "AGENDA"
+   "solution": "AGENDA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AGENDA",
+    "definitions": [
+     {
+      "text": "Programme",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "penned by",
+      "for": "container",
+      "note": "something penned is shut in a pen or enclosure, so one piece sits inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Eastern commander",
+      "gives": "AGA",
+      "note": "an aga is an Ottoman military commander"
+     },
+     {
+      "clueFragment": "objective",
+      "gives": "END",
+      "note": "an end is an aim or objective"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AG",
+      "END",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A plan of action whose goal was written by an Oriental general.",
+     "walkthrough": "'Penned' suggests writing, but it means enclosed, like sheep in a pen.",
+     "definitionFit": "An agenda is a list of items to be dealt with at a meeting, a programme of business."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "penned"
+    }
+   }
   },
   {
    "number": 27,
@@ -465,7 +2056,55 @@
     "text": "Again deposited half of reference papers",
     "enumeration": "6"
    },
-   "solution": "RELAID"
+   "solution": "RELAID",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "RELAID",
+    "definitions": [
+     {
+      "text": "Again deposited",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half of",
+      "for": "deletion",
+      "note": "half of a word is only part of it, so the back portion is discarded"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "reference",
+      "gives": "RELATION",
+      "note": "relation means reference, as in 'with relation to'"
+     },
+     {
+      "clueFragment": "papers",
+      "gives": "ID",
+      "note": "ID is identity papers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RELA",
+      "ID"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone has filed away again half of their research documents.",
+     "walkthrough": "The first four letters of RELATION are followed by ID.",
+     "definitionFit": "To relay a carpet or cable is to lay it down again, so relaid is a past-tense form of deposited once more."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "papers"
+    }
+   }
   }
  ]
 }
