@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,61 @@
     "text": "Boy sent back hospital food",
     "enumeration": "4"
    },
-   "solution": "NOSH"
+   "solution": "NOSH",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "NOSH",
+    "definitions": [
+     {
+      "text": "food",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sent back",
+      "for": "reversal",
+      "note": "sending something back returns it the way it came, so the letters run from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boy",
+      "gives": "SON",
+      "note": "a boy is a son"
+     },
+     {
+      "clueFragment": "hospital",
+      "gives": "H",
+      "note": "H is the abbreviation for hospital, as on road signs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOS",
+      "H"
+     ],
+     "reversals": [
+      {
+       "from": "SON",
+       "to": "NOS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lad returns his hospital meal untouched.",
+     "walkthrough": "'Hospital food' reads as one phrase, but the last word alone is the definition. NOSH is informal British slang for food.",
+     "definitionFit": "Nosh is a casual, chiefly British slang word meaning something to eat, a meal or snack."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hospital"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +104,56 @@
     "text": "State banks are overhauled",
     "enumeration": "8"
    },
-   "solution": "NEBRASKA"
+   "solution": "NEBRASKA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NEBRASKA",
+    "definitions": [
+     {
+      "text": "State",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overhauled",
+      "for": "anagram",
+      "note": "an overhauled machine has been taken apart and rebuilt, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "banks",
+      "gives": "BANKS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "are",
+      "gives": "ARE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BANKSARE",
+       "gives": "NEBRASKA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Government regulators order a shake-up of the national banking system.",
+     "walkthrough": "'State' looks like a verb or a reference to government, but it names one of the American states.",
+     "definitionFit": "Nebraska is one of the fifty US states, in the Great Plains of the Midwest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "State"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +167,42 @@
     "text": "Great surge",
     "enumeration": "5"
    },
-   "solution": "SWELL"
+   "solution": "SWELL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SWELL",
+    "definitions": [
+     {
+      "text": "Great",
+      "at": 0
+     },
+     {
+      "text": "surge",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Great",
+      "note": "first meaning: excellent, in dated informal use"
+     },
+     {
+      "clueFragment": "surge",
+      "note": "second meaning: a rising heave of the sea or of feeling"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The two words read like an adjective and its noun, a big wave, but each defines the answer separately.",
+     "definitionFit": "As an adjective it is old-fashioned slang for excellent; as a noun it means a rolling rise of water."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Great"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +216,44 @@
     "text": "Investigate where payments can be made",
     "enumeration": "8"
    },
-   "solution": "CHECKOUT"
+   "solution": "CHECKOUT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CHECKOUT",
+    "definitions": [
+     {
+      "text": "Investigate",
+      "at": 0,
+      "note": "the verb is two words, check out"
+     },
+     {
+      "text": "where payments can be made",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Investigate",
+      "note": "first meaning: look into or examine something"
+     },
+     {
+      "clueFragment": "where payments can be made",
+      "note": "second meaning: the till point in a shop"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is told to find the place where bills get settled.",
+     "walkthrough": "The verb phrase and the noun share the same letters; the enumeration as one word suits the noun.",
+     "definitionFit": "To check something out is to examine it; a checkout is the counter in a store where shoppers pay."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +267,64 @@
     "text": "Race around river area in city",
     "enumeration": "6"
    },
-   "solution": "HARARE"
+   "solution": "HARARE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HARARE",
+    "definitions": [
+     {
+      "text": "city",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "to go around something is to encircle it, so one piece wraps the others"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Race",
+      "gives": "HARE",
+      "note": "to hare is to run very fast"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the map abbreviation for river"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "A is the abbreviation for area"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HA",
+      "R",
+      "A",
+      "RE"
+     ]
+    },
+    "explanation": {
+     "surface": "Runners in a city race lap the riverside district.",
+     "walkthrough": "'Race' looks like a noun for an event, but it is the verb meaning to rush.",
+     "definitionFit": "Harare is the capital and largest urban centre of Zimbabwe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Race"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +344,51 @@
      }
     ]
    },
-   "solution": "CAPITALSHIP"
+   "solution": "CAPITALSHIP",
+   "annotation": {
+    "type": [
+     "charade",
+     "and_lit"
+    ],
+    "answer": "CAPITAL SHIP",
+    "definitions": [
+     {
+      "text": "Sort of characters making up RNVR in naval vessel",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sort of characters making up RNVR",
+      "gives": "CAPITAL",
+      "note": "RNVR is written entirely in upper-case letters"
+     },
+     {
+      "clueFragment": "naval vessel",
+      "gives": "SHIP",
+      "note": "a naval vessel is a ship"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAPITAL",
+      "SHIP"
+     ]
+    },
+    "explanation": {
+     "surface": "A note on the lettering of a naval reserve's initials painted on a warship.",
+     "walkthrough": "RNVR, the Royal Naval Volunteer Reserve, is all upper case; read whole, the clue also describes a major warship carrying those letters, so it works as an all-in-one.",
+     "definitionFit": "A capital ship is one of a navy's most important warships, such as a battleship or aircraft carrier."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "characters"
+    }
+   }
   },
   {
    "number": 6,
@@ -129,7 +408,56 @@
      }
     ]
    },
-   "solution": "OPENSUP"
+   "solution": "OPENSUP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OPENS UP",
+    "definitions": [
+     {
+      "text": "starts speaking candidly",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "writer",
+      "gives": "PEN",
+      "note": "a pen is a writing instrument"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "SUP",
+      "note": "to sup is to sip or drink"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "PEN",
+      "SUP"
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly author, glass in hand, finally speaks frankly.",
+     "walkthrough": "'Old writer' looks like a person, but it splits into an abbreviation and a thing that writes.",
+     "definitionFit": "To open up is an idiom for becoming frank and talking freely about private feelings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "writer"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +471,52 @@
     "text": "Those people ultimately dealt with ample criticism",
     "enumeration": "4"
    },
-   "solution": "THEM"
+   "solution": "THEM",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "THEM",
+    "definitions": [
+     {
+      "text": "Those people",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so each word gives up its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dealt with ample criticism",
+      "gives": "THEM",
+      "select": "last",
+      "note": "final letters of these four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "H",
+      "E",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "Some people eventually faced a great deal of criticism.",
+     "walkthrough": "'Ultimately' reads as 'in the end' describing the dealing, but it picks the tail of each following word.",
+     "definitionFit": "The pronoun names a group other than the speaker, the objective form of they."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ultimately"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +536,67 @@
      }
     ]
    },
-   "solution": "BOERWAR"
+   "solution": "BOERWAR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "charade"
+    ],
+    "answer": "BOER WAR",
+    "definitions": [
+     {
+      "text": "conflict",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Heartless",
+      "for": "deletion",
+      "note": "without a heart means the central letter is taken out"
+     },
+     {
+      "text": "around",
+      "for": "reversal",
+      "note": "turning around faces the other way, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fighter",
+      "gives": "BOER",
+      "note": "a boxer is a fighter; drop its middle letter X"
+     },
+     {
+      "clueFragment": "lacking experience",
+      "gives": "RAW",
+      "note": "raw means green or untrained"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOER",
+      "WAR"
+     ],
+     "reversals": [
+      {
+       "from": "RAW",
+       "to": "WAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cruel but inexperienced soldier caught up in a war.",
+     "walkthrough": "The fighter is a BOXER with its central X removed.",
+     "definitionFit": "The Boer War was the conflict between Britain and the Afrikaner republics of southern Africa around 1900."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Heartless"
+    }
+   }
   },
   {
    "number": 9,
@@ -183,7 +616,51 @@
      }
     ]
    },
-   "solution": "WATERSKIING"
+   "solution": "WATERSKIING",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "WATER SKIING",
+    "definitions": [
+     {
+      "text": "sport",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Weirdly",
+      "for": "anagram",
+      "note": "done weirdly means done in a strange way, so the letters are set out in an odd new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "awe-striking",
+      "gives": "AWESTRIKING",
+      "note": "taken as written, hyphen ignored"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AWESTRIKING",
+       "gives": "WATERSKIING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some sport is strangely spectacular to watch.",
+     "walkthrough": "'Awe-striking' looks like a description of the sport, but its letters are the whole answer.",
+     "definitionFit": "Water skiing is a recreational activity where a person is towed across a lake on skis behind a motorboat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Weirdly"
+    }
+   }
   },
   {
    "number": 10,
@@ -197,7 +674,48 @@
     "text": "Bit of quiet on a podcast",
     "enumeration": "5"
    },
-   "solution": "PIECE"
+   "solution": "PIECE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "PIECE",
+    "definitions": [
+     {
+      "text": "Bit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on a podcast",
+      "for": "homophone",
+      "note": "a podcast is listened to rather than read, so the word is taken by its sound"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quiet",
+      "gives": "PIECE",
+      "soundsLike": "PEACE",
+      "note": "peace means quiet or calm"
+     }
+    ],
+    "explanation": {
+     "surface": "A short silent stretch in an audio show.",
+     "walkthrough": "'Bit of quiet' reads as one phrase meaning a pause, but the first word is the definition.",
+     "definitionFit": "A piece is a portion or fragment of something, the same as a bit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "podcast"
+    }
+   }
   },
   {
    "number": 11,
@@ -211,7 +729,51 @@
     "text": "What magnificent mum does, everybody repeats",
     "enumeration": "11"
    },
-   "solution": "ALLITERATES"
+   "solution": "ALLITERATES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ALLITERATES",
+    "definitions": [
+     {
+      "text": "What magnificent mum does",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "everybody",
+      "gives": "ALL",
+      "note": "everybody means all"
+     },
+     {
+      "clueFragment": "repeats",
+      "gives": "ITERATES",
+      "note": "to iterate is to repeat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALL",
+      "ITERATES"
+     ]
+    },
+    "explanation": {
+     "surface": "Everyone keeps telling you what their wonderful mother gets up to.",
+     "walkthrough": "The definition is a playful example: 'magnificent mum' starts both words with M.",
+     "definitionFit": "Words that begin with the same sound, as in 'magnificent mum', show the figure of speech called alliteration."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "mum"
+    }
+   }
   },
   {
    "number": 12,
@@ -225,7 +787,47 @@
     "text": "Added software programme shut down",
     "enumeration": "8"
    },
-   "solution": "APPENDED"
+   "solution": "APPENDED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "APPENDED",
+    "definitions": [
+     {
+      "text": "Added",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "software programme",
+      "gives": "APP",
+      "note": "an app is a software application"
+     },
+     {
+      "clueFragment": "shut down",
+      "gives": "ENDED",
+      "note": "to shut down something is to end it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "APP",
+      "ENDED"
+     ]
+    },
+    "explanation": {
+     "surface": "A newly installed program caused the computer to crash.",
+     "walkthrough": "'Shut down' suggests a computer turning off, but here it simply means finished.",
+     "definitionFit": "To append is to attach something at the end, so appended means joined on as an addition."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Added"
+    }
+   }
   },
   {
    "number": 13,
@@ -245,7 +847,56 @@
      }
     ]
    },
-   "solution": "KIAORA"
+   "solution": "KIAORA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "KIA ORA",
+    "definitions": [
+     {
+      "text": "Greeting",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "every now and then",
+      "for": "letter_selection",
+      "note": "something that happens every now and then is intermittent, so only every other letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "king",
+      "gives": "K",
+      "note": "K is the chess abbreviation for king"
+     },
+     {
+      "clueFragment": "in a doorway",
+      "gives": "IAORA",
+      "select": "alternate",
+      "note": "first, third, fifth, seventh and ninth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "IAORA"
+     ]
+    },
+    "explanation": {
+     "surface": "A monarch occasionally greets visitors from his doorway.",
+     "walkthrough": "'In' looks like a link placing the king, but it is part of the letter string. KIA ORA is a Maori greeting used across New Zealand.",
+     "definitionFit": "Kia ora is a Maori salutation meaning roughly 'be well', used in New Zealand as hello."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 14,
@@ -259,7 +910,62 @@
     "text": "One feels soldier maybe upset the Queen at some point",
     "enumeration": "7"
    },
-   "solution": "ANTENNA"
+   "solution": "ANTENNA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ANTENNA",
+    "definitions": [
+     {
+      "text": "One feels",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down entry, to upset is to tip over, so the letters read upwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soldier maybe",
+      "gives": "ANT",
+      "note": "a soldier is a caste of ant; 'maybe' marks the example"
+     },
+     {
+      "clueFragment": "the Queen at some point",
+      "gives": "ANNE",
+      "note": "Anne was Queen of Great Britain in the early 1700s"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANT",
+      "ENNA"
+     ],
+     "reversals": [
+      {
+       "from": "ANNE",
+       "to": "ENNA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier is said to have upset the monarch on some occasion.",
+     "walkthrough": "'Soldier' suggests an army, but soldier ants are a class of insect. 'One feels' reads as 'someone thinks', yet means a thing that feels.",
+     "definitionFit": "An antenna is an insect's feeler, an organ used for touch and sensing its surroundings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "feels"
+    }
+   }
   },
   {
    "number": 15,
@@ -279,7 +985,58 @@
      }
     ]
    },
-   "solution": "SLIPUP"
+   "solution": "SLIPUP",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "SLIP UP",
+    "definitions": [
+     {
+      "text": "make mistakes",
+      "at": 20,
+      "note": "plural verb; the answer is the base form, which fits"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "to turn about is to face the opposite way, so the letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Schoolkids",
+      "gives": "PUPILS",
+      "note": "school children are pupils"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SLIPUP"
+     ],
+     "reversals": [
+      {
+       "from": "PUPILS",
+       "to": "SLIPUP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Children at school are on the verge of getting things wrong.",
+     "walkthrough": "'About to' reads as 'on the point of', but the first word turns the pupils round and the second is a link.",
+     "definitionFit": "To slip up is an idiom for making a careless error."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 16,
@@ -293,7 +1050,64 @@
     "text": "Story time incorporating book and iPad?",
     "enumeration": "6"
    },
-   "solution": "TABLET"
+   "solution": "TABLET",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "TABLET",
+    "definitions": [
+     {
+      "text": "iPad?",
+      "at": 34,
+      "note": "an example, flagged by the question mark"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "incorporating",
+      "for": "container",
+      "note": "to incorporate is to take something into the body of a thing, so one piece goes inside"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Story",
+      "gives": "TALE",
+      "note": "a tale is a story"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "book",
+      "gives": "B",
+      "note": "B is the abbreviation for book"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TA",
+      "B",
+      "LET"
+     ]
+    },
+    "explanation": {
+     "surface": "Storytime that uses both a printed book and a touchscreen device.",
+     "walkthrough": "The story and the time join first, and the book goes into that string. The question mark warns that the iPad is just one example.",
+     "definitionFit": "An iPad is Apple's brand of flat touchscreen computer, the best-known example of that category of device."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 17,
@@ -317,7 +1131,47 @@
      }
     ]
    },
-   "solution": "TAKEACHANCE"
+   "solution": "TAKEACHANCE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TAKE A CHANCE",
+    "definitions": [
+     {
+      "text": "Pick up certain card in Monopoly",
+      "at": 0
+     },
+     {
+      "text": "choose Risk",
+      "at": 36
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pick up certain card in Monopoly",
+      "note": "first meaning: draw one of the board game's Chance cards"
+     },
+     {
+      "clueFragment": "choose Risk",
+      "note": "second meaning: opt to gamble"
+     }
+    ],
+    "explanation": {
+     "surface": "Game night: draw a Monopoly card or play the board game Risk instead.",
+     "walkthrough": "Risk is capitalised to pose as another board game, but it is simply the noun. Monopoly has a pile of cards labelled Chance.",
+     "definitionFit": "Drawing from Monopoly's Chance pile is literally taking one; figuratively the phrase means to gamble on an uncertain outcome."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Risk"
+    }
+   }
   },
   {
    "number": 18,
@@ -331,7 +1185,57 @@
     "text": "Relative from Greece infrequently heading north",
     "enumeration": "5"
    },
-   "solution": "NIECE"
+   "solution": "NIECE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "NIECE",
+    "definitions": [
+     {
+      "text": "Relative",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from",
+      "for": "hidden_word",
+      "note": "taken from means extracted out of the words that follow"
+     },
+     {
+      "text": "heading north",
+      "for": "reversal",
+      "note": "in a down entry, going north means travelling upwards, so the letters read bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Greece infrequently",
+      "gives": "ECEIN",
+      "note": "the run of letters spanning the two words"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "ECEIN",
+       "to": "NIECE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A family member who rarely travels up from Greece.",
+     "walkthrough": "'Infrequently' looks like an alternate-letter signal, but it only supplies letters for the hidden run.",
+     "definitionFit": "A niece is a family member, the daughter of one's brother or sister."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "infrequently"
+    }
+   }
   },
   {
    "number": 19,
@@ -345,7 +1249,62 @@
     "text": "Dull noise so endlessly deafening at first",
     "enumeration": "4"
    },
-   "solution": "THUD"
+   "solution": "THUD",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "THUD",
+    "definitions": [
+     {
+      "text": "Dull noise",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endlessly",
+      "for": "deletion",
+      "note": "without an end means the final letter is dropped"
+     },
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first points to the opening letter only"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "so",
+      "gives": "THU",
+      "note": "thus means so; lose its last letter"
+     },
+     {
+      "clueFragment": "deafening",
+      "gives": "D",
+      "select": "first",
+      "note": "opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THU",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A muffled sound that was ear-splitting to begin with.",
+     "walkthrough": "'So' is the tiny word to expand: THUS is a formal synonym.",
+     "definitionFit": "A thud is a low, heavy sound like that of something falling onto a soft surface."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "deafening"
+    }
+   }
   },
   {
    "number": 20,
@@ -359,7 +1318,44 @@
     "text": "Language with individual cases",
     "enumeration": "5"
    },
-   "solution": "HINDI"
+   "solution": "HINDI",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "HINDI",
+    "definitions": [
+     {
+      "text": "Language",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cases",
+      "for": "hidden_word",
+      "note": "a case holds something inside it, so the words here enclose the letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "with individual",
+      "gives": "HINDI",
+      "note": "the letters run across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A language with separate grammatical cases.",
+     "walkthrough": "'Cases' suggests grammar, which suits a language, but it is a verb: the words encase the answer.",
+     "definitionFit": "Hindi is a major tongue of India, one of the country's official languages."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cases"
+    }
+   }
   },
   {
    "number": 21,
@@ -379,7 +1375,39 @@
      }
     ]
    },
-   "solution": "LIPREAD"
+   "solution": "LIPREAD",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "LIP READ",
+    "definitions": [
+     {
+      "text": "Look to comprehend what others are saying?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Look to comprehend what others are saying?",
+      "note": "surface reading: try hard to understand someone's meaning"
+     },
+     {
+      "clueFragment": "Look",
+      "note": "setter's reading: literally use the eyes, watching mouths, to follow speech"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests making an effort to understand an argument; the cryptic sense is understanding speech by sight.",
+     "definitionFit": "Deaf people often follow conversation by watching the movements of a speaker's mouth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Look"
+    }
+   }
   },
   {
    "number": 22,
@@ -393,7 +1421,82 @@
     "text": "Suspect thug in back yard is affected by wind",
     "enumeration": "8"
    },
-   "solution": "DRAUGHTY"
+   "solution": "DRAUGHTY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "reversal",
+     "container"
+    ],
+    "answer": "DRAUGHTY",
+    "definitions": [
+     {
+      "text": "affected by wind",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Suspect",
+      "for": "anagram",
+      "note": "something suspect is dodgy and not as it appears, so the letters are rearranged"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means travelling the opposite way, so the letters run backwards"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "to be in something is to sit inside it"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "thug",
+      "gives": "THUG",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "yard",
+      "gives": "YARD",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DRA",
+      "UGHT",
+      "Y"
+     ],
+     "anagrams": [
+      {
+       "fodder": "THUG",
+       "gives": "UGHT"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "YARD",
+       "to": "DRAY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shady character lurking in the back yard is blown about by the wind.",
+     "walkthrough": "'Back yard' looks like the garden behind a house, but 'back' turns the yard round. 'Suspect' is an adjective, not the person.",
+     "definitionFit": "A draughty room or place is exposed to cold currents of air, so it is troubled by wind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 23,
@@ -407,7 +1510,59 @@
     "text": "Payment finally agreed for satellite broadcast, perhaps",
     "enumeration": "4"
    },
-   "solution": "FEED"
+   "solution": "FEED",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "FEED",
+    "definitions": [
+     {
+      "text": "satellite broadcast, perhaps",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally means at the end, so only the closing letter is kept"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Payment",
+      "gives": "FEE",
+      "note": "a fee is a payment for a service"
+     },
+     {
+      "clueFragment": "agreed",
+      "gives": "D",
+      "select": "last",
+      "note": "closing letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FEE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A fee is at last settled for a satellite TV transmission.",
+     "walkthrough": "'Perhaps' marks the satellite broadcast as one example of the answer.",
+     "definitionFit": "A feed is a signal or stream of programming supplied to broadcasters, often relayed by satellite."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Payment"
+    }
+   }
   }
  ]
 }
