@@ -23,6 +23,9 @@
   "date": "2026-06-10",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,63 @@
     "text": "A Bovril, if stirred, source of nutritious vitamin",
     "enumeration": "10"
    },
-   "solution": "RIBOFLAVIN"
+   "solution": "RIBOFLAVIN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "RIBOFLAVIN",
+    "definitions": [
+     {
+      "text": "vitamin",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stirred",
+      "for": "anagram",
+      "note": "stirring mixes the contents of a pot, so these letters are jumbled into a new order"
+     },
+     {
+      "text": "source of",
+      "for": "letter_selection",
+      "note": "a source is where something starts, so only the opening letter of the next word is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A Bovril, if",
+      "gives": "ABOVRILIF",
+      "note": "the letters taken as written, ready to be mixed"
+     },
+     {
+      "clueFragment": "nutritious",
+      "gives": "N",
+      "select": "first",
+      "note": "the first letter of this word"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ABOVRILIFN",
+       "gives": "RIBOFLAVIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stirring a mug of Bovril, the beef-extract drink, is told it is a source of a nutritious vitamin.",
+     "walkthrough": "Bovril is a salty British meat-extract paste made into a hot drink. 'If' looks like a conjunction but is just two more letters of the fodder.",
+     "definitionFit": "Riboflavin is the chemical name for vitamin B2, so it is a specific example of a vitamin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "if"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +109,48 @@
     "text": "Expensive watch missing last part",
     "enumeration": "4"
    },
-   "solution": "ROLE"
+   "solution": "ROLE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ROLE",
+    "definitions": [
+     {
+      "text": "part",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "missing last",
+      "for": "deletion",
+      "note": "missing something means lacking it, so the final letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Expensive watch",
+      "gives": "ROLEX",
+      "note": "a famous luxury Swiss watch brand"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A pricey wristwatch has lost one of its components.",
+     "walkthrough": "'Last part' reads as one phrase, but 'last' belongs to the deletion and 'part' is the definition on its own.",
+     "definitionFit": "An actor's role is the part played in a production, so the two are everyday synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "part"
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +164,47 @@
     "text": "Talked spitefully about support section",
     "enumeration": "7"
    },
-   "solution": "BACKBIT"
+   "solution": "BACKBIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BACKBIT",
+    "definitions": [
+     {
+      "text": "Talked spitefully about",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "support",
+      "gives": "BACK",
+      "note": "to back someone is to support them"
+     },
+     {
+      "clueFragment": "section",
+      "gives": "BIT",
+      "note": "a bit is a piece or section"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BACK",
+      "BIT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone spoke nastily about a part of a support structure, or a group of supporters.",
+     "walkthrough": "'About' looks like a container or link word, but it belongs to the definition, which needs it to be transitive.",
+     "definitionFit": "To backbite is to speak maliciously of someone absent; its past tense matches 'talked spitefully about'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 3,
@@ -84,7 +224,48 @@
      }
     ]
    },
-   "solution": "FRENCHCRICKET"
+   "solution": "FRENCHCRICKET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FRENCH CRICKET",
+    "definitions": [
+     {
+      "text": "leg protection is essential here",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Continental",
+      "gives": "FRENCH",
+      "note": "from the European continent, here France"
+     },
+     {
+      "clueFragment": "insect",
+      "gives": "CRICKET",
+      "note": "a chirping, jumping insect"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FRENCH",
+      "CRICKET"
+     ]
+    },
+    "explanation": {
+     "surface": "A European bug is introduced, followed by a remark that shin guards are vital somewhere.",
+     "walkthrough": "French cricket is a children's garden game in which the batter's legs act as the wicket, so the bat must guard them.",
+     "definitionFit": "In this informal game the ball must not strike the batter's legs below the knee, so defending the lower limbs is the whole point."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "insect"
+    }
+   }
   },
   {
    "number": 4,
@@ -98,7 +279,69 @@
     "text": "Saw leaders in Home Office grabbed by a solid figure",
     "enumeration": "8"
    },
-   "solution": "APHORISM"
+   "solution": "APHORISM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "APHORISM",
+    "definitions": [
+     {
+      "text": "Saw",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaders in",
+      "for": "letter_selection",
+      "note": "leaders go at the front, so only the opening letters of the following words count"
+     },
+     {
+      "text": "grabbed by",
+      "for": "container",
+      "note": "whatever is grabbed is held inside the grabber's grip, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "solid figure",
+      "gives": "PRISM",
+      "note": "a prism is a three-dimensional geometric solid"
+     },
+     {
+      "clueFragment": "Home Office",
+      "gives": "HO",
+      "select": "first",
+      "note": "the initials of the British government department"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "P",
+      "HO",
+      "RISM"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone saw the senior figures of the Home Office, the UK interior ministry, held by a stout person.",
+     "walkthrough": "'Saw' looks like the past tense of see, but it is the noun meaning an old saying.",
+     "definitionFit": "A saw is a traditional proverb or maxim, and an aphorism is a short pithy statement of general truth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Saw"
+    }
+   }
   },
   {
    "number": 5,
@@ -112,7 +355,62 @@
     "text": "Test side batting: 501 latest from Kolkata",
     "enumeration": "5"
    },
-   "solution": "INDIA"
+   "solution": "INDIA",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "INDIA",
+    "definitions": [
+     {
+      "text": "Test side",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "latest from",
+      "for": "letter_selection",
+      "note": "the latest of anything is its most recent or final one, so the closing letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "batting",
+      "gives": "IN",
+      "note": "a batter currently batting is said to be in"
+     },
+     {
+      "clueFragment": "501",
+      "gives": "DI",
+      "note": "Roman numerals: D is 500 and I is 1"
+     },
+     {
+      "clueFragment": "Kolkata",
+      "gives": "A",
+      "select": "last",
+      "note": "the final letter of the city's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "DI",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket score update: a Test team batting has reached 501, with the latest news from Kolkata.",
+     "walkthrough": "A Test is an international cricket match; 501 looks like a cricket score but is split into Roman numerals.",
+     "definitionFit": "The national cricket team of that country plays Test matches, so it is a Test-playing side."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "501"
+    }
+   }
   },
   {
    "number": 6,
@@ -126,7 +424,52 @@
     "text": "Reptile starts to chew really old carrion",
     "enumeration": "4"
    },
-   "solution": "CROC"
+   "solution": "CROC",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "CROC",
+    "definitions": [
+     {
+      "text": "Reptile",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts to",
+      "for": "letter_selection",
+      "note": "starts are beginnings, so the opening letter of each following word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chew really old carrion",
+      "gives": "CROC",
+      "select": "first",
+      "note": "the first letter of each of the four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "R",
+      "O",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "A reptile begins to chomp on rotting, very old carcass meat.",
+     "walkthrough": "'Starts to chew' reads as beginning to eat, but 'starts' covers all four words that follow.",
+     "definitionFit": "This is the short informal name for a crocodile, a large scaly reptile."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "starts"
+    }
+   }
   },
   {
    "number": 7,
@@ -140,7 +483,57 @@
     "text": "Government plane, MiG, erratically circles about",
     "enumeration": "7"
    },
-   "solution": "REGIMEN"
+   "solution": "REGIMEN",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "REGIMEN",
+    "definitions": [
+     {
+      "text": "Government",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "circles",
+      "for": "hidden_word",
+      "note": "to circle something is to surround it, so the run of text encloses the letters wanted"
+     },
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "turning about means facing the other way, so the letters are read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "plane, MiG, erratically",
+      "gives": "NEMIGER",
+      "note": "a run of letters straddling the three words"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "NEMIGER",
+       "to": "REGIMEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A government aircraft, a Russian fighter, flies in wild loops.",
+     "walkthrough": "'Erratically' looks like an anagram signal, but it only supplies two letters at the end of the hidden run, read from right to left.",
+     "definitionFit": "Regimen in its older sense means rule or a system of governing, though today it usually means a regulated plan such as a diet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "erratically"
+    }
+   }
   },
   {
    "number": 8,
@@ -154,7 +547,54 @@
     "text": "The King put on a lot of weight in US city",
     "enumeration": "10"
    },
-   "solution": "CHARLESTON"
+   "solution": "CHARLESTON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHARLESTON",
+    "definitions": [
+     {
+      "text": "US city",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put on",
+      "for": "charade",
+      "note": "to put something on is to add it, so one piece is attached to the next"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The King",
+      "gives": "CHARLES",
+      "note": "the current British monarch, King Charles III"
+     },
+     {
+      "clueFragment": "a lot of weight",
+      "gives": "TON",
+      "note": "a ton is a large unit of weight"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHARLES",
+      "TON"
+     ]
+    },
+    "explanation": {
+     "surface": "The monarch gained a great deal of weight while visiting an American city.",
+     "walkthrough": "'Put on a lot of weight' reads as getting fat; 'put on' simply attaches the weight after the King.",
+     "definitionFit": "Charleston is a historic port in South Carolina, and also the capital of West Virginia."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "put"
+    }
+   }
   },
   {
    "number": 9,
@@ -168,7 +608,55 @@
     "text": "Tempt banks about wealth",
     "enumeration": "5"
    },
-   "solution": "LUCRE"
+   "solution": "LUCRE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LUCRE",
+    "definitions": [
+     {
+      "text": "wealth",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "banks",
+      "for": "container",
+      "note": "banks line both sides of a river, so one piece sits on either side of another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tempt",
+      "gives": "LURE",
+      "note": "to lure is to tempt or entice"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "c is short for circa, Latin for about"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LU",
+      "C",
+      "RE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tempts banks with the promise of riches.",
+     "walkthrough": "'Banks' looks like financial institutions, fitting 'wealth', but it is a verb here: the first word's letters flank the second's.",
+     "definitionFit": "Lucre is money or profit, usually with a disapproving tone, as in 'filthy lucre'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "banks"
+    }
+   }
   },
   {
    "number": 10,
@@ -182,7 +670,45 @@
     "text": "Park warden discussed plant",
     "enumeration": "9"
    },
-   "solution": "HYDRANGEA"
+   "solution": "HYDRANGEA",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "HYDRANGEA",
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "discussed",
+      "for": "homophone",
+      "note": "something discussed is spoken about, so the words are heard rather than read"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Park warden",
+      "gives": "HYDRANGEA",
+      "soundsLike": "HYDE RANGER",
+      "note": "Hyde Park is in London and a ranger is a park warden"
+     }
+    ],
+    "explanation": {
+     "surface": "A park keeper talked about some vegetation.",
+     "walkthrough": "Hyde Park is a large royal park in central London; its warden would be a ranger. Said in a non-rhotic British accent, the two run together.",
+     "definitionFit": "This is a flowering garden shrub with large rounded heads of blue, pink or white blooms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Park"
+    }
+   }
   },
   {
    "number": 11,
@@ -202,7 +728,62 @@
      }
     ]
    },
-   "solution": "ACCIDENTPRONE"
+   "solution": "ACCIDENTPRONE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ACCIDENT-PRONE",
+    "definitions": [
+     {
+      "text": "Clumsy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "collecting",
+      "for": "container",
+      "note": "to collect something is to gather it in, so one piece takes another inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Geordie perhaps",
+      "gives": "ACCENT",
+      "note": "a Geordie is someone from Newcastle, known for a distinctive way of speaking"
+     },
+     {
+      "clueFragment": "papers",
+      "gives": "ID",
+      "note": "identity papers, ID for short"
+     },
+     {
+      "clueFragment": "lying on the floor",
+      "gives": "PRONE",
+      "note": "lying face down"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ACC",
+      "ID",
+      "ENT",
+      "PRONE"
+     ]
+    },
+    "explanation": {
+     "surface": "A clumsy man from Newcastle picks up newspapers strewn on the floor.",
+     "walkthrough": "'Perhaps' marks an example: a Geordie accent is one kind of accent. 'Papers' suggests newspapers but means identity documents.",
+     "definitionFit": "Someone who keeps having mishaps through awkwardness is clumsy, so the compound adjective is a close synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "papers"
+    }
+   }
   },
   {
    "number": 12,
@@ -222,7 +803,65 @@
      }
     ]
    },
-   "solution": "BACTRIANCAMEL"
+   "solution": "BACTRIANCAMEL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BACTRIAN CAMEL",
+    "definitions": [
+     {
+      "text": "one getting the hump",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Silly",
+      "for": "anagram",
+      "note": "silly means foolish or nonsensical, so these letters are jumbled into a new order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "act",
+      "gives": "ACT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "balancer",
+      "gives": "BALANCER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "I’m",
+      "gives": "IM",
+      "note": "taken as written, apostrophe dropped"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ACTBALANCERIM",
+       "gives": "BACTRIANCAMEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A circus balancing performer's routine is mocked as silly, and they say it puts them in a sulk.",
+     "walkthrough": "'I’m' looks like part of the speaker's sentence but adds its letters to the mix. In British slang, to get the hump is to get annoyed.",
+     "definitionFit": "This two-humped Asian camel literally acquires humps, punning on the British idiom for becoming grumpy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hump"
+    }
+   }
   },
   {
    "number": 13,
@@ -236,7 +875,67 @@
     "text": "Rigid line FBI applied around law",
     "enumeration": "10"
    },
-   "solution": "INFLEXIBLE"
+   "solution": "INFLEXIBLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "INFLEXIBLE",
+    "definitions": [
+     {
+      "text": "Rigid",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "applied",
+      "for": "anagram",
+      "note": "something applied is put to work in a new way, so these letters are reworked into a fresh order"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means surrounding, so one piece wraps another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "line FBI",
+      "gives": "LINEFBI",
+      "note": "the letters taken as written, ready to be rearranged"
+     },
+     {
+      "clueFragment": "law",
+      "gives": "LEX",
+      "note": "lex is Latin for law"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INF",
+      "LEX",
+      "IBLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LINEFBI",
+       "gives": "INFIBLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The FBI took a hard line in enforcing the law.",
+     "walkthrough": "'Line' and 'Rigid' look like they belong together, but 'line' is fodder for the rearrangement.",
+     "definitionFit": "Both words describe something stiff that will not bend, or a person unwilling to change their mind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "applied"
+    }
+   }
   },
   {
    "number": 14,
@@ -250,7 +949,61 @@
     "text": "Famous college backed legal action – there’s money in it",
     "enumeration": "8"
    },
-   "solution": "NOTECASE"
+   "solution": "NOTECASE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "NOTECASE",
+    "definitions": [
+     {
+      "text": "there’s money in it",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backed",
+      "for": "reversal",
+      "note": "going backwards means heading the other way, so the letters run from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Famous college",
+      "gives": "ETON",
+      "note": "Eton is a well-known English public school"
+     },
+     {
+      "clueFragment": "legal action",
+      "gives": "CASE",
+      "note": "a lawsuit is a case"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOTE",
+      "CASE"
+     ],
+     "reversals": [
+      {
+       "from": "ETON",
+       "to": "NOTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A posh school supports a lawsuit, because there is cash to be made from it.",
+     "walkthrough": "'Backed' seems to mean supported, but it turns the school round. Eton College is the famous boarding school near Windsor.",
+     "definitionFit": "A notecase is an old-fashioned British word for a wallet, which holds banknotes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "backed"
+    }
+   }
   },
   {
    "number": 15,
@@ -264,7 +1017,53 @@
     "text": "Area Mafia boss is a good-looking lad",
     "enumeration": "6"
    },
-   "solution": "ADONIS"
+   "solution": "ADONIS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADONIS",
+    "definitions": [
+     {
+      "text": "good-looking lad",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Area",
+      "gives": "A",
+      "note": "A is the standard abbreviation for area"
+     },
+     {
+      "clueFragment": "Mafia boss",
+      "gives": "DON",
+      "note": "the usual title for the head of a Mafia family"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "DON",
+      "IS"
+     ]
+    },
+    "explanation": {
+     "surface": "The local crime boss is described as a handsome young man.",
+     "walkthrough": "'Is' looks like the link to the definition, but it supplies the final letters, so there is no link word.",
+     "definitionFit": "In Greek myth Adonis was a beautiful youth loved by Aphrodite, so his name stands for any handsome young man."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "is"
+    }
+   }
   },
   {
    "number": 16,
@@ -284,7 +1083,52 @@
      }
     ]
    },
-   "solution": "SEWERRAT"
+   "solution": "SEWERRAT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SEWER RAT",
+    "definitions": [
+     {
+      "text": "Tube pest",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "suspect",
+      "for": "anagram",
+      "note": "something suspect is dubious or not right, so these letters are out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "We arrest",
+      "gives": "WEARREST",
+      "note": "the letters taken as written, ready to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WEARREST",
+       "gives": "SEWERRAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Police announce they are detaining a suspected nuisance on the London Underground.",
+     "walkthrough": "'Suspect' looks like a noun for the person arrested, but it is an adjective signalling the mix. The Tube is London's Underground; here a tube is any pipe.",
+     "definitionFit": "This brown rodent lives in drains and pipes, so it is a pest found in tubes underground."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "suspect"
+    }
+   }
   },
   {
    "number": 17,
@@ -298,7 +1142,39 @@
     "text": "Dog star?",
     "enumeration": "6"
    },
-   "solution": "LASSIE"
+   "solution": "LASSIE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "LASSIE",
+    "definitions": [
+     {
+      "text": "Dog star?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dog star?",
+      "note": "surface reading: Sirius, the bright star in the constellation Canis Major"
+     },
+     {
+      "clueFragment": "Dog star?",
+      "note": "setter's reading: a canine that is a celebrity, the collie of film and television fame"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The Dog Star is the astronomical name for Sirius; the question mark tells you to read it as a famous dog instead.",
+     "definitionFit": "The rough collie from the 1943 film and long-running TV series is the best-known canine screen celebrity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "star"
+    }
+   }
   },
   {
    "number": 18,
@@ -312,7 +1188,61 @@
     "text": "Ryman’s first to carry main item of office equipment",
     "enumeration": "7"
    },
-   "solution": "STAPLER"
+   "solution": "STAPLER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "STAPLER",
+    "definitions": [
+     {
+      "text": "item of office equipment",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first means the leading one, so only the opening letter of the word is used"
+     },
+     {
+      "text": "to carry",
+      "for": "charade",
+      "note": "a carrier bears a load on its back, so one piece is set after the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "main",
+      "gives": "STAPLE",
+      "note": "staple as an adjective means chief or principal"
+     },
+     {
+      "clueFragment": "Ryman’s",
+      "gives": "R",
+      "select": "first",
+      "note": "the opening letter of the shop's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAPLE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "The stationery chain's top priority is to stock its principal office product.",
+     "walkthrough": "Ryman is a British high-street stationery chain, which makes the surface apt. 'Main item' looks like one phrase; 'main' belongs to the wordplay.",
+     "definitionFit": "A desk device that drives wire fasteners through paper is a standard piece of office kit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "main"
+    }
+   }
   },
   {
    "number": 19,
@@ -326,7 +1256,67 @@
     "text": "Leg breaking ordeal tormented Italian genius",
     "enumeration": "8"
    },
-   "solution": "LEONARDO"
+   "solution": "LEONARDO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "LEONARDO",
+    "definitions": [
+     {
+      "text": "Italian genius",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tormented",
+      "for": "anagram",
+      "note": "something tormented is twisted in agony, so these letters are wrenched into a new order"
+     },
+     {
+      "text": "breaking",
+      "for": "container",
+      "note": "breaking into something means getting inside it, so one piece is placed within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ordeal",
+      "gives": "ORDEAL",
+      "note": "the letters taken as written, ready to be rearranged"
+     },
+     {
+      "clueFragment": "Leg",
+      "gives": "ON",
+      "note": "in cricket the leg side is also called the on side"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LE",
+      "ON",
+      "ARDO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ORDEAL",
+       "gives": "LEARDO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone suffered a terrible broken-leg ordeal and a tortured Italian genius endured it.",
+     "walkthrough": "'Leg breaking' reads as a fracture, but it is a cricket term: the leg side of the field is the on side.",
+     "definitionFit": "Leonardo da Vinci, painter, inventor and scientist of the Renaissance, is the archetypal Italian polymath."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Leg"
+    }
+   }
   },
   {
    "number": 20,
@@ -340,7 +1330,62 @@
     "text": "Engineers can uncouple empty train",
     "enumeration": "7"
    },
-   "solution": "RETINUE"
+   "solution": "RETINUE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "RETINUE",
+    "definitions": [
+     {
+      "text": "train",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "empty",
+      "for": "letter_selection",
+      "note": "an empty container has nothing inside, so only the outer letters remain"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Engineers",
+      "gives": "RE",
+      "note": "the Royal Engineers, a British army corps"
+     },
+     {
+      "clueFragment": "can",
+      "gives": "TIN",
+      "note": "a tin is a can"
+     },
+     {
+      "clueFragment": "uncouple",
+      "gives": "UE",
+      "select": "outer",
+      "note": "the first and last letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "TIN",
+      "UE"
+     ]
+    },
+    "explanation": {
+     "surface": "Railway engineers are able to detach the carriages of an empty train.",
+     "walkthrough": "'Train' and 'uncouple' paint a railway; 'train' is in fact the line of followers behind a dignitary.",
+     "definitionFit": "A retinue is the group of attendants following an important person, which is one sense of a train."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "train"
+    }
+   }
   },
   {
    "number": 21,
@@ -368,7 +1413,73 @@
      }
     ]
    },
-   "solution": "XMARKSTHESPOT"
+   "solution": "XMARKSTHESPOT",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "X MARKS THE SPOT",
+    "definitions": [
+     {
+      "text": "phrase from Treasure Island",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning",
+      "for": "reversal",
+      "note": "turning round faces the other way, so these letters are read from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "10",
+      "gives": "X",
+      "note": "X is the Roman numeral for ten"
+     },
+     {
+      "clueFragment": "points",
+      "gives": "MARKS",
+      "note": "marks are points scored in a test"
+     },
+     {
+      "clueFragment": "actor",
+      "gives": "THESP",
+      "note": "a thesp is short for thespian, an actor"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "X",
+      "MARKS",
+      "THESP",
+      "OT"
+     ],
+     "reversals": [
+      {
+       "from": "TO",
+       "to": "OT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A critic awards ten points to an actor who turns to a line from Stevenson's pirate novel.",
+     "walkthrough": "'10' looks like a cross-reference to another clue or a score, but it is a Roman numeral; 'turning' reverses only the little word after it.",
+     "definitionFit": "The saying about a cross on a treasure map is popularly associated with the pirate adventure, so it counts as a phrase from the book."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "10"
+    }
+   }
   },
   {
    "number": 22,
@@ -382,7 +1493,49 @@
     "text": "Absorbent cloth – keep changing hands",
     "enumeration": "5"
    },
-   "solution": "TOWEL"
+   "solution": "TOWEL",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "TOWEL",
+    "definitions": [
+     {
+      "text": "Absorbent cloth",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changing hands",
+      "for": "substitution",
+      "note": "hands are right and left, so one of those letters is swapped for the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "keep",
+      "gives": "TOWER",
+      "note": "a keep is the main tower of a castle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOWE",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A cloth that soaks up water keeps being passed from person to person.",
+     "walkthrough": "'Changing hands' usually means changing owner; here the R (right) at the end is replaced by L (left).",
+     "definitionFit": "A towel is a piece of thick fabric used for drying, so it is literally an absorbent cloth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "keep"
+    }
+   }
   },
   {
    "number": 23,
@@ -396,7 +1549,61 @@
     "text": "Exploit European article in newspaper",
     "enumeration": "4"
    },
-   "solution": "FEAT"
+   "solution": "FEAT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FEAT",
+    "definitions": [
+     {
+      "text": "Exploit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed inside, so these pieces go within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "the indefinite article"
+     },
+     {
+      "clueFragment": "newspaper",
+      "gives": "FT",
+      "note": "the Financial Times, a London business daily"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "E",
+      "A",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone takes advantage of a story about Europe printed in a paper.",
+     "walkthrough": "'Exploit' looks like a verb, but it is the noun meaning a daring deed.",
+     "definitionFit": "An exploit is a bold or remarkable achievement, which is exactly what a feat is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Exploit"
+    }
+   }
   },
   {
    "number": 24,
@@ -416,7 +1623,48 @@
      }
     ]
    },
-   "solution": "BELLTOWER"
+   "solution": "BELLTOWER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BELL TOWER",
+    "definitions": [
+     {
+      "text": "Campanile",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Call",
+      "gives": "BELL",
+      "note": "to give someone a bell is British slang for phoning them"
+     },
+     {
+      "clueFragment": "tug",
+      "gives": "TOWER",
+      "note": "a tug is a boat that tows, so it is a tower"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BELL",
+      "TOWER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone radios a harbour tugboat that happens to be named after an Italian bell tower.",
+     "walkthrough": "'Tug' must be read as a thing that tows; 'tower' here rhymes with 'mower', not 'flower'.",
+     "definitionFit": "Campanile is the Italian word, used in English, for a freestanding structure housing church bells."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tug"
+    }
+   }
   },
   {
    "number": 25,
@@ -430,7 +1678,52 @@
     "text": "Doorman when undressed is a unit",
     "enumeration": "5"
    },
-   "solution": "OUNCE"
+   "solution": "OUNCE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "OUNCE",
+    "definitions": [
+     {
+      "text": "unit",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "undressed",
+      "for": "deletion",
+      "note": "undressing strips off the outer layer, so the first and last letters are removed"
+     }
+    ],
+    "linkWords": [
+     "when",
+     "is a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Doorman",
+      "gives": "BOUNCER",
+      "note": "a bouncer guards the door of a club"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUNCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A nightclub doorman stripped of his uniform is just a member of a military unit.",
+     "walkthrough": "'Unit' hints at a soldier, but it is a unit of measurement.",
+     "definitionFit": "An ounce is an imperial measure of weight, about 28 grams, so it is a unit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "undressed"
+    }
+   }
   },
   {
    "number": 26,
@@ -444,7 +1737,49 @@
     "text": "Noble, tragic king left at the back",
     "enumeration": "4"
    },
-   "solution": "EARL"
+   "solution": "EARL",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "EARL",
+    "definitions": [
+     {
+      "text": "Noble",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "left at the back",
+      "for": "cycling",
+      "note": "L is short for left, and putting it at the back moves that letter from the front to the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tragic king",
+      "gives": "LEAR",
+      "note": "King Lear, Shakespeare's tragedy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EAR",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A noble, doomed monarch has been abandoned at the rear.",
+     "walkthrough": "'Left' looks like 'abandoned', but it identifies the letter that moves from the front of the king's name to the end.",
+     "definitionFit": "An earl is a British peer ranking below a marquess, so a member of the nobility."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 27,
@@ -468,7 +1803,43 @@
      }
     ]
    },
-   "solution": "ALLTHEBEST"
+   "solution": "ALLTHEBEST",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ALL THE BEST",
+    "definitions": [
+     {
+      "text": "Farewell",
+      "at": 0
+     },
+     {
+      "text": "greatest hits album",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Farewell",
+      "note": "first meaning: a parting good wish"
+     },
+     {
+      "clueFragment": "greatest hits album",
+      "note": "second meaning: a compilation of an artist's top songs"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags that the second meaning is playful: a compilation would literally contain every top track.",
+     "definitionFit": "The phrase is a common goodbye sign-off, and also a plausible title for a compilation of an artist's top tracks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Farewell"
+    }
+   }
   }
  ]
 }
