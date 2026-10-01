@@ -298,6 +298,7 @@
     "tools/acquire_book.py",
     "tools/file_penguin_puzzle.py",
     "tools/file_trove_puzzles.py",
+    "tools/file_archive_org_puzzles.py",
     "tools/file_times_puzzles.py",
     "tools/file_telegraph_puzzles.py",
     "tools/ft_puzzles.py",
@@ -869,6 +870,11 @@
     },
     "gridOrigin": {
      "$ref": "#/$defs/gridOrigin"
+    },
+    "reprintOf": {
+     "type": "string",
+     "pattern": "^times-[0-9]+$",
+     "description": "Canberra Times only: the London Times cryptic this reprints, matched by clue set (tools/file_archive_org_puzzles.py --match-canberra)."
     },
     "feedId": {
      "type": "string",
