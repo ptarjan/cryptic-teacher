@@ -24,6 +24,9 @@
   "date": "2024-01-17",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,42 @@
     "text": "Constant guest at iconic shows",
     "enumeration": "6"
    },
-   "solution": "STATIC"
+   "solution": "STATIC",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "STATIC",
+    "definitions": [
+     {
+      "text": "Constant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shows",
+      "for": "hidden_word",
+      "note": "to show something is to put it on display, so the clue words display a run of letters inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "guest at iconic",
+      "note": "the letters run consecutively across the end of the first word, all of the second and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "A regular visitor turns up at every famous show.",
+     "walkthrough": "'Constant guest' reads as one phrase about a frequent visitor, but 'Constant' alone is the definition and the guest is only part of the hiding place: gueST AT IConic.",
+     "definitionFit": "Static describes something unchanging or fixed, which is what constant means as an adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Constant"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +89,55 @@
     "text": "Difficulties avoiding eastern junks",
     "enumeration": "6"
    },
-   "solution": "SCRAPS"
+   "solution": "SCRAPS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SCRAPS",
+    "definitions": [
+     {
+      "text": "junks",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "avoiding",
+      "for": "deletion",
+      "note": "whatever is avoided is kept out, so one letter is left out of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Difficulties",
+      "gives": "SCRAPES",
+      "note": "a scrape is an awkward predicament, so difficulties are scrapes"
+     },
+     {
+      "clueFragment": "eastern",
+      "gives": "E",
+      "note": "E is the standard abbreviation for east or eastern"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCRAP",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Trouble is kept clear of the Chinese sailing boats in the harbour.",
+     "walkthrough": "'Eastern junks' paints Chinese sailing ships, but 'junks' is a verb meaning throws away. SCRAPES loses its E to leave SCRAPS.",
+     "definitionFit": "To scrap something is to discard it as useless, the same as to junk it; both verbs are third person singular."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "junks"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +151,69 @@
     "text": "Alien finally invading this galaxy could be Armageddon",
     "enumeration": "9"
    },
-   "solution": "ANDROMEDA"
+   "solution": "ANDROMEDA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ANDROMEDA",
+    "definitions": [
+     {
+      "text": "this galaxy",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the closing letter of the word it sits beside"
+     },
+     {
+      "text": "could be",
+      "for": "deletion",
+      "note": "the clue sets up an equation: the answer plus one letter could be the last word, so that letter must be taken away from it"
+     },
+     {
+      "text": "Alien",
+      "for": "anagram",
+      "note": "something alien is strange and unfamiliar, so the letters appear in an unfamiliar order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Armageddon",
+      "gives": "ARMAGEDDON",
+      "note": "the last word of the clue, taken as written"
+     },
+     {
+      "clueFragment": "invading",
+      "gives": "G",
+      "select": "last",
+      "note": "the final letter of this word"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ARMAEDDON",
+       "gives": "ANDROMEDA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "If an alien invaded our neighbouring galaxy it might mean the end of the world.",
+     "walkthrough": "A composite clue with the definition in the middle: the galaxy with G added could become Armageddon, so take G from ARMAGEDDON and rearrange the rest. Read as a whole, the sentence also describes an alien invasion.",
+     "definitionFit": "Andromeda is the large spiral galaxy nearest our Milky Way, so it is named here as a particular galaxy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Alien"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +227,64 @@
     "text": "Lady’s last to leave exterior pub areas for interior",
     "enumeration": "7"
    },
-   "solution": "INNARDS"
+   "solution": "INNARDS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "INNARDS",
+    "definitions": [
+     {
+      "text": "interior",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last",
+      "for": "letter_selection",
+      "note": "the last of a word is its final letter"
+     },
+     {
+      "text": "to leave",
+      "for": "deletion",
+      "note": "a letter that leaves goes out of the phrase and takes no part in the answer"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lady’s",
+      "gives": "Y",
+      "select": "last",
+      "note": "the final letter of the word, the 's marking possession"
+     },
+     {
+      "clueFragment": "exterior pub areas",
+      "gives": "INNYARDS",
+      "note": "the yards outside an inn are its outdoor areas"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INN",
+      "ARDS"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman heads out from the beer garden to drink inside instead.",
+     "walkthrough": "The surface suggests a drinker moving indoors; actually INN YARDS loses the Y at the end of 'Lady' to give INNARDS.",
+     "definitionFit": "Innards are the inner parts of a body or machine, so the word names the inside, the interior."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Lady’s"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +298,57 @@
     "text": "Improved film ratings with excellent edition",
     "enumeration": "8"
    },
-   "solution": "UPGRADED"
+   "solution": "UPGRADED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UPGRADED",
+    "definitions": [
+     {
+      "text": "Improved",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "film ratings",
+      "gives": "UPG",
+      "note": "U (universal) and PG (parental guidance) are British film certificates"
+     },
+     {
+      "clueFragment": "excellent",
+      "gives": "RAD",
+      "note": "rad is slang for excellent"
+     },
+     {
+      "clueFragment": "edition",
+      "gives": "ED",
+      "note": "ED is the abbreviation for edition"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "PG",
+      "RAD",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A film's ratings went up after a superb new release.",
+     "walkthrough": "U and PG are the British Board of Film Classification's two family-friendly certificates; RAD is American-flavoured slang for excellent.",
+     "definitionFit": "To upgrade something is to raise its standard, so a thing that has been upgraded has been made better."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "edition"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +362,82 @@
     "text": "Chaos over in slate mine plastered with mud",
     "enumeration": "11"
    },
-   "solution": "PANDEMONIUM"
+   "solution": "PANDEMONIUM",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram",
+     "container"
+    ],
+    "answer": "PANDEMONIUM",
+    "definitions": [
+     {
+      "text": "Chaos",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "plastered",
+      "for": "anagram",
+      "note": "plastered is slang for very drunk, and a drunk's letters lurch out of order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing placed in another sits inside it"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "slate",
+      "gives": "PAN",
+      "note": "to slate a show is to pan it, criticising it harshly"
+     },
+     {
+      "clueFragment": "mine",
+      "gives": "MINE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "mud",
+      "gives": "MUD",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O is the cricket scorer's abbreviation for an over"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAN",
+      "DEM",
+      "O",
+      "NIUM"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MINEMUD",
+       "gives": "DEMNIUM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bedlam breaks out in a slate quarry when the workings get caked in mud.",
+     "walkthrough": "'Slate mine' looks like a quarry, but slate is a verb meaning criticise, and the mine belongs with the mud as material to be jumbled, the over going inside.",
+     "definitionFit": "Pandemonium is wild uproar and disorder, a near-exact synonym of chaos in everyday use."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "slate"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +451,66 @@
     "text": "Cost to secure house with large entrance to living area",
     "enumeration": "7"
    },
-   "solution": "RATHOLE"
+   "solution": "RATHOLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "RATHOLE",
+    "definitions": [
+     {
+      "text": "entrance to living area",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to secure",
+      "for": "container",
+      "note": "to secure something is to hold it fast, so the outer word holds the others inside"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cost",
+      "gives": "RATE",
+      "note": "a rate is a charge or price"
+     },
+     {
+      "clueFragment": "house",
+      "gives": "HO",
+      "note": "HO is the abbreviation for house"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the clothing-size abbreviation for large"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAT",
+      "HO",
+      "L",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "The fee for a house with a grand doorway into the lounge.",
+     "walkthrough": "The surface reads like an estate agent's listing with a big entrance hall; the definition is a hole in the wall, the doorway to a rat's home.",
+     "definitionFit": "A rathole is the hole a rat uses to get into its nest, so it is the way into a rodent's home."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "entrance"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +524,55 @@
     "text": "Awe Romeo out of play receives",
     "enumeration": "5"
    },
-   "solution": "DREAD"
+   "solution": "DREAD",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DREAD",
+    "definitions": [
+     {
+      "text": "Awe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "receives",
+      "for": "container",
+      "note": "to receive is to take in, so one piece is taken inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "out of play",
+      "gives": "DEAD",
+      "note": "in ball games a dead ball is one out of play"
+     },
+     {
+      "clueFragment": "Romeo",
+      "gives": "R",
+      "note": "Romeo is R in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "R",
+      "EAD"
+     ]
+    },
+    "explanation": {
+     "surface": "Wonder that Romeo is cut from the play and the audience takes it well.",
+     "walkthrough": "'Romeo out of play' suggests a deletion from Shakespeare, but 'out of play' is one unit meaning DEAD, which takes in R.",
+     "definitionFit": "Dread is deep fear mixed with reverence, which overlaps with awe in its older sense of fearful respect."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +586,62 @@
     "text": "Extracting shelled crab parts having dinner",
     "enumeration": "8"
    },
-   "solution": "DRAINING"
+   "solution": "DRAINING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "DRAINING",
+    "definitions": [
+     {
+      "text": "Extracting",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shelled",
+      "for": "letter_selection",
+      "note": "a shelled creature has had its outside removed, so only the middle letters stay"
+     },
+     {
+      "text": "parts",
+      "for": "container",
+      "note": "to part something is to split it open, so one piece pushes into another and divides it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crab",
+      "gives": "RA",
+      "select": "middle",
+      "note": "the word without its outer letters"
+     },
+     {
+      "clueFragment": "having dinner",
+      "gives": "DINING",
+      "note": "having dinner is dining"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "RA",
+      "INING"
+     ]
+    },
+    "explanation": {
+     "surface": "Pulling the meat from a cracked crab while eating.",
+     "walkthrough": "'Crab parts' looks like a list of claws and legs, but 'parts' is a verb: the shelled crab splits DINING after its first letter.",
+     "definitionFit": "Draining means drawing off liquid or resources, a sense of extracting something until little remains."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "parts"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +655,55 @@
     "text": "Gang infiltrated by copper remaining undisturbed",
     "enumeration": "6"
    },
-   "solution": "RIDING"
+   "solution": "RIDING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RIDING",
+    "definitions": [
+     {
+      "text": "remaining undisturbed",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "infiltrated by",
+      "for": "container",
+      "note": "a group infiltrated by someone has that person working inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gang",
+      "gives": "RING",
+      "note": "a ring is a criminal gang, as in a smuggling ring"
+     },
+     {
+      "clueFragment": "copper",
+      "gives": "DI",
+      "note": "a DI, detective inspector, is a police officer, and copper is slang for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RI",
+      "DI",
+      "NG"
+     ]
+    },
+    "explanation": {
+     "surface": "A criminal gang has an undercover police officer inside, still unsuspected.",
+     "walkthrough": "Copper here is police slang, not the metal Cu. The definition uses the idiom 'let it ride', and a ship riding at anchor lies still.",
+     "definitionFit": "A matter left riding is allowed to continue untouched, and a moored vessel riding at anchor stays put."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "copper"
+    }
+   }
   },
   {
    "number": 10,
@@ -177,7 +717,57 @@
     "text": "Three articles by graduate source of scorn",
     "enumeration": "8"
    },
-   "solution": "ANATHEMA"
+   "solution": "ANATHEMA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ANATHEMA",
+    "definitions": [
+     {
+      "text": "source of scorn",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by",
+      "for": "charade",
+      "note": "by means next to, so the last piece is set alongside the earlier ones"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Three articles",
+      "gives": "ANATHE",
+      "note": "the English articles are a, an and the"
+     },
+     {
+      "clueFragment": "graduate",
+      "gives": "MA",
+      "note": "an MA, Master of Arts, is a graduate degree holder"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AN",
+      "A",
+      "THE",
+      "MA"
+     ]
+    },
+    "explanation": {
+     "surface": "A graduate writes three papers and earns nothing but contempt.",
+     "walkthrough": "'Articles' suggests published papers; in crosswords it usually means the grammatical words A, AN and THE.",
+     "definitionFit": "Anathema is something intensely detested, the thing a person regards with loathing and contempt."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "articles"
+    }
+   }
   },
   {
    "number": 11,
@@ -191,7 +781,61 @@
     "text": "Course of instruction for golf almost completely full",
     "enumeration": "9"
    },
-   "solution": "PROGRAMME"
+   "solution": "PROGRAMME",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "PROGRAMME",
+    "definitions": [
+     {
+      "text": "Course of instruction",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the final letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for",
+      "gives": "PRO",
+      "note": "pro means in favour of"
+     },
+     {
+      "clueFragment": "golf",
+      "gives": "G",
+      "note": "Golf is G in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "completely full",
+      "gives": "RAMMED",
+      "note": "a room rammed with people is packed to capacity"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRO",
+      "G",
+      "RAMME"
+     ]
+    },
+    "explanation": {
+     "surface": "A golf course with lessons that is nearly fully booked.",
+     "walkthrough": "'For' looks like a link word but supplies PRO. 'Rammed' is British slang for crowded.",
+     "definitionFit": "A programme is a planned series of studies or activities, such as a degree programme or training scheme."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "for"
+    }
+   }
   },
   {
    "number": 12,
@@ -205,7 +849,68 @@
     "text": "Car appropriate to carry Republican, one of government office",
     "enumeration": "11"
    },
-   "solution": "MINISTERIAL"
+   "solution": "MINISTERIAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "MINISTERIAL",
+    "definitions": [
+     {
+      "text": "of government office",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to carry",
+      "for": "container",
+      "note": "to carry something is to bear it within, so one piece holds others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Car",
+      "gives": "MINI",
+      "note": "the Mini is a classic small British car"
+     },
+     {
+      "clueFragment": "appropriate",
+      "gives": "STEAL",
+      "note": "to appropriate is to take for oneself, to steal"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the abbreviation for Republican"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MINI",
+      "STE",
+      "R",
+      "I",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A suitable car to drive a Republican politician to government work.",
+     "walkthrough": "'Appropriate' reads as the adjective suitable but is the verb meaning take; STEAL carries R and I.",
+     "definitionFit": "Ministerial describes things relating to a minister, a holder of senior political office in a cabinet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "appropriate"
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +924,49 @@
     "text": "Ancient Cockney’s BGT judge",
     "enumeration": "5"
    },
-   "solution": "OLDEN"
+   "solution": "OLDEN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "OLDEN",
+    "definitions": [
+     {
+      "text": "Ancient",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Cockney’s",
+      "for": "deletion",
+      "note": "a Cockney, a working-class Londoner, traditionally drops the H at the start of words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "BGT judge",
+      "gives": "HOLDEN",
+      "note": "Amanda Holden is a long-serving judge on Britain's Got Talent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OLDEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A veteran talent-show judge described in a London accent.",
+     "walkthrough": "BGT is Britain's Got Talent, a TV talent show; drop Holden's H the way a Cockney would.",
+     "definitionFit": "Olden is an old-fashioned adjective for long past times, as in the olden days, so it means ancient."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Ancient"
+    }
+   }
   },
   {
    "number": 14,
@@ -243,7 +990,62 @@
      }
     ]
    },
-   "solution": "PERSONTOPERSON"
+   "solution": "PERSONTOPERSON",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PERSON-TO-PERSON",
+    "definitions": [
+     {
+      "text": "directly communicating",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hosting",
+      "for": "container",
+      "note": "a host has guests inside the home, so the outer piece holds the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Argentine leader",
+      "gives": "PERON",
+      "note": "Juan Perón was President of Argentina"
+     },
+     {
+      "clueFragment": "relation",
+      "gives": "SON",
+      "note": "a son is a family relation"
+     },
+     {
+      "clueFragment": "regular drinkers",
+      "gives": "TOPERS",
+      "note": "a toper is a habitual drinker"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PER",
+      "SON",
+      "TOPERS",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "Argentina's president hosts a relative and some heavy drinkers for frank talks.",
+     "walkthrough": "'Argentine leader' looks like a first-letter instruction for A, but it is the president, Perón.",
+     "definitionFit": "Person-to-person describes contact made between individuals face to face, without any intermediary, so it is communication made directly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 15,
@@ -257,7 +1059,65 @@
     "text": "Casual pyrotechnist no pro and not natural",
     "enumeration": "9"
    },
-   "solution": "SYNTHETIC"
+   "solution": "SYNTHETIC",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "SYNTHETIC",
+    "definitions": [
+     {
+      "text": "not natural",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "no",
+      "for": "deletion",
+      "note": "no means without, so those letters are taken away"
+     },
+     {
+      "text": "Casual",
+      "for": "anagram",
+      "note": "something casual is careless and haphazard, so the letters fall in no set order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pyrotechnist",
+      "gives": "PYROTECHNIST",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "pro",
+      "gives": "PRO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "YTECHNIST",
+       "gives": "SYNTHETIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An amateur fireworks maker with no professional training and a fake air.",
+     "walkthrough": "'Casual pyrotechnist no pro' reads as a description of an amateur; the PRO is struck out of the word and the remaining nine letters rearranged.",
+     "definitionFit": "Synthetic means made artificially by chemical process rather than occurring in nature, as with man-made fibres."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Casual"
+    }
+   }
   },
   {
    "number": 16,
@@ -271,7 +1131,58 @@
     "text": "Burns, perhaps, under crusted skin’s protective covering",
     "enumeration": "8"
    },
-   "solution": "SCABBARD"
+   "solution": "SCABBARD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SCABBARD",
+    "definitions": [
+     {
+      "text": "protective covering",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "under",
+      "for": "charade",
+      "note": "in a down entry, something under another piece sits below it, so it comes second"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crusted skin",
+      "gives": "SCAB",
+      "note": "a scab is the crust that forms over a wound"
+     },
+     {
+      "clueFragment": "Burns, perhaps",
+      "gives": "BARD",
+      "note": "Robert Burns, Scotland's national poet, is known as the Bard; 'perhaps' marks him as one example of a poet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCAB",
+      "BARD"
+     ]
+    },
+    "explanation": {
+     "surface": "Treating burns under a crusty layer of skin with a protective dressing.",
+     "walkthrough": "'Burns' is capitalised at the start of the clue so it passes as injuries; it is the Scottish poet Robert Burns, a bard.",
+     "definitionFit": "A scabbard is the sheath that holds a sword or dagger, a cover that protects the blade and the wearer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Burns"
+    }
+   }
   },
   {
    "number": 17,
@@ -291,7 +1202,60 @@
      }
     ]
    },
-   "solution": "CHARLESDICKENS"
+   "solution": "CHARLESDICKENS",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "CHARLES DICKENS",
+    "definitions": [
+     {
+      "text": "novelist",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "According to Spooner",
+      "for": "spoonerism",
+      "note": "William Spooner swapped the opening sounds of words, so two sounds change places here"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Roald",
+      "gives": "CHARLES",
+      "soundsLike": "DAHLS",
+      "note": "Roald Dahl wrote Charlie and the Chocolate Factory; his chickens would be Dahl's, and the D swaps for a CH sound"
+     },
+     {
+      "clueFragment": "source of eggs",
+      "gives": "DICKENS",
+      "soundsLike": "CHICKENS",
+      "note": "chickens lay eggs; the CH sound swaps for D"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHARLES",
+      "DICKENS"
+     ]
+    },
+    "explanation": {
+     "surface": "Where the children's author Roald Dahl got his eggs.",
+     "walkthrough": "Say 'Dahl's chickens' and swap the opening D and CH sounds to hear Charles Dickens.",
+     "definitionFit": "Charles Dickens is the Victorian author of Oliver Twist and Great Expectations, an example of a writer of fiction."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Roald"
+    }
+   }
   },
   {
    "number": 18,
@@ -305,7 +1269,73 @@
     "text": "ALl sUCh fINDs completely uncovered by A girl",
     "enumeration": "7"
    },
-   "solution": "LUCINDA"
+   "solution": "LUCINDA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LUCINDA",
+    "definitions": [
+     {
+      "text": "girl",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "completely uncovered",
+      "for": "letter_selection",
+      "note": "uncovering strips off the outside layer, so each word loses its first and last letters"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ALl",
+      "gives": "L",
+      "select": "middle",
+      "note": "the inside of the word"
+     },
+     {
+      "clueFragment": "sUCh",
+      "gives": "UC",
+      "select": "middle",
+      "note": "the inside of the word"
+     },
+     {
+      "clueFragment": "fINDs",
+      "gives": "IND",
+      "select": "middle",
+      "note": "the inside of the word"
+     },
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "UC",
+      "IND",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "All the finds a girl uncovered on a dig.",
+     "walkthrough": "The capitals are the setter's visual nudge to the kept letters and carry no other wordplay; strip each word's ends, then add A.",
+     "definitionFit": "Lucinda is a female first name, so it is one example of a name a girl might have."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "uncovered"
+    }
+   }
   },
   {
    "number": 19,
@@ -319,7 +1349,47 @@
     "text": "Like agreeable wine",
     "enumeration": "7"
    },
-   "solution": "KINDRED"
+   "solution": "KINDRED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "KINDRED",
+    "definitions": [
+     {
+      "text": "Like",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "agreeable",
+      "gives": "KIND",
+      "note": "kind means pleasant and good-natured"
+     },
+     {
+      "clueFragment": "wine",
+      "gives": "RED",
+      "note": "red is a type of wine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KIND",
+      "RED"
+     ]
+    },
+    "explanation": {
+     "surface": "A wine that tastes pleasant.",
+     "walkthrough": "'Like' looks like a comparison or a verb, but it is an adjective meaning similar, as in kindred spirits.",
+     "definitionFit": "Kindred as an adjective means similar in nature or character, as in kindred spirits, which is like in its adjectival sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Like"
+    }
+   }
   },
   {
    "number": 20,
@@ -333,7 +1403,47 @@
     "text": "Picked up knacks to make legwear",
     "enumeration": "6"
    },
-   "solution": "FLARES"
+   "solution": "FLARES",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "FLARES",
+    "definitions": [
+     {
+      "text": "legwear",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Picked up",
+      "for": "homophone",
+      "note": "to pick up a sound is to hear it, so the word is heard rather than read"
+     }
+    ],
+    "linkWords": [
+     "to make"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "knacks",
+      "gives": "FLARES",
+      "soundsLike": "FLAIRS",
+      "note": "a flair is a natural talent or knack"
+     }
+    ],
+    "explanation": {
+     "surface": "Learning the skills needed to sew trousers.",
+     "walkthrough": "'Picked up knacks' sounds like learning skills, but 'picked up' is the sound signal.",
+     "definitionFit": "Flares are trousers that widen from the knee, popular in the 1970s, so they are an item of clothing for the legs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Picked"
+    }
+   }
   },
   {
    "number": 21,
@@ -347,7 +1457,58 @@
     "text": "Simple tree extraordinary in auditorium",
     "enumeration": "5"
    },
-   "solution": "BASIC"
+   "solution": "BASIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "BASIC",
+    "definitions": [
+     {
+      "text": "Simple",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in auditorium",
+      "for": "homophone",
+      "note": "an auditorium is where an audience listens, so the words count as heard"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tree",
+      "gives": "BA",
+      "soundsLike": "BAY",
+      "note": "the bay is a laurel tree"
+     },
+     {
+      "clueFragment": "extraordinary",
+      "gives": "SIC",
+      "soundsLike": "SICK",
+      "note": "sick is youth slang for amazing or extraordinary"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BA",
+      "SIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A plain tree looks remarkable inside a concert hall.",
+     "walkthrough": "'Bay sick' said quickly sounds like the answer; the slang SICK for brilliant is what makes 'extraordinary' work.",
+     "definitionFit": "Basic means elementary and uncomplicated, stripped down to essentials, so it means plain or simple."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "auditorium"
+    }
+   }
   },
   {
    "number": 22,
@@ -361,7 +1522,51 @@
     "text": "Men swapping tips somewhere in America",
     "enumeration": "5"
    },
-   "solution": "SALEM"
+   "solution": "SALEM",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "SALEM",
+    "definitions": [
+     {
+      "text": "somewhere in America",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swapping tips",
+      "for": "substitution",
+      "note": "a word's tips are its two ends, and swapping them puts each in the other's place"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Men",
+      "gives": "MALES",
+      "note": "men are males"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ALE",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "Waiters trading gratuities in a US town.",
+     "walkthrough": "'Tips' suggests gratuities, but it means the two end letters, which trade places.",
+     "definitionFit": "Salem is a city in Massachusetts, famous for its witch trials, and also the capital of Oregon, so a place in the United States."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tips"
+    }
+   }
   },
   {
    "number": 23,
@@ -375,7 +1580,71 @@
     "text": "Cheese pieces with temperature maintained in space by onboard computer",
     "enumeration": "9"
    },
-   "solution": "EMMENTHAL"
+   "solution": "EMMENTHAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "EMMENTHAL",
+    "definitions": [
+     {
+      "text": "Cheese",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "maintained in",
+      "for": "container",
+      "note": "something maintained in another is kept inside it"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pieces",
+      "gives": "MEN",
+      "note": "chess pieces are called men"
+     },
+     {
+      "clueFragment": "temperature",
+      "gives": "T",
+      "note": "T is the abbreviation for temperature"
+     },
+     {
+      "clueFragment": "space",
+      "gives": "EM",
+      "note": "an em is a printer's space, the width of a letter M"
+     },
+     {
+      "clueFragment": "onboard computer",
+      "gives": "HAL",
+      "note": "HAL 9000 is the spaceship computer in the film 2001: A Space Odyssey"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EM",
+      "MEN",
+      "T",
+      "HAL"
+     ]
+    },
+    "explanation": {
+     "surface": "Bits of cheese kept chilled in space by the spacecraft's computer.",
+     "walkthrough": "'Space' and 'onboard computer' paint a spaceship, but space is the typesetter's measure, and the computer is the famous one from Kubrick's film.",
+     "definitionFit": "Emmenthal is a Swiss hard cheese with large holes, so it is one example of a cheese."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "space"
+    }
+   }
   },
   {
    "number": 24,
@@ -389,7 +1658,62 @@
     "text": "Regularly ignored bad talk against South Island",
     "enumeration": "8"
    },
-   "solution": "ATLANTIS"
+   "solution": "ATLANTIS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ATLANTIS",
+    "definitions": [
+     {
+      "text": "Island",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Regularly ignored",
+      "for": "letter_selection",
+      "note": "ignoring at regular intervals means skipping every other letter and keeping the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bad talk",
+      "gives": "ATL",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters, with the odd ones skipped"
+     },
+     {
+      "clueFragment": "against",
+      "gives": "ANTI",
+      "note": "anti means against"
+     },
+     {
+      "clueFragment": "South",
+      "gives": "S",
+      "note": "S is the abbreviation for south"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ATL",
+      "ANTI",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Nasty gossip about a southern island is regularly ignored.",
+     "walkthrough": "Atlantis is the legendary island said to have sunk beneath the sea.",
+     "definitionFit": "Atlantis is the mythical island described by Plato that sank into the ocean, so it is an example of an island."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "against"
+    }
+   }
   },
   {
    "number": 25,
@@ -403,7 +1727,54 @@
     "text": "Bowl right beside case",
     "enumeration": "6"
    },
-   "solution": "CRATER"
+   "solution": "CRATER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CRATER",
+    "definitions": [
+     {
+      "text": "Bowl",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beside",
+      "for": "charade",
+      "note": "beside sets two pieces next to each other without saying which side, so both orders must be tried"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "case",
+      "gives": "CRATE",
+      "note": "a crate is a packing case"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRATE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A bowling case placed on the right.",
+     "walkthrough": "'Bowl' looks like a cricket or bowling verb, but it is a noun: a bowl-shaped hollow.",
+     "definitionFit": "A crater is a bowl-shaped depression in the ground, and in ancient Greece a krater was a mixing bowl for wine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bowl"
+    }
+   }
   },
   {
    "number": 26,
@@ -417,7 +1788,69 @@
     "text": "Cursed the Spanish embargo with bananas getting turned back",
     "enumeration": "8"
    },
-   "solution": "DAMNABLE"
+   "solution": "DAMNABLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "DAMNABLE",
+    "definitions": [
+     {
+      "text": "Cursed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "getting turned back",
+      "for": "reversal",
+      "note": "turning back sends everything the other way, so the letters run from the end to the start"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the Spanish",
+      "gives": "EL",
+      "note": "el is Spanish for the"
+     },
+     {
+      "clueFragment": "embargo",
+      "gives": "BAN",
+      "note": "an embargo is a ban on trade"
+     },
+     {
+      "clueFragment": "bananas",
+      "gives": "MAD",
+      "note": "bananas is slang for crazy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DAMNABLE"
+     ],
+     "reversals": [
+      {
+       "from": "ELBANMAD",
+       "to": "DAMNABLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone swears at Spain's trade embargo as banana shipments are sent back.",
+     "walkthrough": "'Bananas' wants to be the fruit cargo, but it is slang for crazy, MAD.",
+     "definitionFit": "Damnable means deserving condemnation or very annoying, so it is close to cursed as an angry adjective for something hateful."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bananas"
+    }
+   }
   },
   {
    "number": 27,
@@ -431,7 +1864,57 @@
     "text": "Rogue heartlessly dictates orders",
     "enumeration": "6"
    },
-   "solution": "EDICTS"
+   "solution": "EDICTS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "EDICTS",
+    "definitions": [
+     {
+      "text": "orders",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heartlessly",
+      "for": "deletion",
+      "note": "without a heart means the central letters are cut out"
+     },
+     {
+      "text": "Rogue",
+      "for": "anagram",
+      "note": "something rogue behaves wildly and out of control, so the letters break ranks"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dictates",
+      "gives": "DICTATES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DICTES",
+       "gives": "EDICTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A heartless villain issues commands.",
+     "walkthrough": "'Dictates' looks like the verb meaning gives orders, but it is the fodder: remove its middle TA and rearrange.",
+     "definitionFit": "An edict is an official decree issued by an authority, so edicts are commands or orders."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Rogue"
+    }
+   }
   }
  ]
 }
