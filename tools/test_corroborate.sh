@@ -188,7 +188,7 @@ print("BIGDAVE", *[c.blog_puzzle_id(t, c.BIGDAVE_SERIES) for t in (
 print("CLUB", c.blog_puzzle_id("Monthly Club Special 20,212", c.TIMES_SERIES),
       c.blog_puzzle_id("TLS Crossword 1163", c.TIMES_SERIES))
 print("SETTERS", c.blog_setter("Guardian 25749 Brendan"), c.blog_setter("Independent 12,225 by Tack"),
-      c.blog_setter("Everyman 3,906/22 August"))
+      c.blog_setter("Everyman 3,906/22 August"), c.blog_setter("Independent on Sunday 1150/Glow-worm"))
 
 # the ledger names every settled dispute and the rule that settled it
 ledger = json.loads(c.LEDGER.read_text())
@@ -267,7 +267,7 @@ same "blog titles name our puzzles, and only ours" "$(field TITLES "$out")" \
 same "bigdave44 titles name the Telegraph's four, and no reader's puzzle" "$(field BIGDAVE "$out")" \
   "telegraph-29673 toughie-443 sundaytel-3151 sundaytough-1 None None None None"
 same "the Times blog's Club and TLS titles name ours" "$(field CLUB "$out")" "timesclub-20212 tls-1163"
-same "blog titles name setters, and a month is not one" "$(field SETTERS "$out")" "Brendan Tack None"
+same "blog titles name setters, and a month is not one" "$(field SETTERS "$out")" "Brendan Tack None Glow-worm"
 
 echo "a cold solve against the blog"
 same "a fill the blog disagrees with is refused, naming both answers" \
