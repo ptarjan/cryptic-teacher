@@ -376,6 +376,7 @@ LAYOUT = [
     ("tables everything else reads", "scratch/solver_clues.py", "per-clue difficulty features against YouTube solvers' waits, held out by puzzle"),
     ("tables everything else reads", "tools/push_puzzle_commit.sh", "publish one local commit to origin/master without touching the working tree"),
     ("tables everything else reads", "tools/test_push_puzzle_commit.sh", "does tools/push_puzzle_commit.sh publish a commit while another process keeps writing into the same working tree, where fetch + rebase --autostash + push fails? The burn (tools/prereset_backfill.sh) commits and pushes each puzzle while the rest of its wave is still writing into that tree"),
+    ("tables everything else reads", "tools/test_link_words.sh", "does tools/validate_annotations.py refuse a link word that app.js would place on top of an indicator, wholly or in part, and pass one with a free copy? The placement is app.js placedFragments(), so these are the clues that reached the screen with a bought indicator half-erased"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the
