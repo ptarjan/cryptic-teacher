@@ -234,6 +234,10 @@
        belongs on the pages that have to win someone over. -->
   <ul id="picker-list"></ul>
   <p class="muted small-note" id="picker-more"></p>
+  <!-- A per-device setting, beside the list it applies to: puzzles started
+       from here on. See paper mode in app.js. -->
+  <label class="paper-toggle muted small-note"><input type="checkbox" id="paper-toggle">
+    Paper mode: no ticks, hints or checks until you press “I’m done”</label>
 </div>
 
 <main id="app" class="hidden">
@@ -264,10 +268,12 @@
         <div id="grid" tabindex="0" aria-label="Crossword grid"></div>
       </div>
       <div class="toolbar">
-        <span class="toolbar-label">Check:</span>
+        <span id="chk-label" class="toolbar-label">Check:</span>
         <button id="chk-letter" class="tool">letter</button>
         <button id="chk-entry" class="tool">word</button>
         <button id="chk-grid" class="tool">grid</button>
+        <!-- Paper mode's one check: Check grid, and the end of paper mode. -->
+        <button id="paper-done" class="tool hidden">I’m done — check grid</button>
         <span class="toolbar-gap"></span>
         <button id="clear-entry" class="tool">clear word</button>
         <button id="reset-puzzle" class="tool danger">reset puzzle</button>

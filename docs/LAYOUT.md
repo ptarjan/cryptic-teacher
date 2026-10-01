@@ -575,6 +575,8 @@ tools/test_notify_race.js                    ticks two papers over a slow networ
 tools/test_solve_clock.js                    walks away from a puzzle and comes back, so the
                                              time spent elsewhere is proved never to be counted
                                              as solving
+tools/test_paper_mode.js                     paper mode hides every right/wrong signal until
+                                             "I'm done", then hands it all back
 tools/ci_shards.js                           splits the test scripts across the workflow’s
                                              parallel jobs, so the suite takes as long as its
                                              slowest single script rather than all of them

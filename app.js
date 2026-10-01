@@ -121,7 +121,7 @@
   const SYNC_ENDPOINT = "https://cryptic-teacher-sync.curly-unit-b9e0.workers.dev";
   // Reserved localStorage names, so scanning for saves cannot pick up settings.
   // Every key this app writes is "ct:<something>"; the rest are puzzle ids.
-  const SYNC_RESERVED = { last: 1, sync: 1, seen: 1, nux: 1, notify: 1, "notify-after": 1, votes: 1 };
+  const SYNC_RESERVED = { last: 1, sync: 1, seen: 1, nux: 1, notify: 1, "notify-after": 1, votes: 1, paper: 1 };
   const CODE_ALPHABET = "23456789ABCDEFGHJKMNPQRSTVWXYZ"; // no 0/O/1/I/L to mistype
 
   /* ---------- counting solves, not solvers ----------
@@ -976,6 +976,74 @@
   const squareOf = (e, i) => (e.position.x + (e.direction === "across" ? i : 0)) + ","
     + (e.position.y + (e.direction === "across" ? 0 : i));
   const hasSolutions = () => entries.every((e) => e.solution);
+
+  /* ---------- paper mode ----------
+     Solving the way the paper is solved: no tick when a clue goes in, no
+     ladder, no letter or word checks, no reveal, until the solver says they are
+     done. "I'm done" checks the grid, ends paper mode for that puzzle and
+     hands everything back.
+
+     A solve on paper is a solve with nothing bought, so it scores clean. Hidden
+     means unknown: while a puzzle is on paper, isEntrySolved answers false, and
+     every mark, lock, freeze and beacon that hangs off it waits with it. The
+     saves-derived views (the picker's "solved ✓", the stats ledger) ask
+     onPaper of the id for the same reason, so nothing anywhere says solved
+     before the solver asked. The end-check is then an ordinary
+     checkSolvedEntries: each correct clue is frozen at the rungs it had up,
+     which on paper is none.
+
+     The setting and the set of puzzles on paper are this DEVICE's, held under
+     a reserved name and never synced: paper on the phone and the ladder on the
+     laptop is a reasonable way to solve, and the letters still move between
+     them as usual. A puzzle goes on paper when it is started (or reset) with
+     the setting on, or is on screen and unfinished when it is switched on;
+     one already under way stays as it was. */
+  const PAPER_KEY = "ct:paper";
+  let paper = store.get(PAPER_KEY, null) || {};
+  const onPaper = (id) => !!(paper.open && paper.open[id]);
+  const paperHides = () => !!P && onPaper(P.id);
+  function writePaper(on, open) {
+    // A puzzle opened on paper and left without a letter is not being solved;
+    // dropping it here keeps the set to the grids actually under way.
+    const saves = savedProgress();
+    const kept = {};
+    Object.keys(open).forEach((id) => { if (saves[id] || (P && id === P.id)) kept[id] = 1; });
+    paper = { on: !!on, open: kept };
+    store.set(PAPER_KEY, paper);
+  }
+  const setOnPaper = (id, yes) => {
+    const open = Object.assign({}, paper.open);
+    if (yes) open[id] = 1; else delete open[id];
+    writePaper(paper.on, open);
+  };
+  // Anything to hide: a grid with no answers cannot be checked at the end, and
+  // a finished one has nothing left to hide.
+  const paperable = () => hasSolutions() && !entries.every(lettersRight);
+  // The reader pressed "I'm done": the grid is checked exactly as Check grid
+  // checks it, and every correct clue is credited first so the finish that
+  // check may complete is scored.
+  function endPaper() {
+    setOnPaper(P.id, false);
+    const credited = entries.filter((e) => isEntrySolved(e) && solvedWith[entryId(e)] === undefined).length;
+    checkSolvedEntries();
+    if (credited) noteMilestone(true);
+    const all = [];
+    forEachCell((c) => all.push(c));
+    checkCells(all, "grid");
+  }
+  function togglePaper(on) {
+    if (on) {
+      writePaper(true, Object.assign({}, paper.open, P && paperable() ? { [P.id]: 1 } : {}));
+    } else {
+      // Off means feedback back on everywhere, not only here: a puzzle left on
+      // paper with the setting off would hide its ticks with no switch on
+      // screen to say why. Whatever was right is credited as it is seen.
+      const was = paperHides();
+      writePaper(false, {});
+      if (was) { checkSolvedEntries(); saveState(); }
+    }
+    if (P) refreshAll();
+  }
 
   // ---------- persistence ----------
   // The 150ms debounce is a write-rate limit, and nothing is allowed to read the
@@ -2824,11 +2892,14 @@
     checkSolvedEntries(); refreshAll(); saveState();
   }
 
-  function isEntrySolved(e) {
+  // What the grid holds, and what the solver is told: the same thing except on
+  // paper, where nothing is solved until "I'm done" (see paper mode above).
+  function lettersRight(e) {
     if (!e.solution) return false;
     for (let i = 0; i < e.length; i++) if (cellAt(e, i).letter !== e.solution[i]) return false;
     return true;
   }
+  function isEntrySolved(e) { return !paperHides() && lettersRight(e); }
 
   // The whole of a linked group, not one leg of it: a linked clue's hints cover
   // both entries, so getting the first must not hand over the second.
@@ -5019,6 +5090,15 @@
     }
     if (holder !== e) clueLine += `<span class="muted">(one answer whose letters are divided between ${tag(e)} and ${tag(holder)}; its clue is printed at ${tag(holder)} and shown here) </span>`;
     setHTML($("hint-pattern"), patternHTML(e));
+    // On paper the panel is the clue and its letters, and nothing that could
+    // say whether they are right: no meter, no ladder, no reveal, no vote.
+    if (paperHides()) {
+      guessing = null;
+      setHTML($("hint-clue"), clueLine + pickableClueHTML(holder, null, [], null));
+      ["hint-meter", "hint-body", "hint-escape", "hint-vote"].forEach((id) => setHTML($(id), ""));
+      setButtons($("hint-next"), []);
+      return;
+    }
 
     // A report is about the clue it was started on, and moving on abandons it —
     // the same rule the guess follows, for the same reason.
@@ -5478,6 +5558,13 @@
     const key = entryKey(e);
     return frozenCharge(solvedWith, entries.filter((g) => entryKey(g) === key).map(entryId));
   }
+  // Paper keeps Clear and Reset and swaps the three checks for "I'm done",
+  // which is Check grid and the end of paper mode in one press.
+  function drawPaperTools() {
+    const on = paperHides();
+    ["chk-label", "chk-letter", "chk-entry", "chk-grid"].forEach((id) => $(id).classList.toggle("hidden", on));
+    $("paper-done").classList.toggle("hidden", !on);
+  }
   // A solved clue's price given a save's solvedWith and the ids of its legs:
   // the largest leg's snapshot. Takes the map rather than reading the live one
   // so the stats page prices a clue in any save exactly as the scorebar prices
@@ -5489,6 +5576,12 @@
   const cleanSolve = (charged, reveals) => !charged && !(reveals > 0);
 
   function renderScore() {
+    drawPaperTools();
+    if (paperHides()) {
+      $("scorebar").innerHTML = "Paper mode: no ticks, hints or checks until you press <strong>I’m done</strong>.";
+      drawScoreExtras();
+      return;
+    }
     const total = entries.filter((e) => !leaderOf[entryId(e)]).length;
     let solved = 0, noHints = 0, levelsUsed = 0, lettersRevealed = 0;
     const counted = {};
@@ -5539,6 +5632,9 @@
         (legs[key] = legs[key] || []).push(e);
       });
       totals[id] = Object.keys(legs).length;
+      // A puzzle on paper has solved nothing yet and offers no clue to
+      // practise: its ladder is switched off.
+      if (onPaper(id)) return;
       Object.keys(legs).forEach((key) => {
         let at = 0, solved = true;
         legs[key].forEach((e) => {
@@ -5845,14 +5941,17 @@
   // written first so the solve is in it, and the milestone is the one this
   // solve reached when its stamp is the save's own.
   let milestoneNote = { id: null, text: "" };
-  function noteMilestone() {
+  // A paper end-check passes `any`: the ledger left the whole puzzle out until
+  // then, so every milestone it now holds was reached by this check, whatever
+  // its letters' stamps say.
+  function noteMilestone(any) {
     clearTimeout(saveTimer);
     writeState();
     const id = P.id, stamp = (store.get(stateKey(), null) || {}).updated;
     milestoneNote = { id, text: "" };
     whenStartedLoaded(() => {
       if (!P || P.id !== id || milestoneNote.id !== id) return;
-      const hit = solverStats(Date.now()).milestones.filter((m) => m.id === id && m.at === stamp);
+      const hit = solverStats(Date.now()).milestones.filter((m) => m.id === id && (any || m.at === stamp));
       milestoneNote.text = hit.map((m) => m.label).join(" · ");
       drawScoreExtras();
     });
@@ -6097,7 +6196,7 @@
     // letters[k] is "A" or "A!" — a revealed letter still counts as done. You
     // used the escape hatch; the scorebar inside the puzzle is where that costs
     // you something.
-    const done = squares.length > 0
+    const done = squares.length > 0 && !onPaper(p.id)
       && squares.every((k) => want[k] && letters[k] && letters[k][0] === want[k]);
     return { filled, total: squares.length, done };
   }
@@ -6657,6 +6756,8 @@
     // Nothing in the air belongs to a grid that is no longer open.
     { const parts = celebrateParts(); if (parts) burstState(parts.burst, ""); }
     restoreState();
+    // Started with the setting on: on paper from its first letter.
+    if (paper.on && !savedProgress()[id] && paperable()) setOnPaper(id, true);
     sealArrivedProgress();
     beacon("open");
     reportVisit();
@@ -7104,6 +7205,9 @@
       if (e || light) checkCells(e ? entryCells(e) : light, "word");
     };
     $("chk-grid").onclick = () => { const all = []; forEachCell((c) => all.push(c)); checkCells(all, "grid"); };
+    $("paper-done").onclick = () => { if (paperHides()) endPaper(); };
+    $("paper-toggle").checked = !!paper.on;
+    $("paper-toggle").onchange = () => togglePaper($("paper-toggle").checked);
     $("clear-entry").onclick = () => {
       const e = currentEntry();
       const light = !e && currentLight();
@@ -7130,6 +7234,7 @@
       applyPrinted();
       hintsShown = {}; hintsEarned = {}; hintLevels = {}; revealsUsed = {}; blocksAt = {};
       solvedWith = {}; timing = {};
+      if (paper.on && paperable()) setOnPaper(P.id, true);
       refreshAll();
       syncPushSoon();
     };

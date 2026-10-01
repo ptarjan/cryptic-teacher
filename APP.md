@@ -217,6 +217,29 @@ Terms used below:
   may respond to a click with silence; if there is nothing to report, say so.
   See `checkCells()` and `announceCheck()` in `app.js`, and the check
   assertions in the smoke test.
+- **Paper mode hides every right/wrong signal until "I'm done".** A
+  per-device switch under the picker list. On paper there is no tick, star or
+  lock on a solved clue, no meter, ladder, reveal or vote, and the letter, word
+  and grid checks give way to one "I'm done" button; Clear and Reset stay.
+  "I'm done" is Check grid plus the end of paper mode for that puzzle.
+  - **Hidden means unknown, in one place.** `isEntrySolved` answers false while
+    the puzzle on screen is on paper (`lettersRight` is the raw fact), so every
+    display, lock, `solvedWith` freeze and beacon that reads it waits too. The
+    saves-derived views (`pickerStatus`, `clueLedger`) ask `onPaper(id)`. Do not
+    gate a single display path instead: the next one added would leak.
+  - **A paper solve scores clean.** The end-check is an ordinary
+    `checkSolvedEntries`, so each correct clue is frozen at the rungs it had up,
+    which on paper is none. The finish (`timing.solvedAt`) is stamped at the
+    check, which is when the streak counts it. Stats stay derived from the saves.
+  - **A puzzle goes on paper** when it is started or reset with the switch on,
+    or is on screen and unfinished when the switch goes on. One already under
+    way stays as it was. Switching off ends paper everywhere.
+  - **`ct:paper` is a setting, never a save, and is not synced** (`paper` in
+    `SYNC_RESERVED`): `{ on, open }`, where `open` is the puzzles on paper now.
+    Paper on one device and the ladder on another is a fair way to solve; the
+    letters still sync as usual.
+  - `tools/test_paper_mode.js` asserts each signal hidden on paper and, as the
+    mirror, present for the same keystrokes off paper.
 - **"Reveal one letter"** is available at any time and hidden once the entry is
   solved. It never advances the ladder but always counts in scoring (the meter,
   the scorebar and the no-hints tally).
