@@ -384,13 +384,13 @@ def diff(ours, theirs):
             row["theirsCross"] = crossings_agree(theirs, t, ts)
             out.append(row)
         oc, tc = o.get("clue") or {}, t.get("clue") or {}
-        if CONTINUATION.match(tc.get("text") or ""):
+        # A pointer, or a source that printed no words, is no witness to ours.
+        if CONTINUATION.match(tc.get("text") or "") or not norm_text(tc.get("text")):
             continue
         if norm_enum(oc.get("enumeration")) != norm_enum(tc.get("enumeration")):
             out.append({"class": "ENUMERATION", "light": light,
                         "ours": oc.get("enumeration"), "theirs": tc.get("enumeration")})
-        # A source that printed no words is no witness to ours.
-        if norm_text(tc.get("text")) and norm_text(oc.get("text")) != norm_text(tc.get("text")):
+        if norm_text(oc.get("text")) != norm_text(tc.get("text")):
             out.append({"class": "CLUE", "light": light,
                         "ours": oc.get("text"), "theirs": tc.get("text")})
     return out
