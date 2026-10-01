@@ -263,23 +263,27 @@ def read_answers(image, grid):
 
 
 _WORDS = None
-#: The only words of one or two letters a run-together answer may contain:
-#: WordNet's others are abbreviations (RU + GE would pass RUGE).
+#: The only words under four letters a run-together answer may contain:
+#: WordNet's others are mostly abbreviations (RU + GE would pass RUGE).
 SHORT_WORDS = {"a", "i", "am", "an", "as", "at", "be", "by", "do", "go", "he", "if",
                "in", "is", "it", "me", "my", "no", "of", "on", "or", "so", "to", "up",
-               "us", "we"}
+               "us", "we", "all", "and", "any", "are", "but", "can", "for", "get", "had",
+               "has", "her", "him", "his", "how", "man", "men", "new", "not", "now",
+               "old", "one", "out", "own", "pen", "put", "red", "run", "say", "see",
+               "set", "she", "the", "too", "two", "way", "who", "why", "you"}
 
 
 def known(word):
     """Whether an answer is WordNet's (a lemma or a regular inflection of one),
-    or up to four such words run together. A misread letter rarely leaves a
+    or up to four such words run together, each of four letters or more
+    unless it is one of SHORT_WORDS. A misread letter rarely leaves a
     word: RUSE read as RUGE is caught here."""
     global _WORDS
     if _WORDS is None:
         with gzip.open(TOOLS / "data" / "wordnet.json.gz", "rt", encoding="utf-8") as f:
             lemmas = {re.sub(r"[^a-z]", "", w.lower()) for w in json.load(f)["words"]}
-        _WORDS = set(lemmas)
-        for w in lemmas:
+        _WORDS = lemmas | SHORT_WORDS
+        for w in (w for w in lemmas if len(w) > 2):
             _WORDS.update(w + end for end in ("s", "es", "ed", "d", "ing", "er", "est", "r", "st"))
             if w.endswith("e"):
                 _WORDS.update((w[:-1] + "ing", w[:-1] + "ed"))
@@ -289,7 +293,8 @@ def known(word):
     parts = {0: 0}   # prefix length -> fewest words that spell it
     for i in range(1, len(w) + 1):
         best = min((parts[j] + 1 for j in parts if j < i and w[j:i] in _WORDS
-                    and (i - j > 2 or w[j:i] in SHORT_WORDS)), default=None)
+                    and (i - j > 3 or w[j:i] in SHORT_WORDS or (j, i) == (0, len(w)))),
+                   default=None)
         if best is not None and best <= 4:
             parts[i] = best
     return len(w) in parts
