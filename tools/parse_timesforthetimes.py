@@ -48,6 +48,7 @@ PLAUSIBLE = {
     "Jumbo Cryptic": (40, 72),
     "Mephisto": (24, 42),
     "Monthly Club Special": (24, 42),
+    "TLS Crossword": (24, 36),
 }
 
 #: Tags that end a line of reading, whatever era drew them.
@@ -205,13 +206,28 @@ def puzzle_number(post):
 
     A slug WordPress made up itself is the post id -- "50707-2" -- and says
     nothing about the puzzle, so the title answers instead, where a number may
-    be printed with its thousands comma: "Times 27,365".
+    be printed with its thousands comma: "Times 27,365". So does a title whose
+    number is one slip from the slug's (one_slip).
     """
     m = NUMBER_IN.search(post.get("slug", ""))
-    if not m or int(m.group(1)) == post.get("id"):
-        title = html.unescape(post.get("title", {}).get("rendered", ""))
-        m = NUMBER_IN.search(re.sub(r"(?<=\d),(?=\d{3}\b)", "", title))
+    title = html.unescape(post.get("title", {}).get("rendered", ""))
+    t = NUMBER_IN.search(re.sub(r"(?<=\d),(?=\d{3}\b)", "", title))
+    if (not m or int(m.group(1)) == post.get("id")
+            or (t and one_slip(m.group(1), t.group(1)))):
+        m = t
     return int(m.group(1)) if m else None
+
+
+def one_slip(a, b):
+    """Are digit strings `a` and `b` one typing slip apart: a digit changed, or
+    two adjacent digits swapped? WordPress fixes the slug from the first title
+    typed, so when the two are a slip apart the title is the one the blogger
+    corrected: slug 28445 under "Times 28443", posted the day before 28444."""
+    if len(a) != len(b) or a == b:
+        return False
+    diff = [i for i in range(len(a)) if a[i] != b[i]]
+    return len(diff) == 1 or (len(diff) == 2 and diff[1] == diff[0] + 1
+                              and a[diff[0]] == b[diff[1]] and a[diff[1]] == b[diff[0]])
 
 
 WEEKDAY = r"(?:Mon|Tues|Wednes|Thurs|Fri|Satur|Sun)day\b"
@@ -250,6 +266,15 @@ def setter_from_title(title):
 TIMES_CRYPTIC_FROM = 20000
 QUICK_BELOW = 4000
 QUICK_TITLE = re.compile(r"\bquick\s+cryptic\b", re.I)
+#: The Times Literary Supplement's weekly crossword, ~1,100 in 2016, blogged
+#: under "Other Crosswords" and sometimes under Daily. The title leads with it;
+#: a daily's title that only mentions the TLS ("Times 28107 - it's not the
+#: TLS") does not.
+TLS_TITLE = re.compile(r"^\s*TLS\b")
+#: The Sunday Times passed 4,000 before the blog began and the Times Jumbo has
+#: yet to reach it, so a Weekend post under 4,000 titled Jumbo is the Jumbo.
+SUNDAY_TIMES_FROM = 4000
+JUMBO_TITLE = re.compile(r"\bjumbo\b", re.IGNORECASE)
 
 
 def filed_series(post, series, number):
@@ -259,11 +284,19 @@ def filed_series(post, series, number):
     as a Quick Cryptic gets rebuilt on a 13x13 grid it cannot fit. A number
     only a Times Cryptic reaches moves it back; a Quick Cryptic filed as a
     daily moves only when its title says Quick Cryptic as well, because a
-    daily's number read off a title can come out short.
+    daily's number read off a title can come out short. A TLS post files as
+    the TLS wherever it sits, and a Times Jumbo filed as a Weekend post moves
+    back by its title and number.
     """
     if series == "Quick Cryptic" and number and number >= TIMES_CRYPTIC_FROM:
         return "Daily Cryptic"
     title = html.unescape(post.get("title", {}).get("rendered", ""))
+    if (series in ("Other Crosswords", "Daily Cryptic") and TLS_TITLE.match(title)
+            and not (number and number >= TIMES_CRYPTIC_FROM)):
+        return "TLS Crossword"
+    if (series == "Weekend Cryptic" and number and number < SUNDAY_TIMES_FROM
+            and JUMBO_TITLE.search(title)):
+        return "Jumbo Cryptic"
     if (series == "Daily Cryptic" and number and number < QUICK_BELOW
             and QUICK_TITLE.search(title)):
         return "Quick Cryptic"
@@ -1010,8 +1043,14 @@ def enum_agrees(entry, leaders=()):
 
 
 def plausible(rec):
-    lo_hi = PLAUSIBLE.get(rec["series"])
-    return lo_hi is None or lo_hi[0] <= len(rec["entries"]) <= lo_hi[1]
+    """Is the entry count one the series prints? The Sunday Times's Christmas
+    puzzle is a Jumbo in the weekly's own numbering, so a Weekend post may
+    have a Jumbo's count (times_grids.size rebuilds it at 23x23)."""
+    n = len(rec["entries"])
+    ranges = [PLAUSIBLE.get(rec["series"])]
+    if rec["series"] == "Weekend Cryptic":
+        ranges.append(PLAUSIBLE["Jumbo Cryptic"])
+    return ranges[0] is None or any(lo <= n <= hi for lo, hi in ranges)
 
 
 def run(write=True, limit=None):

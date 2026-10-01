@@ -132,7 +132,7 @@ SERIES = {
         "bylined": True,
         "badge": "indy sunday",
     },
-    # The Times publishes no grid and no answer key online, so these four are
+    # The Times publishes no grid and no answer key online, so these six are
     # filed by tools/file_times_puzzles.py from the times-for-the-times blog:
     # the clue list and answers are the blog's, the grid is rebuilt from them.
     # `blog` is the host that route reads, and what makes provenance call the
@@ -174,6 +174,28 @@ SERIES = {
         "publisher": "Sunday Times",
         "group": "Times",
         "badge": "sunday times",
+        "blog": "timesforthetimes.co.uk",
+        "perLightEnumeration": True,
+        "datedFromNeighbours": True,
+    },
+    # The Times Crossword Club's monthly puzzle, numbered from 20,000 on its
+    # own and harder than the daily. A blocked 15x15 like the daily, filed
+    # from the same blog; it prints no date, so its date stays null.
+    "timesclub": {
+        "kind": "Club Monthly Special",
+        "publisher": "Times",
+        "badge": "times club",
+        "blog": "timesforthetimes.co.uk",
+        "perLightEnumeration": True,
+        "datedFromNeighbours": True,
+    },
+    # The Times Literary Supplement's weekly crossword, a sister title of the
+    # Times, bylined, and blogged on the same site.
+    "tls": {
+        "kind": "Cryptic",
+        "publisher": "Times Literary Supplement",
+        "group": "Times",
+        "badge": "TLS",
         "blog": "timesforthetimes.co.uk",
         "perLightEnumeration": True,
         "datedFromNeighbours": True,

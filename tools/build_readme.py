@@ -457,6 +457,8 @@ SERIES_NAMES = {
     "timesquick": "Times Quick Cryptic",
     "timesjumbo": "Times Jumbo",
     "sundaytimes": "Sunday Times cryptic",
+    "timesclub": "Times Club Monthly Special",
+    "tls": "TLS crossword",
     "ftcryptic": "Financial Times cryptic",
     "telegraph": "Telegraph cryptic",
     "toughie": "Telegraph Toughie",
