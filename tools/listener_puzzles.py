@@ -21,9 +21,11 @@ rebuilt from the numbered answers by tools/barred_grid.py's search (file_times).
 A Listener whose answers go into the grid altered (reversed, jumbled, a letter
 moved, dropped or swapped) files what is entered as each `solution`, and the
 clue's own word with the steps that turn it into the entry as `alteration`:
-the alteration is one more step of the solve. For the Times' pages each
-puzzle's TIMES row says how its preamble alters an answer, as every entry the
-answer could become; the search keeps the one fill that fits. Puzzles that
+the alteration is one more step of the solve. A run the clue list does not
+clue is barred shut (close_unclued), a numbered one it leaves out filed with a
+missing clue, and letters the blank grid already shows are `printed`. For the
+Times' pages each puzzle's TIMES row says how its preamble alters an answer, as
+every entry the answer could become; the search keeps the one fill that fits. Puzzles that
 still cannot be filed are listed in SKIP with the reason.
 """
 import argparse
@@ -54,13 +56,8 @@ PDFS = {1: "1930-04-02", 3: "1930-04-16", 29: "1930-10-15", 93: "1932-01-06",
 
 #: Puzzles read and deliberately not filed, and why.
 SKIP = {
-    3: "shaped grid: the outline of India, and a barred grid here has no "
-       "squares outside it",
-    29: "blocked grid that leaves two-letter runs unnumbered and unclued: a "
-        "grid here is either blocked, where every run of two is a numbered "
-        "light, or barred, where every square is a letter",
-    93: "black squares and bars in one grid, with runs only the downs clue: "
-        "a barred grid here has no black squares",
+    3: "the solution numbers a square (27) that starts no light and prints "
+       "no 47, so no grid numbers as it does",
     111: "numerical: every light is a number",
 }
 
@@ -93,29 +90,90 @@ def pdf_bytes(name):
 
 # ------------------------------------------------------------------ the PDF
 
+#: A TJ kern wider than this many em is a gap between columns, not a space.
+COLUMN_GAP_EM = 1.0
+
+
+def _font_table(font):
+    """(code -> char, code -> width in em) for a simple font: WinAnsi bytes,
+    with the encoding's /Differences naming the glyph of any code it moves.
+    No 93 prints its MERRY CHRISTMAS squares in a decorative font whose codes
+    1-12 are the glyphs /A, /M, /E ..., so cp1252 would read them as control
+    characters."""
+    chars, widths = {}, {}
+    if font is None:
+        return chars, widths
+    font = font.get_object()
+    enc = font.get("/Encoding")
+    enc = enc.get_object() if enc is not None and hasattr(enc, "get_object") else enc
+    if hasattr(enc, "get"):
+        code = 0
+        for v in enc.get("/Differences") or []:
+            if isinstance(v, (int, float)) or hasattr(v, "as_numeric"):
+                code = int(v)
+                continue
+            glyph = str(v).lstrip("/")
+            if len(glyph) == 1:
+                chars[code] = glyph
+            elif glyph == "space":
+                chars[code] = " "
+            code += 1
+    first = int(font.get("/FirstChar", 0))
+    for i, w in enumerate(font.get("/Widths") or []):
+        widths[first + i] = float(w) / 1000
+    return chars, widths
+
+
 def text_runs(data):
-    """[(page, x, y, size, text)] of every Tj/TJ, each at its own position.
+    """[(page, x, y, size, text)] of the page's text, each at its own position.
 
     Read off the content stream rather than through pypdf's text extraction,
     which merges a right-column clue number into the left-column line beside
-    it. The fonts are the standard WinAnsi ones, so a string's bytes are
-    cp1252; a TJ kern wider than a fifth of an em is a space."""
+    it. A string's bytes are cp1252 unless the font's encoding names another
+    glyph for the code (_font_table). Each string is advanced by its glyph
+    widths, so a run is cut where a TJ kern is wider than COLUMN_GAP_EM (the
+    jump from one column to the next, inside one TJ), and a string set where
+    the last one on its line ended continues that run, spaces as printed: the
+    archive PDFs break a line into strings anywhere, mid-word included."""
     import pypdf
     from pypdf.generic import ContentStream
     logging.getLogger("pypdf").setLevel(logging.CRITICAL)
     reader = pypdf.PdfReader(io.BytesIO(data))
     runs = []
 
-    def text(v):
-        return v.original_bytes.decode("cp1252", "replace") if hasattr(v, "original_bytes") else str(v)
+    def numeric(v):
+        return isinstance(v, (int, float)) or hasattr(v, "as_numeric")
+
+    def device(tm, ctm, tx):
+        """Device (x, y) of text-space offset tx along the current line."""
+        ex, ey = tm[4] + tx * tm[0], tm[5] + tx * tm[1]
+        return (ex * ctm[0] + ey * ctm[2] + ctm[4], ex * ctm[1] + ey * ctm[3] + ctm[5])
+
+    def emit(last, page_no, size, tm, ctm, t, tx0, tx1):
+        """Append string `t`, set from tx0 to tx1, to runs; the new `last`."""
+        (x, y), (end, _) = device(tm, ctm, tx0), device(tm, ctm, tx1)
+        size *= abs(tm[3] * ctm[3]) or 1
+        if last and abs(last[2] - y) < 1 and abs(last[1] - x) <= 0.3 * size:
+            page_, x0, y0, s0, t0 = runs[last[0]]
+            runs[last[0]] = (page_, x0, y0, s0, t0 + t)
+            return (last[0], end, y)
+        if t.strip():
+            runs.append((page_no, x, y, size, t))
+            return (len(runs) - 1, end, y)
+        return last
 
     for page_no, page in enumerate(reader.pages):
         contents = page.get_contents()
         if contents is None:
             continue
+        fonts = (page.get("/Resources") or {}).get("/Font") or {}
+        fonts = fonts.get_object() if hasattr(fonts, "get_object") else fonts
+        tables = {}
         ctm, stack = [1, 0, 0, 1, 0, 0], []
         tm = lm = [1, 0, 0, 1, 0, 0]
-        size, leading = 12.0, 0.0
+        size, leading, tc, tw, tz = 12.0, 0.0, 0.0, 0.0, 1.0
+        chars, widths = {}, {}
+        last = None     # (index in runs, end x, y) of the run a string may continue
         for operands, op in ContentStream(contents, reader).operations:
             if op == b"q":
                 stack.append(ctm)
@@ -129,9 +187,19 @@ def text_runs(data):
             elif op == b"BT":
                 tm = lm = [1, 0, 0, 1, 0, 0]
             elif op == b"Tf":
+                name = str(operands[0])
+                if name not in tables:
+                    tables[name] = _font_table(fonts.get(name) if hasattr(fonts, "get") else None)
+                chars, widths = tables[name]
                 size = float(operands[1])
             elif op == b"TL":
                 leading = float(operands[0])
+            elif op == b"Tc":
+                tc = float(operands[0])
+            elif op == b"Tw":
+                tw = float(operands[0])
+            elif op == b"Tz":
+                tz = float(operands[0]) / 100
             elif op == b"Tm":
                 tm = lm = [float(v) for v in operands]
             elif op in (b"Td", b"TD"):
@@ -142,17 +210,27 @@ def text_runs(data):
                            lm[4] + tx * lm[0] + ty * lm[2], lm[5] + tx * lm[1] + ty * lm[3]]
             elif op in (b"T*", b"'", b'"'):
                 tm = lm = [lm[0], lm[1], lm[2], lm[3], lm[4] - leading * lm[2], lm[5] - leading * lm[3]]
-            if op in (b"Tj", b"TJ", b"'", b'"'):
-                if op == b"TJ":
-                    t = "".join(text(v) if not isinstance(v, (int, float)) and not hasattr(v, "as_numeric")
-                                else (" " if float(v) < -200 else "") for v in operands[0])
-                else:
-                    t = text(operands[-1])
-                x = tm[4] * ctm[0] + tm[5] * ctm[2] + ctm[4]
-                y = tm[4] * ctm[1] + tm[5] * ctm[3] + ctm[5]
-                scale = abs(tm[3] * ctm[3]) or 1
-                if t.strip():
-                    runs.append((page_no, x, y, size * scale, t))
+            if op not in (b"Tj", b"TJ", b"'", b'"'):
+                continue
+            parts = operands[0] if op == b"TJ" else [operands[-1]]
+            piece, start, tx = "", 0.0, 0.0
+            for v in parts:
+                if numeric(v):
+                    kern = -float(v) / 1000 * size * tz
+                    if float(v) <= -1000 * COLUMN_GAP_EM:
+                        last = emit(last, page_no, size, tm, ctm, piece, start, tx)
+                        piece, start = "", tx + kern
+                    elif float(v) < -200:
+                        piece += " "
+                    tx += kern
+                    continue
+                raw = v.original_bytes if hasattr(v, "original_bytes") else str(v).encode("cp1252", "replace")
+                for code in raw:
+                    piece += chars.get(code) or bytes([code]).decode("cp1252", "replace")
+                    tx += (widths.get(code, 0.5) * size + tc + (tw if code == 32 else 0)) * tz
+            last = emit(last, page_no, size, tm, ctm, piece, start, tx)
+            # A string leaves the text matrix where it ended.
+            tm = [tm[0], tm[1], tm[2], tm[3], tm[4] + tx * tm[0], tm[5] + tx * tm[1]]
     return runs
 
 
@@ -247,15 +325,14 @@ def read_solution(data):
     return {"rows": rows, "cols": cols, "letters": letters, "numbers": numbers, "bars": bars}
 
 
-def lights(sol):
-    """{(number, direction): [(y, x), ...]} of every run of two or more
-    lettered cells unbroken by a bar, numbered as the solution prints them.
-    A run with no number is no light: No 29 leaves two-letter runs unclued,
-    and No 93's picture has runs only its downs clue."""
+def runs(sol):
+    """[(number or None, direction, [(y, x), ...])] of every run of two or
+    more lettered cells unbroken by a bar, with the number the solution prints
+    on its first cell."""
     letters, bars = sol["letters"], sol["bars"]
-    out = {}
+    out = []
     for (y, x) in sorted(letters):
-        for direction, (dy, dx), mark in (("across", (0, 1), "rr+"), ("down", (1, 0), "bb+")):
+        for direction, (dy, dx), mark in (("across", (0, 1), "r+"), ("down", (1, 0), "b+")):
             prev = (y - dy, x - dx)
             if prev in letters and bars[prev[0]][prev[1]] not in mark:
                 continue
@@ -264,14 +341,41 @@ def lights(sol):
                     (run[-1][0] + dy, run[-1][1] + dx) in letters:
                 run.append((run[-1][0] + dy, run[-1][1] + dx))
             if len(run) > 1:
-                n = sol["numbers"].get((y, x))
-                if n is None:
-                    continue    # unclued: the solution numbers every light
-                out[(n, direction)] = run
+                out.append((sol["numbers"].get((y, x)), direction, run))
     return out
 
 
+def lights(sol):
+    """{(number, direction): [(y, x), ...]} of every numbered run: what the
+    clue list may clue."""
+    return {(n, d): cells for n, d, cells in runs(sol) if n is not None}
+
+
+def close_unclued(sol, clued):
+    """Bar every run the clue list does not clue into single cells, in place.
+
+    Not every run is a light here: No 29's blocked grid leaves two-letter runs
+    unnumbered, and No 93's picture rows have across runs only the downs clue.
+    Our grid numbers every run of two, so the bar is what says such a run is no
+    light, in a blocked grid as in a barred one."""
+    bars = [list(row) for row in sol["bars"]]
+    both = {("r", "b"): "+", ("b", "r"): "+", (".", "r"): "r", (".", "b"): "b"}
+    for n, direction, cells in runs(sol):
+        if (n, direction) in clued:
+            continue
+        mark = "r" if direction == "across" else "b"
+        for y, x in cells[:-1]:
+            bars[y][x] = both.get((bars[y][x], mark), bars[y][x])
+    sol["bars"] = ["".join(row) for row in bars]
+
+
 CLUE_HEAD = re.compile(r"^(\d{1,2})\s+(\S.*)$")
+#: A clue's head: its light, any lights linked to it ("7 & 8", "60 & 27D",
+#: "40, 30, 33"), each light's own note on how it is entered ("(rev.)").
+LINKED_HEAD = re.compile(
+    r"^(\d{1,2}[AD]?(?:\s*\([a-z]+\.?\))?(?:\s*[,&]\s*\d{1,2}[AD]?(?:\s*\([a-z]+\.?\))?)*)\s+(\S.*)$")
+HEAD_LIGHT = re.compile(r"(\d{1,2})([AD])?")
+SEE = re.compile(r"^See\s+\d", re.IGNORECASE)
 
 
 def page_middle(data):
@@ -317,13 +421,20 @@ def column_lines(runs, mid):
     return sides
 
 
-def parse_clues(left, right, wanted):
-    """{(number, direction): clue text} for the lights in `wanted`, read
-    after the ACROSS and DOWN headings. A line opens a clue when it starts
-    with a number the section still expects; anything else continues the clue
-    before it."""
-    clues, section, current = {}, None, None
-    both = False
+def parse_clue_list(left, right, wanted):
+    """({(number, direction): clue text}, {leader: [leader, linked, ...]}) for
+    the lights in `wanted`, read after the ACROSS and DOWN headings. A line
+    opens a clue when it starts with a light the section still expects;
+    anything else continues the clue before it.
+
+    A head naming several lights is one answer over all of them, led by the
+    first; a light it names that prints no clue of its own gets "See <leader>",
+    as the corpus stores a linked answer's other lights. A head whose text is
+    itself "See 40" points its lights elsewhere and links nothing. A head
+    keeps its notes in the clue ("(rev.), 24 Michaelmas ...") since they say
+    how each light is entered."""
+    clues, groups, see = {}, {}, {}
+    section, current, both = None, None, False
     for i, line in enumerate(left + right):
         if i == len(left) and both:
             # "ACROSS DOWN" as one heading over both columns.
@@ -337,13 +448,41 @@ def parse_clues(left, right, wanted):
                 continue
         if section is None or not line:
             continue
-        m = CLUE_HEAD.match(line)
-        if m and (int(m.group(1)), section) in wanted and (int(m.group(1)), section) not in clues:
-            current = (int(m.group(1)), section)
-            clues[current] = m.group(2).strip()
+        m = LINKED_HEAD.match(line)
+        heads = []
+        if m:
+            for n, way in HEAD_LIGHT.findall(re.sub(r"\([^)]*\)", "", m.group(1))):
+                d = {"A": "across", "D": "down"}.get(way, section)
+                other = "down" if d == "across" else "across"
+                if not way and (int(n), d) not in wanted and (int(n), other) in wanted:
+                    d = other
+                heads.append((int(n), d))
+        if heads and heads[0] in wanted and heads[0] not in clues and all(h in wanted for h in heads):
+            current = heads[0]
+            text = m.group(2).strip()
+            if len(heads) > 1 and SEE.match(text):
+                for h in heads[1:]:
+                    see.setdefault(h, text)
+            elif len(heads) > 1:
+                groups[current] = heads
+                for h in heads[1:]:
+                    see.setdefault(h, f"See {current[0]}")
+            if "(" in m.group(1):
+                text = line[len(str(current[0])):].strip()
+            clues[current] = text
         elif current:
-            clues[current] = f"{clues[current]} {line}".strip()
-    return {k: re.sub(r"\s+", " ", v).replace(" ,", ",").strip() for k, v in clues.items()}
+            # A word broken over two lines ("blind-" / "man's") joins up.
+            gap = "" if clues[current].endswith("-") else " "
+            clues[current] = f"{clues[current]}{gap}{line}".strip()
+    for h, text in see.items():
+        clues.setdefault(h, text)
+    return ({k: re.sub(r"\s+", " ", v).replace(" ,", ",").strip() for k, v in clues.items()},
+            groups)
+
+
+def parse_clues(left, right, wanted):
+    """parse_clue_list's clue texts alone."""
+    return parse_clue_list(left, right, wanted)[0]
 
 
 def read_title(data):
@@ -358,19 +497,31 @@ def assemble(number, puzzle_pdf, solution_pdf, date):
     if got != number:
         return None, f"PDF says No {got}"
     sol = read_solution(solution_pdf)
-    grid_lights = lights(sol)
     left, right = column_lines(text_runs(puzzle_pdf), page_middle(puzzle_pdf))
-    clues = parse_clues(left, right, set(grid_lights))
+    clues, groups = parse_clue_list(left, right, set(lights(sol)))
+    # A number no clued light starts is a light the clue list leaves out
+    # because its letters are printed in the grid: No 93's CHRISTMAS.
+    starts = {n for n, _ in clues}
+    for n, d in lights(sol):
+        if n not in starts:
+            clues.setdefault((n, d), None)
+    close_unclued(sol, set(clues))
+    grid_lights = lights(sol)
     missing = sorted(set(grid_lights) - set(clues))
     if missing:
         return None, f"no clue for {missing[0][0]}-{missing[0][1]}"
+    spare = sorted(set(clues) - set(grid_lights))
+    if spare:
+        return None, f"clue for {spare[0][0]}-{spare[0][1]}, no such light"
     entries = []
     for (n, direction), cells in sorted(grid_lights.items(), key=lambda kv: (kv[0][1] != "across", kv[0][0])):
         entries.append({
             "number": n, "direction": direction,
             "position": {"x": cells[0][1], "y": cells[0][0]}, "length": len(cells),
-            "clue": clue_of(clues[(n, direction)]),
+            "clue": clue_of(clues[(n, direction)]) if clues[(n, direction)] else {"missing": True},
             "solution": "".join(sol["letters"][c] for c in cells),
+            **({"group": [f"{g}-{d}" for g, d in groups[(n, direction)]]}
+               if (n, direction) in groups else {}),
         })
     url = f"{SITE}/PDF/Archive/List{number:04d}.pdf"
     puzzle = {
@@ -385,6 +536,17 @@ def assemble(number, puzzle_pdf, solution_pdf, date):
         puzzle["setter"] = setter
     if any(set(row) - {"."} for row in sol["bars"]):
         puzzle["bars"] = sol["bars"]
+    # Letters the blank grid already shows are given to the player.
+    given = read_solution(puzzle_pdf)
+    if (given["rows"], given["cols"]) == (sol["rows"], sol["cols"]) and given["letters"]:
+        cells = sorted(given["letters"])
+        puzzle["printed"] = [{"x": x, "y": y, "letter": given["letters"][(y, x)]} for y, x in cells]
+        # Read in rows they are one message (No 93's A MERRY CHRISTMAS TO
+        # YOU), and some of its squares are in no light, so it is an unclued
+        # light: that is what puts a square no entry covers on the board.
+        puzzle["unclued"] = [{"cells": [{"x": x, "y": y} for y, x in cells],
+                              "solution": "".join(given["letters"][c] for c in cells),
+                              "note": "Printed in the grid"}]
     # provenance.stamp() derives the rest of both on write.
     puzzle["source"] = {"url": url}
     puzzle["solutions"] = {"origin": "published"}
