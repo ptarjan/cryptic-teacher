@@ -219,6 +219,13 @@ first["enumeration"] = str(len(first["answer"]))
 first["answer"] += "Q"
 g, how = T.solve(wrong)
 print("ENUM_LENGTH", how, g == [TINY])
+# An answer cut off at a break in a phrase still starts its light; a
+# one-word answer under a longer count is a typo and gives no letters.
+print("ENUM_CUT", T.by_enumeration({"series": "Test", "entries": [
+    {"number": 1, "direction": "across", "answer": "WORST", "clue": "c (5-4,8)",
+     "enumeration": "5-4,8"},
+    {"number": 2, "direction": "down", "answer": "STAVE", "clue": "c (6)", "enumeration": "6"},
+    {"number": 3, "direction": "down", "answer": "CAT", "clue": "c (3)", "enumeration": "3"}]}))
 first["enumeration"] = None
 g, how = T.solve(wrong)
 print("ONE_WRONG", how, g == [TINY])
@@ -362,6 +369,8 @@ check "a diagonal-symmetric grid is rebuilt, and no half-turn one fits it" \
 check "a grid with no symmetry at all is not taken" False "$(field NO_SYMMETRY)"
 check "an answer at the wrong length is rebuilt at its enumeration's" \
       "unique, enumeration length True" "$(field ENUM_LENGTH)"
+check "an answer cut off inside a phrase keeps its letters; a short one-word answer does not" \
+  "([(1, 'across', 17), (2, 'down', 6), (3, 'down', 3)], ['WORST', None, 'CAT'])" "$(field ENUM_CUT)"
 check "one wrong light with no enumeration is found by freeing it" \
       "unique, one light wrong at 1 across True" "$(field ONE_WRONG)"
 check "answers that fit the grid need no correction" "" "$(field FIX_NONE)"
