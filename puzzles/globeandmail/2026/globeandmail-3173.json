@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,50 @@
     "text": "Have drug ready for use in kitchen container",
     "enumeration": "8"
    },
-   "solution": "STOCKPOT"
+   "solution": "STOCKPOT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STOCKPOT",
+    "definitions": [
+     {
+      "text": "kitchen container",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "ready for use in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Have",
+      "gives": "STOCK",
+      "note": "a shop that stocks goods has them on hand"
+     },
+     {
+      "clueFragment": "drug",
+      "gives": "POT",
+      "note": "pot is slang for cannabis"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STOCK",
+      "POT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone keeping an illicit substance handy in a cooking vessel.",
+     "walkthrough": "The surface suggests drugs hidden in the kitchen; really the first two words simply join, and the rest leads to the definition.",
+     "definitionFit": "A stockpot is a large deep pan used on the stove for simmering broth, so it is a cooking vessel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Have"
+    }
+   }
   },
   {
    "number": 2,
@@ -53,7 +99,46 @@
      }
     ]
    },
-   "solution": "TAKEOUT"
+   "solution": "TAKEOUT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TAKE OUT",
+    "definitions": [
+     {
+      "text": "Date",
+      "at": 0
+     },
+     {
+      "text": "make a killing",
+      "at": 8
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Date",
+      "note": "first meaning: escort someone for an evening, as on a date"
+     },
+     {
+      "clueFragment": "make a killing",
+      "note": "second meaning: gangster slang for eliminating a person"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Make a killing' usually means earn a fortune; here it is taken literally as murder, which links to criminal slang.",
+     "definitionFit": "The phrasal verb covers both inviting someone out socially and, in underworld jargon, assassinating a target."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "killing"
+    }
+   }
   },
   {
    "number": 3,
@@ -67,7 +152,55 @@
     "text": "He is appearing in court case",
     "enumeration": "5"
    },
-   "solution": "CHEST"
+   "solution": "CHEST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CHEST",
+    "definitions": [
+     {
+      "text": "case",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "appearing in",
+      "for": "container",
+      "note": "to appear in something is to be seen within it, so one piece sits inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "He is",
+      "gives": "HES",
+      "note": "contracted to he's, apostrophe dropped"
+     },
+     {
+      "clueFragment": "court",
+      "gives": "CT",
+      "note": "CT is the standard abbreviation for court"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HES",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A man features in a lawsuit being heard.",
+     "walkthrough": "'Court case' reads as one legal phrase, but the last word is the definition, cut off from 'court'.",
+     "definitionFit": "A chest is a large box for storing things, which is one sense of a case or container."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +214,54 @@
     "text": "Minor lake yielding up new shell",
     "enumeration": "3"
    },
-   "solution": "POD"
+   "solution": "POD",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "POD",
+    "definitions": [
+     {
+      "text": "shell",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "yielding up",
+      "for": "deletion",
+      "note": "to yield something up is to surrender it, so a letter is given away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Minor lake",
+      "gives": "POND",
+      "note": "a pond is a small body of still water"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the usual abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PO",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A small lake gives up a fresh shell, as if a pond revealed a mollusc.",
+     "walkthrough": "The removed N sits in the middle of the word, not at an end.",
+     "definitionFit": "A pod is the outer casing of peas or beans, a natural husk enclosing seeds."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shell"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +275,66 @@
     "text": "One praising president over damaged tree",
     "enumeration": "9"
    },
-   "solution": "TRUMPETER"
+   "solution": "TRUMPETER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "TRUMPETER",
+    "definitions": [
+     {
+      "text": "One praising",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "damaged",
+      "for": "anagram",
+      "note": "something damaged is knocked out of shape, so its letters are rearranged"
+     },
+     {
+      "text": "over",
+      "for": "charade",
+      "note": "in a down entry, being over means sitting above, so one part comes first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "president",
+      "gives": "TRUMP",
+      "note": "Donald Trump, US president"
+     },
+     {
+      "clueFragment": "tree",
+      "gives": "TREE",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRUMP",
+      "ETER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TREE",
+       "gives": "ETER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A flatterer of the head of state stands above a battered tree.",
+     "walkthrough": "To trumpet something is to proclaim it loudly, so one who trumpets is a loud praiser.",
+     "definitionFit": "A trumpeter, figuratively, is someone who loudly proclaims and celebrates the merits of a person or thing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "damaged"
+    }
+   }
   },
   {
    "number": 6,
@@ -109,7 +348,63 @@
     "text": "Piedmont’s capital is a city in Italy",
     "enumeration": "4"
    },
-   "solution": "PISA"
+   "solution": "PISA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PISA",
+    "definitions": [
+     {
+      "text": "city in Italy",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "capital",
+      "for": "letter_selection",
+      "note": "a capital is a head or top letter, so only the opening letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Piedmont",
+      "gives": "P",
+      "select": "first",
+      "note": "the opening letter of the region's name"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "IS",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A geography statement about which Italian city is the regional capital of Piedmont.",
+     "walkthrough": "Piedmont's real capital is Turin; 'capital' here means a capital letter, not a seat of government.",
+     "definitionFit": "Pisa is a Tuscan city famed for its leaning bell tower, so it is an Italian town."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +418,64 @@
     "text": "Colour is good in a lot of red pepper",
     "enumeration": "7"
    },
-   "solution": "PIGMENT"
+   "solution": "PIGMENT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "PIGMENT",
+    "definitions": [
+     {
+      "text": "Colour",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a lot of",
+      "for": "deletion",
+      "note": "a lot of something is most but not all of it, so the end is lost"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "placing one thing in another puts it inside"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "red pepper",
+      "gives": "PIMENTO",
+      "note": "a pimento is a sweet red pepper"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PI",
+      "G",
+      "MENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A remark that red peppers provide good colouring for a dish.",
+     "walkthrough": "The final O of the pepper is dropped before the G goes inside.",
+     "definitionFit": "Pigment is the substance giving something its hue, so it stands for colour or colouring matter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pepper"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +489,53 @@
     "text": "Bind pieces up",
     "enumeration": "5"
    },
-   "solution": "STRAP"
+   "solution": "STRAP",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "STRAP",
+    "definitions": [
+     {
+      "text": "Bind",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, going up means reading from the bottom, so the letters turn round"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pieces",
+      "gives": "PARTS",
+      "note": "parts are pieces of a whole"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STRAP"
+     ],
+     "reversals": [
+      {
+       "from": "PARTS",
+       "to": "STRAP"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'Bind pieces up' reads as tying things together; 'up' is the turnaround signal in a down clue.",
+     "definitionFit": "To strap is to fasten something tightly with a band or belt, which is a way of binding."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +549,59 @@
     "text": "Island of Sark you’ve found empty",
     "enumeration": "4"
    },
-   "solution": "SKYE"
+   "solution": "SKYE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "SKYE",
+    "definitions": [
+     {
+      "text": "Island",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found empty",
+      "for": "letter_selection",
+      "note": "an empty word has its insides removed, leaving only its outer letters"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sark",
+      "gives": "SK",
+      "select": "outer",
+      "note": "first and last letters of the Channel Island's name"
+     },
+     {
+      "clueFragment": "you’ve",
+      "gives": "YE",
+      "select": "outer",
+      "note": "first and last letters of the contraction"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SK",
+      "YE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone discovers Sark, a tiny Channel Island, deserted.",
+     "walkthrough": "Sark, a small island between England and France, looks like the answer's island but only lends its outer letters.",
+     "definitionFit": "Skye is a large island of the Inner Hebrides off Scotland's west coast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sark"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +615,55 @@
     "text": "Cease talking about Dickens’ Barnaby. Dull work",
     "enumeration": "8"
    },
-   "solution": "DRUDGERY"
+   "solution": "DRUDGERY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DRUDGERY",
+    "definitions": [
+     {
+      "text": "Dull work",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "to be about something is to be around it, so one piece surrounds another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cease talking",
+      "gives": "DRY",
+      "note": "to dry, or dry up, is to stop speaking"
+     },
+     {
+      "clueFragment": "Dickens’ Barnaby",
+      "gives": "RUDGE",
+      "note": "Barnaby Rudge is the title character of a Dickens novel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "RUDGE",
+      "RY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tells another to stop going on about a Dickens novel, which is tedious stuff.",
+     "walkthrough": "The full stop splits the clue: the literary chat is wordplay and the last two words are the definition.",
+     "definitionFit": "Drudgery is hard, menial, monotonous labour, exactly the tedious toil the phrase describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Barnaby"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +683,43 @@
      }
     ]
    },
-   "solution": "SOFTSOAP"
+   "solution": "SOFTSOAP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SOFT SOAP",
+    "definitions": [
+     {
+      "text": "Means of persuading",
+      "at": 0
+     },
+     {
+      "text": "cleaner",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Means of persuading",
+      "note": "first meaning: flattery used to win someone over"
+     },
+     {
+      "clueFragment": "cleaner",
+      "note": "second meaning: a semi-liquid soap for washing"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface reads like a sales pitch for a detergent; the figurative sense of smooth flattery is the other meaning.",
+     "definitionFit": "The phrase names both a liquid washing product and the smooth, flattering talk used to coax someone into agreement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cleaner"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +733,63 @@
     "text": "Rope needing right sailor for working",
     "enumeration": "9"
    },
-   "solution": "OPERATING"
+   "solution": "OPERATING",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "OPERATING",
+    "definitions": [
+     {
+      "text": "working",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "needing",
+      "for": "deletion",
+      "note": "needing something means lacking it, so a letter goes missing"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rope",
+      "gives": "ROPE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     },
+     {
+      "clueFragment": "sailor",
+      "gives": "RATING",
+      "note": "a rating is an ordinary seaman in the navy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OPE",
+      "RATING"
+     ]
+    },
+    "explanation": {
+     "surface": "A deckhand lacking the right line for the job at hand.",
+     "walkthrough": "A rating is a British naval term for a sailor who is not an officer.",
+     "definitionFit": "Operating means functioning or running, as a machine does when it is in action."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "needing"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +803,50 @@
     "text": "Large show in former post office",
     "enumeration": "4"
    },
-   "solution": "EXPO"
+   "solution": "EXPO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXPO",
+    "definitions": [
+     {
+      "text": "Large show",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "former",
+      "gives": "EX",
+      "note": "ex- means former, as in ex-wife"
+     },
+     {
+      "clueFragment": "post office",
+      "gives": "PO",
+      "note": "PO is the abbreviation for post office"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "PO"
+     ]
+    },
+    "explanation": {
+     "surface": "A big exhibition held in a disused post office building.",
+     "walkthrough": "'In' looks like it places one piece inside another; it only links definition to wordplay.",
+     "definitionFit": "An expo is a large public exhibition, short for exposition, such as a world's fair or trade fair."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +860,54 @@
     "text": "Faster flying in attack from the air",
     "enumeration": "6"
    },
-   "solution": "STRAFE"
+   "solution": "STRAFE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STRAFE",
+    "definitions": [
+     {
+      "text": "attack from the air",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flying",
+      "for": "anagram",
+      "note": "letters sent flying scatter about and land in a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Faster",
+      "gives": "FASTER",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FASTER",
+       "gives": "STRAFE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Aircraft flying quicker during an air raid.",
+     "walkthrough": "'Flying' fits the aerial picture so well that it hides its role as the rearrangement signal.",
+     "definitionFit": "To strafe is to rake ground targets with machine-gun fire from low-flying aircraft."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "flying"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +921,54 @@
     "text": "Beware delaying start for sale",
     "enumeration": "7"
    },
-   "solution": "AUCTION"
+   "solution": "AUCTION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AUCTION",
+    "definitions": [
+     {
+      "text": "sale",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "delaying start",
+      "for": "anagram",
+      "note": "holding back the opening letter moves it to a later spot, changing the order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Beware",
+      "gives": "CAUTION",
+      "note": "'Caution!' is a warning to beware"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CAUTION",
+       "gives": "AUCTION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A warning that putting off the start of a sale is unwise.",
+     "walkthrough": "Only one letter moves: the leading C slips back two places, behind the A and U.",
+     "definitionFit": "An auction is a public sale where goods go to the highest bidder."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Beware"
+    }
+   }
   },
   {
    "number": 15,
@@ -255,7 +982,47 @@
     "text": "Called bird came first",
     "enumeration": "6"
    },
-   "solution": "TITLED"
+   "solution": "TITLED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TITLED",
+    "definitions": [
+     {
+      "text": "Called",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bird",
+      "gives": "TIT",
+      "note": "a tit is a small songbird"
+     },
+     {
+      "clueFragment": "came first",
+      "gives": "LED",
+      "note": "whoever led was in front"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIT",
+      "LED"
+     ]
+    },
+    "explanation": {
+     "surface": "The early bird that sang its call was the first to arrive.",
+     "walkthrough": "'Called bird' suggests a bird that called out; the first word is the definition.",
+     "definitionFit": "Something titled has been given a name, so it is named or called that."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Called"
+    }
+   }
   },
   {
    "number": 16,
@@ -269,7 +1036,50 @@
     "text": "Call former partner with demand",
     "enumeration": "7"
    },
-   "solution": "EXCLAIM"
+   "solution": "EXCLAIM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXCLAIM",
+    "definitions": [
+     {
+      "text": "Call",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "former partner",
+      "gives": "EX",
+      "note": "an ex is a former spouse or lover"
+     },
+     {
+      "clueFragment": "demand",
+      "gives": "CLAIM",
+      "note": "a claim is a demand for something owed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "CLAIM"
+     ]
+    },
+    "explanation": {
+     "surface": "Phoning one's former spouse to ask for money owed.",
+     "walkthrough": "'Call' suggests a phone call; it is the definition in the sense of crying out.",
+     "definitionFit": "To exclaim is to cry out suddenly, so it matches call in the sense of shouting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Call"
+    }
+   }
   },
   {
    "number": 17,
@@ -283,7 +1093,47 @@
     "text": "Big and impressive electronic image?",
     "enumeration": "4"
    },
-   "solution": "EPIC"
+   "solution": "EPIC",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EPIC",
+    "definitions": [
+     {
+      "text": "Big and impressive",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "electronic",
+      "gives": "E",
+      "note": "E is the abbreviation for electronic, as in e-mail"
+     },
+     {
+      "clueFragment": "image",
+      "gives": "PIC",
+      "note": "pic is short for picture"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "PIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A large, striking digital photo.",
+     "walkthrough": "The question mark flags that the 'electronic image' is built from an e-prefix and a short word for picture.",
+     "definitionFit": "Epic describes something grand in scale and heroic, like an epic film or journey."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "image"
+    }
+   }
   },
   {
    "number": 18,
@@ -297,7 +1147,51 @@
     "text": "Quiet trip taken to see lions?",
     "enumeration": "5"
    },
-   "solution": "PRIDE"
+   "solution": "PRIDE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PRIDE",
+    "definitions": [
+     {
+      "text": "lions",
+      "at": 24,
+      "note": "the answer is a collective noun for a group of lions"
+     }
+    ],
+    "linkWords": [
+     "taken to see"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quiet",
+      "gives": "P",
+      "note": "p, piano, is the musical marking for quiet"
+     },
+     {
+      "clueFragment": "trip",
+      "gives": "RIDE",
+      "note": "a ride is a short journey"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "RIDE"
+     ]
+    },
+    "explanation": {
+     "surface": "A hushed safari drive to view lions.",
+     "walkthrough": "The safari scene makes 'lions' look like part of the picture; it is the definition, by way of the collective noun.",
+     "definitionFit": "A group of lions living together is called a pride, the standard collective term."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "lions"
+    }
+   }
   },
   {
    "number": 19,
@@ -311,7 +1205,67 @@
     "text": "Expert pilot circling Paris confused where to fly",
     "enumeration": "8"
    },
-   "solution": "AIRSPACE"
+   "solution": "AIRSPACE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "AIRSPACE",
+    "definitions": [
+     {
+      "text": "where to fly",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "confused",
+      "for": "anagram",
+      "note": "confused things are jumbled up, so the letters come out mixed"
+     },
+     {
+      "text": "circling",
+      "for": "container",
+      "note": "to circle something is to go all the way round it, enclosing it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Expert pilot",
+      "gives": "ACE",
+      "note": "an ace is a top fighter pilot"
+     },
+     {
+      "clueFragment": "Paris",
+      "gives": "PARIS",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "IRSPA",
+      "CE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PARIS",
+       "gives": "IRSPA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A skilled aviator circles above Paris, unsure where to land.",
+     "walkthrough": "The jumbled city name goes between the first and second letters of the pilot word.",
+     "definitionFit": "Airspace is the region of sky above a territory, the zone in which aircraft travel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "circling"
+    }
+   }
   },
   {
    "number": 20,
@@ -325,7 +1279,50 @@
     "text": "Father’s thanks for Italian meal",
     "enumeration": "5"
    },
-   "solution": "PASTA"
+   "solution": "PASTA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PASTA",
+    "definitions": [
+     {
+      "text": "Italian meal",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Father’s",
+      "gives": "PAS",
+      "note": "pa is an informal word for father, plus 's"
+     },
+     {
+      "clueFragment": "thanks",
+      "gives": "TA",
+      "note": "ta is British informal for thank you"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAS",
+      "TA"
+     ]
+    },
+    "explanation": {
+     "surface": "Dad says grace for the spaghetti dinner.",
+     "walkthrough": "Ta is everyday British slang for thanks.",
+     "definitionFit": "Pasta is the staple dough-based Italian dish such as spaghetti or penne, served as a course."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "thanks"
+    }
+   }
   },
   {
    "number": 21,
@@ -339,7 +1336,58 @@
     "text": "Ruin outside of car and take the edge off",
     "enumeration": "8"
    },
-   "solution": "DIMINISH"
+   "solution": "DIMINISH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DIMINISH",
+    "definitions": [
+     {
+      "text": "take the edge off",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside of",
+      "for": "container",
+      "note": "being outside something means surrounding it, so one piece wraps another"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ruin",
+      "gives": "DISH",
+      "note": "to dish someone's hopes is to wreck them"
+     },
+     {
+      "clueFragment": "car",
+      "gives": "MINI",
+      "note": "the Mini is a small classic British car"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "MINI",
+      "SH"
+     ]
+    },
+    "explanation": {
+     "surface": "Damaging the bodywork of a car, then blunting its edges.",
+     "walkthrough": "'Outside of car' looks like the car's exterior; it means the ruin word goes around the car. The Mini is a small British car.",
+     "definitionFit": "To diminish is to lessen or weaken, just as taking the edge off reduces sharpness or intensity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "outside"
+    }
+   }
   },
   {
    "number": 22,
@@ -353,7 +1401,43 @@
     "text": "Female seen in the night",
     "enumeration": "3"
    },
-   "solution": "HEN"
+   "solution": "HEN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "HEN",
+    "definitions": [
+     {
+      "text": "Female",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "seen in",
+      "for": "hidden_word",
+      "note": "something seen in a phrase is visible inside it, spanning its words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the night",
+      "gives": "HEN",
+      "note": "letters spanning the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A woman spotted out after dark.",
+     "walkthrough": "The letters run across the end of 'the' into the start of 'night'.",
+     "definitionFit": "A hen is a female bird, and the word is also used of females of other species."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "seen"
+    }
+   }
   },
   {
    "number": 23,
@@ -367,7 +1451,50 @@
     "text": "Go from side to side of small vessel",
     "enumeration": "4"
    },
-   "solution": "SPAN"
+   "solution": "SPAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SPAN",
+    "definitions": [
+     {
+      "text": "Go from side to side",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     },
+     {
+      "clueFragment": "vessel",
+      "gives": "PAN",
+      "note": "a pan is a cooking vessel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A little boat rocking from side to side.",
+     "walkthrough": "'Vessel' suggests a boat to match the rocking, but it is a kitchen pan.",
+     "definitionFit": "To span is to extend across from one bank or edge to the other, as a bridge does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "vessel"
+    }
+   }
   },
   {
    "number": 24,
@@ -381,7 +1508,52 @@
     "text": "Creature regularly seen in the briny",
     "enumeration": "4"
    },
-   "solution": "TERN"
+   "solution": "TERN",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "TERN",
+    "definitions": [
+     {
+      "text": "Creature",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "doing something regularly means at even intervals, so every other letter is taken"
+     }
+    ],
+    "linkWords": [
+     "seen in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the briny",
+      "gives": "TERN",
+      "select": "alternate",
+      "note": "first, third, fifth and seventh letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TERN"
+     ]
+    },
+    "explanation": {
+     "surface": "An animal often spotted in the sea.",
+     "walkthrough": "The briny is slang for the sea, which makes a fish or seal look likely; the answer is a seabird.",
+     "definitionFit": "A tern is a slender seabird, so it is a living animal, a broad and vague definition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "regularly"
+    }
+   }
   },
   {
    "number": 25,
@@ -395,7 +1567,43 @@
     "text": "Policeman in Bridgend, armed",
     "enumeration": "8"
    },
-   "solution": "GENDARME"
+   "solution": "GENDARME",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "GENDARME",
+    "definitions": [
+     {
+      "text": "Policeman",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the answer is held within the following words, running across them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bridgend, armed",
+      "gives": "GENDARME",
+      "note": "letters spanning the town name and the next word"
+     }
+    ],
+    "explanation": {
+     "surface": "An officer in the Welsh town of Bridgend is carrying a weapon.",
+     "walkthrough": "British police are usually unarmed, which makes the surface newsworthy; Bridgend is a town in South Wales.",
+     "definitionFit": "A gendarme is a French police officer, a member of the national military police force."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "armed"
+    }
+   }
   }
  ]
 }
