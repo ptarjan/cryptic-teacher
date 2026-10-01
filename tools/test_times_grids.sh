@@ -114,6 +114,13 @@ split = T.split_by(linked, TINY)
 print("LINKED_SPLIT", "unsplit" in split,
       [e["clue"] for e in T.printed(split) if (e["number"], e["direction"]) in two]
       == ["Linked (5,5)", f"See {two[0][0]}"])
+# The pointer names the direction where the number has both, and the leader
+# keeps the answer as printed (toughie-641's 1-down SICK AS A DOG).
+both = T.with_split({"entries": [{"number": 1, "direction": "across", "answer": "SEMI"}],
+                     "unsplit": [{"clue": "Ill (4,2,1,3)", "enumeration": "4,2,1,3",
+                                  "answer_printed": "SICK AS A DOG"}]},
+                    ([((1, "down"), "SICK"), ((16, "across"), "ASADOG")],))
+print("LINKED_POINTER", [(e["clue"], e.get("answer_spaced")) for e in both["entries"][1:]])
 T.ATTEMPTS.write_text(
     json.dumps({"post_id": 6, "how": "no grid", "max_nodes": 6000000, "search": T.SEARCH}) + "\n"
     + json.dumps({"post_id": 7, "how": "no grid", "max_nodes": 6000000, "search": T.SEARCH,
@@ -338,6 +345,8 @@ check "a linked answer printed whole is split by the grid that fits" \
       "True unique, linked answer split by the grid" "$(field LINKED)"
 check "the split record carries the clue on its leader and See N on the rest" \
       "False True" "$(field LINKED_SPLIT)"
+check "a pointer names its direction where the number has both; the leader keeps the printed answer" \
+  "[('Ill (4,2,1,3)', 'SICK AS A DOG'), ('See 1 down', None)]" "$(field LINKED_POINTER)"
 check "a linked post tried without splitting, or with fewer splits, is tried again" "[7]" "$(field RETRY_LINKED)"
 check "a suffix against its heading: the grid takes the heading's direction" \
       "True unique, directions as headed None" "$(field HEADED)"

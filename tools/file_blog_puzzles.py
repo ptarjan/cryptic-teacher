@@ -400,14 +400,23 @@ def build(rec, row, series, date, setter, typed=None):
                 return None, "a clue has no enumeration"
             continue
         count = sum(n for n, _ in enumeration_parts(enum))
-        if count == e["length"]:
+        spaced = by_key[(e["number"], e["direction"])].get("answer_spaced")
+        if (count == e["length"] and len(group) > 1 and group[0] == entry_id(e) and spaced
+                and re.sub(r"[^A-Z]", "", spaced) == "".join(by_id[g]["solution"] or ""
+                                                             for g in group)):
+            # A leader counting its own light under a linked answer the blog
+            # printed whole: the answer's word breaks are the group's count
+            # (toughie-1067's FIRST-DEGREE MURDER typed (5-6)).
+            enum = format_parts(answer_parts(spaced))
+            e["clue"] = with_enumeration(e["clue"], enum)
+            recounted.append(f"{e['number']} {e['direction']}")
+        elif count == e["length"]:
             group = [entry_id(e)]
         elif group[0] != entry_id(e):
             return None, "an enumeration disagrees with its light"
         try:
             seps_by_light = separators(group, by_id, enum)
         except SystemExit:
-            spaced = by_key[(e["number"], e["direction"])].get("answer_spaced")
             enum = from_answer(group, by_id, enum, spaced, typed)
             if not enum:
                 return None, ("an enumeration disagrees with its light, and the "

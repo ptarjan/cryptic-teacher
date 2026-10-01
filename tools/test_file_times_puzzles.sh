@@ -220,6 +220,13 @@ built, why = B.build(whole, row(whole), "times", None, None)
 by_id = {entry_id(e): e for e in built["entries"]} if built else {}
 print("SPLIT_FILED", why, [enumeration.printed(by_id[f"{n}-{d}"]["clue"]) for n, d in pair],
       by_id[f"{pair[0][0]}-across"].get("group"))
+# A count the blog typed for the leader's light alone, under an answer it
+# printed whole: the printed answer's word breaks count the group.
+whole["unsplit"] = [dict(whole["unsplit"][0], enumeration="5", clue="Linked words (5)",
+                         answer_printed=f"{answer[pair[0]]} {answer[pair[1]]}")]
+built, why = B.build(whole, row(whole), "times", None, None)
+print("SPLIT_OWN_COUNT", why, enumeration.printed(
+    {entry_id(e): e for e in built["entries"]}[f"{pair[0][0]}-across"]["clue"]))
 PY
 )
 echo "$out" | grep -v "^[A-Z_]* " | sed 's/^/  | /'
@@ -266,6 +273,8 @@ check "a linked clue the blog does not split refuses the puzzle, not its grid wi
   "a linked clue the blog does not split" "$(got UNSPLIT)"
 check "a linked answer the grid splits files, the leader holding the clue" \
   "None ['Linked words (5,5)', 'See 5'] ['5-across', '8-across']" "$(got SPLIT_FILED)"
+check "a leader typed with its own count takes the printed answer's for the group" \
+  "None Linked words (5,5)" "$(got SPLIT_OWN_COUNT)"
 
 # Print dates. The prize puzzles are blogged a week or more after they are
 # printed, so their post date is not their date; filing one by it put
