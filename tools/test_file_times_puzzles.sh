@@ -345,7 +345,7 @@ check "listing cards: year off the capture, weekday checked" \
 # The Club Monthly Special and the TLS file as series of their own; the TLS is
 # a Friday paper, so its title's date is read on Fridays.
 check "Club and TLS rows file under their own series; a TLS title dates it on a Friday" \
-  "timesclub False|tls False|Talos|2016-05-06" \
+  "timesclub True|tls False|Talos|2016-05-06" \
   "$(PYTHONPATH="$REPO/tools" python3 -c '
 import file_times_puzzles as F
 row = lambda label: {"post_id": 1, "series": label, "number": 1124}

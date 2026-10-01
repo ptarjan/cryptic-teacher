@@ -14,7 +14,7 @@ date; the prize puzzles (Saturday's Times, the Jumbo, the Sunday Times and
 its Mephisto, the TLS on Fridays) are blogged after entries close, so theirs
 comes from the Times's own listing (tools/fetch_times_listing.py), the post's
 slug, and the paper's cadence between them, and stays null where those prove
-nothing. The Club Monthly Special's stays null.
+nothing. The Club Monthly Special's is its post date.
 
 The setter of a Quick, Sunday Times or TLS puzzle is the one the post's title
 names, or failing that SETTERS_FROM_COMMENTS; the Times Cryptic and the Jumbo
@@ -98,20 +98,16 @@ def setter(rec, series):
 
 
 #: The blog's series labels this files. The Club Monthly Special prints no
-#: date and keeps a null one (series.py datedFromNeighbours).
+#: date, so it takes its post's, the month the blog wrote it up.
 LABELS = ("Quick Cryptic", "Daily Cryptic", "Jumbo Cryptic", "Weekend Cryptic",
           "Monthly Club Special", "TLS Crossword", "Mephisto")
 
 
-#: The Club Monthly Special ran from 20,000 to 20,278 (November 2023), and the
-#: blog numbers it from 274 (May 2024) on: two sequences in one series.
-CLUB_RENUMBERED_BELOW = 20_000
-
-
 def numbering(row):
-    """Which of a series' numberings a row is in, for the sequence check."""
-    return (row["series"] == "Monthly Club Special"
-            and row["number"] < CLUB_RENUMBERED_BELOW)
+    """Which of a series' numberings a row is in, for the sequence check
+    (series.py renumberedBelow: the Club Monthly's 20,278 was followed by 274)."""
+    restart = series_meta.meta(target(row)[0]).get("renumberedBelow")
+    return bool(restart and row["number"] < restart)
 
 
 def target(row):
@@ -126,7 +122,7 @@ def target(row):
     if label == "Weekend Cryptic":
         return ("sundaytimes" if row["number"] < SUNDAY_TIMES_BELOW else "times"), False
     if label == "Monthly Club Special":
-        return "timesclub", False
+        return "timesclub", True
     if label == "TLS Crossword":
         return "tls", False
     if label == "Mephisto":
