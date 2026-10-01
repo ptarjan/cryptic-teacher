@@ -131,6 +131,8 @@ LAYOUT = [
     ("fetching", "tools/test_file_times_puzzles.sh", "holds that filer to a hand-built grid: what it refuses, what it dates, and that a second run touches nothing"),
     ("fetching", "tools/test_times_dates.sh", "holds every filed Times, Jumbo and Sunday Times date to its paper's weekday and number order, so a prize puzzle dated by its blog post fails"),
     ("fetching", "tools/ft_puzzles.py", "files the Financial Times cryptic from fifteensquared's cached write-ups: reads each era of their markup, rebuilds the grid ft.com will not serve a script with the Times' search, and files what passes the Times filer's checks; the nightly top-up"),
+    ("fetching", "tools/indy_puzzles.py", "the same pipeline on fifteensquared's Independent category: files the daily and Sunday puzzles older than the paper's feed, routed by title and number, never a number already on disk"),
+    ("fetching", "tools/test_indy_puzzles.sh", "holds its title routing to both papers' post titles and its Sunday dates to their order"),
     ("fetching", "tools/test_ft_puzzles.sh", "holds that parser to each layout fifteensquared prints an FT post in, and the filer to a hand-built grid, because a misread answer becomes a wrong light length"),
     ("fetching", "tools/fetch_lexicon.sh", "downloads the Lufz/Exet lexicon the grid filler needs"),
 
