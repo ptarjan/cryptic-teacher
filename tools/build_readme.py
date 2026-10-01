@@ -76,6 +76,7 @@ LAYOUT = [
     ("fetching", "tools/fetch_wayback.py", "recovers Guardian puzzles older than the live site keeps, out of the Wayback Machine’s captures"),
     ("fetching", "tools/fetch_globeandmail.py", "the Globe and Mail’s cryptic, a Times of London syndication, decoded from its Amuse Labs player"),
     ("fetching", "tools/fetch_privateeye.py", "Private Eye’s Cyclops — the grid from the paper, the answers joined from fifteensquared, which is the only place they are published"),
+    ("fetching", "tools/file_cyclops_christmas.py", "the Cyclops Christmas specials, which have no .puz: the grid read off the Eye's image by pixel sampling, clues and answers from fifteensquared, the shaded quotation as an unclued light checked against the preamble's letter list"),
     ("fetching", "tools/fetch_metro.py", "the Metro’s cryptic; today’s only, because the paper keeps no archive"),
     ("fetching", "tools/repair_fetched.py", "applies the fetchers’ current rules to puzzles already on disk — bare-capital solutions, a masked prize answer, a group that is really a cross-reference in the wordplay, a linked answer the paper never grouped — and reports the dates their own neighbours contradict"),
     ("fetching", "tools/test_repair_fetched.sh", "builds a puzzle file with each of those defects and proves the repair fixes it, leaves a clean file and a real Cyclops per-light group byte-identical, and is clean on the second run"),
