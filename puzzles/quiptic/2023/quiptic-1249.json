@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,64 @@
     "text": "One causes panic having limb stuck in a register",
     "enumeration": "8"
    },
-   "solution": "ALARMIST"
+   "solution": "ALARMIST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ALARMIST",
+    "definitions": [
+     {
+      "text": "One causes panic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stuck in",
+      "for": "container",
+      "note": "something stuck in something else is lodged inside it, so one piece goes within another"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "limb",
+      "gives": "ARM",
+      "note": "an arm is a limb"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "register",
+      "gives": "LIST",
+      "note": "a list is a register of names"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AL",
+      "ARM",
+      "IST"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone panics because their arm is jammed in a cash register.",
+     "walkthrough": "'A register' together gives A LIST, and the limb goes between its second and third letters to make ALARMIST.",
+     "definitionFit": "An alarmist is a person who spreads needless fear and stirs up worry in others."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "register"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +107,70 @@
     "text": "Working to bring back musical about college",
     "enumeration": "6"
    },
-   "solution": "ACTIVE"
+   "solution": "ACTIVE",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "ACTIVE",
+    "definitions": [
+     {
+      "text": "Working",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "to be about something is to surround it, so one piece wraps another"
+     },
+     {
+      "text": "bring back",
+      "for": "reversal",
+      "note": "bringing something back returns it the way it came, so the letters run the other direction"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "musical",
+      "gives": "EVITA",
+      "note": "Evita is the Lloyd Webber musical"
+     },
+     {
+      "clueFragment": "college",
+      "gives": "C",
+      "note": "C is a standard abbreviation for college"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "C",
+      "TIVE"
+     ],
+     "reversals": [
+      {
+       "from": "EVITA",
+       "to": "ATIVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A producer wants to revive a show about university life.",
+     "walkthrough": "C sits inside EVITA to give EVITCA, which read backwards is ACTIVE.",
+     "definitionFit": "A machine or person that is working is busy, functioning and in operation, the sense of active."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Working"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +184,43 @@
     "text": "River that delivers so much!",
     "enumeration": "6"
    },
-   "solution": "AMAZON"
+   "solution": "AMAZON",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "AMAZON",
+    "definitions": [
+     {
+      "text": "River",
+      "at": 0
+     },
+     {
+      "text": "that delivers so much",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "River",
+      "note": "first meaning: the great South American river"
+     },
+     {
+      "clueFragment": "that delivers so much",
+      "note": "second meaning: the online retailer whose parcels arrive everywhere"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A river 'delivers' a huge volume of water to the sea, which hides the second sense: the giant internet shop famous for its deliveries.",
+     "definitionFit": "The same name belongs to the vast South American waterway and to the online shopping company that ships goods worldwide."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "delivers"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +234,47 @@
     "text": "Russian fighter helping people moving",
     "enumeration": "9"
    },
-   "solution": "MIGRATION"
+   "solution": "MIGRATION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MIGRATION",
+    "definitions": [
+     {
+      "text": "people moving",
+      "at": 24
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Russian fighter",
+      "gives": "MIG",
+      "note": "a MiG is a Russian fighter jet"
+     },
+     {
+      "clueFragment": "helping",
+      "gives": "RATION",
+      "note": "a helping of food is a ration, a portion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MIG",
+      "RATION"
+     ]
+    },
+    "explanation": {
+     "surface": "A Russian soldier assists people who are relocating.",
+     "walkthrough": "'Russian fighter' reads like a soldier, but it is the aircraft; 'helping' is a noun, a portion, not a verb.",
+     "definitionFit": "Migration is the movement of populations from one region or country to settle in another."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "helping"
+    }
+   }
   },
   {
    "number": 4,
@@ -99,7 +298,51 @@
      }
     ]
    },
-   "solution": "SAMEOLDSTORY"
+   "solution": "SAMEOLDSTORY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SAME OLD STORY",
+    "definitions": [
+     {
+      "text": "that's just typical",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Massage",
+      "for": "anagram",
+      "note": "to massage figures is to manipulate them, so the letters that follow are worked into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "so dear, mostly",
+      "gives": "SODEARMOSTLY",
+      "note": "every letter of these three words is used, including the word for most of"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SODEARMOSTLY",
+       "gives": "SAMEOLDSTORY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone grumbles that an expensive massage is, as usual, mostly overpriced.",
+     "walkthrough": "'Massage' looks like the subject, and 'mostly' looks like an instruction to drop a letter, but it belongs to the fodder in full.",
+     "definitionFit": "The phrase is an exasperated idiom for a familiar, predictable situation that keeps recurring."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mostly"
+    }
+   }
   },
   {
    "number": 5,
@@ -113,7 +356,50 @@
     "text": "Good little fellows make GIs?",
     "enumeration": "6"
    },
-   "solution": "GRUNTS"
+   "solution": "GRUNTS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GRUNTS",
+    "definitions": [
+     {
+      "text": "GIs",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "make"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     },
+     {
+      "clueFragment": "little fellows",
+      "gives": "RUNTS",
+      "note": "runts are undersized people or animals"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "RUNTS"
+     ]
+    },
+    "explanation": {
+     "surface": "A question whether well-behaved small men turn into American soldiers.",
+     "walkthrough": "GIs are American soldiers; the setter needs the US slang term for an ordinary infantryman.",
+     "definitionFit": "Grunt is American military slang for a low-ranking foot soldier, just as GI is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "little"
+    }
+   }
   },
   {
    "number": 6,
@@ -127,7 +413,53 @@
     "text": "River starts to rise here in northern Europe",
     "enumeration": "5"
    },
-   "solution": "RHINE"
+   "solution": "RHINE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "RHINE",
+    "definitions": [
+     {
+      "text": "River",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts to",
+      "for": "letter_selection",
+      "note": "the starts of words are their opening letters, so only those are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rise here in northern Europe",
+      "gives": "RHINE",
+      "select": "first",
+      "note": "the opening letter of each of the five words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "H",
+      "I",
+      "N",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A river begins at its source somewhere in northern Europe.",
+     "walkthrough": "The surface reads as geography about a river's source, which is exactly what disguises the first-letter device.",
+     "definitionFit": "The Rhine is a major European waterway flowing from the Alps to the North Sea."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "starts"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +483,47 @@
      }
     ]
    },
-   "solution": "NOTSOHOT"
+   "solution": "NOTSOHOT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NOT SO HOT",
+    "definitions": [
+     {
+      "text": "deny being feverish",
+      "at": 13
+     },
+     {
+      "text": "unwell",
+      "at": 38
+     }
+    ],
+    "linkWords": [
+     "It's said to",
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "deny being feverish",
+      "note": "first meaning, read literally: claiming one's temperature is not high"
+     },
+     {
+      "clueFragment": "unwell",
+      "note": "second meaning: the idiom for feeling poorly"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Taken word by word, the phrase denies a high temperature, yet as an idiom it means feeling ill, so the two senses pull against each other.",
+     "definitionFit": "Saying you feel less than great is an informal idiom for being a bit poorly or under the weather."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "feverish"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +537,39 @@
     "text": "Pleasing arrangement that doesn't change on reflection?",
     "enumeration": "8"
    },
-   "solution": "SYMMETRY"
+   "solution": "SYMMETRY",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SYMMETRY",
+    "definitions": [
+     {
+      "text": "Pleasing arrangement that doesn't change on reflection?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "doesn't change on reflection",
+      "note": "surface reading: an opinion or plan that stays firm after careful thought"
+     },
+     {
+      "clueFragment": "Pleasing arrangement that doesn't change on reflection?",
+      "note": "setter's reading: a balanced shape that looks identical when mirrored"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Reflection' suggests thinking things over; the setter means a mirror image, which a balanced design survives unchanged.",
+     "definitionFit": "Mirror balance is the property of a shape that matches itself across an axis, often found visually pleasing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "reflection"
+    }
+   }
   },
   {
    "number": 9,
@@ -185,7 +589,70 @@
      }
     ]
    },
-   "solution": "TEAMGAME"
+   "solution": "TEAMGAME",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "TEAM GAME",
+    "definitions": [
+     {
+      "text": "It requires fellow players",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means moving in the opposite direction, so the letters run right to left"
+     },
+     {
+      "text": "to hold",
+      "for": "container",
+      "note": "to hold something is to grip it inside, so one piece surrounds another"
+     }
+    ],
+    "linkWords": [
+     "giving"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "support",
+      "gives": "TEE",
+      "note": "a tee is the peg supporting a golf ball"
+     },
+     {
+      "clueFragment": "dangerous stuff",
+      "gives": "MAGMA",
+      "note": "magma is molten rock, dangerous indeed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TE",
+      "AMGAM",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "MAGMA",
+       "to": "AMGAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A team effort is needed to contain a hazardous substance.",
+     "walkthrough": "'Hold back' looks like a single phrase for restraining, but 'back' turns the molten rock round and 'to hold' puts it inside the golf peg.",
+     "definitionFit": "Football or hockey, for example, need several players cooperating on one side, unlike solo sports."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "support"
+    }
+   }
   },
   {
    "number": 10,
@@ -199,7 +666,58 @@
     "text": "Casualty of never-ending evil period",
     "enumeration": "6"
    },
-   "solution": "VICTIM"
+   "solution": "VICTIM",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "VICTIM",
+    "definitions": [
+     {
+      "text": "Casualty",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "never-ending",
+      "for": "deletion",
+      "note": "something with no ending has lost its last part, so each word is cut short at the tail"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "evil",
+      "gives": "VIC",
+      "note": "vice, an evil, without its final letter"
+     },
+     {
+      "clueFragment": "period",
+      "gives": "TIM",
+      "note": "time, a period, without its final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VIC",
+      "TIM"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone suffers harm during an endless era of wickedness.",
+     "walkthrough": "'Never-ending' applies to both following words: vice and time each lose their last letter.",
+     "definitionFit": "A casualty is someone injured or killed, a person who suffers harm, just as a victim does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "period"
+    }
+   }
   },
   {
    "number": 11,
@@ -223,7 +741,54 @@
      }
     ]
    },
-   "solution": "STEMSTHETIDE"
+   "solution": "STEMSTHETIDE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STEMS THE TIDE",
+    "definitions": [
+     {
+      "text": "holds things back",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "working",
+      "for": "anagram",
+      "note": "letters that are working are being put to use and moved about, so they take a new order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "He detests Tim",
+      "gives": "HEDETESTSTIM",
+      "note": "all twelve letters of these three words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HEDETESTSTIM",
+       "gives": "STEMSTHETIDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man who loathes his colleague Tim at work keeps obstructing things.",
+     "walkthrough": "The sentence reads as office feud; the three opening words are pure fodder and 'working' is the anagram signal.",
+     "definitionFit": "The idiom means halting or checking a flow or trend, figuratively restraining something advancing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 12,
@@ -237,7 +802,63 @@
     "text": "Instrument giving chord, flat essentially",
     "enumeration": "5"
    },
-   "solution": "VIOLA"
+   "solution": "VIOLA",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "VIOLA",
+    "definitions": [
+     {
+      "text": "Instrument",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "essentially",
+      "for": "letter_selection",
+      "note": "the essence of a word is its core, so only the central letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "giving",
+      "gives": "VI",
+      "select": "middle",
+      "note": "the central pair of a six-letter word"
+     },
+     {
+      "clueFragment": "chord",
+      "gives": "O",
+      "select": "middle",
+      "note": "the central letter of a five-letter word"
+     },
+     {
+      "clueFragment": "flat",
+      "gives": "LA",
+      "select": "middle",
+      "note": "the central pair of a four-letter word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VI",
+      "O",
+      "LA"
+     ]
+    },
+    "explanation": {
+     "surface": "A musical instrument plays a chord that comes out flat.",
+     "walkthrough": "The musical words 'chord' and 'flat' suggest music theory, but 'essentially' takes the middles of 'giving', 'chord' and 'flat' alike.",
+     "definitionFit": "The viola is a stringed member of the violin family, slightly larger and lower in pitch."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "giving"
+    }
+   }
   },
   {
    "number": 13,
@@ -261,7 +882,42 @@
      }
     ]
    },
-   "solution": "ONTHENOSE"
+   "solution": "ONTHENOSE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ON THE NOSE",
+    "definitions": [
+     {
+      "text": "Place bet? Not if it's this",
+      "at": 0
+     },
+     {
+      "text": "accurate",
+      "at": 28
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Place bet? Not if it's this",
+      "note": "first meaning: a racing wager to win only, the opposite of backing a horse to be placed"
+     },
+     {
+      "clueFragment": "accurate",
+      "note": "second meaning: the idiom for exactly right"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In horse racing a place bet pays if the horse finishes in the top few; a bet that only pays on outright victory is described by this phrase.",
+     "definitionFit": "The idiom describes something precise or exact, hitting the target with no margin of error."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Place"
+    }
+   }
   },
   {
    "number": 14,
@@ -275,7 +931,55 @@
     "text": "Roam semi-nude when drunk, giving slight offence",
     "enumeration": "12"
    },
-   "solution": "MISDEMEANOUR"
+   "solution": "MISDEMEANOUR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MISDEMEANOUR",
+    "definitions": [
+     {
+      "text": "slight offence",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when drunk",
+      "for": "anagram",
+      "note": "drunk people stagger about in disorder, so the letters lose their original order"
+     }
+    ],
+    "linkWords": [
+     "giving"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Roam semi-nude",
+      "gives": "ROAMSEMINUDE",
+      "note": "all the letters of these two words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ROAMSEMINUDE",
+       "gives": "MISDEMEANOUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wandering about half-naked while intoxicated is a minor breach of the law.",
+     "walkthrough": "The surface is an apt picture of a minor crime, which is what the answer names.",
+     "definitionFit": "A misdemeanour is a minor wrongdoing or lesser crime, less serious than a felony."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "drunk"
+    }
+   }
   },
   {
    "number": 15,
@@ -289,7 +993,53 @@
     "text": "A bishop disgraced, having refused to take part",
     "enumeration": "9"
    },
-   "solution": "ABSTAINED"
+   "solution": "ABSTAINED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABSTAINED",
+    "definitions": [
+     {
+      "text": "having refused to take part",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bishop",
+      "gives": "B",
+      "note": "B is the chess abbreviation for bishop"
+     },
+     {
+      "clueFragment": "disgraced",
+      "gives": "STAINED",
+      "note": "a stained reputation is a disgraced one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "B",
+      "STAINED"
+     ]
+    },
+    "explanation": {
+     "surface": "A disgraced bishop stays out of the vote.",
+     "walkthrough": "B for bishop is the chess notation; 'disgraced' becomes a past participle meaning tarnished.",
+     "definitionFit": "To abstain is to decline to vote or participate, so this past tense matches refusal to join in."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bishop"
+    }
+   }
   },
   {
    "number": 16,
@@ -303,7 +1053,43 @@
     "text": "Keeps down bears",
     "enumeration": "8"
    },
-   "solution": "STOMACHS"
+   "solution": "STOMACHS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STOMACHS",
+    "definitions": [
+     {
+      "text": "Keeps down",
+      "at": 0
+     },
+     {
+      "text": "bears",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Keeps down",
+      "note": "first meaning: holds food in without vomiting"
+     },
+     {
+      "clueFragment": "bears",
+      "note": "second meaning: tolerates or puts up with"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests suppressing large animals; both words are verbs, one about digestion and one about tolerance.",
+     "definitionFit": "The verb covers both retaining food without being sick and enduring something unpleasant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bears"
+    }
+   }
   },
   {
    "number": 17,
@@ -323,7 +1109,51 @@
      }
     ]
    },
-   "solution": "SKILODGE"
+   "solution": "SKILODGE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SKI LODGE",
+    "definitions": [
+     {
+      "text": "where there's snow outside",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "frolicking",
+      "for": "anagram",
+      "note": "frolicking is playing about wildly, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dogs like",
+      "gives": "DOGSLIKE",
+      "note": "all the letters of these two words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DOGSLIKE",
+       "gives": "SKILODGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Dogs love playing about in the snow.",
+     "walkthrough": "'Like' looks like a verb of enjoyment, but it is just letters to rearrange.",
+     "definitionFit": "A chalet at a mountain resort sits amid wintry slopes, so snow lies all around it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "like"
+    }
+   }
   },
   {
    "number": 18,
@@ -347,7 +1177,51 @@
      }
     ]
    },
-   "solution": "TAKINGTOTASK"
+   "solution": "TAKINGTOTASK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TAKING TO TASK",
+    "definitions": [
+     {
+      "text": "carpeting",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Beginning to enjoy",
+      "gives": "TAKINGTO",
+      "note": "starting to like something is taking to it"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "TASK",
+      "note": "a task is a piece of work"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAKINGTO",
+      "TASK"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone starts to enjoy a job laying carpets.",
+     "walkthrough": "In Britain, carpeting someone means giving them a dressing-down, originally being summoned onto the boss's carpet.",
+     "definitionFit": "Both phrases mean severely reprimanding someone for a fault, a stern telling-off."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "carpeting"
+    }
+   }
   },
   {
    "number": 19,
@@ -361,7 +1235,60 @@
     "text": "Ordinary company working to acquire millions",
     "enumeration": "6"
    },
-   "solution": "COMMON"
+   "solution": "COMMON",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "COMMON",
+    "definitions": [
+     {
+      "text": "Ordinary",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to acquire",
+      "for": "container",
+      "note": "acquiring something means taking it in, so one piece ends up inside the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "CO is the abbreviation for company"
+     },
+     {
+      "clueFragment": "millions",
+      "gives": "MM",
+      "note": "M stands for million, doubled for the plural"
+     },
+     {
+      "clueFragment": "working",
+      "gives": "ON",
+      "note": "a machine that is on is working"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "MM",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "An everyday firm in business sets out to make millions.",
+     "walkthrough": "Plurals are often shown by doubling an abbreviation, as with pp for pages, so millions is MM.",
+     "definitionFit": "Common and ordinary are synonyms describing something usual, everyday and unremarkable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Ordinary"
+    }
+   }
   },
   {
    "number": 20,
@@ -375,7 +1302,65 @@
     "text": "One coming out over master getting promoted? That's rubbish",
     "enumeration": "6"
    },
-   "solution": "DEBRIS"
+   "solution": "DEBRIS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "DEBRIS",
+    "definitions": [
+     {
+      "text": "rubbish",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "getting promoted",
+      "for": "reversal",
+      "note": "being promoted means going up, and in a down entry going up turns the letters upside down"
+     }
+    ],
+    "linkWords": [
+     "over",
+     "That's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One coming out",
+      "gives": "DEB",
+      "note": "a deb, short for debutante, is a young woman coming out into society"
+     },
+     {
+      "clueFragment": "master",
+      "gives": "SIR",
+      "note": "sir is a form of address for a master"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEB",
+      "RIS"
+     ],
+     "reversals": [
+      {
+       "from": "SIR",
+       "to": "RIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone emerging after their boss is promoted calls it all nonsense.",
+     "walkthrough": "A debutante 'comes out' at her first society ball; 'over' places her above the upturned SIR in this down entry.",
+     "definitionFit": "Debris is scattered waste or remains, so it is a synonym for rubbish or litter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "promoted"
+    }
+   }
   },
   {
    "number": 21,
@@ -389,7 +1374,61 @@
     "text": "Criminal mob rule North East city",
     "enumeration": "9"
    },
-   "solution": "MELBOURNE"
+   "solution": "MELBOURNE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "MELBOURNE",
+    "definitions": [
+     {
+      "text": "city",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Criminal",
+      "for": "anagram",
+      "note": "something criminal is crooked, so these letters are bent into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mob rule",
+      "gives": "MOBRULE",
+      "note": "the letters of both words"
+     },
+     {
+      "clueFragment": "North East",
+      "gives": "NE",
+      "note": "NE is the compass abbreviation for north-east"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MELBOUR",
+      "NE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MOBRULE",
+       "gives": "MELBOUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Gangsters take control of a city in north-east England.",
+     "walkthrough": "'North East city' suggests Newcastle or Sunderland; the city is in Australia and NE just finishes it.",
+     "definitionFit": "Melbourne is a large Australian metropolis, the state capital of Victoria."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "North"
+    }
+   }
   },
   {
    "number": 22,
@@ -403,7 +1442,60 @@
     "text": "It's shocking to get incorrect order regularly",
     "enumeration": "5"
    },
-   "solution": "OUTRE"
+   "solution": "OUTRE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "OUTRE",
+    "definitions": [
+     {
+      "text": "shocking",
+      "at": 5
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "at regular intervals means every other one, so alternate letters are kept"
+     }
+    ],
+    "linkWords": [
+     "It's",
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "incorrect",
+      "gives": "OUT",
+      "note": "a calculation that is out is wrong"
+     },
+     {
+      "clueFragment": "order",
+      "gives": "RE",
+      "select": "alternate",
+      "note": "the second and fourth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUT",
+      "RE"
+     ]
+    },
+    "explanation": {
+     "surface": "Getting an order wrong all the time is appalling.",
+     "walkthrough": "'Incorrect order' looks like an anagram instruction, but 'incorrect' supplies a word meaning wrong and 'order' is thinned to its even letters.",
+     "definitionFit": "Outré describes something bizarre or unconventional, far enough beyond accepted norms to startle people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "incorrect"
+    }
+   }
   },
   {
    "number": 23,
@@ -417,7 +1509,58 @@
     "text": "Roused in astonishment having received permission...",
     "enumeration": "5"
    },
-   "solution": "AWOKE"
+   "solution": "AWOKE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AWOKE",
+    "definitions": [
+     {
+      "text": "Roused",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "having received",
+      "for": "container",
+      "note": "receiving something means taking it in, so one piece goes inside the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "astonishment",
+      "gives": "AWE",
+      "note": "awe is wonder or astonishment"
+     },
+     {
+      "clueFragment": "permission",
+      "gives": "OK",
+      "note": "an OK is a go-ahead"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AW",
+      "OK",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is startled awake on being given approval.",
+     "walkthrough": "The ellipsis links the story into the next clue but plays no part in the wordplay.",
+     "definitionFit": "Roused and awoke both describe coming out of sleep, past tense of waking someone or oneself."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Roused"
+    }
+   }
   },
   {
    "number": 24,
@@ -431,7 +1574,56 @@
     "text": "...bad guys imprison alien recruits",
     "enumeration": "6"
    },
-   "solution": "CADETS"
+   "solution": "CADETS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CADETS",
+    "definitions": [
+     {
+      "text": "recruits",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "imprison",
+      "for": "container",
+      "note": "to imprison is to lock someone inside, so one piece is enclosed by another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bad guys",
+      "gives": "CADS",
+      "note": "cads are dishonourable men"
+     },
+     {
+      "clueFragment": "alien",
+      "gives": "ET",
+      "note": "ET is the film alien"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAD",
+      "ET",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Villains lock up an extraterrestrial who has signed up.",
+     "walkthrough": "A cad is an old-fashioned British word for a man who behaves badly, especially towards women.",
+     "definitionFit": "Cadets are trainees in the military or police, new entrants learning the service."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "alien"
+    }
+   }
   },
   {
    "number": 25,
@@ -445,7 +1637,65 @@
     "text": "Skinflint has no money? That's the wrong description",
     "enumeration": "8"
    },
-   "solution": "MISNOMER"
+   "solution": "MISNOMER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MISNOMER",
+    "definitions": [
+     {
+      "text": "wrong description",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has",
+      "for": "container",
+      "note": "to have something is to hold it, so one piece holds the others"
+     }
+    ],
+    "linkWords": [
+     "That's the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Skinflint",
+      "gives": "MISER",
+      "note": "a miser is a stingy hoarder"
+     },
+     {
+      "clueFragment": "no",
+      "gives": "NO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "money",
+      "gives": "M",
+      "note": "M is an abbreviation for money"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MIS",
+      "NO",
+      "M",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "Calling a tightwad penniless would be inaccurate, since misers are usually rich.",
+     "walkthrough": "The surface is nicely self-referential: a miser claiming poverty is exactly a false label.",
+     "definitionFit": "A misnomer is an inaccurate or misleading name applied to something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "has"
+    }
+   }
   },
   {
    "number": 26,
@@ -459,7 +1709,63 @@
     "text": "Slow eastward expansion emptied a country",
     "enumeration": "6"
    },
-   "solution": "SWEDEN"
+   "solution": "SWEDEN",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "SWEDEN",
+    "definitions": [
+     {
+      "text": "a country",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "emptied",
+      "for": "letter_selection",
+      "note": "an emptied container has lost its contents, so only the outside letters remain"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Slow",
+      "gives": "SW",
+      "select": "outer",
+      "note": "first and last letters"
+     },
+     {
+      "clueFragment": "eastward",
+      "gives": "ED",
+      "select": "outer",
+      "note": "first and last letters"
+     },
+     {
+      "clueFragment": "expansion",
+      "gives": "EN",
+      "select": "outer",
+      "note": "first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SW",
+      "ED",
+      "EN"
+     ]
+    },
+    "explanation": {
+     "surface": "A nation slowly spreads its territory towards the east.",
+     "walkthrough": "'Emptied' applies to all three preceding words, each reduced to its two outer letters.",
+     "definitionFit": "Sweden is a Scandinavian nation in northern Europe, whose capital is Stockholm."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "emptied"
+    }
+   }
   },
   {
    "number": 27,
@@ -473,7 +1779,59 @@
     "text": "Sticklers will want name removed from such jewellery",
     "enumeration": "8"
    },
-   "solution": "PENDANTS"
+   "solution": "PENDANTS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PENDANTS",
+    "definitions": [
+     {
+      "text": "such jewellery",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "removed from",
+      "for": "container",
+      "note": "taking something out of a word implies it sat inside, so solvers put it back in to build the solution"
+     }
+    ],
+    "linkWords": [
+     "will want"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sticklers",
+      "gives": "PEDANTS",
+      "note": "pedants insist on fussy correctness"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "N is the abbreviation for name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PE",
+      "N",
+      "DANTS"
+     ]
+    },
+    "explanation": {
+     "surface": "Fussy people would insist on taking the engraved name off their necklaces.",
+     "walkthrough": "The clue works backwards: lose the N from the jewellery and you are left with the sticklers, so N goes inside them to reach the answer.",
+     "definitionFit": "A pendant is a piece of jewellery hanging from a chain around the neck."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "name"
+    }
+   }
   }
  ]
 }
