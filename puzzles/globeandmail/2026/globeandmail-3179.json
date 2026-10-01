@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,56 @@
     "text": "Plant second border of sunflowers",
     "enumeration": "4"
    },
-   "solution": "MOSS"
+   "solution": "MOSS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "MOSS",
+    "definitions": [
+     {
+      "text": "Plant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "border of",
+      "for": "letter_selection",
+      "note": "a border runs round the edge, so only the outermost letters of the word are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "second",
+      "gives": "MO",
+      "note": "a mo is a moment, a very short time, like a second"
+     },
+     {
+      "clueFragment": "sunflowers",
+      "gives": "SS",
+      "select": "outer",
+      "note": "the first and last letters of the flower name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "SS"
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener sets out a second row of plants around the sunflower bed.",
+     "walkthrough": "'Plant' looks like a verb telling you to sow a border, but it is the noun definition. MO is informal British for a moment ('half a mo').",
+     "definitionFit": "This is a small green non-flowering growth found on damp ground, rocks and tree bark, so it counts as a type of vegetation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Plant"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +99,70 @@
     "text": "Area salesman brought up to support old musical theatre",
     "enumeration": "5"
    },
-   "solution": "OPERA"
+   "solution": "OPERA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "OPERA",
+    "definitions": [
+     {
+      "text": "musical theatre",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brought up",
+      "for": "reversal",
+      "note": "in a down clue, bringing something up makes it read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "to support"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the standard abbreviation for old"
+     },
+     {
+      "clueFragment": "salesman",
+      "gives": "REP",
+      "note": "a rep is a sales representative"
+     },
+     {
+      "clueFragment": "Area",
+      "gives": "A",
+      "note": "A is the abbreviation for area"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "PER",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "REP",
+       "to": "PER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A local salesman is promoted to help keep a historic music hall running.",
+     "walkthrough": "In a down entry, the salesman's letters climb and 'support' places the area and him beneath O, which sits on top.",
+     "definitionFit": "Opera is drama set entirely to music, one of the principal forms of sung stage performance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "support"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +176,79 @@
     "text": "Sample rodents raised in ramshackle pens",
     "enumeration": "8"
    },
-   "solution": "SPECIMEN"
+   "solution": "SPECIMEN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "container"
+    ],
+    "answer": "SPECIMEN",
+    "definitions": [
+     {
+      "text": "Sample",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "lifting something in a down entry makes its letters read upwards"
+     },
+     {
+      "text": "ramshackle",
+      "for": "anagram",
+      "note": "something ramshackle is falling apart and disordered, so its letters are rearranged"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing placed inside another sits within its letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pens",
+      "gives": "PENS",
+      "note": "taken as written before being rearranged"
+     },
+     {
+      "clueFragment": "rodents",
+      "gives": "MICE",
+      "note": "mice are small rodents"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SP",
+      "ECIM",
+      "EN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PENS",
+       "gives": "SPEN"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "MICE",
+       "to": "ECIM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Lab rodents being bred in rickety cages, and someone wants one to examine.",
+     "walkthrough": "'Pens' looks like enclosures holding the rodents, and 'raised' like breeding them; in a down entry 'raised' turns the rodents upside down instead.",
+     "definitionFit": "A specimen is a single example taken for scientific testing or display, which is exactly what a sample is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pens"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +262,48 @@
     "text": "Reportedly choose prison for al fresco meal",
     "enumeration": "6"
    },
-   "solution": "PICNIC"
+   "solution": "PICNIC",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "PICNIC",
+    "definitions": [
+     {
+      "text": "al fresco meal",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reportedly",
+      "for": "homophone",
+      "note": "what is reported is heard rather than seen, so the sound matters, not the spelling"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "choose prison",
+      "gives": "PICNIC",
+      "soundsLike": "PICK NICK",
+      "note": "to pick is to choose, and nick is British slang for a prison"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is apparently opting for jail over eating outdoors.",
+     "walkthrough": "'Nick' is everyday British slang for a police station or prison.",
+     "definitionFit": "Al fresco means in the open air, and an outdoor meal on a rug or bench is the classic outing of that kind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "prison"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +317,57 @@
     "text": "Weed starts to attack this organic vegetable",
     "enumeration": "6"
    },
-   "solution": "POTATO"
+   "solution": "POTATO",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "POTATO",
+    "definitions": [
+     {
+      "text": "vegetable",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts to",
+      "for": "letter_selection",
+      "note": "the start of each word is its opening letter, so only those are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Weed",
+      "gives": "POT",
+      "note": "weed and pot are both slang for cannabis"
+     },
+     {
+      "clueFragment": "attack this organic",
+      "gives": "ATO",
+      "select": "first",
+      "note": "opening letters of the three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POT",
+      "ATO"
+     ]
+    },
+    "explanation": {
+     "surface": "Weeds begin to invade a bed of organically grown veg.",
+     "walkthrough": "'Weed' reads as a garden pest in the scene, but it is slang for cannabis.",
+     "definitionFit": "This starchy tuber is among the most commonly grown and eaten vegetables in the world."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Weed"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +381,54 @@
     "text": "Marshy land contains river plant",
     "enumeration": "4"
    },
-   "solution": "FERN"
+   "solution": "FERN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FERN",
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "contains",
+      "for": "container",
+      "note": "to contain is to hold within, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Marshy land",
+      "gives": "FEN",
+      "note": "a fen is low marshy ground"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FE",
+      "R",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A bog has a stream running through it with greenery growing there.",
+     "walkthrough": "The Fens are a marshy region of eastern England; R for river is standard.",
+     "definitionFit": "This leafy flowerless species reproduces by spores and is a common member of the vegetable kingdom."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +442,60 @@
     "text": "Press and iron pants for detainees",
     "enumeration": "9"
    },
-   "solution": "PRISONERS"
+   "solution": "PRISONERS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PRISONERS",
+    "definitions": [
+     {
+      "text": "detainees",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pants",
+      "for": "anagram",
+      "note": "'pants' is British slang for rubbish, so the letters are a poor arrangement to be redone"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Press",
+      "gives": "PRESS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "iron",
+      "gives": "IRON",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PRESSIRON",
+       "gives": "PRISONERS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Laundry duty in a jail: pressing and ironing the inmates' trousers.",
+     "walkthrough": "'Pants' looks like a noun for the trousers being pressed; it is British slang for rubbish, signalling a rearrangement. 'and' simply joins the two words of fodder.",
+     "definitionFit": "People held in jail or custody are detainees, the formal word for those kept under lock and key."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pants"
+    }
+   }
   },
   {
    "number": 8,
@@ -131,7 +509,65 @@
     "text": "Southern church accepts blame for predicament",
     "enumeration": "6"
    },
-   "solution": "SCRAPE"
+   "solution": "SCRAPE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SCRAPE",
+    "definitions": [
+     {
+      "text": "predicament",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accepts",
+      "for": "container",
+      "note": "to accept something is to take it in, so one piece is held inside another"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Southern",
+      "gives": "S",
+      "note": "S is the abbreviation for southern"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     },
+     {
+      "clueFragment": "blame",
+      "gives": "RAP",
+      "note": "to take the rap is to take the blame"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "C",
+      "RAP",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A church in the South owns up to responsibility for a bad situation.",
+     "walkthrough": "CE (Church of England) is the usual crossword church; it opens to take in the blame.",
+     "definitionFit": "Getting into a scrape is an idiom for landing in an awkward or troublesome situation of one's own making."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "accepts"
+    }
+   }
   },
   {
    "number": 9,
@@ -151,7 +587,52 @@
      }
     ]
    },
-   "solution": "HERE"
+   "solution": "HERE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "HERE",
+    "definitions": [
+     {
+      "text": "in this place",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Finally",
+      "for": "letter_selection",
+      "note": "'finally' points to the end of each word, so only closing letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "watch The Godfather once",
+      "gives": "HERE",
+      "select": "last",
+      "note": "the closing letter of each of the four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "E",
+      "R",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A film fan urges a long-overdue viewing of the classic gangster movie, at long last.",
+     "walkthrough": "'Finally' seems to mean 'at last, after years of putting it off', but it applies to every word that follows.",
+     "definitionFit": "The adverb indicates the speaker's current location, so it can replace the phrase in any sentence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Finally"
+    }
+   }
   },
   {
    "number": 10,
@@ -165,7 +646,61 @@
     "text": "Perhaps boxes against coaches, missing the first right",
     "enumeration": "10"
    },
-   "solution": "CONTAINERS"
+   "solution": "CONTAINERS",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "CONTAINERS",
+    "definitions": [
+     {
+      "text": "Perhaps boxes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "missing the first",
+      "for": "deletion",
+      "note": "something missing is left out, and 'the first' says which occurrence goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "against",
+      "gives": "CON",
+      "note": "con means against, as in pros and cons"
+     },
+     {
+      "clueFragment": "coaches",
+      "gives": "TRAINERS",
+      "note": "coaches train athletes"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right; its first appearance in the coaches is removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "TAINERS"
+     ]
+    },
+    "explanation": {
+     "surface": "A sports writer suggests someone is boxing against the trainers.",
+     "walkthrough": "'Boxes' looks like a verb about fighting; with 'Perhaps' it is the definition by example. TRAINERS has two Rs, so 'the first' fixes which one goes.",
+     "definitionFit": "Boxes are one kind of receptacle for holding things, hence 'perhaps' marking them as examples of the wider class."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "boxes"
+    }
+   }
   },
   {
    "number": 11,
@@ -179,7 +714,49 @@
     "text": "Charge attached to one vehicle",
     "enumeration": "4"
    },
-   "solution": "TAXI"
+   "solution": "TAXI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TAXI",
+    "definitions": [
+     {
+      "text": "vehicle",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "attached to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Charge",
+      "gives": "TAX",
+      "note": "a levy imposed by government is a charge on income or goods"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAX",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A fee is levied on a single car.",
+     "walkthrough": "'Charge' could suggest a fare, which fits the scene, but here it gives a levy.",
+     "definitionFit": "A cab is a hired car with a driver, a familiar kind of motor transport for paying passengers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -193,7 +770,56 @@
     "text": "Comic prose about lab equipment",
     "enumeration": "10"
    },
-   "solution": "MICROSCOPE"
+   "solution": "MICROSCOPE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MICROSCOPE",
+    "definitions": [
+     {
+      "text": "lab equipment",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "'about' can mean moved around, so the letters are turned into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Comic",
+      "gives": "COMIC",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "prose",
+      "gives": "PROSE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "COMICPROSE",
+       "gives": "MICROSCOPE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A humorous piece of writing on the subject of scientific apparatus.",
+     "walkthrough": "'Comic' looks like the rearrangement signal but is fodder; 'about' does that job instead of meaning 'on the subject of'.",
+     "definitionFit": "This optical instrument magnifies tiny objects and is standard apparatus in any science laboratory."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 13,
@@ -207,7 +833,62 @@
     "text": "Article in extremely right-wing newspaper",
     "enumeration": "3"
    },
-   "solution": "RAG"
+   "solution": "RAG",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "RAG",
+    "definitions": [
+     {
+      "text": "newspaper",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing placed inside another sits within its letters"
+     },
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two ends, so only the outer letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "right-wing",
+      "gives": "RG",
+      "select": "outer",
+      "note": "the two end letters of the hyphenated word"
+     },
+     {
+      "clueFragment": "Article",
+      "gives": "A",
+      "note": "A is the indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "A",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A piece printed in a hard-right paper.",
+     "walkthrough": "'Extremely right-wing' reads as a political description, but 'extremely' just takes the ends of the next word.",
+     "definitionFit": "A rag is a disparaging informal word for a low-quality newspaper, often a tabloid."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "extremely"
+    }
+   }
   },
   {
    "number": 14,
@@ -221,7 +902,59 @@
     "text": "Company claims America has abandoned academic institutions",
     "enumeration": "8"
    },
-   "solution": "COLLEGES"
+   "solution": "COLLEGES",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "COLLEGES",
+    "definitions": [
+     {
+      "text": "academic institutions",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has abandoned",
+      "for": "deletion",
+      "note": "what has been abandoned is left behind, so those letters drop out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Company",
+      "gives": "CO",
+      "note": "CO is the abbreviation for company"
+     },
+     {
+      "clueFragment": "claims",
+      "gives": "ALLEGES",
+      "note": "to claim without proof is to allege"
+     },
+     {
+      "clueFragment": "America",
+      "gives": "A",
+      "note": "A is an abbreviation for America"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "LLEGES"
+     ]
+    },
+    "explanation": {
+     "surface": "A firm says the US has turned its back on its universities.",
+     "walkthrough": "The America letter is removed from the front of the claims word.",
+     "definitionFit": "Colleges are places of higher or further education, the kind of schooling establishments the definition describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -235,7 +968,42 @@
     "text": "Rested, hassle an editor to some extent",
     "enumeration": "6"
    },
-   "solution": "LEANED"
+   "solution": "LEANED",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "LEANED",
+    "definitions": [
+     {
+      "text": "Rested",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to some extent",
+      "for": "hidden_word",
+      "note": "only part of the phrase is used, so the letters sit inside a longer run"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hassle an editor",
+      "gives": "LEANED",
+      "note": "the letters run across the three words"
+     }
+    ],
+    "explanation": {
+     "surface": "Having had a break, someone pesters an editor a bit.",
+     "walkthrough": "The answer straddles 'hassLE AN EDitor'; the comma lets 'Rested' stand apart as the definition.",
+     "definitionFit": "To lean on something is to let your weight be supported by it, so both verbs describe propping oneself up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -249,7 +1017,51 @@
     "text": "Fling a menu, furiously expressive",
     "enumeration": "10"
    },
-   "solution": "MEANINGFUL"
+   "solution": "MEANINGFUL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MEANINGFUL",
+    "definitions": [
+     {
+      "text": "expressive",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "furiously",
+      "for": "anagram",
+      "note": "doing something furiously means wildly and without control, so the letters are thrown into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fling a menu",
+      "gives": "FLINGAMENU",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FLINGAMENU",
+       "gives": "MEANINGFUL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An angry diner hurls the bill of fare, making a point with gusto.",
+     "walkthrough": "The scene suggests a tantrum in a restaurant; 'furiously' is the rearrangement signal, not a description of the diner.",
+     "definitionFit": "A meaningful look or gesture conveys feeling or significance without words, which is what an expressive one does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "furiously"
+    }
+   }
   },
   {
    "number": 17,
@@ -263,7 +1075,52 @@
     "text": "Fixed deal in Barking",
     "enumeration": "6"
    },
-   "solution": "NAILED"
+   "solution": "NAILED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NAILED",
+    "definitions": [
+     {
+      "text": "Fixed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Barking",
+      "for": "anagram",
+      "note": "'barking' is British slang for mad, and mad letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "deal in",
+      "gives": "DEALIN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DEALIN",
+       "gives": "NAILED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rigged transaction struck in Barking, a district of east London.",
+     "walkthrough": "Barking is a real place in east London, which makes 'in Barking' look like a location; it is slang for crazy ('barking mad').",
+     "definitionFit": "Nailing something fastens it in place, so the past participle shares the sense of secured or attached firmly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Barking"
+    }
+   }
   },
   {
    "number": 18,
@@ -277,7 +1134,60 @@
     "text": "The author had admitted to brawl in 24-hour period",
     "enumeration": "6"
    },
-   "solution": "FRIDAY"
+   "solution": "FRIDAY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FRIDAY",
+    "definitions": [
+     {
+      "text": "24-hour period",
+      "at": 36,
+      "note": "the answer is one particular such period, a day of the week"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "admitted to",
+      "for": "container",
+      "note": "being admitted is being let inside, so one piece goes within another"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brawl",
+      "gives": "FRAY",
+      "note": "a fray is a fight or brawl"
+     },
+     {
+      "clueFragment": "The author had",
+      "gives": "ID",
+      "note": "the author is I, the writer, and 'I had' contracts to I'd"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FR",
+      "ID",
+      "AY"
+     ]
+    },
+    "explanation": {
+     "surface": "A writer confesses to a fight lasting a full day.",
+     "walkthrough": "'The author' is the setter speaking of themselves, giving I; with 'had' that becomes I'd. 'Admitted' looks like confessing but means letting in.",
+     "definitionFit": "Friday is one of the seven weekdays, and each day of the week lasts twenty-four hours, so this is definition by example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "admitted"
+    }
+   }
   },
   {
    "number": 19,
@@ -291,7 +1201,66 @@
     "text": "Retired barrister you left fortune",
     "enumeration": "4"
    },
-   "solution": "LUCK"
+   "solution": "LUCK",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "LUCK",
+    "definitions": [
+     {
+      "text": "fortune",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Retired",
+      "for": "reversal",
+      "note": "to retire is to withdraw or go back, so the letters read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "barrister",
+      "gives": "KC",
+      "note": "a KC is a King's Counsel, a senior barrister"
+     },
+     {
+      "clueFragment": "you",
+      "gives": "U",
+      "note": "U is text-speak for you"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LUCK"
+     ],
+     "reversals": [
+      {
+       "from": "KCUL",
+       "to": "LUCK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lawyer who has stopped working bequeaths you a large sum.",
+     "walkthrough": "'Retired' reads as a description of the barrister, but it reverses the whole string. 'Fortune' looks like the inheritance; it means chance.",
+     "definitionFit": "Fortune in the sense of chance or fate, good or bad, is a synonym of luck."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Retired"
+    }
+   }
   },
   {
    "number": 20,
@@ -305,7 +1274,51 @@
     "text": "Chapter with fussy passage",
     "enumeration": "5"
    },
-   "solution": "CANAL"
+   "solution": "CANAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CANAL",
+    "definitions": [
+     {
+      "text": "passage",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chapter",
+      "gives": "C",
+      "note": "C is the abbreviation for chapter"
+     },
+     {
+      "clueFragment": "fussy",
+      "gives": "ANAL",
+      "note": "informally, anal means obsessively fussy or fastidious"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ANAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A section of a book contains an overly elaborate piece of writing.",
+     "walkthrough": "'Passage' looks like a piece of text alongside 'Chapter', but it means a channel.",
+     "definitionFit": "A canal is an artificial waterway, and in anatomy a tube or duct, both of which are channels a thing passes along."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "passage"
+    }
+   }
   },
   {
    "number": 21,
@@ -319,7 +1332,61 @@
     "text": "Unclear if I intend to change key",
     "enumeration": "10"
    },
-   "solution": "INDEFINITE"
+   "solution": "INDEFINITE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "INDEFINITE",
+    "definitions": [
+     {
+      "text": "Unclear",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to change",
+      "for": "anagram",
+      "note": "changing something alters it, so the letters are put in a different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "if I intend",
+      "gives": "IFIINTEND",
+      "note": "taken as written before rearranging"
+     },
+     {
+      "clueFragment": "key",
+      "gives": "E",
+      "note": "E is one of the musical keys"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INDEFINIT",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "IFIINTEND",
+       "gives": "INDEFINIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A musician is undecided whether to modulate into another key.",
+     "walkthrough": "'Change key' reads as a musical modulation, but 'to change' acts on the words before it and 'key' supplies a single note name.",
+     "definitionFit": "Something indefinite is vague or not precisely fixed, so it lacks the sharpness that clarity would give it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "change"
+    }
+   }
   },
   {
    "number": 22,
@@ -333,7 +1400,49 @@
     "text": "Direction of each street",
     "enumeration": "4"
    },
-   "solution": "EAST"
+   "solution": "EAST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EAST",
+    "definitions": [
+     {
+      "text": "Direction",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "each",
+      "gives": "EA",
+      "note": "EA is the abbreviation for each"
+     },
+     {
+      "clueFragment": "street",
+      "gives": "ST",
+      "note": "ST is the abbreviation for street"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EA",
+      "ST"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking which way every road runs.",
+     "walkthrough": "EA for each is common on price tags ('$2 ea').",
+     "definitionFit": "East is one of the four cardinal compass points, the way towards sunrise."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -347,7 +1456,61 @@
     "text": "Bunch of people backing good horse",
     "enumeration": "4"
    },
-   "solution": "GANG"
+   "solution": "GANG",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "GANG",
+    "definitions": [
+     {
+      "text": "Bunch of people",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backing",
+      "for": "reversal",
+      "note": "going backwards means reading the letters from the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     },
+     {
+      "clueFragment": "horse",
+      "gives": "NAG",
+      "note": "a nag is an old horse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GANG"
+     ],
+     "reversals": [
+      {
+       "from": "GNAG",
+       "to": "GANG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crowd putting money on a fine racehorse.",
+     "walkthrough": "'Backing' looks like betting on the horse, but it reverses both pieces together.",
+     "definitionFit": "A gang is a group of individuals who associate together, whether workmates, friends or criminals."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "backing"
+    }
+   }
   },
   {
    "number": 24,
@@ -361,7 +1524,64 @@
     "text": "Reckless daughter with psychic powers endlessly berated",
     "enumeration": "9"
    },
-   "solution": "DESPERATE"
+   "solution": "DESPERATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "DESPERATE",
+    "definitions": [
+     {
+      "text": "Reckless",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endlessly",
+      "for": "deletion",
+      "note": "with no ends means both the first and last letters are cut off"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the abbreviation for daughter"
+     },
+     {
+      "clueFragment": "psychic powers",
+      "gives": "ESP",
+      "note": "ESP is extrasensory perception"
+     },
+     {
+      "clueFragment": "berated",
+      "gives": "BERATED",
+      "note": "taken as written before trimming"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ESP",
+      "ERATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A girl with second sight is scolded without end and becomes foolhardy.",
+     "walkthrough": "'Endlessly' reads as 'constantly' but it removes both ends of the last word.",
+     "definitionFit": "A desperate act is one taken rashly, without regard to danger, because the situation feels hopeless."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "endlessly"
+    }
+   }
   },
   {
    "number": 25,
@@ -375,7 +1595,55 @@
     "text": "Found a buyer for firm leaving island",
     "enumeration": "4"
    },
-   "solution": "SOLD"
+   "solution": "SOLD",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SOLD",
+    "definitions": [
+     {
+      "text": "Found a buyer for",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "something that leaves goes away, so those letters drop out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "firm",
+      "gives": "SOLID",
+      "note": "firm and solid are synonyms"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "I",
+      "note": "I is the abbreviation for island"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOL",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A company found someone to purchase it and then moved off its island base.",
+     "walkthrough": "'Firm' looks like a company, which suits the business picture, but it means solid.",
+     "definitionFit": "Selling something means transferring it to a purchaser, so the past tense equals having secured a customer for it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "firm"
+    }
+   }
   }
  ]
 }
