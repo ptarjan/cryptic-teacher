@@ -24,6 +24,9 @@
   "date": "2026-05-25",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,57 @@
     "text": "Being too involved in social media campaign, ill orc’s moody letters are returned",
     "enumeration": "13"
    },
-   "solution": "DOOMSCROLLING"
+   "solution": "DOOMSCROLLING",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "DOOMSCROLLING",
+    "definitions": [
+     {
+      "text": "Being too involved in social media",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "letters",
+      "for": "hidden_word",
+      "note": "the setter asks for the actual letters on the page, so the answer is spelt out in the run of words before it"
+     },
+     {
+      "text": "are returned",
+      "for": "reversal",
+      "note": "something returned goes back the way it came, so the run is read from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "campaign, ill orc’s moody",
+      "gives": "GNILLORCSMOOD",
+      "note": "the tail of campaign, then ill orc's, then the start of moody, taken straight from the page"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "GNILLORCSMOOD",
+       "to": "DOOMSCROLLING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sulky orc, unwell, has his mail sent back in some fantasy social-media campaign.",
+     "walkthrough": "Read backwards from the D of moody to the G of campaign and DOOMSCROLLING appears across the punctuation.",
+     "definitionFit": "Doomscrolling is the habit of endlessly reading bleak news feeds on a phone, an unhealthy absorption in online platforms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "letters"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +104,71 @@
     "text": "Adjust cable depth to finally salvage wreck",
     "enumeration": "7"
    },
-   "solution": "DEBACLE"
+   "solution": "DEBACLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "DEBACLE",
+    "definitions": [
+     {
+      "text": "wreck",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Adjust",
+      "for": "anagram",
+      "note": "to adjust is to alter or rearrange, so the letters are set in a new order"
+     },
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points at the end of the next word, so only its closing letter is wanted"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cable",
+      "gives": "CABLE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "depth",
+      "gives": "D",
+      "note": "d is the standard abbreviation for depth"
+     },
+     {
+      "clueFragment": "salvage",
+      "gives": "E",
+      "select": "last",
+      "note": "the closing letter of salvage"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CABLEDE",
+       "gives": "DEBACLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A diver tweaks the cable length so a sunken ship can at last be raised.",
+     "walkthrough": "'Salvage wreck' reads as one marine phrase, but wreck stands alone as the definition and salvage only lends its final letter.",
+     "definitionFit": "A debacle is a sudden, humiliating collapse or fiasco, and a wreck in the figurative sense of a ruined undertaking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wreck"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +182,51 @@
     "text": "Where in France to get fuel for canoe",
     "enumeration": "9"
    },
-   "solution": "OUTRIGGER"
+   "solution": "OUTRIGGER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OUTRIGGER",
+    "definitions": [
+     {
+      "text": "canoe",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "to get",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where in France",
+      "gives": "OU",
+      "note": "ou is French for where"
+     },
+     {
+      "clueFragment": "fuel",
+      "gives": "TRIGGER",
+      "note": "to fuel trouble is to spark or set it off"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OU",
+      "TRIGGER"
+     ]
+    },
+    "explanation": {
+     "surface": "A paddler wonders where in France to buy petrol for a boat.",
+     "walkthrough": "Fuel looks like a noun for the tank, but it is a verb, as in fuelling a row.",
+     "definitionFit": "An outrigger is a canoe fitted with a float on a side arm for stability, common across the Pacific islands."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fuel"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +240,61 @@
     "text": "Vulcan caught swapping with old Phantom",
     "enumeration": "5"
    },
-   "solution": "SPOOK"
+   "solution": "SPOOK",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "SPOOK",
+    "definitions": [
+     {
+      "text": "Phantom",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swapping with",
+      "for": "substitution",
+      "note": "swapping trades one thing for another, so one letter is taken out and a different one put in its place"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vulcan",
+      "gives": "SPOCK",
+      "note": "Mr Spock is the famous Vulcan of Star Trek"
+     },
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "c is the cricket scorecard abbreviation for caught"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "o is a standard abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SP",
+      "O",
+      "OK"
+     ]
+    },
+    "explanation": {
+     "surface": "An RAF Vulcan bomber is captured while being traded for an old Phantom jet.",
+     "walkthrough": "Vulcan and Phantom both look like aircraft; the Vulcan is Star Trek's Spock and the Phantom is the definition.",
+     "definitionFit": "A spook is an informal word for a ghost or apparition, the same kind of spirit as a phantom."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Vulcan"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +308,70 @@
     "text": "Free press bottles up rage and produces energy",
     "enumeration": "8"
    },
-   "solution": "RESPIRES"
+   "solution": "RESPIRES",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "RESPIRES",
+    "definitions": [
+     {
+      "text": "produces energy",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Free",
+      "for": "anagram",
+      "note": "letters set free are loosed from their order and can be rearranged"
+     },
+     {
+      "text": "bottles up",
+      "for": "container",
+      "note": "to bottle something up is to hold it inside, so one piece is shut within another"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "press",
+      "gives": "PRESS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rage",
+      "gives": "IRE",
+      "note": "ire is anger or rage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RESP",
+      "IRE",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PRESS",
+       "gives": "RESPS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An uncensored newspaper suppresses its fury and gets things done.",
+     "walkthrough": "'Free press' reads as one phrase about journalism; free is the instruction and press the letters.",
+     "definitionFit": "In biology, a cell that respires breaks down glucose with oxygen to release the energy it needs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Free"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +385,58 @@
     "text": "Like some underwear kept, for example, as a gift",
     "enumeration": "6"
    },
-   "solution": "LEGACY"
+   "solution": "LEGACY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LEGACY",
+    "definitions": [
+     {
+      "text": "gift",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "kept",
+      "for": "container",
+      "note": "what is kept is held inside, so one piece sits within the other"
+     }
+    ],
+    "linkWords": [
+     "as a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Like some underwear",
+      "gives": "LACY",
+      "note": "some lingerie is made of lace, so lacy"
+     },
+     {
+      "clueFragment": "for example",
+      "gives": "EG",
+      "note": "e.g. is the abbreviation for for example"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "EG",
+      "ACY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone keeps a piece of frilly lingerie that was given as a present.",
+     "walkthrough": "The surface makes kept the underwear being held on to; it is the containment signal, and the comma hides that for example is a separate piece.",
+     "definitionFit": "A legacy is money or property left to someone in a will, a bequest received as a gift."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "kept"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +450,62 @@
     "text": "Memorising inaccurately, lacking good concentration",
     "enumeration": "9"
    },
-   "solution": "IMMERSION"
+   "solution": "IMMERSION",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "IMMERSION",
+    "definitions": [
+     {
+      "text": "concentration",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inaccurately",
+      "for": "anagram",
+      "note": "done inaccurately means done wrong, so the letters come out in the wrong order"
+     },
+     {
+      "text": "lacking",
+      "for": "deletion",
+      "note": "lacking means going without, so a letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Memorising",
+      "gives": "MEMORISING",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "g is the standard abbreviation for good"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MEMORISIN",
+       "gives": "IMMERSION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A student learning by rote gets it wrong for want of proper focus.",
+     "walkthrough": "Drop one G from MEMORISING and rearrange the nine letters left.",
+     "definitionFit": "Immersion is deep mental absorption in a task, the state of being wholly engrossed and focused."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "concentration"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +519,62 @@
     "text": "Drone’s gear unevenly wrapping tropical fruit",
     "enumeration": "5"
    },
-   "solution": "GUAVA"
+   "solution": "GUAVA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "GUAVA",
+    "definitions": [
+     {
+      "text": "tropical fruit",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unevenly",
+      "for": "letter_selection",
+      "note": "uneven numbers are the odd ones, so the first, third and so on letters are kept"
+     },
+     {
+      "text": "wrapping",
+      "for": "container",
+      "note": "a wrapping goes around something, so one piece encloses the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gear",
+      "gives": "GA",
+      "select": "alternate",
+      "note": "the first and third letters of gear"
+     },
+     {
+      "clueFragment": "Drone’s",
+      "gives": "UAV",
+      "note": "a drone is a UAV, an unmanned aerial vehicle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "UAV",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A delivery drone's equipment is lopsided as it carries an exotic fruit.",
+     "walkthrough": "The 's in Drone's stands for is, joining the drone to the letters that wrap it.",
+     "definitionFit": "The guava is a sweet pink- or white-fleshed fruit grown in warm climates across Central and South America and Asia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Drone’s"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +588,67 @@
     "text": "Broadcast news is unreliable without translator",
     "enumeration": "6"
    },
-   "solution": "STREWN"
+   "solution": "STREWN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "STREWN",
+    "definitions": [
+     {
+      "text": "Broadcast",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is unreliable",
+      "for": "anagram",
+      "note": "something unreliable cannot be trusted to stay as it is, so the letters are rearranged"
+     },
+     {
+      "text": "without",
+      "for": "container",
+      "note": "without in its old sense of outside, so one piece goes around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "news",
+      "gives": "NEWS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "translator",
+      "gives": "TR",
+      "note": "tr. is the dictionary abbreviation for translator"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TR",
+      "EWN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NEWS",
+       "gives": "SEWN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A foreign news broadcast can't be trusted when there's no interpreter.",
+     "walkthrough": "'Broadcast news' reads as one phrase, but broadcast is the definition, in its farming sense of scattering seed. Without means outside here, not lacking.",
+     "definitionFit": "To broadcast seed is to scatter it widely by hand, so broadcast seed has been strewn across the field."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +662,50 @@
     "text": "These connect victim with government department",
     "enumeration": "7"
    },
-   "solution": "BUTTONS"
+   "solution": "BUTTONS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BUTTONS",
+    "definitions": [
+     {
+      "text": "These connect",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "victim",
+      "gives": "BUTT",
+      "note": "the butt of a joke is its victim"
+     },
+     {
+      "clueFragment": "government department",
+      "gives": "ONS",
+      "note": "the ONS is the UK's Office for National Statistics"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUTT",
+      "ONS"
+     ]
+    },
+    "explanation": {
+     "surface": "Some people link a casualty to a branch of the civil service.",
+     "walkthrough": "The ONS is the British government body that runs the census and publishes official statistics.",
+     "definitionFit": "Buttons fasten the two sides of a garment together, joining one edge to the other through buttonholes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "connect"
+    }
+   }
   },
   {
    "number": 10,
@@ -177,7 +719,79 @@
     "text": "Dissolve nasty mark below lid of glass tumbler",
     "enumeration": "7"
    },
-   "solution": "GYMNAST"
+   "solution": "GYMNAST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "GYMNAST",
+    "definitions": [
+     {
+      "text": "tumbler",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Dissolve",
+      "for": "anagram",
+      "note": "a dissolved thing loses its form and can be reshaped, so the letters are reassembled"
+     },
+     {
+      "text": "lid of",
+      "for": "letter_selection",
+      "note": "a lid sits on top, and in a down light or a word the top is the first letter"
+     },
+     {
+      "text": "below",
+      "for": "charade",
+      "note": "one piece comes below, that is after, another in the finished word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "glass",
+      "gives": "G",
+      "select": "first",
+      "note": "the opening letter of glass"
+     },
+     {
+      "clueFragment": "nasty",
+      "gives": "NASTY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "mark",
+      "gives": "M",
+      "note": "M is short for the German mark, the old currency"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "YMNAST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NASTYM",
+       "gives": "YMNAST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Get rid of an ugly stain beneath the rim of a drinking glass.",
+     "walkthrough": "Glass tumbler looks like a drinking vessel; tumbler is the definition, someone who does somersaults.",
+     "definitionFit": "A tumbler is an acrobat who performs flips and somersaults, which is what a floor gymnast does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tumbler"
+    }
+   }
   },
   {
    "number": 11,
@@ -191,7 +805,59 @@
     "text": "Fracture jaw with edge of knife",
     "enumeration": "5"
    },
-   "solution": "CHINK"
+   "solution": "CHINK",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CHINK",
+    "definitions": [
+     {
+      "text": "Fracture",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "edge of",
+      "for": "letter_selection",
+      "note": "the edge of a word is one of its end letters, here the leading one"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "jaw",
+      "gives": "CHIN",
+      "note": "the chin is the front of the lower jaw"
+     },
+     {
+      "clueFragment": "knife",
+      "gives": "K",
+      "select": "first",
+      "note": "the first letter of knife"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHIN",
+      "K"
+     ]
+    },
+    "explanation": {
+     "surface": "A knife attack leaves someone with a broken jaw.",
+     "walkthrough": "Fracture reads as a verb in the violent surface, but it is the noun, a crack.",
+     "definitionFit": "A chink is a narrow crack or opening, the same as a small fracture in a wall or armour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fracture"
+    }
+   }
   },
   {
    "number": 12,
@@ -205,7 +871,66 @@
     "text": "Incorporated and consumed when genetic material is injected in the flesh",
     "enumeration": "9"
    },
-   "solution": "INCARNATE"
+   "solution": "INCARNATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "INCARNATE",
+    "definitions": [
+     {
+      "text": "in the flesh",
+      "at": 60
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is injected",
+      "for": "container",
+      "note": "an injection puts something inside, so one piece is placed within another"
+     }
+    ],
+    "linkWords": [
+     "and",
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Incorporated",
+      "gives": "INC",
+      "note": "Inc. is the abbreviation for incorporated, as in company names"
+     },
+     {
+      "clueFragment": "consumed",
+      "gives": "ATE",
+      "note": "consumed means ate"
+     },
+     {
+      "clueFragment": "genetic material",
+      "gives": "RNA",
+      "note": "RNA, ribonucleic acid, carries genetic information"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INC",
+      "A",
+      "RNA",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "A biotech firm swallows up rivals as genes are injected into living tissue.",
+     "walkthrough": "The surface has the material injected into flesh, but in the flesh is the definition and the injection is into ATE.",
+     "definitionFit": "Incarnate means embodied in human form, so a devil incarnate is one appearing in bodily, physical form."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flesh"
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +944,61 @@
     "text": "Provoke hollow emotion meeting man or woman",
     "enumeration": "8"
    },
-   "solution": "ENGENDER"
+   "solution": "ENGENDER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ENGENDER",
+    "definitions": [
+     {
+      "text": "Provoke",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hollow",
+      "for": "letter_selection",
+      "note": "a hollow thing has had its insides scooped out, leaving just the shell of first and last letters"
+     },
+     {
+      "text": "meeting",
+      "for": "charade",
+      "note": "meeting brings two things together side by side, so one piece joins the next"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "emotion",
+      "gives": "EN",
+      "select": "outer",
+      "note": "the outside letters of emotion"
+     },
+     {
+      "clueFragment": "man or woman",
+      "gives": "GENDER",
+      "note": "man or woman describes a gender"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "GENDER"
+     ]
+    },
+    "explanation": {
+     "surface": "Feigned feeling stirs things up when a man and a woman meet.",
+     "walkthrough": "Hollow sounds like a description of the emotion as insincere; here it empties the word of its middle.",
+     "definitionFit": "To engender a reaction is to cause or give rise to it, just as one provokes a response."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hollow"
+    }
+   }
   },
   {
    "number": 14,
@@ -233,7 +1012,67 @@
     "text": "Shady spot marked with this in horrible changes to endless storm",
     "enumeration": "9"
    },
-   "solution": "NOTORIOUS"
+   "solution": "NOTORIOUS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "substitution"
+    ],
+    "answer": "NOTORIOUS",
+    "definitions": [
+     {
+      "text": "Shady",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endless",
+      "for": "letter_selection",
+      "note": "without its ends a word loses both its first and its last letters, keeping only the middle"
+     },
+     {
+      "text": "changes to",
+      "for": "substitution",
+      "note": "one thing changing to another means a letter is swapped out for a replacement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "horrible",
+      "gives": "NOXIOUS",
+      "note": "noxious means harmful or horrible"
+     },
+     {
+      "clueFragment": "spot marked with this",
+      "gives": "X",
+      "note": "X marks the spot, as on a treasure map"
+     },
+     {
+      "clueFragment": "storm",
+      "gives": "TOR",
+      "select": "middle",
+      "note": "the inner letters of storm"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "TOR",
+      "IOUS"
+     ]
+    },
+    "explanation": {
+     "surface": "A dark place is labelled as dreadful as a hurricane rolls in.",
+     "walkthrough": "'This' points to the letter that marks the spot: take the X in NOXIOUS and replace it with TOR.",
+     "definitionFit": "Shady means of dubious honesty, and someone notorious is famous for bad deeds, a disreputable figure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spot"
+    }
+   }
   },
   {
    "number": 15,
@@ -253,7 +1092,61 @@
      }
     ]
    },
-   "solution": "TINCAN"
+   "solution": "TINCAN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TIN CAN",
+    "definitions": [
+     {
+      "text": "It preserves",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its last letter"
+     },
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "one piece following another comes after it in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "conquest",
+      "gives": "T",
+      "select": "last",
+      "note": "the final letter of conquest"
+     },
+     {
+      "clueFragment": "member of lost civilisation",
+      "gives": "INCAN",
+      "note": "an Incan was one of the Inca people of Peru, whose empire fell to Spain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "INCAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A remnant of a vanished people survives after the Spanish conquest.",
+     "walkthrough": "The surface suggests an archaeologist's find; 'It preserves' is the definition, food kept in a sealed container.",
+     "definitionFit": "A tin can is the sealed metal container used to keep food fresh for years, so it preserves its contents."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "preserves"
+    }
+   }
   },
   {
    "number": 16,
@@ -267,7 +1160,56 @@
     "text": "Sleeping lion perhaps needs a stimulant",
     "enumeration": "9"
    },
-   "solution": "CATATONIC"
+   "solution": "CATATONIC",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CATATONIC",
+    "definitions": [
+     {
+      "text": "Sleeping",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "needs"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lion perhaps",
+      "gives": "CAT",
+      "note": "a lion is an example of a big cat"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "stimulant",
+      "gives": "TONIC",
+      "note": "a tonic is a restorative pick-me-up"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAT",
+      "A",
+      "TONIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A dozing lion needs a pick-me-up to wake it.",
+     "walkthrough": "Sleeping lion reads as one phrase, but sleeping is the definition and lion perhaps is the wordplay.",
+     "definitionFit": "Catatonic describes a stupor of utter unresponsiveness, informally anyone so inert they seem asleep."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sleeping"
+    }
+   }
   },
   {
    "number": 17,
@@ -281,7 +1223,60 @@
     "text": "Not straight before Irish town cut short event",
     "enumeration": "8"
    },
-   "solution": "BIATHLON"
+   "solution": "BIATHLON",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "BIATHLON",
+    "definitions": [
+     {
+      "text": "event",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "before",
+      "for": "charade",
+      "note": "one piece before another comes first in the answer"
+     },
+     {
+      "text": "cut short",
+      "for": "deletion",
+      "note": "cut short means docked at the end, so the last letter is lost"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Not straight",
+      "gives": "BI",
+      "note": "bi is slang for bisexual, that is not straight"
+     },
+     {
+      "clueFragment": "Irish town",
+      "gives": "ATHLONE",
+      "note": "Athlone is a town in the centre of Ireland"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BI",
+      "ATHLON"
+     ]
+    },
+    "explanation": {
+     "surface": "A crooked road leads to a small Irish town where an occasion was curtailed.",
+     "walkthrough": "Not straight looks like bent or crooked; it is the slang sense, bisexual.",
+     "definitionFit": "The biathlon is a winter sports competition combining cross-country skiing with rifle shooting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "straight"
+    }
+   }
   },
   {
    "number": 18,
@@ -295,7 +1290,62 @@
     "text": "Spin dry finally shred clothes",
     "enumeration": "6"
    },
-   "solution": "GYRATE"
+   "solution": "GYRATE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "GYRATE",
+    "definitions": [
+     {
+      "text": "Spin",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points at the closing letter of a word"
+     },
+     {
+      "text": "clothes",
+      "for": "container",
+      "note": "to clothe is to cover all round, so one piece is wrapped around another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shred",
+      "gives": "GRATE",
+      "note": "to grate cheese is to shred it"
+     },
+     {
+      "clueFragment": "dry",
+      "gives": "Y",
+      "select": "last",
+      "note": "the last letter of dry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "Y",
+      "RATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Laundry instructions: tumble-dry, then finally tear up the garments.",
+     "walkthrough": "'Spin dry' reads as one washing-machine setting and clothes as a noun; clothes is a verb, covering.",
+     "definitionFit": "To gyrate is to rotate or whirl around a central point, the same movement as to spin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "clothes"
+    }
+   }
   },
   {
    "number": 18,
@@ -309,7 +1359,65 @@
     "text": "Girl’s skin gets creeping sensation from bug",
     "enumeration": "6"
    },
-   "solution": "GLITCH"
+   "solution": "GLITCH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "GLITCH",
+    "definitions": [
+     {
+      "text": "bug",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "skin",
+      "for": "letter_selection",
+      "note": "a skin is the outer layer, so only the outside letters are kept"
+     },
+     {
+      "text": "gets",
+      "for": "charade",
+      "note": "one piece gets, or acquires, another added to it"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Girl’s",
+      "gives": "GL",
+      "select": "outer",
+      "note": "the outside letters of girl"
+     },
+     {
+      "clueFragment": "creeping sensation",
+      "gives": "ITCH",
+      "note": "an itch is a tingling, crawling feeling on the skin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GL",
+      "ITCH"
+     ]
+    },
+    "explanation": {
+     "surface": "A girl feels her skin crawl from an insect bite.",
+     "walkthrough": "Bug looks like the insect in the surface; it is the computing sense, a fault.",
+     "definitionFit": "A glitch is a sudden malfunction or fault in a system, and a software bug is exactly such an error."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bug"
+    }
+   }
   },
   {
    "number": 19,
@@ -323,7 +1431,63 @@
     "text": "Can idiots swallow uranium? That sounds annoying",
     "enumeration": "8"
    },
-   "solution": "TINNITUS"
+   "solution": "TINNITUS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "TINNITUS",
+    "definitions": [
+     {
+      "text": "That sounds annoying",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swallow",
+      "for": "container",
+      "note": "what is swallowed ends up inside, so one piece sits within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Can",
+      "gives": "TIN",
+      "note": "a can is a tin"
+     },
+     {
+      "clueFragment": "idiots",
+      "gives": "NITS",
+      "note": "nits is British slang for fools"
+     },
+     {
+      "clueFragment": "uranium",
+      "gives": "U",
+      "note": "U is the chemical symbol for uranium"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIN",
+      "NIT",
+      "U",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether fools can eat radioactive metal, and finds the idea irritating.",
+     "walkthrough": "That sounds annoying reads as a reaction to the question, but it is the definition, a condition of irritating noises. Nits is mild British slang for idiots.",
+     "definitionFit": "Tinnitus is a persistent ringing or buzzing heard in the ears with no outside source, a source of constant irritation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sounds"
+    }
+   }
   },
   {
    "number": 20,
@@ -337,7 +1501,63 @@
     "text": "Pastry dough’s surface lustre deteriorates",
     "enumeration": "7"
    },
-   "solution": "STRUDEL"
+   "solution": "STRUDEL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "STRUDEL",
+    "definitions": [
+     {
+      "text": "Pastry",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surface",
+      "for": "letter_selection",
+      "note": "the surface is the top layer, and in a down light the top is the first letter"
+     },
+     {
+      "text": "deteriorates",
+      "for": "anagram",
+      "note": "something deteriorating falls apart, so the letters break up and re-form"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dough’s",
+      "gives": "D",
+      "select": "first",
+      "note": "the first letter of dough"
+     },
+     {
+      "clueFragment": "lustre",
+      "gives": "LUSTRE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DLUSTRE",
+       "gives": "STRUDEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The glossy glaze on a pastry loses its shine as it goes stale.",
+     "walkthrough": "'Pastry dough' reads as one baking phrase; pastry stands alone as the definition.",
+     "definitionFit": "Strudel is the Austrian dessert of thin layered dough rolled around a fruit filling such as apple."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "surface"
+    }
+   }
   },
   {
    "number": 21,
@@ -351,7 +1571,58 @@
     "text": "Raising ingredient in cheese or some dough",
     "enumeration": "6"
    },
-   "solution": "TENNER"
+   "solution": "TENNER",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "TENNER",
+    "definitions": [
+     {
+      "text": "some dough",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Raising",
+      "for": "reversal",
+      "note": "in a down light, raising something turns it upwards, so it reads from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ingredient in cheese",
+      "gives": "RENNET",
+      "note": "rennet is the enzyme used to curdle milk in cheese-making"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TENNER"
+     ],
+     "reversals": [
+      {
+       "from": "RENNET",
+       "to": "TENNER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A recipe asks for a leavening agent in a cheese or bread dough.",
+     "walkthrough": "Raising ingredient suggests yeast for the dough, but raising is the reversal signal and dough is slang for money. A tenner is a ten-pound note.",
+     "definitionFit": "Dough is slang for money, and a tenner is a ten-pound or ten-dollar note, a particular sum of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dough"
+    }
+   }
   },
   {
    "number": 22,
@@ -365,7 +1636,61 @@
     "text": "Odd Finnish characters ignored critical protester",
     "enumeration": "9"
    },
-   "solution": "INSURGENT"
+   "solution": "INSURGENT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "INSURGENT",
+    "definitions": [
+     {
+      "text": "protester",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Odd",
+      "for": "letter_selection",
+      "note": "odd picks out the letters in the odd-numbered places, first, third and so on"
+     },
+     {
+      "text": "ignored",
+      "for": "letter_selection",
+      "note": "ignored means passed over, so the chosen letters are dropped and the rest kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Finnish characters",
+      "gives": "INS",
+      "select": "alternate",
+      "note": "the even letters of Finnish, left when the odd ones go"
+     },
+     {
+      "clueFragment": "critical",
+      "gives": "URGENT",
+      "note": "a critical situation is urgent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INS",
+      "URGENT"
+     ]
+    },
+    "explanation": {
+     "surface": "Strange Finns took no notice of an urgent activist.",
+     "walkthrough": "Odd reads as strange in the surface; it picks the first, third, fifth and seventh letters of Finnish, which are thrown away.",
+     "definitionFit": "An insurgent is a rebel rising against authority, a protester in the strongest, most active form."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Odd"
+    }
+   }
   },
   {
    "number": 23,
@@ -379,7 +1704,45 @@
     "text": "Show indifference to jacket",
     "enumeration": "5"
    },
-   "solution": "SHRUG"
+   "solution": "SHRUG",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SHRUG",
+    "definitions": [
+     {
+      "text": "Show indifference",
+      "at": 0
+     },
+     {
+      "text": "jacket",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Show indifference",
+      "note": "first meaning: lift the shoulders to show you don't care"
+     },
+     {
+      "clueFragment": "jacket",
+      "note": "second meaning: a short cropped cardigan or bolero worn over the shoulders"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as someone being casual about a jacket; the two halves are separate meanings of one word.",
+     "definitionFit": "The verb is the gesture of raising the shoulders; the noun is a short, open garment covering just the shoulders and arms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "to"
+    }
+   }
   },
   {
    "number": 24,
@@ -393,7 +1756,54 @@
     "text": "Sulphur extracted from sugar supply",
     "enumeration": "5"
    },
-   "solution": "CATER"
+   "solution": "CATER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CATER",
+    "definitions": [
+     {
+      "text": "supply",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extracted from",
+      "for": "deletion",
+      "note": "something extracted is pulled out and taken away, so a letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sulphur",
+      "gives": "S",
+      "note": "S is the chemical symbol for sulphur"
+     },
+     {
+      "clueFragment": "sugar",
+      "gives": "CASTER",
+      "note": "caster sugar is fine baking sugar, so caster is a kind of sugar"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "TER"
+     ]
+    },
+    "explanation": {
+     "surface": "Sulphur is removed during sugar refining before it is shipped out.",
+     "walkthrough": "Caster sugar is the fine-grained sugar British bakers use.",
+     "definitionFit": "To cater is to provide food and drink for an event, so in general to supply what is needed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "supply"
+    }
+   }
   },
   {
    "number": 24,
@@ -407,7 +1817,60 @@
     "text": "Is this a refined version of charisma?",
     "enumeration": "5"
    },
-   "solution": "CHARM"
+   "solution": "CHARM",
+   "annotation": {
+    "type": [
+     "deletion",
+     "and_lit"
+    ],
+    "answer": "CHARM",
+    "definitions": [
+     {
+      "text": "Is this a refined version of charisma?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "refined version of",
+      "for": "deletion",
+      "note": "refining purifies by taking out unwanted matter, so some letters are removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "charisma",
+      "gives": "CHARISMA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Is",
+      "gives": "IS",
+      "note": "taken as written, the letters to remove"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written, another letter to remove"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAR",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "A question: is this quality simply a more polished form of magnetism?",
+     "walkthrough": "Take IS and A out of CHARISMA and CHARM is left; the whole question also defines it.",
+     "definitionFit": "Charm is a pleasing, attractive manner, a gentler and more polished kind of personal magnetism than raw charisma."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "refined"
+    }
+   }
   },
   {
    "number": 25,
@@ -421,7 +1884,80 @@
     "text": "Strip club’s opening corrupted Ontario after I left",
     "enumeration": "7"
    },
-   "solution": "CARTOON"
+   "solution": "CARTOON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "anagram",
+     "charade"
+    ],
+    "answer": "CARTOON",
+    "definitions": [
+     {
+      "text": "Strip",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "opening",
+      "for": "letter_selection",
+      "note": "an opening is a beginning, so the first letter is taken"
+     },
+     {
+      "text": "I left",
+      "for": "deletion",
+      "note": "with the letter having left, it is gone from the word"
+     },
+     {
+      "text": "corrupted",
+      "for": "anagram",
+      "note": "corrupted means spoilt or garbled, so the letters are scrambled"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "one piece after another follows it in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "club’s",
+      "gives": "C",
+      "select": "first",
+      "note": "the first letter of club"
+     },
+     {
+      "clueFragment": "Ontario",
+      "gives": "ONTARIO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ARTOON"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ONTARO",
+       "gives": "ARTOON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A strip club opening in Ontario turned seedy after I walked out.",
+     "walkthrough": "'Strip club' reads as one phrase, but strip is the definition, a comic strip.",
+     "definitionFit": "A comic strip is a short sequence of drawn panels, which is a cartoon in a newspaper."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Strip"
+    }
+   }
   },
   {
    "number": 26,
@@ -435,7 +1971,48 @@
     "text": "Dug up King Edward",
     "enumeration": "7"
    },
-   "solution": "LEARNED"
+   "solution": "LEARNED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LEARNED",
+    "definitions": [
+     {
+      "text": "Dug up",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "King",
+      "gives": "LEAR",
+      "note": "King Lear of Shakespeare's tragedy"
+     },
+     {
+      "clueFragment": "Edward",
+      "gives": "NED",
+      "note": "Ned is a pet form of Edward"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEAR",
+      "NED"
+     ]
+    },
+    "explanation": {
+     "surface": "A dead king named Edward was exhumed.",
+     "walkthrough": "The surface recalls the bones of a king found under a car park; King Edward is also a potato variety, which suits dug up. Dug up is the definition, as in finding out facts.",
+     "definitionFit": "To dig up information is to discover it by research, so facts dug up are facts found out or ascertained."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Dug"
+    }
+   }
   },
   {
    "number": 27,
@@ -449,7 +2026,57 @@
     "text": "Gourmet gazpacho starter’s very expensive",
     "enumeration": "13"
    },
-   "solution": "GASTRONOMICAL"
+   "solution": "GASTRONOMICAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "GASTRONOMICAL",
+    "definitions": [
+     {
+      "text": "Gourmet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starter’s",
+      "for": "letter_selection",
+      "note": "a starter comes at the beginning, so the first letter is wanted"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gazpacho",
+      "gives": "G",
+      "select": "first",
+      "note": "the first letter of gazpacho"
+     },
+     {
+      "clueFragment": "very expensive",
+      "gives": "ASTRONOMICAL",
+      "note": "astronomical prices are sky-high, very expensive"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "ASTRONOMICAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A fancy restaurant's cold soup starter costs a fortune.",
+     "walkthrough": "Starter looks like the first course of the meal; here it takes the first letter of gazpacho, and the 's is is.",
+     "definitionFit": "Gastronomical relates to fine cooking and eating, the refined food appreciation that gourmet as an adjective describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "starter’s"
+    }
+   }
   }
  ]
 }
