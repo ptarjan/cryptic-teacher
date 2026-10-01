@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,85 @@
     "text": "Someone helping Everest's reconnoitrers planning ascent, primarily?",
     "enumeration": "6"
    },
-   "solution": "SHERPA"
+   "solution": "SHERPA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "and_lit"
+    ],
+    "answer": "SHERPA",
+    "definitions": [
+     {
+      "text": "Someone helping Everest's reconnoitrers planning ascent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so only the opening letter of each word is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Someone",
+      "gives": "S",
+      "select": "first",
+      "note": "opening letter"
+     },
+     {
+      "clueFragment": "helping",
+      "gives": "H",
+      "select": "first",
+      "note": "opening letter"
+     },
+     {
+      "clueFragment": "Everest's",
+      "gives": "E",
+      "select": "first",
+      "note": "opening letter"
+     },
+     {
+      "clueFragment": "reconnoitrers",
+      "gives": "R",
+      "select": "first",
+      "note": "opening letter"
+     },
+     {
+      "clueFragment": "planning",
+      "gives": "P",
+      "select": "first",
+      "note": "opening letter"
+     },
+     {
+      "clueFragment": "ascent",
+      "gives": "A",
+      "select": "first",
+      "note": "opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "H",
+      "E",
+      "R",
+      "P",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A mountain guide assisting a team scouting a route up Everest.",
+     "walkthrough": "The whole clue is both the definition and the wordplay: the first letters of its six words spell SHERPA, and a Sherpa is exactly the person described.",
+     "definitionFit": "Sherpas are Himalayan people famed as guides and porters for climbing expeditions on the world's highest mountain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "primarily"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +128,43 @@
     "text": "Feel aversion to some châteaux",
     "enumeration": "4"
    },
-   "solution": "HATE"
+   "solution": "HATE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "HATE",
+    "definitions": [
+     {
+      "text": "Feel aversion to",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "some of a word is only part of it, so a run of its letters is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "châteaux",
+      "gives": "HATE",
+      "note": "the letters run inside this French word, ignoring the accent"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone who dislikes certain French castles.",
+     "walkthrough": "The circumflex on the a is ignored, as accents usually are in crosswords: cHÂTEaux.",
+     "definitionFit": "To loathe something is to feel strong dislike for it, a direct verb synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "some"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +178,51 @@
     "text": "Goodness, die cutter in need of repair",
     "enumeration": "9"
    },
-   "solution": "RECTITUDE"
+   "solution": "RECTITUDE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RECTITUDE",
+    "definitions": [
+     {
+      "text": "Goodness",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in need of repair",
+      "for": "anagram",
+      "note": "something needing repair is broken, so these letters are out of order and must be fixed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "die cutter",
+      "gives": "DIECUTTER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DIECUTTER",
+       "gives": "RECTITUDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An exclamation over a broken industrial die-cutting machine.",
+     "walkthrough": "'Goodness' reads as an exclamation of surprise, but it is the noun meaning virtue. A die cutter is a machine that stamps shapes out of sheet material.",
+     "definitionFit": "Rectitude is moral uprightness and correct behaviour, a formal synonym for virtue."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Goodness"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +236,59 @@
     "text": "Jazzman regularly seen with meadow flower",
     "enumeration": "6"
    },
-   "solution": "AZALEA"
+   "solution": "AZALEA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "AZALEA",
+    "definitions": [
+     {
+      "text": "flower",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "at regular intervals, so every second letter is kept"
+     }
+    ],
+    "linkWords": [
+     "seen with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jazzman",
+      "gives": "AZA",
+      "select": "alternate",
+      "note": "second, fourth and sixth letters"
+     },
+     {
+      "clueFragment": "meadow",
+      "gives": "LEA",
+      "note": "lea is a poetic word for a meadow"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AZA",
+      "LEA"
+     ]
+    },
+    "explanation": {
+     "surface": "A jazz musician pictured in a meadow beside a flower.",
+     "walkthrough": "The even letters of jAzZmAn come first, then LEA, a crossword favourite for grassland.",
+     "definitionFit": "The azalea is a flowering shrub related to the rhododendron, so the answer is an example of a bloom."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Jazzman"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +308,43 @@
      }
     ]
    },
-   "solution": "SHOWBOAT"
+   "solution": "SHOWBOAT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SHOW BOAT",
+    "definitions": [
+     {
+      "text": "Musical",
+      "at": 0
+     },
+     {
+      "text": "parade",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Musical",
+      "note": "first meaning: the Kern and Hammerstein stage musical about a Mississippi river steamer"
+     },
+     {
+      "clueFragment": "parade",
+      "note": "second meaning: to show off flamboyantly"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Musical parade' sounds like a marching band; it is two separate meanings, the 1927 stage show and the verb for showing off, which as one word is showboat.",
+     "definitionFit": "To parade one's skills is to display them ostentatiously, which is what a showboater does; the classic musical shares the name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "parade"
+    }
+   }
   },
   {
    "number": 5,
@@ -119,7 +368,54 @@
      }
     ]
    },
-   "solution": "SHORTSHARPSHOCK"
+   "solution": "SHORTSHARPSHOCK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SHORT SHARP SHOCK",
+    "definitions": [
+     {
+      "text": "What's given to yobs?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spirits",
+      "gives": "SHORTS",
+      "note": "shorts are measures of spirits, as opposed to long drinks"
+     },
+     {
+      "clueFragment": "lagers",
+      "gives": "HARPS",
+      "note": "Harp is an Irish brand of lager"
+     },
+     {
+      "clueFragment": "wine",
+      "gives": "HOCK",
+      "note": "hock is German white wine from the Rhine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHORTS",
+      "HARPS",
+      "HOCK"
+     ]
+    },
+    "explanation": {
+     "surface": "A list of the drinks louts are served at the bar.",
+     "walkthrough": "The commas in the surface do not match the answer's breaks: the three drinks run together and are then re-divided as short, sharp, shock. Yobs are British slang for loutish young men.",
+     "definitionFit": "A short, sharp shock is the British phrase for brief, harsh punishment of young offenders, popularised by 1980s detention-centre policy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "given"
+    }
+   }
   },
   {
    "number": 6,
@@ -139,7 +435,67 @@
      }
     ]
    },
-   "solution": "OFFPISTE"
+   "solution": "OFFPISTE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "OFF-PISTE",
+    "definitions": [
+     {
+      "text": "not on-topic",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "confounded",
+      "for": "anagram",
+      "note": "confounded means thrown into confusion, so these letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "fellow",
+      "gives": "F",
+      "note": "F is the abbreviation for fellow"
+     },
+     {
+      "clueFragment": "pest if",
+      "gives": "PESTIF",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "F",
+      "FPISTE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PESTIF",
+       "gives": "FPISTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Complaining about an old man who keeps wandering away from the subject.",
+     "walkthrough": "'confounded pest' looks like an insult to the old fellow, but 'confounded' is the anagram signal working on the next two words.",
+     "definitionFit": "Off-piste literally means skiing away from prepared runs, and figuratively straying from the expected course, such as a discussion's subject."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "confounded"
+    }
+   }
   },
   {
    "number": 7,
@@ -153,7 +509,46 @@
     "text": "A little tribal sacrament in wood",
     "enumeration": "5"
    },
-   "solution": "BALSA"
+   "solution": "BALSA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "BALSA",
+    "definitions": [
+     {
+      "text": "wood",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "A little",
+      "for": "hidden_word",
+      "note": "a little of something is a small part of it, so a run of letters is taken from the phrase"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tribal sacrament",
+      "gives": "BALSA",
+      "note": "the letters straddle the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A small tribal religious rite held in a forest.",
+     "walkthrough": "'in wood' seems to place the sacrament in a forest; 'wood' is the definition, and the answer sits across triBAL SAcrament.",
+     "definitionFit": "Balsa is a very light tropical timber, widely used for model-making, so it is a kind of the material named."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wood"
+    }
+   }
   },
   {
    "number": 8,
@@ -167,7 +562,61 @@
     "text": "Each lecturer scratching head, frantic, seething",
     "enumeration": "10"
    },
-   "solution": "APOPLECTIC"
+   "solution": "APOPLECTIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "APOPLECTIC",
+    "definitions": [
+     {
+      "text": "seething",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "scratching head",
+      "for": "deletion",
+      "note": "to scratch out the head is to remove the opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Each",
+      "gives": "APOP",
+      "note": "a pop means each, as in five pounds a pop"
+     },
+     {
+      "clueFragment": "lecturer",
+      "gives": "L",
+      "note": "L is the abbreviation for lecturer"
+     },
+     {
+      "clueFragment": "frantic",
+      "gives": "HECTIC",
+      "note": "hectic means frenzied, full of frantic activity"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "APOP",
+      "L",
+      "ECTIC"
+     ]
+    },
+    "explanation": {
+     "surface": "Every lecturer is scratching their head, frantic and furious.",
+     "walkthrough": "'scratching head' looks like puzzlement but tells you to drop the first letter of the next word: hECTIC loses its H.",
+     "definitionFit": "Apoplectic describes someone overcome with anger, as if about to burst, which matches a person boiling with rage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "scratching"
+    }
+   }
   },
   {
    "number": 9,
@@ -181,7 +630,54 @@
     "text": "Arranged toccatas, far from legato",
     "enumeration": "8"
    },
-   "solution": "STACCATO"
+   "solution": "STACCATO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STACCATO",
+    "definitions": [
+     {
+      "text": "far from legato",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Arranged",
+      "for": "anagram",
+      "note": "music is arranged when it is reworked for performance, so these letters are reordered"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "toccatas",
+      "gives": "TOCCATAS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TOCCATAS",
+       "gives": "STACCATO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some keyboard toccatas arranged to be played in a choppy style.",
+     "walkthrough": "'Arranged' fits the musical surface perfectly, which hides its role as the anagram signal.",
+     "definitionFit": "Legato means smooth and connected; staccato, its musical opposite, means notes played short and detached."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Arranged"
+    }
+   }
   },
   {
    "number": 10,
@@ -195,7 +691,80 @@
     "text": "Ladies' man returning, embracing initially everyone – ladies' man!",
     "enumeration": "6"
    },
-   "solution": "FELLOW"
+   "solution": "FELLOW",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "FELLOW",
+    "definitions": [
+     {
+      "text": "man",
+      "at": 62
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means going back the way it came, so the word is read backwards"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the opening letters are used"
+     },
+     {
+      "text": "embracing",
+      "for": "container",
+      "note": "to embrace is to hold in one's arms, so one piece goes around another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ladies' man",
+      "gives": "WOLF",
+      "note": "a wolf is a predatory womaniser"
+     },
+     {
+      "clueFragment": "everyone",
+      "gives": "E",
+      "select": "first",
+      "note": "opening letter"
+     },
+     {
+      "clueFragment": "ladies'",
+      "gives": "L",
+      "select": "first",
+      "note": "opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "EL",
+      "LOW"
+     ],
+     "reversals": [
+      {
+       "from": "WOLF",
+       "to": "FLOW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A womaniser comes back and hugs every woman in sight.",
+     "walkthrough": "The repeated 'ladies' man' tempts you to treat both as one thing; the first is the wordplay WOLF, while the second splits, 'ladies'' supplying a letter and 'man' being the definition.",
+     "definitionFit": "Fellow is an informal word for a male person, a chap or guy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ladies'"
+    }
+   }
   },
   {
    "number": 11,
@@ -209,7 +778,65 @@
     "text": "With no means of escape from latex, I cry: 'bin pants'",
     "enumeration": "12"
    },
-   "solution": "INEXTRICABLY"
+   "solution": "INEXTRICABLY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INEXTRICABLY",
+    "definitions": [
+     {
+      "text": "With no means of escape",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pants",
+      "for": "anagram",
+      "note": "pants is British slang for rubbish, so these letters are in a hopeless mess"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "latex",
+      "gives": "LATEX",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "I cry",
+      "gives": "ICRY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bin",
+      "gives": "BIN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LATEXICRYBIN",
+       "gives": "INEXTRICABLY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone trapped in rubber underwear begging to throw the trousers away.",
+     "walkthrough": "'pants' looks like a noun (trousers or underpants) to be binned, but in British slang it means rubbish and signals the anagram.",
+     "definitionFit": "Inextricably means in a way that cannot be untangled or got out of, matching being trapped without exit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "pants"
+    }
+   }
   },
   {
    "number": 12,
@@ -229,7 +856,65 @@
      }
     ]
    },
-   "solution": "GEORGEBUSH"
+   "solution": "GEORGEBUSH",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "GEORGE BUSH",
+    "definitions": [
+     {
+      "text": "President",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another sits inside it"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "of Spain",
+      "gives": "E",
+      "note": "E is the international vehicle code for Spain (España)"
+     },
+     {
+      "clueFragment": "canyon",
+      "gives": "GORGE",
+      "note": "a gorge is a deep narrow valley"
+     },
+     {
+      "clueFragment": "scrubland",
+      "gives": "BUSH",
+      "note": "the bush is wild uncultivated scrub country"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "E",
+      "ORGE",
+      "BUSH"
+     ]
+    },
+    "explanation": {
+     "surface": "A Spanish president found in a ravine full of scrub.",
+     "walkthrough": "'President of Spain' reads as one title, but the definition is just 'President' and 'of Spain' supplies the country code.",
+     "definitionFit": "George Bush, father or son, served as President of the United States, so the answer is an example of the office-holder."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Spain"
+    }
+   }
   },
   {
    "number": 13,
@@ -243,7 +928,44 @@
     "text": "Boyfriend to play fiddle noisily",
     "enumeration": "4"
    },
-   "solution": "BEAU"
+   "solution": "BEAU",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BEAU",
+    "definitions": [
+     {
+      "text": "Boyfriend",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "noisily",
+      "for": "homophone",
+      "note": "noisily means with sound, so we go by how the word is said rather than spelt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to play fiddle",
+      "gives": "BEAU",
+      "soundsLike": "BOW",
+      "note": "to bow is to play a violin with the bow"
+     }
+    ],
+    "explanation": {
+     "surface": "A boyfriend sawing loudly at a violin.",
+     "walkthrough": "Bow, the verb for drawing a bow across strings, rhymes with 'go' and sounds the same as the French-derived word for a suitor.",
+     "definitionFit": "A beau is an old-fashioned term for a male admirer or sweetheart, synonymous with a lover."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fiddle"
+    }
+   }
   },
   {
    "number": 14,
@@ -263,7 +985,44 @@
      }
     ]
    },
-   "solution": "HATTRICK"
+   "solution": "HATTRICK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HAT TRICK",
+    "definitions": [
+     {
+      "text": "Achievement on field",
+      "at": 0
+     },
+     {
+      "text": "that might involve rabbit",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Achievement on field",
+      "note": "first meaning: three goals or wickets by one player in a match"
+     },
+     {
+      "clueFragment": "that might involve rabbit",
+      "note": "second meaning: a conjuror's trick producing a rabbit from headgear"
+     }
+    ],
+    "explanation": {
+     "surface": "A sporting feat that somehow features a rabbit.",
+     "walkthrough": "In cricket a rabbit is a hopeless batsman, an easy victim for a bowler taking three wickets in three balls, so the sporting reading works too.",
+     "definitionFit": "The sporting term for scoring three times comes from cricket, and the magician's classic stunt is literally a trick with a top hat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rabbit"
+    }
+   }
   },
   {
    "number": 15,
@@ -277,7 +1036,70 @@
     "text": "Set up spy, hiding a ruble, leading to palaver",
     "enumeration": "9"
    },
-   "solution": "RIGMAROLE"
+   "solution": "RIGMAROLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "RIGMAROLE",
+    "definitions": [
+     {
+      "text": "palaver",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hiding",
+      "for": "container",
+      "note": "something that hides another covers it up, so one piece is placed around the other"
+     }
+    ],
+    "linkWords": [
+     "leading to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Set up",
+      "gives": "RIG",
+      "note": "to rig is to set up or arrange, often dishonestly"
+     },
+     {
+      "clueFragment": "spy",
+      "gives": "MOLE",
+      "note": "a mole is a spy planted inside an organisation"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ruble",
+      "gives": "R",
+      "note": "R is the abbreviation for the Russian currency"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIG",
+      "M",
+      "AR",
+      "OLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A Cold War tale of planting a spy with hidden roubles, which causes a fuss.",
+     "walkthrough": "'Set up' looks like a reversal signal in a down clue but simply defines RIG.",
+     "definitionFit": "Both words mean a long, tedious, complicated procedure or fuss, a straight synonym pair."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 16,
@@ -291,7 +1113,70 @@
     "text": "No-good silver-tongued weaselly type written up in book",
     "enumeration": "8"
    },
-   "solution": "LIBRETTO"
+   "solution": "LIBRETTO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "charade"
+    ],
+    "answer": "LIBRETTO",
+    "definitions": [
+     {
+      "text": "book",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "No-good",
+      "for": "deletion",
+      "note": "with no good, the usual abbreviation for good is taken away"
+     },
+     {
+      "text": "written up",
+      "for": "reversal",
+      "note": "in a down entry, writing upwards puts the letters in reverse order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "silver-tongued",
+      "gives": "GLIB",
+      "note": "glib means fluent but insincere"
+     },
+     {
+      "clueFragment": "weaselly type",
+      "gives": "OTTER",
+      "note": "the otter belongs to the weasel family"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIB",
+      "RETTO"
+     ],
+     "reversals": [
+      {
+       "from": "OTTER",
+       "to": "RETTO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A smooth-talking, untrustworthy rogue gets described in a novel.",
+     "walkthrough": "'weaselly' suggests a sly person, but it means a literal member of the weasel family. 'book' is the opera sense.",
+     "definitionFit": "The words of an opera or musical are called its book, and libretto is the formal name for that text."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "weaselly"
+    }
+   }
   },
   {
    "number": 17,
@@ -305,7 +1190,59 @@
     "text": "Wanting more, slice of gâteau with extra piping",
     "enumeration": "8"
    },
-   "solution": "GREEDIER"
+   "solution": "GREEDIER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "GREEDIER",
+    "definitions": [
+     {
+      "text": "Wanting more",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "slice of",
+      "for": "letter_selection",
+      "note": "a slice is a small piece taken off the front, so just the first letter is used"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gâteau",
+      "gives": "G",
+      "select": "first",
+      "note": "opening letter"
+     },
+     {
+      "clueFragment": "extra piping",
+      "gives": "REEDIER",
+      "note": "reedy means thin and high-pitched, like a piping voice; extra makes it comparative"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "REEDIER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone craving more cake, especially with extra cream piped on top.",
+     "walkthrough": "'piping' suggests icing decoration on the cake, but it is the adjective for a shrill sound.",
+     "definitionFit": "Being greedier means having a stronger appetite or desire, so craving additional helpings fits the comparative adjective."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "piping"
+    }
+   }
   },
   {
    "number": 18,
@@ -319,7 +1256,47 @@
     "text": "Step gives way in, we're told",
     "enumeration": "4"
    },
-   "solution": "GAIT"
+   "solution": "GAIT",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "GAIT",
+    "definitions": [
+     {
+      "text": "Step",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we're told",
+      "for": "homophone",
+      "note": "being told something means hearing it spoken, so we go by sound"
+     }
+    ],
+    "linkWords": [
+     "gives"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "way in",
+      "gives": "GAIT",
+      "soundsLike": "GATE",
+      "note": "a gate is an entrance"
+     }
+    ],
+    "explanation": {
+     "surface": "A doorstep that collapses under you, so people say.",
+     "walkthrough": "'gives way' looks like a phrase about collapsing; split it, and 'gives' is a link while 'way in' is the entrance.",
+     "definitionFit": "Gait is a person's manner of walking, and a step can mean the same, as in a springy step."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "gives"
+    }
+   }
   },
   {
    "number": 19,
@@ -333,7 +1310,64 @@
     "text": "Everyman going north, hostelries providing stops",
     "enumeration": "6"
    },
-   "solution": "EMBARS"
+   "solution": "EMBARS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "EMBARS",
+    "definitions": [
+     {
+      "text": "stops",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going north",
+      "for": "reversal",
+      "note": "in a down entry, travelling north means reading from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "providing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Everyman",
+      "gives": "ME",
+      "note": "the setter refers to himself, so his pseudonym stands for the first person"
+     },
+     {
+      "clueFragment": "hostelries",
+      "gives": "BARS",
+      "note": "bars are drinking establishments"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EM",
+      "BARS"
+     ],
+     "reversals": [
+      {
+       "from": "ME",
+       "to": "EM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The setter heads north, with pubs offering stopovers along the way.",
+     "walkthrough": "'stops' sounds like the noun for halts on a journey, but it is the verb: embar is an archaic word for hinder or block.",
+     "definitionFit": "To embar is an old verb for to impede or prevent, so embars is a formal equivalent of halts or blocks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stops"
+    }
+   }
   },
   {
    "number": 20,
@@ -353,7 +1387,56 @@
      }
     ]
    },
-   "solution": "WESTERNSAMOA"
+   "solution": "WESTERNSAMOA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WESTERN SAMOA",
+    "definitions": [
+     {
+      "text": "country once",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Films",
+      "gives": "WESTERNS",
+      "note": "westerns are cowboy films"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bird that was",
+      "gives": "MOA",
+      "note": "the moa was a giant flightless New Zealand bird, now extinct"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WESTERNS",
+      "A",
+      "MOA"
+     ]
+    },
+    "explanation": {
+     "surface": "A film about a bird that used to live in some country.",
+     "walkthrough": "'that was' seems to go with 'in country', but it belongs to the bird, marking it as extinct; 'once' does the same job for the definition.",
+     "definitionFit": "The Pacific nation renamed itself simply Samoa in 1997, so its former name is a past state."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "was"
+    }
+   }
   },
   {
    "number": 21,
@@ -367,7 +1450,68 @@
     "text": "Met up with scripture that's sacred",
     "enumeration": "5"
    },
-   "solution": "TOTEM"
+   "solution": "TOTEM",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "TOTEM",
+    "definitions": [
+     {
+      "text": "that's sacred",
+      "at": 22,
+      "note": "noun phrase: something that's sacred"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, going up means the letters are read bottom to top"
+     },
+     {
+      "text": "with",
+      "for": "container",
+      "note": "here with means holding within, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Met",
+      "gives": "MET",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "scripture",
+      "gives": "OT",
+      "note": "OT is the Old Testament, part of the Bible"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "OT",
+      "EM"
+     ],
+     "reversals": [
+      {
+       "from": "MET",
+       "to": "TEM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone joined others to study holy writings.",
+     "walkthrough": "'Met up with' reads as a phrasal verb for meeting someone; split it into a reversal, then a container.",
+     "definitionFit": "A totem is an object or emblem revered as holy by a clan, so it is a thing regarded with reverence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Met"
+    }
+   }
   },
   {
    "number": 22,
@@ -381,7 +1525,56 @@
     "text": "Frenchman is tense finding water sprayed",
     "enumeration": "4"
    },
-   "solution": "MIST"
+   "solution": "MIST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MIST",
+    "definitions": [
+     {
+      "text": "water sprayed",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "finding"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Frenchman",
+      "gives": "M",
+      "note": "M is the abbreviation for Monsieur"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "tense",
+      "gives": "T",
+      "note": "T is the grammatical abbreviation for tense"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "IS",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A nervous Frenchman discovers he has been splashed.",
+     "walkthrough": "'tense' looks like an adjective for the Frenchman's nerves; it is the grammar term.",
+     "definitionFit": "Mist is a fine spray or cloud of tiny droplets, as from an atomiser."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tense"
+    }
+   }
   },
   {
    "number": 23,
@@ -401,7 +1594,48 @@
      }
     ]
    },
-   "solution": "TUTTUT"
+   "solution": "TUTTUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TUT-TUT",
+    "definitions": [
+     {
+      "text": "You could do better",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "kings",
+      "gives": "TUT",
+      "note": "King Tut is the familiar name of the Egyptian pharaoh Tutankhamun"
+     },
+     {
+      "clueFragment": "Pair of",
+      "gives": "TUT",
+      "note": "a pair calls for a second king of the same name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TUT",
+      "TUT"
+     ]
+    },
+    "explanation": {
+     "surface": "A card player holding two kings is told the hand is weak.",
+     "walkthrough": "'Pair of kings' suggests poker; the kings are two of one pharaoh.",
+     "definitionFit": "Tut-tut is the clicking exclamation of mild disapproval, as a teacher might say on reviewing poor work."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "kings"
+    }
+   }
   },
   {
    "number": 24,
@@ -415,7 +1649,51 @@
     "text": "Orchestral performance: singer Rita's Brazil-bound?",
     "enumeration": "8"
    },
-   "solution": "ORATORIO"
+   "solution": "ORATORIO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ORATORIO",
+    "definitions": [
+     {
+      "text": "Orchestral performance",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "singer Rita",
+      "gives": "ORA",
+      "note": "Rita Ora is a British pop singer"
+     },
+     {
+      "clueFragment": "Brazil-bound",
+      "gives": "TORIO",
+      "note": "heading to Rio de Janeiro, Brazil's famous city"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ORA",
+      "TO",
+      "RIO"
+     ]
+    },
+    "explanation": {
+     "surface": "A concert announcement: the pop star is off to Brazil.",
+     "walkthrough": "The 's stands for 'is': the singer is bound for Rio, and the phrase spells itself out.",
+     "definitionFit": "An oratorio is a large-scale concert work for voices and orchestra, typically on a religious theme, a type of musical presentation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rita's"
+    }
+   }
   },
   {
    "number": 25,
@@ -429,7 +1707,47 @@
     "text": "Counterfeit stone that's worn on March 17th?",
     "enumeration": "8"
    },
-   "solution": "SHAMROCK"
+   "solution": "SHAMROCK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SHAMROCK",
+    "definitions": [
+     {
+      "text": "that's worn on March 17th?",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Counterfeit",
+      "gives": "SHAM",
+      "note": "a sham is a fake"
+     },
+     {
+      "clueFragment": "stone",
+      "gives": "ROCK",
+      "note": "rock is stone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHAM",
+      "ROCK"
+     ]
+    },
+    "explanation": {
+     "surface": "A fake gem that someone wears on a particular date.",
+     "walkthrough": "'Counterfeit stone' suggests paste jewellery; the date is St Patrick's Day, when the Irish emblem is pinned on.",
+     "definitionFit": "The three-leaved clover is Ireland's national emblem, traditionally pinned on clothing for the saint's day celebrations."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "stone"
+    }
+   }
   },
   {
    "number": 26,
@@ -443,7 +1761,59 @@
     "text": "Ovine detailed by Eliot in parts of book",
     "enumeration": "6"
    },
-   "solution": "SHEETS"
+   "solution": "SHEETS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "SHEETS",
+    "definitions": [
+     {
+      "text": "parts of book",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "detailed",
+      "for": "deletion",
+      "note": "de-tailed means with the tail cut off, so the last letter goes"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ovine",
+      "gives": "SHEEP",
+      "note": "ovine means of sheep, here standing for the animal"
+     },
+     {
+      "clueFragment": "Eliot",
+      "gives": "TS",
+      "note": "the poet T. S. Eliot's initials"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHEE",
+      "TS"
+     ]
+    },
+    "explanation": {
+     "surface": "A sheep described at length by Eliot in sections of a volume.",
+     "walkthrough": "'detailed' reads as 'described closely' but means losing the tail, the final letter.",
+     "definitionFit": "A book is made of leaves of paper, and each such leaf is one of its constituent pieces."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "detailed"
+    }
+   }
   }
  ]
 }
