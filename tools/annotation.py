@@ -25,9 +25,19 @@ def _letters(s):
     return re.sub(r"[^A-Z]", "", unicodedata.normalize("NFD", str(s or "")).upper())
 
 
-def whole_anagram(ann):
-    """The fodder of the anagram whose gives is the whole answer, or None."""
-    want = _letters(ann.get("answer"))
+def wordplay_letters(ann, entry):
+    """The letters the clue's wordplay builds: the entry's `alteration.from`
+    where the preamble alters answers before entry, else the answer."""
+    alt = (entry or {}).get("alteration")
+    if isinstance(alt, dict) and alt.get("from"):
+        return _letters(alt["from"])
+    return _letters(ann.get("answer") or (entry or {}).get("solution"))
+
+
+def whole_anagram(ann, entry=None):
+    """The fodder of the anagram whose gives is the whole wordplay word
+    (wordplay_letters), or None."""
+    want = wordplay_letters(ann, entry)
     for a in assembly(ann).get("anagrams") or []:
         if want and isinstance(a, dict) and _letters(a.get("gives")) == want:
             return a.get("fodder")

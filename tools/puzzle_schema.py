@@ -294,6 +294,7 @@ def enum_sources():
     import clue_types
     import fetch_puzzle
     import provenance
+    import puzzle_integrity
     import series
     import validate_annotations
     return {
@@ -307,6 +308,7 @@ def enum_sources():
         "gridOrigin": list(provenance.GRID_ORIGINS),
         "solutionOrigin": list(provenance.SOLUTION_ORIGINS),
         "annotator": list(provenance.ANNOTATORS),
+        "alterationOp": list(puzzle_integrity.ALTERATION_OPS),
         "blog": list(provenance.WRITEUP_KINDS),
     }
 

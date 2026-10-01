@@ -58,6 +58,10 @@ The flags, in the order they matter:
             is real evidence the fill is the paper's and not a mangling of it.
   DATE      a series whose dates do not rise with its numbers: a later number
             dated on or before an earlier one.
+  ALTERED   an entry's `alteration` that does not turn the clue's word into
+            what the grid holds: each step's op (ALTERATION_OPS) is applied to
+            the letters before it, and the last step must end on `solution`.
+            Only a puzzle with a preamble can alter its entries.
   SETTER    a byline that is a placeholder ("Unknown"), carries whitespace or a
             copyright notice, or is null in a series whose source prints one
             on every puzzle (series.py `bylined`).
@@ -131,6 +135,7 @@ import json
 import re
 import sys
 import time
+import unicodedata
 from collections import defaultdict
 from datetime import datetime, timezone
 from itertools import pairwise, zip_longest
@@ -156,7 +161,7 @@ ROOT = Path(__file__).resolve().parent.parent
 # The flags, in the order they are reported. One tuple, read by both the
 # per-finding listing and the tally, so a check cannot be added to one and
 # missed from the other.
-FLAGS = ("LENGTH", "ORDER", "CROSS", "CELLS", "GRID", "NUMBER", "DATE", "SETTER", "SHAPE", "PROV", "FILED")
+FLAGS = ("LENGTH", "ORDER", "CROSS", "CELLS", "ALTERED", "GRID", "NUMBER", "DATE", "SETTER", "SHAPE", "PROV", "FILED")
 
 # No cryptic crossword in this corpus predates the Guardian's, which began in 1929.
 # A date below this is a page the publisher mis-filed or a fetcher that lost one,
@@ -1185,6 +1190,73 @@ def check_extra_cells(puzzle, flags):
                           f"solution there is {letters[(x, y)]}"))
 
 
+def _moved(before, after):
+    """`after` is `before` with one run of letters cut out and put back elsewhere."""
+    n = len(before)
+    for i in range(n):
+        for j in range(i + 1, n + 1):
+            rest, run = before[:i] + before[j:], before[i:j]
+            for k in range(len(rest) + 1):
+                if k != i and rest[:k] + run + rest[k:] == after:
+                    return True
+    return False
+
+
+def _subsequence(short, long):
+    it = iter(long)
+    return all(ch in it for ch in short)
+
+
+#: Each op of an entry's alteration: does it turn `before` into `after`? Both A-Z.
+ALTERATION_OPS = {
+    "reversal": lambda before, after: before[::-1] == after != before,
+    "anagram": lambda before, after: sorted(before) == sorted(after) and before != after,
+    "move": _moved,
+    "deletion": lambda before, after: len(after) < len(before) and _subsequence(after, before),
+    "insertion": lambda before, after: len(after) > len(before) and _subsequence(before, after),
+    "substitution": lambda before, after: len(before) == len(after) and before != after,
+}
+
+
+def check_alterations(puzzle, flags):
+    """Each entry's `alteration` turns its `from` into its `solution`, step by step."""
+    pid = puzzle.get("id")
+    for e in puzzle.get("entries") or []:
+        alt = e.get("alteration")
+        if not isinstance(alt, dict):
+            continue
+        where = f"{e.get('number')}-{e.get('direction')}"
+        if not puzzle.get("preamble"):
+            flags.append(("ALTERED", pid, (f"{where}: an alteration, but the puzzle has no "
+                          f"preamble to say how answers are altered")))
+        if not e.get("solution"):
+            flags.append(("ALTERED", pid, f"{where}: an alteration with no solution to end on"))
+            continue
+        word = _alpha(alt.get("from"))
+        steps = alt.get("steps") or []
+        for n, step in enumerate(steps, 1):
+            last = n == len(steps)
+            if last and "gives" in step:
+                flags.append(("ALTERED", pid, (f"{where}: the last step names `gives`; "
+                              f"its result is the solution {e['solution']}")))
+            if not last and not step.get("gives"):
+                flags.append(("ALTERED", pid, (f"{where}: step {n} of {len(steps)} has no "
+                              f"`gives`")))
+                break
+            after = _alpha(e["solution"] if last else step["gives"])
+            op = ALTERATION_OPS.get(step.get("op"))
+            if op is None or not op(word, after):
+                flags.append(("ALTERED", pid, (f"{where}: step {n} {step.get('op')!r} does "
+                              f"not turn {word} into {after}")))
+                break
+            word = after
+
+
+def _alpha(s):
+
+    return re.sub(r"[^A-Z]", "", unicodedata.normalize("NFD", str(s or "")).upper())
+
+
 def check_puzzle(puzzle, today, flags):
     """Every check that one puzzle file answers on its own. audit() runs it on
     the corpus and fetch_puzzle.write_puzzle_file on every write, so a fetcher
@@ -1203,6 +1275,7 @@ def check_puzzle(puzzle, today, flags):
     check_group_order(puzzle, flags)
     check_cross(puzzle, checkable, flags)
     check_extra_cells(puzzle, flags)
+    check_alterations(puzzle, flags)
     check_puzzle_text(puzzle, flags)
 
 

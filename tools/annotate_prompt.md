@@ -78,6 +78,10 @@ anagram, that item's `gives` is the answer. `reversals` holds every reversal ste
 out any key with nothing in it, and `assembly` itself for a hidden word, homophone, or
 double or cryptic definition.
 
+An entry with an `alteration` goes into the grid changed, as its puzzle's preamble says:
+the clue's definition and wordplay give `alteration.from`, and its `steps` turn that word
+into the solution. `answer` is still the solution; `blocks` and `assembly` build `from`.
+
 `definitions` has one object, or two for a double definition. Leave out `at`, the
 text's offset in the clue: `apply_annotations.py` computes it, and asks for it only
 when the text occurs in the clue more than once and it cannot tell which.

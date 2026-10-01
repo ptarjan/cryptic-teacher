@@ -69,7 +69,7 @@ import definitions  # where each definition sits; tools/definitions.py
 import enumeration  # noqa: E402 — a clue's printed counts; tools/enumeration.py
 import groups  # noqa: E402 — linked answers; tools/groups.py
 import puzzle_schema  # noqa: E402 — tools/data/puzzle.schema.json
-from annotation import assembly, explanation, whole_anagram  # tools/annotation.py
+from annotation import assembly, explanation, whole_anagram, wordplay_letters
 from fetch_puzzle import (  # noqa: E402 — one reader, one exemption
     blog_facts_for,
     clue_words,
@@ -2163,7 +2163,7 @@ def check_blocks_account_for_answer(entries, errors, warnings):
         got = "".join(letters(b.get("gives")) for b in ann.get("blocks", []))
         if not got:
             continue
-        want = letters(ann.get("answer") or e.get("solution"))
+        want = wordplay_letters(ann, e)
         if Counter(got) != Counter(want):
             tag = f"{e['number']}{'A' if e['direction'] == 'across' else 'D'}"
             hits.append(tag)
@@ -2213,7 +2213,7 @@ def check_blocks_decompose(entries, errors, warnings):
         if all(len(letters(p)) <= 1 for p in pieces):
             continue
         full = [b for b in ann.get("blocks", [])
-                if letters(b.get("gives")) == letters(ann.get("answer"))]
+                if letters(b.get("gives")) == wordplay_letters(ann, e)]
         lettered = [b for b in ann.get("blocks", []) if letters(b.get("gives"))]
         if full and len(lettered) == 1:
             tag = f"{e['number']}{'A' if e['direction'] == 'across' else 'D'}"
@@ -2266,7 +2266,7 @@ def check_blocks_in_answer_order(entries, errors, warnings):
         if types_of(ann) != ["charade"]:
             continue
         got = "".join(letters(b.get("gives")) for b in ann.get("blocks", []))
-        want = letters(ann.get("answer") or e.get("solution"))
+        want = wordplay_letters(ann, e)
         if not got or got == want:
             continue
         from collections import Counter
@@ -2796,25 +2796,28 @@ def validate_puzzle(puzzle, corpus=False):
         for r in build.get("reversals", []):
             if letters(r["from"])[::-1] != letters(r["to"]):
                 errors.append(f"{tag}: reversal {r['from']} reversed != {r['to']}")
+        # The wordplay builds the clue's own word; an alteration then turns it
+        # into the entry, and the write gate checks that step.
+        built = wordplay_letters(ann, e)
         if build.get("pieces"):
             joined = letters("".join(build["pieces"]))
-            if joined != ans_letters:
-                errors.append(f"{tag}: pieces {build['pieces']} join to {joined}, expected {ans_letters}")
+            if joined != built:
+                errors.append(f"{tag}: pieces {build['pieces']} join to {joined}, expected {built}")
         if "hidden_word" in types_of(ann):
             # A reversed hidden word sits in the clue back to front (30045 26A
             # hides LEND across "commanD NELson"), so when the type also declares
             # the reversal, the mirror image counts as found.
             clue_letters = letters(expand_cross_references(clue, puzzle["entries"]))
             reversed_ok = ("reversal" in types_of(ann)
-                           and ans_letters[::-1] in clue_letters)
+                           and built[::-1] in clue_letters)
             # A hidden homophone hides the sound, not the spelling: APHID from
             # s(AFE ID)iomatically, so the block's soundsLike is what is found.
             sound_ok = ("homophone" in types_of(ann)
                         and any(letters(b.get("soundsLike")) in clue_letters
                                 for b in ann.get("blocks") or [] if b.get("soundsLike")))
-            if ans_letters not in clue_letters and not reversed_ok and not sound_ok:
-                errors.append(f"{tag}: hidden answer {ans_letters} not found inside clue letters")
-        if not (build.get("pieces") or whole_anagram(ann) or {"hidden_word", "double_definition", "cryptic_definition",
+            if built not in clue_letters and not reversed_ok and not sound_ok:
+                errors.append(f"{tag}: hidden answer {built} not found inside clue letters")
+        if not (build.get("pieces") or whole_anagram(ann, e) or {"hidden_word", "double_definition", "cryptic_definition",
                     "homophone"} & set(types_of(ann))):
             warnings.append(f"{tag}: no machine-checkable assembly. Give `assembly.pieces` "
                             f"(the final chunks in answer order) for a charade, container "
