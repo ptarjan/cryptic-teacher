@@ -43,7 +43,7 @@
 
 set -uo pipefail
 # A checkout of its own, so days of unmetered annotation cannot collide with
-# the 06:15 job or with somebody editing the repo. See tools/nightly_worktree.sh.
+# the 04:45 job or with somebody editing the repo. See tools/nightly_worktree.sh.
 . "$(dirname "$0")/nightly_worktree.sh"
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$REPO" || exit 1
@@ -497,7 +497,7 @@ drop_failed() {
 
 # Commit whatever a task produced, but only if the tree still validates. A run
 # that ran out of room mid-file leaves a half-written annotation behind, and
-# committing that would publish a broken puzzle page at 06:15.
+# committing that would publish a broken puzzle page at 04:45.
 commit_puzzle() {
   local num="$1" what="$2" attempt="${3:-first}"   # num is a puzzle ID, e.g. cryptic-30089
   if [ "$DRY_RUN" = 1 ]; then echo "  would commit $what $num"; return 0; fi

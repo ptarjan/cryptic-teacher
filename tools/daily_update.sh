@@ -36,7 +36,8 @@
 #      .github/workflows/pages.yml rebuilds and deploys them on every push.
 #
 # Install: a line in the bridge container's tools/crontab (household repo),
-# 06:15 local. That is the only schedule this job has, and a second one is not
+# 04:45 local, so a run of about two hours is done by 07:00, when Paul is up.
+# That is the only schedule this job has, and a second one is not
 # a fallback — two copies annotate the same backlog out of the same weekly
 # quota. Cron works here because the credential is a file under
 # CLAUDE_CONFIG_DIR. On a Mac it does not: there the `claude` CLI reads the
@@ -618,7 +619,7 @@ fi
 
 # The five-hour window is the one this loop actually spends, so it is re-read
 # before every puzzle. Checking it once up front is worthless — it reads near
-# zero at 06:15 by construction — and that is why runs kept annotating two
+# zero at 04:45 by construction — and that is why runs kept annotating two
 # puzzles and then dying on the third with "you've hit your limit", which is a
 # quota being discovered by crashing into it rather than being budgeted.
 ANNOTATE_MAX_SESSION_PCT="${ANNOTATE_MAX_SESSION_PCT:-90}"

@@ -5,7 +5,7 @@
 # going wrong, which is the worst place to find out it was wired up wrong. So
 # this drives it with a fake `claude`: the blocks under test are READ OUT OF
 # daily_update.sh by their own first and last lines rather than copied here, so
-# a copy cannot drift away from the thing that runs at 06:15.
+# a copy cannot drift away from the thing that runs at 04:45.
 #
 #     bash tools/test_annotate_retry.sh
 #

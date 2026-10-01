@@ -1,11 +1,10 @@
 about    = "Rank what the annotate runs spend turns on (failing checks, refused calls, cost trend); wake only on a new or worse top-3 item"
 room     = "cryptic-crosswords"
-# Daily, 48h window against the 48h before. 05:20 is after the 04:30 deploy
-# restart and the 05:00 handoff report, and before the 06:15 nightly corpus
-# run. Compute only (~30s of JSON parsing, no model call). Quiet unless a top
+# Daily, 48h window against the 48h before. 07:15 is after the 04:45 nightly
+# corpus run, which takes about two hours, so the audit sees a finished night. Compute only (~30s of JSON parsing, no model call). Quiet unless a top
 # item is new or clearly worse: tools/annotate_audit.py keeps what it last told
 # the room in .annotate_audit/state.json.
-schedule = "20 5 * * *"
+schedule = "15 7 * * *"
 where    = "container"
 run      = "/Users/pt/github/cryptic-teacher/tools/annotate_audit.py"
 args     = ["--wake"]
