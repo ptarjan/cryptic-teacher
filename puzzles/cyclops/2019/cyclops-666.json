@@ -24,6 +24,9 @@
   "date": "2019-12-23",
   "check": "29 entries verified against the grid (lengths, crossings, linked-clue mapping)"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,62 @@
     "text": "Extreme Tory starts interrupting complainant, a dealer",
     "enumeration": "8"
    },
-   "solution": "RETAILER"
+   "solution": "RETAILER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "RETAILER",
+    "definitions": [
+     {
+      "text": "a dealer",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts",
+      "for": "letter_selection",
+      "note": "the starts of words are their opening letters, so only the first of each is kept"
+     },
+     {
+      "text": "interrupting",
+      "for": "container",
+      "note": "to interrupt is to break into the middle of something, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "complainant",
+      "gives": "RAILER",
+      "note": "one who rails, that is, complains bitterly"
+     },
+     {
+      "clueFragment": "Extreme Tory",
+      "gives": "ET",
+      "select": "first",
+      "note": "the opening letters of the two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ET",
+      "AILER"
+     ]
+    },
+    "explanation": {
+     "surface": "A hardline Conservative begins heckling someone who is complaining about a businessman.",
+     "walkthrough": "A railer is an old word for one who rails, that is, complains bitterly; the starting letters split it after its first letter.",
+     "definitionFit": "A retailer sells goods to the public, which makes them a trader or shopkeeper, one kind of dealer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Extreme"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +119,42 @@
      }
     ]
    },
-   "solution": "KEEPITUP"
+   "solution": "KEEPITUP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "KEEP IT UP",
+    "definitions": [
+     {
+      "text": "To maintain an erection",
+      "at": 0
+     },
+     {
+      "text": "be persistent",
+      "at": 25
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "To maintain an erection",
+      "note": "first meaning, read literally and rudely: to stay aroused"
+     },
+     {
+      "clueFragment": "be persistent",
+      "note": "second meaning: to carry on with an effort without flagging"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The first half is the bawdy literal reading of the phrase; the second is the everyday encouragement to continue.",
+     "definitionFit": "The phrase is ordinary encouragement to continue doing something well, and literally describes sustaining something raised."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +168,83 @@
     "text": "Eye-related article, in colour, about ditching Boris's no. 2",
     "enumeration": "6"
    },
-   "solution": "OCULAR"
+   "solution": "OCULAR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "container",
+     "anagram"
+    ],
+    "answer": "OCULAR",
+    "definitions": [
+     {
+      "text": "Eye-related",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "no. 2",
+      "for": "letter_selection",
+      "note": "number two in a word is its second letter, so just that one is picked"
+     },
+     {
+      "text": "ditching",
+      "for": "deletion",
+      "note": "to ditch something is to throw it away, so a letter is removed"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing placed in another sits inside it"
+     },
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "'about' can mean around and in disorder, so the letters are moved round into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "colour",
+      "gives": "COLOUR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Boris's",
+      "gives": "O",
+      "select": 2,
+      "note": "the second letter of the name, which is removed from the colour word"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "the indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OCULAR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "COLAUR",
+       "gives": "OCULAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A piece about the eyes, printed in colour, that avoids mentioning Boris's deputy.",
+     "walkthrough": "'Boris's no. 2' sounds like his deputy, but it is just his second letter, O, taken out of COLOUR before the article goes in and everything is rearranged.",
+     "definitionFit": "Ocular is the formal adjective for anything concerning the eyes or vision, from Latin oculus."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "no."
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +258,73 @@
     "text": "Dish up, um ... foul lies",
     "enumeration": "6"
    },
-   "solution": "MUESLI"
+   "solution": "MUESLI",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "charade"
+    ],
+    "answer": "MUESLI",
+    "definitions": [
+     {
+      "text": "Dish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, going up means reading from bottom to top, so the letters run backwards"
+     },
+     {
+      "text": "foul",
+      "for": "anagram",
+      "note": "something foul is spoiled or messed up, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "um",
+      "gives": "UM",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "lies",
+      "gives": "LIES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MU",
+      "ESLI"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LIES",
+       "gives": "ESLI"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "UM",
+       "to": "MU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hesitant politician serves up nasty falsehoods.",
+     "walkthrough": "'Dish up' reads as serve, but 'up' belongs to the wordplay: it flips UM in this down clue, leaving 'Dish' alone as the definition.",
+     "definitionFit": "Muesli is a breakfast mix of oats, nuts and fruit served in a bowl, an example of a dish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +338,70 @@
     "text": "How to turn Brown with mug's story",
     "enumeration": "9"
    },
-   "solution": "WHODUNNIT"
+   "solution": "WHODUNNIT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "WHODUNNIT",
+    "definitions": [
+     {
+      "text": "story",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to turn",
+      "for": "anagram",
+      "note": "turning something changes its order, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "How",
+      "gives": "WHO",
+      "note": "the word's letters rearranged"
+     },
+     {
+      "clueFragment": "Brown",
+      "gives": "DUN",
+      "note": "dun is a dull greyish-brown colour"
+     },
+     {
+      "clueFragment": "mug",
+      "gives": "NIT",
+      "note": "a mug and a nit are both fools"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WHO",
+      "DUN",
+      "NIT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HOW",
+       "gives": "WHO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tale of how Gordon Brown turned things around with the help of a fool.",
+     "walkthrough": "'Brown' looks like Gordon Brown, the former Labour prime minister, but it is just the colour; 'mug' is British slang for a gullible person.",
+     "definitionFit": "A whodunnit is a detective novel or play built around identifying a murderer, a particular kind of story."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Brown"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +415,59 @@
     "text": "Trump's final official abode and term of office",
     "enumeration": "10"
    },
-   "solution": "PRESIDENCY"
+   "solution": "PRESIDENCY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PRESIDENCY",
+    "definitions": [
+     {
+      "text": "term of office",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "final",
+      "for": "letter_selection",
+      "note": "the final part of a word is its closing letter, so only that one is kept"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trump's",
+      "gives": "P",
+      "select": "last",
+      "note": "the closing letter of the name"
+     },
+     {
+      "clueFragment": "official abode",
+      "gives": "RESIDENCY",
+      "note": "a residency is the official home of a governor or diplomat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "RESIDENCY"
+     ]
+    },
+    "explanation": {
+     "surface": "Donald Trump's last official home and the length of his time in power.",
+     "walkthrough": "'Trump's final' reads like the end of his time in office, but it is only his last letter, P.",
+     "definitionFit": "A presidency is the period during which a president holds office, so it names a term of office."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "final"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +481,61 @@
     "text": "Press turn up, say nothing",
     "enumeration": "4"
    },
-   "solution": "PUSH"
+   "solution": "PUSH",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "PUSH",
+    "definitions": [
+     {
+      "text": "Press",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turn",
+      "for": "reversal",
+      "note": "to turn something round makes it face the other way, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "up",
+      "gives": "UP",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "say nothing",
+      "gives": "SH",
+      "note": "SH is the sound made to ask for silence"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PU",
+      "SH"
+     ],
+     "reversals": [
+      {
+       "from": "UP",
+       "to": "PU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Journalists show up and keep their mouths shut.",
+     "walkthrough": "'Press' looks like the news media, but it is the verb; 'turn up' reads as arrive, though here 'turn' flips the word that follows.",
+     "definitionFit": "To push something is to apply force against it, just as you press a button or a doorbell."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Press"
+    }
+   }
   },
   {
    "number": 7,
@@ -163,7 +567,47 @@
    "group": [
     "8-across",
     "14-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BUSH TELEGRAPH",
+    "definitions": [
+     {
+      "text": "rumour-spreader",
+      "at": 30
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "US president",
+      "gives": "BUSH",
+      "note": "either George Bush, father or son"
+     },
+     {
+      "clueFragment": "daily",
+      "gives": "TELEGRAPH",
+      "note": "the Daily Telegraph is a British broadsheet newspaper"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUSH",
+      "TELEGRAPH"
+     ]
+    },
+    "explanation": {
+     "surface": "An American president, like a tabloid paper, puts gossip about.",
+     "walkthrough": "'daily' is a newspaper here, specifically the Telegraph, a conservative British daily.",
+     "definitionFit": "The bush telegraph is the informal grapevine by which gossip and news pass quickly from person to person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "daily"
+    }
+   }
   },
   {
    "number": 9,
@@ -183,7 +627,47 @@
      }
     ]
    },
-   "solution": "PRESSRELEASE"
+   "solution": "PRESSRELEASE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PRESS RELEASE",
+    "definitions": [
+     {
+      "text": "communiqué",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Crowd",
+      "gives": "PRESS",
+      "note": "a press is a dense throng of people"
+     },
+     {
+      "clueFragment": "let loose",
+      "gives": "RELEASE",
+      "note": "to release is to set free"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRESS",
+      "RELEASE"
+     ]
+    },
+    "explanation": {
+     "surface": "An official statement announcing that a mob has been freed.",
+     "walkthrough": "The quotation marks make the first words look like the wording of the statement, but they supply both halves of the answer.",
+     "definitionFit": "A press release is an official statement issued to journalists, which is exactly what a communiqué is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Crowd"
+    }
+   }
   },
   {
    "number": 10,
@@ -197,7 +681,72 @@
     "text": "Corbyn's end in last catastrophic dip",
     "enumeration": "5"
    },
-   "solution": "SLANT"
+   "solution": "SLANT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "anagram"
+    ],
+    "answer": "SLANT",
+    "definitions": [
+     {
+      "text": "dip",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, so only that is kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "something put in another thing sits inside it"
+     },
+     {
+      "text": "catastrophic",
+      "for": "anagram",
+      "note": "a catastrophe throws everything into chaos, so the letters are scrambled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Corbyn's",
+      "gives": "N",
+      "select": "last",
+      "note": "the final letter of the name"
+     },
+     {
+      "clueFragment": "last",
+      "gives": "LAST",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SLANT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LANST",
+       "gives": "SLANT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Jeremy Corbyn's leadership ends in a final disastrous slump in the polls.",
+     "walkthrough": "'last' looks like part of the story of Corbyn's fall, but it is the word to be rearranged once his final letter is inside.",
+     "definitionFit": "A slant is a slope or incline, and a dip is a downward slope, so both describe ground that is not level."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "last"
+    }
+   }
   },
   {
    "number": 11,
@@ -211,7 +760,59 @@
     "text": "Spoiler ad about what British politics has become?",
     "enumeration": "9"
    },
-   "solution": "POLARISED"
+   "solution": "POLARISED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "POLARISED",
+    "definitions": [
+     {
+      "text": "what British politics has become?",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "'about' suggests moving around, so the letters are turned into a fresh order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spoiler",
+      "gives": "SPOILER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ad",
+      "gives": "AD",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POLARISED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SPOILERAD",
+       "gives": "POLARISED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A campaign advertisement that wrecks things, commenting on the state of British politics.",
+     "walkthrough": "The definition is a description rather than a synonym, hence the question mark; it fits the split over Brexit.",
+     "definitionFit": "Polarised politics has divided into two opposed camps with little middle ground, the condition many observers saw in Britain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Spoiler"
+    }
+   }
   },
   {
    "number": 12,
@@ -225,7 +826,44 @@
     "text": "Declare Trump to some extent a red!",
     "enumeration": "6"
    },
-   "solution": "CLARET"
+   "solution": "CLARET",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "CLARET",
+    "definitions": [
+     {
+      "text": "a red",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to some extent",
+      "for": "hidden_word",
+      "note": "only partly present, so the letters are sitting inside the words given"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Declare Trump",
+      "gives": "CLARET",
+      "note": "runs across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Accuse President Trump of being something of a communist.",
+     "walkthrough": "'a red' looks like a communist, but the answer is a wine; the letters straddle the two words.",
+     "definitionFit": "Claret is the British name for red Bordeaux wine, so it is one example of a red."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "red"
+    }
+   }
   },
   {
    "number": 13,
@@ -243,7 +881,61 @@
    "group": [
     "13-across",
     "7-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RUSSIAN INTERFERENCE",
+    "definitions": [
+     {
+      "text": "which gave Trump an advantage?",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "messed around",
+      "for": "anagram",
+      "note": "something messed around has been disordered, so the letters are put into a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sinner",
+      "gives": "SINNER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "user interface",
+      "gives": "USERINTERFACE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RUSSIANINTERFERENCE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SINNERUSERINTERFACE",
+       "gives": "RUSSIANINTERFERENCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wrongdoer tampered with a computer system, giving Donald Trump an edge.",
+     "walkthrough": "The surface is itself an account of election hacking, and the whole of 'Sinner' plus 'user interface' rearranges into the answer.",
+     "definitionFit": "Russian meddling in the 2016 US election, through hacking and online campaigns, was widely said to have helped Trump win."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 14,
@@ -271,7 +963,55 @@
     "text": "Powerless Lords member? That is sinister",
     "enumeration": "5"
    },
-   "solution": "EERIE"
+   "solution": "EERIE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "EERIE",
+    "definitions": [
+     {
+      "text": "sinister",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Powerless",
+      "for": "deletion",
+      "note": "P stands for power, so being without power means losing that letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lords member",
+      "gives": "EER",
+      "note": "a peer sits in the House of Lords; without its P"
+     },
+     {
+      "clueFragment": "That is",
+      "gives": "IE",
+      "note": "i.e., Latin id est, means that is"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EER",
+      "IE"
+     ]
+    },
+    "explanation": {
+     "surface": "A member of the House of Lords without real power is a menacing thing.",
+     "walkthrough": "The House of Lords is Britain's unelected upper chamber, whose members are peers; 'Powerless' also jokes about its limited authority.",
+     "definitionFit": "Eerie means strange and frightening, and something sinister likewise gives a sense of threat or menace."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Powerless"
+    }
+   }
   },
   {
    "number": 16,
@@ -289,7 +1029,66 @@
    "group": [
     "16-across",
     "27-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PEP PILL",
+    "definitions": [
+     {
+      "text": "stimulant",
+      "at": 64
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaders",
+      "for": "letter_selection",
+      "note": "the leaders of words are their front letters, so only those are kept"
+     }
+    ],
+    "linkWords": [
+     "by",
+     "followed by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Exercise",
+      "gives": "PE",
+      "note": "PE is physical education"
+     },
+     {
+      "clueFragment": "party political",
+      "gives": "PP",
+      "select": "first",
+      "note": "the opening letters of the two words"
+     },
+     {
+      "clueFragment": "rough",
+      "gives": "ILL",
+      "note": "feeling rough means feeling unwell"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PE",
+      "PP",
+      "ILL"
+     ]
+    },
+    "explanation": {
+     "surface": "Party leaders' campaigning leaves them feeling poorly and in need of a boost.",
+     "walkthrough": "'rough' is British slang for unwell, which gives ILL.",
+     "definitionFit": "A pep pill is an amphetamine tablet taken to give energy, a drug of the stimulant kind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Exercise"
+    }
+   }
   },
   {
    "number": 17,
@@ -303,7 +1102,61 @@
     "text": "Spoilt politician, before entering House",
     "enumeration": "8"
    },
-   "solution": "PAMPERED"
+   "solution": "PAMPERED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PAMPERED",
+    "definitions": [
+     {
+      "text": "Spoilt",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entering",
+      "for": "container",
+      "note": "to enter is to go inside, so these letters go into another word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "politician",
+      "gives": "MP",
+      "note": "Member of Parliament"
+     },
+     {
+      "clueFragment": "before",
+      "gives": "ERE",
+      "note": "an old word for before"
+     },
+     {
+      "clueFragment": "House",
+      "gives": "PAD",
+      "note": "a pad is slang for a home"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "MPERE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A politician who was indulged even before getting into the House of Commons.",
+     "walkthrough": "'House' suggests Parliament, but it is a home in slang, a pad; 'entering' tells the politician and 'before' to go inside it.",
+     "definitionFit": "A pampered person has been overindulged and given every comfort, which is what a spoilt person is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "House"
+    }
+   }
   },
   {
    "number": 18,
@@ -317,7 +1170,51 @@
     "text": "Jewish leader's talk – take time off",
     "enumeration": "5"
    },
-   "solution": "RABBI"
+   "solution": "RABBI",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RABBI",
+    "definitions": [
+     {
+      "text": "Jewish leader",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "take time off",
+      "for": "deletion",
+      "note": "T stands for time, so taking time off removes that letter"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "talk",
+      "gives": "RABBI",
+      "note": "to rabbit is to chatter, from rhyming slang rabbit and pork; its T dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RABBI"
+     ]
+    },
+    "explanation": {
+     "surface": "A religious leader gives a talk about taking a break from work.",
+     "walkthrough": "To rabbit (on) is British slang for chattering endlessly, from the rhyming slang 'rabbit and pork' for talk.",
+     "definitionFit": "A rabbi is the ordained teacher and spiritual head of a Jewish congregation, so a Jewish religious leader."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "talk"
+    }
+   }
   },
   {
    "number": 19,
@@ -331,7 +1228,67 @@
     "text": "Sick, bad Farage finally lost seat",
     "enumeration": "8"
    },
-   "solution": "BACKSIDE"
+   "solution": "BACKSIDE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "BACKSIDE",
+    "definitions": [
+     {
+      "text": "seat",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "what comes finally is at the very end, so the closing letter is kept"
+     },
+     {
+      "text": "lost",
+      "for": "anagram",
+      "note": "something lost has gone astray, so the letters wander into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sick, bad",
+      "gives": "SICKBAD",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Farage",
+      "gives": "E",
+      "select": "last",
+      "note": "the closing letter of the name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BACKSIDE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SICKBADE",
+       "gives": "BACKSIDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Nigel Farage, ill and unpopular, finally loses his parliamentary seat.",
+     "walkthrough": "'lost seat' reads as an election defeat, but 'lost' scrambles the letters and 'seat' is the definition.",
+     "definitionFit": "Your seat is your bottom, what you sit on, and backside is an informal word for the buttocks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "seat"
+    }
+   }
   },
   {
    "number": 20,
@@ -345,7 +1302,63 @@
     "text": "Arse whipped with net – very serious",
     "enumeration": "7"
    },
-   "solution": "EARNEST"
+   "solution": "EARNEST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EARNEST",
+    "definitions": [
+     {
+      "text": "very serious",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "whipped",
+      "for": "anagram",
+      "note": "whipping stirs things up vigorously, so the letters are beaten into a new order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Arse",
+      "gives": "ARSE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "net",
+      "gives": "NET",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EARNEST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ARSENET",
+       "gives": "EARNEST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bottom thrashed with a net is no laughing matter.",
+     "walkthrough": "'whipped' paints a schoolboy caning, but here it stirs up the letters, as when whipping cream.",
+     "definitionFit": "Earnest means sincere and intensely serious in purpose, with no playfulness or levity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "whipped"
+    }
+   }
   },
   {
    "number": 21,
@@ -359,7 +1372,61 @@
     "text": "Arse let mobile be a source of empty talk",
     "enumeration": "6"
    },
-   "solution": "RATTLE"
+   "solution": "RATTLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "RATTLE",
+    "definitions": [
+     {
+      "text": "be a source of empty talk",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mobile",
+      "for": "anagram",
+      "note": "something mobile moves about freely, so the letters shift into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Arse",
+      "gives": "RAT",
+      "note": "both are insults for a contemptible person"
+     },
+     {
+      "clueFragment": "let",
+      "gives": "LET",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAT",
+      "TLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LET",
+       "gives": "TLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fool allows his phone to spout nonsense.",
+     "walkthrough": "'Arse' is British slang for an idiot, and so, loosely, a rat or rotter. 'mobile' looks like a phone, but it moves the next word's letters.",
+     "definitionFit": "To rattle, or rattle on, is to chatter rapidly and at length about nothing much, so to produce idle talk."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mobile"
+    }
+   }
   },
   {
    "number": 22,
@@ -373,7 +1440,62 @@
     "text": "Incapable Brown kick-started Miliband?",
     "enumeration": "6"
    },
-   "solution": "TANKED"
+   "solution": "TANKED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TANKED",
+    "definitions": [
+     {
+      "text": "Incapable",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "started",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter, so only that is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brown",
+      "gives": "TAN",
+      "note": "tan is a light brown colour"
+     },
+     {
+      "clueFragment": "kick",
+      "gives": "K",
+      "select": "first",
+      "note": "the opening letter of the word"
+     },
+     {
+      "clueFragment": "Miliband",
+      "gives": "ED",
+      "note": "Ed Miliband, former Labour Party leader"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAN",
+      "K",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Did the hopeless Gordon Brown give Ed Miliband his start in politics?",
+     "walkthrough": "'kick-started' looks like one verb, but the hyphen splits it: the start of 'kick' sits before Miliband's first name. Brown and Miliband were successive Labour leaders.",
+     "definitionFit": "Tanked is slang for very drunk, and incapable is used for someone too drunk to function, as in drunk and incapable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Brown"
+    }
+   }
   },
   {
    "number": 23,
@@ -387,7 +1509,66 @@
     "text": "Commons staff guzzling large one for spite",
     "enumeration": "6"
    },
-   "solution": "MALICE"
+   "solution": "MALICE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "MALICE",
+    "definitions": [
+     {
+      "text": "spite",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "guzzling",
+      "for": "container",
+      "note": "guzzling is swallowing greedily, so one piece takes others inside it"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Commons staff",
+      "gives": "MACE",
+      "note": "the ceremonial mace symbolises royal authority in the House of Commons"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the size label for large"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "L",
+      "I",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "Parliamentary employees knocking back a big drink out of spite.",
+     "walkthrough": "'Commons staff' suggests employees of Parliament, but it is a staff in the sense of a rod: the Commons mace.",
+     "definitionFit": "Malice is the wish to harm or upset others, which is the same ill will as spite."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "staff"
+    }
+   }
   },
   {
    "number": 24,
@@ -401,7 +1582,61 @@
     "text": "Second one to intercept Boris's junk email",
     "enumeration": "4"
    },
-   "solution": "SPAM"
+   "solution": "SPAM",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SPAM",
+    "definitions": [
+     {
+      "text": "junk email",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to intercept",
+      "for": "container",
+      "note": "intercepting means stepping in between, so one letter cuts into the middle of another piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Second",
+      "gives": "S",
+      "note": "the abbreviation for second"
+     },
+     {
+      "clueFragment": "Boris's",
+      "gives": "PM",
+      "note": "Boris Johnson was then Prime Minister"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "a means one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PA",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "A second person steps in to block the messages Boris Johnson is sending.",
+     "walkthrough": "'Boris's' stands for his title at the time of the puzzle, Prime Minister, abbreviated PM.",
+     "definitionFit": "Spam is unwanted bulk email, typically advertising, which is what is meant by junk email."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "intercept"
+    }
+   }
   },
   {
    "number": 25,
@@ -415,7 +1650,70 @@
     "text": "Not a Boris-like quality, taking refreshment in centre ground",
     "enumeration": "9"
    },
-   "solution": "RETICENCE"
+   "solution": "RETICENCE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "RETICENCE",
+    "definitions": [
+     {
+      "text": "Not a Boris-like quality",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ground",
+      "for": "anagram",
+      "note": "something ground has been crushed and broken up, so the letters are reassembled differently"
+     },
+     {
+      "text": "taking",
+      "for": "container",
+      "note": "to take something in is to hold it inside, so one piece goes within another"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "centre",
+      "gives": "CENTRE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "refreshment",
+      "gives": "ICE",
+      "note": "an ice is an ice cream or ice lolly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RET",
+      "ICE",
+      "NCE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CENTRE",
+       "gives": "RETNCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A trait Boris Johnson lacks, shown when he takes a drink on the political centre ground.",
+     "walkthrough": "'centre ground' looks like the political middle, but 'ground' scrambles the letters of 'centre'. The definition is a description: Johnson was famously garrulous.",
+     "definitionFit": "Reticence is a reluctance to speak openly or reveal much, the opposite of Johnson's loud and talkative style."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "ground"
+    }
+   }
   },
   {
    "number": 26,
@@ -429,7 +1727,65 @@
     "text": "Knocking back the drink, work as a writer of tales",
     "enumeration": "5"
    },
-   "solution": "AESOP"
+   "solution": "AESOP",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "AESOP",
+    "definitions": [
+     {
+      "text": "a writer of tales",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Knocking back",
+      "for": "reversal",
+      "note": "knocking something back sends it in the opposite direction, so the letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the drink",
+      "gives": "SEA",
+      "note": "'the drink' is slang for the sea"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "OP",
+      "note": "op is short for opus, a work"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AES",
+      "OP"
+     ],
+     "reversals": [
+      {
+       "from": "SEA",
+       "to": "AES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A writer who downs drinks while working on stories.",
+     "walkthrough": "'Knocking back the drink' paints drinking alcohol, but 'the drink' is the sea, and it is turned round.",
+     "definitionFit": "Aesop was the ancient Greek storyteller credited with the famous fables, short moral tales featuring animals."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "drink"
+    }
+   }
   },
   {
    "number": 27,
@@ -457,7 +1813,70 @@
     "text": "Ned free to wallow in booze – the first step to Brexit?",
     "enumeration": "10"
    },
-   "solution": "REFERENDUM"
+   "solution": "REFERENDUM",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "REFERENDUM",
+    "definitions": [
+     {
+      "text": "the first step to Brexit?",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wallow",
+      "for": "anagram",
+      "note": "to wallow is to roll about, so the letters tumble into a new order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing placed in another sits inside it"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ned free",
+      "gives": "NEDFREE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "booze",
+      "gives": "RUM",
+      "note": "rum is an alcoholic drink"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "EFEREND",
+      "UM"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NEDFREE",
+       "gives": "EFEREND"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man let loose to drown himself in drink: is that how Brexit began?",
+     "walkthrough": "'free' looks like the signal to rearrange, but it is part of the letters; 'wallow' does the rearranging. The 2016 referendum began the Brexit process.",
+     "definitionFit": "Britain's 2016 national vote on leaving the European Union was the event that set the whole Brexit process in motion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "booze"
+    }
+   }
   }
  ]
 }
