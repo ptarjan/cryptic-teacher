@@ -1084,5 +1084,7 @@ tools/cross_validate.py                      check our puzzles against another c
                                              puzzle, class by class
 tools/test_cross_validate.sh                 does tools/cross_validate.py name each way two
                                              copies of a puzzle differ?
+tools/test_clue_counts.sh                    does a clue that carries its own letter count, or
+                                             a stray letter, get refused?
 ```
 <!-- LAYOUT-END -->
