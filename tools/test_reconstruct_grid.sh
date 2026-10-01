@@ -165,6 +165,10 @@ total = sym = min2_row = min2_col = gap_row = gap_col = 0
 thin = short = 0
 for path in puzzle_files():
     puzzle = read_puzzle_file(path)
+    # An unclued light's cells are in no entry, so the entries do not describe
+    # its grid; these conventions are about grids the entries draw whole.
+    if puzzle.get("unclued"):
+        continue
     grid = R.grid_of(puzzle)
     rows, cols = len(grid), len(grid[0])
     total += 1
