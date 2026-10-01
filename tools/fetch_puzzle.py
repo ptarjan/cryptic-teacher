@@ -1757,6 +1757,14 @@ def fits_sequence(series, number, when):
             and below - MISFILED <= when <= above + MISFILED)
 
 
+def byline(data):
+    """The setter the page names, or None. The 1970-71 archive pages credit
+    profiles named "a", "s" and "q": a single letter is a placeholder for an
+    anonymous setter, not a pseudonym."""
+    name = ((data.get("creator") or {}).get("name") or "").strip()
+    return name if len(name) > 1 else None
+
+
 def convert(data):
     """Guardian data -> our puzzle object (no annotation on any entry yet)."""
     # Named before the entries are built: correct_source_answers is keyed by the
@@ -1873,8 +1881,7 @@ def convert(data):
         "number": data["number"],
         "series": series,
         "name": data["name"],
-        "setter": (((data.get("creator") or {}).get("name") or "").strip()
-                   or series_meta.default_setter(series)),
+        "setter": byline(data) or series_meta.default_setter(series),
         **({"date": when.isoformat()} if when else {}),
         "dimensions": data["dimensions"],
         # The paper's own note above the clues: a themed puzzle's special

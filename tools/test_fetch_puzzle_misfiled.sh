@@ -51,6 +51,14 @@ check("a page far from any neighbour is refused",
       refused(page(1183, -1134086400000, 1657756800000)))
 check("a page between neighbours but dated a year away is refused",
       refused(page(26752, 1449792000000 - 365 * DAY, 1453680000000)))
+# The archive's islands far below the run (cryptic 591, 1932) carry a date
+# their own webPublicationDate agrees with, so no neighbour is needed.
+island = page(591, -1187485200000, -1187485200000)
+check("an archive page whose two dates agree is filed with no neighbours",
+      not refused(island))
+island["creator"] = {"name": "a"}
+check("a one-letter creator is an anonymous placeholder, not a setter",
+      fp.convert(island)["setter"] is None)
 print("FAILED: %d" % fails if fails else "all ok")
 sys.exit(1 if fails else 0)
 PY
