@@ -1050,5 +1050,9 @@ tools/test_abbreviations_rank.sh             /abbreviations/ ranks every list by
 tools/test_clue_number_residue.sh            does puzzle_integrity refuse a blog clue that
                                              opens with what is left of the blog's clue number,
                                              and pass the clues that only look like one?
+tools/cross_validate.py                      check our puzzles against another copy of the same
+                                             puzzle, class by class
+tools/test_cross_validate.sh                 does tools/cross_validate.py name each way two
+                                             copies of a puzzle differ?
 ```
 <!-- LAYOUT-END -->

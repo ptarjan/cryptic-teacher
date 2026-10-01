@@ -59,13 +59,13 @@ from fetch_puzzle import (
     write_puzzle_file,
 )
 from file_penguin_puzzle import separators
+from groups import entry_id
 from normalise_linked_enumerations import (
     answer_parts,
     enumeration_parts,
     format_parts,
     resolve_groups,
 )
-from groups import entry_id
 
 
 @dataclass(frozen=True)
@@ -83,6 +83,9 @@ class Source:
     print_dates: Callable
     setter: Callable
     run: Callable = lambda row: None
+    #: (series, number) -> whether the paper's own feed is the primary source,
+    #: so the blog files nothing there and leaves a held file to the feed.
+    published: Callable = lambda series, number: False
 
 
 DAY = datetime.timedelta(days=1)
@@ -546,6 +549,9 @@ def run(source, grids, parsed, write=True, newest=None):
         by = reprinted_by(reprints, series, number)
         if by:
             skipped[f"{by} reprints it"] += 1
+            continue
+        if source.published(series, number):
+            skipped["the paper's own feed files it"] += 1
             continue
         row, dated = claim[0]
         rec = recs[row["post_id"]]

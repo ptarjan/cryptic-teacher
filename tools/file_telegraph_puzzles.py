@@ -10,7 +10,9 @@ tools/parse_bigdave44.py writes beside it, and files them through
 tools/file_blog_puzzles.py, which says what a row must pass. The parser has
 already settled what is the Telegraph's: each record names its series key,
 its setter (or null: the back-page cryptic prints none) and its print date
-(or null where no post proves one), so this only hands them on.
+(or null where no post proves one), so this only hands them on. Numbers the
+Telegraph's own puzzle bucket serves (fetch_telegraph.served) are filed from
+there, not here.
 """
 import argparse
 import collections
@@ -19,6 +21,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import fetch_telegraph
 import fetch_wp_blog
 import file_blog_puzzles
 import parse_bigdave44
@@ -50,7 +53,10 @@ SOURCE = file_blog_puzzles.Source(
     # post date wherever it is the print date.
     target=lambda row: (row["series"], False),
     print_dates=print_dates,
-    setter=lambda rec, series: rec.get("setter") or series_meta.default_setter(series))
+    setter=lambda rec, series: rec.get("setter") or series_meta.default_setter(series),
+    # From the bucket's first calendared number on, tools/fetch_telegraph.py
+    # files the printed puzzle; the blog's posts stay its hints and blog facts.
+    published=fetch_telegraph.served)
 
 
 def main(argv=None):
