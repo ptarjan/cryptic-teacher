@@ -86,6 +86,10 @@ class Source:
     #: (series, number) -> whether the paper's own feed is the primary source,
     #: so the blog files nothing there and leaves a held file to the feed.
     published: Callable = lambda series, number: False
+    #: A printed clue line -> the line as the parser now reads it, applied to
+    #: the clues of a puzzle already filed (retext) so that a parser fix
+    #: reaches the files written before it.
+    tidy: Callable = None
 
 
 DAY = datetime.timedelta(days=1)
@@ -248,8 +252,10 @@ def reprinted_by(reprints, series, number):
     """The series that files `number` instead of `series`, or None.
 
     It holds the number, or has not reached it yet (the Globe prints the Quick
-    ~7 weeks late). A number inside its run that it never printed — Globe
-    3,263 fell on Victoria Day — is still ours to file.
+    ~7 weeks late). A number inside its run that it holds no file for is
+    still ours to file: the Globe printed Quick 3,263 on 2026-05-18 titled
+    "No 3262", like the day before, so fetch_globeandmail refuses it as a
+    duplicate, and cross_validate.py globe checks our copy against that day.
     """
     if series not in reprints:
         return None
@@ -460,6 +466,49 @@ def content(puzzle):
             for e in puzzle["entries"]]
 
 
+def retext(puzzle, tidy):
+    """`puzzle` with `tidy` applied to each clue's printed line, and how many
+    clues it changed. Only the words change: a clue whose count would change,
+    or which carries ranges into its words (italics), is left alone. An
+    annotation's quotations of the clue are tidied with it; one the tidied
+    clue no longer holds (a block explaining the blogger's "/") leaves the
+    clue alone."""
+    out, changed = [], 0
+    for e in puzzle["entries"]:
+        clue = e.get("clue") or {}
+        text, enum = enumeration.split(tidy(enumeration.printed(clue)))
+        if (clue.get("text") and text and text != clue["text"] and not clue.get("italics")
+                and enum == clue.get("enumeration")):
+            try:
+                ann = requote(e.get("annotation"), tidy, clue["text"], text)
+            except ValueError:
+                out.append(e)
+                continue
+            e = {**e, "clue": {**clue, "text": text}}
+            if ann is not None:
+                e["annotation"] = ann
+            changed += 1
+        out.append(e)
+    return {**puzzle, "entries": out}, changed
+
+
+def requote(value, tidy, old, new):
+    """`value` (an annotation, or any part of one) with every string that
+    quotes the clue `old` -- a definition, an indicator, a block's fragment,
+    a link word -- tidied to quote `new`. Raises ValueError for a quotation
+    `new` no longer holds."""
+    if isinstance(value, dict):
+        return {k: requote(v, tidy, old, new) for k, v in value.items()}
+    if isinstance(value, list):
+        return [requote(v, tidy, old, new) for v in value]
+    if isinstance(value, str) and value.strip() and value in old and value not in new:
+        quoted = tidy(value)
+        if not quoted or quoted not in new:
+            raise ValueError(f"{value!r} is not in {new!r}")
+        return quoted
+    return value
+
+
 def every_day(claims, recs, dates):
     """`dates` with every claimed number dated: a dated series' number the
     source proved nothing for takes its post's day, and any still blank takes
@@ -537,7 +586,7 @@ def run(source, grids, parsed, write=True, newest=None):
     reprints = reprinted_from()
     typed = typed_counts(recs.values())
     filed, kept, drifted = collections.Counter(), 0, []
-    redated, renamed = collections.Counter(), collections.Counter()
+    redated, renamed, retold = collections.Counter(), collections.Counter(), collections.Counter()
     refused = []
     order = sorted(claims.items(), key=lambda kv: (kv[0][0], -kv[0][1] if newest else kv[0][1]))
     for (series, number), claim in order:
@@ -566,10 +615,16 @@ def run(source, grids, parsed, write=True, newest=None):
             held = read_puzzle_file(path)
             if content(held) != content(puzzle):
                 drifted.append(puzzle["id"])
-            # Only the date and a placeholder setter are ever rewritten: the
-            # date is derived from facts that arrive after the file (the next
-            # Saturday's title, the listing), and a name never replaces a name.
+            # Only the date, a placeholder setter and what a parser fix tidies
+            # out of the clues are ever rewritten: the date is derived from
+            # facts that arrive after the file (the next Saturday's title, the
+            # listing), and a name never replaces a name.
             fix = {}
+            if source.tidy and (held.get("source") or {}).get("acquiredBy") == source.tool:
+                tidied, n = retext(held, source.tidy)
+                if n:
+                    fix["entries"] = tidied["entries"]
+                    retold[series] += 1
             if puzzle["date"] and (series_meta.puzzle_day(held)
                                    != series_meta.puzzle_day(puzzle)):
                 fix["date"] = puzzle["date"]
@@ -608,6 +663,10 @@ def run(source, grids, parsed, write=True, newest=None):
         print(f"{'would name the setter of' if not write else 'named the setter of'} "
               f"{sum(renamed.values())}: "
               + ", ".join(f"{s} {n}" for s, n in sorted(renamed.items())))
+    if retold:
+        print(f"{'would tidy the clues of' if not write else 'tidied the clues of'} "
+              f"{sum(retold.values())}: "
+              + ", ".join(f"{s} {n}" for s, n in sorted(retold.items())))
     for note in notes:
         print(f"  date: {note}")
     for why in refused[:20]:

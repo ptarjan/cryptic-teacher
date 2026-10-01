@@ -188,6 +188,28 @@ cv.read_puzzle_file = lambda path: {"date": {"a": "2015-06-14", "b": "2026-01-05
 same("a puzzle is compared with the key that serves it, not its print date (2015's early Sundays)",
      Cached().ids(), {"indysunday-1320": "150607", "independent-12001": "260105"})
 cv.held, cv.read_puzzle_file = saved
+amuse = {"title": "No 3262", "w": 3, "h": 3,
+         # Column-major: box[x][y]. CAT runs across row 0, CAB down column 0.
+         "box": [["C", "A", "B"], ["A", " ", "E"], ["T", "O", "E"]],
+         "placedWords": [
+             {"clueNum": 1, "acrossNotDown": True, "x": 0, "y": 0, "nBoxes": 3,
+              "wordLens": [3], "clue": {"clue": "<i>Tom</i>&rsquo;s pet"}},
+             {"clueNum": 1, "acrossNotDown": False, "x": 0, "y": 0, "nBoxes": 3,
+              "wordLens": [1, 2], "clue": {"clue": "Taxi"}}]}
+got = cv.globe_shape(amuse, ("timesquick", "20260518"))
+same("the Globe's box is read column-major, its wordLens as the count",
+     [(e["solution"], e["clue"]["text"], e["clue"]["enumeration"]) for e in got["entries"]],
+     [("CAT", "Tom’s pet", "3"), ("CAB", "Taxi", "1,2")])
+same("the Globe's second 'No 3262', on 2026-05-18, is Quick 3263", got["id"], "timesquick-3263")
+same("any other day is the number it prints",
+     cv.globe_shape(amuse, ("globeandmail", "20260517"))["id"], "globeandmail-3262")
+slashed = copy.deepcopy(base)
+slashed["entries"][0]["clue"]["text"] = "Tom’s / pet"
+same("against the paper's own print a blogger's slash is a clue difference",
+     [m["class"] for m in cv.diff(slashed, base, exact=True)], ["CLUE"])
+same("while quotes and spacing still are not",
+     cv.diff({**base, "entries": [{**base["entries"][0], "clue": {"text": "Tom's  pet",
+                                  "enumeration": "3"}}, *base["entries"][1:]]}, base, exact=True), [])
 print("FAILED:", fails if fails else "none")
 sys.exit(1 if fails else 0)
 PY

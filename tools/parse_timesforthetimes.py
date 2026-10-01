@@ -176,9 +176,45 @@ NUMBER_IN = re.compile(r"(\d{3,5})")
 
 
 def unbrace(ln):
-    """A clue line keeps its braced letters; any other line loses them."""
+    """A clue line keeps its braced letters, tidied; any other line loses them."""
     kept = BRACED.sub(lambda m: m.group(0)[1:-1], ln)
-    return kept if ENUM.search(kept) else BRACED.sub("", ln)
+    return tidy(kept) if ENUM.search(kept) else BRACED.sub("", ln)
+
+
+#: A blogger's note after a clue's count: "Mean to be camping? (6) / Edit:
+#: post-publication the clue was changed to: Meaning of "camping"? (6)".
+EDITED = re.compile(r"^(.*?\(\s*\d[\d,\-\u2013\s]*\))\s*/?\s*\b(?:edit|update)\b\s*:?\s*(.*)$",
+                    re.IGNORECASE)
+CHANGED_TO = re.compile(r"\b(?:changed|amended)\b[^:]{0,40}?\bto(?:\s+read)?\s*:\s*(.+)$",
+                        re.IGNORECASE)
+#: The blogger's mark between definition and wordplay, "Better / lake in North
+#: America": a slash with a space beside it. A slash between two words,
+#: "AC/DC", "and/or", is the setter's and stays.
+DEF_SLASH = re.compile(r"\s*(?:\s/+|/+\s)\s*")
+#: A space the markup left before punctuation: "<strong>Unhappy</strong> </em>,"
+#: reads "Unhappy , sulky"; "<strong>bishop</strong> </em>?" reads "bishop ?".
+#: An ellipsis is left alone: ". . ." is how some clues print it; so is a
+#: quoted letter, "drop 's' from".
+SPACED_MARK = re.compile(r"(?<=\S)\s+(?=[,?!;:](?:\s|$)|[\u2019']s\b(?![\u2019']))")
+
+#: The blogger's brackets: link words the clue prints, "Opera[’s] curious
+#: piano", "Has a job [in] factory", lose the brackets; an aside, "[sic]",
+#: "[two-word answer]", or a count retyped in them, goes whole.
+BRACKETED_ASIDE = re.compile(r"\s*\[(?:sic|[^\[\]]*\bwords?\b[^\[\]]*|\d[\d,\-\s]*)\]", re.IGNORECASE)
+LINK_WORDS = re.compile(r"\[([^\[\]]*)\]")
+
+
+def tidy(ln):
+    """A clue line as the paper printed it: a post-publication correction
+    the blogger appended replaces the clue it corrects, and the blogger's
+    definition slashes, brackets and the markup's stray spaces go."""
+    m = EDITED.match(ln)
+    if m:
+        changed = CHANGED_TO.search(m.group(2))
+        ln = changed.group(1) if changed and ENUM.search(changed.group(1)) else m.group(1)
+    ln = LINK_WORDS.sub(r"\1", BRACKETED_ASIDE.sub("", ln))
+    ln = DEF_SLASH.sub(" ", ln).strip()
+    return SPACED_MARK.sub("", ln)
 
 
 def lines(rendered):

@@ -226,6 +226,13 @@ blog_chain Guardian "cross_validate.py guardian --fetch --refile --limit $GUARDI
 # a file rebuilt from fifteensquared for a day the feed serves refiled from it.
 INDY_XVAL_PER_NIGHT="${INDY_XVAL_PER_NIGHT:-1500}"
 blog_chain Independent "cross_validate.py independent --fetch --refile --limit $INDY_XVAL_PER_NIGHT" && blog_filed=1
+# The Globe and Mail prints the Times Quick Cryptic from No 3106: its copy
+# witnesses the blog-rebuilt Quick the Times filer would file for the same
+# number, which is how a defect of the converter behind every earlier Quick
+# shows. Nothing is refiled from it; the filer files those numbers as
+# globeandmail already.
+GLOBE_XVAL_PER_NIGHT="${GLOBE_XVAL_PER_NIGHT:-60}"
+blog_chain Globe "cross_validate.py globe --fetch --limit $GLOBE_XVAL_PER_NIGHT" "cross_validate.py globe"
 [ $blog_filed -eq 1 ] && python3 tools/fetch_puzzle.py --reindex
 
 # --- 1c. The Financial Times, rebuilt from fifteensquared's write-ups ---

@@ -548,7 +548,7 @@ def run(grids=tg.OUT, parsed=tg.PARSED, write=True, listing=None, newest=None):
     source = file_blog_puzzles.Source(
         tool="tools/file_times_puzzles.py", target=target,
         print_dates=lambda recs, renumbered: print_dates(recs, listing, renumbered),
-        setter=setter, run=numbering)
+        setter=setter, run=numbering, tidy=tftt.tidy)
     return file_blog_puzzles.run(source, grids, parsed, write=write, newest=newest)
 
 

@@ -118,6 +118,26 @@ print("RERUN_UNTOUCHED", before == {q.name: q.read_bytes() for q in puzzle_paths
 print("DRIFTED", ",".join(drifted))
 print("SETTERS", sunday["setter"], json.loads(puzzle_paths.find("times-29000").read_text()).get("setter"))
 
+# A clue filed before a parser fix is tidied by the next run as the parser
+# now reads it: a definition slash goes, the rest of the file stays.
+path = puzzle_paths.find("times-100")
+old = json.loads(path.read_text())
+old["entries"][0]["clue"]["text"] = "Irish city /seal"
+path.write_text(json.dumps(old))
+F.run(grids, parsed, listing=LISTING)
+new = json.loads(puzzle_paths.find("times-100").read_text())
+print("TIDIED", new["entries"][0]["clue"]["text"],
+      [e["solution"] for e in new["entries"]] == [e["solution"] for e in old["entries"]])
+import file_blog_puzzles as B
+import parse_timesforthetimes as P
+def annotated(text, **ann):
+    return {"entries": [{"clue": {"text": text, "enumeration": "8"}, "annotation": ann}]}
+got, _ = B.retext(annotated("Hide behind young woman [as] neccessary?",
+                            definitions=[{"text": "[as] neccessary?", "at": 24}]), P.tidy)
+kept, n = B.retext(annotated("Trainee / in the wrong", blocks=[{"clueFragment": "/"}]), P.tidy)
+print("TIDIED_NOTE", got["entries"][0]["annotation"]["definitions"][0]["text"], "|",
+      kept["entries"][0]["clue"]["text"], n)
+
 # A number inside the Globe's run that it never printed is still filed here.
 (puzzle_paths.PUZZLE_DIR / "globeandmail" / "undated" / "globeandmail-3152.json").write_text("{}")
 held = F.reprinted_from()
@@ -198,6 +218,9 @@ check "provenance passes the validator" "True" "$(got PROV_CLEAN)"
 check "the grid's correction beats the blog's typo" "True" "$(got CORRECTED)"
 check "a prize puzzle takes its listed day, and one nothing dates a best fit" "2026-01-11 2026-01-12" "$(got PRIZE_UNDATED)"
 check "a second run files nothing" "0" "$(got RERUN_FILED)"
+check "a filed clue is tidied as the parser now reads it" "Irish city seal True" "$(got TIDIED)"
+check "an annotation's quotations are tidied with its clue; one the tidied clue loses keeps the clue" \
+  "as neccessary? | Trainee / in the wrong 0" "$(got TIDIED_NOTE)"
 check "a second run rewrites nothing" "True" "$(got RERUN_UNTOUCHED)"
 check "a drifted file is named" "times-102" "$(got DRIFTED)"
 check "the Sunday Times takes its setter from the title; the Times stays anonymous" \
