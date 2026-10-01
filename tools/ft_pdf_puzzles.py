@@ -17,10 +17,12 @@ squares are the FT's own.
 The answers are fifteensquared's: its write-ups of these years print the light
 number and the answer but seldom the clue. Each light the PDF lists is looked
 up under its number in the post, and its answer is the run of capitals the
-PDF's enumeration counts word for word. A puzzle is filed only when every light
-has an answer and every answer writes into the PDF's grid with each crossing
-agreeing; the grid's own numbering must match the PDF's clue numbers and
-enumerations first, which checks the geometry independently of the blog.
+PDF's enumeration counts word for word. The answers are filed only when every
+light has one and every answer writes into the PDF's grid with each crossing
+agreeing; otherwise the puzzle files unsolved, because only the clues are
+mandatory and the nightly backfill solves it. The grid's own numbering must
+match the PDF's clue numbers and enumerations first, which checks the geometry
+independently of the blog.
 
 Three steps, each reading the one before off disk, so a run killed anywhere
 resumes: index.json, then pdf/<number>.pdf, then puzzles/.
@@ -625,20 +627,24 @@ def blog_posts():
 
 def entries_of(pdf, answers, grid):
     """build()'s entries: one per light, a linked clue's answer shared out by
-    the grid's light lengths. None when a light has no answer."""
+    the grid's light lengths. None when a light has no answer; answers=None
+    gives every light no answer, for a puzzle filed unsolved."""
     lights = rg.light_cells(grid)
     out = []
     for c in pdf["clues"]:
         if c["enumeration"] is None:
             continue      # "See N": its light takes its letters from the leader
-        whole = answers.get(c["lights"][0])
+        whole = "?" * sum(len(lights[l]) for l in c["lights"])
+        if answers is not None:
+            whole = answers.get(c["lights"][0])
         if whole is None or len(whole) != sum(len(lights[l]) for l in c["lights"]):
             return None
         at = 0
         for i, light in enumerate(c["lights"]):
             k = len(lights[light])
             leader = c["lights"][0][0]
-            out.append({"number": light[0], "direction": light[1], "answer": whole[at:at + k],
+            out.append({"number": light[0], "direction": light[1],
+                        "answer": whole[at:at + k] if answers is not None else None,
                         "clue": c["clue"] if i == 0 else f"See {leader}",
                         "enumeration": c["enumeration"] if i == 0 else None})
             at += k
@@ -655,22 +661,23 @@ def assemble(number, pdf, post, date, pdf_url, how):
     why = grid_matches(grid, pdf["clues"])
     if why:
         return None, why
-    if post is None:
-        return None, "no fifteensquared write-up"
-    answers = blog_answers(post["content"]["rendered"], pdf["clues"])
-    entries = entries_of(pdf, answers, grid)
-    if entries is None:
-        missing = [f"{c['lights'][0][0]}{c['lights'][0][1][0]}" for c in pdf["clues"]
-                   if c["enumeration"] and c["lights"][0] not in answers]
-        return None, f"blog answers missing: {' '.join(missing[:6]) or 'a linked split'}"
-    rec = {"post_id": f"fifteensquared-{post['id']}", "link": post.get("link"),
-           "date": post["date"][:10], "series": ft_puzzles.CATEGORY, "number": number,
+    # Only the clues are mandatory: with no write-up, or one missing an
+    # answer, the puzzle files unsolved and the nightly backfill solves it.
+    answers = blog_answers(post["content"]["rendered"], pdf["clues"]) if post else {}
+    entries = entries_of(pdf, answers, grid) or entries_of(pdf, None, grid)
+    unsolved = not entries[0].get("answer")
+    rec = {"post_id": f"fifteensquared-{post['id']}" if post else None,
+           "link": post.get("link") if post else pdf_url,
+           "date": post["date"][:10] if post else None,
+           "series": ft_puzzles.CATEGORY, "number": number,
            "setter": pdf["setter"], "entries": entries}
     row = {"grid": grid, "number": number, "how": "the FT's PDF"}
     puzzle, why = file_blog_puzzles.build(rec, row, SERIES, date, pdf["setter"])
     if why:
         return None, why
     puzzle["source"] = {"url": pdf_url}
+    if unsolved:
+        return puzzle, None
     puzzle["solutions"]["check"] = (
         "grid and clues read from the FT's printable PDF, its numbering matching "
         "the clue list; every fifteensquared answer written into it with each "
