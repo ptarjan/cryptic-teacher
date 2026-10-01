@@ -47,14 +47,28 @@ for y, row in enumerate(GRID):
 inv.append(([], b"f"))
 print("INVERTED", "/".join(F.read_grid(F.filled_rects(inv)) or ["none"]))
 
+# The 2011-12 layout: blocks filled with tint 1 of a /DeviceN "Black" space
+# (ink, so dark), one block drawn as a closed m/l path, and the grid ruled
+# with thin bars and no square behind it.
+ink = [([True], b"cs"), ([1], b"scn")]
+for y, row in enumerate(GRID):
+    for x, c in enumerate(row):
+        if c == "#" and (x, y) != (3, 3):
+            ink += [([x * 20, 100 - (y + 1) * 20, 20, 20], b"re"), ([], b"f")]
+ink += [([], b"q"), ([1, 0, 0, 1, 60, 20], b"cm"), ([0, 0], b"m"), ([20, 0], b"l"),
+        ([20, 20], b"l"), ([0, 20], b"l"), ([], b"f"), ([], b"Q")]
+for i in range(6):
+    ink += [([i * 20 - 0.5, 0, 1, 100], b"re"), ([], b"f"), ([0, i * 20 - 0.5, 100, 1], b"re"), ([], b"f")]
+print("INK", "/".join(F.read_grid(F.filled_rects(ink)) or ["none"]))
+
 TEXT = """CROSSWORD
 No. 13,412 Set by CRUX
 1 2 3
 4
 5
 ACROSS
-1 Fabric in a sat-
-in finish (5)
+1 Fabric in a far-
+reaching finish (5)
 4 Show
 2 voices at the
 opera house (5)
@@ -87,6 +101,11 @@ print("ODDLIGHTS", " ".join(",".join(f"{n}{d[0]}" for n, d in c["lights"]) for c
 print("ODDMATCH", F.grid_matches(GRID, odd["clues"]))
 
 print("JOIN", F.join_lines("to for-", "tunate nine"), "|", F.join_lines("is bad-", "tempered"))
+print("JOINRARE", F.join_lines("despite shad-", "owed"), "|", F.join_lines("do it unac-", "ceptably"),
+      "|", F.join_lines("a level playing-", "field"))
+zero = F.parse_clues("ACROSS\n1 Fabric (5)\n4 Show (5)\n5 Gear (5)\nD0WN\n"
+                     "1 Fire (5)\n2 Child (5)\n3 Gets closer (5)\n")
+print("ZERO", " ".join(f"{n}{d[0]}" for c in zero["clues"] for n, d in c["lights"]))
 
 IDX = {"100": {"date": "2010-06-11"}, "103": {"date": "2010-06-15"}, "110": {"date": "2010-07-01"}}
 print("NEIGHBOUR", F.neighbour_date(101, IDX), F.neighbour_date(102, IDX), F.neighbour_date(105, IDX))
@@ -124,9 +143,11 @@ check "grid read from the filled squares; a restored fill and a stroke are not b
 check "a second copy shifted by cm lands on the same cells" \
   "...../.#.#./...../.#.#./....." "$(g TWICE)"
 check "white lights on a black square" "...../.#.#./...../.#.#./....." "$(g INVERTED)"
+check "ink tints, a block drawn as a path, a grid ruled with no frame square" \
+  "...../.#.#./...../.#.#./....." "$(g INK)"
 check "header: number and setter, capitals title-cased" "13412 Crux 6" "$(g HEAD)"
 check "a clue broken at a hyphen keeps it, no space" \
-  "1a Fabric in a sat-in finish (5) | 5" "$(echo "$out" | grep '^CLUE 1a' | cut -d' ' -f2-)"
+  "1a Fabric in a far-reaching finish (5) | 5" "$(echo "$out" | grep '^CLUE 1a' | cut -d' ' -f2-)"
 check "an unfinished clue's next line opening with a number is its next line" \
   "4a Show 2 voices at the opera house (5) | 5" "$(echo "$out" | grep '^CLUE 4a' | cut -d' ' -f2-)"
 check "the footer ends the list" "3d Gets closer (5) | 5" \
@@ -153,6 +174,10 @@ check "a \"See 1\" naming a light already listed still matches the grid" "None" 
 
 check "a word hyphenated to fit the line is rejoined; a compound keeps its hyphen" \
   "to fortunate nine | is bad-tempered" "$(g JOIN)"
+
+check "a word rarer than its first half is still rejoined; two words that are no word keep the hyphen" \
+  "despite shadowed | do it unacceptably | a level playing-field" "$(g JOINRARE)"
+check "a heading set with a zero, D0WN, still opens the down clues" "1a 4a 5a 1d 2d 3d" "$(g ZERO)"
 
 check "an undated number takes a day only when the printing days between its neighbours are exactly the numbers" \
   "2010-06-12 2010-06-14 None" "$(g NEIGHBOUR)"

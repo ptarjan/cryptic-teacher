@@ -315,7 +315,11 @@ def ops_of(path_or_bytes):
     def flatten(stream, resources, depth=0):
         out = []
         xobjects = (resources or {}).get("/XObject") or {}
+        spaces = (resources or {}).get("/ColorSpace") or {}
         for operands, op in ContentStream(stream, reader).operations:
+            if op == b"cs" and operands:
+                out.append(([ink_space(spaces, operands[0])], b"cs"))
+                continue
             if op == b"Do" and depth < 3 and operands and operands[0] in xobjects:
                 xo = xobjects[operands[0]].get_object()
                 if xo.get("/Subtype") == "/Form":
@@ -328,6 +332,18 @@ def ops_of(path_or_bytes):
     contents = page.get_contents()
     ops = flatten(contents, page.get("/Resources"), 0) if contents is not None else []
     return page.extract_text() or "", ops
+
+
+def ink_space(spaces, name):
+    """Whether colour space `name` paints ink, a tint of 1 the darkest: a
+    /Separation or /DeviceN space ("/Black", No 13,909 on). The device spaces
+    and the rest paint light, 1 the lightest."""
+    try:
+        space = spaces[name].get_object() if name in spaces else name
+        family = space[0] if isinstance(space, list) else space
+    except Exception:  # noqa: BLE001 — an unreadable space is not ink
+        return False
+    return family in ("/Separation", "/DeviceN")
 
 
 def _mul(a, b):
@@ -352,30 +368,49 @@ def filled_rects(ops):
     """[(x0, y0, x1, y1, dark)] of every filled rectangle, in page space."""
     out = []
 
+    def box(pts, ctm):
+        pts = [(ctm[0] * px + ctm[2] * py + ctm[4], ctm[1] * px + ctm[3] * py + ctm[5])
+               for px, py in pts]
+        return (min(p[0] for p in pts), min(p[1] for p in pts),
+                max(p[0] for p in pts), max(p[1] for p in pts))
+
     def walk(ops, ctm):
-        fill, stack, path = 0.0, [], []
+        fill, ink, stack, path, poly = 0.0, False, [], [], []
         for operands, op in ops:
             if op == b"q":
-                stack.append((ctm, fill))
+                stack.append((ctm, fill, ink))
             elif op == b"Q" and stack:
-                ctm, fill = stack.pop()
+                ctm, fill, ink = stack.pop()
             elif op == b"cm":
                 ctm = _mul([float(v) for v in operands], ctm)
-            elif op in (b"g", b"k", b"rg", b"sc", b"scn"):
+            elif op == b"cs":
+                ink = bool(operands and operands[0] is True)
+            elif op in (b"g", b"k", b"rg"):
+                ink = False
                 b = _brightness(operands)
                 fill = fill if b is None else b
+            elif op in (b"sc", b"scn"):
+                b = _brightness(operands)
+                if b is not None:
+                    fill = 1 - b if ink and len(operands) == 1 else b
             elif op == b"re":
                 x, y, w, h = (float(v) for v in operands)
-                pts = [(x, y), (x + w, y + h)]
-                pts = [(ctm[0] * px + ctm[2] * py + ctm[4], ctm[1] * px + ctm[3] * py + ctm[5])
-                       for px, py in pts]
-                path.append((min(p[0] for p in pts), min(p[1] for p in pts),
-                             max(p[0] for p in pts), max(p[1] for p in pts)))
+                path.append(box([(x, y), (x + w, y + h)], ctm))
+            elif op == b"m":
+                poly = [tuple(float(v) for v in operands)]
+            elif op == b"l" and poly:
+                poly.append(tuple(float(v) for v in operands))
             elif op in (b"f", b"F", b"f*", b"B", b"B*", b"b", b"b*"):
+                # A closed four-cornered path whose sides run along the axes
+                # is a rectangle drawn with lines: some PDFs draw blocks so.
+                if len(poly) == 4 and all(
+                        a[0] == b[0] or a[1] == b[1]
+                        for a, b in zip(poly, poly[1:] + poly[:1])):
+                    path.append(box(poly, ctm))
                 out.extend((*r, fill < 0.5) for r in path)
-                path = []
+                path, poly = [], []
             elif op in (b"n", b"S", b"s"):
-                path = []
+                path, poly = [], []
             elif op == b"Do":
                 m, inner = operands
                 walk(inner, _mul(m, ctm))
@@ -399,6 +434,23 @@ def lattice(frame, size, cells, tol=1.0):
     return None
 
 
+def ruled_frame(rects):
+    """The square the grid's ruled lines enclose, as a white frame, when the
+    PDF draws the grid as thin filled bars and no square behind it (No
+    13,909 on): the bounding box of the long bars, if it is square."""
+    bars = [r for r in rects if min(r[2] - r[0], r[3] - r[1]) < 2
+            and max(r[2] - r[0], r[3] - r[1]) >= 100]
+    across = [r for r in bars if r[2] - r[0] > r[3] - r[1]]
+    down = [r for r in bars if r[3] - r[1] > r[2] - r[0]]
+    if len(across) < 6 or len(down) < 6:
+        return None
+    x0, x1 = min(r[0] for r in down), max(r[2] for r in down)
+    y0, y1 = min(r[1] for r in across), max(r[3] for r in across)
+    if abs((x1 - x0) - (y1 - y0)) > 0.02 * (x1 - x0):
+        return None
+    return (x0, y0, x1, y1, False)
+
+
 def read_grid(rects):
     """The grid ["..#..", ...] the rectangles draw, or None.
 
@@ -407,6 +459,9 @@ def read_grid(rects):
     twice on the page (some PDFs carry a second, hidden copy) is one grid:
     cells are a set."""
     squares = [r for r in rects if (r[2] - r[0]) > 1 and abs((r[2] - r[0]) - (r[3] - r[1])) < 0.02 * (r[2] - r[0])]
+    frame = ruled_frame(rects)
+    if frame:
+        squares.append(frame)
     if not squares:
         return None
     frame = max(squares, key=lambda r: r[2] - r[0])
@@ -469,19 +524,24 @@ def rank(word):
 
 def join_lines(a, b):
     """A clue broken over lines. At a hyphen the PDF either broke a compound
-    ("bad-" "tempered") or hyphenated one word to fit ("for-" "tunate",
-    "govern-" "ment"): it is one word when the join is a word commoner than
-    the rarer of its halves, and the hyphen goes."""
+    ("far-" "reaching") or hyphenated one word to fit ("shad-" "owed",
+    "unac-" "ceptably"): it is one word when the join is a word, or when
+    either half is not one; a compound of two words that is not itself a word
+    keeps its hyphen. A word's frequency against its halves' says nothing:
+    SHADOWED is rarer than SHAD."""
     m, n = re.search(r"([A-Za-z]+)-$", a), re.match(r"([A-Za-z]+)", b)
     if not m:
         return f"{a} {b}"
     if n:
         joined = rank(m.group(1) + n.group(1))
-        halves = [rank(m.group(1)), rank(n.group(1))]
-        rarer = None if None in halves else max(halves)
-        if joined is not None and (rarer is None or joined < rarer):
+        if joined is not None or rank(m.group(1)) is None or rank(n.group(1)) is None:
             return a[:-1] + b
     return a + b
+
+
+#: A section heading. The FT has set "D0WN" with a zero (No 13,767), and a
+#: heading the reader misses ends the clue list there.
+SECTION = re.compile(r"(?i)(acr[o0]ss|d[o0]wn)")
 
 
 def parse_clues(text):
@@ -504,8 +564,8 @@ def parse_clues(text):
     for ln in lines:
         if not ln:
             continue
-        if re.fullmatch(r"(?i)across|down", ln):
-            direction, last, current = ln.lower(), 0, None
+        if SECTION.fullmatch(ln):
+            direction, last, current = ln.lower().replace("0", "o"), 0, None
             continue
         if direction is None:
             continue
