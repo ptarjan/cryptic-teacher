@@ -24,6 +24,9 @@
   "date": "2026-05-27",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,50 @@
     "text": "One bloodsucking tick’s above capital city",
     "enumeration": "8"
    },
-   "solution": "MOSQUITO"
+   "solution": "MOSQUITO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MOSQUITO",
+    "definitions": [
+     {
+      "text": "One bloodsucking",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "above"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tick’s",
+      "gives": "MOS",
+      "note": "a tick is a moment, MO for short; tick's becomes MO'S"
+     },
+     {
+      "clueFragment": "capital city",
+      "gives": "QUITO",
+      "note": "the capital of Ecuador"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOS",
+      "QUITO"
+     ]
+    },
+    "explanation": {
+     "surface": "A parasite clinging above a capital, as if a tick had settled over the city.",
+     "walkthrough": "'Tick' wants to be the bloodsucking creature, but it is a moment (MO); 'above' simply places one piece over the other in a down answer.",
+     "definitionFit": "A mosquito is an insect whose females feed on blood, so it is one bloodsucking creature."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tick’s"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +97,60 @@
     "text": "Earth Angel’s opening is American pop",
     "enumeration": "4"
    },
-   "solution": "SODA"
+   "solution": "SODA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SODA",
+    "definitions": [
+     {
+      "text": "American pop",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "opening",
+      "for": "letter_selection",
+      "note": "the opening of a word is where it starts, so only its first letter is used"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Earth",
+      "gives": "SOD",
+      "note": "sod is turf, earth"
+     },
+     {
+      "clueFragment": "Angel’s",
+      "gives": "A",
+      "select": "first",
+      "note": "its first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOD",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "The opening of the song Earth Angel is described as American pop music.",
+     "walkthrough": "Earth Angel is a 1950s doo-wop hit, so 'American pop' reads as music, but it means a fizzy drink.",
+     "definitionFit": "In American usage soda is the everyday name for a sweet carbonated soft drink, also called pop."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pop"
+    }
+   }
   },
   {
    "number": 3,
@@ -65,7 +164,48 @@
     "text": "Arctic bird shedding tail",
     "enumeration": "6"
    },
-   "solution": "BITTER"
+   "solution": "BITTER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "BITTER",
+    "definitions": [
+     {
+      "text": "Arctic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shedding tail",
+      "for": "deletion",
+      "note": "to shed a tail is to lose the end, so the final letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bird",
+      "gives": "BITTERN",
+      "note": "a wading bird of the heron family"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BITTER"
+     ]
+    },
+    "explanation": {
+     "surface": "An Arctic bird is moulting its tail feathers.",
+     "walkthrough": "'Arctic' looks like it describes the bird, but it stands alone as the definition, meaning extremely cold.",
+     "definitionFit": "Bitter weather is piercingly cold, just as arctic conditions are freezing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Arctic"
+    }
+   }
   },
   {
    "number": 4,
@@ -79,7 +219,72 @@
     "text": "Swipe right, dumping doctor over furtiveness",
     "enumeration": "7"
    },
-   "solution": "STEALTH"
+   "solution": "STEALTH",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "reversal"
+    ],
+    "answer": "STEALTH",
+    "definitions": [
+     {
+      "text": "furtiveness",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dumping",
+      "for": "deletion",
+      "note": "dumping something means getting rid of it, so those letters are thrown out"
+     },
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "turned over means flipped, so what remains is read backwards, upwards in a down answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Swipe",
+      "gives": "STEAL",
+      "note": "to swipe is informally to steal"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "RIGHT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "RIG",
+      "note": "to doctor is to tamper with or rig"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STEAL",
+      "TH"
+     ],
+     "reversals": [
+      {
+       "from": "HT",
+       "to": "TH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "On a dating app someone swipes right but drops the doctor, all very sneakily.",
+     "walkthrough": "'Swipe right' looks like the dating-app gesture, but 'doctor' is a verb meaning to fiddle or fix, and what is left after it goes from the second word is turned upwards.",
+     "definitionFit": "Stealth is secret, sly behaviour intended to avoid notice, which is what furtiveness means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "doctor"
+    }
+   }
   },
   {
    "number": 5,
@@ -93,7 +298,59 @@
     "text": "Muesli rife with worrying food additive",
     "enumeration": "10"
    },
-   "solution": "EMULSIFIER"
+   "solution": "EMULSIFIER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EMULSIFIER",
+    "definitions": [
+     {
+      "text": "food additive",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "worrying",
+      "for": "anagram",
+      "note": "worrying at something is pulling and tugging at it, so the letters are tossed about into a new order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Muesli",
+      "gives": "MUESLI",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rife",
+      "gives": "RIFE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MUESLIRIFE",
+       "gives": "EMULSIFIER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A breakfast cereal is full of an alarming chemical additive.",
+     "walkthrough": "'Worrying' reads as an adjective for the additive, but it is the anagram signal working on the two words before it.",
+     "definitionFit": "An emulsifier is a substance added to foods such as dressings to stop oil and water separating."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "worrying"
+    }
+   }
   },
   {
    "number": 6,
@@ -107,7 +364,60 @@
     "text": "Former Chancellor‘s sign of shame over budget’s conclusion",
     "enumeration": "6"
    },
-   "solution": "BRANDT"
+   "solution": "BRANDT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BRANDT",
+    "definitions": [
+     {
+      "text": "Former Chancellor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "conclusion",
+      "for": "letter_selection",
+      "note": "a conclusion is an ending, so only the last letter of the word is wanted"
+     }
+    ],
+    "linkWords": [
+     "‘s",
+     "over"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sign of shame",
+      "gives": "BRAND",
+      "note": "a brand is a mark of disgrace, a stigma"
+     },
+     {
+      "clueFragment": "budget’s",
+      "gives": "T",
+      "select": "last",
+      "note": "its last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRAND",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "An ex-Chancellor of the Exchequer is shamed over how a budget turned out.",
+     "walkthrough": "'Chancellor' and 'budget' suggest a British Chancellor of the Exchequer, but the answer is a German chancellor. In a down clue 'over' places the first piece above the second.",
+     "definitionFit": "Willy Brandt served as Chancellor of West Germany from 1969 to 1974."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Chancellor"
+    }
+   }
   },
   {
    "number": 7,
@@ -121,7 +431,62 @@
     "text": "Who might investigate NEST over repeatedly accepting large import",
     "enumeration": "8"
    },
-   "solution": "OOLOGIST"
+   "solution": "OOLOGIST",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "OOLOGIST",
+    "definitions": [
+     {
+      "text": "Who might investigate NEST",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accepting",
+      "for": "container",
+      "note": "to accept something is to take it in, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "over repeatedly",
+      "gives": "OOO",
+      "note": "O is the cricket scorer's abbreviation for an over, here written three times"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the clothing-size abbreviation for large"
+     },
+     {
+      "clueFragment": "import",
+      "gives": "GIST",
+      "note": "the import of something is its gist, its essential meaning"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OO",
+      "L",
+      "O",
+      "GIST"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone probing a nest keeps accepting a large imported item.",
+     "walkthrough": "The L sits between the second and third O. 'Import' is a noun meaning significance, not goods brought from abroad.",
+     "definitionFit": "An oologist studies or collects birds' eggs, so examining a nest is exactly that person's work."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "import"
+    }
+   }
   },
   {
    "number": 8,
@@ -135,7 +500,56 @@
     "text": "Brownie maybe arrived almost completely uncooked",
     "enumeration": "6"
    },
-   "solution": "CAMERA"
+   "solution": "CAMERA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "CAMERA",
+    "definitions": [
+     {
+      "text": "Brownie maybe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost completely",
+      "for": "deletion",
+      "note": "almost all of something stops just short, so the final letter is lost"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "arrived",
+      "gives": "CAME",
+      "note": "came means arrived"
+     },
+     {
+      "clueFragment": "uncooked",
+      "gives": "RAW",
+      "note": "raw food is uncooked"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAME",
+      "RA"
+     ]
+    },
+    "explanation": {
+     "surface": "A chocolate brownie arrived nearly raw from the oven.",
+     "walkthrough": "The Brownie was a cheap box camera made by Kodak; 'maybe' marks it as an example. The tray-bake reading is the trap.",
+     "definitionFit": "Kodak's Brownie was a famous simple camera that brought snapshot photography to ordinary families."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Brownie"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +563,46 @@
     "text": "Pill beats rubber",
     "enumeration": "7"
    },
-   "solution": "CAPSULE"
+   "solution": "CAPSULE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CAPSULE",
+    "definitions": [
+     {
+      "text": "Pill",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beats",
+      "gives": "CAPS",
+      "note": "to cap something is to top or beat it"
+     },
+     {
+      "clueFragment": "rubber",
+      "gives": "ULE",
+      "note": "ule is a Central American rubber tree and its rubber"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAPS",
+      "ULE"
+     ]
+    },
+    "explanation": {
+     "walkthrough": "ULE is an uncommon word for a rubber tree, known mainly from crosswords. 'Beats' is a verb here, as in tops or outdoes.",
+     "definitionFit": "A capsule is a dose of medicine in a soluble case, swallowed whole like a tablet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rubber"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +616,62 @@
     "text": "American Q&A about uniform colour",
     "enumeration": "4"
    },
-   "solution": "AQUA"
+   "solution": "AQUA",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "AQUA",
+    "definitions": [
+     {
+      "text": "colour",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so these letters go round another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is the abbreviation for American"
+     },
+     {
+      "clueFragment": "Q&A",
+      "gives": "QA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "uniform",
+      "gives": "U",
+      "note": "Uniform is the NATO phonetic alphabet word for U"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "Q",
+      "U",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "An American question-and-answer session about the colour of a uniform.",
+     "walkthrough": "'Uniform' looks like clothing whose colour is asked about, but it stands for its letter, U, which goes inside QA.",
+     "definitionFit": "Aqua is a light greenish-blue shade, named from the Latin word for water."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "uniform"
+    }
+   }
   },
   {
    "number": 10,
@@ -177,7 +685,63 @@
     "text": "Bouncer might have this one arrested by patrolmen abroad",
     "enumeration": "10"
    },
-   "solution": "TRAMPOLINE"
+   "solution": "TRAMPOLINE",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "TRAMPOLINE",
+    "definitions": [
+     {
+      "text": "Bouncer might have this",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "arrested by",
+      "for": "container",
+      "note": "someone arrested is held by others, so this piece is held inside the rest"
+     },
+     {
+      "text": "abroad",
+      "for": "anagram",
+      "note": "abroad can mean astray or all over the place, so the letters are scattered into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "patrolmen",
+      "gives": "PATROLMEN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PATROLMENI",
+       "gives": "TRAMPOLINE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nightclub bouncer is arrested by foreign police officers.",
+     "walkthrough": "A bouncer is usually a doorman, but here it is anyone who bounces, such as a gymnast or a child in the garden.",
+     "definitionFit": "A trampoline is a sprung canvas sheet on a frame that people jump on, so a bouncer would use one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bouncer"
+    }
+   }
   },
   {
    "number": 11,
@@ -191,7 +755,50 @@
     "text": "Person straying from small area of target",
     "enumeration": "6"
    },
-   "solution": "SINNER"
+   "solution": "SINNER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SINNER",
+    "definitions": [
+     {
+      "text": "Person straying",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     },
+     {
+      "clueFragment": "area of target",
+      "gives": "INNER",
+      "note": "the inner is the ring of an archery or shooting target next to the bull"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "INNER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wandering away from a little patch of a target.",
+     "walkthrough": "'From' is a link here, joining the definition to the wordplay that produces it.",
+     "definitionFit": "A sinner strays from the path of virtue, and straying is the old religious image for doing wrong."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "straying"
+    }
+   }
   },
   {
    "number": 12,
@@ -205,7 +812,55 @@
     "text": "Clear incompetent holding diamonds",
     "enumeration": "10"
    },
-   "solution": "NOTICEABLE"
+   "solution": "NOTICEABLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NOTICEABLE",
+    "definitions": [
+     {
+      "text": "Clear",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "to hold something is to keep it within, so one piece sits inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "incompetent",
+      "gives": "NOTABLE",
+      "note": "incompetent means not able"
+     },
+     {
+      "clueFragment": "diamonds",
+      "gives": "ICE",
+      "note": "ice is slang for diamonds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOT",
+      "ICE",
+      "ABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone clumsy is cleared of holding diamonds.",
+     "walkthrough": "'Clear' reads as a verb, as in acquitting a jewel thief, but it is the adjective meaning evident.",
+     "definitionFit": "Something clear is plain to see, easily observed, and so readily spotted by anyone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Clear"
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +874,79 @@
     "text": "Sadly, suitor won’t save retrospective of Now, Voyager",
     "enumeration": "7"
    },
-   "solution": "TOURIST"
+   "solution": "TOURIST",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion",
+     "anagram"
+    ],
+    "answer": "TOURIST",
+    "definitions": [
+     {
+      "text": "Voyager",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retrospective",
+      "for": "reversal",
+      "note": "a retrospective looks back, so the word is read from end to start"
+     },
+     {
+      "text": "save",
+      "for": "deletion",
+      "note": "save here means except, so those letters are left out"
+     },
+     {
+      "text": "Sadly",
+      "for": "anagram",
+      "note": "something done sadly goes badly wrong, so the letters end up out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "suitor",
+      "gives": "SUITOR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "won’t",
+      "gives": "WONT",
+      "note": "taken as written, apostrophe ignored"
+     },
+     {
+      "clueFragment": "Now",
+      "gives": "NOW",
+      "note": "taken as written, then turned round"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SUITORT",
+       "gives": "TOURIST"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "NOW",
+       "to": "WON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sad lover refuses to rescue a retrospective of the 1942 film Now, Voyager.",
+     "walkthrough": "Now, Voyager is a Bette Davis film, but the comma splits it: only 'Voyager' defines, while 'Now' read backwards is what the contraction must lose before the shuffle.",
+     "definitionFit": "A voyager is a traveller, and a tourist is someone who travels for pleasure."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Now"
+    }
+   }
   },
   {
    "number": 14,
@@ -233,7 +960,50 @@
     "text": "One held consecrated wafer ahead of time",
     "enumeration": "7"
    },
-   "solution": "HOSTAGE"
+   "solution": "HOSTAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HOSTAGE",
+    "definitions": [
+     {
+      "text": "One held",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "ahead of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "consecrated wafer",
+      "gives": "HOST",
+      "note": "the host is the bread consecrated at Mass"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "AGE",
+      "note": "an age is a period of time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOST",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone held up a communion wafer before the hour.",
+     "walkthrough": "'One held' sounds like the wafer being lifted at Mass, but it is the definition: a person held captive.",
+     "definitionFit": "A hostage is a person seized and kept captive as security, so they are one held against their will."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "held"
+    }
+   }
   },
   {
    "number": 15,
@@ -247,7 +1017,54 @@
     "text": "Mostly clumsy, overly large cowboys",
     "enumeration": "7"
    },
-   "solution": "GAUCHOS"
+   "solution": "GAUCHOS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "GAUCHOS",
+    "definitions": [
+     {
+      "text": "cowboys",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the final letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clumsy",
+      "gives": "GAUCHE",
+      "note": "gauche means awkward, clumsy"
+     },
+     {
+      "clueFragment": "overly large",
+      "gives": "OS",
+      "note": "OS is the abbreviation for outsize"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GAUCH",
+      "OS"
+     ]
+    },
+    "explanation": {
+     "surface": "Cowboys described as mostly awkward and too big.",
+     "walkthrough": "OS (outsize) is a clothing label for extra-large sizes. 'Mostly' trims only the word next to it.",
+     "definitionFit": "Gauchos are the mounted cattle herders of the South American pampas, the local equivalent of cowboys."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -261,7 +1078,51 @@
     "text": "Remove glow of joy?",
     "enumeration": "7"
    },
-   "solution": "DELIGHT"
+   "solution": "DELIGHT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DELIGHT",
+    "definitions": [
+     {
+      "text": "joy",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Remove",
+      "gives": "DE",
+      "note": "de- is a prefix meaning remove, as in de-ice"
+     },
+     {
+      "clueFragment": "glow",
+      "gives": "LIGHT",
+      "note": "a glow is light"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "LIGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether to dim the radiance of happiness.",
+     "walkthrough": "Read with a hyphen, de-light would be an instruction to take away the light; the question mark flags that playful split.",
+     "definitionFit": "Delight is great pleasure or happiness, a straightforward synonym of joy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Remove"
+    }
+   }
   },
   {
    "number": 17,
@@ -275,7 +1136,56 @@
     "text": "Doctor at Polish treatment centre",
     "enumeration": "8"
    },
-   "solution": "HOSPITAL"
+   "solution": "HOSPITAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HOSPITAL",
+    "definitions": [
+     {
+      "text": "treatment centre",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Doctor",
+      "for": "anagram",
+      "note": "to doctor is to tamper with or alter, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Polish",
+      "gives": "POLISH",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ATPOLISH",
+       "gives": "HOSPITAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor works at a Polish medical clinic.",
+     "walkthrough": "'Doctor' looks like the physician working there, and Polish like a nationality; both are mechanics, the verb and its fodder.",
+     "definitionFit": "A hospital is an institution where the sick and injured receive medical care."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Doctor"
+    }
+   }
   },
   {
    "number": 18,
@@ -289,7 +1199,48 @@
     "text": "Where the head’s seen pupil who’s left lines",
     "enumeration": "7"
    },
-   "solution": "OBVERSE"
+   "solution": "OBVERSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OBVERSE",
+    "definitions": [
+     {
+      "text": "Where the head’s seen",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pupil who’s left",
+      "gives": "OB",
+      "note": "OB, old boy, is a former pupil of a school"
+     },
+     {
+      "clueFragment": "lines",
+      "gives": "VERSE",
+      "note": "verse is lines of poetry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OB",
+      "VERSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A headteacher's office visited by a pupil who has been given lines.",
+     "walkthrough": "The head sounds like a headteacher and lines like a school punishment, but the head is the monarch's portrait on a coin.",
+     "definitionFit": "The obverse is the face of a coin bearing the principal design, usually a ruler's head."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "head’s"
+    }
+   }
   },
   {
    "number": 19,
@@ -303,7 +1254,73 @@
     "text": "Source regularly given up by young reporter, taking minutes to yield",
     "enumeration": "7"
    },
-   "solution": "SUCCUMB"
+   "solution": "SUCCUMB",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "SUCCUMB",
+    "definitions": [
+     {
+      "text": "yield",
+      "at": 63
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly given up",
+      "for": "letter_selection",
+      "note": "giving something up at regular intervals discards every other letter, so only alternate ones remain"
+     },
+     {
+      "text": "taking",
+      "for": "container",
+      "note": "taking something in means holding it inside, so one piece goes within another"
+     }
+    ],
+    "linkWords": [
+     "by",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Source",
+      "gives": "SUC",
+      "select": "alternate",
+      "note": "its first, third and fifth letters"
+     },
+     {
+      "clueFragment": "young reporter",
+      "gives": "CUB",
+      "note": "a cub reporter is a junior journalist"
+     },
+     {
+      "clueFragment": "minutes",
+      "gives": "M",
+      "note": "M is the abbreviation for minutes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUC",
+      "CU",
+      "M",
+      "B"
+     ]
+    },
+    "explanation": {
+     "surface": "A cub reporter's source, regularly surrendered, takes minutes before giving in.",
+     "walkthrough": "'Given up' sounds like a journalist betraying a source; here it says which letters of Source are lost.",
+     "definitionFit": "To succumb is to give way to pressure or temptation, the same as to yield."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "given"
+    }
+   }
   },
   {
    "number": 19,
@@ -317,7 +1334,52 @@
     "text": "French wit taking top down for fantastic creature",
     "enumeration": "6"
    },
-   "solution": "SPRITE"
+   "solution": "SPRITE",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "SPRITE",
+    "definitions": [
+     {
+      "text": "fantastic creature",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking top down",
+      "for": "cycling",
+      "note": "moving the top of a down answer to the bottom shifts its first letter to the end"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "French wit",
+      "gives": "ESPRIT",
+      "note": "esprit is the French word for wit, also used in English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPRIT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A witty Frenchman lowers his hat to a creature of fantasy.",
+     "walkthrough": "In a down answer the top is the first letter, so the E of ESPRIT moves to the bottom.",
+     "definitionFit": "A sprite is an elf or fairy, a creature of fantasy and folklore."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "top"
+    }
+   }
   },
   {
    "number": 20,
@@ -331,7 +1393,42 @@
     "text": "Bird disease",
     "enumeration": "6"
    },
-   "solution": "THRUSH"
+   "solution": "THRUSH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "THRUSH",
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     },
+     {
+      "text": "disease",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bird",
+      "note": "first meaning: a speckled songbird of gardens and woodland"
+     },
+     {
+      "clueFragment": "disease",
+      "note": "second meaning: a fungal infection, candidiasis"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like one thing, a bird disease, but the two words are separate meanings of one word.",
+     "definitionFit": "The word names both a common songbird and a yeast infection of the mouth or genitals."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "disease"
+    }
+   }
   },
   {
    "number": 20,
@@ -345,7 +1442,55 @@
     "text": "Preview where bagel could go, lacking the bagel",
     "enumeration": "6"
    },
-   "solution": "TASTER"
+   "solution": "TASTER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TASTER",
+    "definitions": [
+     {
+      "text": "Preview",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lacking",
+      "for": "deletion",
+      "note": "lacking something means being without it, so those letters are taken out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "where bagel could go",
+      "gives": "TOASTER",
+      "note": "bagels are often toasted, in a toaster"
+     },
+     {
+      "clueFragment": "the bagel",
+      "gives": "O",
+      "note": "a bagel is ring-shaped, like the letter O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ASTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A sneak look at where a bagel might be put, minus the bagel itself.",
+     "walkthrough": "The second bagel is not bread but its shape: a ring, the letter O.",
+     "definitionFit": "A taster is a small sample giving an advance idea of something, much like a preview."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "bagel"
+    }
+   }
   },
   {
    "number": 21,
@@ -359,7 +1504,62 @@
     "text": "Excited, she lets bra loose",
     "enumeration": "10"
    },
-   "solution": "BREATHLESS"
+   "solution": "BREATHLESS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BREATHLESS",
+    "definitions": [
+     {
+      "text": "Excited",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "loose",
+      "for": "anagram",
+      "note": "loose letters are not held in place, so they fall into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "she",
+      "gives": "SHE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "lets",
+      "gives": "LETS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bra",
+      "gives": "BRA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SHELETSBRA",
+       "gives": "BREATHLESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A thrilled woman lets her bra hang free.",
+     "walkthrough": "'Loose' looks like an adjective describing the bra, but it is the anagram signal for the three words.",
+     "definitionFit": "Breathless can mean gasping with eager excitement, as in breathless anticipation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "loose"
+    }
+   }
   },
   {
    "number": 22,
@@ -373,7 +1573,47 @@
     "text": "Quickly read small book by Kipling",
     "enumeration": "4"
    },
-   "solution": "SKIM"
+   "solution": "SKIM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SKIM",
+    "definitions": [
+     {
+      "text": "Quickly read",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     },
+     {
+      "clueFragment": "book by Kipling",
+      "gives": "KIM",
+      "note": "Kim is Rudyard Kipling's 1901 novel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "KIM"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone races through a short volume by Kipling.",
+     "walkthrough": "'Small' qualifies nothing on the surface's terms; it gives S, and the book is Kipling's novel.",
+     "definitionFit": "To skim a text is to glance over it rapidly, picking out only the main points."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "small"
+    }
+   }
   },
   {
    "number": 22,
@@ -387,7 +1627,65 @@
     "text": "Fish rejected hybrid fruits without bite",
     "enumeration": "4"
    },
-   "solution": "SOLE"
+   "solution": "SOLE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "SOLE",
+    "definitions": [
+     {
+      "text": "Fish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so those letters are removed"
+     },
+     {
+      "text": "rejected",
+      "for": "reversal",
+      "note": "something rejected is sent back, so the letters run the other way, upwards in a down answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hybrid fruits",
+      "gives": "TANGELOS",
+      "note": "a tangelo is a cross between a tangerine and a pomelo or grapefruit"
+     },
+     {
+      "clueFragment": "bite",
+      "gives": "TANG",
+      "note": "tang is a sharp flavour, a bite"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOLE"
+     ],
+     "reversals": [
+      {
+       "from": "ELOS",
+       "to": "SOLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fish turned down cross-bred fruit that had lost its sharpness.",
+     "walkthrough": "'Bite' is a noun for sharp taste, not a mouthful.",
+     "definitionFit": "Sole is a flatfish, such as Dover sole, prized as a food fish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bite"
+    }
+   }
   },
   {
    "number": 23,
@@ -401,7 +1699,66 @@
     "text": "Needle in middle of haystack you locate unexpectedly soon, to begin with",
     "enumeration": "6"
    },
-   "solution": "STYLUS"
+   "solution": "STYLUS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "STYLUS",
+    "definitions": [
+     {
+      "text": "Needle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "middle of",
+      "for": "letter_selection",
+      "note": "the middle of a word is its centre, so just the central letters are kept"
+     },
+     {
+      "text": "to begin with",
+      "for": "letter_selection",
+      "note": "what comes to begin with is at the start, so each word gives only its first letter"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "haystack",
+      "gives": "ST",
+      "select": "middle",
+      "note": "its two central letters"
+     },
+     {
+      "clueFragment": "you locate unexpectedly soon",
+      "gives": "YLUS",
+      "select": "first",
+      "note": "the first letter of each of the four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "YLUS"
+     ]
+    },
+    "explanation": {
+     "surface": "Finding a needle in a haystack surprisingly quickly at the very start.",
+     "walkthrough": "The proverbial needle in a haystack is the joke: the needle is the definition and the haystack supplies letters.",
+     "definitionFit": "A stylus is the fine point that follows a record's groove, commonly called the needle on a record player."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "haystack"
+    }
+   }
   },
   {
    "number": 24,
@@ -415,7 +1772,71 @@
     "text": "District attorney with long-standing pardons overturned a lot",
     "enumeration": "8"
    },
-   "solution": "SHEDLOAD"
+   "solution": "SHEDLOAD",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "SHEDLOAD",
+    "definitions": [
+     {
+      "text": "a lot",
+      "at": 56
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overturned",
+      "for": "reversal",
+      "note": "overturned means turned upside down, so the whole sequence runs backwards"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "District attorney",
+      "gives": "DA",
+      "note": "DA is the abbreviation for District Attorney"
+     },
+     {
+      "clueFragment": "long-standing",
+      "gives": "OLD",
+      "note": "old means long-established"
+     },
+     {
+      "clueFragment": "pardons",
+      "gives": "EHS",
+      "note": "eh? is said like pardon? when asking for something to be repeated"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHE",
+      "DLO",
+      "AD"
+     ],
+     "reversals": [
+      {
+       "from": "DAOLDEHS",
+       "to": "SHEDLOAD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A district attorney whose long-standing pardons are overturned in large numbers.",
+     "walkthrough": "'Pardons' sounds legal, but here it is the 'pardon?' of someone who did not hear. Shedload is informal British slang for a large quantity.",
+     "definitionFit": "A shedload is a colloquial term for a large amount, as much as would fill a shed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pardons"
+    }
+   }
   }
  ]
 }
