@@ -140,6 +140,9 @@ known = {"id": "independent-10038", "entries": [
     {"number": 1, "direction": "down", "solution": "CAMEUPTOSCRATCH"}]}
 same("a known error in the source's key is put right before the diff (SOURCE_ANSWER_WRONG)",
      cv.witness(known)["entries"][0]["solution"], "COMEUPTOSCRATCH")
+same("a feed title with a comma after the number names its setter (independent-11078)",
+     [fi.metadata_title(t) for t in ("No. 11078, by Phi", "No. 11,079 by Serpent", "1388 - Hypnos")],
+     [("Phi", "11078"), ("Serpent", "11,079"), ("Hypnos", "1388")])
 print("FAILED:", fails if fails else "none")
 sys.exit(1 if fails else 0)
 PY
