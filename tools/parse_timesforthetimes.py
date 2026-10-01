@@ -837,6 +837,7 @@ def read_entries(rendered):
     headed_down = any(HEADING.match(ln) and HEADING.match(ln).group(1).lower()
                       == "down" for ln in rendered)
     last, answered = 0, set()
+    headed = {}
 
     def flush(printed):
         nonlocal last, clue, enum
@@ -894,6 +895,8 @@ def read_entries(rendered):
                 "clue": text if i == 0 else (f"See {leader}" if text else None),
                 "enumeration": enum if i == 0 else None,
             })
+            if (n, d) in headed:
+                entries[-1]["heading"] = headed[(n, d)]
             if i == 0 and spaced:
                 # Like the enumeration, the whole answer's word breaks sit
                 # on the light that leads it.
@@ -953,6 +956,11 @@ def read_entries(rendered):
                     rest, way = "", DIRECTION_OF[suffix.group(1).lower()]
                 elif glued:
                     rest, way = ln[glued.end():].strip(), DIRECTION_OF[glued.group(1).lower()]
+                # A suffix against the heading it sits under ("24d" in the
+                # Across list) is one of the two mistyped; the grid decides
+                # (times_grids.as_headed), so the heading is kept beside it.
+                if (suffix or glued) and direction and way != direction:
+                    headed[(number, way)] = direction
                 if (direction == "across" and not headed_down and not (suffix or glued)
                         and number <= 2 < last):
                     direction, way, last = "down", "down", 0
