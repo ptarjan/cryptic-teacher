@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,53 @@
     "text": "A few good-looking bananas dropped off",
     "enumeration": "4"
    },
-   "solution": "SOME"
+   "solution": "SOME",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SOME",
+    "definitions": [
+     {
+      "text": "A few",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dropped off",
+      "for": "deletion",
+      "note": "what has dropped off is no longer attached, so one word is removed from the front of another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "good-looking",
+      "gives": "HANDSOME",
+      "note": "a synonym for attractive"
+     },
+     {
+      "clueFragment": "bananas",
+      "gives": "HANDS",
+      "note": "a bunch of bananas is called a hand"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOME"
+     ]
+    },
+    "explanation": {
+     "surface": "A handful of attractive-looking bananas have fallen off the bunch.",
+     "walkthrough": "'Bananas' looks like slang for crazy, but here it means bunches of the fruit, which growers call hands. HANDSOME without HANDS leaves SOME.",
+     "definitionFit": "Both work as a determiner meaning a small, unspecified number of things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bananas"
+    }
+   }
   },
   {
    "number": 1,
@@ -53,7 +102,47 @@
      }
     ]
    },
-   "solution": "SKINDIVERS"
+   "solution": "SKINDIVERS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SKIN-DIVERS",
+    "definitions": [
+     {
+      "text": "people swimming under water",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Film",
+      "gives": "SKIN",
+      "note": "a film is a thin layer or coating"
+     },
+     {
+      "clueFragment": "various",
+      "gives": "DIVERS",
+      "note": "an old word for several or sundry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SKIN",
+      "DIVERS"
+     ]
+    },
+    "explanation": {
+     "surface": "A movie about an assortment of underwater swimmers.",
+     "walkthrough": "'Film' suggests cinema but means a thin layer. 'Divers' as an adjective is an archaic form meaning several, related to diverse.",
+     "definitionFit": "Skin-divers explore beneath the sea without a full diving suit, often just with mask and snorkel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Film"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +156,47 @@
     "text": "Motorway hazard mix-up",
     "enumeration": "7"
    },
-   "solution": "MISTAKE"
+   "solution": "MISTAKE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MISTAKE",
+    "definitions": [
+     {
+      "text": "mix-up",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Motorway",
+      "gives": "MI",
+      "note": "the M1 motorway, written with the figure 1 as a letter I"
+     },
+     {
+      "clueFragment": "hazard",
+      "gives": "STAKE",
+      "note": "to hazard money is to stake it as a bet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MI",
+      "STAKE"
+     ]
+    },
+    "explanation": {
+     "surface": "A dangerous confusion on the motorway, perhaps a pile-up.",
+     "walkthrough": "The M1 is Britain's main north-south motorway; crosswords write it as MI. 'Hazard' reads as danger but is a gamble.",
+     "definitionFit": "A mix-up is an error or confusion, the same as a blunder or slip."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hazard"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +210,73 @@
     "text": "Open up a Conservative party - leadership of Boris is revoked",
     "enumeration": "10"
    },
-   "solution": "ACCELERATE"
+   "solution": "ACCELERATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "ACCELERATE",
+    "definitions": [
+     {
+      "text": "Open up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leadership of",
+      "for": "letter_selection",
+      "note": "the leadership of anything is at its head, so only the opening letter is kept"
+     },
+     {
+      "text": "is revoked",
+      "for": "deletion",
+      "note": "something revoked is withdrawn or cancelled, so letters are taken out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "standard abbreviation for a Conservative"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "CELEBRATE",
+      "note": "to party is to celebrate"
+     },
+     {
+      "clueFragment": "Boris",
+      "gives": "B",
+      "select": "first",
+      "note": "the leadership of a word is its first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "C",
+      "CELERATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A political party wants to open up after its leader Boris has his role taken away.",
+     "walkthrough": "CELEBRATE loses its B to become CELERATE. 'Open up' is the motoring sense of opening the throttle.",
+     "definitionFit": "To open up a car is to put your foot down and gain speed rapidly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "party"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +290,63 @@
     "text": "Flux discovered in pool plant",
     "enumeration": "9"
    },
-   "solution": "COLUMBINE"
+   "solution": "COLUMBINE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "COLUMBINE",
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "discovered",
+      "for": "letter_selection",
+      "note": "dis-covered means with its covering stripped, so only the inside letters are kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing placed in another sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flux",
+      "gives": "LU",
+      "select": "middle",
+      "note": "the word with its outer letters stripped away"
+     },
+     {
+      "clueFragment": "pool",
+      "gives": "COMBINE",
+      "note": "to pool resources is to combine them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "LU",
+      "MBINE"
+     ]
+    },
+    "explanation": {
+     "surface": "Something in constant change has been found in a water-treatment plant at a swimming pool.",
+     "walkthrough": "'Discovered' means uncovered: Flux loses its first and last letters. 'Pool' is a verb, and 'plant' is a flower, not a factory.",
+     "definitionFit": "Columbine, also called aquilegia or granny's bonnet, is a flowering garden perennial."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "discovered"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +360,55 @@
     "text": "Follow relations leaving bathroom",
     "enumeration": "5"
    },
-   "solution": "ENSUE"
+   "solution": "ENSUE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ENSUE",
+    "definitions": [
+     {
+      "text": "Follow",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "whatever is leaving goes away, so those letters are removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "relations",
+      "gives": "IT",
+      "note": "'it' is slang for sex, sexual relations"
+     },
+     {
+      "clueFragment": "bathroom",
+      "gives": "ENSUITE",
+      "note": "an en suite is a bathroom attached to a bedroom"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENSU",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Relatives filing out of the bathroom one after another.",
+     "walkthrough": "'Relations' looks like family, but IT is a cheeky slang word for sex. ENSUITE without IT gives ENSUE.",
+     "definitionFit": "To ensue is to happen afterwards as a result, so it means come after or succeed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "relations"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +422,51 @@
     "text": "Looker seen at Suffolk town dance",
     "enumeration": "7"
    },
-   "solution": "EYEBALL"
+   "solution": "EYEBALL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EYEBALL",
+    "definitions": [
+     {
+      "text": "Looker",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "seen at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Suffolk town",
+      "gives": "EYE",
+      "note": "Eye is a small market town in Suffolk, an English county"
+     },
+     {
+      "clueFragment": "dance",
+      "gives": "BALL",
+      "note": "a ball is a formal dance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EYE",
+      "BALL"
+     ]
+    },
+    "explanation": {
+     "surface": "A beautiful person spotted at a dance in a Suffolk town.",
+     "walkthrough": "'Looker' wants to mean an attractive person; here it is literally the organ that looks.",
+     "definitionFit": "The eyeball is the globe of the eye, the organ with which we see things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Looker"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +480,69 @@
     "text": "Put key in a lock for film star?",
     "enumeration": "7"
    },
-   "solution": "ACTRESS"
+   "solution": "ACTRESS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ACTRESS",
+    "definitions": [
+     {
+      "text": "film star?",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Put",
+      "for": "container",
+      "note": "to put one thing into another is to insert it, the start of an instruction to place inside"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing placed in another sits inside it"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "key",
+      "gives": "C",
+      "note": "C is a musical key"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "lock",
+      "gives": "TRESS",
+      "note": "a lock of hair is a tress"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "C",
+      "TRESS"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions to slip a key into a lock, as if to get at a celebrity.",
+     "walkthrough": "Key and lock suggest a door, but key is a musical note and lock is hair.",
+     "definitionFit": "A female film star is one example of a performer who acts, hence the question mark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lock"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +556,48 @@
     "text": "Drawn game of rugby with both wings sent off",
     "enumeration": "4"
    },
-   "solution": "EVEN"
+   "solution": "EVEN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EVEN",
+    "definitions": [
+     {
+      "text": "Drawn",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with both wings sent off",
+      "for": "deletion",
+      "note": "wings are the two edges, and sending them off removes the outermost letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "game of rugby",
+      "gives": "SEVENS",
+      "note": "rugby sevens is a seven-a-side version of the sport"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A rugby match ended in a draw after both wingers were sent off.",
+     "walkthrough": "Wings are rugby positions in the surface, but here they are the two ends of the word.",
+     "definitionFit": "A drawn game leaves the scores level, so both sides finish equal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wings"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +611,62 @@
     "text": "Graduate doctor regularly eats curry",
     "enumeration": "6"
    },
-   "solution": "MADRAS"
+   "solution": "MADRAS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "MADRAS",
+    "definitions": [
+     {
+      "text": "curry",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "at regular intervals, so every other letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Graduate",
+      "gives": "MA",
+      "note": "Master of Arts"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "DR",
+      "note": "standard abbreviation for doctor"
+     },
+     {
+      "clueFragment": "eats",
+      "gives": "AS",
+      "select": "alternate",
+      "note": "second and fourth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "DR",
+      "AS"
+     ]
+    },
+    "explanation": {
+     "surface": "A newly qualified doctor regularly has a curry.",
+     "walkthrough": "'Eats' looks like the verb of the sentence, but it only supplies its even letters.",
+     "definitionFit": "A madras is a fairly hot curry dish named after the Indian city now called Chennai."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "eats"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +680,59 @@
     "text": "Induct a couple of trainees at the end of this month",
     "enumeration": "7"
    },
-   "solution": "INSTALL"
+   "solution": "INSTALL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INSTALL",
+    "definitions": [
+     {
+      "text": "Induct",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the end of",
+      "for": "charade",
+      "note": "what comes at the end follows, so the pieces are placed after the first word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "this month",
+      "gives": "INST",
+      "note": "inst., short for instant, means of the current month in old letter-writing"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a couple of trainees",
+      "gives": "LL",
+      "note": "L stands for a learner, so two learners"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INST",
+      "A",
+      "LL"
+     ]
+    },
+    "explanation": {
+     "surface": "An office inducting two new trainees at the month's end.",
+     "walkthrough": "INST is the formal abbreviation, as in 'your letter of the 5th inst.' L is the learner-driver plate.",
+     "definitionFit": "To install someone is to formally place them in a post or office, as an induction does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +752,46 @@
      }
     ]
    },
-   "solution": "SPECTRE"
+   "solution": "SPECTRE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SPECTRE",
+    "definitions": [
+     {
+      "text": "Phantom",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "hidden_word",
+      "note": "the letters sit inside the words that follow"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "retrospect, rehearse",
+      "gives": "SPECTRE",
+      "note": "the end of the first word and start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "Looking back, an actor rehearses for a role in The Phantom of the Opera.",
+     "walkthrough": "'In retrospect' looks like a phrase meaning looking back, which tempts a reversal; the letters read forwards. Phantom is italicised like a title, and Spectre is a Bond film.",
+     "definitionFit": "A spectre is a ghost, an apparition that haunts the living."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "retrospect"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +805,54 @@
     "text": "Daft to adopt city plan",
     "enumeration": "7"
    },
-   "solution": "DIAGRAM"
+   "solution": "DIAGRAM",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DIAGRAM",
+    "definitions": [
+     {
+      "text": "plan",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to adopt",
+      "for": "container",
+      "note": "to adopt is to take in, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Daft",
+      "gives": "DIM",
+      "note": "dim means slow-witted"
+     },
+     {
+      "clueFragment": "city",
+      "gives": "AGRA",
+      "note": "Agra is the Indian city of the Taj Mahal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "IAGRA",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "A silly scheme for a town to take on.",
+     "walkthrough": "Agra, home of the Taj Mahal, is a crossword favourite among cities.",
+     "definitionFit": "A diagram is a drawn plan or schematic outline showing how something is arranged."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +872,48 @@
      }
     ]
    },
-   "solution": "ERASED"
+   "solution": "ERASED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ERASED",
+    "definitions": [
+     {
+      "text": "Got rid of",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Times",
+      "gives": "ERAS",
+      "note": "eras are periods of time"
+     },
+     {
+      "clueFragment": "journalist",
+      "gives": "ED",
+      "note": "ED is short for editor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ERAS",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "The Times newspaper fired one of its journalists.",
+     "walkthrough": "The italics make Times look like the newspaper, but it is simply plural periods.",
+     "definitionFit": "Erased means wiped out or deleted, so something removed or eliminated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Times"
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +927,54 @@
     "text": "Changing into a dress shows finesse",
     "enumeration": "10"
    },
-   "solution": "ADROITNESS"
+   "solution": "ADROITNESS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ADROITNESS",
+    "definitions": [
+     {
+      "text": "finesse",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Changing",
+      "for": "anagram",
+      "note": "changing alters the arrangement, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "shows"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "into a dress",
+      "gives": "INTOADRESS",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INTOADRESS",
+       "gives": "ADROITNESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Slipping gracefully into a frock shows real style.",
+     "walkthrough": "'Changing into' reads as getting dressed; 'Changing' alone signals the rearrangement.",
+     "definitionFit": "Finesse is delicate skill and grace in handling things, the same as cleverness with hands."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Changing"
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +988,54 @@
     "text": "Watches bridge opponents struggle at first",
     "enumeration": "5"
    },
-   "solution": "VIEWS"
+   "solution": "VIEWS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "VIEWS",
+    "definitions": [
+     {
+      "text": "Watches",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "charade",
+      "note": "what comes first is placed in front of the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "struggle",
+      "gives": "VIE",
+      "note": "to vie is to compete or struggle"
+     },
+     {
+      "clueFragment": "bridge opponents",
+      "gives": "WS",
+      "note": "West and South are on opposing sides at the bridge table"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VIE",
+      "WS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone looks on as opponents at the card table battle early on.",
+     "walkthrough": "In bridge, North-South play against East-West, so any pairing across the axis, like W and S, are opponents.",
+     "definitionFit": "Both are verbs meaning to look at or observe something closely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bridge"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +1049,73 @@
     "text": "Glorified newspaper editor entertains drunken ladies",
     "enumeration": "9"
    },
-   "solution": "IDEALISED"
+   "solution": "IDEALISED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade",
+     "container"
+    ],
+    "answer": "IDEALISED",
+    "definitions": [
+     {
+      "text": "Glorified",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drunken",
+      "for": "anagram",
+      "note": "a drunk staggers about in disorder, so these letters are scrambled"
+     },
+     {
+      "text": "entertains",
+      "for": "container",
+      "note": "a host who entertains has guests inside, so one piece holds another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "newspaper",
+      "gives": "I",
+      "note": "the i is a British national newspaper"
+     },
+     {
+      "clueFragment": "ladies",
+      "gives": "LADIES",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "editor",
+      "gives": "ED",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "DEALIS",
+      "ED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LADIES",
+       "gives": "DEALIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tabloid editor wines and dines some tipsy women.",
+     "walkthrough": "The i is a British daily newspaper; together with ED it forms the outside of the answer.",
+     "definitionFit": "To glorify or idealise is to present something as better or more perfect than it is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "entertains"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +1129,54 @@
     "text": "Uses taxes to protect the queen",
     "enumeration": "9"
    },
-   "solution": "EXERCISES"
+   "solution": "EXERCISES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EXERCISES",
+    "definitions": [
+     {
+      "text": "Uses",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to protect",
+      "for": "container",
+      "note": "to protect something is to surround and shield it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "taxes",
+      "gives": "EXCISES",
+      "note": "excise duties are taxes on goods"
+     },
+     {
+      "clueFragment": "the queen",
+      "gives": "ER",
+      "note": "Elizabeth Regina"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "ER",
+      "CISES"
+     ]
+    },
+    "explanation": {
+     "surface": "Government spends tax money to keep the monarch safe.",
+     "walkthrough": "ER is the late Queen's royal cipher, Elizabeth Regina.",
+     "definitionFit": "To exercise a right or power is to employ it, so the verb means makes use of."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -303,7 +1190,54 @@
     "text": "Get back together having never once fallen out",
     "enumeration": "9"
    },
-   "solution": "RECONVENE"
+   "solution": "RECONVENE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RECONVENE",
+    "definitions": [
+     {
+      "text": "Get back together",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fallen out",
+      "for": "anagram",
+      "note": "things that have fallen out have tumbled into disarray, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "never once",
+      "gives": "NEVERONCE",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NEVERONCE",
+       "gives": "RECONVENE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A couple reunite, having never once quarrelled.",
+     "walkthrough": "'Fallen out' reads as quarrelled, which makes 'Get back together' sound romantic.",
+     "definitionFit": "To reconvene is to assemble again, usually of a meeting or court after a break."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fallen"
+    }
+   }
   },
   {
    "number": 19,
@@ -317,7 +1251,45 @@
     "text": "Reportedly catch a disease",
     "enumeration": "7"
    },
-   "solution": "CHOLERA"
+   "solution": "CHOLERA",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "CHOLERA",
+    "definitions": [
+     {
+      "text": "disease",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reportedly",
+      "for": "homophone",
+      "note": "what is reported is passed on by word of mouth, so we go by the sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "catch a",
+      "gives": "CHOLERA",
+      "soundsLike": "COLLAR A",
+      "note": "to collar someone is to catch them"
+     }
+    ],
+    "explanation": {
+     "surface": "News that someone has picked up an illness.",
+     "walkthrough": "'Catch a disease' is a natural phrase, but 'catch' means collar, as a policeman catches a thief.",
+     "definitionFit": "Cholera is a serious bacterial infection of the intestine spread through contaminated water."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "catch"
+    }
+   }
   },
   {
    "number": 20,
@@ -331,7 +1303,52 @@
     "text": "Problems initially advanced at talks",
     "enumeration": "7"
    },
-   "solution": "NATTERS"
+   "solution": "NATTERS",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "NATTERS",
+    "definitions": [
+     {
+      "text": "talks",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially advanced",
+      "for": "substitution",
+      "note": "the first letter is moved one step forward in the alphabet"
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Problems",
+      "gives": "MATTERS",
+      "note": "matters are issues or troubles, as in 'what's the matter?'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "ATTERS"
+     ]
+    },
+    "explanation": {
+     "surface": "Difficulties raised early on during negotiations.",
+     "walkthrough": "M advanced one place in the alphabet becomes N, turning MATTERS into NATTERS.",
+     "definitionFit": "Natters are chats or gossipy conversations, so idle bouts of chatting are talks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "advanced"
+    }
+   }
   },
   {
    "number": 21,
@@ -345,7 +1362,61 @@
     "text": "Freight container originally placed on old ship",
     "enumeration": "5"
    },
-   "solution": "CARGO"
+   "solution": "CARGO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CARGO",
+    "definitions": [
+     {
+      "text": "Freight",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "the original part of a word is its beginning, so only the first letter counts"
+     },
+     {
+      "text": "placed on",
+      "for": "charade",
+      "note": "one piece is set beside the other to join up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "container",
+      "gives": "C",
+      "select": "first",
+      "note": "the first letter"
+     },
+     {
+      "clueFragment": "old ship",
+      "gives": "ARGO",
+      "note": "the Argo carried Jason and the Argonauts in Greek myth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ARGO"
+     ]
+    },
+    "explanation": {
+     "surface": "A shipping container being loaded onto an ancient vessel.",
+     "walkthrough": "'Freight container' looks like a single phrase to define, but only 'Freight' is the definition.",
+     "definitionFit": "Cargo is the load carried by a ship or plane, the same as goods transported."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "container"
+    }
+   }
   },
   {
    "number": 21,
@@ -359,7 +1430,60 @@
     "text": "Enforce endless changes to debate",
     "enumeration": "6"
    },
-   "solution": "CONFER"
+   "solution": "CONFER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "CONFER",
+    "definitions": [
+     {
+      "text": "debate",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endless",
+      "for": "deletion",
+      "note": "without an end, so the final letter is lost"
+     },
+     {
+      "text": "changes",
+      "for": "anagram",
+      "note": "changes alter the order, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Enforce",
+      "gives": "ENFORC",
+      "note": "the word without its last letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ENFORC",
+       "gives": "CONFER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bringing in never-ending reforms to how a debate runs.",
+     "walkthrough": "'Enforce' reads as the main verb but only supplies letters.",
+     "definitionFit": "To confer is to consult or discuss together, exchanging views as in a discussion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Enforce"
+    }
+   }
   },
   {
    "number": 22,
@@ -373,7 +1497,55 @@
     "text": "Way to describe batting performance",
     "enumeration": "7"
    },
-   "solution": "ROUTINE"
+   "solution": "ROUTINE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ROUTINE",
+    "definitions": [
+     {
+      "text": "performance",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to describe",
+      "for": "container",
+      "note": "to describe a circle is to draw round it, so one piece goes around another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Way",
+      "gives": "ROUTE",
+      "note": "a route is a way to go"
+     },
+     {
+      "clueFragment": "batting",
+      "gives": "IN",
+      "note": "the side batting in cricket is in"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROUT",
+      "IN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "How a commentator might sum up a cricketer's innings.",
+     "walkthrough": "In cricket the batting side is 'in'. 'Describe' has its geometric sense of tracing a line around.",
+     "definitionFit": "A routine is a rehearsed act or set piece, such as a comedian's or dancer's turn."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "describe"
+    }
+   }
   },
   {
    "number": 23,
@@ -387,7 +1559,60 @@
     "text": "Foundation student abandons drunken Frenchman",
     "enumeration": "6"
    },
-   "solution": "BOTTOM"
+   "solution": "BOTTOM",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "BOTTOM",
+    "definitions": [
+     {
+      "text": "Foundation",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abandons",
+      "for": "deletion",
+      "note": "what is abandoned is left behind, so it drops out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "student",
+      "gives": "L",
+      "note": "L for learner"
+     },
+     {
+      "clueFragment": "drunken",
+      "gives": "BLOTTO",
+      "note": "blotto is slang for very drunk"
+     },
+     {
+      "clueFragment": "Frenchman",
+      "gives": "M",
+      "note": "M is short for Monsieur"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOTTO",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "A pupil at a foundation course walks out on a drunk Frenchman.",
+     "walkthrough": "BLOTTO loses its L to become BOTTO; M for Monsieur goes on the end.",
+     "definitionFit": "The bottom of something is its base, the lowest part on which it rests."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Foundation"
+    }
+   }
   },
   {
    "number": 24,
@@ -401,7 +1626,68 @@
     "text": "Add up one hundred notes",
     "enumeration": "5"
    },
-   "solution": "MUSIC"
+   "solution": "MUSIC",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "MUSIC",
+    "definitions": [
+     {
+      "text": "notes",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, going up means reading from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Add",
+      "gives": "SUM",
+      "note": "to sum is to add"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral"
+     },
+     {
+      "clueFragment": "hundred",
+      "gives": "C",
+      "note": "Roman numeral"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MUS",
+      "I",
+      "C"
+     ],
+     "reversals": [
+      {
+       "from": "SUM",
+       "to": "MUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Totalling a hundred banknotes.",
+     "walkthrough": "'Add up' is a natural phrase, but 'up' alone reverses SUM. 'Notes' are musical, not money.",
+     "definitionFit": "Music consists of sequences of musical sounds or tones arranged in time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "notes"
+    }
+   }
   },
   {
    "number": 25,
@@ -415,7 +1701,43 @@
     "text": "Question some emoticons ultimately",
     "enumeration": "7"
    },
-   "solution": "CONSULT"
+   "solution": "CONSULT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "CONSULT",
+    "definitions": [
+     {
+      "text": "Question",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "only part of the following words is wanted"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "emoticons ultimately",
+      "gives": "CONSULT",
+      "note": "spans the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "Wondering about the use of emoticons in the end.",
+     "walkthrough": "'Ultimately' looks like a last-letter signal, but the letters run across the two words.",
+     "definitionFit": "To consult an expert is to ask or query them for advice or information."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ultimately"
+    }
+   }
   },
   {
    "number": 26,
@@ -429,7 +1751,57 @@
     "text": "Runner-up gets brandy",
     "enumeration": "4"
    },
-   "solution": "MARC"
+   "solution": "MARC",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "MARC",
+    "definitions": [
+     {
+      "text": "brandy",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, going up means reading from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Runner",
+      "gives": "CRAM",
+      "note": "Steve Cram, the British middle-distance athlete"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MARC"
+     ],
+     "reversals": [
+      {
+       "from": "CRAM",
+       "to": "MARC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The second-placed athlete is rewarded with a brandy.",
+     "walkthrough": "'Runner-up' looks like the second-place finisher; split, it is a runner read upwards. Steve Cram was a world champion at 1500m in the 1980s.",
+     "definitionFit": "Marc is a spirit distilled from grape skins and pips left after winemaking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Runner-up"
+    }
+   }
   },
   {
    "number": 27,
@@ -449,7 +1821,49 @@
      }
     ]
    },
-   "solution": "ALEVELS"
+   "solution": "ALEVELS",
+   "annotation": {
+    "type": [
+     "charade",
+     "and_lit"
+    ],
+    "answer": "A LEVELS",
+    "definitions": [
+     {
+      "text": "A uniform's required to sit these?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "uniform's",
+      "gives": "LEVELS",
+      "note": "uniform means level, and the 's adds an S"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "LEVELS"
+     ]
+    },
+    "explanation": {
+     "surface": "A school rule that pupils must wear uniform for their exams.",
+     "walkthrough": "The whole clue suggests school exams for which uniform is worn. A levels are the English school exams taken at about eighteen.",
+     "definitionFit": "Sixth-formers in school uniform sit these advanced exams before university entrance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "uniform's"
+    }
+   }
   },
   {
    "number": 28,
@@ -463,7 +1877,67 @@
     "text": "Unproductive tiler working in Kent?",
     "enumeration": "7"
    },
-   "solution": "STERILE"
+   "solution": "STERILE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "STERILE",
+    "definitions": [
+     {
+      "text": "Unproductive",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "working",
+      "for": "anagram",
+      "note": "something being worked is being shaped or kneaded, so the letters are reformed"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tiler",
+      "gives": "TILER",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "Kent",
+      "gives": "SE",
+      "note": "Kent is a county in the South East of England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TERIL",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TILER",
+       "gives": "TERIL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A roof tiler working in Kent who is getting nothing done.",
+     "walkthrough": "Kent is a county in the south-east corner of England, so SE stands for it.",
+     "definitionFit": "Sterile means barren or fruitless, producing no offspring, crops or results."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 29,
@@ -477,7 +1951,43 @@
     "text": "Academic Derby winner?",
     "enumeration": "10"
    },
-   "solution": "CLASSICIST"
+   "solution": "CLASSICIST",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CLASSICIST",
+    "definitions": [
+     {
+      "text": "Academic",
+      "at": 0
+     },
+     {
+      "text": "Derby winner?",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Academic",
+      "note": "first meaning: a scholar of ancient Greek and Latin"
+     },
+     {
+      "clueFragment": "Derby winner?",
+      "note": "second meaning, whimsical: one who wins a classic race"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The Derby is one of England's five Classic horse races, so its winner can be called a 'classic-ist'; the question mark flags the invented sense.",
+     "definitionFit": "A scholar of Greek and Roman antiquity is a university expert in ancient literature."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Derby"
+    }
+   }
   },
   {
    "number": 30,
@@ -491,7 +2001,45 @@
     "text": "Audibly taunt supporters",
     "enumeration": "4"
    },
-   "solution": "TEES"
+   "solution": "TEES",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "TEES",
+    "definitions": [
+     {
+      "text": "supporters",
+      "at": 14
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Audibly",
+      "for": "homophone",
+      "note": "audibly means as heard, so we go by sound rather than spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "taunt",
+      "gives": "TEES",
+      "soundsLike": "TEASE",
+      "note": "to taunt is to tease"
+     }
+    ],
+    "explanation": {
+     "surface": "Fans in the stands loudly jeering.",
+     "walkthrough": "'Supporters' looks like football fans, but golf tees support the ball.",
+     "definitionFit": "A golf tee is a small peg that holds the ball up off the ground for driving."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "supporters"
+    }
+   }
   }
  ]
 }
