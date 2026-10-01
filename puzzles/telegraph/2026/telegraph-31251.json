@@ -23,6 +23,9 @@
   "date": "2026-05-28",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,67 @@
     "text": "March followed by Queen perhaps hosting Republican politician",
     "enumeration": "8"
    },
-   "solution": "DEMOCRAT"
+   "solution": "DEMOCRAT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "DEMOCRAT",
+    "definitions": [
+     {
+      "text": "politician",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "followed by",
+      "for": "charade",
+      "note": "one thing followed by another means the second is placed straight after the first"
+     },
+     {
+      "text": "hosting",
+      "for": "container",
+      "note": "a host takes a guest inside, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "March",
+      "gives": "DEMO",
+      "note": "a demo is a protest march"
+     },
+     {
+      "clueFragment": "Queen perhaps",
+      "gives": "CAT",
+      "note": "a queen is a female cat; 'perhaps' flags the example"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "standard abbreviation for Republican"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEMO",
+      "C",
+      "R",
+      "AT"
+     ]
+    },
+    "explanation": {
+     "surface": "A US political story: a protest march, a royal, and a Republican figure all in the same news item.",
+     "walkthrough": "'Queen' looks royal, but a queen is also a female cat. There is a joke too: a Republican sits inside the Democrat.",
+     "definitionFit": "A Democrat is a member of one of the two major American parties, hence a politician."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Queen"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +113,56 @@
     "text": "Loathe the essence of academic experiment",
     "enumeration": "6"
    },
-   "solution": "DETEST"
+   "solution": "DETEST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DETEST",
+    "definitions": [
+     {
+      "text": "Loathe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the essence of",
+      "for": "letter_selection",
+      "note": "the essence of something is its core, so only the central letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "academic",
+      "gives": "DE",
+      "select": "middle",
+      "note": "the two central letters of this eight-letter word"
+     },
+     {
+      "clueFragment": "experiment",
+      "gives": "TEST",
+      "note": "a test is an experiment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "TEST"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who hates the core of a scholarly experiment.",
+     "walkthrough": "'Academic' has eight letters, so its essence is the central pair rather than a single letter.",
+     "definitionFit": "To detest something is to hate it intensely, a straightforward synonym for loathe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "essence"
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +176,64 @@
     "text": "Sprouts ultimately moreish – or so mum’s snarling!",
     "enumeration": "9"
    },
-   "solution": "MUSHROOMS"
+   "solution": "MUSHROOMS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "MUSHROOMS",
+    "definitions": [
+     {
+      "text": "Sprouts",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so only the final letter is kept"
+     },
+     {
+      "text": "snarling",
+      "for": "anagram",
+      "note": "snarling suggests something tangled and twisted, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "moreish",
+      "gives": "H",
+      "select": "last",
+      "note": "the last letter of this word"
+     },
+     {
+      "clueFragment": "or so mum’s",
+      "gives": "ORSOMUMS",
+      "note": "taken as written, apostrophe ignored"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HORSOMUMS",
+       "gives": "MUSHROOMS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A child says Brussels sprouts are tasty while their mother growls about it.",
+     "walkthrough": "'Sprouts' looks like the vegetable, but it is a verb meaning grows fast.",
+     "definitionFit": "Something that mushrooms expands rapidly, just as a business can be said to sprout up quickly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Sprouts"
+    }
+   }
   },
   {
    "number": 3,
@@ -78,7 +247,54 @@
     "text": "Actress Theron ignoring unknown goon",
     "enumeration": "7"
    },
-   "solution": "CHARLIE"
+   "solution": "CHARLIE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CHARLIE",
+    "definitions": [
+     {
+      "text": "goon",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ignoring",
+      "for": "deletion",
+      "note": "to ignore something is to leave it out, so a letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Actress Theron",
+      "gives": "CHARLIZE",
+      "note": "Charlize Theron is a South African-born film actress"
+     },
+     {
+      "clueFragment": "unknown",
+      "gives": "Z",
+      "note": "algebra's unknowns are x, y and z; this is the one removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHARLI",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "An actress refusing to acknowledge a thug.",
+     "walkthrough": "Take Z out of CHARLIZE. In British slang a charlie is a fool.",
+     "definitionFit": "Both are informal British words for a silly or stupid person, so a charlie is a goon."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "unknown"
+    }
+   }
   },
   {
    "number": 4,
@@ -92,7 +308,54 @@
     "text": "Wrong answer held up by schoolgirl",
     "enumeration": "5"
    },
-   "solution": "AMISS"
+   "solution": "AMISS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AMISS",
+    "definitions": [
+     {
+      "text": "Wrong",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "held up by",
+      "for": "charade",
+      "note": "in a down entry, something held up rests on top of its support, so one piece sits above the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "answer",
+      "gives": "A",
+      "note": "A is the abbreviation for answer"
+     },
+     {
+      "clueFragment": "schoolgirl",
+      "gives": "MISS",
+      "note": "the traditional form of address for a girl or unmarried young woman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MISS"
+     ]
+    },
+    "explanation": {
+     "surface": "A pupil holding up an incorrect answer in class.",
+     "walkthrough": "In a down clue, A 'held up by' MISS means A sits on top of it.",
+     "definitionFit": "Something amiss is out of order or not right, the same as being wrong."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "held"
+    }
+   }
   },
   {
    "number": 5,
@@ -106,7 +369,57 @@
     "text": "Returned some swedes, palpably out of date",
     "enumeration": "6"
    },
-   "solution": "LAPSED"
+   "solution": "LAPSED",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "LAPSED",
+    "definitions": [
+     {
+      "text": "out of date",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "some means a part of, so the letters are a portion of the words that follow"
+     },
+     {
+      "text": "Returned",
+      "for": "reversal",
+      "note": "something returned goes back the way it came, so it reads backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "swedes, palpably",
+      "gives": "DESPAL",
+      "note": "letters running across the two words"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "DESPAL",
+       "to": "LAPSED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Taking back some turnips that were obviously past their sell-by date.",
+     "walkthrough": "Inside 'swedes, palpably' read sweDES PALpably, then backwards for LAPSED. A swede is the British name for a rutabaga.",
+     "definitionFit": "A lapsed membership or licence has expired, so it is no longer valid or current."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Returned"
+    }
+   }
   },
   {
    "number": 6,
@@ -120,7 +433,50 @@
     "text": "Accessory to crime in area streets ahead",
     "enumeration": "7"
    },
-   "solution": "ABETTER"
+   "solution": "ABETTER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABETTER",
+    "definitions": [
+     {
+      "text": "Accessory to crime",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "A is the abbreviation for area"
+     },
+     {
+      "clueFragment": "streets ahead",
+      "gives": "BETTER",
+      "note": "streets ahead is an idiom for much better"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BETTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A crime accomplice working in a neighbourhood far ahead of others.",
+     "walkthrough": "'Streets' suggests roads in the area; 'streets ahead' is one idiom, meaning far superior.",
+     "definitionFit": "An abetter helps or encourages someone committing an offence, which is exactly an accessory."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "streets"
+    }
+   }
   },
   {
    "number": 7,
@@ -134,7 +490,54 @@
     "text": "One practising winter sport, Victor escapes layabout",
     "enumeration": "5"
    },
-   "solution": "SKIER"
+   "solution": "SKIER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SKIER",
+    "definitions": [
+     {
+      "text": "One practising winter sport",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "escapes",
+      "for": "deletion",
+      "note": "whatever escapes gets out and is gone, so a letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "layabout",
+      "gives": "SKIVER",
+      "note": "a skiver is British slang for someone who dodges work"
+     },
+     {
+      "clueFragment": "Victor",
+      "gives": "V",
+      "note": "Victor is V in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SKI",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A winter sportsman named Victor runs away from an idler.",
+     "walkthrough": "Remove V from SKIVER.",
+     "definitionFit": "A skier takes part in skiing, the classic snow sport of the cold season."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Victor"
+    }
+   }
   },
   {
    "number": 8,
@@ -148,7 +551,44 @@
     "text": "Shows what negative theatre critics do",
     "enumeration": "8"
    },
-   "solution": "DISPLAYS"
+   "solution": "DISPLAYS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DISPLAYS",
+    "definitions": [
+     {
+      "text": "Shows",
+      "at": 0
+     },
+     {
+      "text": "what negative theatre critics do",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shows",
+      "note": "first meaning: puts on view, exhibits"
+     },
+     {
+      "clueFragment": "what negative theatre critics do",
+      "note": "second meaning, split in two: to dis is to disparage, and theatre critics review stage productions"
+     }
+    ],
+    "explanation": {
+     "surface": "A wry remark on how harsh reviewers treat stage productions.",
+     "walkthrough": "Split the answer as DIS PLAYS: 'dis' is slang for criticise disrespectfully.",
+     "definitionFit": "To display something is to exhibit it, so shows works as a verb in the third person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Shows"
+    }
+   }
   },
   {
    "number": 9,
@@ -168,7 +608,83 @@
      }
     ]
    },
-   "solution": "KNEEDEEP"
+   "solution": "KNEEDEEP",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade",
+     "reversal"
+    ],
+    "answer": "KNEE-DEEP",
+    "definitions": [
+     {
+      "text": "Very involved",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "awfully",
+      "for": "anagram",
+      "note": "awfully means badly, so these letters are messed up"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down entry, being on something means sitting above it, so the parts are joined in order"
+     },
+     {
+      "text": "brought up",
+      "for": "reversal",
+      "note": "in a down entry, bringing letters up makes them read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "keen",
+      "gives": "KEEN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "training",
+      "gives": "PE",
+      "note": "PE is physical education, school training"
+     },
+     {
+      "clueFragment": "editor",
+      "gives": "ED",
+      "note": "ED is the standard abbreviation for editor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KNEE",
+      "DEEP"
+     ],
+     "anagrams": [
+      {
+       "fodder": "KEEN",
+       "gives": "KNEE"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "PEED",
+       "to": "DEEP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A deeply committed, enthusiastic trainee raised by an editor.",
+     "walkthrough": "KNEE from KEEN, then PE plus ED read upwards gives DEEP.",
+     "definitionFit": "Being knee-deep in something means heavily immersed or entangled in it, an idiom for deep involvement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "training"
+    }
+   }
   },
   {
    "number": 10,
@@ -188,7 +704,66 @@
      }
     ]
    },
-   "solution": "TASMANIANDEVILS"
+   "solution": "TASMANIANDEVILS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TASMANIAN DEVILS",
+    "definitions": [
+     {
+      "text": "Marsupials",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wild",
+      "for": "anagram",
+      "note": "wild means out of control, so these letters run loose into a new order"
+     },
+     {
+      "text": "circling",
+      "for": "container",
+      "note": "to circle something is to go round it, so letters surround others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "native animals",
+      "gives": "NATIVEANIMALS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the abbreviation for daughter"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NATIVEANIMALSDS",
+       "gives": "TASMANIANDEVILS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wild Australian creatures surrounding a family's children.",
+     "walkthrough": "Shuffle NATIVE ANIMALS into TASMANIAN EVIL, then D and S slot in: TASMANIAN D EVIL S.",
+     "definitionFit": "Tasmanian devils are carnivorous pouched mammals found only on the island of Tasmania."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -202,7 +777,57 @@
     "text": "Ambles in front of sickeningly provocative posters",
     "enumeration": "7"
    },
-   "solution": "STROLLS"
+   "solution": "STROLLS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "STROLLS",
+    "definitions": [
+     {
+      "text": "Ambles",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in front of",
+      "for": "charade",
+      "note": "being in front of means coming first, so the parts join in that order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sickeningly",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of this word"
+     },
+     {
+      "clueFragment": "provocative posters",
+      "gives": "TROLLS",
+      "note": "trolls post inflammatory messages online to provoke"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TROLLS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone walks past nasty online provocateurs.",
+     "walkthrough": "There is no explicit 'first' signal: the first letter of 'sickeningly' is taken as it is the word placed 'in front of'. 'Posters' are people who post online, not placards.",
+     "definitionFit": "To stroll is to walk in a slow, relaxed way, the same leisurely pace as amble."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "posters"
+    }
+   }
   },
   {
    "number": 12,
@@ -216,7 +841,70 @@
     "text": "Have Spellbound rental playing for husband to get into",
     "enumeration": "7"
    },
-   "solution": "ENTHRAL"
+   "solution": "ENTHRAL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ENTHRAL",
+    "definitions": [
+     {
+      "text": "Have Spellbound",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "playing",
+      "for": "anagram",
+      "note": "playing about with something rearranges it freely"
+     },
+     {
+      "text": "to get into",
+      "for": "container",
+      "note": "to get into something is to go inside it"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rental",
+      "gives": "RENTAL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "H is the abbreviation for husband"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENT",
+      "H",
+      "RAL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RENTAL",
+       "gives": "ENTRAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Hiring out the Hitchcock film Spellbound for a husband to watch.",
+     "walkthrough": "The capital S makes Spellbound look like the film title; 'Have spellbound' is the definition. RENTAL is shuffled to ENTRAL and H goes in.",
+     "definitionFit": "To enthral someone is to captivate them completely, holding them as if under a spell."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Spellbound"
+    }
+   }
   },
   {
    "number": 13,
@@ -236,7 +924,60 @@
      }
     ]
    },
-   "solution": "HONEYBEE"
+   "solution": "HONEYBEE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "HONEY BEE",
+    "definitions": [
+     {
+      "text": "insect",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brushing off",
+      "for": "deletion",
+      "note": "to brush something off is to sweep it away, so a letter is lost"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Darling",
+      "gives": "HONEY",
+      "note": "honey is a term of endearment"
+     },
+     {
+      "clueFragment": "Auntie",
+      "gives": "BEEB",
+      "note": "Auntie and the Beeb are both British nicknames for the BBC"
+     },
+     {
+      "clueFragment": "second black",
+      "gives": "B",
+      "note": "B is black, as on pencils; it is the later of the two Bs that goes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HONEY",
+      "BEE"
+     ]
+    },
+    "explanation": {
+     "surface": "A beloved aunt flicking away an insect for the second time.",
+     "walkthrough": "'Auntie' is not a relative: it is a fond British nickname for the BBC, which is also called the Beeb.",
+     "definitionFit": "The honey bee is a familiar species kept in hives for its sweet product, an insect."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Auntie"
+    }
+   }
   },
   {
    "number": 14,
@@ -256,7 +997,59 @@
      }
     ]
    },
-   "solution": "BUNFIGHT"
+   "solution": "BUNFIGHT",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "BUN FIGHT",
+    "definitions": [
+     {
+      "text": "tea party",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Spooner’s",
+      "for": "spoonerism",
+      "note": "Rev Spooner was famous for swapping the opening sounds of words"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "enjoyable",
+      "gives": "BUN",
+      "soundsLike": "FUN",
+      "note": "something enjoyable is fun; it takes the B from the other word"
+     },
+     {
+      "clueFragment": "snack",
+      "gives": "FIGHT",
+      "soundsLike": "BITE",
+      "note": "a snack is a bite; it takes the F from the other word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUN",
+      "FIGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "A cheerful remark about a pleasant snack served at tea.",
+     "walkthrough": "FUN BITE with F and B swapped. A bunfight is a jocular British term for a tea party or similar gathering.",
+     "definitionFit": "Bunfight is informal British humour for a social tea gathering, where buns are eaten."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 15,
@@ -270,7 +1063,74 @@
     "text": "Largely bad-tempered, yelled on vacation, turning red",
     "enumeration": "5"
    },
-   "solution": "RUDDY"
+   "solution": "RUDDY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "reversal",
+     "charade"
+    ],
+    "answer": "RUDDY",
+    "definitions": [
+     {
+      "text": "red",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Largely",
+      "for": "deletion",
+      "note": "largely means mostly but not wholly, so the last letter is dropped"
+     },
+     {
+      "text": "on vacation",
+      "for": "letter_selection",
+      "note": "a vacated house is emptied, so only the outside letters stay"
+     },
+     {
+      "text": "turning",
+      "for": "reversal",
+      "note": "turning round means facing the other way, so letters read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bad-tempered",
+      "gives": "RUDE",
+      "note": "rude here means ill-mannered and surly"
+     },
+     {
+      "clueFragment": "yelled",
+      "gives": "YD",
+      "select": "outer",
+      "note": "the first and last letters only"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RUD",
+      "DY"
+     ],
+     "reversals": [
+      {
+       "from": "YD",
+       "to": "DY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A furious person shouting on holiday and going red in the face.",
+     "walkthrough": "'On vacation' sounds like a holiday but means emptied; 'turning red' looks like the definition, but 'turning' is the reversal signal.",
+     "definitionFit": "Ruddy describes a healthy reddish complexion, so it is an adjective meaning red."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "vacation"
+    }
+   }
   },
   {
    "number": 16,
@@ -294,7 +1154,51 @@
      }
     ]
    },
-   "solution": "DOONESNUT"
+   "solution": "DOONESNUT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DO ONES NUT",
+    "definitions": [
+     {
+      "text": "become incensed",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Stumbling",
+      "for": "anagram",
+      "note": "stumbling means tripping and falling into disorder, so letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on to nudes",
+      "gives": "ONTONUDES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ONTONUDES",
+       "gives": "DOONESNUT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tripping onto naked people and getting outraged.",
+     "walkthrough": "Do one's nut is British slang for losing one's temper; the apostrophe is not shown in the enumeration.",
+     "definitionFit": "To do one's nut is an informal British idiom for getting extremely angry or furious."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd"
+    }
+   }
   },
   {
    "number": 17,
@@ -314,7 +1218,39 @@
      }
     ]
    },
-   "solution": "BEACHHUT"
+   "solution": "BEACHHUT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BEACH HUT",
+    "definitions": [
+     {
+      "text": "Change gear here with possible dip ahead?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Change gear here with possible dip ahead?",
+      "note": "surface reading: shifting a car's gears before the road drops"
+     },
+     {
+      "clueFragment": "Change gear here with possible dip ahead?",
+      "note": "setter's reading: a seaside cabin where you change clothes before a swim"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Gear' means clothing and a 'dip' is a quick swim, not a motoring hazard.",
+     "definitionFit": "A small wooden shelter on the shore lets bathers put on swimming costumes before entering the sea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "gear"
+    }
+   }
   },
   {
    "number": 18,
@@ -328,7 +1264,56 @@
     "text": "Racecourse records form regularly",
     "enumeration": "5"
    },
-   "solution": "EPSOM"
+   "solution": "EPSOM",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "EPSOM",
+    "definitions": [
+     {
+      "text": "Racecourse",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "at regular intervals, so every other letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "records",
+      "gives": "EPS",
+      "note": "EPs are extended-play records"
+     },
+     {
+      "clueFragment": "form",
+      "gives": "OM",
+      "select": "alternate",
+      "note": "the second and fourth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EPS",
+      "OM"
+     ]
+    },
+    "explanation": {
+     "surface": "A racing venue keeping track of horses' form.",
+     "walkthrough": "'Records' and 'form' sound like racing statistics; they are discs and a word to thin out. Epsom is the Surrey course that hosts the Derby.",
+     "definitionFit": "Epsom Downs is a famous English horse-racing venue, home of the Derby."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "records"
+    }
+   }
   },
   {
    "number": 19,
@@ -342,7 +1327,59 @@
     "text": "Violinist‘s bill of fare, limitless thing",
     "enumeration": "7"
    },
-   "solution": "MENUHIN"
+   "solution": "MENUHIN",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "MENUHIN",
+    "definitions": [
+     {
+      "text": "Violinist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "limitless",
+      "for": "letter_selection",
+      "note": "without limits means without edges, so only the inner letters stay"
+     }
+    ],
+    "linkWords": [
+     "‘s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bill of fare",
+      "gives": "MENU",
+      "note": "a bill of fare is a menu"
+     },
+     {
+      "clueFragment": "thing",
+      "gives": "HIN",
+      "select": "middle",
+      "note": "the word without its first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MENU",
+      "HIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A musician's dinner menu, described as something endless.",
+     "walkthrough": "Yehudi Menuhin was a celebrated twentieth-century violinist.",
+     "definitionFit": "Yehudi Menuhin was among the most famous concert fiddle players of his era."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "limitless"
+    }
+   }
   },
   {
    "number": 20,
@@ -356,7 +1393,70 @@
     "text": "Sleep with ring on, embracing the French emperor",
     "enumeration": "8"
    },
-   "solution": "NAPOLEON"
+   "solution": "NAPOLEON",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "NAPOLEON",
+    "definitions": [
+     {
+      "text": "emperor",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "embracing",
+      "for": "container",
+      "note": "to embrace is to wrap one's arms around, so letters enclose others"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sleep",
+      "gives": "NAP",
+      "note": "a nap is a short sleep"
+     },
+     {
+      "clueFragment": "ring",
+      "gives": "O",
+      "note": "O is ring-shaped"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "the French",
+      "gives": "LE",
+      "note": "le is the masculine French word for the"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NAP",
+      "O",
+      "LE",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A ruler going to bed still wearing his ring, hugging someone from France.",
+     "walkthrough": "NAP, then O and ON wrapping LE.",
+     "definitionFit": "Napoleon Bonaparte crowned himself ruler of the French Empire in 1804."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ring"
+    }
+   }
   },
   {
    "number": 21,
@@ -376,7 +1476,51 @@
      }
     ]
    },
-   "solution": "LEGSLIP"
+   "solution": "LEGSLIP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LEG SLIP",
+    "definitions": [
+     {
+      "text": "Cricketer",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "‘s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "PIN",
+      "gives": "LEG",
+      "note": "pins is informal for legs"
+     },
+     {
+      "clueFragment": "error",
+      "gives": "SLIP",
+      "note": "a slip is a small mistake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEG",
+      "SLIP"
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket player mistyping a bank card number.",
+     "walkthrough": "The capitals make PIN look like a bank code; it is a leg. Leg slip is a cricket fielding position behind the batsman on the leg side.",
+     "definitionFit": "Leg slip names both a fielding position and, by extension, the player stationed there."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "PIN"
+    }
+   }
   },
   {
    "number": 22,
@@ -390,7 +1534,58 @@
     "text": "Visiting court, fail to find cupboard",
     "enumeration": "6"
    },
-   "solution": "CLOSET"
+   "solution": "CLOSET",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CLOSET",
+    "definitions": [
+     {
+      "text": "cupboard",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Visiting",
+      "for": "container",
+      "note": "a visitor goes inside a place, so letters sit within others"
+     }
+    ],
+    "linkWords": [
+     "to find"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "court",
+      "gives": "CT",
+      "note": "CT is the abbreviation for court"
+     },
+     {
+      "clueFragment": "fail",
+      "gives": "LOSE",
+      "note": "to lose is to fail to win"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LOSE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone at a courthouse who cannot locate a storage space.",
+     "walkthrough": "'Court' suggests a law court or tennis court, but only its standard abbreviation is needed.",
+     "definitionFit": "A closet is a cupboard or small storage room, chiefly the American term."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fail"
+    }
+   }
   },
   {
    "number": 23,
@@ -404,7 +1599,69 @@
     "text": "What noisy soccer fans may do around one – start to imbibe drink",
     "enumeration": "7"
    },
-   "solution": "CHIANTI"
+   "solution": "CHIANTI",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CHIANTI",
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 59
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "going around something encloses it"
+     },
+     {
+      "text": "start to",
+      "for": "letter_selection",
+      "note": "the start of a word is its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What noisy soccer fans may do",
+      "gives": "CHANT",
+      "note": "football crowds chant"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "imbibe",
+      "gives": "I",
+      "select": "first",
+      "note": "the opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CH",
+      "I",
+      "ANT",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "Rowdy football supporters gathering round to start drinking.",
+     "walkthrough": "CHANT holds I, then the first letter of 'imbibe' follows.",
+     "definitionFit": "Chianti is a red wine from Tuscany, so it is an alcoholic beverage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "imbibe"
+    }
+   }
   },
   {
    "number": 24,
@@ -418,7 +1675,57 @@
     "text": "Prelude in Fortnite getting a twist",
     "enumeration": "5"
    },
-   "solution": "INTRO"
+   "solution": "INTRO",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "INTRO",
+    "definitions": [
+     {
+      "text": "Prelude",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in means inside, so the letters lie within the following word"
+     },
+     {
+      "text": "getting a twist",
+      "for": "reversal",
+      "note": "a twist turns something round, so the letters face the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fortnite",
+      "gives": "ORTNI",
+      "note": "the letters inside this word"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "ORTNI",
+       "to": "INTRO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The opening of the video game Fortnite has a plot twist.",
+     "walkthrough": "fORTNIte read backwards.",
+     "definitionFit": "An intro is an introduction or opening passage, the same idea as a prelude."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "twist"
+    }
+   }
   },
   {
    "number": 25,
@@ -438,7 +1745,56 @@
      }
     ]
    },
-   "solution": "BIGDEAL"
+   "solution": "BIGDEAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BIG DEAL",
+    "definitions": [
+     {
+      "text": "I’m not impressed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first means at the beginning, so initial letters are taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "by Italian gelato",
+      "gives": "BIG",
+      "select": "first",
+      "note": "the first letters of these three words"
+     },
+     {
+      "clueFragment": "portion",
+      "gives": "DEAL",
+      "note": "a deal is an amount, as in a great deal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BIG",
+      "DEAL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone unimpressed by a serving of Italian ice cream.",
+     "walkthrough": "'At first' looks like it belongs to the definition, but it signals initial letters of the following three words.",
+     "definitionFit": "Saying 'big deal' sarcastically is a dismissive exclamation showing one is unimpressed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "first"
+    }
+   }
   },
   {
    "number": 25,
@@ -452,7 +1808,44 @@
     "text": "Slow part of snooker match broadcast",
     "enumeration": "5"
    },
-   "solution": "BRAKE"
+   "solution": "BRAKE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BRAKE",
+    "definitions": [
+     {
+      "text": "Slow",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broadcast",
+      "for": "homophone",
+      "note": "a broadcast is heard rather than read, so the sound matters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "part of snooker match",
+      "gives": "BRAKE",
+      "soundsLike": "BREAK",
+      "note": "a break is a player's scoring run in snooker"
+     }
+    ],
+    "explanation": {
+     "surface": "A tediously slow stretch of a televised snooker game.",
+     "walkthrough": "'Slow' looks like describing the match, but it is a verb.",
+     "definitionFit": "To brake is to reduce speed using a vehicle's stopping mechanism, so to slow down."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Slow"
+    }
+   }
   },
   {
    "number": 26,
@@ -476,7 +1869,55 @@
      }
     ]
    },
-   "solution": "HITTHEHEADLINES"
+   "solution": "HITTHEHEADLINES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HIT THE HEADLINES",
+    "definitions": [
+     {
+      "text": "got media attention",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Drunk",
+      "for": "anagram",
+      "note": "a drunk person is all over the place, so letters reel into a new order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "inhaled his teeth",
+      "gives": "INHALEDHISTEETH",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INHALEDHISTEETH",
+       "gives": "HITTHEHEADLINES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drunk swallowed his dentures and became front-page news.",
+     "walkthrough": "'Drunk' looks like the subject of the sentence; it is the anagram signal.",
+     "definitionFit": "Hitting the headlines means becoming prominent news, attracting sudden press coverage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Drunk"
+    }
+   }
   },
   {
    "number": 27,
@@ -490,7 +1931,56 @@
     "text": "Troublesome Spike wacky at the end",
     "enumeration": "6"
    },
-   "solution": "THORNY"
+   "solution": "THORNY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "THORNY",
+    "definitions": [
+     {
+      "text": "Troublesome",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the end",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spike",
+      "gives": "THORN",
+      "note": "a thorn is a sharp spike on a plant"
+     },
+     {
+      "clueFragment": "wacky",
+      "gives": "Y",
+      "select": "last",
+      "note": "the final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THORN",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A difficult character called Spike behaving oddly at the finish.",
+     "walkthrough": "The capital S makes Spike look like a name, such as Spike Milligan.",
+     "definitionFit": "A thorny issue is a difficult, tricky one, full of complications and problems."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Spike"
+    }
+   }
   },
   {
    "number": 28,
@@ -514,7 +2004,75 @@
      }
     ]
    },
-   "solution": "KEEPATIT"
+   "solution": "KEEPATIT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "KEEP AT IT",
+    "definitions": [
+     {
+      "text": "Persevere",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retro",
+      "for": "reversal",
+      "note": "retro means looking backwards, so the letters read in reverse"
+     },
+     {
+      "text": "going after",
+      "for": "charade",
+      "note": "going after means following, so the parts join in that order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "look",
+      "gives": "PEEK",
+      "note": "a peek is a quick look"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is the abbreviation for American"
+     },
+     {
+      "clueFragment": "singer",
+      "gives": "TIT",
+      "note": "a tit is a small songbird"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KEEP",
+      "A",
+      "TIT"
+     ],
+     "reversals": [
+      {
+       "from": "PEEK",
+       "to": "KEEP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An American vocalist chasing an old-fashioned image.",
+     "walkthrough": "The 'singer' is a bird, not a performer: a tit is a common British songbird.",
+     "definitionFit": "To keep at it is to continue working steadily despite difficulty, which is persevering."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "singer"
+    }
+   }
   }
  ]
 }
