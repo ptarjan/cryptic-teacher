@@ -9,6 +9,7 @@
   "number",
   "series",
   "name",
+  "dimensions",
   "source",
   "solutions",
   "entries"
@@ -25,66 +26,6 @@
    ]
   }
  ],
- "if": {
-  "required": [
-   "dimensions"
-  ]
- },
- "then": {
-  "properties": {
-   "source": {
-    "required": [
-     "gridOrigin"
-    ]
-   },
-   "entries": {
-    "items": {
-     "required": [
-      "position"
-     ]
-    }
-   }
-  }
- },
- "else": {
-  "properties": {
-   "source": {
-    "not": {
-     "required": [
-      "gridOrigin"
-     ]
-    }
-   },
-   "entries": {
-    "items": {
-     "not": {
-      "required": [
-       "position"
-      ]
-     }
-    }
-   }
-  },
-  "not": {
-   "anyOf": [
-    {
-     "required": [
-      "bars"
-     ]
-    },
-    {
-     "required": [
-      "unclued"
-     ]
-    },
-    {
-     "required": [
-      "printed"
-     ]
-    }
-   ]
-  }
- },
  "additionalProperties": false,
  "properties": {
   "id": {
@@ -142,8 +83,7 @@
      "type": "integer",
      "minimum": 1
     }
-   },
-   "description": "The grid's size. Absent on a gridless puzzle: one filed from its clues alone, whose grid nobody has drawn yet (tools/reconstruct_grid.py may add it later). A puzzle has `dimensions` and every entry's `position` together, or neither; a gridless one has no `bars`, `unclued`, `printed` or `source.gridOrigin` either (tools/puzzle_schema.py has_grid)."
+   }
   },
   "bars": {
    "type": "array",
@@ -382,7 +322,7 @@
    ]
   },
   "gridOrigin": {
-   "description": "tools/provenance.py GRID_ORIGINS. Present exactly when the puzzle has a grid.",
+   "description": "tools/provenance.py GRID_ORIGINS.",
    "enum": [
     "published",
     "reconstructed",
@@ -426,6 +366,7 @@
    "required": [
     "number",
     "direction",
+    "position",
     "length",
     "clue"
    ],
@@ -439,7 +380,7 @@
      "$ref": "#/$defs/direction"
     },
     "position": {
-     "description": "The first cell, 0-based from the top left. Present on every entry of a puzzle with `dimensions` and on none of a gridless one's.",
+     "description": "The first cell, 0-based from the top left.",
      "type": "object",
      "required": [
       "x",
@@ -851,7 +792,8 @@
     "publisher",
     "retrievedFrom",
     "acquiredBy",
-    "acquiredOn"
+    "acquiredOn",
+    "gridOrigin"
    ],
    "additionalProperties": false,
    "properties": {
