@@ -41,6 +41,7 @@ import sys
 from collections.abc import Callable
 from dataclasses import dataclass
 from pathlib import Path
+from urllib.parse import urlparse
 
 TOOLS = Path(__file__).resolve().parent
 sys.path.insert(0, str(TOOLS))
@@ -403,11 +404,18 @@ def build(rec, row, series, date, setter, typed=None):
         "dimensions": {"cols": len(row["grid"][0]), "rows": len(row["grid"])},
         "source": {"url": rec["link"]},
         # The blog's own name: "timesforthetimes", "bigdave44".
-        "solutions": {"blog": series_meta.meta(series)["blog"].split(".")[0],
+        "solutions": {"blog": blog_name(series, rec["link"]),
                      "url": rec["link"],
                      "date": rec["date"], "check": check},
         "entries": out,
     }, None
+
+
+def blog_name(series, link):
+    """The blog's own name, "bigdave44": series.py's blog for a blog series,
+    else the host the post was read from."""
+    host = series_meta.meta(series).get("blog") or urlparse(link).netloc.removeprefix("www.")
+    return host.split(".")[0]
 
 
 def content(puzzle):

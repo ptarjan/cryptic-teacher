@@ -54,6 +54,9 @@ SIZE = {
     "Jumbo Cryptic": 23,
     # fifteensquared's category, for tools/ft_puzzles.py.
     "FT": 15,
+    # tools/indy_puzzles.py's series keys, off the same blog.
+    "independent": 15,
+    "indysunday": 15,
     # tools/parse_bigdave44.py's series keys.
     "telegraph": 15,
     "toughie": 15,
