@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,56 @@
     "text": "Order unhealthy food for one to tuck into?",
     "enumeration": "4"
    },
-   "solution": "FIAT"
+   "solution": "FIAT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FIAT",
+    "definitions": [
+     {
+      "text": "Order",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to tuck into",
+      "for": "container",
+      "note": "to tuck into a meal is to put it inside you, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unhealthy food",
+      "gives": "FAT",
+      "note": "fat is the food a dietitian warns against"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "I",
+      "AT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone picks junk food off a menu to eat themselves.",
+     "walkthrough": "'Order' looks like a request to a waiter, but it is the definition, in its sense of a command; 'for one' tells you the I is the one doing the eating.",
+     "definitionFit": "A fiat is an authoritative decree or command, the same as an order handed down from above."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Order"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +99,50 @@
     "text": "Odds on wet weather bringing physical injury",
     "enumeration": "6"
    },
-   "solution": "SPRAIN"
+   "solution": "SPRAIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SPRAIN",
+    "definitions": [
+     {
+      "text": "physical injury",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "bringing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Odds",
+      "gives": "SP",
+      "note": "SP is the starting price, the betting odds when a race begins"
+     },
+     {
+      "clueFragment": "wet weather",
+      "gives": "RAIN",
+      "note": "the commonest wet weather"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SP",
+      "RAIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A bookmaker's odds on a rainy day, and a fall on slippery ground.",
+     "walkthrough": "SP, short for starting price, is the racecourse abbreviation for the odds; 'on' simply places the two pieces side by side.",
+     "definitionFit": "A sprain is a twisted or wrenched joint, a common bodily injury to ankles or wrists."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Odds"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +156,56 @@
     "text": "Customer’s first request — quantity of beer?",
     "enumeration": "4"
    },
-   "solution": "CASK"
+   "solution": "CASK",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CASK",
+    "definitions": [
+     {
+      "text": "quantity of beer?",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first points to the opening letter of the word it follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Customer’s",
+      "gives": "C",
+      "select": "first",
+      "note": "the opening letter of the word"
+     },
+     {
+      "clueFragment": "request",
+      "gives": "ASK",
+      "note": "to ask is to request"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ASK"
+     ]
+    },
+    "explanation": {
+     "surface": "A pub customer's opening request at the bar is about how much beer to pour.",
+     "walkthrough": "The question mark admits the definition is loose: a cask is a container, and here stands for the amount of beer it holds.",
+     "definitionFit": "A cask is a barrel, and the beer filling one is a standard measured amount in the brewing trade."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "request"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +219,52 @@
     "text": "Hippy so hearty after manipulation — treatment to improve movement?",
     "enumeration": "13"
    },
-   "solution": "PHYSIOTHERAPY"
+   "solution": "PHYSIOTHERAPY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PHYSIOTHERAPY",
+    "definitions": [
+     {
+      "text": "treatment to improve movement?",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after manipulation",
+      "for": "anagram",
+      "note": "manipulation means handling and moving things about, so the letters are worked into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hippy so hearty",
+      "gives": "HIPPYSOHEARTY",
+      "note": "the thirteen letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HIPPYSOHEARTY",
+       "gives": "PHYSIOTHERAPY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hippy feels so well after a massage, as if the treatment loosened them up.",
+     "walkthrough": "'Manipulation' is doubly apt: physiotherapists manipulate joints, and the setter manipulates the letters.",
+     "definitionFit": "Physiotherapy treats injury and stiffness with exercise and massage, aiming to restore a patient's mobility."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "manipulation"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +278,61 @@
     "text": "Fellow at home entertaining the French minister",
     "enumeration": "8"
    },
-   "solution": "CHAPLAIN"
+   "solution": "CHAPLAIN",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CHAPLAIN",
+    "definitions": [
+     {
+      "text": "minister",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entertaining",
+      "for": "container",
+      "note": "to entertain guests is to take them into your house, so one piece goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fellow",
+      "gives": "CHAP",
+      "note": "a chap is a fellow"
+     },
+     {
+      "clueFragment": "at home",
+      "gives": "IN",
+      "note": "someone at home is in"
+     },
+     {
+      "clueFragment": "the French",
+      "gives": "LA",
+      "note": "la is French for the, feminine form"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAP",
+      "LA",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "A man at home hosts the French minister for dinner.",
+     "walkthrough": "'The French minister' reads as one political figure, but 'the French' is LA and 'minister' alone is the definition; LA goes into CHAPIN.",
+     "definitionFit": "A chaplain is a clergyman attached to a college, regiment or hospital, so a minister of religion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "French"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +346,56 @@
     "text": "Strangers beginning to assert legal rights",
     "enumeration": "6"
    },
-   "solution": "ALIENS"
+   "solution": "ALIENS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ALIENS",
+    "definitions": [
+     {
+      "text": "Strangers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "assert",
+      "gives": "A",
+      "select": "first",
+      "note": "the opening letter of the word"
+     },
+     {
+      "clueFragment": "legal rights",
+      "gives": "LIENS",
+      "note": "a lien is a legal right to keep someone's property until a debt is paid"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "LIENS"
+     ]
+    },
+    "explanation": {
+     "surface": "Foreigners start insisting on their rights in law.",
+     "walkthrough": "A lien is a lawyer's word: the right to hold goods against an unpaid debt, as a garage may hold a repaired car.",
+     "definitionFit": "Aliens are foreigners or outsiders, people unfamiliar or from elsewhere, which is what strangers are."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "assert"
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +409,73 @@
     "text": "Clothes ink spoilt and water ruined",
     "enumeration": "8"
    },
-   "solution": "KNITWEAR"
+   "solution": "KNITWEAR",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "KNITWEAR",
+    "definitions": [
+     {
+      "text": "Clothes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spoilt",
+      "for": "anagram",
+      "note": "something spoilt has been damaged out of its proper shape, so its letters are rearranged"
+     },
+     {
+      "text": "ruined",
+      "for": "anagram",
+      "note": "something ruined is wrecked and broken up, so its letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ink",
+      "gives": "INK",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "water",
+      "gives": "WATER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KNI",
+      "TWEAR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INK",
+       "gives": "KNI"
+      },
+      {
+       "fodder": "WATER",
+       "gives": "TWEAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A garment is ruined by spilt ink and a soaking.",
+     "walkthrough": "Each word is scrambled separately and the results joined; 'Clothes' looks like part of the laundry disaster but is the definition.",
+     "definitionFit": "Knitwear covers jumpers, cardigans and other knitted garments, a category of clothing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Clothes"
+    }
+   }
   },
   {
    "number": 8,
@@ -131,7 +489,54 @@
     "text": "Charge every individual backing mischief-maker",
     "enumeration": "7"
    },
-   "solution": "IMPEACH"
+   "solution": "IMPEACH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IMPEACH",
+    "definitions": [
+     {
+      "text": "Charge",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backing",
+      "for": "charade",
+      "note": "to back someone is to stand behind them, so one piece follows the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mischief-maker",
+      "gives": "IMP",
+      "note": "an imp is a mischievous child or sprite"
+     },
+     {
+      "clueFragment": "every individual",
+      "gives": "EACH",
+      "note": "each means every one taken individually"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IMP",
+      "EACH"
+     ]
+    },
+    "explanation": {
+     "surface": "Every person in the room supports the troublemaker, and a charge is laid.",
+     "walkthrough": "'Backing' here does not turn letters round: it means supporting from behind, so the piece for everyone comes after the troublemaker.",
+     "definitionFit": "To impeach a public official is to formally accuse them of misconduct, bringing a charge against them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "backing"
+    }
+   }
   },
   {
    "number": 9,
@@ -145,7 +550,45 @@
     "text": "Girl making Rachel envious to some extent",
     "enumeration": "5"
    },
-   "solution": "HELEN"
+   "solution": "HELEN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "HELEN",
+    "definitions": [
+     {
+      "text": "Girl",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to some extent",
+      "for": "hidden_word",
+      "note": "only to some extent means only partly, so just a portion of the letters is used"
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rachel envious",
+      "gives": "HELEN",
+      "note": "the run of letters across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "One girl is making her friend Rachel jealous.",
+     "walkthrough": "The letters straddle the end of the name and the start of 'envious'.",
+     "definitionFit": "Helen is a common female given name, and crosswords use 'girl' for any girl's name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -159,7 +602,64 @@
     "text": "Go after vehicle returning with king",
     "enumeration": "5"
    },
-   "solution": "TRACK"
+   "solution": "TRACK",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "TRACK",
+    "definitions": [
+     {
+      "text": "Go after",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means going back the way it came, so the letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vehicle",
+      "gives": "CART",
+      "note": "a cart is a simple vehicle"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "K",
+      "note": "K is the chess abbreviation for king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRAC",
+      "K"
+     ],
+     "reversals": [
+      {
+       "from": "CART",
+       "to": "TRAC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pursue the car coming back with the monarch inside.",
+     "walkthrough": "The vehicle is turned round before the king is added at the end.",
+     "definitionFit": "To track someone is to follow their trail and pursue them, so to chase or go after them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "returning"
+    }
+   }
   },
   {
    "number": 11,
@@ -173,7 +673,52 @@
     "text": "Wise, misconstrued as “inept”",
     "enumeration": "7"
    },
-   "solution": "SAPIENT"
+   "solution": "SAPIENT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SAPIENT",
+    "definitions": [
+     {
+      "text": "Wise",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "misconstrued",
+      "for": "anagram",
+      "note": "to misconstrue is to read something wrongly, putting it in the wrong arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "as “inept”",
+      "gives": "ASINEPT",
+      "note": "the seven letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ASINEPT",
+       "gives": "SAPIENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wise person is wrongly taken for a fool.",
+     "walkthrough": "'As' looks like a link word but is part of the letters to rearrange, with 'inept'.",
+     "definitionFit": "Sapient is a formal, rather literary adjective for having great knowledge and good judgement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "as"
+    }
+   }
   },
   {
    "number": 12,
@@ -187,7 +732,57 @@
     "text": "Time messenger comes with duck and fruit",
     "enumeration": "7"
    },
-   "solution": "TANGELO"
+   "solution": "TANGELO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TANGELO",
+    "definitions": [
+     {
+      "text": "fruit",
+      "at": 35
+     }
+    ],
+    "linkWords": [
+     "comes with",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "messenger",
+      "gives": "ANGEL",
+      "note": "angel comes from the Greek for messenger, God's messenger"
+     },
+     {
+      "clueFragment": "duck",
+      "gives": "O",
+      "note": "a duck in cricket is a score of nothing, so the round letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ANGEL",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A courier arrives on time bringing a duck and some fruit, perhaps for dinner.",
+     "walkthrough": "A cricketer out without scoring has made a duck, and nought looks like O.",
+     "definitionFit": "A tangelo is a citrus hybrid of tangerine and pomelo or grapefruit, a kind of fruit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "duck"
+    }
+   }
   },
   {
    "number": 12,
@@ -201,7 +796,59 @@
     "text": "The son, affectedly religious, an actor",
     "enumeration": "8"
    },
-   "solution": "THESPIAN"
+   "solution": "THESPIAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "THESPIAN",
+    "definitions": [
+     {
+      "text": "actor",
+      "at": 34
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The",
+      "gives": "THE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     },
+     {
+      "clueFragment": "affectedly religious",
+      "gives": "PI",
+      "note": "pi is schoolboy slang for pious, showily devout"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THE",
+      "S",
+      "PI",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "A sanctimonious son turns out to be a performer.",
+     "walkthrough": "PI, short for pious, is British slang for someone ostentatiously or sanctimoniously religious.",
+     "definitionFit": "Thespian, from Thespis the Greek dramatist, is a slightly jocular word for an actor or actress."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "affectedly"
+    }
+   }
   },
   {
    "number": 13,
@@ -215,7 +862,51 @@
     "text": "Huge animal damaged a net — help!",
     "enumeration": "8"
    },
-   "solution": "ELEPHANT"
+   "solution": "ELEPHANT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ELEPHANT",
+    "definitions": [
+     {
+      "text": "Huge animal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "damaged",
+      "for": "anagram",
+      "note": "something damaged is knocked out of shape, so the letters are put in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a net — help",
+      "gives": "ANETHELP",
+      "note": "the eight letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ANETHELP",
+       "gives": "ELEPHANT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A giant beast has torn through a net and someone calls for assistance.",
+     "walkthrough": "The cry for aid is not an exclamation in the cryptic reading: its letters join the net's in the mix.",
+     "definitionFit": "The elephant is the largest living land mammal, so the obvious huge animal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "help"
+    }
+   }
   },
   {
    "number": 14,
@@ -229,7 +920,55 @@
     "text": "Man maybe at the east side of a passage",
     "enumeration": "5"
    },
-   "solution": "AISLE"
+   "solution": "AISLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AISLE",
+    "definitions": [
+     {
+      "text": "passage",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the east side of",
+      "for": "charade",
+      "note": "east is the right-hand side of a map, so this piece is written to the right"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Man maybe",
+      "gives": "ISLE",
+      "note": "the Isle of Man is an example of an isle, hence 'maybe'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "ISLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A man stands at the eastern end of a corridor.",
+     "walkthrough": "'Man' is capitalised at the start, hiding that it means the Isle of Man, the island between Britain and Ireland; in an across answer, east means after.",
+     "definitionFit": "An aisle is a walkway between rows of seats or shelves, a narrow passage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Man"
+    }
+   }
   },
   {
    "number": 15,
@@ -243,7 +982,71 @@
     "text": "Left work in the middle of week to go to Gretna Green?",
     "enumeration": "5"
    },
-   "solution": "ELOPE"
+   "solution": "ELOPE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ELOPE",
+    "definitions": [
+     {
+      "text": "go to Gretna Green?",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the middle of",
+      "for": "letter_selection",
+      "note": "the middle of a word is its central letters, with the ends dropped"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside another"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "OP",
+      "note": "op, short for opus, is a work"
+     },
+     {
+      "clueFragment": "week",
+      "gives": "EE",
+      "select": "middle",
+      "note": "the two central letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "LOP",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone walks out of the office midweek to get married in secret.",
+     "walkthrough": "Gretna Green is a Scottish border village where English couples fled to marry without parental consent; the question mark marks the definition as an example.",
+     "definitionFit": "To elope is to run away secretly to marry, and Gretna Green was the classic destination for such runaway weddings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Left"
+    }
+   }
   },
   {
    "number": 16,
@@ -257,7 +1060,48 @@
     "text": "More than one mammal staggers with head hidden",
     "enumeration": "6"
    },
-   "solution": "OTTERS"
+   "solution": "OTTERS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "OTTERS",
+    "definitions": [
+     {
+      "text": "More than one mammal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with head hidden",
+      "for": "deletion",
+      "note": "a hidden head is out of sight, so the opening letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "staggers",
+      "gives": "POTTERS",
+      "note": "to potter is to move about aimlessly or unsteadily"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OTTERS"
+     ]
+    },
+    "explanation": {
+     "surface": "An animal reels about, ducking its head.",
+     "walkthrough": "'Staggers' must be read as a verb meaning wanders unsteadily, giving the word before its first letter is removed.",
+     "definitionFit": "Otters are aquatic mammals of the weasel family, and the plural answer matches 'more than one'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "staggers"
+    }
+   }
   },
   {
    "number": 17,
@@ -271,7 +1115,56 @@
     "text": "German city worker cut short series of deliveries",
     "enumeration": "7"
    },
-   "solution": "HANOVER"
+   "solution": "HANOVER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "HANOVER",
+    "definitions": [
+     {
+      "text": "German city",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut short",
+      "for": "deletion",
+      "note": "cutting something short trims off its end, so the last letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "worker",
+      "gives": "HAND",
+      "note": "a hand is a manual worker, as in farmhand"
+     },
+     {
+      "clueFragment": "series of deliveries",
+      "gives": "OVER",
+      "note": "in cricket an over is a set of six balls bowled by one bowler"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAN",
+      "OVER"
+     ]
+    },
+    "explanation": {
+     "surface": "A delivery worker in a German city has their round shortened.",
+     "walkthrough": "'Deliveries' suggests post, but these are balls bowled in cricket, six to an over.",
+     "definitionFit": "Hanover is a major city in northern Germany, capital of Lower Saxony."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "deliveries"
+    }
+   }
   },
   {
    "number": 18,
@@ -285,7 +1178,54 @@
     "text": "Bag is buried in valley",
     "enumeration": "6"
    },
-   "solution": "VALISE"
+   "solution": "VALISE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "VALISE",
+    "definitions": [
+     {
+      "text": "Bag",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "buried in",
+      "for": "container",
+      "note": "something buried lies inside the ground around it, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "valley",
+      "gives": "VALE",
+      "note": "a vale is a valley"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VAL",
+      "IS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A bag lies buried somewhere in a valley.",
+     "walkthrough": "VALE is the poetic word for valley, and it surrounds the second word.",
+     "definitionFit": "A valise is a small travelling case or suitcase, a kind of luggage bag."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -299,7 +1239,43 @@
     "text": "One throwing large jug",
     "enumeration": "7"
    },
-   "solution": "PITCHER"
+   "solution": "PITCHER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PITCHER",
+    "definitions": [
+     {
+      "text": "One throwing",
+      "at": 0
+     },
+     {
+      "text": "large jug",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One throwing",
+      "note": "first meaning: the baseball player who throws the ball to the batter"
+     },
+     {
+      "clueFragment": "large jug",
+      "note": "second meaning: a big jug with a lip and handle for pouring"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as someone hurling a big jug; the two halves are independent meanings of one word.",
+     "definitionFit": "In baseball the one who throws is the pitcher, and a pitcher is also a large pouring jug."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "throwing"
+    }
+   }
   },
   {
    "number": 20,
@@ -313,7 +1289,55 @@
     "text": "Under arch, offering accommodation for the Spanish",
     "enumeration": "5"
    },
-   "solution": "BELOW"
+   "solution": "BELOW",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BELOW",
+    "definitions": [
+     {
+      "text": "Under",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "offering accommodation for",
+      "for": "container",
+      "note": "to accommodate a guest is to house them, so one piece holds another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "arch",
+      "gives": "BOW",
+      "note": "a bow is a curved arch shape"
+     },
+     {
+      "clueFragment": "the Spanish",
+      "gives": "EL",
+      "note": "el is Spanish for the"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "EL",
+      "OW"
+     ]
+    },
+    "explanation": {
+     "surface": "Beneath an archway, lodging is offered to Spaniards.",
+     "walkthrough": "'Under arch' looks like a single phrase, but 'Under' alone is the definition and the arch is the outer piece.",
+     "definitionFit": "Below and under both mean in a lower position than something, so they are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "arch"
+    }
+   }
   },
   {
    "number": 20,
@@ -327,7 +1351,43 @@
     "text": "Sounding unhappy, exhaled forcefully",
     "enumeration": "4"
    },
-   "solution": "BLEW"
+   "solution": "BLEW",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BLEW",
+    "definitions": [
+     {
+      "text": "exhaled forcefully",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Sounding",
+      "for": "homophone",
+      "note": "sounding points to how a word is said rather than spelt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unhappy",
+      "gives": "BLEW",
+      "soundsLike": "BLUE",
+      "note": "feeling blue is feeling sad"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone sighing heavily sounds miserable.",
+     "walkthrough": "The sad colour word and the past tense of the verb to blow are pronounced identically.",
+     "definitionFit": "Blew is the past tense of blow, which means to send out air hard from the mouth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -341,7 +1401,42 @@
     "text": "Some new idea of great scope",
     "enumeration": "4"
    },
-   "solution": "WIDE"
+   "solution": "WIDE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "WIDE",
+    "definitions": [
+     {
+      "text": "of great scope",
+      "at": 14
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some means only a part, so just a portion of the letters is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "new idea",
+      "gives": "WIDE",
+      "note": "the run of letters across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A fresh concept with ambitious reach.",
+     "walkthrough": "The letters bridge the end of 'new' and the start of 'idea'.",
+     "definitionFit": "Something wide in range covers a lot, as in wide-ranging; great scope is broad extent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -355,7 +1450,55 @@
     "text": "Professional wearing an outer garment for protection",
     "enumeration": "5"
    },
-   "solution": "APRON"
+   "solution": "APRON",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "APRON",
+    "definitions": [
+     {
+      "text": "outer garment for protection",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wearing",
+      "for": "container",
+      "note": "someone wearing clothes is inside them, so one piece sits within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Professional",
+      "gives": "PRO",
+      "note": "pro is short for professional"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "PRO",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A tradesman puts on an overall to keep their clothes clean.",
+     "walkthrough": "The surface makes 'an outer garment' a single phrase, but 'an' goes around the professional and the rest is the definition.",
+     "definitionFit": "An apron is tied over the front of clothes to shield them from dirt or spills while working."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "an"
+    }
+   }
   },
   {
    "number": 23,
@@ -369,7 +1512,54 @@
     "text": "Delighted editor backing requests",
     "enumeration": "7"
    },
-   "solution": "PLEASED"
+   "solution": "PLEASED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PLEASED",
+    "definitions": [
+     {
+      "text": "Delighted",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backing",
+      "for": "charade",
+      "note": "to back something is to stand behind it in support, so one piece comes after the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "requests",
+      "gives": "PLEAS",
+      "note": "pleas are earnest requests"
+     },
+     {
+      "clueFragment": "editor",
+      "gives": "ED",
+      "note": "ED is the abbreviation for editor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLEAS",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A happy editor supports the appeals sent in.",
+     "walkthrough": "'Backing' does not turn letters round here: it means supporting from behind, so the editor goes at the end.",
+     "definitionFit": "Pleased and delighted both describe feeling happy and satisfied with something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "backing"
+    }
+   }
   }
  ]
 }
