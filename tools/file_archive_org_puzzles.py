@@ -16,28 +16,29 @@ NewsUK19xxUKEnglish, and files each "Times Crossword Puzzle No N" as times-N:
     two columns under the grid, cut where the column's text stops being clues
     ("Solution to Puzzle No", another heading, a gap).
   - The columns are read three ways: archive.org's words, and RapidOCR at
-    twice the size with two recognisers (English PP-OCRv3, multilingual
-    PP-OCRv4). Each is parsed as file_trove_puzzles.py parses Trove's text,
-    after tidy() undoes the print's commonest slips, and each list is
-    repaired from another reading (tools/trove_clue_ocr.py). Where
-    archive.org's OCR has no words for the columns, the two recognisers are
-    the two readings.
+    twice the size with two recognisers (multilingual PP-OCRv4 and English
+    PP-OCRv5, READERS). Each is parsed as file_trove_puzzles.py parses
+    Trove's text, after tidy() undoes the print's commonest slips, and each
+    list is repaired from another reading (tools/trove_clue_ocr.py).
   - The grid read off the scan is used when it is symmetric and a list lies
     on it whole, or when at least LOOSE_SHARE of its lights each take a
     clue by that clue's own number and count (lay_loose); the rest are
     misreads, filed blank. Else it is rebuilt from the clue list
     (tools/reconstruct_grid.py), nearest the scan when several fit, and the
     puzzle is filed only when the clues lie on the rebuilt grid.
-  - Every clue is then put to a second reading: kept when the two agree on
-    every word, or when each word spelt differently is settled by exactly
-    one spelling being a dictionary word; filed blank (its count kept)
-    when they differ otherwise, when both read one non-word, when its count
+  - Every clue's words and marks are then put to the other readings
+    (agree): each word takes the one spelling of the three the committed
+    lexicon has, else the lexicon spelling most readings share; a non-word
+    stands only when all three read it (or two read it as a name); a mark
+    no other reading has is dropped. The clue
+    is filed blank (its count kept) when no spelling wins, when its count
     was lost, or when it holds another clue's number.
   - The answers come from the solution grid a later edition prints under
     "Solution to Puzzle No N", read by tools/trove_solution_ocr.py: a light
     only when every letter is read surely and no crossing disagrees, and the
     whole solution only when its blocks are the puzzle's.
-  - A number already held is not written: the reading goes to
+  - A number already held is not written (unless this tool filed it and the
+    new reading beats it on clues or answers, improves): the reading goes to
     ~/cryptic-setter-data/archiveorg-source/, where tools/cross_validate.py's
     `archiveorg` adapter votes with it. Every reading goes there, filed or not.
 
@@ -200,16 +201,33 @@ def columns(lines, grid):
 _ENGINES = {}
 #: RapidOCR reads the 200dpi print (~17px a line) far better twice the size.
 UPSCALE = 2
+#: The clue columns' second and third readers: RapidOCR's own multilingual
+#: PP-OCRv4 recogniser ("ch") and English PP-OCRv5 mobile ("en5"), the two
+#: that misread fewest clue words on hand-checked 1974, 1990 and 1995 crops
+#: (22% and 26% of tokens, against English PP-OCRv3's 50% and PP-OCRv4's
+#: 56%; the server recognisers cost over 20 times as long).
+READERS = {"ch": None, "en5": Path(os.path.expanduser("~/.cache/rapidocr/en_PP-OCRv5_rec_mobile_infer.onnx"))}
+MODEL_URL = ("https://www.modelscope.cn/models/RapidAI/RapidOCR/resolve/v3.4.0/onnx/PP-OCRv5/rec/"
+             "en_PP-OCRv5_rec_mobile_infer.onnx")
 
 
 def engine(which):
-    """RapidOCR with English PP-OCRv3's recogniser ("en", tools/trove_clue_ocr.py's)
-    or its own multilingual PP-OCRv4 ("ch"): two readers that err differently."""
+    """RapidOCR with the recogniser READERS names, the model fetched once."""
     if which not in _ENGINES:
         from rapidocr_onnxruntime import RapidOCR
-        extra = [m for m in trove_solution_ocr.EXTRA_MODELS if m.exists()]
-        _ENGINES[which] = (RapidOCR(rec_model_path=str(extra[0])) if which == "en" and extra
-                           else RapidOCR())
+        model = READERS[which]
+        if model is not None and not model.exists():
+            import urllib.request
+            model.parent.mkdir(parents=True, exist_ok=True)
+            req = urllib.request.Request(MODEL_URL, headers={"User-Agent": "cryptic-teacher"})
+            try:
+                data = urllib.request.urlopen(req, timeout=300).read()
+            except OSError as e:
+                raise RuntimeError(f"cannot fetch {MODEL_URL} to {model}: {e}") from e
+            tmp = model.with_suffix(".part")
+            tmp.write_bytes(data)
+            tmp.replace(model)
+        _ENGINES[which] = RapidOCR(rec_model_path=str(model)) if model else RapidOCR()
     return _ENGINES[which]
 
 
@@ -340,65 +358,143 @@ def align(mine, theirs):
     return out[::-1]
 
 
-def agree(clue, stream_words):
-    """(text or None, how) for one clue against the other reading's words:
-    the clue's text where the two agree on every word, or where each word
-    they spell differently is settled by exactly one spelling being a
-    dictionary word (the clue then takes it). A word only one reading has,
-    or two different dictionary words, is a disagreement."""
-    mine = tokens(clue)
-    if not mine:
+_LEXICON = None
+
+
+def rank(word):
+    """A word's frequency rank in tools/data/lexicon.tsv (1 the commonest),
+    or None when the lexicon lacks it."""
+    global _LEXICON
+    if _LEXICON is None:
+        _LEXICON = {}
+        with open(TOOLS / "data" / "lexicon.tsv", encoding="utf-8") as f:
+            for line in f:
+                if not line.startswith("#"):
+                    w, r = line.split("\t", 2)[:2]
+                    _LEXICON.setdefault(w.lower(), int(r))
+    return _LEXICON.get(word.lower()) or _LEXICON.get(word.lower().replace("'", ""))
+
+
+def is_word(word):
+    """Whether the committed lexicon has the word (cmudict and WordNet are
+    too loose here: they hold "al", "imo" and "chaft")."""
+    return rank(word) is not None or word.lower() in ("a", "i")
+
+
+#: Punctuation inside a clue that the readings vote on like words.
+MARKS = ",;:!?"
+
+
+def marked(text):
+    """The words and the voted punctuation marks of a text, in order."""
+    return re.findall(r"[A-Za-z]+(?:'[A-Za-z]+)?|[" + MARKS + "]", text)
+
+
+def agree(clue, others):
+    """(text or None, how) for one clue against the other readings' words
+    and marks (`others`: one list per reading, or one list alone). Each word
+    stands when another reading has it too; else it takes the spelling the
+    other readings share, else the one spelling of the three that is a
+    dictionary word. A mark no other reading has is dropped. A word no
+    other reading has, two readings agreeing on a non-word the third does
+    not, or several dictionary spellings, is a disagreement."""
+    if others and isinstance(others[0], str):
+        others = [others]
+    mine = marked(clue)
+    if not tokens(clue):
         return clue, "no words"
     low = [w.lower() for w in mine]
-    sl = [w.lower() for w in stream_words]
-    known, _ = ftp.words()
-    pairs = align(low, sl)
-    fixes, settled = {}, False
-    for i, j in pairs:
-        if j is None:
-            return None, f"the other reading lacks {mine[i]!r}"
-        a, b = low[i], sl[j]
-        if a == b and i and mine[i] != stream_words[j] and mine[i][0].isupper():
-            # A capital one reader saw inside the clue and the other did not.
-            fixes[i] = stream_words[j]
+    seen = [{} for _ in mine]  # i -> {reading k: its word}
+    for k, theirs in enumerate(others):
+        for i, j in align(low, [w.lower() for w in theirs]):
+            if j is not None:
+                seen[i][k] = theirs[j]
+    fixes, drop, how = {}, set(), "agree"
+    for i, w in enumerate(mine):
+        a = low[i]
+        got = {k: v for k, v in seen[i].items() if v not in MARKS}
+        if w in MARKS:
+            if others and w not in seen[i].values():
+                drop.add(i)
             continue
-        if a == b:
-            if len(a) > 3 and not mine[i][0].isupper() and a not in known \
-                    and a.replace("'", "") not in known:
-                # Both readers making one misreading of a common word.
-                return None, f"both read {mine[i]!r}, not a word"
-            continue
-        a_ok, b_ok = a.replace("'", "") in known or a in known, b in known
-        if a_ok and not b_ok and similar(a, b) >= 0.6:
-            settled = True
-            continue
-        if b_ok and not a_ok and similar(a, b) >= 0.6:
-            fixes[i] = stream_words[j]
-            continue
-        return None, f"readings differ: {mine[i]} / {stream_words[j]}"
-    if not fixes:
-        return clue, "settled by the dictionary" if settled else "agree"
-    text, k = clue, 0
+        if not got:
+            return None, f"no other reading has {w!r}"
+        votes = {a: 1}
+        spelt = {a: w}
+        for v in got.values():
+            votes[v.lower()] = votes.get(v.lower(), 0) + 1
+            spelt.setdefault(v.lower(), v)
+        if i and w[0].isupper() and any(v[0].islower() for v in got.values() if v.lower() == a):
+            # A capital one reader saw inside the clue and another did not.
+            spelt[a] = next(v for v in got.values() if v.lower() == a)
+            how = "settled by the dictionary"
+        words_ = [s for s in votes if is_word(s) and (s == a or similar(a, s) >= 0.6)]
+        if len(words_) > 1:
+            # Several dictionary spellings: the one most readings share, else
+            # one far commoner than the rest.
+            top = sorted(words_, key=lambda s: -votes[s])
+            if votes[top[0]] > votes[top[1]]:
+                words_ = top[:1]
+            else:
+                by_rank = sorted(words_, key=lambda s: rank(s) or 10 ** 9)
+                if (rank(by_rank[0]) or 10 ** 9) * 3 < (rank(by_rank[1]) or 10 ** 9):
+                    words_ = by_rank[:1]
+        if len(words_) == 1:
+            pick = words_[0]
+            if pick != a or votes[a] == 1:
+                how = "settled by the dictionary"
+        elif words_:
+            return None, f"readings differ: {w} / {' / '.join(got.values())}"
+        elif votes[a] >= 3 or (votes[a] > 1 and w[0].isupper()):
+            # No reading a dictionary word: what three readers saw stands,
+            # and a name two saw.
+            pick = a
+        elif max(votes.values()) > 1 and votes[a] == 1 and len(a) > 3 and w[0].islower():
+            return None, f"two readings agree on a non-word: {w} / {' / '.join(got.values())}"
+        else:
+            return None, (f"both read {w!r}, not a word" if votes[a] > 1
+                          else f"readings differ: {w} / {' / '.join(got.values())}")
+        if spelt[pick] != w:
+            fixes[i] = spelt[pick]
+    if not fixes and not drop:
+        return clue, how
+    text, k, out = clue, 0, ""
     for i, old in enumerate(mine):
         at = text.find(old, k)
-        new = fixes.get(i, old)
-        if i == 0 and mine[i][0].isupper():
+        new = "" if i in drop else fixes.get(i, old)
+        if new and i == 0 and old[0].isupper():
             new = new[0].upper() + new[1:]
-        text = text[:at] + new + text[at + len(old):]
-        k = at + len(new)
-    return text, "settled by the dictionary"
+        out += text[k:at] + new
+        k = at + len(old)
+    out += text[k:]
+    if drop and how == "agree":
+        how = "settled by the readings"
+    return re.sub(r"\s+([" + MARKS + "])", r"\1", re.sub(r"  +", " ", out)).strip(), how
 
 
-def reconcile(laid, stream):
-    """The laid clues with each clue's text put to both readings; returns
-    (laid, {light: why}) naming each clue filed blank. `stream` is the other
-    reading's text, or {light: the other reading's text} where the lights
-    were laid from different readings."""
-    words = tokens(stream) if isinstance(stream, str) else None
-    per = {k: tokens(v) for k, v in stream.items()} if words is None else {}
+def clean(text):
+    """A reading without OCR's specks: a not-sign read for the hyphen that
+    breaks a word over a line end is the join, and an asterisk or bullet
+    beside a word is no part of it."""
+    text = re.sub(r"\s*[*•|]+(?=\s|$)", "", re.sub(r"(?<=[a-z])¬\s*(?=[a-z])", "", text))
+    # A word broken over a line end is one word when the lexicon has it whole.
+    return re.sub(r"\b([A-Za-z]+)- ([a-z]+)\b",
+                  lambda m: m.group(1) + m.group(2) if is_word(m.group(1) + m.group(2))
+                  else f"{m.group(1)}-{m.group(2)}", text)
+
+
+def reconcile(laid, streams):
+    """The laid clues with each clue's text put to every reading; returns
+    (laid, {light: why}) naming each clue filed blank. `streams` holds each
+    other reading's text, or {light: that reading's text} where the lights
+    were laid from different readings; one text or dict alone is one reading."""
+    if isinstance(streams, (str, dict)):
+        streams = [streams]
+    whole = [marked(clean(s)) for s in streams if isinstance(s, str)]
+    per = [{k: marked(clean(v)) for k, v in s.items()} for s in streams if isinstance(s, dict)]
     out, blank = {}, {}
     for lid, (text, enum, group) in laid.items():
-        other = words if words is not None else per.get(lid, [])
+        other = whole + [p.get(lid, []) for p in per]
         if ftp.SEE_RE.match(text or ""):
             out[lid] = (text, enum, group)
             continue
@@ -416,8 +512,11 @@ def reconcile(laid, stream):
             blank[lid] = "no count read"
             out[lid] = ("", enum, group)
             continue
-        # A word the paper hyphenated over a line end keeps its hyphen.
-        text = re.sub(r"(?<=[a-z])- (?=[a-z])", "-", text)
+        text = clean(text)
+        # The clue's own number read twice ("21 21 The woman", "1 11 Money").
+        lead = re.match(r"(\d{1,2}) (?=[A-Z\"'])", text)
+        if lead and lead.group(1) in lid.split("-")[0]:
+            text = text[lead.end():]
         got, how = agree(text, other)
         if got is None:
             blank[lid] = how
@@ -570,7 +669,7 @@ def read_puzzle(d, found, hit, solutions):
         return verdict, None
     key = f"{d.name}_{n}"
     texts = {"djvu": column_text(columns(lines, gbox))}
-    for which in ("en", "ch"):
+    for which in READERS:
         texts[which] = column_text(columns(
             rapid_lines(img, gbox, which, CROPS / "rapid" / f"{key}.{which}.json"), gbox))
     # archive.org's words and RapidOCR's are the two readings; where
@@ -591,8 +690,8 @@ def read_puzzle(d, found, hit, solutions):
     # RapidOCR's two recognisers against each other. The first list that
     # lies on the scanned grid wins; failing all, the most complete list is
     # rebuilt.
-    pairs = ([("djvu", "en"), ("en", "djvu"), ("djvu", "ch"), ("ch", "djvu")]
-             if texts["djvu"].strip() else [("en", "ch"), ("ch", "en")])
+    pairs = ([("djvu", "ch"), ("ch", "djvu"), ("djvu", "en5"), ("en5", "djvu")]
+             if texts["djvu"].strip() else [("ch", "en5"), ("en5", "ch")])
     tried = []
     for order in pairs:
         parsed, why = parse(texts[order[0]])
@@ -613,7 +712,8 @@ def read_puzzle(d, found, hit, solutions):
     verdict["readings"] = list(order)
     verdict["clues"] = count
     verdict["complete"] = done
-    stream = texts[order[1]]
+    # Every other reading votes on the list's words.
+    stream = [t for k, t in texts.items() if k != order[0] and t.strip()]
     grid, how = (g, "image") if ok else (None, None)
     if g and not ok:
         verdict["imageDisagrees"] = why
@@ -630,7 +730,8 @@ def read_puzzle(d, found, hit, solutions):
         if len(loose) >= LOOSE_SHARE * len(rg.light_cells(g)):
             grid, how, laid = g, "image", loose
             verdict["readings"] = sorted({o[0] for o in src.values()})
-            stream = {lid: texts[o[1]] for lid, o in src.items()}
+            stream = [{lid: t for lid, o in src.items() if k != o[0]}
+                      for k, t in texts.items() if t.strip()]
     if grid is None:
         g, why = ftp.rebuild(parsed, image)
         if g is None:
@@ -764,15 +865,15 @@ def run(cache=CACHE, write=True, ledger=None, out=sys.stdout, puzzles=None, limi
                 if write:
                     source.mkdir(parents=True, exist_ok=True)
                     (source / f"{puzzle['id']}.json").write_text(json.dumps(puzzle, indent=1))
-                if hit["number"] in held and not puzzles:
+                path = (Path(puzzles) / f"{puzzle['id']}.json" if puzzles
+                        else puzzle_path(SERIES, puzzle["number"]))
+                better = path.exists() and improves(puzzle, path)
+                if hit["number"] in held and not puzzles and not better:
                     verdict["skip"] = "already held: the reading votes in cross_validate.py"
-                elif write:
-                    path = (Path(puzzles) / f"{puzzle['id']}.json" if puzzles
-                            else puzzle_path(SERIES, puzzle["number"]))
-                    if not path.exists():
-                        write_puzzle_file(path, puzzle, generator=TOOL)
-                        verdict["wrote"] = True
-                        held.add(hit["number"])
+                elif write and (better or not path.exists()):
+                    write_puzzle_file(path, puzzle, generator=TOOL)
+                    verdict["wrote"] = True
+                    held.add(hit["number"])
             verdicts.append(verdict)
         known[rel] = {"edition": rel, "hash": h, "scan": scans[rel], "filesHash": input_hash(d, ""),
                       "solutionsSeen": sol_seen, "verdicts": verdicts}
@@ -785,6 +886,25 @@ def run(cache=CACHE, write=True, ledger=None, out=sys.stdout, puzzles=None, limi
     for k in sorted(tally):
         print(f"  {tally[k]:5d}  {k}", file=out)
     return list(known.values())
+
+
+def filled(puzzle):
+    """(clues with text, answers) of a puzzle."""
+    es = puzzle["entries"]
+    return (sum(1 for e in es if ((e.get("clue") or {}).get("text") or "").strip()),
+            sum(1 for e in es if e.get("solution")))
+
+
+def improves(puzzle, path):
+    """Whether `puzzle` should replace the file at `path`: one this tool
+    filed, on the same grid, that the new reading beats on clues or answers
+    and loses on neither."""
+    old = json.loads(path.read_text())
+    if (old.get("source") or {}).get("acquiredBy") != TOOL \
+            or trove_solution_ocr.puzzle_grid(old) != trove_solution_ocr.puzzle_grid(puzzle):
+        return False
+    new, was = filled(puzzle), filled(old)
+    return new != was and all(n >= w for n, w in zip(new, was))
 
 
 def save(ledger, known):
