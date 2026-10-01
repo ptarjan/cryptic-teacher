@@ -24,6 +24,9 @@
   "date": "2026-03-23",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,47 @@
     "text": "Away result hurt",
     "enumeration": "6"
    },
-   "solution": "OFFEND"
+   "solution": "OFFEND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OFFEND",
+    "definitions": [
+     {
+      "text": "hurt",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Away",
+      "gives": "OFF",
+      "note": "to be off is to be away, gone"
+     },
+     {
+      "clueFragment": "result",
+      "gives": "END",
+      "note": "an end is an outcome or result"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OFF",
+      "END"
+     ]
+    },
+    "explanation": {
+     "surface": "A football fan sums up the pain of losing an away match.",
+     "walkthrough": "The surface reads as a sports report about a painful away defeat; really the first two words are joined end to end and the last word defines.",
+     "definitionFit": "To offend someone is to wound their feelings, a direct verb synonym for causing hurt."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Away"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +94,63 @@
     "text": "A very fine meal is full of?",
     "enumeration": "7"
    },
-   "solution": "FLAVOUR"
+   "solution": "FLAVOUR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FLAVOUR",
+    "definitions": [
+     {
+      "text": "?",
+      "at": 28,
+      "note": "the question mark is a blank the answer fills to finish the sentence"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is full of",
+      "for": "container",
+      "note": "something full of other things holds them inside, so one piece is placed within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fine meal",
+      "gives": "FLOUR",
+      "note": "flour is finely ground meal"
+     },
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "very",
+      "gives": "V",
+      "note": "V is the standard abbreviation for very"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FL",
+      "A",
+      "V",
+      "OUR"
+     ]
+    },
+    "explanation": {
+     "surface": "A diner praises a superb dinner and invites you to supply the missing word.",
+     "walkthrough": "Read 'A very fine meal is full of' as wordplay: FLOUR with A and V inside gives FLAVOUR, which also completes the sentence sensibly in place of the question mark.",
+     "definitionFit": "The answer is literally the missing word: a superb dinner is packed with taste, so the blank stands for the answer itself."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "meal"
+    }
+   }
   },
   {
    "number": 3,
@@ -65,7 +164,62 @@
     "text": "Migrant guessed having cleared US borders",
     "enumeration": "5"
    },
-   "solution": "EDGES"
+   "solution": "EDGES",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "EDGES",
+    "definitions": [
+     {
+      "text": "borders",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "having cleared",
+      "for": "deletion",
+      "note": "clearing something out removes it, so certain letters are taken away"
+     },
+     {
+      "text": "Migrant",
+      "for": "anagram",
+      "note": "a migrant moves from place to place, so the remaining letters wander into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "guessed",
+      "gives": "GUESSED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "US",
+      "gives": "US",
+      "note": "taken as written; these two letters are removed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GESED",
+       "gives": "EDGES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An immigrant reckoned they had made it through American border control.",
+     "walkthrough": "'US borders' looks like one phrase about frontiers, but US is the letters taken out of 'guessed' and 'borders' alone is the definition.",
+     "definitionFit": "Borders and edges are both the outer limits or margins of something, a plain plural noun synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Migrant"
+    }
+   }
   },
   {
    "number": 4,
@@ -79,7 +233,57 @@
     "text": "Even with some sensible tips, Edward capsized",
     "enumeration": "7"
    },
-   "solution": "DESPITE"
+   "solution": "DESPITE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "DESPITE",
+    "definitions": [
+     {
+      "text": "Even with",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "'some' asks for only part of the following words, a run of consecutive letters"
+     },
+     {
+      "text": "capsized",
+      "for": "reversal",
+      "note": "a capsized boat is upside down, and in a down clue that turns the letters to read upwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sensible tips, Edward",
+      "gives": "ETIPSED",
+      "note": "the letters run across the end of sensible, all of tips and the start of Edward"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "ETIPSED",
+       "to": "DESPITE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Edward's boat turned over even though he had been given good sailing advice.",
+     "walkthrough": "The run E-TIPS-ED is read upwards to give DESPITE. 'Even with' opens the clue as if it were part of the story, but it is the definition.",
+     "definitionFit": "Despite means notwithstanding, so it swaps for 'even with' as a preposition introducing a contrary circumstance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "capsized"
+    }
+   }
   },
   {
    "number": 5,
@@ -93,7 +297,70 @@
     "text": "Flat place at the rear aboard ship, quarter deck?",
     "enumeration": "6"
    },
-   "solution": "SPADES"
+   "solution": "SPADES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "SPADES",
+    "definitions": [
+     {
+      "text": "quarter deck?",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the rear",
+      "for": "letter_selection",
+      "note": "the rear of a word is its final letter, so only that is kept"
+     },
+     {
+      "text": "aboard",
+      "for": "container",
+      "note": "being aboard a vessel means being inside it, so some letters go within others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flat",
+      "gives": "PAD",
+      "note": "a pad is informal slang for a flat or home"
+     },
+     {
+      "clueFragment": "place",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of place"
+     },
+     {
+      "clueFragment": "ship",
+      "gives": "SS",
+      "note": "SS stands for steamship"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PAD",
+      "E",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone looks for a level spot at the stern of a vessel, on its quarterdeck.",
+     "walkthrough": "The quarterdeck is part of a ship, which fits the nautical surface; split into two words it becomes a card-playing idea, hence the question mark.",
+     "definitionFit": "Spades is one of four suits, so it makes up a quarter of a standard pack of playing cards."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "deck"
+    }
+   }
   },
   {
    "number": 6,
@@ -107,7 +374,61 @@
     "text": "Senior priest continually spat behind piano",
     "enumeration": "7"
    },
-   "solution": "PONTIFF"
+   "solution": "PONTIFF",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PONTIFF",
+    "definitions": [
+     {
+      "text": "Senior priest",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "behind",
+      "for": "charade",
+      "note": "in a down clue what comes behind follows below, so the pieces are placed one after another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "piano",
+      "gives": "P",
+      "note": "p is the musical abbreviation for piano, softly"
+     },
+     {
+      "clueFragment": "continually",
+      "gives": "ON",
+      "note": "to go on is to continue without stopping"
+     },
+     {
+      "clueFragment": "spat",
+      "gives": "TIFF",
+      "note": "a spat and a tiff are both petty quarrels"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ON",
+      "TIFF"
+     ]
+    },
+    "explanation": {
+     "surface": "A senior cleric keeps spitting from behind the church piano.",
+     "walkthrough": "'Spat' looks like the past tense of spit, but here it is a noun meaning a small quarrel.",
+     "definitionFit": "Pontiff is a title for a high-ranking bishop, especially the Pope, so it names a senior priest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "spat"
+    }
+   }
   },
   {
    "number": 7,
@@ -127,7 +448,64 @@
      }
     ]
    },
-   "solution": "DOWONDERS"
+   "solution": "DOWONDERS",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "DO WONDERS",
+    "definitions": [
+     {
+      "text": "get great results",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surprisingly",
+      "for": "anagram",
+      "note": "something that turns out surprisingly is unexpected, so the letters come out in an unexpected order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Five hundred",
+      "gives": "D",
+      "note": "D is the Roman numeral for 500"
+     },
+     {
+      "clueFragment": "one words",
+      "gives": "ONEWORDS",
+      "note": "taken as written, ready to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "OWONDERS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ONEWORDS",
+       "gives": "OWONDERS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A short 501-word piece of writing proves surprisingly effective.",
+     "walkthrough": "'Five hundred and one' reads as one number, but it splits: the numeral for 500, then 'one' joins 'words' as the letters to rearrange.",
+     "definitionFit": "To do wonders is an idiom for achieving remarkable success or producing excellent outcomes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "one"
+    }
+   }
   },
   {
    "number": 8,
@@ -141,7 +519,48 @@
     "text": "Underwear Peter has but not Matthew?",
     "enumeration": "7"
    },
-   "solution": "SINGLET"
+   "solution": "SINGLET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SINGLET",
+    "definitions": [
+     {
+      "text": "Underwear",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "but not Matthew",
+      "gives": "SINGLE",
+      "note": "Matthew is spelt with a doubled letter, so not like Matthew means not double: one only"
+     },
+     {
+      "clueFragment": "Peter has",
+      "gives": "T",
+      "note": "the letter Peter contains just one of, while Matthew has two"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SINGLE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about what one apostle wears beneath his robes that another does not.",
+     "walkthrough": "The apostles suggest Bible study, but the clue is about spelling: Peter contains SINGLE T, Matthew has two Ts. A singlet is a British vest worn under a shirt.",
+     "definitionFit": "A singlet is a sleeveless undershirt, a vest worn as an inner garment beneath outer clothing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Matthew"
+    }
+   }
   },
   {
    "number": 9,
@@ -161,7 +580,52 @@
      }
     ]
    },
-   "solution": "BEAUTYCONTEST"
+   "solution": "BEAUTYCONTEST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BEAUTY CONTEST",
+    "definitions": [
+     {
+      "text": "Judge looks for this",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "special",
+      "for": "anagram",
+      "note": "something special is out of the ordinary, so these letters are arranged in an unusual order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "case — but not yet",
+      "gives": "CASEBUTNOTYET",
+      "note": "the four words taken as written, ready to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CASEBUTNOTYET",
+       "gives": "BEAUTYCONTEST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A court judge examines an unusual case that has not yet come to trial.",
+     "walkthrough": "'Judge' and 'case' pull toward the courtroom, but 'looks' is a noun: a pageant judge assesses appearance. 'Special' looks like part of 'special case' but is the anagram signal.",
+     "definitionFit": "A pageant where judges rate entrants on their appearance is a competition, so judges there assess looks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "looks"
+    }
+   }
   },
   {
    "number": 10,
@@ -175,7 +639,70 @@
     "text": "Fruit Ann grows regularly collected by mother and child",
     "enumeration": "10"
    },
-   "solution": "MANGOSTEEN"
+   "solution": "MANGOSTEEN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "MANGOSTEEN",
+    "definitions": [
+     {
+      "text": "Fruit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "at regular intervals means every other letter is kept"
+     },
+     {
+      "text": "collected by",
+      "for": "container",
+      "note": "things collected by someone are gathered inside their hold, so one piece goes within another"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mother",
+      "gives": "MA",
+      "note": "ma is an informal word for mother"
+     },
+     {
+      "clueFragment": "Ann grows",
+      "gives": "NGOS",
+      "select": "alternate",
+      "note": "the second, fourth, sixth and eighth letters"
+     },
+     {
+      "clueFragment": "child",
+      "gives": "TEEN",
+      "note": "a teen is a young person, someone's child"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "NGOS",
+      "TEEN"
+     ]
+    },
+    "explanation": {
+     "surface": "Ann's garden produce is gathered up by a mother and her youngster.",
+     "walkthrough": "'Grows' looks like a verb about gardening, but it only supplies letters; 'child' for a teenager is loose but fair, since a teen is still someone's offspring.",
+     "definitionFit": "The mangosteen is a tropical fruit from Southeast Asia with a purple rind and sweet white flesh."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "grows"
+    }
+   }
   },
   {
    "number": 11,
@@ -189,7 +716,61 @@
     "text": "Show you’re amused by secret tattoo on fellow’s back",
     "enumeration": "4"
    },
-   "solution": "WINK"
+   "solution": "WINK",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "WINK",
+    "definitions": [
+     {
+      "text": "Show you’re amused by secret",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "letter_selection",
+      "note": "the back of a word is its last letter"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across clue, placing one thing on another puts it after, so they sit side by side"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fellow",
+      "gives": "W",
+      "select": "last",
+      "note": "the final letter of fellow"
+     },
+     {
+      "clueFragment": "tattoo",
+      "gives": "INK",
+      "note": "ink is slang for a tattoo"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "INK"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone smiles knowingly at a hidden tattoo on a man's back.",
+     "walkthrough": "'Secret tattoo' looks like a single phrase; 'secret' actually belongs to the definition, and 'fellow's back' gives only the last letter.",
+     "definitionFit": "A wink is a conspiratorial closing of one eye, signalling shared knowledge or private amusement."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "secret"
+    }
+   }
   },
   {
    "number": 12,
@@ -203,7 +784,44 @@
     "text": "Providing rules for a country walk",
     "enumeration": "14"
    },
-   "solution": "CONSTITUTIONAL"
+   "solution": "CONSTITUTIONAL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CONSTITUTIONAL",
+    "definitions": [
+     {
+      "text": "Providing rules for a country",
+      "at": 0
+     },
+     {
+      "text": "walk",
+      "at": 30
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Providing rules for a country",
+      "note": "first meaning: relating to the founding law that governs a state"
+     },
+     {
+      "clueFragment": "walk",
+      "note": "second meaning: a stroll taken for the sake of one's health"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone sets out regulations for a stroll through the countryside.",
+     "walkthrough": "'Country walk' reads as one phrase about rambling; the split is after 'country', leaving 'walk' alone as the second meaning.",
+     "definitionFit": "The adjective describes a nation's founding law; as a noun it is an old-fashioned term for a healthy daily stroll."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "country"
+    }
+   }
   },
   {
    "number": 13,
@@ -217,7 +835,67 @@
     "text": "Magic year after heart’s broken by Romeo",
     "enumeration": "8"
    },
-   "solution": "TRICKERY"
+   "solution": "TRICKERY",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "TRICKERY",
+    "definitions": [
+     {
+      "text": "Magic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broken by",
+      "for": "container",
+      "note": "a thing broken into has something forced inside it"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "one piece placed after another sits next to it in order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "heart’s",
+      "gives": "TICKER",
+      "note": "ticker is slang for the heart"
+     },
+     {
+      "clueFragment": "Romeo",
+      "gives": "R",
+      "note": "Romeo is R in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "year",
+      "gives": "Y",
+      "note": "Y is the abbreviation for year"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "R",
+      "ICKER",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A year of enchantment follows Juliet's lover breaking someone's heart.",
+     "walkthrough": "Romeo suggests Shakespeare's lover, but here it is simply the letter R from the phonetic alphabet.",
+     "definitionFit": "Magic in the sense of conjuring illusions is deception, and trickery is the use of deceptive tricks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Romeo"
+    }
+   }
   },
   {
    "number": 14,
@@ -231,7 +909,55 @@
     "text": "Fleshly pink around sweaty hole",
     "enumeration": "9"
    },
-   "solution": "CORPOREAL"
+   "solution": "CORPOREAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CORPOREAL",
+    "definitions": [
+     {
+      "text": "Fleshly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "going around something encloses it, so one piece wraps the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pink",
+      "gives": "CORAL",
+      "note": "coral is a pinkish colour"
+     },
+     {
+      "clueFragment": "sweaty hole",
+      "gives": "PORE",
+      "note": "sweat leaves the skin through pores"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COR",
+      "PORE",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A rather fleshy description of rosy skin around a perspiring opening.",
+     "walkthrough": "The skin imagery of the surface carries through all three parts, so the definition hides in plain sight at the start.",
+     "definitionFit": "Corporeal means of the body rather than the spirit, matching the physical, bodily sense of fleshly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pink"
+    }
+   }
   },
   {
    "number": 15,
@@ -245,7 +971,66 @@
     "text": "Bustling city centre safe for holiday",
     "enumeration": "6"
    },
-   "solution": "FIESTA"
+   "solution": "FIESTA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "FIESTA",
+    "definitions": [
+     {
+      "text": "holiday",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "centre",
+      "for": "letter_selection",
+      "note": "the centre of a word is its middle letters"
+     },
+     {
+      "text": "Bustling",
+      "for": "anagram",
+      "note": "bustling means moving about busily, so the letters are jostled out of order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "city",
+      "gives": "IT",
+      "select": "middle",
+      "note": "the two middle letters of city"
+     },
+     {
+      "clueFragment": "safe",
+      "gives": "SAFE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ITSAFE",
+       "gives": "FIESTA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A busy downtown is a secure spot to spend one's vacation.",
+     "walkthrough": "'Bustling city centre' reads as one place; 'bustling' is the signal to rearrange and 'city centre' gives only two letters.",
+     "definitionFit": "A fiesta is a festive celebration, originally a religious feast day in Spanish-speaking countries."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bustling"
+    }
+   }
   },
   {
    "number": 16,
@@ -259,7 +1044,60 @@
     "text": "Polish cereal lacking English instructions",
     "enumeration": "6"
    },
-   "solution": "RUBRIC"
+   "solution": "RUBRIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "RUBRIC",
+    "definitions": [
+     {
+      "text": "instructions",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lacking",
+      "for": "deletion",
+      "note": "lacking something means being without it, so a letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Polish",
+      "gives": "RUB",
+      "note": "to polish a surface is to rub it"
+     },
+     {
+      "clueFragment": "cereal",
+      "gives": "RICE",
+      "note": "rice is a cereal grain"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English; this letter is removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RUB",
+      "RIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A box of breakfast cereal from Poland comes without any directions in English.",
+     "walkthrough": "'Polish' at the start looks like the nationality; the capital is just the opening word, and it means to shine something.",
+     "definitionFit": "A rubric is a set of directions heading an exam paper or liturgy, telling the reader what to do."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Polish"
+    }
+   }
   },
   {
    "number": 17,
@@ -273,7 +1111,63 @@
     "text": "Nudity PhD covered with university cape",
     "enumeration": "7"
    },
-   "solution": "UNDRESS"
+   "solution": "UNDRESS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "UNDRESS",
+    "definitions": [
+     {
+      "text": "Nudity",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covered with",
+      "for": "container",
+      "note": "something covered by another is wrapped in it, so one piece goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "U is the abbreviation for university"
+     },
+     {
+      "clueFragment": "cape",
+      "gives": "NESS",
+      "note": "a ness is a headland or cape, as in Loch Ness or Dungeness"
+     },
+     {
+      "clueFragment": "PhD",
+      "gives": "DR",
+      "note": "a PhD holder is entitled to the title doctor, DR"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "N",
+      "DR",
+      "ESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A doctoral graduate exposed apart from an academic cape.",
+     "walkthrough": "'Cape' looks like a cloak, fitting the graduation and nudity theme, but it is a headland.",
+     "definitionFit": "Undress as a noun means a state of having few or no clothes on, so it matches nakedness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "cape"
+    }
+   }
   },
   {
    "number": 18,
@@ -287,7 +1181,79 @@
     "text": "Court holds up charge — case of illegal pictures on computer",
     "enumeration": "7"
    },
-   "solution": "CLIPART"
+   "solution": "CLIPART",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "container"
+    ],
+    "answer": "CLIPART",
+    "definitions": [
+     {
+      "text": "pictures on computer",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "case of",
+      "for": "letter_selection",
+      "note": "a case surrounds its contents, so only the outer letters are kept"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, going up means reading from bottom to top"
+     },
+     {
+      "text": "holds",
+      "for": "container",
+      "note": "to hold something is to have it inside one's grasp"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Court",
+      "gives": "CT",
+      "note": "CT is the abbreviation for court"
+     },
+     {
+      "clueFragment": "charge",
+      "gives": "RAP",
+      "note": "a rap is a criminal charge, as in 'take the rap'"
+     },
+     {
+      "clueFragment": "illegal",
+      "gives": "IL",
+      "select": "outer",
+      "note": "the first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LIPAR",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "RAPIL",
+       "to": "LIPAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A court case about illegal images found on someone's computer is held up.",
+     "walkthrough": "'Holds up' reads as delaying the trial; it splits into the containment and the upward reversal.",
+     "definitionFit": "Clip art is ready-made graphics supplied with software for pasting into documents on a computer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "holds"
+    }
+   }
   },
   {
    "number": 19,
@@ -301,7 +1267,39 @@
     "text": "Friend could be one of the enemy",
     "enumeration": "8"
    },
-   "solution": "OPPOSITE"
+   "solution": "OPPOSITE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "OPPOSITE",
+    "definitions": [
+     {
+      "text": "Friend could be one of the enemy",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Friend could be one of the enemy",
+      "note": "surface reading: an ally might secretly be a traitor working for the other side"
+     },
+     {
+      "clueFragment": "Friend",
+      "note": "setter's reading: the word friend is the antonym of enemy"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests a double agent; read as words, 'friend' is the antonym of 'enemy', and 'one of the enemy' also hints at someone on the other side.",
+     "definitionFit": "Friend and enemy are antonyms, words of contrary meaning; also a contrary, the other side's player, is one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Friend"
+    }
+   }
   },
   {
    "number": 20,
@@ -315,7 +1313,73 @@
     "text": "Police uncovered Ken Livingstone’s head in the Lords",
     "enumeration": "7"
    },
-   "solution": "PEELERS"
+   "solution": "PEELERS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PEELERS",
+    "definitions": [
+     {
+      "text": "Police",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "uncovered",
+      "for": "letter_selection",
+      "note": "removing the cover strips the outside letters, leaving the middle"
+     },
+     {
+      "text": "head",
+      "for": "letter_selection",
+      "note": "the head of a word is its first letter"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "being in something means sitting inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ken",
+      "gives": "E",
+      "select": "middle",
+      "note": "the middle letter once both ends are stripped"
+     },
+     {
+      "clueFragment": "Livingstone’s",
+      "gives": "L",
+      "select": "first",
+      "note": "the first letter"
+     },
+     {
+      "clueFragment": "the Lords",
+      "gives": "PEERS",
+      "note": "the House of Lords is made up of peers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PE",
+      "EL",
+      "ERS"
+     ]
+    },
+    "explanation": {
+     "surface": "Officers exposed Ken Livingstone, once London's mayor, as a member of the House of Lords.",
+     "walkthrough": "Peelers is old British slang for police, after Sir Robert Peel who founded the Metropolitan Police; the two single letters go into the middle of PEERS.",
+     "definitionFit": "Peelers is a historical nickname for British police constables, from the founder of the London force."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "uncovered"
+    }
+   }
   },
   {
    "number": 21,
@@ -329,7 +1393,58 @@
     "text": "Speak against bill that blocks peace agreement",
     "enumeration": "7"
    },
-   "solution": "TRADUCE"
+   "solution": "TRADUCE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TRADUCE",
+    "definitions": [
+     {
+      "text": "Speak against",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "blocks",
+      "for": "container",
+      "note": "something that blocks a passage sits inside it, plugging the gap"
+     }
+    ],
+    "linkWords": [
+     "that"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "peace agreement",
+      "gives": "TRUCE",
+      "note": "a truce is an agreement to stop fighting"
+     },
+     {
+      "clueFragment": "bill",
+      "gives": "AD",
+      "note": "an ad, or advert, is a bill posted up"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TR",
+      "AD",
+      "UCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A politician argues against legislation that would obstruct a peace treaty.",
+     "walkthrough": "'Bill' looks like parliamentary legislation; here it is a poster or advertisement.",
+     "definitionFit": "To traduce is to slander or malign someone, criticising them in damaging terms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bill"
+    }
+   }
   },
   {
    "number": 22,
@@ -357,7 +1472,44 @@
      }
     ]
    },
-   "solution": "DROPINTHEOCEAN"
+   "solution": "DROPINTHEOCEAN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DROP IN THE OCEAN",
+    "definitions": [
+     {
+      "text": "Very little",
+      "at": 0
+     },
+     {
+      "text": "change in sea level",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Very little",
+      "note": "first meaning: an amount too small to matter"
+     },
+     {
+      "clueFragment": "change in sea level",
+      "note": "second meaning, read literally: a fall in the height of the sea"
+     }
+    ],
+    "explanation": {
+     "surface": "Scientists report only a tiny shift in global sea levels.",
+     "walkthrough": "The second meaning is whimsical: a fall in the water's height is literally a drop in the sea.",
+     "definitionFit": "The idiom describes a quantity so small relative to the need that it makes no real difference."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "change"
+    }
+   }
   },
   {
    "number": 23,
@@ -371,7 +1523,63 @@
     "text": "Pinch someone occupying seat after The King and I",
     "enumeration": "5"
    },
-   "solution": "CRIMP"
+   "solution": "CRIMP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CRIMP",
+    "definitions": [
+     {
+      "text": "Pinch",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "one piece placed after another follows it in sequence"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The King",
+      "gives": "CR",
+      "note": "CR stands for Carolus Rex, King Charles"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "someone occupying seat",
+      "gives": "MP",
+      "note": "a Member of Parliament holds a seat in the Commons"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CR",
+      "I",
+      "MP"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sneaks into a theatre seat after a performance of the musical The King and I.",
+     "walkthrough": "The King and I looks like the musical title; split up, it is two separate pieces.",
+     "definitionFit": "To crimp is to press or pleat something together, squeezing it as one would by nipping."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "King"
+    }
+   }
   },
   {
    "number": 24,
@@ -385,7 +1593,46 @@
     "text": "Wallace designed trousers to give away",
     "enumeration": "4"
    },
-   "solution": "CEDE"
+   "solution": "CEDE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "CEDE",
+    "definitions": [
+     {
+      "text": "give away",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "trousers",
+      "for": "hidden_word",
+      "note": "to trouser something is to pocket it, so the letters are held inside the neighbouring words"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wallace designed",
+      "gives": "CEDE",
+      "note": "the last two letters of the first word and first two of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "Wallace makes a pair of trousers to hand out as a gift, as in Wallace and Gromit's The Wrong Trousers.",
+     "walkthrough": "'Trousers' looks like a noun for clothing, but it is a verb meaning pockets.",
+     "definitionFit": "To cede territory or rights is to surrender them, handing them over to another party."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "trousers"
+    }
+   }
   },
   {
    "number": 25,
@@ -399,7 +1646,51 @@
     "text": "Worried about Messi practising self-denial",
     "enumeration": "10"
    },
-   "solution": "ABSTEMIOUS"
+   "solution": "ABSTEMIOUS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ABSTEMIOUS",
+    "definitions": [
+     {
+      "text": "practising self-denial",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Worried",
+      "for": "anagram",
+      "note": "being worried means being agitated, so the letters are disturbed into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about Messi",
+      "gives": "ABOUTMESSI",
+      "note": "taken as written, ready to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ABOUTMESSI",
+       "gives": "ABSTEMIOUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fans are anxious that the footballer Lionel Messi is on a strict diet.",
+     "walkthrough": "'Worried about' reads as a phrase; 'about' belongs to the letters being rearranged.",
+     "definitionFit": "An abstemious person restrains their appetite for food and drink, denying themselves indulgence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Worried"
+    }
+   }
   },
   {
    "number": 26,
@@ -413,7 +1704,61 @@
     "text": "Salt in seawater, say, but missing initially in fish",
     "enumeration": "6"
    },
-   "solution": "SOLUTE"
+   "solution": "SOLUTE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "SOLUTE",
+    "definitions": [
+     {
+      "text": "Salt in seawater, say",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "missing initially",
+      "for": "deletion",
+      "note": "missing at the start means the first letter is dropped"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "being in something means sitting inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "but",
+      "gives": "UT",
+      "note": "the word without its first letter"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "SOLE",
+      "note": "the sole is a flatfish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOL",
+      "UT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A fish swims in salty seawater but seems to be missing something.",
+     "walkthrough": "'Say' marks salt as just one example of the definition. The fish surface fits the sea theme neatly.",
+     "definitionFit": "A solute is a substance dissolved in a solvent, and salt dissolved in seawater is a classic example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "but"
+    }
+   }
   },
   {
    "number": 27,
@@ -427,7 +1772,62 @@
     "text": "Military engineer perhaps confused leaving hospital",
     "enumeration": "6"
    },
-   "solution": "SAPPER"
+   "solution": "SAPPER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "SAPPER",
+    "definitions": [
+     {
+      "text": "Military engineer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "something leaving goes away, so a letter is taken out"
+     },
+     {
+      "text": "confused",
+      "for": "anagram",
+      "note": "confused means muddled, so the remaining letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "perhaps",
+      "gives": "PERHAPS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hospital",
+      "gives": "H",
+      "note": "H is the abbreviation for hospital; this letter is removed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PERAPS",
+       "gives": "SAPPER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A disoriented army engineer is discharged from hospital.",
+     "walkthrough": "'Perhaps' looks like a hedge on the definition but supplies the letters to rearrange.",
+     "definitionFit": "A sapper is a soldier of the Royal Engineers who builds fortifications, bridges and trenches."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "perhaps"
+    }
+   }
   }
  ]
 }
