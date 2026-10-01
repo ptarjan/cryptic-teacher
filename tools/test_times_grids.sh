@@ -143,6 +143,30 @@ rg.reconstruct = lambda *a, **k: (
 print("REFUTED", T.solve(clash)[1])
 rg.reconstruct = real
 
+# A puzzle's searches share one budget. A list no grid fits runs a dozen or
+# more (retries, each freed light, each split of a linked answer); each
+# bounded alone, a 23x23 spent ten silent minutes in them all. Here every
+# search spends all it is allowed and finds nothing, so only a shared budget
+# stops the chain -- and each search, and the post, is named on stderr.
+import io, sys
+spent = []
+def greedy(*a, **k):
+    spent.append(k["max_nodes"])
+    return [], {"nodes": k["max_nodes"], "truncated": False}
+rg.reconstruct, err, sys.stderr = greedy, sys.stderr, io.StringIO()
+try:
+    cap = 4 * 1000                  # PUZZLE_SEARCHES searches of max_nodes
+    how = T.solve(dict(clash, post_id=4242), max_nodes=1000)[1]
+    print("BOUNDED", sum(spent) <= cap, how.split(":")[0])
+    spent.clear()
+    many = [dict(g, enumeration=",".join("1" * 10)) for g in linked["unsplit"]]
+    how = T.solve(dict(linked, unsplit=many, post_id=4242), max_nodes=1000)[1]
+    print("BOUNDED_LINKED", sum(spent) <= cap, how.split(":")[0])
+finally:
+    logged, sys.stderr = sys.stderr.getvalue(), err
+print("LOGGED", "post 4242 answers in:" in logged)
+rg.reconstruct = real
+
 # The answers are written in DURING the search: a light whose letters clash
 # with a crossing one is never placed, so the real search, given the answers,
 # returns no grid the answers do not fit.
@@ -358,6 +382,9 @@ check "only the Mephisto of the barred series is rebuilt, by the parsed names" \
       "['Other Crosswords'] ['Mephisto']" "$(field BARRED)"
 check "a Weekend post with a Jumbo's entries is rebuilt at 23x23; the Club and TLS at 15x15" \
       "15 23 15 15 15" "$(field SIZE)"
+check "every search a puzzle runs draws on one budget" "True truncated" "$(field BOUNDED)"
+check "so does every split of a linked answer" "True truncated" "$(field BOUNDED_LINKED)"
+check "each search is logged under its post" True "$(field LOGGED)"
 check "a post that gives only the answers is not searched" "True False" "$(field CLUES)"
 
 if [ "$fails" -gt 0 ]; then echo "$fails FAILURE(S)"; exit 1; fi
