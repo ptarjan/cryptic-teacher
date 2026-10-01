@@ -538,12 +538,21 @@ def with_split(rec, choice):
     """rec with one split of each linked answer the blog left unsplit, and
     no longer unsplit."""
     entries = list(rec["entries"])
+    numbers = collections.Counter(e["number"] for e in entries)
+    numbers.update(n for pieces in choice for (n, _d), _l in pieces)
     for group, pieces in zip(rec["unsplit"], choice):
-        leader = pieces[0][0][0]
+        (leader, way), _ = pieces[0]
+        # The pointer names the direction where the number has both
+        # (toughie-641's 1-down SICK, beside 1-across), and the leader keeps
+        # the answer as printed, whose word breaks are the group's count
+        # (toughie-1067's FIRST-DEGREE MURDER typed (5-6)).
+        see = f"See {leader}" + (f" {way}" if numbers[leader] > 1 else "")
         for i, ((n, d), letters) in enumerate(pieces):
             entries.append({"number": n, "direction": d, "answer": letters,
-                            "clue": group.get("clue") if i == 0 else f"See {leader}",
-                            "enumeration": group["enumeration"] if i == 0 else None})
+                            "clue": group.get("clue") if i == 0 else see,
+                            "enumeration": group["enumeration"] if i == 0 else None,
+                            **({"answer_spaced": group["answer_printed"]}
+                               if i == 0 and group.get("answer_printed") else {})})
     return {**{k: v for k, v in rec.items() if k != "unsplit"}, "entries": entries}
 
 
