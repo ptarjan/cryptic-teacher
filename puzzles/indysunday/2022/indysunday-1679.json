@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,67 @@
     "text": "Piece of tiling on church blokes fix",
     "enumeration": "6"
    },
-   "solution": "CEMENT"
+   "solution": "CEMENT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CEMENT",
+    "definitions": [
+     {
+      "text": "fix",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Piece of",
+      "for": "letter_selection",
+      "note": "a piece is only a small part of something, so just one letter of the next word is used"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across clue one thing placed on another follows it, so what comes before this word in the clue goes after in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     },
+     {
+      "clueFragment": "blokes",
+      "gives": "MEN",
+      "note": "blokes are men"
+     },
+     {
+      "clueFragment": "tiling",
+      "gives": "T",
+      "select": "first",
+      "note": "the opening letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CE",
+      "MEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Workmen at a church are mending a bit of broken tiling.",
+     "walkthrough": "In an across clue 'on' means placed after, so the tiling letter goes at the end, behind the church and the blokes.",
+     "definitionFit": "To cement something is to bind it firmly in place, just as you would fix it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Piece"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +110,45 @@
     "text": "Broadcast channel lacking in refinement",
     "enumeration": "6"
    },
-   "solution": "COARSE"
+   "solution": "COARSE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "COARSE",
+    "definitions": [
+     {
+      "text": "lacking in refinement",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Broadcast",
+      "for": "homophone",
+      "note": "a broadcast goes out over the air to be heard, so we want a word that sounds like another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "channel",
+      "gives": "COARSE",
+      "soundsLike": "COURSE",
+      "note": "a channel for water is a course, as in watercourse"
+     }
+    ],
+    "explanation": {
+     "surface": "A TV station is criticised for crude, unsophisticated programming.",
+     "walkthrough": "'Broadcast channel' reads as a TV station, but the channel is the path a stream runs in, and broadcast says we only hear it.",
+     "definitionFit": "Coarse manners or language are rough and vulgar, the opposite of polished or cultivated."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "channel"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +162,65 @@
     "text": "Police squad coming up with no answer",
     "enumeration": "3"
    },
-   "solution": "MET"
+   "solution": "MET",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "MET",
+    "definitions": [
+     {
+      "text": "Police",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with no",
+      "for": "deletion",
+      "note": "having none of something means it has been taken away"
+     },
+     {
+      "text": "coming up",
+      "for": "reversal",
+      "note": "in a down clue rising means reading from the bottom to the top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "squad",
+      "gives": "TEAM",
+      "note": "a squad is a team"
+     },
+     {
+      "clueFragment": "answer",
+      "gives": "A",
+      "note": "A is the standard abbreviation for answer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MET"
+     ],
+     "reversals": [
+      {
+       "from": "TEM",
+       "to": "MET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A police unit arrives on the scene but has no answers for anyone.",
+     "walkthrough": "'Police squad' looks like one unit, but only the first word is the definition. The Met is London's Metropolitan Police.",
+     "definitionFit": "The Met is the everyday short name for London's Metropolitan Police force."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "squad"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +234,61 @@
     "text": "Commentary about a bishop's state",
     "enumeration": "9"
    },
-   "solution": "NARRATION"
+   "solution": "NARRATION",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NARRATION",
+    "definitions": [
+     {
+      "text": "Commentary",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one word goes round the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bishop",
+      "gives": "RR",
+      "note": "RR stands for Right Reverend, a bishop's title"
+     },
+     {
+      "clueFragment": "state",
+      "gives": "NATION",
+      "note": "a state is a nation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "A",
+      "RR",
+      "ATION"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is commenting on how a bishop's diocese is getting on.",
+     "walkthrough": "The apostrophe-s is not possessive: it is 'is', so the bishop sits in the state. The pair goes in after the first letter.",
+     "definitionFit": "A narration is a spoken account accompanying film or events, which is what a commentary provides."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "state"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +302,47 @@
     "text": "Disorderly struggle in anagrammatic game",
     "enumeration": "8"
    },
-   "solution": "SCRABBLE"
+   "solution": "SCRABBLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SCRABBLE",
+    "definitions": [
+     {
+      "text": "Disorderly struggle",
+      "at": 0
+     },
+     {
+      "text": "anagrammatic game",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Disorderly struggle",
+      "note": "first meaning: a frantic scramble or grab for something"
+     },
+     {
+      "clueFragment": "anagrammatic game",
+      "note": "second meaning: the board game of building words from letter tiles"
+     }
+    ],
+    "explanation": {
+     "surface": "Players come to blows during a heated board game.",
+     "walkthrough": "'Anagrammatic' tempts you to look for an anagram, but it simply describes the game, where letters are rearranged into words.",
+     "definitionFit": "The word means a messy scrambling contest and is also the name of the popular tile-based word game."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "anagrammatic"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +356,56 @@
     "text": "Criminal and female do drugs to get dizzy",
     "enumeration": "7"
    },
-   "solution": "CONFUSE"
+   "solution": "CONFUSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CONFUSE",
+    "definitions": [
+     {
+      "text": "dizzy",
+      "at": 36
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Criminal",
+      "gives": "CON",
+      "note": "a con is a convict"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "F is the abbreviation for female"
+     },
+     {
+      "clueFragment": "do drugs",
+      "gives": "USE",
+      "note": "to use is slang for taking drugs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "F",
+      "USE"
+     ]
+    },
+    "explanation": {
+     "surface": "A crook and his girlfriend take drugs and end up light-headed.",
+     "walkthrough": "'Dizzy' reads as an adjective, but here it is the verb: to make someone dizzy.",
+     "definitionFit": "To dizzy someone is to bewilder them, leaving their head spinning, which is what confusing does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dizzy"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +419,63 @@
     "text": "Creative works describing old atomic vessel",
     "enumeration": "5"
    },
-   "solution": "AORTA"
+   "solution": "AORTA",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "AORTA",
+    "definitions": [
+     {
+      "text": "vessel",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "describing",
+      "for": "container",
+      "note": "to describe is also to draw a line round something, so one piece encloses another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Creative works",
+      "gives": "ART",
+      "note": "art is creative work"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "atomic",
+      "gives": "A",
+      "note": "A stands for atomic, as in A-bomb"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "O",
+      "RT",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Artworks depict a vintage nuclear-powered ship.",
+     "walkthrough": "'Vessel' suggests a ship after 'atomic', but it is a blood vessel. Describing is used in its geometric sense of drawing round.",
+     "definitionFit": "The aorta is the main artery leaving the heart, the largest blood vessel in the body."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "vessel"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +489,54 @@
     "text": "Atrocious teller being argumentative",
     "enumeration": "11"
    },
-   "solution": "BELLIGERENT"
+   "solution": "BELLIGERENT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BELLIGERENT",
+    "definitions": [
+     {
+      "text": "argumentative",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Atrocious",
+      "for": "anagram",
+      "note": "something atrocious is terribly done, so the letters come out badly jumbled"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "teller being",
+      "gives": "TELLERBEING",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TELLERBEING",
+       "gives": "BELLIGERENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dreadful bank clerk picks quarrels with the customers.",
+     "walkthrough": "'Being' looks like a link word but its letters are needed: the fodder is both words together.",
+     "definitionFit": "Belligerent describes someone hostile and eager to fight or quarrel, a stronger synonym for argumentative."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "teller"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +550,51 @@
     "text": "Changed, and hence, made better",
     "enumeration": "8"
    },
-   "solution": "ENHANCED"
+   "solution": "ENHANCED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ENHANCED",
+    "definitions": [
+     {
+      "text": "made better",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Changed",
+      "for": "anagram",
+      "note": "changed means altered, so the order of the letters is altered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "and hence",
+      "gives": "ANDHENCE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ANDHENCE",
+       "gives": "ENHANCED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something was altered, and as a result improved.",
+     "walkthrough": "The comma splits the clue so 'and hence' reads as logic, but those two words are the letters to rearrange.",
+     "definitionFit": "To enhance is to improve quality or value, so something enhanced has been improved."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hence"
+    }
+   }
   },
   {
    "number": 9,
@@ -159,7 +608,46 @@
     "text": "Dogs in underwear",
     "enumeration": "6"
    },
-   "solution": "BOXERS"
+   "solution": "BOXERS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BOXERS",
+    "definitions": [
+     {
+      "text": "Dogs",
+      "at": 0
+     },
+     {
+      "text": "underwear",
+      "at": 8
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dogs",
+      "note": "first meaning: a breed of square-jawed dog"
+     },
+     {
+      "clueFragment": "underwear",
+      "note": "second meaning: loose men's shorts worn as underpants"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface pictures pets dressed in pants; the two nouns are separate meanings of one plural word.",
+     "definitionFit": "The word names a muscular dog breed and also the loose shorts men wear beneath trousers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Dogs"
+    }
+   }
   },
   {
    "number": 10,
@@ -173,7 +661,65 @@
     "text": "Post given to short nob regarding PM",
     "enumeration": "9"
    },
-   "solution": "AFTERNOON"
+   "solution": "AFTERNOON",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "AFTERNOON",
+    "definitions": [
+     {
+      "text": "PM",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "something short has been cut, so the final letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "given to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Post",
+      "gives": "AFTER",
+      "note": "post means after, as in post-war"
+     },
+     {
+      "clueFragment": "nob",
+      "gives": "NO",
+      "note": "the word NOB with its last letter cut off, as 'short' instructs"
+     },
+     {
+      "clueFragment": "regarding",
+      "gives": "ON",
+      "note": "on means about or regarding"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AFTER",
+      "NO",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A job is handed to a diminutive toff in connection with the Prime Minister.",
+     "walkthrough": "'PM' looks like the Prime Minister, but it is post meridiem, the time after noon. A nob is British slang for a posh person.",
+     "definitionFit": "PM, from the Latin post meridiem, marks the hours after midday, the second half of the day."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "PM"
+    }
+   }
   },
   {
    "number": 11,
@@ -187,7 +733,62 @@
     "text": "Charge husband assuming Latin man's name",
     "enumeration": "5"
    },
-   "solution": "RALPH"
+   "solution": "RALPH",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "RALPH",
+    "definitions": [
+     {
+      "text": "man's name",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "assuming",
+      "for": "container",
+      "note": "to assume is to take on, so one piece takes in another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Charge",
+      "gives": "RAP",
+      "note": "a rap is a criminal charge"
+     },
+     {
+      "clueFragment": "Latin",
+      "gives": "L",
+      "note": "L is the abbreviation for Latin"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "H is the abbreviation for husband"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RA",
+      "L",
+      "P",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "A married man is accused of using a false Latin name.",
+     "walkthrough": "The husband comes last, after the charge has taken in its letter, although he is named first in the clue.",
+     "definitionFit": "Ralph is an ordinary male first name, so it is an example of what the clue asks for."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "assuming"
+    }
+   }
   },
   {
    "number": 12,
@@ -201,7 +802,62 @@
     "text": "Group of soldiers holding large American dance",
     "enumeration": "5"
    },
-   "solution": "SALSA"
+   "solution": "SALSA",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SALSA",
+    "definitions": [
+     {
+      "text": "dance",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "to hold something is to keep it inside, so one piece goes into another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Group of soldiers",
+      "gives": "SAS",
+      "note": "the SAS is the Special Air Service regiment"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the abbreviation for large"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is the abbreviation for American"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SA",
+      "L",
+      "S",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A platoon puts on a big American dance.",
+     "walkthrough": "'American dance' wants to be the definition, but American gives a letter and the dance stands alone. The SAS is a British special forces regiment.",
+     "definitionFit": "Salsa is a lively Latin American partner dance, so it is one example of the category."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "American"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +877,39 @@
      }
     ]
    },
-   "solution": "LIEDETECTOR"
+   "solution": "LIEDETECTOR",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "LIE DETECTOR",
+    "definitions": [
+     {
+      "text": "Machine that could ruin pork pie merchant?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Machine that could ruin pork pie merchant?",
+      "note": "surface reading: some device that might put a pie seller out of business"
+     },
+     {
+      "clueFragment": "pork pie merchant",
+      "note": "setter's reading: pork pie is rhyming slang for an untruth, so a pork pie merchant is a habitual fibber, whom this machine exposes"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Pork pie is Cockney rhyming slang for a lie, so the merchant deals in falsehoods, not pastry; a polygraph would ruin such a dealer.",
+     "definitionFit": "A polygraph measures pulse and breathing to expose falsehoods, which would finish the career of a practised fibber."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pork"
+    }
+   }
   },
   {
    "number": 14,
@@ -235,7 +923,53 @@
     "text": "A cute don I fooled around with gives you this",
     "enumeration": "9"
    },
-   "solution": "EDUCATION"
+   "solution": "EDUCATION",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "anagram"
+    ],
+    "answer": "EDUCATION",
+    "definitions": [
+     {
+      "text": "A cute don I fooled around with gives you this",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fooled around",
+      "for": "anagram",
+      "note": "fooling around is messing about, so the letters are messed into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A cute don I",
+      "gives": "ACUTEDONI",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ACUTEDONI",
+       "gives": "EDUCATION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone boasts that a fling with an attractive university lecturer taught them a thing or two.",
+     "walkthrough": "The whole clue is the definition too: a don is a university teacher, and what dons give you is learning.",
+     "definitionFit": "A don teaches students at a university, so schooling and learning are what one provides."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cute"
+    }
+   }
   },
   {
    "number": 15,
@@ -249,7 +983,47 @@
     "text": "Careless soldiers fail to hit target",
     "enumeration": "6"
    },
-   "solution": "REMISS"
+   "solution": "REMISS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REMISS",
+    "definitions": [
+     {
+      "text": "Careless",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soldiers",
+      "gives": "RE",
+      "note": "the RE are the Royal Engineers"
+     },
+     {
+      "clueFragment": "fail to hit target",
+      "gives": "MISS",
+      "note": "to miss is to fail to hit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "MISS"
+     ]
+    },
+    "explanation": {
+     "surface": "Sloppy troops keep missing at the firing range.",
+     "walkthrough": "The Royal Engineers are a British Army corps, a stock source of these two letters.",
+     "definitionFit": "Remiss describes someone negligent in their duty, which is a formal way of calling them careless."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "target"
+    }
+   }
   },
   {
    "number": 16,
@@ -263,7 +1037,64 @@
     "text": "Intense old flame very short with Hoskins",
     "enumeration": "7"
    },
-   "solution": "EXTREME"
+   "solution": "EXTREME",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "EXTREME",
+    "definitions": [
+     {
+      "text": "Intense",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "something short has been cut, so the final letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old flame",
+      "gives": "EX",
+      "note": "a former partner is an ex"
+     },
+     {
+      "clueFragment": "very",
+      "gives": "TRE",
+      "note": "very in French is TRES, cut short"
+     },
+     {
+      "clueFragment": "Hoskins",
+      "gives": "ME",
+      "note": "Hoskins is the setter, who refers to themself"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "TRE",
+      "ME"
+     ]
+    },
+    "explanation": {
+     "surface": "A former lover had a brief, passionate fling with the setter.",
+     "walkthrough": "Hoskins is this puzzle's setter, so his name stands for the setter speaking. 'Very' becomes French before being cut.",
+     "definitionFit": "Both words describe something of great strength or degree, far beyond the ordinary level."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Hoskins"
+    }
+   }
   },
   {
    "number": 17,
@@ -277,7 +1108,51 @@
     "text": "Fresh Argentine fruit",
     "enumeration": "9"
    },
-   "solution": "TANGERINE"
+   "solution": "TANGERINE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TANGERINE",
+    "definitions": [
+     {
+      "text": "fruit",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Fresh",
+      "for": "anagram",
+      "note": "something fresh is newly made, so the letters are made into a new word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Argentine",
+      "gives": "ARGENTINE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ARGENTINE",
+       "gives": "TANGERINE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Produce newly imported from Argentina is on sale.",
+     "walkthrough": "'Fresh' reads naturally with fruit, but it is the instruction to rework the nationality.",
+     "definitionFit": "A tangerine is a small, loose-skinned citrus like a mandarin, one kind of fruit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Fresh"
+    }
+   }
   },
   {
    "number": 18,
@@ -297,7 +1172,52 @@
      }
     ]
    },
-   "solution": "OVERDOIT"
+   "solution": "OVERDOIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OVERDO IT",
+    "definitions": [
+     {
+      "text": "strain yourself",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Concerning",
+      "gives": "OVER",
+      "note": "over can mean about, as in a row over money"
+     },
+     {
+      "clueFragment": "to have sex",
+      "gives": "DOIT",
+      "note": "to do it is a euphemism for having sex"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "DO",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone worries that sex might leave them pulling a muscle.",
+     "walkthrough": "'Concerning' looks like worrying, but it is the preposition meaning about.",
+     "definitionFit": "To overdo it is an idiom for working too hard or pushing beyond your limits."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Concerning"
+    }
+   }
   },
   {
    "number": 19,
@@ -311,7 +1231,70 @@
     "text": "Compete with Tesla guy over land",
     "enumeration": "7"
    },
-   "solution": "VIETNAM"
+   "solution": "VIETNAM",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "VIETNAM",
+    "definitions": [
+     {
+      "text": "land",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "turned over means flipped, so the letters run the other way"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Compete",
+      "gives": "VIE",
+      "note": "to vie is to compete"
+     },
+     {
+      "clueFragment": "Tesla",
+      "gives": "T",
+      "note": "T is the symbol for the tesla, the unit of magnetic flux density"
+     },
+     {
+      "clueFragment": "guy",
+      "gives": "MAN",
+      "note": "a guy is a man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VIE",
+      "T",
+      "NAM"
+     ],
+     "reversals": [
+      {
+       "from": "MAN",
+       "to": "NAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rival tries to beat the electric car boss in a battle for territory.",
+     "walkthrough": "'Tesla guy' points at the car company's boss, but Tesla is the physics unit and the guy is a separate piece. 'Over land' reads as flying; over turns the guy round.",
+     "definitionFit": "Vietnam is a country in Southeast Asia, and a country is a land."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tesla"
+    }
+   }
   },
   {
    "number": 20,
@@ -325,7 +1308,58 @@
     "text": "Old lady seen with a bloke in the shade?",
     "enumeration": "7"
    },
-   "solution": "MAGENTA"
+   "solution": "MAGENTA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MAGENTA",
+    "definitions": [
+     {
+      "text": "shade",
+      "at": 34
+     }
+    ],
+    "linkWords": [
+     "seen with",
+     "in the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old lady",
+      "gives": "MA",
+      "note": "one's old lady is one's mother, ma"
+     },
+     {
+      "clueFragment": "bloke",
+      "gives": "GENT",
+      "note": "a gent is a man"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "GENT",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A grandmother is spotted sitting out of the sun with a man.",
+     "walkthrough": "'In the shade' suggests shelter from the sun, but the shade is a colour. The single letter goes after the bloke.",
+     "definitionFit": "Magenta is a purplish-red colour, and a shade is a particular tint or hue."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "shade"
+    }
+   }
   },
   {
    "number": 21,
@@ -339,7 +1373,50 @@
     "text": "Brown river in Scottish city",
     "enumeration": "6"
    },
-   "solution": "DUNDEE"
+   "solution": "DUNDEE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DUNDEE",
+    "definitions": [
+     {
+      "text": "Scottish city",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brown",
+      "gives": "DUN",
+      "note": "dun is a dull greyish brown"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "DEE",
+      "note": "the Dee is a river in Scotland"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DUN",
+      "DEE"
+     ]
+    },
+    "explanation": {
+     "surface": "A muddy river runs through a Scottish town.",
+     "walkthrough": "'In' tempts you to put one piece inside another, but it only links wordplay to definition.",
+     "definitionFit": "Dundee is a city on the Firth of Tay on Scotland's east coast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 21,
@@ -353,7 +1430,82 @@
     "text": "Give smack up during party with junkie at last",
     "enumeration": "6"
    },
-   "solution": "DONATE"
+   "solution": "DONATE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "DONATE",
+    "definitions": [
+     {
+      "text": "Give",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue going up means reading from bottom to top"
+     },
+     {
+      "text": "at last",
+      "for": "letter_selection",
+      "note": "the very end of a word is its final letter"
+     },
+     {
+      "text": "during",
+      "for": "container",
+      "note": "something happening during something else sits within it"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "party",
+      "gives": "DO",
+      "note": "a do is a party"
+     },
+     {
+      "clueFragment": "smack",
+      "gives": "TAN",
+      "note": "to tan someone is to give them a beating"
+     },
+     {
+      "clueFragment": "junkie",
+      "gives": "E",
+      "select": "last",
+      "note": "the closing letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "NAT",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "TAN",
+       "to": "NAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is urged to hand over heroin at a party where an addict has finally shown up.",
+     "walkthrough": "Smack looks like heroin beside 'junkie', but it is a beating. The turned word goes inside the party plus the junkie's last letter.",
+     "definitionFit": "To donate is to give money or goods as a gift, usually to a cause."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "smack"
+    }
+   }
   },
   {
    "number": 22,
@@ -367,7 +1519,44 @@
     "text": "Aristocrat reportedly unable to produce heir?",
     "enumeration": "6"
    },
-   "solution": "BARREN"
+   "solution": "BARREN",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BARREN",
+    "definitions": [
+     {
+      "text": "unable to produce heir?",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "a report is spoken, so we hear a word rather than read it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Aristocrat",
+      "gives": "BARREN",
+      "soundsLike": "BARON",
+      "note": "a baron is a nobleman"
+     }
+    ],
+    "explanation": {
+     "surface": "Gossip says a nobleman cannot father a successor.",
+     "walkthrough": "The question mark flags that heir is a playful way of saying offspring, fitting the noble theme.",
+     "definitionFit": "Barren means infertile, unable to have children, so no heir could be born."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 23,
@@ -387,7 +1576,72 @@
      }
     ]
    },
-   "solution": "REEDORGAN"
+   "solution": "REEDORGAN",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "REED ORGAN",
+    "definitions": [
+     {
+      "text": "Learner finally gets grade one playing this?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the closing letter of a word"
+     },
+     {
+      "text": "playing",
+      "for": "anagram",
+      "note": "playing with something moves it around, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Learner",
+      "gives": "R",
+      "select": "last",
+      "note": "the closing letter of the word"
+     },
+     {
+      "clueFragment": "grade one",
+      "gives": "GRADEONE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "EEDORGAN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GRADEONE",
+       "gives": "EEDORGAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A music student passes a first-grade exam on some keyboard instrument.",
+     "walkthrough": "The whole clue is the definition: a beginner who has passed grade one could be playing this instrument. 'Learner' is not L here; only its last letter is used.",
+     "definitionFit": "A reed organ, such as a harmonium, is a keyboard instrument a pupil might sit exams on."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Learner"
+    }
+   }
   },
   {
    "number": 24,
@@ -401,7 +1655,48 @@
     "text": "Love wicked character written by Aristophanes",
     "enumeration": "5"
    },
-   "solution": "OMEGA"
+   "solution": "OMEGA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OMEGA",
+    "definitions": [
+     {
+      "text": "character written by Aristophanes",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Love",
+      "gives": "O",
+      "note": "love is nil in tennis, written as O"
+     },
+     {
+      "clueFragment": "wicked",
+      "gives": "MEGA",
+      "note": "wicked and mega are both slang for excellent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "MEGA"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone adores a villain from one of Aristophanes' comedies.",
+     "walkthrough": "'Character' suggests a role in a play, but it is a letter of the alphabet, one Aristophanes would have used writing in Greek.",
+     "definitionFit": "Omega is the final letter of the Greek alphabet, so the Athenian playwright wrote it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 25,
@@ -415,7 +1710,71 @@
     "text": "Drug given to cross flipping Art actor with no lines?",
     "enumeration": "5"
    },
-   "solution": "EXTRA"
+   "solution": "EXTRA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "EXTRA",
+    "definitions": [
+     {
+      "text": "actor with no lines?",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flipping",
+      "for": "reversal",
+      "note": "flipping something turns it over, so the word runs backwards"
+     }
+    ],
+    "linkWords": [
+     "given to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drug",
+      "gives": "E",
+      "note": "E is ecstasy"
+     },
+     {
+      "clueFragment": "cross",
+      "gives": "X",
+      "note": "a cross is the letter X"
+     },
+     {
+      "clueFragment": "Art",
+      "gives": "ART",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "X",
+      "TRA"
+     ],
+     "reversals": [
+      {
+       "from": "ART",
+       "to": "TRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cross, swearing actor in the play Art is given drugs to calm him.",
+     "walkthrough": "'Flipping' reads as a mild swearword, and Art as the stage play, but it simply turns the word round.",
+     "definitionFit": "An extra appears in the background of a film or play without speaking any part."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flipping"
+    }
+   }
   },
   {
    "number": 26,
@@ -429,7 +1788,58 @@
     "text": "Blooming half-cut Reed is unconventional",
     "enumeration": "5"
    },
-   "solution": "OUTRE"
+   "solution": "OUTRE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "OUTRE",
+    "definitions": [
+     {
+      "text": "unconventional",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half-cut",
+      "for": "deletion",
+      "note": "cutting something in half keeps only one part, so half the letters go"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Blooming",
+      "gives": "OUT",
+      "note": "flowers that are blooming are out"
+     },
+     {
+      "clueFragment": "Reed",
+      "gives": "RE",
+      "note": "the word with its second half cut away"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUT",
+      "RE"
+     ]
+    },
+    "explanation": {
+     "surface": "A tipsy Reed behaves outlandishly; half-cut is British slang for drunk.",
+     "walkthrough": "'Blooming' looks like a mild curse and half-cut like drunk, but they are flowering and half the letters removed.",
+     "definitionFit": "Outré, borrowed from French, describes something bizarre or beyond the bounds of convention."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "half-cut"
+    }
+   }
   },
   {
    "number": 27,
@@ -449,7 +1859,54 @@
      }
     ]
    },
-   "solution": "NITPICKER"
+   "solution": "NITPICKER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NIT-PICKER",
+    "definitions": [
+     {
+      "text": "overly-fussy critic",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Drunkenly",
+      "for": "anagram",
+      "note": "a drunk staggers about out of order, so the letters lurch into a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "inept Rick",
+      "gives": "INEPTRICK",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INEPTRICK",
+       "gives": "NITPICKER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Clumsy, tipsy Rick is a pedantic reviewer.",
+     "walkthrough": "The fodder is the two words after the indicator, and the definition is the long phrase at the end.",
+     "definitionFit": "A nitpicker finds fault with tiny trivial details, the idiom for a pedantic person who complains too much."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Rick"
+    }
+   }
   },
   {
    "number": 28,
@@ -463,7 +1920,43 @@
     "text": "Equipment used in ASK Italian",
     "enumeration": "3"
    },
-   "solution": "KIT"
+   "solution": "KIT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "KIT",
+    "definitions": [
+     {
+      "text": "Equipment",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "used in",
+      "for": "hidden_word",
+      "note": "what is used in something is found inside it, so the letters sit within the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ASK Italian",
+      "gives": "KIT",
+      "note": "spanning the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Kitchen gear used at a restaurant of the ASK Italian chain.",
+     "walkthrough": "ASK Italian is a British chain of Italian restaurants; the capitals make it look like a brand, which it is, but its letters hold the answer.",
+     "definitionFit": "Kit is the everyday British word for the gear or apparatus needed for a particular activity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ASK"
+    }
+   }
   },
   {
    "number": 29,
@@ -483,7 +1976,47 @@
      }
     ]
    },
-   "solution": "TURNAWAY"
+   "solution": "TURNAWAY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TURN AWAY",
+    "definitions": [
+     {
+      "text": "Refuse entry to",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "performer",
+      "gives": "TURN",
+      "note": "a turn is a performer's act, as in a music-hall turn"
+     },
+     {
+      "clueFragment": "on vacation",
+      "gives": "AWAY",
+      "note": "on holiday you are away"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TURN",
+      "AWAY"
+     ]
+    },
+    "explanation": {
+     "surface": "A bouncer stops an entertainer on holiday from getting in.",
+     "walkthrough": "A turn is British for a performer or act on a variety bill; 'Refuse entry to' needs its object, so the preposition stays in the definition.",
+     "definitionFit": "To turn someone away is the idiom for not admitting them at the door."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "performer"
+    }
+   }
   },
   {
    "number": 30,
@@ -497,7 +2030,58 @@
     "text": "Mostly endure down-a-man side getting thrashed",
     "enumeration": "6"
    },
-   "solution": "BEATEN"
+   "solution": "BEATEN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "BEATEN",
+    "definitions": [
+     {
+      "text": "thrashed",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the last letter is lost"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "endure",
+      "gives": "BEA",
+      "note": "to bear is to endure, cut short"
+     },
+     {
+      "clueFragment": "down-a-man side",
+      "gives": "TEN",
+      "note": "a football or cricket side has eleven players, so one man down leaves ten"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEA",
+      "TEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A team reduced to ten players hangs on but is soundly defeated.",
+     "walkthrough": "The hyphenated phrase is one piece: a side a man down is a number, not a team.",
+     "definitionFit": "Thrashed can mean heavily defeated or physically struck, and beaten carries both senses."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "side"
+    }
+   }
   }
  ]
 }
