@@ -848,6 +848,7 @@ def check_shape(puzzle, today, flags):
 
     from_blog = (puzzle.get("source") or {}).get("retrievedFrom") == "blog"
     seen, checkable = set(), []
+    by_id = {entry_id(e): e for e in entries}
     for e in entries:
         eid = entry_id(e)
         if eid in seen:
@@ -880,9 +881,15 @@ def check_shape(puzzle, today, flags):
             flags.append(("SHAPE", pid, f"{eid}: clue is blank"))
         # The enumeration has its own key; a writer that left it on the words
         # did not build its clue with enumeration.clue().
-        if enumeration.unsplit(e["clue"]):
+        group_total = sum(by_id[g]["length"] for g in e.get("group") or () if g in by_id)
+        if enumeration.unsplit(e["clue"], {e["length"], group_total}):
             flags.append(("SHAPE", pid, f"{eid}: clue text {clue!r} ends in its "
                           f"enumeration; enumeration.split() it into clue.enumeration"))
+        # A letter left stuck to the clue's last mark ("gateau?d") is a source's
+        # stray character: no clue prints a letter directly after "?" or "!".
+        if re.search(r"[?!][A-Za-z]{1,2}$", clue):
+            flags.append(("SHAPE", pid, f"{eid}: clue {clue!r} ends in a stray "
+                          f"letter fused to its last mark"))
         # Braces are a blogger's markup for a deletion or a hidden word, and no
         # paper prints one in a clue.
         if "{" in clue or "}" in clue:
