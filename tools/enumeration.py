@@ -14,7 +14,8 @@ import re
 
 # Digit runs joined by one mark each, as printed: "5,4", "2-3", "4'1", "3/5",
 # "6 and 5", "1 4" (a space alone as the break), "6.6".
-_PRINTED = r"\d+(?:\s*(?:[,\-–—.;:/'’]|\band\b)?\s*\d+)*"
+_MARK = r"(?:[,\-–—\u2011.;:/'’′]|\band\b)"
+_PRINTED = r"\d+(?:(?:\s*" + _MARK + r"){0,2}\s*\d+)*"
 
 # The trailing bracket: an enumeration, or "()" where a feed lost it. A stray
 # trailing comma inside ("(9,)") is a misprint of the same count.
@@ -26,8 +27,10 @@ FORM = re.compile(r"\d+(?:(?:[,\-.;:/']| | and )\d+)*")
 
 
 def _spelling(printed):
-    s = printed.replace("–", "-").replace("—", "-").replace("’", "'")
+    s = (printed.replace("–", "-").replace("—", "-").replace("\u2011", "-")
+         .replace("’", "'").replace("′", "'"))
     s = re.sub(r"\s*([,\-.;:/'])\s*", r"\1", s)
+    s = re.sub(r"'[,\-.;:/]", "'", s)    # "3-1'-4-5": the apostrophe is the break
     s = re.sub(r"\s*\band\b\s*", " and ", s)
     return re.sub(r"\s+", " ", s).strip()
 
@@ -43,7 +46,14 @@ def split(printed):
     if not m:
         return (printed.rstrip() or None), None
     text = printed[:m.start()].rstrip()
-    return (text or None), (_spelling(m.group(1)) if m.group(1) else None)
+    enum = _spelling(m.group(1)) if m.group(1) else None
+    # A source that prints the count itself and has one appended after it
+    # ("Set meal (5,1'4) (5,5)") leaves the same total twice; the echo is cut
+    # with the count it repeats.
+    while enum and (e := _TAIL.search(text)) and e.group(1) and counts(e.group(1)) \
+            and sum(counts(e.group(1))) == sum(counts(enum)):
+        text = text[:e.start()].rstrip()
+    return (text or None), enum
 
 
 def clue(printed, **keys):
@@ -79,7 +89,18 @@ def counts(enumeration):
     return [int(n) for n in re.findall(r"\d+", enumeration or "")]
 
 
-def unsplit(clue):
+def unsplit(clue, totals=()):
     """True when a clue's text still ends in an enumeration it should have
-    handed to `enumeration` (the write gate refuses these)."""
-    return "enumeration" not in clue and split(clue.get("text", ""))[1] is not None
+    handed to `enumeration` (the write gate refuses these).
+
+    With no enumeration key, any trailing count is one. With one, the text
+    holds a second copy of it, recognised by a total that is the light's, its
+    linked group's, or the stored enumeration's (`totals`): "Set meal (5,1'4)"
+    over "5,5". A bracket whose numbers are no such total is the clue's own
+    words ("... (1917)", "... (500)") and stays."""
+    enum = split(clue.get("text", ""))[1]
+    if enum is None:
+        return False
+    if "enumeration" not in clue:
+        return True
+    return sum(counts(enum)) in {*totals, sum(counts(clue["enumeration"]))}
