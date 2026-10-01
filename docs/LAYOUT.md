@@ -104,6 +104,10 @@ tools/file_cyclops_christmas.py              the Cyclops Christmas specials, whi
                                              against the preamble's letter list
 tools/fetch_metro.py                         the Metro’s cryptic; today’s only, because the
                                              paper keeps no archive
+tools/fetch_trove.py                         Canberra Times crosswords from Trove (London Times
+                                             1967-85, Guardian 1986-95): OCR text and the grid
+                                             cut from the page scan, anonymously, past its
+                                             Anubis proof of work
 tools/repair_fetched.py                      applies the fetchers’ current rules to puzzles
                                              already on disk — bare-capital solutions, a masked
                                              prize answer, a group that is really a
