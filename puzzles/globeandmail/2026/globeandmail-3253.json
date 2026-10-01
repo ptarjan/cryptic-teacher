@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,43 @@
     "text": "Champagne producer where I’m stacking bottles",
     "enumeration": "5"
    },
-   "solution": "REIMS"
+   "solution": "REIMS",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "REIMS",
+    "definitions": [
+     {
+      "text": "Champagne producer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bottles",
+      "for": "hidden_word",
+      "note": "to bottle something is to hold it inside, so the letters sit enclosed within the words before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "where I’m stacking",
+      "gives": "REIMS",
+      "note": "run across the end of the first word, the whole second word and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "A wine house describes the cellar where its staff stack bottles of bubbly.",
+     "walkthrough": "'Bottles' reads as the noun being stacked, but it is the verb that holds the answer: wheRE I'M Stacking.",
+     "definitionFit": "The city is the capital of the Champagne region, home to many of the great sparkling-wine houses."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "bottles"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +86,57 @@
     "text": "Liqueur served up in Andorra (if at a restaurant)",
     "enumeration": "7"
    },
-   "solution": "RATAFIA"
+   "solution": "RATAFIA",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "RATAFIA",
+    "definitions": [
+     {
+      "text": "Liqueur",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "served up",
+      "for": "reversal",
+      "note": "in a down clue, sending something up means reading it from bottom to top"
+     },
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the letters wanted are inside the words that follow, not supplied by meaning"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Andorra (if at a restaurant)",
+      "gives": "AIFATAR",
+      "note": "the tail of the first word, then two whole words, a lone article and the head of the last"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "AIFATAR",
+       "to": "RATAFIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A diner in Andorra is brought an after-dinner drink at a restaurant.",
+     "walkthrough": "Read backwards through andorrA IF AT A Restaurant, ignoring the brackets, which only dress the surface.",
+     "definitionFit": "Ratafia is a sweet fruit or almond-flavoured liqueur, often made with apricot or cherry kernels."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "served"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +156,39 @@
      }
     ]
    },
-   "solution": "INSTANTCOFFEE"
+   "solution": "INSTANTCOFFEE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "INSTANT COFFEE",
+    "definitions": [
+     {
+      "text": "Convenient product for those escaping the daily grind?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Convenient product for those escaping the daily grind?",
+      "note": "surface reading: a labour-saving item for people fleeing their tedious work routine"
+     },
+     {
+      "clueFragment": "the daily grind",
+      "note": "setter's reading: the literal grinding of beans each morning, which a soluble powder spares you"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'The daily grind' is the idiom for tiresome routine work, but here it means grinding beans; a jar of soluble granules lets you skip it.",
+     "definitionFit": "Freeze-dried or spray-dried granules dissolve in hot water, so no grinder or brewing equipment is needed for a morning cup."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "grind"
+    }
+   }
   },
   {
    "number": 3,
@@ -87,7 +208,39 @@
      }
     ]
    },
-   "solution": "SPARKPLUG"
+   "solution": "SPARKPLUG",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SPARK PLUG",
+    "definitions": [
+     {
+      "text": "Part responsible for incendiary atmosphere in the Chamber?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Part responsible for incendiary atmosphere in the Chamber?",
+      "note": "surface reading: a political party or role stirring up heated debate in a legislative chamber"
+     },
+     {
+      "clueFragment": "the Chamber",
+      "note": "setter's reading: the combustion chamber of an engine, where a component ignites the fuel mixture"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Part' suggests a political party and 'the Chamber' a parliament; really it is a car component firing the fuel-air mix in a cylinder.",
+     "definitionFit": "In a petrol engine, this component delivers an electric jolt that ignites the compressed fuel and air inside each cylinder."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Chamber"
+    }
+   }
   },
   {
    "number": 4,
@@ -101,7 +254,50 @@
     "text": "Loud reprimand is frightening",
     "enumeration": "7"
    },
-   "solution": "FEARFUL"
+   "solution": "FEARFUL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FEARFUL",
+    "definitions": [
+     {
+      "text": "frightening",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Loud",
+      "gives": "F",
+      "note": "f, forte, is the musical marking for loud"
+     },
+     {
+      "clueFragment": "reprimand",
+      "gives": "EARFUL",
+      "note": "to give someone an earful is to scold them at length"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "EARFUL"
+     ]
+    },
+    "explanation": {
+     "surface": "Being shouted at by an angry boss is a scary experience.",
+     "walkthrough": "'Loud' looks like a description of the reprimand, but it is a separate piece: the musical abbreviation F.",
+     "definitionFit": "Both words can describe something causing dread or alarm, as in a fearful storm or a frightening storm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Loud"
+    }
+   }
   },
   {
    "number": 4,
@@ -115,7 +311,49 @@
     "text": "Female being economical with the truth in economy?",
     "enumeration": "6"
    },
-   "solution": "FLYING"
+   "solution": "FLYING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FLYING",
+    "definitions": [
+     {
+      "text": "in economy",
+      "at": 39,
+      "note": "the answer completes the phrase 'flying in economy' rather than substituting for these words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Female",
+      "gives": "F",
+      "note": "standard abbreviation for female"
+     },
+     {
+      "clueFragment": "being economical with the truth",
+      "gives": "LYING",
+      "note": "a well-known euphemism for telling untruths"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "LYING"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman fibbing to save money, perhaps about her finances.",
+     "walkthrough": "'Economical' and 'economy' seem to share a theme of thrift; the second is the cheap class of airline seat. The definition is loose, hence the question mark.",
+     "definitionFit": "Travelling by air in the cheapest cabin class is described as flying economy, so the answer is the activity hinted at."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "economy"
+    }
+   }
   },
   {
    "number": 5,
@@ -129,7 +367,50 @@
     "text": "French classic automobile with the top down",
     "enumeration": "3"
    },
-   "solution": "ARC"
+   "solution": "ARC",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "ARC",
+    "definitions": [
+     {
+      "text": "French classic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with the top down",
+      "for": "cycling",
+      "note": "in a down clue the top is the first letter, and putting it down sends it to the bottom"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "automobile",
+      "gives": "CAR",
+      "note": "a car is an automobile"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AR",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "A vintage French convertible driven with its roof folded down.",
+     "walkthrough": "The Prix de l'Arc de Triomphe is a famous French horse race, a 'classic' in racing terms. Moving the top letter of the vehicle to the bottom gives the answer.",
+     "definitionFit": "Racing fans call the Prix de l'Arc de Triomphe at Longchamp simply 'the Arc', one of Europe's great flat races."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "classic"
+    }
+   }
   },
   {
    "number": 6,
@@ -149,7 +430,63 @@
      }
     ]
    },
-   "solution": "FOOLSPARADISE"
+   "solution": "FOOLSPARADISE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection"
+    ],
+    "answer": "FOOLS PARADISE",
+    "definitions": [
+     {
+      "text": "La-La land",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "organised",
+      "for": "anagram",
+      "note": "to organise is to put things into a new order, so these letters are rearranged"
+     },
+     {
+      "text": "on vacation",
+      "for": "letter_selection",
+      "note": "a word on vacation has emptied out, leaving only its outermost letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Florida OAPs",
+      "gives": "FLORIDAOAPS",
+      "note": "taken as written; OAPs are old-age pensioners, Britain's term for retirees"
+     },
+     {
+      "clueFragment": "surprise",
+      "gives": "SE",
+      "select": "outer",
+      "note": "just the first and last letters of the word"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FLORIDAOAPSSE",
+       "gives": "FOOLSPARADISE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Retirees in Florida arrange a surprise holiday trip to Hollywood.",
+     "walkthrough": "'On vacation' fits Florida pensioners perfectly, but it empties the word beside it. OAP stands for old-age pensioner, everyday British shorthand.",
+     "definitionFit": "Both phrases describe a state of happy illusion, a dreamworld cut off from harsh reality."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "vacation"
+    }
+   }
   },
   {
    "number": 7,
@@ -163,7 +500,48 @@
     "text": "Prune head of smooth and shiny allium",
     "enumeration": "4"
    },
-   "solution": "LEEK"
+   "solution": "LEEK",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LEEK",
+    "definitions": [
+     {
+      "text": "allium",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Prune head of",
+      "for": "deletion",
+      "note": "pruning cuts something off, and here it is the topmost letter that goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "smooth and shiny",
+      "gives": "SLEEK",
+      "note": "glossy and smooth, as of hair or fur"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEEK"
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener trims the top of a glossy onion-family plant.",
+     "walkthrough": "'Prune' fits the gardening picture, but here it means dropping the first letter of the adjective.",
+     "definitionFit": "Allium is the botanical genus of onions, garlic and chives, and this vegetable is one of its members."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Prune"
+    }
+   }
   },
   {
    "number": 8,
@@ -177,7 +555,62 @@
     "text": "Truss regularly caught some Renaissance vibe here",
     "enumeration": "7"
    },
-   "solution": "TUSCANY"
+   "solution": "TUSCANY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TUSCANY",
+    "definitions": [
+     {
+      "text": "Renaissance vibe here",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "at regular intervals means taking every other letter, starting with the first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Truss",
+      "gives": "TUS",
+      "select": "alternate",
+      "note": "first, third and fifth letters"
+     },
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "C is the cricket scorecard abbreviation for caught"
+     },
+     {
+      "clueFragment": "some",
+      "gives": "ANY",
+      "note": "as in 'have you got some?' or 'have you got any?'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TUS",
+      "C",
+      "ANY"
+     ]
+    },
+    "explanation": {
+     "surface": "A former prime minister on holiday soaks up the art and atmosphere of Florence.",
+     "walkthrough": "Liz Truss was a British prime minister, which makes the surface read like a holiday report; her name is only fodder.",
+     "definitionFit": "The Italian region around Florence was the cradle of the Renaissance, so its art and atmosphere still carry that era."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Truss"
+    }
+   }
   },
   {
    "number": 9,
@@ -191,7 +624,43 @@
     "text": "Stuffy actor with many Oscar nominations",
     "enumeration": "5"
    },
-   "solution": "CLOSE"
+   "solution": "CLOSE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CLOSE",
+    "definitions": [
+     {
+      "text": "Stuffy",
+      "at": 0
+     },
+     {
+      "text": "actor with many Oscar nominations",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stuffy",
+      "note": "first meaning: airless and humid, of weather or a room"
+     },
+     {
+      "clueFragment": "actor with many Oscar nominations",
+      "note": "second meaning: Glenn of that surname, nominated eight times without winning"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Stuffy' seems to describe the actor's manner, but it is a separate meaning: muggy weather.",
+     "definitionFit": "Muggy, airless weather is called this, and Glenn of the same surname holds a record for Academy Award nominations without a win."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Stuffy"
+    }
+   }
   },
   {
    "number": 10,
@@ -205,7 +674,47 @@
     "text": "Open fragrance — a special gift!",
     "enumeration": "12"
    },
-   "solution": "FRANKINCENSE"
+   "solution": "FRANKINCENSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FRANKINCENSE",
+    "definitions": [
+     {
+      "text": "a special gift",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Open",
+      "gives": "FRANK",
+      "note": "open and frank both mean candid"
+     },
+     {
+      "clueFragment": "fragrance",
+      "gives": "INCENSE",
+      "note": "a substance burnt for its sweet smell"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FRANK",
+      "INCENSE"
+     ]
+    },
+    "explanation": {
+     "surface": "Unwrapping a bottle of perfume, a delighted present.",
+     "walkthrough": "'Open' looks like a command to unwrap the present, but it is an adjective meaning candid.",
+     "definitionFit": "The aromatic resin was one of the three offerings the Magi brought to the infant Jesus, alongside gold and myrrh."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Open"
+    }
+   }
   },
   {
    "number": 11,
@@ -219,7 +728,66 @@
     "text": "Meeting to extract answer from accountant having lost billions",
     "enumeration": "9"
    },
-   "solution": "ENCOUNTER"
+   "solution": "ENCOUNTER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ENCOUNTER",
+    "definitions": [
+     {
+      "text": "Meeting",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extract",
+      "for": "deletion",
+      "note": "to extract is to pull out, so a letter is taken away"
+     },
+     {
+      "text": "having lost",
+      "for": "deletion",
+      "note": "something lost is no longer there, so another letter goes missing"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "answer",
+      "gives": "A",
+      "note": "A is the standard abbreviation for answer"
+     },
+     {
+      "clueFragment": "accountant",
+      "gives": "BEANCOUNTER",
+      "note": "slang for an accountant fixated on figures"
+     },
+     {
+      "clueFragment": "billions",
+      "gives": "B",
+      "note": "B is the abbreviation for billions"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENCOUNTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A meeting called to get a straight answer from the finance man who has squandered billions.",
+     "walkthrough": "The accountant must be read as the slang 'bean counter'; then both its B and its A are pulled out.",
+     "definitionFit": "Both nouns describe a coming-together of people, often unplanned, as in a chance encounter or meeting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "extract"
+    }
+   }
   },
   {
    "number": 12,
@@ -233,7 +801,49 @@
     "text": "Barbarian periodically astute? I’ll say!",
     "enumeration": "6"
    },
-   "solution": "ATTILA"
+   "solution": "ATTILA",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ATTILA",
+    "definitions": [
+     {
+      "text": "Barbarian",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "periodically",
+      "for": "letter_selection",
+      "note": "at periodic intervals means taking every other letter in turn"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "astute? I’ll say",
+      "gives": "ATTILA",
+      "select": "alternate",
+      "note": "the first, third, fifth and every second letter onward, ignoring punctuation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ATTILA"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sarcastically agrees that a fierce barbarian was rather clever.",
+     "walkthrough": "'I'll say!' looks like an exclamation or a sound-alike signal, but it is simply more letters for the alternate run.",
+     "definitionFit": "The fifth-century leader of the Huns is the archetypal barbarian invader of the Roman Empire."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "say"
+    }
+   }
   },
   {
    "number": 13,
@@ -253,7 +863,47 @@
      }
     ]
    },
-   "solution": "ICEAGE"
+   "solution": "ICEAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ICE AGE",
+    "definitions": [
+     {
+      "text": "Animated films in franchise",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "kill",
+      "gives": "ICE",
+      "note": "slang: to ice someone is to murder them"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "AGE",
+      "note": "an age is a period of time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ICE",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Watching a cartoon movie series to pass an idle afternoon.",
+     "walkthrough": "'Kill time' reads as one idiom, but the words split into separate pieces.",
+     "definitionFit": "The Blue Sky Studios series about a mammoth, a sloth and a sabre-toothed tiger runs to several films."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "kill"
+    }
+   }
   },
   {
    "number": 14,
@@ -267,7 +917,68 @@
     "text": "Before wife and husband uncovered long novel by Butler",
     "enumeration": "7"
    },
-   "solution": "EREWHON"
+   "solution": "EREWHON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "EREWHON",
+    "definitions": [
+     {
+      "text": "novel by Butler",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "uncovered",
+      "for": "letter_selection",
+      "note": "with its cover stripped off, a word loses its outer letters and keeps its middle"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Before",
+      "gives": "ERE",
+      "note": "an old word for before"
+     },
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "standard abbreviation for wife"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "standard abbreviation for husband"
+     },
+     {
+      "clueFragment": "long",
+      "gives": "ON",
+      "select": "middle",
+      "note": "the inner two letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ERE",
+      "W",
+      "H",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A couple read a long novel by a famous butler before bed.",
+     "walkthrough": "Butler is Samuel Butler, the Victorian author, not a household servant.",
+     "definitionFit": "Samuel Butler's 1872 satirical utopia takes its title from 'nowhere' spelt roughly backwards."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Butler"
+    }
+   }
   },
   {
    "number": 15,
@@ -281,7 +992,56 @@
     "text": "Impudent language beginning to rile cup holder",
     "enumeration": "6"
    },
-   "solution": "SAUCER"
+   "solution": "SAUCER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SAUCER",
+    "definitions": [
+     {
+      "text": "cup holder",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its opening letter only"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Impudent language",
+      "gives": "SAUCE",
+      "note": "sauce is cheek, impertinent talk"
+     },
+     {
+      "clueFragment": "rile",
+      "gives": "R",
+      "select": "first",
+      "note": "the opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAUCE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Cheeky remarks annoy the person holding a teacup, or a sports trophy holder.",
+     "walkthrough": "'Sauce' in the sense of cheek is especially British, as in 'none of your sauce'.",
+     "definitionFit": "The small dish set under a teacup holds it and catches spills."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "cup"
+    }
+   }
   },
   {
    "number": 16,
@@ -295,7 +1055,51 @@
     "text": "Compliment revolutionary lute/organ act",
     "enumeration": "12"
    },
-   "solution": "CONGRATULATE"
+   "solution": "CONGRATULATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CONGRATULATE",
+    "definitions": [
+     {
+      "text": "Compliment",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "revolutionary",
+      "for": "anagram",
+      "note": "a revolution turns everything over, so these letters are overturned into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lute/organ act",
+      "gives": "LUTEORGANACT",
+      "note": "taken as written, ignoring the slash"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LUTEORGANACT",
+       "gives": "CONGRATULATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Praising a groundbreaking musical performance for lute and organ.",
+     "walkthrough": "'Compliment' is a verb here, matching the verb answer.",
+     "definitionFit": "To praise someone or express pleasure at their success are both ways of warmly acknowledging an achievement."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "revolutionary"
+    }
+   }
   },
   {
    "number": 17,
@@ -309,7 +1113,54 @@
     "text": "No spring chicken my boss … silver on top",
     "enumeration": "4"
    },
-   "solution": "AGED"
+   "solution": "AGED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AGED",
+    "definitions": [
+     {
+      "text": "No spring chicken",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on top",
+      "for": "charade",
+      "note": "in a down clue, being on top means coming first in the column"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "silver",
+      "gives": "AG",
+      "note": "Ag is the chemical symbol for silver"
+     },
+     {
+      "clueFragment": "my boss",
+      "gives": "ED",
+      "note": "the setter's boss is the editor, abbreviated ED"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AG",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "The writer's boss is getting on and going grey.",
+     "walkthrough": "'Silver on top' suggests grey hair, but it places the chemical symbol above the editor in this down entry.",
+     "definitionFit": "Calling someone no spring chicken is an idiom meaning they are no longer young."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "silver"
+    }
+   }
   },
   {
    "number": 18,
@@ -323,7 +1174,48 @@
     "text": "Foreman ignoring last blunder",
     "enumeration": "5"
    },
-   "solution": "GAFFE"
+   "solution": "GAFFE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "GAFFE",
+    "definitions": [
+     {
+      "text": "blunder",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ignoring last",
+      "for": "deletion",
+      "note": "to ignore the final letter is to leave it out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Foreman",
+      "gives": "GAFFER",
+      "note": "British informal word for a boss or foreman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GAFFE"
+     ]
+    },
+    "explanation": {
+     "surface": "A foreman pays no attention to the latest mistake on site.",
+     "walkthrough": "A gaffer is British slang for a boss or works foreman, also the chief lighting technician on a film set.",
+     "definitionFit": "Both nouns name an embarrassing mistake, especially a social or verbal slip."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "last"
+    }
+   }
   },
   {
    "number": 19,
@@ -337,7 +1229,55 @@
     "text": "Work unit, say, crushing resistance",
     "enumeration": "3"
    },
-   "solution": "ERG"
+   "solution": "ERG",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ERG",
+    "definitions": [
+     {
+      "text": "Work unit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crushing",
+      "for": "container",
+      "note": "to crush something is to squeeze it from both sides, so one piece is held within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "say",
+      "gives": "EG",
+      "note": "e.g., for example; the backward run in the following words is a coincidence"
+     },
+     {
+      "clueFragment": "resistance",
+      "gives": "R",
+      "note": "R is the symbol for electrical resistance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "R",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A team at work, for example, overpowering opposition.",
+     "walkthrough": "'Work unit' sounds like a team or department, but it is the physics unit.",
+     "definitionFit": "In the centimetre-gram-second system, this is the unit of work or energy, one ten-millionth of a joule."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "unit"
+    }
+   }
   },
   {
    "number": 20,
@@ -351,7 +1291,67 @@
     "text": "Moggy following his fresh catch from the river?",
     "enumeration": "7"
    },
-   "solution": "CATFISH"
+   "solution": "CATFISH",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "CATFISH",
+    "definitions": [
+     {
+      "text": "catch from the river?",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fresh",
+      "for": "anagram",
+      "note": "fresh means new, so the letters take on a new form"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Moggy",
+      "gives": "CAT",
+      "note": "moggy is British slang for an ordinary house cat"
+     },
+     {
+      "clueFragment": "following",
+      "gives": "F",
+      "note": "F is the abbreviation for following, as in page references"
+     },
+     {
+      "clueFragment": "his",
+      "gives": "HIS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAT",
+      "F",
+      "ISH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HIS",
+       "gives": "ISH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cat stalks its owner's freshly landed fish.",
+     "walkthrough": "'Following' looks like the cat trailing someone, but it gives F; moggy is British slang for a cat.",
+     "definitionFit": "This whiskered freshwater species is commonly landed by anglers in rivers, and the question mark flags the example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "following"
+    }
+   }
   },
   {
    "number": 21,
@@ -365,7 +1365,39 @@
     "text": "One employed to add depth to channel",
     "enumeration": "7"
    },
-   "solution": "DREDGER"
+   "solution": "DREDGER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "DREDGER",
+    "definitions": [
+     {
+      "text": "One employed to add depth to channel",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One employed to add depth to channel",
+      "note": "surface reading: a TV producer hired to make a broadcast channel's programmes more profound"
+     },
+     {
+      "clueFragment": "channel",
+      "note": "setter's reading: a waterway, deepened by scooping silt from its bed"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Channel' suggests television and 'depth' intellectual weight; really a boat or machine scoops mud to deepen a waterway.",
+     "definitionFit": "A vessel or machine that scoops silt from harbours and waterways to keep them navigable for shipping."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "channel"
+    }
+   }
   },
   {
    "number": 22,
@@ -379,7 +1411,56 @@
     "text": "German river runs by hotel, one in Berlin",
     "enumeration": "5"
    },
-   "solution": "RHEIN"
+   "solution": "RHEIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RHEIN",
+    "definitions": [
+     {
+      "text": "German river",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "runs",
+      "gives": "R",
+      "note": "R is the cricket scorecard abbreviation for runs"
+     },
+     {
+      "clueFragment": "hotel",
+      "gives": "H",
+      "note": "H is hotel in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "one in Berlin",
+      "gives": "EIN",
+      "note": "the German word for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "H",
+      "EIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A river flows past a hotel, one of many in the German capital.",
+     "walkthrough": "The answer is the German spelling of the river English speakers call the Rhine.",
+     "definitionFit": "This is the native German name of the great river flowing from the Alps through Germany to the North Sea."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "runs"
+    }
+   }
   }
  ]
 }
