@@ -24,6 +24,9 @@
   "date": "2022-02-28",
   "check": "32 entries verified against the grid (lengths, crossings, linked-clue mapping)"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,79 @@
     "text": "Dodgy peer protecting Conservative intel sources – what's to be made from that?",
     "enumeration": "6"
    },
-   "solution": "RECIPE"
+   "solution": "RECIPE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "RECIPE",
+    "definitions": [
+     {
+      "text": "what's to be made from that?",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Dodgy",
+      "for": "anagram",
+      "note": "something dodgy is not straight or reliable, so these letters are bent into a new order"
+     },
+     {
+      "text": "sources",
+      "for": "letter_selection",
+      "note": "a source is where something starts, so only the opening letter of the word is used"
+     },
+     {
+      "text": "protecting",
+      "for": "container",
+      "note": "to protect something is to wrap around it, so one piece sits inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "peer",
+      "gives": "PEER",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C is the standard abbreviation for Conservative"
+     },
+     {
+      "clueFragment": "intel",
+      "gives": "I",
+      "select": "first",
+      "note": "the first letter of intel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "CI",
+      "PE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PEER",
+       "gives": "REPE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shady member of the House of Lords shields a Tory's intelligence sources, and the setter wonders what can be cooked up from it.",
+     "walkthrough": "PEER is shuffled to REPE, and C plus I go into the middle to make RECIPE.",
+     "definitionFit": "A recipe is the set of ingredients and instructions from which a dish is made, cleverly phrased as a question."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "sources"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +126,63 @@
     "text": "It's rash to reduce the devastation after wife's left",
     "enumeration": "8"
    },
-   "solution": "RECKLESS"
+   "solution": "RECKLESS",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "RECKLESS",
+    "definitions": [
+     {
+      "text": "rash",
+      "at": 5
+     }
+    ],
+    "indicators": [
+     {
+      "text": "left",
+      "for": "deletion",
+      "note": "something that has left is no longer present, so that letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "It's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the devastation",
+      "gives": "WRECK",
+      "note": "a wreck is the devastated remains of something"
+     },
+     {
+      "clueFragment": "to reduce",
+      "gives": "LESS",
+      "note": "to reduce is to make less"
+     },
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "W is the standard abbreviation for wife, and it is removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RECK",
+      "LESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A warning that it is foolhardy to play down a disaster once the wife has walked out.",
+     "walkthrough": "'Reduce the devastation' reads as WRECK LESS; taking the W of wife out of WRECK leaves RECKLESS.",
+     "definitionFit": "Rash and reckless are synonyms, both describing someone acting hastily without thinking of the consequences."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +196,65 @@
     "text": "Melody's talk about 'The End of Biden'",
     "enumeration": "5"
    },
-   "solution": "CHANT"
+   "solution": "CHANT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CHANT",
+    "definitions": [
+     {
+      "text": "Melody",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "The End of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, so only that one is kept"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece goes round the other"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "talk",
+      "gives": "CHAT",
+      "note": "a chat is an informal talk"
+     },
+     {
+      "clueFragment": "Biden",
+      "gives": "N",
+      "select": "last",
+      "note": "the final letter of Biden"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHA",
+      "N",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone called Melody gives a speech on the close of Joe Biden's presidency.",
+     "walkthrough": "'Melody' looks like a person's name with a possessive, but the 's is just 'is' and Melody is the definition.",
+     "definitionFit": "A chant is a simple repeated tune or sung phrase, so it counts as a kind of melody."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Melody"
+    }
+   }
   },
   {
    "number": 3,
@@ -85,7 +274,43 @@
      }
     ]
    },
-   "solution": "POKINGFUN"
+   "solution": "POKINGFUN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "POKING FUN",
+    "definitions": [
+     {
+      "text": "The joy of bonking",
+      "at": 0
+     },
+     {
+      "text": "piss-taking",
+      "at": 25
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The joy of bonking",
+      "note": "first meaning, read crudely: the pleasure of a poke, slang for sex"
+     },
+     {
+      "clueFragment": "piss-taking",
+      "note": "second meaning: mocking someone"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Bonking and poking are both British slang for having sex, so the fun of it is 'poking fun'; piss-taking is British slang for mockery.",
+     "definitionFit": "To poke fun at someone is an idiom for teasing or ridiculing them, exactly what piss-taking describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bonking"
+    }
+   }
   },
   {
    "number": 4,
@@ -105,7 +330,69 @@
      }
     ]
    },
-   "solution": "RUNSHORT"
+   "solution": "RUNSHORT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "RUN SHORT",
+    "definitions": [
+     {
+      "text": "become exhausted",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mid-",
+      "for": "letter_selection",
+      "note": "mid means the middle, so only the central letter of the word is used"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means surrounding, so one piece is wrapped round the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Diarrhoea",
+      "gives": "RUNS",
+      "note": "the runs is slang for diarrhoea"
+     },
+     {
+      "clueFragment": "intense",
+      "gives": "HOT",
+      "note": "hot can mean intense, as in hot competition"
+     },
+     {
+      "clueFragment": "March",
+      "gives": "R",
+      "select": "middle",
+      "note": "the middle letter of the five in March"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RUNS",
+      "HO",
+      "R",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A bad bout of diarrhoea around the middle of March leaves someone worn out.",
+     "walkthrough": "'The runs' is everyday British slang for diarrhoea; the middle letter of March sits inside the word for intense.",
+     "definitionFit": "Supplies that run short are being used up, so the phrase means becoming depleted or exhausted."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "March"
+    }
+   }
   },
   {
    "number": 5,
@@ -125,7 +412,51 @@
      }
     ]
    },
-   "solution": "UPNORTH"
+   "solution": "UPNORTH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UP NORTH",
+    "definitions": [
+     {
+      "text": "Grim location",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "revolting",
+      "gives": "UP",
+      "note": "people in revolt are up in arms, or 'up'"
+     },
+     {
+      "clueFragment": "direction",
+      "gives": "NORTH",
+      "note": "north is a compass direction"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UP",
+      "NORTH"
+     ]
+    },
+    "explanation": {
+     "surface": "A grim place points the way to rebellion.",
+     "walkthrough": "'It's grim up north' is a well-known British saying about the north of England, which makes the definition fair.",
+     "definitionFit": "The proverbial British phrase pairs grimness with the north of England, so the place it names is a grim location."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "revolting"
+    }
+   }
   },
   {
    "number": 6,
@@ -139,7 +470,55 @@
     "text": "Your swift introduction to drink: a sweet medicine?",
     "enumeration": "5"
    },
-   "solution": "SYRUP"
+   "solution": "SYRUP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SYRUP",
+    "definitions": [
+     {
+      "text": "a sweet medicine",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "introduction to",
+      "for": "container",
+      "note": "an introduction is a putting into, so one piece is placed inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Your swift",
+      "gives": "YR",
+      "note": "a quick, shortened form of your"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "SUP",
+      "note": "to sup is to drink"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "YR",
+      "UP"
+     ]
+    },
+    "explanation": {
+     "surface": "A quick first taste of a drink turns out to be a sugary remedy.",
+     "walkthrough": "YR is a standard abbreviation of your, hence 'swift'; it goes inside SUP.",
+     "definitionFit": "Cough mixtures and other liquid medicines are often thick sugary syrups, sweetened to make them palatable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "swift"
+    }
+   }
   },
   {
    "number": 7,
@@ -153,7 +532,75 @@
     "text": "It's depraving, old boy, since getting beaten – Blair gutted",
     "enumeration": "9"
    },
-   "solution": "OBSCENITY"
+   "solution": "OBSCENITY",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram",
+     "letter_selection"
+    ],
+    "answer": "OBSCENITY",
+    "definitions": [
+     {
+      "text": "It's depraving",
+      "at": 0,
+      "note": "a clause describing the noun: an obscenity is something depraving"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "getting beaten",
+      "for": "anagram",
+      "note": "something beaten is knocked out of shape, so its letters are reworked"
+     },
+     {
+      "text": "gutted",
+      "for": "letter_selection",
+      "note": "a gutted thing has had its insides removed, leaving just its outer shell"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old boy",
+      "gives": "OB",
+      "note": "OB is the abbreviation for old boy, a former pupil"
+     },
+     {
+      "clueFragment": "since",
+      "gives": "SINCE",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "Blair",
+      "gives": "TY",
+      "select": "outer",
+      "note": "Blair suggests Tony Blair; his first name without its middle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OB",
+      "SCENI",
+      "TY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SINCE",
+       "gives": "SCENI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old school boy complains of moral corruption ever since he was caned, with a dig at a gutted Tony Blair.",
+     "walkthrough": "Blair stands for Tony, the former Labour prime minister; it is TONY that loses its middle letters to leave TY.",
+     "definitionFit": "An obscenity is something offensive to decency, the kind of thing thought likely to deprave and corrupt."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "beaten"
+    }
+   }
   },
   {
    "number": 8,
@@ -167,7 +614,62 @@
     "text": "Turtle's head put on artist, which calls for a drink",
     "enumeration": "6"
    },
-   "solution": "THIRST"
+   "solution": "THIRST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "THIRST",
+    "definitions": [
+     {
+      "text": "which calls for a drink",
+      "at": 29,
+      "note": "a relative clause describing the noun"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head",
+      "for": "letter_selection",
+      "note": "a head is at the top or front, so only the opening letter is used"
+     },
+     {
+      "text": "put on",
+      "for": "charade",
+      "note": "in a down entry, one thing put on another sits above it, so it comes first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Turtle's",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter of turtle"
+     },
+     {
+      "clueFragment": "artist",
+      "gives": "HIRST",
+      "note": "Damien Hirst, the British artist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "HIRST"
+     ]
+    },
+    "explanation": {
+     "surface": "A turtle's head placed on an artwork, the kind of stunt to celebrate with a drink.",
+     "walkthrough": "Hirst is apt: Damien Hirst is famous for animals preserved in tanks.",
+     "definitionFit": "Thirst is the bodily need for liquid, so it is the feeling that demands something to drink."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "artist"
+    }
+   }
   },
   {
    "number": 9,
@@ -181,7 +683,55 @@
     "text": "Escort's devious means of restraining corporation",
     "enumeration": "6"
    },
-   "solution": "CORSET"
+   "solution": "CORSET",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CORSET",
+    "definitions": [
+     {
+      "text": "means of restraining corporation",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "devious",
+      "for": "anagram",
+      "note": "devious means winding and indirect, so the letters wander out of order"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Escort",
+      "gives": "ESCORT",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ESCORT",
+       "gives": "CORSET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A paid escort is described as sly in the way they hold back a company.",
+     "walkthrough": "'Corporation' looks like a company, but it is the old jokey word for a large belly.",
+     "definitionFit": "A corset is a tight undergarment that holds in the stomach, so it restrains a paunch."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "corporation"
+    }
+   }
   },
   {
    "number": 10,
@@ -195,7 +745,49 @@
     "text": "Suppression of cocaine on the decrease",
     "enumeration": "9"
    },
-   "solution": "CRACKDOWN"
+   "solution": "CRACKDOWN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CRACKDOWN",
+    "definitions": [
+     {
+      "text": "Suppression",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cocaine",
+      "gives": "CRACK",
+      "note": "crack is a form of cocaine"
+     },
+     {
+      "clueFragment": "on the decrease",
+      "gives": "DOWN",
+      "note": "something decreasing is going down"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRACK",
+      "DOWN"
+     ]
+    },
+    "explanation": {
+     "surface": "Stamping out cocaine means its use is falling.",
+     "walkthrough": "The surface reads as a policy of suppressing drugs, which is also what the answer means.",
+     "definitionFit": "A crackdown is a severe official clampdown on some activity, so it means forceful suppression."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -209,7 +801,59 @@
     "text": "Minister ballsed-up his introduction to theological study",
     "enumeration": "5"
    },
-   "solution": "RISHI"
+   "solution": "RISHI",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RISHI",
+    "definitions": [
+     {
+      "text": "Minister",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ballsed-up",
+      "for": "anagram",
+      "note": "something ballsed-up is botched and messed up, so the letters end in a muddle"
+     }
+    ],
+    "linkWords": [
+     "introduction to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "his",
+      "gives": "HIS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "theological study",
+      "gives": "RI",
+      "note": "RI is religious instruction, the school subject"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HISRI",
+       "gives": "RISHI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A government minister fluffs his first lesson in theology.",
+     "walkthrough": "The minister is Rishi Sunak, the British Chancellor and later Prime Minister; RI (religious instruction) is a school subject.",
+     "definitionFit": "Rishi Sunak was a senior government minister, so his first name stands for one, as the satirical magazine liked."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "introduction"
+    }
+   }
   },
   {
    "number": 12,
@@ -223,7 +867,62 @@
     "text": "City plonker's arse over tip? Language!",
     "enumeration": "5"
    },
-   "solution": "LATIN"
+   "solution": "LATIN",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "LATIN",
+    "definitions": [
+     {
+      "text": "Language!",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "arse over tip",
+      "for": "reversal",
+      "note": "falling arse over tip means tumbling head over heels, so the word is turned back to front"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "City",
+      "gives": "LA",
+      "note": "LA is Los Angeles"
+     },
+     {
+      "clueFragment": "plonker's",
+      "gives": "NIT",
+      "note": "a plonker is British slang for a fool, a nit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LA",
+      "TIN"
+     ],
+     "reversals": [
+      {
+       "from": "NIT",
+       "to": "TIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A city idiot takes a tumble, and someone shouts at the bad language.",
+     "walkthrough": "'Language!' looks like a rebuke for swearing, but it is the definition.",
+     "definitionFit": "Latin is the classical tongue of ancient Rome, a specific example of a language."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Language!"
+    }
+   }
   },
   {
    "number": 13,
@@ -237,7 +936,46 @@
     "text": "Order made to an over-zealous disciplinarian for a type of dress?",
     "enumeration": "9"
    },
-   "solution": "STRAPLESS"
+   "solution": "STRAPLESS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STRAPLESS",
+    "definitions": [
+     {
+      "text": "Order made to an over-zealous disciplinarian",
+      "at": 0
+     },
+     {
+      "text": "type of dress",
+      "at": 51
+     }
+    ],
+    "linkWords": [
+     "for a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Order made to an over-zealous disciplinarian",
+      "note": "first meaning, read as a command: beat with the belt less often"
+     },
+     {
+      "clueFragment": "type of dress",
+      "note": "second meaning: a dress with no shoulder straps"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "To strap someone is to beat them with a leather belt, so a disciplinarian overdoing it would be told to 'strap less'.",
+     "definitionFit": "A strapless dress has a bodice that stays up with no shoulder straps, a common evening style."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Order"
+    }
+   }
   },
   {
    "number": 14,
@@ -257,7 +995,51 @@
      }
     ]
    },
-   "solution": "SNUFFIT"
+   "solution": "SNUFFIT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SNUFF IT",
+    "definitions": [
+     {
+      "text": "Turn up your toes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fiddling with",
+      "for": "anagram",
+      "note": "fiddling with something means tinkering, rearranging how it is put together"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stiff 'un",
+      "gives": "STIFFUN",
+      "note": "taken as written, apostrophe ignored"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "STIFFUN",
+       "gives": "SNUFFIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A morbid command to drop dead while messing about with a corpse.",
+     "walkthrough": "A stiff 'un is slang for a corpse, which fits the surface of dying.",
+     "definitionFit": "Both are British slang idioms for dying, comparing death to a candle going out and a body lying still."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fiddling"
+    }
+   }
   },
   {
    "number": 15,
@@ -271,7 +1053,42 @@
     "text": "Lingerie put on less than is necessary?",
     "enumeration": "9"
    },
-   "solution": "UNDERWEAR"
+   "solution": "UNDERWEAR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "UNDERWEAR",
+    "definitions": [
+     {
+      "text": "Lingerie",
+      "at": 0
+     },
+     {
+      "text": "put on less than is necessary",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lingerie",
+      "note": "first meaning: women's underclothes"
+     },
+     {
+      "clueFragment": "put on less than is necessary",
+      "note": "second meaning, read as a made-up verb: to wear too little"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second meaning splits the word as UNDER (too little) plus WEAR (put on clothes).",
+     "definitionFit": "Lingerie is a term for women's undergarments, a particular kind of underwear worn next to the skin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 16,
@@ -285,7 +1102,70 @@
     "text": "State of 'a wife excellent' covered by Hello!",
     "enumeration": "6"
    },
-   "solution": "HAWAII"
+   "solution": "HAWAII",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HAWAII",
+    "definitions": [
+     {
+      "text": "State",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covered by",
+      "for": "container",
+      "note": "something covered by another has that other wrapped round it"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hello!",
+      "gives": "HI",
+      "note": "hi is a greeting"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "W abbreviates wife"
+     },
+     {
+      "clueFragment": "excellent",
+      "gives": "AI",
+      "note": "A1 means first-rate, written as AI"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "A",
+      "W",
+      "AI",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "Hello! magazine reports on the condition of an excellent wife.",
+     "walkthrough": "'Hello!' is a British celebrity magazine, but here just HI; 'State' looks like a condition, but it is a US state.",
+     "definitionFit": "Hawaii is the island group that became the fiftieth member of the United States."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "State"
+    }
+   }
   },
   {
    "number": 17,
@@ -299,7 +1179,52 @@
     "text": "Bush-style ramble: \"Kabul – wot a fiasco!\"",
     "enumeration": "9"
    },
-   "solution": "WALKABOUT"
+   "solution": "WALKABOUT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "WALKABOUT",
+    "definitions": [
+     {
+      "text": "Bush-style ramble",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fiasco",
+      "for": "anagram",
+      "note": "a fiasco is a chaotic mess, so the letters end in disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Kabul – wot a",
+      "gives": "KABULWOTA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "KABULWOTA",
+       "gives": "WALKABOUT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rambling George W. Bush-style remark calls the Kabul withdrawal a shambles.",
+     "walkthrough": "'Bush' looks like the former president, but it is the Australian outback.",
+     "definitionFit": "A walkabout is a journey on foot through the Australian outback, so a ramble in the bush."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bush-style"
+    }
+   }
   },
   {
    "number": 18,
@@ -313,7 +1238,52 @@
     "text": "Not from 5, The Sun or otherwise",
     "enumeration": "8"
    },
-   "solution": "SOUTHERN"
+   "solution": "SOUTHERN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SOUTHERN",
+    "definitions": [
+     {
+      "text": "Not from 5",
+      "at": 0,
+      "note": "5 is the answer to 5-down, UP NORTH"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "otherwise",
+      "for": "anagram",
+      "note": "otherwise means in another way, so the letters are put another way round"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The Sun or",
+      "gives": "THESUNOR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THESUNOR",
+       "gives": "SOUTHERN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A note that some paper, The Sun or another, is not from 5.",
+     "walkthrough": "The definition points at 5-down: not from up north means from the south.",
+     "definitionFit": "Someone who is not a northerner hails from the opposite region, so is described as southern."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Sun"
+    }
+   }
   },
   {
    "number": 19,
@@ -327,7 +1297,44 @@
     "text": "Port bottled by Bootleg Dan's Kitchen",
     "enumeration": "6"
    },
-   "solution": "GDANSK"
+   "solution": "GDANSK",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "GDANSK",
+    "definitions": [
+     {
+      "text": "Port",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bottled by",
+      "for": "hidden_word",
+      "note": "anything bottled is held inside a container, so the answer sits within the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bootleg Dan's Kitchen",
+      "gives": "GDANSK",
+      "note": "the letters run across the end of one word, all of the next and the start of the last"
+     }
+    ],
+    "explanation": {
+     "surface": "A bootlegger called Dan stashes port wine in his kitchen.",
+     "walkthrough": "'Port' tempts as the fortified wine a bootlegger would bottle; it is a seaport.",
+     "definitionFit": "Gdansk is a major Polish city on the Baltic coast with a large harbour and shipyards."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Port"
+    }
+   }
   },
   {
    "number": 20,
@@ -341,7 +1348,43 @@
     "text": "\"Making do means keeping hold of one's country and people\"",
     "enumeration": "7"
    },
-   "solution": "KINGDOM"
+   "solution": "KINGDOM",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "KINGDOM",
+    "definitions": [
+     {
+      "text": "one's country and people",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeping hold of",
+      "for": "hidden_word",
+      "note": "what keeps hold of something has it held within, so the answer lies inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Making do means",
+      "gives": "KINGDOM",
+      "note": "found running through these three words"
+     }
+    ],
+    "explanation": {
+     "surface": "A homespun saying that getting by means holding on to your nation and its folk.",
+     "walkthrough": "The answer runs from inside the first word through to the start of the third.",
+     "definitionFit": "A kingdom is a realm ruled by a monarch, the territory and its subjects together."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Making"
+    }
+   }
   },
   {
    "number": 21,
@@ -361,7 +1404,71 @@
      }
     ]
    },
-   "solution": "TALLYHO"
+   "solution": "TALLYHO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TALLY-HO",
+    "definitions": [
+     {
+      "text": "cry of one on the hunt",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nuts",
+      "for": "anagram",
+      "note": "nuts means crazy, so these letters go wild and change order"
+     },
+     {
+      "text": "on the outside",
+      "for": "container",
+      "note": "one piece lying on the outside of another surrounds it"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hot",
+      "gives": "HOT",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "Mate",
+      "gives": "ALLY",
+      "note": "an ally is a friend or mate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ALLY",
+      "HO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HOT",
+       "gives": "THO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crude saying about a randy mate, then the shout of a foxhunter.",
+     "walkthrough": "'Nuts' looks like the mate's testicles, but it shuffles the next word, whose letters then split to sit either side of the friend.",
+     "definitionFit": "Tally-ho is the traditional shout of a huntsman when the fox is first sighted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "nuts"
+    }
+   }
   },
   {
    "number": 21,
@@ -375,7 +1482,62 @@
     "text": "Hancock's first to get in to bad-mouth No.10 gathering?",
     "enumeration": "6"
    },
-   "solution": "THRASH"
+   "solution": "THRASH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "THRASH",
+    "definitions": [
+     {
+      "text": "No.10 gathering?",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first means the opening letter, so only that one is taken"
+     },
+     {
+      "text": "to get in to",
+      "for": "container",
+      "note": "getting in to something means entering it, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hancock's",
+      "gives": "H",
+      "select": "first",
+      "note": "the first letter of Hancock"
+     },
+     {
+      "clueFragment": "bad-mouth",
+      "gives": "TRASH",
+      "note": "to trash someone is to bad-mouth them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "H",
+      "RASH"
+     ]
+    },
+    "explanation": {
+     "surface": "Matt Hancock tries to slip in and slander a lockdown party at Downing Street.",
+     "walkthrough": "Matt Hancock was the Health Secretary; No.10 Downing Street is the British Prime Minister's residence, scene of lockdown parties.",
+     "definitionFit": "Thrash is British slang for a lively party, and the question mark signals the Downing Street lockdown parties."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "gathering"
+    }
+   }
   },
   {
    "number": 22,
@@ -395,7 +1557,64 @@
      }
     ]
    },
-   "solution": "WHATIF"
+   "solution": "WHATIF",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "WHAT-IF",
+    "definitions": [
+     {
+      "text": "speculation",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shattered",
+      "for": "anagram",
+      "note": "something shattered is broken to pieces, which are then put back differently"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "West",
+      "gives": "W",
+      "note": "W abbreviates west"
+     },
+     {
+      "clueFragment": "faith",
+      "gives": "FAITH",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "HATIF"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FAITH",
+       "gives": "HATIF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pundit muses on whether the Western world has lost its belief.",
+     "walkthrough": "The quoted opinion sounds like a headline, and the final word labels it as guesswork.",
+     "definitionFit": "A what-if is a hypothetical question about an imagined situation, which is a form of speculation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shattered"
+    }
+   }
   },
   {
    "number": 23,
@@ -409,7 +1628,57 @@
     "text": "Tory rebel, say, having puzzling row with right?",
     "enumeration": "9"
    },
-   "solution": "HARDLINER"
+   "solution": "HARDLINER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HARDLINER",
+    "definitions": [
+     {
+      "text": "Tory rebel, say",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "having",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "puzzling",
+      "gives": "HARD",
+      "note": "something puzzling is hard to work out"
+     },
+     {
+      "clueFragment": "row",
+      "gives": "LINE",
+      "note": "a row is a line"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R abbreviates right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HARD",
+      "LINE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A rebellious Conservative MP gets into a baffling quarrel with the right wing.",
+     "walkthrough": "'Row' looks like a quarrel, which fits the rebel, but it is a line; 'say' flags the definition as an example.",
+     "definitionFit": "A Tory rebel often holds uncompromising views against the party leadership, an example of a hardliner."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "row"
+    }
+   }
   },
   {
    "number": 24,
@@ -437,7 +1706,60 @@
     "text": "Investigation when car hits terrorist leader",
     "enumeration": "5"
    },
-   "solution": "AUDIT"
+   "solution": "AUDIT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "AUDIT",
+    "definitions": [
+     {
+      "text": "Investigation",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "a leader goes in front, so only the opening letter is used"
+     }
+    ],
+    "linkWords": [
+     "when",
+     "hits"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "car",
+      "gives": "AUDI",
+      "note": "Audi is a German car make"
+     },
+     {
+      "clueFragment": "terrorist",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter of terrorist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AUDI",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Police launch an inquiry after a car runs down the head of a terror group.",
+     "walkthrough": "The surface is a news report; the investigation is a financial one.",
+     "definitionFit": "An audit is a formal examination of accounts or procedures, a type of official investigation or inspection."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hits"
+    }
+   }
   },
   {
    "number": 26,
@@ -455,7 +1777,39 @@
    "group": [
     "26-down",
     "24-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "DIRTY LINEN",
+    "definitions": [
+     {
+      "text": "Its sleazy owners would want it washed but not aired?",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Its sleazy owners would want it washed but not aired?",
+      "note": "surface reading: soiled bedding that needs a wash but not hanging out to dry"
+     },
+     {
+      "clueFragment": "washed but not aired",
+      "note": "setter's reading: private scandal that its owners want cleaned up but not made public"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The idiom 'don't wash your dirty linen in public' means don't expose private scandals; airing is both drying laundry and making public.",
+     "definitionFit": "The phrase is an idiom for embarrassing private secrets, which shady people want hushed rather than publicly exposed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "aired"
+    }
+   }
   },
   {
    "number": 27,
@@ -475,7 +1829,55 @@
      }
     ]
    },
-   "solution": "TIEIN"
+   "solution": "TIEIN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TIE-IN",
+    "definitions": [
+     {
+      "text": "Connection",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one thing within another, so one piece is set inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that is contracted",
+      "gives": "IE",
+      "note": "i.e. is the shortened form of id est, Latin for that is"
+     },
+     {
+      "clueFragment": "the can",
+      "gives": "TIN",
+      "note": "a tin is a can"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "IE",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "A link that has been agreed by contract, once the deal is in the can.",
+     "walkthrough": "'In the can' sounds like the film idiom for a finished deal; 'contracted' signals an abbreviation.",
+     "definitionFit": "A tie-in is a link between two things, such as a book released alongside a film."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "contracted"
+    }
+   }
   },
   {
    "number": 28,
@@ -489,7 +1891,56 @@
     "text": "Ex-royal's vulgar broadcast speech",
     "enumeration": "9"
    },
-   "solution": "DISCOURSE"
+   "solution": "DISCOURSE",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "DISCOURSE",
+    "definitions": [
+     {
+      "text": "speech",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broadcast",
+      "for": "homophone",
+      "note": "a broadcast is heard rather than read, so the word is taken by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ex-royal's",
+      "gives": "DIS",
+      "note": "Di is Princess Diana, once married into the royal family"
+     },
+     {
+      "clueFragment": "vulgar",
+      "gives": "COURSE",
+      "soundsLike": "COARSE",
+      "note": "coarse means vulgar"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIS",
+      "COURSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A former royal makes a crude speech on air.",
+     "walkthrough": "'Broadcast' sounds like it describes the speech, but it marks a sound-alike for the adjective before it.",
+     "definitionFit": "A discourse is an extended formal talk or written treatment of a subject, so a kind of speech."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 29,
@@ -503,7 +1954,67 @@
     "text": "Loud Remoaner endlessly turning 'start handle'",
     "enumeration": "8"
    },
-   "solution": "FORENAME"
+   "solution": "FORENAME",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "anagram"
+    ],
+    "answer": "FORENAME",
+    "definitions": [
+     {
+      "text": "start handle",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endlessly",
+      "for": "deletion",
+      "note": "without an end means the final letter is cut off"
+     },
+     {
+      "text": "turning",
+      "for": "anagram",
+      "note": "turning things over changes their order, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Loud",
+      "gives": "F",
+      "note": "f, forte, is the musical marking for loud"
+     },
+     {
+      "clueFragment": "Remoaner",
+      "gives": "REMOANE",
+      "note": "the word minus its last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "ORENAME"
+     ],
+     "anagrams": [
+      {
+       "fodder": "REMOANE",
+       "gives": "ORENAME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A noisy Remainer keeps going over the same lines about a starting point.",
+     "walkthrough": "A Remoaner is a disparaging British term for a Remain voter still complaining about Brexit.",
+     "definitionFit": "Handle is slang for a name, and the one that starts a full name is the first name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "handle"
+    }
+   }
   },
   {
    "number": 30,
@@ -523,7 +2034,54 @@
      }
     ]
    },
-   "solution": "STAYIN"
+   "solution": "STAYIN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STAY IN",
+    "definitions": [
+     {
+      "text": "Follow lockdown rules?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "assailing",
+      "for": "anagram",
+      "note": "assailing means attacking, and an attack knocks the letters into a new order"
+     }
+    ],
+    "linkWords": [
+     "That's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sanity",
+      "gives": "SANITY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SANITY",
+       "gives": "STAYIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that obeying the lockdown is driving people mad.",
+     "walkthrough": "The question mark marks the definition as an example: one way to obey lockdown is to remain at home.",
+     "definitionFit": "Staying at home was the central rule of the Covid lockdowns, so remaining indoors meant obeying them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "assailing"
+    }
+   }
   }
  ]
 }
