@@ -953,9 +953,8 @@ def barred(grid):
 
 def grid_of(puzzle):
     """The published grid, as light_cells() reads it: a barred puzzle's
-    `bars` rows, else its black squares as reconstruct() would render them."""
-    if puzzle.get("bars"):
-        return tuple(puzzle["bars"])
+    `bars` rows with its black squares, else its black squares as
+    reconstruct() would render them: the squares no entry covers."""
     cols, rows = puzzle["dimensions"]["cols"], puzzle["dimensions"]["rows"]
     white = [[False] * cols for _ in range(rows)]
     for e in puzzle["entries"]:
@@ -964,6 +963,16 @@ def grid_of(puzzle):
             cx, cy = (x + i, y) if e["direction"] == "across" else (x, y + i)
             if 0 <= cx < cols and 0 <= cy < rows:
                 white[cy][cx] = True
+    if puzzle.get("bars"):
+        # A barred grid may have black squares too (Listener No 29): a square
+        # no light covers is black, unless an unclued light has it (No 93's
+        # greeting), as a lone square between bars is in no entry.
+        for light in puzzle.get("unclued") or []:
+            for c in light.get("cells") or []:
+                if 0 <= c["x"] < cols and 0 <= c["y"] < rows:
+                    white[c["y"]][c["x"]] = True
+        return tuple("".join(ch if white[y][x] else "#" for x, ch in enumerate(row))
+                     for y, row in enumerate(puzzle["bars"]))
     return tuple("".join("." if c else "#" for c in row) for row in white)
 
 
