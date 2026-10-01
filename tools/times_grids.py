@@ -443,8 +443,10 @@ def solve_barred(rec, n):
     return [tuple(bg.layout(rec["entries"], placements[0], size=n)[1])], "unique"
 
 
-#: The most splits of a record's linked answers solve() tries.
-MAX_SPLITS = 16
+#: The most splits of a record's linked answers solve() tries. Each is one
+#: search with every other answer written in, which fails in a fraction of a
+#: second, so this is cheap; 16 refused 41 bigdave44 posts.
+MAX_SPLITS = 64
 
 
 def splits(group):
@@ -657,8 +659,8 @@ def settled_digest(fix):
 def attempted(max_nodes, settled=None, attempts=None, doubts=frozenset()):
     """post_id of every puzzle this search already tried, at this budget or more,
     with the settled answers it has now. A post in `doubts` is doubtful() and
-    counts as tried only by a search that let the grid decide its doubts (an
-    attempt marked "doubts").
+    counts as tried only by a search that let the grid decide its doubts,
+    trying at least MAX_SPLITS splits (an attempt's "splits").
 
     Tried at a SMALLER budget is not skipped: raising --max-nodes is how a
     `truncated` puzzle gets another go, and that has to still work. Nor is one
@@ -675,7 +677,7 @@ def attempted(max_nodes, settled=None, attempts=None, doubts=frozenset()):
                 continue       # the last line of a killed run, half written
             if (a.get("search") == SEARCH and a.get("max_nodes", 0) >= max_nodes
                     and a.get("settled", "") == settled_digest(settled.get(a["post_id"]))
-                    and (a["post_id"] not in doubts or a.get("doubts"))):
+                    and (a["post_id"] not in doubts or a.get("splits", 0) >= MAX_SPLITS)):
                 ids.add(a["post_id"])
     return ids
 
@@ -814,7 +816,7 @@ def run(limit_puzzles=None, series=None, write=True, seed=None,
                        "max_nodes": max_nodes, "search": SEARCH,
                        "settled": settled_digest(settled.get(rec["post_id"]))}
             if doubts:
-                attempt["doubts"] = True
+                attempt["splits"] = MAX_SPLITS
             log.write(json.dumps(attempt) + "\n")
             log.flush()
         by_series[rec["series"]][key] += 1
