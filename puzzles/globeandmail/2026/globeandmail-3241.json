@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,50 @@
     "text": "Book everything for party",
     "enumeration": "4"
    },
-   "solution": "BALL"
+   "solution": "BALL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BALL",
+    "definitions": [
+     {
+      "text": "party",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Book",
+      "gives": "B",
+      "note": "B is the standard abbreviation for book"
+     },
+     {
+      "clueFragment": "everything",
+      "gives": "ALL",
+      "note": "everything is all of it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ALL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone reserves the whole lot of something for a party they are throwing.",
+     "walkthrough": "'Book' reads as a verb meaning reserve, but it is the noun, shortened to its usual one-letter abbreviation.",
+     "definitionFit": "A ball is a formal social gathering with dancing, a grand kind of festive event."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Book"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +93,39 @@
     "text": "Good place to go for long run in New York?",
     "enumeration": "8"
    },
-   "solution": "BROADWAY"
+   "solution": "BROADWAY",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BROADWAY",
+    "definitions": [
+     {
+      "text": "Good place to go for long run in New York?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Good place to go for long run",
+      "note": "surface reading: a wide street that would suit a jogger going a long distance"
+     },
+     {
+      "clueFragment": "long run in New York?",
+      "note": "setter's reading: a long run is a show staying on stage for many months in the city's famous theatre district"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The clue sounds like advice for runners, but a 'long run' is theatre jargon for a hit show playing night after night. The street name also splits as a broad way, a wide road for running.",
+     "definitionFit": "The famous Manhattan avenue gives its name to the theatre district where successful productions enjoy lengthy runs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "run"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +139,47 @@
     "text": "Northern city is ahead of all others, according to reports",
     "enumeration": "5"
    },
-   "solution": "LEEDS"
+   "solution": "LEEDS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "LEEDS",
+    "definitions": [
+     {
+      "text": "Northern city",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "according to reports",
+      "for": "homophone",
+      "note": "reports are things heard rather than read, so the word must be taken by its sound"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ahead of all others",
+      "gives": "LEEDS",
+      "soundsLike": "LEADS",
+      "note": "whoever is ahead of everyone else leads the field"
+     }
+    ],
+    "explanation": {
+     "surface": "A boast that some northern city tops every ranking, at least as the press tells it.",
+     "walkthrough": "Leeds is a large city in Yorkshire, in the north of England; its name is said exactly like the verb form 'leads'.",
+     "definitionFit": "This major Yorkshire city lies in northern England, so the geographical description identifies it fairly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reports"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +193,63 @@
     "text": "Game ultimately attracts frantic, unruly crowd",
     "enumeration": "8"
    },
-   "solution": "SCRABBLE"
+   "solution": "SCRABBLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SCRABBLE",
+    "definitions": [
+     {
+      "text": "Game",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so only the final letter of each following word is wanted"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "attracts",
+      "gives": "S",
+      "select": "last",
+      "note": "final letter"
+     },
+     {
+      "clueFragment": "frantic",
+      "gives": "C",
+      "select": "last",
+      "note": "final letter"
+     },
+     {
+      "clueFragment": "unruly crowd",
+      "gives": "RABBLE",
+      "note": "a rabble is a disorderly mob"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "C",
+      "RABBLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A match draws in a wild, disorderly crowd of fans.",
+     "walkthrough": "'Ultimately' covers two words, not one: both 'attracts' and 'frantic' give up their last letters. 'Frantic' looks like a description of the crowd but is only there for its final letter.",
+     "definitionFit": "Scrabble is a well-known board game where players build words from lettered tiles."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "frantic"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +263,55 @@
     "text": "Make wooden box to be filled with earth",
     "enumeration": "6"
    },
-   "solution": "CREATE"
+   "solution": "CREATE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CREATE",
+    "definitions": [
+     {
+      "text": "Make",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be filled with",
+      "for": "container",
+      "note": "whatever is filled has something else placed inside it, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wooden box",
+      "gives": "CRATE",
+      "note": "a crate is a wooden packing box"
+     },
+     {
+      "clueFragment": "earth",
+      "gives": "E",
+      "note": "E is the usual abbreviation for earth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CR",
+      "E",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions to build a wooden box and then shovel soil into it, like a planter.",
+     "walkthrough": "'Make' looks like the start of an instruction about the box, but it stands alone as the definition.",
+     "definitionFit": "To create something is to bring it into being, a direct synonym for producing or building."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Make"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +325,62 @@
     "text": "Particular guys involved in relevant meeting",
     "enumeration": "11"
    },
-   "solution": "APPOINTMENT"
+   "solution": "APPOINTMENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "APPOINTMENT",
+    "definitions": [
+     {
+      "text": "meeting",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involved in",
+      "for": "container",
+      "note": "something involved in a thing is wrapped up inside it, so one piece sits within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Particular",
+      "gives": "POINT",
+      "note": "a particular, as a noun, is a detail or point"
+     },
+     {
+      "clueFragment": "guys",
+      "gives": "MEN",
+      "note": "guys are men"
+     },
+     {
+      "clueFragment": "relevant",
+      "gives": "APT",
+      "note": "apt means pertinent or relevant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AP",
+      "POINT",
+      "MEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Specific people taking part in a meeting that matters to them.",
+     "walkthrough": "'Particular' reads as an adjective describing the guys, but it is the noun meaning a detail, as in 'in every particular'.",
+     "definitionFit": "An appointment is an arranged meeting at a set time, such as one with a doctor or client."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Particular"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +394,60 @@
     "text": "Bishop and priest almost always have faith",
     "enumeration": "7"
    },
-   "solution": "BELIEVE"
+   "solution": "BELIEVE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "BELIEVE",
+    "definitions": [
+     {
+      "text": "have faith",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the word loses its last letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bishop",
+      "gives": "B",
+      "note": "B is the chess abbreviation for bishop"
+     },
+     {
+      "clueFragment": "priest",
+      "gives": "ELI",
+      "note": "Eli is the priest who raised Samuel in the Old Testament"
+     },
+     {
+      "clueFragment": "always",
+      "gives": "EVER",
+      "note": "ever means always"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ELI",
+      "EVE"
+     ]
+    },
+    "explanation": {
+     "surface": "Clergy of every rank keep their religious faith nearly all the time.",
+     "walkthrough": "Eli is the crossword's favourite priest, from the Book of Samuel. 'Almost' applies only to the word after it.",
+     "definitionFit": "To believe is to hold religious conviction or trust in something, which is what having faith means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +461,49 @@
     "text": "Has lamb and chicken, say, but without a starter",
     "enumeration": "4"
    },
-   "solution": "EATS"
+   "solution": "EATS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EATS",
+    "definitions": [
+     {
+      "text": "Has",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without a starter",
+      "for": "deletion",
+      "note": "a starter is the first course, so lacking one means the opening letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lamb and chicken, say",
+      "gives": "MEATS",
+      "note": "lamb and chicken are examples of meats"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EATS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's dinner order of lamb and chicken, skipping the first course.",
+     "walkthrough": "'Starter' in the meal sense is the misdirection: here it is the first letter of the word. 'Say' signals that lamb and chicken are examples.",
+     "definitionFit": "To have a meal is to consume it, so 'has' can mean dines on or consumes food."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "starter"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +517,57 @@
     "text": "Late deliveries initially didn’t unsettle employees",
     "enumeration": "7"
    },
-   "solution": "OVERDUE"
+   "solution": "OVERDUE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "OVERDUE",
+    "definitions": [
+     {
+      "text": "Late",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the opening letters of the following words count"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "deliveries",
+      "gives": "OVER",
+      "note": "in cricket an over is a set of six balls bowled, or deliveries"
+     },
+     {
+      "clueFragment": "didn’t unsettle employees",
+      "gives": "DUE",
+      "select": "first",
+      "note": "first letters of these three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "DUE"
+     ]
+    },
+    "explanation": {
+     "surface": "Parcels arriving late, but at least the staff weren't upset by it.",
+     "walkthrough": "Deliveries suggests post; in cricket, the bat-and-ball game, a bowler's set of six deliveries is called an over.",
+     "definitionFit": "Something overdue has passed the time it was expected, so it is behind schedule."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "deliveries"
+    }
+   }
   },
   {
    "number": 9,
@@ -159,7 +581,51 @@
     "text": "Huge warship a thunder god destroyed",
     "enumeration": "11"
    },
-   "solution": "DREADNOUGHT"
+   "solution": "DREADNOUGHT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DREADNOUGHT",
+    "definitions": [
+     {
+      "text": "Huge warship",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "destroyed",
+      "for": "anagram",
+      "note": "something destroyed is wrecked, its parts scattered, so the letters fall into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a thunder god",
+      "gives": "ATHUNDERGOD",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ATHUNDERGOD",
+       "gives": "DREADNOUGHT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A massive battleship sunk by a storm-wielding deity such as Thor.",
+     "walkthrough": "The surface invites a mythological story, but the god is just letters to rearrange.",
+     "definitionFit": "The dreadnought was an early twentieth-century class of big-gun battleship, named after the British vessel HMS Dreadnought."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "god"
+    }
+   }
   },
   {
    "number": 10,
@@ -173,7 +639,54 @@
     "text": "Storyline probed by one introductory episode",
     "enumeration": "5"
    },
-   "solution": "PILOT"
+   "solution": "PILOT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PILOT",
+    "definitions": [
+     {
+      "text": "introductory episode",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "probed by",
+      "for": "container",
+      "note": "a probe pushes into something, so one piece is inserted inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Storyline",
+      "gives": "PLOT",
+      "note": "a plot is a storyline"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "I",
+      "LOT"
+     ]
+    },
+    "explanation": {
+     "surface": "A TV series' plot gets examined through its opening instalment.",
+     "walkthrough": "The whole surface sounds like television criticism, which is the right world, but 'one' is only the numeral.",
+     "definitionFit": "A pilot is the trial first instalment of a television series, made to test whether it gets commissioned."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +706,51 @@
      }
     ]
    },
-   "solution": "DESSERTWINE"
+   "solution": "DESSERTWINE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DESSERT WINE",
+    "definitions": [
+     {
+      "text": "sweet drink",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Horribly",
+      "for": "anagram",
+      "note": "something done horribly is botched and mangled, so the letters come out jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "westernised",
+      "gives": "WESTERNISED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WESTERNISED",
+       "gives": "DESSERTWINE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that a traditional sweet drink has been ruined by Western influence.",
+     "walkthrough": "'Westernised' looks like a description of the drink but supplies exactly the eleven letters.",
+     "definitionFit": "Dessert wines are sugary wines served with or as the final course, such as Sauternes or port."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "westernised"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +764,61 @@
     "text": "System periodically supporting big charity",
     "enumeration": "8"
    },
-   "solution": "LARGESSE"
+   "solution": "LARGESSE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "LARGESSE",
+    "definitions": [
+     {
+      "text": "charity",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "periodically",
+      "for": "letter_selection",
+      "note": "periodically means at regular intervals, so every other letter is taken"
+     },
+     {
+      "text": "supporting",
+      "for": "charade",
+      "note": "in a down answer a support sits underneath, so this part follows the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "big",
+      "gives": "LARGE",
+      "note": "large means big"
+     },
+     {
+      "clueFragment": "System",
+      "gives": "SSE",
+      "select": "alternate",
+      "note": "first, third and fifth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LARGE",
+      "SSE"
+     ]
+    },
+    "explanation": {
+     "surface": "An occasional scheme of backing for a major charitable organisation.",
+     "walkthrough": "'Big charity' looks like one phrase, a major charity, but 'big' belongs to the wordplay and 'charity' alone is the definition.",
+     "definitionFit": "Largesse is generous giving of money or gifts, which is the sense of charity as benevolent donation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "big"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +832,55 @@
     "text": "Where you may find gaming machines are broken open by scoundrel",
     "enumeration": "6"
    },
-   "solution": "ARCADE"
+   "solution": "ARCADE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ARCADE",
+    "definitions": [
+     {
+      "text": "Where you may find gaming machines",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broken open by",
+      "for": "container",
+      "note": "breaking something open lets another thing in, so one piece is inserted inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "are",
+      "gives": "ARE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "scoundrel",
+      "gives": "CAD",
+      "note": "a cad is a dishonourable man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AR",
+      "CAD",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Slot machines being smashed into by a crook after the cash.",
+     "walkthrough": "'Are' looks like a mere verb in the sentence, but it is the outer piece of the wordplay.",
+     "definitionFit": "An amusement arcade is a venue full of coin-operated video and slot games."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "are"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +900,65 @@
      }
     ]
    },
-   "solution": "COFOUND"
+   "solution": "COFOUND",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CO FOUND",
+    "definitions": [
+     {
+      "text": "Jointly start",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing being in another means it sits inside it"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "Co is the abbreviation for company"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "O looks like zero"
+     },
+     {
+      "clueFragment": "kitty",
+      "gives": "FUND",
+      "note": "a kitty is a shared fund of money"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "F",
+      "O",
+      "UND"
+     ]
+    },
+    "explanation": {
+     "surface": "Launching a business together with an empty bank account.",
+     "walkthrough": "'Start company' looks like the definition, but 'company' is the first piece of wordplay and 'Jointly start' is the definition.",
+     "definitionFit": "To co-found an organisation is to establish it together with one or more partners."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "company"
+    }
+   }
   },
   {
    "number": 15,
@@ -255,7 +972,41 @@
     "text": "Greek goddess seen in Sparta, then Alexandria",
     "enumeration": "6"
    },
-   "solution": "ATHENA"
+   "solution": "ATHENA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ATHENA",
+    "definitions": [
+     {
+      "text": "Greek goddess",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "seen in",
+      "for": "hidden_word",
+      "note": "what is seen in a phrase is visible inside it, running across the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sparta, then Alexandria",
+      "note": "the letters run across the end of the first word, the whole of the second and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "A goddess's statue spotted on a tour of ancient cities, first Sparta and later Alexandria.",
+     "walkthrough": "The place names suggest a classical trivia question, but the answer is just sitting in the letters.",
+     "definitionFit": "Athena was the Olympian deity of wisdom and warfare, patron of the city of Athens."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -269,7 +1020,58 @@
     "text": "An endless job for lead TV presenter",
     "enumeration": "6"
    },
-   "solution": "ANCHOR"
+   "solution": "ANCHOR",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ANCHOR",
+    "definitions": [
+     {
+      "text": "lead TV presenter",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endless",
+      "for": "deletion",
+      "note": "without an end means the final letter is cut off"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "An",
+      "gives": "AN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "job",
+      "gives": "CHORE",
+      "note": "a chore is a routine task"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AN",
+      "CHOR"
+     ]
+    },
+    "explanation": {
+     "surface": "Fronting a TV programme as a never-ending grind.",
+     "walkthrough": "'Endless' seems to describe the job's tedium, but it trims the last letter.",
+     "definitionFit": "An anchor is the main presenter of a news broadcast who links reports from other correspondents."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "endless"
+    }
+   }
   },
   {
    "number": 17,
@@ -283,7 +1085,69 @@
     "text": "Struggling Romeo finally falling short in casual relationship",
     "enumeration": "11"
    },
-   "solution": "FLOUNDERING"
+   "solution": "FLOUNDERING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "FLOUNDERING",
+    "definitions": [
+     {
+      "text": "Struggling",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally means at the end, so only the last letter is kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing being in another means it is placed inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Romeo",
+      "gives": "O",
+      "select": "last",
+      "note": "final letter"
+     },
+     {
+      "clueFragment": "falling short",
+      "gives": "UNDER",
+      "note": "to fall short of a target is to come in under it"
+     },
+     {
+      "clueFragment": "casual relationship",
+      "gives": "FLING",
+      "note": "a fling is a short casual affair"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FL",
+      "O",
+      "UNDER",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "Romeo floundering because he can't live up to expectations in a light romance.",
+     "walkthrough": "Romeo is not the NATO-alphabet R here; 'finally' takes only his last letter.",
+     "definitionFit": "To flounder is to flail about and have great difficulty, so floundering means battling unsuccessfully."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Romeo"
+    }
+   }
   },
   {
    "number": 18,
@@ -297,7 +1161,47 @@
     "text": "Perfect current agreement",
     "enumeration": "5"
    },
-   "solution": "IDEAL"
+   "solution": "IDEAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IDEAL",
+    "definitions": [
+     {
+      "text": "Perfect",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "current",
+      "gives": "I",
+      "note": "I is the physics symbol for electric current"
+     },
+     {
+      "clueFragment": "agreement",
+      "gives": "DEAL",
+      "note": "a deal is an agreement"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "DEAL"
+     ]
+    },
+    "explanation": {
+     "surface": "Describing a present-day contract as flawless.",
+     "walkthrough": "'Current' reads as 'present-day', but it is electric current, written I in formulas.",
+     "definitionFit": "Ideal as an adjective means exactly as one would wish, without flaw."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "current"
+    }
+   }
   },
   {
    "number": 19,
@@ -311,7 +1215,59 @@
     "text": "Sign of damage in rear end of goods vehicle",
     "enumeration": "4"
    },
-   "solution": "SCAR"
+   "solution": "SCAR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SCAR",
+    "definitions": [
+     {
+      "text": "Sign of damage",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rear end of",
+      "for": "letter_selection",
+      "note": "the rear end of a word is its last letter"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "goods",
+      "gives": "S",
+      "select": "last",
+      "note": "final letter"
+     },
+     {
+      "clueFragment": "vehicle",
+      "gives": "CAR",
+      "note": "a car is a vehicle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A dent in the back of a delivery van.",
+     "walkthrough": "'Rear end' sounds like the back of the lorry, but it picks the last letter of the word that follows it.",
+     "definitionFit": "A scar is a mark left on skin or a surface after an injury has healed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rear"
+    }
+   }
   },
   {
    "number": 20,
@@ -325,7 +1281,48 @@
     "text": "Held cold item in chest?",
     "enumeration": "5"
    },
-   "solution": "CLUNG"
+   "solution": "CLUNG",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CLUNG",
+    "definitions": [
+     {
+      "text": "Held",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C is the abbreviation for cold, as on taps"
+     },
+     {
+      "clueFragment": "item in chest?",
+      "gives": "LUNG",
+      "note": "a lung is an organ in the chest; the question mark flags the pun on chest as a box"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LUNG"
+     ]
+    },
+    "explanation": {
+     "surface": "Keeping something frozen stored in a chest freezer.",
+     "walkthrough": "'Chest' suggests a storage chest or freezer; it is the body's chest.",
+     "definitionFit": "Clung is the past tense of cling, meaning gripped tightly, so it matches held."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "chest"
+    }
+   }
   },
   {
    "number": 21,
@@ -339,7 +1336,71 @@
     "text": "He’s not troubled by first hint of severe spice level",
     "enumeration": "7"
    },
-   "solution": "HOTNESS"
+   "solution": "HOTNESS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "HOTNESS",
+    "definitions": [
+     {
+      "text": "spice level",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "troubled",
+      "for": "anagram",
+      "note": "something troubled is disturbed, so its letters are thrown out of order"
+     },
+     {
+      "text": "first hint of",
+      "for": "letter_selection",
+      "note": "a first hint is just the opening letter of a word"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "He’s not",
+      "gives": "HESNOT",
+      "note": "taken as written, apostrophe ignored"
+     },
+     {
+      "clueFragment": "severe",
+      "gives": "S",
+      "select": "first",
+      "note": "opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOTNES",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HESNOT",
+       "gives": "HOTNES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A diner who isn't bothered even by a hint of very hot seasoning.",
+     "walkthrough": "'By' here simply places the letter after the jumbled part.",
+     "definitionFit": "The hotness of a dish is how fiery its chilli or pepper content is, measured on scales like Scoville."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "troubled"
+    }
+   }
   },
   {
    "number": 22,
@@ -353,7 +1414,54 @@
     "text": "Singer looking embarrassed prior to intro",
     "enumeration": "8"
    },
-   "solution": "REDSTART"
+   "solution": "REDSTART",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REDSTART",
+    "definitions": [
+     {
+      "text": "Singer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "prior to",
+      "for": "charade",
+      "note": "coming prior to something means placed before it in order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "looking embarrassed",
+      "gives": "RED",
+      "note": "an embarrassed face goes red"
+     },
+     {
+      "clueFragment": "intro",
+      "gives": "START",
+      "note": "an intro is the start"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RED",
+      "START"
+     ]
+    },
+    "explanation": {
+     "surface": "A vocalist blushing just before the song's opening bars.",
+     "walkthrough": "'Singer' points to a performer, but in crosswords it often means a songbird.",
+     "definitionFit": "The redstart is a small songbird with a rusty orange tail, so it qualifies as a warbling creature."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Singer"
+    }
+   }
   },
   {
    "number": 23,
@@ -367,7 +1475,42 @@
     "text": "Dismal Conservative",
     "enumeration": "4"
    },
-   "solution": "BLUE"
+   "solution": "BLUE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BLUE",
+    "definitions": [
+     {
+      "text": "Dismal",
+      "at": 0
+     },
+     {
+      "text": "Conservative",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dismal",
+      "note": "first meaning: sad or low in spirits"
+     },
+     {
+      "clueFragment": "Conservative",
+      "note": "second meaning: the colour of the Conservative party, in Britain and Canada"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The two words read as one phrase about a gloomy politician; they are separate meanings.",
+     "definitionFit": "The colour word covers both a melancholy mood and the right-of-centre party whose campaign colour it is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Conservative"
+    }
+   }
   }
  ]
 }
