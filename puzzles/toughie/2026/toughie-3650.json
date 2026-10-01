@@ -24,6 +24,9 @@
   "date": "2026-03-11",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -43,7 +46,43 @@
      }
     ]
    },
-   "solution": "BACKDATING"
+   "solution": "BACKDATING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BACK-DATING",
+    "definitions": [
+     {
+      "text": "Making retrospective",
+      "at": 0
+     },
+     {
+      "text": "on Tinder again",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Making retrospective",
+      "note": "first meaning: putting an earlier date on a document so that it takes effect from the past"
+     },
+     {
+      "clueFragment": "on Tinder again",
+      "note": "second, playful meaning: read as two words, going out with people again through a dating app"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Tinder is a smartphone dating app; the question mark flags the jokey second reading, where the answer splits into 'back' (again) and 'dating'.",
+     "definitionFit": "To give a document an earlier effective date makes it apply retrospectively, which is exactly what this verb describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Tinder"
+    }
+   }
   },
   {
    "number": 2,
@@ -57,7 +96,49 @@
     "text": "Particle accelerator too often malfunctions initially",
     "enumeration": "4"
    },
-   "solution": "ATOM"
+   "solution": "ATOM",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ATOM",
+    "definitions": [
+     {
+      "text": "Particle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so take only the opening letter of each word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "accelerator too often malfunctions",
+      "gives": "ATOM",
+      "select": "first",
+      "note": "the first letters of these four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ATOM"
+     ]
+    },
+    "explanation": {
+     "surface": "A physicist grumbles that the particle accelerator keeps breaking down.",
+     "walkthrough": "'Particle accelerator' looks like one phrase, but the definition stops after the first word and the next four supply their initials.",
+     "definitionFit": "An atom is a tiny unit of matter, a classic example of a physical particle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "accelerator"
+    }
+   }
   },
   {
    "number": 3,
@@ -71,7 +152,62 @@
     "text": "Every now and then, king’s guards welcome old rogues",
     "enumeration": "6"
    },
-   "solution": "KNAVES"
+   "solution": "KNAVES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "KNAVES",
+    "definitions": [
+     {
+      "text": "rogues",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Every now and then",
+      "for": "letter_selection",
+      "note": "something done every now and then happens at intervals, so keep alternate letters only"
+     },
+     {
+      "text": "guards",
+      "for": "container",
+      "note": "a guard stands around what it protects, so one piece goes outside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "king’s",
+      "gives": "KNS",
+      "select": "alternate",
+      "note": "the odd letters of this word, ignoring the apostrophe"
+     },
+     {
+      "clueFragment": "welcome old",
+      "gives": "AVE",
+      "note": "ave is the Latin greeting, an archaic word of welcome"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KN",
+      "AVE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Courtiers protecting a monarch now and then let in some ageing scoundrels.",
+     "walkthrough": "AVE (hail) is old Latin welcome, so 'welcome old' gives it; the alternate letters K, N, S wrap around it.",
+     "definitionFit": "Knave is an old word for a dishonest man, so these are villains or scoundrels."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "guards"
+    }
+   }
   },
   {
    "number": 4,
@@ -85,7 +221,68 @@
     "text": "Comes to an office rising record label lets occasionally",
     "enumeration": "7"
    },
-   "solution": "ACCEDES"
+   "solution": "ACCEDES",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ACCEDES",
+    "definitions": [
+     {
+      "text": "Comes to an office",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rising",
+      "for": "reversal",
+      "note": "in a down clue, rising means read from the bottom upward, so the letters run backwards"
+     },
+     {
+      "text": "occasionally",
+      "for": "letter_selection",
+      "note": "occasionally means now and then, so take only every other letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "record label",
+      "gives": "DECCA",
+      "note": "Decca is a famous record label"
+     },
+     {
+      "clueFragment": "lets",
+      "gives": "ES",
+      "select": "alternate",
+      "note": "the even letters of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ACCED",
+      "ES"
+     ],
+     "reversals": [
+      {
+       "from": "DECCA",
+       "to": "ACCED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone arrives at an office where a record label allows the occasional visitor.",
+     "walkthrough": "'Comes to an office' is the definition, in the sense of taking up a post such as the throne.",
+     "definitionFit": "One accedes to a throne or position when one formally takes it up, entering that office."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "office"
+    }
+   }
   },
   {
    "number": 5,
@@ -99,7 +296,72 @@
     "text": "Keen on Love Island, flipping bored by books",
     "enumeration": "4"
    },
-   "solution": "INTO"
+   "solution": "INTO",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "INTO",
+    "definitions": [
+     {
+      "text": "Keen on",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flipping",
+      "for": "reversal",
+      "note": "to flip something is to turn it over, so the letters are put in the opposite order"
+     },
+     {
+      "text": "bored by",
+      "for": "container",
+      "note": "something bored by a drill has a hole made through it, so another piece sits inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Love",
+      "gives": "O",
+      "note": "love is zero in tennis, shaped like the letter O"
+     },
+     {
+      "clueFragment": "Island",
+      "gives": "I",
+      "note": "I is the standard abbreviation for island"
+     },
+     {
+      "clueFragment": "books",
+      "gives": "NT",
+      "note": "the New Testament, a set of books of the Bible"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "NT",
+      "O"
+     ],
+     "reversals": [
+      {
+       "from": "OI",
+       "to": "IO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A viewer is keen on the reality show Love Island, though flipping bored by reading.",
+     "walkthrough": "Love Island is a British TV dating show; here it is split into its two crossword abbreviations, and 'flipping' looks like a mild British expletive.",
+     "definitionFit": "Being into something is informal for being enthusiastic about it, an everyday idiom meaning keen on."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flipping"
+    }
+   }
   },
   {
    "number": 6,
@@ -113,7 +375,61 @@
     "text": "Hostile politicians in London left housing agency",
     "enumeration": "7"
    },
-   "solution": "GLACIAL"
+   "solution": "GLACIAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "GLACIAL",
+    "definitions": [
+     {
+      "text": "Hostile",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "housing",
+      "for": "container",
+      "note": "to house something is to give it room inside, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "politicians in London",
+      "gives": "GLA",
+      "note": "the Greater London Authority, the body of elected London politicians"
+     },
+     {
+      "clueFragment": "agency",
+      "gives": "CIA",
+      "note": "the American intelligence agency"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GLA",
+      "CIA",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "Unfriendly London politicians walked out, taking an organisation with them.",
+     "walkthrough": "GLA and L together surround CIA: the politicians and 'left' form the outer shell.",
+     "definitionFit": "Glacial figuratively means icy in manner, so a glacial look or reception is cold and unfriendly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "housing"
+    }
+   }
   },
   {
    "number": 7,
@@ -133,7 +449,67 @@
      }
     ]
    },
-   "solution": "TOOTHFAIRY"
+   "solution": "TOOTHFAIRY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TOOTH FAIRY",
+    "definitions": [
+     {
+      "text": "imaginary being",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "different",
+      "for": "anagram",
+      "note": "something different has been changed, so these letters are rearranged"
+     },
+     {
+      "text": "with hidden",
+      "for": "container",
+      "note": "a thing with something hidden in it holds that thing inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flirt",
+      "gives": "TOY",
+      "note": "to toy with someone is to flirt with them"
+     },
+     {
+      "clueFragment": "faith, or",
+      "gives": "FAITHOR",
+      "note": "these letters are the raw material for rearrangement"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "OTHFAIR",
+      "Y"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FAITHOR",
+       "gives": "OTHFAIR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone toys with a secret religion, or some other fantasy figure.",
+     "walkthrough": "TOY has the jumbled letters of FAITH OR placed inside it, between the O and the Y.",
+     "definitionFit": "The tooth fairy is a mythical creature said to leave money for children's lost teeth, so an invented, make-believe figure."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "faith"
+    }
+   }
   },
   {
    "number": 8,
@@ -153,7 +529,69 @@
      }
     ]
    },
-   "solution": "MARIECURIE"
+   "solution": "MARIECURIE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "MARIE CURIE",
+    "definitions": [
+     {
+      "text": "scientist",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stopped by",
+      "for": "container",
+      "note": "something stopped up by a plug has it lodged inside, so a piece goes in the middle"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Horse",
+      "gives": "MARE",
+      "note": "a mare is a female horse"
+     },
+     {
+      "clueFragment": "independent",
+      "gives": "I",
+      "note": "I is the abbreviation for independent"
+     },
+     {
+      "clueFragment": "treatment",
+      "gives": "CURE",
+      "note": "a cure is a medical treatment"
+     },
+     {
+      "clueFragment": "twice",
+      "gives": "I",
+      "note": "the same independent letter used a second time, for the second word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAR",
+      "I",
+      "E",
+      "CUR",
+      "I",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A vet's two horse remedies are interrupted by a freelance researcher.",
+     "walkthrough": "'Twice' means the single I goes into both words, MAR(I)E and CUR(I)E.",
+     "definitionFit": "Marie Curie was the Polish-French physicist and chemist who won two Nobel prizes for work on radioactivity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "treatment"
+    }
+   }
   },
   {
    "number": 9,
@@ -167,7 +605,49 @@
     "text": "Song by The Kinks that’s funny and adult",
     "enumeration": "4"
    },
-   "solution": "LOLA"
+   "solution": "LOLA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LOLA",
+    "definitions": [
+     {
+      "text": "Song by The Kinks",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "that’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "funny",
+      "gives": "LOL",
+      "note": "text-speak for 'laughing out loud', used to mark something amusing"
+     },
+     {
+      "clueFragment": "adult",
+      "gives": "A",
+      "note": "A is the film-classification abbreviation for adult"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOL",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A Kinks number that is both humorous and grown-up.",
+     "walkthrough": "The Kinks were a 1960s British rock band; their 1970 hit is about an ambiguous romantic encounter, fitting 'adult'.",
+     "definitionFit": "Lola is one of the best-known singles by Ray Davies's band, a hit record from 1970."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -187,7 +667,67 @@
      }
     ]
    },
-   "solution": "NOVASCOTIA"
+   "solution": "NOVASCOTIA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "NOVA SCOTIA",
+    "definitions": [
+     {
+      "text": "province",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Criminal",
+      "for": "anagram",
+      "note": "something criminal is crooked or bent, so these letters are twisted out of order"
+     },
+     {
+      "text": "touring",
+      "for": "container",
+      "note": "to tour a place is to travel around it, so one piece goes round another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vacations",
+      "gives": "VACATIONS",
+      "note": "taken as written, as raw letters"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOVASC",
+      "O",
+      "TIA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "VACATIONS",
+       "gives": "NOVASCTIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Crooked holidays that travel round an ancient region.",
+     "walkthrough": "'Old province' looks like the definition, but 'old' gives the O that the jumbled letters go around.",
+     "definitionFit": "Nova Scotia is one of Canada's ten provinces, on the Atlantic coast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Criminal"
+    }
+   }
   },
   {
    "number": 11,
@@ -201,7 +741,43 @@
     "text": "Angles on the face of Republican thinker",
     "enumeration": "6"
    },
-   "solution": "CANTHI"
+   "solution": "CANTHI",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "CANTHI",
+    "definitions": [
+     {
+      "text": "Angles on the face",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "of",
+      "for": "hidden_word",
+      "note": "'of' here means drawn from, so the letters come straight out of the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Republican thinker",
+      "gives": "CANTHI",
+      "note": "the letters run across the end of the first word into the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A study of the facial features of a right-wing philosopher.",
+     "walkthrough": "An unfamiliar anatomical word: republiCAN THInker contains it. It is the plural of canthus.",
+     "definitionFit": "The canthi are the corners of the eye where upper and lower eyelids meet, forming angles on the face."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Republican"
+    }
+   }
   },
   {
    "number": 12,
@@ -215,7 +791,56 @@
     "text": "American shows British crowds seafood",
     "enumeration": "7"
    },
-   "solution": "LOBSTER"
+   "solution": "LOBSTER",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "LOBSTER",
+    "definitions": [
+     {
+      "text": "seafood",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crowds",
+      "for": "container",
+      "note": "to crowd something is to press in all around it, so other pieces surround one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American shows",
+      "gives": "LOSTER",
+      "note": "two US television series, Lost and ER, side by side"
+     },
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "B is the abbreviation for British"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LO",
+      "B",
+      "STER"
+     ]
+    },
+    "explanation": {
+     "surface": "US programmes are mobbing a British viewer, all about seafood.",
+     "walkthrough": "Lost (a desert-island drama) and ER (a hospital drama) are both American TV series; B squeezes in after the first two letters.",
+     "definitionFit": "A lobster is a large marine crustacean eaten as a luxury dish, a typical item of seafood."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "shows"
+    }
+   }
   },
   {
    "number": 12,
@@ -229,7 +854,51 @@
     "text": "Vote limits revolutionary phrases",
     "enumeration": "10"
    },
-   "solution": "LEITMOTIVS"
+   "solution": "LEITMOTIVS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LEITMOTIVS",
+    "definitions": [
+     {
+      "text": "phrases",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "revolutionary",
+      "for": "anagram",
+      "note": "a revolution overturns things, so these letters are turned into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vote limits",
+      "gives": "VOTELIMITS",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "VOTELIMITS",
+       "gives": "LEITMOTIVS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ballot curbs radical slogans.",
+     "walkthrough": "'Revolutionary phrases' reads like a political slogan, but 'revolutionary' is the anagram signal and 'phrases' alone is the definition.",
+     "definitionFit": "A leitmotiv is a recurring musical phrase associated with a character or idea, as in Wagner's operas."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "revolutionary"
+    }
+   }
   },
   {
    "number": 13,
@@ -243,7 +912,54 @@
     "text": "Travelling via last bar in capital",
     "enumeration": "10"
    },
-   "solution": "BRATISLAVA"
+   "solution": "BRATISLAVA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BRATISLAVA",
+    "definitions": [
+     {
+      "text": "capital",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Travelling",
+      "for": "anagram",
+      "note": "travelling things move about, so these letters move into a fresh order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "via last bar",
+      "gives": "VIALASTBAR",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "VIALASTBAR",
+       "gives": "BRATISLAVA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pub crawl ending at the final bar in a capital city.",
+     "walkthrough": "The surface sounds like a night out, and the answer fits it: the city is a popular stag-party destination.",
+     "definitionFit": "Bratislava is the capital city of Slovakia, on the Danube."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Travelling"
+    }
+   }
   },
   {
    "number": 14,
@@ -257,7 +973,44 @@
     "text": "Reportedly brings up birds",
     "enumeration": "5"
    },
-   "solution": "RHEAS"
+   "solution": "RHEAS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "RHEAS",
+    "definitions": [
+     {
+      "text": "birds",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reportedly",
+      "for": "homophone",
+      "note": "what is reported is passed on by word of mouth, so go by the sound rather than the spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brings up",
+      "gives": "RHEAS",
+      "soundsLike": "REARS",
+      "note": "to rear children is to bring them up; in a non-rhotic accent the two words match"
+     }
+    ],
+    "explanation": {
+     "surface": "Supposedly someone raises a flock of birds.",
+     "walkthrough": "The sound match works in British pronunciation, where the R of 'rears' is not voiced.",
+     "definitionFit": "Rheas are large flightless South American birds, related to ostriches and emus."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "brings"
+    }
+   }
   },
   {
    "number": 15,
@@ -271,7 +1024,62 @@
     "text": "Snap captures a cleaner ocean",
     "enumeration": "7"
    },
-   "solution": "PACIFIC"
+   "solution": "PACIFIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PACIFIC",
+    "definitions": [
+     {
+      "text": "ocean",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "captures",
+      "for": "container",
+      "note": "to capture something is to hold it inside, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Snap",
+      "gives": "PIC",
+      "note": "a snap is a photograph, informally a pic"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cleaner",
+      "gives": "CIF",
+      "note": "Cif is a brand of household cleaning cream sold in Britain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "A",
+      "CIF",
+      "IC"
+     ]
+    },
+    "explanation": {
+     "surface": "A photograph shows a cleaning lady beside the sea.",
+     "walkthrough": "Cif is a household cleaning cream, sold in the UK as Jif until 2001; 'cleaner' suggests a person, but it is the product.",
+     "definitionFit": "The Pacific is the largest of the world's oceans, between Asia and the Americas."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cleaner"
+    }
+   }
   },
   {
    "number": 15,
@@ -285,7 +1093,46 @@
     "text": "Maintain power cable",
     "enumeration": "5"
    },
-   "solution": "PLEAD"
+   "solution": "PLEAD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PLEAD",
+    "definitions": [
+     {
+      "text": "Maintain",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "power",
+      "gives": "P",
+      "note": "P is the abbreviation for power"
+     },
+     {
+      "clueFragment": "cable",
+      "gives": "LEAD",
+      "note": "a lead is an electrical cable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "LEAD"
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'Maintain power cable' looks like an electrician's instruction; the first word is the definition in its sense of asserting.",
+     "definitionFit": "To maintain one's innocence is to assert it, as one would plead it in court or argument."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Maintain"
+    }
+   }
   },
   {
    "number": 16,
@@ -299,7 +1146,47 @@
     "text": "That’s woman’s going to oil giant",
     "enumeration": "5"
    },
-   "solution": "SHELL"
+   "solution": "SHELL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SHELL",
+    "definitions": [
+     {
+      "text": "woman’s going to",
+      "at": 7
+     },
+     {
+      "text": "oil giant",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "That’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "woman’s going to",
+      "note": "first meaning: 'she will', contracted with an apostrophe"
+     },
+     {
+      "clueFragment": "oil giant",
+      "note": "second meaning: the multinational petroleum company"
+     }
+    ],
+    "explanation": {
+     "surface": "A woman announces she is going to join a huge petroleum firm.",
+     "walkthrough": "Crosswords ignore punctuation, so the contraction she'll and the company name are spelt alike.",
+     "definitionFit": "Shell is one of the world's largest oil companies, a supermajor in the petroleum industry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "giant"
+    }
+   }
   },
   {
    "number": 17,
@@ -313,7 +1200,53 @@
     "text": "Cornish saint quietly leaves country",
     "enumeration": "4"
    },
-   "solution": "IRAN"
+   "solution": "IRAN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "IRAN",
+    "definitions": [
+     {
+      "text": "country",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaves",
+      "for": "deletion",
+      "note": "whatever leaves goes away, so that letter is taken out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cornish saint",
+      "gives": "PIRAN",
+      "note": "Saint Piran is the patron saint of Cornwall, the county at England's south-west tip"
+     },
+     {
+      "clueFragment": "quietly",
+      "gives": "P",
+      "note": "p (piano) means quietly in music"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IRAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A holy man from Cornwall slips away from the land unnoticed.",
+     "walkthrough": "Remove the musical P from the front of St Piran's name.",
+     "definitionFit": "Iran is a nation in western Asia, formerly known as Persia."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leaves"
+    }
+   }
   },
   {
    "number": 18,
@@ -327,7 +1260,49 @@
     "text": "Support disheartened playwright",
     "enumeration": "4"
    },
-   "solution": "PIER"
+   "solution": "PIER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "PIER",
+    "definitions": [
+     {
+      "text": "Support",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disheartened",
+      "for": "deletion",
+      "note": "the heart of a word is its middle, so losing it means the central letters go"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "playwright",
+      "gives": "PINTER",
+      "note": "Harold Pinter, the British dramatist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PI",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "Encourage a dramatist who has lost heart.",
+     "walkthrough": "PINTER has six letters, so its heart is the middle pair NT.",
+     "definitionFit": "A pier is a pillar supporting a bridge or arch, a structural support."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Support"
+    }
+   }
   },
   {
    "number": 19,
@@ -341,7 +1316,69 @@
     "text": "Nosy commercial regulator probes new head of legal",
     "enumeration": "5"
    },
-   "solution": "NASAL"
+   "solution": "NASAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "NASAL",
+    "definitions": [
+     {
+      "text": "Nosy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "probes",
+      "for": "container",
+      "note": "a probe pokes into something, so one piece goes inside the others"
+     },
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "a head is at the top, so take the first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "commercial regulator",
+      "gives": "ASA",
+      "note": "the Advertising Standards Authority, which regulates UK advertising"
+     },
+     {
+      "clueFragment": "legal",
+      "gives": "L",
+      "select": "first",
+      "note": "the first letter of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "ASA",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "An inquisitive advertising watchdog investigates the new chief lawyer.",
+     "walkthrough": "'Nosy' looks like it means prying, but here it means to do with the nose.",
+     "definitionFit": "Nasal means relating to the nose, which is the literal sense of nosy used here rather than inquisitive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Nosy"
+    }
+   }
   },
   {
    "number": 19,
@@ -355,7 +1392,73 @@
     "text": "Like a biased person I beat up in the centre of Birmingham",
     "enumeration": "7"
    },
-   "solution": "NEPOTIC"
+   "solution": "NEPOTIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "container"
+    ],
+    "answer": "NEPOTIC",
+    "definitions": [
+     {
+      "text": "Like a biased person",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, up means read from the bottom, so the letters run backwards"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed inside, so one piece sits within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "beat",
+      "gives": "TOP",
+      "note": "to top a rival is to beat them"
+     },
+     {
+      "clueFragment": "the centre of Birmingham",
+      "gives": "NEC",
+      "note": "the National Exhibition Centre, a big venue near Birmingham"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NE",
+      "POTI",
+      "C"
+     ],
+     "reversals": [
+      {
+       "from": "ITOP",
+       "to": "POTI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bigot confesses to a beating in the middle of Birmingham.",
+     "walkthrough": "'The centre of Birmingham' invites taking middle letters, but it is the NEC, the exhibition centre; Birmingham is England's second city.",
+     "definitionFit": "Nepotic means showing nepotism, favouring relatives unfairly, so it describes someone partial to family."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "centre"
+    }
+   }
   },
   {
    "number": 20,
@@ -369,7 +1472,39 @@
     "text": "Lover that might make you leer?",
     "enumeration": "7"
    },
-   "solution": "LEANDER"
+   "solution": "LEANDER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "LEANDER",
+    "definitions": [
+     {
+      "text": "Lover",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lover that might make you leer?",
+      "note": "surface reading: a romantic partner so attractive that you ogle lustfully"
+     },
+     {
+      "clueFragment": "make you leer",
+      "note": "setter's reading: take a short conjunction out of the middle of the lover's name, and the four letters left spell the leering word"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags wordplay in reverse: the answer is what 'leer' becomes with the conjunction placed in its middle.",
+     "definitionFit": "In Greek myth this youth swam the Hellespont nightly to visit his beloved Hero, so he is a famous lover."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "leer"
+    }
+   }
   },
   {
    "number": 21,
@@ -383,7 +1518,65 @@
     "text": "Prophet binding devil regularly causing divisions",
     "enumeration": "7"
    },
-   "solution": "MEIOSES"
+   "solution": "MEIOSES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "MEIOSES",
+    "definitions": [
+     {
+      "text": "divisions",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "binding",
+      "for": "container",
+      "note": "to bind is to wrap round, so one piece encloses another"
+     },
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so keep every other letter"
+     }
+    ],
+    "linkWords": [
+     "causing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prophet",
+      "gives": "MOSES",
+      "note": "Moses, the Old Testament prophet"
+     },
+     {
+      "clueFragment": "devil",
+      "gives": "EI",
+      "select": "alternate",
+      "note": "the even letters of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "EI",
+      "OSES"
+     ]
+    },
+    "explanation": {
+     "surface": "A prophet restrains a demon, provoking splits among the faithful.",
+     "walkthrough": "An unfamiliar biological plural, fairly clued; 'divisions' suggests religious schism, but it is the cell biology sense.",
+     "definitionFit": "Meiosis is the type of cell division that produces sex cells with half the chromosomes, so meioses are such divisions."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "divisions"
+    }
+   }
   },
   {
    "number": 22,
@@ -403,7 +1596,51 @@
      }
     ]
    },
-   "solution": "DEARYME"
+   "solution": "DEARYME",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DEARY ME",
+    "definitions": [
+     {
+      "text": "I’m a bit surprised",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "works",
+      "for": "anagram",
+      "note": "works can mean is processed or worked, so these letters are reshaped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a remedy",
+      "gives": "AREMEDY",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AREMEDY",
+       "gives": "DEARYME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone expresses mild astonishment that a cure is effective.",
+     "walkthrough": "'Works' reads as 'is effective' but is the anagram signal; the definition is the whole opening phrase.",
+     "definitionFit": "This old-fashioned exclamation expresses mild dismay or astonishment, much as saying one is somewhat taken aback."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "works"
+    }
+   }
   },
   {
    "number": 23,
@@ -417,7 +1654,55 @@
     "text": "Refuse son another chance to pass sandwiches",
     "enumeration": "6"
    },
-   "solution": "RESIST"
+   "solution": "RESIST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RESIST",
+    "definitions": [
+     {
+      "text": "Refuse",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sandwiches",
+      "for": "container",
+      "note": "to sandwich something is to hold it between two layers, so one piece goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "another chance to pass",
+      "gives": "RESIT",
+      "note": "a resit is a second attempt at an exam, in British usage"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RESI",
+      "S",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Deny a boy a second shot at passing round lunch.",
+     "walkthrough": "'Sandwiches' looks like food to pass round, but it is the container signal; a resit is a retaken exam in Britain.",
+     "definitionFit": "To resist is to withstand or decline to comply, so it can mean refuse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sandwiches"
+    }
+   }
   },
   {
    "number": 24,
@@ -431,7 +1716,62 @@
     "text": "Sides from Toronto almost tricked City",
     "enumeration": "6"
    },
-   "solution": "TOLEDO"
+   "solution": "TOLEDO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "charade"
+    ],
+    "answer": "TOLEDO",
+    "definitions": [
+     {
+      "text": "City",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Sides from",
+      "for": "letter_selection",
+      "note": "a word's sides are its edges, so keep its first and last letters"
+     },
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the final letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Toronto",
+      "gives": "TO",
+      "select": "outer",
+      "note": "the first and last letters of this word, its two sides"
+     },
+     {
+      "clueFragment": "tricked",
+      "gives": "LEDON",
+      "note": "to lead someone on is to deceive them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "LEDO"
+     ]
+    },
+    "explanation": {
+     "surface": "Teams from a Canadian city were nearly cheated by a rival club.",
+     "walkthrough": "'Sides' and 'City' sound like sports teams, but 'City' is the definition.",
+     "definitionFit": "Toledo is a historic city in central Spain, and also one in Ohio."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sides"
+    }
+   }
   },
   {
    "number": 25,
@@ -445,7 +1785,43 @@
     "text": "These help people plotting cuts",
     "enumeration": "4"
    },
-   "solution": "AXES"
+   "solution": "AXES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "AXES",
+    "definitions": [
+     {
+      "text": "These help people plotting",
+      "at": 0
+     },
+     {
+      "text": "cuts",
+      "at": 27
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "These help people plotting",
+      "note": "first meaning: the reference lines of a graph used to plot points"
+     },
+     {
+      "clueFragment": "cuts",
+      "note": "second meaning: gets rid of, as in budgets or jobs"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Plotting' suggests conspirators, and 'cuts' a weapon, but the first part means graph-drawing and the second is a verb for eliminating.",
+     "definitionFit": "Graphs are drawn against horizontal and vertical lines, and to axe something is to cancel or eliminate it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "plotting"
+    }
+   }
   },
   {
    "number": 26,
@@ -459,7 +1835,57 @@
     "text": "Unlimited free wine? Check",
     "enumeration": "4"
    },
-   "solution": "REIN"
+   "solution": "REIN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "REIN",
+    "definitions": [
+     {
+      "text": "Check",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Unlimited",
+      "for": "letter_selection",
+      "note": "without limits means without boundaries, so the outer letters go and the middles stay"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "free",
+      "gives": "RE",
+      "select": "middle",
+      "note": "the inner letters of this word"
+     },
+     {
+      "clueFragment": "wine",
+      "gives": "IN",
+      "select": "middle",
+      "note": "the inner letters of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "A drinker queries whether there is truly an endless supply of free wine.",
+     "walkthrough": "'Unlimited' applies to both words; 'Check' looks like a request to verify but is the definition.",
+     "definitionFit": "To rein in is to restrain or hold back, so as a verb it means to curb or restrain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Check"
+    }
+   }
   },
   {
    "number": 27,
@@ -479,7 +1905,77 @@
      }
     ]
    },
-   "solution": "TAXIDRIVER"
+   "solution": "TAXIDRIVER",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram",
+     "container"
+    ],
+    "answer": "TAXI-DRIVER",
+    "definitions": [
+     {
+      "text": "Cabbie",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dishevelled",
+      "for": "anagram",
+      "note": "dishevelled means messed up, so these letters are disordered"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means encircling, so one piece goes inside the other"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "arrived",
+      "gives": "ARRIVED",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "11",
+      "gives": "XI",
+      "note": "eleven in Roman numerals"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "A",
+      "XI",
+      "DRIVER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ARRIVED",
+       "gives": "ADRIVER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A scruffy cabbie turned up punctually at about eleven.",
+     "walkthrough": "'11' looks like a cross-reference to another clue, but it is simply the number, written as Roman XI.",
+     "definitionFit": "A cabbie is someone who drives a cab for hire, an informal name for this job."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "11"
+    }
+   }
   },
   {
    "number": 28,
@@ -493,7 +1989,47 @@
     "text": "Test against debt solution",
     "enumeration": "4"
    },
-   "solution": "VIVA"
+   "solution": "VIVA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "VIVA",
+    "definitions": [
+     {
+      "text": "Test",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "against",
+      "gives": "V",
+      "note": "V is short for versus"
+     },
+     {
+      "clueFragment": "debt solution",
+      "gives": "IVA",
+      "note": "an Individual Voluntary Arrangement, a formal British scheme for repaying debts"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "IVA"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone weighs a trial run against a way out of debt.",
+     "walkthrough": "An IVA is a UK legal agreement with creditors, an alternative to bankruptcy.",
+     "definitionFit": "A viva is an oral examination, especially for a university degree, so a kind of exam."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "solution"
+    }
+   }
   },
   {
    "number": 29,
@@ -507,7 +2043,43 @@
     "text": "Removing the impact of assessment of company?",
     "enumeration": "10"
    },
-   "solution": "CASTRATING"
+   "solution": "CASTRATING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CASTRATING",
+    "definitions": [
+     {
+      "text": "Removing the impact of",
+      "at": 0
+     },
+     {
+      "text": "assessment of company",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Removing the impact of",
+      "note": "first meaning: figuratively emasculating, depriving something of its force"
+     },
+     {
+      "clueFragment": "assessment of company",
+      "note": "second, playful meaning: split in two, a review of a theatre troupe's performers"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Company' here is a theatrical company; the question mark flags that the answer splits as cast plus rating.",
+     "definitionFit": "Figuratively, to emasculate something is to weaken it and take away its power or force."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "company"
+    }
+   }
   }
  ]
 }
