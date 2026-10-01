@@ -6120,6 +6120,11 @@
       bars and answers come from the Listener Team's archive at
       listenercrossword.com, and only puzzles whose answers go into the grid
       unchanged are here.`],
+    canberra: ["canberra times", `The Canberra Times's daily cryptic from the
+      1970s and 80s, which reprinted the London Times's puzzle, so these are
+      Times cryptics as Australians solved them. Clues and grid are read off
+      the newspaper's page scans in the National Library of Australia's Trove
+      archive; the answers are worked out here.`],
     ftcryptic: ["FT", `The Financial Times cryptic, Monday to Saturday, from a
       stable of named setters — Io, Mudd, Julius, Jason — many of them familiar
       from other papers under other names (Mudd is the Guardian's Paul). Pitched
