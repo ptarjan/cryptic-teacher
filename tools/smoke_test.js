@@ -6904,10 +6904,12 @@ global.realSetTimeout(() => {
   // and type it in, which is the one way of finishing a clue that costs nothing.
   let typing = false;
   for (let i = 0; i < 12 && !typing; i += 1) {
-    if (/type the answer into the highlighted squares/.test(nuxLine(press.registry))) { typing = true; break; }
+    if (/into the highlighted squares/.test(nuxLine(press.registry))) { typing = true; break; }
     if (!pressTake()) break;
   }
   assert(typing, "the walk ends by asking them for the answer: " + nuxLine(press.registry));
+  assert(/they make [A-Z]/.test(nuxLine(press.registry)),
+    "and it gives them the answer to type, so the lesson is where it goes: " + nuxLine(press.registry));
   assert(/walk-point/.test(press.registry["hint-pattern"].innerHTML || ""),
     "and the boxes lit are the strip in the panel, beside the pieces they are worked out from");
   assert(!press.registry["spotlight"].classList.contains("hidden"),
