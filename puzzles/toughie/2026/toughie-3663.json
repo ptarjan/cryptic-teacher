@@ -24,6 +24,9 @@
   "date": "2026-04-02",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,67 @@
     "text": "Grounds sailors, maybe in rising currents",
     "enumeration": "8"
    },
-   "solution": "SEDIMENT"
+   "solution": "SEDIMENT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "SEDIMENT",
+    "definitions": [
+     {
+      "text": "Grounds",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rising",
+      "for": "reversal",
+      "note": "in a down entry, something rising travels bottom to top, so the letters run backwards"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing placed inside another is enclosed by it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "currents",
+      "gives": "TIDES",
+      "note": "tides are the currents of the sea"
+     },
+     {
+      "clueFragment": "sailors, maybe",
+      "gives": "MEN",
+      "note": "sailors are an example of men, as in officers and men; 'maybe' flags the example"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEDI",
+      "MEN",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "TIDES",
+       "to": "SEDIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A naval story of ships run aground among strong tidal currents.",
+     "walkthrough": "'Grounds' reads as a verb, sailors running aground; it is a plural noun, the dregs that settle at the bottom.",
+     "definitionFit": "Coffee grounds and similar dregs are the solid matter that settles at the bottom of a liquid."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Grounds"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +114,43 @@
     "text": "Mechanic could be hunkier",
     "enumeration": "6"
    },
-   "solution": "FITTER"
+   "solution": "FITTER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FITTER",
+    "definitions": [
+     {
+      "text": "Mechanic",
+      "at": 0
+     },
+     {
+      "text": "could be hunkier",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mechanic",
+      "note": "first meaning: a person who assembles or repairs machinery"
+     },
+     {
+      "clueFragment": "could be hunkier",
+      "note": "second meaning: comparative of British slang 'fit', meaning physically attractive"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In British slang 'fit' means sexually attractive, so the comparative form describes someone hunkier.",
+     "definitionFit": "A garage worker who installs parts is a fitter, and in slang a more attractive person is fitter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hunkier"
+    }
+   }
   },
   {
    "number": 3,
@@ -65,7 +164,62 @@
     "text": "Slander when individual set about one",
     "enumeration": "9"
    },
-   "solution": "ASPERSION"
+   "solution": "ASPERSION",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ASPERSION",
+    "definitions": [
+     {
+      "text": "Slander",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "set about",
+      "for": "container",
+      "note": "to be set about something is to be placed around it, surrounding it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "when",
+      "gives": "AS",
+      "note": "'as' can mean 'when', as in 'as I left'"
+     },
+     {
+      "clueFragment": "individual",
+      "gives": "PERSON",
+      "note": "an individual is a person"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AS",
+      "PERS",
+      "I",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "Calling it slander when someone has turned on one person.",
+     "walkthrough": "'As' can stand for 'when', as in 'as I left'; 'set' looks like the verb of the sentence but belongs to the enclosing instruction.",
+     "definitionFit": "To cast aspersions is to make damaging, unfounded remarks about somebody's character, which is what slander does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "set"
+    }
+   }
   },
   {
    "number": 4,
@@ -79,7 +233,59 @@
     "text": "Cultivating fruit on top of ground",
     "enumeration": "7"
    },
-   "solution": "RAISING"
+   "solution": "RAISING",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "RAISING",
+    "definitions": [
+     {
+      "text": "Cultivating",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "top of",
+      "for": "letter_selection",
+      "note": "the top of a down word is its first letter"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fruit",
+      "gives": "RAISIN",
+      "note": "a raisin is a dried grape"
+     },
+     {
+      "clueFragment": "ground",
+      "gives": "G",
+      "select": "first",
+      "note": "the opening letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAISIN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener growing fruit on the surface of the soil.",
+     "walkthrough": "In a down clue 'on top of' places the first piece above the second, so RAISIN sits over G.",
+     "definitionFit": "Raising crops or animals means growing and tending them, the same activity as cultivating."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ground"
+    }
+   }
   },
   {
    "number": 5,
@@ -93,7 +299,53 @@
     "text": "Slaves enduring rigid feudal system, initially",
     "enumeration": "5"
    },
-   "solution": "SERFS"
+   "solution": "SERFS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "and_lit"
+    ],
+    "answer": "SERFS",
+    "definitions": [
+     {
+      "text": "Slaves enduring rigid feudal system",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "'initially' points to the opening letter of each word in turn"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Slaves enduring rigid feudal system",
+      "gives": "SERFS",
+      "select": "first",
+      "note": "the first letter of each of the five words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "E",
+      "R",
+      "F",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A history lesson about bonded labourers under medieval feudalism.",
+     "walkthrough": "The whole clue does double duty: its first letters spell the answer, and read straight it describes the answer.",
+     "definitionFit": "Medieval serfs were bound labourers tied to a lord's land, little better than slaves under the feudal order."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 6,
@@ -107,7 +359,39 @@
     "text": "One possibly takes off on holiday?",
     "enumeration": "8"
    },
-   "solution": "NATURIST"
+   "solution": "NATURIST",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "NATURIST",
+    "definitions": [
+     {
+      "text": "One possibly takes off on holiday?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One possibly takes off on holiday?",
+      "note": "surface reading: a traveller whose plane takes off at the start of a trip"
+     },
+     {
+      "clueFragment": "takes off",
+      "note": "setter's reading: someone who removes their clothes while on holiday"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Takes off' suggests an aircraft departing; here it means removing clothing, as at a nudist resort.",
+     "definitionFit": "A nudist strips off entirely, often at a dedicated beach or camp during a vacation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "takes"
+    }
+   }
   },
   {
    "number": 7,
@@ -121,7 +405,50 @@
     "text": "Demanding split with sweetheart",
     "enumeration": "6"
    },
-   "solution": "SEVERE"
+   "solution": "SEVERE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SEVERE",
+    "definitions": [
+     {
+      "text": "Demanding",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "split",
+      "gives": "SEVER",
+      "note": "to sever is to split or cut apart"
+     },
+     {
+      "clueFragment": "sweetheart",
+      "gives": "E",
+      "note": "a standard crossword device: the heart of 'sweet' is its central letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEVER",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A needy partner who has broken up with their sweetheart.",
+     "walkthrough": "'Sweetheart' looks like a lover; it is split into 'sweet' and 'heart', the centre letter of 'sweet'.",
+     "definitionFit": "A severe test or regime is harsh and exacting, making heavy demands on whoever faces it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sweetheart"
+    }
+   }
   },
   {
    "number": 8,
@@ -135,7 +462,50 @@
     "text": "Fantastic creature is still single",
     "enumeration": "4"
    },
-   "solution": "YETI"
+   "solution": "YETI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "YETI",
+    "definitions": [
+     {
+      "text": "Fantastic creature",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "still",
+      "gives": "YET",
+      "note": "'still' and 'yet' both mean up to now"
+     },
+     {
+      "clueFragment": "single",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YET",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A wonderful creature that remains unmarried.",
+     "walkthrough": "'Fantastic' seems to praise; it means belonging to fantasy, a creature of legend.",
+     "definitionFit": "The Abominable Snowman of Himalayan legend is a mythical beast nobody has proved exists."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Fantastic"
+    }
+   }
   },
   {
    "number": 9,
@@ -149,7 +519,60 @@
     "text": "Sorry fraud cancelled without a fine",
     "enumeration": "10"
    },
-   "solution": "SHAMEFACED"
+   "solution": "SHAMEFACED",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "SHAMEFACED",
+    "definitions": [
+     {
+      "text": "Sorry",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "to be without something is to lack it, so a letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fraud",
+      "gives": "SHAM",
+      "note": "a sham is a fraud or pretence"
+     },
+     {
+      "clueFragment": "cancelled",
+      "gives": "EFFACED",
+      "note": "effaced means wiped out or erased"
+     },
+     {
+      "clueFragment": "a fine",
+      "gives": "F",
+      "note": "F is the pencil-grade abbreviation for fine; one of the two is dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHAM",
+      "EFACED"
+     ]
+    },
+    "explanation": {
+     "surface": "A cheat whose fraud was written off without any penalty.",
+     "walkthrough": "'Fine' suggests a penalty, but it is just the letter F, and only one of the two in EFFACED is removed.",
+     "definitionFit": "Shamefaced describes someone looking embarrassed and contrite, which is how a sorry person appears."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fine"
+    }
+   }
   },
   {
    "number": 10,
@@ -163,7 +586,55 @@
     "text": "Let go embracing very French lover",
     "enumeration": "8"
    },
-   "solution": "MISTRESS"
+   "solution": "MISTRESS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MISTRESS",
+    "definitions": [
+     {
+      "text": "lover",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "embracing",
+      "for": "container",
+      "note": "to embrace is to wrap one's arms around, so one part surrounds another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Let go",
+      "gives": "MISS",
+      "note": "to let a chance go is to miss it"
+     },
+     {
+      "clueFragment": "very French",
+      "gives": "TRES",
+      "note": "très is French for very"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MIS",
+      "TRES",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Giving up on an affair with a passionate French lover.",
+     "walkthrough": "'French lover' wants to be one phrase; 'French' belongs to 'very', and 'lover' stands alone as the definition.",
+     "definitionFit": "A mistress is a woman in a long-term sexual relationship with a married man, his kept companion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "French"
+    }
+   }
   },
   {
    "number": 11,
@@ -177,7 +648,47 @@
     "text": "Tap and wrench the thing loudly",
     "enumeration": "6"
    },
-   "solution": "FAUCET"
+   "solution": "FAUCET",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "FAUCET",
+    "definitions": [
+     {
+      "text": "Tap",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "loudly",
+      "for": "homophone",
+      "note": "something said loudly is spoken out, so we go by sound rather than spelling"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wrench the thing",
+      "gives": "FAUCET",
+      "soundsLike": "FORCE IT",
+      "note": "to wrench is to force, and 'the thing' is 'it'; said with a non-rhotic British accent"
+     }
+    ],
+    "explanation": {
+     "surface": "A plumber yelling at a stuck tap while hauling on it with a wrench.",
+     "walkthrough": "In a southern British accent 'force it' sounds just like the American word for a tap.",
+     "definitionFit": "Faucet is the standard American word for the valve over a sink that water runs from."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wrench"
+    }
+   }
   },
   {
    "number": 12,
@@ -191,7 +702,64 @@
     "text": "Queen returning, ready for show",
     "enumeration": "9"
    },
-   "solution": "REPRESENT"
+   "solution": "REPRESENT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "REPRESENT",
+    "definitions": [
+     {
+      "text": "show",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "to return is to go back the way one came, so the letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Queen",
+      "gives": "ER",
+      "note": "Elizabeth Regina, the late Queen's cipher"
+     },
+     {
+      "clueFragment": "ready",
+      "gives": "PRESENT",
+      "note": "present can mean at hand and ready, as when answering a roll call"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "PRESENT"
+     ],
+     "reversals": [
+      {
+       "from": "ER",
+       "to": "RE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The Queen coming back and getting prepared for a performance.",
+     "walkthrough": "'Show' looks like a theatrical noun; it is a verb, to depict.",
+     "definitionFit": "To represent something is to depict or portray it, as a painting shows its subject."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "show"
+    }
+   }
   },
   {
    "number": 13,
@@ -205,7 +773,44 @@
     "text": "Sound of bird could alert him?",
     "enumeration": "5"
    },
-   "solution": "MINER"
+   "solution": "MINER",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "MINER",
+    "definitions": [
+     {
+      "text": "bird could alert him?",
+      "at": 9,
+      "note": "the bird doubles as wordplay and as the canary of the definition"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Sound of",
+      "for": "homophone",
+      "note": "the sound of a word is how it is pronounced, not how it is written"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bird",
+      "gives": "MINER",
+      "soundsLike": "MYNAH",
+      "note": "the mynah is a talking starling of Asia"
+     }
+    ],
+    "explanation": {
+     "surface": "Wondering whether a bird's call might warn a man of danger.",
+     "walkthrough": "Canaries were taken down coal pits because they succumb to gas first, alerting the pitmen; the question mark marks this as an example.",
+     "definitionFit": "Coal pit workers once relied on caged canaries to warn of firedamp and carbon monoxide underground."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 14,
@@ -219,7 +824,62 @@
     "text": "Alien power blocking enemy resistance",
     "enumeration": "9"
    },
-   "solution": "FOREIGNER"
+   "solution": "FOREIGNER",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "FOREIGNER",
+    "definitions": [
+     {
+      "text": "Alien",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "blocking",
+      "for": "container",
+      "note": "something blocking a passage sits inside it, filling the gap"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "enemy",
+      "gives": "FOE",
+      "note": "a foe is an enemy"
+     },
+     {
+      "clueFragment": "power",
+      "gives": "REIGN",
+      "note": "reign is sovereign power or rule"
+     },
+     {
+      "clueFragment": "resistance",
+      "gives": "R",
+      "note": "R is the symbol for electrical resistance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FO",
+      "REIGN",
+      "E",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "An extraterrestrial force thwarting a hostile resistance movement.",
+     "walkthrough": "'Alien' suggests a creature from space; here it is simply a person from another country.",
+     "definitionFit": "In legal and everyday usage an alien is a person from another country, not a citizen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Alien"
+    }
+   }
   },
   {
    "number": 15,
@@ -239,7 +899,47 @@
      }
     ]
    },
-   "solution": "STEPSON"
+   "solution": "STEPSON",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STEP-SON",
+    "definitions": [
+     {
+      "text": "Walks over",
+      "at": 0
+     },
+     {
+      "text": "relative",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "to see"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Walks over",
+      "note": "first meaning, read as two words: treads on, tramples"
+     },
+     {
+      "clueFragment": "relative",
+      "note": "second meaning: a spouse's son from an earlier marriage"
+     }
+    ],
+    "explanation": {
+     "surface": "Strolling across to visit a family member.",
+     "walkthrough": "'Walks over' seems to mean strolling across; it means tramples, which split differently gives the family member.",
+     "definitionFit": "A son acquired by marriage to his parent is a member of one's family by affinity, a kinsman."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 16,
@@ -253,7 +953,62 @@
     "text": "States quietly careless consuming energy",
     "enumeration": "8"
    },
-   "solution": "PREMISES"
+   "solution": "PREMISES",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PREMISES",
+    "definitions": [
+     {
+      "text": "States",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "consuming",
+      "for": "container",
+      "note": "to consume is to take in, so one part swallows another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quietly",
+      "gives": "P",
+      "note": "p for piano, the musical direction to play quietly"
+     },
+     {
+      "clueFragment": "careless",
+      "gives": "REMISS",
+      "note": "remiss means negligent or careless"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the symbol for energy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "REMIS",
+      "E",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone saying under their breath that wasteful people are using up power.",
+     "walkthrough": "'States' looks like a plural noun for nations; it is a verb, to assert, matching a verb sense of the answer.",
+     "definitionFit": "To premise something is to put it forward as a basis for argument, to assert or lay it down."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "States"
+    }
+   }
   },
   {
    "number": 17,
@@ -267,7 +1022,43 @@
     "text": "Card game, sort of bridge",
     "enumeration": "7"
    },
-   "solution": "PONTOON"
+   "solution": "PONTOON",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PONTOON",
+    "definitions": [
+     {
+      "text": "Card game",
+      "at": 0
+     },
+     {
+      "text": "sort of bridge",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Card game",
+      "note": "first meaning: the British name for blackjack or twenty-one"
+     },
+     {
+      "clueFragment": "sort of bridge",
+      "note": "second meaning: a floating bridge supported on boats or floats"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Bridge is itself a card game, so 'sort of bridge' tempts a solver to stay at the card table; it is a structure over water.",
+     "definitionFit": "The word names both the gambling game of reaching twenty-one and a temporary floating crossing over a river."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bridge"
+    }
+   }
   },
   {
    "number": 18,
@@ -281,7 +1072,62 @@
     "text": "Old boss purchasing new plant",
     "enumeration": "8"
    },
-   "solution": "OLEANDER"
+   "solution": "OLEANDER",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "OLEANDER",
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "purchasing",
+      "for": "container",
+      "note": "a purchase is a grip or hold, so purchasing means holding something within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old",
+      "gives": "O",
+      "note": "O is a standard abbreviation for old"
+     },
+     {
+      "clueFragment": "boss",
+      "gives": "LEADER",
+      "note": "a boss is a leader"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "LEA",
+      "N",
+      "DER"
+     ]
+    },
+    "explanation": {
+     "surface": "A former manager buying a fresh shrub for the office.",
+     "walkthrough": "'Purchasing' seems to mean buying, but a purchase is also a firm hold, so LEADER grips N.",
+     "definitionFit": "Oleander is a poisonous evergreen Mediterranean shrub with showy pink or white flowers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "purchasing"
+    }
+   }
   },
   {
    "number": 19,
@@ -295,7 +1141,42 @@
     "text": "First sign, perhaps",
     "enumeration": "7"
    },
-   "solution": "INITIAL"
+   "solution": "INITIAL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "INITIAL",
+    "definitions": [
+     {
+      "text": "First",
+      "at": 0
+     },
+     {
+      "text": "sign, perhaps",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "First",
+      "note": "first meaning: occurring at the beginning"
+     },
+     {
+      "clueFragment": "sign, perhaps",
+      "note": "second meaning: a verb for marking a document with the leading letters of one's names, one way of signing"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'First sign' reads as an early warning; the words split into an adjective and a verb. 'Perhaps' flags that initialling is one way to sign.",
+     "definitionFit": "The word means at the beginning, and as a verb it means marking a document with your letters as approval."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sign"
+    }
+   }
   },
   {
    "number": 20,
@@ -309,7 +1190,42 @@
     "text": "Animal included in cattle drive",
     "enumeration": "5"
    },
-   "solution": "STEER"
+   "solution": "STEER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STEER",
+    "definitions": [
+     {
+      "text": "Animal included in cattle",
+      "at": 0
+     },
+     {
+      "text": "drive",
+      "at": 26
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Animal included in cattle",
+      "note": "first meaning: a castrated male bovine, one of a herd"
+     },
+     {
+      "clueFragment": "drive",
+      "note": "second meaning: to guide or direct a vehicle"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Included in' tempts a search for a word concealed in 'cattle drive'; there is none, and 'cattle drive' is split between the two meanings.",
+     "definitionFit": "A bullock raised for beef belongs among the herd, and to direct a car is to guide its course."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "included"
+    }
+   }
   },
   {
    "number": 21,
@@ -323,7 +1239,63 @@
     "text": "Almost try finding comfort in puzzle",
     "enumeration": "6"
    },
-   "solution": "TEASER"
+   "solution": "TEASER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "TEASER",
+    "definitions": [
+     {
+      "text": "puzzle",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the final letter is lost"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing placed inside another is surrounded by it"
+     }
+    ],
+    "linkWords": [
+     "finding"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "try",
+      "gives": "TRY",
+      "note": "taken as written, then cut short"
+     },
+     {
+      "clueFragment": "comfort",
+      "gives": "EASE",
+      "note": "ease is comfort or relief"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "EASE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Struggling to find any solace inside a baffling puzzle.",
+     "walkthrough": "'Almost' cuts the last letter, and the comfort word then sits between the two survivors.",
+     "definitionFit": "A brainteaser is a tricky problem or riddle, so a teaser is a puzzle in the general sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -337,7 +1309,43 @@
     "text": "Painter pretending to cover render",
     "enumeration": "9"
    },
-   "solution": "INTERPRET"
+   "solution": "INTERPRET",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "INTERPRET",
+    "definitions": [
+     {
+      "text": "render",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to cover",
+      "for": "hidden_word",
+      "note": "the words act as a covering wrapped around what lies within them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Painter pretending",
+      "gives": "INTERPRET",
+      "note": "the letters run across the join of the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "An artist bluffing their way through covering a wall with plaster.",
+     "walkthrough": "'Render' tempts a builder's sense, coating a wall; it means translating or performing.",
+     "definitionFit": "To render a piece of music or a foreign text is to perform or translate it, giving one's own version."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "render"
+    }
+   }
   },
   {
    "number": 23,
@@ -351,7 +1359,58 @@
     "text": "Postman’s endless list for round",
     "enumeration": "6"
    },
-   "solution": "PATROL"
+   "solution": "PATROL",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "PATROL",
+    "definitions": [
+     {
+      "text": "round",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endless",
+      "for": "deletion",
+      "note": "without an end means the final letter is cut off"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Postman’s",
+      "gives": "PAT",
+      "note": "Postman Pat is the title character of a British children's TV series; the 's links him to what follows"
+     },
+     {
+      "clueFragment": "list",
+      "gives": "ROLL",
+      "note": "a roll is a list of names, as in a roll call"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAT",
+      "ROL"
+     ]
+    },
+    "explanation": {
+     "surface": "A mail carrier's never-ending list of addresses on the delivery route.",
+     "walkthrough": "Postman Pat is a well-known British animated postman, so 'Postman' points to his name.",
+     "definitionFit": "A guard or police officer on their round is on patrol, walking a regular beat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Postman’s"
+    }
+   }
   },
   {
    "number": 24,
@@ -365,7 +1424,52 @@
     "text": "Horizontal position going up and down",
     "enumeration": "5"
    },
-   "solution": "LEVEL"
+   "solution": "LEVEL",
+   "annotation": {
+    "type": [
+     "double_definition",
+     "palindrome"
+    ],
+    "answer": "LEVEL",
+    "definitions": [
+     {
+      "text": "Horizontal",
+      "at": 0
+     },
+     {
+      "text": "position",
+      "at": 11
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going up and down",
+      "for": "palindrome",
+      "note": "a word that reads the same travelling up or down the column is a palindrome"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Horizontal",
+      "note": "first meaning: flat, not sloping"
+     },
+     {
+      "clueFragment": "position",
+      "note": "second meaning: a rank or standing, as in a high grade"
+     }
+    ],
+    "explanation": {
+     "surface": "Lying flat while bobbing up and down, a contradiction in posture.",
+     "walkthrough": "'Horizontal position' looks like one definition; it is two meanings, and the rest notes the word reads the same either way.",
+     "definitionFit": "The word means flat and even, and also a rank or stage in a hierarchy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "position"
+    }
+   }
   },
   {
    "number": 25,
@@ -379,7 +1483,51 @@
     "text": "Brooded with rage seeing caricature",
     "enumeration": "6"
    },
-   "solution": "SATIRE"
+   "solution": "SATIRE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SATIRE",
+    "definitions": [
+     {
+      "text": "caricature",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "with",
+     "seeing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brooded",
+      "gives": "SAT",
+      "note": "a hen broods by sitting on her eggs, so brooded is sat"
+     },
+     {
+      "clueFragment": "rage",
+      "gives": "IRE",
+      "note": "ire is anger or rage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAT",
+      "IRE"
+     ]
+    },
+    "explanation": {
+     "surface": "A politician seething with fury on spotting a cartoon of themselves.",
+     "walkthrough": "'Brooded' suggests moody sulking; the sense used is a hen sitting on eggs.",
+     "definitionFit": "Satire mocks its targets through exaggeration and ridicule, the same method as a caricature."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Brooded"
+    }
+   }
   },
   {
    "number": 26,
@@ -393,7 +1541,44 @@
     "text": "Beefs up strong people, reportedly",
     "enumeration": "8"
    },
-   "solution": "TIGHTENS"
+   "solution": "TIGHTENS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "TIGHTENS",
+    "definitions": [
+     {
+      "text": "Beefs up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "what is reported is passed on by word of mouth, so we go by sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "strong people",
+      "gives": "TIGHTENS",
+      "soundsLike": "TITANS",
+      "note": "titans are giants of great strength"
+     }
+    ],
+    "explanation": {
+     "surface": "Strongmen bulking up, according to the gossip.",
+     "walkthrough": "'Beefs up' suggests building muscle, which fits the strongmen; it means making something firmer or stricter.",
+     "definitionFit": "To beef up security or rules is to strengthen them, making them stricter and firmer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Beefs"
+    }
+   }
   },
   {
    "number": 27,
@@ -407,7 +1592,67 @@
     "text": "Debauched default reversed in time",
     "enumeration": "10"
    },
-   "solution": "DEGENERATE"
+   "solution": "DEGENERATE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "DEGENERATE",
+    "definitions": [
+     {
+      "text": "Debauched",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reversed",
+      "for": "reversal",
+      "note": "turned the other way round, so the letters run backwards"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing sitting inside another is enclosed by it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time",
+      "gives": "DATE",
+      "note": "a date is a point in time"
+     },
+     {
+      "clueFragment": "default",
+      "gives": "RENEGE",
+      "note": "to renege is to default on a promise or debt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "EGENER",
+      "ATE"
+     ],
+     "reversals": [
+      {
+       "from": "RENEGE",
+       "to": "EGENER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dissolute borrower who has failed to pay back on time.",
+     "walkthrough": "'Default' looks like a noun, a failed payment; it is the verb, to renege. Its reversal splits DATE after the D.",
+     "definitionFit": "Someone debauched has sunk into immoral, dissolute habits, which is what a degenerate person has done."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "default"
+    }
+   }
   },
   {
    "number": 28,
@@ -421,7 +1666,54 @@
     "text": "Harbinger literary mariner rejected",
     "enumeration": "4"
    },
-   "solution": "OMEN"
+   "solution": "OMEN",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "OMEN",
+    "definitions": [
+     {
+      "text": "Harbinger",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rejected",
+      "for": "reversal",
+      "note": "something rejected is sent back, so the letters run the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "literary mariner",
+      "gives": "NEMO",
+      "note": "Captain Nemo commands the Nautilus in Jules Verne's novels"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OMEN"
+     ],
+     "reversals": [
+      {
+       "from": "NEMO",
+       "to": "OMEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fictional sailor turned away as a messenger of things to come.",
+     "walkthrough": "'Literary mariner' could suggest Coleridge's Ancient Mariner; the four letters needed point to Verne's submarine captain.",
+     "definitionFit": "A harbinger foreshadows what is coming, just as a sign or portent does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rejected"
+    }
+   }
   }
  ]
 }
