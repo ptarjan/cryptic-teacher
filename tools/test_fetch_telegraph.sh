@@ -84,6 +84,24 @@ same("a linked answer is one group on its first light",
 same("its other light says See and carries no enumeration",
      (e[(3, "across")]["clue"], e[(3, "across")]["solution"]), ({"text": "See 1"}, "BEE"))
 
+# The bucket can list a continuation before the light that prints the clue.
+first = doc("Cryptic Crossword No 3", "Monday, 03 August 2026")
+down = first["json"]["copy"]["clues"][1]["clues"]
+down[0].update(clue="See 2", format="")
+down[1].update(format="3,3", links=[{"number": 1, "direction": "Down"}])
+got = ft.parse(first, "cryptic-crossword-1")["entries"]
+same("a continuation listed first is still one entry",
+     sorted((x["number"], x["direction"]) for x in got),
+     [(1, "across"), (1, "down"), (2, "down"), (3, "across")])
+same("and the leader groups it", [x.get("group") for x in got if x["number"] == 2],
+     [["2-down", "1-down"]])
+
+dash = doc("Cryptic Crossword No 4", "Monday, 03 August 2026")
+dash["json"]["copy"]["clues"][0]["clues"][1]["clue"] = "Buzz \x96 or hum"
+same("Windows-1252 punctuation read as latin-1 is decoded",
+     [x["clue"]["text"] for x in ft.parse(dash, "cryptic-crossword-1")["entries"]
+      if x["number"] == 3], ["Buzz \u2013 or hum"])
+
 d = datetime.date
 rows = [("telegraph", 26895, d(2015, 8, 18), "v", "z"),
         ("telegraph", 26896, d(2015, 8, 19), "v", "a"),
