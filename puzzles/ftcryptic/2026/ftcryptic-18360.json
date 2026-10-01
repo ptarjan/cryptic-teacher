@@ -24,6 +24,9 @@
   "date": "2026-05-01",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,67 @@
     "text": "Vegetable container holding some Swedes one removed",
     "enumeration": "7"
    },
-   "solution": "CABBAGE"
+   "solution": "CABBAGE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "CABBAGE",
+    "definitions": [
+     {
+      "text": "Vegetable",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "to hold something is to keep it inside, so one piece sits within the other"
+     },
+     {
+      "text": "removed",
+      "for": "deletion",
+      "note": "something removed is taken away, so a letter is dropped from the group"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "container",
+      "gives": "CAGE",
+      "note": "a cage is a container for an animal"
+     },
+     {
+      "clueFragment": "some Swedes",
+      "gives": "ABBA",
+      "note": "ABBA were a Swedish pop group, so some Swedes"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "A means one, as in a single thing; it is the letter taken out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "BBA",
+      "GE"
+     ]
+    },
+    "explanation": {
+     "surface": "A crate of vegetables has had one of its swedes, the root vegetable, taken out.",
+     "walkthrough": "Swedes look like root vegetables beside 'Vegetable', but here they are people from Sweden, the pop group. 'One' is the article A, removed before the group goes into the container.",
+     "definitionFit": "A cabbage is a leafy green garden crop, one of the commonest examples of the category."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Swedes"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +114,58 @@
     "text": "The King’s taking a taxi?",
     "enumeration": "3"
    },
-   "solution": "CAR"
+   "solution": "CAR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CAR",
+    "definitions": [
+     {
+      "text": "taxi",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking",
+      "for": "container",
+      "note": "to take something in is to receive it, so one piece goes inside the other"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The King",
+      "gives": "CR",
+      "note": "CR stands for Carolus Rex, Latin for King Charles"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "A",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A monarch hails a cab instead of using the royal carriage.",
+     "walkthrough": "CR is the royal cipher of a King Charles (Carolus Rex). The question mark admits that a taxi is just one example of the answer.",
+     "definitionFit": "A taxi is one kind of motor vehicle hired for journeys, hence an example rather than a synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "King"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +179,61 @@
     "text": "Cents regularly covered by dollars — lots of them",
     "enumeration": "7"
    },
-   "solution": "BUCKETS"
+   "solution": "BUCKETS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "BUCKETS",
+    "definitions": [
+     {
+      "text": "lots of them",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter is kept"
+     },
+     {
+      "text": "covered by",
+      "for": "container",
+      "note": "something covered by another is enclosed in it, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dollars",
+      "gives": "BUCKS",
+      "note": "bucks is American slang for dollars"
+     },
+     {
+      "clueFragment": "Cents",
+      "gives": "ET",
+      "select": "alternate",
+      "note": "the second and fourth letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUCK",
+      "ET",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Small change hidden under piles of banknotes, and plenty of them.",
+     "walkthrough": "The definition reads with its object: you can have buckets of them, meaning lots of them.",
+     "definitionFit": "Informally, buckets means a very large amount, as in rain falling in buckets or crying buckets."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -85,7 +253,66 @@
      }
     ]
    },
-   "solution": "APPLETREE"
+   "solution": "APPLETREE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "APPLE TREE",
+    "definitions": [
+     {
+      "text": "Part of orchard",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "scattered around",
+      "for": "anagram",
+      "note": "scattered things are strewn about in no order, so the letters are rearranged"
+     },
+     {
+      "text": "the bottom of",
+      "for": "letter_selection",
+      "note": "the bottom of a word is its final letter"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pear peel",
+      "gives": "PEARPEEL",
+      "note": "taken as written, as letters to rearrange"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "T",
+      "select": "last",
+      "note": "the final letter of the small word"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PEARPEELT",
+       "gives": "APPLETREE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Somewhere in an orchard, pear peelings lie strewn around the foot of a tree.",
+     "walkthrough": "The letters of PEAR PEEL plus the T at the end of 'it' rearrange into APPLE TREE.",
+     "definitionFit": "An orchard is a planting of fruit trees, so a single fruit tree makes up one part of it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pear"
+    }
+   }
   },
   {
    "number": 4,
@@ -99,7 +326,64 @@
     "text": "My relative to marry English politician, tackily, on vacation",
     "enumeration": "5"
    },
-   "solution": "EMPTY"
+   "solution": "EMPTY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "EMPTY",
+    "definitions": [
+     {
+      "text": "My relative to marry",
+      "at": 0,
+      "note": "a cryptic definition: emptying MARRY of its inside letters leaves MY"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on vacation",
+      "for": "letter_selection",
+      "note": "a vacated building has nobody inside, so only the outer letters remain"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "MP",
+      "note": "Member of Parliament"
+     },
+     {
+      "clueFragment": "tackily",
+      "gives": "TY",
+      "select": "outer",
+      "note": "first and last letters only"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "MP",
+      "TY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's relative marries a British MP in a gaudy wedding while the family is off on holiday.",
+     "walkthrough": "The definition is a joke: take the middle out of MARRY and MY is what remains, so MY is the hollowed-out version of MARRY. 'My relative' looks like a family member but means the word My.",
+     "definitionFit": "Removing the inner letters of one word to leave another is exactly what emptying that word does in crossword terms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "relative"
+    }
+   }
   },
   {
    "number": 5,
@@ -113,7 +397,65 @@
     "text": "Wings from peregrine and a cuckoo make a tasty snack",
     "enumeration": "7"
    },
-   "solution": "PEANUTS"
+   "solution": "PEANUTS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PEANUTS",
+    "definitions": [
+     {
+      "text": "tasty snack",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Wings from",
+      "for": "letter_selection",
+      "note": "the wings of a bird are its two sides, so the outer letters are taken"
+     }
+    ],
+    "linkWords": [
+     "make a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "peregrine",
+      "gives": "PE",
+      "select": "outer",
+      "note": "first and last letters of the falcon's name"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cuckoo",
+      "gives": "NUTS",
+      "note": "cuckoo and nuts both mean crazy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PE",
+      "A",
+      "NUTS"
+     ]
+    },
+    "explanation": {
+     "surface": "Parts of a falcon and a cuckoo end up as a bird-based snack.",
+     "walkthrough": "Both birds are red herrings: 'peregrine' supplies only its outside letters and 'cuckoo' is an adjective meaning mad.",
+     "definitionFit": "Peanuts are a salted nibble often served with drinks, a typical bar snack."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cuckoo"
+    }
+   }
   },
   {
    "number": 5,
@@ -127,7 +469,79 @@
     "text": "Bird in twisted net free, say, to rise",
     "enumeration": "9"
    },
-   "solution": "PARTRIDGE"
+   "solution": "PARTRIDGE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "PARTRIDGE",
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "twisted",
+      "for": "reversal",
+      "note": "something twisted round is turned the other way, so the word is read backwards"
+     },
+     {
+      "text": "to rise",
+      "for": "reversal",
+      "note": "in a down clue rising means reading from bottom to top, so the letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "net",
+      "gives": "TRAP",
+      "note": "a net is a trap for catching things"
+     },
+     {
+      "clueFragment": "free",
+      "gives": "RID",
+      "note": "to free of something is to rid of it"
+     },
+     {
+      "clueFragment": "say",
+      "gives": "EG",
+      "note": "say means for example, e.g."
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PART",
+      "RID",
+      "GE"
+     ],
+     "reversals": [
+      {
+       "from": "TRAP",
+       "to": "PART"
+      },
+      {
+       "from": "EG",
+       "to": "GE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bird caught in a tangled net is released and flies up.",
+     "walkthrough": "Two separate reversals: 'twisted' turns the net, and 'to rise' turns the abbreviation for 'say', since a down answer read upwards runs backwards.",
+     "definitionFit": "The partridge is a plump game bird of fields and hedgerows, so it is a member of the class."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "free"
+    }
+   }
   },
   {
    "number": 6,
@@ -141,7 +555,64 @@
     "text": "A sailor from the south who’s a big strapping lad",
     "enumeration": "5"
    },
-   "solution": "ATLAS"
+   "solution": "ATLAS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ATLAS",
+    "definitions": [
+     {
+      "text": "a big strapping lad",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from the south",
+      "for": "reversal",
+      "note": "in a down answer, reading from the south means starting at the bottom, so the word runs upwards"
+     }
+    ],
+    "linkWords": [
+     "who’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sailor",
+      "gives": "SALT",
+      "note": "an old salt is an experienced sailor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "TLAS"
+     ],
+     "reversals": [
+      {
+       "from": "SALT",
+       "to": "TLAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor from the southern hemisphere who is a well-built young man.",
+     "walkthrough": "'From the south' sounds like where the sailor comes from, but it tells you to read SALT upwards in this down answer.",
+     "definitionFit": "In Greek myth Atlas was the Titan who held up the heavens, so his name stands for any musclebound strongman."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "south"
+    }
+   }
   },
   {
    "number": 7,
@@ -155,7 +626,59 @@
     "text": "Metal skull about to be replaced by you",
     "enumeration": "7"
    },
-   "solution": "URANIUM"
+   "solution": "URANIUM",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "URANIUM",
+    "definitions": [
+     {
+      "text": "Metal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be replaced by",
+      "for": "substitution",
+      "note": "replacing one thing with another swaps them, so a letter is exchanged for a new one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "skull",
+      "gives": "CRANIUM",
+      "note": "the cranium is the skull"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "c (circa) means about; it is the letter swapped out"
+     },
+     {
+      "clueFragment": "you",
+      "gives": "U",
+      "note": "text-speak spelling, the letter that sounds like the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "RANIUM"
+     ]
+    },
+    "explanation": {
+     "surface": "A metal plate fitted into a damaged skull, with your own bone taken out.",
+     "walkthrough": "C stands for circa, Latin for about. Swap the C of CRANIUM for U and you have URANIUM.",
+     "definitionFit": "Uranium is a heavy radioactive element classed among the metals, used as nuclear fuel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 8,
@@ -169,7 +692,79 @@
     "text": "Yellowhammers originally found in tangled treetops, empty eaves and pigeonholes",
     "enumeration": "11"
    },
-   "solution": "STEREOTYPES"
+   "solution": "STEREOTYPES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "STEREOTYPES",
+    "definitions": [
+     {
+      "text": "pigeonholes",
+      "at": 68
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "originally means at the start, so the first letter is taken"
+     },
+     {
+      "text": "tangled",
+      "for": "anagram",
+      "note": "tangled things are knotted out of order, so the letters are rearranged"
+     },
+     {
+      "text": "empty",
+      "for": "letter_selection",
+      "note": "an emptied word has lost its contents, so only its outer letters remain"
+     }
+    ],
+    "linkWords": [
+     "found in",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Yellowhammers",
+      "gives": "Y",
+      "select": "first",
+      "note": "the opening letter of the bird's name"
+     },
+     {
+      "clueFragment": "treetops",
+      "gives": "TREETOPS",
+      "note": "taken as written, as letters to rearrange"
+     },
+     {
+      "clueFragment": "eaves",
+      "gives": "ES",
+      "select": "outer",
+      "note": "first and last letters only"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "YTREETOPSES",
+       "gives": "STEREOTYPES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Yellowhammers, a kind of songbird, are nesting in messy treetops, empty eaves and the holes of a dovecote.",
+     "walkthrough": "'Pigeonholes' fits the bird picture as nest holes, but it is a verb meaning categorises. The selected letters join the tangled word before the rearranging.",
+     "definitionFit": "To pigeonhole people is to file them into fixed categories, which is what labelling them by cliché does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pigeonholes"
+    }
+   }
   },
   {
    "number": 9,
@@ -189,7 +784,67 @@
      }
     ]
    },
-   "solution": "RICEPAPER"
+   "solution": "RICEPAPER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "RICE PAPER",
+    "definitions": [
+     {
+      "text": "edible substance",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crowds",
+      "for": "container",
+      "note": "to crowd something is to press in all round it, so one piece surrounds another"
+     },
+     {
+      "text": "strange",
+      "for": "anagram",
+      "note": "something strange is out of its normal form, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prepare",
+      "gives": "PREPARE",
+      "note": "taken as written, as letters to rearrange"
+     },
+     {
+      "clueFragment": "I see",
+      "gives": "IC",
+      "note": "I plus C, the letter that sounds like see"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "IC",
+      "EPAPER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PREPARE",
+       "gives": "REPAPER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cook notices a crowd gathering to make an odd foodstuff.",
+     "walkthrough": "'I see' sounds like a remark, but it spells I plus the letter C; the rearranged letters press in around that pair after their first letter.",
+     "definitionFit": "Rice paper is a thin translucent sheet that can be eaten, used for spring rolls and under macaroons."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crowds"
+    }
+   }
   },
   {
    "number": 10,
@@ -203,7 +858,51 @@
     "text": "Set out from the Champs-Elysees?",
     "enumeration": "5"
    },
-   "solution": "LEAVE"
+   "solution": "LEAVE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LEAVE",
+    "definitions": [
+     {
+      "text": "Set out",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the",
+      "gives": "LE",
+      "note": "the French word for the, prompted by the Paris setting"
+     },
+     {
+      "clueFragment": "Champs-Elysees",
+      "gives": "AVE",
+      "note": "the Champs-Elysees is a famous Paris avenue, abbreviated AVE"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LE",
+      "AVE"
+     ]
+    },
+    "explanation": {
+     "surface": "Starting a journey from the most famous boulevard in Paris.",
+     "walkthrough": "The question mark flags that 'the Champs-Elysees' is read as a French-English phrase: le (the) plus AVE.",
+     "definitionFit": "To set out is to depart on a journey, which is exactly what going away from a place means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Champs-Elysees"
+    }
+   }
   },
   {
    "number": 11,
@@ -217,7 +916,60 @@
     "text": "‘Flying V’ guitar engineered, electrified and strung, initially, by European",
     "enumeration": "5"
    },
-   "solution": "GEESE"
+   "solution": "GEESE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "GEESE",
+    "definitions": [
+     {
+      "text": "Flying V",
+      "at": 1
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the beginning, so the first letter of each word is taken"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "guitar engineered, electrified and strung",
+      "gives": "GEES",
+      "select": "first",
+      "note": "opening letters of the four words, skipping 'and'"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GEES",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A Flying V, the famous Gibson electric guitar shape, built and strung by a European maker.",
+     "walkthrough": "The Flying V is a real electric guitar, which drives the whole surface, but here it describes birds flying in a V formation.",
+     "definitionFit": "Migrating geese travel in a V-shaped skein, so a flying V is a cryptic picture of them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Flying"
+    }
+   }
   },
   {
    "number": 11,
@@ -231,7 +983,60 @@
     "text": "What makes a man? Being treated with regard?",
     "enumeration": "11"
    },
-   "solution": "GINGERBREAD"
+   "solution": "GINGERBREAD",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GINGERBREAD",
+    "definitions": [
+     {
+      "text": "What makes a man?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "treated",
+      "for": "anagram",
+      "note": "something treated has been processed or worked on, so the letters are reworked"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Being",
+      "gives": "BEING",
+      "note": "taken as written, as letters to rearrange"
+     },
+     {
+      "clueFragment": "regard",
+      "gives": "REGARD",
+      "note": "taken as written, as letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BEINGREGARD",
+       "gives": "GINGERBREAD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A philosophical question: is it respect from others that makes someone a man?",
+     "walkthrough": "The question sounds like one about manhood, but the man in mind is the biscuit figure of the fairy tale.",
+     "definitionFit": "A gingerbread man is a spiced biscuit cut into a human shape, so this dough is what such a man is made of."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "man"
+    }
+   }
   },
   {
    "number": 12,
@@ -245,7 +1050,68 @@
     "text": "County court fool with one about to leave on large horse",
     "enumeration": "9"
    },
-   "solution": "YORKSHIRE"
+   "solution": "YORKSHIRE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "YORKSHIRE",
+    "definitions": [
+     {
+      "text": "County",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to leave",
+      "for": "deletion",
+      "note": "whatever leaves is no longer there, so letters are dropped"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "court fool",
+      "gives": "YORICK",
+      "note": "Yorick was the king's jester whose skull Hamlet holds"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one; it drops out"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "c (circa) means about; it drops out too"
+     },
+     {
+      "clueFragment": "large horse",
+      "gives": "SHIRE",
+      "note": "a shire is a big English draught horse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YORK",
+      "SHIRE"
+     ]
+    },
+    "explanation": {
+     "surface": "A county court jester rides about on a big horse.",
+     "walkthrough": "'County court' reads as one legal phrase, but County is the definition and 'court fool' is Shakespeare's YORICK, who loses I and C.",
+     "definitionFit": "Yorkshire is the largest historic county of northern England, so it is an instance of one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "court"
+    }
+   }
   },
   {
    "number": 13,
@@ -259,7 +1125,71 @@
     "text": "Scheme to turn on Mother Teresa, perhaps with alcohol",
     "enumeration": "7"
    },
-   "solution": "NOSTRUM"
+   "solution": "NOSTRUM",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "NOSTRUM",
+    "definitions": [
+     {
+      "text": "Scheme",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to turn",
+      "for": "reversal",
+      "note": "turning something round faces it the other way, so the letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written before being turned"
+     },
+     {
+      "clueFragment": "Mother Teresa, perhaps",
+      "gives": "ST",
+      "note": "Mother Teresa was canonised, so she is an example of a saint, ST"
+     },
+     {
+      "clueFragment": "alcohol",
+      "gives": "RUM",
+      "note": "rum is a kind of alcohol"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "ST",
+      "RUM"
+     ],
+     "reversals": [
+      {
+       "from": "ON",
+       "to": "NO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A plot to turn against Mother Teresa, fuelled by drink.",
+     "walkthrough": "'Perhaps' marks Mother Teresa as an example of a saint, giving ST.",
+     "definitionFit": "A nostrum is a pet remedy or favourite plan for solving a problem, often a dubious one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "turn"
+    }
+   }
   },
   {
    "number": 14,
@@ -273,7 +1203,65 @@
     "text": "Baby of popular crossword setter with sensible clothing",
     "enumeration": "9"
    },
-   "solution": "MINIATURE"
+   "solution": "MINIATURE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "MINIATURE",
+    "definitions": [
+     {
+      "text": "Baby",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with",
+      "for": "container",
+      "note": "here with means wearing, so one piece is dressed in the other"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "popular",
+      "gives": "IN",
+      "note": "in means fashionable or popular"
+     },
+     {
+      "clueFragment": "crossword setter",
+      "gives": "I",
+      "note": "the setter refers to themselves as I"
+     },
+     {
+      "clueFragment": "sensible clothing",
+      "gives": "MATURE",
+      "note": "mature means sensible; it clothes the other pieces"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "IN",
+      "I",
+      "ATURE"
+     ]
+    },
+    "explanation": {
+     "surface": "The baby of a well-loved crossword setter is dressed in practical clothes.",
+     "walkthrough": "'Baby' looks like a noun but works as an adjective meaning very small, as in baby carrots. MATURE wears IN and I.",
+     "definitionFit": "Something miniature is a small-scale version, just as baby vegetables are tiny ones."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "clothing"
+    }
+   }
   },
   {
    "number": 15,
@@ -287,7 +1275,63 @@
     "text": "Holding wheel, Mr Toad snarls: ‘Step on it!’",
     "enumeration": "7"
    },
-   "solution": "DOORMAT"
+   "solution": "DOORMAT",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "DOORMAT",
+    "definitions": [
+     {
+      "text": "Step on it!",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Holding",
+      "for": "container",
+      "note": "holding something keeps it within, so one piece is put inside"
+     },
+     {
+      "text": "snarls",
+      "for": "anagram",
+      "note": "a snarl is a tangle, so the letters are knotted into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wheel",
+      "gives": "O",
+      "note": "a wheel is round, like the letter O"
+     },
+     {
+      "clueFragment": "Mr Toad",
+      "gives": "MRTOAD",
+      "note": "taken as written, as letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MRTOADO",
+       "gives": "DOORMAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Mr Toad of The Wind in the Willows, gripping the steering wheel, yells at someone to drive faster.",
+     "walkthrough": "'Step on it!' is a driver's cry to accelerate, but read literally it is an invitation to tread on the answer.",
+     "definitionFit": "A doormat is the mat at a doorway that visitors walk on to wipe their shoes, so it exists to be trodden on."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Step"
+    }
+   }
   },
   {
    "number": 16,
@@ -301,7 +1345,68 @@
     "text": "Romeo’s left depressed, finally, because drugged-up Juliet woke too late",
     "enumeration": "9"
    },
-   "solution": "OVERSLEPT"
+   "solution": "OVERSLEPT",
+   "annotation": {
+    "type": [
+     "cycling",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "OVERSLEPT",
+    "definitions": [
+     {
+      "text": "woke too late",
+      "at": 59
+     }
+    ],
+    "indicators": [
+     {
+      "text": "left depressed",
+      "for": "cycling",
+      "note": "in a down answer, pushing something down sends it to the bottom, so the L moves from top to end"
+     },
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally means at the end, so the last letter of each word is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Romeo’s",
+      "gives": "LOVERS",
+      "note": "Romeo is a lover, and the 's adds the S"
+     },
+     {
+      "clueFragment": "because drugged-up Juliet",
+      "gives": "EPT",
+      "select": "last",
+      "note": "closing letters of the three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVERSL",
+      "EPT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LOVERS",
+       "gives": "OVERSL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Romeo dies in despair because Juliet, drugged by the friar's potion, wakes up too late: the end of the play.",
+     "walkthrough": "'Left' is the abbreviation L, and 'depressed' pushes it down to the bottom of LOVER'S in this down answer, giving OVERSL.",
+     "definitionFit": "To oversleep is to stay asleep beyond the intended time, so it means waking later than planned."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "depressed"
+    }
+   }
   },
   {
    "number": 17,
@@ -315,7 +1420,61 @@
     "text": "Exotic sea bird from China?",
     "enumeration": "7"
    },
-   "solution": "EASTERN"
+   "solution": "EASTERN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "EASTERN",
+    "definitions": [
+     {
+      "text": "from China?",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Exotic",
+      "for": "anagram",
+      "note": "something exotic is unfamiliar and strange, so the letters take an unusual form"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sea",
+      "gives": "SEA",
+      "note": "taken as written, as letters to rearrange"
+     },
+     {
+      "clueFragment": "bird",
+      "gives": "TERN",
+      "note": "a tern is a seabird"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EAS",
+      "TERN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SEA",
+       "gives": "EAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A strange seabird that has come from China.",
+     "walkthrough": "The question mark shows that China is just one example of a place in the East.",
+     "definitionFit": "China lies in East Asia, so something from there is described as oriental, an example of the broader sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Exotic"
+    }
+   }
   },
   {
    "number": 18,
@@ -329,7 +1488,76 @@
     "text": "One piercing terrible abscess scratching bottom, resulting in infection",
     "enumeration": "7"
    },
-   "solution": "SCABIES"
+   "solution": "SCABIES",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "container"
+    ],
+    "answer": "SCABIES",
+    "definitions": [
+     {
+      "text": "infection",
+      "at": 62
+     }
+    ],
+    "indicators": [
+     {
+      "text": "piercing",
+      "for": "container",
+      "note": "to pierce is to go into, so one piece is stuck inside the other"
+     },
+     {
+      "text": "terrible",
+      "for": "anagram",
+      "note": "something terrible is in a bad state, so the letters are mangled"
+     },
+     {
+      "text": "scratching bottom",
+      "for": "deletion",
+      "note": "scratching out means erasing, so the final letter is struck off"
+     }
+    ],
+    "linkWords": [
+     "resulting in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "abscess",
+      "gives": "ABSCES",
+      "note": "the word without its last letter, ready to rearrange"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCAB",
+      "I",
+      "ES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ABSCES",
+       "gives": "SCABES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Picking at a nasty abscess on your bottom gives you an infection.",
+     "walkthrough": "'Scratching' fits the itchy picture, but here it means crossing out the end of ABSCESS. I then goes into the rearranged SCABES.",
+     "definitionFit": "Scabies is a contagious skin disease caused by burrowing mites, a parasitic infestation of the skin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "scratching"
+    }
+   }
   },
   {
    "number": 19,
@@ -349,7 +1577,72 @@
      }
     ]
    },
-   "solution": "EYEDROP"
+   "solution": "EYEDROP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "cycling",
+     "charade"
+    ],
+    "answer": "EYE-DROP",
+    "definitions": [
+     {
+      "text": "Tear",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "clothing from",
+      "for": "letter_selection",
+      "note": "clothing covers the outside, so only the outer letters are taken"
+     },
+     {
+      "text": "cycling",
+      "for": "cycling",
+      "note": "cycling goes round and round, so a letter moves from one end to the other"
+     }
+    ],
+    "linkWords": [
+     "accompanying"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "emissary",
+      "gives": "EY",
+      "select": "outer",
+      "note": "first and last letters only"
+     },
+     {
+      "clueFragment": "Spaniard",
+      "gives": "PEDRO",
+      "note": "Pedro is a typical Spanish man's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EY",
+      "EDROP"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PEDRO",
+       "gives": "EDROP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Ripping the clothes off an envoy who is riding alongside a Spanish cyclist.",
+     "walkthrough": "'Tear' looks like the verb to rip, but it is the noun for a drop of water from the eye. Cycling PEDRO sends the P to the end.",
+     "definitionFit": "A tear is a single bead of salty liquid falling from the eye when someone cries."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Tear"
+    }
+   }
   },
   {
    "number": 20,
@@ -363,7 +1656,71 @@
     "text": "Turn about car getting tailed on the southern edge of Baltimore",
     "enumeration": "7"
    },
-   "solution": "REVOLVE"
+   "solution": "REVOLVE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "REVOLVE",
+    "definitions": [
+     {
+      "text": "Turn",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "getting tailed",
+      "for": "deletion",
+      "note": "tailing something cuts off its end, as with tailing vegetables, so the last letter goes"
+     },
+     {
+      "text": "southern edge of",
+      "for": "letter_selection",
+      "note": "in a word written across, its southern edge is taken here as the final letter"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     },
+     {
+      "clueFragment": "car",
+      "gives": "VOLV",
+      "note": "a Volvo is a make of car; it loses its last letter"
+     },
+     {
+      "clueFragment": "Baltimore",
+      "gives": "E",
+      "select": "last",
+      "note": "the closing letter of the city's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "VOLV",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A car pulls a U-turn while being followed on the southern outskirts of Baltimore.",
+     "walkthrough": "'Tailed' suggests being followed by police, but it means docked of its tail. In this down answer the E sits at the bottom, the southern end.",
+     "definitionFit": "To revolve is to rotate around an axis, so it is a direct synonym of the verb meaning rotate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tailed"
+    }
+   }
   },
   {
    "number": 21,
@@ -377,7 +1734,39 @@
     "text": "Plant delivering Stairway to Heaven?",
     "enumeration": "9"
    },
-   "solution": "BEANSTALK"
+   "solution": "BEANSTALK",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BEANSTALK",
+    "definitions": [
+     {
+      "text": "Plant delivering Stairway to Heaven?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Plant delivering Stairway to Heaven?",
+      "note": "surface reading: a record plant pressing copies of the Led Zeppelin song, or Robert Plant, its singer, performing it"
+     },
+     {
+      "clueFragment": "Stairway to Heaven",
+      "note": "setter's reading: a growing plant that gave Jack a ladder up to the giant's castle in the clouds"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Robert Plant sang Led Zeppelin's Stairway to Heaven, so the clue reads like rock trivia; it means the fairy-tale plant Jack climbed to the sky.",
+     "definitionFit": "In Jack and the Beanstalk, a magic plant grows from beans up into the clouds, giving a route to a land in the sky."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Plant"
+    }
+   }
   },
   {
    "number": 22,
@@ -391,7 +1780,64 @@
     "text": "Musical instrument made by Roland is getting set up",
     "enumeration": "5"
    },
-   "solution": "SITAR"
+   "solution": "SITAR",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "SITAR",
+    "definitions": [
+     {
+      "text": "Musical instrument",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "getting set up",
+      "for": "reversal",
+      "note": "in a down answer, setting something up raises it so it reads from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "made by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Roland",
+      "gives": "RAT",
+      "note": "Roland Rat was a puppet rat on 1980s British breakfast television"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SI",
+      "TAR"
+     ],
+     "reversals": [
+      {
+       "from": "RATIS",
+       "to": "SITAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A musical instrument built by Roland, the electronic keyboard maker, is being assembled.",
+     "walkthrough": "Roland is a real maker of synthesisers, but here Roland is the TV puppet Roland Rat, giving RAT.",
+     "definitionFit": "The sitar is a long-necked plucked string instrument from India, so it is a member of the class."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Roland"
+    }
+   }
   },
   {
    "number": 23,
@@ -405,7 +1851,43 @@
     "text": "Piece of cake BA Baracus eats",
     "enumeration": "5"
    },
-   "solution": "KEBAB"
+   "solution": "KEBAB",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "KEBAB",
+    "definitions": [
+     {
+      "text": "eats",
+      "at": 25,
+      "note": "eats is a plural slang noun for food; a kebab is one item of it"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Piece of",
+      "for": "hidden_word",
+      "note": "a piece is only part of a whole, so the letters lie within a longer run"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cake BA Baracus",
+      "note": "the run of letters spans the end of one word, the middle one and the start of the last"
+     }
+    ],
+    "explanation": {
+     "surface": "B.A. Baracus, the tough guy of The A-Team, eats something easy.",
+     "walkthrough": "'Piece of cake' reads as a phrase for an easy job, and 'eats' as a verb; in fact 'eats' is a noun for food. B.A. Baracus was Mr T's character in The A-Team.",
+     "definitionFit": "Eats is casual slang for food, and a kebab is a typical takeaway meal of grilled meat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "eats"
+    }
+   }
   },
   {
    "number": 24,
@@ -419,7 +1901,43 @@
     "text": "Banks stops the shot",
     "enumeration": "5"
    },
-   "solution": "SAVES"
+   "solution": "SAVES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SAVES",
+    "definitions": [
+     {
+      "text": "Banks",
+      "at": 0
+     },
+     {
+      "text": "stops the shot",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Banks",
+      "note": "first meaning: puts money away in an account"
+     },
+     {
+      "clueFragment": "stops the shot",
+      "note": "second meaning: what a goalkeeper does when blocking an attempt on goal"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Gordon Banks was England's 1966 World Cup goalkeeper, so the clue reads as him making a stop; Banks is really the verb for putting money aside.",
+     "definitionFit": "The word means both to keep money for later and, in football, to stop a shot from going into the goal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Banks"
+    }
+   }
   },
   {
    "number": 25,
@@ -433,7 +1951,62 @@
     "text": "Are old ones beginning to tire?",
     "enumeration": "5"
    },
-   "solution": "EXIST"
+   "solution": "EXIST",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "EXIST",
+    "definitions": [
+     {
+      "text": "Are",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "EX",
+      "note": "ex means former, as in ex-wife"
+     },
+     {
+      "clueFragment": "ones",
+      "gives": "IS",
+      "note": "I is one, so more than one is IS"
+     },
+     {
+      "clueFragment": "tire",
+      "gives": "T",
+      "select": "first",
+      "note": "the opening letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "IS",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Are elderly people starting to get tired?",
+     "walkthrough": "'Are' looks like the start of a question but is the definition, the plural of the verb to be.",
+     "definitionFit": "To be, in its sense of having reality, means to live or have being, so they are means they live on."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Are"
+    }
+   }
   },
   {
    "number": 26,
@@ -447,7 +2020,87 @@
     "text": "Rain covers Mr Kelly, exposed, holding black article in America",
     "enumeration": "9"
    },
-   "solution": "UMBRELLAS"
+   "solution": "UMBRELLAS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "UMBRELLAS",
+    "definitions": [
+     {
+      "text": "Rain covers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "exposed",
+      "for": "letter_selection",
+      "note": "something exposed has had its covering stripped, so the outer letters are removed"
+     },
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "holding something keeps it within, so one piece is put inside"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places pieces inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "America",
+      "gives": "US",
+      "note": "the United States"
+     },
+     {
+      "clueFragment": "Mr",
+      "gives": "MR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "black",
+      "gives": "B",
+      "note": "abbreviation used on pencils"
+     },
+     {
+      "clueFragment": "Kelly",
+      "gives": "ELL",
+      "select": "middle",
+      "note": "the word with its first and last letters removed"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "the indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "M",
+      "B",
+      "R",
+      "ELL",
+      "A",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Gene Kelly, star of Singin' in the Rain, caught in the open in a downpour in America.",
+     "walkthrough": "Gene Kelly danced with an umbrella in Singin' in the Rain, which makes the surface apt. The whole string of pieces sits inside the American abbreviation.",
+     "definitionFit": "An umbrella is a folding canopy that shields a person from rainfall, so these are coverings against wet weather."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "exposed"
+    }
+   }
   },
   {
    "number": 27,
@@ -461,7 +2114,54 @@
     "text": "Warm to a detached farm property",
     "enumeration": "3"
    },
-   "solution": "STY"
+   "solution": "STY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "STY",
+    "definitions": [
+     {
+      "text": "farm property",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "detached",
+      "for": "deletion",
+      "note": "detaching something separates it off, so those letters are removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Warm",
+      "gives": "TOASTY",
+      "note": "toasty means pleasantly warm"
+     },
+     {
+      "clueFragment": "to a",
+      "gives": "TOA",
+      "note": "taken as written; these letters come away"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STY"
+     ]
+    },
+    "explanation": {
+     "surface": "An estate agent's advert for a cosy detached house on a farm.",
+     "walkthrough": "'Detached' sounds like estate-agent jargon for a house standing alone, but it is the instruction to pull TO A off TOASTY.",
+     "definitionFit": "A sty is the pen where pigs are kept, one of the buildings a farm would own."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "detached"
+    }
+   }
   },
   {
    "number": 28,
@@ -475,7 +2175,65 @@
     "text": "Earn pennies before fleeced men start to rally",
     "enumeration": "7"
    },
-   "solution": "DESERVE"
+   "solution": "DESERVE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "DESERVE",
+    "definitions": [
+     {
+      "text": "Earn",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fleeced",
+      "for": "letter_selection",
+      "note": "a fleeced sheep has had its outer coat sheared away, so only the inside is left"
+     }
+    ],
+    "linkWords": [
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pennies",
+      "gives": "D",
+      "note": "d was the abbreviation for old British pennies, from the Latin denarius"
+     },
+     {
+      "clueFragment": "men",
+      "gives": "E",
+      "select": "middle",
+      "note": "the word stripped of its outside letters"
+     },
+     {
+      "clueFragment": "start to rally",
+      "gives": "SERVE",
+      "note": "a rally in tennis begins with a serve"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "E",
+      "SERVE"
+     ]
+    },
+    "explanation": {
+     "surface": "Swindled workers earn a few pennies before a protest begins.",
+     "walkthrough": "'Rally' suggests a political gathering, but it is a tennis rally, which starts with a serve.",
+     "definitionFit": "To deserve something is to have merited or warranted it through effort, the sense of earning a reward."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rally"
+    }
+   }
   },
   {
    "number": 29,
@@ -489,7 +2247,64 @@
     "text": "Mad tradesman loses face before going around and beating people up",
     "enumeration": "7"
    },
-   "solution": "BATTERY"
+   "solution": "BATTERY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "BATTERY",
+    "definitions": [
+     {
+      "text": "beating people up",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "loses face",
+      "for": "deletion",
+      "note": "the face is the front, so losing it drops the first letter"
+     },
+     {
+      "text": "going around",
+      "for": "container",
+      "note": "going around something encircles it, so one piece wraps another"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mad tradesman",
+      "gives": "HATTER",
+      "note": "the Mad Hatter of Alice in Wonderland, a hat-maker by trade"
+     },
+     {
+      "clueFragment": "before",
+      "gives": "BY",
+      "note": "by means before, as in by noon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ATTER",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A crazed shopkeeper, humiliated, goes on a violent rampage.",
+     "walkthrough": "The Mad Hatter is the hat-maker from Alice in Wonderland. 'Before' looks like a word of order but is itself a piece, meaning by, as in by noon.",
+     "definitionFit": "Battery is the legal term for the crime of physically attacking someone, so assault and beating."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "before"
+    }
+   }
   }
  ]
 }
