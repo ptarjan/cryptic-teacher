@@ -24,6 +24,9 @@
   "date": "2022-08-08",
   "check": "30 entries verified against the grid (lengths, crossings, linked-clue mapping)"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,87 @@
     "text": "Balls inverted after bottom of pants turned in – nasty",
     "enumeration": "5"
    },
-   "solution": "SNIDE"
+   "solution": "SNIDE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "charade"
+    ],
+    "answer": "SNIDE",
+    "definitions": [
+     {
+      "text": "nasty",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bottom of",
+      "for": "letter_selection",
+      "note": "the bottom of a word written across is its end, so only its final letter is kept"
+     },
+     {
+      "text": "turned",
+      "for": "reversal",
+      "note": "something turned faces the other way, so its letters run backwards"
+     },
+     {
+      "text": "inverted",
+      "for": "reversal",
+      "note": "turned upside down, which in a written word means read back to front"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pants",
+      "gives": "S",
+      "select": "last",
+      "note": "the final letter of pants"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written, then flipped to NI"
+     },
+     {
+      "clueFragment": "Balls",
+      "gives": "ED",
+      "note": "Ed Balls, the Labour politician, supplies his first name, flipped to DE"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "NI",
+      "DE"
+     ],
+     "reversals": [
+      {
+       "from": "IN",
+       "to": "NI"
+      },
+      {
+       "from": "ED",
+       "to": "DE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crude jibe: something upside down and turned in at the seat of the trousers, and very nasty with it.",
+     "walkthrough": "'Balls' is not a body part here but Ed Balls, the former Labour shadow chancellor, whose first name is flipped; 'in' is a word to be turned, not a position.",
+     "definitionFit": "A snide remark is sneering and mean-spirited, so the word works as an adjective for spiteful unpleasantness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Balls"
+    }
+   }
   },
   {
    "number": 2,
@@ -57,7 +140,65 @@
      }
     ]
    },
-   "solution": "NOSWEAT"
+   "solution": "NOSWEAT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "NO SWEAT",
+    "definitions": [
+     {
+      "text": "That won't be a problem",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to turn",
+      "for": "reversal",
+      "note": "turning round makes the letters face the other way and read backwards"
+     }
+    ],
+    "linkWords": [
+     "against"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "About",
+      "gives": "ON",
+      "note": "on means about, as in a book on birds"
+     },
+     {
+      "clueFragment": "Labour",
+      "gives": "SWEAT",
+      "note": "sweat is hard toil, labour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "SWEAT"
+     ],
+     "reversals": [
+      {
+       "from": "ON",
+       "to": "NO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A politician asks whether to turn against the Labour party, and is told it will be no trouble at all.",
+     "walkthrough": "'Labour' with its capital looks like the political party, but it is plain hard work; 'against' simply sets the two parts side by side.",
+     "definitionFit": "The informal phrase is an idiom used to reassure someone that a task is easy and causes no difficulty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Labour"
+    }
+   }
   },
   {
    "number": 3,
@@ -85,7 +226,43 @@
    "group": [
     "3-down",
     "5-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DRAW A LINE UNDER IT",
+    "definitions": [
+     {
+      "text": "How to stress something",
+      "at": 9
+     },
+     {
+      "text": "Boris & co wanted us to do about Partygate",
+      "at": 33
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "How to stress something",
+      "note": "first meaning: literally underline a written word to emphasise it"
+     },
+     {
+      "clueFragment": "Boris & co wanted us to do about Partygate",
+      "note": "second meaning: the idiom for declaring a matter closed and moving on"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Partygate was the scandal over lockdown parties held in Downing Street under Boris Johnson, whose government repeatedly urged the public to move on from it.",
+     "definitionFit": "Underlining is the literal way to add emphasis in writing, and the same phrase is an idiom for closing a matter and forgetting about it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "stress"
+    }
+   }
   },
   {
    "number": 4,
@@ -99,7 +276,70 @@
     "text": "Promotion of lousy independent leaders secured by local financial centre",
     "enumeration": "9"
    },
-   "solution": "PUBLICITY"
+   "solution": "PUBLICITY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PUBLICITY",
+    "definitions": [
+     {
+      "text": "Promotion",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaders",
+      "for": "letter_selection",
+      "note": "leaders go in front, so each word gives up only its opening letter"
+     },
+     {
+      "text": "secured by",
+      "for": "container",
+      "note": "something secured by another is held fast within it, so one piece sits inside"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "local",
+      "gives": "PUB",
+      "note": "a local is the pub nearest your home"
+     },
+     {
+      "clueFragment": "lousy independent",
+      "gives": "LI",
+      "select": "first",
+      "note": "the opening letters of lousy and independent"
+     },
+     {
+      "clueFragment": "financial centre",
+      "gives": "CITY",
+      "note": "the City is London's financial district"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PUB",
+      "LI",
+      "CITY"
+     ]
+    },
+    "explanation": {
+     "surface": "A dismal independent candidate gets a promotional push from the business district's local bigwigs.",
+     "walkthrough": "The initials sit between the two other parts; 'local' is British slang for one's regular pub, and the City means the Square Mile of London finance.",
+     "definitionFit": "Publicity is the attention a product or person gets from advertising, a close synonym of promotion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "local"
+    }
+   }
   },
   {
    "number": 5,
@@ -133,7 +373,54 @@
     "text": "Robert Maxwell type in the limelight? \"One little reptile!\"",
     "enumeration": "9"
    },
-   "solution": "LITIGATOR"
+   "solution": "LITIGATOR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LITIGATOR",
+    "definitions": [
+     {
+      "text": "Robert Maxwell type",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in the limelight",
+      "gives": "LIT",
+      "note": "lit up by the spotlight"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "little reptile",
+      "gives": "GATOR",
+      "note": "a gator is a shortened alligator"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIT",
+      "I",
+      "GATOR"
+     ]
+    },
+    "explanation": {
+     "surface": "A press baron basks in publicity while someone mutters that he is nothing but a small reptile.",
+     "walkthrough": "Robert Maxwell, the fraudulent newspaper tycoon, was famous for suing Private Eye repeatedly; 'little' shortens alligator rather than meaning a young one.",
+     "definitionFit": "Maxwell constantly took critics to court, so a person who habitually files lawsuits is an example of his type."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "little"
+    }
+   }
   },
   {
    "number": 7,
@@ -147,7 +434,64 @@
     "text": "Wow – a LibDem leader that's endangered in the main!",
     "enumeration": "5"
    },
-   "solution": "CORAL"
+   "solution": "CORAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CORAL",
+    "definitions": [
+     {
+      "text": "that's endangered in the main",
+      "at": 22,
+      "note": "a relative clause standing for 'something that is endangered at sea'"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "a leader comes first, so only the opening letter of the word is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wow",
+      "gives": "COR",
+      "note": "cor is a British exclamation of surprise"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "LibDem",
+      "gives": "L",
+      "select": "first",
+      "note": "the first letter of LibDem"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COR",
+      "A",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "Surprise at a Liberal Democrat leader who is endangered for the most part.",
+     "walkthrough": "'In the main' reads as 'mostly', but the main is the old poetic word for the open sea; cor is a British working-class 'wow'.",
+     "definitionFit": "Coral reefs are threatened by warming and acidifying oceans, so coral is a living thing at risk under the sea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "main"
+    }
+   }
   },
   {
    "number": 8,
@@ -161,7 +505,75 @@
     "text": "Emblem of a nation's awful shit time, dogged by the French",
     "enumeration": "7"
    },
-   "solution": "THISTLE"
+   "solution": "THISTLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "THISTLE",
+    "definitions": [
+     {
+      "text": "Emblem of a nation",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "awful",
+      "for": "anagram",
+      "note": "something awful is in a bad state, so the letters are thrown into disorder"
+     },
+     {
+      "text": "dogged by",
+      "for": "charade",
+      "note": "to be dogged is to be followed closely, so the next piece comes directly after"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shit",
+      "gives": "SHIT",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "the French",
+      "gives": "LE",
+      "note": "le is the French for the"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THIS",
+      "T",
+      "LE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SHIT",
+       "gives": "THIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A country living through a dreadful period, hounded all the while by the French.",
+     "walkthrough": "The rude word is rearranged, followed by the abbreviation for time and the French definite article.",
+     "definitionFit": "The prickly purple flower is the national symbol of Scotland, so it is the floral emblem of a nation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dogged"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +591,63 @@
    "group": [
     "9-down",
     "24-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PROG ROCK",
+    "definitions": [
+     {
+      "text": "Music genre",
+      "at": 9
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the end of a word, so its last letter alone is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "expert",
+      "gives": "PRO",
+      "note": "a pro is a professional, an expert"
+     },
+     {
+      "clueFragment": "getting",
+      "gives": "G",
+      "select": "last",
+      "note": "the last letter of getting"
+     },
+     {
+      "clueFragment": "pitch",
+      "gives": "ROCK",
+      "note": "a ship pitches and rocks in a swell"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRO",
+      "G",
+      "ROCK"
+     ]
+    },
+    "explanation": {
+     "surface": "A music critic finally lands the right tone or note for a genre.",
+     "walkthrough": "'Pitch' looks musical in this surface, but it is the verb for tossing to and fro, as a boat does on waves.",
+     "definitionFit": "Progressive rock is the 1970s style of long, complex songs, and a genre is a category of music."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pitch"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +661,53 @@
     "text": "Branded second vehicle, loud colour",
     "enumeration": "7"
    },
-   "solution": "SCARRED"
+   "solution": "SCARRED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SCARRED",
+    "definitions": [
+     {
+      "text": "Branded",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     },
+     {
+      "clueFragment": "vehicle",
+      "gives": "CAR",
+      "note": "a car is a vehicle"
+     },
+     {
+      "clueFragment": "loud colour",
+      "gives": "RED",
+      "note": "red is the classic loud, bright colour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CAR",
+      "RED"
+     ]
+    },
+    "explanation": {
+     "surface": "A second car with brash branding, painted in a garish colour.",
+     "walkthrough": "'Branded' suggests a logo on the vehicle, but it is the definition, meaning marked by burning.",
+     "definitionFit": "Branding with a hot iron leaves a permanent mark on the skin, so to be branded is to be marked for life."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Branded"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +721,66 @@
     "text": "Putin's about to imprison dissenter, finally – idiot!",
     "enumeration": "6"
    },
-   "solution": "TURNIP"
+   "solution": "TURNIP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "TURNIP",
+    "definitions": [
+     {
+      "text": "idiot",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "about means all around and in disorder, so the letters are scattered and rearranged"
+     },
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the end of a word, so only its last letter is kept"
+     }
+    ],
+    "linkWords": [
+     "to imprison"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Putin's",
+      "gives": "PUTIN",
+      "note": "the Russian leader's surname, taken as written"
+     },
+     {
+      "clueFragment": "dissenter",
+      "gives": "R",
+      "select": "last",
+      "note": "the last letter of dissenter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PUTINR",
+       "gives": "TURNIP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Putin is on the point of jailing a dissident, and the writer calls him a fool.",
+     "walkthrough": "The Russian leader's name is jumbled with one letter taken inside it; 'to imprison' just says that letter goes into the mix.",
+     "definitionFit": "Turnip is British slang for a dim-witted person, a vegetable used as an insult for stupidity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +794,56 @@
     "text": "Write article on no good state of Malaysia",
     "enumeration": "6"
    },
-   "solution": "PENANG"
+   "solution": "PENANG",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PENANG",
+    "definitions": [
+     {
+      "text": "state of Malaysia",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Write",
+      "gives": "PEN",
+      "note": "to pen is to write"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "a is the indefinite article"
+     },
+     {
+      "clueFragment": "no good",
+      "gives": "NG",
+      "note": "NG is the abbreviation for no good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PEN",
+      "A",
+      "NG"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to write a piece about how badly things are going in a Malaysian state.",
+     "walkthrough": "'Article' looks like a newspaper piece to be written, but it is the grammatical article.",
+     "definitionFit": "Penang is an island state on the north-west coast of peninsular Malaysia, home to George Town."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +857,64 @@
     "text": "To control urge, let cycling absorb one",
     "enumeration": "8"
    },
-   "solution": "REGULATE"
+   "solution": "REGULATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REGULATE",
+    "definitions": [
+     {
+      "text": "To control",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cycling",
+      "for": "anagram",
+      "note": "cycling sends things round and round, so the letters end up in a new order"
+     }
+    ],
+    "linkWords": [
+     "absorb"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "urge",
+      "gives": "URGE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "let",
+      "gives": "LET",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "a means one"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "URGELETA",
+       "gives": "REGULATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice on curbing an impulse: let taking up cycling soak it up.",
+     "walkthrough": "'Cycling' reads as a hobby that burns off urges; 'absorb' just tells you to take the extra letter into the jumble.",
+     "definitionFit": "To regulate is to govern or keep in check by rules, a close synonym of controlling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cycling"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +928,59 @@
     "text": "US's last missile? That's harsh",
     "enumeration": "8"
    },
-   "solution": "STRIDENT"
+   "solution": "STRIDENT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "STRIDENT",
+    "definitions": [
+     {
+      "text": "harsh",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last",
+      "for": "letter_selection",
+      "note": "the last of a word is its end, so only the closing letter is taken"
+     }
+    ],
+    "linkWords": [
+     "That's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "US's",
+      "gives": "S",
+      "select": "last",
+      "note": "the final letter of US"
+     },
+     {
+      "clueFragment": "missile",
+      "gives": "TRIDENT",
+      "note": "Trident is a submarine-launched nuclear missile"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TRIDENT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether America's final weapon is a missile, and judges that a severe step.",
+     "walkthrough": "Trident is the nuclear missile system used by both the US and the UK.",
+     "definitionFit": "A strident voice or tone is loud and grating, one sense of harsh."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "last"
+    }
+   }
   },
   {
    "number": 15,
@@ -263,7 +994,65 @@
     "text": "Issue with new city limits – crisis!",
     "enumeration": "9"
    },
-   "solution": "EMERGENCY"
+   "solution": "EMERGENCY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "EMERGENCY",
+    "definitions": [
+     {
+      "text": "crisis",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "limits",
+      "for": "letter_selection",
+      "note": "limits are the edges of something, so only the outermost letters are kept"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Issue",
+      "gives": "EMERGE",
+      "note": "to issue is to come out, emerge"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "city",
+      "gives": "CY",
+      "select": "outer",
+      "note": "the first and last letters of city"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMERGE",
+      "N",
+      "CY"
+     ]
+    },
+    "explanation": {
+     "surface": "A problem arises with the new boundaries of a city, and it is a crisis.",
+     "walkthrough": "'Issue' looks like a noun meaning a problem, but it is the verb for coming out.",
+     "definitionFit": "An emergency is a sudden dangerous situation needing urgent action, which is what a crisis is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Issue"
+    }
+   }
   },
   {
    "number": 16,
@@ -277,7 +1066,62 @@
     "text": "Knock over Grant: it might make you feel better",
     "enumeration": "6"
    },
-   "solution": "TABLET"
+   "solution": "TABLET",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "TABLET",
+    "definitions": [
+     {
+      "text": "it might make you feel better",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "knocked over means turned upside down, so the letters read back to front"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Knock",
+      "gives": "BAT",
+      "note": "to bat is to hit or knock"
+     },
+     {
+      "clueFragment": "Grant",
+      "gives": "LET",
+      "note": "to let is to allow or grant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAB",
+      "LET"
+     ],
+     "reversals": [
+      {
+       "from": "BAT",
+       "to": "TAB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is urged to floor a man called Grant, on the grounds that it would be therapeutic.",
+     "walkthrough": "'Grant' with a capital looks like a person to be knocked over; it is the verb meaning allow.",
+     "definitionFit": "A tablet is a pill of medicine, taken to relieve symptoms and help the patient recover."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Grant"
+    }
+   }
   },
   {
    "number": 17,
@@ -297,7 +1141,57 @@
      }
     ]
    },
-   "solution": "BLOODCLOT"
+   "solution": "BLOODCLOT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BLOOD CLOT",
+    "definitions": [
+     {
+      "text": "not good for circulation",
+      "at": 35
+     }
+    ],
+    "linkWords": [
+     "against"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gore's",
+      "gives": "BLOOD",
+      "note": "gore is spilt blood"
+     },
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C is the abbreviation for Conservative"
+     },
+     {
+      "clueFragment": "crowd",
+      "gives": "LOT",
+      "note": "a lot is a group or crowd"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BLOOD",
+      "C",
+      "LOT"
+     ]
+    },
+    "explanation": {
+     "surface": "Al Gore opposes the Tory mob, a stance unhelpful to a newspaper's sales.",
+     "walkthrough": "'Gore' suggests Al Gore and 'circulation' newspaper sales; both are medical here, gore being blood and circulation the flow round the body.",
+     "definitionFit": "A clump of thickened blood can block a vessel, obstructing the flow of blood through the body."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "circulation"
+    }
+   }
   },
   {
    "number": 18,
@@ -311,7 +1205,69 @@
     "text": "See about stuffing a revolutionary, to follow dessert?",
     "enumeration": "6"
    },
-   "solution": "CHEESE"
+   "solution": "CHEESE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "CHEESE",
+    "definitions": [
+     {
+      "text": "to follow dessert",
+      "at": 36,
+      "note": "stands for 'something to follow dessert', a noun"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "brought about means turned round, so the letters run the other way"
+     },
+     {
+      "text": "stuffing",
+      "for": "container",
+      "note": "stuffing goes inside something, so one piece is packed into another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a revolutionary",
+      "gives": "CHE",
+      "note": "Che Guevara, the Argentine revolutionary"
+     },
+     {
+      "clueFragment": "See",
+      "gives": "SEE",
+      "note": "taken as written, then turned to EES"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CH",
+      "EES",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "SEE",
+       "to": "EES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dinner plan: look into filling a Marxist guerrilla, perhaps after pudding.",
+     "walkthrough": "The reversed word goes between the second and third letters of the revolutionary's name.",
+     "definitionFit": "In a British formal meal a cheese course is often served after the sweet course, so it follows dessert."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "stuffing"
+    }
+   }
   },
   {
    "number": 19,
@@ -331,7 +1287,46 @@
      }
     ]
    },
-   "solution": "HANGOUT"
+   "solution": "HANGOUT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HANG OUT",
+    "definitions": [
+     {
+      "text": "What those in low-cut dresses might do",
+      "at": 0
+     },
+     {
+      "text": "relax",
+      "at": 42
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What those in low-cut dresses might do",
+      "note": "first meaning: literally spill out or dangle from a revealing neckline"
+     },
+     {
+      "clueFragment": "relax",
+      "note": "second meaning: the informal verb for spending idle time somewhere"
+     }
+    ],
+    "explanation": {
+     "surface": "Women in plunging necklines wonder how to unwind.",
+     "walkthrough": "The first half is a saucy literal reading of the phrasal verb; the second is its everyday informal sense.",
+     "definitionFit": "To spend time idly or casually with friends is the informal phrasal verb's everyday sense of unwinding."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 20,
@@ -345,7 +1340,60 @@
     "text": "Overcome knight said to assume bonking position",
     "enumeration": "8"
    },
-   "solution": "SURMOUNT"
+   "solution": "SURMOUNT",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "SURMOUNT",
+    "definitions": [
+     {
+      "text": "Overcome",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "said",
+      "for": "homophone",
+      "note": "said means spoken, so the piece is spelt by its sound rather than its usual form"
+     }
+    ],
+    "linkWords": [
+     "to assume"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "knight",
+      "gives": "SUR",
+      "soundsLike": "SIR",
+      "note": "a knight is addressed as Sir"
+     },
+     {
+      "clueFragment": "bonking position",
+      "gives": "MOUNT",
+      "note": "to mount is to climb on top, as in sex"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUR",
+      "MOUNT"
+     ]
+    },
+    "explanation": {
+     "surface": "A knight, reportedly overwhelmed, is urged into a sexual position.",
+     "walkthrough": "Bonking is British slang for having sex; in a non-rhotic British accent SIR and SUR sound alike.",
+     "definitionFit": "To surmount an obstacle is to get over it, the same as overcoming it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Overcome"
+    }
+   }
   },
   {
    "number": 20,
@@ -359,7 +1407,61 @@
     "text": "Rolling Stones taking temperature, as protection from the Texas sun?",
     "enumeration": "7"
    },
-   "solution": "STETSON"
+   "solution": "STETSON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STETSON",
+    "definitions": [
+     {
+      "text": "protection from the Texas sun",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Rolling",
+      "for": "anagram",
+      "note": "rolling things tumble over, so the letters land in a different order"
+     }
+    ],
+    "linkWords": [
+     "taking",
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stones",
+      "gives": "STONES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "temperature",
+      "gives": "T",
+      "note": "T is the abbreviation for temperature"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "STONEST",
+       "gives": "STETSON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The Rolling Stones check the thermometer while touring Texas, needing shade from the sun.",
+     "walkthrough": "The band's name splits: 'Rolling' is the signal and 'Stones' the letters, with the temperature abbreviation added to them.",
+     "definitionFit": "The Stetson is the wide-brimmed cowboy hat, worn in Texas to shade the head from strong sunshine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Rolling"
+    }
+   }
   },
   {
    "number": 21,
@@ -373,7 +1475,72 @@
     "text": "Sort to fiddle around in sweet Fanny Adams's orifice",
     "enumeration": "7"
    },
-   "solution": "NOSTRIL"
+   "solution": "NOSTRIL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "NOSTRIL",
+    "definitions": [
+     {
+      "text": "orifice",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to fiddle",
+      "for": "anagram",
+      "note": "to fiddle with something is to mess it about, so the letters are rearranged"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "one thing placed around another encloses it, so the outer piece wraps the inner"
+     }
+    ],
+    "linkWords": [
+     "in",
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sweet Fanny Adams",
+      "gives": "NIL",
+      "note": "sweet Fanny Adams is British slang for nothing at all"
+     },
+     {
+      "clueFragment": "Sort",
+      "gives": "SORT",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "OSTR",
+      "IL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SORT",
+       "gives": "OSTR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crude invitation to poke about in some woman's bodily opening.",
+     "walkthrough": "Sweet Fanny Adams (sweet FA) is British slang for nothing, so NIL, which wraps the jumbled letters.",
+     "definitionFit": "A nostril is one of the two openings of the nose, so it is a bodily orifice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Sort"
+    }
+   }
   },
   {
    "number": 22,
@@ -387,7 +1554,65 @@
     "text": "One has drunk gin with true artifice",
     "enumeration": "8"
    },
-   "solution": "INTRIGUE"
+   "solution": "INTRIGUE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INTRIGUE",
+    "definitions": [
+     {
+      "text": "artifice",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drunk",
+      "for": "anagram",
+      "note": "someone drunk staggers about, so the letters reel into a new order"
+     }
+    ],
+    "linkWords": [
+     "has",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "gin",
+      "gives": "GIN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "true",
+      "gives": "TRUE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IGINTRUE",
+       "gives": "INTRIGUE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who has knocked back gin is being truly crafty.",
+     "walkthrough": "'Has drunk gin' reads as drinking, but 'drunk' is the signal to jumble the letters of one, gin and true together.",
+     "definitionFit": "Intrigue is secret scheming and plotting, which is cunning trickery in the sense of artifice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drunk"
+    }
+   }
   },
   {
    "number": 23,
@@ -401,7 +1626,60 @@
     "text": "Something from the past brought up by some imbecile reactionary",
     "enumeration": "5"
    },
-   "solution": "RELIC"
+   "solution": "RELIC",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "RELIC",
+    "definitions": [
+     {
+      "text": "Something from the past",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "some means only part of, so the letters lie inside the following words"
+     },
+     {
+      "text": "brought up",
+      "for": "reversal",
+      "note": "in a down clue, bringing something up means reading it from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "imbecile reactionary",
+      "gives": "CILER",
+      "note": "the letters spanning the end of one word and the start of the next"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "CILER",
+       "to": "RELIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old grievance is dredged up by a foolish reactionary.",
+     "walkthrough": "The letters run across the join of the two words and are read upwards in this down entry.",
+     "definitionFit": "A relic is an object or custom surviving from an earlier age, a thing left over from history."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reactionary"
+    }
+   }
   },
   {
    "number": 24,
@@ -415,7 +1693,67 @@
     "text": "Plant Cyclops had twisted round in hives?",
     "enumeration": "6"
    },
-   "solution": "RADISH"
+   "solution": "RADISH",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "RADISH",
+    "definitions": [
+     {
+      "text": "Plant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "twisted round",
+      "for": "reversal",
+      "note": "to twist something round is to turn it about so it faces the other way"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hives",
+      "gives": "RASH",
+      "note": "hives is an itchy skin rash"
+     },
+     {
+      "clueFragment": "Cyclops had",
+      "gives": "ID",
+      "note": "Cyclops is the setter, so I; had contracts to 'd"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RA",
+      "DI",
+      "SH"
+     ],
+     "reversals": [
+      {
+       "from": "ID",
+       "to": "DI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The setter confesses to a plant he wound round some beehives.",
+     "walkthrough": "The setter's name stands for 'I', so 'Cyclops had' gives I'D; 'hives' is the skin complaint, not beehives.",
+     "definitionFit": "The radish is a plant grown for its crisp, peppery red root, eaten raw in salads."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hives"
+    }
+   }
   },
   {
    "number": 24,
@@ -443,7 +1781,48 @@
     "text": "Ballot measurement that can be irritating",
     "enumeration": "6"
    },
-   "solution": "POLLEN"
+   "solution": "POLLEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "POLLEN",
+    "definitions": [
+     {
+      "text": "that can be irritating",
+      "at": 19,
+      "note": "a relative clause standing for 'something that can be irritating'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ballot",
+      "gives": "POLL",
+      "note": "a poll is a vote, a ballot"
+     },
+     {
+      "clueFragment": "measurement",
+      "gives": "EN",
+      "note": "an en is a printer's unit of measurement"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POLL",
+      "EN"
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that counting votes is a tiresome business.",
+     "walkthrough": "The en is a printer's measure of width, half an em; 'irritating' points to the nose and eyes, not a vote count.",
+     "definitionFit": "Pollen grains from plants trigger hay fever, inflaming the nose and eyes of allergic people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "irritating"
+    }
+   }
   },
   {
    "number": 26,
@@ -457,7 +1836,64 @@
     "text": "Non-religious clause removed by Republican",
     "enumeration": "7"
    },
-   "solution": "SECULAR"
+   "solution": "SECULAR",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "SECULAR",
+    "definitions": [
+     {
+      "text": "Non-religious",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "removed",
+      "for": "anagram",
+      "note": "re-moved means moved again, so the letters are shifted into a new order"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clause",
+      "gives": "CLAUSE",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the abbreviation for Republican"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SECULA",
+      "R"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CLAUSE",
+       "gives": "SECULA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Republican lawmaker strikes a church-and-state clause from a bill.",
+     "walkthrough": "'Removed' reads as deleted, but it signals moving the letters again, a less common anagram indicator.",
+     "definitionFit": "Secular describes worldly matters with no connection to religion or the church."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "removed"
+    }
+   }
   },
   {
    "number": 27,
@@ -477,7 +1913,51 @@
      }
     ]
    },
-   "solution": "STICKYEND"
+   "solution": "STICKYEND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STICKY END",
+    "definitions": [
+     {
+      "text": "Unpleasant climax",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sweaty",
+      "gives": "STICKY",
+      "note": "sweaty skin is sticky"
+     },
+     {
+      "clueFragment": "bum",
+      "gives": "END",
+      "note": "your end is your backside"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STICKY",
+      "END"
+     ]
+    },
+    "explanation": {
+     "surface": "A smutty picture of a disappointing orgasm and a damp backside.",
+     "walkthrough": "Bum is British slang for bottom, and the 'end' is the rear end.",
+     "definitionFit": "Coming to a sticky end is a British idiom for a nasty death or bad outcome, an unpleasant conclusion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "climax"
+    }
+   }
   },
   {
    "number": 28,
@@ -491,7 +1971,56 @@
     "text": "Hackneyed introduction to Sun story",
     "enumeration": "5"
    },
-   "solution": "STALE"
+   "solution": "STALE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "STALE",
+    "definitions": [
+     {
+      "text": "Hackneyed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "introduction to",
+      "for": "letter_selection",
+      "note": "an introduction comes at the start, so only the opening letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sun",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of Sun"
+     },
+     {
+      "clueFragment": "story",
+      "gives": "TALE",
+      "note": "a tale is a story"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TALE"
+     ]
+    },
+    "explanation": {
+     "surface": "A worn-out opening paragraph to a tabloid news story.",
+     "walkthrough": "The Sun is a British tabloid newspaper, which makes 'story' look journalistic.",
+     "definitionFit": "Hackneyed means overused and unoriginal, just as stale ideas have lost their freshness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sun"
+    }
+   }
   }
  ]
 }
