@@ -24,6 +24,9 @@
   "date": "2025-03-21",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,43 @@
     "text": "Witty person such as joker",
     "enumeration": "4"
    },
-   "solution": "CARD"
+   "solution": "CARD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CARD",
+    "definitions": [
+     {
+      "text": "Witty person",
+      "at": 0
+     },
+     {
+      "text": "such as joker",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Witty person",
+      "note": "first meaning: an amusing, eccentric character"
+     },
+     {
+      "clueFragment": "such as joker",
+      "note": "second meaning: one of a pack, of which the joker is an example"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface makes the joker a comedian, echoing the witty person; in the second meaning it is the extra card in a pack.",
+     "definitionFit": "Calling someone a real card is an idiom for an entertaining wag, and a joker is one item from a deck."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "joker"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +90,50 @@
     "text": "Headwear measured and turned over",
     "enumeration": "8"
    },
-   "solution": "CAPSIZED"
+   "solution": "CAPSIZED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CAPSIZED",
+    "definitions": [
+     {
+      "text": "turned over",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Headwear",
+      "gives": "CAP",
+      "note": "a cap is a piece of headwear"
+     },
+     {
+      "clueFragment": "measured",
+      "gives": "SIZED",
+      "note": "sized means measured for size"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAP",
+      "SIZED"
+     ]
+    },
+    "explanation": {
+     "surface": "A hat is fitted to the head and then flipped upside down.",
+     "walkthrough": "The surface reads like a milliner's routine; 'turned over' is the boating sense, not a hat being inspected.",
+     "definitionFit": "A boat that has capsized has rolled upside down in the water, which is what turned over describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "turned"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +147,46 @@
     "text": "Some future ignoramuses to be in command",
     "enumeration": "5"
    },
-   "solution": "REIGN"
+   "solution": "REIGN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "REIGN",
+    "definitions": [
+     {
+      "text": "be in command",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "'some' means only a portion, so the answer is a run of letters lying inside the following words"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "future ignoramuses",
+      "gives": "REIGN",
+      "note": "the letters run across the end of one word and the start of the next"
+     }
+    ],
+    "explanation": {
+     "surface": "A grumble that ignorant people will be ruling us in years to come.",
+     "walkthrough": "The answer straddles futuRE IGNoramuses.",
+     "definitionFit": "A monarch who reigns holds sovereign power, so to reign is to rule or hold authority over a country."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Some"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +200,61 @@
     "text": "Supply lid going over cooking vessel",
     "enumeration": "8"
    },
-   "solution": "STOCKPOT"
+   "solution": "STOCKPOT",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "STOCKPOT",
+    "definitions": [
+     {
+      "text": "cooking vessel",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going over",
+      "for": "reversal",
+      "note": "to go over is to flip, so this word is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Supply",
+      "gives": "STOCK",
+      "note": "a stock is a supply kept in reserve"
+     },
+     {
+      "clueFragment": "lid",
+      "gives": "TOP",
+      "note": "a top is a lid"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STOCK",
+      "POT"
+     ],
+     "reversals": [
+      {
+       "from": "TOP",
+       "to": "POT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is told to put a lid over a cooking pan.",
+     "walkthrough": "'Going over' looks like a lid covering the pan, but it turns the lid upside down.",
+     "definitionFit": "A large deep pan used for simmering bones and vegetables into broth is a kitchen pot, which a vessel is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "going"
+    }
+   }
   },
   {
    "number": 4,
@@ -99,7 +274,59 @@
      }
     ]
    },
-   "solution": "TREASURECHEST"
+   "solution": "TREASURECHEST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TREASURE CHEST",
+    "definitions": [
+     {
+      "text": "Container of valuables",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "diverted",
+      "for": "anagram",
+      "note": "diverted things are sent off course, so these letters are rerouted into a new order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "secure",
+      "gives": "SECURE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "threats",
+      "gives": "THREATS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SECURETHREATS",
+       "gives": "TREASURECHEST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A strongbox of valuables is made safe and any threats to it are fended off.",
+     "walkthrough": "'Secure' reads as an instruction to lock up the box, but it is just letters to rearrange.",
+     "definitionFit": "A pirate's box of gold and jewels is the classic image, a storage box holding riches."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "secure"
+    }
+   }
   },
   {
    "number": 5,
@@ -113,7 +340,64 @@
     "text": "Name of man that’s caught nits brought up",
     "enumeration": "5"
    },
-   "solution": "CECIL"
+   "solution": "CECIL",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "CECIL",
+    "definitions": [
+     {
+      "text": "Name of man",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brought up",
+      "for": "reversal",
+      "note": "in a down clue, bringing something up reads it from the bottom, so it runs backwards"
+     }
+    ],
+    "linkWords": [
+     "that’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "c is the cricket scorecard abbreviation for caught"
+     },
+     {
+      "clueFragment": "nits",
+      "gives": "LICE",
+      "note": "nits are lice and their eggs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ECIL"
+     ],
+     "reversals": [
+      {
+       "from": "LICE",
+       "to": "ECIL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man is identified by having picked up head lice.",
+     "walkthrough": "'Brought up' suggests raising a subject, but here it lifts the parasites upwards in the column.",
+     "definitionFit": "Cecil is a traditional male first name, so it serves as a man's given name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "caught"
+    }
+   }
   },
   {
    "number": 6,
@@ -127,7 +411,67 @@
     "text": "At home, I cut up mushrooms",
     "enumeration": "7"
    },
-   "solution": "PORCINI"
+   "solution": "PORCINI",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "PORCINI",
+    "definitions": [
+     {
+      "text": "mushrooms",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, up means read from the bottom, so the word runs backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cut",
+      "gives": "CROP",
+      "note": "to crop is to cut"
+     },
+     {
+      "clueFragment": "At home",
+      "gives": "IN",
+      "note": "someone at home is in"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PORC",
+      "IN",
+      "I"
+     ],
+     "reversals": [
+      {
+       "from": "CROP",
+       "to": "PORC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cook at home chops up some mushrooms.",
+     "walkthrough": "'Cut up' reads as chopping, but it is a word for cut, turned upside down; that piece goes first even though it comes later in the clue.",
+     "definitionFit": "Porcini are prized wild Italian fungi, also called ceps, so the plural noun matches the fungi named."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 7,
@@ -141,7 +485,56 @@
     "text": "First in team to request job",
     "enumeration": "4"
    },
-   "solution": "TASK"
+   "solution": "TASK",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TASK",
+    "definitions": [
+     {
+      "text": "job",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "First in",
+      "for": "letter_selection",
+      "note": "'first in' points to the opening letter of the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "team",
+      "gives": "T",
+      "select": "first",
+      "note": "its opening letter"
+     },
+     {
+      "clueFragment": "to request",
+      "gives": "ASK",
+      "note": "to ask is to request"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ASK"
+     ]
+    },
+    "explanation": {
+     "surface": "The first person in a team gets to ask for a particular job.",
+     "walkthrough": "The surface suggests team captains picking work.",
+     "definitionFit": "A task is a piece of work to be done, a straightforward synonym for an assigned piece of employment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "First"
+    }
+   }
   },
   {
    "number": 8,
@@ -155,7 +548,63 @@
     "text": "A way to transfer funds blocked by university’s old computer",
     "enumeration": "6"
    },
-   "solution": "ABACUS"
+   "solution": "ABACUS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ABACUS",
+    "definitions": [
+     {
+      "text": "old computer",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "blocked by",
+      "for": "container",
+      "note": "something blocked has an obstruction sitting inside it, so one piece is placed within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "way to transfer funds",
+      "gives": "BACS",
+      "note": "BACS is the British automated bank payment system used for direct transfers"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "U is the abbreviation for university"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BAC",
+      "U",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A university's antiquated computer stops a payment going through.",
+     "walkthrough": "BACS (Bankers' Automated Clearing Services) is the UK system for paying wages and bills directly between bank accounts.",
+     "definitionFit": "A frame of beads on wires used for arithmetic was the earliest calculating device, humorously an ancient computer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "computer"
+    }
+   }
   },
   {
    "number": 9,
@@ -169,7 +618,47 @@
     "text": "Power likely open to manipulation",
     "enumeration": "7"
    },
-   "solution": "PLIABLE"
+   "solution": "PLIABLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PLIABLE",
+    "definitions": [
+     {
+      "text": "open to manipulation",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Power",
+      "gives": "P",
+      "note": "P is the symbol for power in physics"
+     },
+     {
+      "clueFragment": "likely",
+      "gives": "LIABLE",
+      "note": "liable to happen means likely"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "LIABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Power that can probably be abused or bent to someone's will.",
+     "walkthrough": "P for power is standard; liable and likely overlap in 'liable to'.",
+     "definitionFit": "Something pliable bends easily, and a pliable person is easily influenced, hence readily swayed by others."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Power"
+    }
+   }
   },
   {
    "number": 10,
@@ -183,7 +672,62 @@
     "text": "Tactical unit undercover ultimately within the law",
     "enumeration": "5"
    },
-   "solution": "CORPS"
+   "solution": "CORPS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CORPS",
+    "definitions": [
+     {
+      "text": "Tactical unit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so only the final letter is kept"
+     },
+     {
+      "text": "within",
+      "for": "container",
+      "note": "within means inside, so one piece sits inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the law",
+      "gives": "COPS",
+      "note": "the cops are the police, informally the law"
+     },
+     {
+      "clueFragment": "undercover",
+      "gives": "R",
+      "select": "last",
+      "note": "its final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "R",
+      "PS"
+     ]
+    },
+    "explanation": {
+     "surface": "A squad of undercover agents is working inside the police.",
+     "walkthrough": "'The law' is slang for the police; 'undercover' sounds like part of the story but only lends its last letter.",
+     "definitionFit": "A corps is a military formation of several divisions, or any organised body of troops in the field."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "undercover"
+    }
+   }
   },
   {
    "number": 11,
@@ -197,7 +741,57 @@
     "text": "One working, in charge of classic architecture",
     "enumeration": "5"
    },
-   "solution": "IONIC"
+   "solution": "IONIC",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IONIC",
+    "definitions": [
+     {
+      "text": "classic architecture",
+      "at": 26,
+      "note": "the answer is an adjective naming a classical style; the definition is a noun phrase"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "working",
+      "gives": "ON",
+      "note": "a machine that is working is on"
+     },
+     {
+      "clueFragment": "in charge",
+      "gives": "IC",
+      "note": "IC is the abbreviation for in charge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "ON",
+      "IC"
+     ]
+    },
+    "explanation": {
+     "surface": "A worker is put in charge of a project in the classical style.",
+     "walkthrough": "Three short standard pieces; 'of' just joins them to the definition.",
+     "definitionFit": "Ionic is one of the three Greek orders of columns, with scroll-shaped capitals, a style of ancient building."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 12,
@@ -211,7 +805,47 @@
     "text": "Announced market price for photo",
     "enumeration": "6"
    },
-   "solution": "SELFIE"
+   "solution": "SELFIE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SELFIE",
+    "definitions": [
+     {
+      "text": "photo",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Announced",
+      "for": "homophone",
+      "note": "something announced is spoken out, so we go by how the words sound"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "market price",
+      "gives": "SELFIE",
+      "soundsLike": "SELL FEE",
+      "note": "to market is to sell, and a price is a fee"
+     }
+    ],
+    "explanation": {
+     "surface": "A price for a picture has been made public.",
+     "walkthrough": "'Market' looks like a noun but is a verb meaning sell.",
+     "definitionFit": "A selfie is a picture people take of themselves, usually on a phone, a kind of snapshot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "market"
+    }
+   }
   },
   {
    "number": 13,
@@ -225,7 +859,78 @@
     "text": "A veggie mistakenly eating starter of rabbit gets upset",
     "enumeration": "8"
    },
-   "solution": "AGGRIEVE"
+   "solution": "AGGRIEVE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "AGGRIEVE",
+    "definitions": [
+     {
+      "text": "upset",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starter of",
+      "for": "letter_selection",
+      "note": "a starter is what comes first, so only the opening letter is taken"
+     },
+     {
+      "text": "mistakenly",
+      "for": "anagram",
+      "note": "done mistakenly means done wrongly, so the letters end up in the wrong order"
+     },
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "to eat is to take inside, so one piece goes inside the other"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A veggie",
+      "gives": "AVEGGIE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rabbit",
+      "gives": "R",
+      "select": "first",
+      "note": "its opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AGG",
+      "R",
+      "IEVE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AVEGGIE",
+       "gives": "AGGIEVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vegetarian who accidentally eats a bit of rabbit is distressed.",
+     "walkthrough": "'Veggie' is British slang for a vegetarian; the joke is that eating rabbit would upset one.",
+     "definitionFit": "To aggrieve someone is to distress or wrong them, a formal synonym of the verb to upset."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "eating"
+    }
+   }
   },
   {
    "number": 14,
@@ -239,7 +944,49 @@
     "text": "Earwigs may be responsible for this autumnal event failing to open",
     "enumeration": "13"
    },
-   "solution": "EAVESDROPPING"
+   "solution": "EAVESDROPPING",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EAVESDROPPING",
+    "definitions": [
+     {
+      "text": "Earwigs may be responsible for this",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "failing to open",
+      "for": "deletion",
+      "note": "failing to open means losing the beginning, so the first letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "autumnal event",
+      "gives": "LEAVESDROPPING",
+      "note": "in autumn, leaves are dropping from the trees"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EAVESDROPPING"
+     ]
+    },
+    "explanation": {
+     "surface": "Earwig insects may be blamed for something that happens to falling leaves in autumn.",
+     "walkthrough": "Earwigs look like the insects, but an earwig is also slang for someone who listens in on others.",
+     "definitionFit": "An earwig, in the informal sense, is a nosy listener, so secretly overhearing conversations is what earwigs do."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Earwigs"
+    }
+   }
   },
   {
    "number": 15,
@@ -253,7 +1000,56 @@
     "text": "Break stringed instrument case in three",
     "enumeration": "7"
    },
-   "solution": "VIOLATE"
+   "solution": "VIOLATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "VIOLATE",
+    "definitions": [
+     {
+      "text": "Break",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "case in",
+      "for": "letter_selection",
+      "note": "a case is the outside shell, so only the outer letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stringed instrument",
+      "gives": "VIOLA",
+      "note": "a viola is a stringed instrument"
+     },
+     {
+      "clueFragment": "three",
+      "gives": "TE",
+      "select": "outer",
+      "note": "its outer letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VIOLA",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone breaks a stringed instrument's case into three pieces.",
+     "walkthrough": "'Case' looks like the instrument case, but it means the outside letters of the following word.",
+     "definitionFit": "To violate a law or rule is to break it, so the verbs are synonyms when a promise or agreement is involved."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 16,
@@ -267,7 +1063,43 @@
     "text": "Uneven, like a plot of land?",
     "enumeration": "6"
    },
-   "solution": "PATCHY"
+   "solution": "PATCHY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PATCHY",
+    "definitions": [
+     {
+      "text": "Uneven",
+      "at": 0
+     },
+     {
+      "text": "like a plot of land",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Uneven",
+      "note": "first meaning: irregular in quality"
+     },
+     {
+      "clueFragment": "like a plot of land",
+      "note": "second meaning, playful: resembling a small piece of ground"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags the whimsical second reading: a patch is a small plot of ground, so something like one is patch-y.",
+     "definitionFit": "Patchy means inconsistent or irregular in quality, and the joke reading builds an adjective from a vegetable plot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "plot"
+    }
+   }
   },
   {
    "number": 17,
@@ -281,7 +1113,61 @@
     "text": "Mention work about type of licence",
     "enumeration": "6"
    },
-   "solution": "POETIC"
+   "solution": "POETIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "POETIC",
+    "definitions": [
+     {
+      "text": "type of licence",
+      "at": 19,
+      "note": "the answer is an adjective; it completes the phrase rather than naming the noun"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about can mean turned around, so the preceding words are read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mention",
+      "gives": "CITE",
+      "note": "to cite is to mention"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "OP",
+      "note": "op is short for opus, a work"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POETIC"
+     ],
+     "reversals": [
+      {
+       "from": "CITEOP",
+       "to": "POETIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone refers to a job involving some sort of permit.",
+     "walkthrough": "Both pieces are turned around together, so the work ends up first.",
+     "definitionFit": "Poetic licence is the freedom writers take to bend facts or grammar, so the word names that kind of permission."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "licence"
+    }
+   }
   },
   {
    "number": 18,
@@ -295,7 +1181,49 @@
     "text": "Track being regularly unavailable",
     "enumeration": "5"
    },
-   "solution": "TAKEN"
+   "solution": "TAKEN",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "TAKEN",
+    "definitions": [
+     {
+      "text": "unavailable",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Track being",
+      "gives": "TAKEN",
+      "select": "alternate",
+      "note": "the first, third, fifth, seventh and ninth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAKEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A railway or race track keeps being closed to use.",
+     "walkthrough": "Take the odd letters: TrAcKbEiNg.",
+     "definitionFit": "A seat or partner that is taken is already occupied or spoken for, so no longer free."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Track"
+    }
+   }
   },
   {
    "number": 19,
@@ -309,7 +1237,60 @@
     "text": "River runs on high land mostly",
     "enumeration": "5"
    },
-   "solution": "TIBER"
+   "solution": "TIBER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "TIBER",
+    "definitions": [
+     {
+      "text": "River",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not all, so the final letter is dropped"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across clue, one thing on another comes after it, so this piece is placed second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "high land",
+      "gives": "TIBE",
+      "note": "Tibet, the high plateau north of the Himalayas, without its final letter"
+     },
+     {
+      "clueFragment": "runs",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for runs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIBE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A river flows over a high plateau for most of its length.",
+     "walkthrough": "'Runs' sounds like a river flowing but is the letter R; 'on' puts it after the shortened land.",
+     "definitionFit": "The Tiber is the river that flows through Rome, so it is a proper name for a specific river."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "runs"
+    }
+   }
   },
   {
    "number": 20,
@@ -323,7 +1304,47 @@
     "text": "Height of Glaswegian church seat",
     "enumeration": "5"
    },
-   "solution": "BENCH"
+   "solution": "BENCH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BENCH",
+    "definitions": [
+     {
+      "text": "seat",
+      "at": 28
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Height of Glaswegian",
+      "gives": "BEN",
+      "note": "ben is the Scottish word for a mountain peak, as in Ben Nevis"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CH",
+      "note": "CH is the abbreviation for church"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEN",
+      "CH"
+     ]
+    },
+    "explanation": {
+     "surface": "How tall is the pew a person from Glasgow sits on in church?",
+     "walkthrough": "'Height' reads as a measurement but is a mountain, and Glaswegian signals the Scots word.",
+     "definitionFit": "A bench is a long seat for several people, like a pew in a church or a park bench."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Height"
+    }
+   }
   },
   {
    "number": 21,
@@ -337,7 +1358,43 @@
     "text": "Long formula chemist pens",
     "enumeration": "4"
    },
-   "solution": "ACHE"
+   "solution": "ACHE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ACHE",
+    "definitions": [
+     {
+      "text": "Long",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pens",
+      "for": "hidden_word",
+      "note": "to pen is to enclose, so the words hold the answer inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "formula chemist",
+      "gives": "ACHE",
+      "note": "the letters run across the end of one word and the start of the next"
+     }
+    ],
+    "explanation": {
+     "surface": "A chemist writes out a lengthy formula.",
+     "walkthrough": "'Long' looks like an adjective describing the formula, but it is the verb meaning yearn; the answer straddles formulA CHEmist.",
+     "definitionFit": "To ache for something is to yearn or pine for it, the same as longing for it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Long"
+    }
+   }
   },
   {
    "number": 22,
@@ -351,7 +1408,66 @@
     "text": "Soft rock from Wings in Cork covering Prince",
     "enumeration": "5"
    },
-   "solution": "CHALK"
+   "solution": "CHALK",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CHALK",
+    "definitions": [
+     {
+      "text": "Soft rock",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Wings in",
+      "for": "letter_selection",
+      "note": "wings are the two sides, so only the outermost letters are kept"
+     },
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "to cover is to wrap around, so one piece goes around the other"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cork",
+      "gives": "CK",
+      "select": "outer",
+      "note": "its outer letters"
+     },
+     {
+      "clueFragment": "Prince",
+      "gives": "HAL",
+      "note": "Prince Hal is the young Henry V in Shakespeare"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HAL",
+      "K"
+     ]
+    },
+    "explanation": {
+     "surface": "Soft rock music from the band Wings, played in the Irish city of Cork, covering a Prince song.",
+     "walkthrough": "'Soft rock' and 'Wings' (Paul McCartney's band) suggest music; Prince is the singer too, but here it is Shakespeare's Prince Hal.",
+     "definitionFit": "Chalk is a soft white limestone, the kind of crumbly stone that forms England's white cliffs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Wings"
+    }
+   }
   },
   {
    "number": 23,
@@ -365,7 +1481,58 @@
     "text": "Improve small space with hazard, removing lead",
     "enumeration": "7"
    },
-   "solution": "ENHANCE"
+   "solution": "ENHANCE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ENHANCE",
+    "definitions": [
+     {
+      "text": "Improve",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "removing lead",
+      "for": "deletion",
+      "note": "the lead is the front, so removing it drops the first letter"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small space",
+      "gives": "EN",
+      "note": "an en is a printer's space, half an em"
+     },
+     {
+      "clueFragment": "hazard",
+      "gives": "HANCE",
+      "note": "chance, a risk or hazard, without its first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "HANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone improves a cramped room by taking out a dangerous cable.",
+     "walkthrough": "'Lead' suggests an electric cable, but it means the first letter. To hazard is to chance.",
+     "definitionFit": "To enhance something is to raise its quality or value, which is to make it better."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lead"
+    }
+   }
   },
   {
    "number": 24,
@@ -379,7 +1546,59 @@
     "text": "Teen and I try changing age",
     "enumeration": "8"
    },
-   "solution": "ETERNITY"
+   "solution": "ETERNITY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ETERNITY",
+    "definitions": [
+     {
+      "text": "age",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changing",
+      "for": "anagram",
+      "note": "changing means altering, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Teen",
+      "gives": "TEEN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "I try",
+      "gives": "ITRY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TEENITRY",
+       "gives": "ETERNITY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A teenager and I try to change our ages.",
+     "walkthrough": "'Age' reads as how old someone is, but it is the long-period sense.",
+     "definitionFit": "An age, informally, is a very long time, as in waiting for ages, which an eternity also is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "age"
+    }
+   }
   },
   {
    "number": 25,
@@ -393,7 +1612,48 @@
     "text": "Get lost, reportedly in Oxford?",
     "enumeration": "4"
    },
-   "solution": "SHOE"
+   "solution": "SHOE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SHOE",
+    "definitions": [
+     {
+      "text": "Oxford?",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "reportedly means as said or heard, so we go by the sound of the word"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Get lost",
+      "gives": "SHOE",
+      "soundsLike": "SHOO",
+      "note": "shoo is what you say to chase someone away"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is told to clear off, as is said in Oxford.",
+     "walkthrough": "Oxford looks like the city, but it is a style of lace-up leather footwear; the question mark marks it as an example.",
+     "definitionFit": "An Oxford is a classic laced leather brogue-style footwear, so it is one example of the item."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Oxford"
+    }
+   }
   }
  ]
 }
