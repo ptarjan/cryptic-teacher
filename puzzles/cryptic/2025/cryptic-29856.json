@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,50 @@
     "text": "1000100010000 number this ordinary?",
     "enumeration": "6"
    },
-   "solution": "COMMON"
+   "solution": "COMMON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COMMON",
+    "definitions": [
+     {
+      "text": "ordinary",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "this"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "1000100010000",
+      "gives": "COMMO",
+      "note": "split as 100, 0, 1000, 1000, 0: Roman C, the letter O, Roman M twice, then O again"
+     },
+     {
+      "clueFragment": "number",
+      "gives": "N",
+      "note": "N is the standard abbreviation for number"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COMMO",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stares at a long string of ones and zeros and asks whether such a number is unremarkable.",
+     "walkthrough": "The digit string looks like binary, but it breaks into 100, 0, 1000, 1000, 0, read as Roman numerals with zeros as the letter O: C-O-M-M-O, then N.",
+     "definitionFit": "Something common is usual, everyday and unremarkable, a straightforward synonym for ordinary."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "1000100010000"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +93,61 @@
     "text": "Holding areas, holding area and royal vaults",
     "enumeration": "7"
    },
-   "solution": "CELLARS"
+   "solution": "CELLARS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CELLARS",
+    "definitions": [
+     {
+      "text": "vaults",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "to hold something is to keep it inside, so one piece sits within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Holding areas",
+      "gives": "CELLS",
+      "note": "cells are where prisoners are held"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "A is the abbreviation for area"
+     },
+     {
+      "clueFragment": "royal",
+      "gives": "R",
+      "note": "R stands for royal, as in RN or RAF"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CELL",
+      "A",
+      "R",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A description of a secure building: places for detainees, with a royal crypt beneath.",
+     "walkthrough": "The first 'holding' is part of a definition-like phrase for cells; the second 'holding' is the container signal, so CELLS takes in A and R.",
+     "definitionFit": "Vaults are underground storage rooms, typically for wine, which is exactly what cellars are."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "holding"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +161,38 @@
     "text": "M-mark?",
     "enumeration": "5"
    },
-   "solution": "MONEY"
+   "solution": "MONEY",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "MONEY",
+    "definitions": [
+     {
+      "text": "M-mark",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "M-mark?",
+      "note": "surface reading: a stammered 'mark', or a mark shaped like the letter M"
+     },
+     {
+      "clueFragment": "M-mark?",
+      "note": "setter's reading: on the pattern of D-mark, the old German currency, the letter tells you what sort of mark it is, and a mark is cash"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The Deutschmark was often written D-mark, with D for Deutsche. Here the M is the initial of the answer, which is what a mark (a unit of currency) is.",
+     "definitionFit": "The mark was a currency, so a mark is a sum of cash; the M names that general category of currency."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +206,66 @@
     "text": "Squander 2 or 6 balls to dispatch, including roof of pavilion",
     "enumeration": "9"
    },
-   "solution": "OVERSPEND"
+   "solution": "OVERSPEND",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "OVERSPEND",
+    "definitions": [
+     {
+      "text": "Squander 2",
+      "at": 0,
+      "note": "2 refers to the answer at 2-down, so the definition reads 'squander money'"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "including",
+      "for": "container",
+      "note": "to include something is to take it inside, so one piece goes within another"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "6 balls",
+      "gives": "OVER",
+      "note": "in cricket an over is a set of six balls bowled"
+     },
+     {
+      "clueFragment": "to dispatch",
+      "gives": "SEND",
+      "note": "to dispatch something is to send it"
+     },
+     {
+      "clueFragment": "roof of pavilion",
+      "gives": "P",
+      "note": "the top letter of the word, in a down clue"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "S",
+      "P",
+      "END"
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket scene: wasting money or wasting an over, with the pavilion looming nearby.",
+     "walkthrough": "An over in cricket is six deliveries. 'Roof' gives the first letter because in a down entry the top is the start.",
+     "definitionFit": "To squander money is to spend more than you should, which is what overspending means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "roof"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +279,53 @@
     "text": "Where short lawyers are getting hotel drinks?",
     "enumeration": "7"
    },
-   "solution": "MINIBAR"
+   "solution": "MINIBAR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MINIBAR",
+    "definitions": [
+     {
+      "text": "hotel drinks",
+      "at": 32,
+      "note": "loose: the answer is the place where hotel drinks are kept, as 'Where' signals"
+     }
+    ],
+    "linkWords": [
+     "Where",
+     "are getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "short",
+      "gives": "MINI",
+      "note": "mini means small or short"
+     },
+     {
+      "clueFragment": "lawyers",
+      "gives": "BAR",
+      "note": "the Bar is the collective name for barristers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MINI",
+      "BAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A wry question about where diminutive lawyers go to help themselves to drinks in a hotel room.",
+     "walkthrough": "The Bar is the legal profession of barristers, and a mini is something short, so short lawyers are a mini Bar.",
+     "definitionFit": "A minibar is the small fridge in a hotel room stocked with drinks that guests pay for."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "short"
+    }
+   }
   },
   {
    "number": 4,
@@ -103,7 +339,68 @@
     "text": "Mother’s picking up £10,000 drawers?",
     "enumeration": "7"
    },
-   "solution": "MAGNETS"
+   "solution": "MAGNETS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "MAGNETS",
+    "definitions": [
+     {
+      "text": "drawers",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, going upward means reading from bottom to top"
+     },
+     {
+      "text": "picking",
+      "for": "container",
+      "note": "to pick something is to take it in hand, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mother’s",
+      "gives": "MAS",
+      "note": "Ma is mother, plus the 's"
+     },
+     {
+      "clueFragment": "£10,000",
+      "gives": "TENG",
+      "note": "ten grand, with G for a grand (a thousand pounds)"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "GNET",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "TENG",
+       "to": "GNET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Mum is collecting ten thousand pounds for a chest of drawers.",
+     "walkthrough": "'Drawers' looks like furniture or underwear, but it means things that draw. G for grand (£1,000) is common slang.",
+     "definitionFit": "Magnets attract, or draw, metal objects toward them, so they are literally things that draw."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "drawers"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +414,66 @@
     "text": "Dark, hard spirit – about time",
     "enumeration": "5"
    },
-   "solution": "NIGHT"
+   "solution": "NIGHT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "NIGHT",
+    "definitions": [
+     {
+      "text": "Dark",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "to turn about is to face the other way, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H is the pencil-grade abbreviation for hard"
+     },
+     {
+      "clueFragment": "spirit",
+      "gives": "GIN",
+      "note": "gin is a spirit"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NIGH",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "HGIN",
+       "to": "NIGH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grim drinker reaching for strong liquor, saying it's high time.",
+     "walkthrough": "'About time' looks like a phrase, but 'about' turns round the hard spirit and 'time' stands alone. 'Dark' is a noun here, as in 'after dark'.",
+     "definitionFit": "After dark means after nightfall, so the dark is the hours when the sun has set."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 6,
@@ -137,7 +493,74 @@
      }
     ]
    },
-   "solution": "BLACKHOLE"
+   "solution": "BLACKHOLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "BLACK HOLE",
+    "definitions": [
+     {
+      "text": "where things disappear without trace",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hidden by",
+      "for": "container",
+      "note": "something hidden by another thing is covered by it, so it sits inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "B is the abbreviation for British"
+     },
+     {
+      "clueFragment": "want",
+      "gives": "LACK",
+      "note": "want in the sense of a lack"
+     },
+     {
+      "clueFragment": "zero",
+      "gives": "O",
+      "note": "zero looks like the letter O"
+     },
+     {
+      "clueFragment": "sterling",
+      "gives": "L",
+      "note": "L, from libra, is the pound sign"
+     },
+     {
+      "clueFragment": "ambassador",
+      "gives": "HE",
+      "note": "His Excellency, the title of an ambassador"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "LACK",
+      "H",
+      "O",
+      "L",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A diplomat quietly pocketing British money, so the cash vanishes without a trace.",
+     "walkthrough": "An ambassador is styled His (or Her) Excellency, abbreviated HE; O and L go inside it.",
+     "definitionFit": "In astronomy a black hole swallows everything, light included; figuratively it is anywhere money or objects vanish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "want"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +574,48 @@
     "text": "Take exception to unwrapped Christmas gifts",
     "enumeration": "6"
    },
-   "solution": "RESENT"
+   "solution": "RESENT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RESENT",
+    "definitions": [
+     {
+      "text": "Take exception to",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unwrapped",
+      "for": "deletion",
+      "note": "unwrapping strips away the outer covering, so the outside letters are removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Christmas gifts",
+      "gives": "PRESENTS",
+      "note": "gifts given at Christmas"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RESENT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is offended by receiving unwrapped Christmas presents.",
+     "walkthrough": "'Unwrapped' sounds like a complaint about the gifts, but it takes off the first and last letters.",
+     "definitionFit": "To take exception to something is to object to it or feel aggrieved by it, the same sense as to begrudge."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unwrapped"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +629,52 @@
     "text": "They’ve lost partners to nameless operating system",
     "enumeration": "6"
    },
-   "solution": "WIDOWS"
+   "solution": "WIDOWS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "WIDOWS",
+    "definitions": [
+     {
+      "text": "They’ve lost partners",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nameless",
+      "for": "deletion",
+      "note": "less means without, so the letter for name is dropped"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "operating system",
+      "gives": "WINDOWS",
+      "note": "Microsoft's operating system"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WI",
+      "DOWS"
+     ]
+    },
+    "explanation": {
+     "surface": "People who have been bereaved, oddly linked to an anonymous piece of computer software.",
+     "walkthrough": "N is the abbreviation for name, and it is removed from the Microsoft product.",
+     "definitionFit": "A widow is a woman whose spouse has died, so widows are people who have lost their partners."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "nameless"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +688,55 @@
     "text": "Underwear 12.5% off – no good hanging around",
     "enumeration": "9"
    },
-   "solution": "LINGERING"
+   "solution": "LINGERING",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "LINGERING",
+    "definitions": [
+     {
+      "text": "hanging around",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "12.5% off",
+      "for": "deletion",
+      "note": "an eighth taken away; with eight letters, that removes one letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Underwear",
+      "gives": "LINGERIE",
+      "note": "women's underwear, eight letters"
+     },
+     {
+      "clueFragment": "no good",
+      "gives": "NG",
+      "note": "NG is the abbreviation for no good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LINGERI",
+      "NG"
+     ]
+    },
+    "explanation": {
+     "surface": "A shop sale: underwear at 12.5% off, but it's no use waiting about for bargains.",
+     "walkthrough": "12.5% is one eighth, and the underwear has eight letters, so exactly one letter (the last E) goes.",
+     "definitionFit": "Lingering means staying somewhere longer than necessary, idly waiting about, just as hanging around does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +750,69 @@
     "text": "Talk about Romeo initially smoking pot",
     "enumeration": "5"
    },
-   "solution": "GRASS"
+   "solution": "GRASS",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "GRASS",
+    "definitions": [
+     {
+      "text": "pot",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "to be about something is to surround it, so one piece goes round another"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the opening letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Talk",
+      "gives": "GAS",
+      "note": "gas is idle chatter"
+     },
+     {
+      "clueFragment": "Romeo",
+      "gives": "R",
+      "note": "Romeo is R in the NATO alphabet"
+     },
+     {
+      "clueFragment": "smoking",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "R",
+      "AS",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "People discussing the idea that Romeo started out smoking cannabis.",
+     "walkthrough": "Gas as a noun is chatter, so it goes around R, then the S follows.",
+     "definitionFit": "Both are slang names for marijuana, so they are synonyms in drug slang."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Talk"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +826,51 @@
     "text": "Doing a somersault during embassy ball is void",
     "enumeration": "5"
    },
-   "solution": "ABYSS"
+   "solution": "ABYSS",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "ABYSS",
+    "definitions": [
+     {
+      "text": "void",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "during",
+      "for": "hidden_word",
+      "note": "something that happens during another is within it, so the letters lie inside the phrase"
+     },
+     {
+      "text": "Doing a somersault",
+      "for": "reversal",
+      "note": "a somersault flips you over, so the letters read backwards"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "embassy ball",
+      "note": "the letters run backwards across the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A guest turns a somersault at an embassy ball, which is declared null.",
+     "walkthrough": "Read 'embassy ball' backwards and the answer appears straddling the two words: ...SSY BA...",
+     "definitionFit": "An abyss is a bottomless chasm or emptiness, so it serves as a noun synonym of a void."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "void"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +884,61 @@
     "text": "Passed public knowledge involving answer",
     "enumeration": "9"
    },
-   "solution": "OVERTAKEN"
+   "solution": "OVERTAKEN",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "OVERTAKEN",
+    "definitions": [
+     {
+      "text": "Passed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involving",
+      "for": "container",
+      "note": "to involve something is to take it in, so one piece holds another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "public",
+      "gives": "OVERT",
+      "note": "overt means done openly, in public"
+     },
+     {
+      "clueFragment": "knowledge",
+      "gives": "KEN",
+      "note": "ken is knowledge or understanding"
+     },
+     {
+      "clueFragment": "answer",
+      "gives": "A",
+      "note": "A is the abbreviation for answer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVERT",
+      "A",
+      "KEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzle answer has passed into public knowledge.",
+     "walkthrough": "Ken, meaning range of knowledge, survives in 'beyond my ken'; the A sits between the two words.",
+     "definitionFit": "A car that is overtaken has been passed by another vehicle, so the past participle works as a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Passed"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +952,78 @@
     "text": "Team wins penalty to begin with, Rovers gutted by rests",
     "enumeration": "7"
    },
-   "solution": "SPIDERS"
+   "solution": "SPIDERS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "SPIDERS",
+    "definitions": [
+     {
+      "text": "rests",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to begin with",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its first letter, so only that is kept"
+     },
+     {
+      "text": "wins",
+      "for": "container",
+      "note": "to win something is to take it in and keep it, so one piece goes inside another"
+     },
+     {
+      "text": "gutted",
+      "for": "letter_selection",
+      "note": "gutting removes the insides, leaving just the outermost letters"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Team",
+      "gives": "SIDE",
+      "note": "a side is a team"
+     },
+     {
+      "clueFragment": "penalty",
+      "gives": "P",
+      "select": "first",
+      "note": "first letter of the word"
+     },
+     {
+      "clueFragment": "Rovers",
+      "gives": "RS",
+      "select": "outer",
+      "note": "outside letters only"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "P",
+      "IDE",
+      "RS"
+     ]
+    },
+    "explanation": {
+     "surface": "A football report: the side wins a penalty early while Rovers are thrashed by the reserves.",
+     "walkthrough": "'Rests' are snooker cue rests, and the spider is a raised rest used to bridge over a ball; 'rests' is not a verb here.",
+     "definitionFit": "In snooker and billiards a spider is a type of cue rest with high legs, so spiders are rests."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "rests"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +1037,74 @@
     "text": "Non-stop tennis, as played around #1 court",
     "enumeration": "9"
    },
-   "solution": "INCESSANT"
+   "solution": "INCESSANT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "INCESSANT",
+    "definitions": [
+     {
+      "text": "Non-stop",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "as played",
+      "for": "anagram",
+      "note": "something played is performed in a new way, so the letters are rearranged"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "going around something encloses it, so one piece sits within another"
+     },
+     {
+      "text": "#1",
+      "for": "letter_selection",
+      "note": "number one is the first, so only the opening letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tennis, as",
+      "gives": "TENNISAS",
+      "note": "the letters taken as written"
+     },
+     {
+      "clueFragment": "court",
+      "gives": "C",
+      "select": "first",
+      "note": "first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "C",
+      "ESSANT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TENNISAS",
+       "gives": "INESSANT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A marathon tennis match going on and on around the main show court.",
+     "walkthrough": "'As' is part of the fodder, not a link word; the rearranged letters wrap round C.",
+     "definitionFit": "Incessant means continuing without pause or interruption, the same sense as non-stop."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "played"
+    }
+   }
   },
   {
    "number": 15,
@@ -263,7 +1118,54 @@
     "text": "Escort criminal to district",
     "enumeration": "6"
    },
-   "solution": "SECTOR"
+   "solution": "SECTOR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SECTOR",
+    "definitions": [
+     {
+      "text": "district",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "criminal",
+      "for": "anagram",
+      "note": "something criminal is crooked or bent, so the letters are twisted out of order"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Escort",
+      "gives": "ESCORT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ESCORT",
+       "gives": "SECTOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Police instructions to take a criminal to a particular district.",
+     "walkthrough": "'Criminal' looks like a noun being escorted, but it is an adjective signalling the rearrangement.",
+     "definitionFit": "A sector is a distinct area or zone, especially of a town or military region, so it works as a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "criminal"
+    }
+   }
   },
   {
    "number": 16,
@@ -277,7 +1179,47 @@
     "text": "In land of automobile fanatics, one’s found in bed",
     "enumeration": "9"
    },
-   "solution": "CARNATION"
+   "solution": "CARNATION",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CARNATION",
+    "definitions": [
+     {
+      "text": "land of automobile fanatics",
+      "at": 3
+     },
+     {
+      "text": "one’s found in bed",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "In"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "land of automobile fanatics",
+      "note": "first meaning, read as two words: a country where everyone loves motors"
+     },
+     {
+      "clueFragment": "one’s found in bed",
+      "note": "second meaning: a flower grown in a flowerbed"
+     }
+    ],
+    "explanation": {
+     "surface": "In a car-mad country, someone is discovered asleep.",
+     "walkthrough": "Split the answer as CAR NATION for the first meaning. The bed is a flowerbed, not a place to sleep.",
+     "definitionFit": "A carnation is a garden flower, the kind planted in flowerbeds, and the split word describes a nation of car lovers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bed"
+    }
+   }
   },
   {
    "number": 17,
@@ -291,7 +1233,68 @@
     "text": "Sharp one enters currents circling island",
     "enumeration": "6"
    },
-   "solution": "ACIDIC"
+   "solution": "ACIDIC",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ACIDIC",
+    "definitions": [
+     {
+      "text": "Sharp",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "enters",
+      "for": "container",
+      "note": "to enter is to go inside, so one piece is placed within another"
+     },
+     {
+      "text": "circling",
+      "for": "container",
+      "note": "to circle something is to surround it, so one piece goes round another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "currents",
+      "gives": "ACDC",
+      "note": "AC and DC, alternating and direct current"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "I",
+      "note": "I is the abbreviation for island"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AC",
+      "I",
+      "D",
+      "I",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "A pointed object drifting through sea currents that swirl around an island.",
+     "walkthrough": "The currents are the two electrical kinds, AC and DC: one I goes between them, and DC wraps round the island's I.",
+     "definitionFit": "Acidic flavours taste sour and tart, which is one meaning of sharp."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "currents"
+    }
+   }
   },
   {
    "number": 18,
@@ -305,7 +1308,63 @@
     "text": "Gripping end to poker: stopped and folded",
     "enumeration": "7"
    },
-   "solution": "CREASED"
+   "solution": "CREASED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CREASED",
+    "definitions": [
+     {
+      "text": "folded",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Gripping",
+      "for": "container",
+      "note": "to grip is to hold tight, so one piece holds another inside"
+     },
+     {
+      "text": "end to",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, so only that is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stopped",
+      "gives": "CEASED",
+      "note": "to cease is to stop"
+     },
+     {
+      "clueFragment": "poker",
+      "gives": "R",
+      "select": "last",
+      "note": "last letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "R",
+      "EASED"
+     ]
+    },
+    "explanation": {
+     "surface": "A tense poker game ends: a player stops and folds the hand.",
+     "walkthrough": "'Folded' looks like the poker term for giving up a hand, but it means bent with a crease.",
+     "definitionFit": "Paper or fabric that has been folded carries a crease, so creased means folded."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "folded"
+    }
+   }
   },
   {
    "number": 19,
@@ -319,7 +1378,54 @@
     "text": "Plots with strange dangers",
     "enumeration": "7"
    },
-   "solution": "GARDENS"
+   "solution": "GARDENS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GARDENS",
+    "definitions": [
+     {
+      "text": "Plots",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "strange",
+      "for": "anagram",
+      "note": "something strange is odd and out of its usual form, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dangers",
+      "gives": "DANGERS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DANGERS",
+       "gives": "GARDENS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Conspiracies full of unusual perils.",
+     "walkthrough": "'Plots' reads as schemes alongside 'dangers', but it means pieces of land.",
+     "definitionFit": "A garden plot is a small piece of ground for growing things, so plots can be gardens."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Plots"
+    }
+   }
   },
   {
    "number": 19,
@@ -333,7 +1439,42 @@
     "text": "New York notes some of your five-a-day",
     "enumeration": "6"
    },
-   "solution": "GREENS"
+   "solution": "GREENS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GREENS",
+    "definitions": [
+     {
+      "text": "New York notes",
+      "at": 0
+     },
+     {
+      "text": "some of your five-a-day",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "New York notes",
+      "note": "first meaning: American banknotes, slang greenbacks"
+     },
+     {
+      "clueFragment": "some of your five-a-day",
+      "note": "second meaning: leafy vegetables"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "US dollar bills are green, hence the slang. Five-a-day is the UK health advice to eat five portions of fruit and vegetables daily.",
+     "definitionFit": "Leafy green vegetables such as cabbage and spinach count towards daily portions, and green banknotes are American money."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "notes"
+    }
+   }
   },
   {
    "number": 20,
@@ -347,7 +1488,61 @@
     "text": "Lithium’s turning so grey",
     "enumeration": "7"
    },
-   "solution": "SILVERY"
+   "solution": "SILVERY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "SILVERY",
+    "definitions": [
+     {
+      "text": "grey",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning",
+      "for": "reversal",
+      "note": "turning round makes something face the other way, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lithium’s",
+      "gives": "LIS",
+      "note": "Li is the chemical symbol for lithium, plus the 's"
+     },
+     {
+      "clueFragment": "so",
+      "gives": "VERY",
+      "note": "so in the sense of very, as in 'so good'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SIL",
+      "VERY"
+     ],
+     "reversals": [
+      {
+       "from": "LIS",
+       "to": "SIL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chemistry note: the lithium is changing colour and going grey.",
+     "walkthrough": "Li is lithium's chemical symbol; turned round with its 's it gives SIL.",
+     "definitionFit": "Silvery describes the shining pale colour of silver, a light lustrous shade of grey."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "so"
+    }
+   }
   },
   {
    "number": 21,
@@ -361,7 +1556,67 @@
     "text": "What’s taking digital images, wide, became mostly blurred",
     "enumeration": "6"
    },
-   "solution": "WEBCAM"
+   "solution": "WEBCAM",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "charade"
+    ],
+    "answer": "WEBCAM",
+    "definitions": [
+     {
+      "text": "What’s taking digital images",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the final letter is dropped"
+     },
+     {
+      "text": "blurred",
+      "for": "anagram",
+      "note": "something blurred has lost its clear shape, so the letters are mixed up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wide",
+      "gives": "W",
+      "note": "W is the cricket abbreviation for a wide"
+     },
+     {
+      "clueFragment": "became",
+      "gives": "BECAME",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "EBCAM"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BECAM",
+       "gives": "EBCAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A camera takes pictures with a wide angle, but they come out mostly blurry.",
+     "walkthrough": "A wide is a cricket delivery out of the batter's reach, abbreviated W on scorecards.",
+     "definitionFit": "A webcam is a small video camera attached to a computer, a device that captures digital pictures."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "blurred"
+    }
+   }
   },
   {
    "number": 22,
@@ -375,7 +1630,67 @@
     "text": "Energy moving wheels on to another place",
     "enumeration": "9"
    },
-   "solution": "ELSEWHERE"
+   "solution": "ELSEWHERE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ELSEWHERE",
+    "definitions": [
+     {
+      "text": "to another place",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "moving",
+      "for": "anagram",
+      "note": "something moving changes position, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Energy",
+      "gives": "E",
+      "note": "E is the physics symbol for energy"
+     },
+     {
+      "clueFragment": "wheels",
+      "gives": "WHEELS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "re means about or concerning, one sense of on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "LSEWHE",
+      "RE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "WHEELS",
+       "gives": "LSEWHE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Power sends the wheels rolling on to a different destination.",
+     "walkthrough": "'On' means concerning, as in 'a talk on birds', which is the sense of RE.",
+     "definitionFit": "Elsewhere means in or towards some other location, so it can replace the phrase in a sentence like 'go elsewhere'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "on"
+    }
+   }
   },
   {
    "number": 23,
@@ -389,7 +1704,55 @@
     "text": "Drink whiskey next, topless",
     "enumeration": "5"
    },
-   "solution": "WATER"
+   "solution": "WATER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "WATER",
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "topless",
+      "for": "deletion",
+      "note": "without its top, and in a down entry the top is the first letter, so that goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "whiskey",
+      "gives": "W",
+      "note": "whiskey is W in the NATO alphabet"
+     },
+     {
+      "clueFragment": "next",
+      "gives": "LATER",
+      "note": "next in the sense of afterwards"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "ATER"
+     ]
+    },
+    "explanation": {
+     "surface": "A bar order: whiskey next, served by a topless bartender perhaps.",
+     "walkthrough": "'Whiskey' is the NATO alphabet word for W, not a drink here; the real drink is the answer.",
+     "definitionFit": "Water is the most basic drink of all, so a noun drink is an acceptable general synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "whiskey"
+    }
+   }
   },
   {
    "number": 24,
@@ -403,7 +1766,64 @@
     "text": "Financial backer’s article on returns",
     "enumeration": "5"
    },
-   "solution": "ANGEL"
+   "solution": "ANGEL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ANGEL",
+    "definitions": [
+     {
+      "text": "Financial backer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returns",
+      "for": "reversal",
+      "note": "to return is to go back the way you came, so the letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "article",
+      "gives": "AN",
+      "note": "an is the indefinite article"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "LEG",
+      "note": "in cricket the on side is also called the leg side"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AN",
+      "GEL"
+     ],
+     "reversals": [
+      {
+       "from": "LEG",
+       "to": "GEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An investor writes a piece on the returns from investments.",
+     "walkthrough": "'Returns' looks like investment profits, but it signals turning round. In cricket the on side and the leg side are the same half of the field.",
+     "definitionFit": "An angel is an investor who funds a theatrical production or startup, so the term names a financial supporter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "returns"
+    }
+   }
   },
   {
    "number": 25,
@@ -417,7 +1837,56 @@
     "text": "In Italy, John finally beat heavyweight",
     "enumeration": "5"
    },
-   "solution": "GIANT"
+   "solution": "GIANT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "GIANT",
+    "definitions": [
+     {
+      "text": "heavyweight",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally means at the end, so only the last letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In Italy, John",
+      "gives": "GIAN",
+      "note": "Gian is an Italian form of John, as in Gian Carlo"
+     },
+     {
+      "clueFragment": "beat",
+      "gives": "T",
+      "select": "last",
+      "note": "last letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GIAN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A boxing report from Italy: a fighter called John has at last beaten a big opponent.",
+     "walkthrough": "Gian (short for Giovanni) is the Italian equivalent of John, familiar from names like Gianluca.",
+     "definitionFit": "A heavyweight is a person of great importance or size, which is the figurative sense of a giant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "beat"
+    }
+   }
   },
   {
    "number": 26,
@@ -431,7 +1900,55 @@
     "text": "Dexterity keeping service in court",
     "enumeration": "5"
    },
-   "solution": "CRAFT"
+   "solution": "CRAFT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CRAFT",
+    "definitions": [
+     {
+      "text": "Dexterity",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeping",
+      "for": "container",
+      "note": "to keep something is to hold it inside, so one piece contains another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "court",
+      "gives": "CT",
+      "note": "CT is the abbreviation for court"
+     },
+     {
+      "clueFragment": "service",
+      "gives": "RAF",
+      "note": "the Royal Air Force, one of the armed services"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "RAF",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A tennis player's skill holding serve on court.",
+     "walkthrough": "'Service' looks like a tennis serve, but it is one of the armed services.",
+     "definitionFit": "Craft means skill in making or doing things with the hands, so it is a synonym of dexterity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "service"
+    }
+   }
   },
   {
    "number": 27,
@@ -445,7 +1962,59 @@
     "text": "Model Cindy eats in group",
     "enumeration": "9"
    },
-   "solution": "SYNDICATE"
+   "solution": "SYNDICATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SYNDICATE",
+    "definitions": [
+     {
+      "text": "group",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Model",
+      "for": "anagram",
+      "note": "to model is to shape or form, so the letters are moulded into a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cindy",
+      "gives": "CINDY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "eats",
+      "gives": "EATS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CINDYEATS",
+       "gives": "SYNDICATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fashion model named Cindy dines with a group of people.",
+     "walkthrough": "'Model Cindy' suggests Cindy Crawford, but 'Model' is a verb telling you to reshape both names.",
+     "definitionFit": "A syndicate is an association of people or firms combining for a common purpose, so it is a group."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Model"
+    }
+   }
   },
   {
    "number": 28,
@@ -459,7 +2028,62 @@
     "text": "Old city in China 500 developed",
     "enumeration": "7"
    },
-   "solution": "MATURED"
+   "solution": "MATURED",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "MATURED",
+    "definitions": [
+     {
+      "text": "developed",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one thing inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "China",
+      "gives": "MATE",
+      "note": "china plate is rhyming slang for mate, a friend"
+     },
+     {
+      "clueFragment": "Old city",
+      "gives": "UR",
+      "note": "Ur is the ancient Sumerian city"
+     },
+     {
+      "clueFragment": "500",
+      "gives": "D",
+      "note": "D is the Roman numeral for 500"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAT",
+      "UR",
+      "E",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A history note: an ancient Chinese city grew to 500 people.",
+     "walkthrough": "'China' is capitalised to look like the country, but it is Cockney rhyming slang: china plate means mate, a friend.",
+     "definitionFit": "Something that has matured has grown and reached full development, so the two past tenses match."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "China"
+    }
+   }
   },
   {
    "number": 29,
@@ -473,7 +2097,64 @@
     "text": "I leave pool outside? No, it’s difficult",
     "enumeration": "6"
    },
-   "solution": "KNOTTY"
+   "solution": "KNOTTY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "KNOTTY",
+    "definitions": [
+     {
+      "text": "difficult",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "I leave",
+      "for": "deletion",
+      "note": "when a letter leaves it goes away, so that letter is removed"
+     },
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "being outside something means surrounding it, so one piece wraps round another"
+     }
+    ],
+    "linkWords": [
+     "it’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pool",
+      "gives": "KITTY",
+      "note": "a kitty is a pool of shared money"
+     },
+     {
+      "clueFragment": "No",
+      "gives": "NO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "NO",
+      "TTY"
+     ]
+    },
+    "explanation": {
+     "surface": "A swimmer considers leaving the pool and getting out, but decides it's too hard.",
+     "walkthrough": "'No' looks like a reply to the question, but it is letters for the shortened kitty to wrap round.",
+     "definitionFit": "A knotty problem is tangled and complicated, a figurative sense from tangled string."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "No"
+    }
+   }
   }
  ]
 }
