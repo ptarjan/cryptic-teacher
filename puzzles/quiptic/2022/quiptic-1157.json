@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,67 @@
     "text": "Sellers wanting source of valuable drug back",
     "enumeration": "7"
    },
-   "solution": "ENDORSE"
+   "solution": "ENDORSE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ENDORSE",
+    "definitions": [
+     {
+      "text": "back",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wanting",
+      "for": "deletion",
+      "note": "to be wanting something is to lack it, so a letter goes missing from the word"
+     },
+     {
+      "text": "source of",
+      "for": "letter_selection",
+      "note": "the source of a word is where it starts, so only its opening letter counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sellers",
+      "gives": "VENDORS",
+      "note": "vendors are people who sell"
+     },
+     {
+      "clueFragment": "valuable",
+      "gives": "V",
+      "select": "first",
+      "note": "opening letter of valuable, removed from the sellers"
+     },
+     {
+      "clueFragment": "drug",
+      "gives": "E",
+      "note": "E is slang for the drug ecstasy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENDORS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Dealers want the source of a valuable drug returned to them.",
+     "walkthrough": "VENDORS loses its V to leave ENDORS, and E is added to make ENDORSE. 'Back' at the end looks like part of 'drug back', but it is the definition, used as a verb.",
+     "definitionFit": "To back a candidate or product is to support it publicly, a synonym in the verb sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +110,70 @@
     "text": "Cover of record featuring foreign novel",
     "enumeration": "7"
    },
-   "solution": "ENVELOP"
+   "solution": "ENVELOP",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ENVELOP",
+    "definitions": [
+     {
+      "text": "Cover",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "foreign",
+      "for": "anagram",
+      "note": "something foreign is strange and unfamiliar, so the letters appear in an unfamiliar order"
+     },
+     {
+      "text": "featuring",
+      "for": "container",
+      "note": "a thing featuring something has it included within it, so one piece sits inside another"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "record",
+      "gives": "EP",
+      "note": "an EP is an extended-play record"
+     },
+     {
+      "clueFragment": "novel",
+      "gives": "NOVEL",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "NVELO",
+      "P"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NOVEL",
+       "gives": "NVELO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The sleeve of an album that includes a foreign novel.",
+     "walkthrough": "'Cover of record' reads as an album sleeve, but 'Cover' alone is the definition and 'of' is the link; EP for an extended-play record is a crossword staple.",
+     "definitionFit": "To envelop something is to wrap or surround it completely, a synonym of cover as a verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cover"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +187,58 @@
     "text": "Run down to shelter with one place to make a fire",
     "enumeration": "9"
    },
-   "solution": "DENIGRATE"
+   "solution": "DENIGRATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DENIGRATE",
+    "definitions": [
+     {
+      "text": "Run down",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shelter",
+      "gives": "DEN",
+      "note": "a den is an animal's shelter"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "place to make a fire",
+      "gives": "GRATE",
+      "note": "a grate is the metal frame in a fireplace that holds the fire"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEN",
+      "I",
+      "GRATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone exhausted heads for a shelter with a fireplace.",
+     "walkthrough": "'Run down' looks like 'tired', which fits the hunt for shelter and warmth, but here it is the verb meaning to disparage.",
+     "definitionFit": "To run someone down is to criticise them unfairly, the same as belittling or disparaging them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Run"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +252,64 @@
     "text": "Gold returned to fellow Italian",
     "enumeration": "5"
    },
-   "solution": "ROMAN"
+   "solution": "ROMAN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ROMAN",
+    "definitions": [
+     {
+      "text": "Italian",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returned",
+      "for": "reversal",
+      "note": "something returned goes back the way it came, so the letters run the other way"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gold",
+      "gives": "OR",
+      "note": "or is gold in heraldry"
+     },
+     {
+      "clueFragment": "fellow",
+      "gives": "MAN",
+      "note": "a fellow is a man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RO",
+      "MAN"
+     ],
+     "reversals": [
+      {
+       "from": "OR",
+       "to": "RO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gold item is handed back to an Italian man.",
+     "walkthrough": "OR for gold comes from heraldry and is a crossword staple.",
+     "definitionFit": "A Roman is a person from Rome, so a specific kind of Italian, an example rather than a synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "returned"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +323,54 @@
     "text": "A hip seems fractured with stress",
     "enumeration": "9"
    },
-   "solution": "EMPHASISE"
+   "solution": "EMPHASISE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EMPHASISE",
+    "definitions": [
+     {
+      "text": "stress",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fractured",
+      "for": "anagram",
+      "note": "something fractured is broken into bits, so these letters are scattered and reformed"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A hip seems",
+      "gives": "AHIPSEEMS",
+      "note": "the nine letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AHIPSEEMS",
+       "gives": "EMPHASISE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A broken hip seems to bring a lot of stress with it.",
+     "walkthrough": "'Stress' reads as worry in the hospital scene, but it is a verb meaning to highlight.",
+     "definitionFit": "To stress a point is to give it particular weight or importance, a direct synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stress"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +384,58 @@
     "text": "Very small amount of insect in tin",
     "enumeration": "7"
    },
-   "solution": "SMIDGEN"
+   "solution": "SMIDGEN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SMIDGEN",
+    "definitions": [
+     {
+      "text": "Very small amount",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing being in another means it sits within its walls"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tin",
+      "gives": "SN",
+      "note": "Sn is the chemical symbol for tin"
+     },
+     {
+      "clueFragment": "insect",
+      "gives": "MIDGE",
+      "note": "a midge is a tiny biting fly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "MIDGE",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Only a tiny quantity of insect found in a tin can.",
+     "walkthrough": "'Tin' looks like a can but is the chemical element, whose symbol Sn comes from Latin stannum.",
+     "definitionFit": "A smidgen is an informal word for a tiny quantity or a little bit of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tin"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +449,57 @@
     "text": "Examine boss on the end of slavery",
     "enumeration": "5"
    },
-   "solution": "STUDY"
+   "solution": "STUDY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "STUDY",
+    "definitions": [
+     {
+      "text": "Examine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, so only that letter is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boss",
+      "gives": "STUD",
+      "note": "a boss is a raised stud or knob, as on a shield"
+     },
+     {
+      "clueFragment": "slavery",
+      "gives": "Y",
+      "select": "last",
+      "note": "the final letter of slavery"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STUD",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Look into the role of a master in ending slavery.",
+     "walkthrough": "'Boss' suggests an employer or master, which suits the slavery theme, but it is the ornamental knob; 'on' places it before the last letter, as in a down clue.",
+     "definitionFit": "To study something is to look at it closely and in detail, a synonym of examine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "boss"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +513,56 @@
     "text": "Popular enthusiast playing piece that's childish",
     "enumeration": "9"
    },
-   "solution": "INFANTILE"
+   "solution": "INFANTILE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INFANTILE",
+    "definitions": [
+     {
+      "text": "childish",
+      "at": 40
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Popular",
+      "gives": "IN",
+      "note": "something popular is in"
+     },
+     {
+      "clueFragment": "enthusiast",
+      "gives": "FAN",
+      "note": "a fan is an enthusiast"
+     },
+     {
+      "clueFragment": "playing piece",
+      "gives": "TILE",
+      "note": "a tile is a piece in games such as Scrabble or mahjong"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "FAN",
+      "TILE"
+     ]
+    },
+    "explanation": {
+     "surface": "A keen fan playing a piece of music in a childish way.",
+     "walkthrough": "'Playing piece' suggests performing music, but it is a game piece, the kind laid on a board.",
+     "definitionFit": "Infantile behaviour is babyish or immature, the same as childish in its disapproving sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "playing"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +576,55 @@
     "text": "Creator of Adam and Eve eating original fruit",
     "enumeration": "5"
    },
-   "solution": "GOURD"
+   "solution": "GOURD",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GOURD",
+    "definitions": [
+     {
+      "text": "fruit",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "what is eaten ends up inside the eater, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Creator of Adam and Eve",
+      "gives": "GOD",
+      "note": "in Genesis God made the first man and woman"
+     },
+     {
+      "clueFragment": "original",
+      "gives": "UR",
+      "note": "ur- is a prefix meaning original or earliest, as in Urtext"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GO",
+      "UR",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "The Creator watches Adam and Eve eat the original forbidden fruit.",
+     "walkthrough": "The Eden story makes 'eating' and 'fruit' feel like one picture, but the eater is the Creator; 'original' gives the prefix UR.",
+     "definitionFit": "A gourd is the hard-skinned fruit of plants in the squash family, so an example of a fruit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "eating"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +644,72 @@
      }
     ]
    },
-   "solution": "NESTEGG"
+   "solution": "NESTEGG",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "NEST EGG",
+    "definitions": [
+     {
+      "text": "Savings",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "doctor",
+      "for": "anagram",
+      "note": "to doctor something is to tamper with it, so these letters are altered in order"
+     },
+     {
+      "text": "leaders of",
+      "for": "letter_selection",
+      "note": "leaders go at the front, so each word gives only its opening letter"
+     }
+    ],
+    "linkWords": [
+     "made by",
+     "to meet"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sent",
+      "gives": "SENT",
+      "note": "the letters to rearrange"
+     },
+     {
+      "clueFragment": "emergency governance group",
+      "gives": "EGG",
+      "select": "first",
+      "note": "the first letters of the three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEST",
+      "EGG"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SENT",
+       "gives": "NEST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor is dispatched to brief an emergency committee about savings.",
+     "walkthrough": "'Doctor' reads as a person being sent somewhere, but it is a verb telling you to tamper with the word 'sent'.",
+     "definitionFit": "A nest egg is an idiom for money put aside for the future, so a sum of savings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "doctor"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +723,74 @@
     "text": "Upset move to seize assassin's last poison",
     "enumeration": "5"
    },
-   "solution": "VENOM"
+   "solution": "VENOM",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "VENOM",
+    "definitions": [
+     {
+      "text": "poison",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Upset",
+      "for": "anagram",
+      "note": "something upset is knocked over and disordered, so its letters fall into a new order"
+     },
+     {
+      "text": "last",
+      "for": "letter_selection",
+      "note": "the last of a word is its final letter, the only one used"
+     },
+     {
+      "text": "to seize",
+      "for": "container",
+      "note": "to seize is to grab and hold, so one piece is held inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "move",
+      "gives": "MOVE",
+      "note": "the letters to rearrange"
+     },
+     {
+      "clueFragment": "assassin's",
+      "gives": "N",
+      "select": "last",
+      "note": "the final letter of assassin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VE",
+      "N",
+      "OM"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MOVE",
+       "gives": "VEOM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A worried plan to grab the assassin's final dose of poison.",
+     "walkthrough": "'Upset move' reads as an agitated action, but 'Upset' only rearranges MOVE, which then takes in the N.",
+     "definitionFit": "Venom is the toxic fluid injected by snakes and spiders, a kind of poison."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Upset"
+    }
+   }
   },
   {
    "number": 10,
@@ -199,7 +810,39 @@
      }
     ]
    },
-   "solution": "PLUSFOURS"
+   "solution": "PLUSFOURS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "PLUS FOURS",
+    "definitions": [
+     {
+      "text": "Trousers that come sizes 8, 12 and 16?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trousers that come sizes 8, 12 and 16?",
+      "note": "surface reading: a clothing line offered in a range of dress sizes"
+     },
+     {
+      "clueFragment": "sizes 8, 12 and 16",
+      "note": "setter's reading: each size is the previous one with four added, naming baggy golfing breeches"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Plus fours are loose knickerbockers once worn for golf, named for the extra four inches of cloth below the knee; the numbers rising by four make the pun.",
+     "definitionFit": "The garment is a traditional style of baggy breeches, gathered just below the knee, worn by golfers and shooters."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sizes"
+    }
+   }
   },
   {
    "number": 11,
@@ -213,7 +856,62 @@
     "text": "Part of journey close to a railway is famous",
     "enumeration": "9"
    },
-   "solution": "LEGENDARY"
+   "solution": "LEGENDARY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LEGENDARY",
+    "definitions": [
+     {
+      "text": "famous",
+      "at": 38
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Part of journey",
+      "gives": "LEG",
+      "note": "a leg is one stage of a trip"
+     },
+     {
+      "clueFragment": "close",
+      "gives": "END",
+      "note": "the close of something is its end"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "railway",
+      "gives": "RY",
+      "note": "RY is an abbreviation for railway"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEG",
+      "END",
+      "A",
+      "RY"
+     ]
+    },
+    "explanation": {
+     "surface": "A stretch of a trip near a well-known railway line.",
+     "walkthrough": "'Close to' reads as 'near', but 'close' is the noun meaning end and 'to' just joins.",
+     "definitionFit": "Someone legendary is so renowned that stories are told about them, hence very well known."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "close"
+    }
+   }
   },
   {
    "number": 12,
@@ -227,7 +925,54 @@
     "text": "Encourage German to enter naked",
     "enumeration": "5"
    },
-   "solution": "NUDGE"
+   "solution": "NUDGE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NUDGE",
+    "definitions": [
+     {
+      "text": "Encourage",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to enter",
+      "for": "container",
+      "note": "to enter is to go inside, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "naked",
+      "gives": "NUDE",
+      "note": "nude means naked"
+     },
+     {
+      "clueFragment": "German",
+      "gives": "G",
+      "note": "G is the abbreviation for German"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NUD",
+      "G",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Coaxing a German to go in without clothes, perhaps at a sauna.",
+     "walkthrough": "Blocks follow the build: the G sits inside the word for naked.",
+     "definitionFit": "To nudge someone is to prod or gently urge them towards doing something, a synonym of encourage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -241,7 +986,56 @@
     "text": "Industrial facilities not given time to make arrangements",
     "enumeration": "5"
    },
-   "solution": "PLANS"
+   "solution": "PLANS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "PLANS",
+    "definitions": [
+     {
+      "text": "arrangements",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not given",
+      "for": "deletion",
+      "note": "what is not given is withheld, so a letter is left out"
+     }
+    ],
+    "linkWords": [
+     "to make"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Industrial facilities",
+      "gives": "PLANTS",
+      "note": "plants are factories"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time, the letter removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLAN",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Factories short of time to put their schedules in order.",
+     "walkthrough": "PLANTS without its T leaves the answer.",
+     "definitionFit": "Plans are schemes worked out in advance, so they are arrangements for what will happen."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -255,7 +1049,71 @@
     "text": "After dancing, US bride extremely nervous of facial hair",
     "enumeration": "9"
    },
-   "solution": "SIDEBURNS"
+   "solution": "SIDEBURNS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SIDEBURNS",
+    "definitions": [
+     {
+      "text": "facial hair",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "After dancing",
+      "for": "anagram",
+      "note": "dancers move about, so after dancing the letters have changed places"
+     },
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its ends, so only the outer letters count"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "US bride",
+      "gives": "USBRIDE",
+      "note": "the letters to rearrange"
+     },
+     {
+      "clueFragment": "nervous",
+      "gives": "NS",
+      "select": "outer",
+      "note": "first and last letters of nervous"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SIDEBUR",
+      "NS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "USBRIDE",
+       "gives": "SIDEBUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "After the wedding dance, an American bride is anxious about her groom's beard.",
+     "walkthrough": "'After dancing' sounds like a time in the wedding, but it signals that the letters of US BRIDE are rearranged.",
+     "definitionFit": "Sideburns are strips of whiskers grown down the cheeks in front of the ears, a form of facial hair."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dancing"
+    }
+   }
   },
   {
    "number": 15,
@@ -269,7 +1127,71 @@
     "text": "Setter's new and unusual RIP sign is thought-provoking",
     "enumeration": "9"
    },
-   "solution": "INSPIRING"
+   "solution": "INSPIRING",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "INSPIRING",
+    "definitions": [
+     {
+      "text": "thought-provoking",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unusual",
+      "for": "anagram",
+      "note": "something unusual is out of the ordinary, so the letters are out of their ordinary order"
+     }
+    ],
+    "linkWords": [
+     "and",
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Setter's",
+      "gives": "I",
+      "note": "the setter refers to themself as I; the 's just attaches to what follows"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "RIP sign",
+      "gives": "RIPSIGN",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "N",
+      "SPIRING"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RIPSIGN",
+       "gives": "SPIRING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crossword setter's novel, odd gravestone sign gets people thinking.",
+     "walkthrough": "In crosswords the setter is I or ME; here 'Setter's' gives I and 'new' gives N before the rearranged letters.",
+     "definitionFit": "Something inspiring stimulates new ideas and creative feeling, which is what thought-provoking describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "RIP"
+    }
+   }
   },
   {
    "number": 16,
@@ -289,7 +1211,54 @@
      }
     ]
    },
-   "solution": "SALADBOWL"
+   "solution": "SALADBOWL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SALAD BOWL",
+    "definitions": [
+     {
+      "text": "Item of tableware",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "demolished",
+      "for": "anagram",
+      "note": "a demolished building is knocked to pieces, so its letters are rebuilt in another form"
+     }
+    ],
+    "linkWords": [
+     "found when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old lab was",
+      "gives": "OLDLABWAS",
+      "note": "the nine letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OLDLABWAS",
+       "gives": "SALADBOWL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dish turned up in the rubble when an old laboratory was knocked down.",
+     "walkthrough": "'Was' looks like the verb of the surface sentence, but it is part of the letters to rearrange.",
+     "definitionFit": "A salad bowl is a large dish for serving leaves at the table, one example of tableware."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "was"
+    }
+   }
   },
   {
    "number": 17,
@@ -303,7 +1272,77 @@
     "text": "Nigel excited by new reading material heading off for a seat by the fire",
     "enumeration": "9"
    },
-   "solution": "INGLENOOK"
+   "solution": "INGLENOOK",
+   "annotation": {
+    "type": [
+     "anagram",
+     "deletion",
+     "charade"
+    ],
+    "answer": "INGLENOOK",
+    "definitions": [
+     {
+      "text": "a seat by the fire",
+      "at": 54
+     }
+    ],
+    "indicators": [
+     {
+      "text": "excited",
+      "for": "anagram",
+      "note": "an excited person is stirred up, so these letters are stirred into a different order"
+     },
+     {
+      "text": "heading off",
+      "for": "deletion",
+      "note": "with its heading taken off, a word loses its first letter"
+     }
+    ],
+    "linkWords": [
+     "by",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nigel",
+      "gives": "NIGEL",
+      "note": "the letters to rearrange"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "reading material",
+      "gives": "BOOK",
+      "note": "a book is something to read; its first letter goes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INGLE",
+      "N",
+      "OOK"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NIGEL",
+       "gives": "INGLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Nigel, thrilled by a new book, heads off to his chair by the fireside.",
+     "walkthrough": "'Heading off' looks like Nigel leaving, but it removes the first letter of BOOK; 'for' is the link to the definition.",
+     "definitionFit": "An inglenook is a recess beside a large open fireplace, typically with a bench, so a fireside seat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heading"
+    }
+   }
   },
   {
    "number": 18,
@@ -317,7 +1356,67 @@
     "text": "Deep back in flashy plant",
     "enumeration": "9"
    },
-   "solution": "SPEEDWELL"
+   "solution": "SPEEDWELL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "SPEEDWELL",
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means travelling the opposite way, so the letters run in reverse"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Deep",
+      "gives": "DEEP",
+      "note": "taken as written, then turned round"
+     },
+     {
+      "clueFragment": "flashy",
+      "gives": "SWELL",
+      "note": "swell means smart or showy in old-fashioned slang"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PEED",
+      "WELL"
+     ],
+     "reversals": [
+      {
+       "from": "DEEP",
+       "to": "PEED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something hidden deep at the back of a showy plant.",
+     "walkthrough": "'Swell' as an adjective means stylish or flashy, mostly in dated or American slang.",
+     "definitionFit": "Speedwell is a small wildflower with blue flowers, the genus Veronica, so an example of a plant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Deep"
+    }
+   }
   },
   {
    "number": 18,
@@ -331,7 +1430,84 @@
     "text": "Vehicle turning up to meet plane containing Canada's foremost citizen",
     "enumeration": "7"
    },
-   "solution": "SUBJECT"
+   "solution": "SUBJECT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "SUBJECT",
+    "definitions": [
+     {
+      "text": "citizen",
+      "at": 62
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning up",
+      "for": "reversal",
+      "note": "in a down entry, turning up flips a word so it reads from bottom to top"
+     },
+     {
+      "text": "foremost",
+      "for": "letter_selection",
+      "note": "foremost means at the very front, so only the first letter is used"
+     },
+     {
+      "text": "containing",
+      "for": "container",
+      "note": "to contain something is to hold it inside, so one piece goes within another"
+     }
+    ],
+    "linkWords": [
+     "to meet"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vehicle",
+      "gives": "BUS",
+      "note": "a bus is a vehicle"
+     },
+     {
+      "clueFragment": "plane",
+      "gives": "JET",
+      "note": "a jet is a plane"
+     },
+     {
+      "clueFragment": "Canada's",
+      "gives": "C",
+      "select": "first",
+      "note": "the first letter of Canada"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUB",
+      "JE",
+      "C",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "BUS",
+       "to": "SUB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A car pulls up to meet an aircraft carrying Canada's leading citizen.",
+     "walkthrough": "'Foremost citizen' suggests a VIP, but 'foremost' only picks C from Canada's, and 'citizen' alone is the definition.",
+     "definitionFit": "A subject is a member of a state owing allegiance to a monarch, as British subjects are, close to citizen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "foremost"
+    }
+   }
   },
   {
    "number": 19,
@@ -345,7 +1521,54 @@
     "text": "Agree cooking is keen",
     "enumeration": "5"
    },
-   "solution": "EAGER"
+   "solution": "EAGER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EAGER",
+    "definitions": [
+     {
+      "text": "keen",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cooking",
+      "for": "anagram",
+      "note": "cooking mixes ingredients together, so these letters are mixed into a new order"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Agree",
+      "gives": "AGREE",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AGREE",
+       "gives": "EAGER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Everyone accepts that the cook is enthusiastic.",
+     "walkthrough": "'Cooking' looks like a noun, the subject of 'is', but it acts on the word before it.",
+     "definitionFit": "Being eager means wanting to do something very much, the same as being keen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cooking"
+    }
+   }
   },
   {
    "number": 20,
@@ -359,7 +1582,59 @@
     "text": "King imprisoned in keep gets to prepare for a new job",
     "enumeration": "7"
    },
-   "solution": "RETRAIN"
+   "solution": "RETRAIN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RETRAIN",
+    "definitions": [
+     {
+      "text": "prepare for a new job",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "imprisoned in",
+      "for": "container",
+      "note": "a prisoner is locked inside a jail, so one piece is shut within another"
+     }
+    ],
+    "linkWords": [
+     "gets to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "keep",
+      "gives": "RETAIN",
+      "note": "to keep is to retain"
+     },
+     {
+      "clueFragment": "King",
+      "gives": "R",
+      "note": "R is short for rex, Latin for king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RET",
+      "R",
+      "AIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A king locked in a castle keep is told to get ready for a new career.",
+     "walkthrough": "'Keep' looks like a castle tower, the natural prison for a king, but it is the verb meaning to retain.",
+     "definitionFit": "To retrain is to learn new skills so as to take up a different occupation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "keep"
+    }
+   }
   },
   {
    "number": 21,
@@ -373,7 +1648,50 @@
     "text": "Obscure book gets the usual spiel on the cover",
     "enumeration": "5"
    },
-   "solution": "BLURB"
+   "solution": "BLURB",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BLURB",
+    "definitions": [
+     {
+      "text": "the usual spiel on the cover",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Obscure",
+      "gives": "BLUR",
+      "note": "to blur is to obscure"
+     },
+     {
+      "clueFragment": "book",
+      "gives": "B",
+      "note": "B is the abbreviation for book"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BLUR",
+      "B"
+     ]
+    },
+    "explanation": {
+     "surface": "An obscure book still gets the standard sales talk on its jacket.",
+     "walkthrough": "'Obscure' reads as an adjective for the book, but it is a verb in the wordplay.",
+     "definitionFit": "A blurb is the short promotional description printed on a book jacket, its familiar sales patter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Obscure"
+    }
+   }
   },
   {
    "number": 22,
@@ -387,7 +1705,56 @@
     "text": "Let loose by heads of unusually nice prison in Norway",
     "enumeration": "5"
    },
-   "solution": "UNPIN"
+   "solution": "UNPIN",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "UNPIN",
+    "definitions": [
+     {
+      "text": "Let loose",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heads of",
+      "for": "letter_selection",
+      "note": "the head of a word is its top, so each word gives its first letter"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unusually nice prison in Norway",
+      "gives": "UNPIN",
+      "select": "first",
+      "note": "the first letters of the five words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "N",
+      "P",
+      "I",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Inmates freed by the bosses of Norway's famously comfortable prisons.",
+     "walkthrough": "Norwegian jails are known for being unusually humane, which makes 'heads' read as governors rather than first letters.",
+     "definitionFit": "To unpin something is to remove the pins holding it, so to set it loose or free."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "heads"
+    }
+   }
   },
   {
    "number": 23,
@@ -401,7 +1768,54 @@
     "text": "Pet dragon repaired by one supposed to have child's interests at heart",
     "enumeration": "9"
    },
-   "solution": "GODPARENT"
+   "solution": "GODPARENT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GODPARENT",
+    "definitions": [
+     {
+      "text": "one supposed to have child's interests at heart",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "repaired",
+      "for": "anagram",
+      "note": "a repaired object has been taken apart and put back together, so the letters are reassembled"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pet dragon",
+      "gives": "PETDRAGON",
+      "note": "the nine letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PETDRAGON",
+       "gives": "GODPARENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A child's broken toy dragon is mended by a caring adult.",
+     "walkthrough": "The definition is a playful description rather than a dictionary phrase, fair because a godparent promises at a christening to look out for the child.",
+     "definitionFit": "A godparent sponsors a child at baptism and is expected to take a lasting interest in the child's welfare."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "repaired"
+    }
+   }
   },
   {
    "number": 23,
@@ -415,7 +1829,43 @@
     "text": "Michigan jailbird in possession of drug",
     "enumeration": "5"
    },
-   "solution": "GANJA"
+   "solution": "GANJA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "GANJA",
+    "definitions": [
+     {
+      "text": "drug",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in possession of",
+      "for": "hidden_word",
+      "note": "what one possesses is held within, so the letters are held inside the phrase"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Michigan jailbird",
+      "gives": "GANJA",
+      "note": "the run of letters across the end of one word and start of the next"
+     }
+    ],
+    "explanation": {
+     "surface": "A Michigan convict is caught carrying narcotics.",
+     "walkthrough": "'Michigan' tempts you to use its abbreviation MI, but the answer lies across the join of the two words.",
+     "definitionFit": "Ganja is a slang name, from Hindi, for cannabis, so a particular drug."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Michigan"
+    }
+   }
   },
   {
    "number": 24,
@@ -429,7 +1879,56 @@
     "text": "A second South American found in Indian state",
     "enumeration": "5"
    },
-   "solution": "ASSAM"
+   "solution": "ASSAM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASSAM",
+    "definitions": [
+     {
+      "text": "Indian state",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "found in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     },
+     {
+      "clueFragment": "South American",
+      "gives": "SAM",
+      "note": "S Am is short for South American"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "S",
+      "SAM"
+     ]
+    },
+    "explanation": {
+     "surface": "Another South American turns up living in India.",
+     "walkthrough": "'A second' reads as 'another', but it gives two separate letters.",
+     "definitionFit": "Assam is a state in north-east India, best known for its tea, so a specific example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "second"
+    }
+   }
   },
   {
    "number": 25,
@@ -443,7 +1942,74 @@
     "text": "Managed to penetrate English poet's creative language",
     "enumeration": "9"
    },
-   "solution": "ESPERANTO"
+   "solution": "ESPERANTO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "ESPERANTO",
+    "definitions": [
+     {
+      "text": "language",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "creative",
+      "for": "anagram",
+      "note": "being creative means making something new, so these letters are made into a fresh word"
+     },
+     {
+      "text": "to penetrate",
+      "for": "container",
+      "note": "to penetrate is to get inside, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "poet's",
+      "gives": "POETS",
+      "note": "the letters to rearrange"
+     },
+     {
+      "clueFragment": "Managed",
+      "gives": "RAN",
+      "note": "to run a business is to manage it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "SPE",
+      "RAN",
+      "TO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "POETS",
+       "gives": "SPETO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone succeeded in getting into an English poet's inventive use of words.",
+     "walkthrough": "'Creative language' reads as a single phrase, but 'creative' acts on the poet's letters and 'language' alone defines; the apostrophe's S is used.",
+     "definitionFit": "Esperanto is an invented international language devised by Zamenhof in 1887, one specific example of a language."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "creative"
+    }
+   }
   },
   {
    "number": 26,
@@ -457,7 +2023,42 @@
     "text": "Mouth-like opening found in enormous tomato",
     "enumeration": "5"
    },
-   "solution": "STOMA"
+   "solution": "STOMA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "STOMA",
+    "definitions": [
+     {
+      "text": "Mouth-like opening",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found in",
+      "for": "hidden_word",
+      "note": "something found in a phrase lies inside it, so the letters are inside the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "enormous tomato",
+      "gives": "STOMA",
+      "note": "the run of letters across the end of one word and start of the next"
+     }
+    ],
+    "explanation": {
+     "surface": "A gaping hole discovered in a giant tomato.",
+     "walkthrough": "The answer sits across the join of the last two words.",
+     "definitionFit": "A stoma is a small pore in a leaf or an opening made surgically, from Greek for mouth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -471,7 +2072,61 @@
     "text": "Is island surrounded by fish here in North Africa?",
     "enumeration": "7"
    },
-   "solution": "TUNISIA"
+   "solution": "TUNISIA",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "TUNISIA",
+    "definitions": [
+     {
+      "text": "here in North Africa",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surrounded by",
+      "for": "container",
+      "note": "a thing surrounded by another is enclosed by it, so one piece sits inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fish",
+      "gives": "TUNA",
+      "note": "tuna is a fish"
+     },
+     {
+      "clueFragment": "Is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "I",
+      "note": "I is the abbreviation for island"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TUN",
+      "IS",
+      "I",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about whether an island ringed by fish lies off North Africa.",
+     "walkthrough": "The definition is the whole phrase 'here in North Africa', a place in that region.",
+     "definitionFit": "Tunisia is a country on the Mediterranean coast of North Africa, so a place located there."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 28,
@@ -485,7 +2140,65 @@
     "text": "Research facility receiving money for family for this young thing",
     "enumeration": "7"
    },
-   "solution": "LAMBKIN"
+   "solution": "LAMBKIN",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "LAMBKIN",
+    "definitions": [
+     {
+      "text": "this young thing",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "receiving",
+      "for": "container",
+      "note": "to receive is to take in, so one piece is taken inside another"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Research facility",
+      "gives": "LAB",
+      "note": "a lab is a laboratory"
+     },
+     {
+      "clueFragment": "money",
+      "gives": "M",
+      "note": "M is an abbreviation for money"
+     },
+     {
+      "clueFragment": "family",
+      "gives": "KIN",
+      "note": "kin are relatives"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LA",
+      "M",
+      "B",
+      "KIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A laboratory gets funding for a family to look after a young creature.",
+     "walkthrough": "The first 'for' joins money and family in the charade; the second is the link to the definition.",
+     "definitionFit": "A lambkin is a little lamb, a newborn animal, so a young thing in the farmyard sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "facility"
+    }
+   }
   }
  ]
 }
