@@ -225,6 +225,14 @@ ACQUIRED_BY = {
         "channel": "blog",
         "what": "a fifteensquared write-up's clue list and answers, the grid "
                 "rebuilt from them by tools/times_grids.py's search"},
+    "tools/ft_pdf_puzzles.py": {
+        "channel": "publisher",
+        "what": "the FT's printable crossword PDF on media.ft.com, its grid read "
+                "from the vector art, answers from a fifteensquared write-up"},
+    "tools/ft_pdf_puzzles.py --wayback": {
+        "channel": "wayback",
+        "what": "a Wayback copy of the FT's printable crossword PDF that "
+                "media.ft.com no longer serves, answers from fifteensquared"},
     "tools/indy_puzzles.py": {
         "channel": "blog",
         "what": "a fifteensquared write-up of an Independent puzzle older than "
@@ -264,6 +272,9 @@ ACQUISITION_BY_SOURCE = {
     # Before the feed began (No 8,978) the only clue lists are fifteensquared's.
     ("independent", "fifteensquared.net"): ("tools/indy_puzzles.py",),
     ("indysunday", "fifteensquared.net"): ("tools/indy_puzzles.py",),
+    # The FT's printable PDFs of 2006-2012, before fifteensquared printed clues.
+    ("ftcryptic", "media.ft.com"): ("tools/ft_pdf_puzzles.py",
+                                    "tools/ft_pdf_puzzles.py --wayback"),
     ("cyclops", "www.private-eye.co.uk"): ("tools/fetch_privateeye.py", "tools/file_cyclops_christmas.py"),
     ("telegraph", "www.telegraph.co.uk"): ("tools/fetch_telegraph.py",),
     ("toughie", "www.telegraph.co.uk"): ("tools/fetch_telegraph.py",),
