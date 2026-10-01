@@ -156,7 +156,7 @@ ROOT = Path(__file__).resolve().parent.parent
 # The flags, in the order they are reported. One tuple, read by both the
 # per-finding listing and the tally, so a check cannot be added to one and
 # missed from the other.
-FLAGS = ("LENGTH", "CROSS", "GRID", "NUMBER", "DATE", "SETTER", "SHAPE", "PROV", "FILED")
+FLAGS = ("LENGTH", "CROSS", "CELLS", "GRID", "NUMBER", "DATE", "SETTER", "SHAPE", "PROV", "FILED")
 
 # No cryptic crossword in this corpus predates the Guardian's, which began in 1929.
 # A date below this is a page the publisher mis-filed or a fetcher that lost one,
@@ -1112,6 +1112,60 @@ def check_puzzle_text(puzzle, flags):
     flags.extend(("SHAPE", puzzle["id"], err) for err in errors)
 
 
+def entry_letters(puzzle):
+    """(x, y) -> the letter the answered entries put there, for every square
+    some entry covers ("" where none of its entries is answered)."""
+    out = {}
+    for e in puzzle.get("entries") or []:
+        pos, sol = e.get("position") or {}, e.get("solution") or ""
+        if not isinstance(pos.get("x"), int) or not isinstance(pos.get("y"), int):
+            continue
+        for i in range(e.get("length") or 0):
+            cell = (pos["x"] + i, pos["y"]) if e.get("direction") == "across" else (pos["x"], pos["y"] + i)
+            letter = sol[i] if len(sol) == e["length"] else ""
+            out[cell] = out.get(cell) or letter
+    return out
+
+
+def check_extra_cells(puzzle, flags):
+    """The squares that are not entries' own: `unclued` lights and `printed`
+    letters. An unclued light lies on the board, one letter per square, no
+    square twice, and agrees with every answered entry it crosses. A printed
+    letter sits on a white square, an entry's or an unclued light's, and is
+    the solution's letter there."""
+    pid = puzzle.get("id")
+    cols, rows = puzzle["dimensions"]["cols"], puzzle["dimensions"]["rows"]
+    letters = entry_letters(puzzle)
+    for n, light in enumerate(puzzle.get("unclued") or [], 1):
+        cells = [(c.get("x"), c.get("y")) for c in light.get("cells") or []]
+        sol = light.get("solution") or ""
+        if len(sol) != len(cells):
+            flags.append(("CELLS", pid, f"unclued light {n}: solution {sol!r} has "
+                          f"{len(sol)} letters for {len(cells)} squares"))
+        if len(set(cells)) != len(cells):
+            flags.append(("CELLS", pid, f"unclued light {n}: lists a square twice"))
+        for i, (x, y) in enumerate(cells):
+            if not (isinstance(x, int) and isinstance(y, int) and 0 <= x < cols and 0 <= y < rows):
+                flags.append(("CELLS", pid, f"unclued light {n}: square ({x}, {y}) "
+                              f"is off the {cols}x{rows} board"))
+                continue
+            mine = sol[i] if i < len(sol) else ""
+            theirs = letters.get((x, y))
+            if mine and theirs and mine != theirs:
+                flags.append(("CELLS", pid, f"unclued light {n}: square ({x}, {y}) "
+                              f"is {mine} but the entry crossing it has {theirs}"))
+            if (x, y) not in letters or mine:
+                letters[(x, y)] = theirs or mine
+    for p in puzzle.get("printed") or []:
+        x, y, letter = p.get("x"), p.get("y"), p.get("letter")
+        if (x, y) not in letters:
+            flags.append(("CELLS", pid, f"printed {letter} at ({x}, {y}) is not "
+                          f"on a white square"))
+        elif letters[(x, y)] and letters[(x, y)] != letter:
+            flags.append(("CELLS", pid, f"printed {letter} at ({x}, {y}) but the "
+                          f"solution there is {letters[(x, y)]}"))
+
+
 def check_puzzle(puzzle, today, flags):
     """Every check that one puzzle file answers on its own. audit() runs it on
     the corpus and fetch_puzzle.write_puzzle_file on every write, so a fetcher
@@ -1128,6 +1182,7 @@ def check_puzzle(puzzle, today, flags):
     check_numbering(puzzle, flags)
     check_length(puzzle, checkable, flags)
     check_cross(puzzle, checkable, flags)
+    check_extra_cells(puzzle, flags)
     check_puzzle_text(puzzle, flags)
 
 

@@ -678,6 +678,11 @@ button:disabled:hover { border-color: var(--line); }
   position: absolute; top: 1px; left: 2px;
   font-size: max(8px, calc(var(--cellsize) * .28)); font-weight: 400; color: var(--numfg);
 }
+/* An unclued light's squares are shaded, as the paper prints them; the
+   highlight and selection rules below still win. */
+.cell.unclued { background: color-mix(in srgb, var(--cellbg) 78%, var(--blockfill)); }
+/* A letter the setter printed is given, not typed: drawn in the number colour. */
+.cell.printed .letter { color: var(--numfg); font-weight: 400; }
 .cell.hl { background: var(--cell-hl); }
 .cell.sel { background: var(--cell-sel); color: #1a1a1a; }
 .cell.wrong { color: var(--cell-wrong); }

@@ -172,7 +172,7 @@
   function sealArrivedProgress() {
     eventsSent = new Set();
     let filled = 0, total = 0;
-    forEachCell((c) => { total++; if (c.letter) filled++; });
+    forEachCell((c) => { if (c.printed) return; total++; if (c.letter) filled++; });
     if (filled) eventsSent.add("letter");
     if (total && filled * 2 >= total) eventsSent.add("half");
     if (entries.some(isEntrySolved)) eventsSent.add("entry");
@@ -185,7 +185,7 @@
   function checkHalfFilled() {
     if (!entries.length || eventsSent.has("half")) return;
     let filled = 0, total = 0;
-    forEachCell((c) => { total++; if (c.letter) filled++; });
+    forEachCell((c) => { if (c.printed) return; total++; if (c.letter) filled++; });
     if (total && filled * 2 >= total) beacon("half");
   }
 
@@ -842,6 +842,7 @@
   let cells = [];        // rows x cols of {x,y,sol,num,across,down,el,letter,wrong,revealed} | null
   let entries = [];      // puzzle entries in tab order (across by number, then down)
   let byId = {};
+  let unclued = [];      // per P.unclued light, its cells in reading order
   let leaderOf = {};     // continuation id -> its linked group's leader id (buildLeaderOf)
   let cur = { x: 0, y: 0, dir: "across" };
   // The clue the LINK asked for, read once and spent once.
@@ -997,7 +998,7 @@
     const prev = store.get(stateKey(), null) || {};
     const was = prev.letters || {};
     const letters = {};
-    forEachCell((c) => { if (c.letter) letters[c.x + "," + c.y] = c.letter + (c.revealed ? "!" : ""); });
+    forEachCell((c) => { if (c.letter && !c.printed) letters[c.x + "," + c.y] = c.letter + (c.revealed ? "!" : ""); });
     // When each square last changed, carried forward from the previous save
     // and re-stamped only where something actually moved. Rubbing a letter
     // out leaves no letter behind, so without this the merge cannot tell a
@@ -1071,6 +1072,7 @@
         if (v) { c.letter = v[0]; c.revealed = v.length > 1; }
       });
     }
+    applyPrinted();
   }
 
   /* ---------- sync engine ----------
@@ -1692,7 +1694,52 @@
         if (e.solution) c.sol = e.solution[i];
       }
     });
+    // Unclued lights own their squares as entries do, but are walked by their
+    // listed cells; printed letters are given, so they are filled and locked.
+    unclued = (P.unclued || []).map((u, n) => u.cells.map(({ x, y }, i) => {
+      if (!cells[y][x]) cells[y][x] = { x, y, sol: null, num: null, across: null, down: null, letter: "", wrong: false, revealed: false };
+      const c = cells[y][x];
+      if (c.light === undefined) c.light = n;
+      c.unclued = true;
+      c.sol = c.sol || u.solution[i];
+      return c;
+    }));
+    applyPrinted();
   }
+
+  function applyPrinted() {
+    (P.printed || []).forEach(({ x, y, letter }) => {
+      const c = cells[y] && cells[y][x];
+      if (!c) return;
+      c.printed = true; c.sol = c.sol || letter;
+      c.letter = letter; c.wrong = false; c.revealed = false;
+    });
+  }
+
+  // The unclued light the cursor is walking: only on a square no entry covers,
+  // since a shared square is reached through its entry.
+  function currentLight() {
+    const c = cells[cur.y] && cells[cur.y][cur.x];
+    if (!c || c.across || c.down || c.light === undefined) return null;
+    return unclued[c.light];
+  }
+  function stepLight(delta) {
+    const light = currentLight();
+    if (!light) return;
+    const i = light.findIndex((c) => c.x === cur.x && c.y === cur.y);
+    const c = light[Math.min(light.length - 1, Math.max(0, i + delta))];
+    cur.x = c.x; cur.y = c.y;
+  }
+  function selectLight(light) {
+    hintFocus = null;
+    const c = light.find((q) => !q.letter && !q.across && !q.down)
+      || light.find((q) => !q.across && !q.down) || light[0];
+    cur.x = c.x; cur.y = c.y;
+    if (!c.across && !c.down) cur.dir = "across";
+    else if (!c[cur.dir]) cur.dir = c.across ? "across" : "down";
+    refreshAll();
+  }
+  const uncluedSolved = () => unclued.every((l) => l.every((c) => c.letter === c.sol));
 
   // ---------- grid rendering ----------
   function renderGrid() {
@@ -1707,7 +1754,7 @@
         if (!c) {
           div.className = "cell block";
         } else {
-          div.className = "cell";
+          div.className = "cell" + (c.unclued ? " unclued" : "") + (c.printed ? " printed" : "");
           if (c.num) div.innerHTML = `<span class="num">${c.num}</span>`;
           const span = document.createElement("span");
           span.className = "letter";
@@ -1764,6 +1811,7 @@
   function refreshGrid() {
     const e = currentEntry();
     const typeIt = nuxTypeIt(e);
+    const light = currentLight();
     forEachCell((c) => {
       const el = c.el;
       if (!el) return;
@@ -1772,7 +1820,7 @@
       el.classList.toggle("revealed", !!c.revealed);
       const inEntry = e && ((e.direction === "across" && c.y === e.position.y && c.x >= e.position.x && c.x < e.position.x + e.length)
         || (e.direction === "down" && c.x === e.position.x && c.y >= e.position.y && c.y < e.position.y + e.length));
-      el.classList.toggle("hl", !!inEntry && !(c.x === cur.x && c.y === cur.y));
+      el.classList.toggle("hl", !!(inEntry || (light && light.indexOf(c) >= 0)) && !(c.x === cur.x && c.y === cur.y));
       el.classList.toggle("sel", c.x === cur.x && c.y === cur.y);
       // The walk's last instruction is "type it in", and this is where that
       // happens: the empty squares wear the walk's pointer.
@@ -1825,7 +1873,28 @@
         ol.appendChild(li);
       });
     });
+    renderUncluedList();
     refreshClues();
+  }
+
+  // Unclued lights have no clue to show, only what the puzzle says they are.
+  function renderUncluedList() {
+    const ol = $("clues-unclued");
+    if (!ol) return;
+    ol.innerHTML = "";
+    $("unclued-section").classList.toggle("hidden", !unclued.length);
+    (P.unclued || []).forEach((u, n) => {
+      const li = document.createElement("li");
+      li.className = "unclued-light";
+      li.innerHTML = `<span class="clue-text">${esc(u.note || "Unclued light")}</span>`
+        + (u.enumeration ? `<span class="clue-enum"> (${esc(u.enumeration)})</span>` : "");
+      li.addEventListener("click", () => {
+        if (clueTapIsAnAccident()) return;
+        lastClueTap = Date.now();
+        selectLight(unclued[n]);
+      });
+      ol.appendChild(li);
+    });
   }
 
   // Every rung marks up its OWN words, independently of the others.
@@ -2408,7 +2477,7 @@
 
   function moveInEntry(delta) {
     const e = currentEntry();
-    if (!e) return;
+    if (!e) { stepLight(delta); return; }
     const i = e.direction === "across" ? cur.x - e.position.x : cur.y - e.position.y;
     const j = Math.min(e.length - 1, Math.max(0, i + delta));
     const c = cellAt(e, j);
@@ -2436,7 +2505,13 @@
   // moves (and typing over a letter stays possible).
   function advanceToGap() {
     const e = currentEntry();
-    if (!e) return;
+    if (!e) {
+      const light = currentLight();
+      const i = light ? light.findIndex((c) => c.x === cur.x && c.y === cur.y) : -1;
+      const gap = light && light.slice(i + 1).find((c) => !c.letter);
+      if (gap) { cur.x = gap.x; cur.y = gap.y; } else stepLight(1);
+      return;
+    }
     const i = e.direction === "across" ? cur.x - e.position.x : cur.y - e.position.y;
     for (let j = i + 1; j < e.length; j++) {
       const c = cellAt(e, j);
@@ -2473,7 +2548,7 @@
     });
     return s;
   }
-  function cellConfirmed(c) { return !!c && !!c.letter && confirmedCells().has(c); }
+  function cellConfirmed(c) { return !!c && !!c.letter && (c.printed || confirmedCells().has(c)); }
 
   function typeLetter(ch) {
     const c = cells[cur.y][cur.x];
@@ -2633,6 +2708,7 @@
     if (!canCheck()) return;
     beacon("check");
     let wrong = 0, right = 0, blank = 0;
+    list = list.filter((c) => !c.printed);
     list.forEach((c) => {
       if (!c.letter) { blank++; return; }
       if (c.letter !== c.sol) { c.wrong = true; wrong++; } else right++;
@@ -2716,6 +2792,14 @@
   // advance the teaching ladder, but it does count against the score.
   function revealLetter() {
     const e = currentEntry();
+    const light = !e && currentLight();
+    if (light && canCheck()) {
+      const cSel = cells[cur.y][cur.x];
+      const target = cSel.letter !== cSel.sol ? cSel : light.find((c) => c.letter !== c.sol);
+      if (target) revealCell(target);
+      refreshAll(); saveState();
+      return;
+    }
     if (!e || !canCheck()) return;
     // prefer the selected cell if it's empty/wrong, else first empty/wrong cell
     const cs = entryCells(e);
@@ -6623,7 +6707,7 @@
   // 41 minutes is owed those three numbers in one sentence.
   let wasComplete = null;      // null = not measured yet on this puzzle
   function checkComplete() {
-    const complete = entries.length > 0 && entries.every(isEntrySolved);
+    const complete = entries.length > 0 && entries.every(isEntrySolved) && uncluedSolved();
     const earned = wasComplete === false && complete;
     wasComplete = complete;
     if (earned) beacon("done");
@@ -7015,12 +7099,18 @@
     });
 
     $("chk-letter").onclick = () => { const c = cells[cur.y][cur.x]; if (c) checkCells([c], "square"); };
-    $("chk-entry").onclick = () => { const e = currentEntry(); if (e) checkCells(entryCells(e), "word"); };
+    $("chk-entry").onclick = () => {
+      const e = currentEntry(), light = !e && currentLight();
+      if (e || light) checkCells(e ? entryCells(e) : light, "word");
+    };
     $("chk-grid").onclick = () => { const all = []; forEachCell((c) => all.push(c)); checkCells(all, "grid"); };
     $("clear-entry").onclick = () => {
       const e = currentEntry();
+      const light = !e && currentLight();
+      if (light) light.forEach(clearCell);
+      if (light) { refreshAll(); saveState(); }
       if (!e) return;
-      entryCells(e).forEach((c) => { c.letter = ""; c.wrong = false; c.revealed = false; });
+      entryCells(e).forEach((c) => { if (!c.printed) { c.letter = ""; c.wrong = false; c.revealed = false; } });
       refreshAll(); saveState();
     };
     $("reset-puzzle").onclick = () => {
@@ -7037,6 +7127,7 @@
                               revealsUsed: {}, solvedWith: {}, timing: {},
                               clearedAt: now, updated: now });
       forEachCell((c) => { c.letter = ""; c.wrong = false; c.revealed = false; });
+      applyPrinted();
       hintsShown = {}; hintsEarned = {}; hintLevels = {}; revealsUsed = {}; blocksAt = {};
       solvedWith = {}; timing = {};
       refreshAll();
@@ -7130,13 +7221,13 @@
     // buttons away and rebuilds them on every render. The mousedown listener
     // runs before the default focus transfer, so activeElement still says
     // whether the keyboard was up when the finger landed.
-    ["grid", "clues-across", "clues-down", "hint-next", "hint-escape"].forEach((id) =>
+    ["grid", "clues-across", "clues-down", "clues-unclued", "hint-next", "hint-escape"].forEach((id) =>
       $(id).addEventListener("mousedown", keepKbd));
 
     // Bound here for the same reason, and to the list rather than to a row: the
     // rows are rebuilt with every puzzle, and the second click of the double-tap
     // accident lands on a different row from the first — see clueTapIsAnAccident.
-    ["clues-across", "clues-down"].forEach((id) =>
+    ["clues-across", "clues-down", "clues-unclued"].forEach((id) =>
       $(id).addEventListener("touchstart", () => { clueTouchAt = Date.now(); },
                              { passive: true }));
 
