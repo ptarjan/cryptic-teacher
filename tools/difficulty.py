@@ -459,10 +459,7 @@ def ranks():
 
 
 def checking(puz):
-    """Mean share of unchecked letters per entry. None on a gridless puzzle,
-    whose checking nobody knows yet: score() drops a missing component."""
-    if not puz.get("dimensions"):
-        return None
+    """Mean share of unchecked letters per entry."""
     used = {}
     for e in puz["entries"]:
         x, y = e["position"]["x"], e["position"]["y"]

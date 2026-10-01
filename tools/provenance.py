@@ -370,8 +370,8 @@ def book_of(series, number):
 # ------------------------------------------------------------ the file shape
 #
 # Key order is the schema's (puzzle_schema.order), not listed here.
-#: gridOrigin is required too, exactly when the puzzle has a grid (check()).
-SOURCE_REQUIRED = ("publisher", "retrievedFrom", "acquiredBy", "acquiredOn")
+SOURCE_REQUIRED = ("publisher", "retrievedFrom", "acquiredBy", "acquiredOn",
+                   "gridOrigin")
 #: The keys that back a claim that the answers are not the publisher's.
 SOLUTION_DETAIL = ("blog", "url", "model", "date", "check", "officialKey")
 #: What each non-published origin must carry.
@@ -497,9 +497,7 @@ def derive(puzzle, claimed, acquired_on, previously=None):
         "retrievedFrom": channel_of(tool),
         "acquiredBy": tool,
         "acquiredOn": acquired_on if acquired_on else "unknown",
-        # A gridless puzzle has no geometry for anyone to have originated.
-        "gridOrigin": (None if not puzzle_schema.has_grid(puzzle) else
-                       old_source["gridOrigin"] if series in GRID_ORIGIN_PER_PUZZLE
+        "gridOrigin": (old_source["gridOrigin"] if series in GRID_ORIGIN_PER_PUZZLE
                        and old_source.get("gridOrigin") in GRID_ORIGINS
                        else grid_origin(series, old_source.get("url"))),
         "feedId": old_source.get("feedId"),
@@ -657,16 +655,10 @@ def check(puzzle):
         findings.append(f"source.acquiredOn is {acquired_on!r} — want an ISO "
                         f"date or \"unknown\"")
 
-    if not puzzle_schema.has_grid(puzzle):
-        if "gridOrigin" in source:
-            findings.append(f"source.gridOrigin is {source['gridOrigin']!r} but the "
-                            f"puzzle has no grid")
-    elif "gridOrigin" not in source:
-        findings.append("source is missing gridOrigin")
     expected_grid = grid_origin(series, source.get("url"))
     allowed_grid = ({"published", "reconstructed"} if series in GRID_ORIGIN_PER_PUZZLE
                     else {expected_grid})
-    if "gridOrigin" in source and source["gridOrigin"] not in allowed_grid | {"unknown"}:
+    if source.get("gridOrigin") not in allowed_grid | {"unknown"}:
         findings.append(f"source.gridOrigin is {source.get('gridOrigin')!r} but "
                         f"{series!r} grids are {expected_grid!r}")
 
