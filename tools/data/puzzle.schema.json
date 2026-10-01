@@ -85,6 +85,15 @@
     }
    }
   },
+  "bars": {
+   "type": "array",
+   "minItems": 1,
+   "items": {
+    "type": "string",
+    "pattern": "^[.rb+]+$"
+   },
+   "description": "A barred grid's bars, absent on a blocked grid: a string per row, a character per cell, \"r\" for a bar on the cell's right, \"b\" for one below it, \"+\" for both, \".\" for neither. The outer edge is never marked."
+  },
   "source": {
    "$ref": "#/$defs/source"
   },
@@ -135,6 +144,7 @@
     "sundaytimes",
     "timesclub",
     "tls",
+    "mephisto",
     "ftcryptic",
     "telegraph",
     "toughie",

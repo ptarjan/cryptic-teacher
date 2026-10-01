@@ -244,7 +244,7 @@ print("RESETTLE", [(r["post_id"], len(r.get("corrections", []))) for r in map(js
 # Barred puzzles have no black squares, so numbering inverts to nothing. They
 # are parsed and then deliberately not sized here; a typo in the name would
 # look identical, so check both halves.
-print("BARRED", sorted(s for s in P.SERIES.values() if s not in T.SIZE))
+print("BARRED", sorted(s for s in P.SERIES.values() if s not in T.SIZE), sorted(T.BARRED))
 # The Sunday Times's Christmas puzzle is a Jumbo in the weekly's numbering:
 # the entry count, not the label, sizes it.
 many = lambda series, k: {"series": series, "entries": [{}] * k}
@@ -316,8 +316,8 @@ check "a wordplay-settled answer rebuilds a refused puzzle, as a correction" \
       "[(2, ['Z'])]" "$(field SETTLED)"
 check "--resettle corrects the grids already written and refuses the rest" \
       "[(1, 1)] [4]" "$(field RESETTLE)"
-check "barred series are excluded, by their parsed names" \
-      "['Mephisto', 'Other Crosswords']" "$(field BARRED)"
+check "only the Mephisto of the barred series is rebuilt, by the parsed names" \
+      "['Other Crosswords'] ['Mephisto']" "$(field BARRED)"
 check "a Weekend post with a Jumbo's entries is rebuilt at 23x23; the Club and TLS at 15x15" \
       "15 23 15 15 15" "$(field SIZE)"
 check "a post that gives only the answers is not searched" "True False" "$(field CLUES)"

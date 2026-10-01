@@ -1735,8 +1735,19 @@
         grid.appendChild(div);
       }
     }
-    // word-separator marks
-    entries.forEach((e) => {
+    // A barred grid's bars: "r" on a cell is a bar on its right, "b" one
+    // below it, "+" both.
+    (P.bars || []).forEach((row, y) => {
+      [...row].forEach((ch, x) => {
+        const c = cells[y] && cells[y][x];
+        if (!c || !c.el) return;
+        if (ch === "r" || ch === "+") c.el.classList.add("bar-r");
+        if (ch === "b" || ch === "+") c.el.classList.add("bar-b");
+      });
+    });
+    // word-separator marks; a barred grid has none, as a thick line there
+    // would read as a bar
+    if (!P.bars) entries.forEach((e) => {
       (e.clue.separators || []).forEach(({ at: pos, mark }) => {
         if (pos <= 0 || pos >= e.length) return;
         const x = e.position.x + (e.direction === "across" ? pos - 1 : 0);
@@ -5895,6 +5906,13 @@
       setters: a cryptic steeped in books, with authors, characters and
       quotations in the answers and clues that reward a well-read solver.
       Grid rebuilt and answers taken from the “Times for the Times” blog.`],
+    mephisto: ["mephisto", `The Sunday Times Mephisto: the Times's hardest
+      cryptic, on a 12x12 barred grid where thick bars end the answers instead
+      of black squares, and every cell holds a letter. Its answers are the rare
+      and old words of the Chambers dictionary, so each clue's wordplay has to
+      spell out a word you may never have met, letter by letter. Setters are
+      named. The bars are rebuilt and the answers taken from the “Times for the
+      Times” blog.`],
     ftcryptic: ["FT", `The Financial Times cryptic, Monday to Saturday, from a
       stable of named setters — Io, Mudd, Julius, Jason — many of them familiar
       from other papers under other names (Mudd is the Guardian's Paul). Pitched

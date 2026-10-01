@@ -31,6 +31,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import barred_grid as bg
 import fetch_wp_blog
 import parse_timesforthetimes as parser
 import reconstruct_grid as rg
@@ -44,11 +45,10 @@ OUT = CACHE / "grids.jsonl"
 #: the puzzles a restart repeats are exactly the ones it can least afford.
 ATTEMPTS = CACHE / "attempts.jsonl"
 
-#: Blocked grids only, and their size. Mephisto is a BARRED puzzle — thick
-#: lines between cells, no black squares at all — so numbering is not a
-#: function of anything this module can invert. The Club Monthly Special and
-#: the TLS crossword are blocked 15x15s.
+#: Each series this module rebuilds, and its size. The Club Monthly Special
+#: and the TLS crossword are blocked 15x15s; the Mephisto is BARRED (below).
 SIZE = {
+    "Mephisto": 12,
     "Daily Cryptic": 15,
     "Quick Cryptic": 13,
     "Weekend Cryptic": 15,
@@ -66,6 +66,11 @@ SIZE = {
     "sundaytel": 15,
     "sundaytough": 15,
 }
+
+#: The BARRED series: thick lines between cells and no black squares, so the
+#: numbering alone fixes nothing, but every cell holds a letter and the
+#: answers pin the bars down (tools/barred_grid.py).
+BARRED = {"Mephisto"}
 
 
 #: A 15x15 holds at most this many lights; a Weekend post with more is the
@@ -426,6 +431,18 @@ def answers(rec, row):
             for e in rec["entries"]]
 
 
+def solve_barred(rec, n):
+    """solve() for a barred grid: its bars, as the grid rows light_cells reads."""
+    placements = bg.solve(rec["entries"], size=n)
+    if placements is None:
+        return [], "rejected: a light shorter than two letters, or numbered twice"
+    if not placements:
+        return [], "no grid"
+    if len(placements) > 1:
+        return [], "2 grids fit the answers"
+    return [tuple(bg.layout(rec["entries"], placements[0], size=n)[1])], "unique"
+
+
 def solve(rec, limit=50, max_nodes=DEFAULT_MAX_NODES):
     """(grids, how) for one puzzle. `how` is why it ended where it did.
 
@@ -443,6 +460,8 @@ def solve(rec, limit=50, max_nodes=DEFAULT_MAX_NODES):
     module rebuilt was built round a light the parser had not read.
     """
     n = size(rec)
+    if rec["series"] in BARRED:
+        return solve_barred(rec, n)
     lights = triples(rec)
     words = [e["answer"] for e in printed(rec)]
     try:

@@ -200,6 +200,17 @@ SERIES = {
         "perLightEnumeration": True,
         "datedFromNeighbours": True,
     },
+    # The Sunday Times's barred puzzle, numbered on its own: the grid's bars
+    # rebuilt from the blog's numbered answers (tools/barred_grid.py).
+    "mephisto": {
+        "kind": "Mephisto",
+        "publisher": "Sunday Times",
+        "group": "Times",
+        "badge": "mephisto",
+        "blog": "timesforthetimes.co.uk",
+        "perLightEnumeration": True,
+        "datedFromNeighbours": True,
+    },
     # The FT prints no grid a script can reach, so tools/ft_puzzles.py files
     # these from fifteensquared's write-ups, the grid rebuilt from their clue
     # numbers as the Times' is. Saturday's prize shares the weekday numbering.
