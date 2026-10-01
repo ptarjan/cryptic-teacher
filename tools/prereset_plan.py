@@ -16,7 +16,6 @@ indicator cover (tools/indicator_cover.py).
     tools/prereset_plan.py --self-test
 """
 import json
-import math
 import os
 import re
 import sys
@@ -24,10 +23,10 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
 
-# Running wider than the need only spends the window early and then idles until
-# its reset, so the need sets the width. The margin covers the per-run rate,
-# which is measured within about ±10% interval to interval.
-NEED_MARGIN = 1.25
+# Running wider than the need only spends the window early, which locks the
+# account out until the reset, so the need sets the width. It aims at the reset
+# itself, rounded rather than rounded up: re-read at every checkpoint, the need
+# corrects for the per-run rate's interval-to-interval noise as the reset nears.
 # The five-hour window. A reset the meter puts in the past means the window has
 # turned over since it was read: the whole of a fresh one is left to spend.
 WINDOW_HOURS = 5.0
@@ -85,15 +84,15 @@ def per_run_rate(lines):
 
 
 def need(pct, hours_left, rate):
-    """Runs that would spend the five-hour window's remainder by its reset, with
-    NEED_MARGIN, at least 1. A reset already passed is a fresh window, all of it
+    """Runs that would spend the five-hour window's remainder by its reset, at
+    least 1. A reset already passed is a fresh window, all of it
     left. None when any input is missing or unusable."""
     try:
         if pct is not None and hours_left <= 0:
             pct, hours_left = 0, WINDOW_HOURS
         if rate <= 0:
             return None
-        return max(1, math.ceil((100 - pct) * NEED_MARGIN / (hours_left * rate)))
+        return max(1, round((100 - pct) / (hours_left * rate)))
     except (TypeError, ValueError, ZeroDivisionError, OverflowError):
         return None
 
@@ -244,12 +243,12 @@ WIDTH_CASES = [
 ]
 # (pct, hours to reset, per-run rate) -> need
 NEED_CASES = [
-    ((90, 2.0, 1.95), 4),     # 10 points over 3.9 run-hours, x1.25
-    ((60, 1.0, 1.95), 26),    # 40 points in 1h
+    ((90, 2.0, 1.95), 3),     # 10 points over 3.9 run-hours
+    ((60, 1.0, 1.95), 21),    # 40 points in 1h
     ((100, 1.0, 1.95), 1),    # window spent
     ((None, 1.0, 1.95), None),
-    ((50, 0.0, 1.95), 13),    # reset passed: a fresh window, 100 points in 5h
-    ((100, -0.1, 1.95), 13),  # the meter still shows the window just spent
+    ((50, 0.0, 1.95), 10),    # reset passed: a fresh window, 100 points in 5h
+    ((100, -0.1, 1.95), 10),  # the meter still shows the window just spent
     ((50, None, 1.95), None), # reset unread
 ]
 GB = 1024 * 1024
