@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,51 @@
     "text": "Cuisine that’s surprisingly warm",
     "enumeration": "12"
    },
-   "solution": "ENTHUSIASTIC"
+   "solution": "ENTHUSIASTIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ENTHUSIASTIC",
+    "definitions": [
+     {
+      "text": "warm",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surprisingly",
+      "for": "anagram",
+      "note": "something that turns out surprisingly has come out in an unexpected form, so the letters land in an unexpected order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cuisine that’s",
+      "gives": "CUISINETHATS",
+      "note": "all twelve letters taken as written, apostrophe ignored"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CUISINETHATS",
+       "gives": "ENTHUSIASTIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A food critic remarks that a style of cooking turned out to be unexpectedly hot.",
+     "walkthrough": "'Warm' looks like a temperature of food, but it is the definition in its sense of eager and keen; the twelve letters of the first two words rearrange to ENTHUSIASTIC.",
+     "definitionFit": "A warm welcome or warm support is hearty and eager, which is a close synonym for being keenly enthusiastic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "warm"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +94,56 @@
     "text": "Suggestion upset 7 too",
     "enumeration": "8"
    },
-   "solution": "OVERTONE"
+   "solution": "OVERTONE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OVERTONE",
+    "definitions": [
+     {
+      "text": "Suggestion",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "to upset something is to knock it over and throw it into disorder, so the letters are scrambled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "7",
+      "gives": "NEVER",
+      "note": "the answer to 7-across"
+     },
+     {
+      "clueFragment": "too",
+      "gives": "TOO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NEVERTOO",
+       "gives": "OVERTONE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone protests that a hint has upset them as well.",
+     "walkthrough": "The cross-reference 7 means the solution to 7-across, NEVER, and 'too' joins it as part of the fodder rather than meaning 'also'.",
+     "definitionFit": "An overtone is an implied secondary meaning or hint carried along with the plain words, which is a kind of suggestion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "too"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +157,54 @@
     "text": "Scottish island without one large plant",
     "enumeration": "4"
    },
-   "solution": "TREE"
+   "solution": "TREE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TREE",
+    "definitions": [
+     {
+      "text": "large plant",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "'without' means lacking, so the following item must be taken away from the word before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scottish island",
+      "gives": "TIREE",
+      "note": "Tiree is an island in the Inner Hebrides off western Scotland"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "one is the Roman numeral I"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "REE"
+     ]
+    },
+    "explanation": {
+     "surface": "A Scottish island described as having no single big plant growing on it, plausible for windswept Hebridean land.",
+     "walkthrough": "Tiree is famously flat and nearly treeless, which makes the surface neatly apt. Removing the I from TIREE leaves TREE.",
+     "definitionFit": "A tree is the standard example of a large woody plant with a trunk and branches, so the description fits as a broad definition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "one"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +218,43 @@
     "text": "Sportsperson covering for fish?",
     "enumeration": "6"
    },
-   "solution": "BATTER"
+   "solution": "BATTER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BATTER",
+    "definitions": [
+     {
+      "text": "Sportsperson",
+      "at": 0
+     },
+     {
+      "text": "covering for fish?",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sportsperson",
+      "note": "first meaning: a player who bats in cricket or baseball"
+     },
+     {
+      "clueFragment": "covering for fish?",
+      "note": "second meaning: the flour-and-egg coating fried around fish"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests someone who protects or covers for fish; the question mark flags that the second half is a playful definition of the coating in fish and chips.",
+     "definitionFit": "The word names both the player wielding a bat in baseball or cricket and the liquid mixture used to coat fried food."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "covering"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +274,62 @@
      }
     ]
    },
-   "solution": "PROXYWAR"
+   "solution": "PROXYWAR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PROXY WAR",
+    "definitions": [
+     {
+      "text": "indirect fighting",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "'at first' points to what comes at the start, so only the opening letter of each word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In favour of",
+      "gives": "PRO",
+      "note": "pro means for or in favour of"
+     },
+     {
+      "clueFragment": "axes",
+      "gives": "XY",
+      "note": "the x and y axes of a graph"
+     },
+     {
+      "clueFragment": "we always recommend",
+      "gives": "WAR",
+      "select": "first",
+      "note": "the opening letters of these three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRO",
+      "XY",
+      "WAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A strategist, keen on axes, advises always using roundabout methods of combat.",
+     "walkthrough": "'Axes' looks like chopping tools, but it is the two graph axes, X and Y. The definition sits at the end of the clue.",
+     "definitionFit": "A proxy war is a conflict where major powers fight through third parties instead of directly, so the combat is indirect."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "axes"
+    }
+   }
   },
   {
    "number": 6,
@@ -109,7 +343,54 @@
     "text": "Shakespeare was associated with this rising star",
     "enumeration": "4"
    },
-   "solution": "AVON"
+   "solution": "AVON",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "AVON",
+    "definitions": [
+     {
+      "text": "Shakespeare was associated with this",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rising",
+      "for": "reversal",
+      "note": "in a down clue, rising means reading from bottom to top, which turns the word around"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "star",
+      "gives": "NOVA",
+      "note": "a nova is a star that suddenly brightens"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AVON"
+     ],
+     "reversals": [
+      {
+       "from": "NOVA",
+       "to": "AVON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Shakespeare is linked with a young celebrity on the way up.",
+     "walkthrough": "'Rising star' reads as one phrase meaning an up-and-coming talent, but it splits into a reversal signal and a word for a star.",
+     "definitionFit": "Shakespeare was born in Stratford-upon-Avon and is called the Bard or Swan of Avon, after the river through his hometown."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "rising"
+    }
+   }
   },
   {
    "number": 7,
@@ -123,7 +404,43 @@
     "text": "No one verifies internally",
     "enumeration": "5"
    },
-   "solution": "NEVER"
+   "solution": "NEVER",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "NEVER",
+    "definitions": [
+     {
+      "text": "No",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "internally",
+      "for": "hidden_word",
+      "note": "'internally' means on the inside, so the letters sit within the run of words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one verifies",
+      "gives": "NEVER",
+      "note": "the letters run across the inside of these two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A complaint that nobody checks things in-house.",
+     "walkthrough": "'No one' reads as a single phrase meaning nobody, but only 'No' is the definition; 'one' starts the hidden run.",
+     "definitionFit": "As an emphatic refusal, saying never carries the same meaning as an outright no, so the two words can swap."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "one"
+    }
+   }
   },
   {
    "number": 8,
@@ -137,7 +454,59 @@
     "text": "Rare to remove coat before competitor’s appearance",
     "enumeration": "7"
    },
-   "solution": "ARRIVAL"
+   "solution": "ARRIVAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ARRIVAL",
+    "definitions": [
+     {
+      "text": "appearance",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to remove coat",
+      "for": "letter_selection",
+      "note": "a coat is the outer layer, so taking it off leaves only the inner letters"
+     }
+    ],
+    "linkWords": [
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rare",
+      "gives": "AR",
+      "select": "middle",
+      "note": "the inner two letters once the outer ones are stripped"
+     },
+     {
+      "clueFragment": "competitor’s",
+      "gives": "RIVAL",
+      "note": "a rival is a competitor; the 's stands for is, joining to the definition"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AR",
+      "RIVAL"
+     ]
+    },
+    "explanation": {
+     "surface": "It is unusual for a contestant to show up without taking off their coat first.",
+     "walkthrough": "'Before' places one piece ahead of the other. The possessive on 'competitor’s' acts as 'is', linking to the definition.",
+     "definitionFit": "An arrival is the act of coming on the scene, which is what making an appearance means, as in a guest's entrance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "coat"
+    }
+   }
   },
   {
    "number": 9,
@@ -157,7 +526,52 @@
      }
     ]
    },
-   "solution": "LONDONBRIDGE"
+   "solution": "LONDONBRIDGE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LONDON BRIDGE",
+    "definitions": [
+     {
+      "text": "collapsible spanner?",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Twisting",
+      "for": "anagram",
+      "note": "twisting something wrenches it out of shape, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "or bending old",
+      "gives": "ORBENDINGOLD",
+      "note": "twelve letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ORBENDINGOLD",
+       "gives": "LONDONBRIDGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A worn-out folding wrench that twists or bends when you use it.",
+     "walkthrough": "'Old' looks like part of the definition but belongs to the fodder. 'Spanner' looks like a wrench but means something that spans a river; the nursery rhyme says London Bridge is falling down, hence collapsible.",
+     "definitionFit": "A bridge spans a river, and the London Bridge of the rhyme famously keeps falling down, so a playful description fits it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "spanner"
+    }
+   }
   },
   {
    "number": 10,
@@ -171,7 +585,51 @@
     "text": "Gathering the VAR’s broken",
     "enumeration": "7"
    },
-   "solution": "HARVEST"
+   "solution": "HARVEST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HARVEST",
+    "definitions": [
+     {
+      "text": "Gathering",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broken",
+      "for": "anagram",
+      "note": "something broken is smashed apart, so its letters can be put back together differently"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the VAR’s",
+      "gives": "THEVARS",
+      "note": "the letters as written, apostrophe ignored"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THEVARS",
+       "gives": "HARVEST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A football crowd gathers to grumble that the video referee system is not working.",
+     "walkthrough": "VAR is the video assistant referee used in football; its letters, with THE and S, rearrange into a word for the crop-gathering season.",
+     "definitionFit": "A harvest is the gathering in of ripe crops, and the word also names the collected yield itself."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Gathering"
+    }
+   }
   },
   {
    "number": 11,
@@ -185,7 +643,64 @@
     "text": "Element 10, next to nothing brought back",
     "enumeration": "5"
    },
-   "solution": "XENON"
+   "solution": "XENON",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "XENON",
+    "definitions": [
+     {
+      "text": "Element",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brought back",
+      "for": "reversal",
+      "note": "bringing something back returns it the way it came, so the word reads backwards"
+     }
+    ],
+    "linkWords": [
+     "next to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "10",
+      "gives": "X",
+      "note": "X is the Roman numeral for ten"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "NONE",
+      "note": "none means nothing at all"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "X",
+      "ENON"
+     ],
+     "reversals": [
+      {
+       "from": "NONE",
+       "to": "ENON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chemistry note: element number ten, sitting beside an empty space, has been returned.",
+     "walkthrough": "'Element 10' looks like neon, atomic number 10, but the number is the Roman numeral and 'Element' alone is the definition.",
+     "definitionFit": "Xenon is a chemical element, one of the noble gases, atomic number 54, used in flash lamps and headlights."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "10"
+    }
+   }
   },
   {
    "number": 12,
@@ -205,7 +720,59 @@
      }
     ]
    },
-   "solution": "SCOREDRAW"
+   "solution": "SCOREDRAW",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SCORE DRAW",
+    "definitions": [
+     {
+      "text": "this gives one point for each",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Playing",
+      "for": "anagram",
+      "note": "playing with something means toying with it and moving it around, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "words",
+      "gives": "WORDS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "care",
+      "gives": "CARE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WORDSCARE",
+       "gives": "SCOREDRAW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A word-game player is careful, with each tile scoring one point.",
+     "walkthrough": "The surface suggests a word game like Scrabble scoring tiles; in fact it is football, where a draw earns each side one league point. A score draw is a draw with goals, such as 1-1.",
+     "definitionFit": "In football leagues a drawn match earns each team one point, so a draw with goals scored is a result giving both sides a point."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "point"
+    }
+   }
   },
   {
    "number": 13,
@@ -225,7 +792,71 @@
      }
     ]
    },
-   "solution": "EGGSPOON"
+   "solution": "EGGSPOON",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "EGG SPOON",
+    "definitions": [
+     {
+      "text": "This makes room for soldiers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in retreat",
+      "for": "reversal",
+      "note": "an army in retreat goes back the way it came, so the word runs backwards"
+     },
+     {
+      "text": "limiting",
+      "for": "container",
+      "note": "to limit something is to set bounds around it, so one piece is enclosed by the other"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "encourage",
+      "gives": "EGGON",
+      "note": "to egg on is to urge or encourage"
+     },
+     {
+      "clueFragment": "ops",
+      "gives": "OPS",
+      "note": "taken as written, military operations"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EGG",
+      "SPO",
+      "ON"
+     ],
+     "reversals": [
+      {
+       "from": "OPS",
+       "to": "SPO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A military order: clear space for the troops by urging operations to pull back.",
+     "walkthrough": "Soldiers are strips of toast dipped into a soft-boiled egg in Britain; the spoon scoops out the top so they fit, which makes the military surface a disguise.",
+     "definitionFit": "An egg spoon digs out the top of a boiled egg, creating space into which toast strips, nicknamed soldiers, can be dipped."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "soldiers"
+    }
+   }
   },
   {
    "number": 14,
@@ -239,7 +870,53 @@
     "text": "Prime time with Oscar",
     "enumeration": "3"
    },
-   "solution": "TWO"
+   "solution": "TWO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TWO",
+    "definitions": [
+     {
+      "text": "Prime",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "W is a standard abbreviation for with"
+     },
+     {
+      "clueFragment": "Oscar",
+      "gives": "O",
+      "note": "Oscar is the NATO alphabet word for O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "W",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Peak viewing hours shared with an Academy Award.",
+     "walkthrough": "'Prime time' looks like a single phrase about television scheduling, but 'Prime' alone is the definition, a noun meaning a prime number.",
+     "definitionFit": "Two is the smallest prime number and the only even one, so as a noun it is a prime."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Prime"
+    }
+   }
   },
   {
    "number": 14,
@@ -253,7 +930,45 @@
     "text": "Best opportunities to buy broadcast equipment for boats",
     "enumeration": "8"
    },
-   "solution": "TOPSAILS"
+   "solution": "TOPSAILS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "TOPSAILS",
+    "definitions": [
+     {
+      "text": "equipment for boats",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broadcast",
+      "for": "homophone",
+      "note": "to broadcast something is to send it out over the air to be heard, so what matters is the sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Best opportunities to buy",
+      "gives": "TOPSAILS",
+      "soundsLike": "TOP SALES",
+      "note": "the best bargains are top sales"
+     }
+    ],
+    "explanation": {
+     "surface": "An advert promises the best bargains on air for nautical gear.",
+     "walkthrough": "The surface reads like a shopping channel selling boat gear, but the first phrase is spoken: TOP SALES sounds like the sails above a ship's lowest ones.",
+     "definitionFit": "Topsails are the sails set above the lowest sail on a mast, part of the rigging that sailing vessels carry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 15,
@@ -267,7 +982,42 @@
     "text": "Amazing card",
     "enumeration": "3"
    },
-   "solution": "ACE"
+   "solution": "ACE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ACE",
+    "definitions": [
+     {
+      "text": "Amazing",
+      "at": 0
+     },
+     {
+      "text": "card",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Amazing",
+      "note": "first meaning: excellent, superb, as slang"
+     },
+     {
+      "clueFragment": "card",
+      "note": "second meaning: the single-pip playing card"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as praise for a person who is a card, a joker, but the two words are separate meanings.",
+     "definitionFit": "The word is informal praise meaning excellent and also the name of the playing card ranked highest or lowest in a suit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "card"
+    }
+   }
   },
   {
    "number": 16,
@@ -281,7 +1031,70 @@
     "text": "Gossip about mushy sprout in eating establishment",
     "enumeration": "9"
    },
-   "solution": "GASTROPUB"
+   "solution": "GASTROPUB",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "GASTROPUB",
+    "definitions": [
+     {
+      "text": "eating establishment",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mushy",
+      "for": "anagram",
+      "note": "something mushy is soft and pulped out of shape, so the letters lose their order"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "'about' means around, so one piece is wrapped around another"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gossip",
+      "gives": "GAB",
+      "note": "gab is idle chatter"
+     },
+     {
+      "clueFragment": "sprout",
+      "gives": "SPROUT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GA",
+      "STROPU",
+      "B"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SPROUT",
+       "gives": "STROPU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Diners gossip about an overcooked Brussels sprout served at a restaurant.",
+     "walkthrough": "'Mushy' looks like a description of badly cooked vegetables but signals the letter shuffle; GAB is split around the result.",
+     "definitionFit": "A gastropub is a pub that serves high-quality restaurant-style food, so it is a place people go to eat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mushy"
+    }
+   }
   },
   {
    "number": 17,
@@ -295,7 +1108,46 @@
     "text": "Easy chance to score with model",
     "enumeration": "6"
    },
-   "solution": "SITTER"
+   "solution": "SITTER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SITTER",
+    "definitions": [
+     {
+      "text": "Easy chance to score",
+      "at": 0
+     },
+     {
+      "text": "model",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Easy chance to score",
+      "note": "first meaning: in football, an open goal that should not be missed"
+     },
+     {
+      "clueFragment": "model",
+      "note": "second meaning: a person who poses for a painter or photographer"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface hints at romance with a model; in fact both halves define one word. In British sport slang an easy chance is a sitter.",
+     "definitionFit": "The word means both a gift of a scoring opportunity in sport and someone who sits while an artist paints a portrait."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "score"
+    }
+   }
   },
   {
    "number": 18,
@@ -309,7 +1161,46 @@
     "text": "President’s cap",
     "enumeration": "5"
    },
-   "solution": "TRUMP"
+   "solution": "TRUMP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TRUMP",
+    "definitions": [
+     {
+      "text": "President",
+      "at": 0
+     },
+     {
+      "text": "cap",
+      "at": 12
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "President",
+      "note": "first meaning: the surname of a recent US president"
+     },
+     {
+      "clueFragment": "cap",
+      "note": "second meaning: to outdo or top something"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as a hat belonging to a president, famously a red cap, but the apostrophe-s is a link meaning 'is' between two meanings.",
+     "definitionFit": "The surname of the American president is also a verb meaning to beat or outdo, just as to cap a story is to top it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cap"
+    }
+   }
   },
   {
    "number": 19,
@@ -323,7 +1214,62 @@
     "text": "Unpleasant fruit mostly ending in jelly",
     "enumeration": "4"
    },
-   "solution": "UGLY"
+   "solution": "UGLY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "UGLY",
+    "definitions": [
+     {
+      "text": "Unpleasant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "'mostly' means not quite all, so the final letter is dropped"
+     },
+     {
+      "text": "ending in",
+      "for": "letter_selection",
+      "note": "the ending of a word is its final letter, so only that one is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fruit",
+      "gives": "UGL",
+      "note": "the ugli is a Jamaican citrus fruit, here without its last letter"
+     },
+     {
+      "clueFragment": "jelly",
+      "gives": "Y",
+      "select": "last",
+      "note": "the closing letter of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UGL",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A fruit dessert that ends up mostly as an unappetising jelly.",
+     "walkthrough": "The ugli fruit is a knobbly grapefruit-tangerine cross whose name is a play on ugly, so the parse comes close to spelling the answer itself.",
+     "definitionFit": "Ugly describes something disagreeable or nasty, as in an ugly mood or scene, so it fits unpleasant as an adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "jelly"
+    }
+   }
   },
   {
    "number": 20,
@@ -337,7 +1283,43 @@
     "text": "Drums beat — I’m panicking to a certain extent",
     "enumeration": "7"
    },
-   "solution": "TIMPANI"
+   "solution": "TIMPANI",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TIMPANI",
+    "definitions": [
+     {
+      "text": "Drums",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to a certain extent",
+      "for": "hidden_word",
+      "note": "'to a certain extent' means partly, so only part of the run of words is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beat — I’m panicking",
+      "gives": "TIMPANI",
+      "note": "the letters run across the end of the first word, the whole second word, and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "A drummer hammers away, partly in a panic.",
+     "walkthrough": "'Beat' looks like it goes with the drums, but it supplies the opening letter of the hidden run.",
+     "definitionFit": "Timpani are kettledrums, the large tuned copper drums played in an orchestra's percussion section."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "beat"
+    }
+   }
   },
   {
    "number": 21,
@@ -351,7 +1333,50 @@
     "text": "Wizard of 1000 years",
     "enumeration": "4"
    },
-   "solution": "MAGE"
+   "solution": "MAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MAGE",
+    "definitions": [
+     {
+      "text": "Wizard",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "1000",
+      "gives": "M",
+      "note": "M is the Roman numeral for a thousand"
+     },
+     {
+      "clueFragment": "years",
+      "gives": "AGE",
+      "note": "an age is a long period of years"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A sorcerer who has lived a thousand years.",
+     "walkthrough": "'1000 years' looks like a millennium, a phrase describing the wizard, but it splits into a Roman numeral and a word for a long span of time.",
+     "definitionFit": "A mage is a magician or sorcerer, a somewhat literary or fantasy-game term for one who practises magic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "1000"
+    }
+   }
   },
   {
    "number": 22,
@@ -365,7 +1390,50 @@
     "text": "Dish from California area",
     "enumeration": "7"
    },
-   "solution": "CALZONE"
+   "solution": "CALZONE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CALZONE",
+    "definitions": [
+     {
+      "text": "Dish",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "California",
+      "gives": "CAL",
+      "note": "Cal is a standard abbreviation for California"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "ZONE",
+      "note": "a zone is an area"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAL",
+      "ZONE"
+     ]
+    },
+    "explanation": {
+     "surface": "A regional speciality from part of California.",
+     "walkthrough": "The surface suggests Californian cuisine, but the food is Italian; the state supplies only its short form.",
+     "definitionFit": "A calzone is a folded, stuffed Italian pizza turnover, a food served as a dish in restaurants."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "California"
+    }
+   }
   },
   {
    "number": 23,
@@ -379,7 +1447,63 @@
     "text": "Convict following gut, mostly in prison camp",
     "enumeration": "5"
    },
-   "solution": "GULAG"
+   "solution": "GULAG",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "GULAG",
+    "definitions": [
+     {
+      "text": "prison camp",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "'mostly' means not quite all, so the final letter is dropped"
+     },
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "'following' means coming after, so the piece it describes is placed second rather than first"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gut",
+      "gives": "GU",
+      "note": "the word without its last letter"
+     },
+     {
+      "clueFragment": "Convict",
+      "gives": "LAG",
+      "note": "a lag is British slang for a convict, as in old lag"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GU",
+      "LAG"
+     ]
+    },
+    "explanation": {
+     "surface": "A prisoner trusts their instinct, most of the time, while held in a labour camp.",
+     "walkthrough": "'Following' places the convict after the shortened gut. Lag is British slang for a prisoner, usually a habitual one.",
+     "definitionFit": "The Gulag was the Soviet system of forced labour camps, and the word now names any such harsh prison camp."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "gut"
+    }
+   }
   }
  ]
 }
