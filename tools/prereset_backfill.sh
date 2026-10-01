@@ -85,11 +85,13 @@ ANNOTATE_EFFORT="${ANNOTATE_EFFORT:-medium}"  # see daily_update.sh
 # Runs to keep in flight, asked at every pool checkpoint with the width now:
 # what spends the five-hour window by its reset, capped by free memory and CPU
 # pressure (tools/prereset_plan.py, which logs its inputs). If it prints no
-# width the current one stands.
+# width the current one stands. At 0 (the bridge alone will spend what the
+# window has left, or the machine has no room) nothing new starts, and once the
+# runs in flight are done the pool naps a checkpoint interval and asks again.
 wave_width() {
   local w
-  w=$(python3 tools/prereset_plan.py --width ${wide:-})
-  case "$w" in ''|*[!0-9]*|0) echo "${wide:-14}" ;; *) echo "$w" ;; esac
+  w=$(python3 tools/prereset_plan.py --may-pause --width ${wide:-})
+  case "$w" in ''|*[!0-9]*) echo "${wide:-14}" ;; *) echo "$w" ;; esac
 }
 # Above this the weekly window really is gone and a failing run means it. Below
 # it, a failure is the FIVE-hour window instead, which clears by itself. The
@@ -514,6 +516,14 @@ run_pool() {
         [ $(( ${EPOCHREALTIME/[.,]/} - POOL_STARTED_US )) -lt $(( POOL_CHECK_SECS * 1000000 )) ] &&
         continue
     else
+      # Width 0 with nothing left to checkpoint: nap, then ask for the width again.
+      if [ "$stop" = 0 ] && [ "$wide" = 0 ] && [ "$POOL_DONE" = 0 ] &&
+         [ "$at" -lt "${#queue[@]}" ]; then
+        echo "--- pool of 0: napping ${POOL_CHECK_SECS}s ---"
+        sleep "$POOL_CHECK_SECS"
+        wide=$(wave_width)
+        continue
+      fi
       # Nothing in flight and nothing left to start: one last checkpoint for the
       # runs since the previous one, which may requeue what a lockout cut off.
       [ "$stop" = 0 ] && [ "$POOL_DONE" -gt 0 ] || break

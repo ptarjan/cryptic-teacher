@@ -12,6 +12,7 @@
 #   - launches are at least POOL_LAUNCH_GAP apart;
 #   - every id is handled exactly once, the failing one through the failure path;
 #   - a width change at a checkpoint takes effect, growing and shrinking;
+#   - at width 0 nothing starts, and the pool naps and resumes when it grows;
 #   - the tree is only synced with nothing in flight;
 #   - each checkpoint is handed the average in flight, measured.
 set -uo pipefail
@@ -48,18 +49,23 @@ run_claude() {
   [ "$1" != "$FAIL_ID" ]
 }
 handled=0
-# Width 2 to start; 4 after the fourth run is handled; 1 after the tenth.
+# Width 2 to start; 4 after the fourth run is handled; 1 after the tenth; 0 for
+# one checkpoint after the thirteenth, then 1 again.
 handle() {
   echo "$1 $2" >>"$EVENTS"
   handled=$((handled + 1))
   [ "$handled" = 4 ] && echo 4 >"$WIDTH_FILE"
   [ "$handled" = 10 ] && echo 1 >"$WIDTH_FILE"
+  [ "$handled" = 13 ] && echo 0 >"$WIDTH_FILE"
   return 0
 }
 commit_puzzle() { handle ok "$1"; }
 handle_failed_run() { handle fail "$1"; }
 echo 2 >"$WIDTH_FILE"
-wave_width() { local w; w=$(cat "$WIDTH_FILE"); echo "width $w $(now)" >>"$EVENTS"; echo "$w"; }
+wave_width() {
+  local w; w=$(cat "$WIDTH_FILE"); echo "width $w $(now)" >>"$EVENTS"; echo "$w"
+  [ "$w" = 0 ] && echo 1 >"$WIDTH_FILE"
+}
 after_wave() { echo "after failed=$4 avg=$3 hours=$2 pool=$6" >>"$EVENTS"; return 0; }
 requeue_failed() { :; }
 sync_wave() { echo "sync inflight=${#POOL_RUNS[@]}" >>"$EVENTS"; }
@@ -128,6 +134,8 @@ check "the tree is synced, and only with nothing in flight" "1 dirty=0" "$(get s
 check "a failed run is judged at a checkpoint of its own" 1 "$(get failure_checkpoint)"
 check "each checkpoint logs a measured average in flight, within the width" \
   "0 concurrent=1" "$(get avg)"
+check "at width 0 the pool naps with nothing in flight" 1 \
+  "$(printf '%s\n' "$out" | grep -cm1 '^--- pool of 0: napping')"
 check "the pool logs its width for the planner" 1 \
   "$(printf '%s\n' "$out" | grep -cm1 '^--- pool of [0-9][0-9]*: ')"
 grep -q '^ALERT' "$EVENTS" && { echo "FAIL alert raised: $(grep '^ALERT' "$EVENTS")"; fails=$((fails + 1)); }
