@@ -101,6 +101,8 @@ print("SOLVE", check_geometry(bare), problems, crossings)
 print("SOURCES", check_sources(bare, fill, sources=[lambda p: []]))
 print("PACKET", "no grid" in solve_packet.packet(bare))
 print("CHECKING", difficulty.checking(bare), difficulty.checking(real) is not None)
+import craft_report
+print("CRAFT", craft_report.observe(bare))
 
 # The provenance backfill over a corpus holding a gridless puzzle: it runs,
 # and tallies the puzzle as having no grid.
@@ -144,6 +146,7 @@ same SOLVE "[] [] 0" "a gridless fill has no geometry to fail and nothing to cro
 same SOURCES "[]" "the fill is weighed against other sources with no grid to place it in"
 same PACKET True "the solve packet says there is no grid"
 same BACKFILL "True True" "the provenance backfill tallies a gridless puzzle and leaves it as written"
+same CRAFT None "the craft report skips a gridless puzzle rather than measuring a grid it lacks"
 same CHECKING "None True" "difficulty has no checking component for a gridless puzzle"
 
 [ "$fails" -eq 0 ] && echo "gridless: all checks passed" || { echo "gridless: $fails failure(s)"; exit 1; }
