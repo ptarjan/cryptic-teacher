@@ -300,7 +300,13 @@ fi
 ARCHIVE_ORG_PER_NIGHT="${ARCHIVE_ORG_PER_NIGHT:-150}"
 if [ -d "$HOME/.cache/archive_org_editions" ]; then
   aorg_out="$(mktemp "${TMPDIR:-/tmp}/cryptic-archive-org.XXXXXX")"
-  if python3 tools/file_archive_org_puzzles.py --limit "$ARCHIVE_ORG_PER_NIGHT" >"$aorg_out" 2>&1; then
+  mkdir -p "$HOME/.cache/archive_org_crops/unfiled"
+  # Paul's limit is 2% misread words and marks; the hand-check of 2026-10-01
+  # measured 4.3%, so the puzzles go to a scratch dir, not puzzles/times,
+  # while every reading still reaches archiveorg-source for cross_validate.py.
+  # Drop --out once a hand-check measures 2% or less.
+  if python3 tools/file_archive_org_puzzles.py --limit "$ARCHIVE_ORG_PER_NIGHT" \
+      --out "$HOME/.cache/archive_org_crops/unfiled" >"$aorg_out" 2>&1; then
     cat "$aorg_out"
     git status --porcelain -- puzzles/times puzzles/canberra | grep -q . && python3 tools/fetch_puzzle.py --reindex
   else
