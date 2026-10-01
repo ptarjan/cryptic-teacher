@@ -62,6 +62,7 @@ ROOT = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
 import enumeration
 import file_trove_puzzles as ftp
+import puzzle_integrity
 import reconstruct_grid as rg
 import series as series_meta
 import trove_clue_ocr
@@ -871,9 +872,13 @@ def run(cache=CACHE, write=True, ledger=None, out=sys.stdout, puzzles=None, limi
                 if hit["number"] in held and not puzzles and not better:
                     verdict["skip"] = "already held: the reading votes in cross_validate.py"
                 elif write and (better or not path.exists()):
-                    write_puzzle_file(path, puzzle, generator=TOOL)
-                    verdict["wrote"] = True
-                    held.add(hit["number"])
+                    try:
+                        write_puzzle_file(path, puzzle, generator=TOOL)
+                    except puzzle_integrity.RefusedWrite as e:
+                        verdict["refusedWrite"] = str(e)
+                    else:
+                        verdict["wrote"] = True
+                        held.add(hit["number"])
             verdicts.append(verdict)
         known[rel] = {"edition": rel, "hash": h, "scan": scans[rel], "filesHash": input_hash(d, ""),
                       "solutionsSeen": sol_seen, "verdicts": verdicts}
@@ -903,8 +908,15 @@ def improves(puzzle, path):
     if (old.get("source") or {}).get("acquiredBy") != TOOL \
             or trove_solution_ocr.puzzle_grid(old) != trove_solution_ocr.puzzle_grid(puzzle):
         return False
-    new, was = filled(puzzle), filled(old)
-    return new != was and all(n >= w for n, w in zip(new, was))
+    def have(p, field):
+        return {entry_id(e) for e in p["entries"]
+                if field == "clue" and ((e.get("clue") or {}).get("text") or "").strip()
+                or field == "solution" and e.get("solution")}
+    # Nothing the file has may go blank: only a reading that keeps every
+    # clue and answer and adds some replaces it.
+    if not all(have(old, f) <= have(puzzle, f) for f in ("clue", "solution")):
+        return False
+    return filled(puzzle) != filled(old)
 
 
 def save(ledger, known):
