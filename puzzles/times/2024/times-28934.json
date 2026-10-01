@@ -23,6 +23,9 @@
   "date": "2024-06-04",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,77 @@
     "text": "Record start of tweet by a politician on X",
     "enumeration": "9"
    },
-   "solution": "TIMESTAMP"
+   "solution": "TIMESTAMP",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "TIMESTAMP",
+    "definitions": [
+     {
+      "text": "Record",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "start of",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter, so only that single letter is kept"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across clue one thing placed on another follows it, so the earlier pieces come after"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "X",
+      "gives": "TIMES",
+      "note": "the multiplication sign X is read as 'times'"
+     },
+     {
+      "clueFragment": "tweet",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter of tweet"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "MP",
+      "note": "a Member of Parliament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIMES",
+      "T",
+      "A",
+      "MP"
+     ]
+    },
+    "explanation": {
+     "surface": "A politician posts on X, the social network formerly called Twitter, and the tweet goes on record.",
+     "walkthrough": "X looks like the platform but is the multiplication sign; TIMES then comes first because the rest sits 'on' it.",
+     "definitionFit": "A timestamp is a recorded note of the date and hour something happened, so it works as a noun for a log entry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "X"
+    }
+   }
   },
   {
    "number": 1,
@@ -56,7 +129,75 @@
      }
     ]
    },
-   "solution": "TESTTUBE"
+   "solution": "TESTTUBE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "TEST TUBE",
+    "definitions": [
+     {
+      "text": "lab kit",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Rising",
+      "for": "reversal",
+      "note": "in a down clue something rising reads from bottom to top, so it runs backwards"
+     },
+     {
+      "text": "permeating",
+      "for": "container",
+      "note": "to permeate is to spread through the inside of something, so one piece goes within another"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bit of smoke",
+      "gives": "BUTT",
+      "note": "a cigarette end"
+     },
+     {
+      "clueFragment": "’s",
+      "gives": "S",
+      "note": "the 's taken as a letter"
+     },
+     {
+      "clueFragment": "support",
+      "gives": "TEE",
+      "note": "the peg supporting a golf ball"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TE",
+      "STTUB",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "BUTTS",
+       "to": "STTUB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Smoke drifts up from a stand holding laboratory equipment.",
+     "walkthrough": "'Support for lab kit' reads as one phrase, but 'support' is the golf TEE and 'lab kit' alone is the definition; BUTT'S turned upward sits inside it.",
+     "definitionFit": "A test tube is a narrow glass vessel used in laboratories, one piece of standard chemistry equipment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "support"
+    }
+   }
   },
   {
    "number": 2,
@@ -70,7 +211,56 @@
     "text": "Source of penicillin doctor pulled out of odd places",
     "enumeration": "5"
    },
-   "solution": "MOULD"
+   "solution": "MOULD",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "MOULD",
+    "definitions": [
+     {
+      "text": "Source of penicillin",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out of odd places",
+      "for": "letter_selection",
+      "note": "letters standing in the odd positions are removed, leaving only the even-numbered ones"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "doctor",
+      "gives": "MO",
+      "note": "Medical Officer"
+     },
+     {
+      "clueFragment": "pulled",
+      "gives": "ULD",
+      "select": "alternate",
+      "note": "second, fourth and sixth letters of pulled"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "ULD"
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor extracts a source of penicillin from strange locations.",
+     "walkthrough": "'Pulled out of odd places' reads as extraction from weird spots; really 'pulled' is the source word and its odd-placed letters go.",
+     "definitionFit": "Penicillin was discovered by Fleming in a Penicillium fungus, a growth commonly called mould."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "odd"
+    }
+   }
   },
   {
    "number": 3,
@@ -84,7 +274,67 @@
     "text": "Lamp is put up over entrance",
     "enumeration": "9"
    },
-   "solution": "SIDELIGHT"
+   "solution": "SIDELIGHT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "SIDELIGHT",
+    "definitions": [
+     {
+      "text": "Lamp",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put up",
+      "for": "reversal",
+      "note": "in a down clue putting something up turns it to read from the bottom, so it is backwards"
+     },
+     {
+      "text": "over",
+      "for": "charade",
+      "note": "in a down clue what is over another piece sits above it, so it comes first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "entrance",
+      "gives": "DELIGHT",
+      "note": "the verb en-TRANCE, to enchant or delight"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SI",
+      "DELIGHT"
+     ],
+     "reversals": [
+      {
+       "from": "IS",
+       "to": "SI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone fixes a lamp above a doorway.",
+     "walkthrough": "'Entrance' looks like a doorway, which suits a lamp, but it is the verb meaning to enchant.",
+     "definitionFit": "A sidelight is a small lamp, such as one at the side of a car or beside a door, so it is a kind of light fitting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "entrance"
+    }
+   }
   },
   {
    "number": 4,
@@ -98,7 +348,60 @@
     "text": "Initially, hard to oust female feeling a certain desire",
     "enumeration": "7"
    },
-   "solution": "ATHIRST"
+   "solution": "ATHIRST",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "ATHIRST",
+    "definitions": [
+     {
+      "text": "feeling a certain desire",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to oust",
+      "for": "substitution",
+      "note": "to oust is to push someone out and take their place, so one letter replaces another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Initially",
+      "gives": "ATFIRST",
+      "note": "at first means at the start"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "pencil grading abbreviation"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AT",
+      "H",
+      "IRST"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone finds it hard at first to get rid of a woman they long for.",
+     "walkthrough": "'Initially' looks like a first-letter instruction, but it is the whole phrase AT FIRST, whose F gives way to H.",
+     "definitionFit": "Athirst is a literary adjective for thirsty, and by extension eager, so the desire in question is for drink."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Initially"
+    }
+   }
   },
   {
    "number": 5,
@@ -112,7 +415,77 @@
     "text": "Bit of capital — one thousand pounds I invested in power firm",
     "enumeration": "7"
    },
-   "solution": "PIMLICO"
+   "solution": "PIMLICO",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PIMLICO",
+    "definitions": [
+     {
+      "text": "Bit of capital",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "invested in",
+      "for": "container",
+      "note": "money invested in a business is put inside it, so these letters go inside the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "power",
+      "gives": "P",
+      "note": "physics symbol"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral"
+     },
+     {
+      "clueFragment": "thousand",
+      "gives": "M",
+      "note": "Roman numeral"
+     },
+     {
+      "clueFragment": "pounds",
+      "gives": "L",
+      "note": "the pound sign comes from Latin libra"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "firm",
+      "gives": "CO",
+      "note": "company"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "IMLI",
+      "CO"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone puts a thousand pounds of capital into an energy company.",
+     "walkthrough": "'Capital' looks financial, but it is London; PIMLICO is a district of central London. The four letters I, M, L, I sit between P and CO.",
+     "definitionFit": "A district within London is literally one part of the British capital city, hence a piece of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 6,
@@ -126,7 +499,47 @@
     "text": "Cut from blade, as some say",
     "enumeration": "5"
    },
-   "solution": "SAWED"
+   "solution": "SAWED",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SAWED",
+    "definitions": [
+     {
+      "text": "Cut",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "as some say",
+      "for": "homophone",
+      "note": "what some people say refers to pronunciation, here a non-rhotic accent that drops the r"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "blade",
+      "gives": "SAWED",
+      "soundsLike": "SORD",
+      "note": "a sword is a blade, and in many British accents it is pronounced without the r"
+     }
+    ],
+    "explanation": {
+     "surface": "A wound made by a blade, as people describe it.",
+     "walkthrough": "The definition is a past-tense verb, not a noun for a wound; the sound match works only for speakers who do not voice the r.",
+     "definitionFit": "Sawed is the past tense of saw, meaning cut through with a toothed tool."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cut"
+    }
+   }
   },
   {
    "number": 6,
@@ -140,7 +553,56 @@
     "text": "Way to entertain little fool, perhaps",
     "enumeration": "5"
    },
-   "solution": "SWEET"
+   "solution": "SWEET",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SWEET",
+    "definitions": [
+     {
+      "text": "fool, perhaps",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to entertain",
+      "for": "container",
+      "note": "to entertain guests is to take them in, so one piece holds another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Way",
+      "gives": "ST",
+      "note": "street"
+     },
+     {
+      "clueFragment": "little",
+      "gives": "WEE",
+      "note": "Scottish word for small"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "WEE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A way to amuse a small silly person.",
+     "walkthrough": "A fool here is a British dessert of fruit purée folded into cream, and sweet is the British word for a dessert course.",
+     "definitionFit": "A fruit fool is one example of a dessert, which British speakers call a sweet; 'perhaps' marks the example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fool"
+    }
+   }
   },
   {
    "number": 7,
@@ -154,7 +616,62 @@
     "text": "Beat walls in vacated residence having sideboards",
     "enumeration": "9"
    },
-   "solution": "WHISKERED"
+   "solution": "WHISKERED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "WHISKERED",
+    "definitions": [
+     {
+      "text": "having sideboards",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "vacated",
+      "for": "deletion",
+      "note": "a vacated building has been emptied, so all the inner letters are cleared out"
+     },
+     {
+      "text": "walls in",
+      "for": "container",
+      "note": "to wall something in is to enclose it, so one piece surrounds another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Beat",
+      "gives": "WHISKED",
+      "note": "beat eggs, for example"
+     },
+     {
+      "clueFragment": "residence",
+      "gives": "RE",
+      "note": "only the outer letters remain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WHISKE",
+      "RE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A man in an empty house pounds the walls, his long sideburns flapping.",
+     "walkthrough": "Sideboards are British slang for sideburns, not furniture. 'Vacated' keeps only the outer letters of a word, a common crossword device.",
+     "definitionFit": "Sideburns are whiskers grown on the cheeks, so a man sporting them can be described with the adjective whiskered."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sideboards"
+    }
+   }
   },
   {
    "number": 8,
@@ -168,7 +685,72 @@
     "text": "Papers upset customer wanting upper-class periodical",
     "enumeration": "6"
    },
-   "solution": "DIGEST"
+   "solution": "DIGEST",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion",
+     "charade"
+    ],
+    "answer": "DIGEST",
+    "definitions": [
+     {
+      "text": "periodical",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down clue something upset is turned upside down, so it reads backwards"
+     },
+     {
+      "text": "wanting",
+      "for": "deletion",
+      "note": "wanting means lacking, so a letter is left out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Papers",
+      "gives": "ID",
+      "note": "identity papers"
+     },
+     {
+      "clueFragment": "customer",
+      "gives": "GUEST",
+      "note": "a hotel guest is a customer"
+     },
+     {
+      "clueFragment": "upper-class",
+      "gives": "U",
+      "note": "U is the standard label for upper-class usage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "GEST"
+     ],
+     "reversals": [
+      {
+       "from": "ID",
+       "to": "DI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Newspapers anger a reader who wants a posh magazine.",
+     "walkthrough": "'Papers' looks like newspapers but is ID documents; 'upset' sounds like annoying the customer but turns ID round.",
+     "definitionFit": "A digest is a magazine that summarises material, as in Reader's Digest, so it is a kind of periodical publication."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Papers"
+    }
+   }
   },
   {
    "number": 9,
@@ -182,7 +764,54 @@
     "text": "Seconds required with some sterling seafood",
     "enumeration": "5"
    },
-   "solution": "SQUID"
+   "solution": "SQUID",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SQUID",
+    "definitions": [
+     {
+      "text": "seafood",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "required with",
+      "for": "charade",
+      "note": "what is required with something goes alongside it, so the pieces are simply set together"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Seconds",
+      "gives": "S",
+      "note": "abbreviation for seconds"
+     },
+     {
+      "clueFragment": "some sterling",
+      "gives": "QUID",
+      "note": "a quid is slang for a pound, one unit of sterling"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "QUID"
+     ]
+    },
+    "explanation": {
+     "surface": "Second helpings of seafood cost some British money.",
+     "walkthrough": "A quid is British slang for one pound sterling. 'Seconds' suggests another helping but is just the abbreviation.",
+     "definitionFit": "Squid is a marine cephalopod commonly eaten, for instance fried as calamari, so it counts as food from the sea."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Seconds"
+    }
+   }
   },
   {
    "number": 10,
@@ -196,7 +825,70 @@
     "text": "Novel heroine and husband back call for clubbing",
     "enumeration": "9"
    },
-   "solution": "HAMMERING"
+   "solution": "HAMMERING",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "HAMMERING",
+    "definitions": [
+     {
+      "text": "clubbing",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means travelling the other way, so these letters are read in reverse"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Novel heroine",
+      "gives": "EMMA",
+      "note": "Jane Austen's heroine"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "abbreviation"
+     },
+     {
+      "clueFragment": "call",
+      "gives": "RING",
+      "note": "ring someone on the phone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAMME",
+      "RING"
+     ],
+     "reversals": [
+      {
+       "from": "EMMAH",
+       "to": "HAMME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A heroine of fiction and her husband come home and suggest a night out at a club.",
+     "walkthrough": "'Clubbing' suggests nightclubs; here it means beating with a club.",
+     "definitionFit": "Clubbing someone is striking them repeatedly with a heavy weapon, which is a hammering or heavy beating."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "clubbing"
+    }
+   }
   },
   {
    "number": 11,
@@ -210,7 +902,73 @@
     "text": "How toper opens more rum, swigging large tot",
     "enumeration": "7"
    },
-   "solution": "TODDLER"
+   "solution": "TODDLER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "TODDLER",
+    "definitions": [
+     {
+      "text": "tot",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "How",
+      "for": "letter_selection",
+      "note": "the manner in which a word begins is its initial letter, so just that single letter survives"
+     },
+     {
+      "text": "swigging",
+      "for": "container",
+      "note": "to swig is to gulp something down inside, so one piece takes in another"
+     }
+    ],
+    "linkWords": [
+     "opens"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "toper",
+      "gives": "T",
+      "select": "first",
+      "note": "toper begins with this letter"
+     },
+     {
+      "clueFragment": "more rum",
+      "gives": "ODDER",
+      "note": "rum means odd"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "clothing-size abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ODD",
+      "L",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A drunkard opens another bottle of rum and knocks back a big measure.",
+     "walkthrough": "A toper is a heavy drinker, and 'rum' and 'tot' both look like drink; rum means strange, and the tot is a small child.",
+     "definitionFit": "A tot is a very young child, the same as a toddler just learning to walk."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tot"
+    }
+   }
   },
   {
    "number": 12,
@@ -224,7 +982,67 @@
     "text": "Groups of new arrivals, tons entering during a film",
     "enumeration": "7"
    },
-   "solution": "INTAKES"
+   "solution": "INTAKES",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "INTAKES",
+    "definitions": [
+     {
+      "text": "Groups of new arrivals",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entering",
+      "for": "container",
+      "note": "to enter is to go inside, so one piece is put within the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "during",
+      "gives": "IN",
+      "note": "in means during, as in 'in the night'"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "film",
+      "gives": "KES",
+      "note": "Ken Loach's 1969 film about a boy and a kestrel"
+     },
+     {
+      "clueFragment": "tons",
+      "gives": "T",
+      "note": "abbreviation for tons"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "T",
+      "A",
+      "KES"
+     ]
+    },
+    "explanation": {
+     "surface": "Crowds of newcomers pour into a cinema mid-screening.",
+     "walkthrough": "Kes is Ken Loach's classic 1969 British film about a boy and his kestrel, a favourite crossword stand-in for 'film'.",
+     "definitionFit": "An intake is the batch of people admitted at one time, such as new students or recruits."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tons"
+    }
+   }
   },
   {
    "number": 13,
@@ -244,7 +1062,57 @@
      }
     ]
    },
-   "solution": "BROUGHTFORWARD"
+   "solution": "BROUGHTFORWARD",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BROUGHT FORWARD",
+    "definitions": [
+     {
+      "text": "Advanced",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to block",
+      "for": "container",
+      "note": "to block a passage is to sit in the middle of it, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "runs",
+      "gives": "R",
+      "note": "cricket scoring abbreviation"
+     },
+     {
+      "clueFragment": "improved team’s attacking options",
+      "gives": "BOUGHTFORWARD",
+      "note": "a club improves its attack by purchasing a striker"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "R",
+      "OUGHT",
+      "FORWARD"
+     ]
+    },
+    "explanation": {
+     "surface": "A football team strengthens its attack with players who make forward runs.",
+     "walkthrough": "The question mark flags a whimsical phrase: a side that improved its attack 'bought forward', and R goes after its first letter.",
+     "definitionFit": "To bring a meeting forward is to move it earlier, so advanced and brought forward are synonyms in the scheduling sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "runs"
+    }
+   }
   },
   {
    "number": 14,
@@ -268,7 +1136,74 @@
      }
     ]
    },
-   "solution": "ONONESTOD"
+   "solution": "ONONESTOD",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "anagram"
+    ],
+    "answer": "ON ONES TOD",
+    "definitions": [
+     {
+      "text": "solo",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so only the final letter is kept"
+     },
+     {
+      "text": "swinging",
+      "for": "anagram",
+      "note": "swinging music moves freely, so these letters are loosely rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Oscar",
+      "gives": "O",
+      "note": "NATO alphabet"
+     },
+     {
+      "clueFragment": "Peterson",
+      "gives": "N",
+      "select": "last",
+      "note": "last letter of Peterson"
+     },
+     {
+      "clueFragment": "dotes on",
+      "gives": "DOTESON",
+      "note": "the anagram fodder"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "N",
+      "ONESTOD"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DOTESON",
+       "gives": "ONESTOD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Jazz pianist Oscar Peterson adores playing a swinging solo.",
+     "walkthrough": "On one's tod is British rhyming slang: Tod Sloan, a jockey, rhymes with own, so it means on one's own.",
+     "definitionFit": "Doing something solo means doing it alone, which the slang phrase expresses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Oscar"
+    }
+   }
   },
   {
    "number": 15,
@@ -282,7 +1217,56 @@
     "text": "Linguistic flaw in news by newspaper head",
     "enumeration": "9"
    },
-   "solution": "WORDINESS"
+   "solution": "WORDINESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WORDINESS",
+    "definitions": [
+     {
+      "text": "Linguistic flaw",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "news",
+      "gives": "WORD",
+      "note": "send word means send news"
+     },
+     {
+      "clueFragment": "newspaper",
+      "gives": "I",
+      "note": "the i is a British national daily"
+     },
+     {
+      "clueFragment": "head",
+      "gives": "NESS",
+      "note": "a headland, as in Loch Ness or Orford Ness"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WORD",
+      "I",
+      "NESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A grammatical error appears in a news report next to the editor's name.",
+     "walkthrough": "'Newspaper head' suggests an editor; the i is a British newspaper and a ness is a headland.",
+     "definitionFit": "Using more words than necessary is a stylistic fault in writing or speech, a failing of language."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 16,
@@ -296,7 +1280,69 @@
     "text": "Good-natured dope you heard is in love",
     "enumeration": "8"
    },
-   "solution": "GENEROUS"
+   "solution": "GENEROUS",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone",
+     "container"
+    ],
+    "answer": "GENEROUS",
+    "definitions": [
+     {
+      "text": "Good-natured",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heard",
+      "for": "homophone",
+      "note": "something heard is taken by its sound rather than its spelling"
+     },
+     {
+      "text": "is in",
+      "for": "container",
+      "note": "a thing that is in another sits inside it, so one piece goes within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dope",
+      "gives": "GEN",
+      "note": "both are slang for information"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "EROS",
+      "note": "the Greek god of love"
+     },
+     {
+      "clueFragment": "you",
+      "gives": "U",
+      "soundsLike": "YOU",
+      "note": "the letter name matches the pronoun"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GEN",
+      "ERO",
+      "U",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A kind-hearted fool is in love, people say.",
+     "walkthrough": "'Dope' looks like an idiot, which suits the lovestruck surface, but it is slang for information.",
+     "definitionFit": "A generous person is kind and giving, so both words describe someone of warm, unselfish character."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dope"
+    }
+   }
   },
   {
    "number": 17,
@@ -316,7 +1362,63 @@
      }
     ]
    },
-   "solution": "CONTRACTBRIDGE"
+   "solution": "CONTRACTBRIDGE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CONTRACT BRIDGE",
+    "definitions": [
+     {
+      "text": "it’s won with tricks",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pocketing",
+      "for": "container",
+      "note": "to pocket something is to tuck it away inside, so one piece holds another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Catch",
+      "gives": "CONTRACT",
+      "note": "to catch an illness is to contract it"
+     },
+     {
+      "clueFragment": "partner",
+      "gives": "BRIDE",
+      "note": "a marriage partner"
+     },
+     {
+      "clueFragment": "grand",
+      "gives": "G",
+      "note": "a grand is a thousand, abbreviated G"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CONTRACT",
+      "BRID",
+      "G",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A partner sneaks a thousand into their pocket after a crafty win.",
+     "walkthrough": "The definition sounds like a con trick, but tricks are the rounds of cards won in a bridge hand.",
+     "definitionFit": "Contract bridge is a card game in which partnerships score by taking tricks, so it is a game won with them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tricks"
+    }
+   }
   },
   {
    "number": 18,
@@ -330,7 +1432,56 @@
     "text": "Make invalid filling of lush doughnut, say",
     "enumeration": "7"
    },
-   "solution": "ANNULUS"
+   "solution": "ANNULUS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ANNULUS",
+    "definitions": [
+     {
+      "text": "doughnut, say",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "filling of",
+      "for": "letter_selection",
+      "note": "a filling sits in the middle, so only the central letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Make invalid",
+      "gives": "ANNUL",
+      "note": "to annul a marriage or contract"
+     },
+     {
+      "clueFragment": "lush",
+      "gives": "US",
+      "select": "middle",
+      "note": "the two inner letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANNUL",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "A gorgeous doughnut's filling has been declared unfit.",
+     "walkthrough": "'Filling' and 'doughnut' paint jam and pastry, but the doughnut is only an example of a ring shape.",
+     "definitionFit": "An annulus is the geometric ring between two concentric circles, and a ring doughnut is an everyday instance of that shape."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "filling"
+    }
+   }
   },
   {
    "number": 19,
@@ -344,7 +1495,71 @@
     "text": "Jazz fan, in bed, lifted by ace composition",
     "enumeration": "7"
    },
-   "solution": "TOCCATA"
+   "solution": "TOCCATA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "TOCCATA",
+    "definitions": [
+     {
+      "text": "composition",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lifted",
+      "for": "reversal",
+      "note": "in a down clue lifting something up turns it to read from the bottom, so backwards"
+     }
+    ],
+    "linkWords": [
+     "in",
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bed",
+      "gives": "COT",
+      "note": "a small bed"
+     },
+     {
+      "clueFragment": "Jazz fan",
+      "gives": "CAT",
+      "note": "jazz slang for a fan or player"
+     },
+     {
+      "clueFragment": "ace",
+      "gives": "A",
+      "note": "card abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOC",
+      "CAT",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "COT",
+       "to": "TOC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A jazz lover lying in bed is cheered up by a brilliant piece of music.",
+     "walkthrough": "A cat is old jazz slang for a hip fan. The pieces simply line up: COT turned upward, then CAT, then A.",
+     "definitionFit": "A toccata is a showy keyboard piece, often for organ, so it is a musical work or composition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lifted"
+    }
+   }
   },
   {
    "number": 20,
@@ -364,7 +1579,58 @@
      }
     ]
    },
-   "solution": "BOWWOW"
+   "solution": "BOWWOW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BOW-WOW",
+    "definitions": [
+     {
+      "text": "setter?",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "and",
+      "for": "charade",
+      "note": "and simply adds one thing beside another, so the pieces are set side by side"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Respectful gesture",
+      "gives": "BOW",
+      "note": "bending from the waist"
+     },
+     {
+      "clueFragment": "awestruck remark",
+      "gives": "WOW",
+      "note": "an exclamation of amazement"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOW",
+      "WOW"
+     ]
+    },
+    "explanation": {
+     "surface": "A solver bows and gasps in admiration of the crossword compiler.",
+     "walkthrough": "'Setter' looks like the crossword compiler, but it is the dog breed; the question mark flags the trick.",
+     "definitionFit": "Bow-wow is a childish word for a dog, and a setter is a breed of gundog, so it is one example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "setter"
+    }
+   }
   },
   {
    "number": 21,
@@ -378,7 +1644,60 @@
     "text": "Finished postgrad degree with new supervisor",
     "enumeration": "7"
    },
-   "solution": "OVERMAN"
+   "solution": "OVERMAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OVERMAN",
+    "definitions": [
+     {
+      "text": "supervisor",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with",
+      "for": "charade",
+      "note": "with means alongside, so the pieces are joined end to end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Finished",
+      "gives": "OVER",
+      "note": "the game is over"
+     },
+     {
+      "clueFragment": "postgrad degree",
+      "gives": "MA",
+      "note": "Master of Arts"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "MA",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A student completes a master's degree under a newly assigned supervisor.",
+     "walkthrough": "'Supervisor' fits the academic picture of a thesis adviser, but it is the definition of a foreman.",
+     "definitionFit": "An overman is a foreman or overseer, especially in a mine, who directs other workers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "supervisor"
+    }
+   }
   },
   {
    "number": 22,
@@ -392,7 +1711,73 @@
     "text": "Publication featuring King Edward’s face and Mrs Simpson",
     "enumeration": "5"
    },
-   "solution": "MARGE"
+   "solution": "MARGE",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "MARGE",
+    "definitions": [
+     {
+      "text": "Mrs Simpson",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "featuring",
+      "for": "container",
+      "note": "a magazine featuring a subject carries it within its pages, so one piece holds another"
+     },
+     {
+      "text": "face",
+      "for": "letter_selection",
+      "note": "the face is the front, so only the opening letter is kept"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Publication",
+      "gives": "MAG",
+      "note": "short for magazine"
+     },
+     {
+      "clueFragment": "King",
+      "gives": "R",
+      "note": "Rex"
+     },
+     {
+      "clueFragment": "Edward’s",
+      "gives": "E",
+      "select": "first",
+      "note": "first letter of Edward"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "R",
+      "G",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A magazine runs Edward VIII's portrait beside Wallis Simpson, the woman he abdicated to marry.",
+     "walkthrough": "The surface points to Wallis Simpson; the Mrs Simpson meant is Marge from the cartoon The Simpsons.",
+     "definitionFit": "Marge Simpson is Homer's wife in the animated series, so she is literally a married woman with that surname."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Simpson"
+    }
+   }
   },
   {
    "number": 23,
@@ -406,7 +1791,64 @@
     "text": "Officer getting popular, mature and tender",
     "enumeration": "7"
    },
-   "solution": "COINAGE"
+   "solution": "COINAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COINAGE",
+    "definitions": [
+     {
+      "text": "tender",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "getting",
+      "for": "charade",
+      "note": "getting means acquiring more, so further pieces are added on"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Officer",
+      "gives": "CO",
+      "note": "Commanding Officer"
+     },
+     {
+      "clueFragment": "popular",
+      "gives": "IN",
+      "note": "fashionable"
+     },
+     {
+      "clueFragment": "mature",
+      "gives": "AGE",
+      "note": "to age is to mature"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "IN",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "An officer who is well liked, grown-up and gentle.",
+     "walkthrough": "'Tender' reads as gentle, the climax of a character sketch; it is the noun, as in legal tender.",
+     "definitionFit": "Legal tender is money accepted in payment, and coinage is the metal currency issued by a state."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tender"
+    }
+   }
   },
   {
    "number": 24,
@@ -420,7 +1862,56 @@
     "text": "Succulent core of plant supplied",
     "enumeration": "5"
    },
-   "solution": "AGAVE"
+   "solution": "AGAVE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "AGAVE",
+    "definitions": [
+     {
+      "text": "Succulent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "core of",
+      "for": "letter_selection",
+      "note": "the core is the very centre, so only the middle letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "plant",
+      "gives": "A",
+      "select": "middle",
+      "note": "central letter of plant"
+     },
+     {
+      "clueFragment": "supplied",
+      "gives": "GAVE",
+      "note": "supplied means gave"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "GAVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A juicy plant centre is provided.",
+     "walkthrough": "'Succulent' looks like an adjective for juicy, but it is the noun for a fleshy-leaved plant.",
+     "definitionFit": "The agave is a spiky desert plant with thick fleshy leaves that store water, the source of tequila; botanists class it as a succulent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Succulent"
+    }
+   }
   },
   {
    "number": 25,
@@ -440,7 +1931,59 @@
      }
     ]
    },
-   "solution": "WATERFLEA"
+   "solution": "WATERFLEA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "WATER FLEA",
+    "definitions": [
+     {
+      "text": "small crustacean",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Cooked",
+      "for": "anagram",
+      "note": "cooking transforms ingredients into a new dish, so these letters are worked into a new order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fat eel",
+      "gives": "FATEEL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "raw",
+      "gives": "RAW",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FATEELRAW",
+       "gives": "WATERFLEA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A menu offers cooked fatty eel alongside a raw shellfish.",
+     "walkthrough": "'Raw' looks like the opposite of 'Cooked' in a menu, but it is part of the fodder.",
+     "definitionFit": "The water flea, such as Daphnia, is a tiny freshwater crustacean that jerks through the water like a hopping insect."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "raw"
+    }
+   }
   },
   {
    "number": 26,
@@ -454,7 +1997,69 @@
     "text": "Inspiration for writer‘s books returning after long time",
     "enumeration": "5"
    },
-   "solution": "ERATO"
+   "solution": "ERATO",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ERATO",
+    "definitions": [
+     {
+      "text": "Inspiration for writer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "something returning comes back the way it went, so it reads backwards"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after means coming later, so this piece is placed second"
+     }
+    ],
+    "linkWords": [
+     "‘s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "long time",
+      "gives": "ERA",
+      "note": "an age"
+     },
+     {
+      "clueFragment": "books",
+      "gives": "OT",
+      "note": "the Old Testament books"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ERA",
+      "TO"
+     ],
+     "reversals": [
+      {
+       "from": "OT",
+       "to": "TO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An author's library books come back overdue and give inspiration.",
+     "walkthrough": "Erato is the Greek Muse of love and lyric poetry, so the writer is a poet.",
+     "definitionFit": "A Muse is a goddess believed to inspire artists, so Erato is a source of inspiration for poets."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "books"
+    }
+   }
   },
   {
    "number": 27,
@@ -468,7 +2073,62 @@
     "text": "Club — United, say — regressing",
     "enumeration": "5"
    },
-   "solution": "WEDGE"
+   "solution": "WEDGE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "WEDGE",
+    "definitions": [
+     {
+      "text": "Club",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regressing",
+      "for": "reversal",
+      "note": "to regress is to go backwards, so these letters run in reverse"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "United",
+      "gives": "WED",
+      "note": "united in marriage"
+     },
+     {
+      "clueFragment": "say",
+      "gives": "EG",
+      "note": "e.g., for example"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WED",
+      "GE"
+     ],
+     "reversals": [
+      {
+       "from": "EG",
+       "to": "GE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A football club such as Manchester United is going downhill.",
+     "walkthrough": "'Club' and 'United' suggest football; the club is a golf club and United is the verb.",
+     "definitionFit": "A wedge is a golf club with a steeply angled face, used for short lofted shots out of sand."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "United"
+    }
+   }
   },
   {
    "number": 28,
@@ -482,7 +2142,71 @@
     "text": "They may darn well see stars out to save millions",
     "enumeration": "9"
    },
-   "solution": "SEAMSTERS"
+   "solution": "SEAMSTERS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SEAMSTERS",
+    "definitions": [
+     {
+      "text": "They may darn",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out can mean disordered or not in place, so these letters are rearranged"
+     },
+     {
+      "text": "to save",
+      "for": "container",
+      "note": "to save something is to keep it safe within, so one piece holds another"
+     }
+    ],
+    "linkWords": [
+     "well"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "see stars",
+      "gives": "SEESTARS",
+      "note": "the anagram fodder"
+     },
+     {
+      "clueFragment": "millions",
+      "gives": "M",
+      "note": "abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEA",
+      "M",
+      "STERS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SEESTARS",
+       "gives": "SEASTERS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "People may darn well be dazzled when they rescue millions.",
+     "walkthrough": "'Darn well' reads as a mild oath, but darn is the mending verb and 'well' joins the definition to the wordplay.",
+     "definitionFit": "Seamsters sew for a living, and darning holes in socks or clothes is one of the sewing jobs they may do."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "darn"
+    }
+   }
   }
  ]
 }
