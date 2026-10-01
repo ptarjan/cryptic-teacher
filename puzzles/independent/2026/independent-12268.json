@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,43 @@
     "text": "Get up and play cards?",
     "enumeration": "6"
    },
-   "solution": "BEDECK"
+   "solution": "BEDECK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BEDECK",
+    "definitions": [
+     {
+      "text": "Get up",
+      "at": 0
+     },
+     {
+      "text": "play cards?",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Get up",
+      "note": "first meaning: to dress up or adorn"
+     },
+     {
+      "clueFragment": "play cards?",
+      "note": "second meaning, whimsical: to play a role is to be it, and cards make up a pack, so split the word in two"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests rising from bed for a card game; the question mark flags the jokey second reading, split as BE DECK, acting the role of a deck.",
+     "definitionFit": "To get someone up in finery is to adorn or decorate them, which is exactly the verb's meaning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "play"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +86,44 @@
     "text": "Grumpy colleague finding it hard to make friends",
     "enumeration": "7"
    },
-   "solution": "BASHFUL"
+   "solution": "BASHFUL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BASHFUL",
+    "definitions": [
+     {
+      "text": "Grumpy colleague",
+      "at": 0
+     },
+     {
+      "text": "finding it hard to make friends",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Grumpy colleague",
+      "note": "first meaning: Grumpy is one of Snow White's seven dwarfs, and his workmate in the mine is another dwarf"
+     },
+     {
+      "clueFragment": "finding it hard to make friends",
+      "note": "second meaning: shy, timid in company"
+     }
+    ],
+    "explanation": {
+     "surface": "A bad-tempered coworker who struggles to win friends at the office.",
+     "walkthrough": "'Grumpy' looks like an adjective, but it is the name of a dwarf, so the colleague is a fellow dwarf: Bashful.",
+     "definitionFit": "Someone shy and self-conscious struggles with social contact, which is what the adjective describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Grumpy"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +137,51 @@
     "text": "Men on acid lost control",
     "enumeration": "9"
    },
-   "solution": "DOMINANCE"
+   "solution": "DOMINANCE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DOMINANCE",
+    "definitions": [
+     {
+      "text": "control",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lost",
+      "for": "anagram",
+      "note": "letters that are lost have wandered off course and ended up jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Men on acid",
+      "gives": "MENONACID",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MENONACID",
+       "gives": "DOMINANCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some men tripping on LSD lost their grip on themselves.",
+     "walkthrough": "'Lost control' reads as one phrase about the tripping men, but 'lost' is the signal and 'control' alone is the definition.",
+     "definitionFit": "Dominance is power or command over others, a noun synonym for control."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lost"
+    }
+   }
   },
   {
    "number": 3,
@@ -85,7 +205,63 @@
    "group": [
     "3-down",
     "26-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "and_lit",
+     "deletion",
+     "anagram"
+    ],
+    "answer": "COAL MINE",
+    "definitions": [
+     {
+      "text": "Economical extracting business, perhaps?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extracting",
+      "for": "deletion",
+      "note": "extracting means pulling something out, so letters are taken away"
+     },
+     {
+      "text": "perhaps",
+      "for": "anagram",
+      "note": "perhaps hints that what is left could be some other arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Economical",
+      "gives": "ECONOMICAL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "business",
+      "gives": "CO",
+      "note": "CO is the abbreviation for company, a business"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ENOMICAL",
+       "gives": "COALMINE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A thrifty firm that digs things out of the ground, perhaps.",
+     "walkthrough": "Remove CO from ECONOMICAL and rearrange the remaining eight letters. Read whole, the clue also describes the answer: a business that extracts coal.",
+     "definitionFit": "A colliery is an enterprise that digs a fuel out of the ground, so it is literally an extracting business."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Economical"
+    }
+   }
   },
   {
    "number": 4,
@@ -99,7 +275,68 @@
     "text": "Fancy circles marry off stock holder",
     "enumeration": "8"
    },
-   "solution": "FARMYARD"
+   "solution": "FARMYARD",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "FARMYARD",
+    "definitions": [
+     {
+      "text": "stock holder",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "something off has gone wrong, so the letters are disordered"
+     },
+     {
+      "text": "circles",
+      "for": "container",
+      "note": "to circle something is to surround it, so one piece goes round another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fancy",
+      "gives": "FAD",
+      "note": "a fancy is a passing whim or craze"
+     },
+     {
+      "clueFragment": "marry",
+      "gives": "MARRY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FA",
+      "RMYAR",
+      "D"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MARRY",
+       "gives": "RMYAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pretty fancy circles ward off a marriage for some stock holder.",
+     "walkthrough": "'Stock holder' sounds financial, but the stock is livestock.",
+     "definitionFit": "Livestock such as cattle and pigs are kept in the enclosed yard of a farm, so it holds stock."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "stock"
+    }
+   }
   },
   {
    "number": 5,
@@ -113,7 +350,66 @@
     "text": "They hang out in the sun: oily, topless, and beginning to sweat",
     "enumeration": "7"
    },
-   "solution": "AWNINGS"
+   "solution": "AWNINGS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "AWNINGS",
+    "definitions": [
+     {
+      "text": "They hang out in the sun",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "topless",
+      "for": "deletion",
+      "note": "without a top means the first letter is removed"
+     },
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its opening letter"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "oily",
+      "gives": "AWNING",
+      "note": "fawning, oily and obsequious, loses its first letter"
+     },
+     {
+      "clueFragment": "sweat",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter of sweat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AWNING",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Sunbathers lying topless, oiled and starting to perspire on the beach.",
+     "walkthrough": "The surface paints sunbathers; 'oily' in its flattering sense is fawning, which loses its F.",
+     "definitionFit": "Canopies are hung out over windows and terraces to give shade from strong daylight."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "oily"
+    }
+   }
   },
   {
    "number": 6,
@@ -127,7 +423,74 @@
     "text": "Quince's second part's in Hamlet - he's playing patriarch",
     "enumeration": "10"
    },
-   "solution": "METHUSELAH"
+   "solution": "METHUSELAH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "anagram"
+    ],
+    "answer": "METHUSELAH",
+    "definitions": [
+     {
+      "text": "patriarch",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "second",
+      "for": "letter_selection",
+      "note": "second points to the letter in position two of the word"
+     },
+     {
+      "text": "part's in",
+      "for": "container",
+      "note": "a part placed in something sits inside it"
+     },
+     {
+      "text": "playing",
+      "for": "anagram",
+      "note": "playing about suggests rearranging the letters freely"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quince's",
+      "gives": "U",
+      "select": 2,
+      "note": "second letter of Quince, the setter's own name"
+     },
+     {
+      "clueFragment": "Hamlet",
+      "gives": "HAMLET",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "he's",
+      "gives": "HES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HAMULETHES",
+       "gives": "METHUSELAH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Peter Quince, the playwright-carpenter in Shakespeare, takes a role in Hamlet, cast as an old father.",
+     "walkthrough": "Quince is both this puzzle's setter and a character in A Midsummer Night's Dream, so the theatre talk feels natural; 'part' means a portion of the name, not a role.",
+     "definitionFit": "The biblical figure who lived 969 years is one of the patriarchs, the founding fathers of Genesis."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "playing"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +514,60 @@
    "group": [
     "7-down",
     "29-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "APPLE TURNOVER",
+    "definitions": [
+     {
+      "text": "Sweet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places one piece behind another, so the order is swapped from the clue's"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "short programme",
+      "gives": "APPLET",
+      "note": "an applet is a small computer program"
+     },
+     {
+      "clueFragment": "place to see Ashes",
+      "gives": "URN",
+      "note": "the Ashes, cricket's England-Australia trophy, is a small urn"
+     },
+     {
+      "clueFragment": "balls",
+      "gives": "OVER",
+      "note": "an over in cricket is six balls bowled"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "APPLET",
+      "URN",
+      "OVER"
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket fan's sweet spot for watching the Ashes, with balls bowled after a brief TV show.",
+     "walkthrough": "'After' puts the programme first. 'Ashes' is a cricket series, not cinders, and its trophy is a tiny urn.",
+     "definitionFit": "A pastry folded over a fruit filling is a dessert, and sweet is the British word for pudding."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Ashes"
+    }
+   }
   },
   {
    "number": 8,
@@ -171,7 +587,44 @@
      }
     ]
    },
-   "solution": "DRYRUN"
+   "solution": "DRYRUN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DRY RUN",
+    "definitions": [
+     {
+      "text": "Test",
+      "at": 0
+     },
+     {
+      "text": "two things paint can do",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Test",
+      "note": "first meaning: a rehearsal or trial before the real thing"
+     },
+     {
+      "clueFragment": "two things paint can do",
+      "note": "second meaning, playful: fresh paint may harden or may drip"
+     }
+    ],
+    "explanation": {
+     "surface": "Checking a tin of paint by trying out two of its behaviours.",
+     "walkthrough": "The second half is read as two separate verbs, which together make the phrase.",
+     "definitionFit": "A rehearsal held to check that everything works before a real event is a trial, the noun sense required."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Test"
+    }
+   }
   },
   {
    "number": 9,
@@ -185,7 +638,55 @@
     "text": "Ministers about to enter residences",
     "enumeration": "6"
    },
-   "solution": "PADRES"
+   "solution": "PADRES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PADRES",
+    "definitions": [
+     {
+      "text": "Ministers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to enter",
+      "for": "container",
+      "note": "to enter is to go inside, so one piece sits within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "residences",
+      "gives": "PADS",
+      "note": "a pad is slang for a home"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAD",
+      "RE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Government ministers are on the point of moving into their official residences.",
+     "walkthrough": "'Ministers' suggests government, but here they are clergy; 'about to' looks like 'soon going to', yet 'about' supplies RE.",
+     "definitionFit": "A padre is a priest or military chaplain, and ministers of religion are clergy too."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Ministers"
+    }
+   }
   },
   {
    "number": 10,
@@ -205,7 +706,59 @@
      }
     ]
    },
-   "solution": "SAMEAGAIN"
+   "solution": "SAMEAGAIN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SAME AGAIN",
+    "definitions": [
+     {
+      "text": "order for more?",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fixed",
+      "for": "anagram",
+      "note": "something fixed has been rigged or tampered with, so its letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A game is",
+      "gives": "AGAMEIS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AGAMEISAN",
+       "gives": "SAMEAGAIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A match has been rigged, and someone at the bar asks for another round.",
+     "walkthrough": "'With' adds the article to the letters to be rearranged; the surface sounds like a sports scandal, but the request is made in a pub.",
+     "definitionFit": "Asking a barman for a repeat of the previous drinks is the stock pub phrase for another round."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "fixed"
+    }
+   }
   },
   {
    "number": 11,
@@ -219,7 +772,57 @@
     "text": "Less than tight clues back in Indy",
     "enumeration": "5"
    },
-   "solution": "TIPSY"
+   "solution": "TIPSY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TIPSY",
+    "definitions": [
+     {
+      "text": "Less than tight",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back in",
+      "for": "letter_selection",
+      "note": "the back of a word is its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clues",
+      "gives": "TIPS",
+      "note": "tips are hints or clues"
+     },
+     {
+      "clueFragment": "Indy",
+      "gives": "Y",
+      "select": "last",
+      "note": "last letter of Indy, the nickname of the Independent newspaper"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIPS",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Hints printed at the back of the Independent are not very hard.",
+     "walkthrough": "'Tight' suggests tricky or strict clues, but it is slang for drunk.",
+     "definitionFit": "Tight is informal for drunk, so slightly less than that is merrily intoxicated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tight"
+    }
+   }
   },
   {
    "number": 12,
@@ -239,7 +842,63 @@
      }
     ]
    },
-   "solution": "FONT"
+   "solution": "FONT",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "FONT",
+    "definitions": [
+     {
+      "text": "Set of characters",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside another"
+     },
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means at first, pointing to opening letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fawlty Towers",
+      "gives": "FT",
+      "select": "first",
+      "note": "first letters of the two words of the title"
+     },
+     {
+      "clueFragment": "performing",
+      "gives": "ON",
+      "note": "an actor performing is on stage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "ON",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "The cast of the British sitcom Fawlty Towers, about a chaotic hotel, in action.",
+     "walkthrough": "'Set of characters' reads as a sitcom cast, but the characters are typed letters.",
+     "definitionFit": "A typeface is a complete design of letters and symbols, a set of printed characters."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "characters"
+    }
+   }
   },
   {
    "number": 13,
@@ -259,7 +918,86 @@
      }
     ]
    },
-   "solution": "ARTNOUVEAU"
+   "solution": "ARTNOUVEAU",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "ART NOUVEAU",
+    "definitions": [
+     {
+      "text": "French school",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "form",
+      "for": "anagram",
+      "note": "to form is to shape into something new, so letters are rearranged"
+     },
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its opening letter"
+     },
+     {
+      "text": "rings",
+      "for": "container",
+      "note": "to ring is to encircle, so one piece goes round another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ran out",
+      "gives": "RANOUT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Five",
+      "gives": "V",
+      "note": "V is the Roman numeral for five"
+     },
+     {
+      "clueFragment": "exclaim",
+      "gives": "E",
+      "select": "first",
+      "note": "first letter of exclaim"
+     },
+     {
+      "clueFragment": "gold",
+      "gives": "AU",
+      "note": "Au is the chemical symbol for gold"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARTNOU",
+      "V",
+      "E",
+      "AU"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RANOUT",
+       "gives": "ARTNOU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A French class runs out of the room, shouting a line from The Twelve Days of Christmas.",
+     "walkthrough": "'Five gold rings' is a carol line, but V and AU surround E. 'School' means an artistic movement, not a classroom.",
+     "definitionFit": "The decorative style of flowing lines that began around 1890 is an artistic movement, and a movement is a school."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "rings"
+    }
+   }
   },
   {
    "number": 14,
@@ -283,7 +1021,57 @@
      }
     ]
    },
-   "solution": "ITTAKESTWO"
+   "solution": "ITTAKESTWO",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "IT TAKES TWO",
+    "definitions": [
+     {
+      "text": "Duet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in audition",
+      "for": "homophone",
+      "note": "an audition is a hearing, so the words count for their sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Italian",
+      "gives": "IT",
+      "note": "It is the abbreviation for Italian, as in It vermouth"
+     },
+     {
+      "clueFragment": "gets the hang of",
+      "gives": "TAKESTWO",
+      "soundsLike": "TAKES TO",
+      "note": "to get the hang of something is to take to it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IT",
+      "TAKESTWO"
+     ]
+    },
+    "explanation": {
+     "surface": "An Italian singer picks up a duet while trying out for a part.",
+     "walkthrough": "'In audition' fits the singing scene but signals sound: TO and TWO are said the same.",
+     "definitionFit": "The saying refers to things needing a pair of people, so it is the title of a song for two voices."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "audition"
+    }
+   }
   },
   {
    "number": 15,
@@ -297,7 +1085,49 @@
     "text": "Stealing odd bits of sleep, night ghost stretches",
     "enumeration": "7"
    },
-   "solution": "LENGTHS"
+   "solution": "LENGTHS",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "LENGTHS",
+    "definitions": [
+     {
+      "text": "stretches",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Stealing odd bits of",
+      "for": "letter_selection",
+      "note": "stealing the odd ones takes away positions one, three, five and so on, keeping the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sleep, night ghost",
+      "gives": "LENGTHS",
+      "select": "alternate",
+      "note": "the even-placed letters of these three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LENGTHS"
+     ]
+    },
+    "explanation": {
+     "surface": "A night ghost creeps about, stealing scraps of someone's slumber.",
+     "walkthrough": "Removing the odd letters leaves the even ones, running straight across the three words.",
+     "definitionFit": "A stretch is an extent or span of distance or time, and so is a length."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stealing"
+    }
+   }
   },
   {
    "number": 16,
@@ -311,7 +1141,45 @@
     "text": "Reportedly take out bob on runners racing",
     "enumeration": "6"
    },
-   "solution": "SLEIGH"
+   "solution": "SLEIGH",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SLEIGH",
+    "definitions": [
+     {
+      "text": "bob on runners racing",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reportedly",
+      "for": "homophone",
+      "note": "something reported is passed on by word of mouth, so it is heard"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "take out",
+      "gives": "SLEIGH",
+      "soundsLike": "SLAY",
+      "note": "to take out a person is to kill them"
+     }
+    ],
+    "explanation": {
+     "surface": "Gangland gossip: a hit on a man called Bob as he races along.",
+     "walkthrough": "'Bob' looks like a name, but it is a bobsleigh, and 'runners' are blades rather than athletes.",
+     "definitionFit": "A bob is a racing sled, a vehicle that glides over snow on blades, which is what a sleigh is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bob"
+    }
+   }
   },
   {
    "number": 17,
@@ -325,7 +1193,57 @@
     "text": "Boring American government with plump monopolist",
     "enumeration": "9"
    },
-   "solution": "GROUNDHOG"
+   "solution": "GROUNDHOG",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GROUNDHOG",
+    "definitions": [
+     {
+      "text": "Boring American",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "government",
+      "gives": "G",
+      "note": "G is the abbreviation for government"
+     },
+     {
+      "clueFragment": "plump",
+      "gives": "ROUND",
+      "note": "round means chubby"
+     },
+     {
+      "clueFragment": "monopolist",
+      "gives": "HOG",
+      "note": "a hog grabs everything for themselves"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "ROUND",
+      "HOG"
+     ]
+    },
+    "explanation": {
+     "surface": "A dull US administration led by an overweight tycoon who corners the market.",
+     "walkthrough": "'Boring' means dull in the surface, but here it means burrowing.",
+     "definitionFit": "The woodchuck is a North American rodent that tunnels into the ground, so it bores."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Boring"
+    }
+   }
   },
   {
    "number": 18,
@@ -345,7 +1263,73 @@
      }
     ]
    },
-   "solution": "DEJAVU"
+   "solution": "DEJAVU",
+   "annotation": {
+    "type": [
+     "cycling",
+     "reversal",
+     "charade"
+    ],
+    "answer": "DEJA VU",
+    "definitions": [
+     {
+      "text": "same old story!",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "When cycling",
+      "for": "cycling",
+      "note": "cycling means going round, so letters move from the front to the back"
+     },
+     {
+      "text": "turns",
+      "for": "reversal",
+      "note": "something that turns faces the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "green",
+      "gives": "JADE",
+      "note": "jade is a shade of green"
+     },
+     {
+      "clueFragment": "light",
+      "gives": "UV",
+      "note": "UV is ultraviolet light"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEJA",
+      "VU"
+     ],
+     "anagrams": [
+      {
+       "fodder": "JADE",
+       "gives": "DEJA"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "UV",
+       "to": "VU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cyclist sees the traffic light turn green again, the same thing every time.",
+     "walkthrough": "Move the J and A of JADE to the end to get DEJA. 'Green light' wants to be one phrase, but the two words feed separate pieces.",
+     "definitionFit": "The feeling that something has happened before is like hearing a familiar tale repeated, hence the exclamation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "cycling"
+    }
+   }
   },
   {
    "number": 19,
@@ -359,7 +1343,74 @@
     "text": "A blue novel about endless sex apt to be drawn on?",
     "enumeration": "7"
    },
-   "solution": "USEABLE"
+   "solution": "USEABLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "deletion",
+     "container"
+    ],
+    "answer": "USEABLE",
+    "definitions": [
+     {
+      "text": "apt to be drawn on?",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "novel",
+      "for": "anagram",
+      "note": "novel means new, so the letters take a fresh order"
+     },
+     {
+      "text": "endless",
+      "for": "deletion",
+      "note": "without an end means the last letter goes"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece surrounds another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A blue",
+      "gives": "ABLUE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sex",
+      "gives": "SE",
+      "note": "sex without its final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "SE",
+      "ABLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ABLUE",
+       "gives": "UABLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A smutty book about sex, the sort of thing likely to be illustrated.",
+     "walkthrough": "'Blue' means risque and 'novel' a book in the surface; here 'novel' signals rearranging and 'drawn on' means drawn upon as a resource.",
+     "definitionFit": "Something available to be relied on as a resource is fit for service, which is what the adjective means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "novel"
+    }
+   }
   },
   {
    "number": 20,
@@ -373,7 +1424,80 @@
     "text": "American idiot's back making posh belly of veal for main course",
     "enumeration": "7"
    },
-   "solution": "SEAFOOD"
+   "solution": "SEAFOOD",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "substitution"
+    ],
+    "answer": "SEAFOOD",
+    "definitions": [
+     {
+      "text": "main course",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means running the other way"
+     },
+     {
+      "text": "belly of",
+      "for": "letter_selection",
+      "note": "the belly is the middle of the body, so the central letters"
+     },
+     {
+      "text": "making",
+      "for": "substitution",
+      "note": "making one thing into another changes it, so one letter is swapped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American idiot",
+      "gives": "DOOFUS",
+      "note": "doofus is American slang for a fool"
+     },
+     {
+      "clueFragment": "posh",
+      "gives": "U",
+      "note": "U means upper-class, as in U and non-U"
+     },
+     {
+      "clueFragment": "veal",
+      "gives": "EA",
+      "select": "middle",
+      "note": "the middle two letters of veal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "EA",
+      "FOOD"
+     ],
+     "reversals": [
+      {
+       "from": "DOOFUS",
+       "to": "SUFOOD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A foolish American, back home, makes a fancy veal dish for dinner.",
+     "walkthrough": "'Main course' suggests a dinner course, and the definition stays culinary, but 'main' is also the sea. Reverse DOOFUS, then change its U into EA.",
+     "definitionFit": "Fish and shellfish come from the ocean, and the main is a poetic word for the sea, so food from it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "making"
+    }
+   }
   },
   {
    "number": 20,
@@ -387,7 +1511,57 @@
     "text": "Sickly Lord Byron's only character that descends",
     "enumeration": "6"
    },
-   "solution": "SUGARY"
+   "solution": "SUGARY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SUGARY",
+    "definitions": [
+     {
+      "text": "Sickly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "only character that descends",
+      "for": "letter_selection",
+      "note": "a descender is a stroke that drops below the line of type, and in this word only one letter has one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lord",
+      "gives": "SUGAR",
+      "note": "Alan Sugar, the British businessman of TV's The Apprentice, sits in the Lords as Lord Sugar"
+     },
+     {
+      "clueFragment": "Byron's",
+      "gives": "Y",
+      "select": 2,
+      "note": "the y in Byron is its only letter dropping below the line"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUGAR",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "The poet Lord Byron, ailing, as the only figure in his story who goes downhill.",
+     "walkthrough": "'Lord Byron' reads as one name, but 'Lord' is Lord Sugar; 'character' means a written letter, not a person in a poem.",
+     "definitionFit": "Over-sweet sentiment or taste can be cloying and nauseating, which is the sickly sense required."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 21,
@@ -401,7 +1575,61 @@
     "text": "Uncovers men boxing men, striking head",
     "enumeration": "7"
    },
-   "solution": "DENUDES"
+   "solution": "DENUDES",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "DENUDES",
+    "definitions": [
+     {
+      "text": "Uncovers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "boxing",
+      "for": "container",
+      "note": "to box something is to enclose it, as in a box"
+     },
+     {
+      "text": "striking head",
+      "for": "deletion",
+      "note": "striking off the head means the first letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "men",
+      "gives": "DUDES",
+      "note": "dudes are men, in informal speech"
+     },
+     {
+      "clueFragment": "men,",
+      "gives": "EN",
+      "note": "men without its first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "EN",
+      "UDES"
+     ]
+    },
+    "explanation": {
+     "surface": "A boxing match where men punch heads and expose themselves.",
+     "walkthrough": "Both 'men' look alike but do different jobs: the first gives a synonym, the second its own letters minus the M.",
+     "definitionFit": "To strip something bare is to remove its covering, the same as uncovering it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "boxing"
+    }
+   }
   },
   {
    "number": 22,
@@ -415,7 +1643,55 @@
     "text": "Half a dozen lines established opening scene",
     "enumeration": "6"
    },
-   "solution": "SESTET"
+   "solution": "SESTET",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SESTET",
+    "definitions": [
+     {
+      "text": "Half a dozen lines",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "opening",
+      "for": "container",
+      "note": "opening something up makes room inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "scene",
+      "gives": "SET",
+      "note": "a set is the scenery of a stage or film scene"
+     },
+     {
+      "clueFragment": "established",
+      "gives": "EST",
+      "note": "est is the abbreviation for established, as on shop signs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "EST",
+      "ET"
+     ]
+    },
+    "explanation": {
+     "surface": "Six lines of verse that set up the first scene of a play.",
+     "walkthrough": "'Opening scene' wants to be the first scene of a play; here 'opening' is a verb.",
+     "definitionFit": "The final six lines of a sonnet form a stanza called by this name, from the Italian for sixth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "opening"
+    }
+   }
   },
   {
    "number": 23,
@@ -441,7 +1717,51 @@
      }
     ]
    },
-   "solution": "EASTEREGGS"
+   "solution": "EASTEREGGS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EASTER EGGS",
+    "definitions": [
+     {
+      "text": "bonus content",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Remake of",
+      "for": "anagram",
+      "note": "a remake reworks the original into a new version"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Grease gets",
+      "gives": "GREASEGETS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GREASEGETS",
+       "gives": "EASTEREGGS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A new version of the musical Grease comes with extra features on the disc.",
+     "walkthrough": "'Gets' looks like the link joining film to extras, but it is part of the letters to rearrange.",
+     "definitionFit": "Hidden jokes or extras tucked into films, games and software are known by this term, a modern sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "gets"
+    }
+   }
   },
   {
    "number": 24,
@@ -455,7 +1775,64 @@
     "text": "Seam expert tipping about Anderson for one",
     "enumeration": "5"
    },
-   "solution": "SEWER"
+   "solution": "SEWER",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "SEWER",
+    "definitions": [
+     {
+      "text": "Seam expert",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tipping",
+      "for": "reversal",
+      "note": "tipping something over turns it the other way round"
+     }
+    ],
+    "linkWords": [
+     "for one"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     },
+     {
+      "clueFragment": "Anderson",
+      "gives": "WES",
+      "note": "Wes Anderson is an American film director"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEWER"
+     ],
+     "reversals": [
+      {
+       "from": "REWES",
+       "to": "SEWER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket pundit tips the England seam bowler James Anderson as the leading example.",
+     "walkthrough": "In cricket a seamer is a bowler, and Jimmy Anderson was England's best, so the surface is cricket; but here Anderson is the film director Wes.",
+     "definitionFit": "Someone who stitches cloth works on seams, so a person who sews is a seam expert."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Anderson"
+    }
+   }
   },
   {
    "number": 25,
@@ -475,7 +1852,55 @@
      }
     ]
    },
-   "solution": "INON"
+   "solution": "INON",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "IN ON",
+    "definitions": [
+     {
+      "text": "Party to",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cracking",
+      "for": "container",
+      "note": "to crack something open is to get inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pub",
+      "gives": "INN",
+      "note": "an inn is a pub"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis scoring, the shape of O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "O",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A party where romance breaks out in the local bar.",
+     "walkthrough": "'Party' looks like a noun for a celebration, but 'party to' means involved in.",
+     "definitionFit": "To be involved in a secret or plan is to be in on it, an idiom with the same sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Party"
+    }
+   }
   },
   {
    "number": 26,
@@ -508,7 +1933,44 @@
      }
     ]
    },
-   "solution": "TOWIT"
+   "solution": "TOWIT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TO WIT",
+    "definitions": [
+     {
+      "text": "That is",
+      "at": 0
+     },
+     {
+      "text": "how one can move caravan",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "That is",
+      "note": "first meaning: namely, introducing an explanation"
+     },
+     {
+      "clueFragment": "how one can move caravan",
+      "note": "second meaning, split differently: hitch it to a car and haul it"
+     }
+    ],
+    "explanation": {
+     "surface": "Explaining the way to shift a holiday trailer.",
+     "walkthrough": "Split the phrase differently and the formal 'namely' becomes an instruction for hauling the trailer.",
+     "definitionFit": "The formal phrase introduces a clarification, exactly like the Latin abbreviation i.e. or namely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "That"
+    }
+   }
   },
   {
    "number": 28,
@@ -522,7 +1984,63 @@
     "text": "Did Polish brand start to invent junk?",
     "enumeration": "9"
    },
-   "solution": "BURNISHED"
+   "solution": "BURNISHED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BURNISHED",
+    "definitions": [
+     {
+      "text": "Did Polish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "start to",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brand",
+      "gives": "BURN",
+      "note": "to brand is to burn a mark into skin"
+     },
+     {
+      "clueFragment": "invent",
+      "gives": "I",
+      "select": "first",
+      "note": "first letter of invent"
+     },
+     {
+      "clueFragment": "junk",
+      "gives": "SHED",
+      "note": "to junk something is to discard or shed it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BURN",
+      "I",
+      "SHED"
+     ]
+    },
+    "explanation": {
+     "surface": "Did a Polish company begin making rubbish?",
+     "walkthrough": "'Polish' is capitalised to look like a nationality, but it is the verb to polish, with 'Did' making it past tense.",
+     "definitionFit": "To burnish metal is to rub it until it shines, so the past tense matches 'did polish'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Polish"
+    }
+   }
   },
   {
    "number": 29,
@@ -549,7 +2067,48 @@
     "text": "'Hard borders' is deliberately vague",
     "enumeration": "6"
    },
-   "solution": "HEDGES"
+   "solution": "HEDGES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HEDGES",
+    "definitions": [
+     {
+      "text": "is deliberately vague",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hard",
+      "gives": "H",
+      "note": "H is the abbreviation for hard, as on pencils"
+     },
+     {
+      "clueFragment": "borders",
+      "gives": "EDGES",
+      "note": "edges are borders"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "EDGES"
+     ]
+    },
+    "explanation": {
+     "surface": "A politician's talk of hard borders is purposely unclear.",
+     "walkthrough": "Garden hedges are literally borders, which makes the wordplay a neat second reading of the answer.",
+     "definitionFit": "To hedge is to avoid committing oneself, giving evasive answers, so the verb means being noncommittal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "borders"
+    }
+   }
   }
  ]
 }
