@@ -117,8 +117,10 @@ print("LINKED_SPLIT", "unsplit" in split,
 T.ATTEMPTS.write_text(
     json.dumps({"post_id": 6, "how": "no grid", "max_nodes": 6000000, "search": T.SEARCH}) + "\n"
     + json.dumps({"post_id": 7, "how": "no grid", "max_nodes": 6000000, "search": T.SEARCH,
-                  "doubts": True}) + "\n")
-print("RETRY_LINKED", sorted(T.attempted(6000000, doubts={6, 7})))
+                  "splits": T.MAX_SPLITS}) + "\n"
+    + json.dumps({"post_id": 8, "how": "rejected: too many ways to split its linked answers",
+                  "max_nodes": 6000000, "search": T.SEARCH, "splits": T.MAX_SPLITS // 4}) + "\n")
+print("RETRY_LINKED", sorted(T.attempted(6000000, doubts={6, 7, 8})))
 # "24d" typed in the Across list: the parser keeps the heading beside the
 # suffix, and the grid decides which was mistyped.
 last = max(k for k in cells if k[1] == "across")
@@ -304,7 +306,7 @@ check "a linked answer printed whole is split by the grid that fits" \
       "True unique, linked answer split by the grid" "$(field LINKED)"
 check "the split record carries the clue on its leader and See N on the rest" \
       "False True" "$(field LINKED_SPLIT)"
-check "a linked post tried without splitting is tried again" "[7]" "$(field RETRY_LINKED)"
+check "a linked post tried without splitting, or with fewer splits, is tried again" "[7]" "$(field RETRY_LINKED)"
 check "a suffix against its heading: the grid takes the heading's direction" \
       "True unique, directions as headed None" "$(field HEADED)"
 check "but a bigger budget retries what it truncated" "[1, 2]" "$(field BIGGER)"
