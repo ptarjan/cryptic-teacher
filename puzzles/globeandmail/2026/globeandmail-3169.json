@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,56 @@
     "text": "Attempt of father to make cake?",
     "enumeration": "6"
    },
-   "solution": "PASTRY"
+   "solution": "PASTRY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PASTRY",
+    "definitions": [
+     {
+      "text": "cake?",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "to make"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "father",
+      "gives": "PA",
+      "note": "Pa is an informal word for one's dad"
+     },
+     {
+      "clueFragment": "of",
+      "gives": "S",
+      "note": "the possessive 's expresses 'of', as in 'the attempt of father' becoming 'father's attempt'"
+     },
+     {
+      "clueFragment": "Attempt",
+      "gives": "TRY",
+      "note": "a try is an attempt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "S",
+      "TRY"
+     ]
+    },
+    "explanation": {
+     "surface": "Dad has a go at baking a cake.",
+     "walkthrough": "Read 'attempt of father' as father's attempt: PA'S TRY. The question mark flags that the definition is a loose example rather than an exact synonym.",
+     "definitionFit": "A pastry can mean an individual sweet baked item such as a Danish or tart, close enough to a cake, hence the question mark."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Attempt"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +99,68 @@
     "text": "Chap upset about a French corporation",
     "enumeration": "6"
    },
-   "solution": "PAUNCH"
+   "solution": "PAUNCH",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "PAUNCH",
+    "definitions": [
+     {
+      "text": "corporation",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "to upset something is to knock it over and disorder it, so these letters get rearranged"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "'about' means around, so the rearranged letters go around the next part"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chap",
+      "gives": "CHAP",
+      "note": "taken as written, as anagram fodder"
+     },
+     {
+      "clueFragment": "a French",
+      "gives": "UN",
+      "note": "un is the French for 'a'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "UN",
+      "CH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CHAP",
+       "gives": "PACH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man is unhappy about some French company.",
+     "walkthrough": "'Corporation' looks like a business, but it is an old jocular British word for a large belly. 'Upset' wants to reverse the chap; it is an anagram, splitting around the French article.",
+     "definitionFit": "In dated British humour a corporation is a big stomach, the same sense as a paunch or pot belly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "corporation"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +174,51 @@
     "text": "Revolutionary admires weapon",
     "enumeration": "7"
    },
-   "solution": "SIDEARM"
+   "solution": "SIDEARM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SIDEARM",
+    "definitions": [
+     {
+      "text": "weapon",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Revolutionary",
+      "for": "anagram",
+      "note": "a revolutionary overturns the existing order, so the letters are thrown into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "admires",
+      "gives": "ADMIRES",
+      "note": "taken as written, as anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ADMIRES",
+       "gives": "SIDEARM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rebel looks fondly at a gun.",
+     "walkthrough": "'Revolutionary' reads as a noun, the person admiring, but it is the signal to rearrange the following word.",
+     "definitionFit": "A sidearm is a small weapon such as a pistol carried at the belt, one specific kind of weapon."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Revolutionary"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +232,48 @@
     "text": "Bar likely to break, top sheared off",
     "enumeration": "4"
    },
-   "solution": "RAIL"
+   "solution": "RAIL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RAIL",
+    "definitions": [
+     {
+      "text": "Bar",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "top sheared off",
+      "for": "deletion",
+      "note": "in a down clue the top is the first letter, and shearing it off removes it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "likely to break",
+      "gives": "FRAIL",
+      "note": "something frail is fragile and likely to break"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAIL"
+     ]
+    },
+    "explanation": {
+     "surface": "A metal bar is weak and its top has snapped off.",
+     "walkthrough": "FRAIL loses its first letter F to leave the answer.",
+     "definitionFit": "A rail is a horizontal bar, as on a fence, balcony or towel holder, so the two are plain synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sheared"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +287,56 @@
     "text": "Job in agriculture a long way off, worth abandoning it",
     "enumeration": "6"
    },
-   "solution": "FARMER"
+   "solution": "FARMER",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "FARMER",
+    "definitions": [
+     {
+      "text": "Job in agriculture",
+      "at": 0,
+      "note": "names a job where the answer is the person who does it"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abandoning it",
+      "for": "deletion",
+      "note": "to abandon something is to leave it behind, so the word loses those two letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a long way off",
+      "gives": "FAR",
+      "note": "far means distant"
+     },
+     {
+      "clueFragment": "worth",
+      "gives": "MERIT",
+      "note": "merit is worth or value"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FAR",
+      "MER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone weighs up whether a remote farm job is worth giving up.",
+     "walkthrough": "The little word 'it' in the clue is not a pronoun but the very letters removed from the synonym for worth.",
+     "definitionFit": "Farming is the occupation, and the clue loosely names the worker by that agricultural role."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "it"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +350,51 @@
     "text": "Sore calf massaged outside",
     "enumeration": "8"
    },
-   "solution": "ALFRESCO"
+   "solution": "ALFRESCO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ALFRESCO",
+    "definitions": [
+     {
+      "text": "outside",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "massaged",
+      "for": "anagram",
+      "note": "massaging kneads and works things around, so the letters are worked into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sore calf",
+      "gives": "SORECALF",
+      "note": "taken as written, as anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SORECALF",
+       "gives": "ALFRESCO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An aching leg muscle gets rubbed, out in the open air.",
+     "walkthrough": "'Calf' sounds like part of a sports injury scene, but its letters join SORE to be rearranged.",
+     "definitionFit": "Al fresco, borrowed from Italian, describes doing something in the open air, such as eating outdoors."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "calf"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +408,63 @@
     "text": "I wander up to see 13 down",
     "enumeration": "5"
    },
-   "solution": "MAORI"
+   "solution": "MAORI",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "MAORI",
+    "definitions": [
+     {
+      "text": "13 down",
+      "at": 19,
+      "note": "refers to the answer at 13 down"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, going up means reading from bottom to top, so the letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "to see"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "wander",
+      "gives": "ROAM",
+      "note": "to roam is to wander"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAORI"
+     ],
+     "reversals": [
+      {
+       "from": "IROAM",
+       "to": "MAORI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone strolls uphill to look at a cross-reference.",
+     "walkthrough": "13 down is ISLANDER; a Maori is an indigenous inhabitant of New Zealand, an island nation.",
+     "definitionFit": "The Maori people are native Polynesian inhabitants of New Zealand's islands, so each is an example of an islander."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +478,62 @@
     "text": "Leave leader of gang stuck in viscous substance",
     "enumeration": "6"
    },
-   "solution": "RESIGN"
+   "solution": "RESIGN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "RESIGN",
+    "definitions": [
+     {
+      "text": "Leave",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader of",
+      "for": "letter_selection",
+      "note": "a leader comes first, so only the opening letter of the next word is used"
+     },
+     {
+      "text": "stuck in",
+      "for": "container",
+      "note": "whatever is stuck in something ends up embedded within it, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "viscous substance",
+      "gives": "RESIN",
+      "note": "resin is a thick sticky substance from trees"
+     },
+     {
+      "clueFragment": "gang",
+      "gives": "G",
+      "select": "first",
+      "note": "the opening letter of gang"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RESI",
+      "G",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A gang boss quits after getting trapped in something sticky.",
+     "walkthrough": "G goes inside RESIN, between the I and N.",
+     "definitionFit": "To resign is to give up a post or job, which is to leave it voluntarily."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Leave"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +547,54 @@
     "text": "Downfall of God, nun I suspect!",
     "enumeration": "7"
    },
-   "solution": "UNDOING"
+   "solution": "UNDOING",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "UNDOING",
+    "definitions": [
+     {
+      "text": "Downfall",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "suspect",
+      "for": "anagram",
+      "note": "something suspect is dubious and not right, so the letters are out of their proper order"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "God, nun I",
+      "gives": "GODNUNI",
+      "note": "taken as written, as anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GODNUNI",
+       "gives": "UNDOING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nun fears that God will be brought low.",
+     "walkthrough": "'Suspect' reads as the nun's verb, but here it means dodgy, telling the solver to rearrange the letters.",
+     "definitionFit": "One's undoing is the cause of ruin, the same as one's downfall."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "suspect"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +614,44 @@
      }
     ]
    },
-   "solution": "GOWALKIES"
+   "solution": "GOWALKIES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GO WALKIES",
+    "definitions": [
+     {
+      "text": "Get lost",
+      "at": 0
+     },
+     {
+      "text": "as might canine in the morning",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Get lost",
+      "note": "first meaning: British slang for disappearing or being mislaid"
+     },
+     {
+      "clueFragment": "as might canine in the morning",
+      "note": "second meaning: what a dog does when taken out for its morning stroll"
+     }
+    ],
+    "explanation": {
+     "surface": "A dog might wander off on its morning outing.",
+     "walkthrough": "Walkies is the British word owners use for taking a dog for a walk; to 'go walkies' is also jokey British slang for an item vanishing.",
+     "definitionFit": "The phrase literally describes a dog's outing and idiomatically means something has gone missing, matching both halves."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "canine"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +665,43 @@
     "text": "Clean teeth — with candy?",
     "enumeration": "5"
    },
-   "solution": "FLOSS"
+   "solution": "FLOSS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FLOSS",
+    "definitions": [
+     {
+      "text": "Clean teeth",
+      "at": 0
+     },
+     {
+      "text": "candy",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Clean teeth",
+      "note": "first meaning: to clean between teeth with a thread"
+     },
+     {
+      "clueFragment": "candy",
+      "note": "second meaning: spun sugar sold at fairs, known in America as cotton candy"
+     }
+    ],
+    "explanation": {
+     "surface": "Brush your teeth, perhaps after eating sweets.",
+     "walkthrough": "Candy floss is the British name for cotton candy, so the word alone stands for the sweet.",
+     "definitionFit": "The word is both a verb for cleaning between teeth with thread and a noun for spun sugar confection."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "candy"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +715,56 @@
     "text": "Country cousin initially fooled",
     "enumeration": "4"
    },
-   "solution": "CHAD"
+   "solution": "CHAD",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CHAD",
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "'initially' means at the start, so only the opening letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cousin",
+      "gives": "C",
+      "select": "first",
+      "note": "the opening letter of cousin"
+     },
+     {
+      "clueFragment": "fooled",
+      "gives": "HAD",
+      "note": "to be had is to be fooled or tricked"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HAD"
+     ]
+    },
+    "explanation": {
+     "surface": "A naive rural relative was taken in by a trick.",
+     "walkthrough": "'Country cousin' is a set phrase for an unsophisticated rural relative, but 'Country' is the definition on its own.",
+     "definitionFit": "Chad is a landlocked nation in north-central Africa, an example of a country."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Country"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +778,44 @@
     "text": "General clearing things up",
     "enumeration": "8"
    },
-   "solution": "SWEEPING"
+   "solution": "SWEEPING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SWEEPING",
+    "definitions": [
+     {
+      "text": "General",
+      "at": 0
+     },
+     {
+      "text": "clearing things up",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "General",
+      "note": "first meaning: broad, wide-ranging, as in a generalisation"
+     },
+     {
+      "clueFragment": "clearing things up",
+      "note": "second meaning: tidying with a broom"
+     }
+    ],
+    "explanation": {
+     "surface": "A military officer explains a confusing matter.",
+     "walkthrough": "'General' looks like an army officer, but it is the adjective meaning broad.",
+     "definitionFit": "A sweeping statement is broad and unqualified, while the same word describes brushing dirt away with a broom."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "General"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +829,51 @@
     "text": "Brit, say, learns ID has been forged",
     "enumeration": "8"
    },
-   "solution": "ISLANDER"
+   "solution": "ISLANDER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ISLANDER",
+    "definitions": [
+     {
+      "text": "Brit, say",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has been forged",
+      "for": "anagram",
+      "note": "something forged is faked or fashioned anew, so the letters are made into a different arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "learns ID",
+      "gives": "LEARNSID",
+      "note": "taken as written, as anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LEARNSID",
+       "gives": "ISLANDER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A British person discovers their identity document is fake.",
+     "walkthrough": "'Say' marks the definition as an example: Britain is an island nation.",
+     "definitionFit": "A Briton lives on the island of Great Britain, so is one example of someone from an island."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "ID"
+    }
+   }
   },
   {
    "number": 14,
@@ -235,7 +887,51 @@
     "text": "Lost sample CID doctored",
     "enumeration": "9"
    },
-   "solution": "MISPLACED"
+   "solution": "MISPLACED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MISPLACED",
+    "definitions": [
+     {
+      "text": "Lost",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "doctored",
+      "for": "anagram",
+      "note": "doctored evidence has been tampered with, so the letters have been altered in order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sample CID",
+      "gives": "SAMPLECID",
+      "note": "taken as written, as anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SAMPLECID",
+       "gives": "MISPLACED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Detectives' missing evidence sample was tampered with.",
+     "walkthrough": "CID is the Criminal Investigation Department, the detective branch of British police, which makes 'doctored' sound like evidence tampering.",
+     "definitionFit": "Something misplaced has been put somewhere and cannot now be found, which is to say it is lost."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "doctored"
+    }
+   }
   },
   {
    "number": 15,
@@ -249,7 +945,74 @@
     "text": "Mounted attack is beginning to terrify Frank?",
     "enumeration": "7"
    },
-   "solution": "DIARIST"
+   "solution": "DIARIST",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DIARIST",
+    "definitions": [
+     {
+      "text": "Frank?",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Mounted",
+      "for": "reversal",
+      "note": "in a down clue, something mounted climbs upward, so it reads from bottom to top"
+     },
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its opening letter, which is all that is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "attack",
+      "gives": "RAID",
+      "note": "a raid is a sudden attack"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "terrify",
+      "gives": "T",
+      "select": "first",
+      "note": "the opening letter of terrify"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIAR",
+      "IS",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "RAID",
+       "to": "DIAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cavalry charge begins to frighten a man named Frank.",
+     "walkthrough": "'Mounted attack' suggests cavalry, but 'Mounted' reverses the raid. Frank is Anne Frank, famous for the diary she kept in hiding.",
+     "definitionFit": "Anne Frank wrote a celebrated wartime diary, making her an example of someone who keeps a journal, hence the question mark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Frank"
+    }
+   }
   },
   {
    "number": 16,
@@ -263,7 +1026,48 @@
     "text": "Wife rings, uh-oh!",
     "enumeration": "6"
    },
-   "solution": "WHOOPS"
+   "solution": "WHOOPS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WHOOPS",
+    "definitions": [
+     {
+      "text": "uh-oh!",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wife",
+      "gives": "W",
+      "note": "W is the abbreviation for wife"
+     },
+     {
+      "clueFragment": "rings",
+      "gives": "HOOPS",
+      "note": "hoops are rings"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "HOOPS"
+     ]
+    },
+    "explanation": {
+     "surface": "The wife is on the phone, and that spells trouble.",
+     "walkthrough": "'Rings' suggests a phone call, but it is a noun for circles.",
+     "definitionFit": "Both are interjections people blurt out on noticing a mistake or small mishap."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "rings"
+    }
+   }
   },
   {
    "number": 17,
@@ -277,7 +1081,47 @@
     "text": "Mark on large bottle",
     "enumeration": "6"
    },
-   "solution": "FLAGON"
+   "solution": "FLAGON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FLAGON",
+    "definitions": [
+     {
+      "text": "large bottle",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mark",
+      "gives": "FLAG",
+      "note": "to flag something is to mark it for attention"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FLAG",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A label is stuck on a big bottle.",
+     "walkthrough": "'On' looks like a link word placing the mark, but its letters belong in the answer.",
+     "definitionFit": "A flagon is a big vessel for wine or cider, often with a handle, essentially a sizeable bottle or jug."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "on"
+    }
+   }
   },
   {
    "number": 18,
@@ -291,7 +1135,51 @@
     "text": "For example, Iberian spinach I cooked",
     "enumeration": "8"
    },
-   "solution": "HISPANIC"
+   "solution": "HISPANIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HISPANIC",
+    "definitions": [
+     {
+      "text": "For example, Iberian",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cooked",
+      "for": "anagram",
+      "note": "cooking transforms ingredients, so these letters are mixed into something new"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spinach I",
+      "gives": "SPINACHI",
+      "note": "taken as written, as anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SPINACHI",
+       "gives": "HISPANIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone prepares a Spanish-style spinach dish.",
+     "walkthrough": "The definition works backwards: an Iberian is an example of something of Spanish or Portuguese heritage.",
+     "definitionFit": "Iberia is Spain and Portugal, and Spanish culture is the core sense of the term for Spanish-speaking heritage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spinach"
+    }
+   }
   },
   {
    "number": 19,
@@ -305,7 +1193,47 @@
     "text": "Material placed at home",
     "enumeration": "5"
    },
-   "solution": "SATIN"
+   "solution": "SATIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SATIN",
+    "definitions": [
+     {
+      "text": "Material",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "placed",
+      "gives": "SAT",
+      "note": "sat can mean set or placed, as in sat the child on a chair"
+     },
+     {
+      "clueFragment": "at home",
+      "gives": "IN",
+      "note": "someone at home is in"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAT",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "Fabric has been put in the house.",
+     "walkthrough": "'At home' sounds like a location for the fabric, but it simply means in.",
+     "definitionFit": "Satin is a glossy woven fabric, an example of a material used for clothing and furnishings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "placed"
+    }
+   }
   },
   {
    "number": 20,
@@ -319,7 +1247,58 @@
     "text": "Rejection of some parliamentary post",
     "enumeration": "4"
    },
-   "solution": "MAIL"
+   "solution": "MAIL",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "MAIL",
+    "definitions": [
+     {
+      "text": "post",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "of some",
+      "for": "hidden_word",
+      "note": "'some of' a word means just a portion of its letters, run together inside it"
+     },
+     {
+      "text": "Rejection",
+      "for": "reversal",
+      "note": "a rejection sends something back, so the letters run the opposite way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "parliamentary",
+      "gives": "LIAM",
+      "note": "a stretch of letters inside the word"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "LIAM",
+       "to": "MAIL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A government job application is turned down.",
+     "walkthrough": "'Parliamentary post' reads as a political job, but 'post' is the definition; LIAM sits inside 'parliamentary' and is turned back.",
+     "definitionFit": "Post and mail are the British and North American words for letters and parcels delivered by the postal service."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "post"
+    }
+   }
   },
   {
    "number": 21,
@@ -333,7 +1312,57 @@
     "text": "Plenty turned up to stay",
     "enumeration": "4"
    },
-   "solution": "STOP"
+   "solution": "STOP",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "STOP",
+    "definitions": [
+     {
+      "text": "stay",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned up",
+      "for": "reversal",
+      "note": "in a down clue, turning upward means reading from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Plenty",
+      "gives": "POTS",
+      "note": "pots, as in pots of money, means plenty"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STOP"
+     ],
+     "reversals": [
+      {
+       "from": "POTS",
+       "to": "STOP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Lots of people showed up to stay the night.",
+     "walkthrough": "'Turned up' reads as arrived, but it reverses the letters.",
+     "definitionFit": "To stop somewhere overnight is to stay there, a common British sense, and to stay or stop a process is to halt it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "turned"
+    }
+   }
   },
   {
    "number": 22,
@@ -353,7 +1382,55 @@
      }
     ]
    },
-   "solution": "OPTED"
+   "solution": "OPTED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "OPTED",
+    "definitions": [
+     {
+      "text": "Chose",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "included in",
+      "for": "container",
+      "note": "something included in another thing sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Oxford English Dictionary",
+      "gives": "OED",
+      "note": "OED is the standard abbreviation of the dictionary's title"
+     },
+     {
+      "clueFragment": "part",
+      "gives": "PT",
+      "note": "PT is the abbreviation for part"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "PT",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A lexicographer selected an entry for the great dictionary.",
+     "walkthrough": "The italics make the dictionary look like a title to read literally, but it is there only for its familiar three-letter abbreviation.",
+     "definitionFit": "To opt is to make a choice, so the past tense is a plain synonym of picked or selected."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "part"
+    }
+   }
   },
   {
    "number": 23,
@@ -367,7 +1444,43 @@
     "text": "Crossword writing environs",
     "enumeration": "7"
    },
-   "solution": "SETTING"
+   "solution": "SETTING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SETTING",
+    "definitions": [
+     {
+      "text": "Crossword writing",
+      "at": 0
+     },
+     {
+      "text": "environs",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Crossword writing",
+      "note": "first meaning: composing a puzzle, the job of a setter"
+     },
+     {
+      "clueFragment": "environs",
+      "note": "second meaning: surroundings or backdrop"
+     }
+    ],
+    "explanation": {
+     "surface": "The place where one composes puzzles.",
+     "walkthrough": "Crossword compilers are called setters, so composing a puzzle is this activity.",
+     "definitionFit": "The word names both the craft of compiling a puzzle and the surroundings in which something takes place."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 24,
@@ -381,7 +1494,54 @@
     "text": "Invalid reason for woman, 18",
     "enumeration": "6"
    },
-   "solution": "SENORA"
+   "solution": "SENORA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SENORA",
+    "definitions": [
+     {
+      "text": "woman, 18",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Invalid",
+      "for": "anagram",
+      "note": "an invalid argument is unsound, so the letters are not to be trusted in the order given"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "reason",
+      "gives": "REASON",
+      "note": "taken as written, as anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REASON",
+       "gives": "SENORA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A poor excuse offered by a woman.",
+     "walkthrough": "18 across is HISPANIC, so the definition asks for the Spanish word for a married woman.",
+     "definitionFit": "Señora is the Spanish title and term for a married woman, a lady from the Spanish-speaking world."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Invalid"
+    }
+   }
   },
   {
    "number": 25,
@@ -401,7 +1561,62 @@
      }
     ]
    },
-   "solution": "SPOTON"
+   "solution": "SPOTON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SPOT ON",
+    "definitions": [
+     {
+      "text": "Exact",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "'ultimately' means at the very end, so only the final letter is kept"
+     },
+     {
+      "text": "fills",
+      "for": "container",
+      "note": "to fill something is to go inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ladle",
+      "gives": "SPOON",
+      "note": "a ladle is a large spoon"
+     },
+     {
+      "clueFragment": "measurement",
+      "gives": "T",
+      "select": "last",
+      "note": "the final letter of measurement"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPO",
+      "T",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A cook measures precisely by filling a ladle.",
+     "walkthrough": "T goes inside SPOON, between the O's.",
+     "definitionFit": "Spot on is an informal British phrase meaning precisely correct, the same as exact."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "measurement"
+    }
+   }
   }
  ]
 }
