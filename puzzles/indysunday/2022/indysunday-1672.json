@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,46 @@
     "text": "Some home 'so' carpeted in tasteful bit of peach?",
     "enumeration": "8"
    },
-   "solution": "MESOCARP"
+   "solution": "MESOCARP",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "MESOCARP",
+    "definitions": [
+     {
+      "text": "tasteful bit of peach",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "'some' asks for only part of what follows, so the letters sit inside a longer run of words"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "home 'so' carpeted",
+      "gives": "MESOCARP",
+      "note": "the run of letters straddles the three words, ignoring spaces and quotation marks"
+     }
+    ],
+    "explanation": {
+     "surface": "A homely description of a peach so tasteful it might be wall-to-wall carpeted.",
+     "walkthrough": "Read through hoMESOCARPeted: the quoted 'so' only exists to bridge the gap. The question mark flags that the definition is a little playful.",
+     "definitionFit": "Botanists call the fleshy middle layer of a fruit's wall the mesocarp, which in a peach is the juicy part people eat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "carpeted"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +89,55 @@
     "text": "Vehicles in Perth you briefly examine",
     "enumeration": "4"
    },
-   "solution": "UTES"
+   "solution": "UTES",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "UTES",
+    "definitions": [
+     {
+      "text": "Vehicles in Perth",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "doing something briefly cuts it short, so the final letter is lopped off"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "you",
+      "gives": "U",
+      "note": "U is text-speak for you"
+     },
+     {
+      "clueFragment": "examine",
+      "gives": "TES",
+      "note": "to examine is to test; cut short it loses its last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "TES"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone in Western Australia is invited to have a quick look over some cars.",
+     "walkthrough": "Perth here is the city in Western Australia, which tells you an Australian word is wanted; a ute is short for utility vehicle.",
+     "definitionFit": "Australians call a light pickup truck with an open tray a ute, so these are vehicles typical of any Perth street."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "examine"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +151,55 @@
     "text": "Extremely hot organist needs to get jiggy",
     "enumeration": "8"
    },
-   "solution": "ROASTING"
+   "solution": "ROASTING",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ROASTING",
+    "definitions": [
+     {
+      "text": "Extremely hot",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to get jiggy",
+      "for": "anagram",
+      "note": "getting jiggy means dancing about wildly, so the letters are thrown into new positions"
+     }
+    ],
+    "linkWords": [
+     "needs"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "organist",
+      "gives": "ORGANIST",
+      "note": "taken as written for rearranging"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ORGANIST",
+       "gives": "ROASTING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sexy church musician is in the mood to let loose.",
+     "walkthrough": "'Extremely hot' reads as a description of how attractive the organist is, but it is the definition, in the sense of high temperature.",
+     "definitionFit": "Weather or an oven described as roasting is uncomfortably warm, an informal intensified way of saying very hot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "hot"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +213,65 @@
     "text": "Send up Fife hooligan princess royal dominated",
     "enumeration": "6"
    },
-   "solution": "RIDDEN"
+   "solution": "RIDDEN",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "RIDDEN",
+    "definitions": [
+     {
+      "text": "dominated",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Send up",
+      "for": "reversal",
+      "note": "in a down entry, sending something up makes it read from bottom to top, turning it backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fife hooligan",
+      "gives": "NED",
+      "note": "ned is Scottish slang for a young hooligan, and Fife is in Scotland"
+     },
+     {
+      "clueFragment": "princess",
+      "gives": "DI",
+      "note": "Di, as in Princess Diana"
+     },
+     {
+      "clueFragment": "royal",
+      "gives": "R",
+      "note": "R is the standard abbreviation for royal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIDDEN"
+     ],
+     "reversals": [
+      {
+       "from": "NEDDIR",
+       "to": "RIDDEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper story: a Scottish yob mocks the Princess Royal, who was bullied.",
+     "walkthrough": "'Princess royal' looks like the title of Princess Anne, but it splits into two separate pieces. The ned is a Scottish chav.",
+     "definitionFit": "Ridden as in guilt-ridden or crime-ridden means overwhelmed or controlled by something, so dominated is a fair past-participle match."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "princess"
+    }
+   }
   },
   {
    "number": 5,
@@ -99,7 +295,56 @@
      }
     ]
    },
-   "solution": "AFULLPLATE"
+   "solution": "AFULLPLATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "A FULL PLATE",
+    "definitions": [
+     {
+      "text": "Too much on?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to travel around",
+      "for": "anagram",
+      "note": "travelling around means moving from place to place, so the letters wander into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Felt a pull",
+      "gives": "FELTAPULL",
+      "note": "taken as written for rearranging"
+     },
+     {
+      "clueFragment": "America",
+      "gives": "A",
+      "note": "A is a standard abbreviation for America"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FELTAPULLA",
+       "gives": "AFULLPLATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An overworked person feels a yearning to go off touring the United States.",
+     "walkthrough": "The definition comes first with a question mark, because 'too much on' could equally describe clothing or a stage bill.",
+     "definitionFit": "Having a full plate is an idiom for being busy with many tasks and responsibilities, so it describes someone overcommitted."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "travel"
+    }
+   }
   },
   {
    "number": 6,
@@ -113,7 +358,72 @@
     "text": "In Oz, rabbit and retired horse live by river",
     "enumeration": "6"
    },
-   "solution": "YABBER"
+   "solution": "YABBER",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "YABBER",
+    "definitions": [
+     {
+      "text": "In Oz, rabbit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retired",
+      "for": "reversal",
+      "note": "retiring means withdrawing or going backwards, so the letters run in the opposite direction"
+     }
+    ],
+    "linkWords": [
+     "and",
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "horse",
+      "gives": "BAY",
+      "note": "a bay is a reddish-brown horse; retired, it runs backwards"
+     },
+     {
+      "clueFragment": "live",
+      "gives": "BE",
+      "note": "to be is to live or exist"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the usual abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YAB",
+      "BE",
+      "R"
+     ],
+     "reversals": [
+      {
+       "from": "BAY",
+       "to": "YAB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Australian smallholding scene: a rabbit and an old horse living by a river.",
+     "walkthrough": "Rabbit is a verb here: in British slang, to rabbit (on) is to chatter endlessly. 'In Oz' says the answer is Australian.",
+     "definitionFit": "Yabber is Australian informal speech for talking or chattering, just as rabbiting means talking at length in British slang."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rabbit"
+    }
+   }
   },
   {
    "number": 7,
@@ -127,7 +437,60 @@
     "text": "Master of arms messing about with toe",
     "enumeration": "7"
    },
-   "solution": "MAESTRO"
+   "solution": "MAESTRO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MAESTRO",
+    "definitions": [
+     {
+      "text": "Master",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "messing about",
+      "for": "anagram",
+      "note": "messing about means fooling around without order, so the letters get jumbled up"
+     }
+    ],
+    "linkWords": [
+     "of",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "arms",
+      "gives": "ARMS",
+      "note": "taken as written for rearranging"
+     },
+     {
+      "clueFragment": "toe",
+      "gives": "TOE",
+      "note": "taken as written for rearranging"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ARMSTOE",
+       "gives": "MAESTRO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A martial-arts expert playfully fiddling with his toe.",
+     "walkthrough": "'Master of arms' reads like a weapons expert as one phrase, but only 'Master' is the definition and 'arms' goes into the mix.",
+     "definitionFit": "A maestro is a distinguished expert or virtuoso in some art, especially a conductor, so a master of a craft."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "arms"
+    }
+   }
   },
   {
    "number": 7,
@@ -141,7 +504,67 @@
     "text": "Revolutionary prison in low European territory",
     "enumeration": "6"
    },
-   "solution": "MONACO"
+   "solution": "MONACO",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "MONACO",
+    "definitions": [
+     {
+      "text": "European territory",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Revolutionary",
+      "for": "reversal",
+      "note": "a revolution turns something right round, so the word is read backwards"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing placed in another sits between its letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prison",
+      "gives": "CAN",
+      "note": "the can is slang for prison; turned round it reads NAC"
+     },
+     {
+      "clueFragment": "low",
+      "gives": "MOO",
+      "note": "to low is to moo, as cattle do"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "NAC",
+      "O"
+     ],
+     "reversals": [
+      {
+       "from": "CAN",
+       "to": "NAC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rebels' jail set somewhere in the Low Countries.",
+     "walkthrough": "'Low European' suggests the Netherlands, but low is the cow's call. Monaco is a sovereign principality rather than a country in the usual sense, hence territory.",
+     "definitionFit": "Monaco is a tiny independent city-state on the Mediterranean coast, a piece of land in Europe ruled by its prince."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "low"
+    }
+   }
   },
   {
    "number": 8,
@@ -155,7 +578,63 @@
     "text": "Acquiring new apartment? That's swell!",
     "enumeration": "7"
    },
-   "solution": "INFLATE"
+   "solution": "INFLATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "INFLATE",
+    "definitions": [
+     {
+      "text": "swell",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Acquiring",
+      "for": "container",
+      "note": "acquiring something means taking it in, so one piece ends up held inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the standard abbreviation for new"
+     },
+     {
+      "clueFragment": "apartment",
+      "gives": "FLAT",
+      "note": "a flat is a British apartment"
+     },
+     {
+      "clueFragment": "That's",
+      "gives": "IE",
+      "note": "i.e., id est, means 'that is'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "N",
+      "FLAT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hears a friend is getting a new apartment and cheers that it's great news.",
+     "walkthrough": "'That's swell!' reads as an exclamation of approval, but 'That's' gives IE, which then takes in the new flat; 'swell' alone is the definition.",
+     "definitionFit": "To swell is to grow larger by filling up, as a balloon does when blown up with air, so both are expanding verbs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "swell"
+    }
+   }
   },
   {
    "number": 9,
@@ -169,7 +648,66 @@
     "text": "Nurse with spirit sat on top of express locomotive",
     "enumeration": "6"
    },
-   "solution": "ENGINE"
+   "solution": "ENGINE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ENGINE",
+    "definitions": [
+     {
+      "text": "locomotive",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "top of",
+      "for": "letter_selection",
+      "note": "the top of a word in a down entry is its opening letter"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "sat on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nurse",
+      "gives": "EN",
+      "note": "EN is an enrolled nurse"
+     },
+     {
+      "clueFragment": "spirit",
+      "gives": "GIN",
+      "note": "gin is a spirit"
+     },
+     {
+      "clueFragment": "express",
+      "gives": "E",
+      "select": "first",
+      "note": "its first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "GIN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A tipsy nurse rides on the roof of an express train.",
+     "walkthrough": "In a down clue, 'sat on' means placed above, so the first pieces go over the last. EN, an enrolled nurse, is a common crossword abbreviation.",
+     "definitionFit": "A locomotive is the powered rail vehicle that pulls a train, and in everyday speech it is simply the train's engine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "express"
+    }
+   }
   },
   {
    "number": 10,
@@ -183,7 +721,58 @@
     "text": "Aristocrats taking on old, but inexperienced folk",
     "enumeration": "5"
    },
-   "solution": "NOOBS"
+   "solution": "NOOBS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NOOBS",
+    "definitions": [
+     {
+      "text": "inexperienced folk",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking on",
+      "for": "container",
+      "note": "to take on is to take in or absorb, so one piece goes inside the other"
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Aristocrats",
+      "gives": "NOBS",
+      "note": "nobs is British slang for upper-class people"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the standard abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "O",
+      "BS"
+     ]
+    },
+    "explanation": {
+     "surface": "Posh people hiring elderly but untrained staff.",
+     "walkthrough": "'Taking on' suggests employing, but here it means taking the letter inside. Nobs are toffs, British slang for the wealthy upper classes.",
+     "definitionFit": "Noob is internet and gaming slang for a newcomer who lacks skill, a beginner still learning the ropes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "taking"
+    }
+   }
   },
   {
    "number": 11,
@@ -197,7 +786,69 @@
     "text": "Criminal beds lad with a thousand rolls of fat",
     "enumeration": "9"
    },
-   "solution": "SADDLEBAG"
+   "solution": "SADDLEBAG",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "SADDLEBAG",
+    "definitions": [
+     {
+      "text": "rolls of fat",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Criminal",
+      "for": "anagram",
+      "note": "something criminal is wrong or bent, so the letters are twisted out of order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beds lad",
+      "gives": "BEDSLAD",
+      "note": "taken as written for rearranging"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "thousand",
+      "gives": "G",
+      "note": "G, a grand, is slang for a thousand"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SADDLEBA",
+      "G"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BEDSLADA",
+       "gives": "SADDLEBA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crook takes a young man to bed and pays him a thousand pounds, all rather unflattering.",
+     "walkthrough": "'Criminal' looks like the subject of the sentence, but it is the signal to rearrange. The definition is singular in form but the answer is a collective term, often used in the plural.",
+     "definitionFit": "Saddlebags is informal for deposits of fat on the outer thighs or hips, likened to bags slung over a horse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Criminal"
+    }
+   }
   },
   {
    "number": 12,
@@ -211,7 +862,59 @@
     "text": "Bloke making love mostly to make bread",
     "enumeration": "7"
    },
-   "solution": "CHAPATI"
+   "solution": "CHAPATI",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "CHAPATI",
+    "definitions": [
+     {
+      "text": "bread",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the final letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "to make"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bloke",
+      "gives": "CHAP",
+      "note": "a chap is a man"
+     },
+     {
+      "clueFragment": "making love",
+      "gives": "ATI",
+      "note": "'at it' is a euphemism for having sex; mostly, it loses its last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAP",
+      "ATI"
+     ]
+    },
+    "explanation": {
+     "surface": "A man who sleeps with someone mainly to earn money.",
+     "walkthrough": "'Make bread' looks like slang for earning cash, but bread is the literal definition. 'At it' is British slang for having sex.",
+     "definitionFit": "A chapati is a thin, flat, unleavened Indian bread cooked on a griddle, so it is a specific type of loaf."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bread"
+    }
+   }
   },
   {
    "number": 13,
@@ -225,7 +928,59 @@
     "text": "A sad tutor going wild on a road abroad",
     "enumeration": "10"
    },
-   "solution": "AUTOSTRADA"
+   "solution": "AUTOSTRADA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AUTOSTRADA",
+    "definitions": [
+     {
+      "text": "road abroad",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going wild",
+      "for": "anagram",
+      "note": "going wild means losing all control, so the letters scatter into a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A sad tutor",
+      "gives": "ASADTUTOR",
+      "note": "taken as written for rearranging"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written for rearranging"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ASADTUTORA",
+       "gives": "AUTOSTRADA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A depressed teacher letting rip on a foreign road trip.",
+     "walkthrough": "The second 'a' looks like part of 'a road abroad', but it joins the letters to be shuffled, leaving 'road abroad' as the definition.",
+     "definitionFit": "An autostrada is an Italian motorway, a major highway found in a foreign country rather than at home."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sad"
+    }
+   }
   },
   {
    "number": 14,
@@ -239,7 +994,55 @@
     "text": "Tips for narc: experts pull hot rocks on nice tube",
     "enumeration": "7"
    },
-   "solution": "NEPHRON"
+   "solution": "NEPHRON",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "NEPHRON",
+    "definitions": [
+     {
+      "text": "tube",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Tips for",
+      "for": "letter_selection",
+      "note": "the tip of a word is one end of it, and here the leading ends are taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "narc: experts pull hot rocks on nice",
+      "gives": "NEPHRON",
+      "select": "first",
+      "note": "the opening letter of each of these seven words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "E",
+      "P",
+      "H",
+      "R",
+      "O",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "An undercover drugs agent gets hints: dealers pass crack around in a smart pipe.",
+     "walkthrough": "A narc is American slang for a narcotics officer, and rocks are crack cocaine, so the surface is a drugs bust. A nephron is a kidney tubule.",
+     "definitionFit": "A nephron is the tiny tubule in the kidney that filters blood and produces urine, so anatomically it is a tube."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tube"
+    }
+   }
   },
   {
    "number": 15,
@@ -253,7 +1056,52 @@
     "text": "Power and sex will be mine!",
     "enumeration": "3"
    },
-   "solution": "PIT"
+   "solution": "PIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PIT",
+    "definitions": [
+     {
+      "text": "mine",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "and",
+     "will be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Power",
+      "gives": "P",
+      "note": "P is the physics symbol for power"
+     },
+     {
+      "clueFragment": "sex",
+      "gives": "IT",
+      "note": "'it' is a euphemism for sex or sex appeal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "A villain's boast that dominance and seduction will soon belong to them.",
+     "walkthrough": "'Mine' reads as a possessive pronoun in the boast, but it is a noun: a coal mine.",
+     "definitionFit": "A pit is a coal mine, especially in Britain, where miners are said to go down the pit to dig coal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "mine"
+    }
+   }
   },
   {
    "number": 16,
@@ -267,7 +1115,48 @@
     "text": "Slime having pleasing qualities? Not quite!",
     "enumeration": "3"
    },
-   "solution": "GOO"
+   "solution": "GOO",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "GOO",
+    "definitions": [
+     {
+      "text": "Slime",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not quite",
+      "for": "deletion",
+      "note": "not quite means falling just short, so the last letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "having pleasing qualities",
+      "gives": "GOO",
+      "note": "having pleasing qualities; not quite complete, it drops its final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GOO"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wonders whether slime has any appeal, and decides it doesn't really.",
+     "walkthrough": "The question mark and exclamation make it sound like a verdict on slime; 'Not quite' actually trims the word for 'pleasing'.",
+     "definitionFit": "Goo is an informal word for any sticky, viscous substance, the same gooey stuff people call slime."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "quite"
+    }
+   }
   },
   {
    "number": 17,
@@ -281,7 +1170,72 @@
     "text": "Mad at lover? Head to khazi and emit much gas!",
     "enumeration": "8"
    },
-   "solution": "OVERTALK"
+   "solution": "OVERTALK",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "OVERTALK",
+    "definitions": [
+     {
+      "text": "emit much gas",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Mad",
+      "for": "anagram",
+      "note": "something mad is crazy and disordered, so the letters lose their order"
+     },
+     {
+      "text": "Head to",
+      "for": "letter_selection",
+      "note": "the head of a word is its first letter"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at lover",
+      "gives": "ATLOVER",
+      "note": "taken as written for rearranging"
+     },
+     {
+      "clueFragment": "khazi",
+      "gives": "K",
+      "select": "first",
+      "note": "its first letter; khazi is British slang for a toilet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVERTAL",
+      "K"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ATLOVER",
+       "gives": "OVERTAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone furious with their partner storms off to the loo and breaks wind loudly.",
+     "walkthrough": "Khazi is British slang for a lavatory. 'Gas' here means idle chatter, not wind, which is what the toilet scene suggests.",
+     "definitionFit": "To gas is informal for chatting idly, so emitting a great deal of it means talking too much, which is to overtalk."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "gas"
+    }
+   }
   },
   {
    "number": 18,
@@ -295,7 +1249,63 @@
     "text": "Not all call back to get help",
     "enumeration": "3"
    },
-   "solution": "AID"
+   "solution": "AID",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "AID",
+    "definitions": [
+     {
+      "text": "help",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not all",
+      "for": "deletion",
+      "note": "not all means only part, so the final letter is removed"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means travelling the other way, so the letters read right to left"
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "call",
+      "gives": "DIA",
+      "note": "to call someone is to dial them; not all of it loses the last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AID"
+     ],
+     "reversals": [
+      {
+       "from": "DIA",
+       "to": "AID"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice that you don't have to return every phone call to get assistance.",
+     "walkthrough": "'Call back' reads as one phrase, returning a call, but 'call' is the word to trim and 'back' turns it round.",
+     "definitionFit": "Aid is assistance or support given to someone in need, so as nouns the two words are straightforward synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 19,
@@ -309,7 +1319,62 @@
     "text": "Racy type pulls Her Maj? About time!",
     "enumeration": "8"
    },
-   "solution": "DRAGSTER"
+   "solution": "DRAGSTER",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "DRAGSTER",
+    "definitions": [
+     {
+      "text": "Racy type",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "About",
+      "for": "container",
+      "note": "about means around, so the earlier pieces wrap round a single letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pulls",
+      "gives": "DRAGS",
+      "note": "to drag is to pull"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "Her Maj",
+      "gives": "ER",
+      "note": "ER, Elizabeth Regina, is the Queen's royal cipher; Her Maj is jokey British for Her Majesty"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DRAGS",
+      "T",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A saucy character seduces the Queen, and it's high time someone did.",
+     "walkthrough": "'Racy type' suggests someone risqué, but racy here means built for racing; 'pulls' also hints at seduction, but is simply drags.",
+     "definitionFit": "A dragster is a car specially built for drag racing, short sprints along a straight strip, so it is a racing vehicle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Racy"
+    }
+   }
   },
   {
    "number": 20,
@@ -323,7 +1388,72 @@
     "text": "Cartel bringing in a bit of C4 for bombing",
     "enumeration": "6"
    },
-   "solution": "RACING"
+   "solution": "RACING",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "RACING",
+    "definitions": [
+     {
+      "text": "bombing",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bringing in",
+      "for": "container",
+      "note": "bringing something in means taking it inside, so pieces go into the middle"
+     },
+     {
+      "text": "bit of",
+      "for": "letter_selection",
+      "note": "a bit of a word is a single letter of it, here the first"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cartel",
+      "gives": "RING",
+      "note": "a ring is a cartel or gang acting together"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "C4",
+      "gives": "C",
+      "select": "first",
+      "note": "its first character"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "A",
+      "C",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "A criminal gang smuggling in plastic explosive for a terror attack.",
+     "walkthrough": "C4 is a plastic explosive, which makes 'bombing' look like an attack, but it means going very fast.",
+     "definitionFit": "Bombing along is informal for travelling at great speed, so it matches racing as a present participle of speeding."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bombing"
+    }
+   }
   },
   {
    "number": 21,
@@ -337,7 +1467,52 @@
     "text": "Women's stilettos can be instruments of torture",
     "enumeration": "6"
    },
-   "solution": "WHEELS"
+   "solution": "WHEELS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WHEELS",
+    "definitions": [
+     {
+      "text": "instruments of torture",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "can be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Women",
+      "gives": "W",
+      "note": "W is the abbreviation for women, as on a toilet door"
+     },
+     {
+      "clueFragment": "stilettos",
+      "gives": "HEELS",
+      "note": "stilettos are high heels"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "HEELS"
+     ]
+    },
+    "explanation": {
+     "surface": "A wry complaint that women's spiky high heels are agony to wear.",
+     "walkthrough": "The surface invites agreement that heels hurt; the definition is literal, a historical device on which victims were broken.",
+     "definitionFit": "The breaking wheel was a medieval execution device, with victims tied to it and their limbs smashed, so wheels were torture tools."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "stilettos"
+    }
+   }
   },
   {
    "number": 22,
@@ -351,7 +1526,51 @@
     "text": "Excitement as Raoul spun out",
     "enumeration": "7"
    },
-   "solution": "AROUSAL"
+   "solution": "AROUSAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AROUSAL",
+    "definitions": [
+     {
+      "text": "Excitement",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spun out",
+      "for": "anagram",
+      "note": "spinning out of control sends things flying in every direction, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "as Raoul",
+      "gives": "ASRAOUL",
+      "note": "taken as written for rearranging"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ASRAOUL",
+       "gives": "AROUSAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Thrills as a man called Raoul loses control, perhaps in a racing car.",
+     "walkthrough": "Raoul looks like a person, but his name is simply letters to rearrange together with 'as'.",
+     "definitionFit": "Arousal is a state of heightened stimulation or excitement, whether emotional, physical or sexual, so the nouns are synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Raoul"
+    }
+   }
   },
   {
    "number": 23,
@@ -365,7 +1584,57 @@
     "text": "Criminal exposed by Parisian article on wife",
     "enumeration": "6"
    },
-   "solution": "OUTLAW"
+   "solution": "OUTLAW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OUTLAW",
+    "definitions": [
+     {
+      "text": "Criminal",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "by",
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "exposed",
+      "gives": "OUT",
+      "note": "out means revealed or exposed"
+     },
+     {
+      "clueFragment": "Parisian article",
+      "gives": "LA",
+      "note": "la is a French word for 'the'"
+     },
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "W is the abbreviation for wife"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUT",
+      "LA",
+      "W"
+     ]
+    },
+    "explanation": {
+     "surface": "A crook unmasked by a French newspaper's story about his wife.",
+     "walkthrough": "In a down clue 'on' means placed above, so the article sits over the wife. 'Article' suggests a newspaper piece, but it is the grammatical article.",
+     "definitionFit": "An outlaw is a fugitive or lawbreaker, someone who lives outside the law, so both describe a person who commits crimes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 24,
@@ -379,7 +1648,68 @@
     "text": "Gold soldiers stashed in empty Liverpool plant",
     "enumeration": "6"
    },
-   "solution": "LAUREL"
+   "solution": "LAUREL",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "LAUREL",
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stashed in",
+      "for": "container",
+      "note": "something stashed in a place is hidden inside it, so these pieces go in the middle"
+     },
+     {
+      "text": "empty",
+      "for": "letter_selection",
+      "note": "emptying a word removes its insides, leaving just the two outer letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Liverpool",
+      "gives": "LL",
+      "select": "outer",
+      "note": "its first and last letters"
+     },
+     {
+      "clueFragment": "Gold",
+      "gives": "AU",
+      "note": "Au is the chemical symbol for gold"
+     },
+     {
+      "clueFragment": "soldiers",
+      "gives": "RE",
+      "note": "RE is the Royal Engineers, a British army corps"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "AU",
+      "RE",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "Stolen gold, hidden by troops inside a deserted Liverpool factory.",
+     "walkthrough": "'Plant' suggests an industrial site in the Liverpool scene, but it is the botanical sense.",
+     "definitionFit": "The laurel is an evergreen shrub, the bay tree, whose leaves were woven into wreaths for victors, so it is a plant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "plant"
+    }
+   }
   },
   {
    "number": 25,
@@ -393,7 +1723,48 @@
     "text": "In hearing, launderer's confession is nonsense",
     "enumeration": "7"
    },
-   "solution": "EYEWASH"
+   "solution": "EYEWASH",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "EYEWASH",
+    "definitions": [
+     {
+      "text": "nonsense",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In hearing",
+      "for": "homophone",
+      "note": "in hearing means as it reaches the ear, so the spoken form counts, not the spelling"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "launderer's confession",
+      "gives": "EYEWASH",
+      "soundsLike": "I WASH",
+      "note": "what someone who does laundry would admit to"
+     }
+    ],
+    "explanation": {
+     "surface": "At a court hearing, a money launderer's admission is dismissed as rubbish.",
+     "walkthrough": "'Hearing' and 'launderer' suggest a court case about dirty money; the launderer just washes clothes, and the confession is spoken.",
+     "definitionFit": "Eyewash is informal for talk intended to deceive or impress, insincere rubbish, much like hogwash or claptrap."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "hearing"
+    }
+   }
   },
   {
    "number": 26,
@@ -407,7 +1778,63 @@
     "text": "Obstruct prurient fools heading for threesome",
     "enumeration": "9"
    },
-   "solution": "INTERRUPT"
+   "solution": "INTERRUPT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection"
+    ],
+    "answer": "INTERRUPT",
+    "definitions": [
+     {
+      "text": "Obstruct",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fools",
+      "for": "anagram",
+      "note": "to fool about is to play around, so the letters are mucked about into new positions"
+     },
+     {
+      "text": "heading for",
+      "for": "letter_selection",
+      "note": "the heading of a word is its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prurient",
+      "gives": "PRURIENT",
+      "note": "taken as written for rearranging"
+     },
+     {
+      "clueFragment": "threesome",
+      "gives": "T",
+      "select": "first",
+      "note": "its first letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PRURIENTT",
+       "gives": "INTERRUPT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Lustful idiots barge in, set on a threesome.",
+     "walkthrough": "'Fools' looks like a plural noun that 'prurient' describes, but it is a verb meaning plays about with the letters.",
+     "definitionFit": "To interrupt a process or flow is to break in and hinder it, so it can mean to block or impede, like obstruct."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fools"
+    }
+   }
   },
   {
    "number": 27,
@@ -421,7 +1848,65 @@
     "text": "A way to stop our man getting speed",
     "enumeration": "5"
    },
-   "solution": "HASTE"
+   "solution": "HASTE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "HASTE",
+    "definitions": [
+     {
+      "text": "speed",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to stop",
+      "for": "container",
+      "note": "a stopper plugs a gap, so one piece is pushed inside another to block it"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "our man",
+      "gives": "HE",
+      "note": "he is the pronoun for a man"
+     },
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "way",
+      "gives": "ST",
+      "note": "St is the abbreviation for street, a way"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "A",
+      "ST",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A spy-story plan to halt our agent before he picks up pace.",
+     "walkthrough": "The surface reads like a chase scene; 'A way' supplies two pieces that go inside the pronoun.",
+     "definitionFit": "Haste is swiftness of movement or action, hurrying, so as nouns both mean quickness in doing something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stop"
+    }
+   }
   },
   {
    "number": 27,
@@ -435,7 +1920,61 @@
     "text": "Climber stuck on top of Everest might have this",
     "enumeration": "4"
    },
-   "solution": "HOPE"
+   "solution": "HOPE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "and_lit"
+    ],
+    "answer": "HOPE",
+    "definitions": [
+     {
+      "text": "Climber stuck on top of Everest might have this",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "top of",
+      "for": "letter_selection",
+      "note": "the top of a word in a down entry is its first letter"
+     }
+    ],
+    "linkWords": [
+     "stuck on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Climber",
+      "gives": "HOP",
+      "note": "the hop is a climbing plant grown up poles for beer"
+     },
+     {
+      "clueFragment": "Everest",
+      "gives": "E",
+      "select": "first",
+      "note": "its first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOP",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A mountaineer stranded at the summit of Everest clings to optimism.",
+     "walkthrough": "As a whole the clue describes the feeling of a stranded mountaineer; within the wordplay the climber is a plant, not a person.",
+     "definitionFit": "Someone stranded on a high summit can only wish and trust that rescue will come, so optimism is all they have left."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Climber"
+    }
+   }
   },
   {
    "number": 28,
@@ -449,7 +1988,61 @@
     "text": "Worthy old relative drugs grasping duke",
     "enumeration": "7"
    },
-   "solution": "GRANDEE"
+   "solution": "GRANDEE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "GRANDEE",
+    "definitions": [
+     {
+      "text": "Worthy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "grasping",
+      "for": "container",
+      "note": "grasping means holding tight, so one piece is held between others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old relative",
+      "gives": "GRAN",
+      "note": "a gran is a grandmother"
+     },
+     {
+      "clueFragment": "drugs",
+      "gives": "EE",
+      "note": "E is ecstasy, so two of them make drugs"
+     },
+     {
+      "clueFragment": "duke",
+      "gives": "D",
+      "note": "D is the abbreviation for duke"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRAN",
+      "D",
+      "EE"
+     ]
+    },
+    "explanation": {
+     "surface": "A respectable elderly relative is busted for drugging a duke.",
+     "walkthrough": "'Worthy' looks like an adjective describing the relative, but it is a noun. The relative and the drugs together hold the duke between them.",
+     "definitionFit": "A worthy, as a noun, is a notable or esteemed person, and a grandee is likewise someone of high rank and influence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Worthy"
+    }
+   }
   },
   {
    "number": 29,
@@ -463,7 +2056,71 @@
     "text": "Catty drinkers knocked back Bud with a soprano",
     "enumeration": "7"
    },
-   "solution": "LAPPERS"
+   "solution": "LAPPERS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "LAPPERS",
+    "definitions": [
+     {
+      "text": "Catty drinkers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "knocked back",
+      "for": "reversal",
+      "note": "knocking something back sends it backwards, so the letters run the other way"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bud",
+      "gives": "PAL",
+      "note": "bud is a buddy or pal; knocked back it reads in reverse"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "PER",
+      "note": "per means 'a', as in fifty miles per hour"
+     },
+     {
+      "clueFragment": "soprano",
+      "gives": "S",
+      "note": "S is the abbreviation for soprano"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAP",
+      "PER",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "PAL",
+       "to": "LAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bitchy drinkers down Budweiser alongside a singer.",
+     "walkthrough": "'Knocked back' and 'Bud' suggest downing a beer, but Bud is a friend. 'Catty' means cat-like, not spiteful.",
+     "definitionFit": "Cats drink by scooping liquid with the tongue, so feline animals at a water bowl are creatures that lap it up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Catty"
+    }
+   }
   }
  ]
 }
