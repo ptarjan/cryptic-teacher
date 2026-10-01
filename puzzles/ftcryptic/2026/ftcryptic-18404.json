@@ -24,6 +24,9 @@
   "date": "2026-06-19",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,77 @@
     "text": "Superhero hit the face of Magneto with one end of weapon",
     "enumeration": "6"
    },
-   "solution": "BATMAN"
+   "solution": "BATMAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "BATMAN",
+    "definitions": [
+     {
+      "text": "Superhero",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the face of",
+      "for": "letter_selection",
+      "note": "the face of something is its front, so only the opening letter is kept"
+     },
+     {
+      "text": "one end of",
+      "for": "letter_selection",
+      "note": "an end is an extremity, and here the closing extremity of the word is the letter kept"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hit",
+      "gives": "BAT",
+      "note": "to bat is to strike, as with a cricket or baseball bat"
+     },
+     {
+      "clueFragment": "Magneto",
+      "gives": "M",
+      "select": "first",
+      "note": "the front letter of the villain's name"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "one and 'a' are interchangeable"
+     },
+     {
+      "clueFragment": "weapon",
+      "gives": "N",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAT",
+      "M",
+      "A",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A comic-book hero lands a blow on his foe Magneto's face using the tip of a weapon.",
+     "walkthrough": "The superhero and Magneto share a comic-book world, which is the disguise: Magneto only lends his first letter.",
+     "definitionFit": "Batman is the caped DC Comics crime-fighter, one of the best-known costumed heroes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hit"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +124,60 @@
     "text": "Colour of something one might wipe with the middle of hanky",
     "enumeration": "5"
    },
-   "solution": "BROWN"
+   "solution": "BROWN",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "BROWN",
+    "definitions": [
+     {
+      "text": "Colour",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the middle of",
+      "for": "letter_selection",
+      "note": "the middle is the central point, so only the central letter of the five-letter word is kept"
+     }
+    ],
+    "linkWords": [
+     "of",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "something one might wipe",
+      "gives": "BROW",
+      "note": "you mop your forehead when sweating"
+     },
+     {
+      "clueFragment": "hanky",
+      "gives": "N",
+      "select": "middle",
+      "note": "the third of five letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BROW",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "It sounds like a grubby question about what colour a used handkerchief turns.",
+     "walkthrough": "The 'something one might wipe' is a cryptic pointer to the forehead; the hanky is only there to supply its centre letter.",
+     "definitionFit": "Brown is a basic hue, the shade of earth, wood and chocolate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hanky"
+    }
+   }
   },
   {
    "number": 2,
@@ -71,7 +197,62 @@
      }
     ]
    },
-   "solution": "THEGRINCH"
+   "solution": "THEGRINCH",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "THE GRINCH",
+    "definitions": [
+     {
+      "text": "Antisocial housebreaker",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "violently",
+      "for": "anagram",
+      "note": "something done violently is thrown about, so the letters are scrambled"
+     },
+     {
+      "text": "having injected",
+      "for": "container",
+      "note": "an injection puts one thing inside another, so a letter goes in among the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "retching",
+      "gives": "RETCHING",
+      "note": "taken as written, the letters to be scrambled"
+     },
+     {
+      "clueFragment": "heroin",
+      "gives": "H",
+      "note": "H is drug slang for heroin"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RETCHINGH",
+       "gives": "THEGRINCH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A burglar with a drug habit is heaving violently after a fix of heroin.",
+     "walkthrough": "The heroin letter joins the fodder before it is mixed. 'Antisocial housebreaker' is a playful description: the Dr Seuss character creeps into Whoville homes to steal Christmas.",
+     "definitionFit": "The Dr Seuss character hates festive cheer and sneaks into houses to steal presents and decorations, so he is a grumpy burglar."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "housebreaker"
+    }
+   }
   },
   {
    "number": 3,
@@ -85,7 +266,67 @@
     "text": "Film a crazy woman performing a flip",
     "enumeration": "7"
    },
-   "solution": "AMADEUS"
+   "solution": "AMADEUS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "AMADEUS",
+    "definitions": [
+     {
+      "text": "Film",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "performing a flip",
+      "for": "reversal",
+      "note": "a flip turns something over, so the name is written back to front"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "crazy",
+      "gives": "MAD",
+      "note": "mad means crazy"
+     },
+     {
+      "clueFragment": "woman",
+      "gives": "SUE",
+      "note": "a woman's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MAD",
+      "EUS"
+     ],
+     "reversals": [
+      {
+       "from": "SUE",
+       "to": "EUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A film about an unhinged woman doing somersaults.",
+     "walkthrough": "'Woman' in crosswords is often any female first name; here a three-letter one is turned round.",
+     "definitionFit": "The 1984 Milos Forman movie about Mozart won the Best Picture Oscar."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flip"
+    }
+   }
   },
   {
    "number": 4,
@@ -99,7 +340,64 @@
     "text": "By the conclusion of erotica, Bet is excited",
     "enumeration": "8"
    },
-   "solution": "AFLUTTER"
+   "solution": "AFLUTTER",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "AFLUTTER",
+    "definitions": [
+     {
+      "text": "excited",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the conclusion of",
+      "for": "letter_selection",
+      "note": "a conclusion is an ending, so the final letter is kept"
+     },
+     {
+      "text": "By",
+      "for": "charade",
+      "note": "by means beside, so one piece sits next to the other"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "erotica",
+      "gives": "A",
+      "select": "last",
+      "note": "the word ends in this letter"
+     },
+     {
+      "clueFragment": "Bet",
+      "gives": "FLUTTER",
+      "note": "not a woman's name but a wager; British slang has a word for a small bet on the horses"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "FLUTTER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone called Bet gets worked up as she finishes reading something racy.",
+     "walkthrough": "'Bet' looks like a woman's name but is a wager; in Britain a flutter is a small bet, as on a horse race. 'Erotica' gives only its last letter.",
+     "definitionFit": "Being in a flutter means nervously agitated, so the adjective describes someone stirred up and excited."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bet"
+    }
+   }
   },
   {
    "number": 5,
@@ -119,7 +417,73 @@
      }
     ]
    },
-   "solution": "FUNNYBONE"
+   "solution": "FUNNYBONE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "FUNNY BONE",
+    "definitions": [
+     {
+      "text": "body part",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shocked",
+      "for": "anagram",
+      "note": "something shocked is jolted out of place, so the letters are jumbled"
+     },
+     {
+      "text": "spinning",
+      "for": "anagram",
+      "note": "spinning things whirl round into new positions, reinforcing the instruction to rearrange"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fellow",
+      "gives": "F",
+      "note": "F is the standard abbreviation for fellow"
+     },
+     {
+      "clueFragment": "nun by",
+      "gives": "NUNBY",
+      "note": "taken as written, the letters to rearrange"
+     },
+     {
+      "clueFragment": "a certain",
+      "gives": "ONE",
+      "note": "'a certain person' can be 'one', a single unnamed individual"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "UNNYB",
+      "ONE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NUNBY",
+       "gives": "UNNYB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man startles a nun by twirling a particular part of his body.",
+     "walkthrough": "Two words point to the same jumble of the nun-by letters; 'a certain' then stands for an indefinite someone.",
+     "definitionFit": "The funny bone is the spot at the elbow where the ulnar nerve sits, tingling sharply when knocked."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "shocked"
+    }
+   }
   },
   {
    "number": 6,
@@ -133,7 +497,54 @@
     "text": "Discover blue planet supporting advocates for peace",
     "enumeration": "7"
    },
-   "solution": "UNEARTH"
+   "solution": "UNEARTH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNEARTH",
+    "definitions": [
+     {
+      "text": "Discover",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "supporting",
+      "for": "charade",
+      "note": "in a down answer a supporting piece sits underneath, so it comes second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "advocates for peace",
+      "gives": "UN",
+      "note": "the United Nations exists to keep the peace"
+     },
+     {
+      "clueFragment": "blue planet",
+      "gives": "EARTH",
+      "note": "our world is the blue planet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "EARTH"
+     ]
+    },
+    "explanation": {
+     "surface": "Peace campaigners are backing efforts to find a new blue world.",
+     "walkthrough": "Clue order puts the planet first, but 'supporting' places it below the peacekeepers in this down entry.",
+     "definitionFit": "To dig something up from the ground, literally or figuratively, is to find it out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "supporting"
+    }
+   }
   },
   {
    "number": 7,
@@ -147,7 +558,62 @@
     "text": "Giant bird sang after the removal of its wings",
     "enumeration": "5"
    },
-   "solution": "TITAN"
+   "solution": "TITAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "TITAN",
+    "definitions": [
+     {
+      "text": "Giant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the removal of its wings",
+      "for": "letter_selection",
+      "note": "wings are the side parts, so stripping them leaves only the inner letters"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after means following, so this piece is placed later in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bird",
+      "gives": "TIT",
+      "note": "a tit is a small songbird"
+     },
+     {
+      "clueFragment": "sang",
+      "gives": "AN",
+      "select": "middle",
+      "note": "the word without its first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIT",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "A huge bird went on singing even after its wings had been taken off.",
+     "walkthrough": "'Wings' sounds avian, fitting the bird, but here it means the outer letters of the verb.",
+     "definitionFit": "The Titans were the colossal deities of Greek myth, so the word names any person or thing of enormous size or power."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "wings"
+    }
+   }
   },
   {
    "number": 8,
@@ -161,7 +627,61 @@
     "text": "Get back on steamship stopped by some officers",
     "enumeration": "9"
    },
-   "solution": "REPOSSESS"
+   "solution": "REPOSSESS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "REPOSSESS",
+    "definitions": [
+     {
+      "text": "Get back",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stopped by",
+      "for": "container",
+      "note": "something stopped by an obstacle is interrupted, so another group is pushed into the middle"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "re means on or concerning"
+     },
+     {
+      "clueFragment": "some officers",
+      "gives": "POSSE",
+      "note": "a posse is a band of law officers"
+     },
+     {
+      "clueFragment": "steamship",
+      "gives": "SS",
+      "note": "SS is the abbreviation for steamship"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "POSSE",
+      "SS"
+     ]
+    },
+    "explanation": {
+     "surface": "Climbing back aboard a steamer is blocked by a few officials.",
+     "walkthrough": "The officers break into the 'on steamship' pair, landing between its two parts.",
+     "definitionFit": "Repossessing means reclaiming goods, typically when payments lapse, so it is regaining ownership."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stopped"
+    }
+   }
   },
   {
    "number": 9,
@@ -175,7 +695,50 @@
     "text": "The twenty-fifth can is very small",
     "enumeration": "4"
    },
-   "solution": "TINY"
+   "solution": "TINY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TINY",
+    "definitions": [
+     {
+      "text": "very small",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "can",
+      "gives": "TIN",
+      "note": "a tin is a can"
+     },
+     {
+      "clueFragment": "The twenty-fifth",
+      "gives": "Y",
+      "note": "the 25th letter of the alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIN",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "The can numbered twenty-five is a little one.",
+     "walkthrough": "'The twenty-fifth' reads as a date or rank, but it is the alphabet's 25th letter, and it comes second.",
+     "definitionFit": "Both mean minute or minuscule in size, simple synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "twenty-fifth"
+    }
+   }
   },
   {
    "number": 10,
@@ -189,7 +752,63 @@
     "text": "Running round and exercising beside allotment",
     "enumeration": "9"
    },
-   "solution": "OPERATION"
+   "solution": "OPERATION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OPERATION",
+    "definitions": [
+     {
+      "text": "Running",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beside",
+      "for": "charade",
+      "note": "beside means next to, so one part follows on from the other"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "round",
+      "gives": "O",
+      "note": "the letter is round in shape"
+     },
+     {
+      "clueFragment": "exercising",
+      "gives": "PE",
+      "note": "physical education, school exercise"
+     },
+     {
+      "clueFragment": "allotment",
+      "gives": "RATION",
+      "note": "a ration is an allotted share"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "PE",
+      "RATION"
+     ]
+    },
+    "explanation": {
+     "surface": "Jogging laps and working out next to a plot where vegetables grow.",
+     "walkthrough": "'Running' and 'allotment' both suggest exercise and gardening; an allotment is a British rented vegetable plot, but here it means a portion.",
+     "definitionFit": "A machine that is running is in operation, so the noun names the state of functioning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "allotment"
+    }
+   }
   },
   {
    "number": 11,
@@ -209,7 +828,40 @@
      }
     ]
    },
-   "solution": "EATUP"
+   "solution": "EATUP",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "EAT UP",
+    "definitions": [
+     {
+      "text": "Finish",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Finish",
+      "note": "straight meaning: to consume a meal completely"
+     },
+     {
+      "clueFragment": "crossword setter’s tea?",
+      "note": "a setter loves to mix letters, so in their hands the drink becomes a jumbled version of itself, the word stirred 'up'"
+     }
+    ],
+    "explanation": {
+     "surface": "It reads like urging someone to drain the cup of tea a puzzle-maker has brewed.",
+     "walkthrough": "The question mark flags the joke: a crossword setter rearranges 'tea' into a mixed-up verb, which is exactly what an anagrammatist does with it.",
+     "definitionFit": "To clear your plate entirely is the everyday phrasal verb for completing a meal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tea"
+    }
+   }
   },
   {
    "number": 12,
@@ -223,7 +875,72 @@
     "text": "Where toddlers are sure to be trained in number lines",
     "enumeration": "7"
    },
-   "solution": "NURSERY"
+   "solution": "NURSERY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "NURSERY",
+    "definitions": [
+     {
+      "text": "Where toddlers are",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be trained",
+      "for": "anagram",
+      "note": "training something reshapes it, so the letters are put into a new order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means inside, so the jumbled letters go within the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sure",
+      "gives": "SURE",
+      "note": "taken as written, the letters to rearrange"
+     },
+     {
+      "clueFragment": "number",
+      "gives": "N",
+      "note": "N is the abbreviation for number"
+     },
+     {
+      "clueFragment": "lines",
+      "gives": "RY",
+      "note": "RY stands for railway, railway lines"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "URSE",
+      "RY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SURE",
+       "gives": "URSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Small children are bound to be taught to line up in numbered rows.",
+     "walkthrough": "'Lines' in crosswords often means railway lines, abbreviated RY; the rearranged word sits between number and lines.",
+     "definitionFit": "A nursery is the room or school where very young children are cared for."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "trained"
+    }
+   }
   },
   {
    "number": 13,
@@ -243,7 +960,69 @@
      }
     ]
    },
-   "solution": "YFRONTS"
+   "solution": "YFRONTS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "Y-FRONTS",
+    "definitions": [
+     {
+      "text": "pants",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so the final letter is kept"
+     },
+     {
+      "text": "without",
+      "for": "container",
+      "note": "without here means outside, so the other letters wrap around"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Why",
+      "gives": "Y",
+      "select": "last",
+      "note": "the word's closing letter"
+     },
+     {
+      "clueFragment": "typeface’s",
+      "gives": "FONTS",
+      "note": "a font is a typeface, plus the possessive s"
+     },
+     {
+      "clueFragment": "an R",
+      "gives": "R",
+      "note": "the letter itself"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "Y",
+      "F",
+      "R",
+      "ONTS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks why a font's lettering looks pants without an R, pants being British slang for rubbish.",
+     "walkthrough": "'Without' looks like 'lacking', but in its old sense of outside it wraps the font word around the R. Y-fronts are British men's briefs; pants in Britain means underpants.",
+     "definitionFit": "Y-fronts are men's briefs with an inverted-Y seam at the front, and British pants are underwear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 14,
@@ -257,7 +1036,55 @@
     "text": "Extra sweaty smell accompanying group of students",
     "enumeration": "5"
    },
-   "solution": "BONUS"
+   "solution": "BONUS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BONUS",
+    "definitions": [
+     {
+      "text": "Extra",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accompanying",
+      "for": "charade",
+      "note": "accompanying means going alongside, so one piece is set next to the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sweaty smell",
+      "gives": "BO",
+      "note": "BO is body odour"
+     },
+     {
+      "clueFragment": "group of students",
+      "gives": "NUS",
+      "note": "the National Union of Students, the British student body"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BO",
+      "NUS"
+     ]
+    },
+    "explanation": {
+     "surface": "An additional whiff of sweat comes along with a crowd of students.",
+     "walkthrough": "NUS is Britain's National Union of Students, a familiar crossword abbreviation.",
+     "definitionFit": "A bonus is something additional, given on top of what is expected."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Extra"
+    }
+   }
   },
   {
    "number": 14,
@@ -271,7 +1098,48 @@
     "text": "Order patients’ spines to be examined on these?",
     "enumeration": "9"
    },
-   "solution": "BOOKCASES"
+   "solution": "BOOKCASES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BOOKCASES",
+    "definitions": [
+     {
+      "text": "spines to be examined on these?",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Order",
+      "gives": "BOOK",
+      "note": "to book is to reserve or order"
+     },
+     {
+      "clueFragment": "patients’",
+      "gives": "CASES",
+      "note": "doctors call patients cases"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOOK",
+      "CASES"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for patients' backbones to be checked, as if on a couch.",
+     "walkthrough": "The medical surface pushes spines towards backbones, but the spines are those of books on shelves; 'patients'' supplies a doctor's word for them.",
+     "definitionFit": "Book spines face outward on shelving units, so they are what you scan when browsing a library cabinet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "spines"
+    }
+   }
   },
   {
    "number": 15,
@@ -285,7 +1153,75 @@
     "text": "Revolutionary put on inordinately silly hat, causing complaint",
     "enumeration": "9"
    },
-   "solution": "TOOTHACHE"
+   "solution": "TOOTHACHE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "TOOTHACHE",
+    "definitions": [
+     {
+      "text": "complaint",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "silly",
+      "for": "anagram",
+      "note": "silly means daft or muddled, so the letters are rearranged"
+     },
+     {
+      "text": "put on",
+      "for": "charade",
+      "note": "placed on top of in an across answer means attached after"
+     }
+    ],
+    "linkWords": [
+     "causing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "inordinately",
+      "gives": "TOO",
+      "note": "too means excessively"
+     },
+     {
+      "clueFragment": "hat",
+      "gives": "HAT",
+      "note": "taken as written, the letters to rearrange"
+     },
+     {
+      "clueFragment": "Revolutionary",
+      "gives": "CHE",
+      "note": "Che Guevara, the Marxist revolutionary"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOO",
+      "THA",
+      "CHE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HAT",
+       "gives": "THA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rebel donned an absurd hat, and people grumbled.",
+     "walkthrough": "The revolutionary is read first but comes last: 'put on' means he is tacked onto the rest. Che is the usual crossword revolutionary.",
+     "definitionFit": "In medical parlance a complaint is an ailment, and a pain in the teeth is one such."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "complaint"
+    }
+   }
   },
   {
    "number": 15,
@@ -299,7 +1235,59 @@
     "text": "Experiment delivered with old German’s instruments",
     "enumeration": "9"
    },
-   "solution": "TRIANGLES"
+   "solution": "TRIANGLES",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "TRIANGLES",
+    "definitions": [
+     {
+      "text": "instruments",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "delivered",
+      "for": "homophone",
+      "note": "a speech is delivered by voice, so the word is spoken rather than spelt"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Experiment",
+      "gives": "TRI",
+      "soundsLike": "TRY",
+      "note": "to try is to experiment"
+     },
+     {
+      "clueFragment": "old German’s",
+      "gives": "ANGLES",
+      "note": "the Angles were a Germanic people who settled in England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRI",
+      "ANGLES"
+     ]
+    },
+    "explanation": {
+     "surface": "An experiment was carried out using the tools of a German from long ago.",
+     "walkthrough": "'Delivered' seems to describe the experiment being handed over, but it means spoken; the Angles were the old Germanic tribe that gave England its name.",
+     "definitionFit": "The triangle is a percussion item, a bent steel bar struck with a beater in orchestras."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "delivered"
+    }
+   }
   },
   {
    "number": 16,
@@ -313,7 +1301,62 @@
     "text": "Make prisoner parade about inside",
     "enumeration": "9"
    },
-   "solution": "CONSTRUCT"
+   "solution": "CONSTRUCT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CONSTRUCT",
+    "definitions": [
+     {
+      "text": "Make",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside means within, so one letter sits in the middle of another word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prisoner",
+      "gives": "CON",
+      "note": "a con is a convict"
+     },
+     {
+      "clueFragment": "parade",
+      "gives": "STRUT",
+      "note": "to strut is to parade showily"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "C is circa, about"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "STRU",
+      "C",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "An order to make an inmate march around indoors.",
+     "walkthrough": "'About' looks like a containment instruction, but it is the letter C for circa, which goes inside the parade word.",
+     "definitionFit": "To construct is to build or assemble, a direct synonym of the verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 17,
@@ -327,7 +1370,61 @@
     "text": "Oscar? He writes plays in a different way",
     "enumeration": "9"
    },
-   "solution": "OTHERWISE"
+   "solution": "OTHERWISE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "OTHERWISE",
+    "definitions": [
+     {
+      "text": "in a different way",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "plays",
+      "for": "anagram",
+      "note": "to play with something is to toy with it, so the letters are moved about"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Oscar",
+      "gives": "O",
+      "note": "Oscar is O in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "He writes",
+      "gives": "HEWRITES",
+      "note": "taken as written, the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "THERWISE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HEWRITES",
+       "gives": "THERWISE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Oscar Wilde, perhaps: he writes plays, unlike most people.",
+     "walkthrough": "Oscar and plays suggest Wilde the dramatist, but Oscar is just a radio-alphabet letter and 'plays' is a verb telling you to mix.",
+     "definitionFit": "The adverb means differently or in another manner, as in 'he thinks otherwise'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "plays"
+    }
+   }
   },
   {
    "number": 18,
@@ -341,7 +1438,74 @@
     "text": "Rerelease the 2nd part of Pullman’s boring novel series",
     "enumeration": "7"
    },
-   "solution": "REISSUE"
+   "solution": "REISSUE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "REISSUE",
+    "definitions": [
+     {
+      "text": "Rerelease",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the 2nd part of",
+      "for": "letter_selection",
+      "note": "the second part of a word is its second letter"
+     },
+     {
+      "text": "novel",
+      "for": "anagram",
+      "note": "novel means new, so the letters take a fresh order"
+     },
+     {
+      "text": "boring",
+      "for": "container",
+      "note": "boring means drilling into, so one letter goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "series",
+      "gives": "SERIES",
+      "note": "taken as written, the letters to rearrange"
+     },
+     {
+      "clueFragment": "Pullman’s",
+      "gives": "U",
+      "select": 2,
+      "note": "the second letter of the author's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REISS",
+      "U",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SERIES",
+       "gives": "REISSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Republish volume two of Philip Pullman's dull fiction sequence.",
+     "walkthrough": "'Novel series' looks like Pullman's His Dark Materials, but 'novel' is the mixing signal and 'boring' places a letter into the result.",
+     "definitionFit": "To reissue is to publish or put out again, which is what rereleasing means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "novel"
+    }
+   }
   },
   {
    "number": 19,
@@ -355,7 +1519,55 @@
     "text": "Overcome by pride and greed, perhaps, knight falls",
     "enumeration": "5"
    },
-   "solution": "SINKS"
+   "solution": "SINKS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SINKS",
+    "definitions": [
+     {
+      "text": "falls",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Overcome by",
+      "for": "container",
+      "note": "to be overcome by something is to be surrounded and swamped, so one letter is enclosed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pride and greed, perhaps",
+      "gives": "SINS",
+      "note": "two of the seven deadly sins"
+     },
+     {
+      "clueFragment": "knight",
+      "gives": "K",
+      "note": "K stands for knight in British honours such as KBE"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SIN",
+      "K",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A knight brought low by vanity and avarice comes crashing down.",
+     "walkthrough": "'Perhaps' signals that pride and greed are examples of a category, the deadly sins.",
+     "definitionFit": "Something that drops or goes down, like a ship or the sun, is said to sink."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Overcome"
+    }
+   }
   },
   {
    "number": 19,
@@ -369,7 +1581,74 @@
     "text": "Sleet swirls around empty ancient city",
     "enumeration": "7"
    },
-   "solution": "SEATTLE"
+   "solution": "SEATTLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "SEATTLE",
+    "definitions": [
+     {
+      "text": "city",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swirls",
+      "for": "anagram",
+      "note": "swirling things are churned about, so the letters are mixed"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means encircling, so the mixed letters surround the others"
+     },
+     {
+      "text": "empty",
+      "for": "letter_selection",
+      "note": "an emptied word has lost its contents, leaving only the outer letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sleet",
+      "gives": "SLEET",
+      "note": "taken as written, the letters to rearrange"
+     },
+     {
+      "clueFragment": "ancient",
+      "gives": "AT",
+      "select": "outer",
+      "note": "first and last letters only"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "AT",
+      "TLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SLEET",
+       "gives": "SETLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Icy rain blows round the deserted ruins of an old town.",
+     "walkthrough": "'Ancient city' wants to be the definition; only 'city' is, while 'empty ancient' is the outside of a word.",
+     "definitionFit": "Seattle is the largest settlement in Washington State, famously rainy, so it is a city."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ancient"
+    }
+   }
   },
   {
    "number": 20,
@@ -383,7 +1662,69 @@
     "text": "Copper joins mum and I on the edge of snooker table",
     "enumeration": "7"
    },
-   "solution": "CUSHION"
+   "solution": "CUSHION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CUSHION",
+    "definitions": [
+     {
+      "text": "edge of snooker table",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "joins",
+      "for": "charade",
+      "note": "joining means linking up, so the parts are placed side by side"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Copper",
+      "gives": "CU",
+      "note": "Cu is the chemical symbol for copper"
+     },
+     {
+      "clueFragment": "mum",
+      "gives": "SH",
+      "note": "keeping mum means staying quiet, and sh calls for silence"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CU",
+      "SH",
+      "I",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A policeman joins my mother and me beside the snooker table.",
+     "walkthrough": "'Copper' and 'mum' look like a police officer and a mother; they are the chemical symbol and a call for silence.",
+     "definitionFit": "On billiard and snooker tables the rubber-lined rails that balls bounce off are named cushions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mum"
+    }
+   }
   },
   {
    "number": 21,
@@ -397,7 +1738,56 @@
     "text": "Plug Shrewsbury’s top circus performers",
     "enumeration": "5"
    },
-   "solution": "SEALS"
+   "solution": "SEALS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SEALS",
+    "definitions": [
+     {
+      "text": "circus performers",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "top",
+      "for": "letter_selection",
+      "note": "the top of a down word is its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Plug",
+      "gives": "SEAL",
+      "note": "to plug a gap is to seal it"
+     },
+     {
+      "clueFragment": "Shrewsbury’s",
+      "gives": "S",
+      "select": "first",
+      "note": "the town's opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEAL",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "An advert boosting the best entertainers in Shrewsbury, a market town in Shropshire.",
+     "walkthrough": "'Plug' suggests promoting, but it is a stopper.",
+     "definitionFit": "Trained sea mammals balancing balls on their noses were classic big-top acts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Plug"
+    }
+   }
   },
   {
    "number": 22,
@@ -411,7 +1801,44 @@
     "text": "Broadcast jazz vocalist singing nonsense?",
     "enumeration": "7"
    },
-   "solution": "SCATTER"
+   "solution": "SCATTER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SCATTER",
+    "definitions": [
+     {
+      "text": "Broadcast",
+      "at": 0
+     },
+     {
+      "text": "jazz vocalist singing nonsense?",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Broadcast",
+      "note": "first meaning: to spread widely, as seed is sown"
+     },
+     {
+      "clueFragment": "jazz vocalist singing nonsense?",
+      "note": "second meaning: someone who scats, improvising wordless syllables"
+     }
+    ],
+    "explanation": {
+     "surface": "A jazz singer on the radio, crooning meaningless syllables.",
+     "walkthrough": "'Broadcast' tempts as radio, but it is the farmer's sense of throwing seed. The question mark warns the second sense is a made-up word, one who scats.",
+     "definitionFit": "To spread seed by hand is to strew it widely; and scat singing uses nonsense syllables, so a scat singer could jokingly be named this."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Broadcast"
+    }
+   }
   },
   {
    "number": 22,
@@ -425,7 +1852,61 @@
     "text": "Oddly, Shaggy put on a medieval Icelandic piece",
     "enumeration": "4"
    },
-   "solution": "SAGA"
+   "solution": "SAGA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SAGA",
+    "definitions": [
+     {
+      "text": "medieval Icelandic piece",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Oddly",
+      "for": "letter_selection",
+      "note": "oddly means taking the odd-numbered positions only"
+     },
+     {
+      "text": "put on",
+      "for": "charade",
+      "note": "put on means attached, so another piece follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shaggy",
+      "gives": "SAG",
+      "select": "alternate",
+      "note": "first, third and fifth letters"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAG",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Strangely, a scruffy-haired man performed an old Norse work.",
+     "walkthrough": "'Oddly' reads as 'strangely' but means take the odd letters.",
+     "definitionFit": "The sagas are prose narratives written in Iceland in the Middle Ages about heroes and families."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Oddly"
+    }
+   }
   },
   {
    "number": 23,
@@ -439,7 +1920,69 @@
     "text": "Bird that’s black and gold returning home",
     "enumeration": "5"
    },
-   "solution": "ROBIN"
+   "solution": "ROBIN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ROBIN",
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means going back the way you came, so the letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "that’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "black",
+      "gives": "B",
+      "note": "B is the pencil abbreviation for black"
+     },
+     {
+      "clueFragment": "gold",
+      "gives": "OR",
+      "note": "or is heraldic gold"
+     },
+     {
+      "clueFragment": "home",
+      "gives": "IN",
+      "note": "being in means being at home"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROB",
+      "IN"
+     ],
+     "reversals": [
+      {
+       "from": "BOR",
+       "to": "ROB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A black and golden bird flies back to its nest.",
+     "walkthrough": "OR is the heraldic word for gold; the black-and-gold pair goes backwards before home is added.",
+     "definitionFit": "The robin is a small songbird with a red breast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "black"
+    }
+   }
   },
   {
    "number": 24,
@@ -453,7 +1996,60 @@
     "text": "King and Queen whisked away from naked celebrities",
     "enumeration": "5"
    },
-   "solution": "STARS"
+   "solution": "STARS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "STARS",
+    "definitions": [
+     {
+      "text": "celebrities",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "whisked away from",
+      "for": "deletion",
+      "note": "whisking something away removes it, so letters are taken out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "naked",
+      "gives": "STARKERS",
+      "note": "starkers is British slang for stark naked"
+     },
+     {
+      "clueFragment": "King",
+      "gives": "K",
+      "note": "K for king, as in chess"
+     },
+     {
+      "clueFragment": "Queen",
+      "gives": "ER",
+      "note": "ER is Elizabeth Regina, the Queen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAR",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Royals are hurried away from a crowd of famous people in the nude.",
+     "walkthrough": "Starkers is British slang for naked; remove the king and queen abbreviations from inside it.",
+     "definitionFit": "Famous performers are called stars, as in the stars of the screen."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "naked"
+    }
+   }
   },
   {
    "number": 25,
@@ -467,7 +2063,51 @@
     "text": "One turned on by mild garlic?",
     "enumeration": "9"
    },
-   "solution": "LIGHTBULB"
+   "solution": "LIGHTBULB",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LIGHT BULB",
+    "definitions": [
+     {
+      "text": "One turned on",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mild",
+      "gives": "LIGHT",
+      "note": "light means gentle or not strong"
+     },
+     {
+      "clueFragment": "garlic",
+      "gives": "BULB",
+      "note": "garlic grows as a bulb"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIGHT",
+      "BULB"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who finds gentle garlic arousing.",
+     "walkthrough": "'Turned on' suggests excitement, but it means switched on.",
+     "definitionFit": "Electric lamps are switched on, so the glass globe that glows is something you turn on."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "turned"
+    }
+   }
   },
   {
    "number": 26,
@@ -481,7 +2121,71 @@
     "text": "Anticipation created by South American writer’s penultimate part of novel",
     "enumeration": "8"
    },
-   "solution": "SUSPENSE"
+   "solution": "SUSPENSE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SUSPENSE",
+    "definitions": [
+     {
+      "text": "Anticipation",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "penultimate part of",
+      "for": "letter_selection",
+      "note": "penultimate means last but one, so that letter alone is kept"
+     }
+    ],
+    "linkWords": [
+     "created by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "South",
+      "gives": "S",
+      "note": "the compass abbreviation"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "the United States"
+     },
+     {
+      "clueFragment": "writer’s",
+      "gives": "PENS",
+      "note": "a pen writes, plus the possessive s"
+     },
+     {
+      "clueFragment": "novel",
+      "gives": "E",
+      "select": 4,
+      "note": "the fourth of five letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "US",
+      "PENS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Tension built up by a Latin American author near the end of a book.",
+     "walkthrough": "'South American writer' wants to be one person; it splits into a compass point, a country and a pen.",
+     "definitionFit": "Suspense is the tense excitement of waiting to learn what happens."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "South"
+    }
+   }
   },
   {
    "number": 27,
@@ -495,7 +2199,60 @@
     "text": "Lawmaker in unfamiliar borough taking week off",
     "enumeration": "6"
    },
-   "solution": "NEWTON"
+   "solution": "NEWTON",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "NEWTON",
+    "definitions": [
+     {
+      "text": "Lawmaker",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking week off",
+      "for": "deletion",
+      "note": "taking time off means being absent, so a letter goes missing"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unfamiliar",
+      "gives": "NEW",
+      "note": "new means not known before"
+     },
+     {
+      "clueFragment": "borough",
+      "gives": "TOWN",
+      "note": "a borough is a town"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEW",
+      "TO",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A legislator in a strange town goes on a week's holiday.",
+     "walkthrough": "'Lawmaker' suggests a politician; it is the scientist behind the laws of motion. W is the abbreviation for week.",
+     "definitionFit": "Isaac Newton formulated the laws of motion and gravitation, so he made laws of physics."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Lawmaker"
+    }
+   }
   }
  ]
 }
