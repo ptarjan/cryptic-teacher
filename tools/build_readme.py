@@ -705,7 +705,7 @@ def add_missing_layout_rows():
 
 def build_knobs(k):
     return (
-        f"The two scheduled jobs split the quota deliberately: the 06:15 one "
+        f"The two scheduled jobs split the quota deliberately: the 04:45 one "
         f"annotates every puzzle from the last two days plus at most "
         f"{k['ANNOTATE_MAX']} from the backlog, and only below "
         f"{k['ANNOTATE_MAX_WEEKLY_PCT']}% of the week (and "
