@@ -23,6 +23,9 @@
   "date": "2024-05-30",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,67 @@
     "text": "Reinvests regularly in very old part of Italy",
     "enumeration": "6"
    },
-   "solution": "VENETO"
+   "solution": "VENETO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "VENETO",
+    "definitions": [
+     {
+      "text": "part of Italy",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "something done regularly happens at even intervals, so every other letter is kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing set in another sits inside it, so these letters go within the outer pair"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "very",
+      "gives": "V",
+      "note": "V is the standard abbreviation for very"
+     },
+     {
+      "clueFragment": "Reinvests",
+      "gives": "ENET",
+      "select": "alternate",
+      "note": "the second, fourth, sixth and eighth letters of the word"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the usual abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "ENET",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "An investor keeps putting money back into some ancient Italian region.",
+     "walkthrough": "The even letters of 'Reinvests' sit between V and O, the abbreviations for very and old.",
+     "definitionFit": "The Veneto is the northeastern Italian region around Venice, so it is literally one region of that country."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Reinvests"
+    }
+   }
   },
   {
    "number": 2,
@@ -50,7 +113,67 @@
     "text": "Third party deed not so good on reflection, Charlie admitted",
     "enumeration": "6"
    },
-   "solution": "ESCROW"
+   "solution": "ESCROW",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "ESCROW",
+    "definitions": [
+     {
+      "text": "Third party deed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on reflection",
+      "for": "reversal",
+      "note": "a reflection shows things the wrong way round, so the letters run backwards"
+     },
+     {
+      "text": "admitted",
+      "for": "container",
+      "note": "to be admitted is to be let inside, so one letter goes into the middle of the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not so good",
+      "gives": "WORSE",
+      "note": "worse means less good"
+     },
+     {
+      "clueFragment": "Charlie",
+      "gives": "C",
+      "note": "C is Charlie in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ES",
+      "C",
+      "ROW"
+     ],
+     "reversals": [
+      {
+       "from": "WORSE",
+       "to": "ESROW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone reckons a third-party agreement is looking worse, once a man called Charlie has been let in.",
+     "walkthrough": "WORSE written backwards gives ESROW, and C is slipped in after the first two letters to make ESCROW.",
+     "definitionFit": "An escrow is a bond or document held by an independent party until agreed conditions are met, a legal arrangement involving outsiders."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reflection"
+    }
+   }
   },
   {
    "number": 3,
@@ -64,7 +187,56 @@
     "text": "Bad weather near The Potteries might produce this",
     "enumeration": "11"
    },
-   "solution": "EARTHENWARE"
+   "solution": "EARTHENWARE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EARTHENWARE",
+    "definitions": [
+     {
+      "text": "The Potteries might produce this",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Bad",
+      "for": "anagram",
+      "note": "something bad has gone wrong, so the letters are spoilt into a fresh order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "weather",
+      "gives": "WEATHER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "near",
+      "gives": "NEAR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WEATHERNEAR",
+       "gives": "EARTHENWARE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A weather forecast suggests storms around Stoke-on-Trent could lead to something.",
+     "walkthrough": "The Potteries is the area around Stoke-on-Trent in Staffordshire, England, historically the heart of British ceramics making. 'Bad weather' reads as the cause, but the eleven letters of weather and near are the raw material.",
+     "definitionFit": "Earthenware is fired clay pottery, exactly the kind of goods the Staffordshire factories turned out for centuries."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Bad"
+    }
+   }
   },
   {
    "number": 4,
@@ -78,7 +250,84 @@
     "text": "Ruling class roll cigars after tossing wrappings on Cape hotel lobby, finally",
     "enumeration": "9"
    },
-   "solution": "OLIGARCHY"
+   "solution": "OLIGARCHY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "OLIGARCHY",
+    "definitions": [
+     {
+      "text": "Ruling class",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tossing wrappings",
+      "for": "deletion",
+      "note": "throwing away the wrappers removes the outside, so each word loses its first and last letters"
+     },
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the very end, so only the closing letter is kept"
+     }
+    ],
+    "linkWords": [
+     "after",
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "roll",
+      "gives": "OL",
+      "note": "the word with its outer letters removed"
+     },
+     {
+      "clueFragment": "cigars",
+      "gives": "IGAR",
+      "note": "the word with its outer letters removed"
+     },
+     {
+      "clueFragment": "Cape",
+      "gives": "C",
+      "note": "C is the map abbreviation for cape"
+     },
+     {
+      "clueFragment": "hotel",
+      "gives": "H",
+      "note": "H is hotel in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "lobby",
+      "gives": "Y",
+      "select": "last",
+      "note": "the last letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OL",
+      "IGAR",
+      "C",
+      "H",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Members of the elite unwrap and roll cigars in the lobby of a hotel on the Cape.",
+     "walkthrough": "'Roll' looks like a verb about making cigars, but it is a second word to be unwrapped. The trimmed words OL and IGAR are followed by C, H and the Y ending lobby.",
+     "definitionFit": "An oligarchy is government by a small privileged group, so the term names that ruling elite collectively."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "roll"
+    }
+   }
   },
   {
    "number": 5,
@@ -92,7 +341,44 @@
     "text": "Premium, as the adverts showcasing The Times for one",
     "enumeration": "8"
    },
-   "solution": "MASTHEAD"
+   "solution": "MASTHEAD",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "MASTHEAD",
+    "definitions": [
+     {
+      "text": "The Times for one",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "showcasing",
+      "for": "hidden_word",
+      "note": "to showcase is to put on display, so the run of letters is on view within the phrase"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Premium, as the adverts",
+      "gives": "MASTHEAD",
+      "note": "the letters run across the end of the first word, two whole words and the start of the last"
+     }
+    ],
+    "explanation": {
+     "surface": "A newspaper charges top rates, much as its adverts boast about the paper itself.",
+     "walkthrough": "The Times is the newspaper this puzzle appears in; its name in large type across the top of the front page is the masthead.",
+     "definitionFit": "A masthead is the title banner printed at the top of a newspaper's front page, and The Times nameplate is one such banner."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Premium"
+    }
+   }
   },
   {
    "number": 5,
@@ -106,7 +392,66 @@
     "text": "Vermin bothered Athene at first, being a goddess",
     "enumeration": "7"
    },
-   "solution": "MINERVA"
+   "solution": "MINERVA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "MINERVA",
+    "definitions": [
+     {
+      "text": "a goddess",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bothered",
+      "for": "anagram",
+      "note": "being bothered means being disturbed, so the letters are stirred into a new order"
+     },
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first points to the start, so only the opening letter is kept"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vermin",
+      "gives": "VERMIN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Athene",
+      "gives": "A",
+      "select": "first",
+      "note": "the opening letter of the name"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "VERMINA",
+       "gives": "MINERVA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pests pestered the Greek goddess Athene.",
+     "walkthrough": "Athene is used for her initial only, though fittingly she is the Greek counterpart of the answer.",
+     "definitionFit": "Minerva is the Roman goddess of wisdom, crafts and war, so she is one of the classical deities."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Athene"
+    }
+   }
   },
   {
    "number": 6,
@@ -120,7 +465,56 @@
     "text": "Muscle function beginning to weaken",
     "enumeration": "5"
    },
-   "solution": "SINEW"
+   "solution": "SINEW",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SINEW",
+    "definitions": [
+     {
+      "text": "Muscle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its opening letter, so just that one is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "function",
+      "gives": "SINE",
+      "note": "sine is a trigonometric function"
+     },
+     {
+      "clueFragment": "weaken",
+      "gives": "W",
+      "select": "first",
+      "note": "the opening letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SINE",
+      "W"
+     ]
+    },
+    "explanation": {
+     "surface": "A body's muscles start to lose their strength.",
+     "walkthrough": "'Function' sounds biological here, but it is the mathematical sense, a trig ratio.",
+     "definitionFit": "Sinew means a tendon, and by extension muscular strength or brawn, so it stands for muscle in the loose sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "function"
+    }
+   }
   },
   {
    "number": 7,
@@ -134,7 +528,55 @@
     "text": "Embrace university in Wells?",
     "enumeration": "3"
    },
-   "solution": "HUG"
+   "solution": "HUG",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HUG",
+    "definitions": [
+     {
+      "text": "Embrace",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another sits inside it, so the single letter goes between the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wells?",
+      "gives": "HG",
+      "note": "the initials of the novelist H. G. Wells"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "U is the usual abbreviation for university"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "U",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether the cathedral city of Wells has a university to welcome.",
+     "walkthrough": "Wells looks like the small English cathedral city, but the question mark flags the author of The War of the Worlds, whose initials are HG.",
+     "definitionFit": "To hug and to embrace both mean holding someone tightly in your arms, a direct synonym pair."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Wells"
+    }
+   }
   },
   {
    "number": 8,
@@ -148,7 +590,62 @@
     "text": "Selflessness is founded in key spirit",
     "enumeration": "8"
    },
-   "solution": "ALTRUISM"
+   "solution": "ALTRUISM",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ALTRUISM",
+    "definitions": [
+     {
+      "text": "Selflessness",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "founded in",
+      "for": "container",
+      "note": "something founded in a place is set down within it, so the small word goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "key",
+      "gives": "ALT",
+      "note": "Alt is a key on a computer keyboard"
+     },
+     {
+      "clueFragment": "spirit",
+      "gives": "RUM",
+      "note": "rum is a spirit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALT",
+      "RU",
+      "IS",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "A moral claim that unselfishness rests on a crucial inner quality.",
+     "walkthrough": "'Key spirit' reads as an essential attitude, but it is a keyboard key followed by a drink, with IS placed inside the rum.",
+     "definitionFit": "Altruism is concern for the wellbeing of others above oneself, a precise synonym for unselfish behaviour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spirit"
+    }
+   }
   },
   {
    "number": 9,
@@ -162,7 +659,68 @@
     "text": "Small firm working to absorb a measure of inflation which can be lethal",
     "enumeration": "8"
    },
-   "solution": "SCORPION"
+   "solution": "SCORPION",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SCORPION",
+    "definitions": [
+     {
+      "text": "which can be lethal",
+      "at": 52,
+      "note": "a descriptive phrase standing for a noun"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to absorb",
+      "for": "container",
+      "note": "to absorb something is to soak it up and take it inside, so one piece sits within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     },
+     {
+      "clueFragment": "firm",
+      "gives": "CO",
+      "note": "Co is short for company"
+     },
+     {
+      "clueFragment": "a measure of inflation",
+      "gives": "RPI",
+      "note": "the Retail Prices Index, a UK inflation figure"
+     },
+     {
+      "clueFragment": "working",
+      "gives": "ON",
+      "note": "a machine that is on is working"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CO",
+      "RPI",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A small business struggles to cope with inflation, which could finish it off.",
+     "walkthrough": "The Retail Prices Index is a British inflation figure; 'working' is the familiar crossword sense of switched on.",
+     "definitionFit": "Some scorpion species carry a venomous sting strong enough to kill a person, so the creature fits a description of deadly things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "lethal"
+    }
+   }
   },
   {
    "number": 10,
@@ -176,7 +734,54 @@
     "text": "Deny wife’s escaped from prison once",
     "enumeration": "6"
    },
-   "solution": "NEGATE"
+   "solution": "NEGATE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "NEGATE",
+    "definitions": [
+     {
+      "text": "Deny",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "’s escaped from",
+      "for": "deletion",
+      "note": "whatever has escaped is no longer there, so that letter leaves the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prison once",
+      "gives": "NEWGATE",
+      "note": "Newgate was a notorious London jail, closed in 1902"
+     },
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "W is the abbreviation for wife"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NE",
+      "GATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone refuses to admit that his wife broke out of an old jail.",
+     "walkthrough": "Newgate was a famous London prison, long demolished, hence 'once'; take W out of it.",
+     "definitionFit": "To negate a statement is to contradict or nullify it, which matches refusing to accept something as true."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Deny"
+    }
+   }
   },
   {
    "number": 11,
@@ -190,7 +795,63 @@
     "text": "Tease upper-class Head of Accounts who’s up before Judges",
     "enumeration": "6"
    },
-   "solution": "JOSHUA"
+   "solution": "JOSHUA",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "JOSHUA",
+    "definitions": [
+     {
+      "text": "who’s up before Judges",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Head of",
+      "for": "letter_selection",
+      "note": "the head of something is its top, so the opening letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tease",
+      "gives": "JOSH",
+      "note": "to josh is to tease playfully"
+     },
+     {
+      "clueFragment": "upper-class",
+      "gives": "U",
+      "note": "U is the old label for upper-class usage"
+     },
+     {
+      "clueFragment": "Accounts",
+      "gives": "A",
+      "select": "first",
+      "note": "the opening letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JOSH",
+      "U",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone mocks a posh head of finance who has to appear before the bench.",
+     "walkthrough": "'Up before Judges' suggests a court appearance, but it means the Bible book placed immediately before the Book of Judges.",
+     "definitionFit": "In the Old Testament the Book of Joshua comes directly ahead of the Book of Judges in canonical order."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Judges"
+    }
+   }
   },
   {
    "number": 12,
@@ -204,7 +865,68 @@
     "text": "Bloody large swig knocked back — one might get hammered!",
     "enumeration": "8"
    },
-   "solution": "RAWLPLUG"
+   "solution": "RAWLPLUG",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "RAWLPLUG",
+    "definitions": [
+     {
+      "text": "one might get hammered!",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "knocked back",
+      "for": "reversal",
+      "note": "something knocked back is driven the other way, so the letters run in reverse"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bloody",
+      "gives": "RAW",
+      "note": "bloody meat is raw"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the abbreviation for large"
+     },
+     {
+      "clueFragment": "swig",
+      "gives": "GULP",
+      "note": "a gulp is a big swallow of drink"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAW",
+      "L",
+      "PLUG"
+     ],
+     "reversals": [
+      {
+       "from": "GULP",
+       "to": "PLUG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Downing a large drink in one go is a good way to end up drunk.",
+     "walkthrough": "Hammered means drunk in British slang, the surface reading; a Rawlplug is the British trade name for a plastic wall plug, tapped into a drilled hole with a hammer before a screw goes in.",
+     "definitionFit": "A wall plug is commonly knocked into its hole with a hammer, so it is an item that literally gets struck."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hammered"
+    }
+   }
   },
   {
    "number": 13,
@@ -218,7 +940,56 @@
     "text": "GI teleports wicked ghost",
     "enumeration": "11"
    },
-   "solution": "POLTERGEIST"
+   "solution": "POLTERGEIST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "POLTERGEIST",
+    "definitions": [
+     {
+      "text": "ghost",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wicked",
+      "for": "anagram",
+      "note": "something wicked is twisted or perverse, so these letters are bent out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "GI",
+      "gives": "GI",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "teleports",
+      "gives": "TELEPORTS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GITELEPORTS",
+       "gives": "POLTERGEIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sci-fi scene where an evil spirit beams an American soldier away.",
+     "walkthrough": "'Wicked' looks like it describes the ghost, but it is the signal to rearrange the eleven letters before it.",
+     "definitionFit": "A poltergeist is a noisy, mischievous spirit said to move objects, which is one kind of ghost."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wicked"
+    }
+   }
   },
   {
    "number": 14,
@@ -232,7 +1003,82 @@
     "text": "Loudly panned top celebs framing poor bum, a vagrant sleeper?",
     "enumeration": "12"
    },
-   "solution": "NOCTAMBULIST"
+   "solution": "NOCTAMBULIST",
+   "annotation": {
+    "type": [
+     "homophone",
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "NOCTAMBULIST",
+    "definitions": [
+     {
+      "text": "a vagrant sleeper?",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Loudly",
+      "for": "homophone",
+      "note": "loudly means spoken out, so the word is taken for its sound rather than its spelling"
+     },
+     {
+      "text": "poor",
+      "for": "anagram",
+      "note": "something poor is in bad shape, so these letters are rearranged"
+     },
+     {
+      "text": "framing",
+      "for": "container",
+      "note": "a frame goes round a picture, so one piece surrounds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "panned",
+      "gives": "NOCT",
+      "soundsLike": "KNOCKED",
+      "note": "to pan a show is to knock it, criticise it harshly"
+     },
+     {
+      "clueFragment": "top celebs",
+      "gives": "ALIST",
+      "note": "the A-list are the most famous celebrities"
+     },
+     {
+      "clueFragment": "bum",
+      "gives": "BUM",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOCT",
+      "A",
+      "MBU",
+      "LIST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BUM",
+       "gives": "MBU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Critics savaged famous people for sheltering a down-and-out who sleeps rough.",
+     "walkthrough": "A vagrant here is a wanderer and the sleeper wanders while asleep; the question mark marks that playful reading. Bum is slang for a tramp, adding to the decoy.",
+     "definitionFit": "A noctambulist is a sleepwalker, someone who roams about at night while not awake, from Latin nox and ambulare."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "vagrant"
+    }
+   }
   },
   {
    "number": 15,
@@ -246,7 +1092,63 @@
     "text": "Specialist field being security, one’s descending on N Scottish town",
     "enumeration": "9"
    },
-   "solution": "BAILIWICK"
+   "solution": "BAILIWICK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BAILIWICK",
+    "definitions": [
+     {
+      "text": "Specialist field",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "descending on",
+      "for": "charade",
+      "note": "in a down entry, a piece coming down onto another sits directly above it"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "security",
+      "gives": "BAIL",
+      "note": "bail is money pledged as security for a defendant's return"
+     },
+     {
+      "clueFragment": "one’s",
+      "gives": "I",
+      "note": "I is the Roman numeral one; the 's means 'one is'"
+     },
+     {
+      "clueFragment": "N Scottish town",
+      "gives": "WICK",
+      "note": "Wick is a town in Caithness in the far north of Scotland"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAIL",
+      "I",
+      "WICK"
+     ]
+    },
+    "explanation": {
+     "surface": "A security expert swoops down on a town in northern Scotland.",
+     "walkthrough": "Wick is a small town on the Caithness coast at the northern tip of mainland Scotland.",
+     "definitionFit": "Bailiwick originally meant a bailiff's district and is now used for a person's own area of expertise or interest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "security"
+    }
+   }
   },
   {
    "number": 16,
@@ -260,7 +1162,62 @@
     "text": "Overbearing tail coat lined with titanium",
     "enumeration": "8"
    },
-   "solution": "DOGMATIC"
+   "solution": "DOGMATIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "DOGMATIC",
+    "definitions": [
+     {
+      "text": "Overbearing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lined with",
+      "for": "container",
+      "note": "a lining sits inside a garment, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tail",
+      "gives": "DOG",
+      "note": "to tail and to dog both mean to follow closely"
+     },
+     {
+      "clueFragment": "coat",
+      "gives": "MAC",
+      "note": "a mac is a raincoat, short for mackintosh"
+     },
+     {
+      "clueFragment": "titanium",
+      "gives": "TI",
+      "note": "Ti is the chemical symbol for titanium"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOG",
+      "MA",
+      "TI",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "A domineering figure in a tailcoat lined with metal.",
+     "walkthrough": "'Tail coat' reads as formal evening wear, but the two words split: tail is a verb meaning follow, coat is a mac.",
+     "definitionFit": "Dogmatic people assert their opinions as unquestionable truth, which comes across as arrogant and domineering."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tail"
+    }
+   }
   },
   {
    "number": 17,
@@ -280,7 +1237,66 @@
      }
     ]
    },
-   "solution": "ROTARYENGINE"
+   "solution": "ROTARYENGINE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ROTARY ENGINE",
+    "definitions": [
+     {
+      "text": "Motor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "needs changing",
+      "for": "anagram",
+      "note": "something that needs changing must be altered, so these letters take a new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "gear",
+      "gives": "GEAR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "tyre",
+      "gives": "TYRE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ONINGEARTYRE",
+       "gives": "ROTARYENGINE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A garage diagnosis: the car runs in gear but a tyre must be replaced.",
+     "walkthrough": "Motor looks like the British word for a car in the surface, but it is the definition of a type of engine.",
+     "definitionFit": "A rotary engine is an internal combustion engine with a spinning rotor instead of pistons, one kind of motor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Motor"
+    }
+   }
   },
   {
    "number": 18,
@@ -294,7 +1310,71 @@
     "text": "Justice after English blokes upset relative",
     "enumeration": "7"
    },
-   "solution": "NEMESIS"
+   "solution": "NEMESIS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "NEMESIS",
+    "definitions": [
+     {
+      "text": "Justice",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "something upset is turned over, so in a down entry the letters read upwards"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after says that one piece follows the other in the finished word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "blokes",
+      "gives": "MEN",
+      "note": "blokes is British slang for men"
+     },
+     {
+      "clueFragment": "relative",
+      "gives": "SIS",
+      "note": "sis is short for sister"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEME",
+      "SIS"
+     ],
+     "reversals": [
+      {
+       "from": "EMEN",
+       "to": "NEME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A relative is angry at a group of Englishmen and demands justice.",
+     "walkthrough": "Blokes is everyday British slang for men. In a down entry 'upset' turns the letters upside down, which reads as a reversal.",
+     "definitionFit": "Nemesis is retributive justice, the inescapable punishment named after the Greek goddess of vengeance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 19,
@@ -308,7 +1388,56 @@
     "text": "Blast drunken revelry where whiskey is confiscated",
     "enumeration": "6"
    },
-   "solution": "ASSAIL"
+   "solution": "ASSAIL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ASSAIL",
+    "definitions": [
+     {
+      "text": "Blast",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is confiscated",
+      "for": "deletion",
+      "note": "what is confiscated is taken away, so that letter is removed from the word"
+     }
+    ],
+    "linkWords": [
+     "where"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drunken revelry",
+      "gives": "WASSAIL",
+      "note": "wassail is festive drinking and carousing"
+     },
+     {
+      "clueFragment": "whiskey",
+      "gives": "W",
+      "note": "W is whiskey in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASSAIL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone curses a boozy party where the whiskey is taken away.",
+     "walkthrough": "Whiskey reads as the drink, fitting the party, but it is the radio code word for W.",
+     "definitionFit": "To blast someone is to attack them fiercely, especially in words, which is what assail means too."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "whiskey"
+    }
+   }
   },
   {
    "number": 20,
@@ -322,7 +1451,58 @@
     "text": "Briefly endanger, with little hesitation, supreme power",
     "enumeration": "8"
    },
-   "solution": "IMPERIUM"
+   "solution": "IMPERIUM",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "IMPERIUM",
+    "definitions": [
+     {
+      "text": "supreme power",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Briefly",
+      "for": "deletion",
+      "note": "briefly means cut short, so the word loses its last letter"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "endanger",
+      "gives": "IMPERI",
+      "note": "imperil means endanger; here it is shortened"
+     },
+     {
+      "clueFragment": "little hesitation",
+      "gives": "UM",
+      "note": "um is a small sound of hesitation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IMPERI",
+      "UM"
+     ]
+    },
+    "explanation": {
+     "surface": "A dictator puts absolute authority at risk for a moment, with hardly a pause.",
+     "walkthrough": "'Briefly' seems to say how long the danger lasts, but it trims the end off a synonym for endanger.",
+     "definitionFit": "Imperium is Latin for command and denotes absolute authority, the highest power of a ruler or state."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Briefly"
+    }
+   }
   },
   {
    "number": 21,
@@ -336,7 +1516,54 @@
     "text": "Perfectly formed proposal put forward Liberal",
     "enumeration": "5"
    },
-   "solution": "IDEAL"
+   "solution": "IDEAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IDEAL",
+    "definitions": [
+     {
+      "text": "Perfectly formed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put forward",
+      "for": "charade",
+      "note": "put forward means placed in front, so this piece comes first in the down entry"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "proposal",
+      "gives": "IDEA",
+      "note": "an idea is a suggestion or proposal"
+     },
+     {
+      "clueFragment": "Liberal",
+      "gives": "L",
+      "note": "L is the abbreviation for Liberal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IDEA",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A Liberal politician advances a neatly crafted proposal.",
+     "walkthrough": "'Put forward' reads as proposing a motion, but it tells you the proposal goes in front of the party letter.",
+     "definitionFit": "Ideal describes something exactly as it should be, without flaw, matching the sense of flawless in shape."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "forward"
+    }
+   }
   },
   {
    "number": 22,
@@ -350,7 +1577,44 @@
     "text": "Take broadcast with good humour",
     "enumeration": "6"
    },
-   "solution": "INGEST"
+   "solution": "INGEST",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "INGEST",
+    "definitions": [
+     {
+      "text": "Take",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broadcast",
+      "for": "homophone",
+      "note": "a broadcast is heard rather than read, so the phrase counts for its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "with good humour",
+      "gives": "INGEST",
+      "soundsLike": "IN JEST",
+      "note": "done in jest is done playfully, with good humour"
+     }
+    ],
+    "explanation": {
+     "surface": "Accept a radio programme in good spirits.",
+     "walkthrough": "'Take broadcast' looks like a recording instruction, but take is the definition and broadcast tells you to listen.",
+     "definitionFit": "To ingest is to take food or medicine into the body, so take works in the swallowing sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 23,
@@ -364,7 +1628,44 @@
     "text": "Plain action of speaker",
     "enumeration": "6"
    },
-   "solution": "STEPPE"
+   "solution": "STEPPE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "STEPPE",
+    "definitions": [
+     {
+      "text": "Plain",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "of speaker",
+      "for": "homophone",
+      "note": "what comes from a speaker is heard, so the word is taken for how it is pronounced"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "action",
+      "gives": "STEPPE",
+      "soundsLike": "STEP",
+      "note": "a step is an action or measure taken"
+     }
+    ],
+    "explanation": {
+     "surface": "A plain account of what a public speaker did.",
+     "walkthrough": "'Plain' wants to be an adjective for straightforward; it is the noun for flat grassland. A step, as in 'the next step', is an action.",
+     "definitionFit": "A steppe is a vast treeless grassy flatland, as in Russia or Central Asia, which is a plain in the geographic sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Plain"
+    }
+   }
   },
   {
    "number": 24,
@@ -378,7 +1679,39 @@
     "text": "Highly acidic character",
     "enumeration": "3"
    },
-   "solution": "PHI"
+   "solution": "PHI",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "PHI",
+    "definitions": [
+     {
+      "text": "Highly acidic character",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Highly acidic character",
+      "note": "surface reading: a person with a sharp, caustic temperament"
+     },
+     {
+      "clueFragment": "Highly acidic character",
+      "note": "setter's reading: a Greek letter that reads as the acidity scale followed by the Roman numeral one, a very acidic value"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "pH measures acidity, and the lower the number the stronger the acid, so pH 1 is very acidic; write the 1 as I to get PHI.",
+     "definitionFit": "Phi is the twenty-first letter of the Greek alphabet, and crosswords often use character to mean a written letter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 25,
@@ -392,7 +1725,67 @@
     "text": "Steel instrument with built-in retro microphone",
     "enumeration": "8"
    },
-   "solution": "SCIMITAR"
+   "solution": "SCIMITAR",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "SCIMITAR",
+    "definitions": [
+     {
+      "text": "Steel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retro",
+      "for": "reversal",
+      "note": "retro means backward-looking, so the letters run the other way"
+     },
+     {
+      "text": "with built-in",
+      "for": "container",
+      "note": "something built in is fitted inside, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "microphone",
+      "gives": "MIC",
+      "note": "mic is short for microphone"
+     },
+     {
+      "clueFragment": "instrument",
+      "gives": "SITAR",
+      "note": "a sitar is an Indian stringed instrument"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CIM",
+      "ITAR"
+     ],
+     "reversals": [
+      {
+       "from": "MIC",
+       "to": "CIM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A steel guitar fitted with an old-fashioned pickup.",
+     "walkthrough": "'Steel instrument' reads as a steel guitar, but steel alone is the definition, in its old sense of a blade.",
+     "definitionFit": "Steel is a literary word for a sword, and a scimitar is a curved oriental sword."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Steel"
+    }
+   }
   },
   {
    "number": 26,
@@ -406,7 +1799,76 @@
     "text": "Famous Greek Conservative fell in the flipping Med!",
     "enumeration": "8"
    },
-   "solution": "ACHILLES"
+   "solution": "ACHILLES",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "ACHILLES",
+    "definitions": [
+     {
+      "text": "Famous Greek",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flipping",
+      "for": "reversal",
+      "note": "flipping something turns it over, so the letters run backwards"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "to be in something is to be inside it, so these pieces go within the other"
+     }
+    ],
+    "linkWords": [
+     "the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Med",
+      "gives": "SEA",
+      "note": "the Med is the Mediterranean Sea"
+     },
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C is the abbreviation for Conservative"
+     },
+     {
+      "clueFragment": "fell",
+      "gives": "HILL",
+      "note": "a fell is a hill or upland in northern England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "C",
+      "HILL",
+      "ES"
+     ],
+     "reversals": [
+      {
+       "from": "SEA",
+       "to": "AES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A well-known Greek Tory tumbled into the blasted Mediterranean.",
+     "walkthrough": "'Fell' looks like a past tense, but it is the northern English noun for a hill. The Med is a sea, turned round to AES around C and HILL.",
+     "definitionFit": "Achilles is the celebrated hero of the Trojan War in Homer's Iliad, among the best-known figures of Greek legend."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fell"
+    }
+   }
   },
   {
    "number": 27,
@@ -420,7 +1882,43 @@
     "text": "Space formed by police where things are at boiling point?",
     "enumeration": "6"
    },
-   "solution": "KETTLE"
+   "solution": "KETTLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "KETTLE",
+    "definitions": [
+     {
+      "text": "Space formed by police",
+      "at": 0
+     },
+     {
+      "text": "where things are at boiling point?",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Space formed by police",
+      "note": "first meaning: a cordon in which police hem in protesters"
+     },
+     {
+      "clueFragment": "where things are at boiling point?",
+      "note": "second meaning: the household appliance in which water boils"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Kettling is a British police tactic of corralling demonstrators in a confined area; the question mark lets 'boiling point' hint at tempers in that crowd too.",
+     "definitionFit": "The word names both a police containment cordon around a crowd and the vessel used for heating water."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "boiling"
+    }
+   }
   }
  ]
 }
