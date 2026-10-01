@@ -176,9 +176,9 @@ NUMBER_IN = re.compile(r"(\d{3,5})")
 
 
 def unbrace(ln):
-    """A clue line keeps its braced letters, tidied; any other line loses them."""
+    """A clue line keeps its braced letters; any other line loses them."""
     kept = BRACED.sub(lambda m: m.group(0)[1:-1], ln)
-    return tidy(kept) if ENUM.search(kept) else BRACED.sub("", ln)
+    return kept if ENUM.search(kept) else BRACED.sub("", ln)
 
 
 #: A blogger's note after a clue's count: "Mean to be camping? (6) / Edit:
@@ -874,6 +874,7 @@ def read_entries(rendered):
         # it saying those numbers were never a linked head, so the numbers are
         # part of the clue and go back into its text.
         text = head_clue if len(pieces) < len(lights) else clue
+        text = tidy(text) if text else text
         spaced = spaced_answer(printed)
         leader = pieces[0][0][0]
         for i, ((n, d), piece) in enumerate(pieces):
