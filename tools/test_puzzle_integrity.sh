@@ -326,5 +326,31 @@ same "a puzzle in the wrong year folder names where it belongs" "$(field WRONG_Y
 same "a stray flat puzzles/<id>.json names where it belongs" "$(field FLAT "$out7")" "True"
 same "a file named for another id is flagged" "$(field MISNAMED "$out7")" "1"
 
+echo "a rewrite may not replace the held puzzle with another one"
+out8=$(PYTHONPATH="$REPO/tools" python3 - <<'PY'
+import copy
+import puzzle_integrity as pi
+
+held = pi.read_puzzle_file(pi.puzzle_paths.find("cryptic-24104"))
+other = copy.deepcopy(held)
+for e in other["entries"]:
+    e["solution"] = "Q" * e["length"]
+fixed = copy.deepcopy(held)
+fixed["entries"][0]["solution"] = "Q" * fixed["entries"][0]["length"]
+
+
+def filed(new):
+    flags = []
+    pi.check_rewrite(held, new, flags)
+    return sum(f[0] == "FILED" for f in flags)
+
+
+print("ANOTHER", filed(other))
+print("ONE_FIXED", filed(fixed))
+PY
+)
+same "another puzzle's answers over a held file are refused" "$(field ANOTHER "$out8")" "1"
+same "one corrected answer is not another puzzle" "$(field ONE_FIXED "$out8")" "0"
+
 [ "$fails" = 0 ] && echo "puzzle_integrity: all checks passed" || echo "puzzle_integrity: $fails FAILED"
 exit $((fails > 0))
