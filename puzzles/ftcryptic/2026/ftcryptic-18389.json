@@ -24,6 +24,9 @@
   "date": "2026-06-02",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,64 @@
     "text": "Obvious when persevering without hint of inconvenience",
     "enumeration": "6"
    },
-   "solution": "PATENT"
+   "solution": "PATENT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "PATENT",
+    "definitions": [
+     {
+      "text": "Obvious",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hint of",
+      "for": "letter_selection",
+      "note": "a hint is only a small taste of something, so just the opening letter of the next word is used"
+     },
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "to go without something is to lack it, so that letter is taken out of the longer word"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "persevering",
+      "gives": "PATIENT",
+      "note": "someone persevering keeps at it patiently"
+     },
+     {
+      "clueFragment": "inconvenience",
+      "gives": "I",
+      "select": "first",
+      "note": "the opening letter of inconvenience"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAT",
+      "ENT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone grimly sticking at a task makes it plain that nothing is bothering them.",
+     "walkthrough": "Take PATIENT and drop its I to leave PATENT.",
+     "definitionFit": "Patent as an adjective means plainly evident, as in a patent lie or a patent absurdity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hint"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +111,76 @@
     "text": "Nathaniel briefly turns to the church after depression caused by poor wage",
     "enumeration": "8"
    },
-   "solution": "PITTANCE"
+   "solution": "PITTANCE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "PITTANCE",
+    "definitions": [
+     {
+      "text": "poor wage",
+      "at": 65
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "charade",
+      "note": "said briefly, a name is cut down to its short pet form, which is then joined to the other parts"
+     },
+     {
+      "text": "turns",
+      "for": "reversal",
+      "note": "something that turns round faces the other way, so the letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "caused by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "depression",
+      "gives": "PIT",
+      "note": "a pit is a hollow or depression in the ground"
+     },
+     {
+      "clueFragment": "Nathaniel",
+      "gives": "NAT",
+      "note": "Nat is the short form of the name"
+     },
+     {
+      "clueFragment": "the church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIT",
+      "TAN",
+      "CE"
+     ],
+     "reversals": [
+      {
+       "from": "NAT",
+       "to": "TAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A badly paid man called Nathaniel, low in spirits, seeks comfort in religion.",
+     "walkthrough": "'After depression' places the hollow first; 'briefly' shortens the name before it is turned round. CE is the Church of England.",
+     "definitionFit": "A pittance is a very small, inadequate amount of money paid for work."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "depression"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +194,93 @@
     "text": "Right about a woman going over, seconds before closure of level crossing",
     "enumeration": "9"
    },
-   "solution": "TRAVERSAL"
+   "solution": "TRAVERSAL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TRAVERSAL",
+    "definitions": [
+     {
+      "text": "crossing",
+      "at": 64
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "to turn about is to face the opposite way, so the letters are read backwards"
+     },
+     {
+      "text": "going over",
+      "for": "container",
+      "note": "something going over another covers it on both sides, so one piece sits inside the other"
+     },
+     {
+      "text": "closure of",
+      "for": "letter_selection",
+      "note": "the closure of a word is where it ends, so only its final letter is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Right",
+      "gives": "RT",
+      "note": "RT is the standard abbreviation for right"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "woman",
+      "gives": "VERA",
+      "note": "a woman's name"
+     },
+     {
+      "clueFragment": "seconds",
+      "gives": "S",
+      "note": "S is the abbreviation for seconds"
+     },
+     {
+      "clueFragment": "level",
+      "gives": "L",
+      "select": "last",
+      "note": "the final letter of level"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TR",
+      "A",
+      "VER",
+      "S",
+      "A",
+      "L"
+     ],
+     "reversals": [
+      {
+       "from": "RT",
+       "to": "TR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman dashes over a level crossing seconds before the barriers come down.",
+     "walkthrough": "'Level crossing' reads as one phrase, but 'level' only supplies its last letter and 'crossing' alone is the definition. VERA wraps round S.",
+     "definitionFit": "A traversal is the act of passing across or over something, which is exactly what a crossing is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "level"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +294,45 @@
     "text": "Announcer’s familiar with narrow margin of victory",
     "enumeration": "4"
    },
-   "solution": "NOSE"
+   "solution": "NOSE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "NOSE",
+    "definitions": [
+     {
+      "text": "narrow margin of victory",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Announcer’s",
+      "for": "homophone",
+      "note": "an announcer speaks words out loud, so what counts is the sound rather than the spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "familiar with",
+      "gives": "NOSE",
+      "soundsLike": "KNOWS",
+      "note": "to be familiar with something is to know it"
+     }
+    ],
+    "explanation": {
+     "surface": "A racecourse commentator knows all about photo finishes and close winners.",
+     "walkthrough": "The apostrophe-s stands for 'is': the announcer's version of 'is familiar with' is how KNOWS is said.",
+     "definitionFit": "In horse racing, a horse that wins by a nose finishes only the length of its muzzle ahead, the smallest recorded winning distance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Announcer’s"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +346,74 @@
     "text": "Learned of the French whip found in river on the way back",
     "enumeration": "8"
    },
-   "solution": "EDUCATED"
+   "solution": "EDUCATED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container",
+     "reversal"
+    ],
+    "answer": "EDUCATED",
+    "definitions": [
+     {
+      "text": "Learned",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found in",
+      "for": "container",
+      "note": "something found in a place lies inside it, so these letters go within another word"
+     },
+     {
+      "text": "on the way back",
+      "for": "reversal",
+      "note": "travelling back means going in the opposite direction, so the letters run in reverse"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "of the French",
+      "gives": "DU",
+      "note": "du is French for 'of the'"
+     },
+     {
+      "clueFragment": "whip",
+      "gives": "CAT",
+      "note": "the cat-o'-nine-tails was a whip"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "DEE",
+      "note": "the Dee is a river in Britain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "DU",
+      "CAT",
+      "ED"
+     ],
+     "reversals": [
+      {
+       "from": "DEE",
+       "to": "EED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A scholar hears of a French whip being discovered in a river on the journey home.",
+     "walkthrough": "The reversed river splits after its first letter to take the French and the whip. 'Learned' is said as two syllables here.",
+     "definitionFit": "Learned describes someone with much knowledge from study, the same as well schooled."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Learned"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +427,81 @@
     "text": "Popular book about head of ICE in Washington",
     "enumeration": "7"
    },
-   "solution": "DEMOTIC"
+   "solution": "DEMOTIC",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "DEMOTIC",
+    "definitions": [
+     {
+      "text": "Popular",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "to turn about is to face the other way, so the letters are read backwards"
+     },
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "the head of a word is its top, so only its first letter is used"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "being in a place means being surrounded by it, so these letters sit inside another piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Washington",
+      "gives": "DC",
+      "note": "DC, District of Columbia, is the city's abbreviation"
+     },
+     {
+      "clueFragment": "book",
+      "gives": "TOME",
+      "note": "a tome is a large book"
+     },
+     {
+      "clueFragment": "ICE",
+      "gives": "I",
+      "select": "first",
+      "note": "the first letter of ICE"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "EMOT",
+      "I",
+      "C"
+     ],
+     "reversals": [
+      {
+       "from": "TOME",
+       "to": "EMOT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bestselling book about the boss of the US immigration agency is out in the capital.",
+     "walkthrough": "ICE here is US Immigration and Customs Enforcement; only its first letter is used. 'About' turns the book round before it goes inside Washington.",
+     "definitionFit": "Demotic means of or for ordinary people, so popular in the sense of belonging to the common folk."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Popular"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +515,77 @@
     "text": "Chilean cop’s vehicle seen by graduate around one in front of coffee shop",
     "enumeration": "10"
    },
-   "solution": "CARABINERO"
+   "solution": "CARABINERO",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "CARABINERO",
+    "definitions": [
+     {
+      "text": "Chilean cop’s",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "reversal",
+      "note": "to turn around is to face the opposite way, so the letters are read backwards"
+     }
+    ],
+    "linkWords": [
+     "seen by",
+     "in front of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vehicle",
+      "gives": "CAR",
+      "note": "a car is a vehicle"
+     },
+     {
+      "clueFragment": "graduate",
+      "gives": "BA",
+      "note": "a BA is a Bachelor of Arts graduate"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "coffee shop",
+      "gives": "NERO",
+      "note": "Caffè Nero is a British chain of coffee shops"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAR",
+      "AB",
+      "I",
+      "NERO"
+     ],
+     "reversals": [
+      {
+       "from": "BA",
+       "to": "AB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Chilean police car is spotted near a graduate standing outside a café.",
+     "walkthrough": "'Around' turns only the graduate's two letters, not the one that follows. Caffè Nero is a British coffee chain.",
+     "definitionFit": "A carabinero is a member of the Carabineros de Chile, the country's national police force; the clue's possessive reads as 'is'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "vehicle"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +599,56 @@
     "text": "Cape Town’s top dancing girl",
     "enumeration": "5"
    },
-   "solution": "TALMA"
+   "solution": "TALMA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TALMA",
+    "definitions": [
+     {
+      "text": "Cape",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "top",
+      "for": "letter_selection",
+      "note": "the top of a word written downwards is its first letter, so only that is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Town’s",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter of Town"
+     },
+     {
+      "clueFragment": "dancing girl",
+      "gives": "ALMA",
+      "note": "an alma or almah is an Egyptian dancing girl"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ALMA"
+     ]
+    },
+    "explanation": {
+     "surface": "Cape Town's star dancer is the best girl in the city.",
+     "walkthrough": "Cape Town reads as the South African city, but 'Cape' is the definition, a garment, and 'Town' gives only its T.",
+     "definitionFit": "A talma is a long nineteenth-century cloak or short cape, named after a French actor who wore one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cape"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +662,46 @@
     "text": "Settle for some homemade cider",
     "enumeration": "6"
    },
-   "solution": "DECIDE"
+   "solution": "DECIDE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "DECIDE",
+    "definitions": [
+     {
+      "text": "Settle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "only some of the words is wanted, a run of letters taken from inside them"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "homemade cider",
+      "gives": "DECIDE",
+      "note": "the run of letters spanning the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone happy to make do with a little home-brewed cider.",
+     "walkthrough": "'Settle for' looks like the phrase meaning accept, but 'for' just links: homeMADE CIDEr holds the answer.",
+     "definitionFit": "To settle a question is to resolve it, to make up your mind about it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Settle"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +715,65 @@
     "text": "Appropriate for Yeats perhaps to embrace luck? Not half",
     "enumeration": "6"
    },
-   "solution": "POCKET"
+   "solution": "POCKET",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "POCKET",
+    "definitions": [
+     {
+      "text": "Appropriate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not half",
+      "for": "deletion",
+      "note": "saying not half removes half of the word, so only its other half remains"
+     },
+     {
+      "text": "to embrace",
+      "for": "container",
+      "note": "to embrace is to hold in your arms, so one piece wraps round another"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Yeats perhaps",
+      "gives": "POET",
+      "note": "W. B. Yeats was an Irish poet; 'perhaps' marks him as one example"
+     },
+     {
+      "clueFragment": "luck",
+      "gives": "CK",
+      "note": "the second half of the word, its first half dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PO",
+      "CK",
+      "ET"
+     ]
+    },
+    "explanation": {
+     "surface": "Was it fitting for Yeats to trust to luck? Not half, comes the hearty answer.",
+     "walkthrough": "'Not half' sounds like the British exclamation meaning 'very much so', but it strips LU from luck. 'Appropriate' is a verb here, not an adjective.",
+     "definitionFit": "To pocket something is to take it for yourself, often dishonestly, which is to appropriate it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Appropriate"
+    }
+   }
   },
   {
    "number": 10,
@@ -177,7 +787,69 @@
     "text": "Convert managed to fill extremely tedious document",
     "enumeration": "9"
    },
-   "solution": "TRANSFORM"
+   "solution": "TRANSFORM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "TRANSFORM",
+    "definitions": [
+     {
+      "text": "Convert",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to fill",
+      "for": "container",
+      "note": "filling something means going inside it, so these letters sit within another pair"
+     },
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two ends, so only its first and last letters are used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tedious",
+      "gives": "TS",
+      "select": "outer",
+      "note": "the first and last letters of tedious"
+     },
+     {
+      "clueFragment": "managed",
+      "gives": "RAN",
+      "note": "to run a business is to manage it"
+     },
+     {
+      "clueFragment": "document",
+      "gives": "FORM",
+      "note": "a form is an official document to fill in"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RAN",
+      "S",
+      "FORM"
+     ]
+    },
+    "explanation": {
+     "surface": "A convert to bureaucracy managed to fill in an utterly dull form.",
+     "walkthrough": "'To fill' looks like filling in the form, but it puts the verb inside the ends of 'tedious'.",
+     "definitionFit": "To convert something is to change it into another form, the same as altering it completely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fill"
+    }
+   }
   },
   {
    "number": 11,
@@ -191,7 +863,55 @@
     "text": "Roman Catholic priest breaking souvenir",
     "enumeration": "5"
    },
-   "solution": "RELIC"
+   "solution": "RELIC",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RELIC",
+    "definitions": [
+     {
+      "text": "souvenir",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "breaking",
+      "for": "container",
+      "note": "breaking into something means getting inside it, so one piece splits the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Roman Catholic",
+      "gives": "RC",
+      "note": "RC is the abbreviation for Roman Catholic"
+     },
+     {
+      "clueFragment": "priest",
+      "gives": "ELI",
+      "note": "Eli is the priest in the Book of Samuel who raised Samuel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ELI",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "A Catholic priest smashes a holy keepsake.",
+     "walkthrough": "ELI is the crossword's standard priest, from the Old Testament.",
+     "definitionFit": "A relic is an object kept as a memento of the past, a keepsake that recalls a person or event."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "breaking"
+    }
+   }
   },
   {
    "number": 12,
@@ -205,7 +925,51 @@
     "text": "Allege as a fact when edging away from partygoers",
     "enumeration": "4"
    },
-   "solution": "AVER"
+   "solution": "AVER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "AVER",
+    "definitions": [
+     {
+      "text": "Allege as a fact",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "edging away from",
+      "for": "deletion",
+      "note": "the edges of a word are its outer letters, so taking those away leaves the inside"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "partygoers",
+      "gives": "RAVERS",
+      "note": "ravers go to wild parties"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AVER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone states their case while sidling away from a crowd of revellers.",
+     "walkthrough": "RAVERS loses its first and last letters.",
+     "definitionFit": "To aver is to declare or assert positively that something is true."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "edging"
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +983,65 @@
     "text": "Means of transport with broad seat designed to carry king",
     "enumeration": "10"
    },
-   "solution": "SKATEBOARD"
+   "solution": "SKATEBOARD",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "SKATEBOARD",
+    "definitions": [
+     {
+      "text": "Means of transport",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to carry",
+      "for": "container",
+      "note": "carrying something means holding it within, so another letter goes in among these"
+     },
+     {
+      "text": "designed",
+      "for": "anagram",
+      "note": "something designed is newly arranged to a plan, so the letters are put in a new order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "broad seat",
+      "gives": "BROADSEAT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "K",
+      "note": "K is the chess abbreviation for king"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BROADSEATK",
+       "gives": "SKATEBOARD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A royal carriage with a wide seat built to carry the king.",
+     "walkthrough": "K joins the ten letters of 'broad seat' before they are rearranged.",
+     "definitionFit": "A skateboard is a board on wheels that a rider stands on to travel, so a way of getting about."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "designed"
+    }
+   }
   },
   {
    "number": 14,
@@ -243,7 +1065,67 @@
      }
     ]
    },
-   "solution": "KEEPTABSON"
+   "solution": "KEEPTABSON",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "KEEP TABS ON",
+    "definitions": [
+     {
+      "text": "Monitor the activities of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "turned over, a word runs the other way, so its letters are read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quick look",
+      "gives": "PEEK",
+      "note": "a peek is a quick look"
+     },
+     {
+      "clueFragment": "bill",
+      "gives": "TAB",
+      "note": "a tab is a bill, as in picking up the tab"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "SON",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KEEP",
+      "TAB",
+      "SON"
+     ],
+     "reversals": [
+      {
+       "from": "PEEK",
+       "to": "KEEP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A parent checks up on a son after glancing over his bill.",
+     "walkthrough": "'Of son' looks like part of the definition, but 'of' ends the definition and 'son' is taken whole, placed last.",
+     "definitionFit": "To keep tabs on someone is an idiom for watching closely what they are doing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "son"
+    }
+   }
   },
   {
    "number": 15,
@@ -257,7 +1139,68 @@
     "text": "What is suffered to obtain seating at the front that’s most comfortable",
     "enumeration": "7"
    },
-   "solution": "COSIEST"
+   "solution": "COSIEST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "COSIEST",
+    "definitions": [
+     {
+      "text": "most comfortable",
+      "at": 55
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the front",
+      "for": "letter_selection",
+      "note": "the front of a word is its beginning, so only the opening letter counts"
+     },
+     {
+      "text": "to obtain",
+      "for": "container",
+      "note": "to obtain is to get and hold, so one piece takes others inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What is suffered",
+      "gives": "COST",
+      "note": "a cost is a loss or penalty suffered"
+     },
+     {
+      "clueFragment": "seating",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of seating"
+     },
+     {
+      "clueFragment": "that’s",
+      "gives": "IE",
+      "note": "i.e. (id est) means 'that is'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "S",
+      "IE",
+      "ST"
+     ]
+    },
+    "explanation": {
+     "surface": "The discomfort you put up with to grab the comfiest front seats.",
+     "walkthrough": "'That's' abbreviates 'that is', which crosswords render as the Latin abbreviation i.e.",
+     "definitionFit": "Cosy means snug and comfortable, so its superlative names the greatest comfort."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "seating"
+    }
+   }
   },
   {
    "number": 16,
@@ -271,7 +1214,47 @@
     "text": "Run together with Italian scoundrel",
     "enumeration": "6"
    },
-   "solution": "CONCUR"
+   "solution": "CONCUR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CONCUR",
+    "definitions": [
+     {
+      "text": "Run together",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "with Italian",
+      "gives": "CON",
+      "note": "con is Italian for 'with'"
+     },
+     {
+      "clueFragment": "scoundrel",
+      "gives": "CUR",
+      "note": "a cur is a contemptible person"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "CUR"
+     ]
+    },
+    "explanation": {
+     "surface": "Two people make off together with an Italian rogue.",
+     "walkthrough": "'With Italian' reads as accompanying the Italian, but it asks for the Italian word for 'with'.",
+     "definitionFit": "Events concur when they happen at the same time, coinciding or running side by side."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "with"
+    }
+   }
   },
   {
    "number": 17,
@@ -285,7 +1268,73 @@
     "text": "Merciless international organisation hits back in Gabon",
     "enumeration": "9"
    },
-   "solution": "UNSPARING"
+   "solution": "UNSPARING",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "UNSPARING",
+    "definitions": [
+     {
+      "text": "Merciless",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means travelling the opposite way, so the letters are read in reverse"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "international organisation",
+      "gives": "UN",
+      "note": "the United Nations"
+     },
+     {
+      "clueFragment": "hits",
+      "gives": "RAPS",
+      "note": "raps are sharp knocks"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Gabon",
+      "gives": "G",
+      "note": "G is Gabon's international vehicle registration code"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "SPAR",
+      "IN",
+      "G"
+     ],
+     "reversals": [
+      {
+       "from": "RAPS",
+       "to": "SPAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ruthless global body strikes back in an African country.",
+     "walkthrough": "'In Gabon' looks like a location; IN is taken as written and G is the country's vehicle code.",
+     "definitionFit": "Unsparing means showing no leniency or mercy, holding nothing back."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Gabon"
+    }
+   }
   },
   {
    "number": 18,
@@ -299,7 +1348,63 @@
     "text": "Endorse article after Henry died from a stroke",
     "enumeration": "8"
    },
-   "solution": "BACKHAND"
+   "solution": "BACKHAND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BACKHAND",
+    "definitions": [
+     {
+      "text": "a stroke",
+      "at": 38
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Endorse",
+      "gives": "BACK",
+      "note": "to back a proposal is to endorse it"
+     },
+     {
+      "clueFragment": "Henry",
+      "gives": "H",
+      "note": "H is the symbol for the henry, the unit of inductance"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "AN",
+      "note": "an is the indefinite article"
+     },
+     {
+      "clueFragment": "died",
+      "gives": "D",
+      "note": "D is the abbreviation for died"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BACK",
+      "H",
+      "AN",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper item reporting that a man called Henry died of a stroke.",
+     "walkthrough": "'After Henry' puts AN after H. 'Stroke' suggests illness, but it is a tennis stroke.",
+     "definitionFit": "In tennis and other racket games, a backhand is a shot played with the back of the hand facing the ball."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "stroke"
+    }
+   }
   },
   {
    "number": 19,
@@ -319,7 +1424,56 @@
      }
     ]
    },
-   "solution": "SLAPUP"
+   "solution": "SLAPUP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SLAP-UP",
+    "definitions": [
+     {
+      "text": "Excellent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "debut of",
+      "for": "letter_selection",
+      "note": "a debut is a first appearance, so only the opening letter is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "singer",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of singer"
+     },
+     {
+      "clueFragment": "delight in",
+      "gives": "LAPUP",
+      "note": "to lap up praise is to relish it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "LAPUP"
+     ]
+    },
+    "explanation": {
+     "surface": "A singer's brilliant first performance, a thing to enjoy.",
+     "walkthrough": "Slap-up is British for lavish and splendid, usually of a meal.",
+     "definitionFit": "A slap-up meal is a lavish, first-rate one, so slap-up is an informal term for splendid."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "debut"
+    }
+   }
   },
   {
    "number": 20,
@@ -333,7 +1487,50 @@
     "text": "Penny likely to be easily influenced",
     "enumeration": "7"
    },
-   "solution": "PLIABLE"
+   "solution": "PLIABLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PLIABLE",
+    "definitions": [
+     {
+      "text": "easily influenced",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Penny",
+      "gives": "P",
+      "note": "P is the abbreviation for a penny"
+     },
+     {
+      "clueFragment": "likely",
+      "gives": "LIABLE",
+      "note": "liable to do something means likely to"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "LIABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman called Penny is probably a pushover.",
+     "walkthrough": "Penny looks like a woman's name, but it is the coin, abbreviated P.",
+     "definitionFit": "Pliable means bendable, and figuratively a pliable person is readily persuaded or swayed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Penny"
+    }
+   }
   },
   {
    "number": 21,
@@ -347,7 +1544,84 @@
     "text": "Expression of disapproval over soldiers returning with Afghan’s original hot sauce",
     "enumeration": "7"
    },
-   "solution": "HARISSA"
+   "solution": "HARISSA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "HARISSA",
+    "definitions": [
+     {
+      "text": "hot sauce",
+      "at": 73
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means going back the way you came, so the letters run backwards"
+     },
+     {
+      "text": "over",
+      "for": "container",
+      "note": "lying over something means covering it, so one piece encloses another"
+     },
+     {
+      "text": "original",
+      "for": "letter_selection",
+      "note": "what is original comes first, so only the opening letter is used"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Expression of disapproval",
+      "gives": "HISS",
+      "note": "an audience hisses to show disapproval"
+     },
+     {
+      "clueFragment": "soldiers",
+      "gives": "RA",
+      "note": "the RA is the Royal Artillery"
+     },
+     {
+      "clueFragment": "Afghan’s",
+      "gives": "A",
+      "select": "first",
+      "note": "the first letter of Afghan"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "AR",
+      "ISS",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "RA",
+       "to": "AR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Troops heading home from Afghanistan are greeted with jeers and a fiery condiment.",
+     "walkthrough": "The Royal Artillery is the usual crossword source for soldiers; 'over' means the jeer encloses them.",
+     "definitionFit": "Harissa is a spicy North African chilli paste used as a hot condiment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 21,
@@ -361,7 +1635,62 @@
     "text": "Deal with bad weather reportedly around North Dakota",
     "enumeration": "6"
    },
-   "solution": "HANDLE"
+   "solution": "HANDLE",
+   "annotation": {
+    "type": [
+     "homophone",
+     "container"
+    ],
+    "answer": "HANDLE",
+    "definitions": [
+     {
+      "text": "Deal with",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "what is reported is passed on by word of mouth, so the sound matters, not the spelling"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "something placed around another surrounds it, so one piece sits inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bad weather",
+      "gives": "HALE",
+      "soundsLike": "HAIL",
+      "note": "hail is bad weather, said the same as hale"
+     },
+     {
+      "clueFragment": "North Dakota",
+      "gives": "ND",
+      "note": "ND is the US state abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HA",
+      "ND",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "Coping with storms said to be sweeping round a US prairie state.",
+     "walkthrough": "The homophone is spelt as the word meaning healthy and vigorous, which then wraps the state abbreviation.",
+     "definitionFit": "To handle a problem is to cope with it or manage it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Deal"
+    }
+   }
   },
   {
    "number": 22,
@@ -375,7 +1704,65 @@
     "text": "Horse we bought at the start from fairy queen’s retainer",
     "enumeration": "6"
    },
-   "solution": "COBWEB"
+   "solution": "COBWEB",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "COBWEB",
+    "definitions": [
+     {
+      "text": "fairy queen’s retainer",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the start",
+      "for": "letter_selection",
+      "note": "what comes at the start of a word is its opening, so only its first letter is used"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Horse",
+      "gives": "COB",
+      "note": "a cob is a sturdy short-legged horse"
+     },
+     {
+      "clueFragment": "we",
+      "gives": "WE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bought",
+      "gives": "B",
+      "select": "first",
+      "note": "the first letter of bought"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COB",
+      "WE",
+      "B"
+     ]
+    },
+    "explanation": {
+     "surface": "We bought a horse from a fairy queen's servant.",
+     "walkthrough": "The fairy queen is Titania in Shakespeare's A Midsummer Night's Dream.",
+     "definitionFit": "Cobweb is one of the fairies who attend Titania in Shakespeare's play, serving the queen and Bottom."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Horse"
+    }
+   }
   },
   {
    "number": 23,
@@ -389,7 +1776,70 @@
     "text": "Companies providing musical dramas forced into cuts",
     "enumeration": "10"
    },
-   "solution": "OPERATIONS"
+   "solution": "OPERATIONS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "OPERATIONS",
+    "definitions": [
+     {
+      "text": "Companies",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "forced",
+      "for": "anagram",
+      "note": "something forced is pushed out of its natural shape, so the letters are rearranged"
+     },
+     {
+      "text": "cuts",
+      "for": "container",
+      "note": "a blade that cuts opens a gap, so one piece is slotted inside another"
+     }
+    ],
+    "linkWords": [
+     "providing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "musical dramas",
+      "gives": "OPERAS",
+      "note": "operas are dramas set to music"
+     },
+     {
+      "clueFragment": "into",
+      "gives": "INTO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OPERA",
+      "TION",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INTO",
+       "gives": "TION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Opera companies forced into making cuts to their musical productions.",
+     "walkthrough": "'Cuts' wants to be the definition, surgical operations; it is the instruction that INTO, rearranged, cuts into OPERAS.",
+     "definitionFit": "An operation can mean a business or organisation, so operations are firms or enterprises."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cuts"
+    }
+   }
   },
   {
    "number": 24,
@@ -403,7 +1853,75 @@
     "text": "Record producer’s last to be gripped by reflective single",
     "enumeration": "5"
    },
-   "solution": "ENROL"
+   "solution": "ENROL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "container"
+    ],
+    "answer": "ENROL",
+    "definitions": [
+     {
+      "text": "Record",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last",
+      "for": "letter_selection",
+      "note": "the last of a word is where it finishes, so only its final letter is used"
+     },
+     {
+      "text": "reflective",
+      "for": "reversal",
+      "note": "a reflection shows things back to front, so the letters run in reverse"
+     },
+     {
+      "text": "to be gripped by",
+      "for": "container",
+      "note": "something gripped is held tight inside, so one piece sits within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "single",
+      "gives": "LONE",
+      "note": "lone means single, solitary"
+     },
+     {
+      "clueFragment": "producer’s",
+      "gives": "R",
+      "select": "last",
+      "note": "the final letter of producer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "R",
+      "OL"
+     ],
+     "reversals": [
+      {
+       "from": "LONE",
+       "to": "ENOL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A record producer's final release is a thoughtful single.",
+     "walkthrough": "'Record' and 'single' look like music; 'Record' is the definition, a verb, and 'single' means lone.",
+     "definitionFit": "To enrol is to enter a name on an official list or register, which is to record it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "single"
+    }
+   }
   },
   {
    "number": 25,
@@ -417,7 +1935,59 @@
     "text": "Want chop left for husband",
     "enumeration": "4"
    },
-   "solution": "LACK"
+   "solution": "LACK",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "LACK",
+    "definitions": [
+     {
+      "text": "Want",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "left for husband",
+      "for": "substitution",
+      "note": "one letter is put for another, so the letter for left takes the place of the letter for husband"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chop",
+      "gives": "HACK",
+      "note": "to hack is to chop roughly"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "H is the abbreviation for husband"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "ACK"
+     ]
+    },
+    "explanation": {
+     "surface": "A wife wants a lamb chop left out for her husband.",
+     "walkthrough": "HACK swaps its H for L.",
+     "definitionFit": "Want as a noun means a shortage or absence, which is a lack of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "chop"
+    }
+   }
   },
   {
    "number": 26,
@@ -431,7 +2001,47 @@
     "text": "Withhold assent to examine duck",
     "enumeration": "4"
    },
-   "solution": "VETO"
+   "solution": "VETO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "VETO",
+    "definitions": [
+     {
+      "text": "Withhold assent to",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "examine",
+      "gives": "VET",
+      "note": "to vet is to examine carefully"
+     },
+     {
+      "clueFragment": "duck",
+      "gives": "O",
+      "note": "a duck is a score of nothing in cricket, shaped like O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VET",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Refusing to let a vet look over a duck.",
+     "walkthrough": "In cricket a duck is a batsman's score of zero, so it stands for the letter O.",
+     "definitionFit": "To veto a proposal is to reject it formally, refusing the approval it needs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "duck"
+    }
+   }
   },
   {
    "number": 27,
@@ -445,7 +2055,65 @@
     "text": "Goes for frying pans stocked by Rackhams primarily",
     "enumeration": "5"
    },
-   "solution": "WORKS"
+   "solution": "WORKS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "WORKS",
+    "definitions": [
+     {
+      "text": "Goes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so only the opening letter is used"
+     },
+     {
+      "text": "stocked by",
+      "for": "container",
+      "note": "goods stocked in a shop are held within it, so one piece sits inside another"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "frying pans",
+      "gives": "WOKS",
+      "note": "woks are Chinese frying pans"
+     },
+     {
+      "clueFragment": "Rackhams",
+      "gives": "R",
+      "select": "first",
+      "note": "the first letter of Rackhams"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WO",
+      "R",
+      "KS"
+     ]
+    },
+    "explanation": {
+     "surface": "A shopper picks the frying pans a department store mainly sells.",
+     "walkthrough": "Rackhams was a department store in Birmingham. R sits inside WOKS.",
+     "definitionFit": "A machine that goes is running properly, which is to say it works or functions."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Goes"
+    }
+   }
   },
   {
    "number": 28,
@@ -459,7 +2127,79 @@
     "text": "Elegance at the outset possessed by L Blair amazing North American dancer",
     "enumeration": "9"
    },
-   "solution": "BALLERINA"
+   "solution": "BALLERINA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "anagram",
+     "charade"
+    ],
+    "answer": "BALLERINA",
+    "definitions": [
+     {
+      "text": "dancer",
+      "at": 67
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the outset",
+      "for": "letter_selection",
+      "note": "the outset is the beginning, so only the first letter is used"
+     },
+     {
+      "text": "possessed by",
+      "for": "container",
+      "note": "what is possessed is held within, so one letter goes inside the others"
+     },
+     {
+      "text": "amazing",
+      "for": "anagram",
+      "note": "something amazing leaves you all over the place, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Elegance",
+      "gives": "E",
+      "select": "first",
+      "note": "the first letter of Elegance"
+     },
+     {
+      "clueFragment": "L Blair",
+      "gives": "LBLAIR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "North American",
+      "gives": "NA",
+      "note": "NA is the abbreviation for North American"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BALLERI",
+      "NA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LBLAIRE",
+       "gives": "BALLERI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An amazingly graceful North American dancer whose name is L. Blair.",
+     "walkthrough": "E joins L BLAIR and the seven letters are rearranged before NA is added.",
+     "definitionFit": "A ballerina is a female ballet dancer, especially one of high rank in a company."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "amazing"
+    }
+   }
   },
   {
    "number": 29,
@@ -473,7 +2213,56 @@
     "text": "Weapon hidden in disagreeable stable",
     "enumeration": "8"
    },
-   "solution": "BALANCED"
+   "solution": "BALANCED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BALANCED",
+    "definitions": [
+     {
+      "text": "stable",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hidden in",
+      "for": "container",
+      "note": "a thing concealed within another is surrounded by it, so one piece goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "disagreeable",
+      "gives": "BAD",
+      "note": "bad can mean unpleasant or disagreeable"
+     },
+     {
+      "clueFragment": "Weapon",
+      "gives": "LANCE",
+      "note": "a lance is a long spear"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BA",
+      "LANCE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A weapon is concealed in an unpleasant horse stable.",
+     "walkthrough": "'Hidden in' usually signals a run of letters inside the words, but no such run exists here; it puts the weapon inside. 'Stable' is the adjective.",
+     "definitionFit": "Something balanced is steady and in equilibrium, not liable to tip over."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "stable"
+    }
+   }
   },
   {
    "number": 30,
@@ -487,7 +2276,61 @@
     "text": "Devised in order to acquire endless diamonds",
     "enumeration": "6"
    },
-   "solution": "FORGED"
+   "solution": "FORGED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "FORGED",
+    "definitions": [
+     {
+      "text": "Devised",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endless",
+      "for": "deletion",
+      "note": "without an end, a word loses its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in order to",
+      "gives": "FOR",
+      "note": "for can mean with the aim of"
+     },
+     {
+      "clueFragment": "acquire",
+      "gives": "GE",
+      "note": "get, minus its last letter"
+     },
+     {
+      "clueFragment": "diamonds",
+      "gives": "D",
+      "note": "D is the abbreviation for diamonds in card games"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOR",
+      "GE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A scheme dreamt up to get hold of an unlimited supply of diamonds.",
+     "walkthrough": "GET loses its T.",
+     "definitionFit": "To forge a plan or agreement is to create it through effort, so forged means devised or worked out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "endless"
+    }
+   }
   }
  ]
 }
