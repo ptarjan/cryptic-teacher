@@ -24,6 +24,9 @@
   "date": "2025-10-31",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,64 @@
     "text": "Sport fans cool off in queue at gate?",
     "enumeration": "12"
    },
-   "solution": "SNOWBOARDING"
+   "solution": "SNOWBOARDING",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "SNOWBOARDING",
+    "definitions": [
+     {
+      "text": "Sport",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "deletion",
+      "note": "something taken off is removed, so the matching letters come away from the longer word"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fans",
+      "gives": "FANS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cool",
+      "gives": "FAN",
+      "note": "to fan something is to cool it with moving air"
+     },
+     {
+      "clueFragment": "queue at gate",
+      "gives": "NOWBOARDING",
+      "note": "the airport announcement that sends passengers to queue at the departure gate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "NOWBOARDING"
+     ]
+    },
+    "explanation": {
+     "surface": "Sports supporters stuck waiting at a stadium gate, trying to cool down.",
+     "walkthrough": "Take FAN (to cool) away from FANS and only S is left; add NOW BOARDING, the call heard at an airport gate, to get SNOWBOARDING.",
+     "definitionFit": "Snowboarding is a winter pastime practised on a single board down slopes, so it is one example of a sport."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "fans"
+    }
+   }
   },
   {
    "number": 1,
@@ -57,7 +117,38 @@
      }
     ]
    },
-   "solution": "SPOKENFOR"
+   "solution": "SPOKENFOR",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SPOKEN FOR",
+    "definitions": [
+     {
+      "text": "Reserved",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rowing boat",
+      "gives": "FOR",
+      "soundsLike": "FOUR",
+      "note": "a four is a racing boat rowed by four oarsmen; the answer's first word says to voice it"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone has booked a rowing boat ahead of time.",
+     "walkthrough": "The clue works backwards: the answer itself is the instruction. Take a 'four', a rowing boat, and say it, and you have SPOKEN FOR.",
+     "definitionFit": "Something spoken for has already been claimed or booked by another person, which is what reserved means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "boat"
+    }
+   }
   },
   {
    "number": 2,
@@ -77,7 +168,43 @@
      }
     ]
    },
-   "solution": "ONDIT"
+   "solution": "ONDIT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ON-DIT",
+    "definitions": [
+     {
+      "text": "gossip",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is too much for",
+      "for": "hidden_word",
+      "note": "the words given are longer than needed, so only a stretch inside them is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Second item",
+      "gives": "ONDIT",
+      "note": "the letters run across the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A second piece of news is one item more than a gossip column can take.",
+     "walkthrough": "secOND ITem holds the answer; 'is too much for' says the two words contain more letters than ON-DIT needs.",
+     "definitionFit": "On-dit is French borrowed into English for a piece of hearsay, literally 'it is said', so it means a rumour or gossip."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Second"
+    }
+   }
   },
   {
    "number": 3,
@@ -97,7 +224,62 @@
      }
     ]
    },
-   "solution": "BYSEA"
+   "solution": "BYSEA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "BY SEA",
+    "definitions": [
+     {
+      "text": "on a ship",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Out of",
+      "for": "deletion",
+      "note": "when one thing is out of another it has gone from it, so a letter is taken away"
+     },
+     {
+      "text": "orders",
+      "for": "anagram",
+      "note": "to order things is to arrange them, so the remaining letters are put into a new sequence"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L is the standard abbreviation for line"
+     },
+     {
+      "clueFragment": "belays",
+      "gives": "BELAYS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BEAYS",
+       "gives": "BYSEA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Off the rope, a sailor makes fast lines with belaying orders aboard ship.",
+     "walkthrough": "'Belay' is a nautical word for securing a rope, which keeps the eye on the ship; drop L from BELAYS and rearrange BEAYS.",
+     "definitionFit": "Travelling by sea means going over water aboard a vessel, so it matches being on a ship."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "orders"
+    }
+   }
   },
   {
    "number": 4,
@@ -111,7 +293,62 @@
     "text": "Spirited maiden soon captivates legendary hero",
     "enumeration": "9"
    },
-   "solution": "AGAMEMNON"
+   "solution": "AGAMEMNON",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "AGAMEMNON",
+    "definitions": [
+     {
+      "text": "legendary hero",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "captivates",
+      "for": "container",
+      "note": "to captivate is to take captive, so one piece holds the others inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spirited",
+      "gives": "GAME",
+      "note": "someone game is plucky and willing"
+     },
+     {
+      "clueFragment": "maiden",
+      "gives": "M",
+      "note": "M is the cricket scorecard abbreviation for a maiden over"
+     },
+     {
+      "clueFragment": "soon",
+      "gives": "ANON",
+      "note": "anon is an old literary word for soon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "GAME",
+      "M",
+      "NON"
+     ]
+    },
+    "explanation": {
+     "surface": "A lively young woman is soon charmed by a hero of legend.",
+     "walkthrough": "'Maiden' suggests a girl, but in crosswords it often means a cricket over with no runs scored. Anon is an archaic word for soon.",
+     "definitionFit": "Agamemnon was the Greek king who led the army against Troy in Homer's epic, a figure of myth and legend."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "maiden"
+    }
+   }
   },
   {
    "number": 5,
@@ -131,7 +368,70 @@
      }
     ]
    },
-   "solution": "DALAILAMA"
+   "solution": "DALAILAMA",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "DALAI LAMA",
+    "definitions": [
+     {
+      "text": "Person who inspires",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sticking",
+      "for": "container",
+      "note": "things stuck into something end up inside it, so pieces go within another"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, going up means reading from the bottom, so the order is turned round"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "notice",
+      "gives": "AD",
+      "note": "an ad is an advertisement or notice"
+     },
+     {
+      "clueFragment": "African country",
+      "gives": "MALI",
+      "note": "Mali is a country in West Africa"
+     },
+     {
+      "clueFragment": "after",
+      "gives": "ALA",
+      "note": "à la means after the manner of, as in à la mode"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DALAILAMA"
+     ],
+     "reversals": [
+      {
+       "from": "AMALIALAD",
+       "to": "DALAILAMA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A notice posted up about an African nation shows someone who motivates it.",
+     "walkthrough": "'After' looks like a time word but means 'in the style of', from French à la. In a down clue 'up' sends the whole thing upwards.",
+     "definitionFit": "The Tibetan spiritual leader is widely admired as a source of inspiration and moral guidance worldwide."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "after"
+    }
+   }
   },
   {
    "number": 6,
@@ -145,7 +445,70 @@
     "text": "One’s heading into harbour for University of Scandinavia",
     "enumeration": "5"
    },
-   "solution": "NORSE"
+   "solution": "NORSE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "substitution"
+    ],
+    "answer": "NORSE",
+    "definitions": [
+     {
+      "text": "of Scandinavia",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heading",
+      "for": "letter_selection",
+      "note": "a heading sits at the top, so only the opening letter of the word is used"
+     },
+     {
+      "text": "into",
+      "for": "substitution",
+      "note": "going into a word for something else means taking its place there"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "harbour",
+      "gives": "NURSE",
+      "note": "to nurse a grudge is to harbour it"
+     },
+     {
+      "clueFragment": "University",
+      "gives": "U",
+      "note": "U is the abbreviation for university"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "O",
+      "select": "first",
+      "note": "the first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "O",
+      "RSE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone heads into a port to study at a Scandinavian university.",
+     "walkthrough": "'Harbour' looks like a port but is a verb, as in harbour a grudge, NURSE; O replaces its U.",
+     "definitionFit": "Norse is the adjective for things relating to ancient or medieval Scandinavia, its people and language."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "harbour"
+    }
+   }
   },
   {
    "number": 7,
@@ -169,7 +532,88 @@
      }
     ]
    },
-   "solution": "BANGTORIGHTS"
+   "solution": "BANGTORIGHTS",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "deletion",
+     "anagram",
+     "charade"
+    ],
+    "answer": "BANG TO RIGHTS",
+    "definitions": [
+     {
+      "text": "Leaving with it, bandit has not entirely gone straight, sadly this?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Leaving",
+      "for": "deletion",
+      "note": "words that are leaving go away, so their letters are dropped from the next word"
+     },
+     {
+      "text": "not entirely",
+      "for": "deletion",
+      "note": "only part of the word is wanted, so its last letter goes"
+     },
+     {
+      "text": "sadly",
+      "for": "anagram",
+      "note": "something that ends sadly has turned out badly, so the letters are jumbled into disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "with",
+      "gives": "AND",
+      "note": "and means together with"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bandit",
+      "gives": "BANDIT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "gone",
+      "gives": "GON",
+      "note": "the word without its final letter"
+     },
+     {
+      "clueFragment": "straight",
+      "gives": "STRAIGHT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ANGTORIGHTS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GONSTRAIGHT",
+       "gives": "ANGTORIGHTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A robber who was going straight is caught making off with the loot again.",
+     "walkthrough": "AND and IT leave BANDIT, leaving B; then GON plus STRAIGHT is rearranged. Read whole, the clue describes the thief caught red-handed.",
+     "definitionFit": "Bang to rights is British slang for being caught red-handed with clear proof of guilt, exactly the robber's fate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Leaving"
+    }
+   }
   },
   {
    "number": 8,
@@ -183,7 +627,44 @@
     "text": "Given permission to speak in a normal voice",
     "enumeration": "5"
    },
-   "solution": "ALOUD"
+   "solution": "ALOUD",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "ALOUD",
+    "definitions": [
+     {
+      "text": "in a normal voice",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to speak",
+      "for": "homophone",
+      "note": "speaking means saying words, so it is their sound that matters, not spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Given permission",
+      "gives": "ALOUD",
+      "soundsLike": "ALLOWED",
+      "note": "someone given permission has been allowed"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is finally allowed to speak up in an ordinary voice.",
+     "walkthrough": "ALLOWED and ALOUD sound the same.",
+     "definitionFit": "Reading aloud means voicing words audibly rather than silently or whispering, so in a normal speaking voice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "speak"
+    }
+   }
   },
   {
    "number": 9,
@@ -203,7 +684,61 @@
      }
     ]
    },
-   "solution": "SMALLARMS"
+   "solution": "SMALLARMS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "SMALL ARMS",
+    "definitions": [
+     {
+      "text": "shooters",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covers",
+      "for": "container",
+      "note": "a cover goes round something, so one piece wraps the other"
+     },
+     {
+      "text": "the majority of",
+      "for": "deletion",
+      "note": "a majority is most but not all, so the end is lost"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Text",
+      "gives": "SMS",
+      "note": "SMS is the abbreviation for a text message"
+     },
+     {
+      "clueFragment": "duck",
+      "gives": "MALLARD",
+      "note": "the mallard is the commonest wild duck"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "MALLAR",
+      "MS"
+     ]
+    },
+    "explanation": {
+     "surface": "A message describes most of the people who shoot ducks.",
+     "walkthrough": "'Shooters' seems to be the hunters of the surface, but it means guns.",
+     "definitionFit": "Small arms are handguns and rifles, and 'shooter' is informal slang for a gun."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shooters"
+    }
+   }
   },
   {
    "number": 10,
@@ -217,7 +752,47 @@
     "text": "Extra flexible in one’s thinking?",
     "enumeration": "12"
    },
-   "solution": "SUPPLEMENTAL"
+   "solution": "SUPPLEMENTAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SUPPLEMENTAL",
+    "definitions": [
+     {
+      "text": "Extra",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flexible",
+      "gives": "SUPPLE",
+      "note": "supple means bending easily"
+     },
+     {
+      "clueFragment": "in one’s thinking",
+      "gives": "MENTAL",
+      "note": "mental means relating to the mind"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUPPLE",
+      "MENTAL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is unusually open-minded.",
+     "walkthrough": "The surface reads as one phrase about an open mind, but it splits into a word for the body and one for the mind.",
+     "definitionFit": "Supplemental means added on top of what is already there, an additional or further amount."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flexible"
+    }
+   }
   },
   {
    "number": 11,
@@ -237,7 +812,68 @@
      }
     ]
    },
-   "solution": "GREATDANE"
+   "solution": "GREATDANE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "GREAT DANE",
+    "definitions": [
+     {
+      "text": "Scooby-Doo?",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Rearranging",
+      "for": "anagram",
+      "note": "rearranging means putting in a different order, so the letters are mixed up"
+     },
+     {
+      "text": "hasn’t",
+      "for": "deletion",
+      "note": "what something hasn't got is missing, so one letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "date",
+      "gives": "DATE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Reagan",
+      "gives": "REAGAN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DATEREAGN",
+       "gives": "GREATDANE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A diary clash, with Reagan's aide asked whether he has a clue.",
+     "walkthrough": "One A comes out of DATE REAGAN, then the rest is mixed. 'Hasn't a Scooby-Doo' plays on rhyming slang: not a Scooby (Doo) means not a clue.",
+     "definitionFit": "Scooby-Doo, the cartoon dog who solves mysteries, is a Great Dane, so he is an example of the breed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Scooby-Doo"
+    }
+   }
   },
   {
    "number": 12,
@@ -257,7 +893,67 @@
      }
     ]
    },
-   "solution": "ICEUP"
+   "solution": "ICEUP",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ICE UP",
+    "definitions": [
+     {
+      "text": "set in winter",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "plugging",
+      "for": "container",
+      "note": "a plug fills a hole, so one piece is pushed inside another"
+     },
+     {
+      "text": "elaborate",
+      "for": "anagram",
+      "note": "to elaborate is to work something out in more detail, so the letters are reworked"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Universal",
+      "gives": "U",
+      "note": "U is the film certificate for Universal"
+     },
+     {
+      "clueFragment": "epic",
+      "gives": "EPIC",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ICE",
+      "U",
+      "P"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EPIC",
+       "gives": "ICEP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A universal tale fills out a sweeping epic story set during winter.",
+     "walkthrough": "'Set in winter' sounds like a film's setting, but 'set' is a verb: to harden. U goes into ICEP, a rearranged EPIC.",
+     "definitionFit": "To ice up is to become coated or frozen with ice, which is how water sets solid in cold weather."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "set"
+    }
+   }
   },
   {
    "number": 13,
@@ -271,7 +967,53 @@
     "text": "When little activity is observed from fluorine salt?",
     "enumeration": "9"
    },
-   "solution": "OFFSEASON"
+   "solution": "OFFSEASON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OFF-SEASON",
+    "definitions": [
+     {
+      "text": "When little activity is observed",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "from",
+      "gives": "OF",
+      "note": "of can mean from, as in a man of Kent"
+     },
+     {
+      "clueFragment": "fluorine",
+      "gives": "F",
+      "note": "F is the chemical symbol for fluorine"
+     },
+     {
+      "clueFragment": "salt",
+      "gives": "SEASON",
+      "note": "to salt food is to season it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OF",
+      "F",
+      "SEASON"
+     ]
+    },
+    "explanation": {
+     "surface": "A chemist notes that little reacts when fluorine salt is involved.",
+     "walkthrough": "'Salt' looks like a noun after the chemical, but it is a verb meaning to season.",
+     "definitionFit": "The off-season is the quiet period of the year when a business, resort or sport has little going on."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "salt"
+    }
+   }
   },
   {
    "number": 14,
@@ -285,7 +1027,80 @@
     "text": "European boy band doing a turn in Elgar show",
     "enumeration": "9"
    },
-   "solution": "EMMERDALE"
+   "solution": "EMMERDALE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "container"
+    ],
+    "answer": "EMMERDALE",
+    "definitions": [
+     {
+      "text": "show",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "doing a turn",
+      "for": "reversal",
+      "note": "turning round faces the other way, so the letters run backwards"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     },
+     {
+      "clueFragment": "boy",
+      "gives": "LAD",
+      "note": "a lad is a boy"
+     },
+     {
+      "clueFragment": "band",
+      "gives": "REM",
+      "note": "R.E.M. is an American rock band"
+     },
+     {
+      "clueFragment": "Elgar",
+      "gives": "ME",
+      "note": "Elgar is the setter of this puzzle, so he refers to himself as me"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "M",
+      "MERDAL",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "LADREM",
+       "to": "MERDAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A European boy band performs a turn in a show by the composer Elgar.",
+     "walkthrough": "Elgar is the composer and also this puzzle's setter, so he means ME. Emmerdale is a long-running British TV soap opera set in the Yorkshire Dales.",
+     "definitionFit": "Emmerdale is a British television serial drama, so it is a programme or show on TV."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Elgar"
+    }
+   }
   },
   {
    "number": 15,
@@ -299,7 +1114,70 @@
     "text": "Now one’s concerned with matter after overturning car",
     "enumeration": "9"
    },
-   "solution": "SUPERMINI"
+   "solution": "SUPERMINI",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "SUPERMINI",
+    "definitions": [
+     {
+      "text": "car",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after overturning",
+      "for": "reversal",
+      "note": "something overturned is upside down, and in a down clue that reads bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Now",
+      "gives": "IN",
+      "note": "in means fashionable, of the moment"
+     },
+     {
+      "clueFragment": "one’s",
+      "gives": "IM",
+      "note": "one is I, and I's is I am, written IM"
+     },
+     {
+      "clueFragment": "concerned with",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     },
+     {
+      "clueFragment": "matter",
+      "gives": "PUS",
+      "note": "pus is the yellow matter in an infected wound"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUPERMINI"
+     ],
+     "reversals": [
+      {
+       "from": "INIMREPUS",
+       "to": "SUPERMINI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "After a car crash, someone is suddenly a student of physical matter.",
+     "walkthrough": "'Matter' looks like a physics word but is the medical sense, PUS. IN, IM, RE and PUS read upwards give SUPERMINI.",
+     "definitionFit": "A supermini is a small hatchback, the category of compact car between city cars and family saloons."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "matter"
+    }
+   }
   },
   {
    "number": 16,
@@ -313,7 +1191,61 @@
     "text": "Big tech concern almost inspiring a shock",
     "enumeration": "5"
    },
-   "solution": "APPAL"
+   "solution": "APPAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "APPAL",
+    "definitions": [
+     {
+      "text": "shock",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost all of the word is used, so the final letter is cut"
+     },
+     {
+      "text": "inspiring",
+      "for": "container",
+      "note": "to inspire is literally to breathe in, so one piece is taken inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Big tech concern",
+      "gives": "APPLE",
+      "note": "Apple is a giant technology company"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "APP",
+      "A",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A huge technology firm almost gives everyone a fright.",
+     "walkthrough": "'Inspiring' reads as encouraging, but here it is literal: breathing in, so taking a letter inside.",
+     "definitionFit": "To appal someone is to fill them with horror or dismay, a verb synonym for shock."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "inspiring"
+    }
+   }
   },
   {
    "number": 17,
@@ -327,7 +1259,68 @@
     "text": "Seemingly good casino game cancels ball’s last spin",
     "enumeration": "9"
    },
-   "solution": "PIROUETTE"
+   "solution": "PIROUETTE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "PIROUETTE",
+    "definitions": [
+     {
+      "text": "spin",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last",
+      "for": "letter_selection",
+      "note": "the final letter of the word is the one to use"
+     },
+     {
+      "text": "cancels",
+      "for": "deletion",
+      "note": "cancelled things are struck out, so that letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Seemingly good",
+      "gives": "PI",
+      "note": "pi is slang for pious, ostentatiously virtuous"
+     },
+     {
+      "clueFragment": "casino game",
+      "gives": "ROULETTE",
+      "note": "roulette is the wheel-and-ball casino game"
+     },
+     {
+      "clueFragment": "ball’s",
+      "gives": "L",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PI",
+      "ROU",
+      "ETTE"
+     ]
+    },
+    "explanation": {
+     "surface": "A roulette wheel stops the ball's final spin, deceptively good for the player.",
+     "walkthrough": "PI is crossword slang for pious, which is only seemingly good. ROULETTE loses the L.",
+     "definitionFit": "A pirouette is a ballet dancer's rapid turn on one foot, so it is a kind of spin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spin"
+    }
+   }
   },
   {
    "number": 18,
@@ -341,7 +1334,47 @@
     "text": "60 mins before noon? This is possibly sacred",
     "enumeration": "5"
    },
-   "solution": "IHRAM"
+   "solution": "IHRAM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IHRAM",
+    "definitions": [
+     {
+      "text": "This is possibly sacred",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "60 mins",
+      "gives": "IHR",
+      "note": "sixty minutes is one hour, written 1 HR with the 1 as I"
+     },
+     {
+      "clueFragment": "before noon",
+      "gives": "AM",
+      "note": "a.m. stands for ante meridiem, before midday"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IHR",
+      "AM"
+     ]
+    },
+    "explanation": {
+     "surface": "An hour before midday is presented as a holy time.",
+     "walkthrough": "The digit 1 stands in for the letter I. The definition is vague on purpose, since the answer is an obscure religious word.",
+     "definitionFit": "Ihram is the plain white garment, and the state of consecration, of Muslim pilgrims to Mecca, so it is held sacred."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mins"
+    }
+   }
   },
   {
    "number": 19,
@@ -355,7 +1388,49 @@
     "text": "Label, astral sign, associated with Lovecraft, say?",
     "enumeration": "9"
    },
-   "solution": "PENTAGRAM"
+   "solution": "PENTAGRAM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PENTAGRAM",
+    "definitions": [
+     {
+      "text": "associated with Lovecraft, say",
+      "at": 20,
+      "note": "a descriptive phrase standing for a noun"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Label",
+      "gives": "PENTAG",
+      "note": "to pen a tag is to write a label"
+     },
+     {
+      "clueFragment": "astral sign",
+      "gives": "RAM",
+      "note": "the Ram is Aries, a sign of the zodiac"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PEN",
+      "TAG",
+      "RAM"
+     ]
+    },
+    "explanation": {
+     "surface": "A star sign label linked with the horror writer H. P. Lovecraft.",
+     "walkthrough": "'Astral sign' seems to describe the answer, a five-pointed star, but it is Aries, the RAM.",
+     "definitionFit": "The five-pointed star figure is an occult symbol that recurs in H. P. Lovecraft's horror fiction."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "astral"
+    }
+   }
   },
   {
    "number": 20,
@@ -369,7 +1444,42 @@
     "text": "Fired up promoter",
     "enumeration": "5"
    },
-   "solution": "HYPER"
+   "solution": "HYPER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HYPER",
+    "definitions": [
+     {
+      "text": "Fired up",
+      "at": 0
+     },
+     {
+      "text": "promoter",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fired up",
+      "note": "first meaning: overexcited, highly strung"
+     },
+     {
+      "clueFragment": "promoter",
+      "note": "second meaning: someone who publicises something loudly"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as an enthusiastic promoter; the two words are separate meanings.",
+     "definitionFit": "Hyper is informal for overexcited, and a hyper is also one who hypes, drumming up publicity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fired"
+    }
+   }
   },
   {
    "number": 21,
@@ -389,7 +1499,52 @@
      }
     ]
    },
-   "solution": "PLANA"
+   "solution": "PLANA",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "PLAN A",
+    "definitions": [
+     {
+      "text": "this must have gone wrong!",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "scratched floor",
+      "for": "deletion",
+      "note": "in a down clue the floor is the bottom, and scratching it out removes the lowest letter"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flat",
+      "gives": "PLANAR",
+      "note": "lying in one flat plane"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLANA"
+     ]
+    },
+    "explanation": {
+     "surface": "A flat with a scratched floor shows that something went badly wrong.",
+     "walkthrough": "PLANAR loses its R. The definition is a wry one: if you are now on the backup scheme, the original must have failed.",
+     "definitionFit": "Plan A is the first intended course of action; falling back on Plan B implies it went wrong."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "floor"
+    }
+   }
   },
   {
    "number": 22,
@@ -409,7 +1564,40 @@
      }
     ]
    },
-   "solution": "RIGHTTURN"
+   "solution": "RIGHTTURN",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "RIGHT-TURN",
+    "definitions": [
+     {
+      "text": "Could it be Labour-antagonistic choice of shift?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Labour-antagonistic choice of shift?",
+      "note": "surface reading: a worker who resents labour picking which shift to work"
+     },
+     {
+      "clueFragment": "Labour-antagonistic",
+      "note": "setter's reading: someone against the Labour Party, on the left, would swing the other way politically"
+     }
+    ],
+    "explanation": {
+     "surface": "A worker who hates labour chooses which shift to take.",
+     "walkthrough": "Labour is the British left-wing party; opposing it, you shift direction to the political opposite of left.",
+     "definitionFit": "A swing towards conservative politics is called a turn to the right, the opposite of the left-wing Labour stance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "shift"
+    }
+   }
   },
   {
    "number": 23,
@@ -423,7 +1611,55 @@
     "text": "England’s rebel captain dealing with lies on board longboat",
     "enumeration": "5"
    },
-   "solution": "GREIG"
+   "solution": "GREIG",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GREIG",
+    "definitions": [
+     {
+      "text": "England’s rebel captain",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lies on board",
+      "for": "container",
+      "note": "whatever lies on board a vessel is inside it, so one piece sits within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "longboat",
+      "gives": "GIG",
+      "note": "a gig is a long light rowing boat"
+     },
+     {
+      "clueFragment": "dealing with",
+      "gives": "RE",
+      "note": "re means concerning or dealing with"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "RE",
+      "IG"
+     ]
+    },
+    "explanation": {
+     "surface": "An English rebel captain reckons with deceit aboard a Viking ship.",
+     "walkthrough": "Tony Greig lost the England cricket captaincy in 1977 for recruiting players to Kerry Packer's breakaway World Series Cricket.",
+     "definitionFit": "Tony Greig captained England's cricket team and became a rebel by signing up to Packer's rival series."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "longboat"
+    }
+   }
   },
   {
    "number": 24,
@@ -437,7 +1673,67 @@
     "text": "Body? Leader of investigation misses it in ball park",
     "enumeration": "5"
    },
-   "solution": "TORSO"
+   "solution": "TORSO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "charade"
+    ],
+    "answer": "TORSO",
+    "definitions": [
+     {
+      "text": "Body?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Leader of",
+      "for": "letter_selection",
+      "note": "a leader goes in front, so only the opening letter is wanted"
+     },
+     {
+      "text": "misses",
+      "for": "deletion",
+      "note": "what is missed is absent, so that letter drops out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "investigation",
+      "gives": "I",
+      "select": "first",
+      "note": "the first letter of the word"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "in ball park",
+      "gives": "ORSO",
+      "note": "or so means approximately, a ballpark figure"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ORSO"
+     ]
+    },
+    "explanation": {
+     "surface": "The head detective fails to spot a body lying in a baseball stadium.",
+     "walkthrough": "'Body' and 'investigation' set up a murder scene, but the answer is anatomy. IT without I leaves T.",
+     "definitionFit": "The torso is the trunk of the human body, without head or limbs, so 'body' with a query fits."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Body"
+    }
+   }
   },
   {
    "number": 25,
@@ -457,7 +1753,62 @@
      }
     ]
    },
-   "solution": "STARANISE"
+   "solution": "STARANISE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "STAR ANISE",
+    "definitions": [
+     {
+      "text": "pods",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "squeezing out",
+      "for": "deletion",
+      "note": "squeezing something out forces it away, so those letters are removed"
+     },
+     {
+      "text": "Cook",
+      "for": "anagram",
+      "note": "to cook the books is to falsify them, so the letters are doctored into a new form"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rationalises",
+      "gives": "RATIONALISES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "oil",
+      "gives": "OIL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RATNAISES",
+       "gives": "STARANISE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chef cuts back on oil when preparing seed pods.",
+     "walkthrough": "'Cook' sits at the front looking like the subject, but it is the anagram signal; remove O, I and L from RATIONALISES.",
+     "definitionFit": "Star anise is a spice made from the dried star-shaped seed pods of an evergreen Chinese tree."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cook"
+    }
+   }
   },
   {
    "number": 26,
@@ -471,7 +1822,65 @@
     "text": "Back one in line dispensing with western networks",
     "enumeration": "5"
    },
-   "solution": "RETIA"
+   "solution": "RETIA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "RETIA",
+    "definitions": [
+     {
+      "text": "networks",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Back",
+      "for": "reversal",
+      "note": "going back means travelling the opposite way, so the letters run in reverse"
+     },
+     {
+      "text": "dispensing with",
+      "for": "deletion",
+      "note": "dispensing with something is doing without it, so it is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one in line",
+      "gives": "WAITER",
+      "note": "a waiter is someone waiting in a queue"
+     },
+     {
+      "clueFragment": "western",
+      "gives": "W",
+      "note": "W is the abbreviation for western"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RETIA"
+     ],
+     "reversals": [
+      {
+       "from": "AITER",
+       "to": "RETIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Western computer networks are dropped from a queue, sending one back.",
+     "walkthrough": "'One in line' is someone who waits, a WAITER, not a restaurant server. Retia is the plural of rete, an anatomy term.",
+     "definitionFit": "A rete is an anatomical network of blood vessels or nerves, and retia is its plural."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "networks"
+    }
+   }
   },
   {
    "number": 27,
@@ -491,7 +1900,62 @@
      }
     ]
    },
-   "solution": "WATERINGHOLE"
+   "solution": "WATERINGHOLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "WATERING HOLE",
+    "definitions": [
+     {
+      "text": "pub",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "full",
+      "gives": "WHOLE",
+      "note": "whole means complete or full"
+     },
+     {
+      "clueFragment": "Took",
+      "gives": "ATE",
+      "note": "to take food is to eat it"
+     },
+     {
+      "clueFragment": "call",
+      "gives": "RING",
+      "note": "to ring someone is to call them on the phone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "ATE",
+      "RING",
+      "HOLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone answered the phone in a packed bar.",
+     "walkthrough": "'Took' looks like taking a call, but it stands alone as consumed food.",
+     "definitionFit": "Watering hole is a jocular idiom for a pub or bar, borrowed from the pools where animals gather to drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Took"
+    }
+   }
   }
  ]
 }
