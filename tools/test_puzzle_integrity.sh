@@ -56,6 +56,13 @@ field() { awk -v k="$1" '$1==k {print $2}' <<<"$2"; }
 
 echo "the CLI's own LENGTH, GRID and NUMBER tallies are zero (DUPLICATE/CROSS/SHAPE are not this test's concern)"
 out=$(python3 tools/puzzle_integrity.py 2>&1)
+rc=$?
+# A run that died prints no tallies, and three empty counts say nothing of why.
+if ! grep -q '^  LENGTH' <<<"$out"; then
+  echo "  FAIL: puzzle_integrity.py printed no tallies (exit $rc); it ended:"
+  tail -n 20 <<<"$out" | sed 's/^/    /'
+  fails=$((fails + 1))
+fi
 same "LENGTH tally" "$(awk '/^  LENGTH/ {print $2}' <<<"$out")" "0"
 same "GRID tally" "$(awk '/^  GRID/ {print $2}' <<<"$out")" "0"
 same "NUMBER tally" "$(awk '/^  NUMBER/ {print $2}' <<<"$out")" "0"
